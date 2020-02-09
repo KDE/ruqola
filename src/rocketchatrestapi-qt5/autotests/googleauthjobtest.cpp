@@ -51,7 +51,6 @@ void GoogleAuthJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/login")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
-
 }
 
 void GoogleAuthJobTest::shouldGenerateJson()

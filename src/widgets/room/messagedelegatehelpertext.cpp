@@ -54,8 +54,7 @@ static bool fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
     return isSystemMessage;
 }
 
-void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index,
-                                     const QStyleOptionViewItem &option) const
+void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(option);
     const QString text = makeMessageText(index);

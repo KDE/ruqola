@@ -25,7 +25,6 @@ QTEST_MAIN(AuthenticationComboBoxTest)
 AuthenticationComboBoxTest::AuthenticationComboBoxTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AuthenticationComboBoxTest::shouldHaveDefaultValues()

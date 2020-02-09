@@ -35,7 +35,6 @@ ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
 
 ConfigureSpellCheckingWidget::~ConfigureSpellCheckingWidget()
 {
-
 }
 
 void ConfigureSpellCheckingWidget::save()

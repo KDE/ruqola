@@ -260,8 +260,9 @@ void RuqolaMainWindow::slotAddUsersInRoom()
 
 void RuqolaMainWindow::slotClearAccountAlerts()
 {
-    if (auto acct = Ruqola::self()->accountManager()->account())
+    if (auto acct = Ruqola::self()->accountManager()->account()) {
         acct->clearAllUnreadMessages();
+    }
 }
 
 void RuqolaMainWindow::slotShowThreads()

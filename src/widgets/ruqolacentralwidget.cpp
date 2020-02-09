@@ -85,7 +85,6 @@ QString RuqolaCentralWidget::roomType() const
 
 void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }

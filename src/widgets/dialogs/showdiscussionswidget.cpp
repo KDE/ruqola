@@ -72,4 +72,3 @@ void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
 {
     mListDiscussions->setModel(model);
 }
-

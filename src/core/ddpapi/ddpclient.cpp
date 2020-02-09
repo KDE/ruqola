@@ -847,8 +847,9 @@ void DDPClient::onTextMessageReceived(const QString &message)
             }
         } else {
             // The very first message we receive is {"server_id":"0"}, can't find it in the spec, just ignore it.
-            if (messageType.isEmpty() && !root.value(QStringLiteral("server_id")).isUndefined())
+            if (messageType.isEmpty() && !root.value(QStringLiteral("server_id")).isUndefined()) {
                 return;
+            }
             qWarning() << mRocketChatAccount->accountName()  << "received something unhandled:" << messageType << message;
         }
     } else {

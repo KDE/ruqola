@@ -41,9 +41,7 @@ MessageDelegateHelperReactions::MessageDelegateHelperReactions()
 {
 }
 
-QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions,
-                                                                                  const QRect &reactionsRect,
-                                                                                  const QStyleOptionViewItem &option) const
+QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions, const QRect &reactionsRect, const QStyleOptionViewItem &option) const
 {
     QVector<ReactionLayout> layouts;
     layouts.reserve(reactions.count());
@@ -78,8 +76,7 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
     return layouts;
 }
 
-void MessageDelegateHelperReactions::draw(QPainter *painter, const QRect &reactionsRect, const QModelIndex &index,
-                                     const QStyleOptionViewItem &option) const
+void MessageDelegateHelperReactions::draw(QPainter *painter, const QRect &reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -133,8 +130,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     return QSize(maxWidth, reactionsHeight);
 }
 
-bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &reactionsRect,
-                                                      const QStyleOptionViewItem &option, const Message *message)
+bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &reactionsRect, const QStyleOptionViewItem &option, const Message *message)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();

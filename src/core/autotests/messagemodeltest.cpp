@@ -254,10 +254,10 @@ void MessageModelTest::shouldAddMessages()
     fillTestMessage(input);
     QVector<Message> messages;
     auto makeMessage = [&](const char *id, qint64 timestamp) {
-        input.setMessageId(QString::fromLatin1(id));
-        input.setTimeStamp(timestamp);
-        return input;
-    };
+                           input.setMessageId(QString::fromLatin1(id));
+                           input.setTimeStamp(timestamp);
+                           return input;
+                       };
     messages << makeMessage("msgA", 8);
     messages << makeMessage("msgB", 4);
     messages << makeMessage("msgC", 6);
@@ -284,9 +284,9 @@ void MessageModelTest::shouldUpdateFirstMessage()
     MessageModel model;
     Message input;
     fillTestMessage(input);
-    model.addMessages( { input } );
+    model.addMessages({ input });
     QCOMPARE(model.rowCount(), 1);
     input.setText(QStringLiteral("modified"));
-    model.addMessages( { input } );
+    model.addMessages({ input });
     QCOMPARE(model.index(0, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }

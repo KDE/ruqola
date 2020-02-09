@@ -88,7 +88,6 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(layoutreadonly);
     QCOMPARE(layoutreadonly->contentsMargins(), QMargins(0, 0, 0, 0));
 
-
     auto *mNameReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mNameReadOnly"));
     QVERIFY(mNameReadOnly);
     QVERIFY(mNameReadOnly->text().isEmpty());

@@ -33,7 +33,6 @@ AuthenticationComboBox::AuthenticationComboBox(QWidget *parent)
 
 AuthenticationComboBox::~AuthenticationComboBox()
 {
-
 }
 
 void AuthenticationComboBox::initialize()

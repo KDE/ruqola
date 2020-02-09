@@ -196,7 +196,8 @@ int MessageModel::rowCount(const QModelIndex &parent) const
     return mAllMessages.size();
 }
 
-static bool compareTimeStamps(const Message &lhs, const Message &rhs) {
+static bool compareTimeStamps(const Message &lhs, const Message &rhs)
+{
     return lhs.timeStamp() < rhs.timeStamp();
 }
 

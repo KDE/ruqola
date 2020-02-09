@@ -59,7 +59,7 @@ bool ChannelBaseJob::hasRoomIdentifier() const
 void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
 {
 #if 0
-    switch(mChannelInfo.channelInfoType) {
+    switch (mChannelInfo.channelInfoType) {
     case ChannelBaseJob::ChannelInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
@@ -83,7 +83,7 @@ void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
 void RocketChatRestApi::ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
 {
 #if 0
-    switch(mChannelInfo.channelInfoType) {
+    switch (mChannelInfo.channelInfoType) {
     case ChannelBaseJob::ChannelInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;

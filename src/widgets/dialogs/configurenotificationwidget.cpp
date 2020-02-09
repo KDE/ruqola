@@ -109,7 +109,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 
     QGroupBox *mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
-    topLayout->addWidget(mobileGroupBox);    
+    topLayout->addWidget(mobileGroupBox);
 
     auto *mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
     mobileGroupBoxLayout->setObjectName(QStringLiteral("mobileGroupBoxLayout"));

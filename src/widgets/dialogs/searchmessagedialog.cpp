@@ -21,7 +21,6 @@
 #include "searchmessagedialog.h"
 #include "searchmessagewidget.h"
 
-
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>

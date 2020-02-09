@@ -108,7 +108,7 @@ void AccountServerListWidget::addAccountConfig()
         }
         QString newAccountName = info.accountName;
         int i = 1;
-        while(accountList.contains(newAccountName)) {
+        while (accountList.contains(newAccountName)) {
             newAccountName = QStringLiteral("%1_%2").arg(newAccountName).arg(i);
         }
         info.accountName = newAccountName;

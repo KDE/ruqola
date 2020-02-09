@@ -304,14 +304,18 @@ static void positionPopup(const QPoint &pos, QWidget *parentWindow, QWidget *pop
 #endif
 
     QRect popupRect(pos, popup->sizeHint());
-    if (popupRect.width() > screenRect.width())
+    if (popupRect.width() > screenRect.width()) {
         popupRect.setWidth(screenRect.width());
-    if (popupRect.right() > screenRect.right())
+    }
+    if (popupRect.right() > screenRect.right()) {
         popupRect.moveRight(screenRect.right());
-    if (popupRect.top() < screenRect.top())
+    }
+    if (popupRect.top() < screenRect.top()) {
         popupRect.moveTop(screenRect.top());
-    if (popupRect.bottom() > screenRect.bottom())
+    }
+    if (popupRect.bottom() > screenRect.bottom()) {
         popupRect.moveBottom(screenRect.bottom());
+    }
     popup->setGeometry(popupRect);
 }
 
@@ -358,7 +362,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
 bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (event->type() == QEvent::ToolTip) {
-        auto *helpEvent = static_cast<QHelpEvent*>(event);
+        auto *helpEvent = static_cast<QHelpEvent *>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
         if (message && !message->reactions().isEmpty()) {

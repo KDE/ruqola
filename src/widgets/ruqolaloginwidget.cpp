@@ -61,7 +61,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     authenticationAccountLabel->setObjectName(QStringLiteral("authenticationAccountLabel"));
     authenticationAccountLayout->addWidget(authenticationAccountLabel);
 
-
     mAuthenticationCombobox = new AuthenticationComboBox(this);
     mAuthenticationCombobox->setObjectName(QStringLiteral("mAuthenticationCombobox"));
     authenticationAccountLayout->addWidget(mAuthenticationCombobox);
@@ -78,11 +77,10 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
 
-
     // Two Factor authentication
     mAuthenticationWidget = new QWidget(this);
     mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
-    mAuthenticationWidget->setVisible(false);    
+    mAuthenticationWidget->setVisible(false);
 
     QVBoxLayout *twoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
     twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));

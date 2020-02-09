@@ -45,7 +45,6 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
     return; //TODO fix me
 
-
     auto *mDisableNotification = topLayout->findChild<QCheckBox *>(QStringLiteral("mDisableNotification"));
     QVERIFY(mDisableNotification);
 
@@ -61,7 +60,6 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 
     auto *desktopGroupBoxLayout = desktopGroupBox->findChild<QFormLayout *>(QStringLiteral("desktopGroupBoxLayout"));
     QVERIFY(desktopGroupBoxLayout);
-
 
     auto *mDesktopAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopAlertCombobox"));
     QVERIFY(mDesktopAlertCombobox);
@@ -84,7 +82,6 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 
     auto *mMobileAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mMobileAlertCombobox"));
     QVERIFY(mMobileAlertCombobox);
-
 
     auto *emailGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("emailGroupBox"));
     QVERIFY(emailGroupBox);

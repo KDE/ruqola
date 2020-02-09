@@ -383,7 +383,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::CustomSoundsList:
         return QStringLiteral("custom-sounds.list");
 
-
     case RestApiUtil::RestApiUrlType::FindOrCreateInvite:
         return QStringLiteral("findOrCreateInvite");
     case RestApiUtil::RestApiUrlType::ListInvites:

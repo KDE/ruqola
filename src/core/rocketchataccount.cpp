@@ -546,13 +546,13 @@ void RocketChatAccount::logOut()
 
 void RocketChatAccount::clearAllUnreadMessages()
 {
-    for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx)
-    {
+    for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = mRoomModel->index(roomIdx);
         const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
         const bool roomHasAlert = roomModelIndex.data(RoomModel::RoomAlert).toBool();
-        if (roomHasAlert)
+        if (roomHasAlert) {
             clearUnreadMessages(roomId);
+        }
     }
 }
 

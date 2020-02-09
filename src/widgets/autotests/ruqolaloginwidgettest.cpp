@@ -67,7 +67,6 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFailedError->text().isEmpty());
     QVERIFY(mFailedError->isHidden());
 
-
     QWidget *mAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("authenticationWidget"));
     QVERIFY(mAuthenticationWidget);
     QVERIFY(!mAuthenticationWidget->isVisible());

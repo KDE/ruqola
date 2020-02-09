@@ -72,8 +72,9 @@ QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
-    if (layouts.isEmpty())
+    if (layouts.isEmpty()) {
         return QSize();
+    }
     return QSize(maxWidth, // should be qMax of all sizes, but doesn't really matter
                  layouts.last().y + layouts.last().height + vMargin);
 }
@@ -113,14 +114,14 @@ bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const 
         const QPoint pos = mouseEvent->pos();
 
         auto download = [&](const FileLayout &layout) {
-            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
-            if (!file.isEmpty()) {
-                const QUrl fileUrl = QUrl::fromLocalFile(file);
-                Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
-                return true;
-            }
-            return false;
-        };
+                            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
+                            if (!file.isEmpty()) {
+                                const QUrl fileUrl = QUrl::fromLocalFile(file);
+                                Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
+                                return true;
+                            }
+                            return false;
+                        };
 
         for (const FileLayout &layout : layouts) {
             if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {

@@ -75,9 +75,7 @@ void ShowDiscussionsDialog::slotLoadMoreDiscussions()
     //TODO
 }
 
-
 void ShowDiscussionsDialog::setModel(DiscussionsFilterProxyModel *model)
 {
     mShowDiscussionsWidget->setModel(model);
 }
-

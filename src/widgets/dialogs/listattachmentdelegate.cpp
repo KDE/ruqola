@@ -63,6 +63,5 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const QRect downloadAttachmentIconRect(option.rect.width() - iconSize - 2 * margin, option.rect.y(), iconSize, option.rect.height());
     downloadIcon.paint(painter, downloadAttachmentIconRect, Qt::AlignCenter);
 
-
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 }
