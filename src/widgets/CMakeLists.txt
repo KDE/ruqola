@@ -100,6 +100,7 @@ set(Ruqola_misc_widget_SRCS
 
 set(Ruqola_common_SRCS
     common/completionlineedit.cpp
+    common/completiontextedit.cpp
     common/completionlistview.cpp
     common/authenticationcombobox.cpp
     )
@@ -129,6 +130,7 @@ target_link_libraries(libruqolawidgets
     KF5::KIOWidgets
     KF5::WidgetsAddons
     KF5::SonnetUi
+    KF5::TextWidgets
     librocketchatrestapi-qt5
     libruqolacore
 )
