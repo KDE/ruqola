@@ -21,6 +21,7 @@
 #include "ruqolaloginwidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "common/authenticationcombobox.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -48,6 +49,26 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
+    // Type of account
+    mAuthenticationAccountWidget = new QWidget(this);
+    mAuthenticationAccountWidget->setObjectName(QStringLiteral("mAuthenticationAccountWidget"));
+    mAuthenticationAccountWidget->setVisible(false);
+
+    QVBoxLayout *authenticationAccountLayout = new QVBoxLayout(mAuthenticationAccountWidget);
+    authenticationAccountLayout->setObjectName(QStringLiteral("authenticationAccountLayout"));
+
+    QLabel *authenticationAccountLabel = new QLabel(i18n("Authentication Method"), this);
+    authenticationAccountLabel->setObjectName(QStringLiteral("authenticationAccountLabel"));
+    authenticationAccountLayout->addWidget(authenticationAccountLabel);
+
+
+    mAuthenticationCombobox = new AuthenticationComboBox(this);
+    mAuthenticationCombobox->setObjectName(QStringLiteral("mAuthenticationCombobox"));
+    authenticationAccountLayout->addWidget(mAuthenticationCombobox);
+    mainLayout->addWidget(mAuthenticationAccountWidget);
+    mAuthenticationAccountWidget->setVisible(false);
+
+    // Password
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
@@ -57,16 +78,18 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
 
+
+    // Two Factor authentication
     mAuthenticationWidget = new QWidget(this);
     mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
-    mAuthenticationWidget->setVisible(false);
+    mAuthenticationWidget->setVisible(false);    
 
     QVBoxLayout *twoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
     twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));
 
-    QLabel *mTwoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
-    mTwoFactorAuthenticationLabel->setObjectName(QStringLiteral("mTwoFactorAuthenticationLabel"));
-    twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationLabel);
+    QLabel *twoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
+    twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
+    twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
@@ -102,6 +125,7 @@ void RuqolaLoginWidget::initialize()
     mUserName->setText(rocketChatAccount->userName());
     mPasswordLineEdit->setPassword(rocketChatAccount->password());
     mAuthenticationWidget->setVisible(false);
+    mAuthenticationWidget->setVisible(mAuthenticationCombobox->count() > 1);
 }
 
 void RuqolaLoginWidget::slotLogin()

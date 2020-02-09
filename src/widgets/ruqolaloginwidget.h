@@ -29,6 +29,7 @@ class QPushButton;
 class KPasswordLineEdit;
 class QLabel;
 class KBusyIndicatorWidget;
+class AuthenticationComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
@@ -53,7 +54,8 @@ private:
     QLabel *mFailedError = nullptr;
     KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
     QWidget *mAuthenticationWidget = nullptr;
-    //Add login method combobox
+    QWidget *mAuthenticationAccountWidget = nullptr;
+    AuthenticationComboBox *mAuthenticationCombobox = nullptr;
 };
 
 #endif // RUQOLALOGINWIDGET_H

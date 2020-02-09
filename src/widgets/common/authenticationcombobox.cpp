@@ -39,7 +39,6 @@ AuthenticationComboBox::~AuthenticationComboBox()
 void AuthenticationComboBox::initialize()
 {
     const QVector<AuthenticationInfo> authenticationInfos = Ruqola::self()->rocketChatAccount()->loginMethodModel()->authentications();
-    qDebug() << "authenticationInfos  " << authenticationInfos;
     for (const AuthenticationInfo &info : authenticationInfos) {
         addItem(QIcon::fromTheme(info.iconName()), info.name(), QVariant::fromValue(info.oauthType()));
     }
