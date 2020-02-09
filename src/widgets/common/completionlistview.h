@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,34 +18,35 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMPLETIONLINEEDIT_H
-#define COMPLETIONLINEEDIT_H
+#ifndef COMPLETIONLISTVIEW_H
+#define COMPLETIONLISTVIEW_H
 
-#include <QLineEdit>
+#include <QListView>
 
-#include "libruqolawidgets_private_export.h"
-
-class QListView;
-class QAbstractItemModel;
-class CompletionListView;
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionLineEdit : public QLineEdit
+/**
+ * Completion popup for nicks, channels, etc.
+ * QCompleter does the filtering itself... so we need to implement our own popup, instead.
+ */
+class CompletionListView : public QListView
 {
     Q_OBJECT
 public:
-    explicit CompletionLineEdit(QWidget *parent = nullptr);
-    ~CompletionLineEdit();
+    CompletionListView();
 
-    void setCompletionModel(QAbstractItemModel *model);
+    void setTextWidget(QWidget *textWidget);
+
+    void setModel(QAbstractItemModel *model) override;
 
 Q_SIGNALS:
-    void complete(const QModelIndex &index);
+    void complete(const QModelIndex &currentIndex);
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     void slotCompletionAvailable();
 
-protected:
-    CompletionListView *mCompletionListView;
+    QWidget *mTextWidget = nullptr;
 };
 
-#endif // COMPLETIONLINEEDIT_H
+#endif // COMPLETIONLISTVIEW_H

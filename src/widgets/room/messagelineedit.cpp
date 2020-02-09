@@ -21,6 +21,7 @@
 #include "messagelineedit.h"
 #include "rocketchataccount.h"
 #include "model/inputcompletermodel.h"
+#include "common/completionlistview.h"
 #include "ruqola.h"
 
 #include <QKeyEvent>

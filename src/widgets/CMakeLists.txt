@@ -100,6 +100,7 @@ set(Ruqola_misc_widget_SRCS
 
 set(Ruqola_common_SRCS
     common/completionlineedit.cpp
+    common/completionlistview.cpp
     common/authenticationcombobox.cpp
     )
 

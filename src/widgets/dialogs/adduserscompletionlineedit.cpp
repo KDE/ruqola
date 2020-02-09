@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "model/usercompletermodel.h"
+#include "common/completionlistview.h"
 
 #include <QListView>
 
