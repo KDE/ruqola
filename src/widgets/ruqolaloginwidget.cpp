@@ -70,6 +70,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     // Password
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    connect(mPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     mLoginButton = new QPushButton(i18n("Login"), this);
