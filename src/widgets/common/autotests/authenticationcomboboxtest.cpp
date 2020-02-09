@@ -27,3 +27,9 @@ AuthenticationComboBoxTest::AuthenticationComboBoxTest(QObject *parent)
 {
 
 }
+
+void AuthenticationComboBoxTest::shouldHaveDefaultValues()
+{
+    AuthenticationComboBox w;
+    QCOMPARE(w.count(), 0); //We need to fill it with result of account info
+}
