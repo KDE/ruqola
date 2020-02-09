@@ -75,7 +75,9 @@ void UsersAutocompleteJob::slotUsersAutocompleteFinished()
 QNetworkRequest UsersAutocompleteJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete);
-
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("selector"), mSelector);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
@@ -83,8 +85,22 @@ QNetworkRequest UsersAutocompleteJob::request() const
     return request;
 }
 
+QString UsersAutocompleteJob::selector() const
+{
+    return mSelector;
+}
+
+void UsersAutocompleteJob::setSelector(const QString &selector)
+{
+    mSelector = selector;
+}
+
 bool UsersAutocompleteJob::canStart() const
 {
+    if (mSelector.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersAutocompleteJob: selector is empty";
+        return false;
+    }
     if (!RestApiAbstractJob::canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob job";
         return false;

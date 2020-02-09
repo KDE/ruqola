@@ -30,7 +30,6 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersAutocompleteJob : public RestAp
 {
     Q_OBJECT
 public:
-    //TODO userId or Username
     explicit UsersAutocompleteJob(QObject *parent = nullptr);
     ~UsersAutocompleteJob() override;
 
@@ -42,7 +41,8 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    //TODO add parameter.
+    Q_REQUIRED_RESULT QString selector() const;
+    void setSelector(const QString &selector);
 
 Q_SIGNALS:
     void usersAutocompleteDone(const QJsonObject &obj);
@@ -50,6 +50,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UsersAutocompleteJob)
     void slotUsersAutocompleteFinished();
+    QString mSelector;
 };
 }
 #endif // USERSAUTOCOMPLETEJOB_H

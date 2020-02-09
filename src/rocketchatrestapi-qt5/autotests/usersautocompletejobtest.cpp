@@ -42,7 +42,8 @@ void UsersAutocompleteJobTest::shouldHaveDefaultValue()
 void UsersAutocompleteJobTest::shouldGenerateRequest()
 {
     UsersAutocompleteJob job;
+    job.setSelector(QStringLiteral("foo"));
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.autocomplete")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.autocomplete?selector=foo")));
 }

@@ -172,6 +172,7 @@ public:
     void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void customSounds();
+    void usersAutocomplete(const QString &selector);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -230,6 +231,8 @@ Q_SIGNALS:
     void usersPresenceDone(const QJsonObject &obj);
     void customUserStatusDone(const QByteArray &); //TODO QByteArray or QJson ?
     void customSoundsDone(const QByteArray &); //TODO QByteArray or QJson ?
+
+    void usersAutocompleteDone(const QJsonObject &obj);
 
     void failed(const QString &str);
 
