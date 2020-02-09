@@ -393,6 +393,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("useInviteToken");
     case RestApiUtil::RestApiUrlType::ValidateInviteToken:
         return QStringLiteral("validateInviteToken");
+    case RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate:
+        return QStringLiteral("rooms.autocomplete.channelAndPrivate");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

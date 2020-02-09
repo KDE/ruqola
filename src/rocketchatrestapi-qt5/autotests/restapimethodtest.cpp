@@ -199,6 +199,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsLeave), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.leave")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsCreateDiscussion), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.createDiscussion")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsGetDiscussions), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.channelAndPrivate")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ForgotPassword), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.list")));

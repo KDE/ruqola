@@ -189,6 +189,8 @@ enum class RestApiUrlType {
     RoomsLeave,
     RoomsCreateDiscussion,
     RoomsGetDiscussions,
+
+
     ForgotPassword,
     PermissionsList,
     CommandsList,
@@ -220,7 +222,9 @@ enum class RestApiUrlType {
     ListInvites,
     RemoveInvite,
     UseInviteToken,
-    ValidateInviteToken
+    ValidateInviteToken,
+
+    RoomsAutocompleteChannelAndPrivate,
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
