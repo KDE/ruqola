@@ -21,20 +21,25 @@
 #ifndef MESSAGELINEEDIT_H
 #define MESSAGELINEEDIT_H
 
-#include <QLineEdit>
-
-#include "common/completionlineedit.h"
+#include "common/completiontextedit.h"
 
 #include "libruqolawidgets_private_export.h"
 
 class QListView;
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineEdit : public CompletionLineEdit
+/**
+ * @brief The MessageLineEdit class is the widget used for typing messages to be sent.
+ * @todo rename to MessageTextEdit
+ */
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineEdit : public CompletionTextEdit
 {
     Q_OBJECT
 public:
     explicit MessageLineEdit(QWidget *parent = nullptr);
     ~MessageLineEdit();
+
+    void insert(const QString &text);
+    QString text() const;
 
 Q_SIGNALS:
     void sendMessage(const QString &str);
@@ -45,7 +50,7 @@ protected:
     void keyPressEvent(QKeyEvent *e) override;
 
 private:
-    void slotTextChanged(const QString &text);
+    void slotTextChanged();
     void slotCompletionAvailable();
     void slotComplete(const QModelIndex &index);
 };

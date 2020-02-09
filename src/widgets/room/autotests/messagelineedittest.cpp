@@ -30,5 +30,6 @@ MessageLineEditTest::MessageLineEditTest(QObject *parent)
 void MessageLineEditTest::shouldHaveDefautValues()
 {
     MessageLineEdit w;
-    QVERIFY(w.isClearButtonEnabled());
+    w.insert(QStringLiteral("test"));
+    QCOMPARE(w.text(), QStringLiteral("test"));
 }

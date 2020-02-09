@@ -61,7 +61,7 @@ private:
     void slotSendFile();
 
     EditingMode mMode = EditingMode::NewMessage;
-    MessageLineEdit *mMessageLineEdit = nullptr;
+    MessageLineEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;
     QToolButton *mSendMessageButton = nullptr;

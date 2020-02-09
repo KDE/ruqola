@@ -35,13 +35,9 @@
 #endif
 
 MessageLineEdit::MessageLineEdit(QWidget *parent)
-    : CompletionLineEdit(parent)
+    : CompletionTextEdit(parent)
 {
-    connect(this, &MessageLineEdit::returnPressed, this, [this]() {
-        Q_EMIT sendMessage(text());
-        clear();
-    });
-    connect(this, &QLineEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
+    connect(this, &QTextEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
     setCompletionModel(Ruqola::self()->rocketChatAccount()->inputCompleterModel());
     connect(this, &MessageLineEdit::complete, this, &MessageLineEdit::slotComplete);
 }
@@ -50,8 +46,36 @@ MessageLineEdit::~MessageLineEdit()
 {
 }
 
+void MessageLineEdit::insert(const QString &text)
+{
+    textCursor().insertText(text);
+}
+
+QString MessageLineEdit::text() const
+{
+    return toPlainText();
+}
+
 void MessageLineEdit::keyPressEvent(QKeyEvent *e)
 {
+    const int key = e->key();
+    if (key == Qt::Key_Return) {
+        if (!e->modifiers()) {
+            Q_EMIT sendMessage(text());
+            clear();
+        } else {
+            textCursor().insertBlock();
+            ensureCursorVisible();
+        }
+        e->accept();
+        return;
+    } else if (key == Qt::Key_Up || key == Qt::Key_Down) {
+        if (document()->blockCount() > 1) {
+            CompletionTextEdit::keyPressEvent(e);
+            return;
+        }
+    }
+
     e->ignore();
     // Check if the listview or room widget want to handle the key (e.g Esc, PageUp)
     Q_EMIT keyPressed(e);
@@ -59,25 +83,25 @@ void MessageLineEdit::keyPressEvent(QKeyEvent *e)
         return;
     }
 
-    CompletionLineEdit::keyPressEvent(e);
+    CompletionTextEdit::keyPressEvent(e);
 }
 
-void MessageLineEdit::slotTextChanged(const QString &text)
+void MessageLineEdit::slotTextChanged()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->setInputTextChanged(text, cursorPosition());
-    Q_EMIT textEditing(text.isEmpty());
+    rcAccount->setInputTextChanged(text(), textCursor().position());
+    Q_EMIT textEditing(document()->isEmpty());
 }
 
 void MessageLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString newText = rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), cursorPosition());
+    const QString newText = rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), textCursor().position());
 
     mCompletionListView->hide();
 
-    disconnect(this, &QLineEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
-    setText(newText);
-    connect(this, &QLineEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
+    disconnect(this, &QTextEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
+    setPlainText(newText);
+    connect(this, &QTextEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
 }

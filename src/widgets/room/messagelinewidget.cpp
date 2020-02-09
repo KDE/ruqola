@@ -42,11 +42,11 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
     connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
-    mMessageLineEdit = new MessageLineEdit(this);
-    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
-    mainLayout->addWidget(mMessageLineEdit);
-    connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
-    connect(mMessageLineEdit, &MessageLineEdit::textEditing, this, &MessageLineWidget::textEditing);
+    mMessageTextEdit = new MessageLineEdit(this);
+    mMessageTextEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
+    mainLayout->addWidget(mMessageTextEdit);
+    connect(mMessageTextEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
+    connect(mMessageTextEdit, &MessageLineEdit::textEditing, this, &MessageLineWidget::textEditing);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -59,8 +59,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
     mainLayout->addWidget(mSendMessageButton);
     connect(mSendMessageButton, &QToolButton::clicked, this, [this]() {
-        slotSendMessage(mMessageLineEdit->text());
-        mMessageLineEdit->clear();
+        slotSendMessage(mMessageTextEdit->text());
+        mMessageTextEdit->clear();
     });
 
     auto *emoticonMenu = new QMenu(this);
@@ -69,9 +69,9 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     action->setDefaultWidget(mEmoticonMenuWidget);
     emoticonMenu->addAction(action);
     mEmoticonButton->setMenu(emoticonMenu);
-    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageLineEdit, &MessageLineEdit::insert);
+    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageTextEdit, &MessageLineEdit::insert);
 
-    setFocusProxy(mMessageLineEdit);
+    setFocusProxy(mMessageTextEdit);
 }
 
 MessageLineWidget::~MessageLineWidget()
@@ -92,17 +92,17 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void MessageLineWidget::setText(const QString &text)
 {
-    mMessageLineEdit->setText(text);
+    mMessageTextEdit->setText(text);
 }
 
 QString MessageLineWidget::text() const
 {
-    return mMessageLineEdit->text();
+    return mMessageTextEdit->text();
 }
 
 MessageLineEdit *MessageLineWidget::messageLineEdit() const
 {
-    return mMessageLineEdit;
+    return mMessageTextEdit;
 }
 
 void MessageLineWidget::slotSendFile()
