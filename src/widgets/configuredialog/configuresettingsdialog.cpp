@@ -33,7 +33,7 @@
 #endif
 
 namespace {
-static const char myConfigGroupName[] = "ConfigureSettingsDialog";
+const char myConfigGroupName[] = "ConfigureSettingsDialog";
 }
 ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     : KPageDialog(parent)
