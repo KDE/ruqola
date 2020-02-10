@@ -263,8 +263,10 @@ MessageBase {
                 }
             }
         }
+
         ReactionsPopup {
-            visible: i_useMenuMessage && root.hovered
+            visible: i_useMenuMessage
+            showIcon: root.hovered
             onInsertReaction: {
                 messageMain.addReaction(i_messageID, emoji)
             }

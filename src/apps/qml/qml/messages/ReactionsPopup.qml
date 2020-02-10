@@ -29,11 +29,20 @@ import "../common"
 Kirigami.Icon {
     id: reactIcon
 
+    property bool showIcon: true
+
     signal insertReaction(string emoji)
     source: "face-smile"
     width: height
     height: 18
-    opacity: mouseArea.containsMouse ? 1.0 : 0.3
+    opacity: {
+        if (!showIcon) {
+            return 0.0;
+        }
+        else {
+            return mouseArea.containsMouse ? 1.0 : 0.3;
+        }
+    }
 
     MouseArea {
         id: mouseArea
