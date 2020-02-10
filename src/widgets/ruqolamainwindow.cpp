@@ -54,6 +54,12 @@
 #include <QStatusBar>
 #include <QLabel>
 
+#ifdef WITH_KUSERFEEDBACK
+#include "userfeedback/userfeedbackmanager.h"
+#include <KUserFeedback/NotificationPopup>
+#include <KUserFeedback/Provider>
+#endif
+
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWindow";
 }
@@ -73,6 +79,10 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     readConfig();
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     slotAccountChanged();
+#ifdef WITH_KUSERFEEDBACK
+    KUserFeedback::NotificationPopup *userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
+    userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
+#endif
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
