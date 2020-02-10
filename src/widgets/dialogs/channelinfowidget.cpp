@@ -34,6 +34,7 @@
 #include <QStackedWidget>
 #include <QToolButton>
 #include <QInputDialog>
+#include <QTextDocument>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -55,16 +56,20 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
+    QString str = i18n("Name:");
     mName = new ChangeTextWidget(this);
     mName->setObjectName(QStringLiteral("mName"));
     connect(mName, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Name, name, mRoomWrapper->channelType());
     });
-    layout->addRow(i18n("Name:"), mName);
+    mName->setLabelText(str);
+    layout->addRow(str, mName);
 
     mComment = new ChangeTextWidget(this);
     mComment->setObjectName(QStringLiteral("mComment"));
-    layout->addRow(i18n("Comment:"), mComment);
+    str = i18n("Comment:");
+    mComment->setLabelText(str);
+    layout->addRow(str, mComment);
     connect(mComment, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Topic, name, mRoomWrapper->channelType());
     });
@@ -74,15 +79,19 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Announcement, name, mRoomWrapper->channelType());
     });
-    layout->addRow(i18n("Announcement:"), mAnnouncement);
+    str = i18n("Announcement:");
+    mAnnouncement->setLabelText(str);
+    layout->addRow(str, mAnnouncement);
 
     mDescription = new ChangeTextWidget(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     connect(mDescription, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Description, name, mRoomWrapper->channelType());
     });
+    str = i18n("Description:");
+    mDescription->setLabelText(str);
 
-    layout->addRow(i18n("Description:"), mDescription);
+    layout->addRow(str, mDescription);
 
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
@@ -276,17 +285,22 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
     mLabel->setWordWrap(true);
     mLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mLabel->setOpenExternalLinks(true);
+    mLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
     mainLayout->addWidget(mLabel);
-    mainLayout->addStretch(1);
     mChangeTextToolButton = new QToolButton(this);
     mChangeTextToolButton->setIcon(QIcon::fromTheme(QStringLiteral("document-edit")));
     mChangeTextToolButton->setObjectName(QStringLiteral("mChangeTextToolButton"));
     mainLayout->addWidget(mChangeTextToolButton);
     connect(mChangeTextToolButton, &QToolButton::clicked, this, [this]() {
-        const QString result = QInputDialog::getText(this, i18n("Change Text"), i18n("Text:"), QLineEdit::Normal, mLabel->text());
+        //Convert html to text. Otherwise we will have html tag
+        QString text = mLabel->text();
+        QTextDocument doc;
+        doc.setHtml(text);
+        text = doc.toPlainText();
+        const QString result = QInputDialog::getText(this, i18n("Change Text"), mLabelText, QLineEdit::Normal, text);
         if (!result.trimmed().isEmpty()) {
-            if (result != mLabel->text()) {
+            if (result != text) {
                 Q_EMIT textChanged(result);
             }
         }
@@ -300,4 +314,9 @@ ChangeTextWidget::~ChangeTextWidget()
 void ChangeTextWidget::setText(const QString &str)
 {
     mLabel->setText(str);
+}
+
+void ChangeTextWidget::setLabelText(const QString &str)
+{
+    mLabelText = str;
 }

@@ -39,10 +39,12 @@ public:
     ~ChangeTextWidget();
     void setText(const QString &str);
 
+    void setLabelText(const QString &str);
 Q_SIGNALS:
     void textChanged(const QString &str);
 
 private:
+    QString mLabelText;
     QLabel *mLabel = nullptr;
     QToolButton *mChangeTextToolButton = nullptr;
 };
