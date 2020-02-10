@@ -1,8 +1,3 @@
-
-if (TARGET KUserFeedbackWidgets)
-    add_definitions(-DWITH_KUSERFEEDBACK)
-endif()
-
 set(ruqola_userfeedback_SRCS)
 if (TARGET KUserFeedbackWidgets)
     set(ruqola_userfeedback_SRCS ${ruqola_userfeedback_SRCS}

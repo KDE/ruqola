@@ -24,7 +24,10 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-#ifdef WITH_KUSERFEEDBACK
+
+#include "config-ruqola.h"
+
+#if HAVE_KUSERFEEDBACK
 namespace KUserFeedback {
 class FeedbackConfigWidget;
 }
@@ -40,7 +43,7 @@ public:
     void load();
 
 private:
-#ifdef WITH_KUSERFEEDBACK
+#if HAVE_KUSERFEEDBACK
     KUserFeedback::FeedbackConfigWidget *mUserFeedbackWidget = nullptr;
 #endif
 };

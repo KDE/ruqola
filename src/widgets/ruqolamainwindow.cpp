@@ -18,12 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "ruqolamainwindow.h"
+
+#include "config-ruqola.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "accountmanager.h"
 #include "roomwrapper.h"
 #include "receivetypingnotificationmanager.h"
-#include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 #include "misc/accountmenu.h"
 #include "misc/accountsoverviewwidget.h"
@@ -54,7 +56,7 @@
 #include <QStatusBar>
 #include <QLabel>
 
-#ifdef WITH_KUSERFEEDBACK
+#if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
@@ -79,7 +81,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     readConfig();
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     slotAccountChanged();
-#ifdef WITH_KUSERFEEDBACK
+#if HAVE_KUSERFEEDBACK
     KUserFeedback::NotificationPopup *userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif

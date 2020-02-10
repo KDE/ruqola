@@ -21,7 +21,8 @@
 #include "configureuserfeedbackwidget.h"
 
 #include <QHBoxLayout>
-#ifdef WITH_KUSERFEEDBACK
+
+#if HAVE_KUSERFEEDBACK
 #include <KUserFeedback/Provider>
 #include <KUserFeedback/FeedbackConfigWidget>
 #include "userfeedback/userfeedbackmanager.h"
@@ -33,7 +34,7 @@ ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
     QVBoxLayout *userFeedBackLayout = new QVBoxLayout(this);
     userFeedBackLayout->setObjectName(QStringLiteral("userFeedBackLayout"));
     userFeedBackLayout->setContentsMargins(0, 0, 0, 0);
-#ifdef WITH_KUSERFEEDBACK
+#if HAVE_KUSERFEEDBACK
     mUserFeedbackWidget = new KUserFeedback::FeedbackConfigWidget(this);
     mUserFeedbackWidget->setObjectName(QStringLiteral("mUserFeedbackWidget"));
 
@@ -48,7 +49,7 @@ ConfigureUserFeedbackWidget::~ConfigureUserFeedbackWidget()
 
 void ConfigureUserFeedbackWidget::save()
 {
-#ifdef WITH_KUSERFEEDBACK
+#if HAVE_KUSERFEEDBACK
     // set current active mode + write back the config for future starts
     UserFeedBackManager::self()->userFeedbackProvider()->setTelemetryMode(mUserFeedbackWidget->telemetryMode());
     UserFeedBackManager::self()->userFeedbackProvider()->setSurveyInterval(mUserFeedbackWidget->surveyInterval());
@@ -57,7 +58,7 @@ void ConfigureUserFeedbackWidget::save()
 
 void ConfigureUserFeedbackWidget::load()
 {
-#ifdef WITH_KUSERFEEDBACK
+#if HAVE_KUSERFEEDBACK
     mUserFeedbackWidget->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
 }
