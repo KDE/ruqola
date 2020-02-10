@@ -41,6 +41,7 @@ void UsersAutocompleteJobTest::shouldHaveDefaultValue()
     UsersAutocompleteJob::UsersAutocompleterInfo info;
     QVERIFY(!info.isValid());
     QVERIFY(info.pattern.isEmpty());
+    QVERIFY(info.exception.isEmpty());
 }
 
 void UsersAutocompleteJobTest::shouldGenerateRequest()

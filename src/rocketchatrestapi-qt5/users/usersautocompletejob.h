@@ -34,6 +34,7 @@ public:
         Q_REQUIRED_RESULT bool isValid() const;
 
         QString pattern;
+        QString exception;
     };
 
     explicit UsersAutocompleteJob(QObject *parent = nullptr);

@@ -60,6 +60,7 @@ QString User::status() const
 
 void User::setStatus(const QString &status)
 {
+    qDebug()<< "status " << status;
     mStatus = status;
 }
 
@@ -150,4 +151,21 @@ void User::parseUser(const QJsonObject &object)
 QString User::iconFromStatus() const
 {
     return Utils::iconFromStatus(mStatus);
+}
+
+QVector<User> User::parseUsersList(const QJsonObject &object)
+{
+    const QJsonArray fieldsArray = object.value(QLatin1String("items")).toArray();
+    QVector<User> users;
+    for (const QJsonValue &current : fieldsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject userObject = current.toObject();
+            User user;
+            user.parseUserRestApi(userObject);
+            users.append(user);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing users" << current;
+        }
+    }
+    return users;
 }

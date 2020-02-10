@@ -69,6 +69,8 @@ public:
     void setStatusText(const QString &statusText);
 
     void parseUserRestApi(const QJsonObject &object);
+
+    static Q_REQUIRED_RESULT QVector<User> parseUsersList(const QJsonObject &object);
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;

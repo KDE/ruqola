@@ -719,7 +719,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
 #if 1
     RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
     info.pattern = searchText;
-    qDebug() << " searchText" << searchText;
+    info.exception = exception;
     userCompleterModel()->clear();
     restApi()->usersAutocomplete(info);
 #else
@@ -842,20 +842,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
 
 void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
-    //TODO Move to util files ? or User.h file ?
-    const QJsonArray fieldsArray = obj.value(QLatin1String("items")).toArray();
-    QVector<User> users;
-    for (const QJsonValue &current : fieldsArray) {
-        if (current.type() == QJsonValue::Object) {
-            const QJsonObject userObject = current.toObject();
-            User user;
-            user.parseUserRestApi(userObject);
-            users.append(user);
-        } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing users" << current;
-        }
-    }
-
+    const QVector<User> users = User::parseUsersList(obj);
     mUserCompleterModel->insertUsers(users);
 }
 
