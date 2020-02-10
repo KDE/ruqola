@@ -224,6 +224,7 @@ enum class RestApiUrlType {
     UseInviteToken,
     ValidateInviteToken,
 
+    //Since 2.4.0
     RoomsAutocompleteChannelAndPrivate,
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
