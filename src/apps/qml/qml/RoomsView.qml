@@ -58,6 +58,10 @@ ListView {
         }
     }
 
+    // If unread are on top, we do not want the view to follow the highlight
+    // Otherwise the list view is scrolled when channels are marked as read => feels cumbersome
+    highlightFollowsCurrentItem: !appid.rocketChatAccount.sortUnreadOnTop
+
     delegate: RoomDelegate {
         d_name: fname
         d_unread: unread
