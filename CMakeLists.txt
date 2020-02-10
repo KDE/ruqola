@@ -87,16 +87,12 @@ find_package(KF5KIO ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Sonnet ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
 
-find_package(Qt5Keychain)
+find_package(Qt5Keychain CONFIG)
 set_package_properties(Qt5Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE OPTIONAL)
-if (Qt5Keychain_FOUND)
-    set(HAVE_QT5KEYCHAIN 1)
-else()
-    set(HAVE_QT5KEYCHAIN 0)
-endif()
+set(HAVE_QT5KEYCHAIN ${Qt5Keychain_FOUND})
 
 find_package(KUserFeedback)
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
