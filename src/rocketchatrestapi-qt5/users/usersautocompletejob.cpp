@@ -87,6 +87,7 @@ QNetworkRequest UsersAutocompleteJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete);
     QUrlQuery queryUrl;
+    //TODO add support for exception.
     const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mUsersCompleterInfo.pattern);
     queryUrl.addQueryItem(QStringLiteral("selector"), val);
     url.setQuery(queryUrl);
