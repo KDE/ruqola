@@ -101,9 +101,9 @@ MessageBase {
                         Layout.rightMargin: Kirigami.Units.smallSpacing
 
                         QQC2.Label {
-                            id: usernameLabel
+                            id: aliasOrUserNameLabel
                             font.bold: true
-                            text: i_aliasname !== "" ? i_aliasname +  ' @' + i_username : '@' + i_username
+                            text: i_aliasname !== "" ? i_aliasname : i_username
 
                             MouseArea {
                                 anchors.fill: parent
@@ -127,6 +127,13 @@ MessageBase {
                                 }
                             }
                             visible: !i_groupable
+                        }
+
+                        QQC2.Label {
+                            id: usernameLabel
+                            visible: i_aliasname !== ""
+                            text: '@' + i_username
+                            opacity: timestampText.opacity // same as TimestampText for now
                         }
 
                         Kirigami.Icon {
