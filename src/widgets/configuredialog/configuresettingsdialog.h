@@ -25,6 +25,9 @@
 #include "libruqolawidgets_private_export.h"
 class ConfigureAccountWidget;
 class ConfigureSpellCheckingWidget;
+#ifdef WITH_KUSERFEEDBACK
+class ConfigureUserFeedbackWidget;
+#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
@@ -40,6 +43,10 @@ private:
     ConfigureAccountWidget *mConfigureAccountWidget = nullptr;
     KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;
     ConfigureSpellCheckingWidget *mConfigureSpellCheckingWidget = nullptr;
+#ifdef WITH_KUSERFEEDBACK
+    ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
+    KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
+#endif
 };
 
 #endif // CONFIGURESETTINGSDIALOG_H

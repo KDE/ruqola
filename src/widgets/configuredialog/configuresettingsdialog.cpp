@@ -28,6 +28,9 @@
 #include <KSharedConfig>
 #include <QIcon>
 #include <QPushButton>
+#ifdef WITH_KUSERFEEDBACK
+#include "configureuserfeedbackwidget.h"
+#endif
 
 namespace {
 static const char myConfigGroupName[] = "ConfigureSettingsDialog";
@@ -51,6 +54,13 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
     mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
     addPage(mConfigureSpellCheckingWidgetPage);
+
+#ifdef WITH_KUSERFEEDBACK
+    const QString userFeedBackPageName = i18nc("@title Preferences page name", "User Feedback");
+    mConfigureUserFeedBackWidget = new ConfigureUserFeedbackWidget(this);
+    mConfigureUserFeedBackWidgetPage = new KPageWidgetItem(mConfigureUserFeedBackWidget, userFeedBackPageName);
+    addPage(mConfigureUserFeedBackWidgetPage);
+#endif
 
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
             this, &ConfigureSettingsDialog::slotAccepted);
