@@ -33,67 +33,87 @@ import "../common"
 MessageBase {
     id: root
 
-    implicitHeight: rowLayout.height
+    implicitHeight: mainLayout.height
 
-    RowLayout {
-        id: rowLayout
+    ColumnLayout {
+        id: mainLayout
 
         width: parent.width
 
-        AvatarImage {
-            id: avatarRect
-
-            Layout.alignment: Qt.AlignTop
-            avatarurl: i_avatar
-            aliasname: i_aliasname
-            username: i_username
-            onShowUserInfo: {
-                //TODO
-            }
-        }
+        spacing: 0
 
         Item {
-            Layout.fillWidth: true
+            id: topSpacer
+
+            width: parent.width
+            height: Kirigami.Units.smallSpacing
         }
 
-        Rectangle {
-            Layout.alignment: Qt.AlignCenter
-            width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-            height: textLabel.height
+        RowLayout {
+            AvatarImage {
+                id: avatarRect
 
-            color: Kirigami.Theme.disabledTextColor
-            radius: 4*Kirigami.Units.smallSpacing
+                Layout.alignment: Qt.AlignTop
+                avatarurl: i_avatar
+                aliasname: i_aliasname
+                username: i_username
+                onShowUserInfo: {
+                    //TODO
+                }
+            }
 
-            QQC2.Label {
-                id: textLabel
+            Item {
+                Layout.fillWidth: true
+            }
 
-                color: Kirigami.Theme.textColor
-                opacity: 1
+            Rectangle {
+                Layout.alignment: Qt.AlignCenter | Qt.AlignTop
+                width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
+                height: textLabel.height
 
-                anchors.centerIn: parent
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
+                color: Kirigami.Theme.disabledTextColor
+                radius: 4*Kirigami.Units.smallSpacing
 
-                width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+                QQC2.Label {
+                    id: textLabel
 
-                text: i18n("Click To Join to Video")
+                    color: Kirigami.Theme.textColor
+                    opacity: 1
 
-                wrapMode: QQC2.Label.Wrap
+                    anchors.centerIn: parent
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        messageMain.jitsiCallConfActivated()
+                    width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+
+                    text: i18n("Click To Join to Video")
+
+                    wrapMode: QQC2.Label.Wrap
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            messageMain.jitsiCallConfActivated()
+                        }
                     }
                 }
             }
+            Item {
+                Layout.fillWidth: true
+            }
+            TimestampText {
+                id: timestampText
+
+                Layout.alignment: Qt.AlignTop
+                timestamp: i_timestamp
+            }
         }
+
         Item {
-            Layout.fillWidth: true
-        }
-        TimestampText {
-            id: timestampText
-            timestamp: i_timestamp
+            id: bottomSpacer
+
+            width: parent.width
+            height: Kirigami.Units.smallSpacing
         }
     }
 }
