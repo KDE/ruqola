@@ -36,7 +36,8 @@ MessageBase {
 
     property alias attachments: attachmentsLayout.children
 
-    Layout.alignment: Qt.AlignTop
+    implicitHeight: rowLayout.height
+
     Loader {
         id: messageMenuLoader
         active: false
@@ -61,6 +62,10 @@ MessageBase {
     }
 
     RowLayout {
+        id: rowLayout
+
+        width: parent.width
+
         AvatarImage {
             id: avatarRect
             avatarurl: i_avatar
@@ -259,7 +264,7 @@ MessageBase {
             }
         }
         ReactionsPopup {
-            visible: i_useMenuMessage
+            visible: i_useMenuMessage && root.hovered
             onInsertReaction: {
                 messageMain.addReaction(i_messageID, emoji)
             }

@@ -34,8 +34,13 @@ MessageBase {
 
     property string i_systemMessageType
 
+    implicitHeight: rowLayout.height
 
     RowLayout {
+        id: rowLayout
+
+        width: parent.width
+
         ColumnLayout {
             //Layout.fillHeight: true
             QQC2.Label {

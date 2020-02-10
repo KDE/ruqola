@@ -33,7 +33,13 @@ import "../common"
 MessageBase {
     id: root
 
+    implicitHeight: rowLayout.height
+
     RowLayout {
+        id: rowLayout
+
+        width: parent.width
+
         AvatarImage {
             id: avatarRect
             avatarurl: i_avatar
