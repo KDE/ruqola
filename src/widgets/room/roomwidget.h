@@ -51,6 +51,7 @@ public:
 
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
+    void selectChannelRequested(const QString &channelId);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

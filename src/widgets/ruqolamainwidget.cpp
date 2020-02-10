@@ -53,6 +53,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
     mStackedRoomWidget->addWidget(mRoomWidget);
+    connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, &RuqolaMainWidget::slotSelectChannelRequested);
 
     mEmptyRoomWidget = new QWidget(this);
     mEmptyRoomWidget->setObjectName(QStringLiteral("mEmptyRoomWidget"));
@@ -103,4 +104,9 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mChannelList->setCurrentRocketChatAccount(account);
     mRoomWidget->setCurrentRocketChatAccount(account);
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
+}
+
+void RuqolaMainWidget::slotSelectChannelRequested(const QString &channelId)
+{
+    //TODO find channelId
 }

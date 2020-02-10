@@ -276,6 +276,8 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RoomWidget::slotGoBackToRoom()
 {
+    Q_EMIT selectChannelRequested(mRoomWrapper->parentRid());
+    //TODO setChannelSelected();
     //TODO fix me !
     qDebug() << " void RoomWidget::slotGoBackToRoom()" <<mRoomWrapper->parentRid();
     mCurrentRocketChatAccount->switchingToRoom(mRoomWrapper->parentRid());
