@@ -38,31 +38,23 @@ UserMessage {
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
             Column {
-                QQC2.Label {
+                ClickableLabel {
                     id: imageTitle
                     text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
                     visible: model.modelData.title !== ""
                     wrapMode: QQC2.Label.NoWrap
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
-                    textFormat: Text.RichText
                     onLinkActivated: {
                         messageMain.displayImage(imageUrl.source, model.modelData.title, model.modelData.isAnimatedImage)
                     }
-                    MouseArea {
-                        anchors.fill: parent
-                        acceptedButtons: Qt.RightButton
-
-                        onClicked: {
-                            if (mouse.button === Qt.RightButton) {
-                                messageMenuLoader.posX = mouse.x
-                                messageMenuLoader.posY = mouse.y
-                                if (messageMenuLoader.active)
-                                    messageMenuLoader.active = false
-                                else
-                                    messageMenuLoader.active = true
-                            }
-                        }
+                    onContextMenuRequested: {
+                        messageMenuLoader.posX = mouse.x
+                        messageMenuLoader.posY = mouse.y
+                        if (messageMenuLoader.active)
+                            messageMenuLoader.active = false
+                        else
+                            messageMenuLoader.active = true
                     }
                 }
                 Image {

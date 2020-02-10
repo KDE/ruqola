@@ -28,6 +28,9 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import org.kde.kirigami 2.7 as Kirigami
 import Ruqola 1.0
+
+import "common"
+
 Component {
     id: mainComponent
 
@@ -357,7 +360,7 @@ Component {
                             }
                         }
 
-                        QQC2.Label {
+                        ClickableLabel {
                             text: model.displayname
                             onLinkActivated: {
                                 if (model.userid !== appid.rocketChatAccount.userID) {
@@ -365,20 +368,13 @@ Component {
                                     openDirectChannelDialog.open()
                                 }
                             }
-                            MouseArea {
-                                anchors.fill: parent
-                                acceptedButtons: Qt.RightButton
-
-                                onClicked: {
-                                    if (mouse.button === Qt.RightButton) {
-                                        userMenuLoader.posX = mouse.x
-                                        userMenuLoader.posY = mouse.y
-                                        if (userMenuLoader.active)
-                                            userMenuLoader.active = false
-                                        else
-                                            userMenuLoader.active = true
-                                    }
-                                }
+                            onContextMenuRequested: {
+                                userMenuLoader.posX = mouse.x
+                                userMenuLoader.posY = mouse.y
+                                if (userMenuLoader.active)
+                                    userMenuLoader.active = false
+                                else
+                                    userMenuLoader.active = true
                             }
                         }
                     }

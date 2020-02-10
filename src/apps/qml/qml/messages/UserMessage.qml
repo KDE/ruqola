@@ -193,32 +193,23 @@ MessageBase {
                             }
                         }
                     }
-                    QQC2.Label {
+
+                    ClickableLabel {
                         id: textLabel
                         Layout.fillWidth: true
-
-                        textFormat: Text.RichText
-
 
                         text: i_messageText
                         wrapMode: QQC2.Label.Wrap
 
                         onLinkActivated: messageMain.linkActivated(link)
-                        MouseArea {
-                            anchors.fill: parent
-                            acceptedButtons: Qt.RightButton
-
-                            onClicked: {
-                                if (i_useMenuMessage) {
-                                    if (mouse.button === Qt.RightButton) {
-                                        messageMenuLoader.posX = mouse.x
-                                        messageMenuLoader.posY = mouse.y
-                                        if (messageMenuLoader.active)
-                                            messageMenuLoader.active = false
-                                        else
-                                            messageMenuLoader.active = true
-                                    }
-                                }
+                        onContextMenuRequested: {
+                            if (i_useMenuMessage) {
+                                messageMenuLoader.posX = mouse.x
+                                messageMenuLoader.posY = mouse.y
+                                if (messageMenuLoader.active)
+                                    messageMenuLoader.active = false
+                                else
+                                    messageMenuLoader.active = true
                             }
                         }
                     }
