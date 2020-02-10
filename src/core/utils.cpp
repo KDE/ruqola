@@ -57,6 +57,10 @@ QString Utils::markdownToRichText(const QString &markDown)
     //TODO remove replaceSmileys when we will use unicode emoticons
     const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys | KTextToHTML::ConvertPhoneNumbers;
     str = KTextToHTML::convertToHtml(str, convertFlags);
+
+    // substitute "[example.com](<a href="...">...</a>)" style urls
+    str = Utils::convertTextWithUrl(str);
+
     //Bug 391520 I don't remember why I removed <br /> need to investigate
     //str.remove(QStringLiteral("<br />"));
     //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
@@ -66,8 +70,6 @@ QString Utils::markdownToRichText(const QString &markDown)
 QString Utils::generateRichText(const QString &str, const QString &username)
 {
     QString newStr = Utils::markdownToRichText(str);
-    //Need to convert [foo](http:///...)
-    newStr = Utils::convertTextWithUrl(newStr);
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
     while (userIterator.hasNext()) {
@@ -186,6 +188,8 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 
 QString Utils::convertTextWithUrl(const QString &str)
 {
+    static const QRegularExpression regularExpressionAHref(QStringLiteral("<a href=\"(.*)\">(.*)</a>"));
+
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
@@ -203,7 +207,12 @@ QString Utils::convertTextWithUrl(const QString &str)
             isUrl = true;
         } else if (str.at(i) == QLatin1Char(')') && !references.isEmpty()) {
             isUrl = false;
-            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+            // detect whether the string already contains HTML <a/> tags
+            if (url.startsWith(QLatin1Char('<'))) {
+                newStr += url.replace(regularExpressionAHref, QStringLiteral("<a href=\"\\1\">%1</a>").arg(references));
+            } else {
+                newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+            }
             references.clear();
             url.clear();
         } else {

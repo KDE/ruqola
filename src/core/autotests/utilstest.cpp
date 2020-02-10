@@ -56,6 +56,8 @@ void UtilsTest::shouldMarkdownToRichText_data()
     QTest::newRow("empty") << QString() << QString();
     QTest::newRow("testurl") << QStringLiteral("http://www.kde.org http://www.kde.org")
                              << QStringLiteral("<a href=\"http://www.kde.org\">http://www.kde.org</a> <a href=\"http://www.kde.org\">http://www.kde.org</a>");
+    QTest::newRow("named-url") << QStringLiteral("[example.com](http://example.com)")
+                               << QStringLiteral("<a href=\"http://example.com\">example.com</a>");
     QTest::newRow("bold") << QStringLiteral("*bla*")
                           << QStringLiteral("<b>bla</b>");
     QTest::newRow("multi star") << QStringLiteral("**bla**")

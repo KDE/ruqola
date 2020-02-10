@@ -443,7 +443,7 @@ void Room::setReadOnly(bool readOnly)
 
 QString Room::topic() const
 {
-    return Utils::convertTextWithUrl(mTopic);
+    return Utils::markdownToRichText(mTopic);
 }
 
 void Room::setTopic(const QString &topic)
@@ -482,7 +482,7 @@ void Room::setChannelType(const QString &channelType)
 
 QString Room::markdownAnnouncement() const
 {
-    return Utils::convertTextWithUrl(Utils::markdownToRichText(mAnnouncement));
+    return Utils::markdownToRichText(mAnnouncement);
 }
 
 QString Room::announcement() const

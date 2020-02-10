@@ -36,6 +36,16 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString userIdFromDirectChannel(con
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT qint64 parseDate(const QString &key, const QJsonObject &o);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT qint64 parseIsoDate(const QString &key, const QJsonObject &o);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString iconFromStatus(const QString &status);
+
+/**
+ * @brief Convert []() style Markdown URLS with proper HTML tags
+ *
+ * Also supports strings that already contain HTML links.
+ *
+ * Examples:
+ *   "[NAME](<a href=\"LINK\">...</a>)" => "<a href="LINK">NAME</a>"
+ *   "[NAME](LINK)"                   => "<a href="LINK">NAME</a>"
+ */
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString convertTextWithUrl(const QString &str);
 }
 
