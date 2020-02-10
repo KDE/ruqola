@@ -22,6 +22,7 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 
+#include <QJsonArray>
 #include <QJsonObject>
 
 User::User()
@@ -122,6 +123,18 @@ QDebug operator <<(QDebug d, const User &t)
     d << "StatusText " << t.statusText();
     return d;
 }
+
+//FIXME Add autotest for it!
+void User::parseUserRestApi(const QJsonObject &object)
+{
+    setUserId(object.value(QLatin1String("_id")).toString());
+    setName(object.value(QLatin1String("name")).toString());
+    setStatus(object.value(QLatin1String("status")).toString());
+    setUserName(object.value(QLatin1String("username")).toString());
+    setStatusText(object.value(QLatin1String("statusText")).toString());
+    setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
+}
+
 
 void User::parseUser(const QJsonObject &object)
 {

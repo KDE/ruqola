@@ -73,11 +73,21 @@ void UsersAutocompleteJob::slotUsersAutocompleteFinished()
     deleteLater();
 }
 
+UsersAutocompleteJob::UsersAutocompleterInfo UsersAutocompleteJob::usersCompleterInfo() const
+{
+    return mUsersCompleterInfo;
+}
+
+void UsersAutocompleteJob::setUsersCompleterInfo(const UsersAutocompleterInfo &usersCompleterInfo)
+{
+    mUsersCompleterInfo = usersCompleterInfo;
+}
+
 QNetworkRequest UsersAutocompleteJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete);
     QUrlQuery queryUrl;
-    const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mSelector);
+    const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mUsersCompleterInfo.pattern);
     queryUrl.addQueryItem(QStringLiteral("selector"), val);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
@@ -87,19 +97,9 @@ QNetworkRequest UsersAutocompleteJob::request() const
     return request;
 }
 
-QString UsersAutocompleteJob::selector() const
-{
-    return mSelector;
-}
-
-void UsersAutocompleteJob::setSelector(const QString &selector)
-{
-    mSelector = selector;
-}
-
 bool UsersAutocompleteJob::canStart() const
 {
-    if (mSelector.isEmpty()) {
+    if (!mUsersCompleterInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersAutocompleteJob: selector is empty";
         return false;
     }
@@ -108,4 +108,9 @@ bool UsersAutocompleteJob::canStart() const
         return false;
     }
     return true;
+}
+
+bool UsersAutocompleteJob::UsersAutocompleterInfo::isValid() const
+{
+    return !pattern.isEmpty();
 }

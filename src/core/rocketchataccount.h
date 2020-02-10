@@ -445,6 +445,7 @@ private:
     void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
+    void slotUserAutoCompleterDone(const QJsonObject &obj);
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

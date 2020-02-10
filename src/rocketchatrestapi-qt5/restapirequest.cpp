@@ -37,7 +37,6 @@
 #include "users/getusernamesuggestionjob.h"
 #include "users/setstatusjob.h"
 #include "users/userspresencejob.h"
-#include "users/usersautocompletejob.h"
 
 #include "misc/owninfojob.h"
 
@@ -1644,14 +1643,13 @@ void RestApiRequest::customSounds()
     }
 }
 
-void RestApiRequest::usersAutocomplete(const QString &selector)
+void RestApiRequest::usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info)
 {
-    auto *job = new UsersAutocompleteJob(this);
-    job->setSelector(selector);
+    auto *job = new UsersAutocompleteJob(this);    
+    job->setUsersCompleterInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersAutocompleteJob::usersAutocompleteDone, this, &RestApiRequest::usersAutocompleteDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob";
     }
-
 }

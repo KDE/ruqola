@@ -77,7 +77,8 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
-#include <users/setstatusjob.h>
+#include "users/setstatusjob.h"
+#include "users/usersautocompletejob.h"
 
 #define USE_REASTAPI_JOB 1
 
@@ -452,6 +453,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -714,8 +716,13 @@ void RocketChatAccount::insertCompleterUsers()
 
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
-    //restApi()->usersAutocomplete(searchText);
-
+#if 1
+    RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
+    info.pattern = searchText;
+    qDebug() << " searchText" << searchText;
+    userCompleterModel()->clear();
+    restApi()->usersAutocomplete(info);
+#else
     //Clear before to create new search
     userCompleterModel()->clear();
     rocketChatBackend()->clearUsersList();
@@ -730,6 +737,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
         //TODO use restapi
         ddp()->userAutocomplete(searchText, addUserNameToException);
     }
+#endif
 }
 
 void RocketChatAccount::membersInRoom(const QString &roomId, const QString &roomType)
@@ -830,6 +838,25 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
         mListMessageModel->loadMoreListMessages(obj);
     }
     mListMessageModel->setLoadMoreListMessagesInProgress(false);
+}
+
+void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
+{
+    //TODO Move to util files ? or User.h file ?
+    const QJsonArray fieldsArray = obj.value(QLatin1String("items")).toArray();
+    QVector<User> users;
+    for (const QJsonValue &current : fieldsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject userObject = current.toObject();
+            User user;
+            user.parseUserRestApi(userObject);
+            users.append(user);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing users" << current;
+        }
+    }
+
+    mUserCompleterModel->insertUsers(users);
 }
 
 ListMessagesModelFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() const

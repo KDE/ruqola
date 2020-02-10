@@ -68,6 +68,7 @@ public:
     Q_REQUIRED_RESULT QString statusText() const;
     void setStatusText(const QString &statusText);
 
+    void parseUserRestApi(const QJsonObject &object);
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;

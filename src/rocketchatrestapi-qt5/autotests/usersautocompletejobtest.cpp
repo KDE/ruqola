@@ -37,12 +37,18 @@ void UsersAutocompleteJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+
+    UsersAutocompleteJob::UsersAutocompleterInfo info;
+    QVERIFY(!info.isValid());
+    QVERIFY(info.pattern.isEmpty());
 }
 
 void UsersAutocompleteJobTest::shouldGenerateRequest()
 {
     UsersAutocompleteJob job;
-    job.setSelector(QStringLiteral("foo"));
+    UsersAutocompleteJob::UsersAutocompleterInfo info;
+    info.pattern = QStringLiteral("foo");
+    job.setUsersCompleterInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/users.autocomplete?selector=%7B%22term%22: %22foo%22%7D"));

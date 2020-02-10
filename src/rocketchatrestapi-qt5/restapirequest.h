@@ -26,6 +26,7 @@
 #include <QUrl>
 #include "restapiutil.h"
 #include "users/setstatusjob.h"
+#include "users/usersautocompletejob.h"
 #include "librocketchatrestapi-qt5_export.h"
 
 class QNetworkAccessManager;
@@ -172,7 +173,7 @@ public:
     void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void customSounds();
-    void usersAutocomplete(const QString &selector);
+    void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
