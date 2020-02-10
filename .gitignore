@@ -12,6 +12,7 @@
 *.moc.cpp
 *.orig
 *.user
+*.rej
 .*.swp
 .swp.*
 Doxyfile
