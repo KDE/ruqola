@@ -69,7 +69,7 @@ Rectangle {
     property QtObject rcAccount
 
     color: RuqolaSingleton.backgroundColor
-    implicitHeight: loaded.item ? 2*Kirigami.Units.smallSpacing + loaded.item.implicitHeight : 0
+    implicitHeight: loaded.item ? loaded.item.implicitHeight : 0
     
     implicitWidth: 150
 
