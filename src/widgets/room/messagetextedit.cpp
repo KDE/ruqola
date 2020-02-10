@@ -59,8 +59,8 @@ QString MessageTextEdit::text() const
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
     const int key = e->key();
-    if (key == Qt::Key_Return) {
-        if (!e->modifiers()) {
+    if (key == Qt::Key_Return || key == Qt::Key_Enter) {
+        if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {
             Q_EMIT sendMessage(text());
             clear();
         } else {
