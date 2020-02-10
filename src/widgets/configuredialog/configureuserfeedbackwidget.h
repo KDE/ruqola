@@ -36,6 +36,9 @@ public:
     explicit ConfigureUserFeedbackWidget(QWidget *parent = nullptr);
     ~ConfigureUserFeedbackWidget();
 
+    void save();
+    void load();
+
 private:
 #ifdef WITH_KUSERFEEDBACK
     KUserFeedback::FeedbackConfigWidget *mUserFeedbackWidget = nullptr;

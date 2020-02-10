@@ -95,10 +95,12 @@ void ConfigureSettingsDialog::slotAccepted()
 {
     mConfigureAccountWidget->save();
     mConfigureSpellCheckingWidget->save();
+    mConfigureUserFeedBackWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
 {
     mConfigureAccountWidget->load();
     mConfigureSpellCheckingWidget->load();
+    mConfigureUserFeedBackWidget->load();
 }

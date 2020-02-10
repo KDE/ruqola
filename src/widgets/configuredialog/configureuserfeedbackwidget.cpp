@@ -38,12 +38,26 @@ ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
     mUserFeedbackWidget->setObjectName(QStringLiteral("mUserFeedbackWidget"));
 
     userFeedBackLayout->addWidget(mUserFeedbackWidget);
-
-    mUserFeedbackWidget->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
 }
 
 ConfigureUserFeedbackWidget::~ConfigureUserFeedbackWidget()
 {
 
+}
+
+void ConfigureUserFeedbackWidget::save()
+{
+#ifdef WITH_KUSERFEEDBACK
+    // set current active mode + write back the config for future starts
+    UserFeedBackManager::self()->userFeedbackProvider()->setTelemetryMode(mUserFeedbackWidget->telemetryMode());
+    UserFeedBackManager::self()->userFeedbackProvider()->setSurveyInterval(mUserFeedbackWidget->surveyInterval());
+#endif
+}
+
+void ConfigureUserFeedbackWidget::load()
+{
+#ifdef WITH_KUSERFEEDBACK
+    mUserFeedbackWidget->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
+#endif
 }
