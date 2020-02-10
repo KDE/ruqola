@@ -42,6 +42,8 @@ MessageBase {
 
         AvatarImage {
             id: avatarRect
+
+            Layout.alignment: Qt.AlignTop
             avatarurl: i_avatar
             aliasname: i_aliasname
             username: i_username

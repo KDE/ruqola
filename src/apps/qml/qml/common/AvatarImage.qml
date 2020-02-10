@@ -39,15 +39,11 @@ Rectangle {
     readonly property int defaultWidth: compactViewMode ? Kirigami.Units.fontMetrics.height :Kirigami.Units.iconSizes.medium
     signal showUserInfo()
 
-    Layout.alignment: Qt.AlignTop | Qt.AlignCenter
-    Layout.fillHeight: false
     //Customize it.
     implicitWidth: defaultWidth
     implicitHeight: implicitWidth
 
     radius: 3
-
-    anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
     color: avatarurl !== "" ? "transparent" : MessageScript.stringToColour(username)
     Image {
