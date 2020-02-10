@@ -205,6 +205,8 @@ void UtilsTest::shouldConvertTextWithUrl_data()
     QTest::newRow("test2") << QStringLiteral("[](http://www.kde.org)") << QStringLiteral("(http://www.kde.org)");
     QTest::newRow("test3") << QStringLiteral("bla bla [blo](http://www.kde.org)") << QStringLiteral("bla bla <a href='http://www.kde.org'>blo</a>");
     QTest::newRow("test4") << QStringLiteral("bla bla [blo](http://www.kde.org) bli [blu](http://www.kdi.org)") << QStringLiteral("bla bla <a href='http://www.kde.org'>blo</a> bli <a href='http://www.kdi.org'>blu</a>");
+    QTest::newRow("test4") << QStringLiteral("bla bla [blo]") << QStringLiteral("bla bla [blo]");
+    QTest::newRow("test4") << QStringLiteral("bla bla [blo] bli") << QStringLiteral("bla bla [blo] bli");
 }
 
 void UtilsTest::shouldConvertTextWithUrl()

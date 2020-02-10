@@ -196,6 +196,9 @@ QString Utils::convertTextWithUrl(const QString &str)
             isRef = true;
         } else if (str.at(i) == QLatin1Char(']')) {
             isRef = false;
+            if ((i == str.count() - 1) || (str.at(i+1) != QLatin1Char('('))) {
+                newStr += QLatin1Char('[') + references + QLatin1Char(']');
+            }
         } else if (str.at(i) == QLatin1Char('(') && !references.isEmpty()) {
             isUrl = true;
         } else if (str.at(i) == QLatin1Char(')') && !references.isEmpty()) {
