@@ -98,6 +98,9 @@ else()
     set(HAVE_QT5KEYCHAIN 0)
 endif()
 
+find_package(KUserFeedback)
+set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional). It can be disable in apps.")
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)

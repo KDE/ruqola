@@ -1,4 +1,16 @@
 
+if (TARGET KUserFeedbackWidgets)
+    add_definitions(-DWITH_KUSERFEEDBACK)
+endif()
+
+set(ruqola_userfeedback_SRCS)
+if (TARGET KUserFeedbackWidgets)
+    set(ruqola_userfeedback_SRCS ${ruqola_userfeedback_SRCS}
+        userfeedback/userfeedbackmanager.cpp
+        )
+endif()
+
+
 set(Ruqola_widgets_SRCS
     ruqolamainwindow.cpp
     ruqolacentralwidget.cpp
@@ -62,6 +74,7 @@ set(Ruqola_configure_SRCS
     configuredialog/accountserverlistwidget.cpp
     configuredialog/configureaccountserverwidget.cpp
     configuredialog/configurespellcheckingwidget.cpp
+    configuredialog/configureuserfeedbackwidget.cpp
     )
 
 ki18n_wrap_ui(Ruqola_configure_SRCS
@@ -110,6 +123,7 @@ ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h
 qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
 
 add_library(libruqolawidgets
+    ${ruqola_userfeedback_SRCS}
     ${Ruqola_common_SRCS}
     ${Ruqola_widgets_SRCS}
     ${Ruqola_widgets_dialog_SRCS}
@@ -120,6 +134,12 @@ add_library(libruqolawidgets
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
+
+set(ruqola_userfeedback_LIB)
+if (TARGET KUserFeedbackWidgets)
+        set(ruqola_userfeedback_LIB KUserFeedbackWidgets)
+endif()
+
 
 target_link_libraries(libruqolawidgets
     Qt5::Gui
@@ -133,6 +153,7 @@ target_link_libraries(libruqolawidgets
     KF5::TextWidgets
     librocketchatrestapi-qt5
     libruqolacore
+    ${ruqola_userfeedback_LIB}
 )
 
 if (NOT WIN32)
