@@ -30,7 +30,7 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersAutocompleteJob : public RestAp
 {
     Q_OBJECT
 public:
-    struct UsersAutocompleterInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersAutocompleterInfo {
         Q_REQUIRED_RESULT bool isValid() const;
 
         QString pattern;
