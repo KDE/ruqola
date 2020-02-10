@@ -20,6 +20,7 @@
 
 #include "usercompletermodel.h"
 #include "ruqola_debug.h"
+#include <QIcon>
 #include <QModelIndex>
 
 UserCompleterModel::UserCompleterModel(QObject *parent)
@@ -73,6 +74,7 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     case UserId:
         return user.userId();
     case Qt::DecorationRole:
+        return QIcon::fromTheme(user.iconFromStatus());
     case UserIconStatus:
         return user.iconFromStatus();
     }
