@@ -77,7 +77,8 @@ QNetworkRequest UsersAutocompleteJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("selector"), mSelector);
+    const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mSelector);
+    queryUrl.addQueryItem(QStringLiteral("selector"), val);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
