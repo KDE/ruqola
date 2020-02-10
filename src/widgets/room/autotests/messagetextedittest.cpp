@@ -32,4 +32,5 @@ void MessageTextEditTest::shouldHaveDefautValues()
     MessageTextEdit w;
     w.insert(QStringLiteral("test"));
     QCOMPARE(w.text(), QStringLiteral("test"));
+    QVERIFY(!w.acceptRichText());
 }
