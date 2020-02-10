@@ -24,6 +24,7 @@
 #include "common/completionlistview.h"
 #include "ruqola.h"
 
+#include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 #include <QListView>
 #include <QScreen>
@@ -41,6 +42,9 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     setCompletionModel(Ruqola::self()->rocketChatAccount()->inputCompleterModel());
     connect(this, &MessageTextEdit::complete, this, &MessageTextEdit::slotComplete);
     setAcceptRichText(false);
+
+    connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged,
+            this, &QWidget::updateGeometry);
 }
 
 MessageTextEdit::~MessageTextEdit()
@@ -56,6 +60,18 @@ void MessageTextEdit::insert(const QString &text)
 QString MessageTextEdit::text() const
 {
     return toPlainText();
+}
+
+QSize MessageTextEdit::sizeHint() const
+{
+    const QSize docSize = document()->size().toSize();
+    const int margin = int(document()->documentMargin());
+    return QSize(docSize.width() + margin, qMin(300, docSize.height()) + margin);
+}
+
+QSize MessageTextEdit::minimumSizeHint() const
+{
+    return sizeHint();
 }
 
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)

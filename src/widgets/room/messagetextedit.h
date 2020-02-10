@@ -40,6 +40,9 @@ public:
     void insert(const QString &text);
     QString text() const;
 
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
+
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);

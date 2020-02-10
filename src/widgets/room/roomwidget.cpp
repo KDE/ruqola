@@ -51,7 +51,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     mMessageListView = new MessageListView(this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-    mainLayout->addWidget(mMessageListView);
+    mainLayout->addWidget(mMessageListView, 1);
 
     mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
@@ -66,7 +66,6 @@ RoomWidget::RoomWidget(QWidget *parent)
     mStackedWidget->addWidget(mReadOnlyLineEditWidget);
 
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
-    mStackedWidget->setMaximumHeight(mMessageLineWidget->height());
 
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
