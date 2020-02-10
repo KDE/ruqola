@@ -44,6 +44,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 
 MessageTextEdit::~MessageTextEdit()
 {
+    disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
 }
 
 void MessageTextEdit::insert(const QString &text)
