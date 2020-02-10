@@ -74,6 +74,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
 
@@ -165,11 +166,12 @@ void RoomWidget::setChannelSelected(const QModelIndex &index)
 void RoomWidget::updateRoomHeader()
 {
     if (mRoomWrapper) {
-        mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+        mRoomHeaderWidget->setRoomName(mRoomWrapper->displayRoomName());
         mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
         mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
         mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
         mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
+        mRoomHeaderWidget->setIsDiscussion(mRoomWrapper->isDiscussionRoom());
         //TODO Description ?
 
         if (mRoomWrapper->roomMessageInfo().isEmpty()) {
@@ -270,4 +272,12 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mCurrentRocketChatAccount = account;
     mMessageLineWidget->setCurrentRocketChatAccount(account);
     mRoomId.clear(); //Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
+}
+
+void RoomWidget::slotGoBackToRoom()
+{
+    //TODO fix me !
+    qDebug() << " void RoomWidget::slotGoBackToRoom()" <<mRoomWrapper->parentRid();
+    mCurrentRocketChatAccount->switchingToRoom(mRoomWrapper->parentRid());
+    //FIX select channel !
 }

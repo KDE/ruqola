@@ -31,6 +31,7 @@ public:
     ~RoomHeaderWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldShowHideIcon();
 };
 
 #endif // ROOMHEADERWIDGETTEST_H

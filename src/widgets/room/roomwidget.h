@@ -69,6 +69,7 @@ private:
     void setRoomType(const QString &roomType);
     void slotEncryptedChanged(bool b);
     void slotTextEditing(bool clearNotification);
+    void slotGoBackToRoom();
 
     QString mRoomId;
     QString mRoomType;

@@ -44,6 +44,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
+    mDiscussionBackButton = new QToolButton(this);
+    mDiscussionBackButton->setObjectName(QStringLiteral("mDiscussionBackButton"));
+    mDiscussionBackButton->setIcon(QIcon::fromTheme(QStringLiteral("draw-arrow-back")));
+    mDiscussionBackButton->setCheckable(false);
+    headerLayout->addWidget(mDiscussionBackButton, Qt::AlignTop);
+    connect(mDiscussionBackButton, &QToolButton::clicked, this, &RoomHeaderWidget::goBackToRoom);
+    mDiscussionBackButton->setVisible(false);
+
     mEncryptedButton = new QToolButton(this);
     mEncryptedButton->setObjectName(QStringLiteral("mEncryptedButton"));
     mEncryptedButton->setIcon(QIcon::fromTheme(QStringLiteral("encrypted")));
@@ -127,4 +135,10 @@ void RoomHeaderWidget::setEncypted(bool b)
 {
     mEncryptedButton->setChecked(b);
     mEncryptedButton->setVisible(b);
+}
+
+void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
+{
+    mFavoriteButton->setVisible(!isDiscussion);
+    mDiscussionBackButton->setVisible(isDiscussion);
 }

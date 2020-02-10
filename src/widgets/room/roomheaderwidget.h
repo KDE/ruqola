@@ -39,9 +39,13 @@ public:
 
     void setFavoriteStatus(bool b);
     void setEncypted(bool b);
+
+    void setIsDiscussion(bool isDiscussion);
+
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);
+    void goBackToRoom();
 
 private:
     QLabel *mRoomName = nullptr;
@@ -50,6 +54,7 @@ private:
     QLabel *mDescription = nullptr;
     QToolButton *mFavoriteButton = nullptr;
     QToolButton *mEncryptedButton = nullptr;
+    QToolButton *mDiscussionBackButton = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

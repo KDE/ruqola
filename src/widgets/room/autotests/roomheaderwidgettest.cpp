@@ -75,4 +75,30 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEncryptedButton);
     QVERIFY(mEncryptedButton->isCheckable());
     QVERIFY(!mEncryptedButton->isVisible());
+
+    auto *mDiscussionBackButton = w.findChild<QToolButton *>(QStringLiteral("mDiscussionBackButton"));
+    QVERIFY(mDiscussionBackButton);
+    QVERIFY(!mDiscussionBackButton->isCheckable());
+    QVERIFY(!mDiscussionBackButton->isVisible());
+}
+
+void RoomHeaderWidgetTest::shouldShowHideIcon()
+{
+    RoomHeaderWidget w;
+    w.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&w));
+
+    QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
+
+    //QToolButton *mEncryptedButton = w.findChild<QToolButton *>(QStringLiteral("mEncryptedButton"));
+
+    QToolButton *mDiscussionBackButton = w.findChild<QToolButton *>(QStringLiteral("mDiscussionBackButton"));
+
+    w.setIsDiscussion(true);
+    QVERIFY(!mFavoriteButton->isVisible());
+    QVERIFY(mDiscussionBackButton->isVisible());
+
+    w.setIsDiscussion(false);
+    QVERIFY(mFavoriteButton->isVisible());
+    QVERIFY(!mDiscussionBackButton->isVisible());
 }
