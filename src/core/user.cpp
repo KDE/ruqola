@@ -60,7 +60,6 @@ QString User::status() const
 
 void User::setStatus(const QString &status)
 {
-    qDebug()<< "status " << status;
     mStatus = status;
 }
 
