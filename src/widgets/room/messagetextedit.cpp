@@ -88,7 +88,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
         e->accept();
         return;
     } else if (key == Qt::Key_Up || key == Qt::Key_Down) {
-        if (document()->blockCount() > 1) {
+        if (document()->lineCount() > 1) {
             CompletionTextEdit::keyPressEvent(e);
             return;
         }
