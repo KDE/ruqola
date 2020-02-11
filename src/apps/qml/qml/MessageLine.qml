@@ -89,7 +89,6 @@ ColumnLayout {
 
     QQC2.ScrollView {
         id: messageLineScrollView
-        anchors.fill: parent
 
         Layout.fillWidth: true
         Layout.maximumHeight: Kirigami.Units.gridUnit * 5 // maximum line count, roughly
