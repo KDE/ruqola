@@ -61,6 +61,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showthreadsdialog.cpp
     dialogs/listthreadsdelegate.cpp
     dialogs/searchchanneldelegate.cpp
+    dialogs/takevideomessagedialog.cpp
     )
 
 set(Ruqola_configure_SRCS
