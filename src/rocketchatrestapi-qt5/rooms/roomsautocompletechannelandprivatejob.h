@@ -30,6 +30,13 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAutocompleteChannelAndPrivateJo
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAutocompleteChannelAndPrivateInfo {
+        Q_REQUIRED_RESULT bool isValid() const;
+
+        QString name;
+        QString exception;
+    };
+
     explicit RoomsAutocompleteChannelAndPrivateJob(QObject *parent = nullptr);
     ~RoomsAutocompleteChannelAndPrivateJob() override;
 
@@ -39,12 +46,16 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    Q_REQUIRED_RESULT RoomsAutocompleteChannelAndPrivateInfo roomsCompleterInfo() const;
+    void setRoomsCompleterInfo(const RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo);
+
 Q_SIGNALS:
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RoomsAutocompleteChannelAndPrivateJob)
     void slotRoomsAutoCompleteChannelAndPrivateFinished();
+    RoomsAutocompleteChannelAndPrivateInfo mRoomsAutocompleteInfo;
 };
 }
 #endif // ROOMSAUTOCOMPLETECHANNELANDPRIVATEJOB_H

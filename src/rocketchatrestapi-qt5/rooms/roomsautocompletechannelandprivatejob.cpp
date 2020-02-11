@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -73,9 +74,30 @@ void RoomsAutocompleteChannelAndPrivateJob::slotRoomsAutoCompleteChannelAndPriva
 
 QNetworkRequest RoomsAutocompleteChannelAndPrivateJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate);
+    QUrlQuery queryUrl;
+    //TODO add support for exception.
+    const QString val = QStringLiteral("{\"name\": \"%1\"}").arg(mRoomsAutocompleteInfo.name);
+    queryUrl.addQueryItem(QStringLiteral("selector"), val);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo RoomsAutocompleteChannelAndPrivateJob::roomsCompleterInfo() const
+{
+    return mRoomsAutocompleteInfo;
+}
+
+void RoomsAutocompleteChannelAndPrivateJob::setRoomsCompleterInfo(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo)
+{
+    mRoomsAutocompleteInfo = roomCompleterInfo;
+}
+
+bool RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo::isValid() const
+{
+    //FIXME
+    return !name.isEmpty();
 }

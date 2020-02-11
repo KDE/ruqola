@@ -120,6 +120,7 @@
 #include "rooms/savenotificationjob.h"
 #include "rooms/roomstartdiscussionjob.h"
 #include "rooms/getdiscussionsjob.h"
+#include "rooms/roomsautocompletechannelandprivatejob.h"
 
 #include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
@@ -1651,5 +1652,16 @@ void RestApiRequest::usersAutocomplete(const UsersAutocompleteJob::UsersAutocomp
     connect(job, &UsersAutocompleteJob::usersAutocompleteDone, this, &RestApiRequest::usersAutocompleteDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob";
+    }
+}
+
+void RestApiRequest::roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info)
+{
+    auto *job = new RoomsAutocompleteChannelAndPrivateJob(this);
+    job->setRoomsCompleterInfo(info);
+    initializeRestApiJob(job);
+    connect(job, &RoomsAutocompleteChannelAndPrivateJob::roomsAutoCompleteChannelAndPrivateDone, this, &RestApiRequest::roomsAutoCompleteChannelAndPrivateDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsAutocompleteChannelAndPrivateJob";
     }
 }

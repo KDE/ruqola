@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "restapiutil.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
@@ -174,6 +175,7 @@ public:
     void customUserStatus();
     void customSounds();
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
+    void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -234,6 +236,7 @@ Q_SIGNALS:
     void customSoundsDone(const QByteArray &); //TODO QByteArray or QJson ?
 
     void usersAutocompleteDone(const QJsonObject &obj);
+    void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
     void failed(const QString &str);
 
