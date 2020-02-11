@@ -27,7 +27,7 @@
 #include <model/listmessagesmodel.h>
 #include "messages/message.h"
 #include "rocketchataccountsettings.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "authenticationinfo.h"
 #include "file.h"
 #include "inputtextmanager.h"

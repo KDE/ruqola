@@ -158,6 +158,8 @@ set (Ruqola_core_srcs
     messagedownloadmanager.cpp
 
     fileattachments.cpp
+
+    accountroomsettings.cpp
 )
 
 if (NOT WIN32)
