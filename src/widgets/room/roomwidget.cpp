@@ -29,6 +29,7 @@
 #include "messagetextedit.h"
 #include "ruqolawidgets_debug.h"
 #include "model/roommodel.h"
+#include "dialogs/createnewdiscussiondialog.h"
 
 #include <KLocalizedString>
 
@@ -38,6 +39,7 @@
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>
+
 
 
 RoomWidget::RoomWidget(QWidget *parent)
@@ -79,6 +81,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
+    connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
 
     setAcceptDrops(true);
 }
@@ -86,6 +89,19 @@ RoomWidget::RoomWidget(QWidget *parent)
 RoomWidget::~RoomWidget()
 {
     delete mRoomWrapper;
+}
+
+void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+{
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    dlg->setDiscussionName(originalMessage);
+    dlg->setChannelName(mRoomHeaderWidget->roomName());
+    if (dlg->exec()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        rcAccount->createDiscussion(info.channelName, info.discussionName, info.message, messageId, info.users);
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotTextEditing(bool clearNotification)

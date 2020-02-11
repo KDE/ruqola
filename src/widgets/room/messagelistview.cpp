@@ -23,7 +23,6 @@
 #include "rocketchataccount.h"
 #include "messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
-#include "dialogs/createnewdiscussiondialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -299,17 +298,9 @@ void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinn
 
 void MessageListView::slotStartDiscussion(const QModelIndex &index)
 {
-    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
     const QString message = index.data(MessageModel::OriginalMessage).toString();
-    dlg->setDiscussionName(message);
-    //FIXME dlg->setChannelName(message);
-    if (dlg->exec()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        const QString messageId = index.data(MessageModel::MessageId).toString();
-        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        rcAccount->createDiscussion(info.channelName, info.discussionName, info.message, messageId, info.users);
-    }
-    delete dlg;
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    Q_EMIT createNewDiscussion(messageId, message);
 }
 
 void MessageListView::slotCopyText(const QModelIndex &index)

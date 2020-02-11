@@ -72,6 +72,7 @@ private:
     void slotEncryptedChanged(bool b);
     void slotTextEditing(bool clearNotification);
     void slotGoBackToRoom();
+    void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
 
     QString mRoomId;
     QString mRoomType;
