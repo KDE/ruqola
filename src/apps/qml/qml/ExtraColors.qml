@@ -25,5 +25,6 @@ import org.kde.kirigami 2.7 as Kirigami
 
 QtObject {
     readonly property string backgroundColor: Kirigami.Theme.backgroundColor
+    readonly property string alternateBackgroundColor: Kirigami.Theme.alternateBackgroundColor
 }
 

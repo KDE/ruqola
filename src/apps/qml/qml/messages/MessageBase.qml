@@ -26,5 +26,13 @@ import QtQuick.Layouts 1.12
 QQC2.Button {
     id: main
 
+    property alias backgroundColor: background.color
+
     property var messageMain: undefined
+
+    background: Rectangle {
+        id: background
+
+        anchors.fill: parent
+    }
 }

@@ -68,9 +68,11 @@ Rectangle {
 
     property QtObject rcAccount
 
-    color: RuqolaSingleton.backgroundColor
+    property bool hovered: loaded.item && loaded.item.hovered
+
+    color: hovered ? RuqolaSingleton.alternateBackgroundColor : RuqolaSingleton.backgroundColor
     implicitHeight: loaded.item ? loaded.item.implicitHeight : 0
-    
+
     implicitWidth: 150
 
     signal openDirectChannel(string userName)
@@ -159,6 +161,12 @@ Rectangle {
         }
 
         sourceComponent: getComponent()
+
+        onItemChanged: {
+            if (item) {
+                item.backgroundColor = Qt.binding(function() { return root.color; });
+            }
+        }
     }
 
     onLinkActivated: {
