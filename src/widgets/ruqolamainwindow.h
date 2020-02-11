@@ -22,6 +22,7 @@
 #define RUQOLAMAINWINDOW_H
 
 #include <KXmlGuiWindow>
+#include <QPointer>
 #include "libruqolawidgets_export.h"
 class RuqolaCentralWidget;
 class QAction;
@@ -90,7 +91,7 @@ private:
     QAction *mListOfUsers = nullptr;
     QAction *mStartVideoChat = nullptr;
     AccountMenu *mAccountMenu = nullptr;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
 };

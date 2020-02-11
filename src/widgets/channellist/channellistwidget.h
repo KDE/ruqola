@@ -21,6 +21,7 @@
 #ifndef CHANNELLISTWIDGET_H
 #define CHANNELLISTWIDGET_H
 
+#include <QPointer>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
@@ -55,7 +56,7 @@ private:
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;
     QLineEdit *mSearchRoom = nullptr;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // CHANNELLISTWIDGET_H

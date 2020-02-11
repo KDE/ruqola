@@ -22,6 +22,7 @@
 #define RUQOLACENTRALWIDGET_H
 
 #include <QAbstractSocket>
+#include <QPointer>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class QStackedWidget;
@@ -51,7 +52,7 @@ private:
     QStackedWidget *mStackedWidget = nullptr;
     RuqolaMainWidget *mRuqolaMainWidget = nullptr;
     RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // RUQOLACENTRALWIDGET_H

@@ -22,6 +22,7 @@
 #define ROOMWIDGET_H
 
 #include <QMap>
+#include <QPointer>
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
@@ -82,7 +83,7 @@ private:
     RoomWrapper *mRoomWrapper = nullptr;
     QStackedWidget *mStackedWidget = nullptr;
     ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // ROOMWIDGET_H
