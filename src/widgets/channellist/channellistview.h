@@ -37,6 +37,7 @@ public:
     RoomFilterProxyModel *model() const;
     void setModel(QAbstractItemModel *model) override;
 
+    void selectChannelRequested(const QString &channelId);
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 

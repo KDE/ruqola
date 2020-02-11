@@ -57,7 +57,9 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
     mStackedRoomWidget->addWidget(mRoomWidget);
-    connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, &RuqolaMainWidget::slotSelectChannelRequested);
+    connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, [this](const QString &channelId) {
+        mChannelList->channelListView()->selectChannelRequested(channelId);
+    });
 
     mEmptyRoomWidget = new QWidget(this);
     mEmptyRoomWidget->setObjectName(QStringLiteral("mEmptyRoomWidget"));
@@ -69,7 +71,8 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
-    slotSelectChannelRequested(group.readEntry("SelectedRoom", QString()));
+    //FIXME delay it until list of room are loaded.
+    mChannelList->channelListView()->selectChannelRequested(group.readEntry("SelectedRoom", QString()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
@@ -111,21 +114,4 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mChannelList->setCurrentRocketChatAccount(account);
     mRoomWidget->setCurrentRocketChatAccount(account);
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
-}
-
-void RuqolaMainWidget::slotSelectChannelRequested(const QString &channelId)
-{
-    if (channelId.isEmpty()) {
-        return;
-    }
-    RoomFilterProxyModel *model = mChannelList->channelListView()->model();
-    for (int roomIdx = 0, nRooms = model->rowCount(); roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = model->index(roomIdx, 0);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
-        if (roomId == channelId) {
-            selectChannelRoom(roomModelIndex);
-            mChannelList->channelListView()->selectionModel()->setCurrentIndex(model->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            break;
-        }
-    }
 }

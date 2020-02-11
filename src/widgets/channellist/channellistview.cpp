@@ -126,3 +126,20 @@ void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavori
     const QString roomId = index.data(RoomModel::RoomID).toString();
     rcAccount->changeFavorite(roomId, !isFavorite);
 }
+
+void ChannelListView::selectChannelRequested(const QString &channelId)
+{
+    if (channelId.isEmpty()) {
+        return;
+    }
+    RoomFilterProxyModel *filterModel = model();
+    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = filterModel->index(roomIdx, 0);
+        const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
+        if (roomId == channelId) {
+            Q_EMIT channelSelected(roomModelIndex);
+            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            break;
+        }
+    }
+}
