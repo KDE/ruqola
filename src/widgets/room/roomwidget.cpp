@@ -219,7 +219,7 @@ void RoomWidget::connectRoomWrapper()
             mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
         });
         connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
-            mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+            mRoomHeaderWidget->setRoomName(mRoomWrapper->displayRoomName());
         });
         connect(mRoomWrapper, &RoomWrapper::favoriteChanged, this, [this]() {
             mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
