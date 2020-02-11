@@ -65,9 +65,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 
-    connect(mChannelList, &ChannelListWidget::channelSelected, this, [this](const QModelIndex &index) {
-        selectChannelRoom(index);
-    });
+    connect(mChannelList, &ChannelListWidget::channelSelected, this, &RuqolaMainWidget::selectChannelRoom);
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
