@@ -114,10 +114,10 @@ void MessageTextEdit::slotTextChanged()
 void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto *inputTextManager = Ruqola::self()->rocketChatAccount()->inputTextManager();
     QTextCursor cursor = textCursor();
     int textPos = cursor.position();
-    const QString newText = rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), textPos);
+    const QString newText = inputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
 
     mCompletionListView->hide();
 

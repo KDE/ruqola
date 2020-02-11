@@ -32,7 +32,14 @@ InputTextManager::~InputTextManager()
 {
 }
 
-QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int &position)
+QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
+{
+    // Those two methods aren't the same. replaceWord is called from QML with a value "int position"
+    // while applyCompletion takes a ref (which is used by the Widgets code to update the position)
+    return applyCompletion(newWord, text, &position);
+}
+
+QString InputTextManager::applyCompletion(const QString &newWord, const QString &text, int *pPosition)
 {
     if (newWord.isEmpty()) {
         qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty newWord";
@@ -42,6 +49,7 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
         qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty text";
         return text;
     }
+    int position = *pPosition;
     //Cursor position can be at the end of word => text.length
     if ((position > text.length()) || (position < 0)) {
         qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Invalid position" << position;
@@ -71,7 +79,7 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
     }
     QString replaceText = text;
     replaceText.replace(start, end - start + 1, newWord);
-    position = start + newWord.length();
+    *pPosition = start + newWord.length();
     return replaceText;
 }
 
