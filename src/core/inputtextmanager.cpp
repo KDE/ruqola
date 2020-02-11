@@ -32,7 +32,7 @@ InputTextManager::~InputTextManager()
 {
 }
 
-QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
+QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int &position)
 {
     if (newWord.isEmpty()) {
         qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty newWord";
@@ -71,6 +71,7 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
     }
     QString replaceText = text;
     replaceText.replace(start, end - start + 1, newWord);
+    position = start + newWord.length();
     return replaceText;
 }
 

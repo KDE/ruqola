@@ -41,7 +41,7 @@ public:
 
     void inputTextCompleter(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
+    Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int &position);
 
     void setInputTextChanged(const QString &str, int position);
 

@@ -115,11 +115,16 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString newText = rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), textCursor().position());
+    QTextCursor cursor = textCursor();
+    int textPos = cursor.position();
+    const QString newText = rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), textPos);
 
     mCompletionListView->hide();
 
     disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     setPlainText(newText);
     connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
+
+    cursor.setPosition(textPos);
+    setTextCursor(cursor);
 }

@@ -43,10 +43,12 @@ void InputTextManagerTest::shouldReplaceWord_data()
     QTest::addColumn<QString>("text");
     QTest::addColumn<int>("position");
     QTest::addColumn<QString>("result");
-    QTest::newRow("empty") << QString() << QString() << 5 << QString();
-    QTest::newRow("replace1") << QStringLiteral("bla") << QStringLiteral("foo @d") << 5 << QStringLiteral("foo @bla");
-    QTest::newRow("replace2") << QStringLiteral("bla") << QStringLiteral("foo @daaaa") << 5 << QStringLiteral("foo @bla");
-    QTest::newRow("replace3") << QStringLiteral("bla") << QStringLiteral("@daaaa foo") << 1 << QStringLiteral("@bla foo");
+    QTest::addColumn<int>("expectedPosition");
+    QTest::newRow("empty") << QString() << QString() << 5 << QString() << 5;
+    QTest::newRow("replace1") << QStringLiteral("bla") << QStringLiteral("foo @d") << 5 << QStringLiteral("foo @bla") << 8;
+    QTest::newRow("replace2") << QStringLiteral("bla") << QStringLiteral("foo @daaaa") << 5 << QStringLiteral("foo @bla") << 8;
+    QTest::newRow("replace3") << QStringLiteral("bla") << QStringLiteral("@daaaa foo") << 1 << QStringLiteral("@bla foo") << 4;
+    QTest::newRow("buildbot") << QStringLiteral("buildbot ") << QStringLiteral("@bu") << 3 << QStringLiteral("@buildbot ") << 10;
 }
 
 void InputTextManagerTest::shouldReplaceWord()
@@ -54,10 +56,12 @@ void InputTextManagerTest::shouldReplaceWord()
     QFETCH(QString, newword);
     QFETCH(QString, text);
     QFETCH(int, position);
+    QFETCH(int, expectedPosition);
     QFETCH(QString, result);
 
     InputTextManager manager(nullptr);
     QCOMPARE(manager.replaceWord(newword, text, position), result);
+    QCOMPARE(position, expectedPosition);
 }
 
 void InputTextManagerTest::shouldSearchWord_data()

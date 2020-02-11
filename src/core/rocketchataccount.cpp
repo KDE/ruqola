@@ -368,7 +368,7 @@ void RocketChatAccount::setInputTextChanged(const QString &str, int position)
     mInputTextManager->setInputTextChanged(str, position);
 }
 
-QString RocketChatAccount::replaceWord(const QString &newWord, const QString &str, int position)
+QString RocketChatAccount::replaceWord(const QString &newWord, const QString &str, int &position)
 {
     return mInputTextManager->replaceWord(newWord, str, position);
 }
