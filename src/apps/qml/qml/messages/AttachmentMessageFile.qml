@@ -48,9 +48,8 @@ UserMessage {
             RowLayout {
                 Layout.fillWidth: true
 
-                QQC2.Label {
+                ClickableLabel {
                     id: attachmentTitle
-                    textFormat: Text.RichText
                     visible: model.modelData.title !== ""
                     text: model.modelData.displayTitle
                     Layout.fillWidth: true
