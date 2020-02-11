@@ -357,8 +357,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         addRoom(roomData);
         //addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
     } else if (actionName == QLatin1String("updated")) {
-        //qCDebug(RUQOLA_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
-        qDebug() << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
+        qCDebug(RUQOLA_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         updateSubscriptionRoom(roomData);
     } else if (actionName == QLatin1String("changed")) {
         //qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
