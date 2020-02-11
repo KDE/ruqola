@@ -41,7 +41,7 @@ Kirigami.BasicListItem {
             id: timestamp
             Layout.alignment: Qt.AlignTop
             text: i_timestamp
-            opacity: .5
+            color: Kirigami.Theme.disabledTextColor
         }
 
         QQC2.Label {
@@ -63,7 +63,7 @@ Kirigami.BasicListItem {
                 visible: i_numberofmessages > 0
                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
                 text: i_lastmessage
-                opacity: .5
+                color: Kirigami.Theme.disabledTextColor
             }
         }
         QQC2.Label {

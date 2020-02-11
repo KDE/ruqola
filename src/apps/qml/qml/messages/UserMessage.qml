@@ -133,7 +133,7 @@ MessageBase {
                             id: usernameLabel
                             visible: i_aliasname !== ""
                             text: '@' + i_username
-                            opacity: timestampText.opacity // same as TimestampText for now
+                            color: Kirigami.Theme.disabledTextColor
                         }
 
                         Kirigami.Icon {
@@ -142,7 +142,7 @@ MessageBase {
                             width: height
                             height: 18
                             visible: i_roles.length > 0
-                            opacity: rolesInfoMA.containsMouse ? 1.0 : 0.6
+                            color: rolesInfoMA.containsMouse ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
                             MouseArea {
                                 id: rolesInfoMA
                                 hoverEnabled: true
@@ -158,7 +158,7 @@ MessageBase {
                             width: height
                             height: 18
                             visible: i_editedByUserName !== ""
-                            opacity: editedInfoMA.containsMouse ? 1.0 : 0.6
+                            color: editedInfoMA.containsMouse ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
                             MouseArea {
                                 id: editedInfoMA
                                 hoverEnabled: true

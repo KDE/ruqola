@@ -19,17 +19,16 @@
 */
 
 import QtQuick 2.9
-
 import QtQuick.Controls 2.5 as QQC2
-
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.7 as Kirigami
 
 QQC2.Label {
     id: timestampText
     property string timestamp
     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
     text: timestamp
-    opacity: .6
+    color: Kirigami.Theme.disabledTextColor
     textFormat: Text.PlainText
     
     z: 10

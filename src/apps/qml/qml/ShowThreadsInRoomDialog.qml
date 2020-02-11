@@ -116,7 +116,7 @@ QQC2.Dialog {
                                 id: timestampText
                                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
                                 text: lastmessage
-                                opacity: .5
+                                color: Kirigami.Theme.disabledTextColor
                             }
                         }
                         QQC2.Label {
