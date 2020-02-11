@@ -189,7 +189,7 @@ QQC2.Dialog {
         DeleteButton {
             id: deleteButton
             visible: roomInfo.canBeModify
-            onDeleteButtonClicked: {
+            onClicked: {
                 deleteRoomDialog.rId = roomInfo.roomId
                 deleteRoomDialog.open();
             }

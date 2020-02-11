@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017-2020 Laurent Montel <montel@kde.org>
+ * Copyright (C) 2020 Kevin Funk <kfunk@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,12 +19,32 @@
  *
  */
 
+
 import QtQuick 2.9
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.7 as Kirigami
 
-Button {
-    id: download
-    toolTipText: i18n("Download")
-    source: "cloud-download"
+Kirigami.Icon {
+    id: button
+
+    property string toolTipText
+
+    signal clicked()
+
+    width: height
+    height: Kirigami.Units.iconSizes.small
+
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
+        onClicked: {
+            button.clicked();
+        }
+    }
+
+    QQC2.ToolTip.text: toolTipText
+    QQC2.ToolTip.visible: toolTipText !== "" && mouseArea.containsMouse
 }

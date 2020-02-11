@@ -76,13 +76,13 @@ Kirigami.BasicListItem {
         }
         DownloadButton {
             visible: i_complete
-            onDownloadButtonClicked: {
+            onClicked: {
                 showFilesInRoomDialog.downloadFile(i_url)
             }
         }
         DeleteButton {
             visible: canbedeleted
-            onDeleteButtonClicked: {
+            onClicked: {
                 deleteFileAttachmentDialog.fileId = fileid;
                 deleteFileAttachmentDialog.open();
             }

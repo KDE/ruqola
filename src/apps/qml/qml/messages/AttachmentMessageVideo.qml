@@ -131,7 +131,7 @@ UserMessage {
 
                     DownloadButton {
                         id: download
-                        onDownloadButtonClicked: {
+                        onClicked: {
                             messageMain.downloadAttachment(videoPlayer.source)
                         }
                     }

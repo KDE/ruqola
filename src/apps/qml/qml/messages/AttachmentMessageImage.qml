@@ -148,7 +148,7 @@ UserMessage {
 
             DownloadButton {
                 id: download
-                onDownloadButtonClicked: {
+                onClicked: {
                     messageMain.downloadAttachment(model.modelData.link)
                 }
             }

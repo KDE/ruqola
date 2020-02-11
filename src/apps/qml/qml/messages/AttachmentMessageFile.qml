@@ -64,7 +64,7 @@ UserMessage {
                 DownloadButton {
                     id: downloadButton
                     visible: model.modelData.canDownloadAttachment
-                    onDownloadButtonClicked: {
+                    onClicked: {
                         messageMain.downloadAttachment(model.modelData.link)
                     }
                 }

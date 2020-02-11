@@ -26,7 +26,9 @@ import org.kde.kirigami 2.7 as Kirigami
 
 import QtQuick.Layouts 1.12
 
-Kirigami.Icon {
+import "../common"
+
+Button {
     id: showHideButtonId
     property QtObject targetAnimation
     property int defaultHeight: 200
@@ -35,21 +37,19 @@ Kirigami.Icon {
     signal hiddenChanged(bool state);
 
     source: isHidden ? "hint" : "visibility"
-    width: height
-    height: Kirigami.Units.iconSizes.small
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            if (isHidden) {
-                isHidden = false
-                imageAnimationShow.running = true;
-            } else {
-                isHidden = true
-                imageAnimationHide.running = true;
-            }
-            showHideButtonId.hiddenChanged(!isHidden)
+    toolTipText: isHidden ? i18n("Show") : i18n("Hide")
+
+    onClicked: {
+        if (isHidden) {
+            isHidden = false
+            imageAnimationShow.running = true;
+        } else {
+            isHidden = true
+            imageAnimationHide.running = true;
         }
+        showHideButtonId.hiddenChanged(!isHidden)
     }
+
     NumberAnimation {
         id: imageAnimationHide
         target: targetAnimation

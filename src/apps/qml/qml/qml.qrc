@@ -78,6 +78,7 @@
         <file alias="ReactionsPopup.qml">messages/ReactionsPopup.qml</file>
     </qresource>
     <qresource prefix="/common">
+        <file alias="Button.qml">common/Button.qml</file>
         <file alias="DownloadButton.qml">common/DownloadButton.qml</file>
         <file alias="AvatarImage.qml">common/AvatarImage.qml</file>
         <file alias="DeleteButton.qml">common/DeleteButton.qml</file>

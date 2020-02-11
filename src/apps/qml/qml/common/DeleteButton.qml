@@ -24,18 +24,8 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.7 as Kirigami
 
-Kirigami.Icon {
+Button {
     id: deleteButton
+    toolTipText: i18n("Delete")
     source: "edit-delete-shred"
-    signal deleteButtonClicked()
-
-    width: height
-    height: Kirigami.Units.iconSizes.small
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            deleteButton.deleteButtonClicked();
-        }
-    }
 }
