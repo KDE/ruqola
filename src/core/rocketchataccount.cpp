@@ -456,6 +456,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone, this, &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -849,6 +850,11 @@ void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
     mUserCompleterModel->insertUsers(users);
 }
 
+void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)
+{
+    //TODO
+}
+
 AccountRoomSettings* RocketChatAccount::accountRoomSettings() const
 {
     return mAccountRoomSettings;
@@ -1188,8 +1194,8 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         }
         break;
     case Password:
-        //TODO channel type ???
-        restApi()->setJoinCodeChannel(roomId, newValue.toString());
+        //FIXME channel type ???
+        //restApi()->setJoinCodeChannel(roomId, newValue.toString());
         break;
     }
 }
