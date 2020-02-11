@@ -127,7 +127,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     //TODO add encrypted too!
 
-    mDeleteChannel = new QPushButton(i18n("Delete"), this); //TODO add icons!
+    mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
@@ -151,6 +151,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
     mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mNameReadOnly->setOpenExternalLinks(true);
+    mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
 
     mCommentReadOnly = new QLabel(this);
@@ -158,6 +159,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
     mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mCommentReadOnly->setOpenExternalLinks(true);
+    mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
 
     mAnnouncementReadOnly = new QLabel(this);
@@ -165,6 +167,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
     mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mAnnouncementReadOnly->setOpenExternalLinks(true);
+    mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
 
     mDescriptionReadOnly = new QLabel(this);
@@ -172,6 +175,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
     mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescriptionReadOnly->setOpenExternalLinks(true);
+    mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
 
