@@ -44,6 +44,7 @@ Q_SIGNALS:
     void channelSelected();
 private:
     void slotSelectChannelRequested(const QString &channelId);
+    void selectChannelRoom(const QModelIndex &index);
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;
     QSplitter *mSplitter = nullptr;

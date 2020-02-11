@@ -28,6 +28,7 @@
 #include "readonlylineeditwidget.h"
 #include "messagetextedit.h"
 #include "ruqolawidgets_debug.h"
+#include "model/roommodel.h"
 
 #include <KLocalizedString>
 
@@ -37,6 +38,7 @@
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>
+
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -180,8 +182,6 @@ void RoomWidget::updateRoomHeader()
             mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
             mReadOnlyLineEditWidget->setMessage(mRoomWrapper->roomMessageInfo());
         }
-    } else {
-        //Hide it
     }
 }
 
@@ -277,9 +277,4 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void RoomWidget::slotGoBackToRoom()
 {
     Q_EMIT selectChannelRequested(mRoomWrapper->parentRid());
-    //TODO setChannelSelected();
-    //TODO fix me !
-    qDebug() << " void RoomWidget::slotGoBackToRoom()" <<mRoomWrapper->parentRid();
-    mCurrentRocketChatAccount->switchingToRoom(mRoomWrapper->parentRid());
-    //FIX select channel !
 }

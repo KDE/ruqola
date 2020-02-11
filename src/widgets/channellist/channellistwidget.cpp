@@ -108,13 +108,6 @@ ChannelListView *ChannelListWidget::channelListView() const
     return mChannelView;
 }
 
-void ChannelListWidget::setCurrentSelectedRoom(const QString &currentRoom)
-{
-    if (!currentRoom.isEmpty()) {
-        //TODO Q_EMIT channelSelected(currentRoom);
-    }
-}
-
 QString ChannelListWidget::currentSelectedRoom() const
 {
     if (mChannelView->selectionModel()) { //For autotest

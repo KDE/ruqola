@@ -21,11 +21,15 @@
 #include "ruqolamainwidget.h"
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
+#include "channellist/channellistview.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QSplitter>
 #include <QVBoxLayout>
+
+#include <model/roomfilterproxymodel.h>
+#include <model/roommodel.h>
 
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWidget";
@@ -62,14 +66,12 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 
     connect(mChannelList, &ChannelListWidget::channelSelected, this, [this](const QModelIndex &index) {
-        Q_EMIT mRoomWidget->channelSelected(index);
-        mStackedRoomWidget->setCurrentWidget(mRoomWidget);
-        Q_EMIT channelSelected();
+        selectChannelRoom(index);
     });
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
-    mChannelList->setCurrentSelectedRoom(group.readEntry("SelectedRoom", QString()));
+    slotSelectChannelRequested(group.readEntry("SelectedRoom", QString()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
@@ -82,6 +84,13 @@ RuqolaMainWidget::~RuqolaMainWidget()
     } else {
         group.writeEntry("SelectedRoom", selectedRoom);
     }
+}
+
+void RuqolaMainWidget::selectChannelRoom(const QModelIndex &index)
+{
+    Q_EMIT mRoomWidget->channelSelected(index);
+    mStackedRoomWidget->setCurrentWidget(mRoomWidget);
+    Q_EMIT channelSelected();
 }
 
 RoomWrapper *RuqolaMainWidget::roomWrapper() const
@@ -108,5 +117,17 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RuqolaMainWidget::slotSelectChannelRequested(const QString &channelId)
 {
-    //TODO find channelId
+    if (channelId.isEmpty()) {
+        return;
+    }
+    RoomFilterProxyModel *model = mChannelList->channelListView()->model();
+    for (int roomIdx = 0, nRooms = model->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = model->index(roomIdx, 0);
+        const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
+        if (roomId == channelId) {
+            selectChannelRoom(roomModelIndex);
+            mChannelList->channelListView()->selectionModel()->setCurrentIndex(model->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            break;
+        }
+    }
 }
