@@ -719,11 +719,13 @@ void RocketChatAccount::insertCompleterUsers()
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0)) {
-        RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
-        info.pattern = searchText;
-        info.exception = exception;
-        userCompleterModel()->clear();
-        restApi()->usersAutocomplete(info);
+        if (!searchText.isEmpty()) {
+            RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
+            info.pattern = searchText;
+            info.exception = exception;
+            userCompleterModel()->clear();
+            restApi()->usersAutocomplete(info);
+        }
     } else {
         //Clear before to create new search
         userCompleterModel()->clear();
