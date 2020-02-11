@@ -41,6 +41,8 @@ public:
 
     Q_REQUIRED_RESULT PendingTypedInfo values(const QString &roomId);
 
+    Q_REQUIRED_RESULT bool isEmpty() const;
+
 private:
 
     QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;

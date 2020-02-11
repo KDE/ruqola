@@ -44,3 +44,8 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::values(const QString 
 {
     return mPendingTypedTexts.value(roomId);
 }
+
+bool AccountRoomSettings::isEmpty() const
+{
+    return mPendingTypedTexts.isEmpty();
+}

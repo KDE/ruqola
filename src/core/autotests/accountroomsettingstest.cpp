@@ -31,5 +31,6 @@ AccountRoomSettingsTest::AccountRoomSettingsTest(QObject *parent)
 
 void AccountRoomSettingsTest::shouldHaveDefaultValues()
 {
-
+    AccountRoomSettings s;
+    QVERIFY(s.isEmpty());
 }
