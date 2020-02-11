@@ -30,7 +30,7 @@ class LIBRUQOLACORE_EXPORT PluginAuthenticationInterface : public QObject
     Q_OBJECT
 public:
     explicit PluginAuthenticationInterface(QObject *parent = nullptr);
-    ~PluginAuthenticationInterface();
+    ~PluginAuthenticationInterface() override;
 
     virtual void login() = 0;
 

@@ -34,7 +34,7 @@ public:
     };
 
     explicit MessageListView(QWidget *parent = nullptr);
-    ~MessageListView();
+    ~MessageListView() override;
 
     void setChannelSelected(const QString &roomId);
 

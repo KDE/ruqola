@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
     Q_OBJECT
 public:
     explicit ChannelListView(QWidget *parent = nullptr);
-    ~ChannelListView();
+    ~ChannelListView() override;
 
     RoomFilterProxyModel *model() const;
     void setModel(QAbstractItemModel *model) override;

@@ -28,7 +28,7 @@ class RoomStartDiscussionJobTest : public QObject
     Q_OBJECT
 public:
     explicit RoomStartDiscussionJobTest(QObject *parent = nullptr);
-    ~RoomStartDiscussionJobTest() = default;
+    ~RoomStartDiscussionJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

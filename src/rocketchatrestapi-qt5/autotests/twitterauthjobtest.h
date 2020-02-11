@@ -28,7 +28,7 @@ class TwitterAuthJobTest : public QObject
     Q_OBJECT
 public:
     explicit TwitterAuthJobTest(QObject *parent = nullptr);
-    ~TwitterAuthJobTest() = default;
+    ~TwitterAuthJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

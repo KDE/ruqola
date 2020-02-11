@@ -28,7 +28,7 @@ class RocketChatAccountFilterProxyModelTest : public QObject
     Q_OBJECT
 public:
     explicit RocketChatAccountFilterProxyModelTest(QObject *parent = nullptr);
-    ~RocketChatAccountFilterProxyModelTest() = default;
+    ~RocketChatAccountFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

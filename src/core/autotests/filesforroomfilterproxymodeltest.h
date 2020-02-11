@@ -28,7 +28,7 @@ class FilesForRoomFilterProxyModelTest : public QObject
     Q_OBJECT
 public:
     explicit FilesForRoomFilterProxyModelTest(QObject *parent = nullptr);
-    ~FilesForRoomFilterProxyModelTest() = default;
+    ~FilesForRoomFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldHaveDefaultValues();

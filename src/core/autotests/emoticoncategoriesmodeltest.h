@@ -27,7 +27,7 @@ class EmoticonCategoriesModelTest : public QObject
     Q_OBJECT
 public:
     explicit EmoticonCategoriesModelTest(QObject *parent = nullptr);
-    ~EmoticonCategoriesModelTest() = default;
+    ~EmoticonCategoriesModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

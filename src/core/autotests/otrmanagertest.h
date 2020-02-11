@@ -27,7 +27,7 @@ class OtrManagerTest : public QObject
     Q_OBJECT
 public:
     explicit OtrManagerTest(QObject *parent = nullptr);
-    ~OtrManagerTest() = default;
+    ~OtrManagerTest() override = default;
 };
 
 #endif // OTRMANAGERTEST_H

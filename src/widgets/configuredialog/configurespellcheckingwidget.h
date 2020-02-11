@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSpellCheckingWidget : public QWidge
     Q_OBJECT
 public:
     explicit ConfigureSpellCheckingWidget(QWidget *parent = nullptr);
-    ~ConfigureSpellCheckingWidget();
+    ~ConfigureSpellCheckingWidget() override;
     void save();
     void load();
 private:

@@ -28,7 +28,7 @@ class ChangeGroupsNameJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChangeGroupsNameJobTest(QObject *parent = nullptr);
-    ~ChangeGroupsNameJobTest() = default;
+    ~ChangeGroupsNameJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

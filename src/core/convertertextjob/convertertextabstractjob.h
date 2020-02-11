@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ConverterTextAbstractJob : public QObject
     Q_OBJECT
 public:
     explicit ConverterTextAbstractJob(QObject *parent = nullptr);
-    ~ConverterTextAbstractJob();
+    ~ConverterTextAbstractJob() override;
 
     Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &messageId);

@@ -28,7 +28,7 @@ class ShowImageDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ShowImageDialogTest(QObject *parent = nullptr);
-    ~ShowImageDialogTest() = default;
+    ~ShowImageDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

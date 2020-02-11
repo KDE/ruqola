@@ -28,7 +28,7 @@ class FileAttachmentsTest : public QObject
     Q_OBJECT
 public:
     explicit FileAttachmentsTest(QObject *parent = nullptr);
-    ~FileAttachmentsTest() = default;
+    ~FileAttachmentsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

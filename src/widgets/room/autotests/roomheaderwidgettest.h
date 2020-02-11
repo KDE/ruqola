@@ -28,7 +28,7 @@ class RoomHeaderWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit RoomHeaderWidgetTest(QObject *parent = nullptr);
-    ~RoomHeaderWidgetTest() = default;
+    ~RoomHeaderWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldShowHideIcon();

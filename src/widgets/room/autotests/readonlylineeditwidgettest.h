@@ -28,7 +28,7 @@ class ReadOnlyLineEditWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ReadOnlyLineEditWidgetTest(QObject *parent = nullptr);
-    ~ReadOnlyLineEditWidgetTest() = default;
+    ~ReadOnlyLineEditWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

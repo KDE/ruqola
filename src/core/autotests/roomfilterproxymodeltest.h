@@ -28,7 +28,7 @@ class RoomFilterProxyModelTest : public QObject
     Q_OBJECT
 public:
     explicit RoomFilterProxyModelTest(QObject *parent = nullptr);
-    ~RoomFilterProxyModelTest() = default;
+    ~RoomFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

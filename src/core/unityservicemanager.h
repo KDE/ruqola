@@ -28,7 +28,7 @@ class LIBRUQOLACORE_TESTS_EXPORT UnityServiceManager : public QObject
     Q_OBJECT
 public:
     explicit UnityServiceManager(QObject *parent = nullptr);
-    ~UnityServiceManager();
+    ~UnityServiceManager() override;
 
     void setCount(int count);
 

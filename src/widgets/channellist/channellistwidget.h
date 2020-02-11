@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget
     Q_OBJECT
 public:
     explicit ChannelListWidget(QWidget *parent = nullptr);
-    ~ChannelListWidget();
+    ~ChannelListWidget() override;
 
     ChannelListView *channelListView() const;
 

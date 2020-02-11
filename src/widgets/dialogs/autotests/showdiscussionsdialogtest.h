@@ -28,7 +28,7 @@ class ShowDiscussionsDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ShowDiscussionsDialogTest(QObject *parent = nullptr);
-    ~ShowDiscussionsDialogTest() = default;
+    ~ShowDiscussionsDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -28,7 +28,7 @@ class ReportMessageDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ReportMessageDialogTest(QObject *parent = nullptr);
-    ~ReportMessageDialogTest() = default;
+    ~ReportMessageDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldUpdateOkButton();

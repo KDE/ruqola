@@ -28,7 +28,7 @@ class GetSupportedLanguagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetSupportedLanguagesJobTest(QObject *parent = nullptr);
-    ~GetSupportedLanguagesJobTest() = default;
+    ~GetSupportedLanguagesJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

@@ -28,7 +28,7 @@ class LIBRUQOLACORE_TESTS_EXPORT TranslateTextJob : public ConverterTextAbstract
     Q_OBJECT
 public:
     explicit TranslateTextJob(QObject *parent = nullptr);
-    ~TranslateTextJob();
+    ~TranslateTextJob() override;
 
     void start() override;
 };

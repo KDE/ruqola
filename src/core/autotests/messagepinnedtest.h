@@ -28,7 +28,7 @@ class MessagePinnedTest : public QObject
     Q_OBJECT
 public:
     explicit MessagePinnedTest(QObject *parent = nullptr);
-    ~MessagePinnedTest() = default;
+    ~MessagePinnedTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

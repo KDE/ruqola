@@ -28,7 +28,7 @@ class ReactOnMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit ReactOnMessageJobTest(QObject *parent = nullptr);
-    ~ReactOnMessageJobTest() = default;
+    ~ReactOnMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

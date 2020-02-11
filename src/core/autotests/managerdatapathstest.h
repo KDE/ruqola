@@ -28,7 +28,7 @@ class ManagerDataPathsTest : public QObject
     Q_OBJECT
 public:
     explicit ManagerDataPathsTest(QObject *parent = nullptr);
-    ~ManagerDataPathsTest() = default;
+    ~ManagerDataPathsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

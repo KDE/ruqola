@@ -28,7 +28,7 @@ class RocketChatAccountTest : public QObject
     Q_OBJECT
 public:
     explicit RocketChatAccountTest(QObject *parent = nullptr);
-    ~RocketChatAccountTest() = default;
+    ~RocketChatAccountTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

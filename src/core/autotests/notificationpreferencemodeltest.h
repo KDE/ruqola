@@ -28,7 +28,7 @@ class NotificationPreferenceModelTest : public QObject
     Q_OBJECT
 public:
     explicit NotificationPreferenceModelTest(QObject *parent = nullptr);
-    ~NotificationPreferenceModelTest() = default;
+    ~NotificationPreferenceModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

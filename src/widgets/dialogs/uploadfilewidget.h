@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget
     Q_OBJECT
 public:
     explicit UploadFileWidget(QWidget *parent = nullptr);
-    ~UploadFileWidget();
+    ~UploadFileWidget() override;
 
     Q_REQUIRED_RESULT QString description() const;
     Q_REQUIRED_RESULT QUrl fileUrl() const;

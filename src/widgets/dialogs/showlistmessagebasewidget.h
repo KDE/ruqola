@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShowListMessageBaseWidget(QWidget *parent = nullptr);
-    ~ShowListMessageBaseWidget();
+    ~ShowListMessageBaseWidget() override;
 
     void setModel(ListMessagesModelFilterProxyModel *model);
 

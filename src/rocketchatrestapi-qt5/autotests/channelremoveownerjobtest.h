@@ -28,7 +28,7 @@ class ChannelRemoveOwnerJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelRemoveOwnerJobTest(QObject *parent = nullptr);
-    ~ChannelRemoveOwnerJobTest() = default;
+    ~ChannelRemoveOwnerJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfoDialog : public QDialog
     Q_OBJECT
 public:
     explicit ServerInfoDialog(QWidget *parent = nullptr);
-    ~ServerInfoDialog();
+    ~ServerInfoDialog() override;
     void setServerConfigInfo(ServerConfigInfo *info);
 private:
     ServerInfoWidget *mServerInfoWidget = nullptr;

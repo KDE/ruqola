@@ -28,7 +28,7 @@ class ShowSnipperedMessagesDialog : public ShowListMessageBaseDialog
     Q_OBJECT
 public:
     explicit ShowSnipperedMessagesDialog(QWidget *parent = nullptr);
-    ~ShowSnipperedMessagesDialog();
+    ~ShowSnipperedMessagesDialog() override;
 
 private:
     void readConfig();

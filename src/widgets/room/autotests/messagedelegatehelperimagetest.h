@@ -30,7 +30,7 @@ class MessageDelegateHelperImageTest : public QObject
     Q_OBJECT
 public:
     explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
-    ~MessageDelegateHelperImageTest() = default;
+    ~MessageDelegateHelperImageTest() override = default;
 
 private Q_SLOTS:
     void shouldExtractMessageData();

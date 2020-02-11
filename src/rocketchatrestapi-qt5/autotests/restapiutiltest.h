@@ -28,7 +28,7 @@ class RestApiUtilTest : public QObject
     Q_OBJECT
 public:
     explicit RestApiUtilTest(QObject *parent = nullptr);
-    ~RestApiUtilTest() = default;
+    ~RestApiUtilTest() override = default;
 private Q_SLOTS:
     void shouldAdaptUrl_data();
     void shouldAdaptUrl();

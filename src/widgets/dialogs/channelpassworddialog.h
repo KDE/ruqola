@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelPasswordDialog : public QDialog
     Q_OBJECT
 public:
     explicit ChannelPasswordDialog(QWidget *parent = nullptr);
-    ~ChannelPasswordDialog();
+    ~ChannelPasswordDialog() override;
 
     Q_REQUIRED_RESULT QString password() const;
 

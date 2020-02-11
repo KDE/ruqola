@@ -28,7 +28,7 @@ class GetStarredMessagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetStarredMessagesJobTest(QObject *parent = nullptr);
-    ~GetStarredMessagesJobTest() = default;
+    ~GetStarredMessagesJobTest() override = default;
 
 private Q_SLOTS:
     void shouldGenerateRequest();

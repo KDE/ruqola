@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT StatusCombobox : public QComboBox
     Q_OBJECT
 public:
     explicit StatusCombobox(bool showModifyStatus, QWidget *parent = nullptr);
-    ~StatusCombobox();
+    ~StatusCombobox() override;
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);
 private:

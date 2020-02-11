@@ -37,7 +37,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureUserFeedbackWidget : public QWidget
     Q_OBJECT
 public:
     explicit ConfigureUserFeedbackWidget(QWidget *parent = nullptr);
-    ~ConfigureUserFeedbackWidget();
+    ~ConfigureUserFeedbackWidget() override;
 
     void save();
     void load();

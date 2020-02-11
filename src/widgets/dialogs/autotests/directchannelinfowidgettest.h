@@ -28,7 +28,7 @@ class DirectChannelInfoWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit DirectChannelInfoWidgetTest(QObject *parent = nullptr);
-    ~DirectChannelInfoWidgetTest() = default;
+    ~DirectChannelInfoWidgetTest() override = default;
 };
 
 #endif // DIRECTCHANNELINFOWIDGETTEST_H

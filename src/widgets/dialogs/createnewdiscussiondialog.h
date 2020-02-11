@@ -36,7 +36,7 @@ public:
         QString message;
     };
     explicit CreateNewDiscussionDialog(QWidget *parent = nullptr);
-    ~CreateNewDiscussionDialog();
+    ~CreateNewDiscussionDialog() override;
 
     Q_REQUIRED_RESULT NewDiscussionInfo newDiscussionInfo() const;
 

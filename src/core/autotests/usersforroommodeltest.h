@@ -28,7 +28,7 @@ class UsersForRoomModelTest : public QObject
     Q_OBJECT
 public:
     explicit UsersForRoomModelTest(QObject *parent = nullptr);
-    ~UsersForRoomModelTest() = default;
+    ~UsersForRoomModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddValues();

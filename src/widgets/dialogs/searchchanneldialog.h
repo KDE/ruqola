@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDialog : public QDialog
     Q_OBJECT
 public:
     explicit SearchChannelDialog(QWidget *parent = nullptr);
-    ~SearchChannelDialog();
+    ~SearchChannelDialog() override;
 private:
     void readConfig();
     void writeConfig();

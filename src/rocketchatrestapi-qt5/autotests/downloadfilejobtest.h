@@ -28,7 +28,7 @@ class DownloadFileJobTest : public QObject
     Q_OBJECT
 public:
     explicit DownloadFileJobTest(QObject *parent = nullptr);
-    ~DownloadFileJobTest() = default;
+    ~DownloadFileJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
     Q_OBJECT
 public:
     explicit EmoticonMenuWidget(QWidget *parent = nullptr);
-    ~EmoticonMenuWidget();
+    ~EmoticonMenuWidget() override;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 Q_SIGNALS:

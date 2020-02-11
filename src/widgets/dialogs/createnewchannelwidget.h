@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
     Q_OBJECT
 public:
     explicit CreateNewChannelWidget(QWidget *parent = nullptr);
-    ~CreateNewChannelWidget();
+    ~CreateNewChannelWidget() override;
 
     Q_REQUIRED_RESULT QString channelName() const;
     Q_REQUIRED_RESULT QString users() const;

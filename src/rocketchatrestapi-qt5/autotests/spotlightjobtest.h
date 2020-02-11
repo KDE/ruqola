@@ -28,7 +28,7 @@ class SpotlightJobTest : public QObject
     Q_OBJECT
 public:
     explicit SpotlightJobTest(QObject *parent = nullptr);
-    ~SpotlightJobTest() = default;
+    ~SpotlightJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

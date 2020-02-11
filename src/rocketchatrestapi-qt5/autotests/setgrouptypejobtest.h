@@ -28,7 +28,7 @@ class SetGroupTypeJobTest : public QObject
     Q_OBJECT
 public:
     explicit SetGroupTypeJobTest(QObject *parent = nullptr);
-    ~SetGroupTypeJobTest() = default;
+    ~SetGroupTypeJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

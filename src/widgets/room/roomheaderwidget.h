@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
     Q_OBJECT
 public:
     explicit RoomHeaderWidget(QWidget *parent = nullptr);
-    ~RoomHeaderWidget();
+    ~RoomHeaderWidget() override;
     void setRoomName(const QString &name);
     Q_REQUIRED_RESULT QString roomName() const;
     void setRoomAnnouncement(const QString &name);

@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusDialog : public QDialog
     Q_OBJECT
 public:
     explicit ModifyStatusDialog(QWidget *parent = nullptr);
-    ~ModifyStatusDialog();
+    ~ModifyStatusDialog() override;
 
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);

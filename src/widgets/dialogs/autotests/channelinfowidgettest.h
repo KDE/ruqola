@@ -28,7 +28,7 @@ class ChannelInfoWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelInfoWidgetTest(QObject *parent = nullptr);
-    ~ChannelInfoWidgetTest() = default;
+    ~ChannelInfoWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

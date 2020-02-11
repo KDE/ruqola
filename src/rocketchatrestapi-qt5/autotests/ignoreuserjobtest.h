@@ -28,7 +28,7 @@ class IgnoreUserJobTest : public QObject
     Q_OBJECT
 public:
     explicit IgnoreUserJobTest(QObject *parent = nullptr);
-    ~IgnoreUserJobTest() = default;
+    ~IgnoreUserJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

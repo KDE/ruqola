@@ -28,7 +28,7 @@ class UsersInfoJobTest : public QObject
     Q_OBJECT
 public:
     explicit UsersInfoJobTest(QObject *parent = nullptr);
-    ~UsersInfoJobTest() = default;
+    ~UsersInfoJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationDialog : public QDialog
     Q_OBJECT
 public:
     explicit ConfigureNotificationDialog(QWidget *parent = nullptr);
-    ~ConfigureNotificationDialog();
+    ~ConfigureNotificationDialog() override;
 
     void setRoomWrapper(RoomWrapper *roomWrapper);
 

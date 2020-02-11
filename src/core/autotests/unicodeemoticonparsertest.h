@@ -28,7 +28,7 @@ class UnicodeEmoticonParserTest : public QObject
     Q_OBJECT
 public:
     explicit UnicodeEmoticonParserTest(QObject *parent = nullptr);
-    ~UnicodeEmoticonParserTest() = default;
+    ~UnicodeEmoticonParserTest() override = default;
 };
 
 #endif // UNICODEEMOTICONPARSERTEST_H

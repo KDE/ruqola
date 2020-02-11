@@ -27,7 +27,7 @@ class ShowStarredMessagesDialog : public ShowListMessageBaseDialog
     Q_OBJECT
 public:
     explicit ShowStarredMessagesDialog(QWidget *parent = nullptr);
-    ~ShowStarredMessagesDialog();
+    ~ShowStarredMessagesDialog() override;
 
 private:
     void readConfig();

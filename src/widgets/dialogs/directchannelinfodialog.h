@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
     Q_OBJECT
 public:
     explicit DirectChannelInfoDialog(QWidget *parent = nullptr);
-    ~DirectChannelInfoDialog();
+    ~DirectChannelInfoDialog() override;
 private:
     DirectChannelInfoWidget *mDirectChannelInfoWidget = nullptr;
 };

@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsDialog : public QDialog
     Q_OBJECT
 public:
     explicit ShowThreadsDialog(QWidget *parent = nullptr);
-    ~ShowThreadsDialog();
+    ~ShowThreadsDialog() override;
 
     void setModel(ThreadsFilterProxyModel *model);
 private:

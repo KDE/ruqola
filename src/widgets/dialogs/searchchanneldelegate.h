@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDelegate : public QItemDelegate
     Q_OBJECT
 public:
     explicit SearchChannelDelegate(QObject *parent = nullptr);
-    ~SearchChannelDelegate();
+    ~SearchChannelDelegate() override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 

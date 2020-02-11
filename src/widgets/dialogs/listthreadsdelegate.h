@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ListThreadsDelegate : public QItemDelegate
     Q_OBJECT
 public:
     explicit ListThreadsDelegate(QObject *parent = nullptr);
-    ~ListThreadsDelegate();
+    ~ListThreadsDelegate() override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 

@@ -28,7 +28,7 @@ class GetThreadMessagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetThreadMessagesJobTest(QObject *parent = nullptr);
-    ~GetThreadMessagesJobTest() = default;
+    ~GetThreadMessagesJobTest() override = default;
 
 private Q_SLOTS:
     void shouldGenerateRequest();

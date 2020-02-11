@@ -28,7 +28,7 @@ class searchMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit searchMessageJobTest(QObject *parent = nullptr);
-    ~searchMessageJobTest() = default;
+    ~searchMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
     Q_OBJECT
 public:
     explicit ServerInfoWidget(QWidget *parent = nullptr);
-    ~ServerInfoWidget();
+    ~ServerInfoWidget() override;
     void setServerConfigInfo(ServerConfigInfo *info);
 private:
     QLabel *mAccountName = nullptr;

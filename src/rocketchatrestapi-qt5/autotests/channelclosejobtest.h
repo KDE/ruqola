@@ -28,7 +28,7 @@ class ChannelCloseJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelCloseJobTest(QObject *parent = nullptr);
-    ~ChannelCloseJobTest() = default;
+    ~ChannelCloseJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

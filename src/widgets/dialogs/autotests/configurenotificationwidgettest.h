@@ -28,7 +28,7 @@ class ConfigureNotificationWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ConfigureNotificationWidgetTest(QObject *parent = nullptr);
-    ~ConfigureNotificationWidgetTest() = default;
+    ~ConfigureNotificationWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

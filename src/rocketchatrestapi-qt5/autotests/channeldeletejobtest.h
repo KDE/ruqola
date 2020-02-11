@@ -28,7 +28,7 @@ class ChannelDeleteJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelDeleteJobTest(QObject *parent = nullptr);
-    ~ChannelDeleteJobTest() = default;
+    ~ChannelDeleteJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

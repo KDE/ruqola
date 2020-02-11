@@ -30,7 +30,7 @@ class AccountServerListWidgetItem : public QListWidgetItem
 {
 public:
     explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
-    ~AccountServerListWidgetItem();
+    ~AccountServerListWidgetItem() override;
     Q_REQUIRED_RESULT CreateNewAccountDialog::AccountInfo accountInfo() const;
     void setAccountInfo(const CreateNewAccountDialog::AccountInfo &accountInfo);
 
@@ -47,7 +47,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerListWidget : public QListWidget
     Q_OBJECT
 public:
     explicit AccountServerListWidget(QWidget *parent = nullptr);
-    ~AccountServerListWidget();
+    ~AccountServerListWidget() override;
 
     void load();
     void save();

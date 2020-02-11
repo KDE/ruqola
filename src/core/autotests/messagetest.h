@@ -28,7 +28,7 @@ class MessageTest : public QObject
     Q_OBJECT
 public:
     explicit MessageTest(QObject *parent = nullptr);
-    ~MessageTest() = default;
+    ~MessageTest() override = default;
 private Q_SLOTS:
     void shouldParseMessage_data();
     void shouldParseMessage();

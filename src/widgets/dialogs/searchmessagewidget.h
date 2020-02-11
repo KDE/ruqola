@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
     Q_OBJECT
 public:
     explicit SearchMessageWidget(QWidget *parent = nullptr);
-    ~SearchMessageWidget();
+    ~SearchMessageWidget() override;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);

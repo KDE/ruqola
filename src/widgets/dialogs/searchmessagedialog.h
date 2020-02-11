@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageDialog : public QDialog
     Q_OBJECT
 public:
     explicit SearchMessageDialog(QWidget *parent = nullptr);
-    ~SearchMessageDialog();
+    ~SearchMessageDialog() override;
 
     void setRoomId(const QString &roomId);
 private:

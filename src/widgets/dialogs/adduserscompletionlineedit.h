@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersCompletionLineEdit : public Completi
     Q_OBJECT
 public:
     explicit AddUsersCompletionLineEdit(QWidget *parent = nullptr);
-    ~AddUsersCompletionLineEdit();
+    ~AddUsersCompletionLineEdit() override;
 
 private:
     void slotTextChanged(const QString &text);

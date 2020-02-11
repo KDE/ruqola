@@ -28,7 +28,7 @@ class RoomModelTest : public QObject
     Q_OBJECT
 public:
     explicit RoomModelTest(QObject *parent = nullptr);
-    ~RoomModelTest() = default;
+    ~RoomModelTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

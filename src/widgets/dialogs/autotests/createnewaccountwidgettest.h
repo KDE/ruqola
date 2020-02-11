@@ -28,7 +28,7 @@ class CreateNewAccountWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit CreateNewAccountWidgetTest(QObject *parent = nullptr);
-    ~CreateNewAccountWidgetTest() = default;
+    ~CreateNewAccountWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

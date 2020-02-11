@@ -39,7 +39,7 @@ public:
         NewMessage,
     };
     explicit MessageLineWidget(QWidget *parent = nullptr);
-    ~MessageLineWidget();
+    ~MessageLineWidget() override;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 

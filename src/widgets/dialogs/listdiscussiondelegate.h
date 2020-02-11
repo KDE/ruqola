@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegat
     Q_OBJECT
 public:
     explicit ListDiscussionDelegate(QObject *parent = nullptr);
-    ~ListDiscussionDelegate();
+    ~ListDiscussionDelegate() override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 

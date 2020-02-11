@@ -28,7 +28,7 @@ class TranslateMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit TranslateMessageJobTest(QObject *parent = nullptr);
-    ~TranslateMessageJobTest() = default;
+    ~TranslateMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

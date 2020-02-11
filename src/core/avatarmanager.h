@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT AvatarManager : public QObject
     Q_OBJECT
 public:
     explicit AvatarManager(RocketChatAccount *account, QObject *parent = nullptr);
-    ~AvatarManager();
+    ~AvatarManager() override;
 
     void insertInDownloadQueue(const QString &url);
 

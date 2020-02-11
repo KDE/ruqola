@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelPasswordWidget : public QWidget
     Q_OBJECT
 public:
     explicit ChannelPasswordWidget(QWidget *parent = nullptr);
-    ~ChannelPasswordWidget();
+    ~ChannelPasswordWidget() override;
 
     Q_REQUIRED_RESULT QString password() const;
 Q_SIGNALS:

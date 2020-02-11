@@ -28,7 +28,7 @@ class PasswordPluginAuthenticationTest : public QObject
     Q_OBJECT
 public:
     explicit PasswordPluginAuthenticationTest(QObject *parent = nullptr);
-    ~PasswordPluginAuthenticationTest() = default;
+    ~PasswordPluginAuthenticationTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

@@ -28,7 +28,7 @@ class StatusModelTest : public QObject
     Q_OBJECT
 public:
     explicit StatusModelTest(QObject *parent = nullptr);
-    ~StatusModelTest() = default;
+    ~StatusModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

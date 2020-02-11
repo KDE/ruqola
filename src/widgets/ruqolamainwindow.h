@@ -34,7 +34,7 @@ class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
     Q_OBJECT
 public:
     explicit RuqolaMainWindow(QWidget *parent = nullptr);
-    ~RuqolaMainWindow();
+    ~RuqolaMainWindow() override;
 
 private:
     void setupActions();

@@ -33,7 +33,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Notification : public KStatusNotifierItem
     Q_OBJECT
 public:
     explicit Notification(QObject *parent = nullptr);
-    ~Notification();
+    ~Notification() override;
 
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
     void clearNotification(const QString &account);

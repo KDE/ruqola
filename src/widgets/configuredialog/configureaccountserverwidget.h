@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccountServerWidget : public QWidge
 
 public:
     explicit ConfigureAccountServerWidget(QWidget *parent = nullptr);
-    ~ConfigureAccountServerWidget();
+    ~ConfigureAccountServerWidget() override;
 
     void load();
     void save();

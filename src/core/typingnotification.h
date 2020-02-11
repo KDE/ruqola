@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT TypingNotification : public QObject
     Q_OBJECT
 public:
     explicit TypingNotification(QObject *parent = nullptr);
-    ~TypingNotification();
+    ~TypingNotification() override;
 
     void textNotificationChanged(const QString &roomId, bool emptyString);
 Q_SIGNALS:

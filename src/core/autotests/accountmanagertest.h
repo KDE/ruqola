@@ -28,7 +28,7 @@ class AccountManagerTest : public QObject
     Q_OBJECT
 public:
     explicit AccountManagerTest(QObject *parent = nullptr);
-    ~AccountManagerTest() = default;
+    ~AccountManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddAccount();

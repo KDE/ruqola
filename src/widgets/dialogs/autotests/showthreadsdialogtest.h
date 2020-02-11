@@ -28,7 +28,7 @@ class ShowThreadsDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ShowThreadsDialogTest(QObject *parent = nullptr);
-    ~ShowThreadsDialogTest() = default;
+    ~ShowThreadsDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

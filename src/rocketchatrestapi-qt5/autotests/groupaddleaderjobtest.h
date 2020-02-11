@@ -28,7 +28,7 @@ class GroupAddLeaderJobTest : public QObject
     Q_OBJECT
 public:
     explicit GroupAddLeaderJobTest(QObject *parent = nullptr);
-    ~GroupAddLeaderJobTest() = default;
+    ~GroupAddLeaderJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

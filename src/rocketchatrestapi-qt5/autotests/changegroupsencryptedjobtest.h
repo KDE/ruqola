@@ -28,7 +28,7 @@ class ChangeGroupsEncryptedJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChangeGroupsEncryptedJobTest(QObject *parent = nullptr);
-    ~ChangeGroupsEncryptedJobTest() = default;
+    ~ChangeGroupsEncryptedJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

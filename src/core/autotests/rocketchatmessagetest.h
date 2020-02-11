@@ -28,7 +28,7 @@ class RocketChatMessageTest : public QObject
     Q_OBJECT
 public:
     explicit RocketChatMessageTest(QObject *parent = nullptr);
-    ~RocketChatMessageTest() = default;
+    ~RocketChatMessageTest() override = default;
 private Q_SLOTS:
     void shouldGenerateSetTemporaryStatus();
     void shouldHideRoom();

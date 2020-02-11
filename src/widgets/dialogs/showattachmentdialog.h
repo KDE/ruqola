@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentDialog : public QDialog
     Q_OBJECT
 public:
     explicit ShowAttachmentDialog(QWidget *parent = nullptr);
-    ~ShowAttachmentDialog();
+    ~ShowAttachmentDialog() override;
 
     void setModel(FilesForRoomFilterProxyModel *model);
 

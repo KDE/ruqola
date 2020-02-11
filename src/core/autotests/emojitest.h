@@ -28,7 +28,7 @@ class EmojiTest : public QObject
     Q_OBJECT
 public:
     explicit EmojiTest(QObject *parent = nullptr);
-    ~EmojiTest() = default;
+    ~EmojiTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();

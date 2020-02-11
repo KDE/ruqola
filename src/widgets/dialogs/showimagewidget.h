@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShowImageWidget(QWidget *parent = nullptr);
-    ~ShowImageWidget();
+    ~ShowImageWidget() override;
 
     void setImage(const QPixmap &pix);
 

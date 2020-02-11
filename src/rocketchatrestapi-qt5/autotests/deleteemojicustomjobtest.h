@@ -28,7 +28,7 @@ class DeleteEmojiCustomJobTest : public QObject
     Q_OBJECT
 public:
     explicit DeleteEmojiCustomJobTest(QObject *parent = nullptr);
-    ~DeleteEmojiCustomJobTest() = default;
+    ~DeleteEmojiCustomJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

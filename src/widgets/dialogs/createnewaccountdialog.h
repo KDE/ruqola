@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountDialog : public QDialog
     Q_OBJECT
 public:
     explicit CreateNewAccountDialog(QWidget *parent = nullptr);
-    ~CreateNewAccountDialog();
+    ~CreateNewAccountDialog() override;
     struct AccountInfo {
         QString accountName;
         QString serverName;

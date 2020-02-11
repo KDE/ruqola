@@ -28,7 +28,7 @@ class FilesForRoomModelTest : public QObject
     Q_OBJECT
 public:
     explicit FilesForRoomModelTest(QObject *parent = nullptr);
-    ~FilesForRoomModelTest() = default;
+    ~FilesForRoomModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddFiles();

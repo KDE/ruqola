@@ -56,7 +56,7 @@ public:
     };
 
     explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
-    ~DDPClient();
+    ~DDPClient() override;
 
     /**
     * @brief Call a method with name @param method and parameters @param params and @param messageType with an empty callback

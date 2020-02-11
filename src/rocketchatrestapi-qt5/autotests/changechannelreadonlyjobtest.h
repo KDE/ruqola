@@ -28,7 +28,7 @@ class ChangeChannelReadonlyJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChangeChannelReadonlyJobTest(QObject *parent = nullptr);
-    ~ChangeChannelReadonlyJobTest() = default;
+    ~ChangeChannelReadonlyJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

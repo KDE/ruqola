@@ -28,7 +28,7 @@ class FollowMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit FollowMessageJobTest(QObject *parent = nullptr);
-    ~FollowMessageJobTest() = default;
+    ~FollowMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

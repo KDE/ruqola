@@ -28,7 +28,7 @@ class NotificationDesktopSoundPreferenceModelTest : public QObject
     Q_OBJECT
 public:
     explicit NotificationDesktopSoundPreferenceModelTest(QObject *parent = nullptr);
-    ~NotificationDesktopSoundPreferenceModelTest() = default;
+    ~NotificationDesktopSoundPreferenceModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

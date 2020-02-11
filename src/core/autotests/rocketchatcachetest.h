@@ -28,7 +28,7 @@ class RocketChatCacheTest : public QObject
     Q_OBJECT
 public:
     explicit RocketChatCacheTest(QObject *parent = nullptr);
-    ~RocketChatCacheTest() = default;
+    ~RocketChatCacheTest() override = default;
 };
 
 #endif // ROCKETCHATCACHETEST_H

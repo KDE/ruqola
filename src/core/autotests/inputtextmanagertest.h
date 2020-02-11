@@ -28,7 +28,7 @@ class InputTextManagerTest : public QObject
     Q_OBJECT
 public:
     explicit InputTextManagerTest(QObject *parent = nullptr);
-    ~InputTextManagerTest() = default;
+    ~InputTextManagerTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

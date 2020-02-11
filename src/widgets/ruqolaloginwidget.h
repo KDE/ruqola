@@ -35,7 +35,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
     Q_OBJECT
 public:
     explicit RuqolaLoginWidget(QWidget *parent = nullptr);
-    ~RuqolaLoginWidget();
+    ~RuqolaLoginWidget() override;
 
     void initialize();
     void setLoginStatus(DDPClient::LoginStatus status);

@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
     Q_OBJECT
 public:
     explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
-    ~ShowListMessageBaseDialog();
+    ~ShowListMessageBaseDialog() override;
 
     void setModel(ListMessagesModelFilterProxyModel *model);
 

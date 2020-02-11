@@ -35,7 +35,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageTextEdit : public CompletionTextEdit
     Q_OBJECT
 public:
     explicit MessageTextEdit(QWidget *parent = nullptr);
-    ~MessageTextEdit();
+    ~MessageTextEdit() override;
 
     void insert(const QString &text);
     QString text() const;

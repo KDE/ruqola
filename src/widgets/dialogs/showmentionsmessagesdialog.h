@@ -28,7 +28,7 @@ class ShowMentionsMessagesDialog : public ShowListMessageBaseDialog
     Q_OBJECT
 public:
     explicit ShowMentionsMessagesDialog(QWidget *parent = nullptr);
-    ~ShowMentionsMessagesDialog();
+    ~ShowMentionsMessagesDialog() override;
 
 private:
     void readConfig();

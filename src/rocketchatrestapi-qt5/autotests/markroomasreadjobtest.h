@@ -28,7 +28,7 @@ class MarkRoomAsReadJobTest : public QObject
     Q_OBJECT
 public:
     explicit MarkRoomAsReadJobTest(QObject *parent = nullptr);
-    ~MarkRoomAsReadJobTest() = default;
+    ~MarkRoomAsReadJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

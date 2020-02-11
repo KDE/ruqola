@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationComboBox : public QComboBox
     Q_OBJECT
 public:
     explicit AuthenticationComboBox(QWidget *parent = nullptr);
-    ~AuthenticationComboBox();
+    ~AuthenticationComboBox() override;
 private:
     void initialize();
 };

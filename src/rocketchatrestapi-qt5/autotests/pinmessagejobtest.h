@@ -27,7 +27,7 @@ class PinMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit PinMessageJobTest(QObject *parent = nullptr);
-    ~PinMessageJobTest() = default;
+    ~PinMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldHaveMessageId();

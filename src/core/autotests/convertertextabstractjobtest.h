@@ -28,7 +28,7 @@ class ConverterTextAbstractJobTest : public QObject
     Q_OBJECT
 public:
     explicit ConverterTextAbstractJobTest(QObject *parent = nullptr);
-    ~ConverterTextAbstractJobTest() = default;
+    ~ConverterTextAbstractJobTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

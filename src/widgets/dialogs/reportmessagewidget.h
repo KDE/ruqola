@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_EXPORT ReportMessageWidget : public QWidget
     Q_OBJECT
 public:
     explicit ReportMessageWidget(QWidget *parent = nullptr);
-    ~ReportMessageWidget();
+    ~ReportMessageWidget() override;
     Q_REQUIRED_RESULT QString message() const;
 Q_SIGNALS:
     void updateOkButton(bool enabled);

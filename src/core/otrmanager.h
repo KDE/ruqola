@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT OtrManager : public QObject
     Q_OBJECT
 public:
     explicit OtrManager(QObject *parent = nullptr);
-    ~OtrManager();
+    ~OtrManager() override;
     Q_REQUIRED_RESULT Otr parseOtr(const QJsonArray &contents);
 private:
     Q_DISABLE_COPY(OtrManager)

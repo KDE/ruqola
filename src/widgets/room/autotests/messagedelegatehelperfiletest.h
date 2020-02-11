@@ -28,7 +28,7 @@ class MessageDelegateHelperFileTest : public QObject
     Q_OBJECT
 public:
     explicit MessageDelegateHelperFileTest(QObject *parent = nullptr);
-    ~MessageDelegateHelperFileTest() = default;
+    ~MessageDelegateHelperFileTest() override = default;
 
 private Q_SLOTS:
     void shouldLayoutMultipleFiles();

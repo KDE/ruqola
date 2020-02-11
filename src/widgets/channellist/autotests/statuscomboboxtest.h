@@ -28,7 +28,7 @@ class StatusComboboxTest : public QObject
     Q_OBJECT
 public:
     explicit StatusComboboxTest(QObject *parent = nullptr);
-    ~StatusComboboxTest() = default;
+    ~StatusComboboxTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldSelectStatus();

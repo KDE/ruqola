@@ -48,7 +48,7 @@ public:
     Q_REQUIRED_RESULT QUrl filenameUrl() const;
     void setFilenameUrl(const QUrl &filenameUrl);
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override final;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const final;
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
     Q_REQUIRED_RESULT bool canStart() const override;

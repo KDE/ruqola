@@ -28,7 +28,7 @@ class ListMessagesModelTest : public QObject
     Q_OBJECT
 public:
     explicit ListMessagesModelTest(QObject *parent = nullptr);
-    ~ListMessagesModelTest() = default;
+    ~ListMessagesModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

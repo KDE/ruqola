@@ -27,7 +27,7 @@ class ReportMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit ReportMessageJobTest(QObject *parent = nullptr);
-    ~ReportMessageJobTest() = default;
+    ~ReportMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldHaveMessageId();

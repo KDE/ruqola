@@ -28,7 +28,7 @@ class LIBRUQOLACORE_EXPORT ReceiveTypingNotificationManager : public QObject
     Q_OBJECT
 public:
     explicit ReceiveTypingNotificationManager(QObject *parent = nullptr);
-    ~ReceiveTypingNotificationManager();
+    ~ReceiveTypingNotificationManager() override;
 
     void insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping);
 

@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShowThreadsWidget(QWidget *parent = nullptr);
-    ~ShowThreadsWidget();
+    ~ShowThreadsWidget() override;
 
     void setModel(ThreadsFilterProxyModel *model);
 Q_SIGNALS:

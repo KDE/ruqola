@@ -28,7 +28,7 @@ class ChannelGetAllUserMentionsJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelGetAllUserMentionsJobTest(QObject *parent = nullptr);
-    ~ChannelGetAllUserMentionsJobTest() = default;
+    ~ChannelGetAllUserMentionsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldHaveParameterSupport();

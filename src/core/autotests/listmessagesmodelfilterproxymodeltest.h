@@ -27,7 +27,7 @@ class ListMessagesModelFilterProxyModelTest : public QObject
     Q_OBJECT
 public:
     explicit ListMessagesModelFilterProxyModelTest(QObject *parent = nullptr);
-    ~ListMessagesModelFilterProxyModelTest() = default;
+    ~ListMessagesModelFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

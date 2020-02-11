@@ -28,7 +28,7 @@ class LoginJobTest : public QObject
     Q_OBJECT
 public:
     explicit LoginJobTest(QObject *parent = nullptr);
-    ~LoginJobTest() = default;
+    ~LoginJobTest() override = default;
 };
 
 #endif // LOGINJOBTEST_H

@@ -28,7 +28,7 @@ class ClipboardProxyTest : public QObject
     Q_OBJECT
 public:
     explicit ClipboardProxyTest(QObject *parent = nullptr);
-    ~ClipboardProxyTest() = default;
+    ~ClipboardProxyTest() override = default;
 private Q_SLOTS:
     void shouldEmitSignals();
 };

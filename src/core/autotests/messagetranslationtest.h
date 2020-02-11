@@ -28,7 +28,7 @@ class MessageTranslationTest : public QObject
     Q_OBJECT
 public:
     explicit MessageTranslationTest(QObject *parent = nullptr);
-    ~MessageTranslationTest() = default;
+    ~MessageTranslationTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

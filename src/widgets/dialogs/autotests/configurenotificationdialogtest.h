@@ -28,7 +28,7 @@ class ConfigureNotificationDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ConfigureNotificationDialogTest(QObject *parent = nullptr);
-    ~ConfigureNotificationDialogTest() = default;
+    ~ConfigureNotificationDialogTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

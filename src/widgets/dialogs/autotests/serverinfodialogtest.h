@@ -28,7 +28,7 @@ class ServerInfoDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ServerInfoDialogTest(QObject *parent = nullptr);
-    ~ServerInfoDialogTest() = default;
+    ~ServerInfoDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

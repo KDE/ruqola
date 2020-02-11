@@ -28,7 +28,7 @@ class ShowThreadsWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ShowThreadsWidgetTest(QObject *parent = nullptr);
-    ~ShowThreadsWidgetTest() = default;
+    ~ShowThreadsWidgetTest() override = default;
 };
 
 #endif // SHOWTHREADSWIDGETTEST_H

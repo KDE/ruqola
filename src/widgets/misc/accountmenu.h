@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountMenu : public KActionMenu
     Q_OBJECT
 public:
     explicit AccountMenu(QWidget *parent = nullptr);
-    ~AccountMenu();
+    ~AccountMenu() override;
 private:
     void slotUpdateAccountMenu();
 };

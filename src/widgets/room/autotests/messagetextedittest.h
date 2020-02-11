@@ -27,7 +27,7 @@ class MessageTextEditTest : public QObject
     Q_OBJECT
 public:
     explicit MessageTextEditTest(QObject *parent = nullptr);
-    ~MessageTextEditTest() = default;
+    ~MessageTextEditTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefautValues();

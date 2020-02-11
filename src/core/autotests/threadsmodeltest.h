@@ -26,7 +26,7 @@ class ThreadsModelTest : public QObject
     Q_OBJECT
 public:
     explicit ThreadsModelTest(QObject *parent = nullptr);
-    ~ThreadsModelTest() = default;
+    ~ThreadsModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldAssignValues();

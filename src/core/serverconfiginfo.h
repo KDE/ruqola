@@ -33,7 +33,7 @@ class LIBRUQOLACORE_EXPORT ServerConfigInfo : public QObject
 
 public:
     explicit ServerConfigInfo(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
-    ~ServerConfigInfo();
+    ~ServerConfigInfo() override;
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT QString serverName() const;
     Q_REQUIRED_RESULT QString userName() const;

@@ -28,7 +28,7 @@ class OpenDmJobTest : public QObject
     Q_OBJECT
 public:
     explicit OpenDmJobTest(QObject *parent = nullptr);
-    ~OpenDmJobTest() = default;
+    ~OpenDmJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

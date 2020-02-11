@@ -28,7 +28,7 @@ class MessageLineWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit MessageLineWidgetTest(QObject *parent = nullptr);
-    ~MessageLineWidgetTest() = default;
+    ~MessageLineWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

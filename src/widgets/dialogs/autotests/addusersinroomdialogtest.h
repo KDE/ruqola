@@ -28,7 +28,7 @@ class AddUsersInRoomDialogTest : public QObject
     Q_OBJECT
 public:
     explicit AddUsersInRoomDialogTest(QObject *parent = nullptr);
-    ~AddUsersInRoomDialogTest() = default;
+    ~AddUsersInRoomDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

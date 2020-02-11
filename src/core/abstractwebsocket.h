@@ -31,7 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT AbstractWebSocket : public QObject
     Q_OBJECT
 public:
     explicit AbstractWebSocket(QObject *parent = nullptr);
-    ~AbstractWebSocket();
+    ~AbstractWebSocket() override;
 
     virtual void openUrl(const QUrl &url) = 0;
     virtual qint64 sendTextMessage(const QString &message) = 0;

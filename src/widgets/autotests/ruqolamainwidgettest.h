@@ -28,7 +28,7 @@ class RuqolaMainWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit RuqolaMainWidgetTest(QObject *parent = nullptr);
-    ~RuqolaMainWidgetTest() = default;
+    ~RuqolaMainWidgetTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

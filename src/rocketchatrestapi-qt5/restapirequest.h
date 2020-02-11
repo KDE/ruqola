@@ -40,7 +40,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiRequest : public QObject
     Q_OBJECT
 public:
     explicit RestApiRequest(QObject *parent = nullptr);
-    ~RestApiRequest();
+    ~RestApiRequest() override;
 
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *logger);
 

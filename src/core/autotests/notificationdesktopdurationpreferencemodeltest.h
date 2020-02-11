@@ -28,7 +28,7 @@ class NotificationDesktopDurationPreferenceModelTest : public QObject
     Q_OBJECT
 public:
     explicit NotificationDesktopDurationPreferenceModelTest(QObject *parent = nullptr);
-    ~NotificationDesktopDurationPreferenceModelTest() = default;
+    ~NotificationDesktopDurationPreferenceModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

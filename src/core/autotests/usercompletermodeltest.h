@@ -28,7 +28,7 @@ class UserCompleterModelTest : public QObject
     Q_OBJECT
 public:
     explicit UserCompleterModelTest(QObject *parent = nullptr);
-    ~UserCompleterModelTest() = default;
+    ~UserCompleterModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddValues();

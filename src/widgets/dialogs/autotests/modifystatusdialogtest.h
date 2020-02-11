@@ -27,7 +27,7 @@ class ModifyStatusDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ModifyStatusDialogTest(QObject *parent = nullptr);
-    ~ModifyStatusDialogTest() = default;
+    ~ModifyStatusDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

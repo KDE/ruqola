@@ -33,7 +33,7 @@ class UnicodeEmoticonInfo : public QWidget
     Q_OBJECT
 public:
     explicit UnicodeEmoticonInfo(QWidget *parent = nullptr);
-    ~UnicodeEmoticonInfo();
+    ~UnicodeEmoticonInfo() override;
 
     Q_REQUIRED_RESULT UnicodeEmoticon info() const;
     void setInfo(const UnicodeEmoticon &info);
@@ -65,7 +65,7 @@ class UnicodeEmoticonGui : public QWidget
     Q_OBJECT
 public:
     explicit UnicodeEmoticonGui(QWidget *parent = nullptr);
-    ~UnicodeEmoticonGui();
+    ~UnicodeEmoticonGui() override;
 private:
     void save();
     void load();

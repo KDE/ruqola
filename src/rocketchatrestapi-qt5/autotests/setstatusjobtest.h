@@ -28,7 +28,7 @@ class SetStatusJobTest : public QObject
     Q_OBJECT
 public:
     explicit SetStatusJobTest(QObject *parent = nullptr);
-    ~SetStatusJobTest() = default;
+    ~SetStatusJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

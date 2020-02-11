@@ -28,7 +28,7 @@ class TranslateSaveSettingsJobTest : public QObject
     Q_OBJECT
 public:
     explicit TranslateSaveSettingsJobTest(QObject *parent = nullptr);
-    ~TranslateSaveSettingsJobTest() = default;
+    ~TranslateSaveSettingsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

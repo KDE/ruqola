@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShowDiscussionsWidget(QWidget *parent = nullptr);
-    ~ShowDiscussionsWidget();
+    ~ShowDiscussionsWidget() override;
 
     void setModel(DiscussionsFilterProxyModel *model);
 

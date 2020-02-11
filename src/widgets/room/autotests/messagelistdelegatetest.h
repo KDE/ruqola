@@ -28,7 +28,7 @@ class MessageListDelegateTest : public QObject
     Q_OBJECT
 public:
     explicit MessageListDelegateTest(QObject *parent = nullptr);
-    ~MessageListDelegateTest() = default;
+    ~MessageListDelegateTest() override = default;
 
 private Q_SLOTS:
     void layoutChecks_data();

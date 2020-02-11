@@ -28,7 +28,7 @@ class LogoutJobTest : public QObject
     Q_OBJECT
 public:
     explicit LogoutJobTest(QObject *parent = nullptr);
-    ~LogoutJobTest() = default;
+    ~LogoutJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

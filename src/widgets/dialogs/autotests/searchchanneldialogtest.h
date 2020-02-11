@@ -28,7 +28,7 @@ class SearchChannelDialogTest : public QObject
     Q_OBJECT
 public:
     explicit SearchChannelDialogTest(QObject *parent = nullptr);
-    ~SearchChannelDialogTest() = default;
+    ~SearchChannelDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

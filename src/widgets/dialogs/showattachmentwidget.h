@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShowAttachmentWidget(QWidget *parent = nullptr);
-    ~ShowAttachmentWidget();
+    ~ShowAttachmentWidget() override;
     void setModel(FilesForRoomFilterProxyModel *model);
 
 Q_SIGNALS:

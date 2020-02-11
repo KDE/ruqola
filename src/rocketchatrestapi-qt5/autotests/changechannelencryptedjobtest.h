@@ -28,7 +28,7 @@ class ChangeChannelEncryptedJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChangeChannelEncryptedJobTest(QObject *parent = nullptr);
-    ~ChangeChannelEncryptedJobTest() = default;
+    ~ChangeChannelEncryptedJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

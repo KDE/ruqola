@@ -28,7 +28,7 @@ class GetSnippetedMessagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetSnippetedMessagesJobTest(QObject *parent = nullptr);
-    ~GetSnippetedMessagesJobTest() = default;
+    ~GetSnippetedMessagesJobTest() override = default;
 
 private Q_SLOTS:
     void shouldGenerateRequest();

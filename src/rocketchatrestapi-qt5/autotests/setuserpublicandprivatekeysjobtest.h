@@ -28,7 +28,7 @@ class SetUserPublicAndPrivateKeysJobTest : public QObject
     Q_OBJECT
 public:
     explicit SetUserPublicAndPrivateKeysJobTest(QObject *parent = nullptr);
-    ~SetUserPublicAndPrivateKeysJobTest() = default;
+    ~SetUserPublicAndPrivateKeysJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

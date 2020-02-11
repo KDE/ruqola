@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageDownloadManager : public QObject
     Q_OBJECT
 public:
     explicit MessageDownloadManager(QObject *parent = nullptr);
-    ~MessageDownloadManager();
+    ~MessageDownloadManager() override;
 };
 
 #endif // MESSAGEDOWNLOADMANAGER_H

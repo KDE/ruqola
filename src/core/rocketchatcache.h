@@ -32,7 +32,7 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
     Q_OBJECT
 public:
     explicit RocketChatCache(RocketChatAccount *account, QObject *parent = nullptr);
-    ~RocketChatCache();
+    ~RocketChatCache() override;
 
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;

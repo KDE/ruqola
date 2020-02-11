@@ -28,7 +28,7 @@ class UpdateMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit UpdateMessageJobTest(QObject *parent = nullptr);
-    ~UpdateMessageJobTest() = default;
+    ~UpdateMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

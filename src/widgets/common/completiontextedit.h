@@ -34,7 +34,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionTextEdit : public KTextEdit
     Q_OBJECT
 public:
     explicit CompletionTextEdit(QWidget *parent = nullptr);
-    ~CompletionTextEdit();
+    ~CompletionTextEdit() override;
 
     void setCompletionModel(QAbstractItemModel *model);
 

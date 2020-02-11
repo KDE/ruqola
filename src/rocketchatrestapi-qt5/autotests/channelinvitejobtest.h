@@ -28,7 +28,7 @@ class ChannelInviteJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelInviteJobTest(QObject *parent = nullptr);
-    ~ChannelInviteJobTest() = default;
+    ~ChannelInviteJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

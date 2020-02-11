@@ -28,7 +28,7 @@ class LeaveGroupsJobTest : public QObject
     Q_OBJECT
 public:
     explicit LeaveGroupsJobTest(QObject *parent = nullptr);
-    ~LeaveGroupsJobTest() = default;
+    ~LeaveGroupsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

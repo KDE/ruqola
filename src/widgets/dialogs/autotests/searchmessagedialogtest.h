@@ -28,7 +28,7 @@ class SearchMessageDialogTest : public QObject
     Q_OBJECT
 public:
     explicit SearchMessageDialogTest(QObject *parent = nullptr);
-    ~SearchMessageDialogTest() = default;
+    ~SearchMessageDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

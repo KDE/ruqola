@@ -44,7 +44,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonSelectorWidget : public QListWidget
     Q_OBJECT
 public:
     explicit EmoticonSelectorWidget(QWidget *parent = nullptr);
-    ~EmoticonSelectorWidget();
+    ~EmoticonSelectorWidget() override;
 
     void setEmoticon(const QVector<UnicodeEmoticon> &emoticons);
 

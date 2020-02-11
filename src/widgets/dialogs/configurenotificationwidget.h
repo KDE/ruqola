@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
     Q_OBJECT
 public:
     explicit ConfigureNotificationWidget(QWidget *parent = nullptr);
-    ~ConfigureNotificationWidget();
+    ~ConfigureNotificationWidget() override;
     RoomWrapper *roomWrapper() const;
     void setRoomWrapper(RoomWrapper *roomWrapper);
 

@@ -28,7 +28,7 @@ class RoomTest : public QObject
     Q_OBJECT
 public:
     explicit RoomTest(QObject *parent = nullptr);
-    ~RoomTest() = default;
+    ~RoomTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldSerialized();

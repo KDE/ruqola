@@ -28,7 +28,7 @@ class ShowAttachmentWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ShowAttachmentWidgetTest(QObject *parent = nullptr);
-    ~ShowAttachmentWidgetTest() = default;
+    ~ShowAttachmentWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

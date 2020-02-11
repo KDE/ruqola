@@ -28,7 +28,7 @@ class NotificationOptionsTest : public QObject
     Q_OBJECT
 public:
     explicit NotificationOptionsTest(QObject *parent = nullptr);
-    ~NotificationOptionsTest() = default;
+    ~NotificationOptionsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();

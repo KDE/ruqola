@@ -28,7 +28,7 @@ class MessageUrlTest : public QObject
     Q_OBJECT
 public:
     explicit MessageUrlTest(QObject *parent = nullptr);
-    ~MessageUrlTest() = default;
+    ~MessageUrlTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldSerializeData();

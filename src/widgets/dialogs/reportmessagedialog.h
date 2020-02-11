@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_EXPORT ReportMessageDialog : public QDialog
     Q_OBJECT
 public:
     explicit ReportMessageDialog(QWidget *parent = nullptr);
-    ~ReportMessageDialog();
+    ~ReportMessageDialog() override;
     Q_REQUIRED_RESULT QString message() const;
 private:
     void readConfig();

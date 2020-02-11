@@ -28,7 +28,7 @@ class LoadEmojiCustomJobTest : public QObject
     Q_OBJECT
 public:
     explicit LoadEmojiCustomJobTest(QObject *parent = nullptr);
-    ~LoadEmojiCustomJobTest() = default;
+    ~LoadEmojiCustomJobTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

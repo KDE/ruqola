@@ -28,7 +28,7 @@ class ReportMessageWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ReportMessageWidgetTest(QObject *parent = nullptr);
-    ~ReportMessageWidgetTest() = default;
+    ~ReportMessageWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

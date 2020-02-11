@@ -28,7 +28,7 @@ class GetPinnedMessagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetPinnedMessagesJobTest(QObject *parent = nullptr);
-    ~GetPinnedMessagesJobTest() = default;
+    ~GetPinnedMessagesJobTest() override = default;
 
 private Q_SLOTS:
     void shouldGenerateRequest();

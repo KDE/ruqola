@@ -28,7 +28,7 @@ class ShowListMessageBaseDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ShowListMessageBaseDialogTest(QObject *parent = nullptr);
-    ~ShowListMessageBaseDialogTest() = default;
+    ~ShowListMessageBaseDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

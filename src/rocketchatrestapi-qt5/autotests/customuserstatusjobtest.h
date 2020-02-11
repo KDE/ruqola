@@ -28,7 +28,7 @@ class CustomUserStatusJobTest : public QObject
     Q_OBJECT
 public:
     explicit CustomUserStatusJobTest(QObject *parent = nullptr);
-    ~CustomUserStatusJobTest() = default;
+    ~CustomUserStatusJobTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

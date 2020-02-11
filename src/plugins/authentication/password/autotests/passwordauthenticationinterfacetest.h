@@ -28,7 +28,7 @@ class PasswordAuthenticationInterfaceTest : public QObject
     Q_OBJECT
 public:
     explicit PasswordAuthenticationInterfaceTest(QObject *parent = nullptr);
-    ~PasswordAuthenticationInterfaceTest() = default;
+    ~PasswordAuthenticationInterfaceTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

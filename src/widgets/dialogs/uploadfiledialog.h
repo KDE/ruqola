@@ -42,7 +42,7 @@ public:
     };
 
     explicit UploadFileDialog(QWidget *parent = nullptr);
-    ~UploadFileDialog();
+    ~UploadFileDialog() override;
 
     void setFileUrl(const QUrl &url);
 

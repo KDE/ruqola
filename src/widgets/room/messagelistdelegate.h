@@ -41,7 +41,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 
 public:
     explicit MessageListDelegate(QObject *parent = nullptr);
-    ~MessageListDelegate();
+    ~MessageListDelegate() override;
 
     void setRocketChatAccount(RocketChatAccount *rcAccount);
 

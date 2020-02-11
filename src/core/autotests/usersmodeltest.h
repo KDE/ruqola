@@ -28,7 +28,7 @@ class UsersModelTest : public QObject
     Q_OBJECT
 public:
     explicit UsersModelTest(QObject *parent = nullptr);
-    ~UsersModelTest() = default;
+    ~UsersModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldRemoveUser();

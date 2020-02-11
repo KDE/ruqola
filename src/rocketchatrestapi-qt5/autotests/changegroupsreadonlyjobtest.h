@@ -28,7 +28,7 @@ class ChangeGroupsReadonlyJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChangeGroupsReadonlyJobTest(QObject *parent = nullptr);
-    ~ChangeGroupsReadonlyJobTest() = default;
+    ~ChangeGroupsReadonlyJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

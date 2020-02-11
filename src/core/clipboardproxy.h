@@ -32,7 +32,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ClipboardProxy : public QObject
     Q_PROPERTY(QString selectionText READ selectionText WRITE setSelectionText NOTIFY selectionChanged)
 public:
     explicit ClipboardProxy(QObject *parent = nullptr);
-    ~ClipboardProxy();
+    ~ClipboardProxy() override;
 
     void setDataText(const QString &text);
     Q_REQUIRED_RESULT QString dataText() const;

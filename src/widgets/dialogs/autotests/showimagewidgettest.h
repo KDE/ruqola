@@ -28,7 +28,7 @@ class ShowImageWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ShowImageWidgetTest(QObject *parent = nullptr);
-    ~ShowImageWidgetTest() = default;
+    ~ShowImageWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

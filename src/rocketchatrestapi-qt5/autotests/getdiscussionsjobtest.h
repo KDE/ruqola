@@ -28,7 +28,7 @@ class GetDiscussionsJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetDiscussionsJobTest(QObject *parent = nullptr);
-    ~GetDiscussionsJobTest() = default;
+    ~GetDiscussionsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

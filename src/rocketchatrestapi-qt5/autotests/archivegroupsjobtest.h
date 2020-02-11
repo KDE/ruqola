@@ -28,7 +28,7 @@ class ArchiveGroupsJobTest : public QObject
     Q_OBJECT
 public:
     explicit ArchiveGroupsJobTest(QObject *parent = nullptr);
-    ~ArchiveGroupsJobTest() = default;
+    ~ArchiveGroupsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

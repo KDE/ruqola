@@ -28,7 +28,7 @@ class UploadFileWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit UploadFileWidgetTest(QObject *parent = nullptr);
-    ~UploadFileWidgetTest() = default;
+    ~UploadFileWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldReturnEmptyResult();

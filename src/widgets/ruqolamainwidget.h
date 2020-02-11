@@ -34,7 +34,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
     Q_OBJECT
 public:
     explicit RuqolaMainWidget(QWidget *parent = nullptr);
-    ~RuqolaMainWidget();
+    ~RuqolaMainWidget() override;
     Q_REQUIRED_RESULT QString roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;

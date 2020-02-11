@@ -28,7 +28,7 @@ class RuqolaTest : public QObject
     Q_OBJECT
 public:
     explicit RuqolaTest(QObject *parent = nullptr);
-    ~RuqolaTest() = default;
+    ~RuqolaTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

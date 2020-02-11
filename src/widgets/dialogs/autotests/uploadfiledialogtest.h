@@ -28,7 +28,7 @@ class UploadFileDialogTest : public QObject
     Q_OBJECT
 public:
     explicit UploadFileDialogTest(QObject *parent = nullptr);
-    ~UploadFileDialogTest() = default;
+    ~UploadFileDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

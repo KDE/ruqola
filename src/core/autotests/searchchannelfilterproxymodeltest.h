@@ -28,7 +28,7 @@ class SearchChannelFilterProxyModelTest : public QObject
     Q_OBJECT
 public:
     explicit SearchChannelFilterProxyModelTest(QObject *parent = nullptr);
-    ~SearchChannelFilterProxyModelTest() = default;
+    ~SearchChannelFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldLoadChannelJSon();

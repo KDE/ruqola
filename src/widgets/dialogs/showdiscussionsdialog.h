@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsDialog : public QDialog
     Q_OBJECT
 public:
     explicit ShowDiscussionsDialog(QWidget *parent = nullptr);
-    ~ShowDiscussionsDialog();
+    ~ShowDiscussionsDialog() override;
 
     void setModel(DiscussionsFilterProxyModel *model);
 private:

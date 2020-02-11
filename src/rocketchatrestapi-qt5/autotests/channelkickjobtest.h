@@ -28,7 +28,7 @@ class ChannelKickJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelKickJobTest(QObject *parent = nullptr);
-    ~ChannelKickJobTest() = default;
+    ~ChannelKickJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

@@ -28,7 +28,7 @@ class ServerInfoWidgetTest : public QWidget
     Q_OBJECT
 public:
     explicit ServerInfoWidgetTest(QWidget *parent = nullptr);
-    ~ServerInfoWidgetTest() = default;
+    ~ServerInfoWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

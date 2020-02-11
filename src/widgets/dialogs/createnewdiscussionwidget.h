@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionWidget : public QWidget
     Q_OBJECT
 public:
     explicit CreateNewDiscussionWidget(QWidget *parent = nullptr);
-    ~CreateNewDiscussionWidget();
+    ~CreateNewDiscussionWidget() override;
 
     void setChannelName(const QString &name);
     Q_REQUIRED_RESULT QString channelName() const;

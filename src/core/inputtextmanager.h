@@ -35,7 +35,7 @@ public:
         User
     };
     explicit InputTextManager(QObject *parent = nullptr);
-    ~InputTextManager();
+    ~InputTextManager() override;
 
     Q_REQUIRED_RESULT InputCompleterModel *inputCompleterModel() const;
 

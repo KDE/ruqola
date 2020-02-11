@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ReadOnlyLineEditWidget : public QWidget
     Q_OBJECT
 public:
     explicit ReadOnlyLineEditWidget(QWidget *parent = nullptr);
-    ~ReadOnlyLineEditWidget();
+    ~ReadOnlyLineEditWidget() override;
     void setMessage(const QString &str);
 private:
     QLabel *mLabel = nullptr;

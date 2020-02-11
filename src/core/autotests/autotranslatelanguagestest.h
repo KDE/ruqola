@@ -27,7 +27,7 @@ class AutotranslateLanguagesTest : public QObject
     Q_OBJECT
 public:
     explicit AutotranslateLanguagesTest(QObject *parent = nullptr);
-    ~AutotranslateLanguagesTest() = default;
+    ~AutotranslateLanguagesTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

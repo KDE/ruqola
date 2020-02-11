@@ -28,7 +28,7 @@ class UploadFileJobTest : public QObject
     Q_OBJECT
 public:
     explicit UploadFileJobTest(QObject *parent = nullptr);
-    ~UploadFileJobTest() = default;
+    ~UploadFileJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

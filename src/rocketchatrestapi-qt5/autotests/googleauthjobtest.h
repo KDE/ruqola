@@ -28,7 +28,7 @@ class GoogleAuthJobTest : public QObject
     Q_OBJECT
 public:
     explicit GoogleAuthJobTest(QObject *parent = nullptr);
-    ~GoogleAuthJobTest() = default;
+    ~GoogleAuthJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

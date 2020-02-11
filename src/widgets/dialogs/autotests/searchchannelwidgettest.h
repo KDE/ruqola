@@ -28,7 +28,7 @@ class SearchChannelWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit SearchChannelWidgetTest(QObject *parent = nullptr);
-    ~SearchChannelWidgetTest() = default;
+    ~SearchChannelWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

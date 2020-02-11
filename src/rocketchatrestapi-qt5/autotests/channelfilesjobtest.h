@@ -28,7 +28,7 @@ class ChannelFilesJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelFilesJobTest(QObject *parent = nullptr);
-    ~ChannelFilesJobTest() = default;
+    ~ChannelFilesJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

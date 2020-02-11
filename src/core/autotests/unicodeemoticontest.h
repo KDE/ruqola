@@ -27,7 +27,7 @@ class UnicodeEmoticonTest : public QObject
     Q_OBJECT
 public:
     explicit UnicodeEmoticonTest(QObject *parent = nullptr);
-    ~UnicodeEmoticonTest() = default;
+    ~UnicodeEmoticonTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

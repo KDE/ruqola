@@ -27,7 +27,7 @@ class OtrTest : public QObject
     Q_OBJECT
 public:
     explicit OtrTest(QObject *parent = nullptr);
-    ~OtrTest() = default;
+    ~OtrTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldParseOtr_data();

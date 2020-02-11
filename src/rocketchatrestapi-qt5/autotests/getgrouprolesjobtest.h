@@ -28,7 +28,7 @@ class GetGroupRolesJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetGroupRolesJobTest(QObject *parent = nullptr);
-    ~GetGroupRolesJobTest() = default;
+    ~GetGroupRolesJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

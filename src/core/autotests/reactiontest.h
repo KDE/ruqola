@@ -27,7 +27,7 @@ class ReactionTest : public QObject
     Q_OBJECT
 public:
     explicit ReactionTest(QObject *parent = nullptr);
-    ~ReactionTest() = default;
+    ~ReactionTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldReturnCount();

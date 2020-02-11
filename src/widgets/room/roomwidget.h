@@ -39,7 +39,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
     Q_OBJECT
 public:
     explicit RoomWidget(QWidget *parent = nullptr);
-    ~RoomWidget();
+    ~RoomWidget() override;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);

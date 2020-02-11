@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelDialog : public QDialog
     Q_OBJECT
 public:
     explicit CreateNewChannelDialog(QWidget *parent = nullptr);
-    ~CreateNewChannelDialog();
+    ~CreateNewChannelDialog() override;
     struct NewChannelInfo {
         QString usersName;
         QString channelName;

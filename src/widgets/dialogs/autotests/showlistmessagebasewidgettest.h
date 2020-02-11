@@ -28,7 +28,7 @@ class ShowListMessageBaseWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ShowListMessageBaseWidgetTest(QObject *parent = nullptr);
-    ~ShowListMessageBaseWidgetTest() = default;
+    ~ShowListMessageBaseWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

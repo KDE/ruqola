@@ -28,7 +28,7 @@ class ChannelListViewTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelListViewTest(QObject *parent = nullptr);
-    ~ChannelListViewTest() = default;
+    ~ChannelListViewTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

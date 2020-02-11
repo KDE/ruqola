@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
     Q_OBJECT
 public:
     explicit DirectChannelInfoWidget(QWidget *parent = nullptr);
-    ~DirectChannelInfoWidget();
+    ~DirectChannelInfoWidget() override;
 };
 
 #endif // DIRECTCHANNELINFOWIDGET_H

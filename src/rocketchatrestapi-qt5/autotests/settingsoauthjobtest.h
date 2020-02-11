@@ -28,7 +28,7 @@ class SettingsOauthJobTest : public QObject
     Q_OBJECT
 public:
     explicit SettingsOauthJobTest(QObject *parent = nullptr);
-    ~SettingsOauthJobTest() = default;
+    ~SettingsOauthJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

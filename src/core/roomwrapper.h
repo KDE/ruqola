@@ -60,7 +60,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
     explicit RoomWrapper(Room *r, QObject *parent = nullptr);
-    ~RoomWrapper();
+    ~RoomWrapper() override;
 
     Q_REQUIRED_RESULT QString name() const;
     Q_REQUIRED_RESULT QString fname() const;

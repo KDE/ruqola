@@ -28,7 +28,7 @@ class ChangeChannelNameJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChangeChannelNameJobTest(QObject *parent = nullptr);
-    ~ChangeChannelNameJobTest() = default;
+    ~ChangeChannelNameJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

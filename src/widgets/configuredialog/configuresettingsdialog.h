@@ -37,7 +37,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
     Q_OBJECT
 public:
     explicit ConfigureSettingsDialog(QWidget *parent = nullptr);
-    ~ConfigureSettingsDialog();
+    ~ConfigureSettingsDialog() override;
 private:
     void readConfig();
     void writeConfig();

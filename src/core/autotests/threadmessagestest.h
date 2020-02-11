@@ -28,7 +28,7 @@ class ThreadMessagesTest : public QObject
     Q_OBJECT
 public:
     explicit ThreadMessagesTest(QObject *parent = nullptr);
-    ~ThreadMessagesTest() = default;
+    ~ThreadMessagesTest() override = default;
 };
 
 #endif // THREADMESSAGESTEST_H

@@ -36,7 +36,7 @@ class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
     Q_OBJECT
 public:
     explicit ChangeTextWidget(QWidget *parent = nullptr);
-    ~ChangeTextWidget();
+    ~ChangeTextWidget() override;
     void setText(const QString &str);
 
     void setLabelText(const QString &str);
@@ -54,7 +54,7 @@ class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
     Q_OBJECT
 public:
     explicit ChannelInfoWidget(QWidget *parent = nullptr);
-    ~ChannelInfoWidget();
+    ~ChannelInfoWidget() override;
 
     void setRoomWrapper(RoomWrapper *roomWrapper);
 

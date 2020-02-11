@@ -28,7 +28,7 @@ class MessageModelTest : public QObject
     Q_OBJECT
 public:
     explicit MessageModelTest(QObject *parent = nullptr);
-    ~MessageModelTest() = default;
+    ~MessageModelTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

@@ -28,7 +28,7 @@ class SetJoinCodeChannelJobTest : public QObject
     Q_OBJECT
 public:
     explicit SetJoinCodeChannelJobTest(QObject *parent = nullptr);
-    ~SetJoinCodeChannelJobTest() = default;
+    ~SetJoinCodeChannelJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

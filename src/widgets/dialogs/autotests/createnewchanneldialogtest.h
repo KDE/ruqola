@@ -28,7 +28,7 @@ class CreateNewChannelDialogTest : public QObject
     Q_OBJECT
 public:
     explicit CreateNewChannelDialogTest(QObject *parent = nullptr);
-    ~CreateNewChannelDialogTest() = default;
+    ~CreateNewChannelDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

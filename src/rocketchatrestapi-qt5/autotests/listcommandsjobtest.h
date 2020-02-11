@@ -28,7 +28,7 @@ class ListCommandsJobTest : public QObject
     Q_OBJECT
 public:
     explicit ListCommandsJobTest(QObject *parent = nullptr);
-    ~ListCommandsJobTest() = default;
+    ~ListCommandsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

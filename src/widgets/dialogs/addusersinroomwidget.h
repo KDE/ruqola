@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomWidget : public QWidget
     Q_OBJECT
 public:
     explicit AddUsersInRoomWidget(QWidget *parent = nullptr);
-    ~AddUsersInRoomWidget();
+    ~AddUsersInRoomWidget() override;
 
 Q_SIGNALS:
     void updateOkButton(bool state);

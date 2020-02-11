@@ -43,7 +43,7 @@ class LIBRUQOLACORE_EXPORT NotificationOptionsWrapper : public QObject
 public:
     explicit NotificationOptionsWrapper(QObject *parent = nullptr);
     explicit NotificationOptionsWrapper(const NotificationOptions &notification, QObject *parent = nullptr);
-    ~NotificationOptionsWrapper();
+    ~NotificationOptionsWrapper() override;
 
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
 

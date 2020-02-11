@@ -28,7 +28,7 @@ class ModifyStatusWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ModifyStatusWidgetTest(QObject *parent = nullptr);
-    ~ModifyStatusWidgetTest() = default;
+    ~ModifyStatusWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void changeStatusMessage();

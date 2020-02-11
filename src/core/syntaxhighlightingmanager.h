@@ -29,7 +29,7 @@ class SyntaxHighlightingManager : public QObject
     Q_OBJECT
 public:
     explicit SyntaxHighlightingManager(QObject *parent = nullptr);
-    ~SyntaxHighlightingManager() = default;
+    ~SyntaxHighlightingManager() override = default;
 
     static SyntaxHighlightingManager *self();
 

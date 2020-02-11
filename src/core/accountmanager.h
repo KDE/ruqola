@@ -36,7 +36,7 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
     Q_PROPERTY(RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel READ rocketChatAccountProxyModel CONSTANT)
 public:
     explicit AccountManager(QObject *parent = nullptr);
-    ~AccountManager();
+    ~AccountManager() override;
 
     Q_INVOKABLE void removeAccount(const QString &accountName);
     Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url, bool enabled = true);

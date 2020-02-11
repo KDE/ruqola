@@ -28,7 +28,7 @@ class AuthenticationComboBoxTest : public QObject
     Q_OBJECT
 public:
     explicit AuthenticationComboBoxTest(QObject *parent = nullptr);
-    ~AuthenticationComboBoxTest() = default;
+    ~AuthenticationComboBoxTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

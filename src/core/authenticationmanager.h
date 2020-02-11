@@ -70,7 +70,7 @@ public:
     Q_DECLARE_FLAGS(OauthTypes, OauthType)
 
     explicit AuthenticationManager(QObject *parent = nullptr);
-    ~AuthenticationManager();
+    ~AuthenticationManager() override;
 
     static AuthenticationManager *self();
 

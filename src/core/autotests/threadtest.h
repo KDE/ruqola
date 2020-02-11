@@ -26,7 +26,7 @@ class ThreadTest : public QObject
     Q_OBJECT
 public:
     explicit ThreadTest(QObject *parent = nullptr);
-    ~ThreadTest() = default;
+    ~ThreadTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

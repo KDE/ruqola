@@ -28,7 +28,7 @@ class SyncThreadMessagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit SyncThreadMessagesJobTest(QObject *parent = nullptr);
-    ~SyncThreadMessagesJobTest() = default;
+    ~SyncThreadMessagesJobTest() override = default;
 
 private Q_SLOTS:
     void shouldGenerateRequest();

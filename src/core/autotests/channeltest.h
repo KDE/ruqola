@@ -28,7 +28,7 @@ class ChannelTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelTest(QObject *parent = nullptr);
-    ~ChannelTest() = default;
+    ~ChannelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 

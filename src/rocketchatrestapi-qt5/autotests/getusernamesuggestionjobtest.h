@@ -28,7 +28,7 @@ class GetUsernameSuggestionJobTest : public QObject
     Q_OBJECT
 public:
     explicit GetUsernameSuggestionJobTest(QObject *parent = nullptr);
-    ~GetUsernameSuggestionJobTest() = default;
+    ~GetUsernameSuggestionJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

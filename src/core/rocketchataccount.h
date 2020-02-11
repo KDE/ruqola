@@ -126,7 +126,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(UserCompleterFilterProxyModel* userCompleterFilterModelProxy READ userCompleterFilterModelProxy CONSTANT)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
-    ~RocketChatAccount();
+    ~RocketChatAccount() override;
 
     enum RoomInfoType {
         Announcement,

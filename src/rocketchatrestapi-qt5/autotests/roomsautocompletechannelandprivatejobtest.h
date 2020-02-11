@@ -28,7 +28,7 @@ class RoomsAutocompleteChannelAndPrivateJobTest : public QObject
     Q_OBJECT
 public:
     explicit RoomsAutocompleteChannelAndPrivateJobTest(QObject *parent = nullptr);
-    ~RoomsAutocompleteChannelAndPrivateJobTest() = default;
+    ~RoomsAutocompleteChannelAndPrivateJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

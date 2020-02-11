@@ -29,7 +29,7 @@ class AccountRoomSettingsTest : public QObject
     Q_OBJECT
 public:
     explicit AccountRoomSettingsTest(QObject *parent = nullptr);
-    ~AccountRoomSettingsTest() = default;
+    ~AccountRoomSettingsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

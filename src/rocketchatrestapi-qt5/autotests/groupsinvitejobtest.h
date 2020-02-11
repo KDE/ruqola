@@ -28,7 +28,7 @@ class GroupsInviteJobTest : public QObject
     Q_OBJECT
 public:
     explicit GroupsInviteJobTest(QObject *parent = nullptr);
-    ~GroupsInviteJobTest() = default;
+    ~GroupsInviteJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

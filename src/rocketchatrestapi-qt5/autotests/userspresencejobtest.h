@@ -28,7 +28,7 @@ class UsersPresenceJobTest : public QObject
     Q_OBJECT
 public:
     explicit UsersPresenceJobTest(QObject *parent = nullptr);
-    ~UsersPresenceJobTest() = default;
+    ~UsersPresenceJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

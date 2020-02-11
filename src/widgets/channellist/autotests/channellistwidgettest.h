@@ -28,7 +28,7 @@ class ChannelListWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelListWidgetTest(QObject *parent = nullptr);
-    ~ChannelListWidgetTest() = default;
+    ~ChannelListWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void searchRooms();

@@ -28,7 +28,7 @@ class RoomFavoriteJobTest : public QObject
     Q_OBJECT
 public:
     explicit RoomFavoriteJobTest(QObject *parent = nullptr);
-    ~RoomFavoriteJobTest() = default;
+    ~RoomFavoriteJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

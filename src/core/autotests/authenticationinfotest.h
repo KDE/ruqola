@@ -28,7 +28,7 @@ class AuthenticationInfoTest : public QObject
     Q_OBJECT
 public:
     explicit AuthenticationInfoTest(QObject *parent = nullptr);
-    ~AuthenticationInfoTest() = default;
+    ~AuthenticationInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();

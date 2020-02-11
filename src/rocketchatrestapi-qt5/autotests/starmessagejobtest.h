@@ -27,7 +27,7 @@ class StarMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit StarMessageJobTest(QObject *parent = nullptr);
-    ~StarMessageJobTest() = default;
+    ~StarMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldHaveMessageId();

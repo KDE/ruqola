@@ -28,7 +28,7 @@ class TranslateTextJobTest : public QObject
     Q_OBJECT
 public:
     explicit TranslateTextJobTest(QObject *parent = nullptr);
-    ~TranslateTextJobTest() = default;
+    ~TranslateTextJobTest() override = default;
 };
 
 #endif // TRANSLATETEXTJOBTEST_H

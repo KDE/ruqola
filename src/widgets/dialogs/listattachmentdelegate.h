@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ListAttachmentDelegate : public QItemDelegat
     Q_OBJECT
 public:
     explicit ListAttachmentDelegate(QObject *parent = nullptr);
-    ~ListAttachmentDelegate();
+    ~ListAttachmentDelegate() override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 

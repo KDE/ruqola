@@ -28,7 +28,7 @@ class FacebookAuthJobTest : public QObject
     Q_OBJECT
 public:
     explicit FacebookAuthJobTest(QObject *parent = nullptr);
-    ~FacebookAuthJobTest() = default;
+    ~FacebookAuthJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

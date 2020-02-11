@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusWidget : public QWidget
     Q_OBJECT
 public:
     explicit ModifyStatusWidget(QWidget *parent = nullptr);
-    ~ModifyStatusWidget();
+    ~ModifyStatusWidget() override;
 
     Q_REQUIRED_RESULT QString messageStatus() const;
     Q_REQUIRED_RESULT User::PresenceStatus status() const;

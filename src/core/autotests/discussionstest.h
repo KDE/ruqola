@@ -27,7 +27,7 @@ class DiscussionsTest : public QObject
     Q_OBJECT
 public:
     explicit DiscussionsTest(QObject *parent = nullptr);
-    ~DiscussionsTest() = default;
+    ~DiscussionsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadDiscussions_data();

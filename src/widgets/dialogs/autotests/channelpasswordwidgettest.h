@@ -28,7 +28,7 @@ class ChannelPasswordWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelPasswordWidgetTest(QObject *parent = nullptr);
-    ~ChannelPasswordWidgetTest() = default;
+    ~ChannelPasswordWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

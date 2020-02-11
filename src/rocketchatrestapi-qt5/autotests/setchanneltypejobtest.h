@@ -28,7 +28,7 @@ class SetChannelTypeJobTest : public QObject
     Q_OBJECT
 public:
     explicit SetChannelTypeJobTest(QObject *parent = nullptr);
-    ~SetChannelTypeJobTest() = default;
+    ~SetChannelTypeJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

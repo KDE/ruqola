@@ -28,7 +28,7 @@ class AddUsersInRoomWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit AddUsersInRoomWidgetTest(QObject *parent = nullptr);
-    ~AddUsersInRoomWidgetTest() = default;
+    ~AddUsersInRoomWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

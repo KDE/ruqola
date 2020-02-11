@@ -28,7 +28,7 @@ class ListPermissionsJobTest : public QObject
     Q_OBJECT
 public:
     explicit ListPermissionsJobTest(QObject *parent = nullptr);
-    ~ListPermissionsJobTest() = default;
+    ~ListPermissionsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

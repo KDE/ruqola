@@ -31,7 +31,7 @@ class MessageQueue : public QObject
 public:
 
     explicit MessageQueue(RocketChatAccount *account, QObject *parent = nullptr);
-    ~MessageQueue();
+    ~MessageQueue() override;
 
     /**
     * @brief Retry to send unsent messages in DDPClient's abstract message queue

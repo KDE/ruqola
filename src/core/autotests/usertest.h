@@ -28,7 +28,7 @@ class UserTest : public QObject
     Q_OBJECT
 public:
     explicit UserTest(QObject *parent = nullptr);
-    ~UserTest() = default;
+    ~UserTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

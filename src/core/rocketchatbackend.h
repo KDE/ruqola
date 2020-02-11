@@ -37,7 +37,7 @@ class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
     Q_OBJECT
 public:
     explicit RocketChatBackend(RocketChatAccount *account, QObject *parent = nullptr);
-    ~RocketChatBackend();
+    ~RocketChatBackend() override;
 
     /**
     * @brief Adds incoming message from server to appropriate room

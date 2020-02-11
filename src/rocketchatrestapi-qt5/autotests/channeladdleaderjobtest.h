@@ -28,7 +28,7 @@ class ChannelAddLeaderJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelAddLeaderJobTest(QObject *parent = nullptr);
-    ~ChannelAddLeaderJobTest() = default;
+    ~ChannelAddLeaderJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

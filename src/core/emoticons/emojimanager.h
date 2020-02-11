@@ -31,7 +31,7 @@ class LIBRUQOLACORE_EXPORT EmojiManager : public QObject
     Q_OBJECT
 public:
     explicit EmojiManager(QObject *parent = nullptr, bool loadUnicode = true);
-    ~EmojiManager();
+    ~EmojiManager() override;
 
     void loadCustomEmoji(const QJsonObject &obj);
 

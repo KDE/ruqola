@@ -34,7 +34,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionLineEdit : public QLineEdit
     Q_OBJECT
 public:
     explicit CompletionLineEdit(QWidget *parent = nullptr);
-    ~CompletionLineEdit();
+    ~CompletionLineEdit() override;
 
     void setCompletionModel(QAbstractItemModel *model);
 

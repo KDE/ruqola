@@ -28,7 +28,7 @@ class VideoConfUpdateJitsiTimeOutJobTest : public QObject
     Q_OBJECT
 public:
     explicit VideoConfUpdateJitsiTimeOutJobTest(QObject *parent = nullptr);
-    ~VideoConfUpdateJitsiTimeOutJobTest() = default;
+    ~VideoConfUpdateJitsiTimeOutJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

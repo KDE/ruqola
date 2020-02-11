@@ -28,7 +28,7 @@ class RuqolaServerConfigTest : public QObject
     Q_OBJECT
 public:
     explicit RuqolaServerConfigTest(QObject *parent = nullptr);
-    ~RuqolaServerConfigTest() = default;
+    ~RuqolaServerConfigTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldAssignValues();

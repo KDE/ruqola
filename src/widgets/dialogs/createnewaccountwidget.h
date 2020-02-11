@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget
     Q_OBJECT
 public:
     explicit CreateNewAccountWidget(QWidget *parent = nullptr);
-    ~CreateNewAccountWidget();
+    ~CreateNewAccountWidget() override;
 
     Q_REQUIRED_RESULT QString accountName() const;
     Q_REQUIRED_RESULT QString userName() const;

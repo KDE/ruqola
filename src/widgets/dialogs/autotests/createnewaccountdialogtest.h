@@ -28,7 +28,7 @@ class CreateNewAccountDialogTest : public QObject
     Q_OBJECT
 public:
     explicit CreateNewAccountDialogTest(QObject *parent = nullptr);
-    ~CreateNewAccountDialogTest() = default;
+    ~CreateNewAccountDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

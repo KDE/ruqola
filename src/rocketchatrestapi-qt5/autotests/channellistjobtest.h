@@ -28,7 +28,7 @@ class ChannelListJobTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelListJobTest(QObject *parent = nullptr);
-    ~ChannelListJobTest() = default;
+    ~ChannelListJobTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();

@@ -28,7 +28,7 @@ class ForgotPasswordJobTest : public QObject
     Q_OBJECT
 public:
     explicit ForgotPasswordJobTest(QObject *parent = nullptr);
-    ~ForgotPasswordJobTest() = default;
+    ~ForgotPasswordJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

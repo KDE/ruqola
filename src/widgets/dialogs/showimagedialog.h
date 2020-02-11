@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
     Q_OBJECT
 public:
     explicit ShowImageDialog(QWidget *parent = nullptr);
-    ~ShowImageDialog();
+    ~ShowImageDialog() override;
     void setImage(const QPixmap &pix);
 private:
     ShowImageWidget *mShowImageWidget = nullptr;

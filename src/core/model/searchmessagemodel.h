@@ -32,7 +32,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public MessageModel
     Q_OBJECT
 public:
     explicit SearchMessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
-    ~SearchMessageModel();
+    ~SearchMessageModel() override;
     void parse(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT bool stringNotFound() const;

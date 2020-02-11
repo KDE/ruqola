@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
     Q_OBJECT
 public:
     explicit ChannelInfoDialog(QWidget *parent = nullptr);
-    ~ChannelInfoDialog();
+    ~ChannelInfoDialog() override;
     void setRoomWrapper(RoomWrapper *roomWrapper);
 private:
     ChannelInfoWidget *mChannelInfoWidget = nullptr;

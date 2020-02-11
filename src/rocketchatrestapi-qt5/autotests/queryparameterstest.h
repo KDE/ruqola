@@ -28,7 +28,7 @@ class QueryParametersTest : public QObject
     Q_OBJECT
 public:
     explicit QueryParametersTest(QObject *parent = nullptr);
-    ~QueryParametersTest() = default;
+    ~QueryParametersTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

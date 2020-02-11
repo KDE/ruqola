@@ -28,7 +28,7 @@ class DeleteMessageJobTest : public QObject
     Q_OBJECT
 public:
     explicit DeleteMessageJobTest(QObject *parent = nullptr);
-    ~DeleteMessageJobTest() = default;
+    ~DeleteMessageJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

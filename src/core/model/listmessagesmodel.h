@@ -42,7 +42,7 @@ public:
     Q_ENUM(ListMessageType)
 
     explicit ListMessagesModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
-    ~ListMessagesModel();
+    ~ListMessagesModel() override;
 
     void parseListMessages(const QJsonObject &obj);
     void loadMoreListMessages(const QJsonObject &obj);

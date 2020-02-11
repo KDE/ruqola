@@ -28,7 +28,7 @@ class GroupRemoveLeaderJobTest : public QObject
     Q_OBJECT
 public:
     explicit GroupRemoveLeaderJobTest(QObject *parent = nullptr);
-    ~GroupRemoveLeaderJobTest() = default;
+    ~GroupRemoveLeaderJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

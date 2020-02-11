@@ -28,7 +28,7 @@ class ShowDiscussionsWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ShowDiscussionsWidgetTest(QObject *parent = nullptr);
-    ~ShowDiscussionsWidgetTest() = default;
+    ~ShowDiscussionsWidgetTest() override = default;
 };
 
 #endif // SHOWDISCUSSIONSWIDGETTEST_H
