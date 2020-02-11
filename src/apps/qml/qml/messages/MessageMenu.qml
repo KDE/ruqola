@@ -33,32 +33,12 @@ QQC2.Menu {
     property bool pinned_message
     property bool showTranslatedMessage
 
-    function updateFavoriteLabelText()
-    {
-        return (starred === true) ? i18n("Remove as Favorite") : i18n("Set as Favorite")
-    }
-
-    function updateIgnoreLabelText()
-    {
-        return (user_ignored === true) ? i18n("Unignore") : i18n("Ignore")
-    }
-
-    function updatePinnedMessageLabelText()
-    {
-        return (pinned_message === true) ?  i18n("Unpin Message") : i18n("Pin Message")
-    }
-    function updateTranslateLabelText()
-    {
-        return showTranslatedMessage ? i18n("Original Message") : i18n("Translate Message");
-    }
-
     QQC2.MenuItem {
         id: startADiscussionItem
         visible: rcAccount.discussionEnabled
-        contentItem: QQC2.Label {
-            text: i18n("Start a Discussion")
-            textFormat: Text.PlainText
-        }
+        height: visible ? implicitHeight : 0
+        icon.name: "user-group-new"
+        text: i18n("Start a Discussion")
         onTriggered: {
             messageMain.createDiscussion(i_messageID, i_originalMessage);
             console.log(RuqolaDebugCategorySingleton.category, "Create discussion: messageId: ", i_messageID);
@@ -67,10 +47,9 @@ QQC2.Menu {
     QQC2.MenuItem {
         id: startAThreadItem
         visible: rcAccount.threadsEnabled
-        contentItem: QQC2.Label {
-            text: i18n("Reply in Thread")
-            textFormat: Text.PlainText
-        }
+        height: visible ? implicitHeight : 0
+        icon.name: "mail-reply-sender"
+        text: i18n("Reply in Thread")
         onTriggered: {
             messageMain.replyInThread(i_messageID);
             console.log(RuqolaDebugCategorySingleton.category, "Reply in thread ", i_messageID);
@@ -79,10 +58,8 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: copyMessageItem
-        contentItem: QQC2.Label {
-            text: i18n("Copy")
-            textFormat: Text.PlainText
-        }
+        icon.name: "list-add"
+        text: i18n("Copy")
         onTriggered: {
             messageMain.copyMessage(i_messageID, i_originalMessage);
             console.log(RuqolaDebugCategorySingleton.category, "Copy", i_messageID, i_originalMessage);
@@ -91,20 +68,18 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: editMessageItem
-        contentItem: QQC2.Label {
-            text: i18n("Edit")
-            textFormat: Text.PlainText
-        }
+        visible: i_username === i_own_username && rcAccount.allowEditingMessages && can_edit_message
+        height: visible ? implicitHeight : 0
+        icon.name: "entry-edit"
+        text: i18n("Edit")
         onTriggered: {
             messageMain.editMessage(i_messageID, i_originalMessage);
             console.log(RuqolaDebugCategorySingleton.category, "Edit", i_messageID, i_originalMessage);
         }
     }
     QQC2.MenuItem {
-        contentItem: QQC2.Label {
-            text: i18n("Reply")
-            textFormat: Text.PlainText
-        }
+        icon.name: "mail-reply-all"
+        text: i18n("Reply")
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Reply to", i_messageID);
             messageMain.replyMessage(i_messageID);
@@ -112,10 +87,10 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         id: starredMessageItem
-        contentItem: QQC2.Label {
-            id: favoriteLabel
-            text: updateFavoriteLabelText()
-        }
+        icon.name: "favorite"
+        visible: rcAccount.allowMessageStarringEnabled
+        height: visible ? implicitHeight : 0
+        text: starred ? i18n("Remove as Favorite") : i18n("Set as Favorite")
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Set as favorite", i_messageID);
             messageMain.setFavoriteMessage(i_messageID, !starred);
@@ -124,10 +99,10 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: pinnedMessageItem
-        contentItem: QQC2.Label {
-            id: pinnedMessageLabel
-            text: updatePinnedMessageLabelText()
-        }
+        visible: rcAccount.allowMessagePinningEnabled
+        height: visible ? implicitHeight : 0
+        icon.name: pinned_message ? "window-unpin" : "window-pin"
+        text: pinned_message ? i18n("Unpin Message") : i18n("Pin Message")
         onTriggered: {
             messageMain.pinMessage(i_messageID, !pinned_message);
         }
@@ -135,31 +110,28 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: deleteMessageItem
+        icon.name: "delete"
         visible: i_username === i_own_username && rcAccount.allowMessageDeletingEnabled
-        contentItem: QQC2.Label {
-            text: i18n("Delete")
-            textFormat: Text.PlainText
-        }
+        height: visible ? implicitHeight : 0
+        text: i18n("Delete")
         onTriggered: {
             messageMain.deleteMessage(i_messageID);
         }
     }
     QQC2.MenuItem {
         id: reportMessageItem
-        contentItem: QQC2.Label {
-            text: i18n("Report Message")
-            textFormat: Text.PlainText
-        }
+        icon.name: "flag"
+        text: i18n("Report Message")
         onTriggered: {
             messageMain.reportMessage(i_messageID);
         }
     }
     QQC2.MenuItem {
         id: ignoreUserItem
-        contentItem: QQC2.Label {
-            id: ignoreLabel
-            text: updateIgnoreLabelText()
-        }
+        visible: i_username != i_own_username
+        height: visible ? implicitHeight : 0
+        icon.name: !user_ignored ? "mail-thread-ignored" : ""
+        text: user_ignored ? i18n("Unignore") : i18n("Ignore")
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Ignore", i_messageID);
             messageMain.ignoreUser(!user_ignored);
@@ -169,26 +141,11 @@ QQC2.Menu {
     QQC2.MenuItem {
         id: translateMessageItem
         visible: rcAccount.autoTranslateEnabled
-        contentItem: QQC2.Label {
-            id: tranlateMessageLabel
-            text: updateTranslateLabelText()
-        }
+        height: visible ? implicitHeight : 0
+        text: showTranslatedMessage ? i18n("Original Message") : i18n("Translate Message")
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "change translate status", i_messageID);
             messageMain.showOriginalOrTranslatedMessage(i_messageID, false) //TODO fix me!
         }
-    }
-    onAboutToShow: {
-        starredMessageItem.visible = rcAccount.allowMessageStarringEnabled
-        if (starredMessageItem.visible) {
-            favoriteLabel.text = updateFavoriteLabelText()
-        }
-        pinnedMessageItem.visible = rcAccount.allowMessagePinningEnabled
-        if (pinnedMessageItem.visible) {
-            pinnedMessageLabel.text = updatePinnedMessageLabelText();
-        }
-
-        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages && can_edit_message
-        ignoreUserItem.visible = (i_username != i_own_username)
     }
 }
