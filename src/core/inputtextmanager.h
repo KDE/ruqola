@@ -29,6 +29,7 @@ class InputCompleterModel;
 class LIBRUQOLACORE_TESTS_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(InputCompleterModel* inputCompleterModel READ inputCompleterModel CONSTANT)
 public:
     enum CompletionForType {
         Channel = 0,
@@ -41,10 +42,10 @@ public:
 
     void inputTextCompleter(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
+    Q_INVOKABLE Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_REQUIRED_RESULT QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
 
-    void setInputTextChanged(const QString &str, int position);
+    Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
 
     void clearCompleter();
 

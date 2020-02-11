@@ -38,7 +38,7 @@ ColumnLayout {
     property string threadmessageId
     property string selectedThreadMessage
 
-    property QtObject inputCompleterModel
+    property QtObject inputTextManager
 
     function sendMessage()
     {
@@ -109,7 +109,7 @@ ColumnLayout {
             }
 
             onTextChanged: {
-                appid.rocketChatAccount.setInputTextChanged(text, cursorPosition);
+                inputTextManager.setInputTextChanged(text, cursorPosition);
                 if (listView.count > 0) {
                     showPopupCompleting()
                 } else {
@@ -181,7 +181,7 @@ ColumnLayout {
                         width: parent.width
                         interactive: true
                         clip: true
-                        model: inputCompleterModel
+                        model: inputTextManager.inputCompleterModel
                         delegate: Kirigami.BasicListItem {
                             readonly property variant myData: model
 
@@ -212,7 +212,7 @@ ColumnLayout {
         if (listView.currentItem) {
             var oldCursorPosition = messageLine.cursorPosition;
             var oldTextLength = messageLine.text.length;
-            messageLine.text = appid.rocketChatAccount.replaceWord(completerName + " ", messageLine.text, messageLine.cursorPosition)
+            messageLine.text = inputTextManager.replaceWord(completerName + " ", messageLine.text, messageLine.cursorPosition)
             // need to adjust cursor position by completer name length, '@' char and " "
             messageLine.cursorPosition = oldCursorPosition + (messageLine.text.length - oldTextLength)
         }

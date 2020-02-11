@@ -35,7 +35,7 @@ RowLayout {
     property string threadmessageId
     property string selectedRoomId
     property string selectedThreadMessage
-    property QtObject inputCompleterModel
+    property QtObject inputTextManager
 
     signal textEditing(string str)
     signal uploadFile()
@@ -71,7 +71,7 @@ RowLayout {
     }
     MessageLine {
         id: messageLine
-        inputCompleterModel: footerItem.inputCompleterModel
+        inputTextManager: footerItem.inputTextManager
         selectedRoomId: footerItem.selectedRoomId
         messageId: footerItem.messageId
         threadmessageId: footerItem.threadmessageId

@@ -363,16 +363,6 @@ void RocketChatAccount::setUserCurrentMessage(const QString &message, const QStr
     mRoomModel->setInputMessage(roomId, message);
 }
 
-void RocketChatAccount::setInputTextChanged(const QString &str, int position)
-{
-    mInputTextManager->setInputTextChanged(str, position);
-}
-
-QString RocketChatAccount::replaceWord(const QString &newWord, const QString &str, int position)
-{
-    return mInputTextManager->replaceWord(newWord, str, position);
-}
-
 void RocketChatAccount::textEditing(const QString &roomId, bool clearNotification)
 {
     mTypingNotification->textNotificationChanged(roomId, clearNotification);
@@ -1382,16 +1372,6 @@ PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface
     return mDefaultAuthenticationInterface;
 }
 
-InputCompleterModel *RocketChatAccount::inputThreadMessageCompleterModel() const
-{
-    return mInputThreadMessageTextManager->inputCompleterModel();
-}
-
-InputCompleterModel *RocketChatAccount::inputCompleterModel() const
-{
-    return mInputTextManager->inputCompleterModel();
-}
-
 LoginMethodModel *RocketChatAccount::loginMethodModel() const
 {
     return mLoginMethodModel;
@@ -1786,11 +1766,6 @@ void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, c
 AutotranslateLanguagesModel *RocketChatAccount::autoTranslateLanguagesModel() const
 {
     return mAutoTranslateLanguagesModel;
-}
-
-void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)
-{
-    mInputTextManager->inputTextCompleter(obj);
 }
 
 void RocketChatAccount::updateUser(const QJsonObject &object)

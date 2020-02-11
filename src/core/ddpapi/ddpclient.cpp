@@ -71,7 +71,7 @@ void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount 
     }
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
 
-    account->inputTextCompleter(obj);
+    account->inputTextManager()->inputTextCompleter(obj);
 }
 
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)

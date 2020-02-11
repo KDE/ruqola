@@ -112,8 +112,8 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
     Q_PROPERTY(DiscussionsFilterProxyModel* discussionsFilterProxyModel READ discussionsFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchChannelFilterProxyModel* searchChannelFilterProxyModel READ searchChannelFilterProxyModel CONSTANT)
-    Q_PROPERTY(InputCompleterModel* inputCompleterModel READ inputCompleterModel CONSTANT)
-    Q_PROPERTY(InputCompleterModel* inputThreadMessageCompleterModel READ inputThreadMessageCompleterModel CONSTANT)
+    Q_PROPERTY(InputTextManager* inputTextManager READ inputTextManager  CONSTANT)
+    Q_PROPERTY(InputTextManager* inputThreadMessageTextManager READ inputThreadMessageTextManager  CONSTANT)
     Q_PROPERTY(ThreadsFilterProxyModel* threadsFilterProxyModel READ threadsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
@@ -205,13 +205,14 @@ public:
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
-    Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
-    Q_INVOKABLE Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
     InputTextManager *inputTextManager() const
     {
         return mInputTextManager;
     }
-
+    InputTextManager *inputThreadMessageTextManager() const
+    {
+        return mInputThreadMessageTextManager;
+    }
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrlFromDirectChannel(const QString &rid);
     Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
@@ -274,8 +275,6 @@ public:
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
-    InputCompleterModel *inputCompleterModel() const;
-    InputCompleterModel *inputThreadMessageCompleterModel() const;
     ThreadsFilterProxyModel *threadsFilterProxyModel() const;
 
     DDPClient *ddp();
@@ -336,7 +335,6 @@ public:
 
     void insertCompleterUsers();
 
-    void inputTextCompleter(const QJsonObject &obj);
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
     SearchMessageModel *searchMessageModel() const;

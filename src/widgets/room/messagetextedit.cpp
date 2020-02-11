@@ -39,7 +39,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     : CompletionTextEdit(parent)
 {
     connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
-    setCompletionModel(Ruqola::self()->rocketChatAccount()->inputCompleterModel());
+    setCompletionModel(Ruqola::self()->rocketChatAccount()->inputTextManager()->inputCompleterModel());
     connect(this, &MessageTextEdit::complete, this, &MessageTextEdit::slotComplete);
     setAcceptRichText(false);
 
@@ -107,7 +107,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 void MessageTextEdit::slotTextChanged()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->setInputTextChanged(text(), textCursor().position());
+    rcAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
     Q_EMIT textEditing(document()->isEmpty());
 }
 
