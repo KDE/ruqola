@@ -85,6 +85,7 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
+    mAccountRoomSettings = new AccountRoomSettings;
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"<<accountFileName;
     //create an unique file for each account
     loadSettings(accountFileName);
@@ -179,6 +180,7 @@ RocketChatAccount::~RocketChatAccount()
 
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
+    delete mAccountRoomSettings;
 }
 
 void RocketChatAccount::removeSettings()
@@ -843,6 +845,11 @@ void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
     const QVector<User> users = User::parseUsersList(obj);
     mUserCompleterModel->insertUsers(users);
+}
+
+AccountRoomSettings* RocketChatAccount::accountRoomSettings() const
+{
+    return mAccountRoomSettings;
 }
 
 ListMessagesModelFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() const

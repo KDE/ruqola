@@ -31,6 +31,7 @@
 #include "authenticationinfo.h"
 #include "file.h"
 #include "inputtextmanager.h"
+#include "accountroomsettings.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -383,6 +384,8 @@ public:
 
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
+    Q_REQUIRED_RESULT AccountRoomSettings *accountRoomSettings() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -446,6 +449,8 @@ private:
     void inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
     void slotUserAutoCompleterDone(const QJsonObject &obj);
+
+    AccountRoomSettings *mAccountRoomSettings = nullptr;
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

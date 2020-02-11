@@ -27,7 +27,6 @@ AccountRoomSettings::AccountRoomSettings()
 
 AccountRoomSettings::~AccountRoomSettings()
 {
-
 }
 
 void AccountRoomSettings::remove(const QString &roomId)
@@ -40,7 +39,7 @@ void AccountRoomSettings::add(const QString &roomId, const PendingTypedInfo &inf
     mPendingTypedTexts[roomId] = info;
 }
 
-AccountRoomSettings::PendingTypedInfo AccountRoomSettings::values(const QString &roomId)
+AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QString &roomId)
 {
     return mPendingTypedTexts.value(roomId);
 }

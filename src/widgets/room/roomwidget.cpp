@@ -144,18 +144,18 @@ void RoomWidget::dropEvent(QDropEvent *event)
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
     if (mMessageLineWidget->text().isEmpty()) {
-        mPendingTypedTexts.remove(mRoomId);
+        mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomId);
     } else {
-        PendingTypedInfo info;
+        AccountRoomSettings::PendingTypedInfo info;
         info.text = mMessageLineWidget->text();
         info.messageIdBeingEdited = mMessageIdBeingEdited;
-        mPendingTypedTexts[mRoomId] = info;
+        mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
     }
 
     const QString roomId = index.data(RoomModel::RoomID).toString();
     setRoomId(roomId);
     setRoomType(index.data(RoomModel::RoomType).toString());
-    const PendingTypedInfo currentPendingInfo = mPendingTypedTexts.value(roomId);
+    const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     mMessageLineWidget->setText(currentPendingInfo.text);
     mMessageIdBeingEdited = currentPendingInfo.messageIdBeingEdited;
     mMessageLineWidget->setMode(mMessageIdBeingEdited.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);

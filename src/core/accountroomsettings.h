@@ -39,7 +39,7 @@ public:
 
     void add(const QString &roomId, const PendingTypedInfo &info);
 
-    Q_REQUIRED_RESULT PendingTypedInfo values(const QString &roomId);
+    Q_REQUIRED_RESULT PendingTypedInfo value(const QString &roomId);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
 

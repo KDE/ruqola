@@ -75,12 +75,7 @@ private:
     QString mRoomId;
     QString mRoomType;
     QString mMessageIdBeingEdited;
-    struct PendingTypedInfo {
-        QString text;
-        QString messageIdBeingEdited;
-    };
 
-    QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
