@@ -33,7 +33,7 @@ UserMessage {
     id: root
 
     attachments: Repeater {
-        id: repearterAttachments
+        id: attachmentsRepeater
         model: i_attachments
 
         MediaPlayer {
@@ -82,12 +82,12 @@ UserMessage {
                         anchors.fill: parent
                         onClicked: {
                             console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
-                            if (repearterAttachments.audioPlayer.source !== "") {
-                                if (repearterAttachments.audioPlayer.playbackState === MediaPlayer.PlayingState) {
-                                    repearterAttachments.audioPlayer.pause()
+                            if (attachmentsRepeater.audioPlayer.source !== "") {
+                                if (attachmentsRepeater.audioPlayer.playbackState === MediaPlayer.PlayingState) {
+                                    attachmentsRepeater.audioPlayer.pause()
                                     playerButton.source = "media-playback-start"
                                 } else {
-                                    repearterAttachments.audioPlayer.play()
+                                    attachmentsRepeater.audioPlayer.play()
                                     playerButton.source = "media-playback-pause"
                                 }
                             } else {

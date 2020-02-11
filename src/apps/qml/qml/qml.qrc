@@ -72,7 +72,7 @@
         <file alias="MessageMenu.qml">messages/MessageMenu.qml</file>
         <file alias="TimestampText.qml">messages/TimestampText.qml</file>
         <file alias="ShowHideButton.qml">messages/ShowHideButton.qml</file>
-        <file alias="RepeaterReactions.qml">messages/RepeaterReactions.qml</file>
+        <file alias="ReactionsRepeater.qml">messages/ReactionsRepeater.qml</file>
         <file alias="DiscussionLabel.qml">messages/DiscussionLabel.qml</file>
         <file alias="ThreadLabel.qml">messages/ThreadLabel.qml</file>
         <file alias="ReactionsPopup.qml">messages/ReactionsPopup.qml</file>

@@ -248,8 +248,8 @@ MessageBase {
 
                         RowLayout {
                             Layout.fillWidth: true
-                            RepeaterReactions {
-                                id: repearterReactions
+                            ReactionsRepeater {
+                                id: reactionsRepeater
                                 model: i_reactions
                                 onAddReaction: {
                                     messageMain.addReaction(i_messageID, emoji)

@@ -54,7 +54,7 @@ UserMessage {
 
 
     attachments: Repeater {
-        id: repearterAttachments
+        id: attachmentsRepeater
 
         model: i_attachments
 

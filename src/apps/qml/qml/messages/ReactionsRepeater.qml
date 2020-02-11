@@ -25,7 +25,7 @@ import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
 Repeater {
-    id: repearterReactions
+    id: reactionsRepeater
 
     signal addReaction(string emoji)
     signal deleteReaction(string emoji)
@@ -85,9 +85,9 @@ Repeater {
             hoverEnabled: true
             onClicked: {
                 if (item.reactionAdded) {
-                    repearterReactions.deleteReaction(model.modelData.reactionName);
+                    reactionsRepeater.deleteReaction(model.modelData.reactionName);
                 } else {
-                    repearterReactions.addReaction(model.modelData.reactionName);
+                    reactionsRepeater.addReaction(model.modelData.reactionName);
                 }
             }
         }
