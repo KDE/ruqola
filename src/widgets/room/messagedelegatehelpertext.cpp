@@ -41,11 +41,15 @@ static bool fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
 {
     doc.setHtml(text);
     doc.setTextWidth(width);
-    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System);
+    bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System);
     if (isSystemMessage) {
-        QFont font = doc.defaultFont();
-        font.setItalic(true);
-        doc.setDefaultFont(font);
+        if (index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started")) {
+            QFont font = doc.defaultFont();
+            font.setItalic(true);
+            doc.setDefaultFont(font);
+        } else {
+            isSystemMessage = false;
+        }
     }
     QTextFrame *frame = doc.frameAt(0);
     QTextFrameFormat frameFormat = frame->frameFormat();
@@ -116,6 +120,9 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
                     if (roomOrUser != rcAccount->userName()) {
                         rcAccount->openDirectChannel(roomOrUser);
                     }
+                } else if (link == QLatin1String("ruqola:/jitsicall/")) {
+                    //FIXME we need to roomId
+                    //rcAccount->joinJitsiConfCall(roomId)
                 }
             } else {
                 RuqolaUtils::self()->openUrl(link);

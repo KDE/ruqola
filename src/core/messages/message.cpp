@@ -455,7 +455,7 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("room_changed_privacy")) {
         return i18n("%2 changed room privacy to %1", mText, mUsername);
     } else if (mSystemMessageType == QLatin1String("jitsi_call_started")) {
-        return i18n("Click to join to video");
+        return QStringLiteral("<a href=\"ruqola:/jitsicall/\">") + i18n("Click to join to video") + QStringLiteral("</a>");
     } else if (mSystemMessageType == QLatin1String("rm")) {
         //TODO encrypted message
         return i18n("Message Deleted");
