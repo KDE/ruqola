@@ -267,7 +267,7 @@ void RuqolaMainWindow::setupActions()
     connect(mListOfUsers, &QAction::triggered, this, &RuqolaMainWindow::slotListOfUsersInRoom);
     ac->addAction(QStringLiteral("list_of_users_in_room"), mListOfUsers);
 
-    mStartVideoChat = new QAction(i18n("Video Chat"), this);
+    mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
     connect(mStartVideoChat, &QAction::triggered, this, &RuqolaMainWindow::slotStartVideoChat);
     ac->addAction(QStringLiteral("video_chat"), mStartVideoChat);
 }
