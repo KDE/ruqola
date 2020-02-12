@@ -25,7 +25,6 @@
 
 #include "libruqolawidgets_private_export.h"
 
-class QListView;
 class QAbstractItemModel;
 class CompletionListView;
 

@@ -25,7 +25,6 @@
 #include <QJsonObject>
 #include "libruqola_private_export.h"
 #include "messagemodel.h"
-class TextConverter;
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public MessageModel
 {

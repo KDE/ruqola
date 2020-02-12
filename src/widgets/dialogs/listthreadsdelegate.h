@@ -23,8 +23,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
-class CreateNewAccountWidget;
-class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ListThreadsDelegate : public QItemDelegate
 {
     Q_OBJECT

@@ -23,7 +23,6 @@
 
 #include <QWidget>
 #include "libruqolawidgets_export.h"
-class KLineEdit;
 class KPasswordLineEdit;
 class QCheckBox;
 class QPushButton;

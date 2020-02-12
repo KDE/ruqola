@@ -28,7 +28,6 @@ class QRect;
 class QModelIndex;
 class QMouseEvent;
 class QStyleOptionViewItem;
-class QRectF;
 
 class Message;
 

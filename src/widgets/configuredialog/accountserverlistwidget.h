@@ -25,7 +25,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
 #include "dialogs/createnewaccountdialog.h"
-class ModifyStatusWidget;
 class AccountServerListWidgetItem : public QListWidgetItem
 {
 public:

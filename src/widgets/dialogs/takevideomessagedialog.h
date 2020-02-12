@@ -22,7 +22,6 @@
 #define TAKEVIDEOMESSAGEDIALOG_H
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-class ShowImageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TakeVideoMessageDialog : public QDialog
 {
     Q_OBJECT

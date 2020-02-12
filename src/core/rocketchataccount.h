@@ -55,7 +55,6 @@ class FilesForRoomModel;
 class SearchChannelModel;
 class SearchChannelFilterProxyModel;
 class LoginMethodModel;
-class InputCompleterModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
 class Room;

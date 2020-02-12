@@ -25,7 +25,6 @@
 
 #include "libruqolawidgets_private_export.h"
 
-class QListView;
 
 /**
  * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
