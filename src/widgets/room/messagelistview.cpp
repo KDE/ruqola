@@ -146,6 +146,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(copyAction, &QAction::triggered, this, [=]() {
         slotCopyText(index);
     });
+    //TODO fix me we can't pinned message when we are not owner
     QAction *setPinnedMessage = nullptr;
     if (rcAccount->allowMessagePinningEnabled()) {
         const bool isPinned = index.data(MessageModel::Pinned).toBool();
@@ -293,7 +294,6 @@ void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinn
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     rcAccount->pinMessage(messageId, !isPinned);
-    //TODO fix pinMessage it seems that it doesn't work
 }
 
 void MessageListView::slotStartDiscussion(const QModelIndex &index)
