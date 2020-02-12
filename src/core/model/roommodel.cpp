@@ -396,12 +396,12 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     }
 }
 
-void RoomModel::userStatusChanged(User *user)
+void RoomModel::userStatusChanged(const User &user)
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         Room *room = mRoomsList.at(i);
-        if (room->name() == user->userName()) {
+        if (room->name() == user.userName()) {
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
         }

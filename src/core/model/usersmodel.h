@@ -43,7 +43,7 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    void addUser(User *userFromUserId);
+    void addUser(const User &userFromUserId);
     void removeUser(const QString &userId);
 
     void updateUser(const QJsonObject &array);
@@ -52,14 +52,14 @@ public:
     Q_REQUIRED_RESULT QString status(const QString &userId) const;
 
 Q_SIGNALS:
-    void userStatusChanged(User *user);
-    void userNameChanged(User *user);
-    void nameChanged(User *user);
-    void statusMessageChanged(User *user);
+    void userStatusChanged(const User &user);
+    void userNameChanged(const User &user);
+    void nameChanged(const User &user);
+    void statusMessageChanged(const User &user);
 
 private:
     Q_DISABLE_COPY(UsersModel)
-    QVector<User *> mUsers;
+    QVector<User> mUsers;
 };
 
 #endif // USERSMODEL_H

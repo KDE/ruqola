@@ -183,8 +183,8 @@ void UserTest::shouldParseJson()
 //    const QJsonDocument doc = QJsonDocument::fromJson(content);
 //    const QJsonObject fields = doc.object();
 
-//    User *user = new User;
-//    user->parseUser(fields);
+//    User user;
+//    user.parseUser(fields);
 //    const bool equal = (*user == *expectedUser);
 //    if (!equal) {
 //        qDebug() << " current value " << user;

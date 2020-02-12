@@ -43,14 +43,14 @@ public:
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel() override;
 
-    void setUsers(const QVector<User *> &users);
+    void setUsers(const QVector<User> &users);
 
     void clear();
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);
-    void userStatusChanged(User *newuser);
+    void userStatusChanged(const User &newuser);
     void removeUser(const QString &userId);
     void addUser(const User &users);
 
@@ -72,7 +72,7 @@ Q_SIGNALS:
 private:
     QString generateDisplayName(const User &user) const;
     void checkFullList();
-    QVector<User *> mUsers;
+    QVector<User> mUsers;
     int mTotal = 0;
     int mOffset = 0;
     bool mHasFullList = false;

@@ -1773,10 +1773,10 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
     mUserModel->updateUser(object);
 }
 
-void RocketChatAccount::userStatusChanged(User *user)
+void RocketChatAccount::userStatusChanged(const User &user)
 {
-    if (user->userId() == userID()) {
-        const User::PresenceStatus status = Utils::presenceStatusFromString(user->status());
+    if (user.userId() == userID()) {
+        const User::PresenceStatus status = Utils::presenceStatusFromString(user.status());
         statusModel()->setCurrentPresenceStatus(status);
         Q_EMIT userStatusUpdated(status);
     }

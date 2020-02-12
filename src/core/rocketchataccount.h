@@ -439,7 +439,7 @@ private:
     void fillOauthModel();
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
-    void userStatusChanged(User *user);
+    void userStatusChanged(const User &user);
     void setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
 

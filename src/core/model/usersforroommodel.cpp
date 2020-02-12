@@ -32,7 +32,6 @@ UsersForRoomModel::UsersForRoomModel(QObject *parent)
 
 UsersForRoomModel::~UsersForRoomModel()
 {
-    qDeleteAll(mUsers);
 }
 
 void UsersForRoomModel::removeUser(const QString &userId)
@@ -45,12 +44,11 @@ void UsersForRoomModel::addUser(const User &users)
     //TODO verify if it
 }
 
-void UsersForRoomModel::setUsers(const QVector<User *> &users)
+void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
     if (mUsers.isEmpty()) {
         if (rowCount() != 0) {
             beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
-            qDeleteAll(mUsers);
             mUsers.clear();
             endRemoveRows();
         }
@@ -72,7 +70,6 @@ void UsersForRoomModel::clear()
 {
     if (!mUsers.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
-        qDeleteAll(mUsers);
         mUsers.clear();
         endRemoveRows();
     }
@@ -90,18 +87,18 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    User *user = mUsers.at(index.row());
+    const User &user = mUsers.at(index.row());
     switch (role) {
     case DisplayName:
-        return generateDisplayName(*user);
+        return generateDisplayName(user);
     case UserName:
-        return user->userName();
+        return user.userName();
     case IconStatus:
-        return user->iconFromStatus();
+        return user.iconFromStatus();
     case UserId:
-        return user->userId();
+        return user.userId();
     case Name:
-        return user->name();
+        return user.name();
     }
 
     return {};
@@ -173,7 +170,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         mTotal = root[QLatin1String("total")].toInt();
         mOffset = root[QLatin1String("offset")].toInt();
         const QJsonArray members = root[QStringLiteral("members")].toArray();
-        QVector<User *> users;
+        QVector<User> users;
         users.reserve(members.count());
         for (const QJsonValue &current : members) {
             if (current.type() == QJsonValue::Object) {
@@ -183,16 +180,16 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 const QString id = userObject[QStringLiteral("_id")].toString();
                 const double utcOffset = userObject[QStringLiteral("utcOffset")].toDouble();
                 const QString status = userObject[QStringLiteral("status")].toString();
-                QScopedPointer<User> user(new User);
-                user->setName(name);
-                user->setUserName(userName);
-                user->setUserId(id);
-                user->setUtcOffset(utcOffset);
-                user->setStatus(status);
-                if (user->isValid()) {
-                    users.append(user.take());
+                User user;
+                user.setName(name);
+                user.setUserName(userName);
+                user.setUserId(id);
+                user.setUtcOffset(utcOffset);
+                user.setStatus(status);
+                if (user.isValid()) {
+                    users.append(user);
                 } else {
-                    qCWarning(RUQOLA_LOG) << "Invalid user" << *user;
+                    qCWarning(RUQOLA_LOG) << "Invalid user" << user;
                     mTotal--;
                 }
             } else {
@@ -207,7 +204,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
             mTotal = result[QLatin1String("total")].toInt();
             mOffset = root[QLatin1String("offset")].toInt(); //TODO verify if a day we use no rest api
 
-            QVector<User *> users;
+            QVector<User> users;
             users.reserve(records.count());
             for (const QJsonValue &current : records) {
                 if (current.type() == QJsonValue::Object) {
@@ -215,18 +212,18 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                     const QString userName = userObject[QStringLiteral("username")].toString();
                     const QString name = userObject[QStringLiteral("name")].toString();
                     const QString id = userObject[QStringLiteral("_id")].toString();
-                    User *user = new User;
-                    user->setName(name);
-                    user->setUserName(userName);
-                    user->setUserId(id);
+                    User user;
+                    user.setName(name);
+                    user.setUserName(userName);
+                    user.setUserId(id);
                     if (model) {
-                        user->setStatus(model->status(id));
+                        user.setStatus(model->status(id));
                     }
                     //Add status!
-                    if (user->isValid()) {
+                    if (user.isValid()) {
                         users.append(user);
                     } else {
-                        qCWarning(RUQOLA_LOG) << "Invalid user" << *user;
+                        qCWarning(RUQOLA_LOG) << "Invalid user" << user;
                         mTotal--;
                     }
                 } else {
@@ -240,13 +237,13 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
     }
 }
 
-void UsersForRoomModel::userStatusChanged(User *newuser)
+void UsersForRoomModel::userStatusChanged(const User &newuser)
 {
     const int roomCount = mUsers.count();
     for (int i = 0; i < roomCount; ++i) {
-        User *user = mUsers.at(i);
-        if (newuser->userId() == user->userId()) {
-            user->setStatus(newuser->status());
+        User &user = mUsers[i];
+        if (newuser.userId() == user.userId()) {
+            user.setStatus(newuser.status());
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
         }
