@@ -59,7 +59,7 @@ UserMessage {
                 }
                 Image {
                     id: imageUrl
-                    visible: model.modelData.isAnimatedImage
+                    visible: !model.modelData.isAnimatedImage
                     readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : Math.min(200, model.modelData.imageHeight)
                     source: rcAccount.attachmentUrl(model.modelData.link)
                     asynchronous: true
