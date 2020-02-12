@@ -58,7 +58,7 @@ void ChannelMembersJob::slotChannelMembersFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("channelMembersDone success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelMembersDone(replyObject, roomId());
+            Q_EMIT channelMembersDone(replyObject, channelInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("channelMembersDone problem: ") + replyJson.toJson(QJsonDocument::Indented));

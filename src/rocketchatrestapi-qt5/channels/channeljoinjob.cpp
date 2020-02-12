@@ -58,16 +58,16 @@ void ChannelJoinJob::slotChannelJoinFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setChannelJoinDone(roomId());
+            Q_EMIT setChannelJoinDone(channelInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
             //Invalid password
             const QString errorType = replyObject[QStringLiteral("errorType")].toString();
             if (errorType == QLatin1String("error-code-invalid")) {
-                Q_EMIT missingChannelPassword(roomId());
+                Q_EMIT missingChannelPassword(channelInfo());
             } else if (errorType == QLatin1String("error-room-archived")) {
-                Q_EMIT openArchivedRoom(roomId());
+                Q_EMIT openArchivedRoom(channelInfo());
             }
         }
         reply->deleteLater();

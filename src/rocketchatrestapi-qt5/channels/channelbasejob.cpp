@@ -30,77 +30,38 @@ ChannelBaseJob::~ChannelBaseJob()
 {
 }
 
-QString ChannelBaseJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelBaseJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
-QString ChannelBaseJob::roomName() const
-{
-    return mRoomName;
-}
-
-void ChannelBaseJob::setRoomName(const QString &roomName)
-{
-    mRoomName = roomName;
-}
-
 bool ChannelBaseJob::hasRoomIdentifier() const
 {
-    //return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelBaseJob::ChannelInfoType::Unknown);
-    return !mRoomId.isEmpty() || !mRoomName.isEmpty();
+    return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelBaseJob::ChannelInfoType::Unknown);
 }
 
 void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
 {
-#if 0
     switch (mChannelInfo.channelInfoType) {
     case ChannelBaseJob::ChannelInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
     case ChannelBaseJob::ChannelInfoType::RoomId:
-        jsonObj[QLatin1String("roomId")] = roomId();
+        jsonObj[QLatin1String("roomId")] = mChannelInfo.channelInfoIdentifier;
         break;
     case ChannelBaseJob::ChannelInfoType::RoomName:
-        jsonObj[QLatin1String("roomName")] = roomName();
+        jsonObj[QLatin1String("roomName")] = mChannelInfo.channelInfoIdentifier;
         break;
-    }
-#endif
-    if (!mRoomId.isEmpty()) {
-        jsonObj[QLatin1String("roomId")] = roomId();
-    } else if (!mRoomName.isEmpty()) {
-        jsonObj[QLatin1String("roomName")] = roomName();
-    } else {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "roomId and roomName are empty. It's a bug!";
     }
 }
 
 void RocketChatRestApi::ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
 {
-#if 0
     switch (mChannelInfo.channelInfoType) {
     case ChannelBaseJob::ChannelInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
     case ChannelBaseJob::ChannelInfoType::RoomId:
-        queryUrl.addQueryItem(QStringLiteral("roomId"), roomId());
+        queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelInfo.channelInfoIdentifier);
         break;
     case ChannelBaseJob::ChannelInfoType::RoomName:
-        queryUrl.addQueryItem(QStringLiteral("roomName"), roomName());
+        queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelInfo.channelInfoIdentifier);
         break;
-    }
-#endif
-    if (!mRoomId.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("roomId"), roomId());
-    } else if (!mRoomName.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("roomName"), roomName());
-    } else {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "roomId and roomName are empty. It's a bug!";
     }
 }
 

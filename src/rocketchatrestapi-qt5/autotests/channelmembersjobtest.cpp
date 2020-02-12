@@ -34,7 +34,7 @@ void ChannelMembersJobTest::shouldHaveDefaultValue()
     ChannelMembersJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasRoomIdentifier());
     QCOMPARE(job.channelType(), ChannelMembersJob::ChannelType::Unknown);
     QVERIFY(job.hasQueryParameterSupport());
 }
@@ -43,7 +43,11 @@ void ChannelMembersJobTest::shouldGenerateRequest()
 {
     ChannelMembersJob job;
     job.setChannelType(ChannelMembersJob::Channel);
-    job.setRoomId(QStringLiteral("foo"));
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = QStringLiteral("foo");
+    job.setChannelInfo(info);
+
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.members?roomId=foo")));
@@ -75,7 +79,10 @@ void ChannelMembersJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     QVERIFY(!job.canStart());
     job.setChannelType(ChannelMembersJob::ChannelType::Channel);
     QVERIFY(job.canStart());

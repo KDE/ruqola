@@ -564,7 +564,11 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
                                                                          } else {
                                                                              qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
                                                                          }
-                                                                         account->parseUsersForRooms(root, roomId);
+                                                                         RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
+                                                                         info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId;
+                                                                         info.channelInfoIdentifier = roomId;
+
+                                                                         account->parseUsersForRooms(root, info);
                                                                      };
 
     return method(result, callback, DDPClient::Persistent);

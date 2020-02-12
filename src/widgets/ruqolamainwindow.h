@@ -23,6 +23,7 @@
 
 #include <KXmlGuiWindow>
 #include <QPointer>
+#include "channels/channelbasejob.h"
 #include "libruqolawidgets_export.h"
 class RuqolaCentralWidget;
 class QAction;
@@ -62,7 +63,7 @@ private:
     void slotShowThreads();
     void slotUnreadOnTop(bool checked);
     void updateActions();
-    void slotMissingChannelPassword(const QString &roomId);
+    void slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void slotShowChannelInfo();
     void slotAddUsersInRoom();
     void changeActionStatus(bool enabled);

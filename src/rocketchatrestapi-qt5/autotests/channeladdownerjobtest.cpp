@@ -35,7 +35,7 @@ void ChannelAddOwnerJobTest::shouldHaveDefaultValue()
     ChannelAddOwnerJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.addownerUserId().isEmpty());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasRoomIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,10 @@ void ChannelAddOwnerJobTest::shouldGenerateJson()
     ChannelAddOwnerJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString addUsedId = QStringLiteral("topic1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     job.setAddownerUserId(addUsedId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(addUsedId, roomId).toLatin1());
 }

@@ -35,7 +35,7 @@ void SetChannelTypeJobTest::shouldHaveDefaultValue()
     SetChannelTypeJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasRoomIdentifier());
     QCOMPARE(job.type(), SetChannelTypeJob::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -53,7 +53,10 @@ void SetChannelTypeJobTest::shouldGenerateJson()
 {
     SetChannelTypeJob job;
     const QString channelname = QStringLiteral("foo1");
-    job.setRoomId(channelname);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = channelname;
+    job.setChannelInfo(info);
     job.setType(SetChannelTypeJob::Private);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"p\"}").arg(channelname).toLatin1());
 
@@ -79,7 +82,10 @@ void SetChannelTypeJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     QVERIFY(!job.canStart());
     job.setType(SetChannelTypeJob::Private);
     QVERIFY(job.canStart());

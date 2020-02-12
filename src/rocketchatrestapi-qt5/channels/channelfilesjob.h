@@ -50,7 +50,7 @@ public:
 
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 Q_SIGNALS:
-    void channelFilesDone(const QJsonObject &replyObjectj, const QString &roomId);
+    void channelFilesDone(const QJsonObject &replyObjectj, const ChannelBaseJob::ChannelInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelFilesJob)

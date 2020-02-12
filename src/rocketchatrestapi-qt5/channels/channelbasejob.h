@@ -44,12 +44,6 @@ public:
         ChannelBaseJob::ChannelInfoType channelInfoType = ChannelBaseJob::ChannelInfoType::Unknown;
     };
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
-    Q_REQUIRED_RESULT QString roomName() const;
-    void setRoomName(const QString &roomName);
-
     Q_REQUIRED_RESULT bool hasRoomIdentifier() const;
 
     Q_REQUIRED_RESULT ChannelInfo channelInfo() const;
@@ -61,8 +55,6 @@ protected:
 
 private:
     ChannelInfo mChannelInfo;
-    QString mRoomId;
-    QString mRoomName;
 };
 }
 

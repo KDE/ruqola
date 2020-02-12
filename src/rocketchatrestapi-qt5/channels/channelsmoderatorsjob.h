@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void channelFilesDone(const QJsonObject &replyObjectj, const QString &roomId);
+    void channelFilesDone(const QJsonObject &replyObjectj, const ChannelBaseJob::ChannelInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelsModeratorsJob)

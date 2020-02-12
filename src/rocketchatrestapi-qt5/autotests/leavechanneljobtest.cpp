@@ -35,7 +35,7 @@ void LeaveChannelJobTest::shouldHaveDefaultValue()
     LeaveChannelJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasRoomIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -52,7 +52,10 @@ void LeaveChannelJobTest::shouldGenerateJson()
 {
     LeaveChannelJob job;
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
 }
 
@@ -74,6 +77,9 @@ void LeaveChannelJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     QVERIFY(job.canStart());
 }

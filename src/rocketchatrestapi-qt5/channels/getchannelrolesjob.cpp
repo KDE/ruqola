@@ -94,7 +94,7 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelRolesDone(replyObject, roomId());
+            Q_EMIT channelRolesDone(replyObject, channelInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

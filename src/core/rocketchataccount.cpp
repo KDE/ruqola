@@ -567,12 +567,13 @@ void RocketChatAccount::openChannel(const QString &url)
     //TODO search correct room + select it.
 }
 
-void RocketChatAccount::setChannelJoinDone(const QString &roomId)
+void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    ddp()->subscribeRoomMessage(roomId);
+    //FIXME type of identifier
+    ddp()->subscribeRoomMessage(channelInfo.channelInfoIdentifier);
 }
 
-void RocketChatAccount::openArchivedRoom(const QString &roomId)
+void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
     //TODO
 }
@@ -638,7 +639,6 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
-    //TODO use restapi
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
@@ -737,13 +737,14 @@ void RocketChatAccount::membersInRoom(const QString &roomId, const QString &room
     restApi()->membersInRoom(roomId, roomType);
 }
 
-void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QString &roomId)
+void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
+    //FIXME channelInfo
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfo.channelInfoIdentifier);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
     } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfo.channelInfoIdentifier;
     }
 }
 
@@ -788,15 +789,15 @@ ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationMa
     return mReceiveTypingNotificationManager;
 }
 
-void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QString &roomId)
+void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    Room *room = mRoomModel->findRoom(roomId);
+    Room *room = mRoomModel->findRoom(channelInfo.channelInfoIdentifier);
     if (room) {
         Roles r;
         r.parseRole(obj);
         room->setRolesForRooms(r);
     } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfo.channelInfoIdentifier;
     }
 }
 
@@ -875,11 +876,12 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
     loadAutoCompleteChannel(obj);
 }
 
-void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
+void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
+    //TODO fixme channelinfo
     //qDebug() << " slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)" << roomId << " obj " << obj;
-    if (mFilesModelForRoom->roomId() != roomId) {
-        mFilesModelForRoom->parseFileAttachments(obj, roomId);
+    if (mFilesModelForRoom->roomId() != channelInfo.channelInfoIdentifier) {
+        mFilesModelForRoom->parseFileAttachments(obj, channelInfo.channelInfoIdentifier);
     } else {
         mFilesModelForRoom->addMoreFileAttachments(obj);
     }

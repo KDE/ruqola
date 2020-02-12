@@ -456,13 +456,14 @@ void RuqolaMainWindow::slotUnreadOnTop(bool checked)
     mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
 }
 
-void RuqolaMainWindow::slotMissingChannelPassword(const QString &roomId)
+void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
     //TODO move in room page ?
     QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
     //TODO add channel name!
     if (dlg->exec()) {
-        mCurrentRocketChatAccount->joinRoom(roomId, dlg->password());
+        //FIXME channelinfo
+        mCurrentRocketChatAccount->joinRoom(channelInfo.channelInfoIdentifier, dlg->password());
     }
     delete dlg;
 }

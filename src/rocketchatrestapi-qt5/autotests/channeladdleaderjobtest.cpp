@@ -35,7 +35,7 @@ void ChannelAddLeaderJobTest::shouldHaveDefaultValue()
     ChannelAddLeaderJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.addLeaderUserId().isEmpty());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasRoomIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,10 @@ void ChannelAddLeaderJobTest::shouldGenerateJson()
     ChannelAddLeaderJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString removeUserId = QStringLiteral("topic1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     job.setAddLeaderUserId(removeUserId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(removeUserId, roomId).toLatin1());
 }

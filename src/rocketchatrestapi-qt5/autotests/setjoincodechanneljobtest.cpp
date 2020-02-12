@@ -35,7 +35,7 @@ void SetJoinCodeChannelJobTest::shouldHaveDefaultValue()
     SetJoinCodeChannelJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasRoomIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -52,7 +52,10 @@ void SetJoinCodeChannelJobTest::shouldGenerateJson()
 {
     SetJoinCodeChannelJob job;
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     const QString joinCode = QStringLiteral("bli");
     job.setJoinCode(joinCode);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"joinCode\":\"%2\",\"roomId\":\"%1\"}").arg(roomId, joinCode).toLatin1());
@@ -74,9 +77,13 @@ void SetJoinCodeChannelJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
+
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job.setChannelInfo(info);
     QVERIFY(!job.canStart());
 
     const QString joinCode = QStringLiteral("fd1");

@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "channels/channelbasejob.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "restapiutil.h"
 #include "users/setstatusjob.h"
@@ -186,8 +187,8 @@ Q_SIGNALS:
     void getServerInfoFailed(bool useDeprecatedVersion);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QByteArray &data);
-    void channelFilesDone(const QJsonObject &obj, const QString &roomId);
-    void channelMembersDone(const QJsonObject &obj, const QString &roomId);
+    void channelFilesDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
+    void channelMembersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
@@ -195,16 +196,16 @@ Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void usersInfoDone(const QJsonObject &obj);
-    void channelRolesDone(const QJsonObject &obj, const QString &roomId);
+    void channelRolesDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void listPermissionDone(const QJsonObject &obj);
     void listCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();
     void setJoinCodeDone();
-    void setChannelJoinDone(const QString &roomId);
-    void missingChannelPassword(const QString &roomId);
-    void openArchivedRoom(const QString &roomId);
+    void setChannelJoinDone(const ChannelBaseJob::ChannelInfo &channelInfo);
+    void missingChannelPassword(const ChannelBaseJob::ChannelInfo &channelInfo);
+    void openArchivedRoom(const ChannelBaseJob::ChannelInfo &channelInfo);
     void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void updateJitsiTimeOutDone(const QString &datetime);
     void channelKickUserDone(const QJsonObject &obj);
@@ -219,6 +220,7 @@ Q_SIGNALS:
     void deleteGroupsDone();
     void pinMessageDone();
     void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
+    void groupRolesDone(const QJsonObject &obj, const QString &roomId);
     void followMessageDone();
     void unFollowMessageDone();
     void startDiscussionDone();
