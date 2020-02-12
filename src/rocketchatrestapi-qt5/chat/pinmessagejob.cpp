@@ -53,11 +53,19 @@ void PinMessageJob::slotPinMessage()
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("PinMessageJob: success: ") + data);
-        if (mPinMessage) {
-            Q_EMIT pinMessageDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("PinMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            if (mPinMessage) {
+                Q_EMIT pinMessageDone();
+            } else {
+                Q_EMIT unPinMessageDone();
+            }
         } else {
-            Q_EMIT unPinMessageDone();
+            emitFailedMessage(replyObject, reply);
+            addLoggerWarning(QByteArrayLiteral("PinMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
