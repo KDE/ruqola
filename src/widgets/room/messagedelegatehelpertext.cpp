@@ -22,7 +22,6 @@
 #include <model/messagemodel.h>
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "ruqolautils.h"
 
 #include <QPainter>
 #include <QTextBlock>
