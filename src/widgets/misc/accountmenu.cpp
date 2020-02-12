@@ -63,7 +63,7 @@ void AccountMenu::slotUpdateAccountMenu()
                     action->setChecked(true);
                 }
                 menu()->addAction(action);
-                connect(action, &QAction::triggered, this, [this, accountName](){
+                connect(action, &QAction::triggered, this, [accountName](){
                     Ruqola::self()->accountManager()->setCurrentAccount(accountName);
                 });
             }

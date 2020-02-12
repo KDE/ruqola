@@ -93,7 +93,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
-    connect(mTwoFactorAuthenticationPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, [this]() {
+    connect(mTwoFactorAuthenticationPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, []() {
         qDebug() << " not implemented";
     });
 

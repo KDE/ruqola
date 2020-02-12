@@ -97,7 +97,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
-    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [this](const QString &password) {
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [](const QString &password) {
         //Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Password, password, mRoomWrapper->channelType());
     });
 
