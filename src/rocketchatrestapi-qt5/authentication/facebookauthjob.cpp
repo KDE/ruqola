@@ -88,7 +88,7 @@ void FacebookAuthJob::slotFacebookauthDone()
                 Q_EMIT facebookDone(authToken, userId);
             }
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning("Error during login" + data);
         }
         reply->deleteLater();

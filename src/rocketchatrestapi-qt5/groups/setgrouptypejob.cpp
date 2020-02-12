@@ -60,7 +60,7 @@ void SetGroupTypeJob::slotSetGroupTypeFinished()
             addLoggerInfo(QByteArrayLiteral("SetGroupTypeJob: Success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT setGroupTypeDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("SetGroupTypeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

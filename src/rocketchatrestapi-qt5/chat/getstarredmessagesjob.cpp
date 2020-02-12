@@ -78,7 +78,7 @@ void GetStarredMessagesJob::slotGetStarredMessagesFinished()
             addLoggerInfo(QByteArrayLiteral("GetStarredMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getStarredMessagesDone(replyObject, mRoomId);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetStarredMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

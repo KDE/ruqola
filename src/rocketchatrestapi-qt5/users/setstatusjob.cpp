@@ -59,7 +59,7 @@ void SetStatusJob::slotSetStatus()
             addLoggerInfo(QByteArrayLiteral("SetStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT setStatusDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("SetStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

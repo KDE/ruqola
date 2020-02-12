@@ -63,7 +63,7 @@ void GetSupportedLanguagesJob::slotGetSupportedLanguagesFinished()
             addLoggerInfo(QByteArrayLiteral("GetSupportedLanguagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getSupportedLanguagesDone(replyObject);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetSupportedLanguagesJob: Problem when we tried to GetSupportedLanguages : ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

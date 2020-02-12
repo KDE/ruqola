@@ -59,7 +59,7 @@ void ChangeChannelTopicJob::slotChangeTopicFinished()
             addLoggerInfo(QByteArrayLiteral("Change Topic success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeTopicDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to change topic: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

@@ -63,7 +63,7 @@ void UsersPresenceJob::slotUsersPresenceFinished()
             addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT usersPresenceDone(replyObject);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("UsersPresenceJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

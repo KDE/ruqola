@@ -60,7 +60,7 @@ void LeaveChannelJob::slotLeaveChannelFinished()
             addLoggerInfo(QByteArrayLiteral("LeaveChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT leaveChannelDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("LeaveChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

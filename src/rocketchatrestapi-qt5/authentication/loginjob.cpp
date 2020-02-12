@@ -84,7 +84,7 @@ void LoginJob::slotLoginDone()
                 Q_EMIT loginDone(authToken, userId);
             }
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning("Error during login" + data);
         }
         reply->deleteLater();

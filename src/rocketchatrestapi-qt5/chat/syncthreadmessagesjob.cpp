@@ -81,7 +81,7 @@ void SyncThreadMessagesJob::slotSyncThreadMessagesFinished()
             addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("SyncThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

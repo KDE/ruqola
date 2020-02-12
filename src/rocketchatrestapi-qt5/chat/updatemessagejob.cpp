@@ -59,7 +59,7 @@ void UpdateMessageJob::slotUpdateMessageFinished()
             addLoggerInfo(QByteArrayLiteral("UpdateMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT updateMessageDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("UpdateMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

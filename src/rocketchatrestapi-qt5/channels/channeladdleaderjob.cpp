@@ -60,7 +60,7 @@ void ChannelAddLeaderJob::slotAddLeaderFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelAddLeaderJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addLeaderDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelAddLeaderJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

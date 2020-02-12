@@ -60,7 +60,7 @@ void SetTopicDmJob::slotSetTopicDmFinished()
             addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT setTopicDmDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

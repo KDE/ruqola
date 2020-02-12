@@ -78,7 +78,7 @@ void GetPinnedMessagesJob::slotGetPinnedMessagesFinished()
             addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetPinnedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

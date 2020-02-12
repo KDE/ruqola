@@ -60,7 +60,7 @@ void ChannelAddOwnerJob::slotAddOwnerFinished()
             addLoggerInfo(QByteArrayLiteral("Add owner success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addOwnerDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to add owner: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

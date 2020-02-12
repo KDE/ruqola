@@ -59,7 +59,7 @@ void FollowMessageJob::slotFollowMessageFinished()
             addLoggerInfo(QByteArrayLiteral("FollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT followMessageDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("FollowMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

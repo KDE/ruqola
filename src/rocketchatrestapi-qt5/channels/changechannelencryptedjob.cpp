@@ -59,7 +59,7 @@ void ChangeChannelEncryptedJob::slotChangeEncryptedFinished()
             addLoggerInfo(QByteArrayLiteral("Change Encrypted success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeEncryptedDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to change encrypted: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

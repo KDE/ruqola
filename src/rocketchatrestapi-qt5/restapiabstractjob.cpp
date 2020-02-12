@@ -23,6 +23,7 @@
 #include "abstractlogger.h"
 #include <KLocalizedString>
 #include <QJsonObject>
+#include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
@@ -189,8 +190,14 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
     }
 }
 
-void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
+void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply)
 {
+    // HTTP-level error (e.g. host not found)
+    if (reply->error() != QNetworkReply::NoError) {
+       Q_EMIT failed(reply->errorString());
+        return;
+    }
+    // JSon-level error
     const QString errorType = replyObject[QStringLiteral("errorType")].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;

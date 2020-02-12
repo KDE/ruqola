@@ -64,7 +64,7 @@ void RoomsAutocompleteChannelAndPrivateJob::slotRoomsAutoCompleteChannelAndPriva
             addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

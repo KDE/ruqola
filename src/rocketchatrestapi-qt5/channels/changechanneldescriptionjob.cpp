@@ -60,7 +60,7 @@ void ChangeChannelDescriptionJob::slotChangeDescriptionFinished()
             addLoggerInfo(QByteArrayLiteral("Change description success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeDescriptionDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to change description: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

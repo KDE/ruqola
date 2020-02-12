@@ -60,7 +60,7 @@ void ChannelJoinJob::slotChannelJoinFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT setChannelJoinDone(roomId());
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
             //Invalid password
             const QString errorType = replyObject[QStringLiteral("errorType")].toString();

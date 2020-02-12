@@ -92,7 +92,7 @@ void ServerInfoJob::slotServerInfoFinished()
             Q_EMIT serverInfoFailed(mUseDeprecatedVersion);
             addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
             if (!mUseDeprecatedVersion) {
-                emitFailedMessage(replyObject);
+                emitFailedMessage(replyObject, reply);
             }
         }
         reply->deleteLater();

@@ -60,7 +60,7 @@ void ArchiveGroupsJob::slotArchiveGroupsFinished()
             addLoggerInfo(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT archiveGroupsDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
             //FIXME report error
             Q_EMIT archiveGroupsError(QString());

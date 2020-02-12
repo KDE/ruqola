@@ -24,7 +24,10 @@
 #include <QObject>
 #include <QNetworkRequest>
 #include "librestapi_private_export.h"
+
 class QNetworkAccessManager;
+class QNetworkReply;
+
 namespace RocketChatRestApi {
 class RestApiMethod;
 class AbstractLogger;
@@ -101,7 +104,7 @@ Q_SIGNALS:
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
-    void emitFailedMessage(const QJsonObject &replyObject);
+    void emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply);
     void addAuthRawHeader(QNetworkRequest &request) const;
     Q_REQUIRED_RESULT QString errorMessage(const QString &str);
     virtual Q_REQUIRED_RESULT QString jobName() const;

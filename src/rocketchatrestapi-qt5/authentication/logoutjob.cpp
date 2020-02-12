@@ -62,7 +62,7 @@ void LogoutJob::slotLogout()
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
             Q_EMIT logoutDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning("Error during to logout" + data);
         }
 

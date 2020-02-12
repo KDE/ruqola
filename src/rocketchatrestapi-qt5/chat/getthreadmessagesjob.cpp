@@ -77,7 +77,7 @@ void GetThreadMessagesJob::slotGetThreadMessagesFinished()
             addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getThreadMessagesDone(replyObject, mThreadMessageId);
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

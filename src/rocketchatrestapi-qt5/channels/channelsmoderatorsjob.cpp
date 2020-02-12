@@ -60,7 +60,7 @@ void ChannelsModeratorsJob::slotFilesinChannelFinished()
             addLoggerInfo(QByteArrayLiteral("channelFilesDone success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelFilesDone(replyObject, roomId());
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("channelFilesDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

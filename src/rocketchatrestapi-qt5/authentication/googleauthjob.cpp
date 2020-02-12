@@ -88,7 +88,7 @@ void GoogleAuthJob::slotGoogleauthDone()
                 Q_EMIT googleauthDone(authToken, userId);
             }
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning("Error during login" + data);
         }
         reply->deleteLater();

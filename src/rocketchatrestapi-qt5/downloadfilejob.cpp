@@ -60,7 +60,7 @@ void DownloadFileJob::slotDownloadDone()
             Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
         } else {
             //FIXME
-            //emitFailedMessage(replyObject);
+            //emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem data: [") + data + "] :END");
         }
         reply->deleteLater();

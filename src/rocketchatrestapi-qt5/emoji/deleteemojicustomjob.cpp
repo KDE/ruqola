@@ -60,7 +60,7 @@ void DeleteEmojiCustomJob::slotDeleteEmojiFinished()
             addLoggerInfo(QByteArrayLiteral("DeleteEmojiCustomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeOwnerDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("DeleteEmojiCustomJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

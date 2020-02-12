@@ -60,7 +60,7 @@ void ChangeChannelAnnouncementJob::slotChangeAnnouncementFinished()
             addLoggerInfo(QByteArrayLiteral("Change announcement success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeAnnouncementDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to change announcement: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

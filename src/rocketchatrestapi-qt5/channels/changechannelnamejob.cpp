@@ -60,7 +60,7 @@ void ChangeChannelNameJob::slotChangeNameFinished()
             addLoggerInfo(QByteArrayLiteral("Change name success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeNameDone();
         } else {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to change name: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
