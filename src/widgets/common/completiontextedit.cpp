@@ -23,14 +23,8 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
-#include <QKeyEvent>
-#include <QListView>
-#include <QScreen>
-#include <QScrollBar>
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-#include <QApplication>
-#include <QDesktopWidget>
 #endif
 
 CompletionTextEdit::CompletionTextEdit(QWidget *parent)

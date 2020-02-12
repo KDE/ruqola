@@ -71,7 +71,6 @@
 
 #include <QDesktopServices>
 #include <QRegularExpression>
-#include <QTimeZone>
 #include <QTimer>
 
 #include <plugins/pluginauthentication.h>

@@ -21,8 +21,6 @@
 #include "adduserscompletionlineedit.h"
 #include "addusersinroomwidget.h"
 
-#include <KLineEdit>
-#include <QListView>
 #include <QVBoxLayout>
 #include <KLocalizedString>
 

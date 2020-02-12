@@ -35,6 +35,7 @@
 #include <QToolButton>
 #include <QInputDialog>
 #include <QTextDocument>
+#include <QHBoxLayout>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)

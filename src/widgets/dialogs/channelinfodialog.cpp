@@ -25,7 +25,6 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
-#include <KMessageBox>
 
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     : QDialog(parent)

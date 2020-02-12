@@ -21,7 +21,6 @@
 #ifndef UNICODEEMOTICON_H
 #define UNICODEEMOTICON_H
 
-#include <QObject>
 #include <QDebug>
 #include <QString>
 #include "libruqolacore_export.h"

@@ -19,9 +19,9 @@
 */
 
 #include "channelpasswordwidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
+#include <QHBoxLayout>
 #include <KPasswordLineEdit>
 
 ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)

@@ -20,7 +20,6 @@
 
 #include "emoticons/unicodeemoticon.h"
 #include <sstream>
-#include <QRegularExpression>
 #include <QString>
 
 UnicodeEmoticon::UnicodeEmoticon()

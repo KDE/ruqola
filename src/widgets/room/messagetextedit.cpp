@@ -26,13 +26,8 @@
 
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
-#include <QListView>
-#include <QScreen>
-#include <QScrollBar>
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-#include <QApplication>
-#include <QDesktopWidget>
 #endif
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)

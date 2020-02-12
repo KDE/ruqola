@@ -31,11 +31,8 @@
 #include "model/roommodel.h"
 #include "dialogs/createnewdiscussiondialog.h"
 
-#include <KLocalizedString>
-
+#include <QVBoxLayout>
 #include <QKeyEvent>
-#include <QHBoxLayout>
-#include <QApplication>
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>

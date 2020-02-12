@@ -35,7 +35,6 @@
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QKeyEvent>
-#include <QDebug>
 #include <QPointer>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)

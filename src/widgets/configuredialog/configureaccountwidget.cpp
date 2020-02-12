@@ -21,7 +21,6 @@
 #include "configureaccountserverwidget.h"
 #include "configureaccountwidget.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
 
 ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
     : QWidget(parent)

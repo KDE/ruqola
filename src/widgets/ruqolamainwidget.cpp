@@ -26,7 +26,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QSplitter>
-#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 #include <model/roomfilterproxymodel.h>
 #include <model/roommodel.h>

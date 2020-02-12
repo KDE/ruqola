@@ -24,7 +24,6 @@
 #include <QAbstractListModel>
 #include "libruqolacore_export.h"
 
-#include <QIcon>
 
 struct NotificationDesktopDurationPreferenceInfo {
     QString displayText;

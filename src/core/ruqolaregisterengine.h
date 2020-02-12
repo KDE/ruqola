@@ -22,7 +22,6 @@
 #define RUQOLAREGISTERENGINE_H
 
 #include "libruqolacore_export.h"
-#include <QObject>
 class QQmlApplicationEngine;
 class LIBRUQOLACORE_EXPORT RuqolaRegisterEngine
 {

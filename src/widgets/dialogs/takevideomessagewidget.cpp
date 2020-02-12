@@ -19,9 +19,6 @@
 */
 
 #include "takevideomessagewidget.h"
-#include <QVBoxLayout>
-#include <KLocalizedString>
-#include <QLabel>
 
 TakeVideoMessageWidget::TakeVideoMessageWidget(QWidget *parent)
     : QWidget(parent)

@@ -21,7 +21,6 @@
 #include "roomheaderwidget.h"
 #include "ruqolawidgets_debug.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
 #include <QLabel>
 #include <QToolButton>
 

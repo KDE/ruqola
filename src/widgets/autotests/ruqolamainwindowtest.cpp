@@ -21,7 +21,6 @@
 #include "ruqolamainwindowtest.h"
 #include "ruqolamainwindow.h"
 
-#include <QHBoxLayout>
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTest>

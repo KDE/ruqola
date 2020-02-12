@@ -21,7 +21,6 @@
 #define TEXTCONVERTER_H
 
 #include <QString>
-#include <QMap>
 #include <QVector>
 #include "libruqola_private_export.h"
 

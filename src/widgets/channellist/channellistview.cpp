@@ -29,7 +29,6 @@
 
 #include <QAction>
 #include <QContextMenuEvent>
-#include <QDebug>
 #include <QMenu>
 
 ChannelListView::ChannelListView(QWidget *parent)

@@ -20,7 +20,6 @@
 
 #include "channelinfowidgettest.h"
 #include "dialogs/channelinfowidget.h"
-#include <KLineEdit>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>

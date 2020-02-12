@@ -20,7 +20,6 @@
 
 #include "configuresettingsdialogtest.h"
 #include "configuredialog/configuresettingsdialog.h"
-#include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
 

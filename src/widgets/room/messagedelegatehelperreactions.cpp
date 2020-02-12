@@ -27,8 +27,6 @@
 #include "emoticons/unicodeemoticon.h"
 
 #include <QPainter>
-#include <QTextBlock>
-#include <QTextDocument>
 #include <QAbstractTextDocumentLayout>
 #include <QStyleOptionViewItem>
 #include <ruqola.h>

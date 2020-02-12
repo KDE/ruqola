@@ -19,7 +19,6 @@
 */
 #include "messagetranslation.h"
 #include <QJsonObject>
-#include <QJsonArray>
 
 MessageTranslation::MessageTranslation()
 {

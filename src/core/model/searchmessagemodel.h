@@ -21,7 +21,6 @@
 #ifndef SEARCHMESSAGEMODEL_H
 #define SEARCHMESSAGEMODEL_H
 
-#include <QAbstractListModel>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
 #include "messagemodel.h"

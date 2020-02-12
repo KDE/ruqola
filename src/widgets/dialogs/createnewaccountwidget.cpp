@@ -22,7 +22,6 @@
 
 #include <QFormLayout>
 #include <QLineEdit>
-#include <QVBoxLayout>
 
 #include <KLocalizedString>
 

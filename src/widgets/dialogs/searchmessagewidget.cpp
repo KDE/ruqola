@@ -25,7 +25,6 @@
 #include "model/searchmessagefilterproxymodel.h"
 #include <KLineEdit>
 #include <KLocalizedString>
-#include <QListWidget>
 #include <QVBoxLayout>
 
 SearchMessageWidget::SearchMessageWidget(QWidget *parent)

@@ -21,7 +21,6 @@
 #include "configuresettingsdialog.h"
 #include "configureaccountwidget.h"
 #include "configurespellcheckingwidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <KConfigGroup>

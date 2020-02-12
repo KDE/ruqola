@@ -23,8 +23,6 @@
 #include "rocketchataccount.h"
 #include "textconverter.h"
 
-#include <QDateTime>
-#include <QJsonArray>
 
 #include "listmessages.h"
 

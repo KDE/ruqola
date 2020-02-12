@@ -23,10 +23,10 @@
 #include "ruqolamainwidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include <QVBoxLayout>
 #include <QStackedWidget>
 #include <KMessageBox>
 #include <KLocalizedString>
+#include <QHBoxLayout>
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)

@@ -24,7 +24,6 @@
 #include "rocketchataccount.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "model/rocketchataccountmodel.h"
-#include <KLocalizedString>
 
 #include <QListWidgetItem>
 #include <QPointer>

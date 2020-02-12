@@ -21,7 +21,6 @@
 #include "readonlylineeditwidget.h"
 #include <QVBoxLayout>
 #include <QLabel>
-#include <KLocalizedString>
 ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     : QWidget(parent)
 {

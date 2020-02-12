@@ -20,9 +20,9 @@
 
 #include "reportmessagewidget.h"
 
-#include <QVBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QHBoxLayout>
 
 #include <KLocalizedString>
 

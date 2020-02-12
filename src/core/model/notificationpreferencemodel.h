@@ -24,7 +24,6 @@
 #include "libruqolacore_export.h"
 
 #include <QAbstractListModel>
-#include <QIcon>
 
 struct NotificationPreferenceInfo {
     QString displayText;

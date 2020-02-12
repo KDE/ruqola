@@ -22,7 +22,6 @@
 #include "users/userspresencejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <QJsonDocument>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(UsersPresenceJobTest)
 using namespace RocketChatRestApi;

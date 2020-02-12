@@ -23,7 +23,6 @@
 
 #include <QString>
 #include <QDebug>
-#include <QObject>
 #include "libruqolacore_export.h"
 class LIBRUQOLACORE_EXPORT User
 {

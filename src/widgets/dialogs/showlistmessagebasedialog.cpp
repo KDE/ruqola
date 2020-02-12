@@ -24,7 +24,6 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
 #include <QDialogButtonBox>
 
 ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)

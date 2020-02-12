@@ -20,7 +20,6 @@
 
 #include "notificationpreferencemodel.h"
 #include <KLocalizedString>
-#include <QDebug>
 NotificationPreferenceModel::NotificationPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)
 {

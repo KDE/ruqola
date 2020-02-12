@@ -24,7 +24,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-#include <QUrlQuery>
 using namespace RocketChatRestApi;
 GetSupportedLanguagesJob::GetSupportedLanguagesJob(QObject *parent)
     : RestApiAbstractJob(parent)

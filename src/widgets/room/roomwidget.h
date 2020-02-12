@@ -21,7 +21,6 @@
 #ifndef ROOMWIDGET_H
 #define ROOMWIDGET_H
 
-#include <QMap>
 #include <QPointer>
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
