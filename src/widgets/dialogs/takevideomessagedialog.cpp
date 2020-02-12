@@ -19,7 +19,6 @@
 */
 
 #include "takevideomessagedialog.h"
-#include "showimagewidget.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -31,10 +30,6 @@ TakeVideoMessageDialog::TakeVideoMessageDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Video Message"));
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-//    mShowImageWidget = new ShowImageWidget(this);
-//    mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
-//    mainLayout->addWidget(mShowImageWidget);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
