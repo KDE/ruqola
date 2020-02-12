@@ -35,7 +35,7 @@ QString Reaction::convertedUsersNameAtToolTip() const
     if (mUserNames.isEmpty()) {
         return QString();
     } else if (mUserNames.count() == 1) {
-        return i18n("%1 had reacted with %2", mUserNames[0], mReactionName);
+        return i18n("%1 reacted with %2", mUserNames[0], mReactionName);
     } else {
         QString notificationStr;
         for (int i = 0, total = mUserNames.count(); i < total; ++i) {
@@ -48,7 +48,7 @@ QString Reaction::convertedUsersNameAtToolTip() const
                 notificationStr = i18n("%1 and %2", notificationStr, user);
             }
         }
-        return i18n("%1 had reacted with %2", notificationStr, mReactionName);
+        return i18n("%1 reacted with %2", notificationStr, mReactionName);
     }
 }
 

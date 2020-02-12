@@ -54,11 +54,11 @@ void ReactionTest::shouldShowReactionsToolTip()
     QStringList userNames;
     userNames.append(QStringLiteral("bla"));
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla had reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla reacted with :foo:"));
     userNames.append(QStringLiteral("blo"));
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla and blo had reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla and blo reacted with :foo:"));
     userNames.append(QStringLiteral("bli"));
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla, blo and bli had reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla, blo and bli reacted with :foo:"));
 }
