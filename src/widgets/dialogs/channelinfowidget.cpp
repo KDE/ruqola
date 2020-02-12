@@ -190,7 +190,7 @@ void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
     if (mRoomWrapper->canBeModify()) {
         mStackedWidget->setCurrentWidget(mEditableChannel);
         updateEditableChannelInfo();
-        connectReadOnlyWidget();
+        connectEditableWidget();
     } else {
         mStackedWidget->setCurrentWidget(mReadOnlyChannel);
         updateReadOnlyChannelInfo();
