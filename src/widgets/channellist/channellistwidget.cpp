@@ -27,6 +27,7 @@
 
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqolautils.h"
 
 #include <QAction>
 #include <QHBoxLayout>
@@ -100,6 +101,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::userStatusUpdated, this, &ChannelListWidget::setUserStatusUpdated);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openLinkRequested, this, &ChannelListWidget::slotOpenLinkRequested);
     mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
 }
 
@@ -187,4 +189,37 @@ void ChannelListWidget::slotStatusChanged()
 void ChannelListWidget::slotSearchRoomTextChanged()
 {
     mChannelView->model()->setFilterString(mSearchRoom->text());
+}
+
+void ChannelListWidget::slotOpenLinkRequested(const QString &link)
+{
+    if (link.startsWith(QLatin1String("ruqola:"))) {
+        const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
+        const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+        if (selectedIndex.isValid()) {
+            const QString currentRoomId = selectedIndex.data(RoomModel::RoomName).toString();
+            if (roomOrUser == currentRoomId) {
+                return;
+            }
+        }
+        if (link.startsWith(QLatin1String("ruqola:/room/"))) {
+            if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
+                mCurrentRocketChatAccount->openChannel(roomOrUser);
+            }
+        } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
+            if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
+                if (roomOrUser != mCurrentRocketChatAccount->userName()) {
+                    mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
+                }
+            }
+        } else if (link == QLatin1String("ruqola:/jitsicall/")) {
+            const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+            if (selectedIndex.isValid()) {
+                const QString roomId = selectedIndex.data(RoomModel::RoomID).toString();
+                mCurrentRocketChatAccount->joinJitsiConfCall(roomId);
+            }
+        }
+    } else {
+        RuqolaUtils::self()->openUrl(link);
+    }
 }

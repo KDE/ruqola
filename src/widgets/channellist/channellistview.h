@@ -38,6 +38,9 @@ public:
     void setModel(QAbstractItemModel *model) override;
 
     void selectChannelRequested(const QString &channelId);
+
+    Q_REQUIRED_RESULT bool selectChannelByRoomNameRequested(const QString &selectedRoomName);
+
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 

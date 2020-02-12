@@ -52,6 +52,7 @@ private:
     void slotStatusChanged();
     void slotSearchRoomTextChanged();
     void clearFilterChannel();
+    void slotOpenLinkRequested(const QString &link);
 
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;

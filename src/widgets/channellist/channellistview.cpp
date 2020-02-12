@@ -143,3 +143,21 @@ void ChannelListView::selectChannelRequested(const QString &channelId)
         }
     }
 }
+
+bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRoomName)
+{
+    if (selectedRoomName.isEmpty()) {
+        return false;
+    }
+    RoomFilterProxyModel *filterModel = model();
+    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = filterModel->index(roomIdx, 0);
+        const auto roomName = roomModelIndex.data(RoomModel::RoomName).toString();
+        if (roomName == selectedRoomName) {
+            Q_EMIT channelSelected(roomModelIndex);
+            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            return true;
+        }
+    }
+    return false;
+}
