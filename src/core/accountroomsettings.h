@@ -31,6 +31,10 @@ public:
     struct LIBRUQOLACORE_EXPORT PendingTypedInfo {
         QString text;
         QString messageIdBeingEdited;
+        int scrollbarPosition = -1;
+        Q_REQUIRED_RESULT bool isValid() const {
+            return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1);
+        }
     };
     AccountRoomSettings();
     ~AccountRoomSettings();

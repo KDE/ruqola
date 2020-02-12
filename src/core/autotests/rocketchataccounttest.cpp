@@ -72,4 +72,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QCOMPARE(w.listMessagesFilterProxyModel()->sourceModel(), w.listMessageModel());
 
     QVERIFY(w.autoTranslateLanguagesModel());
+    QVERIFY(w.accountRoomSettings());
 }

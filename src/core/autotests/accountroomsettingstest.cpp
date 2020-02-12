@@ -31,4 +31,32 @@ void AccountRoomSettingsTest::shouldHaveDefaultValues()
 {
     AccountRoomSettings s;
     QVERIFY(s.isEmpty());
+
+    AccountRoomSettings::PendingTypedInfo info;
+    QVERIFY(info.text.isEmpty());
+    QVERIFY(info.messageIdBeingEdited.isEmpty());
+    QCOMPARE(info.scrollbarPosition, -1);
+    QVERIFY(!info.isValid());
+}
+
+void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
+{
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        QVERIFY(!info.isValid());
+        info.messageIdBeingEdited = QStringLiteral("foo");
+        QVERIFY(info.isValid());
+    }
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        QVERIFY(!info.isValid());
+        info.text = QStringLiteral("foo");
+        QVERIFY(info.isValid());
+    }
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        QVERIFY(!info.isValid());
+        info.scrollbarPosition = 2;
+        QVERIFY(info.isValid());
+    }
 }

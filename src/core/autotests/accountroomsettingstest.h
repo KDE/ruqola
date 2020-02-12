@@ -31,6 +31,7 @@ public:
     ~AccountRoomSettingsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldChangePendingTypedInfo();
 };
 
 #endif // ACCOUNTROOMSETTINGSTEST_H

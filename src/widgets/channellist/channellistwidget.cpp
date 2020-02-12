@@ -29,6 +29,8 @@
 #include "rocketchataccount.h"
 #include "ruqolautils.h"
 
+#include <KMessageBox>
+
 #include <QAction>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -208,7 +210,9 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
             if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
                 if (roomOrUser != mCurrentRocketChatAccount->userName()) {
-                    mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
+                    if( KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to open direct conversation with %1", roomOrUser))) {
+                        mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
+                    }
                 }
             }
         } else if (link == QLatin1String("ruqola:/jitsicall/")) {

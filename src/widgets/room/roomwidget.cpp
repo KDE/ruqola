@@ -36,6 +36,7 @@
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>
+#include <QScrollBar>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -156,12 +157,21 @@ void RoomWidget::dropEvent(QDropEvent *event)
 
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
+
     if (mMessageLineWidget->text().isEmpty()) {
-        mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomId);
+        auto *vbar = mMessageListView->verticalScrollBar();
+        if (vbar->value() != vbar->maximum()) {
+            AccountRoomSettings::PendingTypedInfo info;
+            info.scrollbarPosition = mMessageListView->verticalScrollBar()->value();
+            mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
+        } else {
+            mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomId);
+        }
     } else {
         AccountRoomSettings::PendingTypedInfo info;
         info.text = mMessageLineWidget->text();
         info.messageIdBeingEdited = mMessageIdBeingEdited;
+        info.scrollbarPosition = mMessageListView->verticalScrollBar()->value();
         mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
     }
 
@@ -169,8 +179,13 @@ void RoomWidget::setChannelSelected(const QModelIndex &index)
     setRoomId(roomId);
     setRoomType(index.data(RoomModel::RoomType).toString());
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
-    mMessageLineWidget->setText(currentPendingInfo.text);
-    mMessageIdBeingEdited = currentPendingInfo.messageIdBeingEdited;
+    if (currentPendingInfo.isValid()) {
+        mMessageLineWidget->setText(currentPendingInfo.text);
+        mMessageIdBeingEdited = currentPendingInfo.messageIdBeingEdited;
+        if (currentPendingInfo.scrollbarPosition != -1) {
+            mMessageListView->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
+        }
+    }
     mMessageLineWidget->setMode(mMessageIdBeingEdited.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
 
     mMessageLineWidget->setFocus();
