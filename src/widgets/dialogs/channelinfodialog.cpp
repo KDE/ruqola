@@ -50,6 +50,6 @@ ChannelInfoDialog::~ChannelInfoDialog()
 
 void ChannelInfoDialog::setRoomWrapper(RoomWrapper *roomWrapper)
 {
-    setWindowTitle(i18nc("@title:window", "Channel Info about %1", roomWrapper->name()));
+    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", roomWrapper->name()));
     mChannelInfoWidget->setRoomWrapper(roomWrapper);
 }
