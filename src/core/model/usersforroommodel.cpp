@@ -183,14 +183,14 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 const QString id = userObject[QStringLiteral("_id")].toString();
                 const double utcOffset = userObject[QStringLiteral("utcOffset")].toDouble();
                 const QString status = userObject[QStringLiteral("status")].toString();
-                User *user = new User;
+                QScopedPointer<User> user(new User);
                 user->setName(name);
                 user->setUserName(userName);
                 user->setUserId(id);
                 user->setUtcOffset(utcOffset);
                 user->setStatus(status);
                 if (user->isValid()) {
-                    users.append(user);
+                    users.append(user.take());
                 } else {
                     qCWarning(RUQOLA_LOG) << "Invalid user" << *user;
                     mTotal--;
