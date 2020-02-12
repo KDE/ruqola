@@ -1646,7 +1646,7 @@ void RestApiRequest::customSounds()
 
 void RestApiRequest::usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info)
 {
-    auto *job = new UsersAutocompleteJob(this);    
+    auto *job = new UsersAutocompleteJob(this);
     job->setUsersCompleterInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersAutocompleteJob::usersAutocompleteDone, this, &RestApiRequest::usersAutocompleteDone);

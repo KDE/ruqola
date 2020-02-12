@@ -207,7 +207,11 @@ public:
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
     Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
     Q_INVOKABLE Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
-    InputTextManager *inputTextManager() const { return mInputTextManager; }
+    InputTextManager *inputTextManager() const
+    {
+        return mInputTextManager;
+    }
+
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrlFromDirectChannel(const QString &rid);
     Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
@@ -451,7 +455,6 @@ private:
     void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
     void slotUserAutoCompleterDone(const QJsonObject &obj);
     void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
-
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

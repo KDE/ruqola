@@ -67,7 +67,6 @@ void InputTextManagerTest::shouldReplaceWord()
     // Widgets
     QCOMPARE(manager.applyCompletion(newword, text, &position), result);
     QCOMPARE(position, expectedPosition);
-
 }
 
 void InputTextManagerTest::shouldSearchWord_data()

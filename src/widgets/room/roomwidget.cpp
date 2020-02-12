@@ -40,8 +40,6 @@
 #include <QMimeData>
 #include <QPointer>
 
-
-
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
 {

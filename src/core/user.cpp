@@ -135,7 +135,6 @@ void User::parseUserRestApi(const QJsonObject &object)
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
 }
 
-
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();

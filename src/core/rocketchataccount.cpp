@@ -855,7 +855,7 @@ void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonOb
     //TODO
 }
 
-AccountRoomSettings* RocketChatAccount::accountRoomSettings() const
+AccountRoomSettings *RocketChatAccount::accountRoomSettings() const
 {
     return mAccountRoomSettings;
 }

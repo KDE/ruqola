@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "accountroomsettingstest.h"
 #include "accountroomsettings.h"
 #include <QTest>
@@ -26,7 +25,6 @@ QTEST_GUILESS_MAIN(AccountRoomSettingsTest)
 AccountRoomSettingsTest::AccountRoomSettingsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AccountRoomSettingsTest::shouldHaveDefaultValues()

@@ -53,4 +53,3 @@ void CompletionLineEdit::setCompletionModel(QAbstractItemModel *model)
 {
     mCompletionListView->setModel(model);
 }
-

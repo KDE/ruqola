@@ -22,7 +22,6 @@
 
 AccountRoomSettings::AccountRoomSettings()
 {
-
 }
 
 AccountRoomSettings::~AccountRoomSettings()

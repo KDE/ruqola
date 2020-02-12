@@ -190,7 +190,6 @@ enum class RestApiUrlType {
     RoomsCreateDiscussion,
     RoomsGetDiscussions,
 
-
     ForgotPassword,
     PermissionsList,
     CommandsList,
