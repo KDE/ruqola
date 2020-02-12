@@ -78,7 +78,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setCentralWidget(mMainWidget);
     setupActions();
     setupStatusBar();
-    setupGUI(KXmlGuiWindow::Default, QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc"));
+    setupGUI(/*QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc")*/);
     readConfig();
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     slotAccountChanged();
