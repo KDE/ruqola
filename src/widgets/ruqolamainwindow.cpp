@@ -22,6 +22,7 @@
 
 #include "config-ruqola.h"
 #include "ruqola.h"
+#include "ruqolautils.h"
 #include "rocketchataccount.h"
 #include "accountmanager.h"
 #include "roomwrapper.h"
@@ -117,6 +118,7 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openLinkRequested, this, &RuqolaMainWindow::slotOpenLinkRequested);
     updateActions();
     changeActionStatus(false); //Disable actions when switching.
     slotClearNotification(); //Clear notification when we switch too.
@@ -474,4 +476,22 @@ void RuqolaMainWindow::slotListOfUsersInRoom()
 void RuqolaMainWindow::slotStartVideoChat()
 {
     mCurrentRocketChatAccount->createJitsiConfCall(mMainWidget->roomId());
+}
+
+void RuqolaMainWindow::slotOpenLinkRequested(const QString &link)
+{
+    if (link.startsWith(QLatin1String("ruqola:"))) {
+        const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
+        if (link.startsWith(QLatin1String("ruqola:/room/"))) {
+            mCurrentRocketChatAccount->openChannel(roomOrUser);
+        } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
+            if (roomOrUser != mCurrentRocketChatAccount->userName()) {
+                mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
+            }
+        } else if (link == QLatin1String("ruqola:/jitsicall/")) {
+            mCurrentRocketChatAccount->joinJitsiConfCall(mMainWidget->roomId());
+        }
+    } else {
+        RuqolaUtils::self()->openUrl(link);
+    }
 }

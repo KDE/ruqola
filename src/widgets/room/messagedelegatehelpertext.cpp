@@ -111,22 +111,8 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
         const QString link = doc.documentLayout()->anchorAt(pos);
         if (!link.isEmpty()) {
-            if (link.startsWith(QLatin1String("ruqola:"))) {
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
-                if (link.startsWith(QLatin1String("ruqola:/room/"))) {
-                    rcAccount->openChannel(roomOrUser);
-                } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
-                    if (roomOrUser != rcAccount->userName()) {
-                        rcAccount->openDirectChannel(roomOrUser);
-                    }
-                } else if (link == QLatin1String("ruqola:/jitsicall/")) {
-                    //FIXME we need to roomId
-                    //rcAccount->joinJitsiConfCall(roomId)
-                }
-            } else {
-                RuqolaUtils::self()->openUrl(link);
-            }
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            Q_EMIT rcAccount->openLinkRequested(link);
             return true;
         }
     }

@@ -416,6 +416,7 @@ Q_SIGNALS:
     void userStatusUpdated(User::PresenceStatus status);
     void publicSettingChanged();
     void serverVersionChanged();
+    void openLinkRequested(const QString &link);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

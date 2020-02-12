@@ -69,6 +69,7 @@ private:
     void slotClearAccountAlerts();
     void slotListOfUsersInRoom();
     void slotStartVideoChat();
+    void slotOpenLinkRequested(const QString &link);
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
