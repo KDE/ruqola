@@ -24,10 +24,12 @@
 #include "room/roomheaderwidget.h"
 #include "room/messagelistview.h"
 #include "room/readonlylineeditwidget.h"
+#include "room/usersinroomflowwidget.h"
 
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
 
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
@@ -45,6 +47,10 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto *mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
     QVERIFY(mRoomHeaderWidget);
 
+    UsersInRoomFlowWidget *mUsersInRoomFlowWidget = w.findChild<UsersInRoomFlowWidget *>(QStringLiteral("mUsersInRoomFlowWidget"));
+    QVERIFY(mUsersInRoomFlowWidget);
+
+
     auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
 
@@ -58,6 +64,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto *mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
     QVERIFY(mReadOnlyLineEditWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
+
+
+
 
     QVERIFY(w.roomId().isEmpty());
 }

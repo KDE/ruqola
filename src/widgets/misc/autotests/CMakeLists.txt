@@ -8,3 +8,5 @@ macro(add_ruqolamisc_test _source)
 endmacro()
 
 #add_ruqolamisc_test(directchannelinfowidgettest.cpp)
+add_ruqolamisc_test(adduserswidgettest.cpp)
+add_ruqolamisc_test(clickableuserwidgettest.cpp)

@@ -68,7 +68,7 @@ private:
     void slotAddUsersInRoom();
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
-    void slotListOfUsersInRoom();
+    void slotListOfUsersInRoom(bool checked);
     void slotStartVideoChat();
 
     RuqolaCentralWidget *mMainWidget = nullptr;

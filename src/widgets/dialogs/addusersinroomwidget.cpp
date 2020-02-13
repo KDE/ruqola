@@ -20,9 +20,11 @@
 
 #include "adduserscompletionlineedit.h"
 #include "addusersinroomwidget.h"
+#include "misc/adduserswidget.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
+
 
 AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -31,11 +33,10 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchUserLineEdit = new AddUsersCompletionLineEdit(this);
-    mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
-    mSearchUserLineEdit->setPlaceholderText(i18n("Search Users..."));
-    connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersInRoomWidget::slotSearchMessageTextChanged);
-    mainLayout->addWidget(mSearchUserLineEdit);
+    mAddUsersWidget = new AddUsersWidget(this);
+    mAddUsersWidget->setObjectName(QStringLiteral("mAddUsersWidget"));
+    connect(mAddUsersWidget, &AddUsersWidget::userListChanged, this, &AddUsersInRoomWidget::updateOkButton);
+    mainLayout->addWidget(mAddUsersWidget);
     mainLayout->addStretch(1);
 }
 
@@ -43,7 +44,7 @@ AddUsersInRoomWidget::~AddUsersInRoomWidget()
 {
 }
 
-void AddUsersInRoomWidget::slotSearchMessageTextChanged(const QString &str)
+QStringList AddUsersInRoomWidget::users() const
 {
-    Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    return mAddUsersWidget->users();
 }

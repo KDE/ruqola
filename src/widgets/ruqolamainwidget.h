@@ -41,6 +41,7 @@ public:
     RoomWrapper *roomWrapper() const;
 
     void selectChannelRoom(const QModelIndex &index);
+    void showListOfUsersInRoom(bool checked);
 Q_SIGNALS:
     void channelSelected();
 private:

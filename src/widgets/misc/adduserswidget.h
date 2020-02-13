@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,30 +18,34 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMFILTERPROXYMODEL_H
-#define USERSFORROOMFILTERPROXYMODEL_H
+#ifndef ADDUSERSWIDGET_H
+#define ADDUSERSWIDGET_H
 
-#include <QSortFilterProxyModel>
-#include "libruqolacore_export.h"
-
-class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
+#include <QWidget>
+#include <QMap>
+#include "libruqolawidgets_private_export.h"
+class AddUsersCompletionLineEdit;
+class FlowLayout;
+class ClickableUserWidget;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
-    ~UsersForRoomFilterProxyModel() override;
+    explicit AddUsersWidget(QWidget *parent = nullptr);
+    ~AddUsersWidget();
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QStringList users() const;
 
-    Q_INVOKABLE void setFilterString(const QString &string);
-
-    Q_REQUIRED_RESULT bool hasFullList() const;
 Q_SIGNALS:
-    void hasFullListChanged();
+    void textChanged(const QString &str);
+    void userListChanged(bool isNotEmpty);
 
-protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+private:
+    void slotRemoveUser(const QString &username);
+    void slotAddNewName(const QString &str);
+    AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
+    FlowLayout *mFlowLayout = nullptr;
+    QMap<QString, ClickableUserWidget*> mMap;
 };
 
-#endif // USERSFORROOMFILTERPROXYMODEL_H
+#endif // ADDUSERSWIDGET_H

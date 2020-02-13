@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,30 +18,32 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMFILTERPROXYMODEL_H
-#define USERSFORROOMFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
-#include "libruqolacore_export.h"
+#include "usersinroomlabel.h"
+#include <QHBoxLayout>
+#include <QLabel>
 
-class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
+UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
-public:
-    explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
-    ~UsersForRoomFilterProxyModel() override;
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mIconLabel = new QLabel(this);
+    mIconLabel->setObjectName(QStringLiteral("mIconLabel"));
+    mainLayout->addWidget(mIconLabel);
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+    mUserNameLabel = new QLabel(this);
+    mUserNameLabel->setObjectName(QStringLiteral("mUserNameLabel"));
+    mainLayout->addWidget(mUserNameLabel);
+}
 
-    Q_INVOKABLE void setFilterString(const QString &string);
+UsersInRoomLabel::~UsersInRoomLabel()
+{
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
-Q_SIGNALS:
-    void hasFullListChanged();
+}
 
-protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
-};
-
-#endif // USERSFORROOMFILTERPROXYMODEL_H
+void UsersInRoomLabel::setUserName(const QString &userName)
+{
+    mUserNameLabel->setText(userName);
+}

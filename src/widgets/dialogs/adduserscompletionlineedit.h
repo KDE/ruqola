@@ -31,6 +31,9 @@ public:
     explicit AddUsersCompletionLineEdit(QWidget *parent = nullptr);
     ~AddUsersCompletionLineEdit() override;
 
+Q_SIGNALS:
+    void newUserName(const QString &str);
+
 private:
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);

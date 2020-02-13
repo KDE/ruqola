@@ -23,14 +23,11 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-#endif
-
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)
-    : QLineEdit(parent)
+    : KLineEdit(parent)
 {
     setClearButtonEnabled(true);
+    setTrapReturnKey(true);
 
     mCompletionListView = new CompletionListView;
     mCompletionListView->setTextWidget(this);

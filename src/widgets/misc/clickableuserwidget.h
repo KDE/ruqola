@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,30 +18,45 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMFILTERPROXYMODEL_H
-#define USERSFORROOMFILTERPROXYMODEL_H
+#ifndef CLICKABLEUSERWIDGET_H
+#define CLICKABLEUSERWIDGET_H
 
-#include <QSortFilterProxyModel>
-#include "libruqolacore_export.h"
+#include <QLabel>
+#include <QWidget>
+#include "libruqolawidgets_export.h"
 
-class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLAWIDGETS_EXPORT ClickableLabel : public QLabel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
-    ~UsersForRoomFilterProxyModel() override;
+    explicit ClickableLabel(QWidget *parent = nullptr);
+    ~ClickableLabel();
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
-    Q_INVOKABLE void setFilterString(const QString &string);
-
-    Q_REQUIRED_RESULT bool hasFullList() const;
 Q_SIGNALS:
-    void hasFullListChanged();
+    void clicked();
 
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    void mousePressEvent(QMouseEvent *event) override;
 };
 
-#endif // USERSFORROOMFILTERPROXYMODEL_H
+class LIBRUQOLAWIDGETS_EXPORT ClickableUserWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit ClickableUserWidget(const QString &userName, QWidget *parent = nullptr);
+    ~ClickableUserWidget();
+
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &userName);
+
+Q_SIGNALS:
+    void removeUser(const QString &username);
+
+private:
+    void slotRemoveUser();
+    QString mUserName;
+    QLabel *mUserLabel = nullptr;
+    ClickableLabel *mClickableLabel = nullptr;
+};
+
+#endif // CLICKABLEUSERWIDGET_H

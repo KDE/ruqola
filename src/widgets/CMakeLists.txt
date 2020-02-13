@@ -99,6 +99,8 @@ set(Ruqola_roomwidget_SRCS
     room/messagedelegatehelperreactions.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp
+    room/usersinroomflowwidget.cpp
+    room/usersinroomlabel.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
@@ -106,6 +108,8 @@ set(Ruqola_misc_widget_SRCS
     misc/accountsoverviewwidget.cpp
     misc/emoticonmenuwidget.cpp
     misc/emoticonselectorwidget.cpp
+    misc/adduserswidget.cpp
+    misc/clickableuserwidget.cpp
     )
 
 set(Ruqola_common_SRCS
@@ -113,6 +117,7 @@ set(Ruqola_common_SRCS
     common/completiontextedit.cpp
     common/completionlistview.cpp
     common/authenticationcombobox.cpp
+    common/flowlayout.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)

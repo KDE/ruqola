@@ -115,3 +115,8 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mRoomWidget->setCurrentRocketChatAccount(account);
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 }
+
+void RuqolaMainWidget::showListOfUsersInRoom(bool checked)
+{
+    mRoomWidget->showListOfUsersInRoom(checked);
+}

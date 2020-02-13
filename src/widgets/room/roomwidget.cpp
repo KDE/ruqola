@@ -28,6 +28,7 @@
 #include "readonlylineeditwidget.h"
 #include "messagetextedit.h"
 #include "ruqolawidgets_debug.h"
+#include "usersinroomflowwidget.h"
 #include "model/roommodel.h"
 #include "dialogs/createnewdiscussiondialog.h"
 
@@ -48,6 +49,11 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomHeaderWidget = new RoomHeaderWidget(this);
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
     mainLayout->addWidget(mRoomHeaderWidget);
+
+//    mUsersInRoomFlowWidget = new UsersInRoomFlowWidget(this);
+//    mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
+//    mainLayout->addWidget(mUsersInRoomFlowWidget);
+//    mUsersInRoomFlowWidget->setVisible(false);
 
     mMessageListView = new MessageListView(this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
@@ -226,6 +232,12 @@ RoomWrapper *RoomWidget::roomWrapper() const
     return mRoomWrapper;
 }
 
+void RoomWidget::showListOfUsersInRoom(bool checked)
+{
+    //Disable for the moment
+    //mUsersInRoomFlowWidget->setVisible(checked);
+}
+
 void RoomWidget::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
@@ -233,6 +245,7 @@ void RoomWidget::setRoomId(const QString &roomId)
     mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
     connectRoomWrapper();
     mMessageListView->setChannelSelected(roomId);
+    //mUsersInRoomFlowWidget->setRoomId(roomId);
 }
 
 void RoomWidget::connectRoomWrapper()

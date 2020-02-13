@@ -265,6 +265,8 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("mark_all_channels_read"), clearAlerts);
 
     mListOfUsers = new QAction(QIcon::fromTheme(QStringLiteral("system-users")), i18n("List of Users"), this);
+    mListOfUsers->setCheckable(true);
+    mListOfUsers->setChecked(false);
     connect(mListOfUsers, &QAction::triggered, this, &RuqolaMainWindow::slotListOfUsersInRoom);
     ac->addAction(QStringLiteral("list_of_users_in_room"), mListOfUsers);
 
@@ -468,9 +470,9 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
     delete dlg;
 }
 
-void RuqolaMainWindow::slotListOfUsersInRoom()
+void RuqolaMainWindow::slotListOfUsersInRoom(bool checked)
 {
-    //TODO
+    mMainWidget->showListOfUsersInRoom(checked);
 }
 
 void RuqolaMainWindow::slotStartVideoChat()

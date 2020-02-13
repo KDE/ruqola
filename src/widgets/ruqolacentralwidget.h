@@ -42,6 +42,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
     RoomWrapper *roomWrapper() const;
+    void showListOfUsersInRoom(bool checked);
 Q_SIGNALS:
     void channelSelected();
 private:

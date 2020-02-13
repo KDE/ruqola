@@ -21,14 +21,14 @@
 #ifndef COMPLETIONLINEEDIT_H
 #define COMPLETIONLINEEDIT_H
 
-#include <QLineEdit>
+#include <KLineEdit>
 
 #include "libruqolawidgets_private_export.h"
 
 class QAbstractItemModel;
 class CompletionListView;
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionLineEdit : public QLineEdit
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionLineEdit : public KLineEdit
 {
     Q_OBJECT
 public:

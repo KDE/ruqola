@@ -50,10 +50,7 @@ void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
     const QString completerName = index.data(UserCompleterModel::UserName).toString();
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
-    QString newText = completerName;
-    if (!text().isEmpty()) {
-        newText.prepend(QLatin1Char(','));
-    }
-    insert(newText);
+    Q_EMIT newUserName(completerName);
+    clear();
     connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
 }

@@ -18,28 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "addusersinroomwidgettest.h"
-#include "dialogs/addusersinroomwidget.h"
+#include "adduserswidgettest.h"
 #include "misc/adduserswidget.h"
+#include "common/flowlayout.h"
+#include "dialogs/adduserscompletionlineedit.h"
 #include <QTest>
 #include <QVBoxLayout>
-QTEST_MAIN(AddUsersInRoomWidgetTest)
-
-AddUsersInRoomWidgetTest::AddUsersInRoomWidgetTest(QObject *parent)
+QTEST_MAIN(AddUsersWidgetTest)
+AddUsersWidgetTest::AddUsersWidgetTest(QObject *parent)
     : QObject(parent)
 {
+
 }
 
-void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
+void AddUsersWidgetTest::shouldHaveDefaultValues()
 {
-    AddUsersInRoomWidget w;
+    AddUsersWidget w;
 
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    AddUsersWidget *mAddUsersWidget = w.findChild<AddUsersWidget *>(QStringLiteral("mAddUsersWidget"));
-    QVERIFY(mAddUsersWidget);
+    AddUsersCompletionLineEdit *mSearchUserLineEdit = w.findChild<AddUsersCompletionLineEdit *>(QStringLiteral("mSearchUserLineEdit"));
+    QVERIFY(mSearchUserLineEdit);
+    QVERIFY(!mSearchUserLineEdit->placeholderText().isEmpty());
+
+    FlowLayout *mFlowLayout = w.findChild<FlowLayout* >(QStringLiteral("mFlowLayout"));
+    QVERIFY(mFlowLayout);
 
     QVERIFY(w.users().isEmpty());
 }

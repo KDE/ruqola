@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,30 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMFILTERPROXYMODEL_H
-#define USERSFORROOMFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
-#include "libruqolacore_export.h"
+#ifndef USERSINROOMFLOWWIDGETTEST_H
+#define USERSINROOMFLOWWIDGETTEST_H
 
-class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
+#include <QObject>
+
+class UsersInRoomFlowWidgetTest : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
-    ~UsersForRoomFilterProxyModel() override;
-
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
-    Q_INVOKABLE void setFilterString(const QString &string);
-
-    Q_REQUIRED_RESULT bool hasFullList() const;
-Q_SIGNALS:
-    void hasFullListChanged();
-
-protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    explicit UsersInRoomFlowWidgetTest(QObject *parent = nullptr);
+    ~UsersInRoomFlowWidgetTest() = default;
 };
 
-#endif // USERSFORROOMFILTERPROXYMODEL_H
+#endif // USERSINROOMFLOWWIDGETTEST_H
