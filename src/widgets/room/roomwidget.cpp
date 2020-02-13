@@ -50,10 +50,10 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
     mainLayout->addWidget(mRoomHeaderWidget);
 
-//    mUsersInRoomFlowWidget = new UsersInRoomFlowWidget(this);
-//    mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
-//    mainLayout->addWidget(mUsersInRoomFlowWidget);
-//    mUsersInRoomFlowWidget->setVisible(false);
+    mUsersInRoomFlowWidget = new UsersInRoomFlowWidget(this);
+    mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
+    mainLayout->addWidget(mUsersInRoomFlowWidget);
+    mUsersInRoomFlowWidget->setVisible(false);
 
     mMessageListView = new MessageListView(this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
@@ -234,8 +234,7 @@ RoomWrapper *RoomWidget::roomWrapper() const
 
 void RoomWidget::showListOfUsersInRoom(bool checked)
 {
-    //Disable for the moment
-    //mUsersInRoomFlowWidget->setVisible(checked);
+    mUsersInRoomFlowWidget->setVisible(checked);
 }
 
 void RoomWidget::setRoomId(const QString &roomId)
@@ -245,7 +244,7 @@ void RoomWidget::setRoomId(const QString &roomId)
     mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
     connectRoomWrapper();
     mMessageListView->setChannelSelected(roomId);
-    //mUsersInRoomFlowWidget->setRoomId(roomId);
+    mUsersInRoomFlowWidget->setRoomId(roomId);
 }
 
 void RoomWidget::connectRoomWrapper()

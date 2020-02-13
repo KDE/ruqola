@@ -32,6 +32,9 @@ UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
 {
     mFlowLayout = new FlowLayout(this);
+    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mFlowLayout->setSpacing(0);
+    mFlowLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 UsersInRoomFlowWidget::~UsersInRoomFlowWidget()
