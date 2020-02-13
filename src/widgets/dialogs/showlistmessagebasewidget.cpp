@@ -81,7 +81,7 @@ QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
     QString displayMessageStr;
     displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
 }
