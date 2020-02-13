@@ -41,7 +41,7 @@ void AddUsersWidgetTest::shouldHaveDefaultValues()
 
     AddUsersCompletionLineEdit *mSearchUserLineEdit = w.findChild<AddUsersCompletionLineEdit *>(QStringLiteral("mSearchUserLineEdit"));
     QVERIFY(mSearchUserLineEdit);
-    QVERIFY(!mSearchUserLineEdit->placeholderText().isEmpty());
+    QVERIFY(mSearchUserLineEdit->placeholderText().isEmpty());
 
     FlowLayout *mFlowLayout = w.findChild<FlowLayout* >(QStringLiteral("mFlowLayout"));
     QVERIFY(mFlowLayout);

@@ -21,6 +21,7 @@
 
 #include "usersinroomlabel.h"
 #include <QHBoxLayout>
+#include <QIcon>
 #include <QLabel>
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
@@ -36,6 +37,7 @@ UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
 
     mUserNameLabel = new QLabel(this);
     mUserNameLabel->setObjectName(QStringLiteral("mUserNameLabel"));
+    mUserNameLabel->setTextFormat(Qt::RichText);
     mainLayout->addWidget(mUserNameLabel);
 }
 
@@ -47,4 +49,9 @@ UsersInRoomLabel::~UsersInRoomLabel()
 void UsersInRoomLabel::setUserName(const QString &userName)
 {
     mUserNameLabel->setText(userName);
+}
+
+void UsersInRoomLabel::setIconStatus(const QString &iconStatus)
+{
+    mIconLabel->setPixmap(QIcon::fromTheme(iconStatus).pixmap(18, 18));
 }

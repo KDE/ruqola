@@ -36,6 +36,8 @@ public:
 
     Q_REQUIRED_RESULT QStringList users() const;
 
+    void setPlaceholderText(const QString &str);
+
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);

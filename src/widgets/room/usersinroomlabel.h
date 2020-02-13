@@ -33,7 +33,7 @@ public:
     ~UsersInRoomLabel();
 
     void setUserName(const QString &userName);
-
+    void setIconStatus(const QString &iconStatus);
 private:
     QLabel *mIconLabel = nullptr;
     QLabel *mUserNameLabel = nullptr;

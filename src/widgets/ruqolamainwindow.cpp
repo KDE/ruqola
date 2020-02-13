@@ -409,7 +409,8 @@ void RuqolaMainWindow::slotCreateNewChannel()
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
-        mCurrentRocketChatAccount->createNewChannel(info.channelName, info.readOnly, info.privateChannel, info.usersName, info.encryptedRoom, info.password, info.broadCast);
+        //TODO adapt createNewChannel api for using QStringList
+        mCurrentRocketChatAccount->createNewChannel(info.channelName, info.readOnly, info.privateChannel, info.usersName.join(QLatin1Char(',')), info.encryptedRoom, info.password, info.broadCast);
     }
     delete dlg;
 }

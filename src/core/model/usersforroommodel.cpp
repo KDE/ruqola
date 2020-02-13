@@ -34,16 +34,6 @@ UsersForRoomModel::~UsersForRoomModel()
 {
 }
 
-void UsersForRoomModel::removeUser(const QString &userId)
-{
-    //TODO verify if it
-}
-
-void UsersForRoomModel::addUser(const User &users)
-{
-    //TODO verify if it
-}
-
 void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
     if (mUsers.isEmpty()) {
@@ -237,7 +227,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
     }
 }
 
-void UsersForRoomModel::userStatusChanged(const User &newuser)
+void UsersForRoomModel::setUserStatusChanged(const User &newuser)
 {
     const int roomCount = mUsers.count();
     for (int i = 0; i < roomCount; ++i) {
@@ -246,6 +236,8 @@ void UsersForRoomModel::userStatusChanged(const User &newuser)
             user.setStatus(newuser.status());
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
+            Q_EMIT userStatusChanged(user.userId());
+            break;
         }
     }
 }

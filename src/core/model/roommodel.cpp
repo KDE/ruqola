@@ -405,7 +405,7 @@ void RoomModel::userStatusChanged(const User &user)
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
         }
-        room->usersModelForRoom()->userStatusChanged(user);
+        room->usersModelForRoom()->setUserStatusChanged(user);
     }
 }
 

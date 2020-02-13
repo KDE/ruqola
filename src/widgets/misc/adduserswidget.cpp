@@ -35,7 +35,6 @@ AddUsersWidget::AddUsersWidget(QWidget *parent)
 
     mSearchUserLineEdit = new AddUsersCompletionLineEdit(this);
     mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
-    mSearchUserLineEdit->setPlaceholderText(i18n("Search Users..."));
     connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::newUserName, this, &AddUsersWidget::slotAddNewName);
     mainLayout->addWidget(mSearchUserLineEdit);
 
@@ -46,7 +45,7 @@ AddUsersWidget::AddUsersWidget(QWidget *parent)
 
 AddUsersWidget::~AddUsersWidget()
 {
-
+    delete mFlowLayout;
 }
 
 void AddUsersWidget::slotAddNewName(const QString &str)
@@ -84,4 +83,9 @@ QStringList AddUsersWidget::users() const
         addUsers << i.value()->userName();
     }
     return addUsers;
+}
+
+void AddUsersWidget::setPlaceholderText(const QString &str)
+{
+    mSearchUserLineEdit->setPlaceholderText(str);
 }

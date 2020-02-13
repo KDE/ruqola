@@ -31,10 +31,16 @@ public:
     explicit UsersInRoomFlowWidget(QWidget *parent = nullptr);
     ~UsersInRoomFlowWidget();
     void setRoomId(const QString &roomId);
+
+protected:
+    void showEvent(QShowEvent *event) override;
+
 private:
+    void loadMoreUsersAttachment();
     void updateList();
     QString mRoomId;
     FlowLayout *mFlowLayout = nullptr;
+
 };
 
 #endif // USERSINROOMFLOWWIDGET_H

@@ -35,6 +35,7 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
 
     mAddUsersWidget = new AddUsersWidget(this);
     mAddUsersWidget->setObjectName(QStringLiteral("mAddUsersWidget"));
+    mAddUsersWidget->setPlaceholderText(i18n("Search Users..."));
     connect(mAddUsersWidget, &AddUsersWidget::userListChanged, this, &AddUsersInRoomWidget::updateOkButton);
     mainLayout->addWidget(mAddUsersWidget);
     mainLayout->addStretch(1);

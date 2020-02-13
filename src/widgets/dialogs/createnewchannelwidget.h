@@ -24,9 +24,10 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
+class KLineEdit;
 class QCheckBox;
 class KPasswordLineEdit;
+class AddUsersWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -35,7 +36,7 @@ public:
     ~CreateNewChannelWidget() override;
 
     Q_REQUIRED_RESULT QString channelName() const;
-    Q_REQUIRED_RESULT QString users() const;
+    Q_REQUIRED_RESULT QStringList users() const;
     Q_REQUIRED_RESULT bool encryptedRoom() const;
     Q_REQUIRED_RESULT bool privateChannel() const;
     Q_REQUIRED_RESULT bool broadCast() const;
@@ -47,8 +48,8 @@ Q_SIGNALS:
 
 private:
     void slotChangeOkButtonEnabled();
-    QLineEdit *mChannelName = nullptr;
-    QLineEdit *mUsers = nullptr;
+    KLineEdit *mChannelName = nullptr;
+    AddUsersWidget *mUsers = nullptr;
     QCheckBox *mReadOnly = nullptr;
     QCheckBox *mBroadcast = nullptr;
     QCheckBox *mPrivate = nullptr;

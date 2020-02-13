@@ -50,9 +50,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);
-    void userStatusChanged(const User &newuser);
-    void removeUser(const QString &userId);
-    void addUser(const User &users);
+    void setUserStatusChanged(const User &newuser);
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
@@ -68,6 +66,7 @@ public:
 
 Q_SIGNALS:
     void hasFullListChanged();
+    void userStatusChanged(const QString &userId);
 
 private:
     QString generateDisplayName(const User &user) const;

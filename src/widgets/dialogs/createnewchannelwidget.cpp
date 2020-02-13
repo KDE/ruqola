@@ -19,9 +19,9 @@
 */
 
 #include "createnewchannelwidget.h"
-
+#include "misc/adduserswidget.h"
 #include <QFormLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <KPasswordLineEdit>
@@ -33,13 +33,13 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mChannelName = new QLineEdit(this);
+    mChannelName = new KLineEdit(this);
     mChannelName->setObjectName(QStringLiteral("mChannelName"));
     mainLayout->addRow(i18n("Name:"), mChannelName);
 
-    mUsers = new QLineEdit(this);
+    mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18nc("List of users separated by ','", "User separate with ','"));
+    mUsers->setPlaceholderText(i18n("Invite Users..."));
     mainLayout->addRow(i18n("Users:"), mUsers);
 
     mReadOnly = new QCheckBox(this);
@@ -66,7 +66,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
-    connect(mChannelName, &QLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
+    connect(mChannelName, &KLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget()
@@ -83,9 +83,9 @@ QString CreateNewChannelWidget::channelName() const
     return mChannelName->text();
 }
 
-QString CreateNewChannelWidget::users() const
+QStringList CreateNewChannelWidget::users() const
 {
-    return mUsers->text();
+    return mUsers->users();
 }
 
 bool CreateNewChannelWidget::readOnly() const

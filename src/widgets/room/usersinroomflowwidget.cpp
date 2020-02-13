@@ -46,25 +46,47 @@ void UsersInRoomFlowWidget::setRoomId(const QString &roomId)
 {
     if (mRoomId != roomId) {
         mRoomId = roomId;
+        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomId);
+        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::updateList);
+        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::updateList);
+        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateList);
+        connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::updateList);
         updateList();
     }
 }
 
+void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
+{
+    updateList();
+    QWidget::showEvent(event);
+}
+
 void UsersInRoomFlowWidget::updateList()
 {
-    if (/*isVisible()*/1) {
+    if (isVisible()) {
         const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomId);
         const auto count = model->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         for (int i = 0; i < count; ++i) {
             const auto roomModelIndex = model->index(i, 0);
-            const auto userName = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+            const QString userName = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
+            const QString iconStatus = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
             UsersInRoomLabel *userLabel = new UsersInRoomLabel(this);
             userLabel->setUserName(userName);
+            userLabel->setIconStatus(iconStatus);
             mFlowLayout->addWidget(userLabel);
         }
         if (!model->hasFullList()) {
-            mFlowLayout->addWidget(new QLabel(i18n("(load More elements)")));
+            QLabel *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
+            loadingMoreLabel->setTextFormat(Qt::RichText);
+            connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsersAttachment);
+            mFlowLayout->addWidget(loadingMoreLabel);
         }
     }
+}
+
+void UsersInRoomFlowWidget::loadMoreUsersAttachment()
+{
+    //FIXME
+    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoomId, QStringLiteral("c"));
 }
