@@ -574,13 +574,23 @@ void RocketChatAccount::openChannel(const QString &url, ChannelTypeInfo typeInfo
     info.channelInfoIdentifier = url;
     qCDebug(RUQOLA_LOG) << "opening channel" << url;
     restApi()->channelJoin(info, QString());
-    //TODO search correct room + select it.
 }
 
 void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    //FIXME type of identifier
     ddp()->subscribeRoomMessage(channelInfo.channelInfoIdentifier);
+    //FIXME room is not added yet...
+    switch(channelInfo.channelInfoType) {
+    case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown:
+        qCWarning(RUQOLA_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
+        break;
+    case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId:
+        Q_EMIT selectRoomByRoomIdRequested(channelInfo.channelInfoIdentifier);
+        break;
+    case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomName:
+        Q_EMIT selectRoomByRoomNameRequested(channelInfo.channelInfoIdentifier);
+        break;
+    }
 }
 
 void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)

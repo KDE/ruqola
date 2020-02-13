@@ -420,7 +420,9 @@ Q_SIGNALS:
     void userStatusUpdated(User::PresenceStatus status);
     void publicSettingChanged();
     void serverVersionChanged();
-    void openLinkRequested(const QString &link);
+    void openLinkRequested(const QString &link);    
+    void selectRoomByRoomIdRequested(const QString &identifier);
+    void selectRoomByRoomNameRequested(const QString &identifier);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
