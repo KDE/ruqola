@@ -407,7 +407,7 @@ Kirigami.ApplicationWindow {
         }
         onOpenChannel: {
             if (channeltype === Channel.Room) {
-                rocketChatAccount.openChannel(channelid)
+                rocketChatAccount.openChannel(channelid, RocketChatAccount.RoomId)
             } else if (channeltype === Channel.PrivateChannel) {
                 if (rocketChatAccount.userName !== channelid) {
                     rocketChatAccount.openDirectChannel(channelid)

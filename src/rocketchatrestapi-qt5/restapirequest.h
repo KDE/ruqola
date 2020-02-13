@@ -122,7 +122,7 @@ public:
     void listCommands();
     void fetchMyKeys();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
-    void channelJoin(const QString &roomId, const QString &joinCode);
+    void channelJoin(const ChannelBaseJob::ChannelInfo &channelInfo, const QString &joinCode);
     void muteGroupMentions(const QString &roomId, bool value);
 
     void channelInfo(const QString &roomId);

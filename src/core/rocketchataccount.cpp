@@ -560,10 +560,20 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
     restApi()->markAsFavorite(roomId, checked);
 }
 
-void RocketChatAccount::openChannel(const QString &url)
+void RocketChatAccount::openChannel(const QString &url, ChannelTypeInfo typeInfo)
 {
+    RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
+    switch (typeInfo) {
+    case ChannelTypeInfo::RoomId:
+        info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId;
+        break;
+    case ChannelTypeInfo::RoomName:
+        info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomName;
+        break;
+    }
+    info.channelInfoIdentifier = url;
     qCDebug(RUQOLA_LOG) << "opening channel" << url;
-    restApi()->channelJoin(url, QString());
+    restApi()->channelJoin(info, QString());
     //TODO search correct room + select it.
 }
 
@@ -634,7 +644,10 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
 
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
-    restApi()->channelJoin(roomId, joinCode);
+    RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    restApi()->channelJoin(info, joinCode);
 }
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
@@ -740,11 +753,12 @@ void RocketChatAccount::membersInRoom(const QString &roomId, const QString &room
 void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
     //FIXME channelInfo
-    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfo.channelInfoIdentifier);
+    const QString channelInfoIdentifier = channelInfo.channelInfoIdentifier;
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
     } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfo.channelInfoIdentifier;
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfoIdentifier;
     }
 }
 

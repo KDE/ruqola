@@ -67,8 +67,7 @@ void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
         const auto channelType = index.data(SearchChannelModel::ChannelType).value<Channel::ChannelType>();
         const QString channelId = index.data(SearchChannelModel::ChannelId).toString();
         if (channelType == Channel::ChannelType::Room) {
-            //TODO fix api as we use channel id here but api want a roomname !
-            Ruqola::self()->rocketChatAccount()->openChannel(channelId);
+            Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
         } else if (channelType == Channel::ChannelType::PrivateChannel) {
             Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
         } else {

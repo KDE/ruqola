@@ -128,6 +128,12 @@ public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount() override;
 
+    enum ChannelTypeInfo {
+        RoomId,
+        RoomName,
+    };
+    Q_ENUM(ChannelTypeInfo)
+
     enum RoomInfoType {
         Announcement,
         Description,
@@ -179,7 +185,7 @@ public:
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
     Q_INVOKABLE void replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message);
-    Q_INVOKABLE void openChannel(const QString &url);
+    Q_INVOKABLE void openChannel(const QString &url, RocketChatAccount::ChannelTypeInfo typeInfo);
     Q_INVOKABLE void joinJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast);
     Q_INVOKABLE void joinRoom(const QString &roomId, const QString &joinCode = QString());

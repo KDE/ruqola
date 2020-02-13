@@ -529,7 +529,7 @@ Component {
                     id: openChannelDialog
                     parent: appid.pageStack
                     onOpenChannel: {
-                        appid.rocketChatAccount.openChannel(channelName);
+                        appid.rocketChatAccount.openChannel(channelName, RocketChatAccount.RoomName);
                     }
                     onRejected: {
                         reportMessageDialogLoader.active = false
