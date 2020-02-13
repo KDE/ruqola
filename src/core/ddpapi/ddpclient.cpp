@@ -217,6 +217,7 @@ DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
 
 DDPClient::~DDPClient()
 {
+    disconnect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
     mWebSocket->close();
     //Don't delete socket when we use specific socket.
     if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {

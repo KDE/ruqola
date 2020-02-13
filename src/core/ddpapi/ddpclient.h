@@ -95,11 +95,6 @@ public:
     Q_INVOKABLE void login();
 
     /**
-    * @brief Closes the websocket connection
-    */
-    void logOut();
-
-    /**
     * @brief Check whether websocket is connected at url
     *
     * @return true if connected, else false

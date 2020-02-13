@@ -180,7 +180,6 @@ public:
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
-    void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
     void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
     void getServerInfoDone(const QString &version);

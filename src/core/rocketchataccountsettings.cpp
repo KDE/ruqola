@@ -176,7 +176,6 @@ void RocketChatAccountSettings::logout()
     mSetting->sync();
     mAuthToken.clear();
     mUserId.clear();
-    mPassword.clear();
     mExpireToken = -1;
 }
 

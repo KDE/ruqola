@@ -89,7 +89,7 @@ bool RestApiAbstractJob::canStart() const
         return false;
     }
     if (!mRestApiMethod) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RestaApiMethod not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RestApiMethod not defined";
         return false;
     }
     if (requireHttpAuthentication() && !hasAuthenticationValue()) {

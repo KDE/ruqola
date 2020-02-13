@@ -46,7 +46,7 @@ bool LogoutJob::start()
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     addLoggerInfo("LogoutJob::start");
     connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
-    return false;
+    return true;
 }
 
 void LogoutJob::slotLogout()
@@ -60,7 +60,7 @@ void LogoutJob::slotLogout()
 
         if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success")) {
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
-            Q_EMIT logoutDone();
+            Q_EMIT logoutDone(); // connected to RestApiRequest::slotLogout
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning("Error during to logout" + data);

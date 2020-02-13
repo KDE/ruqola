@@ -288,7 +288,6 @@ void RestApiRequest::slotLogout()
 {
     mUserId.clear();
     mAuthToken.clear();
-    Q_EMIT logoutDone();
 }
 
 void RestApiRequest::initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job)
