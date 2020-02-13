@@ -19,7 +19,7 @@
 */
 
 #include "takevideomessagedialog.h"
-
+#include "takevideomessagewidget.h"
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -30,6 +30,10 @@ TakeVideoMessageDialog::TakeVideoMessageDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Video Message"));
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mTakeVideoMessageWidget = new TakeVideoMessageWidget(this);
+    mTakeVideoMessageWidget->setObjectName(QStringLiteral("mTakeVideoMessageWidget"));
+    mainLayout->addWidget(mTakeVideoMessageWidget);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));

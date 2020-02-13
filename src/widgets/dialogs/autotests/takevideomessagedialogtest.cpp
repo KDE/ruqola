@@ -20,6 +20,7 @@
 
 #include "takevideomessagedialogtest.h"
 #include "dialogs/takevideomessagedialog.h"
+#include "dialogs/takevideomessagewidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -37,6 +38,9 @@ void TakeVideoMessageDialogTest::shouldHaveDefaultValues()
 
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+
+    auto *mTakeVideoMessageWidget = w.findChild<TakeVideoMessageWidget *>(QStringLiteral("mTakeVideoMessageWidget"));
+    QVERIFY(mTakeVideoMessageWidget);
 
     auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);

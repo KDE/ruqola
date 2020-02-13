@@ -21,10 +21,20 @@
 #include "takevideomessagewidgettest.h"
 #include "dialogs/takevideomessagewidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(TakeVideoMessageWidgetTest)
 
 TakeVideoMessageWidgetTest::TakeVideoMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
+
+}
+
+void TakeVideoMessageWidgetTest::shouldHaveDefaultValues()
+{
+    TakeVideoMessageWidget w;
+    auto *layout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(layout);
+    QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
 
 }

@@ -29,6 +29,8 @@ class TakeVideoMessageWidgetTest : public QObject
 public:
     explicit TakeVideoMessageWidgetTest(QObject *parent = nullptr);
     ~TakeVideoMessageWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // TAKEVIDEOMESSAGEWIDGETTEST_H

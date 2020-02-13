@@ -19,10 +19,15 @@
 */
 
 #include "takevideomessagewidget.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
 
 TakeVideoMessageWidget::TakeVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 TakeVideoMessageWidget::~TakeVideoMessageWidget()

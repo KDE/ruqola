@@ -22,12 +22,15 @@
 #define TAKEVIDEOMESSAGEDIALOG_H
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
+class TakeVideoMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TakeVideoMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit TakeVideoMessageDialog(QWidget *parent = nullptr);
     ~TakeVideoMessageDialog() override;
+private:
+    TakeVideoMessageWidget *mTakeVideoMessageWidget = nullptr;
 };
 
 #endif // TAKEVIDEOMESSAGEDIALOG_H
