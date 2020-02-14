@@ -306,6 +306,7 @@ void RuqolaMainWindow::slotShowDiscussions()
     QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
     dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
     const QString roomId = mMainWidget->roomId();
+    dlg->setRoomId(roomId);
     mCurrentRocketChatAccount->discussionsInRoom(roomId);
     dlg->exec();
     delete dlg;

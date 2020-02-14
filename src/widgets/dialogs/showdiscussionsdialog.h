@@ -32,10 +32,13 @@ public:
     ~ShowDiscussionsDialog() override;
 
     void setModel(DiscussionsFilterProxyModel *model);
+    void setRoomId(const QString &roomId);
+
 private:
     void readConfig();
     void writeConfig();
     void slotLoadMoreDiscussions();
+    QString mRoomId;
     ShowDiscussionsWidget *mShowDiscussionsWidget = nullptr;
 };
 
