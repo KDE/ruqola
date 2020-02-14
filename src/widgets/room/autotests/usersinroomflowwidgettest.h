@@ -30,6 +30,8 @@ class UsersInRoomFlowWidgetTest : public QObject
 public:
     explicit UsersInRoomFlowWidgetTest(QObject *parent = nullptr);
     ~UsersInRoomFlowWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // USERSINROOMFLOWWIDGETTEST_H

@@ -21,6 +21,7 @@
 
 #include "usersinroomflowwidgettest.h"
 #include "room/usersinroomflowwidget.h"
+#include "common/flowlayout.h"
 #include <QTest>
 QTEST_MAIN(UsersInRoomFlowWidgetTest)
 
@@ -28,4 +29,13 @@ UsersInRoomFlowWidgetTest::UsersInRoomFlowWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void UsersInRoomFlowWidgetTest::shouldHaveDefaultValues()
+{
+    UsersInRoomFlowWidget w;
+    FlowLayout *mFlowLayout = w.findChild<FlowLayout *>(QStringLiteral("mFlowLayout"));
+    QVERIFY(mFlowLayout);
+    QCOMPARE(mFlowLayout->spacing(), 0);
+    QCOMPARE(mFlowLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 }
