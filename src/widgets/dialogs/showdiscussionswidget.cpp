@@ -19,7 +19,7 @@
 */
 
 #include "showdiscussionswidget.h"
-#include "listdiscussiondelegate.h"
+#include "discussion/listdiscussiondelegate.h"
 #include "model/discussionsfilterproxymodel.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -42,21 +42,19 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     connect(mSearchDiscussionLineEdit, &KLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
 
-    mInfo = new QLabel(this);
-    mInfo->setObjectName(QStringLiteral("mInfo"));
-    mInfo->setTextFormat(Qt::RichText);
-    mainLayout->addWidget(mInfo);
-    QFont labFont = mInfo->font();
+    mDiscussionInfoLabel = new QLabel(this);
+    mDiscussionInfoLabel->setObjectName(QStringLiteral("mInfo"));
+    mDiscussionInfoLabel->setTextFormat(Qt::RichText);
+    mainLayout->addWidget(mDiscussionInfoLabel);
+    QFont labFont = mDiscussionInfoLabel->font();
     labFont.setBold(true);
-    mInfo->setFont(labFont);
-    connect(mInfo, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
+    mDiscussionInfoLabel->setFont(labFont);
+    connect(mDiscussionInfoLabel, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
 
     mListDiscussions = new QListView(this);
     mListDiscussions->setObjectName(QStringLiteral("mListDiscussions"));
     mainLayout->addWidget(mListDiscussions);
     mListDiscussions->setItemDelegate(new ListDiscussionDelegate(this));
-
-    //TODO need to update label !!!
 }
 
 ShowDiscussionsWidget::~ShowDiscussionsWidget()
@@ -65,10 +63,29 @@ ShowDiscussionsWidget::~ShowDiscussionsWidget()
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {
-    //mModel->setFilterString(str);
+    mDiscussionModel->setFilterString(str);
+    updateLabel();
 }
 
 void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
 {
     mListDiscussions->setModel(model);
+    mDiscussionModel = model;
+    connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
+    updateLabel();
+}
+
+void ShowDiscussionsWidget::updateLabel()
+{
+    mDiscussionInfoLabel->setText(mDiscussionModel->rowCount() == 0 ? i18n("No Discussion found") : displayShowDiscussionInRoom());
+}
+
+QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
+{
+    QString displayMessageStr;
+    displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
+    if (!mDiscussionModel->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
 }

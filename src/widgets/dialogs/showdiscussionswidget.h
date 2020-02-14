@@ -41,9 +41,12 @@ Q_SIGNALS:
 
 private:
     void slotSearchMessageTextChanged(const QString &str);
+    void updateLabel();
+    QString displayShowDiscussionInRoom() const;
     KLineEdit *mSearchDiscussionLineEdit = nullptr;
-    QLabel *mInfo = nullptr;
+    QLabel *mDiscussionInfoLabel = nullptr;
     QListView *mListDiscussions = nullptr;
+    DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
 };
 
 #endif // SHOWDISCUSSIONSWIDGET_H
