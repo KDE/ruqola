@@ -83,7 +83,7 @@ void ShowDiscussionsWidget::updateLabel()
 QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
 {
     QString displayMessageStr;
-    displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
+    displayMessageStr = i18np("%1 Discussion in room (Total: %2)", "%1 Discussions in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
     if (!mDiscussionModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
