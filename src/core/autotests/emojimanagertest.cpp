@@ -80,12 +80,15 @@ void EmojiManagerTest::shouldGenerateHtml()
 
     // :foo: doesn't exist
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
+    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":foo:")), QString());
 
     // Existing emoji
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>"));
+    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")), QStringLiteral("/emoji-custom/vader.png"));
 
     // Alias
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>"));
+    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")), QStringLiteral("/emoji-custom/vader.png"));
 }
 
 void EmojiManagerTest::shouldChangeServerUrl()

@@ -108,6 +108,16 @@ UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdenti
     return {};
 }
 
+QString EmojiManager::customEmojiFileName(const QString &emojiIdentifier) const
+{
+    for (const Emoji &customEmoji : mCustomEmojiList) {
+        if (customEmoji.hasEmoji(emojiIdentifier)) {
+            return customEmoji.emojiFileName();
+        }
+    }
+    return {};
+}
+
 QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction)
 {
     if (mServerUrl.isEmpty()) {
