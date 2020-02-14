@@ -41,7 +41,8 @@ AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit()
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    //Take text from ','
+    //TODO add exception!
+    //Add current user + list of users already added.
     rcAccount->userAutocomplete(text, QString());
 }
 
@@ -50,6 +51,7 @@ void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
     const QString completerName = index.data(UserCompleterModel::UserName).toString();
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+    //FIXME userId or username ?
     Q_EMIT newUserName(completerName);
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
