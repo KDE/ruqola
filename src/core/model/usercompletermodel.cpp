@@ -68,8 +68,9 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     }
     const User user = mUsers.at(index.row());
     switch (role) {
-    case UserName:
     case Qt::DisplayRole:
+        return displayUserName(user);
+    case UserName:
         return user.userName();
     case UserId:
         return user.userId();
@@ -90,3 +91,14 @@ QHash<int, QByteArray> UserCompleterModel::roleNames() const
     roles[UserIconStatus] = QByteArrayLiteral("iconstatus");
     return roles;
 }
+
+QString UserCompleterModel::displayUserName(const User &user) const
+{
+    QString text = user.userName();
+    const QString name = user.name();
+    if (!name.isEmpty()) {
+        text += QLatin1String(" (") + name + QLatin1Char(')');
+    }
+    return text;
+}
+
