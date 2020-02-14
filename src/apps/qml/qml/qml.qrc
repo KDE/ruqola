@@ -86,7 +86,6 @@
         <file alias="ClickableLabel.qml">common/ClickableLabel.qml</file>
     </qresource>
     <qresource prefix="/icons">
-        <file alias="systray.png">icons/systray.png</file>
         <file alias="attach-button.jpg">icons/attach-button.jpg</file>
     </qresource>
     <qresource prefix="/js">
