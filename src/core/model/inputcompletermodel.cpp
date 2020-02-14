@@ -133,7 +133,7 @@ QString InputCompleterModel::channelName(const Channel &channel) const
         QString text = channel.userName();
         const QString name = channel.name();
         if (!name.isEmpty()) {
-            text += QLatin1String(" (") + channel.name() + QLatin1Char(')');
+            text += QLatin1String(" (") + name + QLatin1Char(')');
         }
         return text;
     }
