@@ -19,7 +19,7 @@
 */
 
 #include "messagedelegatehelperfiletest.h"
-#include "room/messagedelegatehelperfile.h"
+#include "room/delegate/messagedelegatehelperfile.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "messages/message.h"

@@ -46,10 +46,10 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showattachmentwidget.cpp
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfowidget.cpp
-    dialogs/listattachmentdelegate.cpp
+    dialogs/attachment/listattachmentdelegate.cpp
     dialogs/showdiscussionsdialog.cpp
     dialogs/showdiscussionswidget.cpp
-    dialogs/listdiscussiondelegate.cpp
+    dialogs/discussion/listdiscussiondelegate.cpp
     dialogs/createnewdiscussiondialog.cpp
     dialogs/createnewdiscussionwidget.cpp
     dialogs/channelpassworddialog.cpp
@@ -59,8 +59,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/adduserscompletionlineedit.cpp
     dialogs/showthreadswidget.cpp
     dialogs/showthreadsdialog.cpp
-    dialogs/listthreadsdelegate.cpp
-    dialogs/searchchanneldelegate.cpp
+    dialogs/thread/listthreadsdelegate.cpp
+    dialogs/searchchannel/searchchanneldelegate.cpp
     dialogs/takevideomessagedialog.cpp
     dialogs/takevideomessagewidget.cpp
     )
@@ -91,12 +91,12 @@ set(Ruqola_roomwidget_SRCS
     room/roomheaderwidget.cpp
     room/messagelistview.cpp
     room/messagetextedit.cpp
-    room/messagelistdelegate.cpp
-    room/messagedelegatehelperbase.cpp
-    room/messagedelegatehelpertext.cpp
-    room/messagedelegatehelperimage.cpp
-    room/messagedelegatehelperfile.cpp
-    room/messagedelegatehelperreactions.cpp
+    room/delegate/messagelistdelegate.cpp
+    room/delegate/messagedelegatehelperbase.cpp
+    room/delegate/messagedelegatehelpertext.cpp
+    room/delegate/messagedelegatehelperimage.cpp
+    room/delegate/messagedelegatehelperfile.cpp
+    room/delegate/messagedelegatehelperreactions.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp
     room/usersinroomflowwidget.cpp

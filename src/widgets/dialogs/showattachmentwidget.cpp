@@ -19,7 +19,7 @@
 */
 
 #include "showattachmentwidget.h"
-#include "listattachmentdelegate.h"
+#include "attachment/listattachmentdelegate.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include <KLineEdit>
 #include <QVBoxLayout>

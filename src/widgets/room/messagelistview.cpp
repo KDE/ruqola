@@ -21,7 +21,7 @@
 #include "messagelistview.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "messagelistdelegate.h"
+#include "delegate/messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
 
 #include <KLocalizedString>

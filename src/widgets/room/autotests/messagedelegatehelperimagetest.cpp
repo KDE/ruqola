@@ -19,7 +19,7 @@
 */
 
 #include "messagedelegatehelperimagetest.h"
-#include "room/messagedelegatehelperimage.h"
+#include "room/delegate/messagedelegatehelperimage.h"
 #include "managerdatapaths.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"

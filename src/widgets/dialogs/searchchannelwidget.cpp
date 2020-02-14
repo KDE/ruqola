@@ -19,7 +19,7 @@
 */
 
 #include "searchchannelwidget.h"
-#include "searchchanneldelegate.h"
+#include "searchchannel/searchchanneldelegate.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
 #include "ruqolawidgets_debug.h"
