@@ -126,9 +126,9 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RoomModel)
     Room *createNewRoom();
-    QIcon icon(Room *r) const;
-    int order(Room *r) const;
-    QString sectionName(Room *r) const;
+    Q_REQUIRED_RESULT QIcon icon(Room *r) const;
+    Q_REQUIRED_RESULT int order(Room *r) const;
+    Q_REQUIRED_RESULT QString sectionName(Room *r) const;
 
     RocketChatAccount *mRocketChatAccount = nullptr;
     QVector<Room *> mRoomsList;
