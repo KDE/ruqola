@@ -75,16 +75,25 @@ bool Emoji::isValid() const
     return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
+QString Emoji::emojiUrl(const QString &serverUrl) const
+{
+    QString url = serverUrl + emojiFileName();
+    // ???? http ? not https ???
+    if (!url.startsWith(QLatin1String("http://")) && !url.startsWith(QLatin1String("https://"))) {
+        url.prepend(QLatin1String("http://"));
+    }
+    return url;
+}
+
+QString Emoji::emojiFileName() const
+{
+    return QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
+}
+
 QString Emoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
 {
     if (mCachedHtml.isEmpty()) {
-        //TODO verify it.
-
-        QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
-        // ???? http ? not https ???
-        if (!url.startsWith(QLatin1String("http://")) && !url.startsWith(QLatin1String("https://"))) {
-            url.prepend(QLatin1String("http://"));
-        }
+        const QString url = emojiUrl(serverUrl);
         //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
         //http://yourhost.com/emoji-custom/Emoji%20Name.png
         //TODO customize size.
@@ -96,13 +105,7 @@ QString Emoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
 QString Emoji::generateHtmlFromCustomEmoji(const QString &serverUrl)
 {
     if (mCachedHtml.isEmpty()) {
-        //TODO verify it.
-
-        QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
-        // ???? http ? not https ???
-        if (!url.startsWith(QLatin1String("http://")) && !url.startsWith(QLatin1String("https://"))) {
-            url.prepend(QLatin1String("http://"));
-        }
+        const QString url = emojiUrl(serverUrl);
         //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
         //http://yourhost.com/emoji-custom/Emoji%20Name.png
         //TODO customize size.

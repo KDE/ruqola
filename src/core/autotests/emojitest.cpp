@@ -150,6 +150,8 @@ void EmojiTest::shouldGenerateHtml_data()
 {
     QTest::addColumn<Emoji>("emoji");
     QTest::addColumn<QString>("serverUrl");
+    QTest::addColumn<QString>("expectedFileName");
+    QTest::addColumn<QString>("expectedUrl");
     QTest::addColumn<QString>("html");
 
     {
@@ -160,7 +162,10 @@ void EmojiTest::shouldGenerateHtml_data()
         emojiRef.setAliases(QStringList{QStringLiteral("clap")});
         emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
         emojiRef.setUpdatedAt(1514915356313);
-        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org") << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>");
+        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org")
+                               << QStringLiteral("/emoji-custom/clapping.gif")
+                               << QStringLiteral("http://www.kde.org/emoji-custom/clapping.gif")
+                               << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>");
     }
 }
 
@@ -168,7 +173,12 @@ void EmojiTest::shouldGenerateHtml()
 {
     QFETCH(Emoji, emoji);
     QFETCH(QString, serverUrl);
+    QFETCH(QString, expectedFileName);
+    QFETCH(QString, expectedUrl);
     QFETCH(QString, html);
+
     QCOMPARE(emoji.generateHtmlFromCustomEmoji(serverUrl), html);
+    QCOMPARE(emoji.emojiFileName(), expectedFileName);
+    QCOMPARE(emoji.emojiUrl(serverUrl), expectedUrl);
     QCOMPARE(emoji.cachedHtml(), html);
 }
