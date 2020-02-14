@@ -23,7 +23,7 @@
 #ifndef MESSAGEMODEL_H
 #define MESSAGEMODEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "messages/message.h"
 #include <QAbstractListModel>
 #include <QObject>
@@ -33,7 +33,7 @@ class RocketChatAccount;
 class TextConverter;
 class LoadRecentHistoryManager;
 class Room;
-class LIBRUQOLACORE_TESTS_EXPORT MessageModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

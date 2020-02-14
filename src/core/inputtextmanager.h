@@ -24,9 +24,9 @@
 #include <QJsonObject>
 #include <QObject>
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class InputCompleterModel;
-class LIBRUQOLACORE_TESTS_EXPORT InputTextManager : public QObject
+class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(InputCompleterModel* inputCompleterModel READ inputCompleterModel CONSTANT)

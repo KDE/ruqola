@@ -21,10 +21,10 @@
 #ifndef AUTHENTICATIONINFO_H
 #define AUTHENTICATIONINFO_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "authenticationmanager.h"
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT AuthenticationInfo
+class LIBRUQOLACORE_EXPORT AuthenticationInfo
 {
     Q_GADGET
 public:
