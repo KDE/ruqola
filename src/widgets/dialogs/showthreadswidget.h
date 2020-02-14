@@ -39,10 +39,13 @@ Q_SIGNALS:
     void loadMoreThreads();
 
 private:
+    void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
+    QString displayShowDiscussionInRoom() const;
     KLineEdit *mSearchThreadLineEdit = nullptr;
-    QLabel *mInfo = nullptr;
+    QLabel *mThreadInfoLabel = nullptr;
     QListView *mListThreads = nullptr;
+    ThreadsFilterProxyModel *mThreadsModel = nullptr;
 };
 
 #endif // SHOWTHREADSWIDGET_H

@@ -19,7 +19,7 @@
 */
 
 #include "showthreadswidget.h"
-#include "listthreadsdelegate.h"
+#include "thread/listthreadsdelegate.h"
 #include "model/threadsfilterproxymodel.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -42,21 +42,19 @@ ShowThreadsWidget::ShowThreadsWidget(QWidget *parent)
     connect(mSearchThreadLineEdit, &KLineEdit::textChanged, this, &ShowThreadsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchThreadLineEdit);
 
-    mInfo = new QLabel(this);
-    mInfo->setObjectName(QStringLiteral("mInfo"));
-    mInfo->setTextFormat(Qt::RichText);
-    mainLayout->addWidget(mInfo);
-    QFont labFont = mInfo->font();
+    mThreadInfoLabel = new QLabel(this);
+    mThreadInfoLabel->setObjectName(QStringLiteral("mInfo"));
+    mThreadInfoLabel->setTextFormat(Qt::RichText);
+    mainLayout->addWidget(mThreadInfoLabel);
+    QFont labFont = mThreadInfoLabel->font();
     labFont.setBold(true);
-    mInfo->setFont(labFont);
-    connect(mInfo, &QLabel::linkActivated, this, &ShowThreadsWidget::loadMoreThreads);
+    mThreadInfoLabel->setFont(labFont);
+    connect(mThreadInfoLabel, &QLabel::linkActivated, this, &ShowThreadsWidget::loadMoreThreads);
 
     mListThreads = new QListView(this);
     mListThreads->setObjectName(QStringLiteral("mListThreads"));
     mainLayout->addWidget(mListThreads);
     mListThreads->setItemDelegate(new ListThreadsDelegate(this));
-
-    //TODO need to update label !!!
 }
 
 ShowThreadsWidget::~ShowThreadsWidget()
@@ -66,9 +64,30 @@ ShowThreadsWidget::~ShowThreadsWidget()
 void ShowThreadsWidget::setModel(ThreadsFilterProxyModel *model)
 {
     mListThreads->setModel(model);
+    mThreadsModel = model;
+    connect(mThreadsModel, &ThreadsFilterProxyModel::hasFullListChanged, this, &ShowThreadsWidget::updateLabel);
+    updateLabel();
+
 }
 
 void ShowThreadsWidget::slotSearchMessageTextChanged(const QString &str)
 {
-    //mModel->setFilterString(str);
+    mThreadsModel->setFilterString(str);
+    updateLabel();
 }
+
+void ShowThreadsWidget::updateLabel()
+{
+    mThreadInfoLabel->setText(mThreadsModel->rowCount() == 0 ? i18n("No Thread found") : displayShowDiscussionInRoom());
+}
+
+QString ShowThreadsWidget::displayShowDiscussionInRoom() const
+{
+    QString displayMessageStr;
+    displayMessageStr = i18np("%1 Thread in room (Total: %2)", "%1 Threads in room (Total: %2)", mThreadsModel->rowCount(), mThreadsModel->total());
+    if (!mThreadsModel->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
+}
+
