@@ -296,6 +296,7 @@ void RuqolaMainWindow::slotShowThreads()
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
     dlg->setModel(mCurrentRocketChatAccount->threadsFilterProxyModel());
     const QString roomId = mMainWidget->roomId();
+    dlg->setRoomId(roomId);
     mCurrentRocketChatAccount->threadsInRoom(roomId);
     dlg->exec();
     delete dlg;

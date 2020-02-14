@@ -20,6 +20,9 @@
 
 #include "showthreadsdialog.h"
 #include "showthreadswidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -72,7 +75,16 @@ void ShowThreadsDialog::writeConfig()
 
 void ShowThreadsDialog::slotLoadMoreThreads()
 {
-    //TODO
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
+        return;
+    }
+    Ruqola::self()->rocketChatAccount()->loadMoreThreads(mRoomId);
+}
+
+void ShowThreadsDialog::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 void ShowThreadsDialog::setModel(ThreadsFilterProxyModel *model)

@@ -32,10 +32,13 @@ public:
     ~ShowThreadsDialog() override;
 
     void setModel(ThreadsFilterProxyModel *model);
+    void setRoomId(const QString &roomId);
+
 private:
     void readConfig();
     void writeConfig();
     void slotLoadMoreThreads();
+    QString mRoomId;
     ShowThreadsWidget *mShowThreadsWidget = nullptr;
 };
 
