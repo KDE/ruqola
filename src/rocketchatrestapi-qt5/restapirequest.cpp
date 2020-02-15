@@ -225,7 +225,12 @@ void RestApiRequest::setUserId(const QString &userId)
 
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
-    if (reply->error() != QNetworkReply::NoError) {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    const auto error = reply->error();
+#else
+    const auto error = reply->networkError();
+#endif
+    if (error != QNetworkReply::NoError) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Error reply - "<<reply->errorString();
     }
 }

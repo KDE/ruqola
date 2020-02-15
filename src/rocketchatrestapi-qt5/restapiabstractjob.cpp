@@ -196,8 +196,13 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
 
 void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply)
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    const auto error = reply->error();
+#else
+    const auto error = reply->networkError();
+#endif
     // HTTP-level error (e.g. host not found)
-    if (reply->error() != QNetworkReply::NoError) {
+    if (error != QNetworkReply::NoError) {
        Q_EMIT failed(reply->errorString());
         return;
     }
