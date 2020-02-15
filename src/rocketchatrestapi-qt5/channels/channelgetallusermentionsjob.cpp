@@ -73,7 +73,11 @@ QNetworkRequest ChannelGetAllUserMentionsJob::request() const
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+#else
+    request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+#endif
     return request;
 }
 
