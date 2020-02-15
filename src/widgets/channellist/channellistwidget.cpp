@@ -70,7 +70,11 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mStatusComboBox = new StatusCombobox(true, this);
     mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
     statusComboBoxLayout->addWidget(mStatusComboBox);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
+#else
+    connect(mStatusComboBox, QOverload<int, const QString &>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
+#endif
 
     //BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Rooms"), this);
