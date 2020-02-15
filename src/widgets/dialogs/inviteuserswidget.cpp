@@ -19,11 +19,17 @@
 */
 
 #include "inviteuserswidget.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QLabel>
+
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
 {
-
+    auto *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 InviteUsersWidget::~InviteUsersWidget()
