@@ -40,7 +40,6 @@ private:
     void updateList();
     QString mRoomId;
     FlowLayout *mFlowLayout = nullptr;
-
 };
 
 #endif // USERSINROOMFLOWWIDGET_H

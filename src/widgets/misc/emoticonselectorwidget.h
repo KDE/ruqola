@@ -25,7 +25,6 @@
 #include "emoticons/unicodeemoticon.h"
 #include "libruqolawidgets_private_export.h"
 
-
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonTextEditItem : public QListWidgetItem
 {
 public:

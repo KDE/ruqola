@@ -101,4 +101,3 @@ QString UserCompleterModel::displayUserName(const User &user) const
     }
     return text;
 }
-

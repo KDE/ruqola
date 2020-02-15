@@ -203,7 +203,7 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject, QNetw
 #endif
     // HTTP-level error (e.g. host not found)
     if (error != QNetworkReply::NoError) {
-       Q_EMIT failed(reply->errorString());
+        Q_EMIT failed(reply->errorString());
         return;
     }
     // JSon-level error

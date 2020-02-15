@@ -26,6 +26,4 @@ QTEST_MAIN(InviteUsersWidgetTest)
 InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
-

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "clickableuserwidgettest.h"
 #include "misc/clickableuserwidget.h"
 #include <QTest>
@@ -26,7 +25,6 @@ QTEST_MAIN(ClickableUserWidgetTest)
 ClickableUserWidgetTest::ClickableUserWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ClickableUserWidgetTest::shouldHaveDefaultValues()

@@ -112,8 +112,8 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
     Q_PROPERTY(DiscussionsFilterProxyModel* discussionsFilterProxyModel READ discussionsFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchChannelFilterProxyModel* searchChannelFilterProxyModel READ searchChannelFilterProxyModel CONSTANT)
-    Q_PROPERTY(InputTextManager* inputTextManager READ inputTextManager  CONSTANT)
-    Q_PROPERTY(InputTextManager* inputThreadMessageTextManager READ inputThreadMessageTextManager  CONSTANT)
+    Q_PROPERTY(InputTextManager* inputTextManager READ inputTextManager CONSTANT)
+    Q_PROPERTY(InputTextManager* inputThreadMessageTextManager READ inputThreadMessageTextManager CONSTANT)
     Q_PROPERTY(ThreadsFilterProxyModel* threadsFilterProxyModel READ threadsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
@@ -215,10 +215,12 @@ public:
     {
         return mInputTextManager;
     }
+
     InputTextManager *inputThreadMessageTextManager() const
     {
         return mInputThreadMessageTextManager;
     }
+
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrlFromDirectChannel(const QString &rid);
     Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
@@ -420,7 +422,7 @@ Q_SIGNALS:
     void userStatusUpdated(User::PresenceStatus status);
     void publicSettingChanged();
     void serverVersionChanged();
-    void openLinkRequested(const QString &link);    
+    void openLinkRequested(const QString &link);
     void selectRoomByRoomIdRequested(const QString &identifier);
     void selectRoomByRoomNameRequested(const QString &identifier);
 

@@ -47,7 +47,7 @@ private:
     void slotAddNewName(const QString &str);
     AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
     FlowLayout *mFlowLayout = nullptr;
-    QMap<QString, ClickableUserWidget*> mMap;
+    QMap<QString, ClickableUserWidget *> mMap;
 };
 
 #endif // ADDUSERSWIDGET_H

@@ -39,7 +39,6 @@ UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
 
 UsersInRoomFlowWidget::~UsersInRoomFlowWidget()
 {
-
 }
 
 void UsersInRoomFlowWidget::setRoomId(const QString &roomId)

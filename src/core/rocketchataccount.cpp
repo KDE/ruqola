@@ -580,7 +580,7 @@ void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJ
 {
     ddp()->subscribeRoomMessage(channelInfo.channelInfoIdentifier);
     //FIXME room is not added yet...
-    switch(channelInfo.channelInfoType) {
+    switch (channelInfo.channelInfoType) {
     case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown:
         qCWarning(RUQOLA_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
         break;

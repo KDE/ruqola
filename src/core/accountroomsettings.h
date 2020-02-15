@@ -32,7 +32,8 @@ public:
         QString text;
         QString messageIdBeingEdited;
         int scrollbarPosition = -1;
-        Q_REQUIRED_RESULT bool isValid() const {
+        Q_REQUIRED_RESULT bool isValid() const
+        {
             return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1);
         }
     };

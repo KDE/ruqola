@@ -23,7 +23,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 
-
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -34,5 +33,4 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 
 InviteUsersWidget::~InviteUsersWidget()
 {
-
 }

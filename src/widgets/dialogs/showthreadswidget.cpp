@@ -67,7 +67,6 @@ void ShowThreadsWidget::setModel(ThreadsFilterProxyModel *model)
     mThreadsModel = model;
     connect(mThreadsModel, &ThreadsFilterProxyModel::hasFullListChanged, this, &ShowThreadsWidget::updateLabel);
     updateLabel();
-
 }
 
 void ShowThreadsWidget::slotSearchMessageTextChanged(const QString &str)
@@ -90,4 +89,3 @@ QString ShowThreadsWidget::displayShowDiscussionInRoom() const
     }
     return displayMessageStr;
 }
-

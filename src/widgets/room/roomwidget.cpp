@@ -163,7 +163,6 @@ void RoomWidget::dropEvent(QDropEvent *event)
 
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
-
     if (mMessageLineWidget->text().isEmpty()) {
         auto *vbar = mMessageListView->verticalScrollBar();
         if (vbar->value() != vbar->maximum()) {

@@ -70,4 +70,3 @@ void ManagerDataPaths::initializePaths()
     mPathTypeHash.insert(PathType::Picture, QStandardPaths::writableLocation(QStandardPaths::PicturesLocation));
     qCDebug(RUQOLA_LOG) << "mPathTypeHash:" << mPathTypeHash;
 }
-

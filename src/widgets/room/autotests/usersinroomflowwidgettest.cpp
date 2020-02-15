@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "usersinroomflowwidgettest.h"
 #include "room/usersinroomflowwidget.h"
 #include "common/flowlayout.h"
@@ -28,7 +27,6 @@ QTEST_MAIN(UsersInRoomFlowWidgetTest)
 UsersInRoomFlowWidgetTest::UsersInRoomFlowWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UsersInRoomFlowWidgetTest::shouldHaveDefaultValues()

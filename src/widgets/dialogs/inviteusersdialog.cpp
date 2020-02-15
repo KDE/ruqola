@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "inviteusersdialog.h"
 
 #include <QDialogButtonBox>
@@ -41,5 +40,4 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
 
 InviteUsersDialog::~InviteUsersDialog()
 {
-
 }

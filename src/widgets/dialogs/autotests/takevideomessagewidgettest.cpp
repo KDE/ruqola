@@ -27,7 +27,6 @@ QTEST_MAIN(TakeVideoMessageWidgetTest)
 TakeVideoMessageWidgetTest::TakeVideoMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void TakeVideoMessageWidgetTest::shouldHaveDefaultValues()
@@ -36,5 +35,4 @@ void TakeVideoMessageWidgetTest::shouldHaveDefaultValues()
     auto *layout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
-
 }

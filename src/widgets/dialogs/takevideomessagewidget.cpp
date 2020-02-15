@@ -33,4 +33,3 @@ TakeVideoMessageWidget::TakeVideoMessageWidget(QWidget *parent)
 TakeVideoMessageWidget::~TakeVideoMessageWidget()
 {
 }
-

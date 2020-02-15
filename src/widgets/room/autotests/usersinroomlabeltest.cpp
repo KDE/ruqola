@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "usersinroomlabeltest.h"
 #include "room/usersinroomlabel.h"
 #include <QTest>
@@ -27,5 +26,4 @@ QTEST_MAIN(UsersInRoomLabelTest)
 UsersInRoomLabelTest::UsersInRoomLabelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

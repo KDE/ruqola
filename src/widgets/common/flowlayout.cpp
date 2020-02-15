@@ -23,7 +23,6 @@
 #include <QWidget>
 #include <QStyle>
 
-
 static int smartSpacing(QObject *parent, QStyle::PixelMetric pm)
 {
     if (!parent) {

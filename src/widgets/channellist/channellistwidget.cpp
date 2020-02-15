@@ -110,7 +110,6 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
 
-
     mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
 }
 
@@ -218,7 +217,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
             if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
                 if (roomOrUser != mCurrentRocketChatAccount->userName()) {
-                    if( KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to open direct conversation with %1", roomOrUser))) {
+                    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to open direct conversation with %1", roomOrUser))) {
                         mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
                     }
                 }

@@ -23,7 +23,6 @@
 #include "model/loginmethodmodel.h"
 #include "rocketchataccount.h"
 
-
 AuthenticationComboBox::AuthenticationComboBox(QWidget *parent)
     : QComboBox(parent)
 {

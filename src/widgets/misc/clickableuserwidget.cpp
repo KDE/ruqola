@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "clickableuserwidget.h"
 #include <QHBoxLayout>
 #include <QIcon>
@@ -44,7 +43,6 @@ ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *paren
 
 ClickableUserWidget::~ClickableUserWidget()
 {
-
 }
 
 void ClickableUserWidget::slotRemoveUser()
@@ -70,9 +68,7 @@ ClickableLabel::ClickableLabel(QWidget *parent)
 
 ClickableLabel::~ClickableLabel()
 {
-
 }
-
 
 void ClickableLabel::mousePressEvent(QMouseEvent *event)
 {

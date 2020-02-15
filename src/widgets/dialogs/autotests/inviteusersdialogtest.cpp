@@ -28,7 +28,6 @@ QTEST_MAIN(InviteUsersDialogTest)
 InviteUsersDialogTest::InviteUsersDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void InviteUsersDialogTest::shouldHaveDefaultValues()

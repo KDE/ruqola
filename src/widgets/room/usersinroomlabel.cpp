@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "usersinroomlabel.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
@@ -44,7 +43,6 @@ UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
 
 UsersInRoomLabel::~UsersInRoomLabel()
 {
-
 }
 
 void UsersInRoomLabel::setUserName(const QString &userName)
@@ -67,7 +65,6 @@ UserLabel::UserLabel(QWidget *parent)
 
 UserLabel::~UserLabel()
 {
-
 }
 
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)

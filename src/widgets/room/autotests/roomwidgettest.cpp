@@ -30,7 +30,6 @@
 #include <QTest>
 #include <QVBoxLayout>
 
-
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)
@@ -50,7 +49,6 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     UsersInRoomFlowWidget *mUsersInRoomFlowWidget = w.findChild<UsersInRoomFlowWidget *>(QStringLiteral("mUsersInRoomFlowWidget"));
     QVERIFY(mUsersInRoomFlowWidget);
 
-
     auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
 
@@ -64,9 +62,6 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto *mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
     QVERIFY(mReadOnlyLineEditWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
-
-
-
 
     QVERIFY(w.roomId().isEmpty());
 }

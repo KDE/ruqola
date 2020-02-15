@@ -25,7 +25,6 @@
 #include "model/usercompletermodel.h"
 #include "common/completionlistview.h"
 
-
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
 {

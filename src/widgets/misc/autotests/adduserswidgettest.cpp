@@ -28,7 +28,6 @@ QTEST_MAIN(AddUsersWidgetTest)
 AddUsersWidgetTest::AddUsersWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AddUsersWidgetTest::shouldHaveDefaultValues()
@@ -43,7 +42,7 @@ void AddUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchUserLineEdit);
     QVERIFY(mSearchUserLineEdit->placeholderText().isEmpty());
 
-    FlowLayout *mFlowLayout = w.findChild<FlowLayout* >(QStringLiteral("mFlowLayout"));
+    FlowLayout *mFlowLayout = w.findChild<FlowLayout * >(QStringLiteral("mFlowLayout"));
     QVERIFY(mFlowLayout);
 
     QVERIFY(w.users().isEmpty());

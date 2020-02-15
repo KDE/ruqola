@@ -23,7 +23,6 @@
 #include "rocketchataccount.h"
 #include "textconverter.h"
 
-
 #include "listmessages.h"
 
 SearchMessageModel::SearchMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
