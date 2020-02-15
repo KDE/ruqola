@@ -24,6 +24,7 @@
 #include <config-ruqola.h>
 
 #include <QDateTime>
+#include <QDir>
 #include <QFile>
 #include <QSettings>
 #include <QStandardPaths>
@@ -270,6 +271,10 @@ QString RocketChatAccountSettings::cacheBasePath()
     }
     if (mCachePath.isEmpty()) {
         mCachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccountName);
+        QDir dir;
+        if (!dir.mkpath(mCachePath)) {
+            qCWarning(RUQOLA_LOG) << "Impossible to create cache directory" << mCachePath;
+        }
     }
     return mCachePath;
 }

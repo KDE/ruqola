@@ -71,23 +71,3 @@ void ManagerDataPaths::initializePaths()
     qCDebug(RUQOLA_LOG) << "mPathTypeHash:" << mPathTypeHash;
 }
 
-void ManagerDataPaths::initializeAccountPath(const QString &accountName)
-{
-    if (accountName.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "Account name is empty !";
-        return;
-    }
-    QDir dir;
-    if (!dir.mkpath(path(ManagerDataPaths::PathType::Cache, accountName))) {
-        qCWarning(RUQOLA_LOG) << "Impossible to create cache directory !";
-    }
-    if (!dir.mkpath(path(ManagerDataPaths::PathType::Config, accountName))) {
-        qCWarning(RUQOLA_LOG) << "Impossible to create Config directory !";
-    }
-    if (!dir.mkpath(path(ManagerDataPaths::PathType::Video, accountName))) {
-        qCWarning(RUQOLA_LOG) << "Impossible to create Video directory !";
-    }
-    if (!dir.mkpath(path(ManagerDataPaths::PathType::Picture, accountName))) {
-        qCWarning(RUQOLA_LOG) << "Impossible to create Picture directory !";
-    }
-}

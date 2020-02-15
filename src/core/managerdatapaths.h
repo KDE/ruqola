@@ -39,7 +39,6 @@ public:
 
     Q_REQUIRED_RESULT QString path(PathType type, const QString &accountName, const QString &subdirectory = QString());
 
-    void initializeAccountPath(const QString &accountName);
     Q_REQUIRED_RESULT QString accountConfigFileName(const QString &accountName);
 private:
     void initializePaths();

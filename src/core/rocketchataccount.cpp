@@ -1414,7 +1414,6 @@ QString RocketChatAccount::userName() const
 void RocketChatAccount::setAccountName(const QString &accountname)
 {
     //Initialize new account room
-    ManagerDataPaths::self()->initializeAccountPath(accountname);
     //qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
     loadSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
     settings()->setAccountName(accountname);
