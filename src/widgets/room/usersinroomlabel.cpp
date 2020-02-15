@@ -20,9 +20,11 @@
 
 
 #include "usersinroomlabel.h"
+#include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QLabel>
+#include <QMenu>
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)
@@ -35,9 +37,8 @@ UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     mIconLabel->setObjectName(QStringLiteral("mIconLabel"));
     mainLayout->addWidget(mIconLabel);
 
-    mUserNameLabel = new QLabel(this);
+    mUserNameLabel = new UserLabel(this);
     mUserNameLabel->setObjectName(QStringLiteral("mUserNameLabel"));
-    mUserNameLabel->setTextFormat(Qt::RichText);
     mainLayout->addWidget(mUserNameLabel);
 }
 
@@ -54,4 +55,24 @@ void UsersInRoomLabel::setUserName(const QString &userName)
 void UsersInRoomLabel::setIconStatus(const QString &iconStatus)
 {
     mIconLabel->setPixmap(QIcon::fromTheme(iconStatus).pixmap(18, 18));
+}
+
+UserLabel::UserLabel(QWidget *parent)
+    : QLabel(parent)
+{
+    setTextFormat(Qt::RichText);
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, &UserLabel::customContextMenuRequested, this, &UserLabel::slotCustomContextMenuRequested);
+}
+
+UserLabel::~UserLabel()
+{
+
+}
+
+void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    menu.addAction(new QAction(i18n("Ignore"), &menu));
+    menu.exec(mapToGlobal(pos));
 }

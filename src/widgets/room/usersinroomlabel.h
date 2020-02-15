@@ -22,9 +22,21 @@
 #ifndef USERSINROOMLABEL_H
 #define USERSINROOMLABEL_H
 
+#include <QLabel>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class QLabel;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel
+{
+    Q_OBJECT
+public:
+    explicit UserLabel(QWidget *parent = nullptr);
+    ~UserLabel();
+
+private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomLabel : public QWidget
 {
     Q_OBJECT
@@ -36,7 +48,7 @@ public:
     void setIconStatus(const QString &iconStatus);
 private:
     QLabel *mIconLabel = nullptr;
-    QLabel *mUserNameLabel = nullptr;
+    UserLabel *mUserNameLabel = nullptr;
 };
 
 #endif // USERSINROOMLABEL_H
