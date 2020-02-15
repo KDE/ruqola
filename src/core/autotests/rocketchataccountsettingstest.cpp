@@ -131,7 +131,7 @@ void RocketChatAccountSettingsTest::shouldLogout()
     SampleChat.logout();
     QVERIFY(SampleChat.authToken().isEmpty());
     QVERIFY(SampleChat.userId().isEmpty());
-    QVERIFY(SampleChat.password().isEmpty());
+    QVERIFY(!SampleChat.password().isEmpty()); // logout should allow to log back in easily, don't clear the password
 }
 
 void RocketChatAccountSettingsTest::shouldSetAccountName()
