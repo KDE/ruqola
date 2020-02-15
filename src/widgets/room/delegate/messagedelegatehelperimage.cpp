@@ -125,33 +125,6 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
     return false;
 }
 
-QPixmap MessageDelegateHelperImage::findCachedPixmap(const QString &link) const
-{
-    auto matchesLink = [&](const CachedImage &cached) {
-                           return cached.link == link;
-                       };
-    auto it = std::find_if(mCachedImages.begin(), mCachedImages.end(), matchesLink);
-    if (it == mCachedImages.end()) {
-        return QPixmap();
-    }
-    QPixmap result = it->pixmap; // grab pixmap before 'it' gets invalidated
-    // Move it to the front
-    if (it != mCachedImages.begin()) {
-        const auto idx = std::distance(mCachedImages.begin(), it);
-        mCachedImages.move(idx, 0);
-    }
-    return result;
-}
-
-void MessageDelegateHelperImage::insertCachedPixmap(const QString &link, const QPixmap &pixmap) const
-{
-    mCachedImages.prepend(CachedImage{link, pixmap});
-    static const int s_maxCacheSize = 5;
-    if (mCachedImages.size() > s_maxCacheSize) {
-        mCachedImages.resize(s_maxCacheSize);
-    }
-}
-
 MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option) const
 {
     ImageLayout layout;
@@ -166,16 +139,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     if (url.isLocalFile()) {
         const QString path = url.toLocalFile();
-        // QPixmapCache is too small for this, let's have our own LRU cache
-        QPixmap pixmap = findCachedPixmap(path);
-        if (pixmap.isNull()) {
-            if (pixmap.load(path)) {
-                insertCachedPixmap(path, pixmap);
-            } else {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path;
-            }
-        }
-        layout.pixmap = pixmap;
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(path);
         //or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();

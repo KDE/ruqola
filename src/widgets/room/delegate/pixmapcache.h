@@ -18,22 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERIMAGETEST_H
-#define MESSAGEDELEGATEHELPERIMAGETEST_H
+#ifndef PIXMAPCACHE_H
+#define PIXMAPCACHE_H
 
-#include <QObject>
+#include "libruqolawidgets_private_export.h"
 
-class MessageDelegateHelperImageTest : public QObject
+#include <QPixmap>
+#include <QVector>
+
+// QPixmapCache is too small for the big images in messages, let's have our own LRU cache
+class LIBRUQOLAWIDGETS_TESTS_EXPORT PixmapCache
 {
-    Q_OBJECT
 public:
-    explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
-    ~MessageDelegateHelperImageTest() override = default;
-
-private Q_SLOTS:
-    void shouldExtractMessageData();
+    QPixmap pixmapForLocalFile(const QString &path);
 
 private:
+    friend class PixmapCacheTest;
+    QPixmap findCachedPixmap(const QString &link);
+    void insertCachedPixmap(const QString &link, const QPixmap &pixmap);
+
+    struct CachedImage {
+        QString link;
+        QPixmap pixmap;
+    };
+    QVector<CachedImage> mCachedImages; // most recent first
 };
 
-#endif // MESSAGEDELEGATEHELPERIMAGETEST_H
+#endif // PIXMAPCACHE_H

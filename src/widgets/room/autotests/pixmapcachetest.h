@@ -18,22 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERIMAGETEST_H
-#define MESSAGEDELEGATEHELPERIMAGETEST_H
+#ifndef PIXMAPCACHETEST_H
+#define PIXMAPCACHETEST_H
 
 #include <QObject>
 
-class MessageDelegateHelperImageTest : public QObject
+class PixmapCacheTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
-    ~MessageDelegateHelperImageTest() override = default;
+    explicit PixmapCacheTest(QObject *parent = nullptr);
+    ~PixmapCacheTest() override = default;
 
 private Q_SLOTS:
-    void shouldExtractMessageData();
-
-private:
+    void shouldCacheLastFivePixmaps();
 };
 
-#endif // MESSAGEDELEGATEHELPERIMAGETEST_H
+#endif // PIXMAPCACHETEST_H

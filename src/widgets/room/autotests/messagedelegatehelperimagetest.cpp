@@ -55,17 +55,3 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QCOMPARE(layout.description, msgAttach.description());
     QVERIFY(layout.isShown);
 }
-
-void MessageDelegateHelperImageTest::shouldCacheLastFivePixmaps()
-{
-    MessageDelegateHelperImage helper;
-    for (int i = 1; i < 7; ++i) {
-        const QString link = QStringLiteral("link") + QString::number(i);
-        const QPixmap pix(i * 10, i * 10);
-        helper.insertCachedPixmap(link, pix);
-        QCOMPARE(helper.findCachedPixmap(link).height(), i * 10);
-        QCOMPARE(helper.findCachedPixmap(QStringLiteral("link1")).height(), 10); // we keep using that one
-    }
-    QCOMPARE(helper.findCachedPixmap(QStringLiteral("link4")).height(), 40);
-    QVERIFY(helper.findCachedPixmap(QStringLiteral("link2")).isNull()); // oldest one got evicted
-}

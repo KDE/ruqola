@@ -18,22 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERIMAGETEST_H
-#define MESSAGEDELEGATEHELPERIMAGETEST_H
+#include "pixmapcachetest.h"
+#include "room/delegate/pixmapcache.h"
 
-#include <QObject>
+#include <QStandardPaths>
+#include <QStyleOptionViewItem>
+#include <QTest>
 
-class MessageDelegateHelperImageTest : public QObject
+QTEST_MAIN(PixmapCacheTest)
+
+PixmapCacheTest::PixmapCacheTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
-    ~MessageDelegateHelperImageTest() override = default;
+    QStandardPaths::setTestModeEnabled(true);
+}
 
-private Q_SLOTS:
-    void shouldExtractMessageData();
-
-private:
-};
-
-#endif // MESSAGEDELEGATEHELPERIMAGETEST_H
+void PixmapCacheTest::shouldCacheLastFivePixmaps()
+{
+    PixmapCache cache;
+    for (int i = 1; i < 7; ++i) {
+        const QString link = QStringLiteral("link") + QString::number(i);
+        const QPixmap pix(i * 10, i * 10);
+        cache.insertCachedPixmap(link, pix);
+        QCOMPARE(cache.findCachedPixmap(link).height(), i * 10);
+        QCOMPARE(cache.findCachedPixmap(QStringLiteral("link1")).height(), 10); // we keep using that one
+    }
+    QCOMPARE(cache.findCachedPixmap(QStringLiteral("link4")).height(), 40);
+    QVERIFY(cache.findCachedPixmap(QStringLiteral("link2")).isNull()); // oldest one got evicted
+}

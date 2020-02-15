@@ -22,6 +22,7 @@
 #define MESSAGEDELEGATEHELPERIMAGE_H
 
 #include "messagedelegatehelperbase.h"
+#include "pixmapcache.h"
 
 #include <QPixmap>
 #include <QVector>
@@ -35,8 +36,6 @@ public:
 
 private:
     friend class MessageDelegateHelperImageTest;
-    QPixmap findCachedPixmap(const QString &link) const;
-    void insertCachedPixmap(const QString &link, const QPixmap &pixmap) const;
 
     struct ImageLayout {
         QPixmap pixmap;
@@ -50,11 +49,7 @@ private:
     };
     ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option) const;
 
-    struct CachedImage {
-        QString link;
-        QPixmap pixmap;
-    };
-    mutable QVector<CachedImage> mCachedImages; // most recent first
+    mutable PixmapCache mPixmapCache;
 };
 
 #endif // MESSAGEDELEGATEHELPERIMAGE_H
