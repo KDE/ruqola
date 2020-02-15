@@ -22,6 +22,7 @@
 #define MESSAGEDELEGATEHELPERREACTIONS_H
 
 #include "libruqolawidgets_private_export.h"
+#include "pixmapcache.h"
 
 #include <QRectF>
 #include <QSize>
@@ -49,7 +50,8 @@ private:
     struct ReactionLayout {
         QRectF reactionRect;
         QRectF countRect;
-        QString emojiString;
+        QString emojiString;    // for unicode emojis
+        QString emojiImagePath; // for custom emojis (pixmaps)
         QString countStr;
         qreal emojiOffset;
         Reaction reaction;
@@ -58,6 +60,7 @@ private:
 
     QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
     QFont mEmojiFont;
+    mutable PixmapCache mPixmapCache;
 };
 
 #endif // MESSAGEDELEGATEHELPERREACTIONS_H

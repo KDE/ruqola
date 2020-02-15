@@ -38,6 +38,8 @@
 
 #include <KLocalizedString>
 
+#include <emoticons/emojimanager.h>
+
 //TODO reactivate when we will able to load message between cache and official server.
 //#define STORE_MESSAGE 1
 
@@ -471,6 +473,14 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         if (msg.messageType() == Message::Image) {
             return matchesFilePath(msg.attachements());
+        }
+        auto *emojiManager = mRocketChatAccount->emojiManager();
+        const auto reactions = msg.reactions().reactions();
+        for (const Reaction &reaction : reactions) {
+            const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
+            if (!fileName.isEmpty() && mRocketChatAccount->urlForLink(fileName).path() == filePath) {
+                return true;
+            }
         }
         return false;
     });
