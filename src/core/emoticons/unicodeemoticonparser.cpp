@@ -37,12 +37,14 @@ QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJso
         UnicodeEmoticon emoticon;
         QJsonObject emojiObj = o[key].toObject();
         emoticon.setKey(key);
-        emoticon.setUnicode(emojiObj[QStringLiteral("unicode")].toString());
+        const QString unicodeStr = emojiObj[QStringLiteral("code_points")].toObject()[QStringLiteral("fully_qualified")].toString();
+        Q_ASSERT(!unicodeStr.isEmpty());
+        emoticon.setUnicode(unicodeStr);
         const QString category = emojiObj[QStringLiteral("category")].toString();
         emoticon.setCategory(category);
         emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
         emoticon.setOrder(emojiObj[QStringLiteral("emoji_order")].toString().toInt());
-        const QJsonArray aliasArray = emojiObj[QStringLiteral("aliases_ascii")].toArray();
+        const QJsonArray aliasArray = emojiObj[QStringLiteral("shortname_alternates")].toArray();
         if (!aliasArray.isEmpty()) {
             QStringList lst;
             const int aliasArrayCount = aliasArray.count();

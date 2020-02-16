@@ -38,6 +38,8 @@ private Q_SLOTS:
 
     void shouldParseEmoji_data();
     void shouldParseEmoji();
+
+    void shouldSupportUnicodeEmojis();
 };
 
 #endif // EMOJIMANAGERTEST_H

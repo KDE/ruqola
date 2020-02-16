@@ -61,6 +61,18 @@ void EmojiManagerTest::shouldParseEmoji()
     QCOMPARE(manager.count(), number);
 }
 
+void EmojiManagerTest::shouldSupportUnicodeEmojis()
+{
+    EmojiManager manager;
+    QString grinning; grinning += QChar(0xd800+61); grinning += QChar(0xDC00+512);
+    // A basic emoji that was already there in the initial emoji.json from fairchat
+    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":grinning:")).unicode(), grinning);
+    // The one that made me use https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json instead
+    QVERIFY(manager.unicodeEmoticonForEmoji(QStringLiteral(":zany_face:")).isValid());
+    // A "shortname alternate"
+    QVERIFY(manager.unicodeEmoticonForEmoji(QStringLiteral(":water_polo_tone5:")).isValid());
+}
+
 void EmojiManagerTest::shouldGenerateHtml()
 {
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
@@ -70,7 +82,7 @@ void EmojiManagerTest::shouldGenerateHtml()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager;
+    EmojiManager manager(nullptr, false);
     manager.loadCustomEmoji(obj);
     //No serverUrl set.
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
