@@ -144,6 +144,8 @@ set (RocketChatRestApiQt_SRCS
     custom/customuserstatusjob.cpp
     custom/customsoundsjob.cpp
 
+    invite/findorcreateinvitejob.cpp
+
     )
 
 
