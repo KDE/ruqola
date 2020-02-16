@@ -65,7 +65,8 @@ qint64 Discussion::lastMessage() const
 void Discussion::setLastMessage(const qint64 &lastMessage)
 {
     mLastMessage = lastMessage;
-    mLastMessageDateTimeStr = QDateTime::fromMSecsSinceEpoch(mLastMessage).toString(Qt::SystemLocaleLongDate);
+    QLocale l;
+    mLastMessageDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mLastMessage), QLocale::LongFormat);
 }
 
 QString Discussion::timeStampDisplay() const
@@ -96,7 +97,8 @@ qint64 Discussion::timeStamp() const
 void Discussion::setTimeStamp(const qint64 &timeStamp)
 {
     mTimeStamp = timeStamp;
-    mTimeStampDateTimeStr = QDateTime::fromMSecsSinceEpoch(mTimeStamp).toString(Qt::SystemLocaleLongDate);
+    QLocale l;
+    mTimeStampDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mTimeStamp), QLocale::LongFormat);
 }
 
 QDebug operator <<(QDebug d, const Discussion &t)

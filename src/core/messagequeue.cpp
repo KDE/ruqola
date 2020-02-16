@@ -30,6 +30,8 @@
 #include <QPair>
 #include <QDir>
 #include <QDataStream>
+#include <QCborValue>
+#include <QCborMap>
 
 MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -63,8 +65,8 @@ MessageQueue::~MessageQueue()
 void MessageQueue::loadCache()
 {
     connect(mRocketChatAccount->ddp(), &DDPClient::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
+#if 0
     QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
-
     // load unsent messages cache
     if (QFile::exists(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")))) {
         QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
@@ -83,6 +85,7 @@ void MessageQueue::loadCache()
             }
         }
     }
+#endif
 }
 
 QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
@@ -97,7 +100,6 @@ QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 
 QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 {
-    QJsonDocument d;
     QJsonObject o;
 
     o[QStringLiteral("method")] = QJsonValue(pair.first);
@@ -111,8 +113,7 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 
     o[QStringLiteral("params")] = QJsonValue(arr);
 
-    d.setObject(o);
-    return d.toBinaryData();
+    return QCborValue::fromJsonValue(o).toCbor();
 }
 
 void MessageQueue::onLoginStatusChanged()

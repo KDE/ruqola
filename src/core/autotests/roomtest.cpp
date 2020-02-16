@@ -30,6 +30,8 @@
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>
+#include <QCborValue>
+#include <QCborMap>
 
 QTEST_GUILESS_MAIN(RoomTest)
 
@@ -107,7 +109,8 @@ void RoomTest::shouldSerialized()
     input.setAutoTranslate(true);
     const QByteArray ba = Room::serialize(&input);
     //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
-    Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    //Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    Room *output = Room::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
     //qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
     QVERIFY(input.isEqual(*output));
     delete output;

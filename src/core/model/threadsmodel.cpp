@@ -75,9 +75,11 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
         return thread.text();
     case NumberOfMessages:
         return thread.threadCount();
-    case LastMessage:
+    case LastMessage: {
         //Need to cache it
-        return QDateTime::fromMSecsSinceEpoch(thread.threadLastMessage()).toString(Qt::SystemLocaleLongDate);
+        QLocale l;
+        return l.toString(QDateTime::fromMSecsSinceEpoch(thread.threadLastMessage()), QLocale::LongFormat);
+    }
     case TimeStamp:
         return thread.timeStamp();
     case UserName:

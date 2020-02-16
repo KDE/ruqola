@@ -23,6 +23,8 @@
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 #include <QJsonDocument>
+#include <QCborValue>
+#include <QCborMap>
 QTEST_GUILESS_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
@@ -308,7 +310,8 @@ void MessageTest::shouldSerializeData()
     input.setUrls(lstUrls);
 
     const QByteArray ba = Message::serialize(input);
-    Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    //Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    Message output = Message::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
     QCOMPARE(input, output);
     //TODO add Mentions
 

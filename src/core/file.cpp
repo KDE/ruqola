@@ -120,7 +120,8 @@ qint64 File::uploadedAt() const
 void File::setUploadedAt(const qint64 &uploadedAt)
 {
     mUploadedAt = uploadedAt;
-    mUploadedDateTimeStr = QDateTime::fromMSecsSinceEpoch(mUploadedAt).toString(Qt::SystemLocaleLongDate);
+    QLocale l;
+    mUploadedDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mUploadedAt), QLocale::LongFormat);
 }
 
 QString File::fileId() const

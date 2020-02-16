@@ -33,6 +33,7 @@
 
 #include <KLocalizedString>
 
+#include <QCborValue>
 #include <QJsonArray>
 #include <QJsonDocument>
 
@@ -1033,10 +1034,10 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     o[QStringLiteral("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
-    d.setObject(o);
     if (toBinary) {
-        return d.toBinaryData();
+        return QCborValue::fromJsonValue(o).toCbor();
     }
+    d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
 }
 

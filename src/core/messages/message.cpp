@@ -22,6 +22,7 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
+#include <QCborValue>
 #include <QDateTime>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -812,12 +813,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mThreadMessageId.isEmpty()) {
         o[QStringLiteral("tmid")] = message.mThreadMessageId;
     }
-    d.setObject(o);
     if (toBinary) {
-        return d.toBinaryData();
+        return QCborValue::fromJsonValue(o).toCbor();
     }
     //TODO add message translation
 
+    d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
 }
 
