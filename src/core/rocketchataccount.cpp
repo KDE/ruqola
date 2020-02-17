@@ -960,6 +960,11 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     }
 }
 
+bool RocketChatAccount::hasInviteUserSupport() const
+{
+    return mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0);
+}
+
 bool RocketChatAccount::hasSnippetedMessagesSupport() const
 {
     return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);

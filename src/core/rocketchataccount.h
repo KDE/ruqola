@@ -104,6 +104,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool hasStarredMessagesSupport READ hasStarredMessagesSupport CONSTANT)
     Q_PROPERTY(bool allowEditingMessages READ allowEditingMessages CONSTANT)
     Q_PROPERTY(bool otrEnabled READ otrEnabled CONSTANT)
+    Q_PROPERTY(bool hasInviteUserSupport READ hasInviteUserSupport CONSTANT)
     Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
     Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
     Q_PROPERTY(QString recordingVideoPath READ recordingVideoPath CONSTANT)
@@ -397,6 +398,7 @@ public:
 
     Q_REQUIRED_RESULT AccountRoomSettings *accountRoomSettings() const;
 
+    Q_REQUIRED_RESULT bool hasInviteUserSupport() const;
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
