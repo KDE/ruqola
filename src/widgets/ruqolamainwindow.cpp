@@ -51,6 +51,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
+#include <KStandardAction>
 #include <QPointer>
 #include <QIcon>
 #include <QStatusBar>
@@ -139,6 +140,7 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     mChannelInfo->setEnabled(enabled);
     mListOfUsers->setEnabled(enabled);
     mStartVideoChat->setEnabled(enabled);
+    mSaveAs->setEnabled(enabled);
     RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
     mAddUserInRooms->setEnabled(enabled && roomWrapper && roomWrapper->canBeModify());
 }
@@ -180,6 +182,8 @@ void RuqolaMainWindow::setupActions()
 
     KStandardAction::quit(this, &RuqolaMainWindow::close, ac);
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
+
+    mSaveAs = KStandardAction::saveAs(this, &RuqolaMainWindow::slotSaveAs, ac);
 
     QAction *act = new QAction(i18n("Add Account..."), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
@@ -481,4 +485,9 @@ void RuqolaMainWindow::slotListOfUsersInRoom(bool checked)
 void RuqolaMainWindow::slotStartVideoChat()
 {
     mCurrentRocketChatAccount->createJitsiConfCall(mMainWidget->roomId());
+}
+
+void RuqolaMainWindow::slotSaveAs()
+{
+    qWarning() << "RuqolaMainWindow::slotSaveAs not implemented yet ";
 }

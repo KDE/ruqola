@@ -39,6 +39,7 @@ public:
     ~RuqolaMainWindow() override;
 
 private:
+    void slotSaveAs();
     void setupActions();
     void readConfig();
     void setupStatusBar();
@@ -91,6 +92,7 @@ private:
     QAction *mAddUserInRooms = nullptr;
     QAction *mListOfUsers = nullptr;
     QAction *mStartVideoChat = nullptr;
+    QAction *mSaveAs = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
