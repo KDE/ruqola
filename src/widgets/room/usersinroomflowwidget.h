@@ -24,22 +24,22 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class FlowLayout;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomFlowWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit UsersInRoomFlowWidget(QWidget *parent = nullptr);
     ~UsersInRoomFlowWidget();
-    void setRoomId(const QString &roomId);
-
+    void setRoomWrapper(RoomWrapper *roomWrapper);
 protected:
     void showEvent(QShowEvent *event) override;
 
 private:
     void loadMoreUsersAttachment();
     void updateList();
-    QString mRoomId;
     FlowLayout *mFlowLayout = nullptr;
+    RoomWrapper *mRoomWrapper = nullptr;
 };
 
 #endif // USERSINROOMFLOWWIDGET_H

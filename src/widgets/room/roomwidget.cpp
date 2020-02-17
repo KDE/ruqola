@@ -243,7 +243,7 @@ void RoomWidget::setRoomId(const QString &roomId)
     mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
     connectRoomWrapper();
     mMessageListView->setChannelSelected(roomId);
-    mUsersInRoomFlowWidget->setRoomId(roomId);
+    mUsersInRoomFlowWidget->setRoomWrapper(mRoomWrapper);
 }
 
 void RoomWidget::connectRoomWrapper()

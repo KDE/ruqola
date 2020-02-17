@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/flowlayout.h"
+#include "roomwrapper.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
@@ -41,16 +42,18 @@ UsersInRoomFlowWidget::~UsersInRoomFlowWidget()
 {
 }
 
-void UsersInRoomFlowWidget::setRoomId(const QString &roomId)
+void UsersInRoomFlowWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 {
-    if (mRoomId != roomId) {
-        mRoomId = roomId;
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomId);
+    mRoomWrapper = roomWrapper;
+    if (mRoomWrapper) {
+        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
         connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::updateList);
         connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::updateList);
         connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateList);
         connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::updateList);
         updateList();
+    } else {
+        mFlowLayout->clearAndDeleteWidgets();
     }
 }
 
@@ -63,7 +66,7 @@ void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
 void UsersInRoomFlowWidget::updateList()
 {
     if (isVisible()) {
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomId);
+        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
         const auto count = model->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         for (int i = 0; i < count; ++i) {
@@ -86,6 +89,5 @@ void UsersInRoomFlowWidget::updateList()
 
 void UsersInRoomFlowWidget::loadMoreUsersAttachment()
 {
-    //FIXME
-    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoomId, QStringLiteral("c"));
+    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoomWrapper->roomId(), mRoomWrapper->channelType());
 }
