@@ -142,6 +142,8 @@
 #include "custom/customsoundsjob.h"
 #include "custom/customuserstatusjob.h"
 
+#include "invite/findorcreateinvitejob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -1722,5 +1724,18 @@ void RestApiRequest::roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJ
     connect(job, &RoomsAutocompleteChannelAndPrivateJob::roomsAutoCompleteChannelAndPrivateDone, this, &RestApiRequest::roomsAutoCompleteChannelAndPrivateDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsAutocompleteChannelAndPrivateJob";
+    }
+}
+
+void RestApiRequest::findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays)
+{
+    auto *job = new FindOrCreateInviteJob(this);
+    job->setRoomId(roomId);
+    job->setMaxUses(maxUses);
+    job->setNumberOfDays(numberOfDays);
+    initializeRestApiJob(job);
+    connect(job, &FindOrCreateInviteJob::findOrCreateInviteDone, this, &RestApiRequest::findOrCreateInviteDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start findOrCreateInviteJob";
     }
 }

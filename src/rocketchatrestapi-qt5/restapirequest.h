@@ -177,6 +177,7 @@ public:
     void customSounds();
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
+    void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -240,6 +241,7 @@ Q_SIGNALS:
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
     void failed(const QString &str);
+    void findOrCreateInviteDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
