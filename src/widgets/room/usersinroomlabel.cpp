@@ -19,6 +19,9 @@
 */
 
 #include "usersinroomlabel.h"
+#include "roomwrapper.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QIcon>
@@ -55,6 +58,16 @@ void UsersInRoomLabel::setIconStatus(const QString &iconStatus)
     mIconLabel->setPixmap(QIcon::fromTheme(iconStatus).pixmap(18, 18));
 }
 
+void UsersInRoomLabel::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mUserNameLabel->setRoomWrapper(roomWrapper);
+}
+
+void UsersInRoomLabel::setUserId(const QString &userId)
+{
+    mUserNameLabel->setUserId(userId);
+}
+
 UserLabel::UserLabel(QWidget *parent)
     : QLabel(parent)
 {
@@ -67,14 +80,33 @@ UserLabel::~UserLabel()
 {
 }
 
+void UserLabel::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mRoomWrapper = roomWrapper;
+}
+
+void UserLabel::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
 {
+    const bool canManageUsersInRoom = mRoomWrapper->canChangeRoles();
+    const QString ownUserId = Ruqola::self()->rocketChatAccount()->userID();
+    const bool isAdirectChannel = mRoomWrapper->channelType() == QStringLiteral("d");
+
     QMenu menu(this);
     menu.addAction(new QAction(i18n("Conversation"), &menu));
-    menu.addAction(new QAction(i18n("Remove as Owner"), &menu));
-    menu.addAction(new QAction(i18n("Remove as Leader"), &menu));
-    menu.addAction(new QAction(i18n("Remove as Moderator"), &menu));
+    if (canManageUsersInRoom && !isAdirectChannel) {
+        const bool hasLeaderRole = mRoomWrapper->userHasLeaderRole(mUserId);
+        const bool hasModeratorRole = mRoomWrapper->userHasModeratorRole(mUserId);
+        const bool hasOwnerRole = mRoomWrapper->userHasOwnerRole(mUserId);
+        menu.addAction(new QAction(i18n("Remove as Owner"), &menu));
+        menu.addAction(new QAction(i18n("Remove as Leader"), &menu));
+        menu.addAction(new QAction(i18n("Remove as Moderator"), &menu));
+        menu.addAction(new QAction(i18n("Remove from Room"), &menu));
+    }
     menu.addAction(new QAction(i18n("Ignore"), &menu));
-    menu.addAction(new QAction(i18n("Remove from Room"), &menu));
     menu.exec(mapToGlobal(pos));
 }

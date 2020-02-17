@@ -73,9 +73,12 @@ void UsersInRoomFlowWidget::updateList()
             const auto roomModelIndex = model->index(i, 0);
             const QString userName = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
             const QString iconStatus = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
+            const QString userId = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
             UsersInRoomLabel *userLabel = new UsersInRoomLabel(this);
             userLabel->setUserName(userName);
             userLabel->setIconStatus(iconStatus);
+            userLabel->setUserId(userId);
+            userLabel->setRoomWrapper(mRoomWrapper);
             mFlowLayout->addWidget(userLabel);
         }
         if (!model->hasFullList()) {

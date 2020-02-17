@@ -24,16 +24,19 @@
 #include <QLabel>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel
 {
     Q_OBJECT
 public:
     explicit UserLabel(QWidget *parent = nullptr);
     ~UserLabel();
-
+    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setUserId(const QString &userId);
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
+    QString mUserId;
+    RoomWrapper *mRoomWrapper = nullptr;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomLabel : public QWidget
@@ -45,6 +48,8 @@ public:
 
     void setUserName(const QString &userName);
     void setIconStatus(const QString &iconStatus);
+    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setUserId(const QString &userId);
 private:
     QLabel *mIconLabel = nullptr;
     UserLabel *mUserNameLabel = nullptr;
