@@ -30,9 +30,13 @@ ListDiscussionDelegate::~ListDiscussionDelegate()
 {
 }
 
+// [date]
+// text
+// number of discussion + last date
+// add text for opening dicussion.
+
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // [M] <icon> [M] <name> [M] <download icon> [M]   ([M] = margin)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = 8;
 
