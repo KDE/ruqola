@@ -90,23 +90,65 @@ void UserLabel::setUserId(const QString &userId)
     mUserId = userId;
 }
 
+void UserLabel::slotOpenConversation()
+{
+
+}
+
+void UserLabel::slotIgnoreUser()
+{
+
+}
+
+void UserLabel::slotRemoveFromRoom()
+{
+
+}
+
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const bool canManageUsersInRoom = mRoomWrapper->canChangeRoles();
     const QString ownUserId = Ruqola::self()->rocketChatAccount()->userID();
     const bool isAdirectChannel = mRoomWrapper->channelType() == QStringLiteral("d");
-
+    const bool isNotMe = mUserId != ownUserId &&  !isAdirectChannel;
     QMenu menu(this);
-    menu.addAction(new QAction(i18n("Conversation"), &menu));
-    if (canManageUsersInRoom && !isAdirectChannel) {
-        const bool hasLeaderRole = mRoomWrapper->userHasLeaderRole(mUserId);
-        const bool hasModeratorRole = mRoomWrapper->userHasModeratorRole(mUserId);
-        const bool hasOwnerRole = mRoomWrapper->userHasOwnerRole(mUserId);
-        menu.addAction(new QAction(i18n("Remove as Owner"), &menu));
-        menu.addAction(new QAction(i18n("Remove as Leader"), &menu));
-        menu.addAction(new QAction(i18n("Remove as Moderator"), &menu));
-        menu.addAction(new QAction(i18n("Remove from Room"), &menu));
+
+    if (isNotMe) {
+        QAction *conversationAction = new QAction(i18n("Conversation"), &menu);
+        connect(conversationAction, &QAction::triggered, this, &UserLabel::slotOpenConversation);
+        menu.addAction(conversationAction);
     }
-    menu.addAction(new QAction(i18n("Ignore"), &menu));
+    if (canManageUsersInRoom && !isAdirectChannel) {
+        const bool hasOwnerRole = mRoomWrapper->userHasOwnerRole(mUserId);
+        QAction *removeAsUser = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
+        connect(removeAsUser, &QAction::triggered, this, [this, hasOwnerRole]() {
+            Ruqola::self()->rocketChatAccount()->changeRoles(mRoomWrapper->roomId(), mUserId, mRoomWrapper->channelType(), hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
+        });
+
+        menu.addAction(removeAsUser);
+
+        const bool hasLeaderRole = mRoomWrapper->userHasLeaderRole(mUserId);
+        QAction *removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
+        connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole]() {
+            Ruqola::self()->rocketChatAccount()->changeRoles(mRoomWrapper->roomId(), mUserId, mRoomWrapper->channelType(), hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
+        });
+        menu.addAction(removeAsLeader);
+
+        const bool hasModeratorRole = mRoomWrapper->userHasModeratorRole(mUserId);
+        QAction *removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
+        connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole]() {
+            Ruqola::self()->rocketChatAccount()->changeRoles(mRoomWrapper->roomId(), mUserId, mRoomWrapper->channelType(), hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
+        });
+        menu.addAction(removeAsModerator);
+
+        QAction *removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
+        connect(removeFromRoom, &QAction::triggered, this, &UserLabel::slotRemoveFromRoom);
+        menu.addAction(removeFromRoom);
+    }
+    if (isNotMe) {
+        QAction *ignoreAction = new QAction(i18n("Ignore"), &menu);
+        connect(ignoreAction, &QAction::triggered, this, &UserLabel::slotIgnoreUser);
+        menu.addAction(ignoreAction);
+    }
     menu.exec(mapToGlobal(pos));
 }

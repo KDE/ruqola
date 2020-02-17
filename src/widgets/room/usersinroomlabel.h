@@ -35,6 +35,9 @@ public:
     void setUserId(const QString &userId);
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotOpenConversation();
+    void slotIgnoreUser();
+    void slotRemoveFromRoom();
     QString mUserId;
     RoomWrapper *mRoomWrapper = nullptr;
 };
