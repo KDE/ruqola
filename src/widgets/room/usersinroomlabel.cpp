@@ -70,6 +70,11 @@ UserLabel::~UserLabel()
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
+    menu.addAction(new QAction(i18n("Conversation"), &menu));
+    menu.addAction(new QAction(i18n("Remove as Owner"), &menu));
+    menu.addAction(new QAction(i18n("Remove as Leader"), &menu));
+    menu.addAction(new QAction(i18n("Remove as Moderator"), &menu));
     menu.addAction(new QAction(i18n("Ignore"), &menu));
+    menu.addAction(new QAction(i18n("Remove from Room"), &menu));
     menu.exec(mapToGlobal(pos));
 }
