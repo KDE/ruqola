@@ -113,6 +113,14 @@ bool FindOrCreateInviteJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomId is Empty. Impossible to start FindOrCreateInviteJob";
         return false;
     }
+    if (mMaxUses < 0) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MaxUses is negative it's a bug. Impossible to start FindOrCreateInviteJob";
+        return false;
+    }
+    if (mNumberOfDays < 0) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Number of days is negative. Impossible to start FindOrCreateInviteJob";
+        return false;
+    }
     return true;
 }
 
