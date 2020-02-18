@@ -47,3 +47,8 @@ bool AccountRoomSettings::isEmpty() const
 {
     return mPendingTypedTexts.isEmpty();
 }
+
+bool AccountRoomSettings::PendingTypedInfo::isValid() const
+{
+    return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1);
+}

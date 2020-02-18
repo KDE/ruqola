@@ -32,10 +32,7 @@ public:
         QString text;
         QString messageIdBeingEdited;
         int scrollbarPosition = -1;
-        Q_REQUIRED_RESULT bool isValid() const
-        {
-            return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1);
-        }
+        Q_REQUIRED_RESULT bool isValid() const;
     };
     AccountRoomSettings();
     ~AccountRoomSettings();
@@ -49,7 +46,6 @@ public:
     Q_REQUIRED_RESULT bool isEmpty() const;
 
 private:
-
     QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
 };
 
