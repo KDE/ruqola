@@ -64,7 +64,9 @@ void EmojiManagerTest::shouldParseEmoji()
 void EmojiManagerTest::shouldSupportUnicodeEmojis()
 {
     EmojiManager manager;
-    QString grinning; grinning += QChar(0xd800+61); grinning += QChar(0xDC00+512);
+    QString grinning;
+    grinning += QChar(0xd800+61);
+    grinning += QChar(0xDC00+512);
     // A basic emoji that was already there in the initial emoji.json from fairchat
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":grinning:")).unicode(), grinning);
     // The one that made me use https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json instead

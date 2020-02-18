@@ -92,17 +92,14 @@ void UserLabel::setUserId(const QString &userId)
 
 void UserLabel::slotOpenConversation()
 {
-
 }
 
 void UserLabel::slotIgnoreUser()
 {
-
 }
 
 void UserLabel::slotRemoveFromRoom()
 {
-
 }
 
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
@@ -110,7 +107,7 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
     const bool canManageUsersInRoom = mRoomWrapper->canChangeRoles();
     const QString ownUserId = Ruqola::self()->rocketChatAccount()->userID();
     const bool isAdirectChannel = mRoomWrapper->channelType() == QStringLiteral("d");
-    const bool isNotMe = mUserId != ownUserId &&  !isAdirectChannel;
+    const bool isNotMe = mUserId != ownUserId && !isAdirectChannel;
     QMenu menu(this);
 
     if (isNotMe) {

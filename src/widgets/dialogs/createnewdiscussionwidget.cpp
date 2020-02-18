@@ -60,7 +60,6 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     usersLabel->setObjectName(QStringLiteral("usersLabel"));
     mainLayout->addWidget(usersLabel);
 
-
     mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Invite Users..."));
