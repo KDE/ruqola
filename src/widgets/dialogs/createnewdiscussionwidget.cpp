@@ -19,6 +19,7 @@
 */
 
 #include "createnewdiscussionwidget.h"
+#include "misc/adduserswidget.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <KLineEdit>
@@ -56,15 +57,14 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mainLayout->addWidget(mDiscussionNameLineEdit);
 
     QLabel *usersLabel = new QLabel(i18n("Invite Users"), this);
-    discussionName->setObjectName(QStringLiteral("usersLabel"));
+    usersLabel->setObjectName(QStringLiteral("usersLabel"));
     mainLayout->addWidget(usersLabel);
 
-    //TODO use completer lineedit
-    mUsersLineEdit = new KLineEdit(this);
-    mUsersLineEdit->setObjectName(QStringLiteral("mUsersLineEdit"));
-    mUsersLineEdit->setTrapReturnKey(true);
-    mUsersLineEdit->setClearButtonEnabled(true);
-    mainLayout->addWidget(mUsersLineEdit);
+
+    mUsers = new AddUsersWidget(this);
+    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setPlaceholderText(i18n("Invite Users..."));
+    mainLayout->addWidget(mUsers);
 
     QLabel *messageLabel = new QLabel(i18n("Message"), this);
     messageLabel->setObjectName(QStringLiteral("messageLabel"));
@@ -114,11 +114,10 @@ QString CreateNewDiscussionWidget::message() const
 
 void CreateNewDiscussionWidget::setUsers(const QStringList &users)
 {
-    mUsersLineEdit->setText(users.join(QLatin1Char(',')));
+    mUsers->setUsers(users);
 }
 
 QStringList CreateNewDiscussionWidget::users() const
 {
-    //Use , or ; ?
-    return mUsersLineEdit->text().split(QLatin1Char(','));
+    return mUsers->users();
 }

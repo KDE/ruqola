@@ -35,6 +35,7 @@ public:
     ~AddUsersWidget();
 
     Q_REQUIRED_RESULT QStringList users() const;
+    void setUsers(const QStringList &lst);
 
     void setPlaceholderText(const QString &str);
 

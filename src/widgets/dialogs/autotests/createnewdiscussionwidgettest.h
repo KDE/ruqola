@@ -29,6 +29,8 @@ class CreateNewDiscussionWidgetTest : public QObject
 public:
     explicit CreateNewDiscussionWidgetTest(QObject *parent = nullptr);
     ~CreateNewDiscussionWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // CREATENEWDISCUSSIONWIDGETTEST_H

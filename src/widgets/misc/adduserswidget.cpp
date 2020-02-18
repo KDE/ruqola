@@ -85,6 +85,13 @@ QStringList AddUsersWidget::users() const
     return addUsers;
 }
 
+void AddUsersWidget::setUsers(const QStringList &lst)
+{
+    for (const QString &user : lst) {
+        slotAddNewName(user);
+    }
+}
+
 void AddUsersWidget::setPlaceholderText(const QString &str)
 {
     mSearchUserLineEdit->setPlaceholderText(str);

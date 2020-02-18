@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class QTextEdit;
+class AddUsersWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionWidget : public QWidget
 {
     Q_OBJECT
@@ -51,7 +52,7 @@ Q_SIGNALS:
 private:
     KLineEdit *mChannelNameLineEdit = nullptr;
     KLineEdit *mDiscussionNameLineEdit = nullptr;
-    KLineEdit *mUsersLineEdit = nullptr;
+    AddUsersWidget *mUsers = nullptr;
     QTextEdit *mMessageTextEdit = nullptr;
 };
 
