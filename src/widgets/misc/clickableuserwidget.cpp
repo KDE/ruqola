@@ -73,7 +73,7 @@ void ClickableUserWidget::setUserId(const QString &userId)
 ClickableLabel::ClickableLabel(QWidget *parent)
     : QLabel(parent)
 {
-    setPixmap(QIcon::fromTheme(QStringLiteral("edit-delete-shred")).pixmap(18, 18));
+    setPixmap(QIcon::fromTheme(QStringLiteral("delete")).pixmap(18, 18));
 }
 
 ClickableLabel::~ClickableLabel()
