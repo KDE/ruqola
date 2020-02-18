@@ -46,8 +46,6 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
-    //TODO remove duplicate with qml version
-
     KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
@@ -56,19 +54,15 @@ int main(int argc, char *argv[])
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2017-2020 Ruqola authors"));
+                         i18n("Copyright © 2020 Ruqola authors"));
 
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
-    aboutData.addAuthor(i18n("Riccardo Iaconelli"), i18n("Original author"), QStringLiteral("riccardo@kde.org"));
-    aboutData.addAuthor(i18n("Vasudha Mathur"), i18n("Former core developer"), QStringLiteral("vasudhamathur96@gmail.com"));
 
     aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
-    aboutData.addCredit(i18n("David Faure"), i18n("Bug fixing"), QStringLiteral("faure@kde.org"));
-    aboutData.addCredit(i18n("Paul Lemire"), i18n("Help for debugging QML"), QStringLiteral("paul.lemire@kdab.com"));
-    aboutData.addCredit(i18n("Veluri Mithun"), i18n("Autotest improvement and created some tests apps"), QStringLiteral("velurimithun38@gmail.com"));
-    aboutData.addCredit(i18n("Franck Arrecot"), i18n("Fix some QML bugs"), QStringLiteral("franck.arrecot@kdab.com"));
-    aboutData.addCredit(i18n("Volker Krause"), i18n("Bug fixing"), QStringLiteral("vkrause@kde.org"));
+    aboutData.addCredit(i18n("David Faure"), i18n("Bug fixing, delegates etc."), QStringLiteral("faure@kde.org"));
+    aboutData.addCredit(i18n("Kevin Funk"), i18n("Bug fixing"), QStringLiteral("kfunk@kde.org"));
+    aboutData.addCredit(i18n("Olivier JG"), i18n("Bug fixing"), QStringLiteral("olivier.de.gaalon@kdab.com"));
 
     KAboutData::setApplicationData(aboutData);
 

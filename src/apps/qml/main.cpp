@@ -62,7 +62,7 @@ int Q_DECL_EXPORT main(int argc, char *argv[])
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("QML Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2017-2020 Ruqola authors"));
+                         i18n("Copyright © 2017-2020 Ruqolaqml authors"));
 
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
     aboutData.addAuthor(i18n("Riccardo Iaconelli"), i18n("Original author"), QStringLiteral("riccardo@kde.org"));
@@ -75,6 +75,9 @@ int Q_DECL_EXPORT main(int argc, char *argv[])
     aboutData.addCredit(i18n("Veluri Mithun"), i18n("Autotest improvement and created some tests apps"), QStringLiteral("velurimithun38@gmail.com"));
     aboutData.addCredit(i18n("Franck Arrecot"), i18n("Fix some QML bugs"), QStringLiteral("franck.arrecot@kdab.com"));
     aboutData.addCredit(i18n("Volker Krause"), i18n("Bug fixing"), QStringLiteral("vkrause@kde.org"));
+    aboutData.addCredit(i18n("Kevin Funk"), i18n("Bug fixing"), QStringLiteral("kfunk@kde.org"));
+    aboutData.addCredit(i18n("Nicolas Fella"), i18n("Android support"), QStringLiteral("nicolas.fella@gmx.de"));
+    aboutData.addCredit(i18n("Alessandro Ambrosano"), i18n("Bug fixing"), QStringLiteral("alessandro.ambrosano@gmail.com"));
 
     KAboutData::setApplicationData(aboutData);
 
