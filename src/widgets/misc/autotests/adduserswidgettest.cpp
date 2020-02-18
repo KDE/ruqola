@@ -45,5 +45,5 @@ void AddUsersWidgetTest::shouldHaveDefaultValues()
     FlowLayout *mFlowLayout = w.findChild<FlowLayout * >(QStringLiteral("mFlowLayout"));
     QVERIFY(mFlowLayout);
 
-    QVERIFY(w.users().isEmpty());
+    QVERIFY(w.usersId().isEmpty());
 }

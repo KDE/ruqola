@@ -36,7 +36,6 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //TODO add label
     mAddUsersInRoomWidget = new AddUsersInRoomWidget(this);
     mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
     mainLayout->addWidget(mAddUsersInRoomWidget);
@@ -55,6 +54,11 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
 AddUsersInRoomDialog::~AddUsersInRoomDialog()
 {
     writeConfig();
+}
+
+QStringList AddUsersInRoomDialog::users() const
+{
+    return mAddUsersInRoomWidget->users();
 }
 
 void AddUsersInRoomDialog::readConfig()

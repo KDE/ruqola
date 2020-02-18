@@ -43,8 +43,7 @@ public:
     void setMessage(const QString &name);
     Q_REQUIRED_RESULT QString message() const;
 
-    void setUsers(const QStringList &users);
-    Q_REQUIRED_RESULT QStringList users() const;
+    Q_REQUIRED_RESULT QStringList usersId() const;
 
 Q_SIGNALS:
     void updateOkButton(bool state);

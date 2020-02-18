@@ -49,12 +49,17 @@ public:
     Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);
 
+    Q_REQUIRED_RESULT QString userId() const;
+    void setUserId(const QString &userId);
+
+
 Q_SIGNALS:
     void removeUser(const QString &username);
 
 private:
     void slotRemoveUser();
     QString mUserName;
+    QString mUserId;
     QLabel *mUserLabel = nullptr;
     ClickableLabel *mClickableLabel = nullptr;
 };

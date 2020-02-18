@@ -289,7 +289,10 @@ void RuqolaMainWindow::slotAddUsersInRoom()
 {
     QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
     if (dlg->exec()) {
-        qWarning() << " Not implement yet";
+        const QStringList users = dlg->users();
+        for (const QString &user : users) {
+            Ruqola::self()->rocketChatAccount()->addUserToRoom(user, mMainWidget->roomId(), mMainWidget->roomType());
+        }
     }
     delete dlg;
 }
@@ -473,7 +476,6 @@ void RuqolaMainWindow::slotUnreadOnTop(bool checked)
 
 void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    //TODO move in room page ?
     QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
     //TODO add channel name!
     if (dlg->exec()) {

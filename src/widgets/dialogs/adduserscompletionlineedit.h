@@ -32,7 +32,7 @@ public:
     ~AddUsersCompletionLineEdit() override;
 
 Q_SIGNALS:
-    void newUserName(const QString &str);
+    void newUserName(const QString &str, const QString &userId);
 
 private:
     void slotTextChanged(const QString &text);

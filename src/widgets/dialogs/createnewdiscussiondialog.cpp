@@ -80,7 +80,7 @@ CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscu
     NewDiscussionInfo info;
     info.channelName = mCreateNewDiscussionWidget->channelName();
     info.message = mCreateNewDiscussionWidget->message();
-    info.users = mCreateNewDiscussionWidget->users();
+    info.users = mCreateNewDiscussionWidget->usersId();
     info.discussionName = mCreateNewDiscussionWidget->discussionName();
     return info;
 }

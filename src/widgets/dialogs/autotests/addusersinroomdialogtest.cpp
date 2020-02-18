@@ -46,4 +46,5 @@ void AddUsersInRoomDialogTest::shouldHaveDefaultValues()
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     QVERIFY(okButton);
     QVERIFY(!okButton->isEnabled());
+    QVERIFY(w.users().isEmpty());
 }

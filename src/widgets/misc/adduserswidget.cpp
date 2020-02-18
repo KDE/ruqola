@@ -48,12 +48,13 @@ AddUsersWidget::~AddUsersWidget()
     delete mFlowLayout;
 }
 
-void AddUsersWidget::slotAddNewName(const QString &str)
+void AddUsersWidget::slotAddNewName(const QString &str, const QString &userId)
 {
     if (mMap.contains(str)) {
         return;
     }
     ClickableUserWidget *clickableUserWidget = new ClickableUserWidget(str, this);
+    clickableUserWidget->setUserId(userId);
     connect(clickableUserWidget, &ClickableUserWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
     mMap.insert(str, clickableUserWidget);
@@ -74,22 +75,15 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-QStringList AddUsersWidget::users() const
+QStringList AddUsersWidget::usersId() const
 {
     QStringList addUsers;
     QMapIterator<QString, ClickableUserWidget *> i(mMap);
     while (i.hasNext()) {
         i.next();
-        addUsers << i.value()->userName();
+        addUsers << i.value()->userId();
     }
     return addUsers;
-}
-
-void AddUsersWidget::setUsers(const QStringList &lst)
-{
-    for (const QString &user : lst) {
-        slotAddNewName(user);
-    }
 }
 
 void AddUsersWidget::setPlaceholderText(const QString &str)

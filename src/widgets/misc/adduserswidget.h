@@ -34,8 +34,7 @@ public:
     explicit AddUsersWidget(QWidget *parent = nullptr);
     ~AddUsersWidget();
 
-    Q_REQUIRED_RESULT QStringList users() const;
-    void setUsers(const QStringList &lst);
+    Q_REQUIRED_RESULT QStringList usersId() const;
 
     void setPlaceholderText(const QString &str);
 
@@ -45,7 +44,7 @@ Q_SIGNALS:
 
 private:
     void slotRemoveUser(const QString &username);
-    void slotAddNewName(const QString &str);
+    void slotAddNewName(const QString &str, const QString &userId);
     AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
     FlowLayout *mFlowLayout = nullptr;
     QMap<QString, ClickableUserWidget *> mMap;

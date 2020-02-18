@@ -111,12 +111,7 @@ QString CreateNewDiscussionWidget::message() const
     return mMessageTextEdit->toPlainText();
 }
 
-void CreateNewDiscussionWidget::setUsers(const QStringList &users)
+QStringList CreateNewDiscussionWidget::usersId() const
 {
-    mUsers->setUsers(users);
-}
-
-QStringList CreateNewDiscussionWidget::users() const
-{
-    return mUsers->users();
+    return mUsers->usersId();
 }

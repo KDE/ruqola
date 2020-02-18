@@ -60,6 +60,16 @@ void ClickableUserWidget::setUserName(const QString &userName)
     mUserName = userName;
 }
 
+QString ClickableUserWidget::userId() const
+{
+    return mUserId;
+}
+
+void ClickableUserWidget::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
 ClickableLabel::ClickableLabel(QWidget *parent)
     : QLabel(parent)
 {

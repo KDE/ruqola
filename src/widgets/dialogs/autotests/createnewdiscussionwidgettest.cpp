@@ -67,7 +67,7 @@ void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
 
     AddUsersWidget *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
     QVERIFY(mUsers);
-    QVERIFY(mUsers->users().isEmpty());
+    QVERIFY(mUsers->usersId().isEmpty());
 
     QLabel *messageLabel = w.findChild<QLabel *>(QStringLiteral("messageLabel"));
     QVERIFY(messageLabel);

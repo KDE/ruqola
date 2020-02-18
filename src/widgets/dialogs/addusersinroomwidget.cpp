@@ -46,5 +46,5 @@ AddUsersInRoomWidget::~AddUsersInRoomWidget()
 
 QStringList AddUsersInRoomWidget::users() const
 {
-    return mAddUsersWidget->users();
+    return mAddUsersWidget->usersId();
 }

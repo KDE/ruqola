@@ -48,10 +48,11 @@ void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(UserCompleterModel::UserName).toString();
+    const QString userId = index.data(UserCompleterModel::UserId).toString();
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
     //FIXME userId or username ?
-    Q_EMIT newUserName(completerName);
+    Q_EMIT newUserName(completerName, userId);
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
 }
