@@ -58,7 +58,7 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
     clickableUserWidget->setUserId(info.userId);
     connect(clickableUserWidget, &ClickableUserWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
-    mMap.insert(info.username, clickableUserWidget);
+    mMap.insert(userName, clickableUserWidget);
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
