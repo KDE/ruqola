@@ -141,7 +141,7 @@ protected:
     }
 
 private:
-    QString currentText() const
+    Q_REQUIRED_RESULT QString currentText() const
     {
         QString text = mAccount ? mAccount->accountName() : QString();
         if (text.isEmpty()) {
@@ -159,14 +159,14 @@ private:
         return text;
     }
 
-    UnreadAlert currentUnreadAlert() const
+    Q_REQUIRED_RESULT UnreadAlert currentUnreadAlert() const
     {
         UnreadAlert ua = {0, false};
         mAccount->roomModel()->getUnreadAlertFromAccount(ua.alert, ua.unread);
         return ua;
     }
 
-    QString currentLoginStatusText() const
+    Q_REQUIRED_RESULT QString currentLoginStatusText() const
     {
         if (mAccount) {
             switch (mAccount->loginStatus()) {
