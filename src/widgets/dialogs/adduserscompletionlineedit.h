@@ -28,11 +28,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersCompletionLineEdit : public Completi
 {
     Q_OBJECT
 public:
+    struct UserCompletionInfo {
+        QString username;
+        QString userId;
+    };
     explicit AddUsersCompletionLineEdit(QWidget *parent = nullptr);
     ~AddUsersCompletionLineEdit() override;
 
 Q_SIGNALS:
-    void newUserName(const QString &str, const QString &userId);
+    void newUserName(const UserCompletionInfo &userIno);
 
 private:
     void slotTextChanged(const QString &text);

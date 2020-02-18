@@ -48,16 +48,17 @@ AddUsersWidget::~AddUsersWidget()
     delete mFlowLayout;
 }
 
-void AddUsersWidget::slotAddNewName(const QString &str, const QString &userId)
+void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info)
 {
-    if (mMap.contains(str)) {
+    const QString &userName = info.username;
+    if (mMap.contains(userName)) {
         return;
     }
-    ClickableUserWidget *clickableUserWidget = new ClickableUserWidget(str, this);
-    clickableUserWidget->setUserId(userId);
+    ClickableUserWidget *clickableUserWidget = new ClickableUserWidget(userName, this);
+    clickableUserWidget->setUserId(info.userId);
     connect(clickableUserWidget, &ClickableUserWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
-    mMap.insert(str, clickableUserWidget);
+    mMap.insert(info.username, clickableUserWidget);
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 

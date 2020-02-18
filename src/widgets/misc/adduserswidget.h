@@ -23,8 +23,8 @@
 
 #include <QWidget>
 #include <QMap>
+#include "dialogs/adduserscompletionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-class AddUsersCompletionLineEdit;
 class FlowLayout;
 class ClickableUserWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
@@ -44,7 +44,7 @@ Q_SIGNALS:
 
 private:
     void slotRemoveUser(const QString &username);
-    void slotAddNewName(const QString &str, const QString &userId);
+    void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
     AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
     FlowLayout *mFlowLayout = nullptr;
     QMap<QString, ClickableUserWidget *> mMap;
