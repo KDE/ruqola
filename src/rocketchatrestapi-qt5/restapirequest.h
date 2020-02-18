@@ -52,7 +52,7 @@ public:
     void setAuthToken(const QString &authToken);
 
     //Assign/get server url
-    QString serverUrl() const;
+    Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
     void setUserName(const QString &userName);
