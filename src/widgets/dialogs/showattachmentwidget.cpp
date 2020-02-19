@@ -55,8 +55,6 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mListAttachment->setObjectName(QStringLiteral("mListAttachment"));
     mainLayout->addWidget(mListAttachment);
     mListAttachment->setItemDelegate(new ListAttachmentDelegate(this));
-
-    //TODO need to update label !!!
 }
 
 ShowAttachmentWidget::~ShowAttachmentWidget()
