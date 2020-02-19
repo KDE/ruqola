@@ -143,6 +143,11 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(removeFromRoom);
     }
     if (isNotMe) {
+        if (!menu.isEmpty()) {
+            auto *separator = new QAction(&menu);
+            separator->setSeparator(true);
+            menu.addAction(separator);
+        }
         QAction *ignoreAction = new QAction(i18n("Ignore"), &menu);
         connect(ignoreAction, &QAction::triggered, this, &UserLabel::slotIgnoreUser);
         menu.addAction(ignoreAction);
