@@ -53,9 +53,8 @@ void Roles::updateRoles(const QJsonObject &obj)
     if (type == QLatin1String("added")) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
-                Role r = mRoles.takeAt(i);
+                Role &r = mRoles[i];
                 r.updateRole(id, true);
-                mRoles.append(r);
                 foundUser = true;
                 break;
             }

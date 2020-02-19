@@ -55,14 +55,7 @@ QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJso
             emoticon.setAliases(lst);
         }
         if (emoticon.isValid()) {
-            if (lstEmoticons.contains(category)) {
-                QVector<UnicodeEmoticon> lst = lstEmoticons.take(category);
-                lst.append(emoticon);
-                lstEmoticons[category] = lst;
-            } else {
-                const QVector<UnicodeEmoticon> lst{emoticon};
-                lstEmoticons.insert(category, lst);
-            }
+            lstEmoticons[category].append(emoticon);
         }
     }
     return lstEmoticons;
