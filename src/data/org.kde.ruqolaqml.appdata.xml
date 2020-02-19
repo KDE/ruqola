@@ -10,6 +10,7 @@
   <name xml:lang="et">RuqolaQml</name>
   <name xml:lang="fr">RuqolaQml</name>
   <name xml:lang="it">RuqolaQml</name>
+  <name xml:lang="ko">RuqolaQml</name>
   <name xml:lang="nl">RuqolaQml</name>
   <name xml:lang="pt">RuqolaQml</name>
   <name xml:lang="pt-BR">RuqolaQml</name>
@@ -25,6 +26,7 @@
   <summary xml:lang="et">Rocket Chati QML klient</summary>
   <summary xml:lang="fr">Client Rocket Chat QML</summary>
   <summary xml:lang="it">Client QML di Rocket Chat</summary>
+  <summary xml:lang="ko">QML Rocket Chat 클라이언트</summary>
   <summary xml:lang="nl">QML Rocket Chat-client</summary>
   <summary xml:lang="pt">Cliente de Rocket Chat em QML</summary>
   <summary xml:lang="pt-BR">Cliente Rocket Chat em QML</summary>
@@ -45,6 +47,7 @@
     <p xml:lang="et">Ruqola on QML-ile tuginev Rocket Chati klient. Ühendus aktiveeritakse kohe Ruqola käivitamisel.</p>
     <p xml:lang="fr">Ruqola est un client de discussion Rocket basé sur QML. La connexion est activée immédiatement dès que vous lancez Ruqola.</p>
     <p xml:lang="it">Ruqola è un client Rocket Chat basato su QML. La connessione viene attivata direttamente quando avvii Ruqola.</p>
+    <p xml:lang="ko">Ruqola는 QML 기반 Rocket Chat 클라이언트입니다. Ruqola를 실행하면 연결을 바로 활성화합니다.</p>
     <p xml:lang="nl">Ruqola is een client van Rocket Chat gebaseerd op QML. Verbinden wordt direct geactiveerd wanneer u Ruqola start.</p>
     <p xml:lang="pt">O Ruqola é um cliente de Rocket Chat baseado em QML. A ligação fica activada directamente quando invocar o Ruqola.</p>
     <p xml:lang="pt-BR">Ruqola é um cliente Rocket Chat baseado em QML. A conexão fica ativada diretamente ao executar o Ruqola.</p>
