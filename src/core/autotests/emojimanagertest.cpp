@@ -73,8 +73,9 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
     QVERIFY(manager.unicodeEmoticonForEmoji(QStringLiteral(":zany_face:")).isValid());
     // A "shortname alternate"
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":water_polo_tone5:")).key(), QStringLiteral("1f93d-1f3ff"));
-    // One that is not (yet?) in NotoColorEmoji
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":woman_climbing_tone4:")).key(), QStringLiteral("1f9d7-1f3fe-2640"));
+    // One with multiple values below 0x10000, to catch += vs = bug.
+    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":woman_climbing_tone4:")).unicode().length(), 7);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":man_health_worker_tone1:")).unicode().length(), 7);
 }
 
 void EmojiManagerTest::shouldGenerateHtml()

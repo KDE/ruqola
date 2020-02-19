@@ -56,6 +56,8 @@ QString UnicodeEmoticon::unicodeDisplay() const
     return mCachedHtml;
 }
 
+// input: codepoints in hex like 1f9d7-1f3fb-2640
+// output: QString with 3 ucs4 code points for the above, which is in fact 5 QChars.
 QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
 {
     QString retString;
@@ -69,7 +71,7 @@ QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
             retString += QChar::highSurrogate(part);
             retString += QChar::lowSurrogate(part);
         } else {
-            retString = QChar(part);
+            retString += QChar(part);
         }
     }
 
