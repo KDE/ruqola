@@ -84,6 +84,7 @@ void UsersInRoomFlowWidget::updateList()
         if (!model->hasFullList()) {
             QLabel *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
             loadingMoreLabel->setTextFormat(Qt::RichText);
+            loadingMoreLabel->setContextMenuPolicy(Qt::CustomContextMenu);
             connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsersAttachment);
             mFlowLayout->addWidget(loadingMoreLabel);
         }
