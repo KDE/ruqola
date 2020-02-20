@@ -99,7 +99,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mInputTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputAutocomplete);
 
     mInputThreadMessageTextManager = new InputTextManager(this);
-    connect(mInputThreadMessageTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputThreadMessageAutocomplete);
+    connect(mInputThreadMessageTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputAutocomplete);
 
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
@@ -1768,19 +1768,6 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 
 void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
 {
-    switch (type) {
-    case InputTextManager::CompletionForType::Channel:
-        ddp()->inputChannelAutocomplete(pattern, exceptions);
-        break;
-    case InputTextManager::CompletionForType::User:
-        ddp()->inputUserAutocomplete(pattern, exceptions);
-        break;
-    }
-}
-
-void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
-{
-    //qDebug() << " void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)" << pattern;
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
         ddp()->inputChannelAutocomplete(pattern, exceptions);

@@ -462,7 +462,6 @@ private:
     void checkInitializedRoom(const QString &roomId);
     void clearTypingNotification();
     void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
-    void inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
     void slotUserAutoCompleterDone(const QJsonObject &obj);
     void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
