@@ -87,7 +87,7 @@ QString Emoji::emojiUrl(const QString &serverUrl) const
 
 QString Emoji::emojiFileName() const
 {
-    return QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
+    return QStringLiteral("/emoji-custom/%1.%2").arg(mName, mExtension);
 }
 
 QString Emoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)

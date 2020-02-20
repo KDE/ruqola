@@ -450,12 +450,12 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
     subscribe(QStringLiteral("stream-room-messages"), params);
 
     const QJsonArray params2{
-        QJsonValue(QStringLiteral("%1/%2").arg(roomId).arg(QStringLiteral("deleteMessage"))),
+        QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessage"))),
         true
     };
     subscribe(QStringLiteral("stream-notify-room"), params2);
     const QJsonArray params3{
-        QJsonValue(QStringLiteral("%1/%2").arg(roomId).arg(QStringLiteral("typing"))),
+        QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing"))),
         true
     };
     subscribe(QStringLiteral("stream-notify-room"), params3);

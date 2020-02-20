@@ -72,7 +72,7 @@ void TwitterAuthJobTest::shouldGenerateJson()
     job.setExpireTokenInSeconds(expireToken);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"accessToken\":\"%1\",\"accessTokenSecret\":\"%2\",\"appId\":\"%3\",\"appSecret\":\"%4\",\"expiresIn\":300,\"serviceName\":\"twitter\"}")
-             .arg(accessToken, secret, appId).arg(appSecret).toLatin1());
+             .arg(accessToken, secret, appId, appSecret).toLatin1());
 }
 
 void TwitterAuthJobTest::shouldNotStarting()

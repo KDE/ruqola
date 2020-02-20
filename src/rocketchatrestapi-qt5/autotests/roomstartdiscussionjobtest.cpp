@@ -59,15 +59,15 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     job.setParentRoomId(pRid);
     const QString discussionName = QStringLiteral("bla");
     job.setDiscussionName(discussionName);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"t_name\":\"%2\"}").arg(pRid).arg(discussionName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"t_name\":\"%2\"}").arg(pRid, discussionName).toLatin1());
     const QString replyMessage = QStringLiteral("Bli");
     job.setReplyMessage(replyMessage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\"}").arg(pRid).arg(replyMessage).arg(discussionName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\"}").arg(pRid, replyMessage, discussionName).toLatin1());
 
     const QStringList users{QStringLiteral("aaa"), QStringLiteral("bbb"), QStringLiteral("ddd")};
     job.setUsers(users);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\",\"users\":[\"aaa\",\"bbb\",\"ddd\"]}")
-             .arg(pRid).arg(replyMessage).arg(discussionName).arg(QStringLiteral("bla")).toLatin1());
+             .arg(pRid, replyMessage, discussionName, QStringLiteral("bla")).toLatin1());
 }
 
 void RoomStartDiscussionJobTest::shouldNotStarting()

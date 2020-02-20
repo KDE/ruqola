@@ -55,7 +55,7 @@ void SyncThreadMessagesJobTest::shouldGenerateRequest()
     job.setTimeStamp(timestamp);
 
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadMessages?tmid=%1&updatedSince=%2").arg(threadMessageId).arg(timestamp)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadMessages?tmid=%1&updatedSince=%2").arg(threadMessageId, timestamp)));
 }
 
 void SyncThreadMessagesJobTest::shouldNotStarting()
