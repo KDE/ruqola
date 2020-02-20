@@ -62,20 +62,18 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
             start = 1;
             break;
         }
-        if (!text.at(i).isSpace()) {
-            continue;
+        if (text.at(i).isSpace()) {
+            //Don't replace # or @
+            start = i + 2;
+            break;
         }
-        //Don't replace # or @
-        start = i + 2;
-        break;
     }
     int end = text.length() - 1;
     for (int i = position; i < text.length(); i++) {
-        if (!text.at(i).isSpace()) {
-            continue;
+        if (text.at(i).isSpace()) {
+            end = i - 1;
+            break;
         }
-        end = i - 1;
-        break;
     }
     QString replaceText = text;
     replaceText.replace(start, end - start + 1, newWord);
@@ -90,19 +88,17 @@ QString InputTextManager::searchWord(const QString &text, int position)
     }
     int start = 0;
     for (int i = position; i > 0; i--) {
-        if (!text.at(i-1).isSpace()) {
-            continue;
+        if (text.at(i-1).isSpace()) {
+            start = i;
+            break;
         }
-        start = i;
-        break;
     }
     int end = text.length() - 1;
     for (int i = position; i < text.length(); i++) {
-        if (!text.at(i).isSpace()) {
-            continue;
+        if (text.at(i).isSpace()) {
+            end = i;
+            break;
         }
-        end = i;
-        break;
     }
 
     QString word = text.mid(start, end - start + 1);
