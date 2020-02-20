@@ -44,7 +44,7 @@ QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJso
         const QString category = emojiObj[QStringLiteral("category")].toString();
         emoticon.setCategory(category);
         emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
-        emoticon.setOrder(emojiObj[QStringLiteral("emoji_order")].toString().toInt());
+        emoticon.setOrder(emojiObj[QStringLiteral("order")].toInt());
         const QJsonArray aliasArray = emojiObj[QStringLiteral("shortname_alternates")].toArray();
         if (!aliasArray.isEmpty()) {
             QStringList lst;
@@ -58,6 +58,14 @@ QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJso
         if (emoticon.isValid()) {
             lstEmoticons[category].append(emoticon);
         }
+    }
+    auto compareOrder = [](const UnicodeEmoticon &left, const UnicodeEmoticon &right) {
+        return left.order() < right.order();
+    };
+    for (auto it = lstEmoticons.begin(); it != lstEmoticons.end(); ++it) {
+        QVector<UnicodeEmoticon> emoticons = it.value();
+        std::sort(emoticons.begin(), emoticons.end(), compareOrder);
+        *it = emoticons;
     }
     return lstEmoticons;
 }

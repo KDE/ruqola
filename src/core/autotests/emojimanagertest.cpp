@@ -78,6 +78,20 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":man_health_worker_tone1:")).unicode().length(), 7);
 }
 
+void EmojiManagerTest::shouldOrderUnicodeEmojis()
+{
+    EmojiManager manager;
+    QMap<QString, QVector<UnicodeEmoticon>> map = manager.unicodeEmojiList();
+    QVERIFY(map.contains(QStringLiteral("activity")));
+    const QVector<UnicodeEmoticon> symbols = map.value(QStringLiteral("symbols"));
+    QVERIFY(!symbols.isEmpty());
+    QCOMPARE(symbols.at(0).order(), 1);
+    QCOMPARE(symbols.at(0).identifier(), QStringLiteral(":heart:"));
+    const QVector<UnicodeEmoticon> regional = map.value(QStringLiteral("regional"));
+    QVERIFY(!regional.isEmpty());
+    QCOMPARE(regional.at(0).identifier(), QStringLiteral(":regional_indicator_z:")); // letters are reversed, weird
+}
+
 void EmojiManagerTest::shouldGenerateHtml()
 {
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");

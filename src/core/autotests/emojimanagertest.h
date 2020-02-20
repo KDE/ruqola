@@ -40,6 +40,7 @@ private Q_SLOTS:
     void shouldParseEmoji();
 
     void shouldSupportUnicodeEmojis();
+    void shouldOrderUnicodeEmojis();
 };
 
 #endif // EMOJIMANAGERTEST_H
