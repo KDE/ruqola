@@ -50,7 +50,7 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     QPushButton *button = buttonBox->button(QDialogButtonBox::Ok);
     button->setText(i18n("Create"));
     button->setEnabled(false);
-    connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [this, button](bool state) {
+    connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [button](bool state) {
         button->setEnabled(state);
     });
 }
