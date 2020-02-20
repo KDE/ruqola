@@ -86,6 +86,7 @@ find_package(KF5Config ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5KIO ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Sonnet ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5ItemViews ${KF5_MIN_VERSION} CONFIG REQUIRED)
 
 find_package(Qt5Keychain CONFIG)
 set_package_properties(Qt5Keychain PROPERTIES

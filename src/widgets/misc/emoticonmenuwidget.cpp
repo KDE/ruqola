@@ -22,7 +22,14 @@
 #include "emoticonselectorwidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "model/emoticonmodel.h"
+#include "model/emoticoncategorizedmodel.h"
+#include "emoticons/emojimanager.h"
+
+#include <KCategorizedSortFilterProxyModel>
+#include <KCategorizedView>
+#include <KCategoryDrawer>
+
+#include <QLineEdit>
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -33,13 +40,27 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
-    mTabWidget = new QTabWidget(this);
+    mFilterLineEdit = new QLineEdit(this);
+    layout->addWidget(mFilterLineEdit);
+
+    mProxyModel = new KCategorizedSortFilterProxyModel();
+    mProxyModel->setCategorizedModel(true);
+    connect(mFilterLineEdit, &QLineEdit::textChanged, mProxyModel, &QSortFilterProxyModel::setFilterFixedString);
+
+    KCategorizedView *view = new KCategorizedView(this);
+    view->setCategoryDrawer(new KCategoryDrawer(view));
+    view->setViewMode(QListView::IconMode);
+    view->setUniformItemSizes(true); // test
+    view->setModel(mProxyModel);
+    layout->addWidget(view);
+
+/*    mTabWidget = new QTabWidget(this);
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     layout->addWidget(mTabWidget);
     QFont f = mTabWidget->font();
     f.setPointSize(22);
     f.setFamily(QStringLiteral("NotoColorEmoji"));
-    mTabWidget->setFont(f);
+    mTabWidget->setFont(f);*/
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
@@ -48,21 +69,29 @@ EmoticonMenuWidget::~EmoticonMenuWidget()
 
 void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    mTabWidget->clear();
-    initializeTab(account);
+    //mTabWidget->clear();
+    auto *oldModel = mEmoticonModel;
+    mEmoticonModel = new EmoticonCategorizedModel(this);
+    mEmoticonModel->setEmoticons(account->emojiManager()->unicodeEmojiList());
+
+    mProxyModel->setSourceModel(mEmoticonModel);
+    delete oldModel;
+
+    //createTabs(account);
 }
 
-void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
-{
-    EmoticonModel *model = account->emoticonModel();
-    const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = model->emoticons();
+// unused
+//void EmoticonMenuWidget::createTabs(RocketChatAccount *account)
+//{
+//    EmoticonModel *model = account->emoticonModel();
+//    const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = model->emoticons();
 
-    QMapIterator<QString, QVector<UnicodeEmoticon> > i(emojiMap);
-    while (i.hasNext()) {
-        i.next();
-        auto *w = new EmoticonSelectorWidget(this);
-        mTabWidget->addTab(w, i.value().at(0).unicode());
-        w->setEmoticon(i.value());
-        connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);
-    }
-}
+//    QMapIterator<QString, QVector<UnicodeEmoticon> > i(emojiMap);
+//    while (i.hasNext()) {
+//        i.next();
+//        auto *w = new EmoticonSelectorWidget(this);
+//        mTabWidget->addTab(w, i.value().at(0).unicode());
+//        w->setEmoticon(i.value());
+//        connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);
+//    }
+//}

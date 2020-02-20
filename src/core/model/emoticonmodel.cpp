@@ -66,7 +66,7 @@ QHash<int, QByteArray> EmoticonModel::roleNames() const
     roles[Identifier] = QByteArrayLiteral("identifier");
     roles[Text] = QByteArrayLiteral("text");
     roles[UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
-    roles[Order] = QByteArrayLiteral("order");
+    roles[Order] = QByteArrayLiteral("order"); // unused
     return roles;
 }
 

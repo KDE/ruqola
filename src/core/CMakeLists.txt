@@ -35,6 +35,7 @@ set (Ruqola_model_core_srcs
     model/rocketchataccountfilterproxymodel.cpp
 
     model/emoticonmodel.cpp
+    model/emoticoncategorizedmodel.cpp
     model/notificationpreferencemodel.cpp
 
     model/notificationdesktopdurationpreferencemodel.cpp
@@ -197,6 +198,7 @@ target_link_libraries(libruqolacore
     KF5::I18n
     KF5::Notifications
     KF5::SyntaxHighlighting
+    KF5::ItemViews # KCategorizedSortFilterProxyModel
     librocketchatrestapi-qt5
 )
 

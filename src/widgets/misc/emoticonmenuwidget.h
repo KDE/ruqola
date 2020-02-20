@@ -20,12 +20,16 @@
 
 #ifndef EMOTICONMENUWIDGET_H
 #define EMOTICONMENUWIDGET_H
-
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+
 class QTabWidget;
+class QLineEdit;
 class RocketChatAccount;
+class KCategorizedSortFilterProxyModel;
+class EmoticonCategorizedModel;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
     Q_OBJECT
@@ -37,8 +41,12 @@ public:
 Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
 private:
-    void initializeTab(RocketChatAccount *account);
+    //void createTabs(RocketChatAccount *account);
+
     QTabWidget *mTabWidget = nullptr;
+    QLineEdit *mFilterLineEdit = nullptr;
+    KCategorizedSortFilterProxyModel *mProxyModel = nullptr;
+    EmoticonCategorizedModel *mEmoticonModel = nullptr;
 };
 
 #endif // EMOTICONMENUWIDGET_H
