@@ -114,7 +114,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
 
-    mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
+    mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiMap());
 
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);

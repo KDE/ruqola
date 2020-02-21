@@ -95,9 +95,9 @@ void UnicodeEmoticonGui::load()
     const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
 
     const QJsonObject obj = doc.object();
-    const QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiList = unicodeParser.parse(obj);
-    QMap<QString, QVector<UnicodeEmoticon> >::const_iterator emojiId = unicodeEmojiList.constBegin();
-    while (emojiId != unicodeEmojiList.constEnd()) {
+    const QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiMap = unicodeParser.parse(obj);
+    auto emojiId = unicodeEmojiMap.constBegin();
+    while (emojiId != unicodeEmojiMap.constEnd()) {
         const QVector<UnicodeEmoticon> lst = emojiId.value();
         for (int i = 0, total = lst.size(); i < total; ++i) {
             UnicodeEmoticonListWidgetItem *item = new UnicodeEmoticonListWidgetItem(lst.at(i).identifier(), mListWidget);

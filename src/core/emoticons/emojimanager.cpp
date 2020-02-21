@@ -54,7 +54,7 @@ void EmojiManager::loadUnicodeEmoji()
     mUnicodeEmojiList = unicodeParser.parse(obj);
 }
 
-QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiList() const
+QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiMap() const
 {
     return mUnicodeEmojiList;
 }

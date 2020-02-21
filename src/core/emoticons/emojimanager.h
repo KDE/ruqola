@@ -41,7 +41,7 @@ public:
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiList() const;
+    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiMap() const;
 
     Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
 

@@ -21,8 +21,8 @@
 #include "emoticonmenuwidget.h"
 #include "emoticonselectorwidget.h"
 #include "ruqola.h"
+#include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
-#include "model/emoticonfiltermodel.h"
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -54,8 +54,7 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
-    EmoticonFilterModel *model = account->emoticonFilterModel();
-    const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = model->emoticons();
+    const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = account->emojiManager()->unicodeEmojiMap();
 
     QMapIterator<QString, QVector<UnicodeEmoticon> > i(emojiMap);
     while (i.hasNext()) {

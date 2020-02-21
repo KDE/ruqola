@@ -81,7 +81,7 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
 {
     EmojiManager manager;
-    QMap<QString, QVector<UnicodeEmoticon>> map = manager.unicodeEmojiList();
+    QMap<QString, QVector<UnicodeEmoticon>> map = manager.unicodeEmojiMap();
     QVERIFY(map.contains(QStringLiteral("activity")));
     const QVector<UnicodeEmoticon> symbols = map.value(QStringLiteral("symbols"));
     QVERIFY(!symbols.isEmpty());
