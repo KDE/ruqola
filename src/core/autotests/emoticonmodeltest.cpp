@@ -21,6 +21,7 @@
 #include "emoticonmodeltest.h"
 #include "model/emoticonfiltermodel.h"
 #include <QTest>
+#include <model/emoticonmodel.h>
 QTEST_GUILESS_MAIN(EmoticonModelTest)
 
 EmoticonModelTest::EmoticonModelTest(QObject *parent)
@@ -49,6 +50,23 @@ void EmoticonModelTest::shouldAssignCategory()
     const QString category = QStringLiteral("bla");
     w.setCurrentCategory(category);
     QCOMPARE(w.currentCategory(), category);
+}
+
+void EmoticonModelTest::shouldListEmojis()
+{
+    // GIVEN
+    EmoticonModel model;
+    QCOMPARE(model.rowCount(), 0);
+    UnicodeEmoticon icon1;
+    icon1.setIdentifier(QStringLiteral("id1"));
+    QVector<UnicodeEmoticon> list{ icon1 };
+
+    // WHEN
+    model.setEmoticons(list);
+
+    // THEN
+    QCOMPARE(model.rowCount(), 1);
+    QCOMPARE(model.index(0, 0).data(EmoticonModel::Identifier).toString(), QStringLiteral("id1"));
 }
 
 //TODO add more check

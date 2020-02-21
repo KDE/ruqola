@@ -18,21 +18,39 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONMODELTEST_H
-#define EMOTICONMODELTEST_H
+#ifndef EMOTICONMODEL_H
+#define EMOTICONMODEL_H
 
-#include <QObject>
+#include <QAbstractListModel>
+#include "libruqolacore_export.h"
+#include "emoticons/unicodeemoticon.h"
 
-class EmoticonModelTest : public QObject
+// Model showing all emojis
+class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit EmoticonModelTest(QObject *parent = nullptr);
-    ~EmoticonModelTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldAssignCategory();
-    void shouldListEmojis();
+    enum EmoticonsRoles {
+        Identifier = Qt::UserRole + 1,
+        Text,
+        UnicodeEmoji,
+        Category
+    };
+    Q_ENUM(EmoticonsRoles)
+
+    explicit EmoticonModel(QObject *parent = nullptr);
+    ~EmoticonModel() override;
+
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+
+    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emoticons() const;
+
+    void setEmoticons(const QVector<UnicodeEmoticon> &emoticons);
+
+private:
+    Q_DISABLE_COPY(EmoticonModel)
+    QVector<UnicodeEmoticon> mEmoticons;
 };
 
-#endif // EMOTICONMODELTEST_H
+#endif // EMOTICONMODEL_H

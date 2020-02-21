@@ -35,6 +35,7 @@ set (Ruqola_model_core_srcs
     model/rocketchataccountfilterproxymodel.cpp
 
     model/emoticonfiltermodel.cpp
+    model/emoticonmodel.cpp
     model/notificationpreferencemodel.cpp
 
     model/notificationdesktopdurationpreferencemodel.cpp
