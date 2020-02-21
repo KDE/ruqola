@@ -64,7 +64,7 @@ class SearchMessageFilterProxyModel;
 class ThreadsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
-class EmoticonModel;
+class EmoticonFilterModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
 class ThreadsModel;
@@ -117,7 +117,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(InputTextManager* inputThreadMessageTextManager READ inputThreadMessageTextManager CONSTANT)
     Q_PROPERTY(ThreadsFilterProxyModel* threadsFilterProxyModel READ threadsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
-    Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
+    Q_PROPERTY(EmoticonFilterModel* emoticonFilterModel READ emoticonFilterModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
     Q_PROPERTY(ListMessagesModelFilterProxyModel* listMessagesFilterProxyModel READ listMessagesFilterProxyModel CONSTANT)
@@ -277,7 +277,7 @@ public:
     UsersModel *usersModel() const;
     RoomFilterProxyModel *roomFilterProxyModel() const;
     MessageModel *threadMessageModel() const;
-    EmoticonModel *emoticonModel() const;
+    EmoticonFilterModel *emoticonFilterModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
     DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
@@ -508,7 +508,7 @@ private:
     ThreadsModel *mThreadsModel = nullptr;
     ThreadsFilterProxyModel *mThreadsFilterProxyModel = nullptr;
 
-    EmoticonModel *mEmoticonModel = nullptr;
+    EmoticonFilterModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 
     ListMessagesModel *mListMessageModel = nullptr;

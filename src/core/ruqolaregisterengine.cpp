@@ -47,7 +47,7 @@
 #include "model/searchmessagefilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
-#include "model/emoticonmodel.h"
+#include "model/emoticonfiltermodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
@@ -108,7 +108,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<RocketChatAccountModel>(URI, 1, 0, "RocketChatAccountModel");
     qmlRegisterType<ClipboardProxy>(URI, 1, 0, "Clipboard");
     qmlRegisterType<NotificationOptionsWrapper>(URI, 1, 0, "NotificationOptionsWrapper");
-    qmlRegisterType<EmoticonModel>(URI, 1, 0, "EmoticonModel");
+    qmlRegisterType<EmoticonFilterModel>(URI, 1, 0, "EmoticonFilterModel");
     qmlRegisterType<ThreadsFilterProxyModel>(URI, 1, 0, "ThreadsFilterProxyModel");
     qmlRegisterType<DiscussionsFilterProxyModel>(URI, 1, 0, "DiscussionsFilterProxyModel");
     qmlRegisterType<EmoticonCategoriesModel>(URI, 1, 0, "EmoticonCategoriesModel");

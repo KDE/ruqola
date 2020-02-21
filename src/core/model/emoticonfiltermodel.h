@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONMODEL_H
-#define EMOTICONMODEL_H
+#ifndef EMOTICONFILTERMODEL_H
+#define EMOTICONFILTERMODEL_H
 
 #include <QAbstractListModel>
 #include "libruqolacore_export.h"
@@ -27,7 +27,7 @@
 #include "emoticoncategoriesmodel.h"
 
 // Model showing emojis from a single category
-class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT EmoticonFilterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -39,8 +39,8 @@ public:
     };
     Q_ENUM(EmoticonsRoles)
 
-    explicit EmoticonModel(QObject *parent = nullptr);
-    ~EmoticonModel() override;
+    explicit EmoticonFilterModel(QObject *parent = nullptr);
+    ~EmoticonFilterModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
@@ -57,10 +57,10 @@ public:
     Q_INVOKABLE EmoticonCategoriesModel *emoticonCategoriesModel() const;
 
 private:
-    Q_DISABLE_COPY(EmoticonModel)
+    Q_DISABLE_COPY(EmoticonFilterModel)
     QMap<QString, QVector<UnicodeEmoticon> > mEmoticons;
     QString mCurrentCategory;
     EmoticonCategoriesModel *mEmoticonCategoriesModel = nullptr;
 };
 
-#endif // EMOTICONMODEL_H
+#endif // EMOTICONFILTERMODEL_H

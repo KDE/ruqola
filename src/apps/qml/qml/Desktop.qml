@@ -46,7 +46,7 @@ Kirigami.ApplicationWindow {
     property QtObject accountManager: Ruqola.accountManager()
     property QtObject accountManagerModel: accountManager.rocketChatAccountModel
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel
-    property QtObject emojiModel: rocketChatAccount.emoticonModel
+    property QtObject emojiModel: rocketChatAccount.emoticonFilterModel
     property QtObject threadsModel: rocketChatAccount.threadsFilterProxyModel
     property QtObject threadMessagesModel: rocketChatAccount.threadMessageModel
     property QtObject listMessagesModel: rocketChatAccount.listMessagesFilterProxyModel

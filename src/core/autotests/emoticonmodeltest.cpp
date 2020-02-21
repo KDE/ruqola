@@ -19,7 +19,7 @@
 */
 
 #include "emoticonmodeltest.h"
-#include "model/emoticonmodel.h"
+#include "model/emoticonfiltermodel.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(EmoticonModelTest)
 
@@ -30,22 +30,22 @@ EmoticonModelTest::EmoticonModelTest(QObject *parent)
 
 void EmoticonModelTest::shouldHaveDefaultValue()
 {
-    EmoticonModel w;
+    EmoticonFilterModel w;
     QVERIFY(w.currentCategory().isEmpty());
     QVERIFY(w.emoticons().isEmpty());
 
     QHash<int, QByteArray> roles;
-    roles[EmoticonModel::Identifier] = QByteArrayLiteral("identifier");
-    roles[EmoticonModel::EmoticonModel::Text] = QByteArrayLiteral("text");
-    roles[EmoticonModel::UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
-    roles[EmoticonModel::Order] = QByteArrayLiteral("order");
+    roles[EmoticonFilterModel::Identifier] = QByteArrayLiteral("identifier");
+    roles[EmoticonFilterModel::EmoticonFilterModel::Text] = QByteArrayLiteral("text");
+    roles[EmoticonFilterModel::UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
+    roles[EmoticonFilterModel::Order] = QByteArrayLiteral("order");
     QCOMPARE(w.roleNames(), roles);
     QVERIFY(w.emoticonCategoriesModel());
 }
 
 void EmoticonModelTest::shouldAssignCategory()
 {
-    EmoticonModel w;
+    EmoticonFilterModel w;
     const QString category = QStringLiteral("bla");
     w.setCurrentCategory(category);
     QCOMPARE(w.currentCategory(), category);

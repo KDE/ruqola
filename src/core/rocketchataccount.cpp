@@ -38,7 +38,7 @@
 #include "rocketchatcache.h"
 #include "fileattachments.h"
 #include "emoticons/emojimanager.h"
-#include "model/emoticonmodel.h"
+#include "model/emoticonfiltermodel.h"
 #include "otrmanager.h"
 #include "inputtextmanager.h"
 #include "model/usersforroommodel.h"
@@ -108,7 +108,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
-    mEmoticonModel = new EmoticonModel(this);
+    mEmoticonModel = new EmoticonFilterModel(this);
 
     //After loadSettings
     mEmojiManager = new EmojiManager(this);
@@ -803,7 +803,7 @@ FilesForRoomModel *RocketChatAccount::filesModelForRoom() const
     return mFilesModelForRoom;
 }
 
-EmoticonModel *RocketChatAccount::emoticonModel() const
+EmoticonFilterModel *RocketChatAccount::emoticonFilterModel() const
 {
     return mEmoticonModel;
 }

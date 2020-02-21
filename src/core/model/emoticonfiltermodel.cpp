@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emoticonmodel.h"
+#include "emoticonfiltermodel.h"
 
-EmoticonModel::EmoticonModel(QObject *parent)
+EmoticonFilterModel::EmoticonFilterModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     mEmoticonCategoriesModel = new EmoticonCategoriesModel(this);
 }
 
-EmoticonModel::~EmoticonModel()
+EmoticonFilterModel::~EmoticonFilterModel()
 {
 }
 
-int EmoticonModel::rowCount(const QModelIndex &parent) const
+int EmoticonFilterModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     if (mEmoticons.contains(mCurrentCategory)) {
@@ -39,7 +39,7 @@ int EmoticonModel::rowCount(const QModelIndex &parent) const
     return 0;
 }
 
-QVariant EmoticonModel::data(const QModelIndex &index, int role) const
+QVariant EmoticonFilterModel::data(const QModelIndex &index, int role) const
 {
     const QVector<UnicodeEmoticon> emoticonsFromCategoryList = mEmoticons.value(mCurrentCategory);
     if (index.row() < 0 || index.row() >= emoticonsFromCategoryList.count()) {
@@ -60,7 +60,7 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> EmoticonModel::roleNames() const
+QHash<int, QByteArray> EmoticonFilterModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[Identifier] = QByteArrayLiteral("identifier");
@@ -70,12 +70,12 @@ QHash<int, QByteArray> EmoticonModel::roleNames() const
     return roles;
 }
 
-QMap<QString, QVector<UnicodeEmoticon> > EmoticonModel::emoticons() const
+QMap<QString, QVector<UnicodeEmoticon> > EmoticonFilterModel::emoticons() const
 {
     return mEmoticons;
 }
 
-void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
+void EmoticonFilterModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);
@@ -93,7 +93,7 @@ void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > 
     }
 }
 
-void EmoticonModel::setCurrentCategory(const QString &category)
+void EmoticonFilterModel::setCurrentCategory(const QString &category)
 {
     if (mCurrentCategory != category) {
         beginResetModel();
@@ -102,12 +102,12 @@ void EmoticonModel::setCurrentCategory(const QString &category)
     }
 }
 
-QString EmoticonModel::currentCategory() const
+QString EmoticonFilterModel::currentCategory() const
 {
     return mCurrentCategory;
 }
 
-EmoticonCategoriesModel *EmoticonModel::emoticonCategoriesModel() const
+EmoticonCategoriesModel *EmoticonFilterModel::emoticonCategoriesModel() const
 {
     return mEmoticonCategoriesModel;
 }
