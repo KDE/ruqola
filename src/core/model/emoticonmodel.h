@@ -26,6 +26,7 @@
 #include "emoticons/unicodeemoticon.h"
 #include "emoticoncategoriesmodel.h"
 
+// Model showing emojis from a single category
 class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
 {
     Q_OBJECT

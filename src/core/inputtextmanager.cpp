@@ -123,9 +123,11 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
     } else {
         if (word.startsWith(QLatin1Char('@'))) {
             //FIXME word without @ ? and exception!
+            // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::User);
         } else if (word.startsWith(QLatin1Char('#'))) {
             //FIXME word without @ ? and exception!
+            // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::Channel);
         } else {
             clearCompleter();
@@ -138,11 +140,13 @@ void InputTextManager::clearCompleter()
     mInputCompleterModel->clear();
 }
 
+// Used by MessageTextEdit to set the completion model for the listview
 InputCompleterModel *InputTextManager::inputCompleterModel() const
 {
     return mInputCompleterModel;
 }
 
+// Called by DDPClient to fill in the completer model based on the typed input
 void InputTextManager::inputTextCompleter(const QJsonObject &obj)
 {
     mInputCompleterModel->parseChannels(obj);
