@@ -19,9 +19,10 @@
 */
 
 #include "emoticonfiltermodel.h"
+#include "emoticonmodel.h"
 
 EmoticonFilterModel::EmoticonFilterModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QSortFilterProxyModel(parent)
 {
     mEmoticonCategoriesModel = new EmoticonCategoriesModel(this);
 }
@@ -30,75 +31,11 @@ EmoticonFilterModel::~EmoticonFilterModel()
 {
 }
 
-int EmoticonFilterModel::rowCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent);
-    if (mEmoticons.contains(mCurrentCategory)) {
-        return mEmoticons[mCurrentCategory].count();
-    }
-    return 0;
-}
-
-QVariant EmoticonFilterModel::data(const QModelIndex &index, int role) const
-{
-    const QVector<UnicodeEmoticon> emoticonsFromCategoryList = mEmoticons.value(mCurrentCategory);
-    if (index.row() < 0 || index.row() >= emoticonsFromCategoryList.count()) {
-        return {};
-    }
-    const UnicodeEmoticon unicodeEmoti = emoticonsFromCategoryList.at(index.row());
-    switch (role) {
-    case Identifier:
-        return unicodeEmoti.identifier();
-    case Text:
-        return unicodeEmoti.key();
-    case UnicodeEmoji:
-        return unicodeEmoti.unicode();
-    case Order:
-        return unicodeEmoti.order();
-    }
-
-    return {};
-}
-
-QHash<int, QByteArray> EmoticonFilterModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[Identifier] = QByteArrayLiteral("identifier");
-    roles[Text] = QByteArrayLiteral("text");
-    roles[UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
-    roles[Order] = QByteArrayLiteral("order");
-    return roles;
-}
-
-QMap<QString, QVector<UnicodeEmoticon> > EmoticonFilterModel::emoticons() const
-{
-    return mEmoticons;
-}
-
-void EmoticonFilterModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
-{
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);
-        mEmoticons.clear();
-        endRemoveRows();
-    }
-    if (!emoticons.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, emoticons.count() - 1);
-        mEmoticons = emoticons;
-        endInsertRows();
-    }
-    if (!mEmoticons.isEmpty()) {
-        mCurrentCategory = mEmoticons.keys().at(0);
-        mEmoticonCategoriesModel->setEmoticons(emoticons);
-    }
-}
-
 void EmoticonFilterModel::setCurrentCategory(const QString &category)
 {
     if (mCurrentCategory != category) {
-        beginResetModel();
         mCurrentCategory = category;
-        endResetModel();
+        invalidateFilter();
     }
 }
 
@@ -110,4 +47,14 @@ QString EmoticonFilterModel::currentCategory() const
 EmoticonCategoriesModel *EmoticonFilterModel::emoticonCategoriesModel() const
 {
     return mEmoticonCategoriesModel;
+}
+
+bool EmoticonFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (!mCurrentCategory.isEmpty()) {
+        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+        const QString category = sourceIndex.data(EmoticonModel::Category).toString();
+        return mCurrentCategory == category;
+    }
+    return true;
 }

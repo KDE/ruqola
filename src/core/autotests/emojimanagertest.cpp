@@ -81,15 +81,25 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
 {
     EmojiManager manager;
-    QMap<QString, QVector<UnicodeEmoticon>> map = manager.unicodeEmojiMap();
-    QVERIFY(map.contains(QStringLiteral("activity")));
-    const QVector<UnicodeEmoticon> symbols = map.value(QStringLiteral("symbols"));
-    QVERIFY(!symbols.isEmpty());
-    QCOMPARE(symbols.at(0).order(), 1);
-    QCOMPARE(symbols.at(0).identifier(), QStringLiteral(":heart:"));
-    const QVector<UnicodeEmoticon> regional = map.value(QStringLiteral("regional"));
-    QVERIFY(!regional.isEmpty());
-    QCOMPARE(regional.at(0).identifier(), QStringLiteral(":regional_indicator_z:")); // letters are reversed, weird
+    const QVector<UnicodeEmoticon> list = manager.unicodeEmojiList();
+    auto hasCategory = [](const QString &category) {
+        return [category](const UnicodeEmoticon &emo) {
+            return emo.category() == category;
+        };
+    };
+    // Check what's the first emoji in the category "symbols"
+    auto it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("symbols")));
+    QVERIFY(it != list.end());
+    const UnicodeEmoticon firstSymbol = *it;
+    QCOMPARE(firstSymbol.order(), 1);
+    QCOMPARE(firstSymbol.category(), QStringLiteral("symbols"));
+    QCOMPARE(firstSymbol.identifier(), QStringLiteral(":heart:"));
+
+    // Check what's the first emoji in the category "regional"
+    it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("regional")));
+    QVERIFY(it != list.end());
+    const UnicodeEmoticon firstRegional = *it;
+    QCOMPARE(firstRegional.identifier(), QStringLiteral(":regional_indicator_z:")); // letters are reversed, weird
 }
 
 void EmojiManagerTest::shouldGenerateHtml()

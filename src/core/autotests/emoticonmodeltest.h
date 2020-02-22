@@ -31,8 +31,8 @@ public:
     ~EmoticonModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
-    void shouldAssignCategory();
     void shouldListEmojis();
+    void shouldFilterCategory();
 };
 
 #endif // EMOTICONMODELTEST_H

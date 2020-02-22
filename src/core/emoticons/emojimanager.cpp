@@ -56,6 +56,16 @@ void EmojiManager::loadUnicodeEmoji()
 
 QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiMap() const
 {
+    // cache this if called often (but better not use this method)
+    QMap<QString, QVector<UnicodeEmoticon> > map;
+    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
+        map[emo.category()].append(emo);
+    }
+    return map;
+}
+
+QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
+{
     return mUnicodeEmojiList;
 }
 
@@ -95,14 +105,9 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 
 UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
 {
-    // ## why isn't the key in the QMap, the identifier?
-    for (auto emojiId = mUnicodeEmojiList.constBegin();
-         emojiId != mUnicodeEmojiList.constEnd(); ++emojiId) {
-        const QVector<UnicodeEmoticon> lst = emojiId.value();
-        for (const UnicodeEmoticon &emo : lst) {
-            if (emo.hasEmoji(emojiIdentifier)) {
-                return emo;
-            }
+    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
+        if (emo.hasEmoji(emojiIdentifier)) {
+            return emo;
         }
     }
     return {};

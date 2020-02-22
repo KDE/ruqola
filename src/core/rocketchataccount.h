@@ -65,6 +65,7 @@ class ThreadsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonFilterModel;
+class EmoticonModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
 class ThreadsModel;
@@ -278,6 +279,7 @@ public:
     RoomFilterProxyModel *roomFilterProxyModel() const;
     MessageModel *threadMessageModel() const;
     EmoticonFilterModel *emoticonFilterModel() const;
+    EmoticonModel *emoticonModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
     DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
@@ -508,7 +510,8 @@ private:
     ThreadsModel *mThreadsModel = nullptr;
     ThreadsFilterProxyModel *mThreadsFilterProxyModel = nullptr;
 
-    EmoticonFilterModel *mEmoticonModel = nullptr;
+    EmoticonFilterModel *mEmoticonFilterModel = nullptr;
+    EmoticonModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 
     ListMessagesModel *mListMessageModel = nullptr;

@@ -44,6 +44,7 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emoticons() const;
 
     void setEmoticons(const QVector<UnicodeEmoticon> &emoticons);

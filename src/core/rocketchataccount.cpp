@@ -79,6 +79,8 @@
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
+#include <model/emoticonmodel.h>
+
 #define USE_REASTAPI_JOB 1
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
@@ -108,13 +110,18 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
-    mEmoticonModel = new EmoticonFilterModel(this);
-
     //After loadSettings
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
 
-    mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiMap());
+    mEmoticonModel = new EmoticonModel(this);
+    mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
+
+    mEmoticonFilterModel = new EmoticonFilterModel(this);
+    mEmoticonFilterModel->setSourceModel(mEmoticonModel);
+
+    // TODO a method in mEmojiManager that returns QVector<EmoticonCategory>
+    mEmoticonFilterModel->emoticonCategoriesModel()->setEmoticons(mEmojiManager->unicodeEmojiMap());
 
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
@@ -804,6 +811,11 @@ FilesForRoomModel *RocketChatAccount::filesModelForRoom() const
 }
 
 EmoticonFilterModel *RocketChatAccount::emoticonFilterModel() const
+{
+    return mEmoticonFilterModel;
+}
+
+EmoticonModel *RocketChatAccount::emoticonModel() const
 {
     return mEmoticonModel;
 }

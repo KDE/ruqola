@@ -30,13 +30,13 @@ UnicodeEmoticonParser::~UnicodeEmoticonParser()
 {
 }
 
-QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJsonObject &o) const
+QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {
-    QMap<QString, QVector<UnicodeEmoticon> > lstEmoticons;
+    QVector<UnicodeEmoticon> lstEmoticons;
     const QStringList keys = o.keys();
     for (const QString &key : keys) {
         UnicodeEmoticon emoticon;
-        QJsonObject emojiObj = o[key].toObject();
+        const QJsonObject emojiObj = o[key].toObject();
         emoticon.setKey(key);
         const QString unicodeStr = emojiObj[QStringLiteral("code_points")].toObject()[QStringLiteral("fully_qualified")].toString();
         Q_ASSERT(!unicodeStr.isEmpty());
@@ -56,16 +56,12 @@ QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJso
             emoticon.setAliases(lst);
         }
         if (emoticon.isValid()) {
-            lstEmoticons[category].append(emoticon);
+            lstEmoticons.append(std::move(emoticon));
         }
     }
     auto compareOrder = [](const UnicodeEmoticon &left, const UnicodeEmoticon &right) {
         return left.order() < right.order();
     };
-    for (auto it = lstEmoticons.begin(); it != lstEmoticons.end(); ++it) {
-        QVector<UnicodeEmoticon> emoticons = it.value();
-        std::sort(emoticons.begin(), emoticons.end(), compareOrder);
-        *it = emoticons;
-    }
+    std::sort(lstEmoticons.begin(), lstEmoticons.end(), compareOrder);
     return lstEmoticons;
 }

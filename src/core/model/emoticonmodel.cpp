@@ -56,6 +56,15 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+QHash<int, QByteArray> EmoticonModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[Identifier] = QByteArrayLiteral("identifier");
+    roles[Text] = QByteArrayLiteral("text");
+    roles[UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
+    return roles;
+}
+
 QVector<UnicodeEmoticon> EmoticonModel::emoticons() const
 {
     return mEmoticons;

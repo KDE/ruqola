@@ -41,7 +41,10 @@ public:
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
+    // deprecated, use unicodeEmojiList (for all) or EmoticonFilterModel (for one category)
     Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiMap() const;
+
+    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
 
     Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
 
@@ -55,7 +58,7 @@ private:
     void loadUnicodeEmoji();
     //Use identifier in a QMap ???
     QVector<Emoji> mCustomEmojiList;
-    QMap<QString, QVector<UnicodeEmoticon> > mUnicodeEmojiList;
+    QVector<UnicodeEmoticon> mUnicodeEmojiList;
     QString mServerUrl;
 };
 

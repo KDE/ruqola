@@ -21,44 +21,28 @@
 #ifndef EMOTICONFILTERMODEL_H
 #define EMOTICONFILTERMODEL_H
 
-#include <QAbstractListModel>
+#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
 #include "emoticons/unicodeemoticon.h"
 #include "emoticoncategoriesmodel.h"
 
 // Model showing emojis from a single category
-class LIBRUQOLACORE_EXPORT EmoticonFilterModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT EmoticonFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    enum EmoticonsRoles {
-        Identifier = Qt::UserRole + 1,
-        Text,
-        UnicodeEmoji,
-        Order
-    };
-    Q_ENUM(EmoticonsRoles)
-
     explicit EmoticonFilterModel(QObject *parent = nullptr);
     ~EmoticonFilterModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > emoticons() const;
-
-    void setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons);
-
     Q_INVOKABLE void setCurrentCategory(const QString &category);
-
     Q_INVOKABLE Q_REQUIRED_RESULT QString currentCategory() const;
 
     Q_INVOKABLE EmoticonCategoriesModel *emoticonCategoriesModel() const;
 
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 private:
     Q_DISABLE_COPY(EmoticonFilterModel)
-    QMap<QString, QVector<UnicodeEmoticon> > mEmoticons;
     QString mCurrentCategory;
     EmoticonCategoriesModel *mEmoticonCategoriesModel = nullptr;
 };

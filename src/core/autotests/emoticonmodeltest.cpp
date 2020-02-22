@@ -31,25 +31,9 @@ EmoticonModelTest::EmoticonModelTest(QObject *parent)
 
 void EmoticonModelTest::shouldHaveDefaultValue()
 {
-    EmoticonFilterModel w;
-    QVERIFY(w.currentCategory().isEmpty());
-    QVERIFY(w.emoticons().isEmpty());
-
-    QHash<int, QByteArray> roles;
-    roles[EmoticonFilterModel::Identifier] = QByteArrayLiteral("identifier");
-    roles[EmoticonFilterModel::EmoticonFilterModel::Text] = QByteArrayLiteral("text");
-    roles[EmoticonFilterModel::UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
-    roles[EmoticonFilterModel::Order] = QByteArrayLiteral("order");
-    QCOMPARE(w.roleNames(), roles);
-    QVERIFY(w.emoticonCategoriesModel());
-}
-
-void EmoticonModelTest::shouldAssignCategory()
-{
-    EmoticonFilterModel w;
-    const QString category = QStringLiteral("bla");
-    w.setCurrentCategory(category);
-    QCOMPARE(w.currentCategory(), category);
+    EmoticonFilterModel filter;
+    QVERIFY(filter.currentCategory().isEmpty());
+    QVERIFY(filter.emoticonCategoriesModel());
 }
 
 void EmoticonModelTest::shouldListEmojis()
@@ -59,6 +43,7 @@ void EmoticonModelTest::shouldListEmojis()
     QCOMPARE(model.rowCount(), 0);
     UnicodeEmoticon icon1;
     icon1.setIdentifier(QStringLiteral("id1"));
+    icon1.setCategory(QStringLiteral("cat1"));
     QVector<UnicodeEmoticon> list{ icon1 };
 
     // WHEN
@@ -67,6 +52,37 @@ void EmoticonModelTest::shouldListEmojis()
     // THEN
     QCOMPARE(model.rowCount(), 1);
     QCOMPARE(model.index(0, 0).data(EmoticonModel::Identifier).toString(), QStringLiteral("id1"));
+    QCOMPARE(model.index(0, 0).data(EmoticonModel::Category).toString(), QStringLiteral("cat1"));
+}
+
+void EmoticonModelTest::shouldFilterCategory()
+{
+    // GIVEN
+    EmoticonModel model;
+    EmoticonFilterModel filterModel;
+    filterModel.setSourceModel(&model);
+    UnicodeEmoticon icon1;
+    icon1.setIdentifier(QStringLiteral("id1"));
+    icon1.setCategory(QStringLiteral("cat1"));
+    QVector<UnicodeEmoticon> list{ icon1 };
+    model.setEmoticons(list);
+
+    // WHEN
+    const QString category = QStringLiteral("cat1");
+    filterModel.setCurrentCategory(category);
+
+    // THEN
+    QCOMPARE(filterModel.currentCategory(), category);
+    QCOMPARE(filterModel.rowCount(), 1);
+
+    // WHEN
+    const QString unknown = QStringLiteral("unknown");
+    filterModel.setCurrentCategory(unknown);
+
+    // THEN
+    QCOMPARE(filterModel.currentCategory(), unknown);
+    QCOMPARE(filterModel.rowCount(), 0);
+
 }
 
 //TODO add more check
