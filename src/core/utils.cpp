@@ -51,6 +51,9 @@ QString Utils::extractRoomUserFromUrl(QString url)
 
 QString Utils::markdownToRichText(const QString &markDown)
 {
+    if (markDown.isEmpty())
+        return QString();
+
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     QString str = markDown;
 
