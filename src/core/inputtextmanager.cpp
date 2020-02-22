@@ -130,12 +130,10 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         clearCompleter();
     } else {
         if (word.startsWith(QLatin1Char('@'))) {
-            //FIXME word without @ ? and exception!
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::User);
             Q_EMIT completionModelChanged(mInputCompleterModel);
         } else if (word.startsWith(QLatin1Char('#'))) {
-            //FIXME word without @ ? and exception!
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::Channel);
             Q_EMIT completionModelChanged(mInputCompleterModel);
