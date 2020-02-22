@@ -23,9 +23,6 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-#endif
-
 CompletionTextEdit::CompletionTextEdit(QWidget *parent)
     : KTextEdit(parent)
 {
