@@ -27,9 +27,6 @@
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-#endif
-
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : CompletionTextEdit(parent)
 {
