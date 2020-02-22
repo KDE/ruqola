@@ -203,25 +203,31 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject, QNetw
 #endif
     // HTTP-level error (e.g. host not found)
     if (error != QNetworkReply::NoError) {
-        Q_EMIT failed(reply->errorString());
+        Q_EMIT failed(reply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
         return;
     }
+    Q_EMIT failed(errorStr(replyObject));
+}
+
+QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
+{
     // JSon-level error
     const QString errorType = replyObject[QStringLiteral("errorType")].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
         const QString trStr = errorMessage(errorType);
         if (!trStr.isEmpty()) {
-            Q_EMIT failed(trStr);
+            return trStr;
         } else {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << " errorType not defined as translated message: " << errorType;
-            Q_EMIT failed(i18n("Unauthorized"));
+            return i18n("Unauthorized");
         }
     } else {
         const QString error = replyObject[QStringLiteral("error")].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
-        Q_EMIT failed(generateErrorMessage(error));
+        return generateErrorMessage(error);
     }
+
 }
 
 QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const

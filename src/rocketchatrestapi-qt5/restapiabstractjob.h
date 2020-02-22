@@ -116,6 +116,7 @@ protected:
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 
 private:
+    Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
 };
 }
