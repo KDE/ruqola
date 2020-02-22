@@ -24,7 +24,7 @@
 #include "common/completiontextedit.h"
 
 #include "libruqolawidgets_private_export.h"
-
+#include <QPointer>
 class RocketChatAccount;
 
 /**
@@ -57,6 +57,7 @@ private:
     void slotTextChanged();
     void slotCompletionAvailable();
     void slotComplete(const QModelIndex &index);
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // MESSAGETEXTEDIT_H

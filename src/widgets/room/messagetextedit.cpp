@@ -45,9 +45,12 @@ MessageTextEdit::~MessageTextEdit()
 
 void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    disconnect(nullptr, &InputTextManager::completionModelChanged,
-            this, &MessageTextEdit::setCompletionModel);
-    connect(account->inputTextManager(), &InputTextManager::completionModelChanged,
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::completionModelChanged,
+                   this, &MessageTextEdit::setCompletionModel);
+    }
+    mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::completionModelChanged,
             this, &MessageTextEdit::setCompletionModel);
 }
 
@@ -108,15 +111,14 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 
 void MessageTextEdit::slotTextChanged()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+    mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
     Q_EMIT textEditing(document()->isEmpty());
 }
 
 void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
-    auto *inputTextManager = Ruqola::self()->rocketChatAccount()->inputTextManager();
+    auto *inputTextManager = mCurrentRocketChatAccount->inputTextManager();
     QTextCursor cursor = textCursor();
     int textPos = cursor.position();
     const QString newText = inputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
