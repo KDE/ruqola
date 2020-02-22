@@ -26,8 +26,6 @@
 #include <QFile>
 #include "ruqola_debug.h"
 
-//TODO cache emoji ?
-
 EmojiManager::EmojiManager(QObject *parent, bool loadUnicode)
     : QObject(parent)
 {

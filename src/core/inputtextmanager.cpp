@@ -21,15 +21,23 @@
 #include "inputtextmanager.h"
 #include "ruqola_debug.h"
 #include "model/inputcompletermodel.h"
+#include <QSortFilterProxyModel>
 
 InputTextManager::InputTextManager(QObject *parent)
     : QObject(parent)
 {
     mInputCompleterModel = new InputCompleterModel(this);
+
+    mEmoticonFilterProxyModel = new QSortFilterProxyModel(this);
 }
 
 InputTextManager::~InputTextManager()
 {
+}
+
+void InputTextManager::setEmoticonModel(QAbstractItemModel *model)
+{
+    mEmoticonFilterProxyModel->setSourceModel(model);
 }
 
 QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
@@ -125,10 +133,15 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             //FIXME word without @ ? and exception!
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::User);
+            Q_EMIT completionModelChanged(mInputCompleterModel);
         } else if (word.startsWith(QLatin1Char('#'))) {
             //FIXME word without @ ? and exception!
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::Channel);
+            Q_EMIT completionModelChanged(mInputCompleterModel);
+        } else if (word.startsWith(QLatin1Char(':'))) {
+            mEmoticonFilterProxyModel->setFilterFixedString(word);
+            Q_EMIT completionModelChanged(mEmoticonFilterProxyModel);
         } else {
             clearCompleter();
         }

@@ -116,6 +116,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mEmoticonModel = new EmoticonModel(this);
     mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
+    mInputTextManager->setEmoticonModel(mEmoticonModel);
 
     mEmoticonFilterModel = new EmoticonFilterModel(this);
     mEmoticonFilterModel->setSourceModel(mEmoticonModel);

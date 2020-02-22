@@ -87,6 +87,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    mMessageTextEdit->setCurrentRocketChatAccount(account);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
 }
 

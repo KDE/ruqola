@@ -25,7 +25,11 @@
 #include <QObject>
 
 #include "libruqolacore_export.h"
+
 class InputCompleterModel;
+class QAbstractItemModel;
+class QSortFilterProxyModel;
+
 class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
@@ -37,6 +41,8 @@ public:
     };
     explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager() override;
+
+    void setEmoticonModel(QAbstractItemModel *model);
 
     Q_REQUIRED_RESULT InputCompleterModel *inputCompleterModel() const;
 
@@ -54,10 +60,12 @@ public:
 
 Q_SIGNALS:
     void inputCompleter(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+    void completionModelChanged(QAbstractItemModel *model);
 
 private:
     Q_DISABLE_COPY(InputTextManager)
     InputCompleterModel *mInputCompleterModel = nullptr;
+    QSortFilterProxyModel *mEmoticonFilterProxyModel = nullptr;
 };
 
 #endif // INPUTTEXTMANAGER_H

@@ -25,6 +25,8 @@
 
 #include "libruqolawidgets_private_export.h"
 
+class RocketChatAccount;
+
 /**
  * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
  */
@@ -34,6 +36,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageTextEdit : public CompletionTextEdit
 public:
     explicit MessageTextEdit(QWidget *parent = nullptr);
     ~MessageTextEdit() override;
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 
     void insert(const QString &text);
     QString text() const;

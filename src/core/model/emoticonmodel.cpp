@@ -44,14 +44,16 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     }
     const UnicodeEmoticon &unicodeEmoti = mEmoticons.at(index.row());
     switch (role) {
+    case CompleterName:
+        return unicodeEmoti.identifier().mid(1);
     case Identifier:
         return unicodeEmoti.identifier();
-    case Text:
-        return unicodeEmoti.key();
     case UnicodeEmoji:
         return unicodeEmoti.unicode();
     case Category:
         return unicodeEmoti.category();
+    case Qt::DisplayRole: // for the completion popup (until we have a delegate)
+        return unicodeEmoti.identifier();
     }
 
     return {};
@@ -61,7 +63,6 @@ QHash<int, QByteArray> EmoticonModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[Identifier] = QByteArrayLiteral("identifier");
-    roles[Text] = QByteArrayLiteral("text");
     roles[UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
     return roles;
 }

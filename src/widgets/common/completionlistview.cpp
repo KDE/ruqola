@@ -46,9 +46,16 @@ void CompletionListView::setTextWidget(QWidget *textWidget)
 
 void CompletionListView::setModel(QAbstractItemModel *model)
 {
-    connect(model, &QAbstractItemModel::rowsInserted, this, &CompletionListView::slotCompletionAvailable);
-    connect(model, &QAbstractItemModel::rowsRemoved, this, &CompletionListView::slotCompletionAvailable);
-    QListView::setModel(model);
+    QAbstractItemModel *oldModel = QListView::model();
+    if (model != oldModel) {
+        if (oldModel) {
+            disconnect(oldModel, &QAbstractItemModel::rowsInserted, this, &CompletionListView::slotCompletionAvailable);
+            disconnect(oldModel, &QAbstractItemModel::rowsRemoved, this, &CompletionListView::slotCompletionAvailable);
+        }
+        connect(model, &QAbstractItemModel::rowsInserted, this, &CompletionListView::slotCompletionAvailable);
+        connect(model, &QAbstractItemModel::rowsRemoved, this, &CompletionListView::slotCompletionAvailable);
+        QListView::setModel(model);
+    }
 }
 
 void CompletionListView::keyPressEvent(QKeyEvent *event)

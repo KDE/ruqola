@@ -31,9 +31,9 @@ class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum EmoticonsRoles {
-        Identifier = Qt::UserRole + 1,
-        Text,
-        UnicodeEmoji,
+        UnicodeEmoji = Qt::UserRole + 1,
+        CompleterName, // keep value in sync with InputCompleterModel
+        Identifier,
         Category
     };
     Q_ENUM(EmoticonsRoles)

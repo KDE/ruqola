@@ -34,7 +34,6 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     : CompletionTextEdit(parent)
 {
     connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
-    setCompletionModel(Ruqola::self()->rocketChatAccount()->inputTextManager()->inputCompleterModel());
     connect(this, &MessageTextEdit::complete, this, &MessageTextEdit::slotComplete);
     setAcceptRichText(false);
 
@@ -45,6 +44,14 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 MessageTextEdit::~MessageTextEdit()
 {
     disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
+}
+
+void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    disconnect(nullptr, &InputTextManager::completionModelChanged,
+            this, &MessageTextEdit::setCompletionModel);
+    connect(account->inputTextManager(), &InputTextManager::completionModelChanged,
+            this, &MessageTextEdit::setCompletionModel);
 }
 
 void MessageTextEdit::insert(const QString &text)

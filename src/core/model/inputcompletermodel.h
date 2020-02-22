@@ -32,7 +32,7 @@ class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
 public:
     enum InputCompleterRoles {
         DisplayName = Qt::UserRole + 1,
-        CompleterName,
+        CompleterName, // keep value in sync with EmoticonModel
         IconName,
         ChannelType,
     };
