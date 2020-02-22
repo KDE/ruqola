@@ -453,6 +453,8 @@ void MessageModel::clear()
 
 void MessageModel::changeShowOriginalMessage(const QString &messageId, bool showOriginal)
 {
+    Q_UNUSED(showOriginal)
+    //TODO implement it
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
         return msg.messageId() == messageId;
     });

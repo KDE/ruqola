@@ -332,6 +332,7 @@ void RoomModel::addRoom(Room *room)
 
 void RoomModel::removeRoom(const QString &roomId)
 {
+    Q_UNUSED(roomId)
     //TODO
 }
 
