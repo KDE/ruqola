@@ -1780,6 +1780,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 
 void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
 {
+    //TODO look at for restapi support.
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
         ddp()->inputChannelAutocomplete(pattern, exceptions);
