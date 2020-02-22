@@ -22,6 +22,7 @@
 #define EMOJIMANAGER_H
 
 #include <QObject>
+#include <emoticoncategory.h>
 #include "emoji.h"
 #include "unicodeemoticon.h"
 #include "libruqolacore_export.h"
@@ -45,6 +46,7 @@ public:
     Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiMap() const;
 
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
+    Q_REQUIRED_RESULT QVector<EmoticonCategory> categories() const;
 
     Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
 

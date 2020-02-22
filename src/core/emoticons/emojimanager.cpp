@@ -69,6 +69,25 @@ QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
     return mUnicodeEmojiList;
 }
 
+QVector<EmoticonCategory> EmojiManager::categories() const
+{
+    QVector<EmoticonCategory> categories;
+    QSet<QString> seen;
+    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
+        // Pick the first icon in each category
+        const QString category = emo.category();
+        if (!seen.contains(category)) {
+            seen.insert(category);
+            EmoticonCategory cat;
+            cat.setCategory(category);
+            cat.setName(emo.unicode());
+            categories.append(std::move(cat));
+        }
+    }
+    // TODO sort categories in a way that makes sense for the user
+    return categories;
+}
+
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 {
     mCustomEmojiList.clear();

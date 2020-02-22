@@ -31,7 +31,8 @@ EmoticonCategoriesModel::~EmoticonCategoriesModel()
 
 int EmoticonCategoriesModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    if (parent.isValid())
+        return 0; // flat model
     return mCategories.count();
 }
 
@@ -60,23 +61,16 @@ QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
     return roles;
 }
 
-void EmoticonCategoriesModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
+void EmoticonCategoriesModel::setCategories(const QVector<EmoticonCategory> &categories)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mCategories.count() - 1);
         mCategories.clear();
         endRemoveRows();
     }
-    if (!emoticons.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, emoticons.count() - 1);
-        QMap<QString, QVector<UnicodeEmoticon> >::const_iterator i = emoticons.constBegin();
-        while (i != emoticons.constEnd()) {
-            EmoticonCategory cat;
-            cat.setCategory(i.key());
-            cat.setName(i.value().at(0).unicode());
-            ++i;
-            mCategories.append(cat);
-        }
+    if (!categories.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, categories.count() - 1);
+        mCategories = categories;
         endInsertRows();
     }
 }

@@ -120,8 +120,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmoticonFilterModel = new EmoticonFilterModel(this);
     mEmoticonFilterModel->setSourceModel(mEmoticonModel);
 
-    // TODO a method in mEmojiManager that returns QVector<EmoticonCategory>
-    mEmoticonFilterModel->emoticonCategoriesModel()->setEmoticons(mEmojiManager->unicodeEmojiMap());
+    mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
