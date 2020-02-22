@@ -24,6 +24,7 @@
 #include <QScrollArea>
 #include <QLabel>
 #include <QSlider>
+#include <QWheelEvent>
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
@@ -97,4 +98,15 @@ void ShowImageWidget::resizeEvent(QResizeEvent *event)
 void ShowImageWidget::applyPixmap()
 {
     mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio));
+}
+
+void ShowImageWidget::wheelEvent(QWheelEvent *e)
+{
+    if (e->modifiers() & Qt::ControlModifier) {
+        if (e->angleDelta().y() > 0) {
+            mSlider->setValue(mSlider->value() - 5);
+        } else {
+            mSlider->setValue(mSlider->value() + 5);
+        }
+    }
 }

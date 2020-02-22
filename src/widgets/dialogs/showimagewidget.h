@@ -40,6 +40,7 @@ public:
 protected:
     void showEvent(QShowEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
+    void wheelEvent(QWheelEvent *e) override;
 
 private:
     void applyPixmap();
