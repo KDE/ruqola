@@ -38,6 +38,8 @@ private Q_SLOTS:
 
     void shouldSearchWord_data();
     void shouldSearchWord();
+
+    void shouldEmitCompletionRequestSignals();
 };
 
 #endif // INPUTTEXTMANAGERTEST_H

@@ -21,16 +21,18 @@
 #ifndef MESSAGETEXTEDIT_H
 #define MESSAGETEXTEDIT_H
 
-#include "common/completiontextedit.h"
+#include <KTextEdit>
+#include "inputtextmanager.h"
 
 #include "libruqolawidgets_private_export.h"
 #include <QPointer>
 class RocketChatAccount;
+class CompletionListView;
 
 /**
  * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
  */
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageTextEdit : public CompletionTextEdit
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageTextEdit : public KTextEdit
 {
     Q_OBJECT
 public:
@@ -55,9 +57,14 @@ protected:
 
 private:
     void slotTextChanged();
+    void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
     void slotCompletionAvailable();
     void slotComplete(const QModelIndex &index);
+
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    CompletionListView *mUserAndChannelCompletionListView;
+    CompletionListView *mEmojiCompletionListView;
+
 };
 
 #endif // MESSAGETEXTEDIT_H

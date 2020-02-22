@@ -117,6 +117,14 @@ QString InputTextManager::searchWord(const QString &text, int position)
     return word;
 }
 
+void InputTextManager::setCompletionType(InputTextManager::CompletionForType type)
+{
+    if (type != mCurrentCompletionType) {
+        mCurrentCompletionType = type;
+        Q_EMIT completionTypeChanged(type);
+    }
+}
+
 void InputTextManager::setInputTextChanged(const QString &text, int position)
 {
     if (text.isEmpty()) {
@@ -132,14 +140,14 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         if (word.startsWith(QLatin1Char('@'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::User);
-            Q_EMIT completionModelChanged(mInputCompleterModel);
+            setCompletionType(InputTextManager::CompletionForType::User);
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
-            Q_EMIT completionModelChanged(mInputCompleterModel);
+            setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
             mEmoticonFilterProxyModel->setFilterFixedString(word);
-            Q_EMIT completionModelChanged(mEmoticonFilterProxyModel);
+            setCompletionType(InputTextManager::CompletionForType::Emoji);
         } else {
             clearCompleter();
         }
@@ -156,6 +164,11 @@ void InputTextManager::clearCompleter()
 InputCompleterModel *InputTextManager::inputCompleterModel() const
 {
     return mInputCompleterModel;
+}
+
+QAbstractItemModel *InputTextManager::emojiCompleterModel() const
+{
+    return mEmoticonFilterProxyModel;
 }
 
 // Called by DDPClient to fill in the completer model based on the typed input

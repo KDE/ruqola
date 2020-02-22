@@ -21,6 +21,7 @@
 #include "inputtextmanagertest.h"
 #include "inputtextmanager.h"
 #include "model/inputcompletermodel.h"
+#include <QSignalSpy>
 #include <QTest>
 QTEST_GUILESS_MAIN(InputTextManagerTest)
 
@@ -85,4 +86,37 @@ void InputTextManagerTest::shouldSearchWord()
 
     InputTextManager manager(nullptr);
     QCOMPARE(manager.searchWord(text, position), result);
+}
+
+void InputTextManagerTest::shouldEmitCompletionRequestSignals()
+{
+    InputTextManager manager(nullptr);
+    QSignalSpy typeChangedSpy(&manager, &InputTextManager::completionTypeChanged);
+    QSignalSpy requestSpy(&manager, &InputTextManager::completionRequested);
+    manager.setInputTextChanged(QStringLiteral("a @"), 3);
+    QCOMPARE(typeChangedSpy.count(), 0); // arguably a bug, but no side effect
+    QCOMPARE(requestSpy.count(), 1);
+    QCOMPARE(requestSpy.at(0).at(0).toString(), QString());
+    requestSpy.clear();
+
+    manager.setInputTextChanged(QStringLiteral("a :"), 3);
+    QCOMPARE(typeChangedSpy.count(), 1);
+    QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Emoji);
+    typeChangedSpy.clear();
+    QCOMPARE(requestSpy.count(), 0); // emoji completion doesn't use this signal
+    requestSpy.clear();
+
+    manager.setInputTextChanged(QStringLiteral("a #c"), 3);
+    QCOMPARE(typeChangedSpy.count(), 1);
+    QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Channel);
+    typeChangedSpy.clear();
+    QCOMPARE(requestSpy.count(), 1);
+    QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("c"));
+    requestSpy.clear();
+
+    manager.setInputTextChanged(QStringLiteral("@foo"), 3);
+    QCOMPARE(typeChangedSpy.count(), 1);
+    QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
+    QCOMPARE(requestSpy.count(), 1);
+    QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
 }

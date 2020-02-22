@@ -37,6 +37,8 @@ public:
 
     void setModel(QAbstractItemModel *model) override;
 
+    void slotCompletionAvailable();
+
 Q_SIGNALS:
     void complete(const QModelIndex &currentIndex);
 
@@ -44,7 +46,6 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    void slotCompletionAvailable();
 
     QWidget *mTextWidget = nullptr;
 };

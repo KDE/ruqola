@@ -37,7 +37,8 @@ class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 public:
     enum CompletionForType {
         Channel = 0,
-        User
+        User,
+        Emoji
     };
     explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager() override;
@@ -45,6 +46,7 @@ public:
     void setEmoticonModel(QAbstractItemModel *model);
 
     Q_REQUIRED_RESULT InputCompleterModel *inputCompleterModel() const;
+    Q_REQUIRED_RESULT QAbstractItemModel *emojiCompleterModel() const;
 
     void inputTextCompleter(const QJsonObject &obj);
 
@@ -59,14 +61,22 @@ public:
     Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
 
 Q_SIGNALS:
+    // Trigger autocompletion request in DDPClient (via RocketChatAccount)
+    // Emitted with Channel and User, never Emoji
     void completionRequested(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
-    void completionModelChanged(QAbstractItemModel *model);
+    void completionTypeChanged(InputTextManager::CompletionForType type);
     void hideCompletion();
 
 private:
     Q_DISABLE_COPY(InputTextManager)
+
+    void setCompletionType(CompletionForType type);
+
     InputCompleterModel *mInputCompleterModel = nullptr;
     QSortFilterProxyModel *mEmoticonFilterProxyModel = nullptr;
+    CompletionForType mCurrentCompletionType = User;
 };
+
+Q_DECLARE_METATYPE(InputTextManager::CompletionForType)
 
 #endif // INPUTTEXTMANAGER_H
