@@ -23,13 +23,16 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-
+class InviteUsersWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit InviteUsersDialog(QWidget *parent = nullptr);
     ~InviteUsersDialog();
+    Q_REQUIRED_RESULT QString inviteUsersLink() const;
+private:
+    InviteUsersWidget *mInviteUsersWidget = nullptr;
 };
 
 #endif // INVITEUSERSDIALOG_H

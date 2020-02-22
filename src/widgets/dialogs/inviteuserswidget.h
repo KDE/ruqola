@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
 public:
     explicit InviteUsersWidget(QWidget *parent = nullptr);
     ~InviteUsersWidget();
+    Q_REQUIRED_RESULT QString inviteUsersLink() const;
 };
 
 #endif // INVITEUSERSWIDGET_H

@@ -34,3 +34,9 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 InviteUsersWidget::~InviteUsersWidget()
 {
 }
+
+QString InviteUsersWidget::inviteUsersLink() const
+{
+    //TODO
+    return {};
+}

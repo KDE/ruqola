@@ -20,6 +20,7 @@
 
 #include "inviteusersdialogtest.h"
 #include "dialogs/inviteusersdialog.h"
+#include "dialogs/inviteuserswidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -37,6 +38,11 @@ void InviteUsersDialogTest::shouldHaveDefaultValues()
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
+    InviteUsersWidget *mInviteUsersWidget = w.findChild<InviteUsersWidget *>(QStringLiteral("mInviteUsersWidget"));
+    QVERIFY(mInviteUsersWidget);
+
     auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
+
+    QVERIFY(w.inviteUsersLink().isEmpty());
 }

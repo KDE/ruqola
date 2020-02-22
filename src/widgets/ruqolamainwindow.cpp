@@ -47,6 +47,7 @@
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
+#include "dialogs/inviteusersdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -502,5 +503,9 @@ void RuqolaMainWindow::slotSaveAs()
 
 void RuqolaMainWindow::slotGenerateInviteUsers()
 {
-    //TODO
+    QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }

@@ -19,6 +19,7 @@
 */
 
 #include "inviteusersdialog.h"
+#include "inviteuserswidget.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -31,6 +32,10 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mInviteUsersWidget = new InviteUsersWidget(this);
+    mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
+    mainLayout->addWidget(mInviteUsersWidget);
+
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
@@ -40,4 +45,9 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
 
 InviteUsersDialog::~InviteUsersDialog()
 {
+}
+
+QString InviteUsersDialog::inviteUsersLink() const
+{
+    return mInviteUsersWidget->inviteUsersLink();
 }

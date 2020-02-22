@@ -21,9 +21,18 @@
 #include "inviteuserswidgettest.h"
 #include "dialogs/inviteuserswidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(InviteUsersWidgetTest)
 
 InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void InviteUsersWidgetTest::shouldHaveDefaultValues()
+{
+    InviteUsersWidget w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 }
