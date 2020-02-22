@@ -20,6 +20,7 @@
 
 #include "inviteuserswidgettest.h"
 #include "dialogs/inviteuserswidget.h"
+#include <KLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(InviteUsersWidgetTest)
@@ -35,4 +36,10 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+
+    KLineEdit *mInviteUserLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
+    QVERIFY(mInviteUserLineEdit);
+    QVERIFY(mInviteUserLineEdit->isReadOnly());
+    QVERIFY(mInviteUserLineEdit->trapReturnKey());
 }

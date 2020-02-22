@@ -19,9 +19,13 @@
 */
 
 #include "inviteuserswidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
+#include <KLineEdit>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -29,6 +33,12 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mInviteUserLineEdit = new KLineEdit(this);
+    mInviteUserLineEdit->setObjectName(QStringLiteral("mInviteUserLineEdit"));
+    mainLayout->addWidget(mInviteUserLineEdit);
+    mInviteUserLineEdit->setReadOnly(true);
+    mInviteUserLineEdit->setTrapReturnKey(true);
 }
 
 InviteUsersWidget::~InviteUsersWidget()
@@ -37,6 +47,5 @@ InviteUsersWidget::~InviteUsersWidget()
 
 QString InviteUsersWidget::inviteUsersLink() const
 {
-    //TODO
-    return {};
+    return mInviteUserLineEdit->text();
 }
