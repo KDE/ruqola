@@ -89,7 +89,6 @@ QNetworkRequest UsersPresenceJob::request() const
 bool UsersPresenceJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersPresenceJob job";
         return false;
     }
     return true;

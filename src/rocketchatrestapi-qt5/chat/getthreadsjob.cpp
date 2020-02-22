@@ -43,7 +43,6 @@ bool GetThreadsJob::requireHttpAuthentication() const
 bool GetThreadsJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetThreadsJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

@@ -95,7 +95,6 @@ QNetworkRequest SendMessageJob::request() const
 bool SendMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SendMessageJob job";
         return false;
     }
     if (mSendMessageArguments.message.isEmpty()) {

@@ -38,7 +38,6 @@ StarMessageJob::~StarMessageJob()
 bool StarMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start star message job";
         return false;
     }
     if (mMessageId.isEmpty()) {

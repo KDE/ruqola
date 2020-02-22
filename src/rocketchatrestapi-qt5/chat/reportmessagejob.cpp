@@ -78,7 +78,6 @@ bool ReportMessageJob::requireHttpAuthentication() const
 bool ReportMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ReportMessageJob";
         return false;
     }
     if (mMessageId.isEmpty()) {

@@ -38,7 +38,6 @@ LoginJob::~LoginJob()
 bool LoginJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start login job";
         return false;
     }
     if (mUserName.isEmpty()) {

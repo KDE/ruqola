@@ -108,7 +108,6 @@ bool FindOrCreateInviteJob::requireHttpAuthentication() const
 bool FindOrCreateInviteJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start FindOrCreateInviteJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

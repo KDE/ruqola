@@ -116,7 +116,6 @@ bool TranslateSaveSettingsJob::requireHttpAuthentication() const
 bool TranslateSaveSettingsJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start TranslateSaveSettingsJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

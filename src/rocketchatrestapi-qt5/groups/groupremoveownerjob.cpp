@@ -98,7 +98,6 @@ bool GroupRemoveOwnerJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupRemoveOwnerJob job";
         return false;
     }
     return true;

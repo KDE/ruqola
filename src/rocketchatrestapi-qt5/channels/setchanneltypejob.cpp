@@ -94,7 +94,6 @@ bool SetChannelTypeJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetChannelTypeJob job";
         return false;
     }
     return true;

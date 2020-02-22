@@ -42,7 +42,6 @@ bool GetGroupRolesJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetGroupRolesJob job";
         return false;
     }
     return true;

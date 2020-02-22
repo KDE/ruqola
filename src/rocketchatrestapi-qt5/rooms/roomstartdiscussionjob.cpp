@@ -127,7 +127,6 @@ bool RoomStartDiscussionJob::requireHttpAuthentication() const
 bool RoomStartDiscussionJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomStartDiscussionJob";
         return false;
     }
     if (mParentRoomId.isEmpty()) {

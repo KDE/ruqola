@@ -43,7 +43,6 @@ bool SyncThreadMessagesJob::requireHttpAuthentication() const
 bool SyncThreadMessagesJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SyncThreadMessagesJob";
         return false;
     }
     if (mThreadMessageId.isEmpty()) {

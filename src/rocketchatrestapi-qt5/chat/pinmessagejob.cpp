@@ -80,7 +80,6 @@ bool PinMessageJob::requireHttpAuthentication() const
 bool PinMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PinMessageJob";
         return false;
     }
     if (mMessageId.isEmpty()) {

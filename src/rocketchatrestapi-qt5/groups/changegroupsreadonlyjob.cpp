@@ -90,7 +90,6 @@ bool ChangeGroupsReadonlyJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsReadonlyJob job";
         return false;
     }
     return true;

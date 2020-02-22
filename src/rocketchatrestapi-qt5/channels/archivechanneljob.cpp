@@ -90,7 +90,6 @@ bool ArchiveChannelJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ArchiveChannelJob job";
         return false;
     }
     return true;

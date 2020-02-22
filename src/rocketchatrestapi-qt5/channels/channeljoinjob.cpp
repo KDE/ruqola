@@ -93,7 +93,6 @@ bool ChannelJoinJob::requireHttpAuthentication() const
 bool ChannelJoinJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelJoinJob job";
         return false;
     }
     if (!hasRoomIdentifier()) {

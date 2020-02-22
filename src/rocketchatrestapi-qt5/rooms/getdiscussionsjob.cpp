@@ -43,7 +43,6 @@ bool GetDiscussionsJob::requireHttpAuthentication() const
 bool GetDiscussionsJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetDiscussionsJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

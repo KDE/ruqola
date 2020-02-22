@@ -44,7 +44,6 @@ bool GetStarredMessagesJob::requireHttpAuthentication() const
 bool GetStarredMessagesJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetStarredMessagesJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

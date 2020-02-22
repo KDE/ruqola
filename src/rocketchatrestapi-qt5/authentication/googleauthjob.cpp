@@ -38,7 +38,6 @@ GoogleAuthJob::~GoogleAuthJob()
 bool GoogleAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start google login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {

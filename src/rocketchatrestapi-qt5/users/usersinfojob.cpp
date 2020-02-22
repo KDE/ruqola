@@ -121,7 +121,6 @@ bool UsersInfoJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersInfoJob job";
         return false;
     }
     return true;

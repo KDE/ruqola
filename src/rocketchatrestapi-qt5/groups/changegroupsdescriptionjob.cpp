@@ -94,7 +94,6 @@ bool ChangeGroupsDescriptionJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsDescriptionJob job";
         return false;
     }
     return true;

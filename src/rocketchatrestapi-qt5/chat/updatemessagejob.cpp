@@ -95,7 +95,6 @@ bool UpdateMessageJob::canStart() const
     //Updated text I think can be empty.
 
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UpdateMessageJob job";
         return false;
     }
     return true;

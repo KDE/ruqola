@@ -105,7 +105,6 @@ void PostMessageJob::setRoomId(const QString &roomId)
 bool PostMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PostMessageJob job";
         return false;
     }
     //It can be optional!

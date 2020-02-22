@@ -104,7 +104,6 @@ bool ChannelHistoryJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelHistoryJob job";
         return false;
     }
     return true;

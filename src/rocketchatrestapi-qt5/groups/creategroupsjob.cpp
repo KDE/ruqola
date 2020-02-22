@@ -111,7 +111,6 @@ bool CreateGroupsJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
         return false;
     }
     return true;

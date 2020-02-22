@@ -96,7 +96,6 @@ bool MarkRoomAsUnReadJob::requireHttpAuthentication() const
 bool MarkRoomAsUnReadJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start MarkRoomAsUnReadJob";
         return false;
     }
     if (mUnReadObject == Unknown) {

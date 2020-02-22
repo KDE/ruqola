@@ -42,7 +42,6 @@ UploadFileJob::~UploadFileJob()
 bool UploadFileJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start upload file job";
         return false;
     }
     if (mRoomId.isEmpty()) {

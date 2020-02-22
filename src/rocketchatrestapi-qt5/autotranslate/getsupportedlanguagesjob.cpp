@@ -88,7 +88,6 @@ QNetworkRequest GetSupportedLanguagesJob::request() const
 bool GetSupportedLanguagesJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetSupportedLanguagesJob";
         return false;
     }
     return true;

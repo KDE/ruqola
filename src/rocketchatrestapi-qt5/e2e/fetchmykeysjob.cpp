@@ -37,7 +37,6 @@ FetchMyKeysJob::~FetchMyKeysJob()
 bool FetchMyKeysJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start FetchKeyChain job";
         return false;
     }
     return true;

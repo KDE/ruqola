@@ -44,7 +44,6 @@ bool GetSnippetedMessagesJob::requireHttpAuthentication() const
 bool GetSnippetedMessagesJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetSnippetedMessagesJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

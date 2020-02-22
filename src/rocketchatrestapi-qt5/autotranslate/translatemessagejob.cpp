@@ -96,7 +96,6 @@ bool TranslateMessageJob::requireHttpAuthentication() const
 bool TranslateMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start TranslateMessageJob";
         return false;
     }
     if (mMessageId.isEmpty()) {

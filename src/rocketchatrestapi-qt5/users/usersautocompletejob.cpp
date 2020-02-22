@@ -109,7 +109,6 @@ bool UsersAutocompleteJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob job";
         return false;
     }
     return true;

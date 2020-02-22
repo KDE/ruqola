@@ -38,7 +38,6 @@ FacebookAuthJob::~FacebookAuthJob()
 bool FacebookAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start facebook login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {

@@ -124,7 +124,6 @@ QNetworkRequest IgnoreUserJob::request() const
 bool IgnoreUserJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ignore user job";
         return false;
     }
     if (mRoomId.isEmpty()) {

@@ -37,7 +37,6 @@ GetUsernameSuggestionJob::~GetUsernameSuggestionJob()
 bool GetUsernameSuggestionJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPresence job";
         return false;
     }
     return true;

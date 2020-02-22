@@ -80,7 +80,6 @@ bool LeaveChannelJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LeaveChannelJob job";
         return false;
     }
     return true;

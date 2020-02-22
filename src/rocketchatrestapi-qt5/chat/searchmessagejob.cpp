@@ -126,7 +126,6 @@ QNetworkRequest SearchMessageJob::request() const
 bool SearchMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start star message job";
         return false;
     }
     if (mRoomId.isEmpty()) {

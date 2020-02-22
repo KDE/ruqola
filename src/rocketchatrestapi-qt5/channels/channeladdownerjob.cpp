@@ -94,7 +94,6 @@ bool ChannelAddOwnerJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelAddOwnerJob job";
         return false;
     }
     return true;

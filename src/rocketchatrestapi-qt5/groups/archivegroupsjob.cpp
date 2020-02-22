@@ -92,7 +92,6 @@ bool ArchiveGroupsJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ArchiveGroupsJob job";
         return false;
     }
     return true;

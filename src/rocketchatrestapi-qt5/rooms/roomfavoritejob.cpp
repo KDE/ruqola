@@ -96,7 +96,6 @@ bool RoomFavoriteJob::requireHttpAuthentication() const
 bool RoomFavoriteJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomFavoriteJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

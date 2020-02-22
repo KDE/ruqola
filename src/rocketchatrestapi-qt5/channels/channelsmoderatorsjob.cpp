@@ -80,7 +80,6 @@ bool ChannelsModeratorsJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelsModeratorsJob job";
         return false;
     }
     return true;

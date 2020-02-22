@@ -102,7 +102,6 @@ QNetworkRequest GetMessageJob::request() const
 bool GetMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ignore user job";
         return false;
     }
     if (mMessageId.isEmpty()) {

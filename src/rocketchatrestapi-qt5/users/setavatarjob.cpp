@@ -95,7 +95,6 @@ bool SetAvatarJob::requireHttpAuthentication() const
 bool SetAvatarJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetAvatarJob";
         return false;
     }
     if (mAvatarUrl.isEmpty()) {

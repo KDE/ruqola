@@ -86,7 +86,6 @@ bool MarkRoomAsReadJob::requireHttpAuthentication() const
 bool MarkRoomAsReadJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start MarkRoomAsReadJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

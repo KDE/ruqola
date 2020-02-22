@@ -94,7 +94,6 @@ bool ChannelCloseJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelCloseJob job";
         return false;
     }
     return true;

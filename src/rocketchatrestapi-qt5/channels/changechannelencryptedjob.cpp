@@ -89,7 +89,6 @@ bool ChangeChannelEncryptedJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeChannelEncryptedJob job";
         return false;
     }
     return true;

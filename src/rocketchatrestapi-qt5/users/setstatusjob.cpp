@@ -105,7 +105,6 @@ bool SetStatusJob::requireHttpAuthentication() const
 bool SetStatusJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetStatusJob";
         return false;
     }
     if (mStatusUserId.isEmpty()) {

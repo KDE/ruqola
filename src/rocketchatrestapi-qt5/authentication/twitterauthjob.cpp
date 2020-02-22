@@ -38,7 +38,6 @@ TwitterAuthJob::~TwitterAuthJob()
 bool TwitterAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start facebook login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {

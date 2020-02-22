@@ -86,7 +86,6 @@ bool RoomLeaveJob::requireHttpAuthentication() const
 bool RoomLeaveJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomLeaveJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

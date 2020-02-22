@@ -94,7 +94,6 @@ bool ChangeChannelDescriptionJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeChannelDescriptionJob job";
         return false;
     }
     return true;

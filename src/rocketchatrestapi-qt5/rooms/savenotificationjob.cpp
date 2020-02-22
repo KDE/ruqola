@@ -196,7 +196,6 @@ bool SaveNotificationJob::requireHttpAuthentication() const
 bool SaveNotificationJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SaveNotificationJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

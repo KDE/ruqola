@@ -41,7 +41,6 @@ bool ForgotPasswordJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getavatar job";
         return false;
     }
     return true;

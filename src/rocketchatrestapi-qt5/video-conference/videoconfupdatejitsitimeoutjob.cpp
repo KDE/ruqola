@@ -86,7 +86,6 @@ bool VideoConfUpdateJitsiTimeOutJob::requireHttpAuthentication() const
 bool VideoConfUpdateJitsiTimeOutJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start VideoConfUpdateJitsiTimeOutJob";
         return false;
     }
     if (mRoomId.isEmpty()) {

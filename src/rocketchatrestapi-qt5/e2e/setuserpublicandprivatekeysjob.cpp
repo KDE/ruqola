@@ -96,7 +96,6 @@ bool SetUserPublicAndPrivateKeysJob::requireHttpAuthentication() const
 bool SetUserPublicAndPrivateKeysJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetUserPublicAndPrivateKeysJob";
         return false;
     }
     if (mRsaPrivateKey.isEmpty()) {

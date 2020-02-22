@@ -94,7 +94,6 @@ bool GroupAddModeratorJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupAddModeratorJob job";
         return false;
     }
     return true;
