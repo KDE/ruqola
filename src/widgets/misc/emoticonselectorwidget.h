@@ -44,7 +44,7 @@ public:
     explicit EmoticonSelectorWidget(QWidget *parent = nullptr);
     ~EmoticonSelectorWidget() override;
 
-    void setEmoticon(const QVector<UnicodeEmoticon> &emoticons);
+    void setEmoticons(const QVector<UnicodeEmoticon> &emoticons);
 
 Q_SIGNALS:
     void itemSelected(const QString &str);

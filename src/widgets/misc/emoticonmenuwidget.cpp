@@ -54,14 +54,12 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
-    const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = account->emojiManager()->unicodeEmojiMap();
-
-    QMapIterator<QString, QVector<UnicodeEmoticon> > i(emojiMap);
-    while (i.hasNext()) {
-        i.next();
+    EmojiManager *emojiManager = account->emojiManager();
+    const QVector<EmoticonCategory> categories = emojiManager->categories();
+    for (const EmoticonCategory &category : categories) {
         auto *w = new EmoticonSelectorWidget(this);
-        mTabWidget->addTab(w, i.value().at(0).unicode());
-        w->setEmoticon(i.value());
+        mTabWidget->addTab(w, category.name());
+        w->setEmoticons(emojiManager->emojisForCategory(category.category()));
         connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);
     }
 }

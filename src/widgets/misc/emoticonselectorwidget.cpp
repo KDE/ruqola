@@ -59,7 +59,7 @@ EmoticonSelectorWidget::~EmoticonSelectorWidget()
 {
 }
 
-void EmoticonSelectorWidget::setEmoticon(const QVector<UnicodeEmoticon> &emoticons)
+void EmoticonSelectorWidget::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
 {
     for (const UnicodeEmoticon &emoticon : emoticons) {
         new EmoticonTextEditItem(emoticon.identifier(), emoticon.unicode(), this);

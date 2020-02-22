@@ -54,16 +54,6 @@ void EmojiManager::loadUnicodeEmoji()
     mUnicodeEmojiList = unicodeParser.parse(obj);
 }
 
-QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiMap() const
-{
-    // cache this if called often (but better not use this method)
-    QMap<QString, QVector<UnicodeEmoticon> > map;
-    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
-        map[emo.category()].append(emo);
-    }
-    return map;
-}
-
 QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
 {
     return mUnicodeEmojiList;
@@ -86,6 +76,18 @@ QVector<EmoticonCategory> EmojiManager::categories() const
     }
     // TODO sort categories in a way that makes sense for the user
     return categories;
+}
+
+QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
+{
+    QVector<UnicodeEmoticon> result;
+
+    auto hasRequestedCategory = [category](const UnicodeEmoticon &emo) {
+        return emo.category() == category;
+    };
+    std::copy_if(mUnicodeEmojiList.begin(), mUnicodeEmojiList.end(),
+                 std::back_inserter(result), hasRequestedCategory);
+    return result;
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
