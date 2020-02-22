@@ -59,7 +59,7 @@ public:
     Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
 
 Q_SIGNALS:
-    void inputCompleter(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+    void completionRequested(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void completionModelChanged(QAbstractItemModel *model);
     void hideCompletion();
 

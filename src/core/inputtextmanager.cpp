@@ -131,11 +131,11 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
     } else {
         if (word.startsWith(QLatin1Char('@'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
-            Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::User);
+            Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::User);
             Q_EMIT completionModelChanged(mInputCompleterModel);
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
-            Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::Channel);
+            Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
             Q_EMIT completionModelChanged(mInputCompleterModel);
         } else if (word.startsWith(QLatin1Char(':'))) {
             mEmoticonFilterProxyModel->setFilterFixedString(word);
