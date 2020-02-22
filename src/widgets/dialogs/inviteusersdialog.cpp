@@ -51,3 +51,18 @@ QString InviteUsersDialog::inviteUsersLink() const
 {
     return mInviteUsersWidget->inviteUsersLink();
 }
+
+QString InviteUsersDialog::roomId() const
+{
+    return mInviteUsersWidget->roomId();
+}
+
+void InviteUsersDialog::setRoomId(const QString &roomId)
+{
+    mInviteUsersWidget->setRoomId(roomId);
+}
+
+void InviteUsersDialog::generateLink()
+{
+    mInviteUsersWidget->generateLink();
+}

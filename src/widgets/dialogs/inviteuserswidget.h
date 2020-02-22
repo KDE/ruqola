@@ -24,6 +24,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -31,8 +32,18 @@ public:
     explicit InviteUsersWidget(QWidget *parent = nullptr);
     ~InviteUsersWidget();
     Q_REQUIRED_RESULT QString inviteUsersLink() const;
+
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    void generateLink();
+
 private:
+    void createInviteLink();
+    void slotFindOrCreateInvite();
+    QString mRoomId;
     KLineEdit *mInviteUserLineEdit = nullptr;
+    QLabel *mLink = nullptr;
 };
 
 #endif // INVITEUSERSWIDGET_H

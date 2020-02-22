@@ -58,6 +58,8 @@ void FindOrCreateInviteJob::slotFindOrCreateInviteFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            //TODO parse element
+            qDebug()<< "replyObject " << replyObject;
             Q_EMIT findOrCreateInviteDone();
         } else {
             emitFailedMessage(replyObject, reply);

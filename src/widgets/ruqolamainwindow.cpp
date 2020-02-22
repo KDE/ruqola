@@ -504,6 +504,8 @@ void RuqolaMainWindow::slotSaveAs()
 void RuqolaMainWindow::slotGenerateInviteUsers()
 {
     QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(this);
+    dlg->setRoomId(mMainWidget->roomId());
+    dlg->generateLink();
     if (dlg->exec()) {
         //TODO
     }

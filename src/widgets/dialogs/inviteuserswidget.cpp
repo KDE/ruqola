@@ -21,6 +21,7 @@
 #include "inviteuserswidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "restapirequest.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -34,11 +35,26 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    QHBoxLayout *hlayout = new QHBoxLayout;
+    hlayout->setObjectName(QStringLiteral("hlayout"));
+    hlayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(hlayout);
+
+    QLabel *label = new QLabel(i18n("Invite Link:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    hlayout->addWidget(label);
+
     mInviteUserLineEdit = new KLineEdit(this);
     mInviteUserLineEdit->setObjectName(QStringLiteral("mInviteUserLineEdit"));
-    mainLayout->addWidget(mInviteUserLineEdit);
     mInviteUserLineEdit->setReadOnly(true);
     mInviteUserLineEdit->setTrapReturnKey(true);
+    hlayout->addWidget(mInviteUserLineEdit);
+
+    mLink = new QLabel(this);
+    mLink->setObjectName(QStringLiteral("mLink"));
+    mainLayout->addWidget(mLink);
+
+    connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
 }
 
 InviteUsersWidget::~InviteUsersWidget()
@@ -49,3 +65,26 @@ QString InviteUsersWidget::inviteUsersLink() const
 {
     return mInviteUserLineEdit->text();
 }
+
+void InviteUsersWidget::slotFindOrCreateInvite()
+{
+    qDebug() << " void InviteUsersWidget::slotFindOrCreateInvite()";
+    //TODO
+}
+
+QString InviteUsersWidget::roomId() const
+{
+    return mRoomId;
+}
+
+void InviteUsersWidget::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+void InviteUsersWidget::generateLink()
+{
+    qDebug() << " void InviteUsersWidget::generateLink()";
+    Ruqola::self()->rocketChatAccount()->restApi()->findOrCreateInvite(mRoomId, 20, 0);
+}
+
