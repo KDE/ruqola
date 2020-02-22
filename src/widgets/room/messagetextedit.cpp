@@ -48,10 +48,14 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::completionModelChanged,
                    this, &MessageTextEdit::setCompletionModel);
+        disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::hideCompletion,
+                mCompletionListView, &CompletionListView::hide);
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::completionModelChanged,
             this, &MessageTextEdit::setCompletionModel);
+    connect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::hideCompletion,
+            mCompletionListView, &CompletionListView::hide);
 }
 
 void MessageTextEdit::insert(const QString &text)

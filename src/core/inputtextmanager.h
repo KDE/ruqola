@@ -61,6 +61,7 @@ public:
 Q_SIGNALS:
     void inputCompleter(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void completionModelChanged(QAbstractItemModel *model);
+    void hideCompletion();
 
 private:
     Q_DISABLE_COPY(InputTextManager)
