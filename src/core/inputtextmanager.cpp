@@ -124,7 +124,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         return;
     }
     const QString word = searchWord(text, position);
-    const QString str = word.right(word.length()-1);
+    const QString str = word.mid(1);
     //qDebug() << " str :" << str << ": word :" << word << ":";
     if (word.isEmpty()) {
         clearCompleter();

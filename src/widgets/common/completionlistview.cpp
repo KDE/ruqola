@@ -55,6 +55,7 @@ void CompletionListView::setModel(QAbstractItemModel *model)
         connect(model, &QAbstractItemModel::rowsInserted, this, &CompletionListView::slotCompletionAvailable);
         connect(model, &QAbstractItemModel::rowsRemoved, this, &CompletionListView::slotCompletionAvailable);
         QListView::setModel(model);
+        slotCompletionAvailable();
     }
 }
 
