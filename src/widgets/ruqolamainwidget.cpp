@@ -67,7 +67,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 
-    connect(mChannelList, &ChannelListWidget::channelSelected, this, &RuqolaMainWidget::selectChannelRoom);
+    connect(mChannelList, &ChannelListWidget::roomSelected, this, &RuqolaMainWidget::selectChannelRoom);
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
@@ -87,9 +87,9 @@ RuqolaMainWidget::~RuqolaMainWidget()
     }
 }
 
-void RuqolaMainWidget::selectChannelRoom(const QModelIndex &index)
+void RuqolaMainWidget::selectChannelRoom(const QString &roomId, const QString &roomType)
 {
-    Q_EMIT mRoomWidget->channelSelected(index);
+    mRoomWidget->setChannelSelected(roomId, roomType);
     mStackedRoomWidget->setCurrentWidget(mRoomWidget);
     Q_EMIT channelSelected();
 }

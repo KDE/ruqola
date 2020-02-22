@@ -59,7 +59,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mChannelView = new ChannelListView(this);
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
-    connect(mChannelView, &ChannelListView::channelSelected, this, &ChannelListWidget::channelSelected);
+    connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
 
     auto *statusComboBoxLayout = new QHBoxLayout;
     mainLayout->addLayout(statusComboBoxLayout);
@@ -138,7 +138,7 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
         if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
             const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
             if (selectedIndex.isValid()) {
-                Q_EMIT channelSelected(selectedIndex);
+                mChannelView->channelSelected(selectedIndex);
                 mSearchRoom->setText({});
             }
         } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {

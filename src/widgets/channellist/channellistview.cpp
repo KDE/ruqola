@@ -63,7 +63,7 @@ void ChannelListView::setModel(QAbstractItemModel *model)
 void ChannelListView::slotClicked(const QModelIndex &index)
 {
     if (index.isValid()) {
-        Q_EMIT channelSelected(index);
+        channelSelected(index);
     }
 }
 
@@ -105,6 +105,13 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     }
 }
 
+void ChannelListView::channelSelected(const QModelIndex &index)
+{
+    const QString roomId = index.data(RoomModel::RoomID).toString();
+    const QString roomType = index.data(RoomModel::RoomType).toString();
+    Q_EMIT roomSelected(roomId, roomType);
+}
+
 void ChannelListView::slotHideChannel(const QModelIndex &index, const QString &roomType)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -136,7 +143,7 @@ void ChannelListView::selectChannelRequested(const QString &channelId)
         const auto roomModelIndex = filterModel->index(roomIdx, 0);
         const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
         if (roomId == channelId) {
-            Q_EMIT channelSelected(roomModelIndex);
+            channelSelected(roomModelIndex);
             selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
             break;
         }
@@ -153,7 +160,7 @@ bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRo
         const auto roomModelIndex = filterModel->index(roomIdx, 0);
         const auto roomName = roomModelIndex.data(RoomModel::RoomName).toString();
         if (roomName == selectedRoomName) {
-            Q_EMIT channelSelected(roomModelIndex);
+            channelSelected(roomModelIndex);
             selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
             return true;
         }

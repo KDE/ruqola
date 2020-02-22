@@ -29,7 +29,6 @@
 #include "messagetextedit.h"
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
-#include "model/roommodel.h"
 #include "dialogs/createnewdiscussiondialog.h"
 
 #include <QVBoxLayout>
@@ -73,7 +72,6 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
-    connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
     connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
@@ -161,7 +159,7 @@ void RoomWidget::dropEvent(QDropEvent *event)
     }
 }
 
-void RoomWidget::setChannelSelected(const QModelIndex &index)
+void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomType)
 {
     if (mMessageLineWidget->text().isEmpty()) {
         auto *vbar = mMessageListView->verticalScrollBar();
@@ -180,9 +178,8 @@ void RoomWidget::setChannelSelected(const QModelIndex &index)
         mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
     }
 
-    const QString roomId = index.data(RoomModel::RoomID).toString();
     setRoomId(roomId);
-    setRoomType(index.data(RoomModel::RoomType).toString());
+    setRoomType(roomType);
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     if (currentPendingInfo.isValid()) {
         mMessageLineWidget->setText(currentPendingInfo.text);

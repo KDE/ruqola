@@ -51,9 +51,9 @@ public:
     RoomWrapper *roomWrapper() const;
 
     void showListOfUsersInRoom(bool checked);
+    void setChannelSelected(const QString &roomId, const QString &roomType);
 
 Q_SIGNALS:
-    void channelSelected(const QModelIndex &index);
     void selectChannelRequested(const QString &channelId);
 
 protected:
@@ -61,7 +61,6 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-    void setChannelSelected(const QModelIndex &index);
     void slotSendMessage(const QString &msg);
     void slotEditMessage(const QString &messageId, const QString &text);
     void slotClearNotification();

@@ -40,7 +40,7 @@ public:
     Q_REQUIRED_RESULT QString roomType() const;
     RoomWrapper *roomWrapper() const;
 
-    void selectChannelRoom(const QModelIndex &index);
+    void selectChannelRoom(const QString &roomId, const QString &roomType);
     void showListOfUsersInRoom(bool checked);
 Q_SIGNALS:
     void channelSelected();

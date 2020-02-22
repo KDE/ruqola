@@ -41,8 +41,10 @@ public:
 
     Q_REQUIRED_RESULT bool selectChannelByRoomNameRequested(const QString &selectedRoomName);
 
-Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
+
+Q_SIGNALS:
+    void roomSelected(const QString &roomId, const QString &roomType);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;

@@ -42,7 +42,7 @@ public:
     Q_REQUIRED_RESULT QString currentSelectedRoom() const;
 
 Q_SIGNALS:
-    void channelSelected(const QModelIndex &index);
+    void roomSelected(const QString &roomId, const QString &roomType);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
