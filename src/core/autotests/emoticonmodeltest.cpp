@@ -82,7 +82,6 @@ void EmoticonModelTest::shouldFilterCategory()
     // THEN
     QCOMPARE(filterModel.currentCategory(), unknown);
     QCOMPARE(filterModel.rowCount(), 0);
-
 }
 
 //TODO add more check

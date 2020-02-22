@@ -52,7 +52,6 @@ public:
     Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-
 Q_SIGNALS:
     void removeUser(const QString &username);
 
