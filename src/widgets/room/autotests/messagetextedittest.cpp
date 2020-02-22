@@ -21,7 +21,10 @@
 #include "messagetextedittest.h"
 #include "room/messagetextedit.h"
 #include <QTest>
+#include <rocketchataccount.h>
+
 QTEST_MAIN(MessageTextEditTest)
+
 MessageTextEditTest::MessageTextEditTest(QObject *parent)
     : QObject(parent)
 {
@@ -30,6 +33,8 @@ MessageTextEditTest::MessageTextEditTest(QObject *parent)
 void MessageTextEditTest::shouldHaveDefautValues()
 {
     MessageTextEdit w;
+    RocketChatAccount account;
+    w.setCurrentRocketChatAccount(&account);
     w.insert(QStringLiteral("test"));
     QCOMPARE(w.text(), QStringLiteral("test"));
     QVERIFY(!w.acceptRichText());
