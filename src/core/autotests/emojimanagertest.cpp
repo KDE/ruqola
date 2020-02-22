@@ -77,7 +77,7 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":woman_climbing_tone4:")).unicode().length(), 7);
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":man_health_worker_tone1:")).unicode().length(), 7);
 
-    QCOMPARE(manager.categories().count(), 10);
+    QCOMPARE(manager.categories().count(), 9);
     QCOMPARE(manager.categories().at(0).category(), QStringLiteral("symbols"));
     QCOMPARE(manager.emojisForCategory(QStringLiteral("symbols")).count(), 304);
 }

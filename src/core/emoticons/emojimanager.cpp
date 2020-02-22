@@ -68,6 +68,8 @@ QVector<EmoticonCategory> EmojiManager::categories() const
         const QString category = emo.category();
         if (!seen.contains(category)) {
             seen.insert(category);
+            if (category == QLatin1String("modifier")) // pointless icons
+                continue;
             EmoticonCategory cat;
             cat.setCategory(category);
             cat.setName(emo.unicode());
