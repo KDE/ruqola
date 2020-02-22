@@ -154,7 +154,7 @@ RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
 {
     mRestApiMethod = new RestApiMethod;
-    mCookieJar = new QNetworkCookieJar;
+    mCookieJar = new QNetworkCookieJar(this);
     mNetworkAccessManager = new QNetworkAccessManager(this);
     mNetworkAccessManager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     mNetworkAccessManager->setCookieJar(mCookieJar);
