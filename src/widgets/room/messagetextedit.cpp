@@ -27,6 +27,8 @@
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 
+#include <common/emojicompletiondelegate.h>
+
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
 {
@@ -41,6 +43,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     connect(mUserAndChannelCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 
     mEmojiCompletionListView = new CompletionListView;
+    mEmojiCompletionListView->setItemDelegate(new EmojiCompletionDelegate(mEmojiCompletionListView));
     mEmojiCompletionListView->setTextWidget(this);
     connect(mEmojiCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 }
@@ -57,10 +60,6 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::completionTypeChanged,
                    this, &MessageTextEdit::slotCompletionTypeChanged);
-        disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::hideCompletion,
-                   mUserAndChannelCompletionListView, &CompletionListView::hide);
-        disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::hideCompletion,
-                   mEmojiCompletionListView, &CompletionListView::hide);
     }
     mCurrentRocketChatAccount = account;
     InputTextManager *textManager = mCurrentRocketChatAccount->inputTextManager();
@@ -68,10 +67,6 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
     mEmojiCompletionListView->setModel(textManager->emojiCompleterModel());
     connect(textManager, &InputTextManager::completionTypeChanged,
             this, &MessageTextEdit::slotCompletionTypeChanged);
-    connect(textManager, &InputTextManager::hideCompletion,
-            mUserAndChannelCompletionListView, &CompletionListView::hide);
-    connect(textManager, &InputTextManager::hideCompletion,
-            mEmojiCompletionListView, &CompletionListView::hide);
 }
 
 void MessageTextEdit::insert(const QString &text)
@@ -141,6 +136,9 @@ void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForT
         // show emoji completion popup when typing ':'
         mEmojiCompletionListView->slotCompletionAvailable();
         mUserAndChannelCompletionListView->hide();
+    } else if (type == InputTextManager::None) {
+        mUserAndChannelCompletionListView->hide();
+        mEmojiCompletionListView->hide();
     } else {
         // the user and channel completion inserts rows when typing '@' so it will trigger slotCompletionAvailable automatically
         mEmojiCompletionListView->hide();

@@ -157,7 +157,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
 void InputTextManager::clearCompleter()
 {
     mInputCompleterModel->clear();
-    Q_EMIT hideCompletion();
+    setCompletionType(None);
 }
 
 // Used by MessageTextEdit to set the completion model for the listview

@@ -38,7 +38,8 @@ public:
     enum CompletionForType {
         Channel = 0,
         User,
-        Emoji
+        Emoji,
+        None
     };
     explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager() override;
@@ -62,10 +63,9 @@ public:
 
 Q_SIGNALS:
     // Trigger autocompletion request in DDPClient (via RocketChatAccount)
-    // Emitted with Channel and User, never Emoji
+    // Emitted with Channel and User, never Emoji or None
     void completionRequested(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void completionTypeChanged(InputTextManager::CompletionForType type);
-    void hideCompletion();
 
 private:
     Q_DISABLE_COPY(InputTextManager)
@@ -74,7 +74,7 @@ private:
 
     InputCompleterModel *mInputCompleterModel = nullptr;
     QSortFilterProxyModel *mEmoticonFilterProxyModel = nullptr;
-    CompletionForType mCurrentCompletionType = User;
+    CompletionForType mCurrentCompletionType = None;
 };
 
 Q_DECLARE_METATYPE(InputTextManager::CompletionForType)
