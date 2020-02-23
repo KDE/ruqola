@@ -69,9 +69,9 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
             this, &MessageTextEdit::slotCompletionTypeChanged);
 }
 
-void MessageTextEdit::insert(const QString &text)
+void MessageTextEdit::insertEmoji(const QString &text)
 {
-    textCursor().insertText(text);
+    textCursor().insertText(text + QLatin1Char(' '));
 }
 
 QString MessageTextEdit::text() const

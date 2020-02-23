@@ -35,7 +35,7 @@ void MessageTextEditTest::shouldHaveDefautValues()
     MessageTextEdit w;
     RocketChatAccount account;
     w.setCurrentRocketChatAccount(&account);
-    w.insert(QStringLiteral("test"));
-    QCOMPARE(w.text(), QStringLiteral("test"));
+    w.insertEmoji(QStringLiteral(":emoji:"));
+    QCOMPARE(w.text(), QStringLiteral(":emoji: "));
     QVERIFY(!w.acceptRichText());
 }

@@ -41,7 +41,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
-    void insert(const QString &text);
+    void insertEmoji(const QString &text);
     QString text() const;
 
     QSize sizeHint() const override;

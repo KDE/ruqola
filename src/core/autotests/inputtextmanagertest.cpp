@@ -128,4 +128,10 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
     QCOMPARE(requestSpy.count(), 1);
     QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
+    typeChangedSpy.clear();
+
+    manager.setInputTextChanged(QStringLiteral("a :heart:"), 9);
+    QCOMPARE(typeChangedSpy.count(), 1);
+    QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Emoji);
+    typeChangedSpy.clear();
 }

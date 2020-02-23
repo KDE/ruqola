@@ -69,7 +69,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     action->setDefaultWidget(mEmoticonMenuWidget);
     emoticonMenu->addAction(action);
     mEmoticonButton->setMenu(emoticonMenu);
-    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageTextEdit, &MessageTextEdit::insert);
+    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageTextEdit, &MessageTextEdit::insertEmoji);
 
     setFocusProxy(mMessageTextEdit);
 }
