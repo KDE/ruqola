@@ -32,6 +32,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldShowHideIcon();
+    void shouldEmitSignal();
 };
 
 #endif // ROOMHEADERWIDGETTEST_H

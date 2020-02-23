@@ -21,9 +21,11 @@
 #include "roomheaderwidgettest.h"
 #include "room/roomheaderwidget.h"
 #include <QLabel>
+#include <qtestmouse.h>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <QSignalSpy>
 QTEST_MAIN(RoomHeaderWidgetTest)
 RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
     : QObject(parent)
@@ -113,4 +115,23 @@ void RoomHeaderWidgetTest::shouldShowHideIcon()
     w.setIsDiscussion(false);
     QVERIFY(mFavoriteButton->isVisible());
     QVERIFY(!mDiscussionBackButton->isVisible());
+}
+
+void RoomHeaderWidgetTest::shouldEmitSignal()
+{
+    RoomHeaderWidget w;
+    w.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&w));
+
+    QSignalSpy favoriteSignal(&w, &RoomHeaderWidget::favoriteChanged);
+    QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
+    QTest::mouseClick( mFavoriteButton, Qt::LeftButton );
+    QCOMPARE(favoriteSignal.count(), 1);
+
+    QToolButton *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
+
+    QSignalSpy searchMessageSignal(&w, &RoomHeaderWidget::searchMessageRequested);
+    QTest::mouseClick(mSearchMessageButton, Qt::LeftButton);
+    QCOMPARE(searchMessageSignal.count(), 1);
+
 }
