@@ -129,7 +129,6 @@ void MessageLineWidget::setMode(const EditingMode &mode)
 {
     if (mMode != mode) {
         mMode = mode;
-        //Cache icon ?
         switch (mMode) {
         case EditingMode::NewMessage:
             mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
