@@ -60,7 +60,7 @@ void FindOrCreateInviteJob::slotFindOrCreateInviteFinished()
             addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             //TODO parse element
             qDebug()<< "replyObject " << replyObject;
-            Q_EMIT findOrCreateInviteDone();
+            Q_EMIT findOrCreateInviteDone({}); //TODO
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("FindOrCreateInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -23,11 +23,19 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include <QDateTime>
+
 namespace RocketChatRestApi {
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT FindOrCreateInviteJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    struct InviteUsersInfo {
+        QUrl url;
+        QString roomId;
+        QString userId;
+        QDateTime expireDateTime;
+    };
     explicit FindOrCreateInviteJob(QObject *parent = nullptr);
     ~FindOrCreateInviteJob() override;
 
@@ -48,7 +56,7 @@ public:
     void setNumberOfDays(int numberOfDays);
 
 Q_SIGNALS:
-    void findOrCreateInviteDone();
+    void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
 private:
     Q_DISABLE_COPY(FindOrCreateInviteJob)
