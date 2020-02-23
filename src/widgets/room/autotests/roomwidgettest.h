@@ -29,8 +29,10 @@ class RoomWidgetTest : public QObject
 public:
     explicit RoomWidgetTest(QObject *parent = nullptr);
     ~RoomWidgetTest() override = default;
+
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldStorePendingTextPerRoom();
 };
 
 #endif // ROOMWIDGETTEST_H

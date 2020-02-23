@@ -187,6 +187,8 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
         if (currentPendingInfo.scrollbarPosition != -1) {
             mMessageListView->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
         }
+    } else {
+        mMessageLineWidget->setText(QString());
     }
     mMessageLineWidget->setMode(mMessageIdBeingEdited.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
 
