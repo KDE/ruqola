@@ -50,6 +50,7 @@ void InputTextManagerTest::shouldReplaceWord_data()
     QTest::newRow("replace2") << QStringLiteral("bla") << QStringLiteral("foo @daaaa") << 5 << QStringLiteral("foo @bla") << 8;
     QTest::newRow("replace3") << QStringLiteral("bla") << QStringLiteral("@daaaa foo") << 1 << QStringLiteral("@bla foo") << 4;
     QTest::newRow("buildbot") << QStringLiteral("buildbot ") << QStringLiteral("@bu") << 3 << QStringLiteral("@buildbot ") << 10;
+    QTest::newRow("trailing_space_already_there") << QStringLiteral("bla ") << QStringLiteral("@daaaa foo") << 1 << QStringLiteral("@bla foo") << 5;
 }
 
 void InputTextManagerTest::shouldReplaceWord()

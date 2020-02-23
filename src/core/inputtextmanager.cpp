@@ -79,7 +79,10 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
     int end = text.length() - 1;
     for (int i = position; i < text.length(); i++) {
         if (text.at(i).isSpace()) {
-            end = i - 1;
+            end = i;
+            if (!newWord.endsWith(QLatin1Char(' '))) {
+                --end;
+            }
             break;
         }
     }
