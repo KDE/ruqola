@@ -433,6 +433,14 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
         return i18n("The private group is archived");
     } else if (str == QLatin1String("error-user-already-owner")) {
         return i18n("User is already an owner");
+    } else if (str == QLatin1String("error-invalid-message_id")) {
+        return i18n("Invalid message id");
+    } else if (str == QLatin1String("error-user-not-leader")) {
+        return i18n("User is not a leader");
+    } else if (str == QLatin1String("error-app-user-is-not-allowed-to-login")) {
+        return i18n("App user is not allowed to login");
+    } else if (str == QLatin1String("error-direct-message-room")) {
+        return i18n("Direct Messages can not be archived");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
