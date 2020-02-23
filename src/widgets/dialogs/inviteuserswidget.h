@@ -22,6 +22,7 @@
 #define INVITEUSERSWIDGET_H
 
 #include <QWidget>
+#include "invite/findorcreateinvitejob.h"
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class QLabel;
@@ -40,7 +41,7 @@ public:
 
 private:
     void createInviteLink();
-    void slotFindOrCreateInvite();
+    void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
     QString mRoomId;
     KLineEdit *mInviteUserLineEdit = nullptr;
     QLabel *mLink = nullptr;

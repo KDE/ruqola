@@ -66,7 +66,7 @@ QString InviteUsersWidget::inviteUsersLink() const
     return mInviteUserLineEdit->text();
 }
 
-void InviteUsersWidget::slotFindOrCreateInvite()
+void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info)
 {
     qDebug() << " void InviteUsersWidget::slotFindOrCreateInvite()";
     //TODO
