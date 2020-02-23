@@ -76,6 +76,7 @@ private:
     void slotGoBackToRoom();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     bool handleMimeData(const QMimeData *mimeData);
+    void slotSearchMessages();
 
     QString mRoomId;
     QString mRoomType;

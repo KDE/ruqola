@@ -37,7 +37,6 @@
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showmentionsmessagesdialog.h"
 #include "dialogs/showsnipperedmessagesdialog.h"
-#include "dialogs/searchmessagedialog.h"
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showdiscussionsdialog.h"
@@ -132,7 +131,6 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     mShowPinnedMessages->setEnabled(enabled);
     mShowStarredMessages->setEnabled(enabled);
     mShowSnipperedMessages->setEnabled(enabled);
-    mSearchMessages->setEnabled(enabled);
     mConfigureNotification->setEnabled(enabled);
     mLoadChannelHistory->setEnabled(enabled);
     mShowFileAttachments->setEnabled(enabled);
@@ -223,11 +221,6 @@ void RuqolaMainWindow::setupActions()
     mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
     connect(mShowSnipperedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSnipperedMessages);
     ac->addAction(QStringLiteral("show_snippered_messages"), mShowSnipperedMessages);
-
-    mSearchMessages = new QAction(QIcon::fromTheme(QStringLiteral("edit-find")), i18n("Search Messages..."), this);
-    ac->setDefaultShortcuts(mSearchMessages, KStandardShortcut::find());
-    connect(mSearchMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSearchMessages);
-    ac->addAction(QStringLiteral("search_messages"), mSearchMessages);
 
     mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
     connect(mConfigureNotification, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureNotification);
@@ -362,14 +355,6 @@ void RuqolaMainWindow::slotConfigureNotification()
     dlg->setRoomWrapper(mMainWidget->roomWrapper());
     if (dlg->exec()) {
     }
-    delete dlg;
-}
-
-void RuqolaMainWindow::slotSearchMessages()
-{
-    QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
-    dlg->setRoomId(mMainWidget->roomId());
-    dlg->exec();
     delete dlg;
 }
 

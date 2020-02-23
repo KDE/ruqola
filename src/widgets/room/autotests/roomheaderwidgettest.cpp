@@ -89,6 +89,11 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mListOfUsersButton->toolTip().isEmpty());
     QVERIFY(!mListOfUsersButton->icon().isNull());
 
+    QToolButton *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
+    QVERIFY(mSearchMessageButton);
+    QVERIFY(!mSearchMessageButton->isCheckable());
+    QVERIFY(!mSearchMessageButton->toolTip().isEmpty());
+    QVERIFY(!mSearchMessageButton->icon().isNull());
     //TODO verify signal/slot
 }
 

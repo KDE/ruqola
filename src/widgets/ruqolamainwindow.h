@@ -53,7 +53,6 @@ private:
     void slotPinnedMessages();
     void slotStarredMessages();
     void slotSnipperedMessages();
-    void slotSearchMessages();
     void slotConfigureNotification();
     void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
     void slotClearNotification();
@@ -81,7 +80,6 @@ private:
     QAction *mShowPinnedMessages = nullptr;
     QAction *mShowStarredMessages = nullptr;
     QAction *mShowSnipperedMessages = nullptr;
-    QAction *mSearchMessages = nullptr;
     QAction *mConfigureNotification = nullptr;
     QAction *mLoadChannelHistory = nullptr;
     QAction *mShowFileAttachments = nullptr;

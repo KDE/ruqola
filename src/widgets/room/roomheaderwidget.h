@@ -47,6 +47,7 @@ Q_SIGNALS:
     void encryptedChanged(bool b);
     void goBackToRoom();
     void listOfUsersChanged(bool b);
+    void searchMessageRequested();
 
 private:
     QLabel *mRoomName = nullptr;
@@ -57,6 +58,7 @@ private:
     QToolButton *mEncryptedButton = nullptr;
     QToolButton *mDiscussionBackButton = nullptr;
     QToolButton *mListOfUsersButton = nullptr;
+    QToolButton *mSearchMessageButton = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

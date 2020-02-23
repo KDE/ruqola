@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="8">
+<gui name="ruqola" version="9">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_account" />
@@ -38,8 +38,6 @@
   </Menu>
   <Menu name="message" >
    <text>Message</text>
-   <Action name="search_messages" />
-   <Separator/>
    <Action name="video_chat" />
   </Menu>
   <Menu name="display" >

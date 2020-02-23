@@ -30,6 +30,7 @@
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
+#include "dialogs/searchmessagedialog.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -39,6 +40,7 @@
 #include <QMimeData>
 #include <QPointer>
 #include <QScrollBar>
+
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -82,6 +84,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::listOfUsersChanged, this, &RoomWidget::slotShowListOfUsersInRoom);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::searchMessageRequested, this, &RoomWidget::slotSearchMessages);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
@@ -92,6 +95,14 @@ RoomWidget::RoomWidget(QWidget *parent)
 RoomWidget::~RoomWidget()
 {
     delete mRoomWrapper;
+}
+
+void RoomWidget::slotSearchMessages()
+{
+    QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
+    dlg->setRoomId(mRoomId);
+    dlg->exec();
+    delete dlg;
 }
 
 void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)

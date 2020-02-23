@@ -105,6 +105,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mListOfUsersButton->setToolTip(i18n("Show List of Users"));
     headerLayout->addWidget(mListOfUsersButton, Qt::AlignTop);
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
+
+    mSearchMessageButton = new QToolButton(this);
+    mSearchMessageButton->setObjectName(QStringLiteral("mSearchMessageButton"));
+    mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
+    mSearchMessageButton->setCheckable(false);
+    mSearchMessageButton->setToolTip(i18n("Search Messages..."));
+    headerLayout->addWidget(mSearchMessageButton, Qt::AlignTop);
+    connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
