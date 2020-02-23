@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "invite/findorcreateinvitejob.h"
 #include "channels/channelbasejob.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "restapiutil.h"
@@ -241,7 +242,7 @@ Q_SIGNALS:
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
     void failed(const QString &str);
-    void findOrCreateInviteDone();
+    void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

@@ -58,9 +58,7 @@ void FindOrCreateInviteJob::slotFindOrCreateInviteFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            //TODO parse element
-            qDebug()<< "replyObject " << replyObject;
-            Q_EMIT findOrCreateInviteDone({}); //TODO
+            Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("FindOrCreateInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -68,6 +66,12 @@ void FindOrCreateInviteJob::slotFindOrCreateInviteFinished()
         reply->deleteLater();
     }
     deleteLater();
+}
+
+FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)
+{
+    qDebug()<< "replyObject " << replyObject;
+    return {};
 }
 
 int FindOrCreateInviteJob::numberOfDays() const

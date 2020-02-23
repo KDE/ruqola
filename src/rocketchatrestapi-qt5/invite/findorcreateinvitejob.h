@@ -55,6 +55,7 @@ public:
     Q_REQUIRED_RESULT int numberOfDays() const;
     void setNumberOfDays(int numberOfDays);
 
+    Q_REQUIRED_RESULT FindOrCreateInviteJob::InviteUsersInfo parseResult(const QJsonObject &replyObject);
 Q_SIGNALS:
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
