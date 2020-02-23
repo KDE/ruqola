@@ -83,7 +83,7 @@ void GetAvatarJob::slotGetAvatar()
             QString str = QString::fromUtf8(data);
             str.remove(QLatin1Char('"'));
             const QString userId = reply->property("userId").toString();
-            addLoggerWarning(QByteArrayLiteral("GetAvatarJob success: ") + data);
+            addLoggerWarning(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
             Q_EMIT avatar(userId, str);
         }
         reply->deleteLater();
