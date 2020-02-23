@@ -60,8 +60,8 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
         }
     }
     auto compareOrder = [](const UnicodeEmoticon &left, const UnicodeEmoticon &right) {
-        return left.order() < right.order();
-    };
+                            return left.order() < right.order();
+                        };
     std::sort(lstEmoticons.begin(), lstEmoticons.end(), compareOrder);
     return lstEmoticons;
 }

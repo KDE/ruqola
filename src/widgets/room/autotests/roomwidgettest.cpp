@@ -69,7 +69,7 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.roomId().isEmpty());
 }
 
-static Room* createRoom(const QString &roomId, const QString &roomName)
+static Room *createRoom(const QString &roomId, const QString &roomName)
 {
     RocketChatAccount *rcAccount = Ruqola::self()->rocketChatAccount();
     Room *r = new Room(rcAccount);

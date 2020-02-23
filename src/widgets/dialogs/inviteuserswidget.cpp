@@ -87,4 +87,3 @@ void InviteUsersWidget::generateLink()
     qDebug() << " void InviteUsersWidget::generateLink()";
     Ruqola::self()->rocketChatAccount()->restApi()->findOrCreateInvite(mRoomId, 20, 0);
 }
-

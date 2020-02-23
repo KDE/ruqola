@@ -25,8 +25,8 @@
 #include <QPainter>
 
 EmojiCompletionDelegate::EmojiCompletionDelegate(QObject *parent)
-    : QItemDelegate(parent),
-     mEmojiFont(QStringLiteral("NotoColorEmoji"))
+    : QItemDelegate(parent)
+    , mEmojiFont(QStringLiteral("NotoColorEmoji"))
 {
 }
 

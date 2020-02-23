@@ -104,7 +104,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 
-
     mListOfUsersButton = new QToolButton(this);
     mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));

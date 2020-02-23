@@ -227,7 +227,6 @@ QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
         return generateErrorMessage(error);
     }
-
 }
 
 QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const

@@ -37,7 +37,6 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-
     KLineEdit *mInviteUserLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
     QVERIFY(mInviteUserLineEdit->isReadOnly());

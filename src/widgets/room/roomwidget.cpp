@@ -41,7 +41,6 @@
 #include <QPointer>
 #include <QScrollBar>
 
-
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
 {

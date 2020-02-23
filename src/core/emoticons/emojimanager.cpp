@@ -66,8 +66,9 @@ QVector<EmoticonCategory> EmojiManager::categories() const
         const QString category = emo.category();
         if (!seen.contains(category)) {
             seen.insert(category);
-            if (category == QLatin1String("modifier")) // pointless icons
+            if (category == QLatin1String("modifier")) { // pointless icons
                 continue;
+            }
             EmoticonCategory cat;
             cat.setCategory(category);
             cat.setName(emo.unicode());
@@ -83,8 +84,8 @@ QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category
     QVector<UnicodeEmoticon> result;
 
     auto hasRequestedCategory = [category](const UnicodeEmoticon &emo) {
-        return emo.category() == category;
-    };
+                                    return emo.category() == category;
+                                };
     std::copy_if(mUnicodeEmojiList.begin(), mUnicodeEmojiList.end(),
                  std::back_inserter(result), hasRequestedCategory);
     return result;

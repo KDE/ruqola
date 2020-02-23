@@ -64,7 +64,6 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     CompletionListView *mUserAndChannelCompletionListView;
     CompletionListView *mEmojiCompletionListView;
-
 };
 
 #endif // MESSAGETEXTEDIT_H

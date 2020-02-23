@@ -87,10 +87,10 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
     EmojiManager manager;
     const QVector<UnicodeEmoticon> list = manager.unicodeEmojiList();
     auto hasCategory = [](const QString &category) {
-        return [category](const UnicodeEmoticon &emo) {
-            return emo.category() == category;
-        };
-    };
+                           return [category](const UnicodeEmoticon &emo) {
+                                      return emo.category() == category;
+                           };
+                       };
     // Check what's the first emoji in the category "symbols"
     auto it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("symbols")));
     QVERIFY(it != list.end());

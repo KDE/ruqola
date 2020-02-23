@@ -31,8 +31,9 @@ EmoticonCategoriesModel::~EmoticonCategoriesModel()
 
 int EmoticonCategoriesModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0; // flat model
+    }
     return mCategories.count();
 }
 

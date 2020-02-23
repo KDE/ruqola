@@ -83,7 +83,6 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDiscussionBackButton->isCheckable());
     QVERIFY(!mDiscussionBackButton->isVisible());
 
-
     QToolButton *mListOfUsersButton = w.findChild<QToolButton *>(QStringLiteral("mListOfUsersButton"));
     QVERIFY(mListOfUsersButton);
     QVERIFY(mListOfUsersButton->isCheckable());
@@ -125,7 +124,7 @@ void RoomHeaderWidgetTest::shouldEmitSignal()
 
     QSignalSpy favoriteSignal(&w, &RoomHeaderWidget::favoriteChanged);
     QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
-    QTest::mouseClick( mFavoriteButton, Qt::LeftButton );
+    QTest::mouseClick(mFavoriteButton, Qt::LeftButton);
     QCOMPARE(favoriteSignal.count(), 1);
 
     QToolButton *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
@@ -133,5 +132,4 @@ void RoomHeaderWidgetTest::shouldEmitSignal()
     QSignalSpy searchMessageSignal(&w, &RoomHeaderWidget::searchMessageRequested);
     QTest::mouseClick(mSearchMessageButton, Qt::LeftButton);
     QCOMPARE(searchMessageSignal.count(), 1);
-
 }
