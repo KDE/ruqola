@@ -553,7 +553,11 @@ QIcon RoomModel::icon(Room *r) const
             return QIcon::fromTheme(userStatusIconFileName);
         }
     } else if (r->channelType() == QLatin1Char('p')) {
-        return QIcon::fromTheme(QStringLiteral("lock"));
+        if (r->parentRid().isEmpty()) {
+            return QIcon::fromTheme(QStringLiteral("lock"));
+        } else {
+            //TODO use a specific icon for discussion
+        }
     }
     return {};
 }
