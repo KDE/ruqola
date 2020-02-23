@@ -23,6 +23,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QToolButton>
+#include <KLocalizedString>
 
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
@@ -96,6 +97,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mDescription->setOpenExternalLinks(true);
     mDescription->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescription->setVisible(false);
+
+    mListOfUsersButton = new QToolButton(this);
+    mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
+    mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
+    mListOfUsersButton->setCheckable(true);
+    mListOfUsersButton->setToolTip(i18n("Show List of Users"));
+    headerLayout->addWidget(mListOfUsersButton, Qt::AlignTop);
+    connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()

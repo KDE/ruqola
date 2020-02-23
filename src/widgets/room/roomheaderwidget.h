@@ -46,6 +46,7 @@ Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);
     void goBackToRoom();
+    void listOfUsersChanged(bool b);
 
 private:
     QLabel *mRoomName = nullptr;
@@ -55,6 +56,7 @@ private:
     QToolButton *mFavoriteButton = nullptr;
     QToolButton *mEncryptedButton = nullptr;
     QToolButton *mDiscussionBackButton = nullptr;
+    QToolButton *mListOfUsersButton = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

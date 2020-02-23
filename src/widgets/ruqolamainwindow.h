@@ -69,7 +69,6 @@ private:
     void slotAddUsersInRoom();
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
-    void slotListOfUsersInRoom(bool checked);
     void slotStartVideoChat();
     void slotGenerateInviteUsers();
 
@@ -91,7 +90,6 @@ private:
     QAction *mUnreadOnTop = nullptr;
     QAction *mChannelInfo = nullptr;
     QAction *mAddUserInRooms = nullptr;
-    QAction *mListOfUsers = nullptr;
     QAction *mStartVideoChat = nullptr;
     QAction *mSaveAs = nullptr;
     QAction *mInviteGenerateUrl = nullptr;

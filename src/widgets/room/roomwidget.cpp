@@ -79,6 +79,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::listOfUsersChanged, this, &RoomWidget::slotShowListOfUsersInRoom);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
@@ -230,7 +231,7 @@ RoomWrapper *RoomWidget::roomWrapper() const
     return mRoomWrapper;
 }
 
-void RoomWidget::showListOfUsersInRoom(bool checked)
+void RoomWidget::slotShowListOfUsersInRoom(bool checked)
 {
     mUsersInRoomFlowWidget->setVisible(checked);
 }

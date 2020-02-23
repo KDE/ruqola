@@ -139,7 +139,6 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     mShowDiscussions->setEnabled(enabled);
     mShowThreads->setEnabled(enabled);
     mChannelInfo->setEnabled(enabled);
-    mListOfUsers->setEnabled(enabled);
     mStartVideoChat->setEnabled(enabled);
     mSaveAs->setEnabled(enabled);
     RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
@@ -270,12 +269,6 @@ void RuqolaMainWindow::setupActions()
     ac->setDefaultShortcut(clearAlerts, Qt::SHIFT + Qt::Key_Escape);
     connect(clearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), clearAlerts);
-
-    mListOfUsers = new QAction(QIcon::fromTheme(QStringLiteral("system-users")), i18n("List of Users"), this);
-    mListOfUsers->setCheckable(true);
-    mListOfUsers->setChecked(false);
-    connect(mListOfUsers, &QAction::triggered, this, &RuqolaMainWindow::slotListOfUsersInRoom);
-    ac->addAction(QStringLiteral("list_of_users_in_room"), mListOfUsers);
 
     mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
     connect(mStartVideoChat, &QAction::triggered, this, &RuqolaMainWindow::slotStartVideoChat);
@@ -484,11 +477,6 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
         mCurrentRocketChatAccount->joinRoom(channelInfo.channelInfoIdentifier, dlg->password());
     }
     delete dlg;
-}
-
-void RuqolaMainWindow::slotListOfUsersInRoom(bool checked)
-{
-    mMainWidget->showListOfUsersInRoom(checked);
 }
 
 void RuqolaMainWindow::slotStartVideoChat()

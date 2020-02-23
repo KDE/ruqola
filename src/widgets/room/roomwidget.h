@@ -50,7 +50,7 @@ public:
 
     RoomWrapper *roomWrapper() const;
 
-    void showListOfUsersInRoom(bool checked);
+    void slotShowListOfUsersInRoom(bool checked);
     void setChannelSelected(const QString &roomId, const QString &roomType);
 
 Q_SIGNALS:

@@ -73,11 +73,6 @@ RoomWrapper *RuqolaCentralWidget::roomWrapper() const
     return mRuqolaMainWidget->roomWrapper();
 }
 
-void RuqolaCentralWidget::showListOfUsersInRoom(bool checked)
-{
-    mRuqolaMainWidget->showListOfUsersInRoom(checked);
-}
-
 QString RuqolaCentralWidget::roomId() const
 {
     return mRuqolaMainWidget->roomId();
