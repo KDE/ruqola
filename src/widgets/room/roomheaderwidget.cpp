@@ -98,7 +98,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mDescription->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescription->setVisible(false);
 
-    auto *buttonLayout = new QHBoxLayout(this);
+    auto *buttonLayout = new QHBoxLayout;
     buttonLayout->setObjectName(QStringLiteral("buttonLayout"));
     buttonLayout->setContentsMargins(0, 0, 0, 0);
     buttonLayout->setSpacing(0);
