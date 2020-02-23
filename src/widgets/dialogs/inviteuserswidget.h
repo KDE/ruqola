@@ -37,7 +37,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    void generateLink();
+    void generateLink(int maxUses = 20, int numberOfDays = 0);
 
 private:
     void createInviteLink();

@@ -69,6 +69,7 @@ QString InviteUsersWidget::inviteUsersLink() const
 void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info)
 {
     qDebug() << " void InviteUsersWidget::slotFindOrCreateInvite()";
+    mInviteUserLineEdit->setText(info.url.toString());
     //TODO
 }
 
@@ -82,8 +83,7 @@ void InviteUsersWidget::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void InviteUsersWidget::generateLink()
+void InviteUsersWidget::generateLink(int maxUses, int numberOfDays)
 {
-    qDebug() << " void InviteUsersWidget::generateLink()";
-    Ruqola::self()->rocketChatAccount()->restApi()->findOrCreateInvite(mRoomId, 20, 0);
+    Ruqola::self()->rocketChatAccount()->restApi()->findOrCreateInvite(mRoomId, maxUses, numberOfDays);
 }
