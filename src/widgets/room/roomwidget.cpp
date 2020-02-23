@@ -40,6 +40,9 @@
 #include <QMimeData>
 #include <QPointer>
 #include <QScrollBar>
+#include <QTemporaryFile>
+#include <QDir>
+#include <QImageWriter>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -156,21 +159,34 @@ void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
 
 bool RoomWidget::handleMimeData(const QMimeData *mimeData)
 {
+    auto uploadFile = [this](const QUrl &url) {
+        QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+        dlg->setFileUrl(url);
+        if (dlg->exec()) {
+            const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
+            slotSendFile(uploadFileInfo);
+        }
+    };
     if (mimeData->hasUrls()) {
         const QList<QUrl> urls = mimeData->urls();
         for (const QUrl &url : urls) {
             if (url.isLocalFile()) {
-                QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
-                dlg->setFileUrl(url);
-                if (dlg->exec()) {
-                    const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
-                    slotSendFile(uploadFileInfo);
-                }
+                uploadFile(url);
             }
         }
         return true;
     } else if (mimeData->hasImage()) {
-        // TODO save to temp file, then same as above [lambda?]
+        QTemporaryFile tempFile(QDir::tempPath() + QLatin1String("/XXXXXX.png"));
+        if (tempFile.open()) {
+            QImage image = mimeData->imageData().value<QImage>();
+            QImageWriter writer(&tempFile, "PNG");
+            if (writer.write(image)) {
+                const QUrl url = QUrl::fromLocalFile(tempFile.fileName());
+                tempFile.close();
+                uploadFile(url);
+                return true;
+            }
+        }
     }
     return false;
 }
