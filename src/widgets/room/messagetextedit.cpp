@@ -97,7 +97,6 @@ QSize MessageTextEdit::minimumSizeHint() const
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
     const int key = e->key();
-    qDebug() << key;
     if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {
             Q_EMIT sendMessage(text());
