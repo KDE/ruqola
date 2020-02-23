@@ -31,6 +31,7 @@ class MessageListView;
 class MessageLineWidget;
 class RoomWrapper;
 class ReadOnlyLineEditWidget;
+class QMimeData;
 class QStackedWidget;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
@@ -74,6 +75,7 @@ private:
     void slotTextEditing(bool clearNotification);
     void slotGoBackToRoom();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
+    bool handleMimeData(const QMimeData *mimeData);
 
     QString mRoomId;
     QString mRoomType;

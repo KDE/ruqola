@@ -31,6 +31,8 @@
 #include "usersinroomflowwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
 
+#include <QApplication>
+#include <QClipboard>
 #include <QVBoxLayout>
 #include <QKeyEvent>
 #include <QStackedWidget>
@@ -142,9 +144,8 @@ void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-void RoomWidget::dropEvent(QDropEvent *event)
+bool RoomWidget::handleMimeData(const QMimeData *mimeData)
 {
-    const QMimeData *mimeData = event->mimeData();
     if (mimeData->hasUrls()) {
         const QList<QUrl> urls = mimeData->urls();
         for (const QUrl &url : urls) {
@@ -157,6 +158,18 @@ void RoomWidget::dropEvent(QDropEvent *event)
                 }
             }
         }
+        return true;
+    } else if (mimeData->hasImage()) {
+        // TODO save to temp file, then same as above [lambda?]
+    }
+    return false;
+}
+
+void RoomWidget::dropEvent(QDropEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        handleMimeData(mimeData);
     }
 }
 
@@ -294,6 +307,12 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
             slotClearNotification();
         }
         ev->accept();
+    } else if (ev->matches(QKeySequence::Paste)) {
+        const QMimeData *mimeData = qApp->clipboard()->mimeData();
+        if (handleMimeData(mimeData)) {
+            ev->accept();
+            return;
+        }
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }
