@@ -200,16 +200,17 @@ QString Utils::convertTextWithUrl(const QString &str)
     QString url;
     QString references;
     for (int i = 0; i < str.count(); ++i) {
-        if (str.at(i) == QLatin1Char('[')) {
+        const QChar ref = str.at(i);
+        if (ref == QLatin1Char('[')) {
             isRef = true;
-        } else if (str.at(i) == QLatin1Char(']')) {
+        } else if (ref == QLatin1Char(']')) {
             isRef = false;
             if ((i == str.count() - 1) || (str.at(i+1) != QLatin1Char('('))) {
                 newStr += QLatin1Char('[') + references + QLatin1Char(']');
             }
-        } else if (str.at(i) == QLatin1Char('(') && !references.isEmpty()) {
+        } else if (ref == QLatin1Char('(') && !references.isEmpty()) {
             isUrl = true;
-        } else if (str.at(i) == QLatin1Char(')') && !references.isEmpty()) {
+        } else if (ref == QLatin1Char(')') && !references.isEmpty()) {
             isUrl = false;
             // detect whether the string already contains HTML <a/> tags
             if (url.startsWith(QLatin1Char('<'))) {
@@ -221,11 +222,11 @@ QString Utils::convertTextWithUrl(const QString &str)
             url.clear();
         } else {
             if (isRef) {
-                references += str.at(i);
+                references += ref;
             } else if (isUrl) {
-                url += str.at(i);
+                url += ref;
             } else {
-                newStr += str.at(i);
+                newStr += ref;
             }
         }
     }
