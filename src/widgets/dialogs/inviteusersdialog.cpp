@@ -36,7 +36,7 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
     mainLayout->addWidget(mInviteUsersWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &InviteUsersDialog::accept);
@@ -45,11 +45,6 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
 
 InviteUsersDialog::~InviteUsersDialog()
 {
-}
-
-QString InviteUsersDialog::inviteUsersLink() const
-{
-    return mInviteUsersWidget->inviteUsersLink();
 }
 
 QString InviteUsersDialog::roomId() const

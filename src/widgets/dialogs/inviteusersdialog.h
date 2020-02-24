@@ -30,7 +30,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersDialog : public QDialog
 public:
     explicit InviteUsersDialog(QWidget *parent = nullptr);
     ~InviteUsersDialog();
-    Q_REQUIRED_RESULT QString inviteUsersLink() const;
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
     void generateLink();

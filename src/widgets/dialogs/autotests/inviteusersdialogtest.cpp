@@ -43,6 +43,4 @@ void InviteUsersDialogTest::shouldHaveDefaultValues()
 
     auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
-
-    QVERIFY(w.inviteUsersLink().isEmpty());
 }

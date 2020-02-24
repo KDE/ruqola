@@ -32,7 +32,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
 public:
     explicit InviteUsersWidget(QWidget *parent = nullptr);
     ~InviteUsersWidget();
-    Q_REQUIRED_RESULT QString inviteUsersLink() const;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
@@ -42,6 +41,7 @@ public:
 private:
     void createInviteLink();
     void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
+    void slotCopyLink();
     QString mRoomId;
     KLineEdit *mInviteUserLineEdit = nullptr;
     QLabel *mLink = nullptr;

@@ -21,7 +21,9 @@
 #include "inviteuserswidgettest.h"
 #include "dialogs/inviteuserswidget.h"
 #include <KLineEdit>
+#include <QLabel>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 QTEST_MAIN(InviteUsersWidgetTest)
 
@@ -37,8 +39,21 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
+    QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+
     KLineEdit *mInviteUserLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
     QVERIFY(mInviteUserLineEdit->isReadOnly());
     QVERIFY(mInviteUserLineEdit->trapReturnKey());
+
+    QToolButton *copyLinkButton = w.findChild<QToolButton *>(QStringLiteral("copyLinkButton"));
+    QVERIFY(copyLinkButton);
+    QVERIFY(!copyLinkButton->icon().isNull());
+
+    QLabel *mLink = w.findChild<QLabel *>(QStringLiteral("mLink"));
+    QVERIFY(mLink);
+    QVERIFY(mLink->text().isEmpty());
 }

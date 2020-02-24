@@ -27,6 +27,9 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <KLineEdit>
+#include <QToolButton>
+#include <QClipboard>
+#include <QApplication>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -50,6 +53,12 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     mInviteUserLineEdit->setTrapReturnKey(true);
     hlayout->addWidget(mInviteUserLineEdit);
 
+    QToolButton *copyLinkButton = new QToolButton(this);
+    copyLinkButton->setObjectName(QStringLiteral("copyLinkButton"));
+    copyLinkButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+    hlayout->addWidget(copyLinkButton);
+    connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
+
     mLink = new QLabel(this);
     mLink->setObjectName(QStringLiteral("mLink"));
     mainLayout->addWidget(mLink);
@@ -61,14 +70,16 @@ InviteUsersWidget::~InviteUsersWidget()
 {
 }
 
-QString InviteUsersWidget::inviteUsersLink() const
+void InviteUsersWidget::slotCopyLink()
 {
-    return mInviteUserLineEdit->text();
+    const QString link = mInviteUserLineEdit->text();
+    QClipboard *clip = QApplication::clipboard();
+    clip->setText(link, QClipboard::Clipboard);
+    clip->setText(link, QClipboard::Selection);
 }
 
 void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info)
 {
-    qDebug() << " void InviteUsersWidget::slotFindOrCreateInvite()";
     mInviteUserLineEdit->setText(info.url.toString());
     //TODO
 }
