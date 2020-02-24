@@ -147,3 +147,12 @@ QJsonDocument FindOrCreateInviteJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+QDebug operator <<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
+{
+    d << " url: " << t.url;
+    d << " roomId: " << t.roomId;
+    d << " userId: " << t.userId;
+    d << " expireDateTime: " << t.expireDateTime;
+    return d;
+}

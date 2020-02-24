@@ -67,4 +67,6 @@ private:
     int mNumberOfDays = 0;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &t);
 #endif // FINDORCREATEINVITEJOB_H
