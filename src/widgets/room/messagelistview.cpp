@@ -274,6 +274,8 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
 void MessageListView::slotReportMessage(const QModelIndex &index)
 {
     QPointer<ReportMessageDialog> dlg = new ReportMessageDialog(this);
+    const QString message = index.data(MessageModel::OriginalMessage).toString();
+    dlg->setPreviewMessage(message);
     if (dlg->exec()) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const QString messageId = index.data(MessageModel::MessageId).toString();

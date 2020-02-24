@@ -78,3 +78,8 @@ QString ReportMessageDialog::message() const
 {
     return mReportMessageWidget->message();
 }
+
+void ReportMessageDialog::setPreviewMessage(const QString &msg)
+{
+    mReportMessageWidget->setPreviewMessage(msg);
+}

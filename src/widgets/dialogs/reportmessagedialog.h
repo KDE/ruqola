@@ -32,6 +32,7 @@ public:
     explicit ReportMessageDialog(QWidget *parent = nullptr);
     ~ReportMessageDialog() override;
     Q_REQUIRED_RESULT QString message() const;
+    void setPreviewMessage(const QString &msg);
 private:
     void readConfig();
     void writeConfig();

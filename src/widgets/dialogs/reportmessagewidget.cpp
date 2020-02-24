@@ -29,19 +29,34 @@
 ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QHBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mMessagePreview = new QLabel(this);
+    mMessagePreview->setObjectName(QStringLiteral("mMessagePreview"));
+    mMessagePreview->setWordWrap(true);
+    QFont messagePreviewFont = mMessagePreview->font();
+    messagePreviewFont.setBold(true);
+    mMessagePreview->setFont(messagePreviewFont);
+    mainLayout->addWidget(mMessagePreview);
+
+
+    QHBoxLayout *messageLayout = new QHBoxLayout;
+    messageLayout->setObjectName(QStringLiteral("messageLayout"));
+    messageLayout->setContentsMargins(0, 0, 0, 0);
+
+    mainLayout->addLayout(messageLayout);
+
     QLabel *lab = new QLabel(i18n("Message:"), this);
     lab->setObjectName(QStringLiteral("label"));
-    mainLayout->addWidget(lab);
+    messageLayout->addWidget(lab);
 
     mMessageLineEdit = new QLineEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mMessageLineEdit->setClearButtonEnabled(true);
     mMessageLineEdit->setPlaceholderText(i18n("Why you signal this message?"));
-    mainLayout->addWidget(mMessageLineEdit);
+    messageLayout->addWidget(mMessageLineEdit);
     connect(mMessageLineEdit, &QLineEdit::textChanged, this, [this]() {
         Q_EMIT updateOkButton(!mMessageLineEdit->text().trimmed().isEmpty());
     });
@@ -54,4 +69,9 @@ ReportMessageWidget::~ReportMessageWidget()
 QString ReportMessageWidget::message() const
 {
     return mMessageLineEdit->text();
+}
+
+void ReportMessageWidget::setPreviewMessage(const QString &msg)
+{
+    mMessagePreview->setText(msg);
 }
