@@ -21,11 +21,11 @@
 #ifndef EMOTICONCATEGORY_H
 #define EMOTICONCATEGORY_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QString>
 #include <QDebug>
 
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategory
+class LIBRUQOLACORE_EXPORT EmoticonCategory
 {
 public:
     EmoticonCategory();
