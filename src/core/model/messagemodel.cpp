@@ -332,8 +332,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return true; // show date at the top
     case MessageModel::CanEditMessage:
-        return (message.timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))
-               > QDateTime::currentMSecsSinceEpoch();
+        return mRocketChatAccount->isMessageEditable(message);
     case MessageModel::Starred:
         return message.starred();
     case MessageModel::UsernameUrl:

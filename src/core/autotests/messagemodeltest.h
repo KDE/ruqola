@@ -31,6 +31,7 @@ public:
     ~MessageModelTest() override = default;
 
 private Q_SLOTS:
+    void initTestCase();
     void shouldHaveDefaultValue();
     void shouldAddMessage();
     void shouldRemoveMessage();
@@ -38,6 +39,7 @@ private Q_SLOTS:
     void shouldDetectDateChange();
     void shouldAddMessages();
     void shouldUpdateFirstMessage();
+    void shouldAllowEditing();
 };
 
 #endif // MESSAGEMODELTEST_H

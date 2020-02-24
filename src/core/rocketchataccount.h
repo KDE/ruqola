@@ -367,6 +367,8 @@ public:
 
     void initializeAccount();
     Q_REQUIRED_RESULT bool allowEditingMessages() const;
+    Q_REQUIRED_RESULT bool isMessageEditable(const Message &message) const;
+
     Q_REQUIRED_RESULT bool otrEnabled() const;
 
     ListMessagesModel *listMessageModel() const;

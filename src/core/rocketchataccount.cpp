@@ -1749,6 +1749,18 @@ bool RocketChatAccount::allowEditingMessages() const
     return mRuqolaServerConfig->allowMessageEditing();
 }
 
+bool RocketChatAccount::isMessageEditable(const Message &message) const
+{
+    if (!allowEditingMessages()) {
+        return false;
+    }
+    if (message.userId() != userID()) {
+        return false;
+    }
+    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000)
+            > QDateTime::currentMSecsSinceEpoch();
+}
+
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
     qCWarning(RUQOLA_LOG) << " NOT IMPLEMENTED YET";

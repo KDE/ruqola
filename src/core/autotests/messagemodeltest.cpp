@@ -21,7 +21,10 @@
 #include "messagemodeltest.h"
 #include "test_model_helpers.h"
 #include "model/messagemodel.h"
+#include <rocketchataccount.h>
+#include <ruqola.h>
 #include <QTest>
+#include <QStandardPaths>
 
 QTEST_GUILESS_MAIN(MessageModelTest)
 
@@ -30,10 +33,17 @@ MessageModelTest::MessageModelTest(QObject *parent)
 {
 }
 
+void MessageModelTest::initTestCase()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QVERIFY(rcAccount);
+    rcAccount->settings()->setUserId(QStringLiteral("userid1"));
+}
+
 void MessageModelTest::shouldHaveDefaultValue()
 {
-    //TODO add roqulaaccount
-    MessageModel w;
+    MessageModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
 
     QHash<int, QByteArray> roles;
@@ -80,7 +90,7 @@ static void fillTestMessage(Message &input)
 {
     input.setRoomId(QStringLiteral("room2"));
     input.setText(QStringLiteral("message1"));
-    input.setTimeStamp(42);
+    input.setTimeStamp(QDateTime::currentMSecsSinceEpoch());
     input.setUsername(QStringLiteral("user1"));
     input.setUserId(QStringLiteral("userid1"));
     input.setUpdatedAt(45);
@@ -289,4 +299,25 @@ void MessageModelTest::shouldUpdateFirstMessage()
     input.setText(QStringLiteral("modified"));
     model.addMessages({ input });
     QCOMPARE(model.index(0, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
+}
+
+void MessageModelTest::shouldAllowEditing()
+{
+    // GIVEN a message from me
+    MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    Message input;
+    fillTestMessage(input);
+    model.addMessages({ input });
+    QCOMPARE(model.rowCount(), 1);
+
+    // THEN
+    QVERIFY(model.index(0, 0).data(MessageModel::CanEditMessage).toBool());
+
+    // GIVEN a message from someone else
+    input.setMessageId(QStringLiteral("msg2"));
+    input.setUserId(QStringLiteral("someone_else"));
+    model.addMessage(input);
+
+    // THEN
+    QVERIFY(!model.index(1, 0).data(MessageModel::CanEditMessage).toBool());
 }
