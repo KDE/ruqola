@@ -97,12 +97,13 @@ void UserLabel::slotOpenConversation()
 
 void UserLabel::slotIgnoreUser()
 {
+    //Ruqola::self()->rocketChatAccount()->ignoreUser(mRoomWrapper->roomId(), mUserId, ignored)
     qWarning() << " void UserLabel::slotIgnoreUser() not implemented yet";
 }
 
 void UserLabel::slotRemoveFromRoom()
 {
-    qWarning() << " void UserLabel::slotRemoveFromRoom() not implemented yet";
+    Ruqola::self()->rocketChatAccount()->kickUser(mRoomWrapper->roomId(), mUserId, mRoomWrapper->channelType());
 }
 
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
@@ -151,6 +152,8 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
             separator->setSeparator(true);
             menu.addAction(separator);
         }
+
+        //text: user_ignored ? i18n("Unignore") : i18n("Ignore")
         QAction *ignoreAction = new QAction(i18n("Ignore"), &menu);
         connect(ignoreAction, &QAction::triggered, this, &UserLabel::slotIgnoreUser);
         menu.addAction(ignoreAction);
