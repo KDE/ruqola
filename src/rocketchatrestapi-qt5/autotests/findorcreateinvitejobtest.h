@@ -34,6 +34,8 @@ private Q_SLOTS:
     void shouldGenerateRequest();
     void shouldGenerateJson();
     void shouldNotStarting();
+    void shouldParseResult();
+    void shouldParseResult_data();
 };
 
 #endif // FINDORCREATEINVITEJOBTEST_H
