@@ -230,7 +230,7 @@ void RuqolaMainWindow::setupActions()
     connect(mLoadChannelHistory, &QAction::triggered, this, &RuqolaMainWindow::slotLoadRecentHistory);
     ac->addAction(QStringLiteral("load_recent_history"), mLoadChannelHistory);
 
-    mShowFileAttachments = new QAction(i18n("Show File Attachment..."), this);
+    mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachment..."), this);
     connect(mShowFileAttachments, &QAction::triggered, this, &RuqolaMainWindow::slotShowFileAttachments);
     ac->addAction(QStringLiteral("show_file_attachments"), mShowFileAttachments);
 
