@@ -31,6 +31,7 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT FindOrCreateInviteJob : public RestA
     Q_OBJECT
 public:
     struct InviteUsersInfo {
+        int maxUses = -1;
         QUrl url;
         QString roomId;
         QString userId;
