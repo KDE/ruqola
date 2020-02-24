@@ -197,6 +197,7 @@ QString Utils::convertTextWithUrl(const QString &str)
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
+    bool isHasNewRef = false;
     QString url;
     QString references;
     for (int i = 0; i < str.count(); ++i) {
@@ -208,6 +209,23 @@ QString Utils::convertTextWithUrl(const QString &str)
             if ((i == str.count() - 1) || (str.at(i+1) != QLatin1Char('('))) {
                 newStr += QLatin1Char('[') + references + QLatin1Char(']');
             }
+//        } else if (ref == QLatin1Char('|')) {
+//            isUrl = false;
+//            isRef = true;
+//            isHasNewRef = true;
+//        } else if (ref == QLatin1Char('<')) {
+//            isUrl = true;
+//        } else if (ref == QLatin1Char('>') && isHasNewRef) {
+//            isUrl = false;
+//            isRef = false;
+//            isHasNewRef = false;
+//            if (url.startsWith(QLatin1Char('<'))) {
+//                newStr += url.replace(regularExpressionAHref, QStringLiteral("<a href=\"\\1\">%1</a>").arg(references));
+//            } else {
+//                newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+//            }
+//            references.clear();
+//            url.clear();
         } else if (ref == QLatin1Char('(') && !references.isEmpty()) {
             isUrl = true;
         } else if (ref == QLatin1Char(')') && !references.isEmpty()) {
