@@ -92,14 +92,17 @@ void UserLabel::setUserId(const QString &userId)
 
 void UserLabel::slotOpenConversation()
 {
+    qWarning() << " void UserLabel::slotOpenConversation() not implemented yet";
 }
 
 void UserLabel::slotIgnoreUser()
 {
+    qWarning() << " void UserLabel::slotIgnoreUser() not implemented yet";
 }
 
 void UserLabel::slotRemoveFromRoom()
 {
+    qWarning() << " void UserLabel::slotRemoveFromRoom() not implemented yet";
 }
 
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
