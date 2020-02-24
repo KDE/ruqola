@@ -42,9 +42,12 @@ public:
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
-
 Q_SIGNALS:
     void deleteMessageDone();
+
+protected:
+    Q_REQUIRED_RESULT QString jobName() const override;
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
 
 private:
     Q_DISABLE_COPY(DeleteMessageJob)

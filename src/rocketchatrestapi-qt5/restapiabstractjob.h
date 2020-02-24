@@ -106,7 +106,7 @@ protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     void emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply);
     void addAuthRawHeader(QNetworkRequest &request) const;
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str);
+    virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str);
     virtual Q_REQUIRED_RESULT QString jobName() const;
     QueryParameters mQueryParameters;
     QString mAuthToken;
