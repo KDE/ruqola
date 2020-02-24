@@ -21,7 +21,7 @@
 #include "createnewaccountwidgettest.h"
 #include "dialogs/createnewaccountwidget.h"
 #include <QFormLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 #include <QTest>
 QTEST_MAIN(CreateNewAccountWidgetTest)
 CreateNewAccountWidgetTest::CreateNewAccountWidgetTest(QObject *parent)
@@ -37,20 +37,23 @@ void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
+    auto *mAccountName = w.findChild<KLineEdit *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
     QVERIFY(mAccountName->isClearButtonEnabled());
+    QVERIFY(mAccountName->trapReturnKey());
 
-    auto *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
+    auto *mServerName = w.findChild<KLineEdit *>(QStringLiteral("mServerName"));
     QVERIFY(mServerName);
     QVERIFY(mServerName->text().isEmpty());
     QVERIFY(mServerName->isClearButtonEnabled());
+    QVERIFY(mServerName->trapReturnKey());
 
-    auto *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto *mUserName = w.findChild<KLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QVERIFY(mUserName->isClearButtonEnabled());
+    QVERIFY(mUserName->trapReturnKey());
 
     QVERIFY(w.accountName().isEmpty());
     QVERIFY(w.userName().isEmpty());

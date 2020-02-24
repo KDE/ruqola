@@ -24,7 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
+class KLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget
 {
     Q_OBJECT
@@ -45,9 +45,9 @@ Q_SIGNALS:
 
 private:
     void slotChangeOkButtonEnabled();
-    QLineEdit *mAccountName = nullptr;
-    QLineEdit *mServerName = nullptr;
-    QLineEdit *mUserName = nullptr;
+    KLineEdit *mAccountName = nullptr;
+    KLineEdit *mServerName = nullptr;
+    KLineEdit *mUserName = nullptr;
 };
 
 #endif // CREATENEWACCOUNTWIDGET_H

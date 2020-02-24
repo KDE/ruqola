@@ -21,7 +21,7 @@
 #include "createnewaccountwidget.h"
 
 #include <QFormLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 
 #include <KLocalizedString>
 
@@ -32,24 +32,27 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mAccountName = new QLineEdit(this);
+    mAccountName = new KLineEdit(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setClearButtonEnabled(true);
+    mAccountName->setTrapReturnKey(true);
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
 
-    mServerName = new QLineEdit(this);
+    mServerName = new KLineEdit(this);
     mServerName->setObjectName(QStringLiteral("mServerName"));
     mServerName->setClearButtonEnabled(true);
+    mServerName->setTrapReturnKey(true);
     mainLayout->addRow(i18n("Server Name:"), mServerName);
 
-    mUserName = new QLineEdit(this);
+    mUserName = new KLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
+    mUserName->setTrapReturnKey(true);
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
-    connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
-    connect(mServerName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
-    connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mUserName, &KLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mServerName, &KLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mAccountName, &KLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
 
     //TODO add support for two factor ?
 }
