@@ -51,6 +51,7 @@ void UsersInRoomFlowWidget::setRoomWrapper(RoomWrapper *roomWrapper)
         connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::updateList);
         connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateList);
         connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::updateList);
+        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::updateList);
         updateList();
     } else {
         mFlowLayout->clearAndDeleteWidgets();
