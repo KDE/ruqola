@@ -18,20 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELACTIONPOPUPMENU_H
-#define CHANNELACTIONPOPUPMENU_H
+#ifndef CHANNELACTIONPOPUPMENUTEST_H
+#define CHANNELACTIONPOPUPMENUTEST_H
 
 #include <QObject>
-#include "libruqolawidgets_private_export.h"
-class QMenu;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelActionPopupMenu : public QObject
+
+class ChannelActionPopupMenuTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ChannelActionPopupMenu(QObject *parent = nullptr);
-    ~ChannelActionPopupMenu();
-private:
-    QMenu *mMenu = nullptr;
+    explicit ChannelActionPopupMenuTest(QObject *parent = nullptr);
+    ~ChannelActionPopupMenuTest() = default;
 };
 
-#endif // CHANNELACTIONPOPUPMENU_H
+#endif // CHANNELACTIONPOPUPMENUTEST_H
