@@ -37,10 +37,6 @@ Ruqola *Ruqola::self()
 {
     if (!s_self) {
         s_self = new Ruqola;
-        // Create systray to show notifications on Desktop
-#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
-        s_self->notification();
-#endif
     }
     return s_self;
 }

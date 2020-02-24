@@ -92,6 +92,11 @@ int main(int argc, char *argv[])
         loadAccount = parser.value(QStringLiteral("account"));
     }
     (void)Ruqola::self();
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+    // Create systray to show notifications on Desktop
+    (void)Ruqola::self()->notification();
+#endif
+
     if (!loadAccount.isEmpty()) {
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
