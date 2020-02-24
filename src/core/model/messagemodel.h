@@ -144,6 +144,9 @@ private:
     QStringList roomRoles(const QString &userId) const;
     QString convertMessageText(const Message &message, const QString &userName) const;
     QString threadMessagePreview(const QString &threadMessageId, const QString &userName) const;
+    QVector<Message>::iterator findMessage(const QString &messageId);
+    QVector<Message>::const_iterator findMessage(const QString &messageId) const;
+
     QString mRoomId;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;

@@ -454,12 +454,9 @@ void MessageModel::clear()
 void MessageModel::changeShowOriginalMessage(const QString &messageId, bool showOriginal)
 {
     Q_UNUSED(showOriginal)
-    //TODO implement it
-    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
-        return msg.messageId() == messageId;
-    });
+    auto it = findMessage(messageId);
     if (it != mAllMessages.end()) {
-        //TODO
+        //TODO implement it
     }
 }
 
@@ -496,9 +493,7 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
 
 void MessageModel::changeDisplayAttachment(const QString &messageId, bool displayAttachment)
 {
-    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
-        return msg.messageId() == messageId;
-    });
+    auto it = findMessage(messageId);
     if (it != mAllMessages.end()) {
         (*it).setShowAttachment(displayAttachment);
     }
@@ -506,9 +501,7 @@ void MessageModel::changeDisplayAttachment(const QString &messageId, bool displa
 
 void MessageModel::deleteMessage(const QString &messageId)
 {
-    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
-        return msg.messageId() == messageId;
-    });
+    auto it = findMessage(messageId);
     if (it != mAllMessages.end()) {
         const int i = std::distance(mAllMessages.begin(), it);
         beginRemoveRows(QModelIndex(), i, i);
@@ -525,9 +518,7 @@ qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
 QString MessageModel::threadMessagePreview(const QString &threadMessageId, const QString &userName) const
 {
     if (!threadMessageId.isEmpty()) {
-        auto it = std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [threadMessageId](const Message &msg) {
-            return msg.messageId() == threadMessageId;
-        });
+        auto it = findMessage(threadMessageId);
         if (it != mAllMessages.cend()) {
             QString str = convertMessageText((*it), userName);
             if (str.length() > 80) {
@@ -539,6 +530,20 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId, const
         }
     }
     return {};
+}
+
+QVector<Message>::iterator MessageModel::findMessage(const QString &messageId)
+{
+    return std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
+        return msg.messageId() == messageId;
+    });
+}
+
+QVector<Message>::const_iterator MessageModel::findMessage(const QString &messageId) const
+{
+    return std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [&](const Message &msg) {
+        return msg.messageId() == messageId;
+    });
 }
 
 QString MessageModel::roomId() const
