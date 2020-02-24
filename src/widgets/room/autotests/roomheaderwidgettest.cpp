@@ -95,7 +95,11 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSearchMessageButton->isCheckable());
     QVERIFY(!mSearchMessageButton->toolTip().isEmpty());
     QVERIFY(!mSearchMessageButton->icon().isNull());
-    //TODO verify signal/slot
+
+    QToolButton *mChannelAction = w.findChild<QToolButton *>(QStringLiteral("mChannelAction"));
+    QVERIFY(mChannelAction);
+    QCOMPARE(mChannelAction->popupMode(), QToolButton::InstantPopup);
+    QVERIFY(!mChannelAction->icon().isNull());
 }
 
 void RoomHeaderWidgetTest::shouldShowHideIcon()

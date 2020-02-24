@@ -104,6 +104,7 @@ set(Ruqola_roomwidget_SRCS
     room/readonlylineeditwidget.cpp
     room/usersinroomflowwidget.cpp
     room/usersinroomlabel.cpp
+    room/channelactionpopupmenu.cpp
     )
 
 set(Ruqola_misc_widget_SRCS

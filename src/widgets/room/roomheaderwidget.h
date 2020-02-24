@@ -59,6 +59,7 @@ private:
     QToolButton *mDiscussionBackButton = nullptr;
     QToolButton *mListOfUsersButton = nullptr;
     QToolButton *mSearchMessageButton = nullptr;
+    QToolButton *mChannelAction = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

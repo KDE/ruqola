@@ -119,6 +119,12 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mSearchMessageButton->setToolTip(i18n("Search Messages..."));
     buttonLayout->addWidget(mSearchMessageButton, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
+
+    mChannelAction = new QToolButton(this);
+    mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
+    mChannelAction->setPopupMode(QToolButton::InstantPopup);
+    mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down-double")));
+    buttonLayout->addWidget(mChannelAction, Qt::AlignTop);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
