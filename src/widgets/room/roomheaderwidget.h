@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLabel;
 class QToolButton;
+class ChannelActionPopupMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -60,6 +61,7 @@ private:
     QToolButton *mListOfUsersButton = nullptr;
     QToolButton *mSearchMessageButton = nullptr;
     QToolButton *mChannelAction = nullptr;
+    ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

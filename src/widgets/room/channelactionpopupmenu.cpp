@@ -19,14 +19,84 @@
 */
 
 #include "channelactionpopupmenu.h"
+#include <KLocalizedString>
+#include <QMenu>
 
 ChannelActionPopupMenu::ChannelActionPopupMenu(QObject *parent)
     : QObject(parent)
 {
-
+    mMenu = new QMenu;
+    mMenu->setObjectName(QStringLiteral("mMenu"));
+    connect(mMenu, &QMenu::aboutToShow, this, &ChannelActionPopupMenu::slotUpdateMenu);
+    createMenu();
 }
 
 ChannelActionPopupMenu::~ChannelActionPopupMenu()
 {
+    delete mMenu;
+}
 
+void ChannelActionPopupMenu::createMenu()
+{
+    mShowMentions = new QAction(i18n("Show Mentions..."), this);
+    mMenu->addAction(mShowMentions);
+    connect(mShowMentions, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowMentions);
+    });
+
+    mShowPinnedMessages = new QAction(i18n("Show Pinned Messages..."), this);
+    mMenu->addAction(mShowPinnedMessages);
+    connect(mShowPinnedMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowPinned);
+    });
+
+    mShowStarredMessages = new QAction(i18n("Show Starred Messages..."), this);
+    mMenu->addAction(mShowStarredMessages);
+    connect(mShowStarredMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowStarred);
+    });
+
+    mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
+    mMenu->addAction(mShowSnipperedMessages);
+    connect(mShowSnipperedMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowSnippered);
+    });
+
+    mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachment..."), this);
+    mMenu->addAction(mShowFileAttachments);
+    connect(mShowFileAttachments, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowAttachment);
+    });
+
+    mShowDiscussions = new QAction(i18n("Show Discussions..."), this);
+    mMenu->addAction(mShowDiscussions);
+    connect(mShowDiscussions, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowDiscussions);
+    });
+
+    mShowThreads = new QAction(i18n("Show Threads..."), this);
+    mMenu->addAction(mShowThreads);
+    connect(mShowThreads, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(ShowThreads);
+    });
+
+    QAction *separator = new QAction(this);
+    separator->setSeparator(true);
+    mMenu->addAction(separator);
+
+    mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
+    mMenu->addAction(mConfigureNotification);
+    connect(mConfigureNotification, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(Notification);
+    });
+}
+
+QMenu *ChannelActionPopupMenu::menu() const
+{
+    return mMenu;
+}
+
+void ChannelActionPopupMenu::slotUpdateMenu()
+{
+    //TODO
 }

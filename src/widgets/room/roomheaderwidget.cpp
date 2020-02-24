@@ -20,6 +20,7 @@
 
 #include "roomheaderwidget.h"
 #include "ruqolawidgets_debug.h"
+#include "channelactionpopupmenu.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QToolButton>
@@ -125,6 +126,10 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelAction->setPopupMode(QToolButton::InstantPopup);
     mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down-double")));
     buttonLayout->addWidget(mChannelAction, Qt::AlignTop);
+
+    mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelAction);
+    mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
+    mChannelAction->setMenu(mChannelActionPopupMenu->menu());
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
