@@ -36,6 +36,7 @@ public:
         QString roomId;
         QString userId;
         QDateTime expireDateTime;
+        Q_REQUIRED_RESULT bool operator==(const InviteUsersInfo &other) const;
     };
     explicit FindOrCreateInviteJob(QObject *parent = nullptr);
     ~FindOrCreateInviteJob() override;
@@ -57,6 +58,10 @@ public:
     void setNumberOfDays(int numberOfDays);
 
     Q_REQUIRED_RESULT FindOrCreateInviteJob::InviteUsersInfo parseResult(const QJsonObject &replyObject);
+
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+
 Q_SIGNALS:
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
@@ -68,6 +73,7 @@ private:
     int mNumberOfDays = 0;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo, Q_MOVABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &t);
 #endif // FINDORCREATEINVITEJOB_H

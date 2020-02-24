@@ -22,6 +22,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -70,6 +72,7 @@ void FindOrCreateInviteJob::slotFindOrCreateInviteFinished()
 
 FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)
 {
+    qDebug()<<" FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)" << replyObject;
     FindOrCreateInviteJob::InviteUsersInfo info;
     info.url = QUrl(replyObject[QStringLiteral("url")].toString());
     info.userId = replyObject[QStringLiteral("userId")].toString();
@@ -154,6 +157,15 @@ QJsonDocument FindOrCreateInviteJob::json() const
     return postData;
 }
 
+QString RocketChatRestApi::FindOrCreateInviteJob::errorMessage(const QString &str)
+{
+    if (str == QLatin1String("not_authorized")) {
+        return i18n("Generate link is not autorized in this channel.");
+    } else {
+        return RestApiAbstractJob::errorMessage(str);
+    }
+}
+
 QDebug operator <<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
 {
     d << " url: " << t.url;
@@ -162,4 +174,13 @@ QDebug operator <<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
     d << " expireDateTime: " << t.expireDateTime;
     d << " maxUses: " << t.maxUses;
     return d;
+}
+
+bool FindOrCreateInviteJob::InviteUsersInfo::operator==(const FindOrCreateInviteJob::InviteUsersInfo &other) const
+{
+    return other.url == url &&
+            other.roomId == roomId &&
+            other.userId == userId &&
+            other.expireDateTime == expireDateTime &&
+            other.maxUses == maxUses;
 }
