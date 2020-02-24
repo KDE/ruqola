@@ -113,9 +113,8 @@ void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString
     dlg->setDiscussionName(originalMessage);
     dlg->setChannelName(mRoomHeaderWidget->roomName());
     if (dlg->exec()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        rcAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
     }
     delete dlg;
 }
