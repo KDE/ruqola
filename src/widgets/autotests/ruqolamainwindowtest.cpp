@@ -57,7 +57,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
     {
         RuqolaMainWindow w;
         switchToMainWidget(w);
-        w.resize(500, 500);
+        w.resize(800, 800);
         w.show();
 
         auto *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
@@ -69,7 +69,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
     {
         RuqolaMainWindow w;
         switchToMainWidget(w);
-        QCOMPARE(w.size(), QSize(500, 500));
+        QCOMPARE(w.size(), QSize(800, 800));
         w.show();
 
         auto *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
