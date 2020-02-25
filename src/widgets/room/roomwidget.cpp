@@ -172,8 +172,8 @@ void RoomWidget::slotShowMentions()
 {
     QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
     dlg->setRoomId(mRoomId);
-    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    Ruqola::self()->rocketChatAccount()->getListMessages(mRoomId, ListMessagesModel::MentionsMessages);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::MentionsMessages);
     dlg->exec();
     delete dlg;
 }
