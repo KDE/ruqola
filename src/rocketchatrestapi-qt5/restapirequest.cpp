@@ -681,11 +681,17 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (type == QLatin1Char('d')) {
-        job->setChannelType(ChannelHistoryJob::Direct);
+        ChannelHistoryJob::ChannelHistoryInfo historyInfo;
+        historyInfo.channelType = ChannelHistoryJob::Direct;
+        job->setChannelHistoryInfo(historyInfo);
     } else if (type == QLatin1Char('p')) {
-        job->setChannelType(ChannelHistoryJob::Groups);
+        ChannelHistoryJob::ChannelHistoryInfo historyInfo;
+        historyInfo.channelType = ChannelHistoryJob::Groups;
+        job->setChannelHistoryInfo(historyInfo);
     } else if (type == QLatin1Char('c')) {
-        job->setChannelType(ChannelHistoryJob::Channel);
+        ChannelHistoryJob::ChannelHistoryInfo historyInfo;
+        historyInfo.channelType = ChannelHistoryJob::Channel;
+        job->setChannelHistoryInfo(historyInfo);
     }
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";

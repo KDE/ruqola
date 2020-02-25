@@ -34,7 +34,17 @@ public:
         Direct,
         Unknown
     };
-    Q_ENUM(ChannelType)
+    Q_ENUMS(ChannelType)
+
+    struct ChannelHistoryInfo {
+        QString lastestMessage;
+        QString oldestMessage;
+        ChannelType channelType = Unknown;
+        int offset = 0; //default
+        int count = -1;
+        bool inclusive = false; //Default
+    };
+
     explicit ChannelHistoryJob(QObject *parent = nullptr);
     ~ChannelHistoryJob() override;
 
@@ -46,11 +56,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT ChannelType channelType() const;
-    void setChannelType(RocketChatRestApi::ChannelHistoryJob::ChannelType channelType);
-
-    Q_REQUIRED_RESULT int count() const;
-    void setCount(int count);
+    Q_REQUIRED_RESULT ChannelHistoryInfo channelHistoryInfo() const;
+    void setChannelHistoryInfo(const ChannelHistoryInfo &channelHistoryInfo);
 
 Q_SIGNALS:
     void channelHistoryDone();
@@ -58,9 +65,10 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)
     void slotLoadHistoryChannelFinished();
-    ChannelType mChannelType = Unknown;
-    int mCount = -1;
-    //TODO add latest/oldest
+    ChannelHistoryInfo mChannelHistoryInfo;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo, Q_MOVABLE_TYPE);
+
 #endif // CHANNELHISTORYJOB_H

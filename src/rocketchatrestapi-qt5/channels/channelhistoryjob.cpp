@@ -68,24 +68,14 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
     deleteLater();
 }
 
-int ChannelHistoryJob::count() const
+ChannelHistoryJob::ChannelHistoryInfo ChannelHistoryJob::channelHistoryInfo() const
 {
-    return mCount;
+    return mChannelHistoryInfo;
 }
 
-void ChannelHistoryJob::setCount(int count)
+void ChannelHistoryJob::setChannelHistoryInfo(const ChannelHistoryInfo &channelHistoryInfo)
 {
-    mCount = count;
-}
-
-ChannelHistoryJob::ChannelType ChannelHistoryJob::channelType() const
-{
-    return mChannelType;
-}
-
-void ChannelHistoryJob::setChannelType(RocketChatRestApi::ChannelHistoryJob::ChannelType channelType)
-{
-    mChannelType = channelType;
+    mChannelHistoryInfo = channelHistoryInfo;
 }
 
 bool ChannelHistoryJob::requireHttpAuthentication() const
@@ -99,7 +89,7 @@ bool ChannelHistoryJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId and RoomName are empty";
         return false;
     }
-    if (mChannelType == ChannelHistoryJob::Unknown) {
+    if (mChannelHistoryInfo.channelType == ChannelHistoryJob::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
         return false;
     }
@@ -121,7 +111,7 @@ QJsonDocument ChannelHistoryJob::json() const
 QNetworkRequest ChannelHistoryJob::request() const
 {
     QUrl url;
-    switch (mChannelType) {
+    switch (mChannelHistoryInfo.channelType) {
     case Channel:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsHistory);
         break;

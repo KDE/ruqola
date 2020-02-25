@@ -36,26 +36,36 @@ void ChannelHistoryJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasRoomIdentifier());
-    QCOMPARE(job.channelType(), ChannelHistoryJob::ChannelType::Unknown);
-    QCOMPARE(job.count(), -1);
+    const ChannelHistoryJob::ChannelHistoryInfo info = job.channelHistoryInfo();
+    QCOMPARE(info.channelType, ChannelHistoryJob::ChannelType::Unknown);
+    QCOMPARE(info.count, -1);
+    QVERIFY(info.lastestMessage.isEmpty());
+    QVERIFY(info.oldestMessage.isEmpty());
+    QCOMPARE(info.offset, 0);
+    QVERIFY(!info.inclusive);
+
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelHistoryJobTest::shouldGenerateRequest()
 {
     ChannelHistoryJob job;
-    job.setChannelType(ChannelHistoryJob::Channel);
+    ChannelHistoryJob::ChannelHistoryInfo info;
+    info.channelType = ChannelHistoryJob::Channel;
+    job.setChannelHistoryInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.history")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    job.setChannelType(ChannelHistoryJob::Direct);
+    info.channelType = ChannelHistoryJob::Direct;
+    job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.history")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    job.setChannelType(ChannelHistoryJob::Groups);
+    info.channelType = ChannelHistoryJob::Groups;
+    job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.history")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
@@ -97,6 +107,9 @@ void ChannelHistoryJobTest::shouldNotStarting()
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     QVERIFY(!job.canStart());
-    job.setChannelType(ChannelHistoryJob::ChannelType::Channel);
+    ChannelHistoryJob::ChannelHistoryInfo historyInfo;
+    historyInfo.channelType = ChannelHistoryJob::Channel;
+
+    job.setChannelHistoryInfo(historyInfo);
     QVERIFY(job.canStart());
 }
