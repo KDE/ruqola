@@ -113,7 +113,7 @@ bool DownloadFileJob::canStart() const
         return false;
     }
     if (!mUrl.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DownloadFileJob: url is not valid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DownloadFileJob: url is not valid: " << mUrl.toString();
         return false;
     }
     return true;
