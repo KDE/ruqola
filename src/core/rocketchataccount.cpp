@@ -1301,6 +1301,8 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setAllowMessageEditing(value.toBool());
         } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
             mRuqolaServerConfig->setBlockEditingMessageInMinutes(value.toInt());
+        } else if (id == QLatin1String("Message_AllowDeleting_BlockDeleteInMinutes")) {
+            mRuqolaServerConfig->setBlockDeletingMessageInMinutes(value.toInt());
         } else if (id == QLatin1String("OTR_Enable")) {
             mRuqolaServerConfig->setOtrEnabled(value.toBool());
         } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
@@ -1314,13 +1316,13 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         } else if (id == QLatin1String("E2E_Enable")) {
             mRuqolaServerConfig->setEncryptionEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AllowPinning")) {
-            mRuqolaServerConfig->setAllowMessagePinningEnabled(value.toBool());
+            mRuqolaServerConfig->setAllowMessagePinning(value.toBool());
         } else if (id == QLatin1String("Message_AllowSnippeting")) {
-            mRuqolaServerConfig->setAllowMessageSnippetingEnabled(value.toBool());
+            mRuqolaServerConfig->setAllowMessageSnippeting(value.toBool());
         } else if (id == QLatin1String("Message_AllowStarring")) {
-            mRuqolaServerConfig->setAllowMessageStarringEnabled(value.toBool());
+            mRuqolaServerConfig->setAllowMessageStarring(value.toBool());
         } else if (id == QLatin1String("Message_AllowDeleting")) {
-            mRuqolaServerConfig->setAllowMessageDeletingEnabled(value.toBool());
+            mRuqolaServerConfig->setAllowMessageDeleting(value.toBool());
         } else if (id == QLatin1String("Threads_enabled")) {
             mRuqolaServerConfig->setThreadsEnabled(value.toBool());
         } else if (id == QLatin1String("Discussion_enabled")) {
@@ -1586,22 +1588,22 @@ bool RocketChatAccount::encryptedEnabled() const
 
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
-    return mRuqolaServerConfig->allowMessagePinningEnabled();
+    return mRuqolaServerConfig->allowMessagePinning();
 }
 
 bool RocketChatAccount::allowMessageSnippetingEnabled() const
 {
-    return mRuqolaServerConfig->allowMessageSnippetingEnabled();
+    return mRuqolaServerConfig->allowMessageSnippeting();
 }
 
 bool RocketChatAccount::allowMessageStarringEnabled() const
 {
-    return mRuqolaServerConfig->allowMessageStarringEnabled();
+    return mRuqolaServerConfig->allowMessageStarring();
 }
 
 bool RocketChatAccount::allowMessageDeletingEnabled() const
 {
-    return mRuqolaServerConfig->allowMessageDeletingEnabled();
+    return mRuqolaServerConfig->allowMessageDeleting();
 }
 
 bool RocketChatAccount::threadsEnabled() const
@@ -1758,6 +1760,18 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
         return false;
     }
     return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000)
+            > QDateTime::currentMSecsSinceEpoch();
+}
+
+bool RocketChatAccount::isMessageDeletable(const Message &message) const
+{
+    if (!mRuqolaServerConfig->allowMessageDeleting()) {
+        return false;
+    }
+    if (message.userId() != userID()) {
+        return false;
+    }
+    return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000)
             > QDateTime::currentMSecsSinceEpoch();
 }
 

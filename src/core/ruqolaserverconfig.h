@@ -48,6 +48,10 @@ public:
     void setBlockEditingMessageInMinutes(int minutes);
     Q_REQUIRED_RESULT int blockEditingMessageInMinutes() const;
 
+    void setBlockDeletingMessageInMinutes(int minutes);
+    Q_REQUIRED_RESULT int blockDeletingMessageInMinutes() const;
+
+
     Q_REQUIRED_RESULT bool otrEnabled() const;
     void setOtrEnabled(bool otrEnabled);
 
@@ -85,17 +89,17 @@ public:
 
     Q_REQUIRED_RESULT int serverVersionPatch() const;
 
-    Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
-    void setAllowMessagePinningEnabled(bool allowMessagePinningEnabled);
+    Q_REQUIRED_RESULT bool allowMessagePinning() const;
+    void setAllowMessagePinning(bool allowMessagePinning);
 
-    Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
-    void setAllowMessageSnippetingEnabled(bool allowMessageSnippetingEnabled);
+    Q_REQUIRED_RESULT bool allowMessageSnippeting() const;
+    void setAllowMessageSnippeting(bool allowMessageSnippeting);
 
-    Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
-    void setAllowMessageStarringEnabled(bool allowMessageStarringEnabled);
+    Q_REQUIRED_RESULT bool allowMessageStarring() const;
+    void setAllowMessageStarring(bool allowMessageStarring);
 
-    Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
-    void setAllowMessageDeletingEnabled(bool allowMessageDeletingEnabled);
+    Q_REQUIRED_RESULT bool allowMessageDeleting() const;
+    void setAllowMessageDeleting(bool allowMessageDeleting);
 
     Q_REQUIRED_RESULT bool jitsiEnabled() const;
     void setJitsiEnabled(bool jitsiEnabled);
@@ -112,6 +116,7 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -125,18 +130,19 @@ private:
     AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
     AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
     int mBlockEditingMessageInMinutes = 5;
+    int mBlockDeletingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;
-    int mServerVersionPatch = -1;
+    int mServerVersionPatch = -1;    
 
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mEncryptionEnabled = false;
-    bool mAllowMessagePinningEnabled = false;
-    bool mAllowMessageSnippetingEnabled = false;
-    bool mAllowMessageStarringEnabled = false;
-    bool mAllowMessageDeletingEnabled = false;
+    bool mAllowMessagePinning = false;
+    bool mAllowMessageSnippeting = false;
+    bool mAllowMessageStarring = false;
+    bool mAllowMessageDeleting = false;
     bool mJitsiEnabled = false;
     bool mThreadsEnabled = false;
     bool mDiscussionEnabled = false;

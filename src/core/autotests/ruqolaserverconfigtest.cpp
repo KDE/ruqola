@@ -45,12 +45,13 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.encryptionEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
+    QCOMPARE(config.blockDeletingMessageInMinutes(), 5);
     QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Password);
     QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Password);
-    QVERIFY(!config.allowMessagePinningEnabled());
-    QVERIFY(!config.allowMessageSnippetingEnabled());
-    QVERIFY(!config.allowMessageStarringEnabled());
-    QVERIFY(!config.allowMessageDeletingEnabled());
+    QVERIFY(!config.allowMessagePinning());
+    QVERIFY(!config.allowMessageSnippeting());
+    QVERIFY(!config.allowMessageStarring());
+    QVERIFY(!config.allowMessageDeleting());
     QVERIFY(!config.threadsEnabled());
     QVERIFY(!config.discussionEnabled());
     QVERIFY(!config.autoTranslateEnabled());
@@ -67,6 +68,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const bool jistsiEnabled = true;
     const bool allowEditing = false;
     const int minutes = 12;
+    const int minutesDeletingMessage = 15;
     const bool otrEnable = false;
     const QString siteName = QStringLiteral("sitename");
     const QString siteUrl = QStringLiteral("siteurl");
@@ -79,6 +81,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setFileUploadStorageType(filestoragetype);
     config.setAllowMessageEditing(allowEditing);
     config.setBlockEditingMessageInMinutes(minutes);
+    config.setBlockDeletingMessageInMinutes(minutesDeletingMessage);
     config.setOtrEnabled(otrEnable);
     config.setSiteName(siteName);
     config.setSiteUrl(siteUrl);
@@ -94,10 +97,10 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool threadsEnabled = true;
     bool discussionEnabled = true;
 
-    config.setAllowMessagePinningEnabled(pinning);
-    config.setAllowMessageSnippetingEnabled(snippeting);
-    config.setAllowMessageStarringEnabled(starring);
-    config.setAllowMessageDeletingEnabled(deleting);
+    config.setAllowMessagePinning(pinning);
+    config.setAllowMessageSnippeting(snippeting);
+    config.setAllowMessageStarring(starring);
+    config.setAllowMessageDeleting(deleting);
     config.setThreadsEnabled(threadsEnabled);
     config.setDiscussionEnabled(discussionEnabled);
 
@@ -108,16 +111,17 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.fileUploadStorageType(), filestoragetype);
     QCOMPARE(config.allowMessageEditing(), allowEditing);
     QCOMPARE(config.blockEditingMessageInMinutes(), minutes);
+    QCOMPARE(config.blockDeletingMessageInMinutes(), minutesDeletingMessage);
     QCOMPARE(config.otrEnabled(), otrEnable);
 
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);
     QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
 
-    QCOMPARE(config.allowMessagePinningEnabled(), pinning);
-    QCOMPARE(config.allowMessageSnippetingEnabled(), snippeting);
-    QCOMPARE(config.allowMessageStarringEnabled(), starring);
-    QCOMPARE(config.allowMessageDeletingEnabled(), deleting);
+    QCOMPARE(config.allowMessagePinning(), pinning);
+    QCOMPARE(config.allowMessageSnippeting(), snippeting);
+    QCOMPARE(config.allowMessageStarring(), starring);
+    QCOMPARE(config.allowMessageDeleting(), deleting);
     QCOMPARE(config.threadsEnabled(), threadsEnabled);
     QCOMPARE(config.discussionEnabled(), discussionEnabled);
     QCOMPARE(config.autoTranslateEnabled(), autoTranslateEnabled);

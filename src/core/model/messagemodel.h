@@ -61,6 +61,7 @@ public:
         Date,
         DateDiffersFromPrevious,
         CanEditMessage,
+        CanDeleteMessage,
         Starred,
         UsernameUrl,
         Roles,

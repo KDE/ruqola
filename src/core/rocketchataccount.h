@@ -403,6 +403,7 @@ public:
     Q_REQUIRED_RESULT AccountRoomSettings *accountRoomSettings() const;
 
     Q_REQUIRED_RESULT bool hasInviteUserSupport() const;
+    Q_REQUIRED_RESULT bool isMessageDeletable(const Message &message) const;
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

@@ -164,6 +164,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Urls] = QByteArrayLiteral("urls");
     roles[Date] = QByteArrayLiteral("date");
     roles[CanEditMessage] = QByteArrayLiteral("canEditMessage");
+    roles[CanDeleteMessage] = QByteArrayLiteral("canDeleteMessage");
     roles[Starred] = QByteArrayLiteral("starred");
     roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[Roles] = QByteArrayLiteral("roles");
@@ -333,6 +334,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return true; // show date at the top
     case MessageModel::CanEditMessage:
         return mRocketChatAccount->isMessageEditable(message);
+    case MessageModel::CanDeleteMessage:
+        return mRocketChatAccount->isMessageDeletable(message);
     case MessageModel::Starred:
         return message.starred();
     case MessageModel::UsernameUrl:

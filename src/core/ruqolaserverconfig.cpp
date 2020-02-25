@@ -76,6 +76,11 @@ bool RuqolaServerConfig::allowMessageEditing() const
     return mAllowEditingMessage;
 }
 
+void RuqolaServerConfig::setBlockDeletingMessageInMinutes(int minutes)
+{
+    mBlockDeletingMessageInMinutes = minutes;
+}
+
 void RuqolaServerConfig::setBlockEditingMessageInMinutes(int minutes)
 {
     mBlockEditingMessageInMinutes = minutes;
@@ -190,6 +195,11 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+int RuqolaServerConfig::blockDeletingMessageInMinutes() const
+{
+    return mBlockDeletingMessageInMinutes;
+}
+
 QString RuqolaServerConfig::autoTranslateGoogleKey() const
 {
     return mAutoTranslateGoogleKey;
@@ -240,44 +250,44 @@ void RuqolaServerConfig::setJitsiEnabled(bool jitsiEnabled)
     mJitsiEnabled = jitsiEnabled;
 }
 
-bool RuqolaServerConfig::allowMessageDeletingEnabled() const
+bool RuqolaServerConfig::allowMessageDeleting() const
 {
-    return mAllowMessageDeletingEnabled;
+    return mAllowMessageDeleting;
 }
 
-void RuqolaServerConfig::setAllowMessageDeletingEnabled(bool allowMessageDeletingEnabled)
+void RuqolaServerConfig::setAllowMessageDeleting(bool allowMessageDeletingEnabled)
 {
-    mAllowMessageDeletingEnabled = allowMessageDeletingEnabled;
+    mAllowMessageDeleting = allowMessageDeletingEnabled;
 }
 
-bool RuqolaServerConfig::allowMessageStarringEnabled() const
+bool RuqolaServerConfig::allowMessageStarring() const
 {
-    return mAllowMessageStarringEnabled;
+    return mAllowMessageStarring;
 }
 
-void RuqolaServerConfig::setAllowMessageStarringEnabled(bool allowMessageStarringEnabled)
+void RuqolaServerConfig::setAllowMessageStarring(bool allowMessageStarringEnabled)
 {
-    mAllowMessageStarringEnabled = allowMessageStarringEnabled;
+    mAllowMessageStarring = allowMessageStarringEnabled;
 }
 
-bool RuqolaServerConfig::allowMessageSnippetingEnabled() const
+bool RuqolaServerConfig::allowMessageSnippeting() const
 {
-    return mAllowMessageSnippetingEnabled;
+    return mAllowMessageSnippeting;
 }
 
-void RuqolaServerConfig::setAllowMessageSnippetingEnabled(bool allowMessageSnippetingEnabled)
+void RuqolaServerConfig::setAllowMessageSnippeting(bool allowMessageSnippetingEnabled)
 {
-    mAllowMessageSnippetingEnabled = allowMessageSnippetingEnabled;
+    mAllowMessageSnippeting = allowMessageSnippetingEnabled;
 }
 
-bool RuqolaServerConfig::allowMessagePinningEnabled() const
+bool RuqolaServerConfig::allowMessagePinning() const
 {
-    return mAllowMessagePinningEnabled;
+    return mAllowMessagePinning;
 }
 
-void RuqolaServerConfig::setAllowMessagePinningEnabled(bool allowMessagePinningEnabled)
+void RuqolaServerConfig::setAllowMessagePinning(bool allowMessagePinningEnabled)
 {
-    mAllowMessagePinningEnabled = allowMessagePinningEnabled;
+    mAllowMessagePinning = allowMessagePinningEnabled;
 }
 
 int RuqolaServerConfig::serverVersionPatch() const
