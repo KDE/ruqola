@@ -31,6 +31,18 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum ChannelActionType {
+        ShowMentions = 1,
+        ShowPinned = 2,
+        ShowStarred = 3,
+        ShowSnippered = 4,
+        ShowDiscussions = 5,
+        ShowThreads = 6,
+        ShowAttachment = 7,
+        Notification = 8
+    };
+    Q_ENUM(ChannelActionType)
+
     explicit RoomHeaderWidget(QWidget *parent = nullptr);
     ~RoomHeaderWidget() override;
     void setRoomName(const QString &name);
@@ -49,6 +61,7 @@ Q_SIGNALS:
     void goBackToRoom();
     void listOfUsersChanged(bool b);
     void searchMessageRequested();
+    void actionRequested(RoomHeaderWidget::ChannelActionType type);
 
 private:
     QLabel *mRoomName = nullptr;

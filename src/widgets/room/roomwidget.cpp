@@ -82,11 +82,13 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
     connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
     connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
+
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::listOfUsersChanged, this, &RoomWidget::slotShowListOfUsersInRoom);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::searchMessageRequested, this, &RoomWidget::slotSearchMessages);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::actionRequested, this, &RoomWidget::slotActionRequested);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
@@ -97,6 +99,28 @@ RoomWidget::RoomWidget(QWidget *parent)
 RoomWidget::~RoomWidget()
 {
     delete mRoomWrapper;
+}
+
+void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
+{
+    switch (type) {
+    case RoomHeaderWidget::ShowMentions:
+        break;
+    case RoomHeaderWidget::ShowPinned:
+        break;
+    case RoomHeaderWidget::ShowStarred:
+        break;
+    case RoomHeaderWidget::ShowSnippered:
+        break;
+    case RoomHeaderWidget::ShowDiscussions:
+        break;
+    case RoomHeaderWidget::ShowThreads:
+        break;
+    case RoomHeaderWidget::ShowAttachment:
+        break;
+    case RoomHeaderWidget::Notification:
+        break;
+    }
 }
 
 void RoomWidget::slotSearchMessages()

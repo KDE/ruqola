@@ -130,6 +130,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelAction);
     mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
     mChannelAction->setMenu(mChannelActionPopupMenu->menu());
+    connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()

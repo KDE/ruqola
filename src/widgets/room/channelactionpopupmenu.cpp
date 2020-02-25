@@ -41,43 +41,43 @@ void ChannelActionPopupMenu::createMenu()
     mShowMentions = new QAction(i18n("Show Mentions..."), this);
     mMenu->addAction(mShowMentions);
     connect(mShowMentions, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowMentions);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowMentions);
     });
 
     mShowPinnedMessages = new QAction(i18n("Show Pinned Messages..."), this);
     mMenu->addAction(mShowPinnedMessages);
     connect(mShowPinnedMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowPinned);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowPinned);
     });
 
     mShowStarredMessages = new QAction(i18n("Show Starred Messages..."), this);
     mMenu->addAction(mShowStarredMessages);
     connect(mShowStarredMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowStarred);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowStarred);
     });
 
     mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
     mMenu->addAction(mShowSnipperedMessages);
     connect(mShowSnipperedMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowSnippered);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowSnippered);
     });
 
     mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachment..."), this);
     mMenu->addAction(mShowFileAttachments);
     connect(mShowFileAttachments, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowAttachment);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowAttachment);
     });
 
     mShowDiscussions = new QAction(i18n("Show Discussions..."), this);
     mMenu->addAction(mShowDiscussions);
     connect(mShowDiscussions, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowDiscussions);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowDiscussions);
     });
 
     mShowThreads = new QAction(i18n("Show Threads..."), this);
     mMenu->addAction(mShowThreads);
     connect(mShowThreads, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(ShowThreads);
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowThreads);
     });
 
     QAction *separator = new QAction(this);
@@ -87,7 +87,7 @@ void ChannelActionPopupMenu::createMenu()
     mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
     mMenu->addAction(mConfigureNotification);
     connect(mConfigureNotification, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(Notification);
+        Q_EMIT actionRequested(RoomHeaderWidget::Notification);
     });
 }
 

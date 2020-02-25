@@ -23,31 +23,20 @@
 
 #include <QObject>
 #include "libruqolawidgets_private_export.h"
+#include "roomheaderwidget.h"
 class QMenu;
 class QAction;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelActionPopupMenu : public QObject
 {
     Q_OBJECT
 public:
-    enum ChannelActionType {
-        ShowMentions = 1,
-        ShowPinned = 2,
-        ShowStarred = 3,
-        ShowSnippered = 4,
-        ShowDiscussions = 5,
-        ShowThreads = 6,
-        ShowAttachment = 7,
-        Notification = 8
-    };
-    Q_ENUM(ChannelActionType)
-
     explicit ChannelActionPopupMenu(QObject *parent = nullptr);
     ~ChannelActionPopupMenu();
 
     QMenu *menu() const;
 
 Q_SIGNALS:
-    void actionRequested(ChannelActionPopupMenu::ChannelActionType type);
+    void actionRequested(RoomHeaderWidget::ChannelActionType type);
 
 private:
     void slotUpdateMenu();

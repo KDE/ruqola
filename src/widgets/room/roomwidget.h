@@ -25,6 +25,7 @@
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
+#include "roomheaderwidget.h"
 
 class RoomHeaderWidget;
 class MessageListView;
@@ -77,6 +78,7 @@ private:
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     bool handleMimeData(const QMimeData *mimeData);
     void slotSearchMessages();
+    void slotActionRequested(RoomHeaderWidget::ChannelActionType type);
 
     QString mRoomId;
     QString mRoomType;
