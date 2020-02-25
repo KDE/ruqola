@@ -50,7 +50,7 @@ UsersInRoomLabel::~UsersInRoomLabel()
 
 void UsersInRoomLabel::setUserInfo(const UsersInRoomLabel::UserInfo &info)
 {
-    mUserNameLabel->setText(info.userName);
+    mUserNameLabel->setText(info.userDisplayName);
     mIconLabel->setPixmap(QIcon::fromTheme(info.iconStatus).pixmap(18, 18));
     mUserNameLabel->setUserId(info.userId);
     mUserNameLabel->setUserName(info.userName);
