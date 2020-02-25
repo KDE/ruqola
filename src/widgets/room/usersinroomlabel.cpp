@@ -48,24 +48,18 @@ UsersInRoomLabel::~UsersInRoomLabel()
 {
 }
 
-void UsersInRoomLabel::setUserName(const QString &userName)
+void UsersInRoomLabel::setUserInfo(const UsersInRoomLabel::UserInfo &info)
 {
-    mUserNameLabel->setText(userName);
+    mUserNameLabel->setText(info.userName);
+    mIconLabel->setPixmap(QIcon::fromTheme(info.iconStatus).pixmap(18, 18));
+    mUserNameLabel->setUserId(info.userId);
+    mUserNameLabel->setUserName(info.userName);
 }
 
-void UsersInRoomLabel::setIconStatus(const QString &iconStatus)
-{
-    mIconLabel->setPixmap(QIcon::fromTheme(iconStatus).pixmap(18, 18));
-}
 
 void UsersInRoomLabel::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mUserNameLabel->setRoomWrapper(roomWrapper);
-}
-
-void UsersInRoomLabel::setUserId(const QString &userId)
-{
-    mUserNameLabel->setUserId(userId);
 }
 
 UserLabel::UserLabel(QWidget *parent)
@@ -85,6 +79,11 @@ void UserLabel::setRoomWrapper(RoomWrapper *roomWrapper)
     mRoomWrapper = roomWrapper;
 }
 
+void UserLabel::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
 void UserLabel::setUserId(const QString &userId)
 {
     mUserId = userId;
@@ -93,9 +92,11 @@ void UserLabel::setUserId(const QString &userId)
 void UserLabel::slotOpenConversation()
 {
     qWarning() << " void UserLabel::slotOpenConversation() not implemented yet";
+    //Ruqola::self()->rocketChatAccount()->openDirectChannel(roomOrUser);
 }
 
 void UserLabel::slotIgnoreUser()
+
 {
     //Ruqola::self()->rocketChatAccount()->ignoreUser(mRoomWrapper->roomId(), mUserId, ignored)
     qWarning() << " void UserLabel::slotIgnoreUser() not implemented yet";

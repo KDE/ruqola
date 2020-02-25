@@ -33,12 +33,14 @@ public:
     ~UserLabel();
     void setRoomWrapper(RoomWrapper *roomWrapper);
     void setUserId(const QString &userId);
+    void setUserName(const QString &userName);
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotOpenConversation();
     void slotIgnoreUser();
     void slotRemoveFromRoom();
     QString mUserId;
+    QString mUserName;
     RoomWrapper *mRoomWrapper = nullptr;
 };
 
@@ -46,16 +48,22 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomLabel : public QWidget
 {
     Q_OBJECT
 public:
+    struct UserInfo {
+        QString userName;
+        QString userId;
+        QString iconStatus;
+        QString userDisplayName;
+    };
     explicit UsersInRoomLabel(QWidget *parent = nullptr);
     ~UsersInRoomLabel();
 
-    void setUserName(const QString &userName);
-    void setIconStatus(const QString &iconStatus);
+    void setUserInfo(const UsersInRoomLabel::UserInfo &info);
     void setRoomWrapper(RoomWrapper *roomWrapper);
-    void setUserId(const QString &userId);
 private:
+    UsersInRoomLabel::UserInfo mInfo;
     QLabel *mIconLabel = nullptr;
     UserLabel *mUserNameLabel = nullptr;
 };
-
+Q_DECLARE_METATYPE(UsersInRoomLabel::UserInfo)
+Q_DECLARE_TYPEINFO(UsersInRoomLabel::UserInfo, Q_MOVABLE_TYPE);
 #endif // USERSINROOMLABEL_H
