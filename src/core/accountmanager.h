@@ -53,6 +53,7 @@ public:
     void selectAccount(const QString &accountName);
 
     void modifyAccount(const QString &accountName, const QString &username, const QString &url, bool enabled);
+    Q_REQUIRED_RESULT QStringList accountsName() const;
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);

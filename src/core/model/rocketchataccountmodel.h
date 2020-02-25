@@ -55,6 +55,7 @@ public:
     Q_REQUIRED_RESULT RocketChatAccount *account(const QString &accountName) const;
 
     Q_REQUIRED_RESULT int accountNumber() const;
+    Q_REQUIRED_RESULT QStringList accountsName() const;
 
 Q_SIGNALS:
     void accountNumberChanged();

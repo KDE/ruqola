@@ -40,11 +40,14 @@ public:
     void setUserName(const QString &username);
     void setServerName(const QString &servername);
 
+    void setExistingAccountName(const QStringList &lst);
+
 Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
     void slotChangeOkButtonEnabled();
+    QStringList mNames;
     KLineEdit *mAccountName = nullptr;
     KLineEdit *mServerName = nullptr;
     KLineEdit *mUserName = nullptr;

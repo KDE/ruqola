@@ -77,6 +77,11 @@ void CreateNewAccountDialog::setAccountInfo(const CreateNewAccountDialog::Accoun
     mNewAccountWidget->setUserName(info.userName);
 }
 
+void CreateNewAccountDialog::setExistingAccountName(const QStringList &lst)
+{
+    mNewAccountWidget->setExistingAccountName(lst);
+}
+
 void CreateNewAccountDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

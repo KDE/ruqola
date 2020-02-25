@@ -87,6 +87,11 @@ void CreateNewAccountWidget::setServerName(const QString &servername)
     mServerName->setText(servername);
 }
 
+void CreateNewAccountWidget::setExistingAccountName(const QStringList &lst)
+{
+    mNames = lst;
+}
+
 QString CreateNewAccountWidget::userName() const
 {
     return mUserName->text().trimmed();
@@ -94,7 +99,8 @@ QString CreateNewAccountWidget::userName() const
 
 void CreateNewAccountWidget::slotChangeOkButtonEnabled()
 {
-    Q_EMIT updateOkButton(!mAccountName->text().trimmed().isEmpty()
+    const QString accountName = mAccountName->text().trimmed();
+    Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName)
                           && !mServerName->text().trimmed().isEmpty()
                           && !mUserName->text().trimmed().isEmpty());
 }

@@ -127,6 +127,11 @@ void AccountManager::modifyAccount(const QString &accountName, const QString &us
     }
 }
 
+QStringList AccountManager::accountsName() const
+{
+    return mRocketChatAccountModel->accountsName();
+}
+
 void AccountManager::addAccount(RocketChatAccount *account)
 {
     mRocketChatAccountModel->insertAccount(account);

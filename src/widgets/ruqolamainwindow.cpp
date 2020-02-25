@@ -285,6 +285,8 @@ void RuqolaMainWindow::slotConfigure()
 void RuqolaMainWindow::slotAddAccount()
 {
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    const QStringList lst = Ruqola::self()->accountManager()->accountsName();
+    dlg->setExistingAccountName(lst);
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
         Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName);

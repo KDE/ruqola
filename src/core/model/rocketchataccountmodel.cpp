@@ -79,6 +79,16 @@ int RocketChatAccountModel::accountNumber() const
     return mRocketChatAccount.count();
 }
 
+QStringList RocketChatAccountModel::accountsName() const
+{
+    QStringList accounts;
+    for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
+        RocketChatAccount *model = mRocketChatAccount.at(i);
+        accounts << model->accountName();
+    }
+    return accounts;
+}
+
 RocketChatAccount *RocketChatAccountModel::account(int index) const
 {
     if (mRocketChatAccount.isEmpty() || (index > mRocketChatAccount.count() - 1)) {
