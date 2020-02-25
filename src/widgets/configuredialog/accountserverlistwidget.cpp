@@ -98,6 +98,12 @@ void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
 void AccountServerListWidget::addAccountConfig()
 {
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    QStringList listAccounts;
+    for (int i = 0; i < count(); ++i) {
+        QListWidgetItem *it = item(i);
+        listAccounts << it->text();
+    }
+    dlg->setExistingAccountName(listAccounts);
     if (dlg->exec()) {
         CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
         QStringList accountList;
