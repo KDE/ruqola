@@ -160,7 +160,7 @@ void FlowLayout::clear()
 void FlowLayout::clearAndDeleteWidgets()
 {
     while (QLayoutItem *item = takeAt(0)) {
-        delete item->widget();
+        item->widget()->deleteLater();
         delete item;
     }
 }
