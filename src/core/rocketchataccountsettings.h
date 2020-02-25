@@ -67,7 +67,7 @@ public:
     bool setShowUnreadOnTop(bool showUnreadOnTop);
 
     Q_REQUIRED_RESULT qint64 expireToken() const;
-    void setExpireToken(const qint64 &expireToken);
+    void setExpireToken(qint64 expireToken);
 
     Q_REQUIRED_RESULT bool tokenExpired() const;
 

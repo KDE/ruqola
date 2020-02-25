@@ -38,7 +38,7 @@ MessageAttachment testAttachment()
     pix.fill(Qt::white);
     // Save the pixmap directly into the cache so that no download hpapens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
-    const QString link = QLatin1String("/testfile.png");
+    const QString link = QStringLiteral("/testfile.png");
     const QString pixFileName = cachePath + link;
     pix.save(pixFileName, "png");
     msgAttach.setLink(link);
@@ -49,7 +49,7 @@ QUrl avatarLink()
 {
     // Save the pixmap directly into the cache so that no download hpapens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
-    const QString link = QLatin1String("/avatarpix.png");
+    const QString link = QStringLiteral("/avatarpix.png");
     const QString pixFileName = cachePath + link;
 
     if (!QFileInfo::exists(pixFileName)) {

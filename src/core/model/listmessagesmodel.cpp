@@ -105,7 +105,7 @@ ListMessagesModel::ListMessageType ListMessagesModel::listMessageType() const
     return mListMessageType;
 }
 
-void ListMessagesModel::setListMessageType(const ListMessageType &listMessageType)
+void ListMessagesModel::setListMessageType(ListMessageType listMessageType)
 {
     if (mListMessageType != listMessageType) {
         mListMessageType = listMessageType;

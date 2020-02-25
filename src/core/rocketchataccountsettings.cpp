@@ -112,7 +112,7 @@ qint64 RocketChatAccountSettings::expireToken() const
     return mExpireToken;
 }
 
-void RocketChatAccountSettings::setExpireToken(const qint64 &expireToken)
+void RocketChatAccountSettings::setExpireToken(qint64 expireToken)
 {
     if (mExpireToken != expireToken) {
         mExpireToken = expireToken;

@@ -43,7 +43,7 @@ public:
     void handleKeyPressEvent(QKeyEvent *ev);
 
     Q_REQUIRED_RESULT MessageListView::Mode mode() const;
-    void setMode(const MessageListView::Mode &mode);
+    void setMode(Mode mode);
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;

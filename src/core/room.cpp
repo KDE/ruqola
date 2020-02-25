@@ -336,7 +336,7 @@ qint64 Room::jitsiTimeout() const
     return mJitsiTimeout;
 }
 
-void Room::setJitsiTimeout(const qint64 &jitsiTimeout)
+void Room::setJitsiTimeout(qint64 jitsiTimeout)
 {
     if (mJitsiTimeout != jitsiTimeout) {
         mJitsiTimeout = jitsiTimeout;

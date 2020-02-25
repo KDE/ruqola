@@ -49,7 +49,7 @@ public:
     MessageTextEdit *messageTextEdit() const;
 
     Q_REQUIRED_RESULT EditingMode mode() const;
-    void setMode(const EditingMode &mode);
+    void setMode(EditingMode mode);
 
 Q_SIGNALS:
     void sendMessage(const QString &str);

@@ -38,7 +38,7 @@ public:
     void setIconName(const QString &iconName);
 
     Q_REQUIRED_RESULT AuthenticationManager::OauthType oauthType() const;
-    void setOauthType(const AuthenticationManager::OauthType &oauthType);
+    void setOauthType(AuthenticationManager::OauthType oauthType);
 
     Q_REQUIRED_RESULT bool isValid() const;
 

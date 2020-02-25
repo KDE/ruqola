@@ -62,7 +62,7 @@ qint64 Discussion::lastMessage() const
     return mLastMessage;
 }
 
-void Discussion::setLastMessage(const qint64 &lastMessage)
+void Discussion::setLastMessage(qint64 lastMessage)
 {
     mLastMessage = lastMessage;
     QLocale l;
@@ -94,7 +94,7 @@ qint64 Discussion::timeStamp() const
     return mTimeStamp;
 }
 
-void Discussion::setTimeStamp(const qint64 &timeStamp)
+void Discussion::setTimeStamp(qint64 timeStamp)
 {
     mTimeStamp = timeStamp;
     QLocale l;

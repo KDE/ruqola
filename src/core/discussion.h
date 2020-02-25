@@ -38,7 +38,7 @@ public:
     void setNumberMessages(int numberMessages);
 
     Q_REQUIRED_RESULT qint64 lastMessage() const;
-    void setLastMessage(const qint64 &lastMessage);
+    void setLastMessage(qint64 lastMessage);
 
     Q_REQUIRED_RESULT bool operator ==(const Discussion &other) const;
     Discussion &operator =(const Discussion &other) = default;
@@ -51,7 +51,7 @@ public:
     Q_REQUIRED_RESULT QString lastMessageDisplay() const;
 
     Q_REQUIRED_RESULT qint64 timeStamp() const;
-    void setTimeStamp(const qint64 &timeStamp);
+    void setTimeStamp(qint64 timeStamp);
 
     Q_REQUIRED_RESULT QString timeStampDisplay() const;
 

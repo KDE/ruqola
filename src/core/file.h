@@ -52,7 +52,7 @@ public:
     void setMimeType(const QString &mimeType);
 
     Q_REQUIRED_RESULT qint64 uploadedAt() const;
-    void setUploadedAt(const qint64 &uploadedAt);
+    void setUploadedAt(qint64 uploadedAt);
 
     Q_REQUIRED_RESULT QString fileId() const;
     void setFileId(const QString &fileId);

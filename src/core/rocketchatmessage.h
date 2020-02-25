@@ -40,7 +40,7 @@ public:
         QJsonDocument jsonDocument;
     };
 
-    void setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat);
+    void setJsonFormat(QJsonDocument::JsonFormat jsonFormat);
 
     Q_REQUIRED_RESULT RocketChatMessageResult hideRoom(const QString &roomID, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessageResult leaveRoom(const QString &roomID, quint64 id);

@@ -318,7 +318,7 @@ MessageListView::Mode MessageListView::mode() const
     return mMode;
 }
 
-void MessageListView::setMode(const MessageListView::Mode &mode)
+void MessageListView::setMode(MessageListView::Mode mode)
 {
     mMode = mode;
 }

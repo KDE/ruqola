@@ -32,7 +32,7 @@ RocketChatMessage::RocketChatMessage()
 {
 }
 
-void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat)
+void RocketChatMessage::setJsonFormat(QJsonDocument::JsonFormat jsonFormat)
 {
     mJsonFormat = jsonFormat;
 }

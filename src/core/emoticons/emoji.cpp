@@ -42,7 +42,7 @@ qint64 Emoji::updatedAt() const
     return mUpdatedAt;
 }
 
-void Emoji::setUpdatedAt(const qint64 &updatedAt)
+void Emoji::setUpdatedAt(qint64 updatedAt)
 {
     mUpdatedAt = updatedAt;
 }

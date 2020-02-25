@@ -56,7 +56,7 @@ public:
     void setMutedUsers(const QStringList &mutedUsers);
 
     Q_REQUIRED_RESULT qint64 jitsiTimeout() const;
-    void setJitsiTimeout(const qint64 &jitsiTimeout);
+    void setJitsiTimeout(qint64 jitsiTimeout);
 
     Q_REQUIRED_RESULT int unread() const;
     void setUnread(int unread);

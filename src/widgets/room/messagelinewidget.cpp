@@ -125,7 +125,7 @@ MessageLineWidget::EditingMode MessageLineWidget::mode() const
     return mMode;
 }
 
-void MessageLineWidget::setMode(const EditingMode &mode)
+void MessageLineWidget::setMode(EditingMode mode)
 {
     if (mMode != mode) {
         mMode = mode;

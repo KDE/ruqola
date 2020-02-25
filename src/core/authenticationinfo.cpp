@@ -53,7 +53,7 @@ AuthenticationManager::OauthType AuthenticationInfo::oauthType() const
     return mOauthType;
 }
 
-void AuthenticationInfo::setOauthType(const AuthenticationManager::OauthType &oauthType)
+void AuthenticationInfo::setOauthType(AuthenticationManager::OauthType oauthType)
 {
     mOauthType = oauthType;
 }

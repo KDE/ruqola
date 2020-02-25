@@ -63,7 +63,7 @@ public:
     Q_REQUIRED_RESULT bool hasEmoji(const QString &identifier) const;
 
     Q_REQUIRED_RESULT qint64 updatedAt() const;
-    void setUpdatedAt(const qint64 &updatedAt);
+    void setUpdatedAt(qint64 updatedAt);
 
     Q_REQUIRED_RESULT bool isAnimatedImage() const;
 

@@ -47,7 +47,7 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
     Q_REQUIRED_RESULT ChannelType channelType() const;
-    void setChannelType(const ChannelType &channelType);
+    void setChannelType(RocketChatRestApi::ChannelHistoryJob::ChannelType channelType);
 
     Q_REQUIRED_RESULT int count() const;
     void setCount(int count);

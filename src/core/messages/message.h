@@ -93,7 +93,7 @@ public:
     void setText(const QString &text);
 
     Q_REQUIRED_RESULT qint64 timeStamp() const;
-    void setTimeStamp(const qint64 &timeStamp);
+    void setTimeStamp(qint64 timeStamp);
 
     Q_REQUIRED_RESULT QString username() const;
     void setUsername(const QString &username);
@@ -102,10 +102,10 @@ public:
     void setUserId(const QString &userId);
 
     Q_REQUIRED_RESULT qint64 updatedAt() const;
-    void setUpdatedAt(const qint64 &updatedAt);
+    void setUpdatedAt(qint64 updatedAt);
 
     Q_REQUIRED_RESULT qint64 editedAt() const;
-    void setEditedAt(const qint64 &editedAt);
+    void setEditedAt(qint64 editedAt);
 
     Q_REQUIRED_RESULT QString editedByUsername() const;
     void setEditedByUsername(const QString &editedByUsername);
@@ -122,7 +122,7 @@ public:
     void setSystemMessageType(const QString &systemMessageType);
 
     Q_REQUIRED_RESULT MessageType messageType() const;
-    void setMessageType(const MessageType &messageType);
+    void setMessageType(Message::MessageType messageType);
 
     Q_REQUIRED_RESULT QVector<MessageAttachment> attachements() const;
     void setAttachements(const QVector<MessageAttachment> &attachements);
@@ -157,10 +157,10 @@ public:
     void setThreadCount(int threadCount);
 
     Q_REQUIRED_RESULT qint64 threadLastMessage() const;
-    void setThreadLastMessage(const qint64 &threadLastMessage);
+    void setThreadLastMessage(qint64 threadLastMessage);
 
     Q_REQUIRED_RESULT qint64 discussionLastMessage() const;
-    void setDiscussionLastMessage(const qint64 &discussionLastMessage);
+    void setDiscussionLastMessage(qint64 discussionLastMessage);
 
     Q_REQUIRED_RESULT int discussionCount() const;
     void setDiscussionCount(int discussionCount);

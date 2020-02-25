@@ -164,7 +164,7 @@ qint64 Message::discussionLastMessage() const
     return mDiscussionLastMessage;
 }
 
-void Message::setDiscussionLastMessage(const qint64 &discussionLastMessage)
+void Message::setDiscussionLastMessage(qint64 discussionLastMessage)
 {
     mDiscussionLastMessage = discussionLastMessage;
 }
@@ -174,7 +174,7 @@ qint64 Message::threadLastMessage() const
     return mThreadLastMessage;
 }
 
-void Message::setThreadLastMessage(const qint64 &threadLastMessage)
+void Message::setThreadLastMessage(qint64 threadLastMessage)
 {
     mThreadLastMessage = threadLastMessage;
 }
@@ -492,7 +492,7 @@ QString Message::systemMessageText() const
     }
 }
 
-void Message::setMessageType(const MessageType &messageType)
+void Message::setMessageType(MessageType messageType)
 {
     mMessageType = messageType;
 }
@@ -557,7 +557,7 @@ qint64 Message::editedAt() const
     return mEditedAt;
 }
 
-void Message::setEditedAt(const qint64 &editedAt)
+void Message::setEditedAt(qint64 editedAt)
 {
     mEditedAt = editedAt;
 }
@@ -567,7 +567,7 @@ qint64 Message::updatedAt() const
     return mUpdatedAt;
 }
 
-void Message::setUpdatedAt(const qint64 &updatedAt)
+void Message::setUpdatedAt(qint64 updatedAt)
 {
     mUpdatedAt = updatedAt;
 }
@@ -597,7 +597,7 @@ qint64 Message::timeStamp() const
     return mTimeStamp;
 }
 
-void Message::setTimeStamp(const qint64 &timeStamp)
+void Message::setTimeStamp(qint64 timeStamp)
 {
     if (mTimeStamp != timeStamp) {
         mTimeStamp = timeStamp;

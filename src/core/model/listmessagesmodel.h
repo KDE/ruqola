@@ -57,7 +57,7 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
 
     Q_REQUIRED_RESULT ListMessageType listMessageType() const;
-    void setListMessageType(const ListMessageType &listMessageType);
+    void setListMessageType(ListMessagesModel::ListMessageType listMessageType);
 
 Q_SIGNALS:
     void hasFullListChanged();

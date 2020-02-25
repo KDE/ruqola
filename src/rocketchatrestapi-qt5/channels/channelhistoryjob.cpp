@@ -83,7 +83,7 @@ ChannelHistoryJob::ChannelType ChannelHistoryJob::channelType() const
     return mChannelType;
 }
 
-void ChannelHistoryJob::setChannelType(const ChannelType &channelType)
+void ChannelHistoryJob::setChannelType(RocketChatRestApi::ChannelHistoryJob::ChannelType channelType)
 {
     mChannelType = channelType;
 }

@@ -54,7 +54,7 @@ public:
     void setLanguage(const QString &language);
 
     Q_REQUIRED_RESULT SettingType type() const;
-    void setType(const SettingType &type);
+    void setType(SettingType type);
 
 Q_SIGNALS:
     void translateSavesettingsDone();

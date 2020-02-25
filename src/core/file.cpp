@@ -117,7 +117,7 @@ qint64 File::uploadedAt() const
     return mUploadedAt;
 }
 
-void File::setUploadedAt(const qint64 &uploadedAt)
+void File::setUploadedAt(qint64 uploadedAt)
 {
     mUploadedAt = uploadedAt;
     QLocale l;
