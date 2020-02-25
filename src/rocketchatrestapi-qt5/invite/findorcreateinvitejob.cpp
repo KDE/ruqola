@@ -160,7 +160,7 @@ QJsonDocument FindOrCreateInviteJob::json() const
 QString RocketChatRestApi::FindOrCreateInviteJob::errorMessage(const QString &str)
 {
     if (str == QLatin1String("not_authorized")) {
-        return i18n("Generate link is not autorized in this channel.");
+        return i18n("Generate link is not authorized in this channel.");
     } else {
         return RestApiAbstractJob::errorMessage(str);
     }
