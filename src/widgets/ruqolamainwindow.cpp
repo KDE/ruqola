@@ -44,7 +44,6 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <KStandardAction>
-#include <QPointer>
 #include <QIcon>
 #include <QStatusBar>
 #include <QLabel>
