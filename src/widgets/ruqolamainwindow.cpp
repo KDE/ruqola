@@ -33,14 +33,6 @@
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
-#include "dialogs/showpinnedmessagesdialog.h"
-#include "dialogs/showstarredmessagesdialog.h"
-#include "dialogs/showmentionsmessagesdialog.h"
-#include "dialogs/showsnipperedmessagesdialog.h"
-#include "dialogs/configurenotificationdialog.h"
-#include "dialogs/showattachmentdialog.h"
-#include "dialogs/showdiscussionsdialog.h"
-#include "dialogs/showthreadsdialog.h"
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/channelinfodialog.h"
 #include "dialogs/directchannelinfodialog.h"
@@ -127,15 +119,7 @@ void RuqolaMainWindow::slotAccountChanged()
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
-    mShowMentions->setEnabled(enabled);
-    mShowPinnedMessages->setEnabled(enabled);
-    mShowStarredMessages->setEnabled(enabled);
-    mShowSnipperedMessages->setEnabled(enabled);
-    mConfigureNotification->setEnabled(enabled);
     mLoadChannelHistory->setEnabled(enabled);
-    mShowFileAttachments->setEnabled(enabled);
-    mShowDiscussions->setEnabled(enabled);
-    mShowThreads->setEnabled(enabled);
     mChannelInfo->setEnabled(enabled);
     mStartVideoChat->setEnabled(enabled);
     mSaveAs->setEnabled(enabled);
@@ -147,9 +131,6 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
-    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
-    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
-    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mStartVideoChat->setVisible(mCurrentRocketChatAccount->jitsiEnabled());
     mInviteGenerateUrl->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
 }
@@ -206,44 +187,12 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
-    mShowMentions = new QAction(i18n("Show Mentions..."), this);
-    connect(mShowMentions, &QAction::triggered, this, &RuqolaMainWindow::slotShowMentions);
-    ac->addAction(QStringLiteral("show_mentions"), mShowMentions);
-
-    mShowPinnedMessages = new QAction(i18n("Show Pinned Messages..."), this);
-    connect(mShowPinnedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotPinnedMessages);
-    ac->addAction(QStringLiteral("show_pinned_messages"), mShowPinnedMessages);
-
-    mShowStarredMessages = new QAction(i18n("Show Starred Messages..."), this);
-    connect(mShowStarredMessages, &QAction::triggered, this, &RuqolaMainWindow::slotStarredMessages);
-    ac->addAction(QStringLiteral("show_starred_messages"), mShowStarredMessages);
-
-    mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
-    connect(mShowSnipperedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSnipperedMessages);
-    ac->addAction(QStringLiteral("show_snippered_messages"), mShowSnipperedMessages);
-
-    mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
-    connect(mConfigureNotification, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureNotification);
-    ac->addAction(QStringLiteral("configure_notification"), mConfigureNotification);
-
     mLoadChannelHistory = new QAction(i18n("Load Recent History"), this);
     connect(mLoadChannelHistory, &QAction::triggered, this, &RuqolaMainWindow::slotLoadRecentHistory);
     ac->addAction(QStringLiteral("load_recent_history"), mLoadChannelHistory);
 
-    mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachment..."), this);
-    connect(mShowFileAttachments, &QAction::triggered, this, &RuqolaMainWindow::slotShowFileAttachments);
-    ac->addAction(QStringLiteral("show_file_attachments"), mShowFileAttachments);
-
     mAccountMenu = new AccountMenu(this);
     ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
-
-    mShowDiscussions = new QAction(i18n("Show Discussions..."), this);
-    connect(mShowDiscussions, &QAction::triggered, this, &RuqolaMainWindow::slotShowDiscussions);
-    ac->addAction(QStringLiteral("show_discussions"), mShowDiscussions);
-
-    mShowThreads = new QAction(i18n("Show Threads..."), this);
-    connect(mShowThreads, &QAction::triggered, this, &RuqolaMainWindow::slotShowThreads);
-    ac->addAction(QStringLiteral("show_threads"), mShowThreads);
 
     mUnreadOnTop = new QAction(i18n("Unread on Top"), this);
     mUnreadOnTop->setCheckable(true);
@@ -291,28 +240,6 @@ void RuqolaMainWindow::slotClearAccountAlerts()
     }
 }
 
-void RuqolaMainWindow::slotShowThreads()
-{
-    QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
-    dlg->setModel(mCurrentRocketChatAccount->threadsFilterProxyModel());
-    const QString roomId = mMainWidget->roomId();
-    dlg->setRoomId(roomId);
-    mCurrentRocketChatAccount->threadsInRoom(roomId);
-    dlg->exec();
-    delete dlg;
-}
-
-void RuqolaMainWindow::slotShowDiscussions()
-{
-    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
-    dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
-    const QString roomId = mMainWidget->roomId();
-    dlg->setRoomId(roomId);
-    mCurrentRocketChatAccount->discussionsInRoom(roomId);
-    dlg->exec();
-    delete dlg;
-}
-
 void RuqolaMainWindow::slotShowChannelInfo()
 {
     RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
@@ -331,71 +258,9 @@ void RuqolaMainWindow::slotShowChannelInfo()
     }
 }
 
-void RuqolaMainWindow::slotShowFileAttachments()
-{
-    QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
-    const QString roomId = mMainWidget->roomId();
-    const QString roomType = mMainWidget->roomType();
-    mCurrentRocketChatAccount->roomFiles(roomId, roomType);
-    dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
-    dlg->setRoomId(roomId);
-    dlg->setRoomType(roomType);
-    dlg->exec();
-    delete dlg;
-}
-
 void RuqolaMainWindow::slotLoadRecentHistory()
 {
     mCurrentRocketChatAccount->loadHistory(mMainWidget->roomId());
-}
-
-void RuqolaMainWindow::slotConfigureNotification()
-{
-    QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
-    dlg->setRoomWrapper(mMainWidget->roomWrapper());
-    if (dlg->exec()) {
-    }
-    delete dlg;
-}
-
-void RuqolaMainWindow::slotStarredMessages()
-{
-    QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
-    dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    mCurrentRocketChatAccount->getListMessages(mMainWidget->roomId(), ListMessagesModel::StarredMessages);
-    dlg->exec();
-    delete dlg;
-}
-
-void RuqolaMainWindow::slotPinnedMessages()
-{
-    QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
-    dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    mCurrentRocketChatAccount->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
-    dlg->exec();
-    delete dlg;
-}
-
-void RuqolaMainWindow::slotShowMentions()
-{
-    QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
-    dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::MentionsMessages);
-    dlg->exec();
-    delete dlg;
-}
-
-void RuqolaMainWindow::slotSnipperedMessages()
-{
-    QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
-    dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    mCurrentRocketChatAccount->getListMessages(mMainWidget->roomId(), ListMessagesModel::SnipperedMessages);
-    dlg->exec();
-    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()

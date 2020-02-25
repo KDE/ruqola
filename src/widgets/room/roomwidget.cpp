@@ -31,6 +31,14 @@
 #include "usersinroomflowwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
 #include "dialogs/searchmessagedialog.h"
+#include "dialogs/configurenotificationdialog.h"
+#include "dialogs/showattachmentdialog.h"
+#include "dialogs/showdiscussionsdialog.h"
+#include "dialogs/showmentionsmessagesdialog.h"
+#include "dialogs/showpinnedmessagesdialog.h"
+#include "dialogs/showsnipperedmessagesdialog.h"
+#include "dialogs/showstarredmessagesdialog.h"
+#include "dialogs/showthreadsdialog.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -43,6 +51,7 @@
 #include <QTemporaryFile>
 #include <QDir>
 #include <QImageWriter>
+
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -105,23 +114,111 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
 {
     switch (type) {
     case RoomHeaderWidget::ShowMentions:
+        slotShowMentions();
         break;
     case RoomHeaderWidget::ShowPinned:
+        slotPinnedMessages();
         break;
     case RoomHeaderWidget::ShowStarred:
+        slotStarredMessages();
         break;
     case RoomHeaderWidget::ShowSnippered:
+        slotSnipperedMessages();
         break;
     case RoomHeaderWidget::ShowDiscussions:
+        slotShowDiscussions();
         break;
     case RoomHeaderWidget::ShowThreads:
+        slotShowThreads();
         break;
     case RoomHeaderWidget::ShowAttachment:
+        slotShowFileAttachments();
         break;
     case RoomHeaderWidget::Notification:
+        slotConfigureNotification();
         break;
     }
 }
+
+void RoomWidget::slotConfigureNotification()
+{
+    QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
+    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotStarredMessages()
+{
+    QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
+    dlg->setRoomId(mRoomId);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::StarredMessages);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotPinnedMessages()
+{
+    QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
+    dlg->setRoomId(mRoomId);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::PinnedMessages);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotShowMentions()
+{
+    QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
+    dlg->setRoomId(mRoomId);
+    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    Ruqola::self()->rocketChatAccount()->getListMessages(mRoomId, ListMessagesModel::MentionsMessages);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotSnipperedMessages()
+{
+    QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
+    dlg->setRoomId(mRoomId);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::SnipperedMessages);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotShowThreads()
+{
+    QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
+    dlg->setModel(mCurrentRocketChatAccount->threadsFilterProxyModel());
+    dlg->setRoomId(mRoomId);
+    mCurrentRocketChatAccount->threadsInRoom(mRoomId);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotShowDiscussions()
+{
+    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
+    dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
+    dlg->setRoomId(mRoomId);
+    mCurrentRocketChatAccount->discussionsInRoom(mRoomId);
+    dlg->exec();
+    delete dlg;
+}
+
+void RoomWidget::slotShowFileAttachments()
+{
+    QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
+    mCurrentRocketChatAccount->roomFiles(mRoomId, mRoomType);
+    dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg->setRoomId(mRoomId);
+    dlg->setRoomType(mRoomType);
+    dlg->exec();
+    delete dlg;
+}
+
 
 void RoomWidget::slotSearchMessages()
 {

@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="9">
+<gui name="ruqola" version="10">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_account" />
@@ -18,19 +18,9 @@
    <Action name="search_channel" />
    <Action name="create_new_channel" />
    <Separator/>
-   <Action name="show_mentions" />
-   <Action name="show_pinned_messages" />
-   <Action name="show_starred_messages" />
-   <Action name="show_snippered_messages" />
-   <Action name="show_file_attachments" />
-   <Action name="show_discussions" />
-   <Action name="show_threads" />
-   <Separator/>
    <Action name="channel_info" />
    <Separator/>
    <Action name="add_user_in_room" />
-   <Separator/>
-   <Action name="configure_notification" />
    <Separator/>
    <Action name="load_recent_history" />
    <Separator/>

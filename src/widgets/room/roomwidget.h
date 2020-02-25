@@ -79,6 +79,14 @@ private:
     bool handleMimeData(const QMimeData *mimeData);
     void slotSearchMessages();
     void slotActionRequested(RoomHeaderWidget::ChannelActionType type);
+    void slotShowDiscussions();
+    void slotShowThreads();
+    void slotShowFileAttachments();
+    void slotStarredMessages();
+    void slotPinnedMessages();
+    void slotShowMentions();
+    void slotSnipperedMessages();
+    void slotConfigureNotification();
 
     QString mRoomId;
     QString mRoomType;
