@@ -40,6 +40,7 @@ private Q_SLOTS:
     void shouldAddMessages();
     void shouldUpdateFirstMessage();
     void shouldAllowEditing();
+    void shouldFindPrevNextMessage();
 };
 
 #endif // MESSAGEMODELTEST_H

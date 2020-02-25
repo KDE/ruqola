@@ -324,3 +324,41 @@ void MessageModelTest::shouldAllowEditing()
     QVERIFY(!model.index(1, 0).data(MessageModel::CanEditMessage).toBool());
     QVERIFY(!model.index(1, 0).data(MessageModel::CanDeleteMessage).toBool());
 }
+
+void MessageModelTest::shouldFindPrevNextMessage()
+{
+    // GIVEN an empty model
+    MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+
+    auto isByMe = [](const Message &msg) { return msg.userId() == QLatin1String("userid1"); };
+
+    // THEN there is no prev/next message
+    QCOMPARE(model.findNextMessageAfter(QString(), isByMe).messageId(), QString());
+    QCOMPARE(model.findLastMessageBefore(QString(), isByMe).messageId(), QString());
+    QCOMPARE(model.findNextMessageAfter(QStringLiteral("doesnotexist"), isByMe).messageId(), QString());
+    QCOMPARE(model.findLastMessageBefore(QStringLiteral("doesnotexist"), isByMe).messageId(), QString());
+
+    // GIVEN a non-empty model
+    Message input;
+    fillTestMessage(input);
+    QVector<Message> messages;
+    auto makeMessage = [&](const char *id, const char *userId) {
+                           input.setMessageId(QString::fromLatin1(id));
+                           input.setUserId(QString::fromLatin1(userId));
+                           static int timestamp = 1;
+                           input.setTimeStamp(timestamp);
+                           return input;
+                       };
+    messages << makeMessage("msgA", "userid1");
+    messages << makeMessage("msgB", "userid2");
+    messages << makeMessage("msgC", "userid1");
+    model.addMessages(messages);
+
+    // WHEN/THEN
+    QCOMPARE(model.findLastMessageBefore(QString(), isByMe).messageId(), QStringLiteral("msgC"));
+    QCOMPARE(model.findLastMessageBefore(QStringLiteral("msgC"), isByMe).messageId(), QStringLiteral("msgA"));
+    QCOMPARE(model.findLastMessageBefore(QStringLiteral("msgA"), isByMe).messageId(), QString());
+    QCOMPARE(model.findNextMessageAfter(QString(), isByMe).messageId(), QString());
+    QCOMPARE(model.findNextMessageAfter(QStringLiteral("msgC"), isByMe).messageId(), QString());
+    QCOMPARE(model.findNextMessageAfter(QStringLiteral("msgA"), isByMe).messageId(), QStringLiteral("msgC"));
+}

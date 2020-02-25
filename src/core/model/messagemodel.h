@@ -136,6 +136,9 @@ public:
     Q_INVOKABLE void activate();
     Q_INVOKABLE void deactivate();
 
+    Message findLastMessageBefore(const QString &messageId, const std::function<bool (const Message &)> &predicate) const;
+    Message findNextMessageAfter(const QString &messageId, const std::function<bool (const Message &)> &predicate) const;
+
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

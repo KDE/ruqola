@@ -445,7 +445,8 @@ void RoomWidget::slotChangeFavorite(bool b)
 
 void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
-    if (ev->key() == Qt::Key_Escape) {
+    const int key = ev->key();
+    if (key == Qt::Key_Escape) {
         if (!mMessageIdBeingEdited.isEmpty()) {
             mMessageIdBeingEdited.clear();
             mMessageLineWidget->setText(QString());
@@ -457,8 +458,19 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
         const QMimeData *mimeData = qApp->clipboard()->mimeData();
         if (handleMimeData(mimeData)) {
             ev->accept();
-            return;
         }
+    } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
+        MessageModel *model = mCurrentRocketChatAccount->messageModelForRoom(mRoomId);
+        Q_ASSERT(model);
+        auto isEditable = [this](const Message &msg) { return mCurrentRocketChatAccount->isMessageEditable(msg); };
+        if (key == Qt::Key_Up) {
+            const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
+            slotEditMessage(msg.messageId(), msg.text());
+        } else {
+            const Message &msg = model->findNextMessageAfter(mMessageIdBeingEdited, isEditable);
+            slotEditMessage(msg.messageId(), msg.text());
+        }
+        ev->accept();
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }
