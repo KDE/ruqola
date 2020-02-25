@@ -28,6 +28,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
+#include "misc/emoticonmenuwidget.h"
 
 #include <QApplication>
 #include <QAbstractItemView>
@@ -37,7 +38,7 @@
 #include <QPixmapCache>
 #include <QScreen>
 
-#include <misc/emoticonmenuwidget.h>
+#include <KLocalizedString>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -108,6 +109,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 // [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
 //                                                                  <attachments>
 //                                                                  <reactions>
+//                                                                  <N replies>
 MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -180,6 +182,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         layout.reactionsY = attachmentsY;
     }
     layout.reactionsHeight = mHelperReactions->sizeHint(index, maxWidth, option).height();
+
+    // Replies
+    layout.repliesY = layout.reactionsY + layout.reactionsHeight;
+    if (message->threadCount() > 0) {
+        layout.repliesHeight = option.fontMetrics.height();
+    }
 
     return layout;
 }
@@ -261,6 +269,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
     mHelperReactions->draw(painter, reactionsRect, index, option);
 
+    // Replies
+    if (message->threadCount() > 0) {
+        const QString repliesText = i18np("1 reply", "%1 replies", message->threadCount());
+        painter->setPen(Qt::red);
+        painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
+        // Note: pen still red, currently relying on restore()
+    }
+
     //drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
@@ -279,8 +295,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
         additionalHeight += 4;
     }
 
-    // contents is date + text + attachments + reactions (where all of those are optional)
-    const int contentsHeight = layout.reactionsY + layout.reactionsHeight - option.rect.y();
+    // contents is date + text + attachments + reactions + replies (where all of those are optional)
+    const int contentsHeight = layout.repliesY + layout.repliesHeight - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + layout.avatarPixmap.height() - option.rect.y());
 
@@ -346,6 +362,9 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
                 return true;
             }
+        }
+        if (message->threadCount() > 0) {
+            // TODO handle clicking on "1 reply"
         }
         if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;

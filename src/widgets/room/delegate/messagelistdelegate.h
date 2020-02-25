@@ -86,6 +86,10 @@ private:
         // Reactions
         qreal reactionsY;
         qreal reactionsHeight;
+
+        // Replies
+        qreal repliesY;
+        qreal repliesHeight;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
