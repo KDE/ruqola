@@ -19,6 +19,7 @@
 */
 
 #include "channelactionpopupmenu.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QMenu>
 
@@ -96,11 +97,14 @@ QMenu *ChannelActionPopupMenu::menu() const
     return mMenu;
 }
 
+void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
+}
+
 void ChannelActionPopupMenu::slotUpdateMenu()
 {
-//    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
-//    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
-//    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
-
-    //TODO
+    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
+    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
+    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
 }

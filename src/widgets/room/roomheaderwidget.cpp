@@ -176,3 +176,8 @@ void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
     mFavoriteButton->setVisible(!isDiscussion);
     mDiscussionBackButton->setVisible(isDiscussion);
 }
+
+void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mChannelActionPopupMenu->setCurrentRocketChatAccount(account);
+}

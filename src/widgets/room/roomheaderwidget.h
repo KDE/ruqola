@@ -27,6 +27,7 @@
 class QLabel;
 class QToolButton;
 class ChannelActionPopupMenu;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -55,6 +56,7 @@ public:
 
     void setIsDiscussion(bool isDiscussion);
 
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);

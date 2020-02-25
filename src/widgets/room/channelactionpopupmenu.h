@@ -22,6 +22,7 @@
 #define CHANNELACTIONPOPUPMENU_H
 
 #include <QObject>
+#include <QPointer>
 #include "libruqolawidgets_private_export.h"
 #include "roomheaderwidget.h"
 class QMenu;
@@ -34,6 +35,7 @@ public:
     ~ChannelActionPopupMenu();
 
     QMenu *menu() const;
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 
 Q_SIGNALS:
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
@@ -50,6 +52,7 @@ private:
     QAction *mShowFileAttachments = nullptr;
     QAction *mShowDiscussions = nullptr;
     QAction *mShowThreads = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // CHANNELACTIONPOPUPMENU_H
