@@ -53,6 +53,7 @@ Q_SIGNALS:
     void modelChanged();
     void editMessageRequested(const QString &messageId, const QString &text);
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
+    void loadHistory();
 
 private:
     void checkIfAtBottom();
@@ -67,6 +68,7 @@ private:
     void slotGoToMessage(const QModelIndex &index);
     void slotTranslateMessage(const QModelIndex &index, bool checked);
     void createSeparator(QMenu &menu);
+    void slotVerticalScrollbarChanged(int value);
 
 private:
     QString mRoomID;

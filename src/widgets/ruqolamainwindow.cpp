@@ -118,7 +118,6 @@ void RuqolaMainWindow::slotAccountChanged()
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
-    mLoadChannelHistory->setEnabled(enabled);
     mChannelInfo->setEnabled(enabled);
     mStartVideoChat->setEnabled(enabled);
     mSaveAs->setEnabled(enabled);
@@ -186,9 +185,6 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
-    mLoadChannelHistory = new QAction(i18n("Load Recent History"), this);
-    connect(mLoadChannelHistory, &QAction::triggered, this, &RuqolaMainWindow::slotLoadRecentHistory);
-    ac->addAction(QStringLiteral("load_recent_history"), mLoadChannelHistory);
 
     mAccountMenu = new AccountMenu(this);
     ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
@@ -255,11 +251,6 @@ void RuqolaMainWindow::slotShowChannelInfo()
             delete dlg;
         }
     }
-}
-
-void RuqolaMainWindow::slotLoadRecentHistory()
-{
-    mCurrentRocketChatAccount->loadHistory(mMainWidget->roomId());
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()

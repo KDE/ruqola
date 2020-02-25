@@ -87,6 +87,7 @@ private:
     void slotShowMentions();
     void slotSnipperedMessages();
     void slotConfigureNotification();
+    void slotLoadHistory();
 
     QString mRoomId;
     QString mRoomType;

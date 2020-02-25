@@ -51,7 +51,6 @@ private:
     void slotCreateNewChannel();
     void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
     void slotClearNotification();
-    void slotLoadRecentHistory();
     void slotAccountChanged();
     void slotUnreadOnTop(bool checked);
     void updateActions();
@@ -68,7 +67,6 @@ private:
     QAction *mLogout = nullptr;
     QAction *mSearchChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
-    QAction *mLoadChannelHistory = nullptr;
     QAction *mUnreadOnTop = nullptr;
     QAction *mChannelInfo = nullptr;
     QAction *mAddUserInRooms = nullptr;

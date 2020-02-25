@@ -101,6 +101,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
+    connect(mMessageListView, &MessageListView::loadHistory, this, &RoomWidget::slotLoadHistory);
 
     setAcceptDrops(true);
 }
@@ -108,6 +109,11 @@ RoomWidget::RoomWidget(QWidget *parent)
 RoomWidget::~RoomWidget()
 {
     delete mRoomWrapper;
+}
+
+void RoomWidget::slotLoadHistory()
+{
+    mCurrentRocketChatAccount->loadHistory(mRoomId, mRoomType);
 }
 
 void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)

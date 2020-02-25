@@ -49,10 +49,21 @@ MessageListView::MessageListView(QWidget *parent)
 
     // only the lineedit takes focus
     setFocusPolicy(Qt::NoFocus);
+
+    connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
 }
 
 MessageListView::~MessageListView()
 {
+}
+
+void MessageListView::slotVerticalScrollbarChanged(int value)
+{
+    if (value == 0) {
+        Q_EMIT loadHistory();
+        //Perhaps finding a better method.
+        verticalScrollBar()->setValue(1); //If we are at 0 we can't continue to load history
+    }
 }
 
 void MessageListView::setChannelSelected(const QString &roomId)
