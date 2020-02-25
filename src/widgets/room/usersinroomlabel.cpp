@@ -91,8 +91,7 @@ void UserLabel::setUserId(const QString &userId)
 
 void UserLabel::slotOpenConversation()
 {
-    qWarning() << " void UserLabel::slotOpenConversation() not implemented yet";
-    //Ruqola::self()->rocketChatAccount()->openDirectChannel(roomOrUser);
+    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(QStringLiteral("ruqola:/user/") + mUserName);
 }
 
 void UserLabel::slotIgnoreUser()
