@@ -51,7 +51,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.allowMessagePinning());
     QVERIFY(!config.allowMessageSnippeting());
     QVERIFY(!config.allowMessageStarring());
-    QVERIFY(!config.allowMessageDeleting());
+    QVERIFY(config.allowMessageDeleting());
     QVERIFY(!config.threadsEnabled());
     QVERIFY(!config.discussionEnabled());
     QVERIFY(!config.autoTranslateEnabled());

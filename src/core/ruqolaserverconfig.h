@@ -142,7 +142,7 @@ private:
     bool mAllowMessagePinning = false;
     bool mAllowMessageSnippeting = false;
     bool mAllowMessageStarring = false;
-    bool mAllowMessageDeleting = false;
+    bool mAllowMessageDeleting = true;
     bool mJitsiEnabled = false;
     bool mThreadsEnabled = false;
     bool mDiscussionEnabled = false;

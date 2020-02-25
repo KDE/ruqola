@@ -312,6 +312,7 @@ void MessageModelTest::shouldAllowEditing()
     QCOMPARE(model.rowCount(), 1);
 
     // THEN
+    QVERIFY(model.index(0, 0).data(MessageModel::CanDeleteMessage).toBool());
     QVERIFY(model.index(0, 0).data(MessageModel::CanEditMessage).toBool());
 
     // GIVEN a message from someone else
@@ -321,4 +322,5 @@ void MessageModelTest::shouldAllowEditing()
 
     // THEN
     QVERIFY(!model.index(1, 0).data(MessageModel::CanEditMessage).toBool());
+    QVERIFY(!model.index(1, 0).data(MessageModel::CanDeleteMessage).toBool());
 }
