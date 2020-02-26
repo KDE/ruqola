@@ -53,7 +53,7 @@ Q_SIGNALS:
     void modelChanged();
     void editMessageRequested(const QString &messageId, const QString &text);
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
-    void loadHistory();
+    void loadHistoryRequested();
 
 private:
     void checkIfAtBottom();

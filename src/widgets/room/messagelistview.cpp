@@ -60,7 +60,7 @@ MessageListView::~MessageListView()
 void MessageListView::slotVerticalScrollbarChanged(int value)
 {
     if (value == 0) {
-        Q_EMIT loadHistory();
+        Q_EMIT loadHistoryRequested();
         //Perhaps finding a better method.
         verticalScrollBar()->setValue(1); //If we are at 0 we can't continue to load history
     }
