@@ -38,6 +38,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 private:
+    void slotSendMessage(const QString &msg);
     QString mThreadMessageId;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;

@@ -42,11 +42,21 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mMessageLineWidget = new MessageLineWidget(this);
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
     mainLayout->addWidget(mMessageLineWidget);
+
+    connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &ThreadMessageWidget::slotSendMessage);
+//    connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
+//    connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
+//    connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
 {
 
+}
+
+void ThreadMessageWidget::slotSendMessage(const QString &msg)
+{
+    //TODO implement it. Perhaps we need to extract code from roomWidget if possible.
 }
 
 QString ThreadMessageWidget::threadMessageId() const
