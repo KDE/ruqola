@@ -23,13 +23,15 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class MessageListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ThreadWidget(QWidget *parent = nullptr);
     ~ThreadWidget();
+private:
+    MessageListView *mMessageListView = nullptr;
 };
 
 #endif // THREADWIDGET_H

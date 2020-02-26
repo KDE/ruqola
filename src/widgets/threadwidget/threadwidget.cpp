@@ -19,11 +19,19 @@
 */
 
 #include "threadwidget.h"
+#include <QVBoxLayout>
+#include "room/messagelistview.h"
 
 ThreadWidget::ThreadWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mMessageListView = new MessageListView(this);
+    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
+    mMessageListView->setMode(MessageListView::Mode::ThreadEditing);
+    mainLayout->addWidget(mMessageListView, 1);
 }
 
 ThreadWidget::~ThreadWidget()

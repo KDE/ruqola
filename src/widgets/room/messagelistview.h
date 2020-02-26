@@ -29,6 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
     Q_OBJECT
 public:
     enum class Mode {
+        ThreadEditing,
         Editing,
         Viewing, /*when we show list of message as mentions, search etc.*/
     };
