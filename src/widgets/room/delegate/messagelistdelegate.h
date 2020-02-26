@@ -84,15 +84,15 @@ private:
         QRect attachmentsRect;
 
         // Reactions
-        qreal reactionsY;
-        qreal reactionsHeight;
+        qreal reactionsY = 0;
+        qreal reactionsHeight = 0;
 
         // Replies
-        qreal repliesY;
-        qreal repliesHeight;
+        qreal repliesY = 0;
+        qreal repliesHeight = 0;
 
         // Discussions
-        qreal discussionsHeight;
+        qreal discussionsHeight = 0;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
