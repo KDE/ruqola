@@ -23,27 +23,41 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
+#include <KLocalizedString>
+
 #include <QPainter>
 #include <QTextBlock>
 #include <QTextDocument>
 #include <QAbstractTextDocumentLayout>
 #include <QStyleOptionViewItem>
 
-// move to Message
+// TODO: move MessageConvertedText implementation to Message
 static QString makeMessageText(const QModelIndex &index)
 {
-    return index.data(MessageModel::MessageConvertedText).toString();
+    QString text = index.data(MessageModel::MessageConvertedText).toString();
+    const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    if (messageType == Message::Video) {
+        text = i18n("%1 [Video message, not supported yet by ruqola]").arg(text);
+    } else if (messageType == Message::Audio) {
+        text = i18n("%1 [Audio message, not supported yet by ruqola]").arg(text);
+    }
+    return text;
 }
 
-// QTextDocument lacks a move constructor
-static bool fillTextDocument(const QModelIndex &index, QTextDocument &doc, const QString &text, int width)
+static bool useItalicsForMessage(const QModelIndex &index)
 {
-    doc.setHtml(text);
-    doc.setTextWidth(width);
     const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = messageType == Message::System &&
                                  index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
-    if (isSystemMessage) {
+    return isSystemMessage || messageType == Message::Video || messageType == Message::Audio;
+}
+
+// QTextDocument lacks a move constructor
+static void fillTextDocument(const QModelIndex &index, QTextDocument &doc, const QString &text, int width)
+{
+    doc.setHtml(text);
+    doc.setTextWidth(width);
+    if (useItalicsForMessage(index)) {
         QFont font = doc.defaultFont();
         font.setItalic(true);
         doc.setDefaultFont(font);
@@ -52,7 +66,6 @@ static bool fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
     QTextFrameFormat frameFormat = frame->frameFormat();
     frameFormat.setMargin(0);
     frame->setFrameFormat(frameFormat);
-    return isSystemMessage;
 }
 
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const
@@ -65,7 +78,8 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
     }
     // Possible optimisation: store the QTextDocument into the Message itself?
     QTextDocument doc;
-    if (fillTextDocument(index, doc, text, rect.width())) {
+    fillTextDocument(index, doc, text, rect.width());
+    if (useItalicsForMessage(index)) {
         QTextCursor cursor(&doc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
