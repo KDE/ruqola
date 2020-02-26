@@ -40,15 +40,13 @@ static bool fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
 {
     doc.setHtml(text);
     doc.setTextWidth(width);
-    bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System);
+    const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    const bool isSystemMessage = messageType == Message::System &&
+                                 index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
     if (isSystemMessage) {
-        if (index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started")) {
-            QFont font = doc.defaultFont();
-            font.setItalic(true);
-            doc.setDefaultFont(font);
-        } else {
-            isSystemMessage = false;
-        }
+        QFont font = doc.defaultFont();
+        font.setItalic(true);
+        doc.setDefaultFont(font);
     }
     QTextFrame *frame = doc.frameAt(0);
     QTextFrameFormat frameFormat = frame->frameFormat();
