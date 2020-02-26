@@ -18,17 +18,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADWIDGETTEST_H
-#define THREADWIDGETTEST_H
+#ifndef THREADMESSAGEWIDGET_H
+#define THREADMESSAGEWIDGET_H
 
-#include <QObject>
-
-class ThreadWidgetTest : public QObject
+#include <QWidget>
+#include "libruqolawidgets_private_export.h"
+class MessageListView;
+class MessageLineWidget;
+class RocketChatAccount;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ThreadWidgetTest(QObject *parent = nullptr);
-    ~ThreadWidgetTest() = default;
+    explicit ThreadMessageWidget(QWidget *parent = nullptr);
+    ~ThreadMessageWidget();
+
+    Q_REQUIRED_RESULT QString threadMessageId() const;
+    void setThreadMessageId(const QString &threadMessageId);
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
+private:
+    QString mThreadMessageId;
+    MessageListView *mMessageListView = nullptr;
+    MessageLineWidget *mMessageLineWidget = nullptr;
 };
 
-#endif // THREADWIDGETTEST_H
+#endif // THREADMESSAGEWIDGET_H

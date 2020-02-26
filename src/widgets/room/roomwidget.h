@@ -88,6 +88,7 @@ private:
     void slotSnipperedMessages();
     void slotConfigureNotification();
     void slotLoadHistory();
+    void slotOpenThreadRequested(const QString &threadMessageId);
 
     QString mRoomId;
     QString mRoomType;

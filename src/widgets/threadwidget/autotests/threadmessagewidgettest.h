@@ -18,20 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADWIDGET_H
-#define THREADWIDGET_H
+#ifndef THREADMESSAGEWIDGETTEST_H
+#define THREADMESSAGEWIDGETTEST_H
 
-#include <QWidget>
-#include "libruqolawidgets_private_export.h"
-class MessageListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadWidget : public QWidget
+#include <QObject>
+
+class ThreadMessageWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ThreadWidget(QWidget *parent = nullptr);
-    ~ThreadWidget();
-private:
-    MessageListView *mMessageListView = nullptr;
+    explicit ThreadMessageWidgetTest(QObject *parent = nullptr);
+    ~ThreadMessageWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // THREADWIDGET_H
+#endif // THREADMESSAGEWIDGETTEST_H

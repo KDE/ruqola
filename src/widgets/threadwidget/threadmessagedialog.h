@@ -18,13 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "threadwidgettest.h"
-#include "threadwidget/threadwidget.h"
-#include <QTest>
-QTEST_MAIN(ThreadWidgetTest)
 
-ThreadWidgetTest::ThreadWidgetTest(QObject *parent)
-    : QObject(parent)
+#ifndef THREADMESSAGEDIALOG_H
+#define THREADMESSAGEDIALOG_H
+
+#include <QDialog>
+#include "libruqolawidgets_private_export.h"
+class ThreadMessageWidget;
+class RocketChatAccount;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageDialog : public QDialog
 {
+    Q_OBJECT
+public:
+    explicit ThreadMessageDialog(QWidget *parent = nullptr);
+    ~ThreadMessageDialog();
 
-}
+    void setThreadMessageId(const QString &threadMessageId);
+    Q_REQUIRED_RESULT QString threadMessageId() const;
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
+private:
+    void writeConfig();
+    void readConfig();
+    ThreadMessageWidget *mThreadMessageWidget = nullptr;
+};
+
+#endif // THREADMESSAGEDIALOG_H

@@ -77,7 +77,8 @@ set(Ruqola_configure_SRCS
     )
 
 set(Ruqola_threadwidget_SRCS
-    threadwidget/threadwidget.cpp
+    threadwidget/threadmessagewidget.cpp
+    threadwidget/threadmessagedialog.cpp
     )
 
 ki18n_wrap_ui(Ruqola_configure_SRCS

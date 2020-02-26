@@ -283,7 +283,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (message->discussionCount() > 0) {
         const QString discussionsText = i18np("1 message", "%1 messages", message->discussionCount());
         painter->setPen(Qt::blue);
-        painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), discussionsText);
+        painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
     }
 
@@ -374,10 +374,22 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             }
         }
         if (message->threadCount() > 0) {
-            // TODO handle clicking on "1 reply"
+            const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
+            if (threadRect.contains(mev->pos())) {
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                Q_EMIT rcAccount->openThreadRequested(message->messageId());
+                return true;
+            }
         }
         if (message->discussionCount() > 0) {
-            // TODO handle clicking on "1 message"
+            const QRect discussionRect(layout.usableRect.x(), layout.repliesY + layout.repliesHeight, layout.usableRect.width(), layout.discussionsHeight);
+            if (discussionRect.contains(mev->pos())) {
+                qDebug() << " Open discussion" << message->discussionRoomId();
+                // We need to fix rest api first
+                //auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                //Q_EMIT rcAccount->openLinkRequested(QStringLiteral("ruqola:/room/%1").arg(message->discussionRoomId()));
+                return true;
+            }
         }
         if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;

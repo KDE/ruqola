@@ -7,4 +7,5 @@ macro(add_ruqolathreadwidget_test _source)
   target_link_libraries( ${_name} Qt5::Test libruqolacore libruqolawidgets)
 endmacro()
 
-add_ruqolathreadwidget_test(threadwidgettest.cpp)
+add_ruqolathreadwidget_test(threadmessagewidgettest.cpp)
+add_ruqolathreadwidget_test(threadmessagedialogtest.cpp)

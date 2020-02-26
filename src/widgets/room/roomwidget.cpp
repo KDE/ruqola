@@ -40,6 +40,8 @@
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
 
+#include "threadwidget/threadmessagedialog.h"
+
 #include <QApplication>
 #include <QClipboard>
 #include <QVBoxLayout>
@@ -489,7 +491,14 @@ QString RoomWidget::roomType() const
 
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
+                   this, &RoomWidget::slotOpenThreadRequested);
+    }
+
     mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
+               this, &RoomWidget::slotOpenThreadRequested);
     mMessageLineWidget->setCurrentRocketChatAccount(account);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mRoomId.clear(); //Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
@@ -498,4 +507,14 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void RoomWidget::slotGoBackToRoom()
 {
     Q_EMIT selectChannelRequested(mRoomWrapper->parentRid());
+}
+
+void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId)
+{
+    QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
+    dlg->setThreadMessageId(threadMessageId);
+    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg->exec();
+    delete dlg;
+
 }

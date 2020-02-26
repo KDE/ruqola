@@ -432,6 +432,7 @@ Q_SIGNALS:
     void openLinkRequested(const QString &link);
     void selectRoomByRoomIdRequested(const QString &identifier);
     void selectRoomByRoomNameRequested(const QString &identifier);
+    void openThreadRequested(const QString &threadMessageId);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

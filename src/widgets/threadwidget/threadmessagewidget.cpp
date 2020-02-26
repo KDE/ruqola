@@ -18,23 +18,52 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "threadwidget.h"
-#include <QVBoxLayout>
+#include "threadmessagewidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include "room/messagelistview.h"
+#include "room/messagelinewidget.h"
+#include <QVBoxLayout>
 
-ThreadWidget::ThreadWidget(QWidget *parent)
+ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    //TODO add specific header
 
     mMessageListView = new MessageListView(this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mMessageListView->setMode(MessageListView::Mode::ThreadEditing);
     mainLayout->addWidget(mMessageListView, 1);
+
+    mMessageLineWidget = new MessageLineWidget(this);
+    mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
+    mainLayout->addWidget(mMessageLineWidget);
 }
 
-ThreadWidget::~ThreadWidget()
+ThreadMessageWidget::~ThreadMessageWidget()
 {
 
+}
+
+QString ThreadMessageWidget::threadMessageId() const
+{
+    return mThreadMessageId;
+}
+
+void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
+{
+    if (mThreadMessageId != threadMessageId) {
+        mThreadMessageId = threadMessageId;
+        Ruqola::self()->rocketChatAccount()->getThreadMessages(mThreadMessageId);
+        mMessageListView->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
+    }
+}
+
+void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mMessageLineWidget->setCurrentRocketChatAccount(account);
 }
