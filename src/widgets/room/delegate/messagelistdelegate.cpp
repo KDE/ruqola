@@ -188,6 +188,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (message->threadCount() > 0) {
         layout.repliesHeight = option.fontMetrics.height();
     }
+    if (message->discussionCount() > 0) {
+        layout.repliesHeight = option.fontMetrics.height();
+    }
 
     return layout;
 }
@@ -274,7 +277,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         const QString repliesText = i18np("1 reply", "%1 replies", message->threadCount());
         painter->setPen(Qt::red);
         painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
-        // Note: pen still red, currently relying on restore()
+    }
+    // Discussion
+    if (message->discussionCount() > 0) {
+        const QString discussionsText = i18np("1 message", "%1 messages", message->discussionCount());
+        painter->setPen(Qt::blue);
+        painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), discussionsText);
+        // Note: pen still blue, currently relying on restore()
     }
 
     //drawFocus(painter, option, messageRect);
@@ -365,6 +374,9 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         }
         if (message->threadCount() > 0) {
             // TODO handle clicking on "1 reply"
+        }
+        if (message->discussionCount() > 0) {
+            // TODO handle clicking on "1 message"
         }
         if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;
