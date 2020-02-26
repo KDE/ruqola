@@ -8,3 +8,4 @@ macro(add_ruqolacommon_test _source)
 endmacro()
 
 add_ruqolacommon_test(authenticationcomboboxtest.cpp)
+add_ruqolacommon_test(roomhelpertest.cpp)

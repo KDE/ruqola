@@ -127,6 +127,7 @@ set(Ruqola_common_SRCS
     common/emojicompletiondelegate.cpp
     common/authenticationcombobox.cpp
     common/flowlayout.cpp
+    common/roomhelper.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
