@@ -76,6 +76,10 @@ set(Ruqola_configure_SRCS
     configuredialog/configureuserfeedbackwidget.cpp
     )
 
+set(Ruqola_threadwidget_SRCS
+    threadwidget/threadwidget.cpp
+    )
+
 ki18n_wrap_ui(Ruqola_configure_SRCS
     configuredialog/configureaccountserverwidget.ui
     )
@@ -137,6 +141,7 @@ add_library(libruqolawidgets
     ${Ruqola_roomwidget_SRCS}
     ${Ruqola_configure_SRCS}
     ${Ruqola_misc_widget_SRCS}
+    ${Ruqola_threadwidget_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
@@ -180,6 +185,7 @@ if (BUILD_TESTING)
     add_subdirectory(misc/autotests)
     add_subdirectory(configuredialog/autotests)
     add_subdirectory(common/autotests)
+    add_subdirectory(threadwidget/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
