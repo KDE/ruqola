@@ -37,7 +37,7 @@ public:
     Q_ENUMS(ChannelType)
 
     struct ChannelHistoryInfo {
-        QString lastestMessage;
+        QString latestMessage;
         QString oldestMessage;
         ChannelType channelType = Unknown;
         int offset = 0; //default

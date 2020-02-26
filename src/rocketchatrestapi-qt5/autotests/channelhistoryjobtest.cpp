@@ -39,7 +39,7 @@ void ChannelHistoryJobTest::shouldHaveDefaultValue()
     const ChannelHistoryJob::ChannelHistoryInfo info = job.channelHistoryInfo();
     QCOMPARE(info.channelType, ChannelHistoryJob::ChannelType::Unknown);
     QCOMPARE(info.count, -1);
-    QVERIFY(info.lastestMessage.isEmpty());
+    QVERIFY(info.latestMessage.isEmpty());
     QVERIFY(info.oldestMessage.isEmpty());
     QCOMPARE(info.offset, 0);
     QVERIFY(!info.inclusive);
