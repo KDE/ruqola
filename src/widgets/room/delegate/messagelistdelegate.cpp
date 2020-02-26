@@ -188,8 +188,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (message->threadCount() > 0) {
         layout.repliesHeight = option.fontMetrics.height();
     }
+    // Discussions
     if (message->discussionCount() > 0) {
-        layout.repliesHeight = option.fontMetrics.height();
+        layout.discussionsHeight = option.fontMetrics.height();
     }
 
     return layout;
@@ -304,8 +305,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
         additionalHeight += 4;
     }
 
-    // contents is date + text + attachments + reactions + replies (where all of those are optional)
-    const int contentsHeight = layout.repliesY + layout.repliesHeight - option.rect.y();
+    // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
+    const int contentsHeight = layout.repliesY + layout.repliesHeight + layout.discussionsHeight - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + layout.avatarPixmap.height() - option.rect.y());
 
