@@ -24,7 +24,7 @@
 #include <KLineEdit>
 #include <QLabel>
 #include <QTest>
-#include <QTextEdit>
+#include <KTextEdit>
 #include <QVBoxLayout>
 
 QTEST_MAIN(CreateNewDiscussionWidgetTest)
@@ -73,7 +73,7 @@ void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
     QVERIFY(messageLabel);
     QVERIFY(!messageLabel->text().isEmpty());
 
-    QTextEdit *mMessageTextEdit = w.findChild<QTextEdit *>(QStringLiteral("mMessageTextEdit"));
+    KTextEdit *mMessageTextEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageTextEdit"));
     QVERIFY(mMessageTextEdit);
     QVERIFY(mMessageTextEdit->toPlainText().isEmpty());
     QVERIFY(!mMessageTextEdit->acceptRichText());

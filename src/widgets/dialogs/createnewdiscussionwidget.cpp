@@ -24,7 +24,7 @@
 #include <QLabel>
 #include <KLineEdit>
 #include <KLocalizedString>
-#include <QTextEdit>
+#include <KTextEdit>
 
 CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     : QWidget(parent)
@@ -69,8 +69,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     messageLabel->setObjectName(QStringLiteral("messageLabel"));
     mainLayout->addWidget(messageLabel);
 
-    //TODO use ktextedit ? QPlainTextEdit ?
-    mMessageTextEdit = new QTextEdit(this);
+    mMessageTextEdit = new KTextEdit(this);
     mMessageTextEdit->setAcceptRichText(false);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
