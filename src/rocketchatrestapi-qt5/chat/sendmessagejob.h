@@ -56,4 +56,6 @@ private:
     SendMessageArguments mSendMessageArguments;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::SendMessageJob::SendMessageArguments)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::SendMessageJob::SendMessageArguments, Q_MOVABLE_TYPE);
 #endif // SENDMESSAGEJOB_H
