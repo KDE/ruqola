@@ -386,8 +386,8 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             if (discussionRect.contains(mev->pos())) {
                 qDebug() << " Open discussion" << message->discussionRoomId();
                 // We need to fix rest api first
-                //auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                //Q_EMIT rcAccount->openLinkRequested(QStringLiteral("ruqola:/room/%1").arg(message->discussionRoomId()));
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                rcAccount->joinDiscussion(message->discussionRoomId(), QString());
                 return true;
             }
         }
