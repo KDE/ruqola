@@ -98,7 +98,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
 {
     mMessageIdBeingEdited = messageId;
-    setMode(MessageLineWidget::EditingMode::EditMessage);
+    setMode(messageId.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
     setText(text);
     setFocus();
 }
