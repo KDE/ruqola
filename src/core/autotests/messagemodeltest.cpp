@@ -330,7 +330,9 @@ void MessageModelTest::shouldFindPrevNextMessage()
     // GIVEN an empty model
     MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
 
-    auto isByMe = [](const Message &msg) { return msg.userId() == QLatin1String("userid1"); };
+    auto isByMe = [](const Message &msg) {
+                      return msg.userId() == QLatin1String("userid1");
+                  };
 
     // THEN there is no prev/next message
     QCOMPARE(model.findNextMessageAfter(QString(), isByMe).messageId(), QString());

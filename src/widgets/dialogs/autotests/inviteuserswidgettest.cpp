@@ -43,7 +43,6 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-
     KLineEdit *mInviteUserLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
     QVERIFY(mInviteUserLineEdit->isReadOnly());

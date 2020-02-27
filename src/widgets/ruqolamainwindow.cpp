@@ -185,7 +185,6 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
-
     mAccountMenu = new AccountMenu(this);
     ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
 

@@ -51,7 +51,6 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 
 ThreadMessageWidget::~ThreadMessageWidget()
 {
-
 }
 
 void ThreadMessageWidget::slotSendMessage(const QString &msg)

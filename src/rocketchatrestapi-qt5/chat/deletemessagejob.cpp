@@ -128,12 +128,10 @@ QNetworkRequest DeleteMessageJob::request() const
     return request;
 }
 
-
 QString RocketChatRestApi::DeleteMessageJob::jobName() const
 {
     return QStringLiteral("Delete Message");
 }
-
 
 QString RocketChatRestApi::DeleteMessageJob::errorMessage(const QString &str)
 {

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "threadmessagedialog.h"
 #include "threadmessagewidget.h"
 #include <KLocalizedString>

@@ -1760,7 +1760,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
         return false;
     }
     return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000)
-            > QDateTime::currentMSecsSinceEpoch();
+           > QDateTime::currentMSecsSinceEpoch();
 }
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
@@ -1772,7 +1772,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
         return false;
     }
     return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000)
-            > QDateTime::currentMSecsSinceEpoch();
+           > QDateTime::currentMSecsSinceEpoch();
 }
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)

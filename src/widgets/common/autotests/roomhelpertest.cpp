@@ -25,7 +25,6 @@ QTEST_MAIN(RoomHelperTest)
 RoomHelperTest::RoomHelperTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomHelperTest::shouldHaveDefaultValues()

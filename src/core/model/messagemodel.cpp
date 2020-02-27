@@ -135,7 +135,7 @@ void MessageModel::deactivate()
     }
 }
 
-Message MessageModel::findLastMessageBefore(const QString &messageId, const std::function<bool (const Message &)> &predicate) const
+Message MessageModel::findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId); // if it == end, we'll start from there
     auto rit = QVector<Message>::const_reverse_iterator(it); // this points to *it-1 already
@@ -143,7 +143,7 @@ Message MessageModel::findLastMessageBefore(const QString &messageId, const std:
     return rit == mAllMessages.rend() ? Message() : *rit;
 }
 
-Message MessageModel::findNextMessageAfter(const QString &messageId, const std::function<bool (const Message &)> &predicate) const
+Message MessageModel::findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId);
     if (it == mAllMessages.end()) {

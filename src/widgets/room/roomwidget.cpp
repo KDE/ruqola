@@ -54,7 +54,6 @@
 #include <QDir>
 #include <QImageWriter>
 
-
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -227,7 +226,6 @@ void RoomWidget::slotShowFileAttachments()
     delete dlg;
 }
 
-
 void RoomWidget::slotSearchMessages()
 {
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
@@ -288,13 +286,13 @@ void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
 bool RoomWidget::handleMimeData(const QMimeData *mimeData)
 {
     auto uploadFile = [this](const QUrl &url) {
-        QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
-        dlg->setFileUrl(url);
-        if (dlg->exec()) {
-            const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
-            slotSendFile(uploadFileInfo);
-        }
-    };
+                          QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+                          dlg->setFileUrl(url);
+                          if (dlg->exec()) {
+                              const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
+                              slotSendFile(uploadFileInfo);
+                          }
+                      };
     if (mimeData->hasUrls()) {
         const QList<QUrl> urls = mimeData->urls();
         for (const QUrl &url : urls) {
@@ -470,7 +468,9 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
         MessageModel *model = mCurrentRocketChatAccount->messageModelForRoom(mRoomId);
         Q_ASSERT(model);
-        auto isEditable = [this](const Message &msg) { return mCurrentRocketChatAccount->isMessageEditable(msg); };
+        auto isEditable = [this](const Message &msg) {
+                              return mCurrentRocketChatAccount->isMessageEditable(msg);
+                          };
         if (key == Qt::Key_Up) {
             const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
             slotEditMessage(msg.messageId(), msg.text());
@@ -498,7 +498,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
-               this, &RoomWidget::slotOpenThreadRequested);
+            this, &RoomWidget::slotOpenThreadRequested);
     mMessageLineWidget->setCurrentRocketChatAccount(account);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mRoomId.clear(); //Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
@@ -516,5 +516,4 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId)
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->exec();
     delete dlg;
-
 }

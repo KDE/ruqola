@@ -26,12 +26,10 @@
 RoomHelper::RoomHelper(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 RoomHelper::~RoomHelper()
 {
-
 }
 
 QString RoomHelper::messageIdBeingEdited() const

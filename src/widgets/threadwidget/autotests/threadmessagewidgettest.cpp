@@ -26,7 +26,6 @@ QTEST_MAIN(ThreadMessageWidgetTest)
 ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ThreadMessageWidgetTest::shouldHaveDefaultValues()

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "threadmessagedialogtest.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "threadwidget/threadmessagewidget.h"

@@ -27,5 +27,4 @@ QTEST_MAIN(ChannelActionPopupMenuTest)
 ChannelActionPopupMenuTest::ChannelActionPopupMenuTest(QObject *parent)
     : QObject(parent)
 {
-
 }

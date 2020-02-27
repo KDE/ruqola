@@ -51,7 +51,6 @@ public:
     void setBlockDeletingMessageInMinutes(int minutes);
     Q_REQUIRED_RESULT int blockDeletingMessageInMinutes() const;
 
-
     Q_REQUIRED_RESULT bool otrEnabled() const;
     void setOtrEnabled(bool otrEnabled);
 
@@ -116,7 +115,6 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
-
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -133,7 +131,7 @@ private:
     int mBlockDeletingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;
-    int mServerVersionPatch = -1;    
+    int mServerVersionPatch = -1;
 
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;

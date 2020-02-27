@@ -42,7 +42,6 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     mMessagePreview->setFont(messagePreviewFont);
     mainLayout->addWidget(mMessagePreview);
 
-
     QHBoxLayout *messageLayout = new QHBoxLayout;
     messageLayout->setObjectName(QStringLiteral("messageLayout"));
     messageLayout->setContentsMargins(0, 0, 0, 0);

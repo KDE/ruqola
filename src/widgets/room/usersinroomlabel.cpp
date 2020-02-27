@@ -56,7 +56,6 @@ void UsersInRoomLabel::setUserInfo(const UsersInRoomLabel::UserInfo &info)
     mUserNameLabel->setUserName(info.userName);
 }
 
-
 void UsersInRoomLabel::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mUserNameLabel->setRoomWrapper(roomWrapper);
@@ -95,7 +94,6 @@ void UserLabel::slotOpenConversation()
 }
 
 void UserLabel::slotIgnoreUser()
-
 {
     //Ruqola::self()->rocketChatAccount()->ignoreUser(mRoomWrapper->roomId(), mUserId, ignored)
     qWarning() << " void UserLabel::slotIgnoreUser() not implemented yet";
