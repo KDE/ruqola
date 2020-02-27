@@ -404,6 +404,7 @@ public:
 
     Q_REQUIRED_RESULT bool hasInviteUserSupport() const;
     Q_REQUIRED_RESULT bool isMessageDeletable(const Message &message) const;
+    Q_INVOKABLE void joinDiscussion(const QString &roomId, const QString &joinCode);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

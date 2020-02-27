@@ -659,6 +659,11 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
     }
 }
 
+void RocketChatAccount::joinDiscussion(const QString &roomId, const QString &joinCode)
+{
+    ddp()->joinRoom(roomId, joinCode);
+}
+
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
     RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
