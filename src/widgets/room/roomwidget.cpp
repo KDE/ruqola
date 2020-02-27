@@ -453,6 +453,7 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId)
     QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
     dlg->setThreadMessageId(threadMessageId);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg->setRoomId(mRoomId);
     dlg->exec();
     delete dlg;
 }

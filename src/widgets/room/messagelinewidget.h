@@ -41,11 +41,6 @@ public:
         NewMessage,
     };
 
-    enum class MessageLineType {
-        NormalLineEdit,
-        ThreadLineEdit
-    };
-
     explicit MessageLineWidget(QWidget *parent = nullptr);
     ~MessageLineWidget() override;
 
@@ -71,8 +66,8 @@ public:
 
     void clearMessageIdBeingEdited();
 
-    Q_REQUIRED_RESULT MessageLineType messageLineType() const;
-    void setMessageLineType(const MessageLineType &messageLineType);
+    Q_REQUIRED_RESULT QString threadMessageId() const;
+    void setThreadMessageId(const QString &threadMessageId);
 
 private:
     void slotSendMessage(const QString &msg);
@@ -81,9 +76,9 @@ private:
     void slotSendFile();
 
     QString mRoomId;
+    QString mThreadMessageId;
     QString mMessageIdBeingEdited;
     EditingMode mMode = EditingMode::NewMessage;
-    MessageLineType mMessageLineType = MessageLineType::NormalLineEdit;
     MessageTextEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;

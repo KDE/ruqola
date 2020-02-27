@@ -46,7 +46,6 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 
     mMessageLineWidget = new MessageLineWidget(this);
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
-    mMessageLineWidget->setMessageLineType(MessageLineWidget::MessageLineType::ThreadLineEdit);
     mainLayout->addWidget(mMessageLineWidget);
 
     connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &ThreadMessageWidget::keyPressedInLineEdit);
@@ -69,7 +68,7 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
         mThreadMessageId = threadMessageId;
         Ruqola::self()->rocketChatAccount()->getThreadMessages(mThreadMessageId);
         mMessageListView->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
-        mMessageLineWidget->setRoomId(mThreadMessageId);
+        mMessageLineWidget->setThreadMessageId(mThreadMessageId);
     }
 }
 
@@ -77,6 +76,12 @@ void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account
 {
     mMessageLineWidget->setCurrentRocketChatAccount(account);
 }
+
+void ThreadMessageWidget::setRoomId(const QString &roomId)
+{
+    mMessageLineWidget->setRoomId(roomId);
+}
+
 
 void ThreadMessageWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {

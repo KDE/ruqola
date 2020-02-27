@@ -45,5 +45,4 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 
     MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget* >(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
-    QCOMPARE(mMessageLineWidget->messageLineType(), MessageLineWidget::MessageLineType::ThreadLineEdit);
 }

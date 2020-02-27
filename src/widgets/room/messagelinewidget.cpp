@@ -86,14 +86,14 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty()) {
-            mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
-        } else {
-            if (mMessageLineType == MessageLineWidget::MessageLineType::NormalLineEdit) {
-                mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+            if (mThreadMessageId.isEmpty()) {
+                mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
             } else {
-                //TODO we need threadMessageId
-                //mCurrentRocketChatAccount->replyOnThread(mRoomId, mMessageIdBeingEdited, msg);
+                mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, msg);
             }
+        } else {
+            //TODO support mThreadMessageId too
+            mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
             mMessageIdBeingEdited.clear();
         }
         setMode(MessageLineWidget::EditingMode::NewMessage);
@@ -144,14 +144,14 @@ void MessageLineWidget::slotSendFile()
     delete dlg;
 }
 
-MessageLineWidget::MessageLineType MessageLineWidget::messageLineType() const
+QString MessageLineWidget::threadMessageId() const
 {
-    return mMessageLineType;
+    return mThreadMessageId;
 }
 
-void MessageLineWidget::setMessageLineType(const MessageLineType &messageLineType)
+void MessageLineWidget::setThreadMessageId(const QString &threadMessageId)
 {
-    mMessageLineType = messageLineType;
+    mThreadMessageId = threadMessageId;
 }
 
 MessageLineWidget::EditingMode MessageLineWidget::mode() const

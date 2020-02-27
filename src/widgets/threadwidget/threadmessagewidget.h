@@ -38,6 +38,8 @@ public:
     void setThreadMessageId(const QString &threadMessageId);
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+
+    void setRoomId(const QString &roomId);
 private:
     void keyPressedInLineEdit(QKeyEvent *ev);
     void slotSendMessage(const QString &msg);

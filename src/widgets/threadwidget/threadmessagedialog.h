@@ -37,6 +37,7 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void setRoomId(const QString &roomId);
 private:
     void writeConfig();
     void readConfig();
