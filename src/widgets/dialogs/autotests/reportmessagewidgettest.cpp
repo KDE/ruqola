@@ -22,7 +22,7 @@
 #include "dialogs/reportmessagewidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QLineEdit>
+#include <KTextEdit>
 #include <QTest>
 QTEST_MAIN(ReportMessageWidgetTest)
 ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
@@ -46,10 +46,10 @@ void ReportMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessagePreview->wordWrap());
     QVERIFY(mMessagePreview->text().isEmpty());
 
-    auto *mMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto *mMessageLineEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
-    QVERIFY(mMessageLineEdit->isClearButtonEnabled());
     QVERIFY(!mMessageLineEdit->placeholderText().isEmpty());
+    QVERIFY(!mMessageLineEdit->acceptRichText());
 
     QVERIFY(w.message().isEmpty());
 }

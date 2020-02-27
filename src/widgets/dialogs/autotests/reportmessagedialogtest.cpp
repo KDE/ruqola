@@ -27,6 +27,7 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QLineEdit>
+#include <KTextEdit>
 
 QTEST_MAIN(ReportMessageDialogTest)
 
@@ -62,7 +63,7 @@ void ReportMessageDialogTest::shouldUpdateOkButton()
     auto *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
     auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
 
-    auto *mMessageLineEdit = mReportMessageWidget->findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto *mMessageLineEdit = mReportMessageWidget->findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
     mMessageLineEdit->setText(QStringLiteral("foo"));
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);

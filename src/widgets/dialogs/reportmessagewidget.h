@@ -24,7 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_export.h"
-class QLineEdit;
+class KTextEdit;
 class QLabel;
 class LIBRUQOLAWIDGETS_EXPORT ReportMessageWidget : public QWidget
 {
@@ -38,7 +38,7 @@ public:
 Q_SIGNALS:
     void updateOkButton(bool enabled);
 private:
-    QLineEdit *mMessageLineEdit = nullptr;
+    KTextEdit *mMessageLineEdit = nullptr;
     QLabel *mMessagePreview = nullptr;
 };
 

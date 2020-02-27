@@ -21,7 +21,8 @@
 #include "reportmessagewidget.h"
 
 #include <QLabel>
-#include <QLineEdit>
+#include <QTextDocument>
+#include <KTextEdit>
 #include <QHBoxLayout>
 
 #include <KLocalizedString>
@@ -52,13 +53,13 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     lab->setObjectName(QStringLiteral("label"));
     messageLayout->addWidget(lab);
 
-    mMessageLineEdit = new QLineEdit(this);
+    mMessageLineEdit = new KTextEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
-    mMessageLineEdit->setClearButtonEnabled(true);
+    mMessageLineEdit->setAcceptRichText(false);
     mMessageLineEdit->setPlaceholderText(i18n("Why you signal this message?"));
     messageLayout->addWidget(mMessageLineEdit);
-    connect(mMessageLineEdit, &QLineEdit::textChanged, this, [this]() {
-        Q_EMIT updateOkButton(!mMessageLineEdit->text().trimmed().isEmpty());
+    connect(mMessageLineEdit, &KTextEdit::textChanged, this, [this]() {
+        Q_EMIT updateOkButton(!mMessageLineEdit->toPlainText().trimmed().isEmpty());
     });
 }
 
@@ -68,7 +69,7 @@ ReportMessageWidget::~ReportMessageWidget()
 
 QString ReportMessageWidget::message() const
 {
-    return mMessageLineEdit->text();
+    return mMessageLineEdit->toPlainText();
 }
 
 void ReportMessageWidget::setPreviewMessage(const QString &msg)
