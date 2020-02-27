@@ -35,6 +35,7 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
 {
     MessageLineWidget w;
     QCOMPARE(w.mode(), MessageLineWidget::EditingMode::NewMessage);
+    QCOMPARE(w.messageLineType(), MessageLineWidget::MessageLineType::NormalLineEdit);
 
     auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

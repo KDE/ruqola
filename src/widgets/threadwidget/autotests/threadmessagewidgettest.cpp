@@ -20,7 +20,10 @@
 
 #include "threadmessagewidgettest.h"
 #include "threadwidget/threadmessagewidget.h"
+#include "room/messagelinewidget.h"
+#include "room/messagelistview.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ThreadMessageWidgetTest)
 
 ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)
@@ -32,4 +35,15 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 {
     ThreadMessageWidget w;
     QVERIFY(w.threadMessageId().isEmpty());
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout* >(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    QVERIFY(mMessageListView);
+    QCOMPARE(mMessageListView->mode(), MessageListView::Mode::ThreadEditing);
+
+    MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget* >(QStringLiteral("mMessageLineWidget"));
+    QVERIFY(mMessageLineWidget);
+    QCOMPARE(mMessageLineWidget->messageLineType(), MessageLineWidget::MessageLineType::ThreadLineEdit);
 }

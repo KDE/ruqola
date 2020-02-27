@@ -88,7 +88,12 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
         if (mMessageIdBeingEdited.isEmpty()) {
             mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
         } else {
-            mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+            if (mMessageLineType == MessageLineWidget::MessageLineType::NormalLineEdit) {
+                mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+            } else {
+                //TODO we need threadMessageId
+                //mCurrentRocketChatAccount->replyOnThread(mRoomId, mMessageIdBeingEdited, msg);
+            }
             mMessageIdBeingEdited.clear();
         }
         setMode(MessageLineWidget::EditingMode::NewMessage);
@@ -137,6 +142,16 @@ void MessageLineWidget::slotSendFile()
         sendFile(result);
     }
     delete dlg;
+}
+
+MessageLineWidget::MessageLineType MessageLineWidget::messageLineType() const
+{
+    return mMessageLineType;
+}
+
+void MessageLineWidget::setMessageLineType(const MessageLineType &messageLineType)
+{
+    mMessageLineType = messageLineType;
 }
 
 MessageLineWidget::EditingMode MessageLineWidget::mode() const

@@ -46,6 +46,7 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 
     mMessageLineWidget = new MessageLineWidget(this);
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
+    mMessageLineWidget->setMessageLineType(MessageLineWidget::MessageLineType::ThreadLineEdit);
     mainLayout->addWidget(mMessageLineWidget);
 
     connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &ThreadMessageWidget::keyPressedInLineEdit);
