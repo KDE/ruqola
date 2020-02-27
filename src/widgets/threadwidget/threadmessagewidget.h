@@ -26,6 +26,7 @@
 class MessageListView;
 class MessageLineWidget;
 class RocketChatAccount;
+class QKeyEvent;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -38,6 +39,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 private:
+    void keyPressedInLineEdit(QKeyEvent *ev);
     void slotSendMessage(const QString &msg);
     QString mThreadMessageId;
     MessageListView *mMessageListView = nullptr;

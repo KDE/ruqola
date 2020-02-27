@@ -21,6 +21,7 @@
 #ifndef MESSAGELINEWIDGET_H
 #define MESSAGELINEWIDGET_H
 
+#include <QPointer>
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
@@ -29,6 +30,7 @@ class MessageTextEdit;
 class QToolButton;
 class EmoticonMenuWidget;
 class RocketChatAccount;
+class QMimeData;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
@@ -51,21 +53,33 @@ public:
     Q_REQUIRED_RESULT EditingMode mode() const;
     void setMode(EditingMode mode);
 
-Q_SIGNALS:
-    void sendMessage(const QString &str);
-    void sendFile(const UploadFileDialog::UploadFileInfo &result);
-    void textEditing(bool clearNotification);
+    void setRoomId(const QString &roomId);
+    Q_REQUIRED_RESULT QString roomId() const;
+
+    Q_REQUIRED_RESULT QString messageIdBeingEdited() const;
+    void setMessageIdBeingEdited(const QString &messageIdBeingEdited);
+
+    void setEditMessage(const QString &messageId, const QString &text);
+
+    bool handleMimeData(const QMimeData *mimeData);
+
+    void clearMessageIdBeingEdited();
 
 private:
     void slotSendMessage(const QString &msg);
+    void slotTextEditing(bool clearNotification);
+    void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendFile();
 
+    QString mRoomId;
+    QString mMessageIdBeingEdited;
     EditingMode mMode = EditingMode::NewMessage;
     MessageTextEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;
     QToolButton *mSendMessageButton = nullptr;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // MESSAGELINEWIDGET_H

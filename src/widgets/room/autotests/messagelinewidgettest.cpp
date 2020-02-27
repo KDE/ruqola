@@ -56,6 +56,9 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     auto *mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
     QVERIFY(mSendMessageButton);
     QVERIFY(!mSendMessageButton->icon().isNull());
+
+    QVERIFY(w.roomId().isEmpty());
+    QVERIFY(w.messageIdBeingEdited().isEmpty());
 }
 
 //TODO test signal/slot

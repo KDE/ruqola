@@ -63,17 +63,13 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-    void slotSendMessage(const QString &msg);
-    void slotEditMessage(const QString &messageId, const QString &text);
     void slotClearNotification();
-    void slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void updateRoomHeader();
     void connectRoomWrapper();
     void slotChangeFavorite(bool b);
     void keyPressedInLineEdit(QKeyEvent *ev);
     void setRoomType(const QString &roomType);
     void slotEncryptedChanged(bool b);
-    void slotTextEditing(bool clearNotification);
     void slotGoBackToRoom();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     bool handleMimeData(const QMimeData *mimeData);
@@ -92,7 +88,6 @@ private:
 
     QString mRoomId;
     QString mRoomType;
-    QString mMessageIdBeingEdited;
 
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;

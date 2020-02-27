@@ -23,7 +23,12 @@
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "room/messagelinewidget.h"
+#include "room/messagetextedit.h"
+#include <QMimeData>
+#include <QApplication>
 #include <QVBoxLayout>
+#include <QKeyEvent>
+#include <QClipboard>
 
 ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     : QWidget(parent)
@@ -43,20 +48,14 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
     mainLayout->addWidget(mMessageLineWidget);
 
-    connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &ThreadMessageWidget::slotSendMessage);
-//    connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
-//    connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
-//    connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
+    connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &ThreadMessageWidget::keyPressedInLineEdit);
+
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
 {
 }
 
-void ThreadMessageWidget::slotSendMessage(const QString &msg)
-{
-    //TODO implement it. Perhaps we need to extract code from roomWidget if possible.
-}
 
 QString ThreadMessageWidget::threadMessageId() const
 {
@@ -69,10 +68,41 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
         mThreadMessageId = threadMessageId;
         Ruqola::self()->rocketChatAccount()->getThreadMessages(mThreadMessageId);
         mMessageListView->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
+        mMessageLineWidget->setRoomId(mThreadMessageId);
     }
 }
 
 void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mMessageLineWidget->setCurrentRocketChatAccount(account);
+}
+
+void ThreadMessageWidget::keyPressedInLineEdit(QKeyEvent *ev)
+{
+    const int key = ev->key();
+    if (key == Qt::Key_Escape) {
+        if (!mMessageLineWidget->messageIdBeingEdited().isEmpty()) {
+            mMessageLineWidget->clearMessageIdBeingEdited();
+        }
+        ev->accept();
+    } else if (ev->matches(QKeySequence::Paste)) {
+        const QMimeData *mimeData = qApp->clipboard()->mimeData();
+        if (mMessageLineWidget->handleMimeData(mimeData)) {
+            ev->accept();
+        }
+    } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
+        MessageModel *model = Ruqola::self()->rocketChatAccount()->threadMessageModel();
+        Q_ASSERT(model);
+        auto isEditable = [this](const Message &msg) {
+                              return Ruqola::self()->rocketChatAccount()->isMessageEditable(msg);
+                          };
+        if (key == Qt::Key_Up) {
+            const Message &msg = model->findLastMessageBefore(mMessageLineWidget->messageIdBeingEdited(), isEditable);
+            mMessageLineWidget->setEditMessage(msg.messageId(), msg.text());
+        } else {
+            const Message &msg = model->findNextMessageAfter(mMessageLineWidget->messageIdBeingEdited(), isEditable);
+            mMessageLineWidget->setEditMessage(msg.messageId(), msg.text());
+        }
+        ev->accept();
+    }
 }

@@ -88,9 +88,6 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
-    connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
-    connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
-    connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
     connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
 
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
@@ -100,7 +97,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::searchMessageRequested, this, &RoomWidget::slotSearchMessages);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::actionRequested, this, &RoomWidget::slotActionRequested);
 
-    connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
+    connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
 
@@ -246,35 +243,6 @@ void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString
     delete dlg;
 }
 
-void RoomWidget::slotTextEditing(bool clearNotification)
-{
-    mCurrentRocketChatAccount->textEditing(mRoomId, clearNotification);
-}
-
-void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
-{
-    mCurrentRocketChatAccount->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl);
-}
-
-void RoomWidget::slotSendMessage(const QString &msg)
-{
-    if (mMessageIdBeingEdited.isEmpty()) {
-        mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
-    } else {
-        mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
-        mMessageIdBeingEdited.clear();
-    }
-    mMessageLineWidget->setMode(MessageLineWidget::EditingMode::NewMessage);
-}
-
-void RoomWidget::slotEditMessage(const QString &messageId, const QString &text)
-{
-    mMessageIdBeingEdited = messageId;
-    mMessageLineWidget->setMode(MessageLineWidget::EditingMode::EditMessage);
-    mMessageLineWidget->setText(text);
-    mMessageLineWidget->setFocus();
-}
-
 void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
 {
     const QMimeData *mimeData = event->mimeData();
@@ -285,36 +253,7 @@ void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
 
 bool RoomWidget::handleMimeData(const QMimeData *mimeData)
 {
-    auto uploadFile = [this](const QUrl &url) {
-                          QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
-                          dlg->setFileUrl(url);
-                          if (dlg->exec()) {
-                              const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
-                              slotSendFile(uploadFileInfo);
-                          }
-                      };
-    if (mimeData->hasUrls()) {
-        const QList<QUrl> urls = mimeData->urls();
-        for (const QUrl &url : urls) {
-            if (url.isLocalFile()) {
-                uploadFile(url);
-            }
-        }
-        return true;
-    } else if (mimeData->hasImage()) {
-        QTemporaryFile tempFile(QDir::tempPath() + QLatin1String("/XXXXXX.png"));
-        if (tempFile.open()) {
-            QImage image = mimeData->imageData().value<QImage>();
-            QImageWriter writer(&tempFile, "PNG");
-            if (writer.write(image)) {
-                const QUrl url = QUrl::fromLocalFile(tempFile.fileName());
-                tempFile.close();
-                uploadFile(url);
-                return true;
-            }
-        }
-    }
-    return false;
+    return mMessageLineWidget->handleMimeData(mimeData);
 }
 
 void RoomWidget::dropEvent(QDropEvent *event)
@@ -339,7 +278,7 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
     } else {
         AccountRoomSettings::PendingTypedInfo info;
         info.text = mMessageLineWidget->text();
-        info.messageIdBeingEdited = mMessageIdBeingEdited;
+        info.messageIdBeingEdited = mMessageLineWidget->messageIdBeingEdited();
         info.scrollbarPosition = mMessageListView->verticalScrollBar()->value();
         mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
     }
@@ -349,14 +288,14 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     if (currentPendingInfo.isValid()) {
         mMessageLineWidget->setText(currentPendingInfo.text);
-        mMessageIdBeingEdited = currentPendingInfo.messageIdBeingEdited;
+        mMessageLineWidget->setMessageIdBeingEdited(currentPendingInfo.messageIdBeingEdited);
         if (currentPendingInfo.scrollbarPosition != -1) {
             mMessageListView->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
         }
     } else {
         mMessageLineWidget->setText(QString());
     }
-    mMessageLineWidget->setMode(mMessageIdBeingEdited.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
+    mMessageLineWidget->setMode(mMessageLineWidget->messageIdBeingEdited().isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
 
     mMessageLineWidget->setFocus();
 }
@@ -407,6 +346,7 @@ void RoomWidget::setRoomId(const QString &roomId)
     delete mRoomWrapper;
     mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
     connectRoomWrapper();
+    mMessageLineWidget->setRoomId(roomId);
     mMessageListView->setChannelSelected(roomId);
     mUsersInRoomFlowWidget->setRoomWrapper(mRoomWrapper);
 }
@@ -453,9 +393,8 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Escape) {
-        if (!mMessageIdBeingEdited.isEmpty()) {
-            mMessageIdBeingEdited.clear();
-            mMessageLineWidget->setText(QString());
+        if (!mMessageLineWidget->messageIdBeingEdited().isEmpty()) {
+            mMessageLineWidget->clearMessageIdBeingEdited();
         } else {
             slotClearNotification();
         }
@@ -472,11 +411,11 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
                               return mCurrentRocketChatAccount->isMessageEditable(msg);
                           };
         if (key == Qt::Key_Up) {
-            const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
-            slotEditMessage(msg.messageId(), msg.text());
+            const Message &msg = model->findLastMessageBefore(mMessageLineWidget->messageIdBeingEdited(), isEditable);
+            mMessageLineWidget->setEditMessage(msg.messageId(), msg.text());
         } else {
-            const Message &msg = model->findNextMessageAfter(mMessageIdBeingEdited, isEditable);
-            slotEditMessage(msg.messageId(), msg.text());
+            const Message &msg = model->findNextMessageAfter(mMessageLineWidget->messageIdBeingEdited(), isEditable);
+            mMessageLineWidget->setEditMessage(msg.messageId(), msg.text());
         }
         ev->accept();
     } else {

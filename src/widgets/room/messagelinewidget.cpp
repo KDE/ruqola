@@ -22,11 +22,16 @@
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
 #include "dialogs/uploadfiledialog.h"
+#include "rocketchataccount.h"
 #include <QPointer>
 #include <QHBoxLayout>
 #include <QToolButton>
 #include <QMenu>
 #include <QWidgetAction>
+#include <QMimeData>
+#include <QDir>
+#include <QImageWriter>
+#include <QTemporaryFile>
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
@@ -46,7 +51,6 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
-    connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::textEditing);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -81,12 +85,27 @@ MessageLineWidget::~MessageLineWidget()
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
-        Q_EMIT sendMessage(msg);
+        if (mMessageIdBeingEdited.isEmpty()) {
+            mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
+        } else {
+            mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+            mMessageIdBeingEdited.clear();
+        }
+        setMode(MessageLineWidget::EditingMode::NewMessage);
     }
+}
+
+void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
+{
+    mMessageIdBeingEdited = messageId;
+    setMode(MessageLineWidget::EditingMode::EditMessage);
+    setText(text);
+    setFocus();
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    mCurrentRocketChatAccount = account;
     mMessageTextEdit->setCurrentRocketChatAccount(account);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
 }
@@ -115,7 +134,7 @@ void MessageLineWidget::slotSendFile()
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
     if (dlg->exec()) {
         const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
-        Q_EMIT sendFile(result);
+        sendFile(result);
     }
     delete dlg;
 }
@@ -138,4 +157,75 @@ void MessageLineWidget::setMode(EditingMode mode)
             break;
         }
     }
+}
+
+void MessageLineWidget::slotTextEditing(bool clearNotification)
+{
+    mCurrentRocketChatAccount->textEditing(mRoomId, clearNotification);
+}
+
+void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
+{
+    mCurrentRocketChatAccount->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl);
+}
+
+QString MessageLineWidget::messageIdBeingEdited() const
+{
+    return mMessageIdBeingEdited;
+}
+
+void MessageLineWidget::setMessageIdBeingEdited(const QString &messageIdBeingEdited)
+{
+    mMessageIdBeingEdited = messageIdBeingEdited;
+}
+
+QString MessageLineWidget::roomId() const
+{
+    return mRoomId;
+}
+
+void MessageLineWidget::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
+{
+    auto uploadFile = [this](const QUrl &url) {
+                          QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+                          dlg->setFileUrl(url);
+                          if (dlg->exec()) {
+                              const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
+                              sendFile(uploadFileInfo);
+                          }
+                      };
+    if (mimeData->hasUrls()) {
+        const QList<QUrl> urls = mimeData->urls();
+        for (const QUrl &url : urls) {
+            if (url.isLocalFile()) {
+                uploadFile(url);
+            }
+        }
+        return true;
+    } else if (mimeData->hasImage()) {
+        QTemporaryFile tempFile(QDir::tempPath() + QLatin1String("/XXXXXX.png"));
+        if (tempFile.open()) {
+            QImage image = mimeData->imageData().value<QImage>();
+            QImageWriter writer(&tempFile, "PNG");
+            if (writer.write(image)) {
+                const QUrl url = QUrl::fromLocalFile(tempFile.fileName());
+                tempFile.close();
+                uploadFile(url);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void MessageLineWidget::clearMessageIdBeingEdited()
+{
+    mMessageIdBeingEdited.clear();
+    setText(QString());
+    setMode(MessageLineWidget::EditingMode::NewMessage);
 }
