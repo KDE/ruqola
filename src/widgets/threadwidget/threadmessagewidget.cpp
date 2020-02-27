@@ -112,3 +112,24 @@ void ThreadMessageWidget::keyPressedInLineEdit(QKeyEvent *ev)
         ev->accept();
     }
 }
+
+void ThreadMessageWidget::dragEnterEvent(QDragEnterEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        event->accept();
+    }
+}
+
+bool ThreadMessageWidget::handleMimeData(const QMimeData *mimeData)
+{
+    return mMessageLineWidget->handleMimeData(mimeData);
+}
+
+void ThreadMessageWidget::dropEvent(QDropEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        handleMimeData(mimeData);
+    }
+}

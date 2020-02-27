@@ -215,6 +215,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(translateAction);
         }
+    } else if (mMode == Mode::ThreadEditing) {
+        if (setPinnedMessage) {
+            menu.addAction(setPinnedMessage);
+        }
+        if (setAsFavoriteAction) {
+            menu.addAction(setAsFavoriteAction);
+        }
     } else {
 #if 0
         if (setPinnedMessage) {
