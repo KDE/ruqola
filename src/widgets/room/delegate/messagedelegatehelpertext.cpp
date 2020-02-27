@@ -37,9 +37,9 @@ static QString makeMessageText(const QModelIndex &index)
     QString text = index.data(MessageModel::MessageConvertedText).toString();
     const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
     if (messageType == Message::Video) {
-        text = i18n("%1 [Video message, not supported yet by ruqola]").arg(text);
+        text = i18n("%1 [Video message, not supported yet by ruqola]", text);
     } else if (messageType == Message::Audio) {
-        text = i18n("%1 [Audio message, not supported yet by ruqola]").arg(text);
+        text = i18n("%1 [Audio message, not supported yet by ruqola]", text);
     }
     return text;
 }
