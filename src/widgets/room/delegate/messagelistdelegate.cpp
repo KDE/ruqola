@@ -376,8 +376,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         if (message->threadCount() > 0) {
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                Q_EMIT rcAccount->openThreadRequested(message->messageId());
+                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId());
                 return true;
             }
         }
@@ -386,8 +385,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             if (discussionRect.contains(mev->pos())) {
                 qDebug() << " Open discussion" << message->discussionRoomId();
                 // We need to fix rest api first
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                rcAccount->joinDiscussion(message->discussionRoomId(), QString());
+                mRocketChatAccount->joinDiscussion(message->discussionRoomId(), QString());
                 return true;
             }
         }
