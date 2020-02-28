@@ -20,11 +20,14 @@
 
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonparser.h"
+#include "ruqola_debug.h"
+
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QFile>
-#include "ruqola_debug.h"
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 EmojiManager::EmojiManager(QObject *parent, bool loadUnicode)
     : QObject(parent)
@@ -152,11 +155,10 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         return emojiIdentifier;
     }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
-        for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-            if (mCustomEmojiList.at(i).hasEmoji(emojiIdentifier)) {
-                QString cachedHtml = mCustomEmojiList.at(i).cachedHtml();
+        for (Emoji &emoji : mCustomEmojiList) {
+            if (emoji.hasEmoji(emojiIdentifier)) {
+                QString cachedHtml = emoji.cachedHtml();
                 if (cachedHtml.isEmpty()) {
-                    Emoji &emoji = mCustomEmojiList[i];
                     //For the moment we can't support animated image as emoticon in text. Only as Reaction.
                     if (emoji.isAnimatedImage() && isReaction) {
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
@@ -175,6 +177,20 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
     }
     return emojiIdentifier;
+}
+
+void EmojiManager::replaceEmojis(QString *str)
+{
+    static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
+    QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(*str);
+    while (userIterator.hasNext()) {
+        const QRegularExpressionMatch match = userIterator.next();
+        const QString word = match.captured(1);
+        const QString replaceWord = replaceEmojiIdentifier(word);
+        if (!replaceWord.isEmpty()) {
+            str->replace(word, replaceWord);
+        }
+    }
 }
 
 QString EmojiManager::serverUrl() const

@@ -39,6 +39,7 @@ public:
     Q_REQUIRED_RESULT int count() const;
 
     Q_REQUIRED_RESULT QString replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction = false);
+    void replaceEmojis(QString *str);
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 

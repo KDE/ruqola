@@ -30,8 +30,6 @@
 #include <KSyntaxHighlighting/Theme>
 #include <KSyntaxHighlighting/Definition>
 
-#include <QRegularExpressionMatch>
-
 TextConverter::TextConverter(EmojiManager *emojiManager)
     : mEmojiManager(emojiManager)
 {
@@ -91,16 +89,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     }
     QString richText = Utils::generateRichText(str, userName);
     if (mEmojiManager) {
-        static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
-        QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(richText);
-        while (userIterator.hasNext()) {
-            const QRegularExpressionMatch match = userIterator.next();
-            const QString word = match.captured(1);
-            const QString replaceWord = mEmojiManager->replaceEmojiIdentifier(word);
-            if (!replaceWord.isEmpty()) {
-                richText.replace(word, replaceWord);
-            }
-        }
+        mEmojiManager->replaceEmojis(&richText);
     } else {
         qCWarning(RUQOLA_LOG) << "Emojimanager was not set";
     }

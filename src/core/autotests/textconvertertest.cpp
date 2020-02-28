@@ -70,9 +70,9 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                              << QStringLiteral("www.kde.org");
 
     //Use server with http://
-    QTest::newRow("customemojiwithmanager3") << QStringLiteral(":vader::vader:")
+    QTest::newRow("customemojiwithmanager3") << QStringLiteral("the icon for vader is :vader::vader:")
                                              << QStringLiteral(
-        "<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>")
+        "the icon for vader is <img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>")
                                              << QStringLiteral("http://www.kde.org");
 
     //alias support
