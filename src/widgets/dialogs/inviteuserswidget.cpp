@@ -56,6 +56,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     QToolButton *copyLinkButton = new QToolButton(this);
     copyLinkButton->setObjectName(QStringLiteral("copyLinkButton"));
     copyLinkButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+    copyLinkButton->setToolTip(i18n("Copy link"));
     hlayout->addWidget(copyLinkButton);
     connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
 

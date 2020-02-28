@@ -51,6 +51,7 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QToolButton *copyLinkButton = w.findChild<QToolButton *>(QStringLiteral("copyLinkButton"));
     QVERIFY(copyLinkButton);
     QVERIFY(!copyLinkButton->icon().isNull());
+    QVERIFY(!copyLinkButton->toolTip().isEmpty());
 
     QLabel *mLink = w.findChild<QLabel *>(QStringLiteral("mLink"));
     QVERIFY(mLink);
