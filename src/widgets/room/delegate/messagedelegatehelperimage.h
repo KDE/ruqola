@@ -45,7 +45,8 @@ private:
         QSize descriptionSize;
         QRect hideShowButtonRect;
         QRect downloadButtonRect;
-        bool isShown;
+        bool isShown = true;
+        bool isAnimatedImage = false;
     };
     ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option) const;
 

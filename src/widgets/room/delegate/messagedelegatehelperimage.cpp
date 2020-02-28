@@ -144,6 +144,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();
         layout.isShown = message->showAttachment();
+        layout.isAnimatedImage = msgAttach.isAnimatedImage();
         layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
         const int buttonMargin = 8;

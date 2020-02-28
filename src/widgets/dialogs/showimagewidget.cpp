@@ -71,6 +71,16 @@ void ShowImageWidget::slotValueChanged(int value)
     mLabel->setPixmap(pm);
 }
 
+bool ShowImageWidget::isAnimatedPixmap() const
+{
+    return isAnimatedPixmap;
+}
+
+void ShowImageWidget::setIsAnimatedPixmap(bool value)
+{
+    isAnimatedPixmap = value;
+}
+
 void ShowImageWidget::setImage(const QPixmap &pix)
 {
     mPixmap = pix;

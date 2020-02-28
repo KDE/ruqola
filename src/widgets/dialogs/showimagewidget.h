@@ -37,6 +37,9 @@ public:
 
     QSize sizeHint() const override;
 
+    Q_REQUIRED_RESULT bool isAnimatedPixmap() const;
+    void setIsAnimatedPixmap(bool value);
+
 protected:
     void showEvent(QShowEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
@@ -49,6 +52,7 @@ private:
     QPixmap mPixmap;
     QLabel *mLabel = nullptr;
     QSlider *mSlider = nullptr;
+    bool isAnimatedPixmap = false;
 };
 
 #endif // SHOWIMAGEWIDGET_H
