@@ -46,6 +46,21 @@ ShowImageDialog::~ShowImageDialog()
 {
 }
 
+void ShowImageDialog::setImagePath(const QString &imagePath)
+{
+    mShowImageWidget->setImagePath(imagePath);
+}
+
+bool ShowImageDialog::isAnimatedPixmap() const
+{
+    return mShowImageWidget->isAnimatedPixmap();
+}
+
+void ShowImageDialog::setIsAnimatedPixmap(bool value)
+{
+    mShowImageWidget->setIsAnimatedPixmap(value);
+}
+
 void ShowImageDialog::setImage(const QPixmap &pix)
 {
     mShowImageWidget->setImage(pix);

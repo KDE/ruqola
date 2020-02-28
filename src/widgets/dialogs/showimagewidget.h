@@ -40,6 +40,8 @@ public:
     Q_REQUIRED_RESULT bool isAnimatedPixmap() const;
     void setIsAnimatedPixmap(bool value);
 
+    void setImagePath(const QString &imagePath);
+
 protected:
     void showEvent(QShowEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
@@ -52,7 +54,7 @@ private:
     QPixmap mPixmap;
     QLabel *mLabel = nullptr;
     QSlider *mSlider = nullptr;
-    bool isAnimatedPixmap = false;
+    bool mIsAnimatedPixmap = false;
 };
 
 #endif // SHOWIMAGEWIDGET_H

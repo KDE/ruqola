@@ -25,6 +25,7 @@
 #include <QLabel>
 #include <QSlider>
 #include <QWheelEvent>
+#include <QMovie>
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
@@ -67,18 +68,33 @@ ShowImageWidget::~ShowImageWidget()
 
 void ShowImageWidget::slotValueChanged(int value)
 {
-    QPixmap pm = mPixmap.scaled(mPixmap.width()*value/100, mPixmap.height()*value/100, Qt::KeepAspectRatio);
-    mLabel->setPixmap(pm);
+    if (!mIsAnimatedPixmap) {
+        const QPixmap pm = mPixmap.scaled(mPixmap.width()*value/100, mPixmap.height()*value/100, Qt::KeepAspectRatio);
+        mLabel->setPixmap(pm);
+    }
 }
 
 bool ShowImageWidget::isAnimatedPixmap() const
 {
-    return isAnimatedPixmap;
+    return mIsAnimatedPixmap;
 }
 
 void ShowImageWidget::setIsAnimatedPixmap(bool value)
 {
-    isAnimatedPixmap = value;
+    if (mIsAnimatedPixmap != value) {
+        mIsAnimatedPixmap = value;
+        if (mIsAnimatedPixmap) {
+            mSlider->hide();
+        }
+    }
+}
+
+void ShowImageWidget::setImagePath(const QString &imagePath)
+{
+    QMovie *movie = new QMovie(this);
+    movie->setFileName(imagePath);
+    mLabel->setMovie(movie);
+    movie->start();
 }
 
 void ShowImageWidget::setImage(const QPixmap &pix)
@@ -90,6 +106,9 @@ void ShowImageWidget::setImage(const QPixmap &pix)
 
 QSize ShowImageWidget::sizeHint() const
 {
+    if (mIsAnimatedPixmap) {
+        return QWidget::sizeHint();
+    }
     return mPixmap.size().boundedTo(QSize(800, 800));
 }
 
@@ -107,16 +126,20 @@ void ShowImageWidget::resizeEvent(QResizeEvent *event)
 
 void ShowImageWidget::applyPixmap()
 {
-    mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio));
+    if (!mIsAnimatedPixmap) {
+        mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio));
+    }
 }
 
 void ShowImageWidget::wheelEvent(QWheelEvent *e)
 {
-    if (e->modifiers() & Qt::ControlModifier) {
-        if (e->angleDelta().y() > 0) {
-            mSlider->setValue(mSlider->value() - 5);
-        } else {
-            mSlider->setValue(mSlider->value() + 5);
+    if (!mIsAnimatedPixmap) {
+        if (e->modifiers() & Qt::ControlModifier) {
+            if (e->angleDelta().y() > 0) {
+                mSlider->setValue(mSlider->value() - 5);
+            } else {
+                mSlider->setValue(mSlider->value() + 5);
+            }
         }
     }
 }

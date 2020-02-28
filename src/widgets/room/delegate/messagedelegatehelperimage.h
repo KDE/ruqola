@@ -39,6 +39,7 @@ private:
 
     struct ImageLayout {
         QPixmap pixmap;
+        QString imagePath;
         QString title;
         QString description;
         QSize titleSize;

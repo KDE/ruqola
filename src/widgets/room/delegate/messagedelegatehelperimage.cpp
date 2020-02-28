@@ -115,7 +115,12 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
             const QRect imageRect(attachmentsRect.x(), imageY, attachmentsRect.width(), imageMaxHeight);
             if (imageRect.contains(pos)) {
                 QPointer<ShowImageDialog> dlg = new ShowImageDialog();
-                dlg->setImage(layout.pixmap);
+                dlg->setIsAnimatedPixmap(layout.isAnimatedImage);
+                if (layout.isAnimatedImage) {
+                    dlg->setImagePath(layout.imagePath);
+                } else {
+                    dlg->setImage(layout.pixmap);
+                }
                 dlg->exec();
                 delete dlg;
             }
@@ -138,8 +143,8 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
     const MessageAttachment &msgAttach = message->attachements().at(0);
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     if (url.isLocalFile()) {
-        const QString path = url.toLocalFile();
-        layout.pixmap = mPixmapCache.pixmapForLocalFile(path);
+        layout.imagePath = url.toLocalFile();
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
         //or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();

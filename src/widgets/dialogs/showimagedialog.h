@@ -30,6 +30,11 @@ public:
     explicit ShowImageDialog(QWidget *parent = nullptr);
     ~ShowImageDialog() override;
     void setImage(const QPixmap &pix);
+    void setImagePath(const QString &imagePath);
+
+    Q_REQUIRED_RESULT bool isAnimatedPixmap() const;
+    void setIsAnimatedPixmap(bool value);
+
 private:
     ShowImageWidget *mShowImageWidget = nullptr;
 };
