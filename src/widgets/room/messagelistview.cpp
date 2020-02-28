@@ -66,6 +66,11 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
     }
 }
 
+void MessageListView::setRoomId(const QString &roomID)
+{
+    mRoomId = roomID;
+}
+
 void MessageListView::setChannelSelected(const QString &roomId)
 {
     MessageModel *oldModel = qobject_cast<MessageModel *>(model());
@@ -76,7 +81,7 @@ void MessageListView::setChannelSelected(const QString &roomId)
     MessageModel *model = Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId);
     setModel(model);
     model->activate();
-    mRoomID = roomId;
+    mRoomId = roomId;
 }
 
 void MessageListView::setModel(QAbstractItemModel *newModel)
@@ -293,7 +298,7 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this message?"), i18n("Delete Message"))) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const QString messageId = index.data(MessageModel::MessageId).toString();
-        rcAccount->deleteMessage(messageId, mRoomID);
+        rcAccount->deleteMessage(messageId, mRoomId);
     }
 }
 

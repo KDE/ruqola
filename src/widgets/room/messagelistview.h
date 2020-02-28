@@ -46,6 +46,8 @@ public:
     Q_REQUIRED_RESULT MessageListView::Mode mode() const;
     void setMode(Mode mode);
 
+    void setRoomId(const QString &roomID);
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
@@ -72,7 +74,7 @@ private:
     void slotVerticalScrollbarChanged(int value);
 
 private:
-    QString mRoomID;
+    QString mRoomId;
     MessageListView::Mode mMode = MessageListView::Mode::Editing;
     bool mAtBottom = true;
 };
