@@ -399,7 +399,7 @@ void RestApiRequest::serverInfo(bool useDeprecatedVersion)
     }
 }
 
-void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)
+void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename, const QString &threadMessageId)
 {
     auto *job = new UploadFileJob(this);
     initializeRestApiJob(job);
@@ -408,6 +408,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     info.messageText = text;
     info.filenameUrl = filename;
     info.roomId = roomId;
+    info.threadMessageId = threadMessageId;
     job->setUploadFileInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";

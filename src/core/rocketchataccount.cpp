@@ -1148,9 +1148,9 @@ void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
     restApi()->pinMessage(messageId, pinned);
 }
 
-void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl)
+void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId)
 {
-    restApi()->uploadFile(roomId, description, messageText, fileUrl);
+    restApi()->uploadFile(roomId, description, messageText, fileUrl, threadMessageId);
 }
 
 void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType)

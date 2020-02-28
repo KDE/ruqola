@@ -68,7 +68,7 @@ public:
     void getPrivateSettings();
     void getOwnInfo();
     void starMessage(const QString &messageId, bool starred);
-    void uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename);
+    void uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename, const QString &threadMessageId = QString());
     void downloadFile(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"), bool storeInCache = true, const QUrl &localFileUrl = QUrl());
     void changeChannelTopic(const QString &roomId, const QString &topic);
     void changeGroupsTopic(const QString &roomId, const QString &topic);

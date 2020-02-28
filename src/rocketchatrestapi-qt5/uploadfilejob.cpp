@@ -88,6 +88,14 @@ bool UploadFileJob::start()
     msgPart.setBody(mUploadFileInfo.messageText.toUtf8());
     multiPart->append(msgPart);
 
+    if (!mUploadFileInfo.threadMessageId.isEmpty()) {
+        QHttpPart msgPart;
+        msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"tmid\"")));
+        msgPart.setBody(mUploadFileInfo.threadMessageId.toUtf8());
+        multiPart->append(msgPart);
+    }
+
+
     QHttpPart descriptionPart;
     descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
     descriptionPart.setBody(mUploadFileInfo.description.toUtf8());

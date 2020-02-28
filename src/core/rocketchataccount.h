@@ -203,7 +203,7 @@ public:
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, bool starred);
     Q_INVOKABLE void pinMessage(const QString &messageId, bool pinned);
-    Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl);
+    Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
     Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrl(const QString &userId);
     Q_INVOKABLE Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);

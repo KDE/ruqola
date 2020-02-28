@@ -181,7 +181,7 @@ void MessageLineWidget::slotTextEditing(bool clearNotification)
 
 void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
 {
-    mCurrentRocketChatAccount->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl);
+    mCurrentRocketChatAccount->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl, mThreadMessageId);
 }
 
 QString MessageLineWidget::messageIdBeingEdited() const
