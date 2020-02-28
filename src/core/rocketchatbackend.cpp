@@ -471,7 +471,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             if (messageModel) {
-                messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
+                const QString messageId = contents.at(0).toObject()[QStringLiteral("_id")].toString();
+                messageModel->deleteMessage(messageId);
+                //We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
+                MessageModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
+                threadMessageModel->deleteMessage(messageId);
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
