@@ -31,7 +31,7 @@ LoadRecentHistoryManagerTest::LoadRecentHistoryManagerTest(QObject *parent)
 void LoadRecentHistoryManagerTest::shouldIncreaseTimer()
 {
     LoadRecentHistoryManager manager;
-    qint64 mLastLoadingTimeStamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
-    const qint64 newTimeStamp = manager.generateNewStartTimeStamp(mLastLoadingTimeStamp);
-    QCOMPARE(newTimeStamp, mLastLoadingTimeStamp - (86400 * 3 * 1000));
+    const qint64 lastLoadingTimeStamp = manager.lastLoadingTimeStamp();
+    const qint64 newTimeStamp = manager.generateNewStartTimeStamp(lastLoadingTimeStamp);
+    QCOMPARE(newTimeStamp, lastLoadingTimeStamp - (86400 * 3 * 1000));
 }
