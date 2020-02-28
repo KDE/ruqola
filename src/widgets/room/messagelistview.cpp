@@ -174,6 +174,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotSetAsFavorite(index, isStarred);
         });
     }
+    QAction *deleteAction = nullptr;
+    if (index.data(MessageModel::CanDeleteMessage).toBool()) {
+        deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
+        connect(deleteAction, &QAction::triggered, this, [=]() {
+            slotDeleteMessage(index);
+        });
+    }
+
 
     if (mMode == Mode::Editing) {
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
@@ -198,12 +206,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         menu.addAction(copyAction);
 
-        if (index.data(MessageModel::CanDeleteMessage).toBool()) {
+        if (deleteAction) {
             createSeparator(menu);
-            QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
-            connect(deleteAction, &QAction::triggered, this, [=]() {
-                slotDeleteMessage(index);
-            });
             menu.addAction(deleteAction);
         }
         if (rcAccount->autoTranslateEnabled()) {
@@ -221,6 +225,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
+        }
+        if (deleteAction) {
+            createSeparator(menu);
+            menu.addAction(deleteAction);
         }
     } else {
 #if 0
