@@ -155,6 +155,12 @@ Message MessageModel::findNextMessageAfter(const QString &messageId, const std::
     return it == mAllMessages.end() ? Message() : *it;
 }
 
+Message MessageModel::findMessageById(const QString &messageId) const
+{
+    auto it = findMessage(messageId);
+    return it == mAllMessages.end() ? Message() : *it;
+}
+
 void MessageModel::refresh()
 {
     beginResetModel();

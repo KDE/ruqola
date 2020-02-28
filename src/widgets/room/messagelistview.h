@@ -34,7 +34,7 @@ public:
         Viewing, /*when we show list of message as mentions, search etc.*/
     };
 
-    explicit MessageListView(QWidget *parent = nullptr);
+    explicit MessageListView(MessageListView::Mode mode, QWidget *parent = nullptr);
     ~MessageListView() override;
 
     void setChannelSelected(const QString &roomId);
@@ -44,7 +44,6 @@ public:
     void handleKeyPressEvent(QKeyEvent *ev);
 
     Q_REQUIRED_RESULT MessageListView::Mode mode() const;
-    void setMode(Mode mode);
 
     void setRoomId(const QString &roomID);
 

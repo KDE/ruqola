@@ -24,23 +24,48 @@
 #include "ruqola.h"
 
 #include <KLocalizedString>
+#include <KStringHandler>
 
 #include <QPainter>
 #include <QTextBlock>
 #include <QTextDocument>
 #include <QAbstractTextDocumentLayout>
 #include <QStyleOptionViewItem>
+#include <textconverter.h>
 
-// TODO: move MessageConvertedText implementation to Message
-static QString makeMessageText(const QModelIndex &index)
+QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) const
 {
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    Q_ASSERT(message);
+
+    // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
-    const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    const Message::MessageType messageType = message->messageType();
     if (messageType == Message::Video) {
         text = i18n("%1 [Video message, not supported yet by ruqola]", text);
     } else if (messageType == Message::Audio) {
         text = i18n("%1 [Audio message, not supported yet by ruqola]", text);
     }
+
+    if (mShowThreadContext) {
+        const QString threadMessageId = message->threadMessageId();
+        if (!threadMessageId.isEmpty()) {
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            const MessageModel *model = rcAccount->messageModelForRoom(message->roomId());
+            // Find the previous message in the same thread, to use it as context
+            auto hasSameThread = [&](const Message &msg) {
+                return msg.threadMessageId() == threadMessageId ||
+                        msg.messageId() == threadMessageId;
+            };
+            const Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
+            // Use TextConverter in case it starts with a [](URL) reply marker
+            TextConverter textConverter(rcAccount->emojiManager());
+            QString contextString = textConverter.convertMessageText(contextMessage.text(), rcAccount->userName(), {});
+            contextString = KStringHandler::rsqueeze(contextString, 200);
+            text.prepend(QStringLiteral("<font size=\"-1\">&gt; %1</font><br/>").arg(contextString));
+        }
+    }
+
     return text;
 }
 
@@ -128,4 +153,9 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         }
     }
     return false;
+}
+
+void MessageDelegateHelperText::setShowThreadContext(bool b)
+{
+    mShowThreadContext = b;
 }

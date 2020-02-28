@@ -69,7 +69,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mainLayout->addWidget(mUsersInRoomFlowWidget);
     mUsersInRoomFlowWidget->setVisible(false);
 
-    mMessageListView = new MessageListView(this);
+    mMessageListView = new MessageListView(MessageListView::Mode::Editing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);
 

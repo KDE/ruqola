@@ -227,6 +227,11 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     painter->setPen(origPen);
 }
 
+void MessageListDelegate::setShowThreadContext(bool b)
+{
+    mHelperText->setShowThreadContext(b);
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();

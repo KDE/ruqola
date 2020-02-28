@@ -37,9 +37,8 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 
     //TODO add specific header
 
-    mMessageListView = new MessageListView(this);
+    mMessageListView = new MessageListView(MessageListView::Mode::ThreadEditing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-    mMessageListView->setMode(MessageListView::Mode::ThreadEditing);
     mainLayout->addWidget(mMessageListView, 1);
 
     mMessageLineWidget = new MessageLineWidget(this);

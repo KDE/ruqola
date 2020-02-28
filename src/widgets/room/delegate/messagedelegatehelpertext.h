@@ -34,6 +34,13 @@ public:
     void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+
+    void setShowThreadContext(bool b);
+
+private:
+    QString makeMessageText(const QModelIndex &index) const;
+
+    bool mShowThreadContext = true;
 };
 
 #endif // MESSAGEDELEGATEHELPERTEXT_H

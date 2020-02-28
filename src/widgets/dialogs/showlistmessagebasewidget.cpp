@@ -51,9 +51,8 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     connect(mMessageListInfo, &QLabel::linkActivated, this, &ShowListMessageBaseWidget::loadMoreElements);
     mainLayout->addWidget(mMessageListInfo);
 
-    mMessageListView = new MessageListView(this);
+    mMessageListView = new MessageListView(MessageListView::Mode::Viewing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-    mMessageListView->setMode(MessageListView::Mode::Viewing);
 
     mainLayout->addWidget(mMessageListView);
     connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);

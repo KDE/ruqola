@@ -35,11 +35,13 @@
 #include <QClipboard>
 #include <QApplication>
 
-MessageListView::MessageListView(QWidget *parent)
-    : QListView(parent)
+MessageListView::MessageListView(Mode mode, QWidget *parent)
+    : QListView(parent),
+      mMode(mode)
 {
     auto *delegate = new MessageListDelegate(this);
     delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
+    delegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     setItemDelegate(delegate);
 
     setSelectionMode(QAbstractItemView::NoSelection);
@@ -347,9 +349,4 @@ void MessageListView::slotCopyText(const QModelIndex &index)
 MessageListView::Mode MessageListView::mode() const
 {
     return mMode;
-}
-
-void MessageListView::setMode(MessageListView::Mode mode)
-{
-    mMode = mode;
 }

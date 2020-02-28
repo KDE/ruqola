@@ -53,6 +53,8 @@ public:
 
     void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
 
+    void setShowThreadContext(bool b);
+
 private:
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 

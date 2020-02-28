@@ -41,8 +41,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mSearchLineEdit->setPlaceholderText(i18n("Search Word... (You can use regular expression as /^text$/i)"));
     mainLayout->addWidget(mSearchLineEdit);
 
-    mResultListWidget = new MessageListView(this);
-    mResultListWidget->setMode(MessageListView::Mode::Viewing);
+    mResultListWidget = new MessageListView(MessageListView::Mode::Viewing, this);
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
