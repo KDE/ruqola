@@ -23,6 +23,9 @@
 #include "misc/emoticonmenuwidget.h"
 #include "dialogs/uploadfiledialog.h"
 #include "rocketchataccount.h"
+
+#include <QClipboard>
+#include <QGuiApplication>
 #include <QPointer>
 #include <QHBoxLayout>
 #include <QToolButton>
@@ -51,6 +54,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
+    connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -243,4 +247,38 @@ void MessageLineWidget::clearMessageIdBeingEdited()
     mMessageIdBeingEdited.clear();
     setText(QString());
     setMode(MessageLineWidget::EditingMode::NewMessage);
+}
+
+void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
+{
+    const int key = ev->key();
+    if (key == Qt::Key_Escape) {
+        if (!mMessageIdBeingEdited.isEmpty()) {
+            clearMessageIdBeingEdited();
+            ev->accept();
+        } else {
+            Q_EMIT keyPressed(ev);
+        }
+    } else if (ev->matches(QKeySequence::Paste)) {
+        const QMimeData *mimeData = qApp->clipboard()->mimeData();
+        if (handleMimeData(mimeData)) {
+            ev->accept();
+        }
+    } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
+        MessageModel *model = mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
+        Q_ASSERT(model);
+        auto isEditable = [this](const Message &msg) {
+                              return mCurrentRocketChatAccount->isMessageEditable(msg);
+                          };
+        if (key == Qt::Key_Up) {
+            const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
+            setEditMessage(msg.messageId(), msg.text());
+        } else {
+            const Message &msg = model->findNextMessageAfter(mMessageIdBeingEdited, isEditable);
+            setEditMessage(msg.messageId(), msg.text());
+        }
+        ev->accept();
+    } else {
+        Q_EMIT keyPressed(ev);
+    }
 }

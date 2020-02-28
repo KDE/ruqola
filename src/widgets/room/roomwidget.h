@@ -32,7 +32,6 @@ class MessageListView;
 class MessageLineWidget;
 class RoomWrapper;
 class ReadOnlyLineEditWidget;
-class QMimeData;
 class QStackedWidget;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
@@ -72,7 +71,6 @@ private:
     void slotEncryptedChanged(bool b);
     void slotGoBackToRoom();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
-    bool handleMimeData(const QMimeData *mimeData);
     void slotSearchMessages();
     void slotActionRequested(RoomHeaderWidget::ChannelActionType type);
     void slotShowDiscussions();

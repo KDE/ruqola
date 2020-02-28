@@ -43,7 +43,6 @@
 #include "threadwidget/threadmessagedialog.h"
 
 #include <QApplication>
-#include <QClipboard>
 #include <QVBoxLayout>
 #include <QKeyEvent>
 #include <QStackedWidget>
@@ -88,7 +87,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
-    connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
+    connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
 
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
@@ -251,16 +250,11 @@ void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-bool RoomWidget::handleMimeData(const QMimeData *mimeData)
-{
-    return mMessageLineWidget->handleMimeData(mimeData);
-}
-
 void RoomWidget::dropEvent(QDropEvent *event)
 {
     const QMimeData *mimeData = event->mimeData();
     if (mimeData->hasUrls()) {
-        handleMimeData(mimeData);
+        mMessageLineWidget->handleMimeData(mimeData);
     }
 }
 
@@ -393,30 +387,7 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Escape) {
-        if (!mMessageLineWidget->messageIdBeingEdited().isEmpty()) {
-            mMessageLineWidget->clearMessageIdBeingEdited();
-        } else {
-            slotClearNotification();
-        }
-        ev->accept();
-    } else if (ev->matches(QKeySequence::Paste)) {
-        const QMimeData *mimeData = qApp->clipboard()->mimeData();
-        if (handleMimeData(mimeData)) {
-            ev->accept();
-        }
-    } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
-        MessageModel *model = mCurrentRocketChatAccount->messageModelForRoom(mRoomId);
-        Q_ASSERT(model);
-        auto isEditable = [this](const Message &msg) {
-                              return mCurrentRocketChatAccount->isMessageEditable(msg);
-                          };
-        if (key == Qt::Key_Up) {
-            const Message &msg = model->findLastMessageBefore(mMessageLineWidget->messageIdBeingEdited(), isEditable);
-            mMessageLineWidget->setEditMessage(msg.messageId(), msg.text());
-        } else {
-            const Message &msg = model->findNextMessageAfter(mMessageLineWidget->messageIdBeingEdited(), isEditable);
-            mMessageLineWidget->setEditMessage(msg.messageId(), msg.text());
-        }
+        slotClearNotification();
         ev->accept();
     } else {
         mMessageListView->handleKeyPressEvent(ev);

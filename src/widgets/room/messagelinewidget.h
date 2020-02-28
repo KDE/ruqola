@@ -69,11 +69,15 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
+Q_SIGNALS:
+    void keyPressed(QKeyEvent *ev);
+
 private:
     void slotSendMessage(const QString &msg);
     void slotTextEditing(bool clearNotification);
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendFile();
+    void keyPressedInLineEdit(QKeyEvent *ev);
 
     QString mRoomId;
     QString mThreadMessageId;

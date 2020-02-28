@@ -47,9 +47,8 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-    void keyPressedInLineEdit(QKeyEvent *ev);
     void slotSendMessage(const QString &msg);
-    bool handleMimeData(const QMimeData *mimeData);
+
     QString mThreadMessageId;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
