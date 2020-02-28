@@ -31,6 +31,7 @@ class LIBRUQOLACORE_EXPORT ThreadsModel : public QAbstractListModel
 public:
     enum ThreadRoles {
         ThreadMessageId = Qt::UserRole + 1,
+        ThreadPointer,
         Description,
         NumberOfMessages,
         LastMessage,

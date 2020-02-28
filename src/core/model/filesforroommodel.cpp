@@ -118,8 +118,10 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    const File file = mFileAttachments->fileAttachments().at(index.row());
+    const File &file = mFileAttachments->fileAttachments().at(index.row());
     switch (role) {
+    case FilePointer:
+        return QVariant::fromValue(&file);
     case FileName:
         return file.fileName();
     case UserId:

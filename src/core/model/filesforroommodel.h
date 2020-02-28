@@ -33,6 +33,7 @@ class LIBRUQOLACORE_EXPORT FilesForRoomModel : public QAbstractListModel
 public:
     enum UserRoles {
         FileName = Qt::UserRole + 1,
+        FilePointer,
         UserId,
         Description,
         Url,

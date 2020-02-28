@@ -66,8 +66,10 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mThreads->count()) {
         return {};
     }
-    const Message thread = mThreads->at(index.row());
+    const Message &thread = mThreads->at(index.row());
     switch (role) {
+    case ThreadPointer:
+        return QVariant::fromValue(&thread);
     case ThreadMessageId:
         return thread.messageId();
     case Qt::DisplayRole:

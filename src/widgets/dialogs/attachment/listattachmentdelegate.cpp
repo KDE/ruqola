@@ -18,11 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 #include "listattachmentdelegate.h"
+#include <QMouseEvent>
 #include <QPainter>
 #include "model/filesforroommodel.h"
 
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
+    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
 {
 }
 
@@ -36,27 +38,63 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // user
     // alias
     // date
+
+
+    QStyleOptionViewItem optionCopy = option;
+    optionCopy.showDecorationSelected = true;
+
+    drawBackground(painter, optionCopy, index);
+
+
+    const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+
+    //TODO create "doLayout" as messagelistdelegate
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = 8;
 
-    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download")); //TODO
     const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
 
-    const QString text = index.data(FilesForRoomModel::FileName).toString();
+    const QString text = file->fileName();
 
     const int xText = option.rect.x() + iconSize + 2 * margin;
     const QRect displayRect(xText, option.rect.y(),
                             option.rect.width() - xText - margin - 2 * margin - iconSize,
                             option.rect.height());
 
-    QStyleOptionViewItem optionCopy = option;
-    optionCopy.showDecorationSelected = true;
-    drawBackground(painter, optionCopy, index);
+
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
 
     const QRect downloadAttachmentIconRect(option.rect.width() - iconSize - 2 * margin, option.rect.y(), iconSize, option.rect.height());
-    downloadIcon.paint(painter, downloadAttachmentIconRect, Qt::AlignCenter);
+    mDownloadIcon.paint(painter, downloadAttachmentIconRect, Qt::AlignCenter);
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 }
+
+bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        auto *mev = static_cast<QMouseEvent *>(event);
+        //TODO
+    }
+    return QItemDelegate::editorEvent(event, model, option, index);
+}
+
+QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    //TODO
+    return QItemDelegate::sizeHint(option, index);
+}
+
+ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+
+    Layout layout;
+    QRect usableRect = option.rect;
+    layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
+    //TODO
+    return layout;
+}
+
