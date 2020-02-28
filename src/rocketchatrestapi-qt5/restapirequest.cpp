@@ -403,10 +403,12 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
 {
     auto *job = new UploadFileJob(this);
     initializeRestApiJob(job);
-    job->setDescription(description);
-    job->setMessageText(text);
-    job->setFilenameUrl(filename);
-    job->setRoomId(roomId);
+    UploadFileJob::UploadFileInfo info;
+    info.description = description;
+    info.messageText = text;
+    info.filenameUrl = filename;
+    info.roomId = roomId;
+    job->setUploadFileInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

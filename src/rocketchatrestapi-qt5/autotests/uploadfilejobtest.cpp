@@ -34,10 +34,11 @@ void UploadFileJobTest::shouldHaveDefaultValue()
 {
     UploadFileJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.description().isEmpty());
-    QVERIFY(job.messageText().isEmpty());
-    QVERIFY(job.roomId().isEmpty());
-    QVERIFY(!job.filenameUrl().isValid());
+    QVERIFY(!job.uploadFileInfo().isValid());
+    QVERIFY(job.uploadFileInfo().description.isEmpty());
+    QVERIFY(job.uploadFileInfo().messageText.isEmpty());
+    QVERIFY(job.uploadFileInfo().roomId.isEmpty());
+    QVERIFY(!job.uploadFileInfo().filenameUrl.isValid());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -57,7 +58,9 @@ void UploadFileJobTest::shouldStart()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    job.setFilenameUrl(QUrl(QStringLiteral("file:///whatever")));
+    UploadFileJob::UploadFileInfo info;
+    info.filenameUrl = QUrl(QStringLiteral("file:///whatever"));
+    job.setUploadFileInfo(info);
     QVERIFY(!job.canStart());
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
@@ -68,6 +71,7 @@ void UploadFileJobTest::shouldStart()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setRoomId(QStringLiteral("bla"));
+    info.roomId = QStringLiteral("bla");
+    job.setUploadFileInfo(info);
     QVERIFY(job.canStart());
 }

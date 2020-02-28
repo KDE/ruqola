@@ -31,27 +31,26 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UploadFileJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
+    struct UploadFileInfo {
+        QString roomId;
+        QString description;
+        QString messageText;
+        QString threadMessageId;
+        QUrl filenameUrl;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
     explicit UploadFileJob(QObject *parent = nullptr);
     ~UploadFileJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
-    Q_REQUIRED_RESULT QString description() const;
-    void setDescription(const QString &description);
-
-    Q_REQUIRED_RESULT QString messageText() const;
-    void setMessageText(const QString &messageText);
-
-    Q_REQUIRED_RESULT QUrl filenameUrl() const;
-    void setFilenameUrl(const QUrl &filenameUrl);
-
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const final;
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
     Q_REQUIRED_RESULT bool canStart() const override;
+
+    Q_REQUIRED_RESULT UploadFileInfo uploadFileInfo() const;
+    void setUploadFileInfo(const UploadFileInfo &uploadFileInfo);
 
 Q_SIGNALS:
     void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
@@ -59,10 +58,9 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UploadFileJob)
     void slotUploadFinished();
-    QString mRoomId;
-    QString mDescription;
-    QString mMessageText;
-    QUrl mFilenameUrl;
+    UploadFileInfo mUploadFileInfo;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadFileInfo)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_MOVABLE_TYPE);
 #endif // UPLOADFILEJOB_H

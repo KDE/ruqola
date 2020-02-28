@@ -44,11 +44,11 @@ bool UploadFileJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (mUploadFileInfo.roomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UploadFileJob : RoomId not defined";
         return false;
     }
-    if (!mFilenameUrl.isLocalFile()) {
+    if (!mUploadFileInfo.filenameUrl.isLocalFile()) {
         // shouldn't be too hard, just use KIO::storedGet
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Uploading remote files is not supported yet";
         return false;
@@ -62,21 +62,21 @@ bool UploadFileJob::start()
         deleteLater();
         return false;
     }
-    QFile *file = new QFile(mFilenameUrl.toLocalFile());
+    QFile *file = new QFile(mUploadFileInfo.filenameUrl.toLocalFile());
     if (!file->open(QIODevice::ReadOnly)) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mFilenameUrl;
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mUploadFileInfo.filenameUrl;
         delete file;
         deleteLater();
         return false;
     }
     QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(mFilenameUrl.toLocalFile());
+    const QMimeType mimeType = db.mimeTypeForFile(mUploadFileInfo.filenameUrl.toLocalFile());
 
     auto *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     QHttpPart filePart;
     filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"").arg(mFilenameUrl.fileName());
+    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"").arg(mUploadFileInfo.filenameUrl.fileName());
     filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
     filePart.setBodyDevice(file);
@@ -85,12 +85,12 @@ bool UploadFileJob::start()
 
     QHttpPart msgPart;
     msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
-    msgPart.setBody(mMessageText.toUtf8());
+    msgPart.setBody(mUploadFileInfo.messageText.toUtf8());
     multiPart->append(msgPart);
 
     QHttpPart descriptionPart;
     descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
-    descriptionPart.setBody(mDescription.toUtf8());
+    descriptionPart.setBody(mUploadFileInfo.description.toUtf8());
     multiPart->append(descriptionPart);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), multiPart);
     connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::uploadProgress);
@@ -103,7 +103,7 @@ bool UploadFileJob::start()
 
 QNetworkRequest UploadFileJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, mRoomId);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, mUploadFileInfo.roomId);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
@@ -133,47 +133,22 @@ void UploadFileJob::slotUploadFinished()
     deleteLater();
 }
 
-QString UploadFileJob::roomId() const
+UploadFileJob::UploadFileInfo UploadFileJob::uploadFileInfo() const
 {
-    return mRoomId;
+    return mUploadFileInfo;
 }
 
-void UploadFileJob::setRoomId(const QString &roomId)
+void UploadFileJob::setUploadFileInfo(const UploadFileInfo &uploadFileInfo)
 {
-    mRoomId = roomId;
-}
-
-QString UploadFileJob::description() const
-{
-    return mDescription;
-}
-
-void UploadFileJob::setDescription(const QString &description)
-{
-    mDescription = description;
-}
-
-QString UploadFileJob::messageText() const
-{
-    return mMessageText;
-}
-
-void UploadFileJob::setMessageText(const QString &messageText)
-{
-    mMessageText = messageText;
-}
-
-QUrl UploadFileJob::filenameUrl() const
-{
-    return mFilenameUrl;
-}
-
-void UploadFileJob::setFilenameUrl(const QUrl &filenameUrl)
-{
-    mFilenameUrl = filenameUrl;
+    mUploadFileInfo = uploadFileInfo;
 }
 
 bool UploadFileJob::requireHttpAuthentication() const
 {
     return true;
+}
+
+bool UploadFileJob::UploadFileInfo::isValid() const
+{
+    return !roomId.isEmpty() && !filenameUrl.isEmpty();
 }
