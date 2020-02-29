@@ -24,6 +24,7 @@
 
 #include <QAbstractListModel>
 class Threads;
+//TODO use ListMessagesModel => reduce duplicate code.
 class LIBRUQOLACORE_EXPORT ThreadsModel : public QAbstractListModel
 {
     Q_OBJECT
