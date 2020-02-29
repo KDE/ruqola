@@ -26,8 +26,6 @@
 class MessageListView;
 class MessageLineWidget;
 class RocketChatAccount;
-class QKeyEvent;
-class QMimeData;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
