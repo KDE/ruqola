@@ -2009,4 +2009,6 @@ void RocketChatAccount::initializeAccount()
     //TODO don't reset message status !
     ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     //customUsersStatus(); Only for test
+
+    emit accountInitialized();
 }

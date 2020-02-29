@@ -107,6 +107,16 @@ void RocketChatAccountSettings::setAccountEnabled(bool enabled)
     }
 }
 
+QString RocketChatAccountSettings::lastSelectedRoom() const
+{
+    return mSetting->value(QStringLiteral("SelectedRoom")).toString();
+}
+
+void RocketChatAccountSettings::setLastSelectedRoom(const QString &roomId)
+{
+    mSetting->setValue(QStringLiteral("SelectedRoom"), roomId);
+}
+
 qint64 RocketChatAccountSettings::expireToken() const
 {
     return mExpireToken;

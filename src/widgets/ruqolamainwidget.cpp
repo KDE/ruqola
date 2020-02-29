@@ -22,6 +22,8 @@
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
 #include "channellist/channellistview.h"
+#include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -71,19 +73,14 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
-    //FIXME delay it until list of room are loaded.
-    mChannelList->channelListView()->selectChannelRequested(group.readEntry("SelectedRoom", QString()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("SplitterSizes", mSplitter->saveState());
-    const QString selectedRoom = mChannelList->currentSelectedRoom();
-    if (selectedRoom.isEmpty()) {
-        group.deleteEntry("SelectedRoom");
-    } else {
-        group.writeEntry("SelectedRoom", selectedRoom);
+    if (mCurrentRocketChatAccount) {
+        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
     }
 }
 
@@ -111,7 +108,15 @@ QString RuqolaMainWidget::roomType() const
 
 void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    if (mCurrentRocketChatAccount) {
+        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
+    }
+    mCurrentRocketChatAccount = account;
     mChannelList->setCurrentRocketChatAccount(account);
     mRoomWidget->setCurrentRocketChatAccount(account);
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
+
+    // This is for switching between already-loaded accounts
+    // On startup it's too early
+    mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
 }

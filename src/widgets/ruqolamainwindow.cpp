@@ -85,6 +85,8 @@ RuqolaMainWindow::~RuqolaMainWindow()
     KConfigGroup group = config->group(myConfigGroupName);
     group.writeEntry("Size", size());
 
+    delete mMainWidget; // before Ruqola::destroy()
+
     Ruqola::destroy();
 }
 

@@ -74,6 +74,9 @@ public:
     Q_REQUIRED_RESULT bool accountEnabled() const;
     void setAccountEnabled(bool accountEnabled);
 
+    Q_REQUIRED_RESULT QString lastSelectedRoom() const;
+    void setLastSelectedRoom(const QString &roomId);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();

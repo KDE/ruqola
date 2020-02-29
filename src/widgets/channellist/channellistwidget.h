@@ -39,7 +39,6 @@ public:
     ChannelListView *channelListView() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
-    Q_REQUIRED_RESULT QString currentSelectedRoom() const;
 
 Q_SIGNALS:
     void roomSelected(const QString &roomId, const QString &roomType);
@@ -48,6 +47,7 @@ protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
+    void slotAccountInitialized();
     void setUserStatusUpdated(User::PresenceStatus status);
     void slotStatusChanged();
     void slotSearchRoomTextChanged();

@@ -139,15 +139,21 @@ void ChannelListView::selectChannelRequested(const QString &channelId)
         return;
     }
     RoomFilterProxyModel *filterModel = model();
-    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
+    Q_ASSERT(filterModel);
+    const int nRooms = filterModel->rowCount();
+    if (nRooms == 0) {
+        return; // too early, next chance when accountInitialized is emitted
+    }
+    for (int roomIdx = 0; roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = filterModel->index(roomIdx, 0);
         const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
         if (roomId == channelId) {
             channelSelected(roomModelIndex);
             selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            break;
+            return;
         }
     }
+    qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
 }
 
 bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRoomName)

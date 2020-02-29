@@ -105,6 +105,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::accountInitialized, this, &ChannelListWidget::slotAccountInitialized);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::userStatusUpdated, this, &ChannelListWidget::setUserStatusUpdated);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openLinkRequested, this, &ChannelListWidget::slotOpenLinkRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
@@ -116,17 +117,6 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 ChannelListView *ChannelListWidget::channelListView() const
 {
     return mChannelView;
-}
-
-QString ChannelListWidget::currentSelectedRoom() const
-{
-    if (mChannelView->selectionModel()) { //For autotest
-        const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
-        if (selectedIndex.isValid()) {
-            return selectedIndex.data(Qt::DisplayRole).toString();
-        }
-    }
-    return QString();
 }
 
 bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
@@ -166,6 +156,11 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
     }
 
     return QWidget::eventFilter(object, event);
+}
+
+void ChannelListWidget::slotAccountInitialized()
+{
+    mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
 }
 
 void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status)
