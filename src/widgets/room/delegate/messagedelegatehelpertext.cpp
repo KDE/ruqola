@@ -27,6 +27,7 @@
 #include <KLocalizedString>
 #include <KStringHandler>
 
+#include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
 #include <QClipboard>
 #include <QGuiApplication>
@@ -167,14 +168,16 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
 
 bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(option)
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     const QEvent::Type eventType = mouseEvent->type();
     // Text selection
     switch (eventType) {
     case QEvent::MouseButtonPress: {
         if (mCurrentIndex.isValid()) {
-            // TODO update area of old index which no longer has selection
+            // The old index no longer has selection, repaint it
+            auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
+            Q_ASSERT(view);
+            view->update(mCurrentIndex);
         }
         mCurrentIndex = index;
         const QString text = makeMessageText(index);
