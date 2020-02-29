@@ -419,11 +419,12 @@ void RoomWidget::slotGoBackToRoom()
     Q_EMIT selectChannelRequested(mRoomWrapper->parentRid());
 }
 
-void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId)
+void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
 {
     QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
     dlg->setThreadMessageId(threadMessageId);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg->setThreadPreview(threadMessagePreview);
     dlg->setRoomId(mRoomId);
     dlg->exec();
     delete dlg;
