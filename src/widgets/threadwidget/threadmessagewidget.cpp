@@ -27,6 +27,7 @@
 #include <QMimeData>
 #include <QVBoxLayout>
 #include <QKeyEvent>
+#include <QLabel>
 
 ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     : QWidget(parent)
@@ -35,7 +36,9 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    //TODO add specific header
+    mThreadPreview = new QLabel(this);
+    mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
+    mainLayout->addWidget(mThreadPreview);
 
     mMessageListView = new MessageListView(MessageListView::Mode::ThreadEditing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
@@ -74,6 +77,11 @@ void ThreadMessageWidget::setRoomId(const QString &roomId)
 {
     mMessageLineWidget->setRoomId(roomId);
     mMessageListView->setRoomId(roomId);
+}
+
+void ThreadMessageWidget::setThreadPreview(const QString &preview)
+{
+    mThreadPreview->setText(preview);
 }
 
 void ThreadMessageWidget::dragEnterEvent(QDragEnterEvent *event)

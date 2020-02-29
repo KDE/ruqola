@@ -87,3 +87,8 @@ void ThreadMessageDialog::setRoomId(const QString &roomId)
 {
     mThreadMessageWidget->setRoomId(roomId);
 }
+
+void ThreadMessageDialog::setThreadPreview(const QString &preview)
+{
+    mThreadMessageWidget->setThreadPreview(preview);
+}

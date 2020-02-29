@@ -28,6 +28,7 @@ class MessageLineWidget;
 class RocketChatAccount;
 class QKeyEvent;
 class QMimeData;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -42,6 +43,8 @@ public:
 
     void setRoomId(const QString &roomId);
 
+    void setThreadPreview(const QString &preview);
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;
@@ -50,6 +53,7 @@ private:
     void slotSendMessage(const QString &msg);
 
     QString mThreadMessageId;
+    QLabel *mThreadPreview = nullptr;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
 };

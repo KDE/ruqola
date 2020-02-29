@@ -38,6 +38,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setRoomId(const QString &roomId);
+    void setThreadPreview(const QString &preview);
 private:
     void writeConfig();
     void readConfig();

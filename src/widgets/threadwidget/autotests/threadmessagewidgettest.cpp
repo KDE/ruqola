@@ -22,6 +22,7 @@
 #include "threadwidget/threadmessagewidget.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ThreadMessageWidgetTest)
@@ -45,4 +46,8 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 
     MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
+
+    QLabel *mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
+    QVERIFY(mThreadPreview);
+    QVERIFY(mThreadPreview->text().isEmpty());
 }
