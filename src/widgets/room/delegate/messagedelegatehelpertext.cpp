@@ -183,7 +183,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         const QString text = makeMessageText(index);
         fillTextDocument(index, mCurrentDocument, text, messageRect.width());
         const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        // QWidgetTextControl also has code to support selectWordOnDoubleClick, selectBlockOnTripleClick, shift to extend selection
+        // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
         if (charPos != -1) {
             mCurrentTextCursor = QTextCursor(&mCurrentDocument);
             mCurrentTextCursor.setPosition(charPos);
@@ -195,7 +195,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         if (index == mCurrentIndex) {
             const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
             if (charPos != -1) {
-                // QWidgetTextControl also has code to support dragging, isPreediting()/commitPreedit(), selectWordOnDoubleClick, selectBlockOnTripleClick
+                // QWidgetTextControl also has code to support dragging, isPreediting()/commitPreedit(), selectBlockOnTripleClick
                 mCurrentTextCursor.setPosition(charPos, QTextCursor::KeepAnchor);
                 return true;
             }
@@ -205,6 +205,20 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     case QEvent::MouseButtonRelease: {
         if (index == mCurrentIndex) {
             setClipboardSelection();
+        }
+        break;
+    }
+    case QEvent::MouseButtonDblClick: {
+        if (index == mCurrentIndex) {
+            if (!mCurrentTextCursor.hasSelection()) {
+                mCurrentTextCursor.select(QTextCursor::WordUnderCursor);
+                // Interestingly the view repaints after mouse press, mouse move and mouse release
+                // but not after double-click, so make it happen:
+                auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
+                Q_ASSERT(view);
+                view->update(mCurrentIndex);
+                setClipboardSelection();
+            }
         }
         break;
     }

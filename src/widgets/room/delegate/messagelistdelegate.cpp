@@ -402,7 +402,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
             return true;
         }
-    } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove) {
+    } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto *mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
             const Layout layout = doLayout(option, index);
