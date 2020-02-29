@@ -406,8 +406,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.threadMessageId();
     case MessageModel::ThreadMessagePreview:
     {
-        const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-        return threadMessagePreview(message.threadMessageId(), userName);
+        return threadMessagePreview(message.threadMessageId());
     }
     case MessageModel::Groupable:
         return message.groupable();
@@ -543,11 +542,12 @@ qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
 }
 
-QString MessageModel::threadMessagePreview(const QString &threadMessageId, const QString &userName) const
+QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
         if (it != mAllMessages.cend()) {
+            const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
             QString str = convertMessageText((*it), userName);
             if (str.length() > 80) {
                 str = str.left(80) + QStringLiteral("...");
