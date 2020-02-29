@@ -37,12 +37,14 @@
 #include <QPainter>
 #include <QPixmapCache>
 #include <QScreen>
+#include <QToolTip>
 
 #include <KLocalizedString>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
+    , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("face-smile"))) // waiting for https://bugs.kde.org/show_bug.cgi?id=417298
     , mHelperText(new MessageDelegateHelperText)
     , mHelperImage(new MessageDelegateHelperImage)
@@ -130,7 +132,14 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const int senderX = option.rect.x() + layout.avatarPixmap.width() + 2 * margin;
     int textLeft = senderX + senderTextSize.width() + margin;
 
+    // Roles icon
+    const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty();
+    if (hasRoles) {
+        textLeft += iconSize + margin;
+    }
+
     // Edit icon
+    const int editIconX = textLeft;
     if (message->wasEdited()) {
         textLeft += iconSize + margin;
     }
@@ -162,8 +171,13 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
                                senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
-    // Same for the edit icon
-    layout.editedIconRect = QRect(textLeft - iconSize - margin, layout.senderRect.y(), iconSize, iconSize);
+    // Same for the roles and edit icon
+    if (hasRoles) {
+        layout.rolesIconRect = QRect(editIconX - iconSize - margin, layout.senderRect.y(), iconSize, iconSize);
+    }
+    if (message->wasEdited()) {
+        layout.editedIconRect = QRect(editIconX, layout.senderRect.y(), iconSize, iconSize);
+    }
 
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
@@ -257,6 +271,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Draw the sender
     painter->setFont(layout.senderFont);
     painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
+
+    // Draw the roles icon
+    if (!index.data(MessageModel::Roles).toString().isEmpty()) {
+        mRolesIcon.paint(painter, layout.rolesIconRect);
+    }
 
     // Draw the edited icon
     if (message->wasEdited()) {
@@ -416,12 +435,17 @@ bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, 
         auto *helpEvent = static_cast<QHelpEvent *>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
+        const Layout layout = doLayout(option, index);
         if (message && !message->reactions().isEmpty()) {
-            const Layout layout = doLayout(option, index);
             const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
             if (mHelperReactions->handleHelpEvent(helpEvent, view, reactionsRect, option, message)) {
                 return true;
             }
+        }
+        if (layout.rolesIconRect.isValid()) {
+            const QString tooltip = index.data(MessageModel::Roles).toString();
+            QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+            return true;
         }
     }
     return false;

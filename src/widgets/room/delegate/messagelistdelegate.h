@@ -68,6 +68,9 @@ private:
         QPixmap avatarPixmap;
         QPointF avatarPos;
 
+        // Roles icon
+        QRect rolesIconRect;
+
         // Edited icon
         QRect editedIconRect;
 
@@ -105,6 +108,7 @@ private:
     friend class MessageListDelegateTest;
 
     QIcon mEditedIcon;
+    QIcon mRolesIcon;
     QIcon mAddReactionIcon;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
