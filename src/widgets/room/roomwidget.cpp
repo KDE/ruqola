@@ -157,6 +157,7 @@ void RoomWidget::slotStarredMessages()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::StarredMessages);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
 }
@@ -167,6 +168,7 @@ void RoomWidget::slotPinnedMessages()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::PinnedMessages);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
 }
@@ -177,6 +179,7 @@ void RoomWidget::slotShowMentions()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::MentionsMessages);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
 }
@@ -187,6 +190,7 @@ void RoomWidget::slotSnipperedMessages()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::SnipperedMessages);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
 }

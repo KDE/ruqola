@@ -139,6 +139,7 @@ public:
     Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
     Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
     Message findMessageById(const QString &messageId) const;
+    QModelIndex indexForMessage(const QString &messageId) const;
 
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

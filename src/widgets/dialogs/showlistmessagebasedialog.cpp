@@ -23,6 +23,8 @@
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "room/messagelistview.h"
+
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 
@@ -41,6 +43,9 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowListMessageBaseDialog::reject);
     connect(mShowListMessage, &ShowListMessageBaseWidget::loadMoreElements, this, &ShowListMessageBaseDialog::slotLoadMoreMessages);
+
+    connect(mShowListMessage->messageListView(), &MessageListView::goToMessageRequested,
+            this, &ShowListMessageBaseDialog::goToMessageRequested);
 }
 
 ShowListMessageBaseDialog::~ShowListMessageBaseDialog()

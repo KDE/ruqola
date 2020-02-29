@@ -47,6 +47,8 @@ public:
 
     void setRoomId(const QString &roomID);
 
+    void goToMessage(const QString &messageId);
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
@@ -56,6 +58,7 @@ Q_SIGNALS:
     void editMessageRequested(const QString &messageId, const QString &text);
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
     void loadHistoryRequested();
+    void goToMessageRequested(const QString &messageId);
 
 private:
     void checkIfAtBottom();
@@ -67,7 +70,6 @@ private:
     void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
     void slotStartDiscussion(const QModelIndex &index);
     void slotCopyText(const QModelIndex &index);
-    void slotGoToMessage(const QModelIndex &index);
     void slotTranslateMessage(const QModelIndex &index, bool checked);
     void createSeparator(QMenu &menu);
     void slotVerticalScrollbarChanged(int value);

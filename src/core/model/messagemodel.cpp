@@ -161,6 +161,15 @@ Message MessageModel::findMessageById(const QString &messageId) const
     return it == mAllMessages.end() ? Message() : *it;
 }
 
+QModelIndex MessageModel::indexForMessage(const QString &messageId) const
+{
+    auto it = findMessage(messageId);
+    if (it == mAllMessages.end())
+        return QModelIndex();
+    const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
+    return idx;
+}
+
 void MessageModel::refresh()
 {
     beginResetModel();

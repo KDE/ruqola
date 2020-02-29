@@ -20,6 +20,7 @@
 
 #include "messagelistview.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
@@ -71,6 +72,18 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
 void MessageListView::setRoomId(const QString &roomID)
 {
     mRoomId = roomID;
+}
+
+void MessageListView::goToMessage(const QString &messageId)
+{
+    MessageModel *messageModel = qobject_cast<MessageModel *>(model());
+    Q_ASSERT(messageModel);
+    const QModelIndex index = messageModel->indexForMessage(messageId);
+    if (index.isValid()) {
+        scrollTo(index);
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Message not found:" << messageId;
+    }
 }
 
 void MessageListView::setChannelSelected(const QString &roomId)
@@ -249,7 +262,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         createSeparator(menu);
         QAction *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
-            slotGoToMessage(index);
+            const QString messageId = index.data(MessageModel::MessageId).toString();
+            Q_EMIT goToMessageRequested(messageId);
         });
         menu.addAction(goToMessageAction);
     }
@@ -276,12 +290,6 @@ void MessageListView::createSeparator(QMenu &menu)
 }
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)
-{
-    qDebug() << "No implemented yet";
-    //TODO
-}
-
-void MessageListView::slotGoToMessage(const QModelIndex &index)
 {
     qDebug() << "No implemented yet";
     //TODO
