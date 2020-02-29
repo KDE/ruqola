@@ -22,16 +22,18 @@
 #include <model/messagemodel.h>
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "textconverter.h"
 
 #include <KLocalizedString>
 #include <KStringHandler>
 
-#include <QPainter>
-#include <QTextBlock>
-#include <QTextDocument>
 #include <QAbstractTextDocumentLayout>
+#include <QClipboard>
+#include <QGuiApplication>
+#include <QPainter>
 #include <QStyleOptionViewItem>
-#include <textconverter.h>
+#include <QTextBlock>
+#include <QTextDocumentFragment>
 
 QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) const
 {
@@ -69,6 +71,16 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) con
     return text;
 }
 
+void MessageDelegateHelperText::setClipboardSelection()
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if (mCurrentTextCursor.hasSelection() && clipboard->supportsSelection()) {
+        const QTextDocumentFragment fragment(mCurrentTextCursor);
+        const QString text = fragment.toPlainText();
+        clipboard->setText(text, QClipboard::Selection);
+    }
+}
+
 static bool useItalicsForMessage(const QModelIndex &index)
 {
     const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
@@ -93,9 +105,8 @@ static void fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
     frame->setFrameFormat(frameFormat);
 }
 
-void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QString text = makeMessageText(index);
 
     if (text.isEmpty()) {
@@ -103,19 +114,38 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
     }
     // Possible optimisation: store the QTextDocument into the Message itself?
     QTextDocument doc;
-    fillTextDocument(index, doc, text, rect.width());
+    QTextDocument *pDoc = &doc;
+    QVector<QAbstractTextDocumentLayout::Selection> selections;
+    if (index == mCurrentIndex) {
+        pDoc = &mCurrentDocument; // optimization, not stricly necessary
+        QTextCharFormat selectionFormat;
+        selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
+        selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
+        selections.append({mCurrentTextCursor, selectionFormat});
+    } else {
+        fillTextDocument(index, doc, text, rect.width());
+    }
     if (useItalicsForMessage(index)) {
-        QTextCursor cursor(&doc);
+        QTextCursor cursor(pDoc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
         format.setForeground(Qt::gray); //TODO use color from theme.
         cursor.mergeCharFormat(format);
     }
 
+    painter->save();
     painter->translate(rect.left(), rect.top());
     const QRect clip(0, 0, rect.width(), rect.height());
-    doc.drawContents(painter, clip);
-    painter->translate(-rect.left(), -rect.top());
+
+    // Same as pDoc->drawContents(painter, clip) but we also set selections
+    QAbstractTextDocumentLayout::PaintContext ctx;
+    ctx.selections = selections;
+    if (clip.isValid()) {
+        painter->setClipRect(clip);
+        ctx.clip = clip;
+    }
+    pDoc->documentLayout()->draw(painter, ctx);
+    painter->restore();
 }
 
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
@@ -137,14 +167,54 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
 
 bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        Q_UNUSED(option)
+    Q_UNUSED(option)
+    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
+    const QEvent::Type eventType = mouseEvent->type();
+    // Text selection
+    switch (eventType) {
+    case QEvent::MouseButtonPress: {
+        if (mCurrentIndex.isValid()) {
+            // TODO update area of old index which no longer has selection
+        }
+        mCurrentIndex = index;
+        const QString text = makeMessageText(index);
+        fillTextDocument(index, mCurrentDocument, text, messageRect.width());
+        const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        // QWidgetTextControl also has code to support selectWordOnDoubleClick, selectBlockOnTripleClick, shift to extend selection
+        if (charPos != -1) {
+            mCurrentTextCursor = QTextCursor(&mCurrentDocument);
+            mCurrentTextCursor.setPosition(charPos);
+            return true;
+        }
+        break;
+    }
+    case QEvent::MouseMove: {
+        if (index == mCurrentIndex) {
+            const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            if (charPos != -1) {
+                // QWidgetTextControl also has code to support dragging, isPreediting()/commitPreedit(), selectWordOnDoubleClick, selectBlockOnTripleClick
+                mCurrentTextCursor.setPosition(charPos, QTextCursor::KeepAnchor);
+                return true;
+            }
+        }
+        break;
+    }
+    case QEvent::MouseButtonRelease: {
+        if (index == mCurrentIndex) {
+            setClipboardSelection();
+        }
+        break;
+    }
+    default:
+        break;
+    }
+    // Clicks on links
+    if (eventType == QEvent::MouseButtonRelease) {
         // ## we should really cache that QTextDocument...
         const QString text = makeMessageText(index);
         QTextDocument doc;
         fillTextDocument(index, doc, text, messageRect.width());
 
-        const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
         const QString link = doc.documentLayout()->anchorAt(pos);
         if (!link.isEmpty()) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();

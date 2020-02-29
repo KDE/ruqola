@@ -402,6 +402,14 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
             return true;
         }
+    } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove) {
+        auto *mev = static_cast<QMouseEvent *>(event);
+        if (mev->buttons() & Qt::LeftButton) {
+            const Layout layout = doLayout(option, index);
+            if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
+                return true;
+            }
+        }
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }

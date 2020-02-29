@@ -21,7 +21,10 @@
 #ifndef MESSAGEDELEGATEHELPERTEXT_H
 #define MESSAGEDELEGATEHELPERTEXT_H
 
+#include <QModelIndex>
 #include <QSize>
+#include <QTextCursor>
+#include <QTextDocument>
 class QPainter;
 class QRect;
 class QModelIndex;
@@ -31,7 +34,7 @@ class QStyleOptionViewItem;
 class MessageDelegateHelperText
 {
 public:
-    void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option);
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
@@ -39,8 +42,12 @@ public:
 
 private:
     QString makeMessageText(const QModelIndex &index) const;
+    void setClipboardSelection();
 
     bool mShowThreadContext = true;
+    QPersistentModelIndex mCurrentIndex; // during selection
+    QTextDocument mCurrentDocument; // during selection
+    QTextCursor mCurrentTextCursor; // during selection
 };
 
 #endif // MESSAGEDELEGATEHELPERTEXT_H
