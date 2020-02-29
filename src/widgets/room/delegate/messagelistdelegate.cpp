@@ -65,11 +65,6 @@ static qreal basicMargin()
     return 8;
 }
 
-static QString makeSenderText(const QModelIndex &index)
-{
-    return QLatin1Char('@') + index.data(MessageModel::Username).toString();
-}
-
 static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
 {
     // This gives incorrect results (too small bounding rect), no idea why!
@@ -116,7 +111,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
     Layout layout;
-    layout.senderText = makeSenderText(index);
+    layout.senderText = QLatin1Char('@') + message->username();
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
     const QFontMetricsF senderFontMetrics(layout.senderFont);
