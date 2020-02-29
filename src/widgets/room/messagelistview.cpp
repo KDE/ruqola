@@ -36,8 +36,8 @@
 #include <QApplication>
 
 MessageListView::MessageListView(Mode mode, QWidget *parent)
-    : QListView(parent),
-      mMode(mode)
+    : QListView(parent)
+    , mMode(mode)
 {
     auto *delegate = new MessageListDelegate(this);
     delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
@@ -188,7 +188,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotDeleteMessage(index);
         });
     }
-
 
     if (mMode == Mode::Editing) {
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);

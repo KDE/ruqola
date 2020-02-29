@@ -39,12 +39,10 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // alias
     // date
 
-
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
 
     drawBackground(painter, optionCopy, index);
-
 
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
 
@@ -60,7 +58,6 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const QRect displayRect(xText, option.rect.y(),
                             option.rect.width() - xText - margin - 2 * margin - iconSize,
                             option.rect.height());
-
 
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
@@ -97,4 +94,3 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     //TODO
     return layout;
 }
-

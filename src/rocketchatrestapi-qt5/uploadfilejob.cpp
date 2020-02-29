@@ -95,7 +95,6 @@ bool UploadFileJob::start()
         multiPart->append(msgPart);
     }
 
-
     QHttpPart descriptionPart;
     descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
     descriptionPart.setBody(mUploadFileInfo.description.toUtf8());

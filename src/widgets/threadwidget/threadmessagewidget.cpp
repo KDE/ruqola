@@ -50,7 +50,6 @@ ThreadMessageWidget::~ThreadMessageWidget()
 {
 }
 
-
 QString ThreadMessageWidget::threadMessageId() const
 {
     return mThreadMessageId;

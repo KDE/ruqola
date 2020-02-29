@@ -82,4 +82,3 @@ ListThreadsDelegate::Layout ListThreadsDelegate::doLayout(const QStyleOptionView
     //TODO
     return layout;
 }
-

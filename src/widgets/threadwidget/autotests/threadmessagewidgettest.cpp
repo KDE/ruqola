@@ -35,7 +35,7 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 {
     ThreadMessageWidget w;
     QVERIFY(w.threadMessageId().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout* >(QStringLiteral("mainLayout"));
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
@@ -43,6 +43,6 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessageListView);
     QCOMPARE(mMessageListView->mode(), MessageListView::Mode::ThreadEditing);
 
-    MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget* >(QStringLiteral("mMessageLineWidget"));
+    MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
 }
