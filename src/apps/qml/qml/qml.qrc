@@ -46,7 +46,6 @@
         <file>ReportMessageDialog.qml</file>
         <file>CreateDiscussionDialog.qml</file>
         <file>ShowDiscussionsInRoomDialog.qml</file>
-        <file>ShowThreadsInRoomDialog.qml</file>
         <file>ShowThreadMessagesDialog.qml</file>
         <file>DiscussionMessageDelegate.qml</file>
         <file>DiscussionMessage.qml</file>

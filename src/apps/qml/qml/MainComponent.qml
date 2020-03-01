@@ -143,8 +143,8 @@ Component {
                     visible: appid.selectedRoom && appid.rocketChatAccount.threadsEnabled
                     text: i18n("Threads")
                     onTriggered: {
-                        appid.rocketChatAccount.threadsInRoom(appid.selectedRoomID);
-                        showThreadsInRoomDialogLoader.active = true
+                        appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.ThreadsMessages);
+                        showListMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -736,33 +736,6 @@ Component {
                     }
                     onAccepted: {
                         showDiscussionsInRoomDialogLoader.active = false
-                    }
-                }
-            }
-
-            Loader {
-                id: showThreadsInRoomDialogLoader
-                active: false
-                sourceComponent: ShowThreadsInRoomDialog {
-                    id: showThreadsInRoomDialog
-                    parent: appid.pageStack
-                    threadsModel: appid.threadsModel
-                    roomId: appid.selectedRoomID
-                    onOpenThread: {
-                        appid.rocketChatAccount.getThreadMessages(threadMessageId)
-                        showThreadMessageDialogLoader.threadMessageId = threadMessageId
-                        showThreadMessageDialogLoader.threadPreviewText = threadPreviewText
-                        showThreadsInRoomDialogLoader.active = false
-                        showThreadMessageDialogLoader.active = true
-                    }
-                    onRejected: {
-                        showThreadsInRoomDialogLoader.active = false
-                    }
-                    onAccepted: {
-                        showThreadsInRoomDialogLoader.active = false
-                    }
-                    Component.onCompleted: {
-                        initializeAndOpen()
                     }
                 }
             }
