@@ -32,6 +32,7 @@
 #include <QStyleOptionViewItem>
 #include <QPointer>
 #include <QFileDialog>
+#include <QMessageBox>
 
 static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
 
@@ -100,9 +101,14 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
             model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save Image"));
+            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Image"));
             if (!file.isEmpty()) {
-                layout.pixmap.save(file);
+                QFile::remove(file); // copy() doesn't overwrite
+                QFile sourceFile(layout.imagePath);
+                if (!sourceFile.copy(file)) {
+                    QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
+                }
             }
             return true;
         } else if (!layout.pixmap.isNull()) {
