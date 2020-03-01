@@ -1061,6 +1061,9 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
             case ListMessagesModel::MentionsMessages:
                 restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
+            case ListMessagesModel::ThreadsMessages:
+                restApi()->getThreadsList(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                break;
             }
         }
     }
