@@ -138,7 +138,9 @@ QString MessageAttachment::mimeType() const
 void MessageAttachment::setMimeType(const QString &type)
 {
     mMimeType = type;
-    mIsAnimatedImage = (mMimeType == QLatin1String("image/gif"));
+    if (mMimeType == QLatin1String("image/gif")) {
+        mIsAnimatedImage = true;
+    }
 }
 
 bool MessageAttachment::isAnimatedImage() const
@@ -182,6 +184,9 @@ QString MessageAttachment::link() const
 void MessageAttachment::setLink(const QString &link)
 {
     mLink = link;
+    if (link.endsWith(QLatin1String(".gif"))) { // Gify doesn't set mimetype
+        mIsAnimatedImage = true;
+    }
 }
 
 bool MessageAttachment::operator==(const MessageAttachment &other) const
