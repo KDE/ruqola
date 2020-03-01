@@ -46,6 +46,9 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
     mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
+    connect(mResultListWidget, &MessageListView::goToMessageRequested,
+            this, &SearchMessageWidget::goToMessageRequested);
+
 }
 
 SearchMessageWidget::~SearchMessageWidget()

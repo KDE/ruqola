@@ -36,6 +36,9 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+Q_SIGNALS:
+    void goToMessageRequested(const QString &messageId);
+
 private:
     void slotSearchMessages();
     QString mRoomId;

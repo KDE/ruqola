@@ -33,6 +33,10 @@ public:
     ~SearchMessageDialog() override;
 
     void setRoomId(const QString &roomId);
+
+Q_SIGNALS:
+    void goToMessageRequested(const QString &messageId);
+
 private:
     void readConfig();
     void writeConfig();

@@ -40,6 +40,7 @@ SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     mSearchMessageWidget = new SearchMessageWidget(this);
     mSearchMessageWidget->setObjectName(QStringLiteral("mSearchMessageWidget"));
     mainLayout->addWidget(mSearchMessageWidget);
+    connect(mSearchMessageWidget, &SearchMessageWidget::goToMessageRequested, this, &SearchMessageDialog::goToMessageRequested);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
