@@ -72,7 +72,7 @@ void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *mode
 
 void ShowListMessageBaseWidget::updateLabel()
 {
-    mMessageListInfo->setText(mModel->rowCount() == 0 ? i18n("No Messages found") : displayShowMessageInRoom());
+    mMessageListInfo->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
 }
 
 QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
