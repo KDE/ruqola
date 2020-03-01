@@ -60,14 +60,15 @@ private:
         RunningAnimatedImage(const QModelIndex &idx);
         ~RunningAnimatedImage();
         RunningAnimatedImage(const RunningAnimatedImage &) = delete;
-        RunningAnimatedImage(RunningAnimatedImage && other) noexcept;
+        RunningAnimatedImage(RunningAnimatedImage &&other) noexcept;
         RunningAnimatedImage &operator=(const RunningAnimatedImage &) = delete;
-        RunningAnimatedImage &operator=(RunningAnimatedImage &&) = delete; // I'm lazy
+        RunningAnimatedImage &operator=(RunningAnimatedImage &&other);
 
         QPersistentModelIndex index;
         QMovie *movie;
     };
     std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
+    void removeRunningAnimatedImage(const QModelIndex &index) const;
 
 private:
     mutable PixmapCache mPixmapCache;

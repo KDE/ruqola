@@ -67,10 +67,13 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
                     auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
                     const QPersistentModelIndex &idx = rai.index;
                     QObject::connect(rai.movie, &QMovie::frameChanged,
-                                     view, [view, idx]() {
-                        // TODO if idx is not visible, remove from vector
-                        view->update(idx);
-                    });
+                                     view, [view, idx, this]() {
+                        if (view->viewport()->rect().contains(view->visualRect(idx))) {
+                            view->update(idx);
+                        } else {
+                            removeRunningAnimatedImage(idx);
+                        }
+                    }, Qt::QueuedConnection);
                     rai.movie->start();
                     scaledPixmap = rai.movie->currentPixmap();
                 }
@@ -196,6 +199,14 @@ std::vector<MessageDelegateHelperImage::RunningAnimatedImage>::iterator MessageD
     return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
 }
 
+void MessageDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index) const
+{
+    auto it = findRunningAnimatedImage(index);
+    if (it != mRunningAnimatedImages.end()) {
+        mRunningAnimatedImages.erase(it);
+    }
+}
+
 MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(const QModelIndex &idx)
     : index(idx), movie(new QMovie)
 {
@@ -207,8 +218,16 @@ MessageDelegateHelperImage::RunningAnimatedImage::~RunningAnimatedImage()
     delete movie;
 }
 
-MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(MessageDelegateHelperImage::RunningAnimatedImage &&other) noexcept
+MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(RunningAnimatedImage &&other) noexcept
     : index(other.index), movie(other.movie)
 {
     other.movie = nullptr;
+}
+
+MessageDelegateHelperImage::RunningAnimatedImage &MessageDelegateHelperImage::RunningAnimatedImage::operator=(RunningAnimatedImage &&other)
+{
+    index = other.index;
+    movie = other.movie;
+    other.movie = nullptr;
+    return *this;
 }
