@@ -52,6 +52,7 @@ private:
     void slotValueChanged(int value);
 
     QPixmap mPixmap;
+    QLabel *mZoomLabel = nullptr;
     QLabel *mLabel = nullptr;
     QSlider *mSlider = nullptr;
     bool mIsAnimatedPixmap = false;

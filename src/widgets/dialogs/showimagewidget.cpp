@@ -49,9 +49,9 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
     mainLayout->addLayout(zoomLayout);
 
-    QLabel *zoomLabel = new QLabel(i18n("Zoom:"), this);
-    zoomLabel->setObjectName(QStringLiteral("zoomLabel"));
-    zoomLayout->addWidget(zoomLabel);
+    mZoomLabel = new QLabel(i18n("Zoom:"), this);
+    mZoomLabel->setObjectName(QStringLiteral("zoomLabel"));
+    zoomLayout->addWidget(mZoomLabel);
 
     mSlider = new QSlider(this);
     mSlider->setObjectName(QStringLiteral("mSlider"));
@@ -85,6 +85,7 @@ void ShowImageWidget::setIsAnimatedPixmap(bool value)
         mIsAnimatedPixmap = value;
         if (mIsAnimatedPixmap) {
             mSlider->hide();
+            mZoomLabel->hide();
         }
     }
 }
