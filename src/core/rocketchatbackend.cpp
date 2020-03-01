@@ -528,6 +528,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname == QLatin1String("updateCustomUserStatus")) {
             qCWarning(RUQOLA_LOG) << "Need to implement: updateCustomUserStatus :" << fields;
         } else if (eventname == QLatin1String("user-status")) {
+            //TODO parse it for user status
+            mRocketChatAccount->setUserStatusChanged(fields);
             qCWarning(RUQOLA_LOG) << "Need to implement: user-status :" << fields;
         } else {
             qWarning() << "stream-notify-logged not supported " << fields;
