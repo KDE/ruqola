@@ -434,8 +434,11 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::jobFailed);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, &RocketChatAccount::slotGetThreadsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
+
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::ThreadsMessages);
+        });
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
         });
@@ -1060,6 +1063,9 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
     case ListMessagesModel::MentionsMessages:
         getMentionsMessages(roomId);
         break;
+    case ListMessagesModel::ThreadsMessages:
+        threadsInRoom(roomId);
+        break;
     }
 }
 
@@ -1243,7 +1249,7 @@ void RocketChatAccount::reportMessage(const QString &messageId, const QString &m
 
 void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
 {
-    mThreadMessageModel->clear();
+    mListMessageModel->clear();
     restApi()->getThreadMessages(threadMessageId);
 }
 

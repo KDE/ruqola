@@ -198,9 +198,10 @@ void RoomWidget::slotSnipperedMessages()
 void RoomWidget::slotShowThreads()
 {
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
-    dlg->setModel(mCurrentRocketChatAccount->threadsFilterProxyModel());
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setRoomId(mRoomId);
-    mCurrentRocketChatAccount->threadsInRoom(mRoomId);
+    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::ThreadsMessages);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
 }

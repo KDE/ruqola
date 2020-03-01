@@ -20,26 +20,18 @@
 
 #ifndef SHOWTHREADSDIALOG_H
 #define SHOWTHREADSDIALOG_H
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
-class ShowThreadsWidget;
-class ThreadsFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsDialog : public QDialog
+#include "showlistmessagebasedialog.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
     explicit ShowThreadsDialog(QWidget *parent = nullptr);
     ~ShowThreadsDialog() override;
 
-    void setModel(ThreadsFilterProxyModel *model);
-    void setRoomId(const QString &roomId);
-
 private:
     void readConfig();
     void writeConfig();
-    void slotLoadMoreThreads();
-    QString mRoomId;
-    ShowThreadsWidget *mShowThreadsWidget = nullptr;
 };
 
 #endif // SHOWTHREADSDIALOG_H

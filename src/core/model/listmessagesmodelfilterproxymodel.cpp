@@ -71,6 +71,8 @@ QString ListMessagesModelFilterProxyModel::title() const
         return i18n("Pinned Messages");
     case ListMessagesModel::MentionsMessages:
         return i18n("Mentions Messages");
+    case ListMessagesModel::ThreadsMessages:
+        return i18n("Threads Messages");
     }
     return {};
 }

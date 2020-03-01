@@ -38,6 +38,7 @@ public:
         SnipperedMessages,
         PinnedMessages,
         MentionsMessages,
+        ThreadsMessages,
     };
     Q_ENUM(ListMessageType)
 

@@ -19,7 +19,6 @@
 */
 
 #include "showthreadsdialog.h"
-#include "showthreadswidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -35,21 +34,9 @@ namespace {
 static const char myConfigGroupName[] = "ShowThreadsDialog";
 }
 ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)
-    : QDialog(parent)
+    : ShowListMessageBaseDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Show Threads"));
-    auto *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mShowThreadsWidget = new ShowThreadsWidget(this);
-    mShowThreadsWidget->setObjectName(QStringLiteral("mShowThreadsWidget"));
-    mainLayout->addWidget(mShowThreadsWidget);
-
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
-    mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::rejected, this, &ShowThreadsDialog::reject);
-    connect(mShowThreadsWidget, &ShowThreadsWidget::loadMoreThreads, this, &ShowThreadsDialog::slotLoadMoreThreads);
+    setWindowTitle(i18nc("@title:window", "Show Threads Messages"));
     readConfig();
 }
 
@@ -73,21 +60,3 @@ void ShowThreadsDialog::writeConfig()
     group.writeEntry("Size", size());
 }
 
-void ShowThreadsDialog::slotLoadMoreThreads()
-{
-    if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
-        return;
-    }
-    Ruqola::self()->rocketChatAccount()->loadMoreThreads(mRoomId);
-}
-
-void ShowThreadsDialog::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
-void ShowThreadsDialog::setModel(ThreadsFilterProxyModel *model)
-{
-    mShowThreadsWidget->setModel(model);
-}
