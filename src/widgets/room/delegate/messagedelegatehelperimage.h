@@ -43,13 +43,14 @@ private:
         QString title;
         QString description;
         QSize titleSize;
+        QSize imageSize;
         QSize descriptionSize;
         QRect hideShowButtonRect;
         QRect downloadButtonRect;
         bool isShown = true;
         bool isAnimatedImage = false;
     };
-    ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option) const;
+    ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 
     mutable PixmapCache mPixmapCache;
 };

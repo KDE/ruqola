@@ -40,7 +40,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    ImageLayout layout = layoutImage(message, option);
+    ImageLayout layout = layoutImage(message, option, messageRect.width(), messageRect.height());
     if (!layout.pixmap.isNull()) {
         // Draw title and buttons
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
@@ -52,12 +52,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
         // Draw main pixmap (if shown)
         int nextY = messageRect.y() + layout.titleSize.height() + margin;
         if (layout.isShown) {
-            const int imageMaxWidth = messageRect.width();
-            int imageMaxHeight = messageRect.bottom() - nextY - margin;
-            if (!layout.description.isEmpty()) {
-                imageMaxHeight -= layout.descriptionSize.height() + margin;
-            }
-            const QPixmap scaledPixmap = layout.pixmap.scaled(imageMaxWidth, imageMaxHeight, Qt::KeepAspectRatio);
+            const QPixmap scaledPixmap = layout.pixmap.scaled(layout.imageSize);
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
             nextY += scaledPixmap.height() + margin;
         }
@@ -73,7 +68,7 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const ImageLayout layout = layoutImage(message, option);
+    const ImageLayout layout = layoutImage(message, option, maxWidth, -1);
     int height = layout.titleSize.height() + margin;
     int pixmapWidth = 0;
     if (layout.isShown) {
@@ -95,7 +90,7 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         const QPoint pos = mouseEvent->pos();
 
-        ImageLayout layout = layoutImage(message, option);
+        ImageLayout layout = layoutImage(message, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
@@ -113,12 +108,7 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
             return true;
         } else if (!layout.pixmap.isNull()) {
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + margin;
-            int imageMaxHeight = attachmentsRect.bottom() - imageY - margin;
-            if (!layout.description.isEmpty()) {
-                imageMaxHeight -= layout.descriptionSize.height() + margin;
-            }
-            // ## the width is often less than that, due to aspect ratio
-            const QRect imageRect(attachmentsRect.x(), imageY, attachmentsRect.width(), imageMaxHeight);
+            const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
                 QPointer<ShowImageDialog> dlg = new ShowImageDialog();
                 dlg->setIsAnimatedPixmap(layout.isAnimatedImage);
@@ -136,7 +126,8 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
     return false;
 }
 
-MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option) const
+MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option,
+                                                                                int attachmentsWidth, int attachmentsHeight) const
 {
     ImageLayout layout;
     if (message->attachements().isEmpty()) {
@@ -162,6 +153,15 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + buttonMargin, 0, iconSize, iconSize);
         layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + buttonMargin, 0);
+
+        if (attachmentsHeight > 0) {
+            // Vertically: attachmentsHeight = title | margin | image | margin [| description | margin]
+            int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - margin * 2;
+            if (!layout.description.isEmpty()) {
+                imageMaxHeight -= layout.descriptionSize.height() + margin;
+            }
+            layout.imageSize = layout.pixmap.size().scaled(attachmentsWidth, imageMaxHeight, Qt::KeepAspectRatio);
+        }
     }
     return layout;
 }

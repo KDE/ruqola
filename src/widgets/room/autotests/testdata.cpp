@@ -34,7 +34,7 @@ MessageAttachment testAttachment()
     msgAttach.setTitle(title);
     const QString description = QStringLiteral("A description");
     msgAttach.setDescription(description);
-    QPixmap pix(50, 50);
+    QPixmap pix(50, 100);
     pix.fill(Qt::white);
     // Save the pixmap directly into the cache so that no download hpapens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());

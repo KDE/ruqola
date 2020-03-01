@@ -50,8 +50,12 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     const MessageAttachment msgAttach = testAttachment();
     message.setAttachements({msgAttach});
 
-    const MessageDelegateHelperImage::ImageLayout layout = helper.layoutImage(&message, option);
+    const MessageDelegateHelperImage::ImageLayout layout = helper.layoutImage(&message, option, 500, 500);
     QCOMPARE(layout.title, msgAttach.title());
     QCOMPARE(layout.description, msgAttach.description());
     QVERIFY(layout.isShown);
+    QVERIFY(!layout.isAnimatedImage);
+    QVERIFY(layout.imagePath.endsWith(QLatin1String("/testfile.png")));
+    QCOMPARE(layout.imageSize.height(), layout.imageSize.width() * 2); // aspect ratio is preserved
+    QVERIFY(layout.imageSize.height() < 500);
 }
