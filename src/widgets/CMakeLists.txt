@@ -57,7 +57,6 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/addusersinroomdialog.cpp
     dialogs/addusersinroomwidget.cpp
     dialogs/adduserscompletionlineedit.cpp
-    dialogs/showthreadswidget.cpp
     dialogs/showthreadsdialog.cpp
     dialogs/thread/listthreadsdelegate.cpp
     dialogs/searchchannel/searchchanneldelegate.cpp
