@@ -25,8 +25,6 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
-#include "model/threadsfilterproxymodel.h"
-#include "model/threadsmodel.h"
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>

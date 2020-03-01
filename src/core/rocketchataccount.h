@@ -61,14 +61,12 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
-class ThreadsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonFilterModel;
 class EmoticonModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
-class ThreadsModel;
 class ThreadMessageModel;
 class ListMessagesModel;
 class ListMessagesModelFilterProxyModel;
@@ -116,7 +114,6 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(SearchChannelFilterProxyModel* searchChannelFilterProxyModel READ searchChannelFilterProxyModel CONSTANT)
     Q_PROPERTY(InputTextManager* inputTextManager READ inputTextManager CONSTANT)
     Q_PROPERTY(InputTextManager* inputThreadMessageTextManager READ inputThreadMessageTextManager CONSTANT)
-    Q_PROPERTY(ThreadsFilterProxyModel* threadsFilterProxyModel READ threadsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonFilterModel* emoticonFilterModel READ emoticonFilterModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
@@ -247,7 +244,6 @@ public:
     Q_INVOKABLE void replyToMessage(const QString &roomID, const QString &message, const QString &messageId);
     Q_INVOKABLE void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
-    Q_INVOKABLE void loadMoreThreads(const QString &roomId);
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
 
@@ -286,7 +282,6 @@ public:
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
-    ThreadsFilterProxyModel *threadsFilterProxyModel() const;
 
     DDPClient *ddp();
     RoomModel *roomModel() const;
@@ -359,8 +354,6 @@ public:
     FilesForRoomModel *filesModelForRoom() const;
 
     DiscussionsModel *discussionsModel() const;
-
-    ThreadsModel *threadsModel() const;
 
     Q_REQUIRED_RESULT bool encryptedEnabled() const;
     void updateThreadMessageList(const Message &m);
@@ -513,8 +506,6 @@ private:
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
     DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
     DiscussionsModel *mDiscussionsModel = nullptr;
-    ThreadsModel *mThreadsModel = nullptr;
-    ThreadsFilterProxyModel *mThreadsFilterProxyModel = nullptr;
 
     EmoticonFilterModel *mEmoticonFilterModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;

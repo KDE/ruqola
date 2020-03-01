@@ -28,8 +28,6 @@
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/messagemodel.h"
-#include "model/threadsmodel.h"
-#include "model/threadsfilterproxymodel.h"
 
 #include <KLocalizedString>
 

@@ -51,7 +51,6 @@
 #include "model/notificationpreferencemodel.h"
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
-#include "model/threadsfilterproxymodel.h"
 #include "model/listmessagesmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/emoticoncategoriesmodel.h"
@@ -109,7 +108,6 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<ClipboardProxy>(URI, 1, 0, "Clipboard");
     qmlRegisterType<NotificationOptionsWrapper>(URI, 1, 0, "NotificationOptionsWrapper");
     qmlRegisterType<EmoticonFilterModel>(URI, 1, 0, "EmoticonFilterModel");
-    qmlRegisterType<ThreadsFilterProxyModel>(URI, 1, 0, "ThreadsFilterProxyModel");
     qmlRegisterType<DiscussionsFilterProxyModel>(URI, 1, 0, "DiscussionsFilterProxyModel");
     qmlRegisterType<EmoticonCategoriesModel>(URI, 1, 0, "EmoticonCategoriesModel");
     qmlRegisterType<ListMessagesModelFilterProxyModel>(URI, 1, 0, "ListMessagesModelFilterProxyModel");

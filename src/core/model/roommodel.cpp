@@ -24,7 +24,6 @@
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
 #include "usersforroommodel.h"
-#include "threadsmodel.h"
 #include "roomwrapper.h"
 #include <KLocalizedString>
 

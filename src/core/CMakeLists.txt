@@ -44,9 +44,6 @@ set (Ruqola_model_core_srcs
     model/discussionsmodel.cpp
     model/discussionsfilterproxymodel.cpp
 
-    model/threadsmodel.cpp
-    model/threadsfilterproxymodel.cpp
-
     model/emoticoncategoriesmodel.cpp
 
     model/threadmessagemodel.cpp

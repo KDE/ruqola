@@ -50,10 +50,8 @@
 #include "model/searchmessagemodel.h"
 #include "model/searchmessagefilterproxymodel.h"
 #include "model/discussionsmodel.h"
-#include "model/threadsmodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/discussionsfilterproxymodel.h"
-#include "model/threadsfilterproxymodel.h"
 #include "model/listmessagesmodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
@@ -146,12 +144,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
     mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(mDiscussionsModel, this);
     mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
-
-    mThreadsModel = new ThreadsModel(this);
-    mThreadsModel->setObjectName(QStringLiteral("threadsmodel"));
-
-    mThreadsFilterProxyModel = new ThreadsFilterProxyModel(mThreadsModel, this);
-    mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
 
     mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
@@ -320,11 +312,6 @@ Room *RocketChatAccount::getRoom(const QString &roomId)
 DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel() const
 {
     return mDiscussionsFilterProxyModel;
-}
-
-ThreadsFilterProxyModel *RocketChatAccount::threadsFilterProxyModel() const
-{
-    return mThreadsFilterProxyModel;
 }
 
 RoomWrapper *RocketChatAccount::roomWrapper(const QString &roomId)
@@ -803,11 +790,6 @@ MessageModel *RocketChatAccount::threadMessageModel() const
     return mThreadMessageModel;
 }
 
-ThreadsModel *RocketChatAccount::threadsModel() const
-{
-    return mThreadsModel;
-}
-
 DiscussionsModel *RocketChatAccount::discussionsModel() const
 {
     return mDiscussionsModel;
@@ -901,16 +883,6 @@ ListMessagesModelFilterProxyModel *RocketChatAccount::listMessagesFilterProxyMod
 ListMessagesModel *RocketChatAccount::listMessageModel() const
 {
     return mListMessageModel;
-}
-
-void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
-{
-    if (mThreadsModel->roomId() != roomId) {
-        mThreadsModel->parseThreads(obj, roomId);
-    } else {
-        mThreadsModel->addMoreThreads(obj);
-    }
-    mThreadsModel->setLoadMoreThreadsInProgress(false);
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
@@ -1027,16 +999,6 @@ void RocketChatAccount::updateThreadMessageList(const Message &m)
 {
     if (mThreadMessageModel->threadMessageId() == m.threadMessageId()) {
         mThreadMessageModel->addMessage(m);
-    }
-}
-
-void RocketChatAccount::loadMoreThreads(const QString &roomId)
-{
-    if (!mThreadsModel->loadMoreThreadsInProgress()) {
-        const int offset = mThreadsModel->threads()->threadsCount();
-        if (offset < mThreadsModel->threads()->total()) {
-            restApi()->getThreadsList(roomId, offset, qMin(50, mThreadsModel->threads()->total() - offset));
-        }
     }
 }
 
@@ -1917,7 +1879,8 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
 
 void RocketChatAccount::threadsInRoom(const QString &roomId)
 {
-    mThreadsModel->initialize();
+    mListMessageModel->clear();
+    mListMessageModel->setRoomId(roomId);
     restApi()->getThreadsList(roomId);
 }
 
