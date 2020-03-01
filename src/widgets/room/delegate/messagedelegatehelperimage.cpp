@@ -137,7 +137,8 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + margin;
             const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
-                QPointer<ShowImageDialog> dlg = new ShowImageDialog();
+                QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+                QPointer<ShowImageDialog> dlg = new ShowImageDialog(parentWidget);
                 dlg->setIsAnimatedPixmap(layout.isAnimatedImage);
                 if (layout.isAnimatedImage) {
                     dlg->setImagePath(layout.imagePath);
