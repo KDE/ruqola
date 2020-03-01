@@ -26,13 +26,15 @@
 
 #include <KLocalizedString>
 
-#include <QMouseEvent>
-#include <QPainter>
-#include <QPixmapCache>
-#include <QStyleOptionViewItem>
-#include <QPointer>
+#include <QAbstractItemView>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QMouseEvent>
+#include <QMovie>
+#include <QPainter>
+#include <QPixmapCache>
+#include <QPointer>
+#include <QStyleOptionViewItem>
 
 static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
 
@@ -52,7 +54,29 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
         // Draw main pixmap (if shown)
         int nextY = messageRect.y() + layout.titleSize.height() + margin;
         if (layout.isShown) {
-            const QPixmap scaledPixmap = layout.pixmap.scaled(layout.imageSize);
+            QPixmap scaledPixmap;
+            if (layout.isAnimatedImage) {
+                auto it = findRunningAnimatedImage(index);
+                if (it != mRunningAnimatedImages.end()) {
+                    scaledPixmap = (*it).movie->currentPixmap();
+                } else {
+                    mRunningAnimatedImages.emplace_back(index);
+                    auto &rai = mRunningAnimatedImages.back();
+                    rai.movie->setFileName(layout.imagePath);
+                    rai.movie->setScaledSize(layout.imageSize);
+                    auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
+                    const QPersistentModelIndex &idx = rai.index;
+                    QObject::connect(rai.movie, &QMovie::frameChanged,
+                                     view, [view, idx]() {
+                        // TODO if idx is not visible, remove from vector
+                        view->update(idx);
+                    });
+                    rai.movie->start();
+                    scaledPixmap = rai.movie->currentPixmap();
+                }
+            } else {
+                scaledPixmap = layout.pixmap.scaled(layout.imageSize);
+            }
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
             nextY += scaledPixmap.height() + margin;
         }
@@ -164,4 +188,27 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
         }
     }
     return layout;
+}
+
+std::vector<MessageDelegateHelperImage::RunningAnimatedImage>::iterator MessageDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
+{
+    auto matchesIndex = [&](const RunningAnimatedImage &rai) { return rai.index == index; };
+    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
+}
+
+MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(const QModelIndex &idx)
+    : index(idx), movie(new QMovie)
+{
+}
+
+MessageDelegateHelperImage::RunningAnimatedImage::~RunningAnimatedImage()
+{
+    // Note that this happens (with a nullptr movie) when the vector is re-allocated
+    delete movie;
+}
+
+MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(MessageDelegateHelperImage::RunningAnimatedImage &&other) noexcept
+    : index(other.index), movie(other.movie)
+{
+    other.movie = nullptr;
 }
