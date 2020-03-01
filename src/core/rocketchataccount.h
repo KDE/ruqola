@@ -265,7 +265,7 @@ public:
     Q_INVOKABLE void getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
 
     Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
-    void setUserStatusChanged(const QJsonObject &fields);
+    void setUserStatusChanged(const QJsonArray &array);
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
