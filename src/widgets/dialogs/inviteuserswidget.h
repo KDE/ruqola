@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class QLabel;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -45,6 +46,8 @@ private:
     QString mRoomId;
     KLineEdit *mInviteUserLineEdit = nullptr;
     QLabel *mLink = nullptr;
+    QComboBox *mExpirationDays = nullptr;
+    QComboBox *mMaxUsers = nullptr;
 };
 
 #endif // INVITEUSERSWIDGET_H

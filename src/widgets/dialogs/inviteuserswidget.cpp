@@ -30,6 +30,7 @@
 #include <QToolButton>
 #include <QClipboard>
 #include <QApplication>
+#include <QComboBox>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -65,6 +66,18 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     mainLayout->addWidget(mLink);
 
     connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
+
+    //TODO add extra parameters.
+    mExpirationDays = new QComboBox(this);
+    mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));
+    mainLayout->addWidget(mExpirationDays);
+
+    mMaxUsers = new QComboBox(this);
+    mMaxUsers->setObjectName(QStringLiteral("mMaxUsers"));
+    mainLayout->addWidget(mMaxUsers);
+
+    //TODO add regenerate link
+
 }
 
 InviteUsersWidget::~InviteUsersWidget()
@@ -82,7 +95,6 @@ void InviteUsersWidget::slotCopyLink()
 void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info)
 {
     mInviteUserLineEdit->setText(info.url.toString());
-    //TODO
 }
 
 QString InviteUsersWidget::roomId() const
