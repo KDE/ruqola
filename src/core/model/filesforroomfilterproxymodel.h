@@ -40,6 +40,7 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
 Q_SIGNALS:
     void hasFullListChanged();
+    void totalChanged();
 private:
     FilesForRoomModel *mFilesForRoomModel = nullptr;
 };

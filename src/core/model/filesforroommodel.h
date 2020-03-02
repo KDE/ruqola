@@ -75,6 +75,7 @@ public:
 
 Q_SIGNALS:
     void hasFullListChanged();
+    void totalChanged();
 
 private:
     Q_DISABLE_COPY(FilesForRoomModel)

@@ -79,6 +79,7 @@ void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsO
         endInsertRows();
     }
     checkFullList();
+    Q_EMIT totalChanged();
 }
 
 QString FilesForRoomModel::roomId() const
@@ -104,6 +105,7 @@ void FilesForRoomModel::setFiles(const QVector<File> &files)
         endInsertRows();
     }
     checkFullList();
+    Q_EMIT totalChanged();
 }
 
 int FilesForRoomModel::rowCount(const QModelIndex &parent) const

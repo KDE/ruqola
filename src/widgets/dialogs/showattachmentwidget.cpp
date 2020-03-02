@@ -65,6 +65,8 @@ void ShowAttachmentWidget::setModel(FilesForRoomFilterProxyModel *model)
 {
     mModel = model;
     mListAttachment->setModel(model);
+    connect(mModel, &FilesForRoomFilterProxyModel::hasFullListChanged, this, &ShowAttachmentWidget::updateLabel);
+    connect(mModel, &FilesForRoomFilterProxyModel::totalChanged, this, &ShowAttachmentWidget::updateLabel);
     updateLabel();
 }
 
