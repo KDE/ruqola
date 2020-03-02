@@ -1036,6 +1036,11 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
     return mCache->urlForLink(link);
 }
 
+void RocketChatAccount::setNameChanged(const QJsonArray &array)
+{
+    //TODO
+}
+
 void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
 {
     //qDebug() << "Account Name : " << accountName() << " status changed: " << array << " array " << array.count() << " array" << array.toVariantList();

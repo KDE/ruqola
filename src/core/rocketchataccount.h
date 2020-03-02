@@ -399,6 +399,7 @@ public:
     Q_REQUIRED_RESULT bool hasInviteUserSupport() const;
     Q_REQUIRED_RESULT bool isMessageDeletable(const Message &message) const;
     Q_INVOKABLE void joinDiscussion(const QString &roomId, const QString &joinCode);
+    void setNameChanged(const QJsonArray &array);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
