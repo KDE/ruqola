@@ -32,9 +32,23 @@ ListAttachmentDelegate::~ListAttachmentDelegate()
 {
 }
 
+static qreal basicMargin()
+{
+    return 8;
+}
+
+static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
+{
+    const QPen oldPen = painter->pen();
+    QColor col = painter->pen().color();
+    col.setAlpha(128); // TimestampText.qml had opacity: .5
+    painter->setPen(col);
+    painter->drawText(timeStampPos, timeStampText);
+    painter->setPen(oldPen);
+}
+
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // [M] <icon> [M] <name> [M] <download icon> [M]   ([M] = margin)
     // user
     // alias
     // date
@@ -45,24 +59,19 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     drawBackground(painter, optionCopy, index);
 
-    const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+    // const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
     const Layout layout = doLayout(option, index);
 
     //TODO draw filename
-    painter->drawText(0, layout.attachmentNameY, layout.attachmentName);
-
+    painter->drawText(basicMargin(), layout.attachmentNameY, layout.attachmentName);
 
     // Draw the sender
     painter->setFont(layout.senderFont);
     //TODO fix me timeStampHeight
-    painter->drawText(0, layout.senderY, layout.senderText);
-
-    //TODO draw timestamp
-
-
+    painter->drawText(basicMargin(), layout.senderY, layout.senderText);
 
     // Timestamp
-    //drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
+    drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin(), layout.timeStampY));
 
     painter->restore();
 }
@@ -88,16 +97,9 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
         additionalHeight += 4;
     }
 
-    const int contentsHeight = layout.timeStampY + layout.senderY + layout.attachmentNameY - option.rect.y();
+    const int contentsHeight = layout.timeStampY/* + layout.senderY + layout.attachmentNameY*/ - option.rect.y();
     return QSize(option.rect.width(),
                  contentsHeight + additionalHeight);
-}
-
-static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
-{
-    // This gives incorrect results (too small bounding rect), no idea why!
-    //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
 ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -118,7 +120,7 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     layout.senderY = layout.attachmentNameY + option.fontMetrics.height();
 
     // Timestamp
-    layout.timeStampText = index.data(FilesForRoomModel::TimeStamp).toString();
+    layout.timeStampText = file->uploadedDateTimeStr();
     layout.timeStampY = layout.senderY + option.fontMetrics.height();
 
     return layout;
