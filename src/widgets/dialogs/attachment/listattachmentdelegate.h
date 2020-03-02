@@ -36,6 +36,18 @@ public:
 
 private:
     struct Layout {
+        //Attachment name
+        QString attachmentName;
+        qreal attachmentNameY = 0;
+
+        // Sender
+        QString senderText;
+        QFont senderFont;
+        qreal senderY = 0;
+
+        //TimeStamp
+        QString timeStampText;
+        qreal timeStampY = 0;
         //
         QRect usableRect;
     };

@@ -38,6 +38,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // user
     // alias
     // date
+    painter->save();
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
@@ -45,27 +46,25 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     drawBackground(painter, optionCopy, index);
 
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+    const Layout layout = doLayout(option, index);
 
-    //TODO create "doLayout" as messagelistdelegate
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    const int margin = 8;
+    //TODO draw filename
+    painter->drawText(0, layout.attachmentNameY, layout.attachmentName);
 
-    const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
 
-    const QString text = file->fileName();
+    // Draw the sender
+    painter->setFont(layout.senderFont);
+    //TODO fix me timeStampHeight
+    painter->drawText(0, layout.senderY, layout.senderText);
 
-    const int xText = option.rect.x() + iconSize + 2 * margin;
-    const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText - margin - 2 * margin - iconSize,
-                            option.rect.height());
+    //TODO draw timestamp
 
-    const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
-    icon.paint(painter, decorationRect, Qt::AlignCenter);
 
-    const QRect downloadAttachmentIconRect(option.rect.width() - iconSize - 2 * margin, option.rect.y(), iconSize, option.rect.height());
-    mDownloadIcon.paint(painter, downloadAttachmentIconRect, Qt::AlignCenter);
 
-    drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
+    // Timestamp
+    //drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
+
+    painter->restore();
 }
 
 bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -80,8 +79,25 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
 QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    //TODO
-    return QItemDelegate::sizeHint(option, index);
+    // Note: option.rect in this method is huge (as big as the viewport)
+    const Layout layout = doLayout(option, index);
+
+    int additionalHeight = 0;
+    // A little bit of margin below the very last item, it just looks better
+    if (index.row() == index.model()->rowCount() - 1) {
+        additionalHeight += 4;
+    }
+
+    const int contentsHeight = layout.timeStampY + layout.senderY + layout.attachmentNameY - option.rect.y();
+    return QSize(option.rect.width(),
+                 contentsHeight + additionalHeight);
+}
+
+static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
+{
+    // This gives incorrect results (too small bounding rect), no idea why!
+    //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
+    return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
 ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -91,6 +107,19 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     Layout layout;
     QRect usableRect = option.rect;
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-    //TODO
+
+    layout.attachmentName = file->fileName();
+    layout.attachmentNameY = usableRect.top() + option.fontMetrics.height();
+
+
+    layout.senderText = file->userName();
+    layout.senderFont = option.font;
+    layout.senderFont.setItalic(true);
+    layout.senderY = layout.attachmentNameY + option.fontMetrics.height();
+
+    // Timestamp
+    layout.timeStampText = index.data(FilesForRoomModel::TimeStamp).toString();
+    layout.timeStampY = layout.senderY + option.fontMetrics.height();
+
     return layout;
 }
