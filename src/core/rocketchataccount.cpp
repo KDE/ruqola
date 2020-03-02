@@ -637,7 +637,11 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
     //TODO use encrypted room
     //TODO use broadcast
     if (!name.trimmed().isEmpty()) {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
+#else
+        const QStringList lstUsers = userNames.split(QLatin1Char(','), Qt::SkipEmptyParts);
+#endif
         if (privateRoom) {
             //TODO add password ???
             restApi()->createGroups(name, readOnly, lstUsers);
