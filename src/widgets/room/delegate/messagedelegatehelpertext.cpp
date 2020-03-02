@@ -63,8 +63,8 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) con
             const Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
             // Use TextConverter in case it starts with a [](URL) reply marker
             TextConverter textConverter(rcAccount->emojiManager());
-            QString contextString = textConverter.convertMessageText(contextMessage.text(), rcAccount->userName(), {});
-            contextString = KStringHandler::rsqueeze(contextString, 200);
+            const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
+            const QString contextString = textConverter.convertMessageText(contextText, rcAccount->userName(), {});
             text.prepend(QStringLiteral("<font size=\"-1\">&gt; %1</font><br/>").arg(contextString));
         }
     }
