@@ -147,8 +147,6 @@ set (Ruqola_core_srcs
     discussion.cpp
     discussions.cpp
 
-    threads.cpp
-
     emoticoncategory.cpp
 
     listmessages.cpp
