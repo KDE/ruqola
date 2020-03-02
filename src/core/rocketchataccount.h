@@ -400,6 +400,7 @@ public:
     Q_REQUIRED_RESULT bool isMessageDeletable(const Message &message) const;
     Q_INVOKABLE void joinDiscussion(const QString &roomId, const QString &joinCode);
     void setNameChanged(const QJsonArray &array);
+    void getMessage(const QString &messageId, const QString &roomId);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
@@ -445,6 +446,7 @@ private:
     void slotUsersPresenceDone(const QJsonObject &obj);
     void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
     void slotDisconnectedByServer();
+    void slotGetMessageDone(const QJsonObject &obj, const QString &roomId);
 
     void loadEmoji(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);

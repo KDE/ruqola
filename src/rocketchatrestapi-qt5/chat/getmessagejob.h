@@ -44,13 +44,17 @@ public:
     Q_REQUIRED_RESULT QString getMessageId() const;
     void setMessageId(const QString &messageId);
 
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
 Q_SIGNALS:
-    void getMessageDone(const QJsonObject &obj);
+    void getMessageDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(GetMessageJob)
     void slotGetMessageFinished();
     QString mMessageId;
+    QString mRoomId;
 };
 }
 #endif // GETMESSAGEJOB_H

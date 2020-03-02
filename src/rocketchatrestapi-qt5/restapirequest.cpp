@@ -63,6 +63,7 @@
 #include "chat/getpinnedmessagesjob.h"
 #include "chat/getsnippetedmessagesjob.h"
 #include "chat/getstarredmessagesjob.h"
+#include "chat/getmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -1747,5 +1748,17 @@ void RestApiRequest::findOrCreateInvite(const QString &roomId, int maxUses, int 
     connect(job, &FindOrCreateInviteJob::findOrCreateInviteDone, this, &RestApiRequest::findOrCreateInviteDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start findOrCreateInviteJob";
+    }
+}
+
+void RestApiRequest::getMessage(const QString &messageId, const QString &roomId)
+{
+    auto *job = new GetMessageJob(this);
+    job->setMessageId(messageId);
+    job->setRoomId(roomId);
+    initializeRestApiJob(job);
+    connect(job, &GetMessageJob::getMessageDone, this, &RestApiRequest::getMessageDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getMessageDone";
     }
 }

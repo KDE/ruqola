@@ -179,6 +179,7 @@ public:
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
     void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
+    void getMessage(const QString &messageId, const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -243,6 +244,8 @@ Q_SIGNALS:
 
     void failed(const QString &str);
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
+
+    void getMessageDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
