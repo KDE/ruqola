@@ -135,6 +135,33 @@ void User::parseUserRestApi(const QJsonObject &object)
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
 }
 
+void User::parseUser(const QVariantList &list)
+{
+    if(list.count() != 4) {
+        qCWarning(RUQOLA_LOG) << " List argument different of 4! It's a bug";
+        return;
+    }
+    setUserId(list.at(0).toString());
+    setUserName(list.at(1).toString());
+    const int valueStatus = list.at(2).toInt();
+    if (valueStatus == 0) {
+        setStatus(QStringLiteral("offline"));
+    } else if (valueStatus == 1) {
+        setStatus(QStringLiteral("online"));
+    } else if (valueStatus == 2) {
+        setStatus(QStringLiteral("away"));
+    } else if (valueStatus == 3) {
+        setStatus(QStringLiteral("busy"));
+    } else {
+        qCWarning(RUQOLA_LOG) << " Invalid status value" << valueStatus;
+        return;
+    }
+    const QVariant customText = list.at(3);
+    if (customText.isValid()) {
+        setStatusText(customText.toString());
+    }
+}
+
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();

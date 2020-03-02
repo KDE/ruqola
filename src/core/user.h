@@ -70,6 +70,7 @@ public:
     void parseUserRestApi(const QJsonObject &object);
 
     static Q_REQUIRED_RESULT QVector<User> parseUsersList(const QJsonObject &object);
+    void parseUser(const QVariantList &list);
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;

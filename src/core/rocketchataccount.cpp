@@ -1038,11 +1038,17 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
 
 void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
 {
-//    qDebug() << "Account Name : " << accountName() << " status changed: " << array << " array " << array.count() << " array" << array.toVariantList();
-//    for (auto var : array.toVariantList()) {
-//        qDebug() << " var " << var.toJsonArray();
-//    }
-    //TODO implement it.
+    qDebug() << "Account Name : " << accountName() << " status changed: " << array << " array " << array.count() << " array" << array.toVariantList();
+    const auto list = array.toVariantList();
+    for (const auto &var : list) {
+        const auto userListArguments = var.toJsonArray().toVariantList();
+        User user;
+        user.parseUser(userListArguments);
+        if (user.isValid()) {
+            userStatusChanged(user);
+            qDebug() << " user status changed " << user;
+        }
+    }
 }
 
 void RocketChatAccount::loadMoreListMessages(const QString &roomId)
