@@ -25,8 +25,6 @@ RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
-    setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(RoomModel::RoomName);
     sort(0);
 }
 
@@ -63,15 +61,20 @@ QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
 
 void RoomFilterProxyModel::setFilterString(const QString &string)
 {
-    setFilterFixedString(string);
+    mFilterString = string;
+    invalidate();
 }
 
 bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (!QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent)) {
+    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
+
+    auto match = [&](int role) {
+        return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+    };
+    if (!match(RoomModel::RoomName) && !match(RoomModel::RoomFName)) {
         return false;
     }
 
-    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     return sourceModel()->data(modelIndex, RoomModel::RoomOpen).toBool();
 }

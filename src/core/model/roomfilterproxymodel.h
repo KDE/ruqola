@@ -45,6 +45,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(RoomFilterProxyModel)
+    QString mFilterString;
 };
 
 #endif // ROOMFILTERPROXYMODEL_H
