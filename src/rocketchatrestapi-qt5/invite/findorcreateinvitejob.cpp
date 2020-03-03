@@ -72,14 +72,12 @@ void FindOrCreateInviteJob::slotFindOrCreateInviteFinished()
 
 FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)
 {
-    qDebug()<<" FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)" << replyObject;
     FindOrCreateInviteJob::InviteUsersInfo info;
     info.url = QUrl(replyObject[QStringLiteral("url")].toString());
     info.userId = replyObject[QStringLiteral("userId")].toString();
     info.roomId = replyObject[QStringLiteral("rid")].toString();
     //info.expireDateTime =
     info.maxUses = replyObject[QStringLiteral("maxUses")].toInt();
-    qDebug() << " info!!!!!" << info;
     return info;
 }
 
