@@ -22,6 +22,7 @@
 #include "dialogs/searchmessagewidget.h"
 #include "room/messagelistview.h"
 #include <KLineEdit>
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(SearchMessageWidgetTest)
 
@@ -43,4 +44,8 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
     auto *mResultListWidget = w.findChild<MessageListView *>(QStringLiteral("mResultListWidget"));
     QVERIFY(mResultListWidget);
     QCOMPARE(mResultListWidget->mode(), MessageListView::Mode::Viewing);
+
+    QLabel *mSearchLabel = w.findChild<QLabel *>(QStringLiteral("mSearchLabel"));
+    QVERIFY(mSearchLabel);
+    QVERIFY(mSearchLabel->text().isEmpty());
 }

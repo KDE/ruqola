@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class MessageListView;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -41,7 +42,10 @@ Q_SIGNALS:
 
 private:
     void slotSearchMessages();
+    void updateLabel();
+    Q_REQUIRED_RESULT QString displayShowSearch() const;
     QString mRoomId;
+    QLabel *mSearchLabel = nullptr;
     KLineEdit *mSearchLineEdit = nullptr;
     MessageListView *mResultListWidget = nullptr;
 };
