@@ -56,6 +56,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.discussionEnabled());
     QVERIFY(!config.autoTranslateEnabled());
     QVERIFY(config.autoTranslateGoogleKey().isEmpty());
+    QVERIFY(config.uploadFileEnabled());
+    QCOMPARE(config.fileMaxFileSize(), -1);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -96,6 +98,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool deleting = true;
     bool threadsEnabled = true;
     bool discussionEnabled = true;
+    bool uploadFileEnabled = true;
+    quint64 uploadFileMax = 222222;
 
     config.setAllowMessagePinning(pinning);
     config.setAllowMessageSnippeting(snippeting);
@@ -103,6 +107,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setAllowMessageDeleting(deleting);
     config.setThreadsEnabled(threadsEnabled);
     config.setDiscussionEnabled(discussionEnabled);
+    config.setUploadFileEnabled(uploadFileEnabled);
+    config.setFileMaxFileSize(uploadFileMax);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -113,6 +119,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.blockEditingMessageInMinutes(), minutes);
     QCOMPARE(config.blockDeletingMessageInMinutes(), minutesDeletingMessage);
     QCOMPARE(config.otrEnabled(), otrEnable);
+    QCOMPARE(config.uploadFileEnabled(), uploadFileEnabled);
+    QCOMPARE(config.fileMaxFileSize(), uploadFileMax);
 
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);

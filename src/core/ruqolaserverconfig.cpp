@@ -19,6 +19,8 @@
 */
 
 #include "ruqolaserverconfig.h"
+#include <QJsonArray>
+#include <QRegularExpression>
 #include <QStringList>
 #include "ruqola_debug.h"
 
@@ -195,6 +197,26 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+qint64 RuqolaServerConfig::fileMaxFileSize() const
+{
+    return mFileMaxFileSize;
+}
+
+void RuqolaServerConfig::setFileMaxFileSize(const qint64 &fileMaxFileSize)
+{
+    mFileMaxFileSize = fileMaxFileSize;
+}
+
+bool RuqolaServerConfig::uploadFileEnabled() const
+{
+    return mUploadFileEnabled;
+}
+
+void RuqolaServerConfig::setUploadFileEnabled(bool uploadFileEnabled)
+{
+    mUploadFileEnabled = uploadFileEnabled;
+}
+
 int RuqolaServerConfig::blockDeletingMessageInMinutes() const
 {
     return mBlockDeletingMessageInMinutes;
@@ -367,4 +389,68 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mEncryptionEnabled " << t.encryptionEnabled();
     d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
     return d;
+}
+
+void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
+{
+    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
+
+    for (QJsonValueRef currentConfig : configs) {
+        QJsonObject currentConfObject = currentConfig.toObject();
+        const QString id = currentConfObject[QStringLiteral("_id")].toString();
+        const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
+
+        if (id == QLatin1String("uniqueID")) {
+            setUniqueId(value.toString());
+        } else if (id == QLatin1String("Jitsi_Enabled")) {
+            setJitsiEnabled(value.toBool());
+        } else if (id == QLatin1String("Jitsi_Domain")) {
+            setJitsiMeetUrl(value.toString());
+        } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
+            setJitsiMeetPrefix(value.toString());
+        } else if (id == QLatin1String("FileUpload_Storage_Type")) {
+            setFileUploadStorageType(value.toString());
+        } else if (id == QLatin1String("Message_AllowEditing")) {
+            setAllowMessageEditing(value.toBool());
+        } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
+            setBlockEditingMessageInMinutes(value.toInt());
+        } else if (id == QLatin1String("Message_AllowDeleting_BlockDeleteInMinutes")) {
+            setBlockDeletingMessageInMinutes(value.toInt());
+        } else if (id == QLatin1String("OTR_Enable")) {
+            setOtrEnabled(value.toBool());
+        } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
+            if (value.toBool()) {
+                addOauthService(id);
+            }
+        } else if (id == QLatin1String("Site_Url")) {
+            setSiteUrl(value.toString());
+        } else if (id == QLatin1String("Site_Name")) {
+            setSiteName(value.toString());
+        } else if (id == QLatin1String("E2E_Enable")) {
+            setEncryptionEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_AllowPinning")) {
+            setAllowMessagePinning(value.toBool());
+        } else if (id == QLatin1String("Message_AllowSnippeting")) {
+            setAllowMessageSnippeting(value.toBool());
+        } else if (id == QLatin1String("Message_AllowStarring")) {
+            setAllowMessageStarring(value.toBool());
+        } else if (id == QLatin1String("Message_AllowDeleting")) {
+            setAllowMessageDeleting(value.toBool());
+        } else if (id == QLatin1String("Threads_enabled")) {
+            setThreadsEnabled(value.toBool());
+        } else if (id == QLatin1String("Discussion_enabled")) {
+            setDiscussionEnabled(value.toBool());
+        } else if (id == QLatin1String("AutoTranslate_Enabled")) {
+            setAutoTranslateEnabled(value.toBool());
+        } else if (id == QLatin1String("AutoTranslate_GoogleAPIKey")) {
+            setAutoTranslateGoogleKey(value.toString());
+        } else if (id == QLatin1String("FileUpload_Enabled")) {
+            setUploadFileEnabled(value.toBool());
+        } else if (id == QLatin1String("FileUpload_MaxFileSize")) {
+            setFileMaxFileSize(value.toULongLong());
+        } else {
+            qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
+        }
+    }
+        //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
 }

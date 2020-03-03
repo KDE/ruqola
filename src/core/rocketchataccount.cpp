@@ -1280,62 +1280,7 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
-    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
-
-    for (QJsonValueRef currentConfig : configs) {
-        QJsonObject currentConfObject = currentConfig.toObject();
-        const QString id = currentConfObject[QStringLiteral("_id")].toString();
-        const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
-
-        if (id == QLatin1String("uniqueID")) {
-            mRuqolaServerConfig->setUniqueId(value.toString());
-        } else if (id == QLatin1String("Jitsi_Enabled")) {
-            mRuqolaServerConfig->setJitsiEnabled(value.toBool());
-        } else if (id == QLatin1String("Jitsi_Domain")) {
-            mRuqolaServerConfig->setJitsiMeetUrl(value.toString());
-        } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
-            mRuqolaServerConfig->setJitsiMeetPrefix(value.toString());
-        } else if (id == QLatin1String("FileUpload_Storage_Type")) {
-            mRuqolaServerConfig->setFileUploadStorageType(value.toString());
-        } else if (id == QLatin1String("Message_AllowEditing")) {
-            mRuqolaServerConfig->setAllowMessageEditing(value.toBool());
-        } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
-            mRuqolaServerConfig->setBlockEditingMessageInMinutes(value.toInt());
-        } else if (id == QLatin1String("Message_AllowDeleting_BlockDeleteInMinutes")) {
-            mRuqolaServerConfig->setBlockDeletingMessageInMinutes(value.toInt());
-        } else if (id == QLatin1String("OTR_Enable")) {
-            mRuqolaServerConfig->setOtrEnabled(value.toBool());
-        } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
-            if (value.toBool()) {
-                mRuqolaServerConfig->addOauthService(id);
-            }
-        } else if (id == QLatin1String("Site_Url")) {
-            mRuqolaServerConfig->setSiteUrl(value.toString());
-        } else if (id == QLatin1String("Site_Name")) {
-            mRuqolaServerConfig->setSiteName(value.toString());
-        } else if (id == QLatin1String("E2E_Enable")) {
-            mRuqolaServerConfig->setEncryptionEnabled(value.toBool());
-        } else if (id == QLatin1String("Message_AllowPinning")) {
-            mRuqolaServerConfig->setAllowMessagePinning(value.toBool());
-        } else if (id == QLatin1String("Message_AllowSnippeting")) {
-            mRuqolaServerConfig->setAllowMessageSnippeting(value.toBool());
-        } else if (id == QLatin1String("Message_AllowStarring")) {
-            mRuqolaServerConfig->setAllowMessageStarring(value.toBool());
-        } else if (id == QLatin1String("Message_AllowDeleting")) {
-            mRuqolaServerConfig->setAllowMessageDeleting(value.toBool());
-        } else if (id == QLatin1String("Threads_enabled")) {
-            mRuqolaServerConfig->setThreadsEnabled(value.toBool());
-        } else if (id == QLatin1String("Discussion_enabled")) {
-            mRuqolaServerConfig->setDiscussionEnabled(value.toBool());
-        } else if (id == QLatin1String("AutoTranslate_Enabled")) {
-            mRuqolaServerConfig->setAutoTranslateEnabled(value.toBool());
-        } else if (id == QLatin1String("AutoTranslate_GoogleAPIKey")) {
-            mRuqolaServerConfig->setAutoTranslateGoogleKey(value.toString());
-        } else {
-            qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
-        }
-        //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
-    }
+    mRuqolaServerConfig->parsePublicSettings(obj);
     fillOauthModel();
     Q_EMIT publicSettingChanged();
 }

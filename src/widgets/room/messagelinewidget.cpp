@@ -23,6 +23,10 @@
 #include "misc/emoticonmenuwidget.h"
 #include "dialogs/uploadfiledialog.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
+
+#include <KMessageBox>
+#include <KLocalizedString>
 
 #include <QClipboard>
 #include <QGuiApplication>
@@ -117,6 +121,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mCurrentRocketChatAccount = account;
     mMessageTextEdit->setCurrentRocketChatAccount(account);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
+    mSendFile->setVisible(account->ruqolaServerConfig()->uploadFileEnabled());
 }
 
 void MessageLineWidget::setText(const QString &text)
@@ -141,8 +146,18 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 void MessageLineWidget::slotSendFile()
 {
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+    const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
     if (dlg->exec()) {
         const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
+        if (result.fileUrl.isLocalFile()) {
+            const QFileInfo info(result.fileUrl.toLocalFile());
+            if (info.size() > maximumFileSize) {
+                //TODO convert to Mib etc.
+                KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", QString::number(maximumFileSize)), i18n("File upload"));
+                return;
+            }
+        }
+
         sendFile(result);
     }
     delete dlg;

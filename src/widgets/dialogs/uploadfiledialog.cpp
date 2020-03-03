@@ -20,12 +20,12 @@
 
 #include "uploadfiledialog.h"
 #include "uploadfilewidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
-#include <QDialogButtonBox>
-#include <QPushButton>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 namespace {
 static const char myConfigGroupName[] = "UploadFileDialog";

@@ -21,11 +21,11 @@
 #ifndef RUQOLASERVERCONFIG_H
 #define RUQOLASERVERCONFIG_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "authenticationmanager.h"
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT RuqolaServerConfig
+class LIBRUQOLACORE_EXPORT RuqolaServerConfig
 {
 public:
     RuqolaServerConfig();
@@ -115,6 +115,14 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
+    Q_REQUIRED_RESULT bool uploadFileEnabled() const;
+    void setUploadFileEnabled(bool uploadFileEnabled);
+
+    void parsePublicSettings(const QJsonObject &obj);
+
+    Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
+    void setFileMaxFileSize(const qint64 &fileMaxFileSize);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -132,6 +140,7 @@ private:
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;
     int mServerVersionPatch = -1;
+    qint64 mFileMaxFileSize = -1;
 
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;
@@ -145,6 +154,7 @@ private:
     bool mThreadsEnabled = false;
     bool mDiscussionEnabled = false;
     bool mAutoTranslateEnabled = false;
+    bool mUploadFileEnabled = true;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H
