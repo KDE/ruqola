@@ -31,7 +31,7 @@ class ConfigureSpellCheckingWidget;
 #if HAVE_KUSERFEEDBACK
 class ConfigureUserFeedbackWidget;
 #endif
-
+class ConfigureGeneralWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
@@ -51,6 +51,8 @@ private:
     ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
 #endif
+    ConfigureGeneralWidget *mConfigureGeneralWidget = nullptr;
+    KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
 };
 
 #endif // CONFIGURESETTINGSDIALOG_H

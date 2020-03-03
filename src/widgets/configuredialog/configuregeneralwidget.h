@@ -29,6 +29,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureGeneralWidget : public QWidget
 public:
     explicit ConfigureGeneralWidget(QWidget *parent = nullptr);
     ~ConfigureGeneralWidget();
+
+    void save();
+    void load();
 };
 
 #endif // CONFIGUREGENERALWIDGET_H

@@ -21,6 +21,7 @@
 #include "configuresettingsdialog.h"
 #include "configureaccountwidget.h"
 #include "configurespellcheckingwidget.h"
+#include "configuregeneralwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <KConfigGroup>
@@ -49,6 +50,13 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureAccountWidgetPage);
 
+    const QString generalPageName = i18nc("@title Preferences page name", "General");
+    mConfigureGeneralWidget = new ConfigureGeneralWidget(this);
+    mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
+    mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
+    addPage(mConfigureGeneralWidgetPage);
+
+
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
     mConfigureSpellCheckingWidget = new ConfigureSpellCheckingWidget(this);
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
@@ -62,6 +70,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-locale")));
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
+
 
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
             this, &ConfigureSettingsDialog::slotAccepted);
@@ -98,6 +107,7 @@ void ConfigureSettingsDialog::slotAccepted()
 #if HAVE_KUSERFEEDBACK
     mConfigureUserFeedBackWidget->save();
 #endif
+    mConfigureGeneralWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
@@ -107,4 +117,5 @@ void ConfigureSettingsDialog::load()
 #if HAVE_KUSERFEEDBACK
     mConfigureUserFeedBackWidget->load();
 #endif
+    mConfigureGeneralWidget->load();
 }

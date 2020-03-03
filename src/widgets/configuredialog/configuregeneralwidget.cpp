@@ -33,3 +33,13 @@ ConfigureGeneralWidget::~ConfigureGeneralWidget()
 {
 
 }
+
+void ConfigureGeneralWidget::save()
+{
+
+}
+
+void ConfigureGeneralWidget::load()
+{
+
+}
