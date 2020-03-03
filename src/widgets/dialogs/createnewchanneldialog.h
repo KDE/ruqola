@@ -22,6 +22,7 @@
 #define CREATENEWCHANNELDIALOG_H
 
 #include <QDialog>
+#include "createnewchannelwidget.h"
 #include "libruqolawidgets_private_export.h"
 class CreateNewChannelWidget;
 class QPushButton;
@@ -42,6 +43,7 @@ public:
     };
     Q_REQUIRED_RESULT NewChannelInfo channelInfo() const;
 
+    void setFeatures(CreateNewChannelWidget::Features features);
 private:
     void writeConfig();
     void readConfig();

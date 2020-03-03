@@ -28,10 +28,19 @@ class KLineEdit;
 class QCheckBox;
 class KPasswordLineEdit;
 class AddUsersWidget;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum class Feature {
+        None = 0,
+        BroadCast = 1,
+        Encrypted = 2,
+    };
+    Q_DECLARE_FLAGS(Features, Feature)
+    Q_FLAG(Features)
+
     explicit CreateNewChannelWidget(QWidget *parent = nullptr);
     ~CreateNewChannelWidget() override;
 
@@ -43,6 +52,7 @@ public:
     Q_REQUIRED_RESULT bool readOnly() const;
     Q_REQUIRED_RESULT QString password() const;
 
+    void setFeatures(CreateNewChannelWidget::Features features);
 Q_SIGNALS:
     void updateOkButton(bool state);
 
@@ -55,6 +65,7 @@ private:
     QCheckBox *mPrivate = nullptr;
     QCheckBox *mEncryptedRoom = nullptr;
     KPasswordLineEdit *mPasswordLineEdit = nullptr;
+    QFormLayout *mainLayout = nullptr;
 };
 
 #endif // CREATENEWCHANNELWIDGET_H

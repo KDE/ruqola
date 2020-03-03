@@ -84,3 +84,8 @@ void CreateNewChannelDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
+
+void CreateNewChannelDialog::setFeatures(CreateNewChannelWidget::Features features)
+{
+    mCreateNewChannelWidget->setFeatures(features);
+}

@@ -29,7 +29,7 @@
 CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QFormLayout(this);
+    mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -111,4 +111,17 @@ bool CreateNewChannelWidget::encryptedRoom() const
 QString CreateNewChannelWidget::password() const
 {
     return mPasswordLineEdit->password();
+}
+
+void CreateNewChannelWidget::setFeatures(CreateNewChannelWidget::Features features)
+{
+    bool visible = features & CreateNewChannelWidget::Feature::BroadCast;
+
+    mBroadcast->setVisible(visible);
+    mainLayout->labelForField(mBroadcast)->setVisible(visible);
+
+    visible = features & CreateNewChannelWidget::Feature::Encrypted;
+
+    mEncryptedRoom->setVisible(visible);
+    mainLayout->labelForField(mEncryptedRoom)->setVisible(visible);
 }
