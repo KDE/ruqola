@@ -42,6 +42,9 @@ public:
     Q_REQUIRED_RESULT QString joinCode() const;
     void setJoinCode(const QString &joinCode);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+
 Q_SIGNALS:
     void setChannelJoinDone(const ChannelBaseJob::ChannelInfo &channelInfo);
     void missingChannelPassword(const ChannelBaseJob::ChannelInfo &channelInfo);
@@ -51,6 +54,7 @@ private:
     Q_DISABLE_COPY(ChannelJoinJob)
     void slotChannelJoinFinished();
     QString mJoinCode;
+
 };
 }
 #endif // CHANNELJOINJOB_H
