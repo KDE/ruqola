@@ -123,6 +123,9 @@ public:
     Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
     void setFileMaxFileSize(const qint64 &fileMaxFileSize);
 
+    Q_REQUIRED_RESULT bool broadCastEnabled() const;
+    void setBroadCastEnabled(bool broadCastEnabled);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -155,6 +158,7 @@ private:
     bool mDiscussionEnabled = false;
     bool mAutoTranslateEnabled = false;
     bool mUploadFileEnabled = true;
+    bool mBroadCastEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

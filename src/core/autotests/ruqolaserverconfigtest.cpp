@@ -58,6 +58,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.autoTranslateGoogleKey().isEmpty());
     QVERIFY(config.uploadFileEnabled());
     QCOMPARE(config.fileMaxFileSize(), -1);
+    QVERIFY(!config.broadCastEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -76,6 +77,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString siteUrl = QStringLiteral("siteurl");
     bool encryptionEnabled = false;
     bool autoTranslateEnabled = true;
+    bool broadCastEnabled = true;
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
@@ -91,6 +93,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setJitsiEnabled(jistsiEnabled);
     config.setAutoTranslateEnabled(autoTranslateEnabled);
     config.setAutoTranslateGoogleKey(googleKey);
+    config.setBroadCastEnabled(broadCastEnabled);
 
     bool pinning = true;
     bool snippeting = true;
@@ -125,6 +128,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);
     QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
+    QCOMPARE(config.broadCastEnabled(), broadCastEnabled);
 
     QCOMPARE(config.allowMessagePinning(), pinning);
     QCOMPARE(config.allowMessageSnippeting(), snippeting);

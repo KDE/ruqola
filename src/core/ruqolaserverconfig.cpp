@@ -197,6 +197,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::broadCastEnabled() const
+{
+    return mBroadCastEnabled;
+}
+
+void RuqolaServerConfig::setBroadCastEnabled(bool broadCastEnabled)
+{
+    mBroadCastEnabled = broadCastEnabled;
+}
+
 qint64 RuqolaServerConfig::fileMaxFileSize() const
 {
     return mFileMaxFileSize;
@@ -448,6 +458,8 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setUploadFileEnabled(value.toBool());
         } else if (id == QLatin1String("FileUpload_MaxFileSize")) {
             setFileMaxFileSize(value.toULongLong());
+        } else if (id == QLatin1String("Broadcasting_enabled")) {
+            setBroadCastEnabled(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

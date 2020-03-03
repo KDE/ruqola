@@ -259,9 +259,9 @@ void RuqolaMainWindow::slotCreateNewChannel()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     CreateNewChannelWidget::Features flags;
-//    if (mCurrentRocketChatAccount->ruqolaServerConfig()->e2eEnabled()) {
-//        flags |= CreateNewChannelWidget::Feature::BroadCast;
-//    }
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->broadCastEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::BroadCast;
+    }
     if (mCurrentRocketChatAccount->ruqolaServerConfig()->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
