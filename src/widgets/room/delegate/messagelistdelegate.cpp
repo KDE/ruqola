@@ -110,6 +110,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    Q_ASSERT(message);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
     Layout layout;
@@ -434,6 +435,10 @@ bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, 
     if (event->type() == QEvent::ToolTip) {
         auto *helpEvent = static_cast<QHelpEvent *>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        if (!message) {
+            // tooltip was requested in an empty space below the last message, nothing to do
+            return false;
+        }
 
         const Layout layout = doLayout(option, index);
         if (message && !message->reactions().isEmpty()) {
