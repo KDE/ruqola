@@ -31,6 +31,7 @@
 #include <QClipboard>
 #include <QApplication>
 #include <QComboBox>
+#include <QFormLayout>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -68,16 +69,19 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
 
     //TODO add extra parameters.
+    QFormLayout *formLayout = new QFormLayout;
+    formLayout->setObjectName(QStringLiteral("formLayout"));
+    mainLayout->addLayout(formLayout);
+    formLayout->setContentsMargins(0, 0, 0, 0);
+
     mExpirationDays = new QComboBox(this);
     mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));
-    mainLayout->addWidget(mExpirationDays);
+    formLayout->addRow(i18n("Experation (Days)"), mExpirationDays);
 
     mMaxUsers = new QComboBox(this);
     mMaxUsers->setObjectName(QStringLiteral("mMaxUsers"));
-    mainLayout->addWidget(mMaxUsers);
-
-    //TODO add regenerate link
-
+    formLayout->addRow(i18n("Max number of uses"), mMaxUsers);
+    fillComboBox();
 }
 
 InviteUsersWidget::~InviteUsersWidget()
@@ -110,4 +114,9 @@ void InviteUsersWidget::setRoomId(const QString &roomId)
 void InviteUsersWidget::generateLink(int maxUses, int numberOfDays)
 {
     Ruqola::self()->rocketChatAccount()->restApi()->findOrCreateInvite(mRoomId, maxUses, numberOfDays);
+}
+
+void InviteUsersWidget::fillComboBox()
+{
+    //TODO
 }

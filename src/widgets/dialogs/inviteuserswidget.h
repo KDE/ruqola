@@ -40,6 +40,7 @@ public:
     void generateLink(int maxUses = 20, int numberOfDays = 0);
 
 private:
+    void fillComboBox();
     void createInviteLink();
     void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
     void slotCopyLink();
