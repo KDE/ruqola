@@ -921,6 +921,7 @@ void RocketChatAccount::getMentionsMessages(const QString &roomId)
 {
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
+    mListMessageModel->setLoadMoreListMessagesInProgress(true);
     restApi()->channelGetAllUserMentions(roomId);
 }
 
@@ -928,6 +929,7 @@ void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
     if (hasPinnedMessagesSupport()) {
         mListMessageModel->clear();
+        mListMessageModel->setLoadMoreListMessagesInProgress(true);
         mListMessageModel->setRoomId(roomId);
         restApi()->getPinnedMessages(roomId);
     } else {
@@ -950,6 +952,7 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     if (hasStarredMessagesSupport()) {
         mListMessageModel->clear();
         mListMessageModel->setRoomId(roomId);
+        mListMessageModel->setLoadMoreListMessagesInProgress(true);
         restApi()->getStarredMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getStarredMessages is not supported before server 2.3.0";
@@ -971,6 +974,7 @@ void RocketChatAccount::getSnippetedMessages(const QString &roomId)
     if (hasSnippetedMessagesSupport()) {
         mListMessageModel->clear();
         mListMessageModel->setRoomId(roomId);
+        mListMessageModel->setLoadMoreListMessagesInProgress(true);
         restApi()->getSnippetedMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSnippetedMessages is not supported before server 2.3.0";
@@ -1009,6 +1013,7 @@ void RocketChatAccount::updateThreadMessageList(const Message &m)
 void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
 {
     mListMessageModel->setListMessageType(type);
+    mListMessageModel->setLoadMoreListMessagesInProgress(true);
     switch (type) {
     case ListMessagesModel::Unknown:
         qCWarning(RUQOLA_LOG) << " Error when using getListMessages";
@@ -1063,6 +1068,7 @@ void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
 void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 {
     if (!mListMessageModel->loadMoreListMessagesInProgress()) {
+        mListMessageModel->setLoadMoreListMessagesInProgress(true);
         const int offset = mListMessageModel->rowCount();
         if (offset < mListMessageModel->total()) {
             switch (mListMessageModel->listMessageType()) {

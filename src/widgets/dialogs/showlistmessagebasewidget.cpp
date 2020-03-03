@@ -67,12 +67,17 @@ void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *mode
     mModel = model;
     mMessageListView->setModel(model);
     connect(mModel, &ListMessagesModelFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
+    connect(mModel, &ListMessagesModelFilterProxyModel::loadingInProgressChanged, this, &ShowListMessageBaseWidget::updateLabel);
     updateLabel();
 }
 
 void ShowListMessageBaseWidget::updateLabel()
 {
-    mMessageListInfo->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+    if (mModel->loadMoreListMessagesInProgress()) {
+        mMessageListInfo->setText(i18n("Loading..."));
+    } else {
+        mMessageListInfo->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+    }
 }
 
 QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
@@ -89,3 +94,4 @@ void ShowListMessageBaseWidget::slotSearchMessageTextChanged(const QString &str)
 {
     mModel->setFilterString(str);
 }
+
