@@ -64,6 +64,7 @@ Q_SIGNALS:
     void hasFullListChanged();
     void listMessageTypeChanged();
     void totalChanged();
+    void loadingInProgressChanged();
 
 private:
     void parse(const QJsonObject &obj);

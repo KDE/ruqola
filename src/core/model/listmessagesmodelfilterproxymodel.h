@@ -42,11 +42,13 @@ public:
     ListMessagesModel *listMessageModel() const;
     Q_REQUIRED_RESULT int total() const;
     Q_REQUIRED_RESULT bool hasFullList() const;
+    Q_REQUIRED_RESULT bool loadMoreListMessagesInProgress() const;
 
 Q_SIGNALS:
     void hasFullListChanged();
     void listMessageTypeChanged();
     void totalChanged();
+    void loadingInProgressChanged();
 
 private:
     Q_REQUIRED_RESULT QString title() const;

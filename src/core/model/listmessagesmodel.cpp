@@ -81,7 +81,10 @@ bool ListMessagesModel::loadMoreListMessagesInProgress() const
 
 void ListMessagesModel::setLoadMoreListMessagesInProgress(bool inProgress)
 {
-    mLoadingInProgress = inProgress;
+    if (mLoadingInProgress != inProgress) {
+        mLoadingInProgress = inProgress;
+        Q_EMIT loadingInProgressChanged();
+    }
 }
 
 void ListMessagesModel::setHasFullList(bool state)

@@ -34,6 +34,7 @@ ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(ListMessage
     connect(mModel, &ListMessagesModel::hasFullListChanged, this, &ListMessagesModelFilterProxyModel::hasFullListChanged);
     connect(mModel, &ListMessagesModel::listMessageTypeChanged, this, &ListMessagesModelFilterProxyModel::listMessageTypeChanged);
     connect(mModel, &ListMessagesModel::totalChanged, this, &ListMessagesModelFilterProxyModel::totalChanged);
+    connect(mModel, &ListMessagesModel::loadingInProgressChanged, this, &ListMessagesModelFilterProxyModel::loadingInProgressChanged);
 }
 
 ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel()
@@ -90,4 +91,9 @@ ListMessagesModel *ListMessagesModelFilterProxyModel::listMessageModel() const
 bool ListMessagesModelFilterProxyModel::hasFullList() const
 {
     return mModel->hasFullList();
+}
+
+bool ListMessagesModelFilterProxyModel::loadMoreListMessagesInProgress() const
+{
+    return mModel->loadMoreListMessagesInProgress();
 }
