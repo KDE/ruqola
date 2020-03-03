@@ -1865,6 +1865,7 @@ void RocketChatAccount::threadsInRoom(const QString &roomId)
 void RocketChatAccount::discussionsInRoom(const QString &roomId)
 {
     mDiscussionsModel->initialize();
+    mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
     restApi()->getDiscussions(roomId);
 }
 

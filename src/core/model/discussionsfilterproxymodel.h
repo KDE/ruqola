@@ -37,8 +37,10 @@ public:
     Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
 
     Q_REQUIRED_RESULT bool hasFullList() const;
+    Q_REQUIRED_RESULT bool loadMoreDiscussionsInProgress() const;
 Q_SIGNALS:
     void hasFullListChanged();
+    void loadingInProgressChanged();
 private:
     DiscussionsModel *mDiscussionsModel = nullptr;
 };

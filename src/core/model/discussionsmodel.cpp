@@ -43,7 +43,10 @@ bool DiscussionsModel::loadMoreDiscussionsInProgress() const
 
 void DiscussionsModel::setLoadMoreDiscussionsInProgress(bool loadMoreDiscussionsInProgress)
 {
-    mLoadMoreDiscussionsInProgress = loadMoreDiscussionsInProgress;
+    if (mLoadMoreDiscussionsInProgress != loadMoreDiscussionsInProgress) {
+        mLoadMoreDiscussionsInProgress = loadMoreDiscussionsInProgress;
+        Q_EMIT loadingInProgressChanged();
+    }
 }
 
 void DiscussionsModel::initialize()

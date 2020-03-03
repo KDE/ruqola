@@ -30,6 +30,7 @@ DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(DiscussionsModel *model
     setSortRole(DiscussionsModel::SortByTimeStamp);
     sort(0, Qt::DescendingOrder);
     connect(mDiscussionsModel, &DiscussionsModel::hasFullListChanged, this, &DiscussionsFilterProxyModel::hasFullListChanged);
+    connect(mDiscussionsModel, &DiscussionsModel::loadingInProgressChanged, this, &DiscussionsFilterProxyModel::loadingInProgressChanged);
 }
 
 DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel()
@@ -62,4 +63,9 @@ int DiscussionsFilterProxyModel::total() const
 bool DiscussionsFilterProxyModel::hasFullList() const
 {
     return mDiscussionsModel->hasFullList();
+}
+
+bool DiscussionsFilterProxyModel::loadMoreDiscussionsInProgress() const
+{
+    return mDiscussionsModel->loadMoreDiscussionsInProgress();
 }

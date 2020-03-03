@@ -72,12 +72,17 @@ void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
     mListDiscussions->setModel(model);
     mDiscussionModel = model;
     connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
+    connect(mDiscussionModel, &DiscussionsFilterProxyModel::loadingInProgressChanged, this, &ShowDiscussionsWidget::updateLabel);
     updateLabel();
 }
 
 void ShowDiscussionsWidget::updateLabel()
 {
-    mDiscussionInfoLabel->setText(mDiscussionModel->rowCount() == 0 ? i18n("No Discussion found") : displayShowDiscussionInRoom());
+    if (mDiscussionModel->loadMoreDiscussionsInProgress()) {
+        mDiscussionInfoLabel->setText(i18n("Loading..."));
+    } else {
+        mDiscussionInfoLabel->setText(mDiscussionModel->rowCount() == 0 ? i18n("No Discussion found") : displayShowDiscussionInRoom());
+    }
 }
 
 QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
