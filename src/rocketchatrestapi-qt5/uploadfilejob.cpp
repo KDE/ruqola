@@ -62,7 +62,8 @@ bool UploadFileJob::start()
         deleteLater();
         return false;
     }
-    QFile *file = new QFile(mUploadFileInfo.filenameUrl.toLocalFile());
+    const QString fileNameAsLocalFile = mUploadFileInfo.filenameUrl.toLocalFile();
+    QFile *file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mUploadFileInfo.filenameUrl;
         delete file;
@@ -70,7 +71,7 @@ bool UploadFileJob::start()
         return false;
     }
     QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(mUploadFileInfo.filenameUrl.toLocalFile());
+    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
 
     auto *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
