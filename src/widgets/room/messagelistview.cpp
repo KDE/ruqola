@@ -54,6 +54,11 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     setFocusPolicy(Qt::NoFocus);
 
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+
+    // ensure the scrolling behavior isn't jumpy
+    const auto lineHeight = fontMetrics().height() + 10;
+    verticalScrollBar()->setSingleStep(lineHeight);
+    verticalScrollBar()->setPageStep(lineHeight * 10);
 }
 
 MessageListView::~MessageListView()
