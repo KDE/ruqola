@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureGeneralWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,8 @@ public:
 
     void save();
     void load();
+private:
+    QCheckBox *mSetOnlineForAllAccount = nullptr;
 };
 
 #endif // CONFIGUREGENERALWIDGET_H

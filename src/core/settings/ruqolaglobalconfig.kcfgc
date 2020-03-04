@@ -3,3 +3,5 @@ ClassName=RuqolaGlobalConfig
 Mutators=true
 Singleton=true
 ItemAccessors=true
+Visibility=LIBRUQOLACORE_EXPORT
+IncludeFiles=libruqolacore_export.h

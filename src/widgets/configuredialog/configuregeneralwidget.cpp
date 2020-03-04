@@ -22,11 +22,21 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <KLocalizedString>
+#include <QCheckBox>
+#include "ruqolaglobalconfig.h"
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mSetOnlineForAllAccount = new QCheckBox(i18n("Set Online Account"), this);
+    mSetOnlineForAllAccount->setObjectName(QStringLiteral("mSetOnlineForAllAccount"));
+    mainLayout->addWidget(mSetOnlineForAllAccount);
+
+    mainLayout->addStretch(1);
 }
 
 ConfigureGeneralWidget::~ConfigureGeneralWidget()
@@ -36,10 +46,10 @@ ConfigureGeneralWidget::~ConfigureGeneralWidget()
 
 void ConfigureGeneralWidget::save()
 {
-
+    RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
 }
 
 void ConfigureGeneralWidget::load()
 {
-
+    mSetOnlineForAllAccount->setChecked(RuqolaGlobalConfig::self()->setOnlineAccounts());
 }

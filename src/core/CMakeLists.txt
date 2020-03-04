@@ -87,7 +87,13 @@ set(Ruqola_autotranslatelanguage_SRCS
     autotranslatelanguages.cpp
     )
 
+set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
+
+kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
+
+
 set (Ruqola_core_srcs
+    ${Ruqola_kcfg_SRCS}
     ${Ruqola_autotranslatelanguage_SRCS}
     ${Ruqola_message_convertertextjob_SRCS}
     ${Ruqola_emoticons_srcs}
@@ -194,6 +200,7 @@ target_link_libraries(libruqolacore
     KF5::Notifications
     KF5::SyntaxHighlighting
     librocketchatrestapi-qt5
+    KF5::ConfigGui
 )
 
 if (NOT WIN32)

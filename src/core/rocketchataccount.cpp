@@ -34,6 +34,7 @@
 #include "model/usercompletermodel.h"
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/statusmodel.h"
+#include "ruqolaglobalconfig.h"
 #include "utils.h"
 #include "rocketchatcache.h"
 #include "fileattachments.h"
@@ -1957,7 +1958,9 @@ void RocketChatAccount::initializeAccount()
     }
     //Force set online.
     //TODO don't reset message status !
-    ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
+    if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
+        ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
+    }
     //customUsersStatus(); Only for test
 
     emit accountInitialized();
