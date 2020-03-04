@@ -54,7 +54,21 @@ void SearchMessageModel::setStringNotFound(bool stringNotFound)
     }
 }
 
+bool SearchMessageModel::loadSearchMessageInProgress() const
+{
+    return mLoadSearchMessageInProgress;
+}
+
+void SearchMessageModel::setLoadSearchMessageInProgress(bool loadSearchMessageInProgress)
+{
+    if (mLoadSearchMessageInProgress != loadSearchMessageInProgress) {
+        mLoadSearchMessageInProgress = loadSearchMessageInProgress;
+        Q_EMIT loadingInProgressChanged();
+    }
+}
+
 bool SearchMessageModel::stringNotFound() const
 {
     return mStringNotFound;
 }
+

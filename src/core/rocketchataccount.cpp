@@ -1130,12 +1130,14 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
+        mSearchMessageModel->setLoadSearchMessageInProgress(true);
         restApi()->searchMessages(rid, pattern);
     }
 }
 
 void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
+    mSearchMessageModel->setLoadSearchMessageInProgress(false);
     mSearchMessageModel->parse(obj);
 }
 

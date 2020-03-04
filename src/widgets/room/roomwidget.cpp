@@ -231,6 +231,7 @@ void RoomWidget::slotSearchMessages()
 {
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
     dlg->setRoomId(mRoomId);
+    dlg->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
     connect(dlg, &SearchMessageDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;

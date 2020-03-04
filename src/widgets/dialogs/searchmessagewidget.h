@@ -27,6 +27,7 @@
 class KLineEdit;
 class MessageListView;
 class QLabel;
+class SearchMessageFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    void setModel(SearchMessageFilterProxyModel *model);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId);
 
@@ -48,6 +50,7 @@ private:
     QLabel *mSearchLabel = nullptr;
     KLineEdit *mSearchLineEdit = nullptr;
     MessageListView *mResultListWidget = nullptr;
+    SearchMessageFilterProxyModel *mModel = nullptr;
 };
 
 #endif // SEARCHMESSAGEWIDGET_H

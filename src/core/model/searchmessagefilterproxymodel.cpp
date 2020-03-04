@@ -47,6 +47,11 @@ QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
 
 bool SearchMessageFilterProxyModel::stringNotFound() const
 {
-    //FIXME return mSearchMessageModel->stringNotFound();
-    return false;
+    return mSearchMessageModel->stringNotFound();
 }
+
+bool SearchMessageFilterProxyModel::loadSearchMessageInProgress() const
+{
+    return mSearchMessageModel->loadSearchMessageInProgress();
+}
+

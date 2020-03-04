@@ -73,3 +73,8 @@ void SearchMessageDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
+
+void SearchMessageDialog::setModel(SearchMessageFilterProxyModel *model)
+{
+    mSearchMessageWidget->setModel(model);
+}

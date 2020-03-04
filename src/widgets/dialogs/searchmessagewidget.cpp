@@ -50,7 +50,6 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
-    mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
     connect(mResultListWidget, &MessageListView::goToMessageRequested,
             this, &SearchMessageWidget::goToMessageRequested);
 
@@ -58,7 +57,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
 
 SearchMessageWidget::~SearchMessageWidget()
 {
-    Ruqola::self()->rocketChatAccount()->messageSearch(QString(), mRoomId);
+    Ruqola::self()->rocketChatAccount()->clearSearchModel();
 }
 
 void SearchMessageWidget::slotSearchMessages()
@@ -79,19 +78,26 @@ void SearchMessageWidget::setRoomId(const QString &roomId)
 
 void SearchMessageWidget::updateLabel()
 {
-//    if (mDiscussionModel->loadMoreDiscussionsInProgress()) {
-//        mDiscussionInfoLabel->setText(i18n("Loading..."));
-//    } else {
-//        mDiscussionInfoLabel->setText(mDiscussionModel->rowCount() == 0 ? i18n("No Discussion found") : displayShowDiscussionInRoom());
-//    }
+    if (mModel->loadSearchMessageInProgress()) {
+        mSearchLabel->setText(i18n("Loading..."));
+    } else {
+        mSearchLabel->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowSearch());
+    }
 }
 
 QString SearchMessageWidget::displayShowSearch() const
 {
     QString displayMessageStr;
-    //displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
-//    if (!mDiscussionModel->hasFullList()) {
-//        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
-//    }
+    displayMessageStr = i18np("%1 Message in room", "%1 Messages in room", mModel->rowCount());
     return displayMessageStr;
 }
+
+void SearchMessageWidget::setModel(SearchMessageFilterProxyModel *model)
+{
+    mResultListWidget->setModel(model);
+    mModel = model;
+    connect(mModel, &SearchMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
+    updateLabel();
+}
+
+

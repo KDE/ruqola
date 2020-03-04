@@ -34,6 +34,8 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     Q_REQUIRED_RESULT bool stringNotFound() const;
+    Q_REQUIRED_RESULT bool loadSearchMessageInProgress() const;
+
 Q_SIGNALS:
     void stringNotFoundChanged();
 private:

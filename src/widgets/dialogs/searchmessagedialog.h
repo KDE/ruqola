@@ -25,6 +25,7 @@
 
 #include <QDialog>
 class SearchMessageWidget;
+class SearchMessageFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageDialog : public QDialog
 {
     Q_OBJECT
@@ -34,6 +35,7 @@ public:
 
     void setRoomId(const QString &roomId);
 
+    void setModel(SearchMessageFilterProxyModel *model);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId);
 
