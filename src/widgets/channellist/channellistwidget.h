@@ -48,7 +48,7 @@ protected:
 
 private:
     void slotAccountInitialized();
-    void setUserStatusUpdated(User::PresenceStatus status);
+    void setUserStatusUpdated(User::PresenceStatus status, const QString &accountName);
     void slotStatusChanged();
     void slotSearchRoomTextChanged();
     void clearFilterChannel();

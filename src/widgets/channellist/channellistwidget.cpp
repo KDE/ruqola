@@ -112,6 +112,9 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
 
     mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
+    mStatusComboBox->blockSignals(true);
+    mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
+    mStatusComboBox->blockSignals(false);
 }
 
 ChannelListView *ChannelListWidget::channelListView() const
@@ -163,9 +166,11 @@ void ChannelListWidget::slotAccountInitialized()
     mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
 }
 
-void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status)
+void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status, const QString &accountName)
 {
-    mStatusComboBox->setStatus(status);
+    if (mCurrentRocketChatAccount->accountName() == accountName) {
+        mStatusComboBox->setStatus(status);
+    }
 }
 
 void ChannelListWidget::slotStatusChanged()
@@ -174,19 +179,19 @@ void ChannelListWidget::slotStatusChanged()
     QString messageStatus;
     if (status == User::PresenceStatus::Unknown) {
         QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
-        dlg->setMessageStatus(Ruqola::self()->rocketChatAccount()->statusModel()->currentStatusInfo().displayText);
-        dlg->setStatus(Ruqola::self()->rocketChatAccount()->statusModel()->currentStatusInfo().status);
+        dlg->setMessageStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().displayText);
+        dlg->setStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().status);
         if (dlg->exec()) {
             messageStatus = dlg->messageStatus();
             status = dlg->status();
             delete dlg;
         } else {
-            mStatusComboBox->setStatus(Ruqola::self()->rocketChatAccount()->statusModel()->currentUserStatus());
+            mStatusComboBox->setStatus(mCurrentRocketChatAccount->statusModel()->currentUserStatus());
             delete dlg;
             return;
         }
     }
-    Ruqola::self()->rocketChatAccount()->setDefaultStatus(status, messageStatus);
+    mCurrentRocketChatAccount->setDefaultStatus(status, messageStatus);
 }
 
 void ChannelListWidget::slotSearchRoomTextChanged()

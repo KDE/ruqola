@@ -709,6 +709,7 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
         type = RocketChatRestApi::SetStatusJob::Unknown;
         break;
     }
+    mPresenceStatus = status;
     restApi()->setUserStatus(userID(), type, messageStatus);
 #else
     Q_UNUSED(messageStatus);
@@ -873,6 +874,11 @@ void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)
 {
     //TODO
+}
+
+User::PresenceStatus RocketChatAccount::presenceStatus() const
+{
+    return mPresenceStatus;
 }
 
 AccountRoomSettings *RocketChatAccount::accountRoomSettings() const
@@ -1049,6 +1055,11 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
 void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
     //TODO
+}
+
+void RocketChatAccount::setOwnStatus(const User &user)
+{
+    userStatusChanged(user);
 }
 
 void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
@@ -1784,9 +1795,9 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
 void RocketChatAccount::userStatusChanged(const User &user)
 {
     if (user.userId() == userID()) {
-        const User::PresenceStatus status = Utils::presenceStatusFromString(user.status());
-        statusModel()->setCurrentPresenceStatus(status);
-        Q_EMIT userStatusUpdated(status);
+        mPresenceStatus = Utils::presenceStatusFromString(user.status());
+        statusModel()->setCurrentPresenceStatus(mPresenceStatus);
+        Q_EMIT userStatusUpdated(mPresenceStatus, accountName());
     }
     mRoomModel->userStatusChanged(user);
 }

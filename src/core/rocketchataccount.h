@@ -401,6 +401,9 @@ public:
     Q_INVOKABLE void joinDiscussion(const QString &roomId, const QString &joinCode);
     void setNameChanged(const QJsonArray &array);
     void getMessage(const QString &messageId, const QString &roomId);
+    void setOwnStatus(const User &user);
+    Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
+
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
@@ -424,7 +427,7 @@ Q_SIGNALS:
     void sortUnreadOnTopChanged();
     void jobFailed(const QString &message);
     void switchedRooms();
-    void userStatusUpdated(User::PresenceStatus status);
+    void userStatusUpdated(User::PresenceStatus status, const QString &accountName);
     void publicSettingChanged();
     void serverVersionChanged();
     void openLinkRequested(const QString &link);
@@ -519,6 +522,7 @@ private:
     ListMessagesModelFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
 
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
+    User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
     bool mEditingMode = false;
 };
 

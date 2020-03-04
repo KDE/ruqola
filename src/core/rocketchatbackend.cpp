@@ -35,6 +35,7 @@
 #include "model/messagemodel.h"
 #include "receivetypingnotificationmanager.h"
 #include "file.h"
+#include "ruqolaglobalconfig.h"
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -193,6 +194,10 @@ void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
     user.setStatus(replyObject.value(QLatin1String("status")).toString());
     if (user.isValid()) {
         mRocketChatAccount->usersModel()->addUser(user);
+        if (!RuqolaGlobalConfig::self()->setOnlineAccounts()) {
+            //Need to update own status.
+            mRocketChatAccount->setOwnStatus(user);
+        }
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
