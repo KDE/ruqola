@@ -39,7 +39,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
     mSearchLineEdit->setTrapReturnKey(true);
-    mSearchLineEdit->setPlaceholderText(i18n("Search Word... (You can use regular expression as /^text$/i)"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Word..."));
     mainLayout->addWidget(mSearchLineEdit);
 
     mSearchLabel = new QLabel(this);
@@ -65,7 +65,7 @@ SearchMessageWidget::~SearchMessageWidget()
 
 void SearchMessageWidget::slotSearchMessages()
 {
-    Ruqola::self()->rocketChatAccount()->messageSearch(mSearchLineEdit->text(), mRoomId);
+    Ruqola::self()->rocketChatAccount()->messageSearch(mSearchLineEdit->text(), mRoomId, true);
 }
 
 QString SearchMessageWidget::roomId() const

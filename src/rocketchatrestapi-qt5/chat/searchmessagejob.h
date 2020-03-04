@@ -50,14 +50,19 @@ public:
     Q_REQUIRED_RESULT int count() const;
     void setCount(int count);
 
+    Q_REQUIRED_RESULT bool useRegularExpression() const;
+    void setUseRegularExpression(bool useRegularExpression);
+
 Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(SearchMessageJob)
     void slotSearchMessageFinished();
+    Q_REQUIRED_RESULT QString convertSearchText() const;
     QString mRoomId;
     QString mSearchText;
+    bool mUseRegularExpression = false;
     int mCount = -1;
 };
 }

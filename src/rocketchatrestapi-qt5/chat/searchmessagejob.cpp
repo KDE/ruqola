@@ -72,6 +72,16 @@ void SearchMessageJob::slotSearchMessageFinished()
     deleteLater();
 }
 
+bool SearchMessageJob::useRegularExpression() const
+{
+    return mUseRegularExpression;
+}
+
+void SearchMessageJob::setUseRegularExpression(bool useRegularExpression)
+{
+    mUseRegularExpression = useRegularExpression;
+}
+
 int SearchMessageJob::count() const
 {
     return mCount;
@@ -100,6 +110,14 @@ QString SearchMessageJob::roomId() const
 void SearchMessageJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
+}
+
+QString SearchMessageJob::convertSearchText() const
+{
+    if (mUseRegularExpression) {
+        return QStringLiteral("/%1/i").arg(mSearchText);
+    }
+    return mSearchText;
 }
 
 QNetworkRequest SearchMessageJob::request() const
