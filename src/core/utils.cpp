@@ -197,7 +197,7 @@ QString Utils::convertTextWithUrl(const QString &str)
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
-    bool isHasNewRef = false;
+//    bool isHasNewRef = false;
     QString url;
     QString references;
     for (int i = 0; i < str.count(); ++i) {
