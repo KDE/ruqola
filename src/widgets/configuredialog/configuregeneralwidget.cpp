@@ -47,6 +47,7 @@ ConfigureGeneralWidget::~ConfigureGeneralWidget()
 void ConfigureGeneralWidget::save()
 {
     RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
+    RuqolaGlobalConfig::self()->save();
 }
 
 void ConfigureGeneralWidget::load()
