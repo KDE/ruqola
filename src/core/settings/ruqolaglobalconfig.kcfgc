@@ -1,0 +1,5 @@
+File=ruqolaglobalconfig.kcfg
+ClassName=RuqolaGlobalConfig
+Mutators=true
+Singleton=true
+ItemAccessors=true

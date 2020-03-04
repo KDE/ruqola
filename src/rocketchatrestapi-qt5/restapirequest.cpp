@@ -816,11 +816,12 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
     }
 }
 
-void RestApiRequest::searchMessages(const QString &roomId, const QString &pattern)
+void RestApiRequest::searchMessages(const QString &roomId, const QString &pattern, bool useRegularExpression)
 {
     auto *job = new SearchMessageJob(this);
     job->setRoomId(roomId);
     job->setSearchText(pattern);
+    job->setUseRegularExpression(useRegularExpression);
     initializeRestApiJob(job);
     connect(job, &SearchMessageJob::searchMessageDone, this, &RestApiRequest::searchMessageDone);
     if (!job->start()) {

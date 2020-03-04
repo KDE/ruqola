@@ -1125,13 +1125,13 @@ void RocketChatAccount::clearSearchModel()
     mSearchMessageModel->clear();
 }
 
-void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid)
+void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression)
 {
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
         mSearchMessageModel->setLoadSearchMessageInProgress(true);
-        restApi()->searchMessages(rid, pattern);
+        restApi()->searchMessages(rid, pattern, userRegularExpression);
     }
 }
 

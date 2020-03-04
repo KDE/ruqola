@@ -125,7 +125,7 @@ QNetworkRequest SearchMessageJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSearch);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
-    queryUrl.addQueryItem(QStringLiteral("searchText"), mSearchText);
+    queryUrl.addQueryItem(QStringLiteral("searchText"), convertSearchText());
     if (mCount != -1) {
         queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mCount));
     }

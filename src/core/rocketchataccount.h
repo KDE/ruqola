@@ -209,7 +209,7 @@ public:
     Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     Q_INVOKABLE void changeDefaultAuthentication(int index);
-    Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
+    Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression = false);
     InputTextManager *inputTextManager() const
     {
         return mInputTextManager;
