@@ -76,11 +76,11 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 
     mExpirationDays = new QComboBox(this);
     mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));
-    formLayout->addRow(i18n("Experation (Days)"), mExpirationDays);
+    formLayout->addRow(i18n("Expiration (Days)"), mExpirationDays);
 
     mMaxUsers = new QComboBox(this);
     mMaxUsers->setObjectName(QStringLiteral("mMaxUsers"));
-    formLayout->addRow(i18n("Max number of uses"), mMaxUsers);
+    formLayout->addRow(i18n("Max number of users"), mMaxUsers);
     fillComboBox();
 }
 
