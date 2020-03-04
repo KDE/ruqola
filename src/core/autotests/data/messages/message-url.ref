@@ -8,6 +8,7 @@
     "message": "https://www.kde.org/bla.zip",
     "messageID": "NNLTgCTmhZNNDA",
     "messageType": "NormalText",
+    "name": "foo",
     "parseUrls": false,
     "pinned": false,
     "roomID": "Pa6bu7xHrS5xz6",

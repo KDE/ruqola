@@ -58,6 +58,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
         mDiscussionLastMessage = Utils::parseDate(QStringLiteral("dlm"), o);
     }
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
+    mName = o.value(QLatin1String("u")).toObject().value(QLatin1String("name")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
     mEditedByUsername = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("username")).toString();
     mEditedByUserId = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("_id")).toString();
@@ -92,6 +93,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+QString Message::name() const
+{
+    return mName;
+}
+
+void Message::setName(const QString &name)
+{
+    mName = name;
 }
 
 bool Message::showAttachment() const
@@ -369,6 +380,7 @@ bool Message::operator==(const Message &other) const
            && (mText == other.text())
            && (mTimeStamp == other.timeStamp())
            && (mUsername == other.username())
+           && (mName == other.name())
            && (mUserId == other.userId())
            && (mUpdatedAt == other.updatedAt())
            && (mEditedAt == other.editedAt())
@@ -685,6 +697,7 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mText = o[QStringLiteral("message")].toString();
     message.mTimeStamp = static_cast<qint64>(o[QStringLiteral("timestamp")].toDouble());
     message.mUsername = o[QStringLiteral("username")].toString();
+    message.mName = o[QStringLiteral("name")].toString();
     message.mUserId = o[QStringLiteral("userID")].toString();
     message.mUpdatedAt = static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble());
     message.mEditedAt = static_cast<qint64>(o[QStringLiteral("editedAt")].toDouble());
@@ -742,6 +755,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("message")] = message.mText;
     o[QStringLiteral("timestamp")] = message.mTimeStamp;
     o[QStringLiteral("username")] = message.mUsername;
+    if (!message.mName.isEmpty()) {
+        o[QStringLiteral("name")] = message.mName;
+    }
     o[QStringLiteral("userID")] = message.mUserId;
     o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
     o[QStringLiteral("editedAt")] = message.mEditedAt;
@@ -828,6 +844,7 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mText: " << t.text();
     d << "mTimeStamp: " << t.timeStamp();
     d << "mUsername: " << t.username();
+    d << "mName: " << t.name();
     d << "mUserId: " << t.userId();
     d << "mUpdatedAt: " << t.updatedAt();
     d << "mEditedAt: " << t.editedAt();

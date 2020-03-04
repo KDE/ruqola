@@ -45,6 +45,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setGroupable(false);
         firstMessageRef.setTimeStamp(1504509615057);
         firstMessageRef.setUsername(QStringLiteral("foo.ff"));
+        firstMessageRef.setName(QStringLiteral("newname"));
         firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
         firstMessageRef.setMessageType(Message::File);
         firstMessageRef.setUpdatedAt(1504509615063);
@@ -62,6 +63,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
         urlMessageRef.setAlias(QStringLiteral("alias"));
         urlMessageRef.setGroupable(false);
+        urlMessageRef.setName(QStringLiteral("name"));
         urlMessageRef.setTimeStamp(1504596899771);
         urlMessageRef.setUsername(QStringLiteral("username"));
         urlMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
@@ -83,6 +85,7 @@ void MessageTest::shouldParseMessage_data()
         Message imageMessageRef;
         imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
         imageMessageRef.setAlias(QStringLiteral("aliasname"));
+        imageMessageRef.setName(QStringLiteral("name"));
         imageMessageRef.setGroupable(false);
         imageMessageRef.setTimeStamp(1505399177844);
         imageMessageRef.setUsername(QStringLiteral("username"));
@@ -110,6 +113,7 @@ void MessageTest::shouldParseMessage_data()
         Message videoMessageRef;
         videoMessageRef.setMessageId(QStringLiteral("KCy2KiFYmS5NuakPm"));
         videoMessageRef.setAlias(QStringLiteral("Laurent Montel"));
+        videoMessageRef.setName(QStringLiteral("Laurent Montel"));
         videoMessageRef.setGroupable(false);
         videoMessageRef.setTimeStamp(1515580853098);
         videoMessageRef.setUsername(QStringLiteral("laurent"));
@@ -134,6 +138,7 @@ void MessageTest::shouldParseMessage_data()
         Message audioMessageRef;
         audioMessageRef.setMessageId(QStringLiteral("AwDsjWKJaW2wCP2ht"));
         audioMessageRef.setAlias(QStringLiteral("Laurent Montel"));
+        audioMessageRef.setName(QStringLiteral("Laurent Montel"));
         audioMessageRef.setGroupable(false);
         audioMessageRef.setTimeStamp(1515588347098);
         audioMessageRef.setUsername(QStringLiteral("laurent"));
@@ -158,6 +163,7 @@ void MessageTest::shouldParseMessage_data()
         Message messageStarredRef;
         messageStarredRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
         messageStarredRef.setAlias(QStringLiteral("Laurent"));
+        messageStarredRef.setName(QStringLiteral("Laurent"));
         messageStarredRef.setGroupable(false);
         messageStarredRef.setTimeStamp(1516711967347);
         messageStarredRef.setUsername(QStringLiteral("laurent"));
@@ -178,6 +184,7 @@ void MessageTest::shouldParseMessage_data()
         Message messagePinnedRef;
         messagePinnedRef.setMessageId(QStringLiteral("4eawfwyFnt7L8wTwE"));
         messagePinnedRef.setAlias(QStringLiteral("Laurent"));
+        messagePinnedRef.setName(QStringLiteral("Laurent Montel"));
         messagePinnedRef.setGroupable(false);
         messagePinnedRef.setTimeStamp(1550240990669);
         messagePinnedRef.setUsername(QStringLiteral("laurent"));
@@ -199,6 +206,7 @@ void MessageTest::shouldParseMessage_data()
         Message messageStarredRemovedRef;
         messageStarredRemovedRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
         messageStarredRemovedRef.setAlias(QStringLiteral("Laurent"));
+        messageStarredRemovedRef.setName(QStringLiteral("Laurent"));
         messageStarredRemovedRef.setGroupable(false);
         messageStarredRemovedRef.setTimeStamp(1516711967347);
         messageStarredRemovedRef.setUsername(QStringLiteral("laurent"));
@@ -219,6 +227,7 @@ void MessageTest::shouldParseMessage_data()
         Message messageAttachmentFileRef;
         messageAttachmentFileRef.setMessageId(QStringLiteral("messageid"));
         messageAttachmentFileRef.setAlias(QStringLiteral("Laurent"));
+        messageAttachmentFileRef.setName(QStringLiteral("Laurent Montel"));
         messageAttachmentFileRef.setGroupable(false);
         messageAttachmentFileRef.setTimeStamp(1520540888833);
         messageAttachmentFileRef.setUsername(QStringLiteral("laurent"));

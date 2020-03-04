@@ -182,6 +182,9 @@ public:
     Q_REQUIRED_RESULT bool showAttachment() const;
     void setShowAttachment(bool showAttachment);
 
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &name);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -220,6 +223,7 @@ private:
 
     // u
     QString mUsername;
+    QString mName;
     QString mUserId;
 
     // editedBy

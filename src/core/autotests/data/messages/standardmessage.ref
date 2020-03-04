@@ -8,6 +8,7 @@
     "message": "message foo",
     "messageID": "Co6LnNbu5TYcXPuMG",
     "messageType": "NormalText",
+    "name": "john",
     "parseUrls": false,
     "pinned": false,
     "roomID": "hPseB3qQYPxoXqGkN",

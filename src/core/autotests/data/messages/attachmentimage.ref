@@ -8,6 +8,7 @@
     "message": "Now you can come and visit me",
     "messageID": "ME8TT8GcaMsZ5hcsC",
     "messageType": "NormalText",
+    "name": "Bla",
     "parseUrls": false,
     "pinned": false,
     "roomID": "GENERAL",
