@@ -21,7 +21,10 @@
 #include "inviteuserswidgettest.h"
 #include "dialogs/inviteuserswidget.h"
 #include <KLineEdit>
+#include <QComboBox>
+#include <QFormLayout>
 #include <QLabel>
+#include <QPushButton>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -56,4 +59,18 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QLabel *mLink = w.findChild<QLabel *>(QStringLiteral("mLink"));
     QVERIFY(mLink);
     QVERIFY(mLink->text().isEmpty());
+
+    QFormLayout *formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
+    QVERIFY(formLayout);
+    QCOMPARE(formLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QComboBox *mExpirationDays = w.findChild<QComboBox *>(QStringLiteral("mExpirationDays"));
+    QVERIFY(mExpirationDays);
+
+    QComboBox *mMaxUses = w.findChild<QComboBox *>(QStringLiteral("mMaxUses"));
+    QVERIFY(mMaxUses);
+
+    QPushButton *generateNewLink = w.findChild<QPushButton *>(QStringLiteral("generateNewLink"));
+    QVERIFY(generateNewLink);
+    QVERIFY(!generateNewLink->text().isEmpty());
 }
