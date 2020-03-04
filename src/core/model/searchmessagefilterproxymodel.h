@@ -38,6 +38,7 @@ public:
 
 Q_SIGNALS:
     void stringNotFoundChanged();
+    void loadingInProgressChanged();
 private:
     SearchMessageModel *mSearchMessageModel = nullptr;
 };

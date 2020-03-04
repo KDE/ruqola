@@ -44,6 +44,9 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
 
     mSearchLabel = new QLabel(this);
     mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
+    QFont labFont = mSearchLabel->font();
+    labFont.setBold(true);
+    mSearchLabel->setFont(labFont);
     mainLayout->addWidget(mSearchLabel);
 
     mResultListWidget = new MessageListView(MessageListView::Mode::Viewing, this);
@@ -97,6 +100,7 @@ void SearchMessageWidget::setModel(SearchMessageFilterProxyModel *model)
     mResultListWidget->setModel(model);
     mModel = model;
     connect(mModel, &SearchMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
+    connect(mModel, &SearchMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
     updateLabel();
 }
 

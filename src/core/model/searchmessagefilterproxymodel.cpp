@@ -31,6 +31,7 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel 
     setFilterRole(SearchMessageModel::Timestamp);
     sort(0, Qt::DescendingOrder);
     connect(mSearchMessageModel, &SearchMessageModel::stringNotFoundChanged, this, &SearchMessageFilterProxyModel::stringNotFoundChanged);
+    connect(mSearchMessageModel, &SearchMessageModel::loadingInProgressChanged, this, &SearchMessageFilterProxyModel::loadingInProgressChanged);
 }
 
 SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel()
