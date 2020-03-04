@@ -22,9 +22,9 @@
 #define SEARCHMESSAGEFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class SearchMessageModel;
-class LIBRUQOLACORE_TESTS_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool stringNotFound READ stringNotFound NOTIFY stringNotFoundChanged)

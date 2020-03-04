@@ -22,12 +22,12 @@
 
 #include <QString>
 #include <QVector>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
 class EmojiManager;
 class Message;
 
-class LIBRUQOLACORE_TESTS_EXPORT TextConverter
+class LIBRUQOLACORE_EXPORT TextConverter
 {
 public:
     explicit TextConverter(EmojiManager *emojiManager = nullptr);

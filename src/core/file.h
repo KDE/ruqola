@@ -20,12 +20,12 @@
 #ifndef FILE_H
 #define FILE_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QString>
 #include <QDebug>
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT File
+class LIBRUQOLACORE_EXPORT File
 {
     Q_GADGET
 public:
