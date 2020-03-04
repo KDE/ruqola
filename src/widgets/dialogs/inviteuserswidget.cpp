@@ -32,6 +32,7 @@
 #include <QApplication>
 #include <QComboBox>
 #include <QFormLayout>
+#include <QPushButton>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -68,7 +69,6 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 
     connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
 
-    //TODO add extra parameters.
     QFormLayout *formLayout = new QFormLayout;
     formLayout->setObjectName(QStringLiteral("formLayout"));
     mainLayout->addLayout(formLayout);
@@ -78,14 +78,24 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));
     formLayout->addRow(i18n("Expiration (Days)"), mExpirationDays);
 
-    mMaxUsers = new QComboBox(this);
-    mMaxUsers->setObjectName(QStringLiteral("mMaxUsers"));
-    formLayout->addRow(i18n("Max number of users"), mMaxUsers);
+    mMaxUses = new QComboBox(this);
+    mMaxUses->setObjectName(QStringLiteral("mMaxUses"));
+    formLayout->addRow(i18n("Max number of uses"), mMaxUses);
+
+    QPushButton *generateNewLink = new QPushButton(i18n("Generate New Link"), this);
+    generateNewLink->setObjectName(QStringLiteral("generateNewLink"));
+    connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
+    mainLayout->addWidget(generateNewLink);
     fillComboBox();
 }
 
 InviteUsersWidget::~InviteUsersWidget()
 {
+}
+
+void InviteUsersWidget::slotGenerateNewLink()
+{
+    generateLink(mMaxUses->currentData().toInt(), mExpirationDays->currentData().toInt());
 }
 
 void InviteUsersWidget::slotCopyLink()
@@ -118,5 +128,17 @@ void InviteUsersWidget::generateLink(int maxUses, int numberOfDays)
 
 void InviteUsersWidget::fillComboBox()
 {
-    //TODO
+    mExpirationDays->addItem(QString::number(1), 1);
+    mExpirationDays->addItem(QString::number(7), 7);
+    mExpirationDays->addItem(QString::number(15), 15);
+    mExpirationDays->addItem(QString::number(30), 30);
+    mExpirationDays->addItem(i18n("Never"), 0);
+
+    mMaxUses->addItem(QString::number(1), 1);
+    mMaxUses->addItem(QString::number(5), 5);
+    mMaxUses->addItem(QString::number(10), 10);
+    mMaxUses->addItem(QString::number(25), 25);
+    mMaxUses->addItem(QString::number(50), 50);
+    mMaxUses->addItem(QString::number(100), 100);
+    mMaxUses->addItem(i18n("No Limit"), 0);
 }

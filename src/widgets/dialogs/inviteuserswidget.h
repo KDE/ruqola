@@ -44,11 +44,12 @@ private:
     void createInviteLink();
     void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
     void slotCopyLink();
+    void slotGenerateNewLink();
     QString mRoomId;
     KLineEdit *mInviteUserLineEdit = nullptr;
     QLabel *mLink = nullptr;
     QComboBox *mExpirationDays = nullptr;
-    QComboBox *mMaxUsers = nullptr;
+    QComboBox *mMaxUses = nullptr;
 };
 
 #endif // INVITEUSERSWIDGET_H
