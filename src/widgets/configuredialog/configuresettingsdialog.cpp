@@ -44,18 +44,17 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 
     buttonBox()->setStandardButtons(QDialogButtonBox::Ok| QDialogButtonBox::Cancel);
 
+    const QString generalPageName = i18nc("@title Preferences page name", "General");
+    mConfigureGeneralWidget = new ConfigureGeneralWidget(this);
+    mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
+    mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
+    addPage(mConfigureGeneralWidgetPage);
+
     const QString accountPageName = i18nc("@title Preferences page name", "Account");
     mConfigureAccountWidget = new ConfigureAccountWidget(this);
     mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
     mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureAccountWidgetPage);
-
-    const QString generalPageName = i18nc("@title Preferences page name", "General");
-    mConfigureGeneralWidget = new ConfigureGeneralWidget(this);
-    mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
-    mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
-    addPage(mConfigureGeneralWidgetPage);
-
 
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
     mConfigureSpellCheckingWidget = new ConfigureSpellCheckingWidget(this);
