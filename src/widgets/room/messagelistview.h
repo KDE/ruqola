@@ -75,6 +75,7 @@ private:
     void createSeparator(QMenu &menu);
     void slotVerticalScrollbarChanged(int value);
     void slotReplyInThread(const QModelIndex &index);
+    void updateVerticalPageStep();
 
 private:
     QString mRoomId;

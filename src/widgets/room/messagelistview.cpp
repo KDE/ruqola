@@ -56,9 +56,13 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
 
     // ensure the scrolling behavior isn't jumpy
+    // we always single step by roughly one line
     const auto lineHeight = fontMetrics().height() + 10;
     verticalScrollBar()->setSingleStep(lineHeight);
-    verticalScrollBar()->setPageStep(lineHeight * 10);
+    // the page step depends on the height of the viewport and needs to be reset when the range changes
+    // as Qt would otherwise overwrite it internally. We apparently need a queued connection too to ensure our value is set
+    connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListView::updateVerticalPageStep, Qt::QueuedConnection);
+    updateVerticalPageStep();
 }
 
 MessageListView::~MessageListView()
@@ -132,6 +136,7 @@ void MessageListView::resizeEvent(QResizeEvent *ev)
     // Fix not being really at bottom when the view gets reduced by the header widget becoming taller
     checkIfAtBottom();
     maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
+    updateVerticalPageStep();
 }
 
 void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
@@ -379,4 +384,9 @@ void MessageListView::slotReplyInThread(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
     Q_EMIT replyInThreadRequested(messageId);
+}
+
+void MessageListView::updateVerticalPageStep()
+{
+    verticalScrollBar()->setPageStep(viewport()->height() * 3 / 4);
 }
