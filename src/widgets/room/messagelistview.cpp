@@ -215,6 +215,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
         }
+        createSeparator(menu);
 
         if (index.data(MessageModel::CanEditMessage).toBool()) {
             QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
@@ -230,6 +231,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(replyInThreadAction);
         }
+        createSeparator(menu);
         menu.addAction(copyAction);
 
         if (deleteAction) {
@@ -261,10 +263,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }
+#endif
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
+            createSeparator(menu);
         }
-#endif
         menu.addAction(copyAction);
         createSeparator(menu);
         QAction *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
