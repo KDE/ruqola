@@ -223,6 +223,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(editAction);
         }
+        if (rcAccount->threadsEnabled()) {
+            QAction *replyInThreadAction = new QAction(i18n("Reply in Thread"), &menu);
+            connect(replyInThreadAction, &QAction::triggered, this, [=]() {
+                slotReplyInThread(index);
+            });
+            menu.addAction(replyInThreadAction);
+        }
         menu.addAction(copyAction);
 
         if (deleteAction) {
@@ -356,4 +363,11 @@ void MessageListView::slotCopyText(const QModelIndex &index)
 MessageListView::Mode MessageListView::mode() const
 {
     return mMode;
+}
+
+
+void MessageListView::slotReplyInThread(const QModelIndex &index)
+{
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    Q_EMIT replyInThreadRequested(messageId);
 }

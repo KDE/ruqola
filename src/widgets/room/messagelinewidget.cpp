@@ -98,6 +98,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                 mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
             } else {
                 mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, msg);
+                mThreadMessageId.clear();
             }
         } else {
             //TODO support mThreadMessageId too
@@ -114,6 +115,11 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
     setMode(messageId.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
     setText(text);
     setFocus();
+}
+
+void MessageLineWidget::setReplyInThread(const QString &messageId)
+{
+    mThreadMessageId = messageId;
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)

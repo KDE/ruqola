@@ -68,6 +68,7 @@ public:
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
+    void setReplyInThread(const QString &messageId);
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);

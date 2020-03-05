@@ -99,6 +99,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
+    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, &MessageLineWidget::setReplyInThread);
 
     setAcceptDrops(true);
 }
