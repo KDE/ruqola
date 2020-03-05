@@ -22,6 +22,7 @@
 #include "dialogs/inviteusersdialog.h"
 #include "dialogs/inviteuserswidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(InviteUsersDialogTest)
@@ -29,6 +30,7 @@ QTEST_MAIN(InviteUsersDialogTest)
 InviteUsersDialogTest::InviteUsersDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void InviteUsersDialogTest::shouldHaveDefaultValues()

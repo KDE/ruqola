@@ -22,12 +22,14 @@
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/channelpasswordwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ChannelPasswordDialogTest)
 ChannelPasswordDialogTest::ChannelPasswordDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ChannelPasswordDialogTest::shouldHaveDefaultValues()

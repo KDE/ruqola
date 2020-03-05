@@ -22,6 +22,7 @@
 #include "dialogs/showimagedialog.h"
 #include "dialogs/showimagewidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowImageDialogTest)
@@ -29,6 +30,7 @@ QTEST_MAIN(ShowImageDialogTest)
 ShowImageDialogTest::ShowImageDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ShowImageDialogTest::shouldHaveDefaultValues()

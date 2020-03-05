@@ -24,10 +24,12 @@
 #include <QVBoxLayout>
 #include <QTest>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 QTEST_MAIN(CreateNewDiscussionDialogTest)
 CreateNewDiscussionDialogTest::CreateNewDiscussionDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void CreateNewDiscussionDialogTest::shouldHaveDefaultValues()

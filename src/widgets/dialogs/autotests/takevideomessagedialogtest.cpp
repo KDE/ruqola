@@ -22,6 +22,7 @@
 #include "dialogs/takevideomessagedialog.h"
 #include "dialogs/takevideomessagewidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(TakeVideoMessageDialogTest)
@@ -29,6 +30,7 @@ QTEST_MAIN(TakeVideoMessageDialogTest)
 TakeVideoMessageDialogTest::TakeVideoMessageDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void TakeVideoMessageDialogTest::shouldHaveDefaultValues()

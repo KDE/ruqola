@@ -21,6 +21,7 @@
 #include "showdiscussionsdialogtest.h"
 #include "dialogs/showdiscussionsdialog.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowDiscussionsDialogTest)
@@ -28,6 +29,7 @@ QTEST_MAIN(ShowDiscussionsDialogTest)
 ShowDiscussionsDialogTest::ShowDiscussionsDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ShowDiscussionsDialogTest::shouldHaveDefaultValues()

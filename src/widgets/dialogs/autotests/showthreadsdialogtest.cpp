@@ -21,6 +21,7 @@
 #include "showthreadsdialogtest.h"
 #include "dialogs/showthreadsdialog.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowThreadsDialogTest)
@@ -28,6 +29,7 @@ QTEST_MAIN(ShowThreadsDialogTest)
 ShowThreadsDialogTest::ShowThreadsDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ShowThreadsDialogTest::shouldHaveDefaultValues()

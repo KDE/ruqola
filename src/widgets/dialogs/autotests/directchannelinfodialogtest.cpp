@@ -22,6 +22,7 @@
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/directchannelinfowidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(DirectChannelInfoDialogTest)
@@ -29,6 +30,7 @@ QTEST_MAIN(DirectChannelInfoDialogTest)
 DirectChannelInfoDialogTest::DirectChannelInfoDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void DirectChannelInfoDialogTest::shouldHaveDefaultValue()
