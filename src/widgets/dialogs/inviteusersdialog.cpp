@@ -24,7 +24,12 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
+namespace {
+static const char myConfigGroupName[] = "InviteUsersDialog";
+}
 InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -41,10 +46,12 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &InviteUsersDialog::accept);
     mainLayout->addWidget(buttonBox);
+    readConfig();
 }
 
 InviteUsersDialog::~InviteUsersDialog()
 {
+    writeConfig();
 }
 
 QString InviteUsersDialog::roomId() const
@@ -60,4 +67,19 @@ void InviteUsersDialog::setRoomId(const QString &roomId)
 void InviteUsersDialog::generateLink()
 {
     mInviteUsersWidget->generateLink();
+}
+
+void InviteUsersDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(300, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void InviteUsersDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }

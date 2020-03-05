@@ -86,6 +86,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     generateNewLink->setObjectName(QStringLiteral("generateNewLink"));
     connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
     mainLayout->addWidget(generateNewLink);
+    mainLayout->addStretch(1);
     fillComboBox();
 }
 

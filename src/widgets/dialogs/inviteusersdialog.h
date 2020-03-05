@@ -35,6 +35,8 @@ public:
     void generateLink();
 private:
     InviteUsersWidget *mInviteUsersWidget = nullptr;
+    void readConfig();
+    void writeConfig();
 };
 
 #endif // INVITEUSERSDIALOG_H
