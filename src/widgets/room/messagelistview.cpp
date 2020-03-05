@@ -242,8 +242,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             createSeparator(menu);
             const bool isTranslated = index.data(MessageModel::ShowTranslatedMessage).toBool();
             QAction *translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
-            connect(translateAction, &QAction::triggered, this, [=](bool checked) {
-                slotTranslateMessage(index, checked);
+            connect(translateAction, &QAction::triggered, this, [=]() {
+                slotTranslateMessage(index, !isTranslated);
             });
             menu.addAction(translateAction);
         }
@@ -301,8 +301,9 @@ void MessageListView::createSeparator(QMenu &menu)
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)
 {
-    qDebug() << "No implemented yet";
-    //TODO
+    auto *model = const_cast<QAbstractItemModel *>(index.model());
+    model->setData(index, checked, MessageModel::ShowTranslatedMessage);
+    qDebug() << "No implemented yet" << checked;
 }
 
 void MessageListView::slotEditMessage(const QModelIndex &index)
