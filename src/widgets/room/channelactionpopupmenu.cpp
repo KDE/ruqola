@@ -90,6 +90,12 @@ void ChannelActionPopupMenu::createMenu()
     connect(mConfigureNotification, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::Notification);
     });
+
+    mAutoTranslate = new QAction(i18n("Configure Auto-Translate..."), this);
+    mMenu->addAction(mAutoTranslate);
+    connect(mAutoTranslate, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::AutoTranslate);
+    });
 }
 
 QMenu *ChannelActionPopupMenu::menu() const
@@ -107,4 +113,5 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
+    mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
 }

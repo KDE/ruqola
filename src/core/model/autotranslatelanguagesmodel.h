@@ -21,10 +21,10 @@
 #define AUTOTRANSLATELANGUAGESMODEL_H
 
 #include <QAbstractListModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "autotranslatelanguages.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguagesModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT AutotranslateLanguagesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

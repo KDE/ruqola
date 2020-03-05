@@ -19,6 +19,7 @@
 */
 
 #include "autotranslateconfiguredialog.h"
+#include "autotranslateconfigurewidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -26,7 +27,18 @@
 AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Configure Auto-Translate"));
+    auto *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mAutoTranslateConfigureWidget = new AutoTranslateConfigureWidget(this);
+    mAutoTranslateConfigureWidget->setObjectName(QStringLiteral("mAutoTranslateConfigureWidget"));
+    mainLayout->addWidget(mAutoTranslateConfigureWidget);
+
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &AutoTranslateConfigureDialog::reject);
 }
 
 AutoTranslateConfigureDialog::~AutoTranslateConfigureDialog()

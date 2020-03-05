@@ -18,20 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTOTRANSLATECONFIGUREDIALOG_H
-#define AUTOTRANSLATECONFIGUREDIALOG_H
+#ifndef AUTOTRANSLATECONFIGUREWIDGETTEST_H
+#define AUTOTRANSLATECONFIGUREWIDGETTEST_H
 
-#include <QDialog>
-#include "libruqolawidgets_private_export.h"
-class AutoTranslateConfigureWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureDialog : public QDialog
+#include <QObject>
+
+class AutoTranslateConfigureWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AutoTranslateConfigureDialog(QWidget *parent = nullptr);
-    ~AutoTranslateConfigureDialog();
-private:
-    AutoTranslateConfigureWidget *mAutoTranslateConfigureWidget = nullptr;
+    explicit AutoTranslateConfigureWidgetTest(QObject *parent = nullptr);
+    ~AutoTranslateConfigureWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // AUTOTRANSLATECONFIGUREDIALOG_H
+#endif // AUTOTRANSLATECONFIGUREWIDGETTEST_H

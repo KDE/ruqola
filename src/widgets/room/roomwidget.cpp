@@ -39,6 +39,7 @@
 #include "dialogs/showsnipperedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
+#include "dialogs/autotranslateconfiguredialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
 
@@ -141,7 +142,19 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::Notification:
         slotConfigureNotification();
         break;
+    case RoomHeaderWidget::AutoTranslate:
+        slotConfigureAutoTranslate();
+        break;
     }
+}
+
+void RoomWidget::slotConfigureAutoTranslate()
+{
+    QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(this);
+    //TODO add roomId ?
+    dlg->exec();
+    delete dlg;
+
 }
 
 void RoomWidget::slotConfigureNotification()

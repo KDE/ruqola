@@ -28,6 +28,8 @@ class AutoTranslateConfigureDialogTest : public QObject
 public:
     explicit AutoTranslateConfigureDialogTest(QObject *parent = nullptr);
     ~AutoTranslateConfigureDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // AUTOTRANSLATECONFIGUREDIALOGTEST_H

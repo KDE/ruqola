@@ -52,6 +52,7 @@ private:
     QAction *mShowFileAttachments = nullptr;
     QAction *mShowDiscussions = nullptr;
     QAction *mShowThreads = nullptr;
+    QAction *mAutoTranslate = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

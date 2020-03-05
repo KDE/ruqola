@@ -40,7 +40,8 @@ public:
         ShowDiscussions = 5,
         ShowThreads = 6,
         ShowAttachment = 7,
-        Notification = 8
+        Notification = 8,
+        AutoTranslate = 9
     };
     Q_ENUM(ChannelActionType)
 
