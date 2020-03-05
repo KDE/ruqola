@@ -41,7 +41,6 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
 
 ConfigureGeneralWidget::~ConfigureGeneralWidget()
 {
-
 }
 
 void ConfigureGeneralWidget::save()

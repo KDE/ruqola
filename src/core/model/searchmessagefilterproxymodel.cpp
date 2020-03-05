@@ -55,4 +55,3 @@ bool SearchMessageFilterProxyModel::loadSearchMessageInProgress() const
 {
     return mSearchMessageModel->loadSearchMessageInProgress();
 }
-

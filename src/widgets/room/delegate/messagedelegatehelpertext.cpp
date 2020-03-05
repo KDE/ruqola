@@ -57,9 +57,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) con
             const MessageModel *model = rcAccount->messageModelForRoom(message->roomId());
             // Find the previous message in the same thread, to use it as context
             auto hasSameThread = [&](const Message &msg) {
-                return msg.threadMessageId() == threadMessageId ||
-                        msg.messageId() == threadMessageId;
-            };
+                                     return msg.threadMessageId() == threadMessageId
+                                            || msg.messageId() == threadMessageId;
+                                 };
             const Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
             // Use TextConverter in case it starts with a [](URL) reply marker
             TextConverter textConverter(rcAccount->emojiManager());
@@ -172,7 +172,8 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     const QEvent::Type eventType = mouseEvent->type();
     // Text selection
     switch (eventType) {
-    case QEvent::MouseButtonPress: {
+    case QEvent::MouseButtonPress:
+    {
         if (mCurrentIndex.isValid()) {
             // The old index no longer has selection, repaint it
             auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
@@ -191,7 +192,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         }
         break;
     }
-    case QEvent::MouseMove: {
+    case QEvent::MouseMove:
         if (index == mCurrentIndex) {
             const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
             if (charPos != -1) {
@@ -201,14 +202,12 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             }
         }
         break;
-    }
-    case QEvent::MouseButtonRelease: {
+    case QEvent::MouseButtonRelease:
         if (index == mCurrentIndex) {
             setClipboardSelection();
         }
         break;
-    }
-    case QEvent::MouseButtonDblClick: {
+    case QEvent::MouseButtonDblClick:
         if (index == mCurrentIndex) {
             if (!mCurrentTextCursor.hasSelection()) {
                 mCurrentTextCursor.select(QTextCursor::WordUnderCursor);
@@ -221,7 +220,6 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             }
         }
         break;
-    }
     default:
         break;
     }

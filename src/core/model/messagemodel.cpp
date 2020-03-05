@@ -164,8 +164,9 @@ Message MessageModel::findMessageById(const QString &messageId) const
 QModelIndex MessageModel::indexForMessage(const QString &messageId) const
 {
     auto it = findMessage(messageId);
-    if (it == mAllMessages.end())
+    if (it == mAllMessages.end()) {
         return QModelIndex();
+    }
     const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
     return idx;
 }
@@ -414,9 +415,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::ThreadMessageId:
         return message.threadMessageId();
     case MessageModel::ThreadMessagePreview:
-    {
         return threadMessagePreview(message.threadMessageId());
-    }
     case MessageModel::Groupable:
         return message.groupable();
     case MessageModel::ShowTranslatedMessage:

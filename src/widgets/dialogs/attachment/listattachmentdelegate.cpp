@@ -97,7 +97,7 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
         additionalHeight += 4;
     }
 
-    const int contentsHeight = layout.timeStampY/* + layout.senderY + layout.attachmentNameY*/ - option.rect.y();
+    const int contentsHeight = layout.timeStampY /* + layout.senderY + layout.attachmentNameY*/ - option.rect.y();
     return QSize(option.rect.width(),
                  contentsHeight + additionalHeight);
 }
@@ -112,7 +112,6 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
 
     layout.attachmentName = file->fileName();
     layout.attachmentNameY = usableRect.top() + option.fontMetrics.height();
-
 
     layout.senderText = file->userName();
     layout.senderFont = option.font;

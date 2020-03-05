@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "configuregeneralwidgettest.h"
 #include "configuredialog/configuregeneralwidget.h"
 #include <QTest>
@@ -27,7 +26,6 @@ QTEST_MAIN(ConfigureGeneralWidgetTest)
 ConfigureGeneralWidgetTest::ConfigureGeneralWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()

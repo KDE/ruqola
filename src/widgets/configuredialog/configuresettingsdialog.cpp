@@ -70,7 +70,6 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
 
-
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
             this, &ConfigureSettingsDialog::slotAccepted);
     connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked,

@@ -137,7 +137,7 @@ void User::parseUserRestApi(const QJsonObject &object)
 
 void User::parseUser(const QVariantList &list)
 {
-    if(list.count() != 4) {
+    if (list.count() != 4) {
         qCWarning(RUQOLA_LOG) << " List argument different of 4! It's a bug";
         return;
     }

@@ -94,4 +94,3 @@ void ShowListMessageBaseWidget::slotSearchMessageTextChanged(const QString &str)
 {
     mModel->setFilterString(str);
 }
-

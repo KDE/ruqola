@@ -55,7 +55,6 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
     connect(mResultListWidget, &MessageListView::goToMessageRequested,
             this, &SearchMessageWidget::goToMessageRequested);
-
 }
 
 SearchMessageWidget::~SearchMessageWidget()
@@ -77,7 +76,6 @@ void SearchMessageWidget::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
-
 
 void SearchMessageWidget::updateLabel()
 {
@@ -103,5 +101,3 @@ void SearchMessageWidget::setModel(SearchMessageFilterProxyModel *model)
     connect(mModel, &SearchMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
     updateLabel();
 }
-
-

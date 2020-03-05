@@ -71,4 +71,3 @@ bool SearchMessageModel::stringNotFound() const
 {
     return mStringNotFound;
 }
-

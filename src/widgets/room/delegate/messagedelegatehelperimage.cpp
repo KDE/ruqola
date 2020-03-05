@@ -154,8 +154,7 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
     return false;
 }
 
-MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option,
-                                                                                int attachmentsWidth, int attachmentsHeight) const
+MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
     ImageLayout layout;
     if (message->attachements().isEmpty()) {
@@ -196,7 +195,9 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
 
 std::vector<MessageDelegateHelperImage::RunningAnimatedImage>::iterator MessageDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
 {
-    auto matchesIndex = [&](const RunningAnimatedImage &rai) { return rai.index == index; };
+    auto matchesIndex = [&](const RunningAnimatedImage &rai) {
+                            return rai.index == index;
+                        };
     return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
 }
 
@@ -209,7 +210,8 @@ void MessageDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &i
 }
 
 MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(const QModelIndex &idx)
-    : index(idx), movie(new QMovie)
+    : index(idx)
+    , movie(new QMovie)
 {
 }
 
@@ -220,7 +222,8 @@ MessageDelegateHelperImage::RunningAnimatedImage::~RunningAnimatedImage()
 }
 
 MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(RunningAnimatedImage &&other) noexcept
-    : index(other.index), movie(other.movie)
+    : index(other.index)
+    , movie(other.movie)
 {
     other.movie = nullptr;
 }

@@ -54,7 +54,6 @@ private:
     Q_DISABLE_COPY(ChannelJoinJob)
     void slotChannelJoinFinished();
     QString mJoinCode;
-
 };
 }
 #endif // CHANNELJOINJOB_H

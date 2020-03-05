@@ -36,7 +36,10 @@ public:
     ~ShowListMessageBaseWidget() override;
 
     void setModel(ListMessagesModelFilterProxyModel *model);
-    MessageListView *messageListView() const { return mMessageListView; }
+    MessageListView *messageListView() const
+    {
+        return mMessageListView;
+    }
 
 Q_SIGNALS:
     void loadMoreElements();
