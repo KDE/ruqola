@@ -63,6 +63,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/takevideomessagewidget.cpp
     dialogs/inviteusersdialog.cpp
     dialogs/inviteuserswidget.cpp
+    dialogs/autotranslateconfiguredialog.cpp
     )
 
 set(Ruqola_configure_SRCS
