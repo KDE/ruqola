@@ -24,12 +24,18 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit DirectChannelInfoWidget(QWidget *parent = nullptr);
     ~DirectChannelInfoWidget() override;
+private:
+    QLabel *mName = nullptr;
+    QLabel *mUserName = nullptr;
+    QLabel *mStatus = nullptr;
+    QLabel *mTimeZone = nullptr;
 };
 
 #endif // DIRECTCHANNELINFOWIDGET_H

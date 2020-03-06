@@ -21,6 +21,8 @@
 #include "directchannelinfowidget.h"
 
 #include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QLabel>
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +30,22 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mName = new QLabel(this);
+    mName->setObjectName(QStringLiteral("mName"));
+    mainLayout->addWidget(mName);
+
+    mUserName = new QLabel(this);
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mainLayout->addWidget(mUserName);
+
+    mStatus = new QLabel(this);
+    mStatus->setObjectName(QStringLiteral("mStatus"));
+    mainLayout->addWidget(mStatus);
+
+    mTimeZone = new QLabel(this);
+    mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
+    mainLayout->addWidget(mTimeZone);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
