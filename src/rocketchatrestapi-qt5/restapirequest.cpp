@@ -132,6 +132,8 @@
 #include "permissions/listpermissionsjob.h"
 
 #include "commands/listcommandsjob.h"
+#include "commands/getcommandsjob.h"
+#include "commands/runcommandjob.h"
 
 #include "e2e/fetchmykeysjob.h"
 
@@ -1181,6 +1183,28 @@ void RestApiRequest::listCommands()
     connect(job, &ListCommandsJob::listCommandsDone, this, &RestApiRequest::listCommandsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
+    }
+}
+
+void RestApiRequest::getCommand(const QString &commandName)
+{
+    auto *job = new GetCommandsJob(this);
+    initializeRestApiJob(job);
+    job->setCommandName(commandName);
+    connect(job, &GetCommandsJob::getCommandsDone, this, &RestApiRequest::getCommandsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetCommandsJob job";
+    }
+}
+
+void RestApiRequest::runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo)
+{
+    auto *job = new RunCommandJob(this);
+    initializeRestApiJob(job);
+    job->setRunCommandInfo(runCommandInfo);
+    connect(job, &RunCommandJob::runCommandDone, this, &RestApiRequest::runCommandDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RunCommandJob job";
     }
 }
 

@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "commands/runcommandjob.h"
 #include "invite/findorcreateinvitejob.h"
 #include "channels/channelbasejob.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
@@ -181,7 +182,9 @@ public:
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
     void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
-
+    void getMessage(const QString &messageId, const QString &roomId);
+    void getCommand(const QString &commandName);
+    void runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -205,6 +208,7 @@ Q_SIGNALS:
     void getPresenceDone(const QString &presence);
     void listPermissionDone(const QJsonObject &obj);
     void listCommandsDone(const QJsonObject &obj);
+    void getCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();
     void setJoinCodeDone();
     void setChannelJoinDone(const ChannelBaseJob::ChannelInfo &channelInfo);
@@ -246,6 +250,9 @@ Q_SIGNALS:
 
     void failed(const QString &str);
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
+
+    void getMessageDone(const QJsonObject &obj, const QString &roomId);
+    void runCommandDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
