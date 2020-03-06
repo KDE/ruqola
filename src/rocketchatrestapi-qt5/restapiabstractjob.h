@@ -111,11 +111,12 @@ protected:
     Q_REQUIRED_RESULT QNetworkReply *submitGetRequest();
     Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
 
+    RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
+private:
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
-    RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 
 private:
