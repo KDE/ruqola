@@ -25,12 +25,16 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLabel;
+class User;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit DirectChannelInfoWidget(QWidget *parent = nullptr);
     ~DirectChannelInfoWidget() override;
+
+    void setUser(const User &user);
+
 private:
     QLabel *mName = nullptr;
     QLabel *mUserName = nullptr;

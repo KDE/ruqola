@@ -44,3 +44,8 @@ DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
 DirectChannelInfoDialog::~DirectChannelInfoDialog()
 {
 }
+
+void DirectChannelInfoDialog::setUser(const User &user)
+{
+    mDirectChannelInfoWidget->setUser(user);
+}

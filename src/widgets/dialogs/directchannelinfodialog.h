@@ -24,12 +24,14 @@
 
 #include "libruqolawidgets_private_export.h"
 class DirectChannelInfoWidget;
+class User;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit DirectChannelInfoDialog(QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
+    void setUser(const User &user);
 private:
     DirectChannelInfoWidget *mDirectChannelInfoWidget = nullptr;
 };

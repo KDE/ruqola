@@ -19,6 +19,8 @@
 */
 
 #include "directchannelinfowidget.h"
+#include "user.h"
+
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -50,4 +52,12 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
 {
+}
+
+void DirectChannelInfoWidget::setUser(const User &user)
+{
+    mName->setText(user.name());
+    mUserName->setText(user.userName());
+    mStatus->setText(user.statusText());
+    mTimeZone->setText(QString::number(user.utcOffset()));
 }
