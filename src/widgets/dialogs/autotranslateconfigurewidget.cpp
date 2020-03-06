@@ -99,4 +99,5 @@ void AutoTranslateConfigureWidget::setRoomWrapper(RoomWrapper *roomWrapper)
     connect(mRoomWrapper, &RoomWrapper::autoTranslateChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateChanged);
     connect(mRoomWrapper, &RoomWrapper::autoTranslateLanguageChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged);
     slotAutoTranslateChanged();
+    slotAutoTranslateLanguageChanged();
 }
