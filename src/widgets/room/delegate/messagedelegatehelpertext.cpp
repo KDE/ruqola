@@ -24,6 +24,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "textconverter.h"
+#include "utils.h"
 
 #include <KLocalizedString>
 #include <KStringHandler>
@@ -97,7 +98,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
             TextConverter textConverter(rcAccount->emojiManager());
             const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
             const QString contextString = textConverter.convertMessageText(contextText, rcAccount->userName(), {});
-            text.prepend(QStringLiteral("<font size=\"-1\">&gt; %1</font><br/>").arg(contextString));
+            text.prepend(Utils::formatQuotedRichText(contextString));
         }
     }
 
