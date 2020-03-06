@@ -32,7 +32,7 @@ TextHighlighter::TextHighlighter(QTextStream *stream)
 
 void TextHighlighter::highlight(const QString &str)
 {
-    *mStream << QStringLiteral("<div style='font-family:monospace'>");
+    *mStream << QStringLiteral("<code>");
 
     KSyntaxHighlighting::State state;
 
@@ -47,9 +47,8 @@ void TextHighlighter::highlight(const QString &str)
     if (lineStart < str.size()) { // remaining content if str isn't ending with a newline
         mCurrentLine = str.mid(lineStart);
         state = highlightLine(mCurrentLine, state);
-        *mStream << QStringLiteral("<br>");
     }
-    *mStream << QLatin1String("</div>");
+    *mStream << QLatin1String("</code>");
 }
 
 void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlighting::Format &format)

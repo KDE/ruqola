@@ -38,8 +38,13 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
 
 QString TextConverter::convertMessageText(const QString &_str, const QString &userName, const QVector<Message> &allMessages) const
 {
-    QString str = _str;
+    if (!mEmojiManager) {
+        qCWarning(RUQOLA_LOG) << "Emojimanager was not set";
+    }
+
     QString quotedMessage;
+
+    QString str = _str;
     //TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
@@ -60,38 +65,59 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
             qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
         }
     }
-    if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
-        const int startIndex = str.indexOf(QLatin1String("```"));
-        const int endIndex = str.lastIndexOf(QLatin1String("```"));
-        if ((startIndex > -1) && (endIndex > -1) && (startIndex != endIndex)) {
-            QString beginStr;
-            if (startIndex > 0) {
-                beginStr = str.left(startIndex);
-            }
-            //qDebug() << " end " << endIndex << str.length();
-            const QString quoteStr = str.mid(startIndex + 3, endIndex - startIndex - 3);
-            const QString endStr = str.right(str.length() - endIndex -3);
-            QString result;
-//            qDebug() << " beginStr" << beginStr;
-//            qDebug() << " endStr" << endStr;
-//            qDebug() << " quoteStr" << quoteStr;
-//            qDebug() << " str " << str;
-            QTextStream s(&result);
 
-            TextHighlighter highLighter(&s);
-            highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
-            highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
-                                                  ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                  : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
-            highLighter.highlight(quoteStr);
-            return quotedMessage + beginStr + *s.string() + endStr;
+    QString richText;
+    QTextStream richTextStream(&richText);
+    auto addHtmlChunk = [&richTextStream](const QString &htmlChunk) {
+        richTextStream << QLatin1String("<div>") << htmlChunk << QLatin1String("</div>");
+    };
+    auto addNonCodeChunk = [&](QString chunk) {
+        chunk = chunk.trimmed();
+        if (chunk.isEmpty()) {
+            return;
         }
-    }
-    QString richText = Utils::generateRichText(str, userName);
-    if (mEmojiManager) {
-        mEmojiManager->replaceEmojis(&richText);
+        auto htmlChunk = Utils::generateRichText(chunk, userName);
+        if (mEmojiManager) {
+            mEmojiManager->replaceEmojis(&htmlChunk);
+        }
+        addHtmlChunk(htmlChunk);
+    };
+
+    if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
+
+        QString highlighted;
+        QTextStream stream(&highlighted);
+        TextHighlighter highLighter(&stream);
+        highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
+        highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
+                                            ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                            : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
+
+        int startFrom = 0;
+        while (true) {
+            const int startIndex = str.indexOf(QLatin1String("```"), startFrom);
+            if (startIndex == -1) {
+                break;
+            }
+            const int endIndex = str.indexOf(QLatin1String("```"), startIndex + 3);
+            if (endIndex == -1) {
+                break;
+            }
+            const auto codeBlock = str.mid(startIndex + 3, endIndex - startIndex - 3).trimmed();
+
+            addNonCodeChunk(str.mid(startFrom, startIndex - startFrom));
+            startFrom = endIndex + 3;
+
+            stream.reset();
+            stream.seek(0);
+            highlighted.clear();
+            highLighter.highlight(codeBlock);
+            addHtmlChunk(highlighted);
+        }
+        addNonCodeChunk(str.mid(startFrom));
     } else {
-        qCWarning(RUQOLA_LOG) << "Emojimanager was not set";
+        addNonCodeChunk(str);
     }
-    return quotedMessage + richText;
+
+    return QLatin1String("<qt>") + quotedMessage + richText + QLatin1String("</qt>");
 }
