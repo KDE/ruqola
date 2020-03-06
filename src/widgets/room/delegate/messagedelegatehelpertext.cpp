@@ -38,6 +38,7 @@
 #include <QTextBlock>
 #include <QTextDocumentFragment>
 #include <QToolTip>
+#include <QTextStream>
 
 #include <model/threadmessagemodel.h>
 
@@ -290,10 +291,26 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
 
     const QPoint pos = helpEvent->pos() - messageRect.topLeft();
     const auto format = doc.documentLayout()->formatAt(pos);
-    if (!format.hasProperty(QTextFormat::TextToolTip)) {
+    const auto tooltip = format.property(QTextFormat::TextToolTip).toString();
+    const auto href = format.property(QTextFormat::AnchorHref).toString();
+    if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith(QLatin1String("ruqola:/")))) {
         return false;
     }
-    QToolTip::showText(helpEvent->globalPos(), format.property(QTextFormat::TextToolTip).toString(), view);
+
+    QString formattedTooltip;
+    QTextStream stream(&formattedTooltip);
+    auto addLine = [&](const QString &line) {
+        if (!line.isEmpty()) {
+            stream << QLatin1String("<p>") << line << QLatin1String("</p>");
+        }
+    };
+
+    stream << QLatin1String("<qt>");
+    addLine(tooltip);
+    addLine(href);
+    stream << QLatin1String("</qt>");
+
+    QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
     return true;
 }
 
