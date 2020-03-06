@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QUrl>
 #include <channels/channelbasejob.h>
+#include <commands/runcommandjob.h>
 #include <ddpapi/ddpclient.h>
 #include <model/listmessagesmodel.h>
 #include "messages/message.h"
@@ -406,6 +407,7 @@ public:
     Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
 
     void getListCommands();
+    void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

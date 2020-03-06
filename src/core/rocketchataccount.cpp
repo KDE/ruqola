@@ -1998,3 +1998,8 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     mCommandsModel->setCommands(commands);
     //qDebug() << "slotListCommandDone " << obj;
 }
+
+void RocketChatAccount::runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo)
+{
+    restApi()->runCommand(runCommandInfo);
+}
