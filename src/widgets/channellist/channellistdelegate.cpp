@@ -23,6 +23,7 @@
 #include "model/roommodel.h"
 
 #include <QPainter>
+#include <KColorScheme>
 
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -58,6 +59,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 
-    painter->setPen(Qt::red);
+    KColorScheme scheme;
+    painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
     painter->drawText(unreadRect, unreadText);
 }
