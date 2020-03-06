@@ -193,6 +193,9 @@ enum class RestApiUrlType {
     ForgotPassword,
     PermissionsList,
     CommandsList,
+    CommandsGet,
+    CommandsRun,
+    CommandsPreview,
     //since 0.70
     E2ESetRoomKeyID,
     E2EfetchMyKeys,

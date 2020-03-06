@@ -347,7 +347,12 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("permissions.list");
     case RestApiUtil::RestApiUrlType::CommandsList:
         return QStringLiteral("commands.list");
-
+    case RestApiUtil::RestApiUrlType::CommandsGet:
+        return QStringLiteral("commands.get");
+    case RestApiUtil::RestApiUrlType::CommandsRun:
+        return QStringLiteral("commands.run");
+    case RestApiUtil::RestApiUrlType::CommandsPreview:
+        return QStringLiteral("commands.preview");
     case RestApiUtil::RestApiUrlType::E2EfetchMyKeys:
         return QStringLiteral("e2e.fetchMyKeys");
     case RestApiUtil::RestApiUrlType::E2EupdateGroupKey:
