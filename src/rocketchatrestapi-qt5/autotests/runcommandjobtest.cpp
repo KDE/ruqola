@@ -19,7 +19,7 @@
 */
 
 #include "runcommandjobtest.h"
-#include "rooms/roomstartdiscussionjob.h"
+#include "commands/runcommandjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
@@ -32,47 +32,36 @@ RunCommandJobTest::RunCommandJobTest(QObject *parent)
 
 void RunCommandJobTest::shouldHaveDefaultValue()
 {
-    RoomStartDiscussionJob job;
+    RunCommandJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.parentRoomId().isEmpty());
-    QVERIFY(job.parentMessageId().isEmpty());
-    QVERIFY(job.discussionName().isEmpty());
-    QVERIFY(job.replyMessage().isEmpty());
-    QVERIFY(job.users().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.runCommandInfo().isValid());
 }
 
 void RunCommandJobTest::shouldGenerateRequest()
 {
-    RoomStartDiscussionJob job;
+    RunCommandJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.createDiscussion")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/commands.run")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void RunCommandJobTest::shouldGenerateJson()
 {
-    RoomStartDiscussionJob job;
-    const QString pRid = QStringLiteral("foo1");
-    job.setParentRoomId(pRid);
-    const QString discussionName = QStringLiteral("bla");
-    job.setDiscussionName(discussionName);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"t_name\":\"%2\"}").arg(pRid, discussionName).toLatin1());
-    const QString replyMessage = QStringLiteral("Bli");
-    job.setReplyMessage(replyMessage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\"}").arg(pRid, replyMessage, discussionName).toLatin1());
-
-    const QStringList users{QStringLiteral("aaa"), QStringLiteral("bbb"), QStringLiteral("ddd")};
-    job.setUsers(users);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\",\"users\":[\"aaa\",\"bbb\",\"ddd\"]}")
-             .arg(pRid, replyMessage, discussionName, QStringLiteral("bla")).toLatin1());
+    RunCommandJob job;
+    RunCommandJob::RunCommandInfo info;
+    info.commandName = QStringLiteral("command1");
+    info.roomId = QStringLiteral("room1");
+    info.threadMessageId = QStringLiteral("threadId");
+    job.setRunCommandInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"command\":\"%1\",\"roomId\":\"%2\",\"tmid\":\"%3\"}").arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
 }
 
 void RunCommandJobTest::shouldNotStarting()
 {
-    RoomStartDiscussionJob job;
+    RunCommandJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -87,10 +76,14 @@ void RunCommandJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString pRid = QStringLiteral("foo1");
-    job.setParentRoomId(pRid);
+    RunCommandJob::RunCommandInfo info;
+    info.commandName = QStringLiteral("command1");
+    job.setRunCommandInfo(info);
     QVERIFY(!job.canStart());
-    const QString discussionName = QStringLiteral("bla");
-    job.setDiscussionName(discussionName);
+    info.roomId = QStringLiteral("room1");
+    job.setRunCommandInfo(info);
+    QVERIFY(job.canStart());
+    info.threadMessageId = QStringLiteral("threadId");
+    job.setRunCommandInfo(info);
     QVERIFY(job.canStart());
 }
