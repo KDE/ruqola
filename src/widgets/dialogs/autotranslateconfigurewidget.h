@@ -38,6 +38,10 @@ public:
     void setRoomWrapper(RoomWrapper *roomWrapper);
 
 private:
+    void slotAutoTranslateChanged();
+    void slotChangeAutoTranslate(bool status);
+    void slotLanguageChanged(int index);
+    void slotAutoTranslateLanguageChanged();
     QCheckBox *mAutoTranslate = nullptr;
     QComboBox *mLanguage = nullptr;
     RoomWrapper *mRoomWrapper = nullptr;
