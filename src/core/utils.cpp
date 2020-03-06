@@ -101,6 +101,13 @@ QString Utils::generateRichText(const QString &str, const QString &username)
         const QStringRef word = match.capturedRef(2);
         newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
     }
+
+    /// match unescaped `...` regions, i.e. properly match `...\`...`
+    /// and make the inner region non-greedy, to have two code blocks for
+    /// lines like this: `foo` asdf `bar`
+    static const QRegularExpression regularExpressionCode(QStringLiteral("((?<!\\\\)`.*?(?<!\\\\)`)"));
+    newStr.replace(regularExpressionCode, QStringLiteral("<code>\\1</code>"));
+
     return newStr;
 }
 

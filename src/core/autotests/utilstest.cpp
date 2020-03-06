@@ -129,6 +129,7 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla") << QStringLiteral("<a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a>");
 
     QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("0.6.3");
+    QTest::newRow("`code`") << QStringLiteral("foo `bla` bar `asdf` test") << QStringLiteral("foo <code>`bla`</code> bar <code>`asdf`</code> test");
 }
 
 void UtilsTest::shouldExtractGenerateRichText()
