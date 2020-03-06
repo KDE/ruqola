@@ -201,6 +201,7 @@ target_link_libraries(libruqolacore
     KF5::SyntaxHighlighting
     librocketchatrestapi-qt5
     KF5::ConfigGui
+    KF5::ConfigWidgets
 )
 
 if (NOT WIN32)

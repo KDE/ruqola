@@ -25,6 +25,7 @@
 #include <QJsonArray>
 #include <KTextToHTML>
 #include <QRegularExpression>
+#include <KColorScheme>
 
 QUrl Utils::generateServerUrl(const QString &url)
 {
@@ -76,13 +77,18 @@ QString Utils::generateRichText(const QString &str, const QString &username)
     QString newStr = Utils::markdownToRichText(str);
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
+
+    KColorScheme colorScheme;
+    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::ActiveText).color().name();
+    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::ActiveBackground).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
         const QStringRef word = match.capturedRef(2);
         //Highlight only if it's yours
         if (word == username) {
-            //Improve color
-            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:#FFFFFF;background-color:#0000FF;\">@%1</a>").arg(word));
+            newStr.replace(QLatin1Char('@') + word,
+                           QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;\">@%1</a>")
+                                .arg(word, userMentionForegroundColor, userMentionBackgroundColor));
         } else {
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
         }
