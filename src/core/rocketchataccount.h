@@ -71,6 +71,7 @@ class ThreadMessageModel;
 class ListMessagesModel;
 class ListMessagesModelFilterProxyModel;
 class AutotranslateLanguagesModel;
+class CommandsModel;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -277,6 +278,7 @@ public:
     MessageModel *threadMessageModel() const;
     EmoticonFilterModel *emoticonFilterModel() const;
     EmoticonModel *emoticonModel() const;
+    CommandsModel *commandsModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
     DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
@@ -403,6 +405,7 @@ public:
     void setOwnStatus(const User &user);
     Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
 
+    void getListCommands();
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
@@ -471,6 +474,8 @@ private:
     void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
     void slotUserAutoCompleterDone(const QJsonObject &obj);
     void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
+    void slotListCommandDone(const QJsonObject &obj);
+
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 
@@ -514,6 +519,7 @@ private:
 
     EmoticonFilterModel *mEmoticonFilterModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
+    CommandsModel *mCommandsModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 
     ListMessagesModel *mListMessageModel = nullptr;

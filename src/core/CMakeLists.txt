@@ -52,6 +52,8 @@ set (Ruqola_model_core_srcs
     model/listmessagesmodelfilterproxymodel.cpp
 
     model/autotranslatelanguagesmodel.cpp
+
+    model/commandsmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
@@ -87,6 +89,11 @@ set(Ruqola_autotranslatelanguage_SRCS
     autotranslatelanguages.cpp
     )
 
+set(Ruqola_command_SRCS
+    command.cpp
+    commands.cpp
+    )
+
 set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
 
 kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
@@ -94,6 +101,7 @@ kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
 
 set (Ruqola_core_srcs
     ${Ruqola_kcfg_SRCS}
+    ${Ruqola_command_SRCS}
     ${Ruqola_autotranslatelanguage_SRCS}
     ${Ruqola_message_convertertextjob_SRCS}
     ${Ruqola_emoticons_srcs}
@@ -161,6 +169,7 @@ set (Ruqola_core_srcs
     messagedownloadmanager.cpp
 
     fileattachments.cpp
+    commands.cpp
 
     accountroomsettings.cpp
 )

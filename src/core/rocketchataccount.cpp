@@ -57,6 +57,8 @@
 #include "model/threadmessagemodel.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
 #include "model/autotranslatelanguagesmodel.h"
+#include "model/commandsmodel.h"
+#include "model/emoticonmodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
@@ -77,7 +79,6 @@
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
-#include <model/emoticonmodel.h>
 
 #define USE_REASTAPI_JOB 1
 
@@ -115,6 +116,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmoticonModel = new EmoticonModel(this);
     mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
     mInputTextManager->setEmoticonModel(mEmoticonModel);
+
+    mCommandsModel = new CommandsModel(this);
 
     mEmoticonFilterModel = new EmoticonFilterModel(this);
     mEmoticonFilterModel->setSourceModel(mEmoticonModel);
@@ -443,6 +446,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone, this, &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -813,6 +817,11 @@ EmoticonFilterModel *RocketChatAccount::emoticonFilterModel() const
 EmoticonModel *RocketChatAccount::emoticonModel() const
 {
     return mEmoticonModel;
+}
+
+CommandsModel *RocketChatAccount::commandsModel() const
+{
+    return mCommandsModel;
 }
 
 ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationManager() const
@@ -1961,6 +1970,7 @@ void RocketChatAccount::customUsersStatus()
 void RocketChatAccount::initializeAccount()
 {
     listEmojiCustom();
+    getListCommands();
     //load when necessary
     //account->usersPresence();
     if (mRuqolaServerConfig->autoTranslateEnabled()) {
@@ -1976,3 +1986,16 @@ void RocketChatAccount::initializeAccount()
     emit accountInitialized();
 }
 
+void RocketChatAccount::getListCommands()
+{
+    restApi()->listCommands();
+}
+
+void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
+{
+    Commands commands;
+    commands.parseCommands(obj);
+    mCommandsModel->setCommands(commands);
+    //TODO
+    qDebug() << "slotListCommandDone " << obj;
+}
