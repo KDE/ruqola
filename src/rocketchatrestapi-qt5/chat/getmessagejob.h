@@ -41,7 +41,7 @@ public:
 
     Q_REQUIRED_RESULT bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString getMessageId() const;
+    Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &messageId);
 
     Q_REQUIRED_RESULT QString roomId() const;

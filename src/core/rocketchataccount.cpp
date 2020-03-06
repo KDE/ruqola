@@ -443,7 +443,6 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone, this, &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getMessageDone, this, &RocketChatAccount::slotGetMessageDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -1977,21 +1976,3 @@ void RocketChatAccount::initializeAccount()
     emit accountInitialized();
 }
 
-void RocketChatAccount::getMessage(const QString &messageId, const QString &roomId)
-{
-    restApi()->getMessage(messageId, roomId);
-}
-
-void RocketChatAccount::slotGetMessageDone(const QJsonObject &obj, const QString &roomId)
-{
-    qDebug() << " void RocketChatAccount::slotGetMessageDone(const QJsonObject &obj, const QString &roomId)" << obj;
-    MessageModel *messageModel = messageModelForRoom(roomId);
-    if (messageModel) {
-        Message message;
-        message.parseMessage(obj, true);
-        messageModel->addMessage(message);
-        //TODO verify it.
-    } else {
-        qCWarning(RUQOLA_LOG) << "Room is not found " << roomId;
-    }
-}

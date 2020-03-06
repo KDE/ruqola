@@ -25,14 +25,16 @@
 #include <QSize>
 #include <QTextCursor>
 #include <QTextDocument>
+#include <messagecache.h>
 class QPainter;
 class QRect;
 class QModelIndex;
 class QMouseEvent;
 class QStyleOptionViewItem;
 
-class MessageDelegateHelperText
+class MessageDelegateHelperText : public QObject
 {
+    Q_OBJECT
 public:
     void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option);
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
@@ -41,13 +43,15 @@ public:
     void setShowThreadContext(bool b);
 
 private:
-    QString makeMessageText(const QModelIndex &index) const;
+    QString makeMessageText(const QModelIndex &index, const QStyleOptionViewItem &option) const;
     void setClipboardSelection();
+    void updateView(const QWidget *widget, const QModelIndex &index);
 
     bool mShowThreadContext = true;
     QPersistentModelIndex mCurrentIndex; // during selection
     QTextDocument mCurrentDocument; // during selection
     QTextCursor mCurrentTextCursor; // during selection
+    mutable MessageCache mMessageCache;
 };
 
 #endif // MESSAGEDELEGATEHELPERTEXT_H

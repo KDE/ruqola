@@ -62,7 +62,7 @@ void GetMessageJob::slotGetMessageFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getMessageDone(replyObject, mRoomId);
+            Q_EMIT getMessageDone(replyObject, mMessageId);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetMessageJob: Problem when we tried to get message : ") + replyJson.toJson(QJsonDocument::Indented));
@@ -82,7 +82,7 @@ void GetMessageJob::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-QString GetMessageJob::getMessageId() const
+QString GetMessageJob::messageId() const
 {
     return mMessageId;
 }

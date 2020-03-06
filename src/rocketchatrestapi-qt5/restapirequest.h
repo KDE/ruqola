@@ -59,6 +59,8 @@ public:
     void setUserName(const QString &userName);
     void setPassword(const QString &password);
 
+    void initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job);
+
     void login();
     void logout();
     void channelList();
@@ -179,7 +181,7 @@ public:
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
     void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
-    void getMessage(const QString &messageId, const QString &roomId);
+
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -245,8 +247,6 @@ Q_SIGNALS:
     void failed(const QString &str);
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
-    void getMessageDone(const QJsonObject &obj, const QString &roomId);
-
 private:
     Q_DISABLE_COPY(RestApiRequest)
     void initializeCookies();
@@ -256,7 +256,6 @@ private:
     void slotLogin(const QString &authToken, const QString &userId);
     void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
 
-    void initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;

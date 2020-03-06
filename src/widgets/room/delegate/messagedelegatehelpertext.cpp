@@ -22,6 +22,7 @@
 #include <model/messagemodel.h>
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "textconverter.h"
 
 #include <KLocalizedString>
@@ -36,7 +37,9 @@
 #include <QTextBlock>
 #include <QTextDocumentFragment>
 
-QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) const
+#include <model/threadmessagemodel.h>
+
+QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -55,12 +58,39 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index) con
         if (!threadMessageId.isEmpty()) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();
             const MessageModel *model = rcAccount->messageModelForRoom(message->roomId());
+            auto *that = const_cast<MessageDelegateHelperText *>(this);
             // Find the previous message in the same thread, to use it as context
             auto hasSameThread = [&](const Message &msg) {
                                      return msg.threadMessageId() == threadMessageId
                                             || msg.messageId() == threadMessageId;
                                  };
-            const Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
+            Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
+            if (contextMessage.messageId().isEmpty()) {
+                ThreadMessageModel *cachedModel = mMessageCache.threadMessageModel(threadMessageId);
+                if (cachedModel) {
+                    contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
+                    if (contextMessage.messageId().isEmpty()) {
+                        Message *msg = mMessageCache.messageForId(threadMessageId);
+                        if (msg) {
+                            contextMessage = *msg;
+                        } else {
+                            QPersistentModelIndex persistentIndex(index);
+                            connect(&mMessageCache, &MessageCache::messageLoaded,
+                                    this, [=](const QString &msgId){
+                                if (msgId == threadMessageId) {
+                                    that->updateView(option.widget, persistentIndex);
+                                }
+                            });
+                        }
+                    } else {
+                        //qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
+                    }
+                } else {
+                    QPersistentModelIndex persistentIndex(index);
+                    connect(&mMessageCache, &MessageCache::modelLoaded,
+                            this, [=](){ that->updateView(option.widget, persistentIndex);});
+                }
+            }
             // Use TextConverter in case it starts with a [](URL) reply marker
             TextConverter textConverter(rcAccount->emojiManager());
             const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
@@ -80,6 +110,13 @@ void MessageDelegateHelperText::setClipboardSelection()
         const QString text = fragment.toPlainText();
         clipboard->setText(text, QClipboard::Selection);
     }
+}
+
+void MessageDelegateHelperText::updateView(const QWidget *widget, const QModelIndex &index)
+{
+    auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(widget));
+    Q_ASSERT(view);
+    view->update(index);
 }
 
 static bool useItalicsForMessage(const QModelIndex &index)
@@ -108,7 +145,7 @@ static void fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
 
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
-    const QString text = makeMessageText(index);
+    const QString text = makeMessageText(index, option);
 
     if (text.isEmpty()) {
         return;
@@ -152,7 +189,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
-    const QString text = makeMessageText(index);
+    const QString text = makeMessageText(index, option);
     if (text.isEmpty()) {
         return QSize();
     }
@@ -176,12 +213,10 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     {
         if (mCurrentIndex.isValid()) {
             // The old index no longer has selection, repaint it
-            auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
-            Q_ASSERT(view);
-            view->update(mCurrentIndex);
+            updateView(option.widget, mCurrentIndex);
         }
         mCurrentIndex = index;
-        const QString text = makeMessageText(index);
+        const QString text = makeMessageText(index, option);
         fillTextDocument(index, mCurrentDocument, text, messageRect.width());
         const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
         // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
@@ -213,9 +248,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
                 mCurrentTextCursor.select(QTextCursor::WordUnderCursor);
                 // Interestingly the view repaints after mouse press, mouse move and mouse release
                 // but not after double-click, so make it happen:
-                auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
-                Q_ASSERT(view);
-                view->update(mCurrentIndex);
+                updateView(option.widget, mCurrentIndex);
                 setClipboardSelection();
             }
         }
@@ -226,7 +259,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     // Clicks on links
     if (eventType == QEvent::MouseButtonRelease) {
         // ## we should really cache that QTextDocument...
-        const QString text = makeMessageText(index);
+        const QString text = makeMessageText(index, option);
         QTextDocument doc;
         fillTextDocument(index, doc, text, messageRect.width());
 

@@ -135,6 +135,7 @@ set (Ruqola_core_srcs
 
     accountmanager.cpp
     managerdatapaths.cpp
+    messagecache.cpp
 
     notificationoptions.cpp
 
