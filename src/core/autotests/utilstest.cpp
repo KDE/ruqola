@@ -24,6 +24,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
+#include <KColorScheme>
+
 QTEST_GUILESS_MAIN(UtilsTest)
 
 UtilsTest::UtilsTest(QObject *parent)
@@ -143,12 +145,17 @@ void UtilsTest::shouldHighlightText_data()
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString() << QString();
     QTest::newRow("word@1") << QStringLiteral("@foo") << QString() << QStringLiteral("<a href='ruqola:/user/foo'>@foo</a>");
+    KColorScheme colorScheme;
+    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::ActiveText).color().name();
+    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::ActiveBackground).color().name();
     QTest::newRow("word@1-username") << QStringLiteral("@foo")
                                      << QStringLiteral("foo")
-                                     << QStringLiteral("<a href='ruqola:/user/foo' style=\"color:#FFFFFF;background-color:#0000FF;\">@foo</a>");
+                                     << QStringLiteral("<a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;\">@foo</a>")
+                                            .arg(userMentionForegroundColor, userMentionBackgroundColor);
     QTest::newRow("word@2-username") << QStringLiteral("bla bla @foo")
                                      << QStringLiteral("foo")
-                                     << QStringLiteral("bla bla <a href='ruqola:/user/foo' style=\"color:#FFFFFF;background-color:#0000FF;\">@foo</a>");
+                                     << QStringLiteral("bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;\">@foo</a>")
+                                            .arg(userMentionForegroundColor, userMentionBackgroundColor);
 }
 
 void UtilsTest::shouldHighlightText()
