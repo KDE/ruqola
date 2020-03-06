@@ -48,7 +48,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     connect(mEmojiCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 
     mCommandCompletionListView = new CompletionListView;
-    // TODO fix it mCommandCompletionListView->setItemDelegate(new CommandCompletionDelegate(mEmojiCompletionListView));
+    //TODO fixme mCommandCompletionListView->setItemDelegate(new CommandCompletionDelegate(mCommandCompletionListView));
     mCommandCompletionListView->setTextWidget(this);
     connect(mCommandCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 }
