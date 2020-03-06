@@ -56,11 +56,16 @@ public:
     Q_REQUIRED_RESULT QStringList permissions() const;
     void setPermissions(const QStringList &permissions);
 
+    Q_REQUIRED_RESULT QString translatedDescription() const;
+    void setTranslatedDescription(const QString &translatedDescription);
+
 private:
+    Q_REQUIRED_RESULT QString translateDescription() const;
     QStringList mPermissions;
     QString mParams;
     QString mCommandName;
     QString mDescription;
+    QString mTranslatedDescription;
     bool mProvidesPreview = false;
     bool mClientOnly = false;
 };

@@ -1996,7 +1996,19 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     Commands commands;
     commands.parseCommands(obj);
     mCommandsModel->setCommands(commands);
+    //Initialize it after loading otherwise we will see listview at startup
+    mInputTextManager->setCommandModel(mCommandsModel);
     //qDebug() << "slotListCommandDone " << obj;
+}
+
+bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId)
+{
+    const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId);
+    if (info.isValid()) {
+        runCommand(info);
+        return true;
+    }
+    return false;
 }
 
 void RocketChatAccount::runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo)

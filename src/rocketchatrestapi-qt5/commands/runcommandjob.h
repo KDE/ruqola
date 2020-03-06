@@ -33,7 +33,7 @@ public:
         QString roomId;
         QString threadMessageId;
         QString triggerId;
-        QStringList params;
+        QString params;
         Q_REQUIRED_RESULT bool isValid() const;
     };
     explicit RunCommandJob(QObject *parent = nullptr);
@@ -49,6 +49,7 @@ public:
     Q_REQUIRED_RESULT RunCommandInfo runCommandInfo() const;
     void setRunCommandInfo(const RunCommandInfo &runCommandInfo);
 
+    static RunCommandInfo parseString(const QString &str, const QString &roomId);
 Q_SIGNALS:
     void runCommandDone();
 

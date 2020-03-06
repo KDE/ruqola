@@ -407,7 +407,7 @@ public:
     Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
 
     void getListCommands();
-    void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
+    bool runCommand(const QString &msg, const QString &roomId);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
@@ -477,7 +477,7 @@ private:
     void slotUserAutoCompleterDone(const QJsonObject &obj);
     void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
     void slotListCommandDone(const QJsonObject &obj);
-
+    void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

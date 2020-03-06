@@ -39,6 +39,7 @@ public:
         Channel = 0,
         User,
         Emoji,
+        Command,
         None
     };
     explicit InputTextManager(QObject *parent = nullptr);
@@ -61,6 +62,9 @@ public:
     //Only for autotests
     Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
 
+    void setCommandModel(QAbstractItemModel *model);
+    Q_REQUIRED_RESULT QAbstractItemModel *commandModel() const;
+
 Q_SIGNALS:
     // Trigger autocompletion request in DDPClient (via RocketChatAccount)
     // Emitted with Channel and User, never Emoji or None
@@ -74,6 +78,7 @@ private:
 
     InputCompleterModel *mInputCompleterModel = nullptr;
     QSortFilterProxyModel *mEmoticonFilterProxyModel = nullptr;
+    QSortFilterProxyModel *mCommandFilterProxyModel = nullptr;
     CompletionForType mCurrentCompletionType = None;
 };
 

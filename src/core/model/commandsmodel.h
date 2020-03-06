@@ -32,7 +32,9 @@ class LIBRUQOLACORE_EXPORT CommandsModel : public QAbstractListModel
 public:
     enum CommandsRoles {
         CommandName = Qt::UserRole + 1,
+        CompleterName, // keep value in sync with InputCompleterModel
         Description,
+        Parameters,
     };
     Q_ENUM(CommandsRoles)
 

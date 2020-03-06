@@ -21,6 +21,7 @@
 #include "inputtextmanager.h"
 #include "ruqola_debug.h"
 #include "model/inputcompletermodel.h"
+#include "model/commandsmodel.h"
 #include <QSortFilterProxyModel>
 
 InputTextManager::InputTextManager(QObject *parent)
@@ -29,6 +30,8 @@ InputTextManager::InputTextManager(QObject *parent)
     mInputCompleterModel = new InputCompleterModel(this);
 
     mEmoticonFilterProxyModel = new QSortFilterProxyModel(this);
+
+    mCommandFilterProxyModel = new QSortFilterProxyModel(this);
 }
 
 InputTextManager::~InputTextManager()
@@ -38,6 +41,16 @@ InputTextManager::~InputTextManager()
 void InputTextManager::setEmoticonModel(QAbstractItemModel *model)
 {
     mEmoticonFilterProxyModel->setSourceModel(model);
+}
+
+void InputTextManager::setCommandModel(QAbstractItemModel *model)
+{
+    mCommandFilterProxyModel->setSourceModel(model);
+}
+
+QAbstractItemModel *InputTextManager::commandModel() const
+{
+    return mCommandFilterProxyModel;
 }
 
 QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
@@ -136,7 +149,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
     }
     const QString word = searchWord(text, position);
     const QString str = word.mid(1);
-    //qDebug() << " str :" << str << ": word :" << word << ":";
+    // qDebug() << " str :" << str << ": word :" << word << ":" << " position : " << position;
     if (word.isEmpty()) {
         clearCompleter();
     } else {
@@ -151,6 +164,9 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         } else if (word.startsWith(QLatin1Char(':'))) {
             mEmoticonFilterProxyModel->setFilterFixedString(word);
             setCompletionType(InputTextManager::CompletionForType::Emoji);
+        } else if (word.startsWith(QLatin1Char('/')) && ((word.length() - position) == 0)) { //First char I need.
+            mCommandFilterProxyModel->setFilterFixedString(word);
+            setCompletionType(InputTextManager::CompletionForType::Command);
         } else {
             clearCompleter();
         }

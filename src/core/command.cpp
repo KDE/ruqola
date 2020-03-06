@@ -55,7 +55,15 @@ QString Command::description() const
 void Command::setDescription(const QString &description)
 {
     mDescription = description;
+    mTranslatedDescription = translateDescription();
 }
+
+QString Command::translateDescription() const
+{
+    //TODO
+    return QString();
+}
+
 
 bool Command::clientOnly() const
 {
@@ -71,8 +79,9 @@ void Command::parseCommand(const QJsonObject &obj)
 {
     mProvidesPreview = obj.value(QStringLiteral("providesPreview")).toBool();
     mClientOnly = obj.value(QStringLiteral("clientOnly")).toBool();
-    mCommandName = obj.value(QStringLiteral("command")).toString();
-    mDescription = obj.value(QStringLiteral("description")).toString();
+    //Add "/" for completion.
+    mCommandName = QLatin1Char('/') + obj.value(QStringLiteral("command")).toString();
+    setDescription(obj.value(QStringLiteral("description")).toString());
     mParams = obj.value(QStringLiteral("params")).toString();
 
     const QJsonArray permissionArray = obj.value(QStringLiteral("permission")).toArray();
@@ -115,6 +124,16 @@ QStringList Command::permissions() const
 void Command::setPermissions(const QStringList &permissions)
 {
     mPermissions = permissions;
+}
+
+QString Command::translatedDescription() const
+{
+    return mTranslatedDescription;
+}
+
+void Command::setTranslatedDescription(const QString &translatedDescription)
+{
+    mTranslatedDescription = translatedDescription;
 }
 
 QDebug operator <<(QDebug d, const Command &t)

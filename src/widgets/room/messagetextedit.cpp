@@ -22,12 +22,13 @@
 #include "rocketchataccount.h"
 #include "model/inputcompletermodel.h"
 #include "common/completionlistview.h"
+#include "common/commandcompletiondelegate.h"
+#include "common/emojicompletiondelegate.h"
 #include "ruqola.h"
 
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 
-#include <common/emojicompletiondelegate.h>
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
@@ -46,6 +47,11 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     mEmojiCompletionListView->setItemDelegate(new EmojiCompletionDelegate(mEmojiCompletionListView));
     mEmojiCompletionListView->setTextWidget(this);
     connect(mEmojiCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
+
+    mCommandCompletionListView = new CompletionListView;
+    // TODO fix it mCommandCompletionListView->setItemDelegate(new CommandCompletionDelegate(mEmojiCompletionListView));
+    mCommandCompletionListView->setTextWidget(this);
+    connect(mCommandCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 }
 
 MessageTextEdit::~MessageTextEdit()
@@ -53,6 +59,7 @@ MessageTextEdit::~MessageTextEdit()
     disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     delete mUserAndChannelCompletionListView;
     delete mEmojiCompletionListView;
+    delete mCommandCompletionListView;
 }
 
 void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
@@ -65,6 +72,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
     InputTextManager *textManager = mCurrentRocketChatAccount->inputTextManager();
     mUserAndChannelCompletionListView->setModel(textManager->inputCompleterModel());
     mEmojiCompletionListView->setModel(textManager->emojiCompleterModel());
+    mCommandCompletionListView->setModel(textManager->commandModel());
     connect(textManager, &InputTextManager::completionTypeChanged,
             this, &MessageTextEdit::slotCompletionTypeChanged);
 }
@@ -136,12 +144,19 @@ void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForT
         // show emoji completion popup when typing ':'
         mEmojiCompletionListView->slotCompletionAvailable();
         mUserAndChannelCompletionListView->hide();
+        mCommandCompletionListView->hide();
     } else if (type == InputTextManager::None) {
         mUserAndChannelCompletionListView->hide();
         mEmojiCompletionListView->hide();
+        mCommandCompletionListView->hide();
+    } else if (type == InputTextManager::Command) {
+        mUserAndChannelCompletionListView->hide();
+        mEmojiCompletionListView->hide();
+        mCommandCompletionListView->slotCompletionAvailable();
     } else {
         // the user and channel completion inserts rows when typing '@' so it will trigger slotCompletionAvailable automatically
         mEmojiCompletionListView->hide();
+        mCommandCompletionListView->hide();
     }
 }
 
@@ -155,6 +170,7 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
 
     mUserAndChannelCompletionListView->hide();
     mEmojiCompletionListView->hide();
+    mCommandCompletionListView->hide();
 
     disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     setPlainText(newText);

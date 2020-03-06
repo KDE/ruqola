@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -55,6 +56,7 @@ void RunCommandJob::slotRunCommand()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
+
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RunCommandJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT runCommandDone();
@@ -75,6 +77,22 @@ RunCommandJob::RunCommandInfo RunCommandJob::runCommandInfo() const
 void RunCommandJob::setRunCommandInfo(const RunCommandInfo &runCommandInfo)
 {
     mRunCommandInfo = runCommandInfo;
+}
+
+RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QString &roomId)
+{
+    RunCommandJob::RunCommandInfo info;
+    if (str.length() > 1) {
+        QString newStr = str.mid(1);
+        QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        const int numberElement = lst.count();
+        info.commandName = lst.takeAt(0);
+        info.roomId = roomId;
+        if (numberElement == 2) {
+            info.params = lst.join(QLatin1Char(' '));
+        }
+    }
+    return info;
 }
 
 bool RunCommandJob::requireHttpAuthentication() const
@@ -116,7 +134,7 @@ QJsonDocument RunCommandJob::json() const
     }
 
     if (!mRunCommandInfo.params.isEmpty()) {
-        //TODO jsonObj[QLatin1String("triggerId")] = mRunCommandInfo.triggerId;
+        jsonObj[QLatin1String("params")] = mRunCommandInfo.params;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

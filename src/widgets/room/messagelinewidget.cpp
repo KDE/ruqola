@@ -94,6 +94,13 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty()) {
+            if (msg.startsWith(QLatin1Char('/'))) {
+                //a command ?
+                if (mCurrentRocketChatAccount->runCommand(msg, mRoomId)) {
+                    setMode(MessageLineWidget::EditingMode::NewMessage);
+                    return;
+                }
+            }
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
             } else {

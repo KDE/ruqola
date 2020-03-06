@@ -62,8 +62,9 @@ private:
     void slotComplete(const QModelIndex &index);
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
-    CompletionListView *mUserAndChannelCompletionListView;
-    CompletionListView *mEmojiCompletionListView;
+    CompletionListView *mUserAndChannelCompletionListView = nullptr;
+    CompletionListView *mEmojiCompletionListView = nullptr;
+    CompletionListView *mCommandCompletionListView = nullptr;
 };
 
 #endif // MESSAGETEXTEDIT_H

@@ -46,7 +46,12 @@ QVariant CommandsModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Description:
         return command.description();
+    case Parameters:
+        return command.params();
+    case CompleterName:
+        return command.commandName().mid(1);
     case Qt::DisplayRole: // for the completion popup (until we have a delegate)
+        return command.commandName();
     case CommandName:
         return command.commandName();
     }
@@ -59,6 +64,7 @@ QHash<int, QByteArray> CommandsModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[CommandName] = QByteArrayLiteral("commandname");
     roles[Description] = QByteArrayLiteral("description");
+    roles[Parameters] = QByteArrayLiteral("parameters");
     return roles;
 }
 
