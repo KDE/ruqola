@@ -46,7 +46,6 @@ ConfigureGeneralWidget::~ConfigureGeneralWidget()
 void ConfigureGeneralWidget::save()
 {
     RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
-    //TODO fix load default user status when we start apps.
     RuqolaGlobalConfig::self()->save();
 }
 
