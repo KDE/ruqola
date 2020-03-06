@@ -453,9 +453,12 @@ bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, 
                 return true;
             }
         }
-        if (layout.rolesIconRect.isValid()) {
+        if (layout.rolesIconRect.contains(helpEvent->pos())) {
             const QString tooltip = index.data(MessageModel::Roles).toString();
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+            return true;
+        }
+        if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, view, layout.textRect, index)) {
             return true;
         }
     }

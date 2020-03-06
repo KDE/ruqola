@@ -181,15 +181,17 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
 
 void EmojiManager::replaceEmojis(QString *str)
 {
-    static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
-    QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(*str);
-    while (userIterator.hasNext()) {
-        const QRegularExpressionMatch match = userIterator.next();
-        const QString word = match.captured(1);
-        const QString replaceWord = replaceEmojiIdentifier(word);
-        if (!replaceWord.isEmpty()) {
-            str->replace(word, replaceWord);
+    static const QRegularExpression pattern(QStringLiteral(":\\w+:"));
+    int offset = 0;
+    while (offset < str->size()) {
+        const auto match = pattern.match(str, offset);
+        if (!match.hasMatch()) {
+            break;
         }
+        const auto word = match.captured();
+        const auto replaceWord = replaceEmojiIdentifier(word);
+        str->replace(match.capturedStart(), word.size(), replaceWord);
+        offset = match.capturedStart() + replaceWord.size();
     }
 }
 

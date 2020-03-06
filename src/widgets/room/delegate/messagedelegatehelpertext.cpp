@@ -37,6 +37,7 @@
 #include <QStyleOptionViewItem>
 #include <QTextBlock>
 #include <QTextDocumentFragment>
+#include <QToolTip>
 
 #include <model/threadmessagemodel.h>
 
@@ -274,6 +275,26 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         }
     }
     return false;
+}
+
+bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &messageRect, const QModelIndex &index)
+{
+    if (helpEvent->type() != QEvent::ToolTip) {
+        return false;
+    }
+
+    // ## we should really cache that QTextDocument...
+    const auto text = makeMessageText(index);
+    QTextDocument doc;
+    fillTextDocument(index, doc, text, messageRect.width());
+
+    const QPoint pos = helpEvent->pos() - messageRect.topLeft();
+    const auto format = doc.documentLayout()->formatAt(pos);
+    if (!format.hasProperty(QTextFormat::TextToolTip)) {
+        return false;
+    }
+    QToolTip::showText(helpEvent->globalPos(), format.property(QTextFormat::TextToolTip).toString(), view);
+    return true;
 }
 
 void MessageDelegateHelperText::setShowThreadContext(bool b)

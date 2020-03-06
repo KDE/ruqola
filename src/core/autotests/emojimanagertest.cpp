@@ -128,11 +128,11 @@ void EmojiManagerTest::shouldGenerateHtml()
     QCOMPARE(manager.customEmojiFileName(QStringLiteral(":foo:")), QString());
 
     // Existing emoji
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>"));
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
     QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")), QStringLiteral("/emoji-custom/vader.png"));
 
     // Alias
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>"));
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
     QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")), QStringLiteral("/emoji-custom/vader.png"));
 }
 
@@ -151,10 +151,10 @@ void EmojiManagerTest::shouldChangeServerUrl()
     manager.setServerUrl(serverUrl);
 
     //It exists
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'/>").arg(serverUrl));
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
 
     //Change server url => clear cache
     serverUrl = QStringLiteral("www.bla.org");
     manager.setServerUrl(serverUrl);
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'/>").arg(serverUrl));
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
 }
