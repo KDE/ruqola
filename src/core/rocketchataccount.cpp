@@ -1996,6 +1996,5 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     Commands commands;
     commands.parseCommands(obj);
     mCommandsModel->setCommands(commands);
-    //TODO
-    qDebug() << "slotListCommandDone " << obj;
+    //qDebug() << "slotListCommandDone " << obj;
 }

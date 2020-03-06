@@ -20,17 +20,19 @@
 
 #include "command.h"
 
+#include <qjsonarray.h>
+
 Command::Command()
 {
 
 }
 
-QStringList Command::params() const
+QString Command::params() const
 {
     return mParams;
 }
 
-void Command::setParams(const QStringList &params)
+void Command::setParams(const QString &params)
 {
     mParams = params;
 }
@@ -71,10 +73,13 @@ void Command::parseCommand(const QJsonObject &obj)
     mClientOnly = obj.value(QStringLiteral("clientOnly")).toBool();
     mCommandName = obj.value(QStringLiteral("command")).toString();
     mDescription = obj.value(QStringLiteral("description")).toString();
+    mParams = obj.value(QStringLiteral("params")).toString();
 
-    //TODO params
-    //TODO permission
-    //qDebug() << " mCommandName" << mCommandName;
+    const QJsonArray permissionArray = obj.value(QStringLiteral("permission")).toArray();
+    for (int i = 0, total = permissionArray.size(); i < total; ++i) {
+        mPermissions.append(permissionArray.at(i).toString());
+    }
+    //qDebug() << " *thios " << *this;
 }
 
 bool Command::operator ==(const Command &other) const
@@ -83,7 +88,8 @@ bool Command::operator ==(const Command &other) const
             mCommandName == other.commandName() &&
             mDescription == other.description() &&
             mClientOnly == other.clientOnly() &&
-            mProvidesPreview == other.providesPreview();
+            mProvidesPreview == other.providesPreview() &&
+            mPermissions == other.permissions();
 }
 
 bool Command::isValid() const
@@ -118,5 +124,6 @@ QDebug operator <<(QDebug d, const Command &t)
     d << " mDescription : " << t.description();
     d << " mClientOnly : " << t.clientOnly();
     d << " mProvidesPreview : " << t.providesPreview();
+    d << " mPermissions : " << t.permissions();
     return d;
 }

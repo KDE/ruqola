@@ -32,8 +32,8 @@ class LIBRUQOLACORE_TESTS_EXPORT Command
 public:
     Command();
 
-    Q_REQUIRED_RESULT QStringList params() const;
-    void setParams(const QStringList &params);
+    Q_REQUIRED_RESULT QString params() const;
+    void setParams(const QString &params);
 
     Q_REQUIRED_RESULT QString commandName() const;
     void setCommandName(const QString &commandName);
@@ -57,8 +57,8 @@ public:
     void setPermissions(const QStringList &permissions);
 
 private:
-    QStringList mParams;
     QStringList mPermissions;
+    QString mParams;
     QString mCommandName;
     QString mDescription;
     bool mProvidesPreview = false;
