@@ -131,6 +131,8 @@ set (RocketChatRestApiQt_SRCS
     permissions/listpermissionsjob.cpp
 
     commands/listcommandsjob.cpp
+    commands/getcommandsjob.cpp
+    commands/runcommandjob.cpp
 
     e2e/fetchmykeysjob.cpp
     e2e/setuserpublicandprivatekeysjob.cpp
