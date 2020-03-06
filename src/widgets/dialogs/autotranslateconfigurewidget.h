@@ -26,15 +26,21 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QComboBox;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AutoTranslateConfigureWidget(QWidget *parent = nullptr);
     ~AutoTranslateConfigureWidget();
+
+    RoomWrapper *roomWrapper() const;
+    void setRoomWrapper(RoomWrapper *roomWrapper);
+
 private:
     QCheckBox *mAutoTranslate = nullptr;
     QComboBox *mLanguage = nullptr;
+    RoomWrapper *mRoomWrapper = nullptr;
 };
 
 #endif // AUTOTRANSLATECONFIGUREWIDGET_H

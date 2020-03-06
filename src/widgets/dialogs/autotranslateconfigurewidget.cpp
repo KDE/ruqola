@@ -41,6 +41,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     mainLayout->addWidget(mAutoTranslate);
 
     QHBoxLayout *horizontalLayout = new QHBoxLayout;
+    horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
     horizontalLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addLayout(horizontalLayout);
 
@@ -49,7 +50,6 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     horizontalLayout->addWidget(label);
 
-    //TODO add combobox for changing language
     mLanguage = new QComboBox(this);
     mLanguage->setObjectName(QStringLiteral("mLanguage"));
     mLanguage->setModel(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel());
@@ -63,4 +63,14 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
 AutoTranslateConfigureWidget::~AutoTranslateConfigureWidget()
 {
 
+}
+
+RoomWrapper *AutoTranslateConfigureWidget::roomWrapper() const
+{
+    return mRoomWrapper;
+}
+
+void AutoTranslateConfigureWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mRoomWrapper = roomWrapper;
 }

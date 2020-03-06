@@ -45,3 +45,8 @@ AutoTranslateConfigureDialog::~AutoTranslateConfigureDialog()
 {
 
 }
+
+void AutoTranslateConfigureDialog::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mAutoTranslateConfigureWidget->setRoomWrapper(roomWrapper);
+}

@@ -151,7 +151,7 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
 void RoomWidget::slotConfigureAutoTranslate()
 {
     QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(this);
-    //TODO add roomId ?
+    dlg->setRoomWrapper(mRoomWrapper);
     dlg->exec();
     delete dlg;
 
