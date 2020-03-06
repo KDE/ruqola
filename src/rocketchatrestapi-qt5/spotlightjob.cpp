@@ -42,7 +42,7 @@ bool SpotlightJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo(QByteArrayLiteral("SpotlightJob start"));
     connect(reply, &QNetworkReply::finished, this, &SpotlightJob::slotSpotlightDone);
 

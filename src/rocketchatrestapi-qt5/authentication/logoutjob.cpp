@@ -43,7 +43,7 @@ bool LogoutJob::start()
         return false;
     }
 
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo("LogoutJob::start");
     connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
     return true;

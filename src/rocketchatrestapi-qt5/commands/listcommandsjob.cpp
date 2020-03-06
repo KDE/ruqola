@@ -46,7 +46,7 @@ bool ListCommandsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ListCommandsJob::slotListCommandsFinished);
     addLoggerInfo(QByteArrayLiteral("ListCommandsJob: Ask info about me"));
     return true;

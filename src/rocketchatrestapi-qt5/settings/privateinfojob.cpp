@@ -41,7 +41,7 @@ bool PrivateInfoJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo(QByteArrayLiteral("PrivateInfoJob: Ask private info"));
     connect(reply, &QNetworkReply::finished, this, &PrivateInfoJob::slotPrivateInfoDone);
 

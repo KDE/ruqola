@@ -59,7 +59,7 @@ bool GetDiscussionsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetDiscussionsJob::slotGetDiscussionsFinished);
     addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: Ask discussions in room"));
     return true;

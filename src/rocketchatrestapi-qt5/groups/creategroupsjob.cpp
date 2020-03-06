@@ -42,9 +42,7 @@ bool CreateGroupsJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("CreateGroupsJob::start: " + baPostData);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &CreateGroupsJob::slotCreateGroupsFinished);
     return true;
 }

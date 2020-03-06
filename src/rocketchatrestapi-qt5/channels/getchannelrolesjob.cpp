@@ -59,7 +59,7 @@ bool GetChannelRolesJob::start()
         return false;
     }
 
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo("GetChannelRolesJob::start");
     connect(reply, &QNetworkReply::finished, this, &GetChannelRolesJob::slotGetChannelRolesFinished);
 

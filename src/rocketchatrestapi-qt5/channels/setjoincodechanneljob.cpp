@@ -41,9 +41,7 @@ bool SetJoinCodeChannelJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("SetJoinCodeChannelJob::start: " + baPostData);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SetJoinCodeChannelJob::slotSetJoinCodeFinished);
     return true;
 }

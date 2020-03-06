@@ -53,7 +53,7 @@ bool GetPresenceJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetPresenceJob::slotGetPresenceUserId);
     addLoggerInfo("GetPresenceJob ask for presenceUserId: " + mPresenceUserId.toLatin1());
 

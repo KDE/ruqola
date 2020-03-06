@@ -47,7 +47,7 @@ bool IgnoreUserJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &IgnoreUserJob::slotIgnoreUserFinished);
     addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: ignore user starting"));
     return true;

@@ -46,7 +46,7 @@ bool SettingsOauthJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &SettingsOauthJob::slotSettingsOauthFinished);
     addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: Ask settings oauth"));
     return true;

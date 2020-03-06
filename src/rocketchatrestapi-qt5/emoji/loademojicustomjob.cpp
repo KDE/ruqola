@@ -42,7 +42,7 @@ bool LoadEmojiCustomJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob: Load Emoji custom"));
     connect(reply, &QNetworkReply::finished, this, &LoadEmojiCustomJob::slotloadEmojiCustomDone);
 

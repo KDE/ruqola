@@ -60,7 +60,7 @@ bool GetPinnedMessagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetPinnedMessagesJob::slotGetPinnedMessagesFinished);
     addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: Ask pinned messages"));
     return true;

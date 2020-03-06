@@ -59,7 +59,7 @@ bool GetThreadMessagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetThreadMessagesJob::slotGetThreadMessagesFinished);
     addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: Ask threads messages"));
     return true;

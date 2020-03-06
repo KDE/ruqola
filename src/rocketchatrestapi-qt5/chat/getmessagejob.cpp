@@ -47,7 +47,7 @@ bool GetMessageJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetMessageJob::slotGetMessageFinished);
     addLoggerInfo(QByteArrayLiteral("GetMessageJob: get message starting"));
     return true;

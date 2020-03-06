@@ -108,6 +108,9 @@ protected:
     void addAuthRawHeader(QNetworkRequest &request) const;
     virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str);
     virtual Q_REQUIRED_RESULT QString jobName() const;
+    Q_REQUIRED_RESULT QNetworkReply *submitGetRequest();
+    Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
+
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;

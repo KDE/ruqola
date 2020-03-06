@@ -40,10 +40,7 @@ bool PostMessageJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("PostMessageJob started " + baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &PostMessageJob::slotPostMessageDone);
     return true;
 }

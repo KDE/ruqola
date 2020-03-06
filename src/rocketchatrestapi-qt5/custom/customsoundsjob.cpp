@@ -41,7 +41,7 @@ bool CustomSoundsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo(QByteArrayLiteral("CustomSoundsJob: Ask custom sounds info"));
     connect(reply, &QNetworkReply::finished, this, &CustomSoundsJob::slotCustomSoundsDone);
 

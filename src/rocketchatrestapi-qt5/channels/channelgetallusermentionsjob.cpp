@@ -55,7 +55,7 @@ bool ChannelGetAllUserMentionsJob::start()
         return false;
     }
 
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo("ChannelGetAllUserMentionsJob::start");
     connect(reply, &QNetworkReply::finished, this, &ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished);
 

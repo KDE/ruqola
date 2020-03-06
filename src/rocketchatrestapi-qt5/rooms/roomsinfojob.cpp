@@ -46,7 +46,7 @@ bool RoomsInfoJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &RoomsInfoJob::slotRoomsInfoFinished);
     addLoggerInfo(QByteArrayLiteral("RoomsInfoJob: Ask info about rooms"));
     return true;

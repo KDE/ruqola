@@ -47,7 +47,7 @@ bool RoomsAutocompleteChannelAndPrivateJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &RoomsAutocompleteChannelAndPrivateJob::slotRoomsAutoCompleteChannelAndPrivateFinished);
     addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: Ask all rooms"));
     return true;

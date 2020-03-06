@@ -60,7 +60,7 @@ bool GetSnippetedMessagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetSnippetedMessagesJob::slotGetSnippetedMessagesFinished);
     addLoggerInfo(QByteArrayLiteral("GetSnippetedMessagesJob: Ask starred messages"));
     return true;

@@ -42,9 +42,7 @@ bool RunCommandJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("RunCommandJob::start: " + baPostData);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &RunCommandJob::slotRunCommand);
     return true;
 }

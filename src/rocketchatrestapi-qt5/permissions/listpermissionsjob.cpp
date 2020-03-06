@@ -46,7 +46,7 @@ bool ListPermissionsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ListPermissionsJob::slotListPermissionFinished);
     addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;

@@ -48,7 +48,7 @@ bool FetchMyKeysJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &FetchMyKeysJob::slotFetchMyKeys);
     addLoggerInfo("Start FetchMyKeysJob");
 

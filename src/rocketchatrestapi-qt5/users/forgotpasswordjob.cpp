@@ -52,9 +52,7 @@ bool ForgotPasswordJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("ForgotPasswordJob::start: " + baPostData);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ForgotPasswordJob::slotForgotPassword);
     return true;
 }

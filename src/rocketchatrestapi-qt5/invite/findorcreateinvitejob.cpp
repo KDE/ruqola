@@ -43,9 +43,7 @@ bool FindOrCreateInviteJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("FindOrCreateInviteJob::start: " + baPostData);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &FindOrCreateInviteJob::slotFindOrCreateInviteFinished);
     return true;
 }

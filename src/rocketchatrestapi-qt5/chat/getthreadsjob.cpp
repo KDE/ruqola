@@ -59,7 +59,7 @@ bool GetThreadsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetThreadsJob::slotGetThreadsFinished);
     addLoggerInfo(QByteArrayLiteral("GetThreadsJob: Ask All threads in room"));
     return true;

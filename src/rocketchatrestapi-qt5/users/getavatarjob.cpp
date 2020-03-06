@@ -55,7 +55,7 @@ bool GetAvatarJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatar);
     addLoggerInfo("GetAvatarJob ask for avatarUserId: " + mAvatarUserId.toLatin1());
     reply->setProperty("userId", mAvatarUserId);

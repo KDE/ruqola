@@ -43,7 +43,7 @@ bool ChannelMembersJob::start()
         return false;
     }
     addLoggerInfo("ChannelMembersJob::start: ");
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ChannelMembersJob::slotChannelMembersFinished);
     return true;
 }

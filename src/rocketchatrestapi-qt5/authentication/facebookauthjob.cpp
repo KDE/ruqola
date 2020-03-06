@@ -61,13 +61,9 @@ bool FacebookAuthJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("FacebookAuthJob started " + baPostData);
+    QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &FacebookAuthJob::slotFacebookauthDone);
-
-    return false;
+    return true;
 }
 
 void FacebookAuthJob::slotFacebookauthDone()

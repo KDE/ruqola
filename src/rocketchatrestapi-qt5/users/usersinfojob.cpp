@@ -47,7 +47,7 @@ bool UsersInfoJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &UsersInfoJob::slotUserInfoFinished);
     addLoggerInfo(QByteArrayLiteral("UsersInfoJob: Ask info about me"));
     return true;

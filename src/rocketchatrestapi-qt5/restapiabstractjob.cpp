@@ -22,6 +22,7 @@
 #include "rocketchatqtrestapi_debug.h"
 #include "abstractlogger.h"
 #include <KLocalizedString>
+#include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
 #include <QNetworkRequest>
@@ -446,6 +447,22 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
 QString RestApiAbstractJob::jobName() const
 {
     return {};
+}
+
+QNetworkReply *RestApiAbstractJob::submitGetRequest()
+{
+    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    reply->setProperty("job", QVariant::fromValue(this));
+    return reply;
+}
+
+QNetworkReply *RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
+{
+    const QByteArray baPostData = doc.toJson(QJsonDocument::Compact);
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    reply->setProperty("job", QVariant::fromValue(this));
+    addLoggerInfo(QByteArray(metaObject()->className()) + " started " + baPostData);
+    return reply;
 }
 
 QueryParameters::QueryParameters()

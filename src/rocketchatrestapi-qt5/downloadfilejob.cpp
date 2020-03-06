@@ -39,7 +39,7 @@ bool DownloadFileJob::start()
         return false;
     }
 
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo("ChannelListJob: url:"
                   +mUrl.toEncoded()
                   +" mimetype " + mMimeType.toLatin1()

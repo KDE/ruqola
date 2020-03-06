@@ -43,7 +43,7 @@ bool GroupsInfoJob::start()
         return false;
     }
     addLoggerInfo("GroupsInfoJob::start: ");
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GroupsInfoJob::slotChannelInfoFinished);
     return true;
 }

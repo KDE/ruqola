@@ -46,7 +46,7 @@ bool GetSupportedLanguagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetSupportedLanguagesJob::slotGetSupportedLanguagesFinished);
     addLoggerInfo(QByteArrayLiteral("GetSupportedLanguagesJob: get message starting"));
     return true;

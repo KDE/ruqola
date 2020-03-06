@@ -41,7 +41,7 @@ bool CustomUserStatusJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    QNetworkReply *reply = submitGetRequest();
     addLoggerInfo(QByteArrayLiteral("CustomUserStatusJob: Ask custom user status info"));
     connect(reply, &QNetworkReply::finished, this, &CustomUserStatusJob::slotCustomUserStatusDone);
 
