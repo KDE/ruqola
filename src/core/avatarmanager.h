@@ -40,7 +40,7 @@ Q_SIGNALS:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 private:
-    void slotInsertAvatarUrl(const QString &userId, const QString &url);
+    void slotInsertAvatarUrl(const QString &userId, const QUrl &url);
     void slotLoadNextAvatar();
     void slotRescheduleDownload();
     QStringList mAvatarDownloadUserIds;

@@ -66,11 +66,10 @@ bool GetAvatarJob::start()
 void GetAvatarJob::slotGetAvatar()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
+    if (reply && !reply->error()) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-
         if (replyObject.contains(QLatin1String("success"))) {
             if (!replyObject[QStringLiteral("success")].toBool()) {
                 addLoggerWarning(QByteArrayLiteral("GetAvatarJob UserId: ") + mAvatarUserId.toUtf8() +  QByteArrayLiteral(" problem!") + replyJson.toJson(QJsonDocument::Indented));
@@ -80,12 +79,20 @@ void GetAvatarJob::slotGetAvatar()
             }
             Q_EMIT redownloadAvatar();
         } else {
+            // https://rocket.chat/docs/developer-guides/rest-api/users/getavatar/ shows a simple URL as a reply
             QString str = QString::fromUtf8(data);
             str.remove(QLatin1Char('"'));
-            const QString userId = reply->property("userId").toString();
-            addLoggerWarning(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
-            Q_EMIT avatar(userId, str);
+            const QUrl url(str);
+            if (url.isValid() && !url.scheme().isEmpty()) {
+                const QString userId = reply->property("userId").toString();
+                addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
+                Q_EMIT avatar(userId, url);
+            } else {
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:" << str;
+            }
         }
+    }
+    if (reply) {
         reply->deleteLater();
     }
     deleteLater();

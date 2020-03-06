@@ -186,7 +186,7 @@ public:
     void getCommand(const QString &commandName);
     void runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo);
 Q_SIGNALS:
-    void avatar(const QString &userId, const QString &url);
+    void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
     void loginDone(const QString &authToken, const QString &userId);
     void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
