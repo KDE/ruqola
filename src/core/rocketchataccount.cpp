@@ -368,11 +368,6 @@ void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &
     restApi()->reactOnMessage(messageId, emoji, shouldReact);
 }
 
-void RocketChatAccount::replyToMessage(const QString &roomID, const QString &message, const QString &messageId)
-{
-    restApi()->postMessage(roomID, message);
-}
-
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
     restApi()->postMessage(roomID, message);
@@ -1785,6 +1780,8 @@ void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString 
         break;
     case InputTextManager::CompletionForType::User:
         ddp()->inputUserAutocomplete(pattern, exceptions);
+        break;
+    default:
         break;
     }
 }

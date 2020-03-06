@@ -243,7 +243,6 @@ public:
     Q_INVOKABLE void threadsInRoom(const QString &roomId);
     Q_INVOKABLE void discussionsInRoom(const QString &roomId);
     Q_INVOKABLE void followMessage(const QString &messageId, bool follow);
-    Q_INVOKABLE void replyToMessage(const QString &roomID, const QString &message, const QString &messageId);
     Q_INVOKABLE void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
