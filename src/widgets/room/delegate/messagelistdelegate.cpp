@@ -40,6 +40,7 @@
 #include <QToolTip>
 
 #include <KLocalizedString>
+#include <KColorScheme>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -294,15 +295,16 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     mHelperReactions->draw(painter, reactionsRect, index, option);
 
     // Replies
+    KColorScheme scheme;
     if (message->threadCount() > 0) {
         const QString repliesText = i18np("1 reply", "%1 replies", message->threadCount());
-        painter->setPen(Qt::red);
+        painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
         painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
     }
     // Discussion
     if (message->discussionCount() > 0) {
         const QString discussionsText = i18np("1 message", "%1 messages", message->discussionCount());
-        painter->setPen(Qt::blue);
+        painter->setPen(scheme.foreground(KColorScheme::LinkText).color());
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
     }
