@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef COMMAND_H
 #define COMMAND_H
 

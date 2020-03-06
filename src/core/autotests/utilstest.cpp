@@ -151,11 +151,11 @@ void UtilsTest::shouldHighlightText_data()
     QTest::newRow("word@1-username") << QStringLiteral("@foo")
                                      << QStringLiteral("foo")
                                      << QStringLiteral("<a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;\">@foo</a>")
-                                            .arg(userMentionForegroundColor, userMentionBackgroundColor);
+        .arg(userMentionForegroundColor, userMentionBackgroundColor);
     QTest::newRow("word@2-username") << QStringLiteral("bla bla @foo")
                                      << QStringLiteral("foo")
                                      << QStringLiteral("bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;\">@foo</a>")
-                                            .arg(userMentionForegroundColor, userMentionBackgroundColor);
+        .arg(userMentionForegroundColor, userMentionBackgroundColor);
 }
 
 void UtilsTest::shouldHighlightText()

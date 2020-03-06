@@ -88,7 +88,7 @@ QString Utils::generateRichText(const QString &str, const QString &username)
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word,
                            QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;\">@%1</a>")
-                                .arg(word, userMentionForegroundColor, userMentionBackgroundColor));
+                           .arg(word, userMentionForegroundColor, userMentionBackgroundColor));
         } else {
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
         }

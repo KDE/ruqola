@@ -35,10 +35,14 @@ class MyMessageCache : public MessageCache
 {
 public:
     using MessageCache::MessageCache;
-    int jobsStarted() const { return mJobStarted; }
+    int jobsStarted() const
+    {
+        return mJobStarted;
+    }
 
 protected:
-    bool startJob(RocketChatRestApi::RestApiAbstractJob *job) override {
+    bool startJob(RocketChatRestApi::RestApiAbstractJob *job) override
+    {
         if (auto *getMsgJob = qobject_cast<RocketChatRestApi::GetMessageJob *>(job)) {
             QTimer::singleShot(100, this, [getMsgJob]() {
                 const QByteArray content = "{ \"message\": "
@@ -52,6 +56,7 @@ protected:
         }
         return false;
     }
+
 private:
     int mJobStarted = 0;
 };

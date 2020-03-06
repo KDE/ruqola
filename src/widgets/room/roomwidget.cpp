@@ -154,7 +154,6 @@ void RoomWidget::slotConfigureAutoTranslate()
     dlg->setRoomWrapper(mRoomWrapper);
     dlg->exec();
     delete dlg;
-
 }
 
 void RoomWidget::slotConfigureNotification()

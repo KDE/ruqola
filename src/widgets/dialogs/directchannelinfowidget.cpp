@@ -21,7 +21,6 @@
 #include "directchannelinfowidget.h"
 #include "user.h"
 
-
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>

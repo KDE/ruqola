@@ -42,7 +42,6 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-
     void parseCommands(const QJsonObject &commandsObj);
     void parseMoreCommands(const QJsonObject &fileAttachmentsObj);
 

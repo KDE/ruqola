@@ -379,7 +379,6 @@ MessageListView::Mode MessageListView::mode() const
     return mMode;
 }
 
-
 void MessageListView::slotReplyInThread(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();

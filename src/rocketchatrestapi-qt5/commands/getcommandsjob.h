@@ -41,7 +41,6 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-
     Q_REQUIRED_RESULT QString commandName() const;
     void setCommandName(const QString &commandName);
 

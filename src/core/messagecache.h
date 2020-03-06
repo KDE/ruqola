@@ -29,9 +29,9 @@
 class ThreadMessageModel;
 class Message;
 namespace RocketChatRestApi {
-    class RestApiAbstractJob;
-    class GetThreadMessagesJob;
-    class GetMessageJob;
+class RestApiAbstractJob;
+class GetThreadMessagesJob;
+class GetMessageJob;
 }
 
 class LIBRUQOLACORE_EXPORT MessageCache : public QObject
@@ -42,7 +42,6 @@ public:
 
     ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
     Message *messageForId(const QString &messageId);
-
 
 Q_SIGNALS:
     void modelLoaded();

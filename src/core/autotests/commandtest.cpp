@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(CommandTest)
 CommandTest::CommandTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CommandTest::shouldHaveDefaultValues()

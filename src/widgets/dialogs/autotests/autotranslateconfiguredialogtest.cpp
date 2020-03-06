@@ -29,7 +29,6 @@ QTEST_MAIN(AutoTranslateConfigureDialogTest)
 AutoTranslateConfigureDialogTest::AutoTranslateConfigureDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AutoTranslateConfigureDialogTest::shouldHaveDefaultValues()

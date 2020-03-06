@@ -88,7 +88,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 } else {
                     QPersistentModelIndex persistentIndex(index);
                     connect(&mMessageCache, &MessageCache::modelLoaded,
-                            this, [=](){ that->updateView(option.widget, persistentIndex);});
+                            this, [=](){
+                        that->updateView(option.widget, persistentIndex);
+                    });
                 }
             }
             // Use TextConverter in case it starts with a [](URL) reply marker

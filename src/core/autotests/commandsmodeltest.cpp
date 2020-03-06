@@ -26,7 +26,6 @@ QTEST_MAIN(CommandsModelTest)
 CommandsModelTest::CommandsModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 //TODO

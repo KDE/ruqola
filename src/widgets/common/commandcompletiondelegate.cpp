@@ -42,7 +42,6 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 
     font.setItalic(true);
 
-
     const QString parameter = index.data(Qt::DisplayRole).toString();
     const int xText = option.rect.x() + margin + commandWidth;
     painter->drawText(xText, option.rect.y(), parameter);

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "autotranslateconfigurewidgettest.h"
 #include "dialogs/autotranslateconfigurewidget.h"
 #include <QCheckBox>
@@ -31,13 +30,11 @@ QTEST_MAIN(AutoTranslateConfigureWidgetTest)
 AutoTranslateConfigureWidgetTest::AutoTranslateConfigureWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 {
     AutoTranslateConfigureWidget w;
-
 
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
@@ -51,7 +48,6 @@ void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
     QHBoxLayout *horizontalLayout = w.findChild<QHBoxLayout *>(QStringLiteral("horizontalLayout"));
     QVERIFY(horizontalLayout);
     QCOMPARE(horizontalLayout->contentsMargins(), QMargins(0, 0, 0, 0));
-
 
     QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);

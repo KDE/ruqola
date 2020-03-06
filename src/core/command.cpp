@@ -24,7 +24,6 @@
 
 Command::Command()
 {
-
 }
 
 QString Command::params() const
@@ -64,7 +63,6 @@ QString Command::translateDescription() const
     return QString();
 }
 
-
 bool Command::clientOnly() const
 {
     return mClientOnly;
@@ -93,12 +91,12 @@ void Command::parseCommand(const QJsonObject &obj)
 
 bool Command::operator ==(const Command &other) const
 {
-    return mParams == other.params() &&
-            mCommandName == other.commandName() &&
-            mDescription == other.description() &&
-            mClientOnly == other.clientOnly() &&
-            mProvidesPreview == other.providesPreview() &&
-            mPermissions == other.permissions();
+    return mParams == other.params()
+           && mCommandName == other.commandName()
+           && mDescription == other.description()
+           && mClientOnly == other.clientOnly()
+           && mProvidesPreview == other.providesPreview()
+           && mPermissions == other.permissions();
 }
 
 bool Command::isValid() const

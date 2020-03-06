@@ -43,7 +43,6 @@ AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(QWidget *parent)
 
 AutoTranslateConfigureDialog::~AutoTranslateConfigureDialog()
 {
-
 }
 
 void AutoTranslateConfigureDialog::setRoomWrapper(RoomWrapper *roomWrapper)

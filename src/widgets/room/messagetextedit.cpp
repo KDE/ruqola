@@ -29,7 +29,6 @@
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 
-
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
 {
