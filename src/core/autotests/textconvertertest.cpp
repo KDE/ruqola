@@ -81,10 +81,10 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
         "<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>")
                                                         << QStringLiteral("http://www.kde.org");
 
-    QTest::newRow("quotedcode1") << QStringLiteral("```foo```") << QStringLiteral("foo<br>") << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode2") << QStringLiteral("bla\n```foo```bli") << QStringLiteral("bla\nfoo<br>bli") << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode3") << QStringLiteral("bla\n```foo```") << QStringLiteral("bla\nfoo<br>") << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode4") << QStringLiteral("```foo```\nff") << QStringLiteral("foo<br>\nff") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode1") << QStringLiteral("```foo```") << QStringLiteral("<div style='font-family:monospace'>foo<br></div>") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode2") << QStringLiteral("bla\n```foo```bli") << QStringLiteral("bla\n<div style='font-family:monospace'>foo<br></div>bli") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode3") << QStringLiteral("bla\n```foo```") << QStringLiteral("bla\n<div style='font-family:monospace'>foo<br></div>") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode4") << QStringLiteral("```foo```\nff") << QStringLiteral("<div style='font-family:monospace'>foo<br></div>\nff") << QStringLiteral("www.kde.org");
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()
