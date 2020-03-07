@@ -42,7 +42,7 @@
 
 #include <model/threadmessagemodel.h>
 
-QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, const QStyleOptionViewItem &option) const
+QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, const QWidget *widget) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -81,7 +81,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                             connect(&mMessageCache, &MessageCache::messageLoaded,
                                     this, [=](const QString &msgId){
                                 if (msgId == threadMessageId) {
-                                    that->updateView(option.widget, persistentIndex);
+                                    that->updateView(widget, persistentIndex);
                                 }
                             });
                         }
@@ -92,7 +92,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                     QPersistentModelIndex persistentIndex(index);
                     connect(&mMessageCache, &MessageCache::modelLoaded,
                             this, [=](){
-                        that->updateView(option.widget, persistentIndex);
+                        that->updateView(widget, persistentIndex);
                     });
                 }
             }
@@ -150,7 +150,7 @@ static void fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
 
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
-    const QString text = makeMessageText(index, option);
+    const QString text = makeMessageText(index, option.widget);
 
     if (text.isEmpty()) {
         return;
@@ -194,7 +194,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
-    const QString text = makeMessageText(index, option);
+    const QString text = makeMessageText(index, option.widget);
     if (text.isEmpty()) {
         return QSize();
     }
@@ -221,7 +221,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             updateView(option.widget, mCurrentIndex);
         }
         mCurrentIndex = index;
-        const QString text = makeMessageText(index, option);
+        const QString text = makeMessageText(index, option.widget);
         fillTextDocument(index, mCurrentDocument, text, messageRect.width());
         const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
         // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
@@ -264,7 +264,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     // Clicks on links
     if (eventType == QEvent::MouseButtonRelease) {
         // ## we should really cache that QTextDocument...
-        const QString text = makeMessageText(index, option);
+        const QString text = makeMessageText(index, option.widget);
         QTextDocument doc;
         fillTextDocument(index, doc, text, messageRect.width());
 
@@ -285,7 +285,7 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
     }
 
     // ## we should really cache that QTextDocument...
-    const auto text = makeMessageText(index);
+    const auto text = makeMessageText(index, view);
     QTextDocument doc;
     fillTextDocument(index, doc, text, messageRect.width());
 

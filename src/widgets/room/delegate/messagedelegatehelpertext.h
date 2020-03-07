@@ -46,7 +46,7 @@ public:
     void setShowThreadContext(bool b);
 
 private:
-    QString makeMessageText(const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();
     void updateView(const QWidget *widget, const QModelIndex &index);
 
