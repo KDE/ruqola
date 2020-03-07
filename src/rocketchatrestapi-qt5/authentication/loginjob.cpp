@@ -59,7 +59,7 @@ bool LoginJob::start()
     }
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &LoginJob::slotLoginDone);
-    return false;
+    return true;
 }
 
 void LoginJob::slotLoginDone()

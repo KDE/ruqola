@@ -71,7 +71,7 @@ bool TwitterAuthJob::start()
     }
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &TwitterAuthJob::slotTwitterauthDone);
-    return false;
+    return true;
 }
 
 void TwitterAuthJob::slotTwitterauthDone()
