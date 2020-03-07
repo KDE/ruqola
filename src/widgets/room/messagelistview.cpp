@@ -118,9 +118,9 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     connect(newModel, &QAbstractItemModel::rowsAboutToBeInserted, this, &MessageListView::checkIfAtBottom);
     connect(newModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &MessageListView::checkIfAtBottom);
     connect(newModel, &QAbstractItemModel::modelAboutToBeReset, this, &MessageListView::checkIfAtBottom);
-    connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::maybeScrollToBottom);
-    connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::maybeScrollToBottom);
-    connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::maybeScrollToBottom);
+    // Connect to rangeChanged rather than rowsInserted/rowsRemoved/modelReset.
+    // This way it also catches the case of an item changing height (e.g. after async image loading)
+    connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListView::maybeScrollToBottom);
 
     connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::modelChanged);
     connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::modelChanged);
