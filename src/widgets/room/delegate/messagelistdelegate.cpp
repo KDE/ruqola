@@ -46,12 +46,14 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
-    , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("face-smile"))) // waiting for https://bugs.kde.org/show_bug.cgi?id=417298
+    // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
+    , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mHelperText(new MessageDelegateHelperText)
     , mHelperImage(new MessageDelegateHelperImage)
     , mHelperFile(new MessageDelegateHelperFile)
     , mHelperReactions(new MessageDelegateHelperReactions)
 {
+
 }
 
 MessageListDelegate::~MessageListDelegate()
@@ -259,7 +261,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
-    mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter, QIcon::Disabled /*to make it monochrome*/);
+    mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
 
     // Message
     if (layout.textRect.isValid()) {

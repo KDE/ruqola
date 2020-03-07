@@ -62,7 +62,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
-    mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("face-smile")));
+    // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
+    mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))));
     mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
     mainLayout->addWidget(mEmoticonButton);
 
