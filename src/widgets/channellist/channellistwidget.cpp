@@ -215,6 +215,9 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 mCurrentRocketChatAccount->openChannel(roomOrUser, RocketChatAccount::ChannelTypeInfo::RoomName);
             }
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
+            if (roomOrUser == QLatin1String("here") || roomOrUser == QLatin1String("all")) {
+                return;
+            }
             if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
                 if (roomOrUser != mCurrentRocketChatAccount->userName()) {
                     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to open direct conversation with %1", roomOrUser))) {
