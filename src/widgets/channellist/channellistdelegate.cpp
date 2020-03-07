@@ -38,9 +38,8 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
     const QString text = index.data(Qt::DisplayRole).toString();
     //const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
-    const int unreadCount = index.data(RoomModel::RoomUnread).toInt();
-    const QString unreadText = unreadCount > 0 ? QStringLiteral("(%1)").arg(unreadCount) : QString();
-    const QSize unreadSize = unreadCount > 0 ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
+    const QString unreadText = makeUnreadText(index);
+    const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
     const int xText = option.rect.x() + iconSize + 2 * margin;
     const QRect displayRect(xText, option.rect.y(),
                             option.rect.width() - xText - unreadSize.width() - margin,
@@ -50,7 +49,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
-    if (unreadCount == 0 && !index.data(RoomModel::RoomAlert).toBool()) {
+    if (unreadText.isEmpty() && !index.data(RoomModel::RoomAlert).toBool()) {
         optionCopy.state &= ~QStyle::State_Enabled;
     }
     drawBackground(painter, optionCopy, index);
@@ -62,4 +61,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     KColorScheme scheme;
     painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
     painter->drawText(unreadRect, unreadText);
+}
+
+QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
+{
+    const int unreadCount = index.data(RoomModel::RoomUnread).toInt();
+    const QString unreadText = unreadCount > 0 ? QStringLiteral("(%1)").arg(unreadCount) : QString();
+    const int userMentionsCount = index.data(RoomModel::RoomUserMentions).toInt();
+    return (userMentionsCount > 0) ? QLatin1Char('@') + unreadText : unreadText;
 }

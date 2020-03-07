@@ -29,6 +29,9 @@ public:
     explicit ChannelListDelegate(QObject *parent = nullptr);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+private:
+    QString makeUnreadText(const QModelIndex &index) const;
 };
 
 #endif // CHANNELLISTDELEGATE_H
