@@ -271,8 +271,10 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 
     // Draw the sender
+    const QFont oldFont = painter->font();
     painter->setFont(layout.senderFont);
     painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
+    painter->setFont(oldFont);
 
     // Draw the roles icon
     if (!index.data(MessageModel::Roles).toString().isEmpty()) {
