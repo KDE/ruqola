@@ -188,7 +188,7 @@ void RuqolaServerConfig::addOauthService(const QString &service)
         //Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "Accounts_OAuth_Meteor found ";
     } else {
-        qCWarning(RUQOLA_LOG) << "Unknown service type: " << service;
+        qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
 }
 
