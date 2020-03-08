@@ -20,7 +20,7 @@
 
 #include "command.h"
 #include "ruqola_debug.h"
-#include <qjsonarray.h>
+#include <QJsonArray>
 #include <KLocalizedString>
 
 Command::Command()
