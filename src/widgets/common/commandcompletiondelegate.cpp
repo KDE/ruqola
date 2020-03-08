@@ -34,20 +34,28 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     // command <parameter> description at end
     drawBackground(painter, option, index);
     const int margin = 8;
-    QFont font = painter->font();
+    QFont oldFont = painter->font();
     QFontMetrics commandFontMetrics(painter->font());
     const QString commandText = index.data(CommandsModel::CommandName).toString();
     const int commandWidth = commandFontMetrics.horizontalAdvance(commandText);
-    painter->drawText(margin, option.rect.y(), commandText);
 
-    font.setItalic(true);
+    const int defaultCharHeight = option.rect.y() + commandFontMetrics.ascent();
 
-    const QString parameter = index.data(Qt::DisplayRole).toString();
-    const int xText = option.rect.x() + margin + commandWidth;
-    painter->drawText(xText, option.rect.y(), parameter);
-    const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText,
-                            option.rect.height());
+    painter->drawText(margin, defaultCharHeight, commandText);
 
-    drawDisplay(painter, option, displayRect, parameter);
+    QFont italicFont = oldFont;
+    italicFont.setItalic(true);
+    painter->setFont(italicFont);
+
+    const QString parameter = index.data(CommandsModel::Parameters).toString();
+    const int xText = option.rect.x() + 3 * margin + commandWidth;
+    painter->drawText(xText, defaultCharHeight, parameter);
+
+    painter->setFont(oldFont);
+
+    const QString description = index.data(CommandsModel::TranslatedDescription).toString();
+    const int descriptionWidth = commandFontMetrics.horizontalAdvance(description);
+
+    painter->drawText(option.rect.width() - descriptionWidth - margin, defaultCharHeight, description);
+
 }

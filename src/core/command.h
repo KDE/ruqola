@@ -56,10 +56,8 @@ public:
     void setPermissions(const QStringList &permissions);
 
     Q_REQUIRED_RESULT QString translatedDescription() const;
-    void setTranslatedDescription(const QString &translatedDescription);
-
 private:
-    Q_REQUIRED_RESULT QString translateDescription() const;
+    void convertDescriptionI18n();
     QStringList mPermissions;
     QString mParams;
     QString mCommandName;

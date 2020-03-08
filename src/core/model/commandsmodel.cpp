@@ -54,6 +54,8 @@ QVariant CommandsModel::data(const QModelIndex &index, int role) const
         return command.commandName();
     case CommandName:
         return command.commandName();
+    case TranslatedDescription:
+        return command.translatedDescription();
     }
 
     return {};

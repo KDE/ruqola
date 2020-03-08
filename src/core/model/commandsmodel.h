@@ -35,6 +35,7 @@ public:
         CompleterName, // keep value in sync with InputCompleterModel
         Description,
         Parameters,
+        TranslatedDescription,
     };
     Q_ENUM(CommandsRoles)
 

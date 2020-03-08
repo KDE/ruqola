@@ -54,13 +54,13 @@ QString Command::description() const
 void Command::setDescription(const QString &description)
 {
     mDescription = description;
-    mTranslatedDescription = translateDescription();
+    convertDescriptionI18n();
 }
 
-QString Command::translateDescription() const
+void Command::convertDescriptionI18n()
 {
     //TODO
-    return QString();
+    mTranslatedDescription = mDescription;
 }
 
 bool Command::clientOnly() const
@@ -127,11 +127,6 @@ void Command::setPermissions(const QStringList &permissions)
 QString Command::translatedDescription() const
 {
     return mTranslatedDescription;
-}
-
-void Command::setTranslatedDescription(const QString &translatedDescription)
-{
-    mTranslatedDescription = translatedDescription;
 }
 
 QDebug operator <<(QDebug d, const Command &t)
