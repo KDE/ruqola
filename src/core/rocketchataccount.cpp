@@ -1136,7 +1136,7 @@ void RocketChatAccount::addUserToRoom(const QString &userId, const QString &room
 
 void RocketChatAccount::clearSearchModel()
 {
-    mSearchMessageModel->clear();
+    mSearchMessageModel->clearModel();
 }
 
 void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression)

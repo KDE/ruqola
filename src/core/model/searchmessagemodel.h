@@ -38,6 +38,7 @@ public:
     void setLoadSearchMessageInProgress(bool loadSearchMessageInProgress);
     Q_REQUIRED_RESULT bool loadSearchMessageInProgress() const;
 
+    void clearModel();
 Q_SIGNALS:
     void stringNotFoundChanged();
     void loadingInProgressChanged();
@@ -47,7 +48,7 @@ private:
     void setStringNotFound(bool stringNotFound);
     QString mRoomId;
     int mTotal = 0;
-    bool mStringNotFound = false;
+    bool mStringNotFound = true;
     bool mLoadSearchMessageInProgress = false;
 };
 

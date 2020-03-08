@@ -34,6 +34,13 @@ SearchMessageModel::~SearchMessageModel()
 {
 }
 
+void SearchMessageModel::clearModel()
+{
+    mStringNotFound = true;
+    mLoadSearchMessageInProgress = false;
+    clear();
+}
+
 void SearchMessageModel::parse(const QJsonObject &obj)
 {
     clear();
