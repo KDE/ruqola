@@ -21,6 +21,7 @@
 #include "command.h"
 
 #include <qjsonarray.h>
+#include <KLocalizedString>
 
 Command::Command()
 {
@@ -59,8 +60,56 @@ void Command::setDescription(const QString &description)
 
 void Command::convertDescriptionI18n()
 {
-    //TODO
-    mTranslatedDescription = mDescription;
+    if (mDescription.isEmpty()) {
+        return;
+    } else if (mDescription == QLatin1String("Archive")) {
+        mTranslatedDescription = i18n("Archive");
+    } else if (mDescription == QLatin1String("Slash_Gimme_Description")) {
+        mTranslatedDescription = i18n("Displays ༼ つ ◕_◕ ༽つ before your message");
+    } else if (mDescription == QLatin1String("Slash_LennyFace_Description")) {
+        mTranslatedDescription = i18n("Displays ( ͡° ͜ʖ ͡°) after your message");
+    } else if (mDescription == QLatin1String("Slash_Shrug_Description")) {
+        mTranslatedDescription = i18n("Displays ¯\\_(ツ)_/¯ after your message");
+    } else if (mDescription == QLatin1String("Slash_Tableflip_Description")) {
+        mTranslatedDescription = i18n("Displays (╯°□°）╯︵ ┻━┻");
+    } else if (mDescription == QLatin1String("Slash_TableUnflip_Description")) {
+        mTranslatedDescription = i18n("Displays ┬─┬<feff> ノ( ゜-゜ノ)");
+    } else if (mDescription == QLatin1String("Create_A_New_Channel")) {
+        mTranslatedDescription = i18n("Create a New Channel");
+    } else if (mDescription == QLatin1String("Show_the_keyboard_shortcut_list")) {
+        mTranslatedDescription = i18n("Show the keyboard shortcut list");
+    } else if (mDescription == QLatin1String("Hide_room")) {
+        mTranslatedDescription = i18n("Hide Room");
+    } else if (mDescription == QLatin1String("Invite_user_to_join_channel")) {
+        mTranslatedDescription = i18n("Invite one user to join this channel");
+    } else if (mDescription == QLatin1String("Invite_user_to_join_channel_all_to")) {
+        mTranslatedDescription = i18n("Invite all users from this channel to join [#channel]");
+    } else if (mDescription == QLatin1String("Invite_user_to_join_channel_all_from")) {
+        mTranslatedDescription = i18n("Invite all users from [#channel] to join this channel");
+    } else if (mDescription == QLatin1String("Join_the_given_channel")) {
+        mTranslatedDescription = i18n("Join the given channel");
+    } else if (mDescription == QLatin1String("Remove_someone_from_room")) {
+        mTranslatedDescription = i18n("Remove someone from the room");
+    } else if (mDescription == QLatin1String("Leave_the_current_channel")) {
+        mTranslatedDescription = i18n("Leave the current channel");
+    } else if (mDescription == QLatin1String("Displays_action_text")) {
+        mTranslatedDescription = i18n("Displays action text");
+    } else if (mDescription == QLatin1String("Direct_message_someone")) {
+        mTranslatedDescription = i18n("Direct message someone");
+    } else if (mDescription == QLatin1String("Mute_someone_in_room")) {
+        mTranslatedDescription = i18n("Mute someone in the room");
+    } else if (mDescription == QLatin1String("Unmute_someone_in_room")) {
+        mTranslatedDescription = i18n("Unmute someone in the room");
+    } else if (mDescription == QLatin1String("Slash_Status_Description")) {
+        mTranslatedDescription = i18n("Set your status message");
+    } else if (mDescription == QLatin1String("Slash_Topic_Description")) {
+        mTranslatedDescription = i18n("Set topic");
+    } else if (mDescription == QLatin1String("Unarchive")) {
+        mTranslatedDescription = i18n("Unarchive");
+    } else {
+        qDebug() << "Unknown description" << mDescription;
+    }
+
 }
 
 bool Command::clientOnly() const
