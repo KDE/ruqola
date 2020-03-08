@@ -19,7 +19,7 @@
 */
 
 #include "command.h"
-
+#include "ruqola_debug.h"
 #include <qjsonarray.h>
 #include <KLocalizedString>
 
@@ -107,7 +107,7 @@ void Command::convertDescriptionI18n()
     } else if (mDescription == QLatin1String("Unarchive")) {
         mTranslatedDescription = i18n("Unarchive");
     } else {
-        qDebug() << "Unknown description" << mDescription;
+        qCDebug(RUQOLA_LOG) << "Unknown description" << mDescription;
     }
 
 }
