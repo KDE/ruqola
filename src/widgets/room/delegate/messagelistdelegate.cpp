@@ -261,7 +261,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
-    mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
+    const Message::MessageType messageType = message->messageType();
+    const bool isSystemMessage = messageType == Message::System;
+    if (!isSystemMessage) {
+        mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
+    }
 
     // Message
     if (layout.textRect.isValid()) {
