@@ -43,6 +43,7 @@ Q_SIGNALS:
 private:
     void slotUpdateMenu();
     void createMenu();
+    QAction *createSeparator();
     QMenu *mMenu = nullptr;
     QAction *mShowMentions = nullptr;
     QAction *mShowPinnedMessages = nullptr;
@@ -53,6 +54,7 @@ private:
     QAction *mShowDiscussions = nullptr;
     QAction *mShowThreads = nullptr;
     QAction *mAutoTranslate = nullptr;
+    QAction *mAutoTranslateSeparator = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

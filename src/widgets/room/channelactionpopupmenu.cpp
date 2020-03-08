@@ -81,9 +81,7 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::ShowThreads);
     });
 
-    QAction *separator = new QAction(this);
-    separator->setSeparator(true);
-    mMenu->addAction(separator);
+    createSeparator();
 
     mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
     mMenu->addAction(mConfigureNotification);
@@ -91,11 +89,20 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::Notification);
     });
 
+    mAutoTranslateSeparator = createSeparator();
     mAutoTranslate = new QAction(i18n("Configure Auto-Translate..."), this);
     mMenu->addAction(mAutoTranslate);
     connect(mAutoTranslate, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AutoTranslate);
     });
+}
+
+QAction *ChannelActionPopupMenu::createSeparator()
+{
+    QAction *separator = new QAction(this);
+    separator->setSeparator(true);
+    mMenu->addAction(separator);
+    return separator;
 }
 
 QMenu *ChannelActionPopupMenu::menu() const
@@ -114,4 +121,5 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
+    mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
 }
