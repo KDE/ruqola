@@ -66,9 +66,11 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->drawText(basicMargin(), layout.attachmentNameY, layout.attachmentName);
 
     // Draw the sender
+    const QFont oldFont = painter->font();
     painter->setFont(layout.senderFont);
     //TODO fix me timeStampHeight
     painter->drawText(basicMargin(), layout.senderY, layout.senderText);
+    painter->setFont(oldFont);
 
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin(), layout.timeStampY));
