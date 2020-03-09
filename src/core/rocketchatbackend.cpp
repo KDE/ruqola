@@ -596,10 +596,12 @@ void RocketChatBackend::slotUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
-        //Subscribe activeUsers
-        QJsonArray params;
-        params.append(QJsonValue(params));
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
+        if (mRocketChatAccount->hasOldSubscriptionSupport()) {
+            //Subscribe activeUsers
+            QJsonArray params;
+            params.append(QJsonValue(params));
+            mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
+        }
     }
     {
         //Subscribe users in room ? //TODO verify it.

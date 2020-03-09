@@ -407,6 +407,7 @@ public:
 
     void getListCommands();
     bool runCommand(const QString &msg, const QString &roomId);
+    Q_REQUIRED_RESULT bool hasOldSubscriptionSupport() const;
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

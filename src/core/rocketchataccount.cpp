@@ -1896,6 +1896,11 @@ void RocketChatAccount::followMessage(const QString &messageId, bool follow)
     }
 }
 
+bool RocketChatAccount::hasOldSubscriptionSupport() const
+{
+    return !mRuqolaServerConfig->hasAtLeastVersion(3, 0, 0);
+}
+
 void RocketChatAccount::getSupportedLanguages()
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0) && autoTranslateEnabled()) {
