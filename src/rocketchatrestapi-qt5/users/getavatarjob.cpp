@@ -88,6 +88,7 @@ void GetAvatarJob::slotGetAvatar()
                 addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
                 Q_EMIT avatar(userId, url);
             } else {
+                //TODO it can return a svg element: see "expected a URL, got something else: "<svg xmlns=http://www.w3.org/2000/svg viewBox=0 0 200 200>\n<rect width=100% height=100% fill=#3F51B5/>\n<text x=50% y=50% dy=0.36em text-anchor=middle pointer-events=none fill=#ffffff font-family='Helvetica', 'Arial', 'Lucida Grande', 'sans-serif' font-size=125>\nM\n</text>\n</svg>""
                 qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:" << str;
             }
         }
