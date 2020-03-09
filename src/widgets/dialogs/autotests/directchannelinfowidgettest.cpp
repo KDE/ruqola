@@ -19,9 +19,16 @@
 */
 
 #include "directchannelinfowidgettest.h"
+#include "dialogs/directchannelinfowidget.h"
 #include <QTest>
 QTEST_MAIN(DirectChannelInfoWidgetTest)
 DirectChannelInfoWidgetTest::DirectChannelInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
+{
+    DirectChannelInfoWidget w;
+    //TODO
 }

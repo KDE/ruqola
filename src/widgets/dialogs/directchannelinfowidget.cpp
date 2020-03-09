@@ -20,19 +20,25 @@
 
 #include "directchannelinfowidget.h"
 #include "user.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 
 #include <QFormLayout>
 #include <KLocalizedString>
 #include <QLabel>
+#include <QIcon>
+#include <QPicture>
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    //TODO add avatar ?
-
     auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mAvatar = new QLabel(this);
+    mAvatar->setObjectName(QStringLiteral("mAvatar"));
+    mainLayout->addWidget(mAvatar);
 
     mName = new QLabel(this);
     mName->setObjectName(QStringLiteral("mName"));
@@ -61,9 +67,12 @@ DirectChannelInfoWidget::~DirectChannelInfoWidget()
 
 void DirectChannelInfoWidget::setUser(const User &user)
 {
+    //TODO improve it.
     mName->setText(user.name());
     mUserName->setText(user.userName());
     mCustomStatus->setText(user.statusText());
     mStatus->setText(user.status());
     mTimeZone->setText(user.utcOffset() > 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC") + QString::number(user.utcOffset()));
+    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(user.userId()));
+    mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
 }
