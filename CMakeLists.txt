@@ -39,7 +39,6 @@ include(FeatureSummary)
 
 option(COMPILE_RUQOLA_QML "Allow to compile Ruqola qml version (true)" TRUE)
 
-option(DISABLE_QTQUICK_COMPILER "Disable using qtquick compiler (true)" TRUE)
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 if (NOT WIN32)
     option(UNITY_SUPPORT "Build unity support" TRUE)
@@ -56,6 +55,7 @@ if (ANDROID)
 endif()
 
 if (COMPILE_RUQOLA_QML)
+    option(DISABLE_QTQUICK_COMPILER "Disable using qtquick compiler (true)" TRUE)
     find_package(Qt5 CONFIG QUIET OPTIONAL_COMPONENTS QuickCompiler)
     find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Qml Quick)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2)
