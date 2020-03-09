@@ -76,7 +76,7 @@ void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlight
         *mStream << QStringLiteral("\">");
     }
 
-    *mStream << mCurrentLine.mid(offset, length).toHtmlEscaped();
+    *mStream << mCurrentLine.mid(offset, length).toHtmlEscaped().replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
 
     if (!format.isDefaultTextStyle(theme())) {
         *mStream << QStringLiteral("</span>");
