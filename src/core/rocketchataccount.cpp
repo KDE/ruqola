@@ -164,7 +164,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
-    connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::userStatusChanged);
+    //connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::userStatusChanged);
     mMessageQueue = new MessageQueue(this, this); //TODO fix mem leak !
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
@@ -1803,6 +1803,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
         statusModel()->setCurrentPresenceStatus(mPresenceStatus);
         Q_EMIT userStatusUpdated(mPresenceStatus, accountName());
     }
+    mUserModel->addUser(user);
     mRoomModel->userStatusChanged(user);
 }
 
@@ -1935,7 +1936,16 @@ void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &ro
 
 void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 {
-    qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
+    //qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
+    const auto lst = obj.value(QStringLiteral("users")).toArray();
+    for (const auto &var : lst) {
+        const QJsonObject userJson = var.toObject();
+        User user;
+        user.parseUserRestApi(userJson);
+        if (user.isValid()) {
+            userStatusChanged(user);
+        }
+    }
 }
 
 void RocketChatAccount::slotDisconnectedByServer()
@@ -1973,7 +1983,7 @@ void RocketChatAccount::initializeAccount()
     listEmojiCustom();
     getListCommands();
     //load when necessary
-    //account->usersPresence();
+    usersPresence();
     if (mRuqolaServerConfig->autoTranslateEnabled()) {
         getSupportedLanguages();
     }
