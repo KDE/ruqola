@@ -21,32 +21,36 @@
 #include "directchannelinfowidget.h"
 #include "user.h"
 
-#include <QVBoxLayout>
+#include <QFormLayout>
 #include <KLocalizedString>
 #include <QLabel>
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
     mName = new QLabel(this);
     mName->setObjectName(QStringLiteral("mName"));
-    mainLayout->addWidget(mName);
+    mainLayout->addRow(i18n("Name:"), mName);
 
     mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
-    mainLayout->addWidget(mUserName);
+    mainLayout->addRow(i18n("UserName:"), mUserName);
 
     mStatus = new QLabel(this);
     mStatus->setObjectName(QStringLiteral("mStatus"));
-    mainLayout->addWidget(mStatus);
+    mainLayout->addRow(i18n("Status:"), mStatus);
+
+    mCustomStatus = new QLabel(this);
+    mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
+    mainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
 
     mTimeZone = new QLabel(this);
     mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
-    mainLayout->addWidget(mTimeZone);
+    mainLayout->addRow(i18n("TimeZone:"), mTimeZone);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
@@ -57,6 +61,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
 {
     mName->setText(user.name());
     mUserName->setText(user.userName());
-    mStatus->setText(user.statusText());
+    mCustomStatus->setText(user.statusText());
+    mStatus->setText(user.status());
     mTimeZone->setText(QString::number(user.utcOffset()));
 }

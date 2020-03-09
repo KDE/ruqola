@@ -38,6 +38,7 @@ public:
 private:
     QLabel *mName = nullptr;
     QLabel *mUserName = nullptr;
+    QLabel *mCustomStatus = nullptr;
     QLabel *mStatus = nullptr;
     QLabel *mTimeZone = nullptr;
 };
