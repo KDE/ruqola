@@ -339,8 +339,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
         }
-        qDebug() << " USER CHANGED : Need to fix it ********************************************************************************" << object;
-        mRocketChatAccount->updateUser(object);
+        if (mRocketChatAccount->hasOldSubscriptionSupport()) {
+            mRocketChatAccount->updateUser(object);
+        }
     } else if (collection == QLatin1String("rooms")) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;

@@ -164,7 +164,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
-    //connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::userStatusChanged);
+    connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
     mMessageQueue = new MessageQueue(this, this); //TODO fix mem leak !
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
@@ -181,6 +181,13 @@ RocketChatAccount::~RocketChatAccount()
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
     delete mAccountRoomSettings;
+}
+
+void RocketChatAccount::updateUserModel(const User &user)
+{
+    if (hasOldSubscriptionSupport()) {
+        userStatusChanged(user);
+    }
 }
 
 void RocketChatAccount::removeSettings()
@@ -1803,7 +1810,9 @@ void RocketChatAccount::userStatusChanged(const User &user)
         statusModel()->setCurrentPresenceStatus(mPresenceStatus);
         Q_EMIT userStatusUpdated(mPresenceStatus, accountName());
     }
-    mUserModel->addUser(user);
+    if (!hasOldSubscriptionSupport()) {
+        mUserModel->addUser(user);
+    }
     mRoomModel->userStatusChanged(user);
 }
 
