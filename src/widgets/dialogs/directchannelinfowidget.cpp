@@ -28,6 +28,8 @@
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
+    //TODO add avatar ?
+
     auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -63,5 +65,5 @@ void DirectChannelInfoWidget::setUser(const User &user)
     mUserName->setText(user.userName());
     mCustomStatus->setText(user.statusText());
     mStatus->setText(user.status());
-    mTimeZone->setText(QString::number(user.utcOffset()));
+    mTimeZone->setText(user.utcOffset() > 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC") + QString::number(user.utcOffset()));
 }
