@@ -88,7 +88,7 @@ QString Utils::generateRichText(const QString &str, const QString &username)
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word,
                            QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;\">@%1</a>")
-                           .arg(word, userMentionForegroundColor, userMentionBackgroundColor));
+                           .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor));
         } else {
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
         }
@@ -117,9 +117,9 @@ QString Utils::formatQuotedRichText(const QString &richText)
     KColorScheme scheme;
     const auto backgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = scheme.background(KColorScheme::LinkBackground).color().name();
-    return QLatin1String("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
+    return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText
-        + QLatin1String("</td></tr></table>");
+        + QStringLiteral("</td></tr></table>");
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)
