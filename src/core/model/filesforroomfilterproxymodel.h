@@ -41,6 +41,7 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
+    void loadingInProgressChanged();
 private:
     FilesForRoomModel *mFilesForRoomModel = nullptr;
 };

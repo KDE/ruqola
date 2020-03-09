@@ -46,7 +46,10 @@ bool FilesForRoomModel::loadMoreFilesInProgress() const
 
 void FilesForRoomModel::setLoadMoreFilesInProgress(bool loadMoreFilesInProgress)
 {
-    mLoadMoreFilesInProgress = loadMoreFilesInProgress;
+    if (mLoadMoreFilesInProgress != loadMoreFilesInProgress) {
+        mLoadMoreFilesInProgress = loadMoreFilesInProgress;
+        Q_EMIT loadingInProgressChanged();
+    }
 }
 
 void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)

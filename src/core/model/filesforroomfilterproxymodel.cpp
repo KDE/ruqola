@@ -35,6 +35,7 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fi
     sort(0, Qt::DescendingOrder);
     connect(mFilesForRoomModel, &FilesForRoomModel::hasFullListChanged, this, &FilesForRoomFilterProxyModel::hasFullListChanged);
     connect(mFilesForRoomModel, &FilesForRoomModel::totalChanged, this, &FilesForRoomFilterProxyModel::totalChanged);
+    connect(mFilesForRoomModel, &FilesForRoomModel::loadingInProgressChanged, this, &FilesForRoomFilterProxyModel::loadingInProgressChanged);
 }
 
 FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
