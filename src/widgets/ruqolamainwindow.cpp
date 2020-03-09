@@ -35,8 +35,6 @@
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/channelpassworddialog.h"
-#include "dialogs/channelinfodialog.h"
-#include "dialogs/directchannelinfodialog.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "dialogs/inviteusersdialog.h"
@@ -121,7 +119,6 @@ void RuqolaMainWindow::slotAccountChanged()
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
-    mChannelInfo->setEnabled(enabled);
     mStartVideoChat->setEnabled(enabled);
     mSaveAs->setEnabled(enabled);
     RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
@@ -196,10 +193,6 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
-    mChannelInfo = new QAction(i18n("Channel Info..."), this);
-    connect(mChannelInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowChannelInfo);
-    ac->addAction(QStringLiteral("channel_info"), mChannelInfo);
-
     mAddUserInRooms = new QAction(i18n("Add Users in Channel..."), this);
     connect(mAddUserInRooms, &QAction::triggered, this, &RuqolaMainWindow::slotAddUsersInRoom);
     ac->addAction(QStringLiteral("add_user_in_room"), mAddUserInRooms);
@@ -234,24 +227,6 @@ void RuqolaMainWindow::slotClearAccountAlerts()
 {
     if (auto acct = Ruqola::self()->accountManager()->account()) {
         acct->clearAllUnreadMessages();
-    }
-}
-
-void RuqolaMainWindow::slotShowChannelInfo()
-{
-    RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
-    if (roomWrapper) {
-        const QString roomType = mMainWidget->roomType();
-        if (roomType == QLatin1String("d")) {
-            QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
-            dlg->exec();
-            delete dlg;
-        } else {
-            QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
-            dlg->setRoomWrapper(roomWrapper);
-            dlg->exec();
-            delete dlg;
-        }
     }
 }
 

@@ -55,7 +55,6 @@ private:
     void slotUnreadOnTop(bool checked);
     void updateActions();
     void slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
-    void slotShowChannelInfo();
     void slotAddUsersInRoom();
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
@@ -68,7 +67,6 @@ private:
     QAction *mSearchChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
     QAction *mUnreadOnTop = nullptr;
-    QAction *mChannelInfo = nullptr;
     QAction *mAddUserInRooms = nullptr;
     QAction *mStartVideoChat = nullptr;
     QAction *mSaveAs = nullptr;

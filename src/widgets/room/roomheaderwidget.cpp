@@ -105,6 +105,13 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 
+    mChannelInfoButton = new QToolButton(this);
+    mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
+    mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
+    mChannelInfoButton->setToolTip(i18n("Channel Info"));
+    buttonLayout->addWidget(mChannelInfoButton, Qt::AlignTop);
+    connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
+
     mListOfUsersButton = new QToolButton(this);
     mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));

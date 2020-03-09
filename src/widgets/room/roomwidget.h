@@ -84,6 +84,7 @@ private:
     void slotLoadHistory();
     void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview);
     void slotConfigureAutoTranslate();
+    void slotChannelInfoRequested();
 
     QString mRoomId;
     QString mRoomType;

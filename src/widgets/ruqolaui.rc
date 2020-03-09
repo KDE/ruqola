@@ -18,8 +18,6 @@
    <Action name="search_channel" />
    <Action name="create_new_channel" />
    <Separator/>
-   <Action name="channel_info" />
-   <Separator/>
    <Action name="add_user_in_room" />
    <Separator/>
    <Action name="generate_invite" />

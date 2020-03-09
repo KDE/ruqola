@@ -65,6 +65,7 @@ Q_SIGNALS:
     void listOfUsersChanged(bool b);
     void searchMessageRequested();
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
+    void channelInfoRequested();
 
 private:
     QLabel *mRoomName = nullptr;
@@ -77,6 +78,7 @@ private:
     QToolButton *mListOfUsersButton = nullptr;
     QToolButton *mSearchMessageButton = nullptr;
     QToolButton *mChannelAction = nullptr;
+    QToolButton *mChannelInfoButton = nullptr;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };
 

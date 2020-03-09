@@ -83,6 +83,12 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDiscussionBackButton->isCheckable());
     QVERIFY(!mDiscussionBackButton->isVisible());
 
+    QToolButton *mChannelInfoButton = w.findChild<QToolButton *>(QStringLiteral("mChannelInfoButton"));
+    QVERIFY(mChannelInfoButton);
+    QVERIFY(!mChannelInfoButton->isCheckable());
+    QVERIFY(!mChannelInfoButton->toolTip().isEmpty());
+    QVERIFY(!mChannelInfoButton->icon().isNull());
+
     QToolButton *mListOfUsersButton = w.findChild<QToolButton *>(QStringLiteral("mListOfUsersButton"));
     QVERIFY(mListOfUsersButton);
     QVERIFY(mListOfUsersButton->isCheckable());

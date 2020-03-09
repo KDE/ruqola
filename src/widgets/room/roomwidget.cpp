@@ -40,6 +40,8 @@
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
 #include "dialogs/autotranslateconfiguredialog.h"
+#include "dialogs/channelinfodialog.h"
+#include "dialogs/directchannelinfodialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
 
@@ -53,6 +55,7 @@
 #include <QTemporaryFile>
 #include <QDir>
 #include <QImageWriter>
+
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -96,6 +99,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::listOfUsersChanged, this, &RoomWidget::slotShowListOfUsersInRoom);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::searchMessageRequested, this, &RoomWidget::slotSearchMessages);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::actionRequested, this, &RoomWidget::slotActionRequested);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::channelInfoRequested, this, &RoomWidget::slotChannelInfoRequested);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
@@ -113,6 +117,20 @@ RoomWidget::~RoomWidget()
 void RoomWidget::slotLoadHistory()
 {
     mCurrentRocketChatAccount->loadHistory(mRoomId, mRoomType);
+}
+
+void RoomWidget::slotChannelInfoRequested()
+{
+    if (mRoomType == QLatin1String("d")) {
+        QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
+        dlg->exec();
+        delete dlg;
+    } else {
+        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
+        dlg->setRoomWrapper(mRoomWrapper);
+        dlg->exec();
+        delete dlg;
+    }
 }
 
 void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
