@@ -120,7 +120,9 @@ QUrl RocketChatCache::attachmentUrl(const QString &url)
 
 void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 {
-    mAvatarManager->insertInDownloadQueue(userId);
+    if (!userId.isEmpty()) {
+        mAvatarManager->insertInDownloadQueue(userId);
+    }
 }
 
 void RocketChatCache::downloadFileFromServer(const QString &filename)
