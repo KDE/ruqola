@@ -50,6 +50,7 @@ public:
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &name) const;
 
     Q_REQUIRED_RESULT QString status(const QString &userId) const;
+    Q_REQUIRED_RESULT User fullUserInfo(const QString &userName) const;
 
 Q_SIGNALS:
     void userStatusChanged(const User &user);

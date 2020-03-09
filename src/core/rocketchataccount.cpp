@@ -2035,3 +2035,8 @@ void RocketChatAccount::runCommand(const RocketChatRestApi::RunCommandJob::RunCo
 {
     restApi()->runCommand(runCommandInfo);
 }
+
+User RocketChatAccount::fullUserInfo(const QString &userName) const
+{
+    return mUserModel->fullUserInfo(userName);
+}

@@ -391,6 +391,8 @@ public:
     Q_REQUIRED_RESULT QString recordingVideoPath() const;
     Q_REQUIRED_RESULT QString recordingImagePath() const;
 
+    Q_REQUIRED_RESULT User fullUserInfo(const QString &userName) const;
+
     void setAccountEnabled(bool enabled);
     Q_REQUIRED_RESULT bool accountEnabled() const;
 
@@ -408,6 +410,7 @@ public:
     void getListCommands();
     bool runCommand(const QString &msg, const QString &roomId);
     Q_REQUIRED_RESULT bool hasOldSubscriptionSupport() const;
+
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
@@ -478,6 +481,7 @@ private:
     void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
     void slotListCommandDone(const QJsonObject &obj);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
+    void updateUserModel(const User &user);
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 
