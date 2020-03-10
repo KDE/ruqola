@@ -65,6 +65,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/inviteuserswidget.cpp
     dialogs/autotranslateconfiguredialog.cpp
     dialogs/autotranslateconfigurewidget.cpp
+    dialogs/showvideowidget.cpp
+    dialogs/showvideodialog.cpp
     )
 
 set(Ruqola_configure_SRCS
