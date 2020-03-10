@@ -33,9 +33,11 @@ public:
     explicit DirectChannelInfoWidget(QWidget *parent = nullptr);
     ~DirectChannelInfoWidget() override;
 
-    void setUser(const User &user);
-
+    void setUserName(const QString &userName);
 private:
+    void slotUserInfoDone(const QJsonObject &obj);
+    void fetchUserInfo(const QString &userName);
+    void setUser(const User &user);
     QLabel *mName = nullptr;
     QLabel *mUserName = nullptr;
     QLabel *mCustomStatus = nullptr;

@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 public:
     explicit DirectChannelInfoDialog(QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
-    void setUser(const User &user);
+    void setUserName(const QString &userName);
 private:
     DirectChannelInfoWidget *mDirectChannelInfoWidget = nullptr;
 };

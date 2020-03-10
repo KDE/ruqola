@@ -45,7 +45,7 @@ DirectChannelInfoDialog::~DirectChannelInfoDialog()
 {
 }
 
-void DirectChannelInfoDialog::setUser(const User &user)
+void DirectChannelInfoDialog::setUserName(const QString &userName)
 {
-    mDirectChannelInfoWidget->setUser(user);
+    mDirectChannelInfoWidget->setUserName(userName);
 }

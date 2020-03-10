@@ -22,12 +22,16 @@
 #include "user.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "restapirequest.h"
+#include "ruqolawidgets_debug.h"
+#include "users/userinfojob.h"
 
 #include <QFormLayout>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QIcon>
 #include <QPicture>
+
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -65,14 +69,48 @@ DirectChannelInfoWidget::~DirectChannelInfoWidget()
 {
 }
 
+void DirectChannelInfoWidget::setUserName(const QString &userName)
+{
+    fetchUserInfo(userName);
+}
+
+void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    RocketChatRestApi::UserInfoJob *userJob = new RocketChatRestApi::UserInfoJob(this);
+    rcAccount->restApi()->initializeRestApiJob(userJob);
+    RocketChatRestApi::UserInfoJob::UserInfo info;
+    info.userIdentifier = userName;
+    info.userInfoType = RocketChatRestApi::UserInfoJob::UserInfoType::UserName;
+    userJob->setUserInfo(info);
+    connect(userJob, &RocketChatRestApi::UserInfoJob::userInfoDone,
+            this, &DirectChannelInfoWidget::slotUserInfoDone);
+    if (!userJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start UserInfoJob";
+    }
+}
+
+void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
+{
+    const QJsonObject userJson = obj.value(QStringLiteral("user")).toObject();
+    User user;
+    user.parseUserRestApi(userJson);
+    if (user.isValid()) {
+        setUser(user);
+    } else {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Invalid user parsing" << obj;
+    }
+}
+
 void DirectChannelInfoWidget::setUser(const User &user)
 {
-    //TODO improve it.
     mName->setText(user.name());
     mUserName->setText(user.userName());
     mCustomStatus->setText(user.statusText());
     mStatus->setText(user.status());
-    mTimeZone->setText(user.utcOffset() > 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC") + QString::number(user.utcOffset()));
+    mTimeZone->setText((user.utcOffset() > 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
+    //Download avatar ?
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(user.userId()));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
+
 }

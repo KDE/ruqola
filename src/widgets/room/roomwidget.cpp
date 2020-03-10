@@ -123,7 +123,7 @@ void RoomWidget::slotChannelInfoRequested()
 {
     if (mRoomType == QLatin1String("d")) {
         QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
-        dlg->setUser(mCurrentRocketChatAccount->fullUserInfo(mRoomWrapper->name()));
+        dlg->setUserName(mRoomWrapper->name());
         dlg->exec();
         delete dlg;
     } else {
