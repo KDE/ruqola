@@ -116,7 +116,7 @@ QString Utils::formatQuotedRichText(const QString &richText)
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
     KColorScheme scheme;
     const auto backgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
-    const auto borderColor = scheme.background(KColorScheme::LinkBackground).color().name();
+    const auto borderColor = scheme.foreground(KColorScheme::LinkText).color().name();
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText
         + QStringLiteral("</td></tr></table>");
