@@ -165,7 +165,7 @@ void EmojiTest::shouldGenerateHtml_data()
         QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org")
                                << QStringLiteral("/emoji-custom/clapping.gif")
                                << QStringLiteral("http://www.kde.org/emoji-custom/clapping.gif")
-                               << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>");
+                               << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif' title=':clapping:'/>");
     }
 }
 
