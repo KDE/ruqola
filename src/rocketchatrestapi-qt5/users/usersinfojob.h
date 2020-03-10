@@ -21,16 +21,15 @@
 #ifndef USERSINFOJOB_H
 #define USERSINFOJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "userbasejob.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersInfoJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersInfoJob : public UserBaseJob
 {
     Q_OBJECT
 public:
-    //TODO userId or Username
     explicit UsersInfoJob(QObject *parent = nullptr);
     ~UsersInfoJob() override;
 
@@ -41,21 +40,12 @@ public:
     Q_REQUIRED_RESULT bool canStart() const override;
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-    Q_REQUIRED_RESULT QString identifier() const;
-    void setIdentifier(const QString &identifier);
-
-    Q_REQUIRED_RESULT bool useUserName() const;
-    void setUseUserName(bool useUserName);
-
 Q_SIGNALS:
     void usersInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersInfoJob)
     void slotUserInfoFinished();
-    QString mIdentifier;
-    bool mUseUserName = false;
 };
 }
 #endif // USERSINFOJOB_H

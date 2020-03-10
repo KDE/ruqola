@@ -47,7 +47,7 @@ public:
 
     Q_REQUIRED_RESULT bool hasUserIdentifier() const;
 
-private:
+protected:
     UserInfo mUserInfo;
 };
 }

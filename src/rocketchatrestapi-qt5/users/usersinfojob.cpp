@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 UsersInfoJob::UsersInfoJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : UserBaseJob(parent)
 {
 }
 
@@ -72,34 +72,14 @@ void UsersInfoJob::slotUserInfoFinished()
     deleteLater();
 }
 
-bool UsersInfoJob::useUserName() const
-{
-    return mUseUserName;
-}
-
-void UsersInfoJob::setUseUserName(bool useUserName)
-{
-    mUseUserName = useUserName;
-}
-
-QString UsersInfoJob::identifier() const
-{
-    return mIdentifier;
-}
-
-void UsersInfoJob::setIdentifier(const QString &identifier)
-{
-    mIdentifier = identifier;
-}
-
 QNetworkRequest UsersInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
     QUrlQuery queryUrl;
-    if (mUseUserName) {
-        queryUrl.addQueryItem(QStringLiteral("username"), mIdentifier);
+    if (mUserInfo.userInfoType == UserBaseJob::UserInfoType::UserName) {
+        queryUrl.addQueryItem(QStringLiteral("username"), mUserInfo.userIdentifier);
     } else {
-        queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
+        queryUrl.addQueryItem(QStringLiteral("userId"), mUserInfo.userIdentifier);
     }
     url.setQuery(queryUrl);
 
@@ -116,7 +96,7 @@ QNetworkRequest UsersInfoJob::request() const
 
 bool UsersInfoJob::canStart() const
 {
-    if (mIdentifier.trimmed().isEmpty()) {
+    if (!hasUserIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersInfoJob: identifier is empty";
         return false;
     }

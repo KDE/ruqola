@@ -1065,8 +1065,10 @@ void RestApiRequest::userInfo(const QString &identifier, bool userName)
 {
     auto *job = new UsersInfoJob(this);
     initializeRestApiJob(job);
-    job->setIdentifier(identifier);
-    job->setUseUserName(userName);
+    UsersInfoJob::UserInfo info;
+    info.userIdentifier = identifier;
+    info.userInfoType = userName ? UsersInfoJob::UserInfoType::UserName : UsersInfoJob::UserInfoType::UserId;
+    job->setUserInfo(info);
     connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";

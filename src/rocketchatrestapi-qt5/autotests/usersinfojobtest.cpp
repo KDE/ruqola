@@ -35,16 +35,17 @@ void UsersInfoJobTest::shouldHaveDefaultValue()
     UsersInfoJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.identifier().isEmpty());
-    QVERIFY(!job.useUserName());
+    QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void UsersInfoJobTest::shouldGenerateRequest()
 {
     UsersInfoJob job;
-    const QString roomId = QStringLiteral("foo1");
-    job.setIdentifier(roomId);
+    UsersInfoJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo1");
+    info.userInfoType = UsersInfoJob::UserInfoType::UserId;
+    job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?userId=foo1")));
@@ -53,9 +54,10 @@ void UsersInfoJobTest::shouldGenerateRequest()
 void UsersInfoJobTest::shouldGenerateRequestUsername()
 {
     UsersInfoJob job;
-    const QString roomId = QStringLiteral("foo1");
-    job.setIdentifier(roomId);
-    job.setUseUserName(true);
+    UsersInfoJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo1");
+    info.userInfoType = UsersInfoJob::UserInfoType::UserName;
+    job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?username=foo1")));
