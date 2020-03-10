@@ -26,12 +26,12 @@
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersInfoJob : public UserBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UserInfoJob : public UserBaseJob
 {
     Q_OBJECT
 public:
-    explicit UsersInfoJob(QObject *parent = nullptr);
-    ~UsersInfoJob() override;
+    explicit UserInfoJob(QObject *parent = nullptr);
+    ~UserInfoJob() override;
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
@@ -44,7 +44,7 @@ Q_SIGNALS:
     void userInfoDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(UsersInfoJob)
+    Q_DISABLE_COPY(UserInfoJob)
     void slotUserInfoFinished();
 };
 }

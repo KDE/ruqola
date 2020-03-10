@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersinfojob.h"
+#include "userinfojob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -26,21 +26,21 @@
 #include <QUrlQuery>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-UsersInfoJob::UsersInfoJob(QObject *parent)
+UserInfoJob::UserInfoJob(QObject *parent)
     : UserBaseJob(parent)
 {
 }
 
-UsersInfoJob::~UsersInfoJob()
+UserInfoJob::~UserInfoJob()
 {
 }
 
-bool UsersInfoJob::requireHttpAuthentication() const
+bool UserInfoJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool UsersInfoJob::start()
+bool UserInfoJob::start()
 {
     if (!canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start usersinfo job";
@@ -48,12 +48,12 @@ bool UsersInfoJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &UsersInfoJob::slotUserInfoFinished);
+    connect(reply, &QNetworkReply::finished, this, &UserInfoJob::slotUserInfoFinished);
     addLoggerInfo(QByteArrayLiteral("UsersInfoJob: Ask info about me"));
     return true;
 }
 
-void UsersInfoJob::slotUserInfoFinished()
+void UserInfoJob::slotUserInfoFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -72,7 +72,7 @@ void UsersInfoJob::slotUserInfoFinished()
     deleteLater();
 }
 
-QNetworkRequest UsersInfoJob::request() const
+QNetworkRequest UserInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
     QUrlQuery queryUrl;
@@ -94,7 +94,7 @@ QNetworkRequest UsersInfoJob::request() const
     return request;
 }
 
-bool UsersInfoJob::canStart() const
+bool UserInfoJob::canStart() const
 {
     if (!hasUserIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersInfoJob: identifier is empty";

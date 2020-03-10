@@ -32,7 +32,7 @@
 #include "users/getavatarjob.h"
 #include "users/setavatarjob.h"
 #include "users/forgotpasswordjob.h"
-#include "users/usersinfojob.h"
+#include "users/userinfojob.h"
 #include "users/getpresencejob.h"
 #include "users/getusernamesuggestionjob.h"
 #include "users/setstatusjob.h"
@@ -1063,13 +1063,13 @@ void RestApiRequest::forgotPassword(const QString &email)
 
 void RestApiRequest::userInfo(const QString &identifier, bool userName)
 {
-    auto *job = new UsersInfoJob(this);
+    auto *job = new UserInfoJob(this);
     initializeRestApiJob(job);
-    UsersInfoJob::UserInfo info;
+    UserInfoJob::UserInfo info;
     info.userIdentifier = identifier;
-    info.userInfoType = userName ? UsersInfoJob::UserInfoType::UserName : UsersInfoJob::UserInfoType::UserId;
+    info.userInfoType = userName ? UserInfoJob::UserInfoType::UserName : UserInfoJob::UserInfoType::UserId;
     job->setUserInfo(info);
-    connect(job, &UsersInfoJob::userInfoDone, this, &RestApiRequest::userInfoDone);
+    connect(job, &UserInfoJob::userInfoDone, this, &RestApiRequest::userInfoDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
