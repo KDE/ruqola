@@ -22,11 +22,13 @@
 #include "roomwrapper.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "dialogs/directchannelinfodialog.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QLabel>
 #include <QMenu>
+#include <QPointer>
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)
@@ -116,8 +118,17 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
         QAction *conversationAction = new QAction(i18n("Conversation"), &menu);
         connect(conversationAction, &QAction::triggered, this, &UserLabel::slotOpenConversation);
         menu.addAction(conversationAction);
+
+        menu.addSeparator();
+
+        QAction *userInfoAction = new QAction(i18n("User Info"), &menu);
+        connect(userInfoAction, &QAction::triggered, this, &UserLabel::slotUserInfo);
+        menu.addAction(userInfoAction);
     }
     if (canManageUsersInRoom && !isAdirectChannel) {
+        if (!menu.isEmpty()) {
+            menu.addSeparator();
+        }
         const bool hasOwnerRole = mRoomWrapper->userHasOwnerRole(mUserId);
         QAction *removeAsUser = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
         connect(removeAsUser, &QAction::triggered, this, [this, hasOwnerRole]() {
@@ -146,9 +157,7 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
     }
     if (isNotMe) {
         if (!menu.isEmpty()) {
-            auto *separator = new QAction(&menu);
-            separator->setSeparator(true);
-            menu.addAction(separator);
+            menu.addSeparator();
         }
 
         //text: user_ignored ? i18n("Unignore") : i18n("Ignore")
@@ -157,4 +166,12 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(ignoreAction);
     }
     menu.exec(mapToGlobal(pos));
+}
+
+void UserLabel::slotUserInfo()
+{
+    QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
+    dlg->setUserName(mUserName);
+    dlg->exec();
+    delete dlg;
 }

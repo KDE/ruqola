@@ -39,6 +39,7 @@ private:
     void slotOpenConversation();
     void slotIgnoreUser();
     void slotRemoveFromRoom();
+    void slotUserInfo();
     QString mUserId;
     QString mUserName;
     RoomWrapper *mRoomWrapper = nullptr;
