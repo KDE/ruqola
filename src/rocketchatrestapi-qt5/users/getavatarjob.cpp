@@ -67,30 +67,14 @@ void GetAvatarJob::slotGetAvatar()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply && !reply->error()) {
-        const QByteArray data = reply->readAll();
-        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject.contains(QLatin1String("success"))) {
-            if (!replyObject[QStringLiteral("success")].toBool()) {
-                addLoggerWarning(QByteArrayLiteral("GetAvatarJob UserId: ") + mAvatarUserId.toUtf8() +  QByteArrayLiteral(" problem!") + replyJson.toJson(QJsonDocument::Indented));
-            } else {
-                addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " not implemented ! API changed !";
-            }
-            Q_EMIT redownloadAvatar();
+        const QUrl url = reply->url();
+        qDebug() << " url " << url;
+        if (url.isValid() && !url.scheme().isEmpty()) {
+            const QString userId = reply->property("userId").toString();
+            addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
+            Q_EMIT avatar(userId, url);
         } else {
-            // https://rocket.chat/docs/developer-guides/rest-api/users/getavatar/ shows a simple URL as a reply
-            QString str = QString::fromUtf8(data);
-            str.remove(QLatin1Char('"'));
-            const QUrl url(str);
-            if (url.isValid() && !url.scheme().isEmpty()) {
-                const QString userId = reply->property("userId").toString();
-                addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
-                Q_EMIT avatar(userId, url);
-            } else {
-                //TODO it can return a svg element: see "expected a URL, got something else: "<svg xmlns=http://www.w3.org/2000/svg viewBox=0 0 200 200>\n<rect width=100% height=100% fill=#3F51B5/>\n<text x=50% y=50% dy=0.36em text-anchor=middle pointer-events=none fill=#ffffff font-family='Helvetica', 'Arial', 'Lucida Grande', 'sans-serif' font-size=125>\nM\n</text>\n</svg>""
-                qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:" << str;
-            }
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
         }
     }
     if (reply) {
