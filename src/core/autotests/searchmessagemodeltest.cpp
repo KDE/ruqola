@@ -35,5 +35,5 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
     SearchMessageModel w;
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(!w.loadSearchMessageInProgress());
-    QVERIFY(!w.stringNotFound());
+    QVERIFY(w.stringNotFound());
 }
