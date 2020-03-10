@@ -77,7 +77,10 @@ RocketChatAccount *AvatarManager::account() const
 
 void AvatarManager::slotInsertAvatarUrl(const QString &userId, const QUrl &url)
 {
-    Q_EMIT insertAvatarUrl(userId, url);
+    if (!url.isEmpty()) {
+        Q_EMIT insertAvatarUrl(userId, url);
+    } //Else error for downloading => don't redownload it + continue.
+
     mAvatarDownloadUserIds.removeAll(userId);
     //qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
     if (!mAvatarDownloadUserIds.isEmpty()) {

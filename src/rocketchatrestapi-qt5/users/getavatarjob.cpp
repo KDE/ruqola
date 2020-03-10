@@ -66,18 +66,20 @@ bool GetAvatarJob::start()
 void GetAvatarJob::slotGetAvatar()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply && !reply->error()) {
-        const QUrl url = reply->url();
-        qDebug() << " url " << url;
-        if (url.isValid() && !url.scheme().isEmpty()) {
-            const QString userId = reply->property("userId").toString();
-            addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
-            Q_EMIT avatar(userId, url);
-        } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
-        }
-    }
     if (reply) {
+        const QString userId = reply->property("userId").toString();
+        if (!reply->error()) {
+            const QUrl url = reply->url();
+            if (url.isValid() && !url.scheme().isEmpty()) {
+                addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
+                Q_EMIT avatar(userId, url);
+            } else {
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
+            }
+        } else {
+            addLoggerWarning(QByteArrayLiteral("GetAvatarJob error: ") + userId.toUtf8());
+            Q_EMIT avatar(userId, QUrl());
+        }
         reply->deleteLater();
     }
     deleteLater();
