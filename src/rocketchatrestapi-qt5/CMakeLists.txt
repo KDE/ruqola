@@ -14,6 +14,7 @@ set (RocketChatRestApiQt_SRCS
     misc/owninfojob.cpp
     misc/settingsoauthjob.cpp
 
+    users/userbasejob.cpp
     users/getavatarjob.cpp
     users/setavatarjob.cpp
     users/forgotpasswordjob.cpp
