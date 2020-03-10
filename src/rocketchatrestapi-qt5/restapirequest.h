@@ -202,7 +202,7 @@ Q_SIGNALS:
     void channelListDone(const QJsonObject &obj);
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
-    void usersInfoDone(const QJsonObject &obj);
+    void userInfoDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);

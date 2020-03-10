@@ -41,7 +41,7 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
-    void usersInfoDone(const QJsonObject &obj);
+    void userInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersInfoJob)
