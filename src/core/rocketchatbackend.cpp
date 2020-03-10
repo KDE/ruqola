@@ -263,7 +263,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     const QString collection = object.value(QLatin1String("collection")).toString();
     //qDebug() << " void RocketChatBackend::slotAdded(const QJsonObject &object)" << object;
     if (collection == QLatin1String("stream-room-messages")) {
-        qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
+        qCDebug(RUQOLA_LOG) << mRocketChatAccount->accountName() << ":stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
         const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
         const QString username = fields.value(QLatin1String("username")).toString();
@@ -287,9 +287,9 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
-        qDebug() << "stream-notify-user: " << object;
+        //qDebug() << "stream-notify-user: " << object;
     } else if (collection == QLatin1String("stream-notify-all")) {
-        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user: " << object;
+        //qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-all: " << object;
         //TODO verify that all is ok !
     } else if (collection == QLatin1String("autocompleteRecords")) {
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -314,12 +314,11 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         file.parseFile(object);
         mFiles.append(file);
     } else if (collection == QLatin1String("stream-notify-room")) {
-        //TODO
-        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-room not implemented: "<< object;
+        //qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-room not implemented: "<< object;
     } else if (collection == QLatin1String("stream-notify-logged")) {
-        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-logged not implemented: "<< object;
+        //qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ": stream-notify-logged not implemented: "<< object;
     } else {
-        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "Unknown added element: "<< object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":Unknown added element: "<< object;
     }
 }
 
