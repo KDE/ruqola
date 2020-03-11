@@ -42,6 +42,7 @@
 #include "dialogs/autotranslateconfiguredialog.h"
 #include "dialogs/channelinfodialog.h"
 #include "dialogs/directchannelinfodialog.h"
+#include "dialogs/inviteusersdialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
 
@@ -55,6 +56,7 @@
 #include <QTemporaryFile>
 #include <QDir>
 #include <QImageWriter>
+
 
 
 RoomWidget::RoomWidget(QWidget *parent)
@@ -164,7 +166,19 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::AutoTranslate:
         slotConfigureAutoTranslate();
         break;
+    case RoomHeaderWidget::InviteUsers:
+        slotInviteUsers();
+        break;
     }
+}
+
+void RoomWidget::slotInviteUsers()
+{
+    QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(this);
+    dlg->setRoomId(mRoomId);
+    dlg->generateLink();
+    dlg->exec();
+    delete dlg;
 }
 
 void RoomWidget::slotConfigureAutoTranslate()

@@ -59,7 +59,6 @@ private:
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
     void slotStartVideoChat();
-    void slotGenerateInviteUsers();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -70,7 +69,6 @@ private:
     QAction *mAddUserInRooms = nullptr;
     QAction *mStartVideoChat = nullptr;
     QAction *mSaveAs = nullptr;
-    QAction *mInviteGenerateUrl = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;

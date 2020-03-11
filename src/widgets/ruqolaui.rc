@@ -19,8 +19,6 @@
    <Action name="create_new_channel" />
    <Separator/>
    <Action name="add_user_in_room" />
-   <Separator/>
-   <Action name="generate_invite" />
   </Menu>
   <Menu name="message" >
    <text>Message</text>

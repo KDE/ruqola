@@ -95,14 +95,19 @@ void ChannelActionPopupMenu::createMenu()
     connect(mAutoTranslate, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AutoTranslate);
     });
+
+    mInviteUsersGenerateUrlSeparator = createSeparator();
+    mMenu->addAction(mInviteUsersGenerateUrlSeparator);
+    mInviteUsersGenerateUrl = new QAction(i18n("Invite Users"), this);
+    mMenu->addAction(mInviteUsersGenerateUrl);
+    connect(mInviteUsersGenerateUrl, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::InviteUsers);
+    });
 }
 
 QAction *ChannelActionPopupMenu::createSeparator()
 {
-    QAction *separator = new QAction(this);
-    separator->setSeparator(true);
-    mMenu->addAction(separator);
-    return separator;
+    return mMenu->addSeparator();
 }
 
 QMenu *ChannelActionPopupMenu::menu() const
@@ -122,4 +127,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
     mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
+    //TODO fix me. We can't generate it if we are not owner
+    mInviteUsersGenerateUrl->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
+    mInviteUsersGenerateUrlSeparator->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
 }

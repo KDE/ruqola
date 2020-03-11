@@ -41,7 +41,8 @@ public:
         ShowThreads = 6,
         ShowAttachment = 7,
         Notification = 8,
-        AutoTranslate = 9
+        AutoTranslate = 9,
+        InviteUsers = 10,
     };
     Q_ENUM(ChannelActionType)
 

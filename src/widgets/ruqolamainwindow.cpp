@@ -37,7 +37,6 @@
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
-#include "dialogs/inviteusersdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -123,14 +122,12 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     mSaveAs->setEnabled(enabled);
     RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
     mAddUserInRooms->setEnabled(enabled && roomWrapper && roomWrapper->canBeModify());
-    mInviteGenerateUrl->setEnabled(enabled);
 }
 
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
     mStartVideoChat->setVisible(mCurrentRocketChatAccount->jitsiEnabled());
-    mInviteGenerateUrl->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -205,10 +202,6 @@ void RuqolaMainWindow::setupActions()
     mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
     connect(mStartVideoChat, &QAction::triggered, this, &RuqolaMainWindow::slotStartVideoChat);
     ac->addAction(QStringLiteral("video_chat"), mStartVideoChat);
-
-    mInviteGenerateUrl = new QAction(i18n("Invite Users"), this);
-    connect(mInviteGenerateUrl, &QAction::triggered, this, &RuqolaMainWindow::slotGenerateInviteUsers);
-    ac->addAction(QStringLiteral("generate_invite"), mInviteGenerateUrl);
 }
 
 void RuqolaMainWindow::slotAddUsersInRoom()
@@ -316,11 +309,3 @@ void RuqolaMainWindow::slotSaveAs()
     qWarning() << "RuqolaMainWindow::slotSaveAs not implemented yet ";
 }
 
-void RuqolaMainWindow::slotGenerateInviteUsers()
-{
-    QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(this);
-    dlg->setRoomId(mMainWidget->roomId());
-    dlg->generateLink();
-    dlg->exec();
-    delete dlg;
-}

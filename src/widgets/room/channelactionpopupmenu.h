@@ -55,6 +55,8 @@ private:
     QAction *mShowThreads = nullptr;
     QAction *mAutoTranslate = nullptr;
     QAction *mAutoTranslateSeparator = nullptr;
+    QAction *mInviteUsersGenerateUrl = nullptr;
+    QAction *mInviteUsersGenerateUrlSeparator = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
