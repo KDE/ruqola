@@ -95,6 +95,12 @@ void UserLabel::slotOpenConversation()
     Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(QStringLiteral("ruqola:/user/") + mUserName);
 }
 
+void UserLabel::slotBlockUser()
+{
+    const bool userIsBlocked = mRoomWrapper->blocker();
+    Ruqola::self()->rocketChatAccount()->blockUser(mRoomWrapper->roomId(), !userIsBlocked);
+}
+
 void UserLabel::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoomWrapper->userIsIgnored(mUserId);
@@ -166,6 +172,15 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
         QAction *ignoreAction = new QAction(userIsIgnored ? i18n("Unignore") : i18n("Ignore"), &menu);
         connect(ignoreAction, &QAction::triggered, this, &UserLabel::slotIgnoreUser);
         menu.addAction(ignoreAction);
+        if (isAdirectChannel) {
+            if (!menu.isEmpty()) {
+                menu.addSeparator();
+            }
+            const bool userIsBlocked = mRoomWrapper->blocker();
+            QAction *blockAction = new QAction(userIsBlocked ? i18n("Unblock User") : i18n("Block User"), &menu);
+            connect(blockAction, &QAction::triggered, this, &UserLabel::slotBlockUser);
+            menu.addAction(blockAction);
+        }
     }
     menu.exec(mapToGlobal(pos));
 }
