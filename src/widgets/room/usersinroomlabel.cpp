@@ -111,16 +111,18 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
     const bool canManageUsersInRoom = mRoomWrapper->canChangeRoles();
     const QString ownUserId = Ruqola::self()->rocketChatAccount()->userID();
     const bool isAdirectChannel = mRoomWrapper->channelType() == QStringLiteral("d");
-    const bool isNotMe = mUserId != ownUserId && !isAdirectChannel;
+    const bool isNotMe = mUserId != ownUserId;
     QMenu menu(this);
 
-    if (isNotMe) {
+    if (isNotMe && !isAdirectChannel) {
         QAction *conversationAction = new QAction(i18n("Conversation"), &menu);
         connect(conversationAction, &QAction::triggered, this, &UserLabel::slotOpenConversation);
         menu.addAction(conversationAction);
-
-        menu.addSeparator();
-
+    }
+    if (isNotMe) {
+        if (!menu.isEmpty()) {
+            menu.addSeparator();
+        }
         QAction *userInfoAction = new QAction(i18n("User Info"), &menu);
         connect(userInfoAction, &QAction::triggered, this, &UserLabel::slotUserInfo);
         menu.addAction(userInfoAction);
