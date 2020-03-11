@@ -25,6 +25,8 @@
 #include <QJsonObject>
 #include <QTest>
 
+#include <KColorScheme>
+
 QTEST_GUILESS_MAIN(TextConverterTest)
 
 TextConverterTest::TextConverterTest(QObject *parent)
@@ -84,19 +86,19 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                                         << QStringLiteral("http://www.kde.org");
 
     QTest::newRow("quotedcode1") << QStringLiteral("bla```foo```blub")
-        << QStringLiteral("<div>bla</div><div><code>foo</code></div><div>blub</div>") << QStringLiteral("www.kde.org");
+        << QStringLiteral("<div>bla</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div>blub</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode2") << QStringLiteral("bla\n```foo```bli")
-        << QStringLiteral("<div>bla</div><div><code>foo</code></div><div>bli</div>") << QStringLiteral("www.kde.org");
+        << QStringLiteral("<div>bla</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div>bli</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode3") << QStringLiteral("bla\n```foo```")
-        << QStringLiteral("<div>bla</div><div><code>foo</code></div>") << QStringLiteral("www.kde.org");
+        << QStringLiteral("<div>bla</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode4") << QStringLiteral("```foo```\nff")
-        << QStringLiteral("<div><code>foo</code></div><div>ff</div>") << QStringLiteral("www.kde.org");
+        << QStringLiteral("<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div>ff</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode5") << QStringLiteral("bla\n```\nfoo\n```\nff")
-        << QStringLiteral("<div>bla</div><div><code>foo</code></div><div>ff</div>") << QStringLiteral("www.kde.org");
+        << QStringLiteral("<div>bla</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div>ff</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode6") << QStringLiteral("*foo*\n```\nfoo\n```\n*bar*\n```blub```\n*asdf*")
-                                 << QStringLiteral("<div><b>*foo*</b></div><div><code>foo</code></div><div><b>*bar*</b></div><div><code>blub</code></div><div><b>*asdf*</b></div>") << QStringLiteral("www.kde.org");
+                                 << QStringLiteral("<div><b>*foo*</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div><b>*bar*</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table><div><b>*asdf*</b></div>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode7") << QStringLiteral(":vader:\n```\n:vader:\n```\n:vader:")
-                                 << QStringLiteral("<div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div><div><code>:vader:</code></div><div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div>") << QStringLiteral("www.kde.org");
+                                 << QStringLiteral("<div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>:vader:</code></td></tr></table><div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div>") << QStringLiteral("www.kde.org");
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()
@@ -104,6 +106,17 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     QFETCH(QString, input);
     QFETCH(QString, output);
     QFETCH(QString, serverUrl);
+
+    {
+        KColorScheme scheme;
+        const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
+        const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
+
+        output.prepend(QLatin1String("<qt>"));
+        output.append(QLatin1String("</qt>"));
+        output.replace(QLatin1String("$BGCOLOR$"), codeBackgroundColor);
+        output.replace(QLatin1String("$BORDERCOLOR$"), codeBorderColor);
+    }
 
     //Load emoji
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
@@ -118,8 +131,5 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.setServerUrl(serverUrl);
 
     TextConverter w(&manager);
-
-    output.prepend(QLatin1String("<qt>"));
-    output.append(QLatin1String("</qt>"));
     QCOMPARE(w.convertMessageText(input, QString(), {}), output);
 }

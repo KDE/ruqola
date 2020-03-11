@@ -30,6 +30,8 @@
 #include <KSyntaxHighlighting/Theme>
 #include <KSyntaxHighlighting/Definition>
 
+#include <KColorScheme>
+
 TextConverter::TextConverter(EmojiManager *emojiManager)
     : mEmojiManager(emojiManager)
 {
@@ -70,6 +72,17 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     QTextStream richTextStream(&richText);
     auto addHtmlChunk = [&richTextStream](const QString &htmlChunk) {
         richTextStream << QLatin1String("<div>") << htmlChunk << QLatin1String("</div>");
+    };
+    KColorScheme scheme;
+    const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
+    const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
+    auto addCodeChunk = [&](const QString &htmlChunk) {
+        // Qt's support for borders is limited to tables, so we have to jump through some hoops...
+        richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor
+                       << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
+                       << QLatin1String("'>")
+                       << htmlChunk
+                       << QLatin1String("</td></tr></table>");
     };
     auto addNonCodeChunk = [&](QString chunk) {
         chunk = chunk.trimmed();
@@ -112,7 +125,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
             stream.seek(0);
             highlighted.clear();
             highLighter.highlight(codeBlock);
-            addHtmlChunk(highlighted);
+            addCodeChunk(highlighted);
         }
         addNonCodeChunk(str.mid(startFrom));
     } else {
