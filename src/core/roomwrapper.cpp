@@ -210,3 +210,9 @@ bool RoomWrapper::autoTranslate() const
 {
     return mRoom->autoTranslate();
 }
+
+
+bool RoomWrapper::userIsIgnored(const QString &userId)
+{
+    return mRoom->userIsIgnored(userId);
+}
