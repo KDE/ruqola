@@ -18,20 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWVIDEODIALOG_H
-#define SHOWVIDEODIALOG_H
 
-#include <QDialog>
-#include "libruqolawidgets_private_export.h"
-class ShowVideoWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoDialog : public QDialog
+#include "showvideodialogtest.h"
+#include "dialogs/showvideodialog.h"
+#include <QTest>
+QTEST_MAIN(ShowVideoDialogTest)
+ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ShowVideoDialog(QWidget *parent = nullptr);
-    ~ShowVideoDialog();
-private:
-    ShowVideoWidget *mShowVideoWidget = nullptr;
-};
 
-#endif // SHOWVIDEODIALOG_H
+}
+
+void ShowVideoDialogTest::shouldHaveDefaultValues()
+{
+    ShowVideoDialog w;
+}
