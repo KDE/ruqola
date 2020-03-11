@@ -181,6 +181,11 @@ void RoomWidget::slotInviteUsers()
     delete dlg;
 }
 
+void RoomWidget::updateListView()
+{
+    mMessageListView->viewport()->update();
+}
+
 void RoomWidget::slotConfigureAutoTranslate()
 {
     QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(this);
@@ -416,6 +421,9 @@ void RoomWidget::connectRoomWrapper()
         connect(mRoomWrapper, &RoomWrapper::encryptedChanged, this, [this]() {
             mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
         });
+        connect(mRoomWrapper, &RoomWrapper::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
+        connect(mRoomWrapper, &RoomWrapper::autoTranslateChanged, this, &RoomWidget::updateListView);
+        connect(mRoomWrapper, &RoomWrapper::ignoredUsersChanged, this, &RoomWidget::updateListView);
     }
     updateRoomHeader();
 }
