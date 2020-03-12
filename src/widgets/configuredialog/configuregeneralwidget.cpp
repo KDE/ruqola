@@ -32,7 +32,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSetOnlineForAllAccount = new QCheckBox(i18n("Set Online Account"), this);
+    mSetOnlineForAllAccount = new QCheckBox(i18n("Set Online Account on Startup"), this);
     mSetOnlineForAllAccount->setObjectName(QStringLiteral("mSetOnlineForAllAccount"));
     mainLayout->addWidget(mSetOnlineForAllAccount);
 
