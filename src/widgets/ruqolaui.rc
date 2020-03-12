@@ -32,7 +32,6 @@
  <ToolBar noMerge="1" name="mainToolBar" fullWidth="true" ><text>Main Toolbar</text>
   <Action name="create_new_channel" />
   <Action name="channel_info" />
-  <Action name="add_user_in_room" />
  </ToolBar>
 </gui>
 

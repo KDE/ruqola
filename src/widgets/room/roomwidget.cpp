@@ -43,6 +43,7 @@
 #include "dialogs/channelinfodialog.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/inviteusersdialog.h"
+#include "dialogs/addusersinroomdialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
 
@@ -56,6 +57,7 @@
 #include <QTemporaryFile>
 #include <QDir>
 #include <QImageWriter>
+
 
 
 
@@ -169,7 +171,22 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::InviteUsers:
         slotInviteUsers();
         break;
+    case RoomHeaderWidget::AddUsersInRoom:
+        slotAddUsersInRoom();
+        break;
     }
+}
+
+void RoomWidget::slotAddUsersInRoom()
+{
+    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
+    if (dlg->exec()) {
+        const QStringList users = dlg->users();
+        for (const QString &user : users) {
+            Ruqola::self()->rocketChatAccount()->addUserToRoom(user, mRoomId, mRoomType);
+        }
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotInviteUsers()
@@ -401,6 +418,7 @@ void RoomWidget::setRoomId(const QString &roomId)
     mMessageLineWidget->setRoomId(roomId);
     mMessageListView->setChannelSelected(roomId);
     mUsersInRoomFlowWidget->setRoomWrapper(mRoomWrapper);
+    mRoomHeaderWidget->setRoomWrapper(mRoomWrapper);
 }
 
 void RoomWidget::connectRoomWrapper()

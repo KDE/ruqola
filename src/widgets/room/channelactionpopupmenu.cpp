@@ -19,6 +19,7 @@
 */
 
 #include "channelactionpopupmenu.h"
+#include "roomwrapper.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QMenu>
@@ -103,6 +104,15 @@ void ChannelActionPopupMenu::createMenu()
     connect(mInviteUsersGenerateUrl, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::InviteUsers);
     });
+
+    mAddUserInRoomsSeparator = createSeparator();
+    mAddUserInRooms = new QAction(i18n("Add Users in Channel..."), this);
+    mMenu->addAction(mAddUserInRoomsSeparator);
+    connect(mAddUserInRooms, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::AddUsersInRoom);
+    });
+    mMenu->addAction(mAddUserInRooms);
+
 }
 
 QAction *ChannelActionPopupMenu::createSeparator()
@@ -113,6 +123,11 @@ QAction *ChannelActionPopupMenu::createSeparator()
 QMenu *ChannelActionPopupMenu::menu() const
 {
     return mMenu;
+}
+
+void ChannelActionPopupMenu::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mRoomWrapper = roomWrapper;
 }
 
 void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *account)
@@ -130,4 +145,8 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     //TODO fix me. We can't generate it if we are not owner
     mInviteUsersGenerateUrl->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
     mInviteUsersGenerateUrlSeparator->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
+
+    mAddUserInRoomsSeparator->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
+    mAddUserInRooms->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
+
 }

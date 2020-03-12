@@ -21,6 +21,7 @@
 #include "roomheaderwidget.h"
 #include "ruqolawidgets_debug.h"
 #include "channelactionpopupmenu.h"
+#include "roomwrapper.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QToolButton>
@@ -182,6 +183,11 @@ void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
 {
     mFavoriteButton->setVisible(!isDiscussion);
     mDiscussionBackButton->setVisible(isDiscussion);
+}
+
+void RoomHeaderWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mChannelActionPopupMenu->setRoomWrapper(roomWrapper);
 }
 
 void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)

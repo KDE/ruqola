@@ -35,7 +35,6 @@
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/channelpassworddialog.h"
-#include "dialogs/addusersinroomdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -120,8 +119,6 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
     mStartVideoChat->setEnabled(enabled);
     mSaveAs->setEnabled(enabled);
-    RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
-    mAddUserInRooms->setEnabled(enabled && roomWrapper && roomWrapper->canBeModify());
 }
 
 void RuqolaMainWindow::updateActions()
@@ -190,10 +187,6 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
-    mAddUserInRooms = new QAction(i18n("Add Users in Channel..."), this);
-    connect(mAddUserInRooms, &QAction::triggered, this, &RuqolaMainWindow::slotAddUsersInRoom);
-    ac->addAction(QStringLiteral("add_user_in_room"), mAddUserInRooms);
-
     auto clearAlerts = new QAction(i18n("Mark all channels read"), this);
     ac->setDefaultShortcut(clearAlerts, Qt::SHIFT + Qt::Key_Escape);
     connect(clearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
@@ -202,18 +195,6 @@ void RuqolaMainWindow::setupActions()
     mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
     connect(mStartVideoChat, &QAction::triggered, this, &RuqolaMainWindow::slotStartVideoChat);
     ac->addAction(QStringLiteral("video_chat"), mStartVideoChat);
-}
-
-void RuqolaMainWindow::slotAddUsersInRoom()
-{
-    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
-    if (dlg->exec()) {
-        const QStringList users = dlg->users();
-        for (const QString &user : users) {
-            Ruqola::self()->rocketChatAccount()->addUserToRoom(user, mMainWidget->roomId(), mMainWidget->roomType());
-        }
-    }
-    delete dlg;
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()

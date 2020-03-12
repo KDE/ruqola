@@ -28,6 +28,7 @@ class QLabel;
 class QToolButton;
 class ChannelActionPopupMenu;
 class RocketChatAccount;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -43,6 +44,7 @@ public:
         Notification = 8,
         AutoTranslate = 9,
         InviteUsers = 10,
+        AddUsersInRoom = 11,
     };
     Q_ENUM(ChannelActionType)
 
@@ -59,6 +61,8 @@ public:
     void setIsDiscussion(bool isDiscussion);
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void setRoomWrapper(RoomWrapper *roomWrapper);
+
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);

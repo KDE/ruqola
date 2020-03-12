@@ -27,6 +27,7 @@
 #include "roomheaderwidget.h"
 class QMenu;
 class QAction;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelActionPopupMenu : public QObject
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
     QMenu *menu() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
+    void setRoomWrapper(RoomWrapper *roomWrapper);
 Q_SIGNALS:
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
 
@@ -57,6 +59,9 @@ private:
     QAction *mAutoTranslateSeparator = nullptr;
     QAction *mInviteUsersGenerateUrl = nullptr;
     QAction *mInviteUsersGenerateUrlSeparator = nullptr;
+    QAction *mAddUserInRoomsSeparator = nullptr;
+    QAction *mAddUserInRooms = nullptr;
+    RoomWrapper *mRoomWrapper = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

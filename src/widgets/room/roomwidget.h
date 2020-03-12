@@ -86,6 +86,7 @@ private:
     void slotConfigureAutoTranslate();
     void slotChannelInfoRequested();
     void slotInviteUsers();
+    void slotAddUsersInRoom();
     void updateListView();
 
     QString mRoomId;
