@@ -130,6 +130,7 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addSeparator();
         }
         QAction *userInfoAction = new QAction(i18n("User Info"), &menu);
+        userInfoAction->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
         connect(userInfoAction, &QAction::triggered, this, &UserLabel::slotUserInfo);
         menu.addAction(userInfoAction);
     }

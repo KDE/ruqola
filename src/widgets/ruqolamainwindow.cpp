@@ -176,6 +176,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("search_channel"), mSearchChannel);
 
     mCreateNewChannel = new QAction(i18n("Create New Channel..."), this);
+    mCreateNewChannel->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
