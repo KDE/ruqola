@@ -46,22 +46,27 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
 
     mName = new QLabel(this);
     mName->setObjectName(QStringLiteral("mName"));
+    mName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("Name:"), mName);
 
     mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("UserName:"), mUserName);
 
     mStatus = new QLabel(this);
     mStatus->setObjectName(QStringLiteral("mStatus"));
+    mStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("Status:"), mStatus);
 
     mCustomStatus = new QLabel(this);
     mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
+    mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
 
     mTimeZone = new QLabel(this);
     mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
+    mTimeZone->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("TimeZone:"), mTimeZone);
 }
 
@@ -108,7 +113,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     mUserName->setText(user.userName());
     mCustomStatus->setText(user.statusText());
     mStatus->setText(user.status());
-    mTimeZone->setText((user.utcOffset() > 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
+    mTimeZone->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
     //Download avatar ?
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(user.userId()));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
