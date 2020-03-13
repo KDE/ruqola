@@ -49,6 +49,8 @@ static void drawTimestamp(QPainter *painter, const QString &timeStampText, const
 
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    //TODO add icon from Mimetype.
+
     // user
     // alias
     // date
@@ -59,10 +61,9 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     drawBackground(painter, optionCopy, index);
 
-    // const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
     const Layout layout = doLayout(option, index);
 
-    //TODO draw filename
+    //draw filename
     painter->drawText(basicMargin(), layout.attachmentNameY, layout.attachmentName);
 
     // Draw the sender
