@@ -19,8 +19,9 @@
 */
 
 #include "showvideowidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
+
+#include <QVBoxLayout>
 #include <QVideoWidget>
 #include <QPushButton>
 #include <QSlider>
@@ -136,7 +137,7 @@ void ShowVideoWidget::handleError()
 {
     mPlayButton->setEnabled(false);
     const QString errorString = mMediaPlayer->errorString();
-    QString message = QStringLiteral("Error: "); //i18n ?
+    QString message = i18n("Error: "); //i18n ?
     if (errorString.isEmpty())
         message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
     else
