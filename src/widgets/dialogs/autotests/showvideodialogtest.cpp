@@ -21,7 +21,10 @@
 
 #include "showvideodialogtest.h"
 #include "dialogs/showvideodialog.h"
+#include "dialogs/showvideowidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowVideoDialogTest)
 ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)
     : QObject(parent)
@@ -32,4 +35,14 @@ ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)
 void ShowVideoDialogTest::shouldHaveDefaultValues()
 {
     ShowVideoDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto *mShowVideoWidget = w.findChild<ShowVideoWidget *>(QStringLiteral("mShowVideoWidget"));
+    QVERIFY(mShowVideoWidget);
+
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
