@@ -32,6 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 public:
     explicit ShowVideoWidget(QWidget *parent = nullptr);
     ~ShowVideoWidget();
+    void setVideoPath(const QString &videoPath);
 };
 
 #endif // SHOWVIDEOWIDGET_H

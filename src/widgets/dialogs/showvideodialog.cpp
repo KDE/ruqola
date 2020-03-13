@@ -45,3 +45,8 @@ ShowVideoDialog::~ShowVideoDialog()
 {
 
 }
+
+void ShowVideoDialog::setVideoPath(const QString &videoPath)
+{
+    mShowVideoWidget->setVideoPath(videoPath);
+}

@@ -34,3 +34,8 @@ ShowVideoWidget::~ShowVideoWidget()
 {
 
 }
+
+void ShowVideoWidget::setVideoPath(const QString &videoPath)
+{
+    //TODO
+}
