@@ -22,17 +22,32 @@
 #define SHOWVIDEOWIDGET_H
 
 #include <QWidget>
-
+#include <QMediaPlayer>
 #include "libruqolawidgets_private_export.h"
-class QLabel;
+class QMediaPlayer;
+class QPushButton;
 class QSlider;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ShowVideoWidget(QWidget *parent = nullptr);
     ~ShowVideoWidget();
-    void setVideoPath(const QString &videoPath);
+    void setVideoUrl(const QUrl &videoPath);
+
+private:
+    void mediaStateChanged(QMediaPlayer::State state);
+    void positionChanged(qint64 position);
+    void durationChanged(qint64 duration);
+    void setPosition(int position);
+    void handleError();
+    void play();
+
+    QMediaPlayer *mMediaPlayer = nullptr;
+    QPushButton *mPlayButton = nullptr;
+    QSlider *mPositionSlider = nullptr;
+    QLabel *mErrorLabel = nullptr;
 };
 
 #endif // SHOWVIDEOWIDGET_H

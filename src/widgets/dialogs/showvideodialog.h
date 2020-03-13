@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoDialog : public QDialog
 public:
     explicit ShowVideoDialog(QWidget *parent = nullptr);
     ~ShowVideoDialog();
-    void setVideoPath(const QString &videoPath);
+    void setVideoUrl(const QUrl &videoPath);
 private:
     ShowVideoWidget *mShowVideoWidget = nullptr;
 };

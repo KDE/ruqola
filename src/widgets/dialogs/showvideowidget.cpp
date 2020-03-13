@@ -21,6 +21,11 @@
 #include "showvideowidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QVideoWidget>
+#include <QPushButton>
+#include <QSlider>
+#include <QStyle>
+#include <QLabel>
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +33,51 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+
+    mMediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
+    mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
+    QVideoWidget *videoWidget = new QVideoWidget(this);
+    videoWidget->setObjectName(QStringLiteral("videoWidget"));
+
+    mainLayout->addWidget(videoWidget);
+
+
+    QBoxLayout *controlLayout = new QHBoxLayout;
+    controlLayout->setObjectName(QStringLiteral("controlLayout"));
+    controlLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(controlLayout);
+
+    mPlayButton = new QPushButton(this);
+    mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
+    mPlayButton->setEnabled(false);
+    mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+
+    controlLayout->addWidget(mPlayButton);
+    connect(mPlayButton, &QAbstractButton::clicked,
+            this, &ShowVideoWidget::play);
+
+    mPositionSlider = new QSlider(Qt::Horizontal, this);
+    mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
+    mPositionSlider->setRange(0, 0);
+    controlLayout->addWidget(mPositionSlider);
+
+
+    connect(mPositionSlider, &QAbstractSlider::sliderMoved,
+            this, &ShowVideoWidget::setPosition);
+
+    mErrorLabel = new QLabel(this);
+    mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
+    mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+    mainLayout->addWidget(mErrorLabel);
+    mMediaPlayer->setVideoOutput(videoWidget);
+    connect(mMediaPlayer, &QMediaPlayer::stateChanged,
+            this, &ShowVideoWidget::mediaStateChanged);
+    connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::positionChanged);
+    connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
+    connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error),
+            this, &ShowVideoWidget::handleError);
+
 }
 
 ShowVideoWidget::~ShowVideoWidget()
@@ -35,7 +85,62 @@ ShowVideoWidget::~ShowVideoWidget()
 
 }
 
-void ShowVideoWidget::setVideoPath(const QString &videoPath)
+void ShowVideoWidget::setVideoUrl(const QUrl &url)
 {
-    //TODO
+    mErrorLabel->setText(QString());
+    setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
+    mMediaPlayer->setMedia(url);
+    mPlayButton->setEnabled(true);
 }
+
+void ShowVideoWidget::play()
+{
+    switch (mMediaPlayer->state()) {
+    case QMediaPlayer::PlayingState:
+        mMediaPlayer->pause();
+        break;
+    default:
+        mMediaPlayer->play();
+        break;
+    }
+}
+
+void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
+{
+    switch(state) {
+    case QMediaPlayer::PlayingState:
+        mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
+        break;
+    default:
+        mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+        break;
+    }
+}
+
+void ShowVideoWidget::positionChanged(qint64 position)
+{
+    mPositionSlider->setValue(position);
+}
+
+void ShowVideoWidget::durationChanged(qint64 duration)
+{
+    mPositionSlider->setRange(0, duration);
+}
+
+void ShowVideoWidget::setPosition(int position)
+{
+    mMediaPlayer->setPosition(position);
+}
+
+void ShowVideoWidget::handleError()
+{
+    mPlayButton->setEnabled(false);
+    const QString errorString = mMediaPlayer->errorString();
+    QString message = QStringLiteral("Error: "); //i18n ?
+    if (errorString.isEmpty())
+        message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
+    else
+        message += errorString;
+    mErrorLabel->setText(message);
+}
+
