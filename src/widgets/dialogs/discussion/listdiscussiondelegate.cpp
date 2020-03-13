@@ -58,3 +58,32 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 }
+
+bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    //TODO
+    return false;
+}
+
+QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    // Note: option.rect in this method is huge (as big as the viewport)
+    const Layout layout = doLayout(option, index);
+
+    int additionalHeight = 0;
+    // A little bit of margin below the very last item, it just looks better
+    if (index.row() == index.model()->rowCount() - 1) {
+        additionalHeight += 4;
+    }
+
+//    const int contentsHeight = layout.timeStampY /* + layout.senderY + layout.attachmentNameY*/ - option.rect.y();
+
+    return QSize(option.rect.width(),
+                 /*contentsHeight +*/ additionalHeight);
+}
+
+ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    //TODO
+    return {};
+}
