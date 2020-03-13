@@ -47,6 +47,12 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     italicFont.setItalic(true);
     painter->setFont(italicFont);
 
+    const QPen oldPen = painter->pen();
+    QColor col = painter->pen().color();
+    col.setAlpha(128);
+    painter->setPen(col);
+
+
     const QString parameter = index.data(CommandsModel::Parameters).toString();
     const int xText = option.rect.x() + 3 * margin + commandWidth;
     painter->drawText(xText, defaultCharHeight, parameter);
@@ -58,4 +64,5 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 
     painter->drawText(option.rect.width() - descriptionWidth - margin, defaultCharHeight, description);
 
+    painter->setPen(oldPen);
 }
