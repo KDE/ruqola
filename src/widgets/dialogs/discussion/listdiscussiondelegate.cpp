@@ -19,6 +19,7 @@
 */
 #include "listdiscussiondelegate.h"
 #include <QPainter>
+#include <QMouseEvent>
 #include "model/discussionsmodel.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
@@ -28,6 +29,21 @@ ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
 
 ListDiscussionDelegate::~ListDiscussionDelegate()
 {
+}
+
+static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
+{
+    const QPen oldPen = painter->pen();
+    QColor col = painter->pen().color();
+    col.setAlpha(128); // TimestampText.qml had opacity: .5
+    painter->setPen(col);
+    painter->drawText(timeStampPos, timeStampText);
+    painter->setPen(oldPen);
+}
+
+static qreal basicMargin()
+{
+    return 8;
 }
 
 // [date]
@@ -61,8 +77,12 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
 bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    //TODO
-    return false;
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        auto *mev = static_cast<QMouseEvent *>(event);
+        //TODO
+    }
+    return QItemDelegate::editorEvent(event, model, option, index);
 }
 
 QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
