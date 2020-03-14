@@ -36,6 +36,9 @@ public:
 
 private:
     struct Layout {
+        //Icon mimetype
+        qreal mimetypeHeight = 0;
+
         //Attachment name
         QString attachmentName;
         qreal attachmentNameY = 0;

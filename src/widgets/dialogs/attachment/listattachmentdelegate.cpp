@@ -18,9 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 #include "listattachmentdelegate.h"
+#include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QStyle>
 #include "model/filesforroommodel.h"
+#include <KIconLoader>
 
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -49,8 +52,6 @@ static void drawTimestamp(QPainter *painter, const QString &timeStampText, const
 
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    //TODO add icon from Mimetype.
-
     // user
     // alias
     // date
@@ -62,19 +63,34 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     drawBackground(painter, optionCopy, index);
 
     const Layout layout = doLayout(option, index);
+    const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
+    QPixmap pix;
+    if (mimeType.isValid()) {
+        pix = KIconLoader::global()->loadMimeTypeIcon(mimeType.iconName(), KIconLoader::Desktop);
+    } else {
+        pix = QIcon::fromTheme(QStringLiteral("unknown")).pixmap(layout.mimetypeHeight, layout.mimetypeHeight);
+    }
+
+    // Draw the pixmap
+    painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
+
+
+
 
     //draw filename
-    painter->drawText(basicMargin(), layout.attachmentNameY, layout.attachmentName);
+    painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.attachmentNameY, layout.attachmentName);
 
     // Draw the sender
     const QFont oldFont = painter->font();
     painter->setFont(layout.senderFont);
     //TODO fix me timeStampHeight
-    painter->drawText(basicMargin(), layout.senderY, layout.senderText);
+    painter->drawText(basicMargin() + option.rect.left(), layout.senderY, layout.senderText);
     painter->setFont(oldFont);
 
     // Timestamp
-    drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin(), layout.timeStampY));
+    drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
 
     painter->restore();
 }
@@ -124,6 +140,9 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     // Timestamp
     layout.timeStampText = file->uploadedDateTimeStr();
     layout.timeStampY = layout.senderY + option.fontMetrics.height();
+
+    layout.mimetypeHeight = option.rect.height();
+    usableRect.setLeft(layout.mimetypeHeight);
 
     return layout;
 }

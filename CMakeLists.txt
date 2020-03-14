@@ -67,17 +67,12 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     I18n
     Crash
     Notifications
+    IconThemes
     SyntaxHighlighting
 )
 
 if (NOT ANDROID)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DocTools)
-endif()
-
-if (WIN32 OR APPLE)
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-        IconThemes
-    )
 endif()
 
 find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
