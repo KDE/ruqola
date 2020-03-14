@@ -89,7 +89,8 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
 
-    //TOOD draw Icon.
+    // draw Icon.
+    // TODO increase size of icon ?
 
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     mDownloadIcon.paint(painter, QRect(option.rect.width() - iconSize, option.rect.y(), iconSize, iconSize));
@@ -103,6 +104,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
+        //TODO check if icon is selected => need mDownloadIcon Rect .
         //TODO
     }
     return QItemDelegate::editorEvent(event, model, option, index);
