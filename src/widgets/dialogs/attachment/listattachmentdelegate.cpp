@@ -62,6 +62,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     drawBackground(painter, optionCopy, index);
 
+    // Draw Mimetype
     const Layout layout = doLayout(option, index);
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
     QMimeDatabase db;
@@ -73,11 +74,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         pix = QIcon::fromTheme(QStringLiteral("unknown")).pixmap(layout.mimetypeHeight, layout.mimetypeHeight);
     }
 
-    // Draw the pixmap
     painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
-
-
-
 
     //draw filename
     painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.attachmentNameY, layout.attachmentName);
@@ -86,11 +83,17 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const QFont oldFont = painter->font();
     painter->setFont(layout.senderFont);
     //TODO fix me timeStampHeight
-    painter->drawText(basicMargin() + option.rect.left(), layout.senderY, layout.senderText);
+    painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.senderY, layout.senderText);
     painter->setFont(oldFont);
 
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
+
+    //TOOD draw Icon.
+
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    mDownloadIcon.paint(painter, QRect(option.rect.width() - iconSize, option.rect.y(), iconSize, iconSize));
+    painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
 
     painter->restore();
 }
