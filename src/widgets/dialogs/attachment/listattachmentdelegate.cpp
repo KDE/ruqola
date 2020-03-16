@@ -18,12 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 #include "listattachmentdelegate.h"
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
 #include "model/filesforroommodel.h"
 #include <KIconLoader>
+#include <KLocalizedString>
 
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -102,8 +105,23 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
-        //TODO check if icon is selected => need mDownloadIcon Rect .
-        //TODO
+
+        const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+
+        const Layout layout = doLayout(option, index);
+
+        if (layout.downloadAttachmentRect.contains(mev->pos())) {
+            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            const QString fileName = QFileDialog::getSaveFileName(parentWidget, i18n("Save Attachment"));
+            if (!fileName.isEmpty()) {
+                QFile::remove(fileName); // copy() doesn't overwrite
+                QFile sourceFile(file->url());
+                if (!sourceFile.copy(file->url())) {
+                    QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
+                }
+            }
+            return true;
+        }
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }
