@@ -24,12 +24,10 @@ using namespace RocketChatRestApi;
 UserBaseJob::UserBaseJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 UserBaseJob::~UserBaseJob()
 {
-
 }
 
 UserBaseJob::UserInfo UserBaseJob::userInfo() const
@@ -46,4 +44,3 @@ bool UserBaseJob::hasUserIdentifier() const
 {
     return !mUserInfo.userIdentifier.isEmpty() && (mUserInfo.userInfoType != UserBaseJob::UserInfoType::Unknown);
 }
-

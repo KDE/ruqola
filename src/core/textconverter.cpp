@@ -71,33 +71,32 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     QString richText;
     QTextStream richTextStream(&richText);
     auto addHtmlChunk = [&richTextStream](const QString &htmlChunk) {
-        richTextStream << QLatin1String("<div>") << htmlChunk << QLatin1String("</div>");
-    };
+                            richTextStream << QLatin1String("<div>") << htmlChunk << QLatin1String("</div>");
+                        };
     KColorScheme scheme;
     const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
     const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
     auto addCodeChunk = [&](const QString &htmlChunk) {
-        // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-        richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor
-                       << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
-                       << QLatin1String("'>")
-                       << htmlChunk
-                       << QLatin1String("</td></tr></table>");
-    };
+                            // Qt's support for borders is limited to tables, so we have to jump through some hoops...
+                            richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor
+                                           << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
+                                           << QLatin1String("'>")
+                                           << htmlChunk
+                                           << QLatin1String("</td></tr></table>");
+                        };
     auto addNonCodeChunk = [&](QString chunk) {
-        chunk = chunk.trimmed();
-        if (chunk.isEmpty()) {
-            return;
-        }
-        auto htmlChunk = Utils::generateRichText(chunk, userName);
-        if (mEmojiManager) {
-            mEmojiManager->replaceEmojis(&htmlChunk);
-        }
-        addHtmlChunk(htmlChunk);
-    };
+                               chunk = chunk.trimmed();
+                               if (chunk.isEmpty()) {
+                                   return;
+                               }
+                               auto htmlChunk = Utils::generateRichText(chunk, userName);
+                               if (mEmojiManager) {
+                                   mEmojiManager->replaceEmojis(&htmlChunk);
+                               }
+                               addHtmlChunk(htmlChunk);
+                           };
 
     if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
-
         QString highlighted;
         QTextStream stream(&highlighted);
         TextHighlighter highLighter(&stream);

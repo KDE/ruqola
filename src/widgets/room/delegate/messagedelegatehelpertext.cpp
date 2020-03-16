@@ -300,10 +300,10 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
     QString formattedTooltip;
     QTextStream stream(&formattedTooltip);
     auto addLine = [&](const QString &line) {
-        if (!line.isEmpty()) {
-            stream << QLatin1String("<p>") << line << QLatin1String("</p>");
-        }
-    };
+                       if (!line.isEmpty()) {
+                           stream << QLatin1String("<p>") << line << QLatin1String("</p>");
+                       }
+                   };
 
     stream << QLatin1String("<qt>");
     addLine(tooltip);

@@ -35,14 +35,12 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-
     mMediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
     QVideoWidget *videoWidget = new QVideoWidget(this);
     videoWidget->setObjectName(QStringLiteral("videoWidget"));
 
     mainLayout->addWidget(videoWidget);
-
 
     QBoxLayout *controlLayout = new QHBoxLayout;
     controlLayout->setObjectName(QStringLiteral("controlLayout"));
@@ -63,7 +61,6 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mPositionSlider->setRange(0, 0);
     controlLayout->addWidget(mPositionSlider);
 
-
     connect(mPositionSlider, &QAbstractSlider::sliderMoved,
             this, &ShowVideoWidget::setPosition);
 
@@ -78,12 +75,10 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
     connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error),
             this, &ShowVideoWidget::handleError);
-
 }
 
 ShowVideoWidget::~ShowVideoWidget()
 {
-
 }
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)
@@ -108,7 +103,7 @@ void ShowVideoWidget::play()
 
 void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
 {
-    switch(state) {
+    switch (state) {
     case QMediaPlayer::PlayingState:
         mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
         break;
@@ -138,10 +133,10 @@ void ShowVideoWidget::handleError()
     mPlayButton->setEnabled(false);
     const QString errorString = mMediaPlayer->errorString();
     QString message = i18n("Error: "); //i18n ?
-    if (errorString.isEmpty())
+    if (errorString.isEmpty()) {
         message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
-    else
+    } else {
         message += errorString;
+    }
     mErrorLabel->setText(message);
 }
-

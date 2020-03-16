@@ -290,4 +290,3 @@ void RuqolaMainWindow::slotSaveAs()
 {
     qWarning() << "RuqolaMainWindow::slotSaveAs not implemented yet ";
 }
-

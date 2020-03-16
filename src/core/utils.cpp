@@ -118,8 +118,8 @@ QString Utils::formatQuotedRichText(const QString &richText)
     const auto backgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = scheme.foreground(KColorScheme::LinkText).color().name();
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
-        + richText
-        + QStringLiteral("</td></tr></table>");
+           + richText
+           + QStringLiteral("</td></tr></table>");
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)

@@ -53,7 +53,6 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mHelperFile(new MessageDelegateHelperFile)
     , mHelperReactions(new MessageDelegateHelperReactions)
 {
-
 }
 
 MessageListDelegate::~MessageListDelegate()

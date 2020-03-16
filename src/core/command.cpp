@@ -109,7 +109,6 @@ void Command::convertDescriptionI18n()
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown description" << mDescription;
     }
-
 }
 
 bool Command::clientOnly() const

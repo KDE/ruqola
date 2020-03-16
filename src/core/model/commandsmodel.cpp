@@ -56,7 +56,6 @@ QVariant CommandsModel::data(const QModelIndex &index, int role) const
         return command.translatedDescription();
     case Qt::DisplayRole: // for the completion popup (until we have a delegate)
         return command.commandName();
-
     }
 
     return {};

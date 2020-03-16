@@ -112,7 +112,6 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::AddUsersInRoom);
     });
     mMenu->addAction(mAddUserInRooms);
-
 }
 
 QAction *ChannelActionPopupMenu::createSeparator()
@@ -148,5 +147,4 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 
     mAddUserInRoomsSeparator->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
     mAddUserInRooms->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
-
 }

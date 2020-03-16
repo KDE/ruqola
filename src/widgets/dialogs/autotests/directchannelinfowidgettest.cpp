@@ -37,31 +37,31 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLabel *mAvatar = w.findChild<QLabel* >(QStringLiteral("mAvatar"));
+    QLabel *mAvatar = w.findChild<QLabel * >(QStringLiteral("mAvatar"));
     QVERIFY(mAvatar);
     QVERIFY(mAvatar->text().isEmpty());
 
-    QLabel *mName = w.findChild<QLabel* >(QStringLiteral("mName"));
+    QLabel *mName = w.findChild<QLabel * >(QStringLiteral("mName"));
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
     QCOMPARE(mName->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mUserName = w.findChild<QLabel* >(QStringLiteral("mUserName"));
+    QLabel *mUserName = w.findChild<QLabel * >(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QCOMPARE(mUserName->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mStatus = w.findChild<QLabel* >(QStringLiteral("mStatus"));
+    QLabel *mStatus = w.findChild<QLabel * >(QStringLiteral("mStatus"));
     QVERIFY(mStatus);
     QVERIFY(mStatus->text().isEmpty());
     QCOMPARE(mStatus->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mCustomStatus = w.findChild<QLabel* >(QStringLiteral("mCustomStatus"));
+    QLabel *mCustomStatus = w.findChild<QLabel * >(QStringLiteral("mCustomStatus"));
     QVERIFY(mCustomStatus);
     QVERIFY(mCustomStatus->text().isEmpty());
     QCOMPARE(mCustomStatus->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mTimeZone = w.findChild<QLabel* >(QStringLiteral("mTimeZone"));
+    QLabel *mTimeZone = w.findChild<QLabel * >(QStringLiteral("mTimeZone"));
     QVERIFY(mTimeZone);
     QVERIFY(mTimeZone->text().isEmpty());
     QCOMPARE(mTimeZone->textInteractionFlags(), Qt::TextBrowserInteraction);

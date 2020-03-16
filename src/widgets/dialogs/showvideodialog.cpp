@@ -43,7 +43,6 @@ ShowVideoDialog::ShowVideoDialog(QWidget *parent)
 
 ShowVideoDialog::~ShowVideoDialog()
 {
-
 }
 
 void ShowVideoDialog::setVideoUrl(const QUrl &videoPath)

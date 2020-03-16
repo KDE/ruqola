@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showvideodialogtest.h"
 #include "dialogs/showvideodialog.h"
 #include "dialogs/showvideowidget.h"
@@ -29,7 +28,6 @@ QTEST_MAIN(ShowVideoDialogTest)
 ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ShowVideoDialogTest::shouldHaveDefaultValues()

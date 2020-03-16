@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef SHOWVIDEODIALOGTEST_H
 #define SHOWVIDEODIALOGTEST_H
 

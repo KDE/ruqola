@@ -96,7 +96,6 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
 
-
     if (file->userId() == Ruqola::self()->rocketChatAccount()->userID()) {
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
     }

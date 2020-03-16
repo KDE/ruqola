@@ -58,9 +58,6 @@
 #include <QDir>
 #include <QImageWriter>
 
-
-
-
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
 {
