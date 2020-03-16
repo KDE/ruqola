@@ -104,6 +104,8 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    //TODO
-    return {};
+    Layout layout;
+    QRect usableRect = option.rect;
+    layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
+    return layout;
 }

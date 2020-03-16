@@ -36,6 +36,16 @@ public:
 
 private:
     struct Layout {
+        // Sender
+        QString senderText;
+        QFont senderFont;
+        qreal senderY = 0;
+
+        //TimeStamp
+        QString timeStampText;
+        qreal timeStampY = 0;
+        //
+        QRect usableRect;
     };
     ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
