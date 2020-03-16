@@ -29,6 +29,7 @@
 #include "model/filesforroommodel.h"
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <KMessageBox>
 
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -124,6 +125,15 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
             if (!fileName.isEmpty()) {
                 Ruqola::self()->rocketChatAccount()->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
+            }
+            return true;
+        }
+        //TODO don't test if we can't delete it
+        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userID())) {
+            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            if (KMessageBox::Yes == KMessageBox::questionYesNo(parentWidget, i18n("Do you want to Delete this File?"), i18n("Delete File"))) {
+                //TODO
+                //appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
             }
             return true;
         }
