@@ -56,9 +56,13 @@ private:
 
         //Download Attachment Rect
         QRect downloadAttachmentRect;
+
+        //Delete Attachment Rect
+        QRect deleteAttachmentRect;
     };
     ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QIcon mDownloadIcon;
+    QIcon mDeleteIcon;
 };
 
 #endif

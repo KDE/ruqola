@@ -33,6 +33,7 @@
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+    , mDeleteIcon(QIcon::fromTheme(QStringLiteral("delete")))
 {
 }
 
@@ -94,10 +95,15 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // Timestamp
     drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
 
-    // draw Icon.
-    // TODO increase size of icon ?
-    mDownloadIcon.paint(painter, layout.downloadAttachmentRect);
-    painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
+
+    if (file->userId() == Ruqola::self()->rocketChatAccount()->userID()) {
+        mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
+    }
+
+    if (file->complete()) {
+        // draw Icon.
+        mDownloadIcon.paint(painter, layout.downloadAttachmentRect);
+    }
 
     painter->restore();
 }
@@ -164,7 +170,8 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     layout.mimetypeHeight = option.rect.height();
     usableRect.setLeft(layout.mimetypeHeight);
 
-    const int iconSize = layout.mimetypeHeight;//option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    const int iconSize = layout.mimetypeHeight;
     layout.downloadAttachmentRect = QRect(option.rect.width() - iconSize, option.rect.y(), iconSize, iconSize);
+    layout.deleteAttachmentRect = QRect(option.rect.width() - 2 * iconSize - basicMargin(), option.rect.y(), iconSize, iconSize);
     return layout;
 }
