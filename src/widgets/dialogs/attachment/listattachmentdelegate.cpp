@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 #include "listattachmentdelegate.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QMimeDatabase>
@@ -113,12 +115,9 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         if (layout.downloadAttachmentRect.contains(mev->pos())) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString fileName = QFileDialog::getSaveFileName(parentWidget, i18n("Save Attachment"));
+
             if (!fileName.isEmpty()) {
-                QFile::remove(fileName); // copy() doesn't overwrite
-                QFile sourceFile(file->url());
-                if (!sourceFile.copy(file->url())) {
-                    QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
-                }
+                Ruqola::self()->rocketChatAccount()->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
             }
             return true;
         }
