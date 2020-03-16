@@ -91,9 +91,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     // draw Icon.
     // TODO increase size of icon ?
-
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    mDownloadIcon.paint(painter, QRect(option.rect.width() - iconSize, option.rect.y(), iconSize, iconSize));
+    mDownloadIcon.paint(painter, layout.downloadAttachmentRect);
     painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
 
     painter->restore();
@@ -149,5 +147,7 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     layout.mimetypeHeight = option.rect.height();
     usableRect.setLeft(layout.mimetypeHeight);
 
+    const int iconSize = layout.mimetypeHeight;//option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    layout.downloadAttachmentRect = QRect(option.rect.width() - iconSize, option.rect.y(), iconSize, iconSize);
     return layout;
 }

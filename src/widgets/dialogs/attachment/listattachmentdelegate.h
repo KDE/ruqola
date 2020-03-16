@@ -53,6 +53,9 @@ private:
         qreal timeStampY = 0;
         //
         QRect usableRect;
+
+        //Download Attachment Rect
+        QRect downloadAttachmentRect;
     };
     ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QIcon mDownloadIcon;
