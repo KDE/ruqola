@@ -438,6 +438,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
         return i18n("App user is not allowed to login");
     } else if (str == QLatin1String("error-direct-message-room")) {
         return i18n("Direct Messages can not be archived");
+    } else if (str == QLatin1String("error-message-not-found")) {
+        return i18n("Message not found.");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
