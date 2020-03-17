@@ -20,6 +20,7 @@
 #include "listattachmentdelegate.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "common/delegatepaintutil.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QMimeDatabase>
@@ -94,7 +95,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->setFont(oldFont);
 
     // Timestamp
-    drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
+    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
 
     if (file->userId() == Ruqola::self()->rocketChatAccount()->userID()) {
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);

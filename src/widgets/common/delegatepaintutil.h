@@ -25,7 +25,7 @@
 class QPainter;
 class QPoint;
 
-namespace DeletePaintUtil
+namespace DelegatePaintUtil
 {
 void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos);
 }

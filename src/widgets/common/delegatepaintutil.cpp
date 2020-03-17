@@ -18,11 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "deletepaintutil.h"
+#include "delegatepaintutil.h"
 #include <QString>
 #include <QPainter>
 
-void DeletePaintUtil::drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
+void DelegatePaintUtil::drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
 {
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();
