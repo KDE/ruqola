@@ -48,16 +48,6 @@ static qreal basicMargin()
     return 8;
 }
 
-static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
-{
-    const QPen oldPen = painter->pen();
-    QColor col = painter->pen().color();
-    col.setAlpha(128); // TimestampText.qml had opacity: .5
-    painter->setPen(col);
-    painter->drawText(timeStampPos, timeStampText);
-    painter->setPen(oldPen);
-}
-
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // user

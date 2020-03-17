@@ -29,6 +29,7 @@
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "misc/emoticonmenuwidget.h"
+#include "common/delegatepaintutil.h"
 
 #include <QApplication>
 #include <QAbstractItemView>
@@ -74,16 +75,6 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     // This gives incorrect results (too small bounding rect), no idea why!
     //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
-}
-
-static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
-{
-    const QPen oldPen = painter->pen();
-    QColor col = painter->pen().color();
-    col.setAlpha(128); // TimestampText.qml had opacity: .5
-    painter->setPen(col);
-    painter->drawText(timeStampPos, timeStampText);
-    painter->setPen(oldPen);
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxHeight) const
@@ -259,7 +250,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const Layout layout = doLayout(option, index);
 
     // Timestamp
-    drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
+    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
     const Message::MessageType messageType = message->messageType();
     const bool isSystemMessage = messageType == Message::System;
     if (!isSystemMessage) {

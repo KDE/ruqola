@@ -21,6 +21,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include "model/discussionsmodel.h"
+#include "common/delegatepaintutil.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -29,16 +30,6 @@ ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
 
 ListDiscussionDelegate::~ListDiscussionDelegate()
 {
-}
-
-static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
-{
-    const QPen oldPen = painter->pen();
-    QColor col = painter->pen().color();
-    col.setAlpha(128); // TimestampText.qml had opacity: .5
-    painter->setPen(col);
-    painter->drawText(timeStampPos, timeStampText);
-    painter->setPen(oldPen);
 }
 
 static qreal basicMargin()
