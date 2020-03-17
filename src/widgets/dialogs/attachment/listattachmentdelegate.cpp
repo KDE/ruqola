@@ -118,7 +118,6 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             }
             return true;
         }
-        //TODO don't test if we can't delete it
         if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userID())) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::Yes == KMessageBox::questionYesNo(parentWidget, i18n("Do you want to Delete this File?"), i18n("Delete File"))) {
