@@ -29,6 +29,7 @@
 #include <QLabel>
 #include <QMenu>
 #include <QPointer>
+#include <KMessageBox>
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)
@@ -98,12 +99,22 @@ void UserLabel::slotOpenConversation()
 void UserLabel::slotBlockUser()
 {
     const bool userIsBlocked = mRoomWrapper->blocker();
+    if (!userIsBlocked) {
+        if (KMessageBox::No == KMessageBox::questionYesNo(this, i18n("Do you want to block this user?"), i18n("Block User"))) {
+            return;
+        }
+    }
     Ruqola::self()->rocketChatAccount()->blockUser(mRoomWrapper->roomId(), !userIsBlocked);
 }
 
 void UserLabel::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoomWrapper->userIsIgnored(mUserId);
+    if (!userIsIgnored) {
+        if (KMessageBox::No == KMessageBox::questionYesNo(this, i18n("Do you want to ignore this user?"), i18n("Ignore User"))) {
+            return;
+        }
+    }
     Ruqola::self()->rocketChatAccount()->ignoreUser(mRoomWrapper->roomId(), mUserId, !userIsIgnored);
 }
 
