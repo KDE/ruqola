@@ -107,6 +107,8 @@ set(Ruqola_roomwidget_SRCS
     room/delegate/messagedelegatehelperimage.cpp
     room/delegate/messagedelegatehelperfile.cpp
     room/delegate/messagedelegatehelperreactions.cpp
+    room/delegate/messagedelegatehelpervideo.cpp
+    room/delegate/messagedelegatehelpersound.cpp
     room/delegate/pixmapcache.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp
