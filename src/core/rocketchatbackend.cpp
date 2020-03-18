@@ -434,8 +434,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
                 Message m(mRocketChatAccount->emojiManager());
                 m.parseMessage(roomData);
+                m.setMessageType(Message::MessageType::Information);
                 if (!m.threadMessageId().isEmpty()) {
-                    qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
+                    //qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
                     mRocketChatAccount->updateThreadMessageList(m);
                 }
                 //m.setMessageType(Message::System);

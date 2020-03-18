@@ -40,6 +40,7 @@ public:
 
     enum MessageType {
         System,
+        Information,
         NormalText,
         File,
         Video,

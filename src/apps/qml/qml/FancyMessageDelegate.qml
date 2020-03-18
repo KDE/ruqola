@@ -145,6 +145,8 @@ Rectangle {
                 } else {
                     return systemMessageComponent;
                 }
+            } else if (i_messageType === Message.Information) {
+                return systemMessageComponent;
             } else if (i_messageType === Message.NormalText) {
                 return userMessageComponent;
             } else if (i_messageType === Message.File) {
