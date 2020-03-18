@@ -411,6 +411,7 @@ public:
     bool runCommand(const QString &msg, const QString &roomId);
     Q_REQUIRED_RESULT bool hasOldSubscriptionSupport() const;
 
+    void avatarChanged(const QJsonArray &contents);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

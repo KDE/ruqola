@@ -1063,6 +1063,8 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
 
 void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
+    qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array;
+
     //TODO
 }
 
@@ -1864,6 +1866,12 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
 void RocketChatAccount::openDocumentation()
 {
     QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));
+}
+
+void RocketChatAccount::avatarChanged(const QJsonArray &contents)
+{
+    qCWarning(RUQOLA_LOG) << "Need to implement updateAvatar :" << contents;
+    //TODO
 }
 
 void RocketChatAccount::rolesChanged(const QJsonArray &contents)
