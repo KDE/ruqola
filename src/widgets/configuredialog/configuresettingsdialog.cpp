@@ -66,7 +66,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     const QString userFeedBackPageName = i18nc("@title Preferences page name", "User Feedback");
     mConfigureUserFeedBackWidget = new ConfigureUserFeedbackWidget(this);
     mConfigureUserFeedBackWidgetPage = new KPageWidgetItem(mConfigureUserFeedBackWidget, userFeedBackPageName);
-    mConfigureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-locale")));
+    mConfigureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-other")));
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
 
