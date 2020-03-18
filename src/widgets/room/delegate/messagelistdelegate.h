@@ -34,6 +34,7 @@ class MessageDelegateHelperText;
 class MessageDelegateHelperImage;
 class MessageDelegateHelperFile;
 class MessageDelegateHelperReactions;
+class MessageDelegateHelperVideo;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
@@ -116,6 +117,7 @@ private:
     QScopedPointer<MessageDelegateHelperImage> mHelperImage;
     QScopedPointer<MessageDelegateHelperFile> mHelperFile;
     QScopedPointer<MessageDelegateHelperReactions> mHelperReactions;
+    QScopedPointer<MessageDelegateHelperVideo> mHelperVideo;
 };
 
 #endif // MESSAGELISTDELEGATE_H

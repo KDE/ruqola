@@ -50,9 +50,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
     // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
     const Message::MessageType messageType = message->messageType();
-    if (messageType == Message::Video) {
-        text = i18n("%1 [Video message, not supported yet by ruqola]", text);
-    } else if (messageType == Message::Audio) {
+    if (messageType == Message::Audio) {
         text = i18n("%1 [Audio message, not supported yet by ruqola]", text);
     }
 
