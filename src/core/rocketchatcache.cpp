@@ -158,6 +158,13 @@ QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
     return {};
 }
 
+void RocketChatCache::updateAvatar(const QString &userId)
+{
+    mUserAvatarUrl.remove(userId);
+    insertAvatarUrl(userId, QUrl());
+    downloadAvatarFromServer(userId);
+}
+
 QString RocketChatCache::avatarUrl(const QString &userId)
 {
     //avoid to call this method several time.

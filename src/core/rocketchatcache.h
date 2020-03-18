@@ -46,6 +46,7 @@ public:
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
     QUrl urlForLink(const QString &link) const;
 
+    void updateAvatar(const QString &userId);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

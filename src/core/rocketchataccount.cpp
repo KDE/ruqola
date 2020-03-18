@@ -1871,7 +1871,8 @@ void RocketChatAccount::openDocumentation()
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
     qCWarning(RUQOLA_LOG) << "Need to implement updateAvatar :" << contents;
-    //TODO
+
+    //TODO parse "QJsonObject({"args":[{"username":"foo"}],"eventName":"updateAvatar"})"
 }
 
 void RocketChatAccount::rolesChanged(const QJsonArray &contents)
