@@ -196,7 +196,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         layout.repliesHeight = option.fontMetrics.height();
     }
     // Discussions
-    if (message->discussionCount() > 0) {
+    if (!message->discussionRoomId().isEmpty()) {
         layout.discussionsHeight = option.fontMetrics.height();
     }
 
@@ -308,8 +308,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
     }
     // Discussion
-    if (message->discussionCount() > 0) {
-        const QString discussionsText = i18np("1 message", "%1 messages", message->discussionCount());
+    if (!message->discussionRoomId().isEmpty()) {
+        const QString discussionsText = (message->discussionCount() > 0) ? i18np("1 message", "%1 messages", message->discussionCount()) : i18n("No message yet");
         painter->setPen(scheme.foreground(KColorScheme::LinkText).color());
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
@@ -409,7 +409,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
                 return true;
             }
         }
-        if (message->discussionCount() > 0) {
+        if (!message->discussionRoomId().isEmpty()) {
             const QRect discussionRect(layout.usableRect.x(), layout.repliesY + layout.repliesHeight, layout.usableRect.width(), layout.discussionsHeight);
             if (discussionRect.contains(mev->pos())) {
                 qDebug() << " Open discussion" << message->discussionRoomId();
