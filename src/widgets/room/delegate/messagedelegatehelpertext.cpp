@@ -49,10 +49,6 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
 
     // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
-    const Message::MessageType messageType = message->messageType();
-    if (messageType == Message::Audio) {
-        text = i18n("%1 [Audio message, not supported yet by ruqola]", text);
-    }
 
     if (mShowThreadContext) {
         const QString threadMessageId = message->threadMessageId();

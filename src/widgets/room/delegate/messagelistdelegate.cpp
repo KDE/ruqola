@@ -25,6 +25,7 @@
 #include "messagedelegatehelperfile.h"
 #include "messagedelegatehelperreactions.h"
 #include "messagedelegatehelpervideo.h"
+#include "messagedelegatehelpersound.h"
 #include "model/messagemodel.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -55,6 +56,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mHelperFile(new MessageDelegateHelperFile)
     , mHelperReactions(new MessageDelegateHelperReactions)
     , mHelperVideo(new MessageDelegateHelperVideo)
+    , mHelperSound(new MessageDelegateHelperSound)
 {
 }
 
@@ -210,6 +212,8 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const Message 
         return mHelperFile.data();
     case Message::Video:
         return mHelperVideo.data();
+    case Message::Audio:
+        return mHelperSound.data();
     default:
         break;
     }
