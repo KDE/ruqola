@@ -41,7 +41,7 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
 QString TextConverter::convertMessageText(const QString &_str, const QString &userName, const QVector<Message> &allMessages) const
 {
     if (!mEmojiManager) {
-        qCWarning(RUQOLA_LOG) << "Emojimanager was not set";
+        qCWarning(RUQOLA_LOG) << "Emojimanager is null";
     }
 
     QString quotedMessage;
