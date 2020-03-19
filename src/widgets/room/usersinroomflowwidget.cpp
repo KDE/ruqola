@@ -66,6 +66,7 @@ void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
 
 void UsersInRoomFlowWidget::updateList()
 {
+    //TODO not clearing it all the time. Update it when status is changed.
     if (isVisible()) {
         const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
         const auto count = model->rowCount();
