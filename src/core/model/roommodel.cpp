@@ -258,11 +258,12 @@ Room *RoomModel::createNewRoom()
 void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
 {
     for (int i = 0; i < mRoomsList.count(); ++i) {
-        if (mRoomsList.at(i)->open()) {
-            if (mRoomsList.at(i)->alert()) {
+        Room *room = mRoomsList.at(i);
+        if (room->open()) {
+            if (room->alert()) {
                 hasAlert = true;
             }
-            nbUnread += mRoomsList.at(i)->unread();
+            nbUnread += room->unread();
         }
     }
 }
