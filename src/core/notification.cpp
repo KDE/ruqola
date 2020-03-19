@@ -81,15 +81,12 @@ void Notification::createToolTip()
             firstElement = false;
             str += QLatin1Char('\n');
         }
-        if (!i.key().isEmpty()) {
-            str += i.key() + QLatin1Char('\n');
-        }
         const TrayInfo trayInfo = i.value();
         if (trayInfo.hasAlert) {
             hasAlert = trayInfo.hasAlert;
         }
         if (trayInfo.unreadMessage != 0) {
-            str += i18n("Has %1 Unread Message", trayInfo.unreadMessage);
+            str += i18n("%1 has %2 Unread Message", i.key(), trayInfo.unreadMessage);
             unreadMessage += trayInfo.unreadMessage;
         }
     }
