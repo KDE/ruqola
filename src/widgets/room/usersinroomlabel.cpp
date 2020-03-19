@@ -132,7 +132,7 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
 
     if (isNotMe && !isAdirectChannel) {
-        QAction *conversationAction = new QAction(i18n("Conversation"), &menu);
+        QAction *conversationAction = new QAction(i18n("Start Conversation"), &menu);
         connect(conversationAction, &QAction::triggered, this, &UserLabel::slotOpenConversation);
         menu.addAction(conversationAction);
     }
