@@ -31,3 +31,8 @@ void DelegatePaintUtil::drawTimestamp(QPainter *painter, const QString &timeStam
     painter->drawText(timeStampPos, timeStampText);
     painter->setPen(oldPen);
 }
+
+int DelegatePaintUtil::margin()
+{
+    return 8;
+}

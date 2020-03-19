@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "dialogs/showvideodialog.h"
+#include "common/delegatepaintutil.h"
 
 #include <KLocalizedString>
 
@@ -33,8 +34,6 @@
 #include <QPainter>
 #include <QPointer>
 #include <QStyleOptionViewItem>
-
-static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
 
 void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
@@ -50,12 +49,12 @@ void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRec
         downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
         // Draw main pixmap (if shown)
-        int nextY = messageRect.y() + layout.titleSize.height() + margin;
+        int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
         if (layout.isShown) {
             QPixmap scaledPixmap;
             scaledPixmap = layout.pixmap.scaled(layout.imageSize);
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
-            nextY += scaledPixmap.height() + margin;
+            nextY += scaledPixmap.height() + DelegatePaintUtil::margin();
         }
 
         // Draw description (if any)
@@ -70,16 +69,16 @@ QSize MessageDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidt
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     const SoundLayout layout = layoutSound(message, option, maxWidth, -1);
-    int height = layout.titleSize.height() + margin;
+    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
         pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
-        height += qMin(layout.pixmap.height(), 200) + margin;
+        height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
     }
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();
-        height += layout.descriptionSize.height() + margin;
+        height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
     return QSize(qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth),
                  height);
@@ -108,7 +107,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
             }
             return true;
         } else if (!layout.pixmap.isNull()) {
-            const int imageY = attachmentsRect.y() + layout.titleSize.height() + margin;
+            const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
             const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
                 QWidget *parentWidget = const_cast<QWidget *>(option.widget);
@@ -144,16 +143,15 @@ MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(
         layout.isShown = message->showAttachment();
         layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
-        const int buttonMargin = 8;
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.titleSize.width() + buttonMargin, 0, iconSize, iconSize);
-        layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + buttonMargin, 0);
+        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
 
         if (attachmentsHeight > 0) {
-            // Vertically: attachmentsHeight = title | margin | image | margin [| description | margin]
-            int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - margin * 2;
+            // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description | DelegatePaintUtil::margin()]
+            int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - DelegatePaintUtil::margin() * 2;
             if (!layout.description.isEmpty()) {
-                imageMaxHeight -= layout.descriptionSize.height() + margin;
+                imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
             }
             layout.imageSize = layout.pixmap.size().scaled(attachmentsWidth, imageMaxHeight, Qt::KeepAspectRatio);
         }
