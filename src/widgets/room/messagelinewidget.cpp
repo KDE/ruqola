@@ -111,7 +111,6 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                 mThreadMessageId.clear();
             }
         } else {
-            //TODO support mThreadMessageId too
             mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
             mMessageIdBeingEdited.clear();
         }
