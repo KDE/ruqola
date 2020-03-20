@@ -583,7 +583,10 @@ qint64 Room::lastSeeAt() const
 
 void Room::setLastSeeAt(qint64 lastSeeAt)
 {
-    mLastSeeAt = lastSeeAt;
+    if (mLastSeeAt != lastSeeAt) {
+        mLastSeeAt = lastSeeAt;
+        Q_EMIT lastSeeChanged();
+    }
     //Add signal otherwise it's not necessary to check value
 }
 

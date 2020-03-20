@@ -60,6 +60,8 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
 
     connect(mRoom, &Room::autoTranslateLanguageChanged, this, &RoomWrapper::autoTranslateLanguageChanged);
     connect(mRoom, &Room::autoTranslateChanged, this, &RoomWrapper::autoTranslateChanged);
+
+    connect(mRoom, &Room::lastSeeChanged, this, &RoomWrapper::lastSeeChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -214,4 +216,9 @@ bool RoomWrapper::autoTranslate() const
 bool RoomWrapper::userIsIgnored(const QString &userId)
 {
     return mRoom->userIsIgnored(userId);
+}
+
+qint64 RoomWrapper::lastSeeAt() const
+{
+    return mRoom->lastSeeAt();
 }

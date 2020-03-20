@@ -242,6 +242,7 @@ Q_SIGNALS:
     void parentRidChanged();
     void autoTranslateLanguageChanged();
     void autoTranslateChanged();
+    void lastSeeChanged();
 
 private:
     Q_DISABLE_COPY(Room)

@@ -96,6 +96,8 @@ public:
     Q_REQUIRED_RESULT Q_INVOKABLE bool userHasLeaderRole(const QString &userId) const;
     Q_REQUIRED_RESULT Q_INVOKABLE bool userHasModeratorRole(const QString &userId) const;
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
+
+    Q_REQUIRED_RESULT qint64 lastSeeAt() const;
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();
@@ -117,6 +119,7 @@ Q_SIGNALS:
     void fnameChanged();
     void autoTranslateLanguageChanged();
     void autoTranslateChanged();
+    void lastSeeChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)
