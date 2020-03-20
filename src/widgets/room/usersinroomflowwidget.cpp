@@ -67,18 +67,16 @@ void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
 void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
     if (isVisible()) {
-        qDebug() << "void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight) ";
         for (int row = topLeft.row(), total = bottomRight.row(); row <= total; ++row) {
             const QModelIndex userModelIndex = topLeft.sibling(row, 0);
             const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
 
-            qDebug() << " update userId " << userId;
             UsersInRoomLabel *userLabel = mListUsersWidget.value(userId);
             if (userLabel) {
-                qDebug() << " updating userdId " << userId;
                 const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
                 const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
                 const QString userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+                //qDebug() << " updating userdId " << userId << " userName " << userName << "  info.iconStatus " << iconStatus;
                 UsersInRoomLabel::UserInfo info;
                 info.userDisplayName = userDisplayName;
                 info.iconStatus = iconStatus;
