@@ -158,4 +158,3 @@ MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(
     }
     return layout;
 }
-

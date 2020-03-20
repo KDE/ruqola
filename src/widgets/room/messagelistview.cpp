@@ -176,8 +176,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (!index.isValid()) {
         return;
     }
-    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System) ||
-            (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
+    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System)
+                                 || (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
     if (isSystemMessage) {
         return;
     }
