@@ -22,9 +22,11 @@
 #define USERSINROOMFLOWWIDGET_H
 
 #include <QWidget>
+#include <QMap>
 #include "libruqolawidgets_private_export.h"
 class FlowLayout;
 class RoomWrapper;
+class UsersInRoomLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomFlowWidget : public QWidget
 {
     Q_OBJECT
@@ -32,14 +34,18 @@ public:
     explicit UsersInRoomFlowWidget(QWidget *parent = nullptr);
     ~UsersInRoomFlowWidget();
     void setRoomWrapper(RoomWrapper *roomWrapper);
+
 protected:
     void showEvent(QShowEvent *event) override;
 
 private:
     void loadMoreUsersAttachment();
-    void updateList();
+    void generateListUsersWidget();
+    void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     FlowLayout *mFlowLayout = nullptr;
     RoomWrapper *mRoomWrapper = nullptr;
+    // userId, UsersInRoomLabel
+    QMap<QString, UsersInRoomLabel *> mListUsersWidget;
 };
 
 #endif // USERSINROOMFLOWWIDGET_H

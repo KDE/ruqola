@@ -47,12 +47,12 @@ void UsersInRoomFlowWidget::setRoomWrapper(RoomWrapper *roomWrapper)
     mRoomWrapper = roomWrapper;
     if (mRoomWrapper) {
         const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
-        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::updateList);
-        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::updateList);
-        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateList);
-        connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::updateList);
-        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::updateList);
-        updateList();
+        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
+        connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+        generateListUsersWidget();
     } else {
         mFlowLayout->clearAndDeleteWidgets();
     }
@@ -60,23 +60,49 @@ void UsersInRoomFlowWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 
 void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
 {
-    updateList();
+    generateListUsersWidget();
     QWidget::showEvent(event);
 }
 
-void UsersInRoomFlowWidget::updateList()
+void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
-    //TODO not clearing it all the time. Update it when status is changed.
+    if (isVisible()) {
+        qDebug() << "void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight) ";
+        for (int row = topLeft.row(), total = bottomRight.row(); row <= total; ++row) {
+            const QModelIndex userModelIndex = topLeft.sibling(row, 0);
+            const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
+
+            qDebug() << " update userId " << userId;
+            UsersInRoomLabel *userLabel = mListUsersWidget.value(userId);
+            if (userLabel) {
+                qDebug() << " updating userdId " << userId;
+                const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
+                const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
+                const QString userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+                UsersInRoomLabel::UserInfo info;
+                info.userDisplayName = userDisplayName;
+                info.iconStatus = iconStatus;
+                info.userId = userId;
+                info.userName = userName;
+                userLabel->setUserInfo(info);
+            }
+        }
+    }
+}
+
+void UsersInRoomFlowWidget::generateListUsersWidget()
+{
     if (isVisible()) {
         const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
         const auto count = model->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
+        mListUsersWidget.clear();
         for (int i = 0; i < count; ++i) {
-            const auto roomModelIndex = model->index(i, 0);
-            const QString userDisplayName = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
-            const QString iconStatus = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
-            const QString userId = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
-            const QString userName = roomModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+            const auto userModelIndex = model->index(i, 0);
+            const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
+            const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
+            const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
+            const QString userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
             UsersInRoomLabel::UserInfo info;
             info.userDisplayName = userDisplayName;
             info.iconStatus = iconStatus;
@@ -86,6 +112,7 @@ void UsersInRoomFlowWidget::updateList()
             userLabel->setUserInfo(info);
             userLabel->setRoomWrapper(mRoomWrapper);
             mFlowLayout->addWidget(userLabel);
+            mListUsersWidget.insert(userId, userLabel);
         }
         if (!model->hasFullList()) {
             QLabel *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
