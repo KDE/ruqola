@@ -59,6 +59,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
     connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
+    connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -71,6 +72,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
     mainLayout->addWidget(mSendMessageButton);
+    mSendMessageButton->setEnabled(false);
     connect(mSendMessageButton, &QToolButton::clicked, this, [this]() {
         slotSendMessage(mMessageTextEdit->text());
         mMessageTextEdit->clear();
@@ -209,6 +211,7 @@ void MessageLineWidget::setMode(EditingMode mode)
 
 void MessageLineWidget::slotTextEditing(bool clearNotification)
 {
+    mSendMessageButton->setEnabled(!clearNotification);
     mCurrentRocketChatAccount->textEditing(mRoomId, clearNotification);
 }
 
