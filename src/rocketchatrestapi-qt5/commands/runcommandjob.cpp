@@ -90,7 +90,7 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = roomId;
-        if (numberElement == 2) {
+        if (numberElement > 1) {
             info.params = lst.join(QLatin1Char(' '));
         }
     }
