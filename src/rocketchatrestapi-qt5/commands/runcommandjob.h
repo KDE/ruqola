@@ -23,6 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include <QDebug>
 namespace RocketChatRestApi {
 class LIBROCKETCHATRESTAPI_QT5_EXPORT RunCommandJob : public RestApiAbstractJob
 {
@@ -61,4 +62,6 @@ private:
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::RunCommandJob::RunCommandInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RunCommandJob::RunCommandInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::RunCommandJob::RunCommandInfo &t);
+
 #endif // RunCommandJob_H

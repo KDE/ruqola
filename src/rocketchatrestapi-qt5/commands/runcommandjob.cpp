@@ -146,3 +146,13 @@ bool RunCommandJob::RunCommandInfo::isValid() const
 {
     return !commandName.isEmpty() && !roomId.isEmpty();
 }
+
+QDebug operator <<(QDebug d, const RunCommandJob::RunCommandInfo &t)
+{
+    d << " commandName " << t.commandName;
+    d << " roomId " << t.roomId;
+    d << " threadMessageId " << t.threadMessageId;
+    d << " triggerId " << t.triggerId;
+    d << " params " << t.params;
+    return d;
+}
