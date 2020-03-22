@@ -104,6 +104,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
 
 MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
+    Q_UNUSED(attachmentsWidth)
     VideoLayout layout;
     if (message->attachements().isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in Video message";
