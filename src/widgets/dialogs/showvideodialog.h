@@ -31,7 +31,10 @@ public:
     explicit ShowVideoDialog(QWidget *parent = nullptr);
     ~ShowVideoDialog();
     void setVideoUrl(const QUrl &videoPath);
+
 private:
+    void readConfig();
+    void writeConfig();
     ShowVideoWidget *mShowVideoWidget = nullptr;
 };
 

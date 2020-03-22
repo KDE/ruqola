@@ -23,11 +23,13 @@
 #include "dialogs/showvideowidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
+#include <QStandardPaths>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowVideoDialogTest)
 ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ShowVideoDialogTest::shouldHaveDefaultValues()

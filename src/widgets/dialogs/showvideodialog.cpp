@@ -23,6 +23,12 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <KSharedConfig>
+
+namespace {
+static const char myConfigGroupName[] = "ShowVideoDialog";
+}
 
 ShowVideoDialog::ShowVideoDialog(QWidget *parent)
     : QDialog(parent)
@@ -39,13 +45,30 @@ ShowVideoDialog::ShowVideoDialog(QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowVideoDialog::reject);
     mainLayout->addWidget(buttonBox);
+    readConfig();
 }
 
 ShowVideoDialog::~ShowVideoDialog()
 {
+    writeConfig();
 }
 
 void ShowVideoDialog::setVideoUrl(const QUrl &videoPath)
 {
     mShowVideoWidget->setVideoUrl(videoPath);
+}
+
+void ShowVideoDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void ShowVideoDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }
