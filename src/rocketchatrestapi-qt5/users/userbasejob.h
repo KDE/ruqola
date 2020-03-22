@@ -22,10 +22,10 @@
 #define USERBASEJOB_H
 
 #include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UserBaseJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UserBaseJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
