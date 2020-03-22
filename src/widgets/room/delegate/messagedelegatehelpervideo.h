@@ -41,6 +41,7 @@ private:
         QSize titleSize;
         QSize descriptionSize;
         QRect downloadButtonRect;
+        QRect hideShowButtonRect;
     };
     VideoLayout layoutVideo(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 };

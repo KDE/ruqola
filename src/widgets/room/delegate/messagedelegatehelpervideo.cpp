@@ -43,6 +43,8 @@ void MessageDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRec
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
+    const QIcon hideShowIcon = QIcon::fromTheme(QStringLiteral("visibility"));
+    hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
     const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
     downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
@@ -88,7 +90,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
                 }
             }
             return true;
-        } else if (attachmentsRect.contains(pos)) {
+        } else if (attachmentsRect.contains(pos) || layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
             dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath));
@@ -120,7 +122,8 @@ MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(
         layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.downloadButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
 
         if (attachmentsHeight > 0) {
             // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description | DelegatePaintUtil::margin()]
