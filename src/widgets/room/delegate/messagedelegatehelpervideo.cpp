@@ -39,12 +39,12 @@ void MessageDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRec
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    VideoLayout layout = layoutVideo(message, option, messageRect.width(), messageRect.height());
+    const VideoLayout layout = layoutVideo(message, option);
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
-    const QIcon hideShowIcon = QIcon::fromTheme(QStringLiteral("visibility"));
-    hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+    const QIcon showIcon = QIcon::fromTheme(QStringLiteral("visibility"));
+    showIcon.paint(painter, layout.showButtonRect.translated(messageRect.topLeft()));
     const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
     downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
@@ -58,9 +58,10 @@ void MessageDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRec
 
 QSize MessageDelegateHelperVideo::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const VideoLayout layout = layoutVideo(message, option, maxWidth, -1);
+    const VideoLayout layout = layoutVideo(message, option);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     int descriptionWidth = 0;
@@ -78,7 +79,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         const QPoint pos = mouseEvent->pos();
 
-        VideoLayout layout = layoutVideo(message, option, attachmentsRect.width(), attachmentsRect.height());
+        VideoLayout layout = layoutVideo(message, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Video"));
@@ -90,7 +91,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
                 }
             }
             return true;
-        } else if (attachmentsRect.contains(pos) || layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+        } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
             dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath));
@@ -102,9 +103,8 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
     return false;
 }
 
-MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(const Message *message, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(attachmentsWidth)
     VideoLayout layout;
     if (message->attachements().isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in Video message";
@@ -123,16 +123,8 @@ MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(
         layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
-        layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
-
-        if (attachmentsHeight > 0) {
-            // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description | DelegatePaintUtil::margin()]
-            int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - DelegatePaintUtil::margin() * 2;
-            if (!layout.description.isEmpty()) {
-                imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
-            }
-        }
+        layout.showButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.downloadButtonRect = layout.showButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
     }
     return layout;
 }

@@ -43,7 +43,7 @@ private:
         QRect hideShowButtonRect;
         QRect downloadButtonRect;
     };
-    SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
+    SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option) const;
 };
 
 #endif // MESSAGEDELEGATEHELPERSOUND_H

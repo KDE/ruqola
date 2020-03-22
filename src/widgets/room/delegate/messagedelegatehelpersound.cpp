@@ -38,7 +38,7 @@ void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRec
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const SoundLayout layout = layoutSound(message, option, messageRect.width(), messageRect.height());
+    const SoundLayout layout = layoutSound(message, option);
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     const QIcon hideShowIcon = QIcon::fromTheme(QStringLiteral("visibility"));
@@ -56,9 +56,10 @@ void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRec
 
 QSize MessageDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const SoundLayout layout = layoutSound(message, option, maxWidth, -1);
+    const SoundLayout layout = layoutSound(message, option);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     int descriptionWidth = 0;
@@ -76,7 +77,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         const QPoint pos = mouseEvent->pos();
 
-        SoundLayout layout = layoutSound(message, option, attachmentsRect.width(), attachmentsRect.height());
+        const SoundLayout layout = layoutSound(message, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Sound"));
@@ -100,7 +101,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
     return false;
 }
 
-MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(const Message *message, const QStyleOptionViewItem &option) const
 {
     SoundLayout layout;
     if (message->attachements().isEmpty()) {
@@ -122,14 +123,6 @@ MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
         layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
-
-        if (attachmentsHeight > 0) {
-            // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description | DelegatePaintUtil::margin()]
-            int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - DelegatePaintUtil::margin() * 2;
-            if (!layout.description.isEmpty()) {
-                imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
-            }
-        }
     }
     return layout;
 }
