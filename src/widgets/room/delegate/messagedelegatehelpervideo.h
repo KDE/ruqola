@@ -35,16 +35,12 @@ public:
 
 private:
     struct VideoLayout {
-        QPixmap pixmap;
         QString imagePath;
         QString title;
         QString description;
         QSize titleSize;
-        QSize imageSize;
         QSize descriptionSize;
-        QRect hideShowButtonRect;
         QRect downloadButtonRect;
-        bool isShown = true;
     };
     VideoLayout layoutVideo(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 };
