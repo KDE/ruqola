@@ -22,7 +22,6 @@
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "dialogs/showvideodialog.h"
 #include "common/delegatepaintutil.h"
 
 #include <KLocalizedString>
@@ -39,28 +38,19 @@ void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRec
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    SoundLayout layout = layoutSound(message, option, messageRect.width(), messageRect.height());
-    if (1) {// FIXME !layout.pixmap.isNull()) {
-        // Draw title and buttons
-        painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
-        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
-        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
-        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+    const SoundLayout layout = layoutSound(message, option, messageRect.width(), messageRect.height());
+    // Draw title and buttons
+    painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+    const QIcon hideShowIcon = QIcon::fromTheme(QStringLiteral("visibility"));
+    hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
+    downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
-        // Draw main pixmap (if shown)
-        int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-        if (layout.isShown) {
-            QPixmap scaledPixmap;
-            scaledPixmap = layout.pixmap.scaled(layout.imageSize);
-            painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
-            nextY += scaledPixmap.height() + DelegatePaintUtil::margin();
-        }
-
-        // Draw description (if any)
-        if (!layout.description.isEmpty()) {
-            painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
-        }
+    // Draw main pixmap (if shown)
+    const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
+    // Draw description (if any)
+    if (!layout.description.isEmpty()) {
+        painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
     }
 }
 
@@ -71,10 +61,6 @@ QSize MessageDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidt
     const SoundLayout layout = layoutSound(message, option, maxWidth, -1);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
-    if (layout.isShown) {
-        pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
-        height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
-    }
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();
@@ -91,11 +77,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
         const QPoint pos = mouseEvent->pos();
 
         SoundLayout layout = layoutSound(message, option, attachmentsRect.width(), attachmentsRect.height());
-        if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto *model = const_cast<QAbstractItemModel *>(index.model());
-            model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
-            return true;
-        } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+        if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Sound"));
             if (!file.isEmpty()) {
@@ -106,16 +88,12 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
                 }
             }
             return true;
-        } else if (!layout.pixmap.isNull()) {
-            const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-            const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
-            if (imageRect.contains(pos)) {
-                QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-                QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
-                dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath)); //FIX me
-                dlg->exec();
-                delete dlg;
-            }
+        } else if (attachmentsRect.contains(pos) || layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            //                QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
+            //                dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath)); //FIX me
+            //                dlg->exec();
+            //                delete dlg;
             return true;
         }
     }
@@ -136,11 +114,9 @@ MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     if (url.isLocalFile()) {
         layout.imagePath = url.toLocalFile();
-        layout.pixmap = QPixmap(QStringLiteral("cloud-download"));//TODO = mPixmapCache.pixmapForLocalFile(layout.imagePath);
         //or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();
-        layout.isShown = message->showAttachment();
         layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -153,7 +129,6 @@ MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(
             if (!layout.description.isEmpty()) {
                 imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
             }
-            layout.imageSize = layout.pixmap.size().scaled(attachmentsWidth, imageMaxHeight, Qt::KeepAspectRatio);
         }
     }
     return layout;

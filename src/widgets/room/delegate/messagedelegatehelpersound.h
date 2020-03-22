@@ -35,16 +35,13 @@ public:
 
 private:
     struct SoundLayout {
-        QPixmap pixmap;
         QString imagePath;
         QString title;
         QString description;
         QSize titleSize;
-        QSize imageSize;
         QSize descriptionSize;
         QRect hideShowButtonRect;
         QRect downloadButtonRect;
-        bool isShown = true;
     };
     SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 };
