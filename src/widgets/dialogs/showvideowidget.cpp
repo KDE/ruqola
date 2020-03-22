@@ -75,6 +75,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
     connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error),
             this, &ShowVideoWidget::handleError);
+    //TODO add sound support
 }
 
 ShowVideoWidget::~ShowVideoWidget()
