@@ -67,6 +67,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/autotranslateconfigurewidget.cpp
     dialogs/showvideowidget.cpp
     dialogs/showvideodialog.cpp
+    dialogs/playsounddialog.cpp
     )
 
 set(Ruqola_configure_SRCS
