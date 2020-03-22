@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/delegatepaintutil.h"
+#include "dialogs/playsounddialog.h"
 
 #include <KLocalizedString>
 
@@ -91,10 +92,10 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
             return true;
         } else if (attachmentsRect.contains(pos) || layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            //                QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
-            //                dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath)); //FIX me
-            //                dlg->exec();
-            //                delete dlg;
+            QPointer<PlaySoundDialog> dlg = new PlaySoundDialog(parentWidget);
+            //dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath)); //FIX me
+            dlg->exec();
+            delete dlg;
             return true;
         }
     }
