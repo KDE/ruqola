@@ -302,8 +302,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Replies
     KColorScheme scheme;
-    if (message->threadCount() > 0) {
-        const QString repliesText = i18np("1 reply", "%1 replies", message->threadCount());
+    const int threadCount = message->threadCount();
+    if (threadCount > 0) {
+        const QString repliesText = i18np("1 reply", "%1 replies", threadCount);
         painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
         painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
     }
