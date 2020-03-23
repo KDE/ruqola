@@ -17,22 +17,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "userfeedbackmanager.h"
-#include "ruqolauserfeedbackprovider.h"
 
-UserFeedBackManager::UserFeedBackManager(QObject *parent)
-    : QObject(parent)
-{
-    mUserFeedbackProvider = new RuqolaUserFeedbackProvider(this);
-}
+#ifndef RUQOLAUSERFEEDBACKPROVIDER_H
+#define RUQOLAUSERFEEDBACKPROVIDER_H
 
-UserFeedBackManager *UserFeedBackManager::self()
-{
-    static UserFeedBackManager s_self;
-    return &s_self;
-}
+#include <KUserFeedback/Provider>
+#include "libruqolawidgets_export.h"
 
-KUserFeedback::Provider *UserFeedBackManager::userFeedbackProvider() const
+class LIBRUQOLAWIDGETS_EXPORT RuqolaUserFeedbackProvider : public KUserFeedback::Provider
 {
-    return mUserFeedbackProvider;
-}
+    Q_OBJECT
+public:
+    explicit RuqolaUserFeedbackProvider(QObject *parent = nullptr);
+    ~RuqolaUserFeedbackProvider();
+};
+
+#endif // RUQOLAUSERFEEDBACKPROVIDER_H

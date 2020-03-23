@@ -29,6 +29,7 @@
 #include "managerdatapaths.h"
 
 #include "ruqolamainwindow.h"
+#include "userfeedback/ruqolauserfeedbackprovider.h"
 
 #include <iostream>
 
@@ -71,9 +72,22 @@ int main(int argc, char *argv[])
     parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
     parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("account"), i18n("Start with specific account"), QStringLiteral("accountname")));
 
+#if HAVE_KUSERFEEDBACK
+    parser.addOption(QCommandLineOption(QStringLiteral("feedback"), i18n("Lists the available options for user feedback")));
+#endif
+
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
+#if HAVE_KUSERFEEDBACK
+    if(parser.isSet(QStringLiteral("feedback"))) {
+        RuqolaUserFeedbackProvider *userFeedback = new RuqolaUserFeedbackProvider(nullptr);
+        QTextStream(stdout) << userFeedback->describeDataSources() << '\n';
+        delete userFeedback;
+        return 0;
+    }
+#endif
+
     if (parser.isSet(QStringLiteral("list-accounts"))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath, QStringList() << QStringLiteral(
