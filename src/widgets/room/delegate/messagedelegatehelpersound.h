@@ -40,7 +40,7 @@ private:
         QString description;
         QSize titleSize;
         QSize descriptionSize;
-        QRect hideShowButtonRect;
+        QRect playerVolumeButtonRect;
         QRect downloadButtonRect;
     };
     SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option) const;
