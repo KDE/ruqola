@@ -63,6 +63,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // Draw Mimetype
     const Layout layout = doLayout(option, index);
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
+    const bool fileComplete = file->complete();
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
     QPixmap pix;
@@ -75,10 +76,18 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
 
     //draw filename
+    QFont oldFont = painter->font();
+    if (!fileComplete) {
+        QFont newFont = oldFont;
+        newFont.setStrikeOut(true);
+        painter->setFont(newFont);
+    }
     painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.attachmentNameY, layout.attachmentName);
-
+    if (!fileComplete) {
+        painter->setFont(oldFont);
+    }
     // Draw the sender
-    const QFont oldFont = painter->font();
+    oldFont = painter->font();
     painter->setFont(layout.senderFont);
     //TODO fix me timeStampHeight
     painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.senderY, layout.senderText);
@@ -91,7 +100,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
     }
 
-    if (file->complete()) {
+    if (fileComplete) {
         // draw Icon.
         mDownloadIcon.paint(painter, layout.downloadAttachmentRect);
     }
