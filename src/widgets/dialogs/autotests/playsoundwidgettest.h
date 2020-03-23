@@ -17,20 +17,18 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#ifndef PLAYSOUNDDIALOGTEST_H
-#define PLAYSOUNDDIALOGTEST_H
+
+#ifndef PLAYSOUNDWIDGETTEST_H
+#define PLAYSOUNDWIDGETTEST_H
 
 #include <QObject>
 
-class PlaySoundDialogTest : public QObject
+class PlaySoundWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit PlaySoundDialogTest(QObject *parent = nullptr);
-    ~PlaySoundDialogTest() = default;
-
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit PlaySoundWidgetTest(QObject *parent = nullptr);
+    ~PlaySoundWidgetTest() = default;
 };
 
-#endif // PLAYSOUNDDIALOGTEST_H
+#endif // PLAYSOUNDWIDGETTEST_H

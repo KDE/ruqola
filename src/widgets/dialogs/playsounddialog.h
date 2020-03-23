@@ -24,12 +24,15 @@
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
 
+class PlaySoundWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit PlaySoundDialog(QWidget *parent = nullptr);
     ~PlaySoundDialog();
+private:
+    PlaySoundWidget *mSoundWidget = nullptr;
 };
 
 #endif // PLAYSOUNDDIALOG_H

@@ -19,6 +19,7 @@
 */
 
 #include "playsounddialog.h"
+#include "playsoundwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -30,7 +31,9 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //TODO
+    mSoundWidget = new PlaySoundWidget(this);
+    mSoundWidget->setObjectName(QStringLiteral("mSoundWidget"));
+    mainLayout->addWidget(mSoundWidget);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
