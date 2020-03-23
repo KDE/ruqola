@@ -113,6 +113,7 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     const int idx = index.row();
     RocketChatAccount *account = mRocketChatAccount.at(idx);
     switch (role) {
+    case Qt::DisplayRole:
     case Name:
         return account->accountName();
     case SiteUrl:

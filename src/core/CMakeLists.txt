@@ -54,6 +54,8 @@ set (Ruqola_model_core_srcs
     model/autotranslatelanguagesmodel.cpp
 
     model/commandsmodel.cpp
+
+    model/accountschannelsmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
