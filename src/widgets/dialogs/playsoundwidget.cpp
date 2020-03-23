@@ -21,6 +21,7 @@
 #include "playsoundwidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
+#include <QMediaPlayer>
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     : QWidget(parent)
@@ -29,9 +30,23 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
     //TODO
+
+    mMediaPlayer = new QMediaPlayer(this);
+    mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
+    //connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
+    //mMediaPlayer->setVolume(50);
+    //Add play/stop button
+
 }
 
 PlaySoundWidget::~PlaySoundWidget()
 {
 
+}
+
+void PlaySoundWidget::setAudioUrl(const QUrl &url)
+{
+    setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
+    mMediaPlayer->setMedia(url);
+    //mPlayButton->setEnabled(true);
 }

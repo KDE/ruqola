@@ -45,3 +45,8 @@ PlaySoundDialog::~PlaySoundDialog()
 {
 
 }
+
+void PlaySoundDialog::setAudioUrl(const QUrl &url)
+{
+    mSoundWidget->setAudioUrl(url);
+}

@@ -24,13 +24,16 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QMediaPlayer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit PlaySoundWidget(QWidget *parent = nullptr);
     ~PlaySoundWidget();
+    void setAudioUrl(const QUrl &url);
+private:
+    QMediaPlayer *mMediaPlayer = nullptr;
 };
 
 #endif // PLAYSOUNDWIDGET_H
