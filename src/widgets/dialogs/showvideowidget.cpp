@@ -81,7 +81,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
     controlLayout->addWidget(mSoundButton);
-    mSoundSlider = new QSlider(this);
+    mSoundSlider = new QSlider(Qt::Horizontal, this);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
     controlLayout->addWidget(mSoundSlider);
