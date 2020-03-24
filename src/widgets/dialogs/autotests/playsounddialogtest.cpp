@@ -29,7 +29,6 @@ QTEST_MAIN(PlaySoundDialogTest)
 PlaySoundDialogTest::PlaySoundDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PlaySoundDialogTest::shouldHaveDefaultValues()

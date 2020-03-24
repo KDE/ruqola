@@ -43,7 +43,6 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
 
 PlaySoundDialog::~PlaySoundDialog()
 {
-
 }
 
 void PlaySoundDialog::setAudioUrl(const QUrl &url)

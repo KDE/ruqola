@@ -26,5 +26,4 @@ QTEST_MAIN(PlaySoundWidgetTest)
 PlaySoundWidgetTest::PlaySoundWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

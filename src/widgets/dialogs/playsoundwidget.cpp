@@ -37,7 +37,6 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     //connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
     //mMediaPlayer->setVolume(50);
 
-
     //Allow to change volume
 
     connect(mMediaPlayer, &QMediaPlayer::stateChanged,
@@ -54,7 +53,6 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 
 PlaySoundWidget::~PlaySoundWidget()
 {
-
 }
 
 void PlaySoundWidget::setAudioUrl(const QUrl &url)
