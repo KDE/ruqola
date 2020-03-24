@@ -22,6 +22,8 @@
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QMediaPlayer>
+#include <QPushButton>
+#include <QStyle>
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     : QWidget(parent)
@@ -29,14 +31,25 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    //TODO
 
     mMediaPlayer = new QMediaPlayer(this);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
     //connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
     //mMediaPlayer->setVolume(50);
-    //Add play/stop button
 
+
+    //Allow to change volume
+
+    connect(mMediaPlayer, &QMediaPlayer::stateChanged,
+            this, &PlaySoundWidget::mediaStateChanged);
+
+    mPlayButton = new QPushButton(this);
+    mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
+    mPlayButton->setEnabled(false);
+    mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+    mainLayout->addWidget(mPlayButton);
+    connect(mPlayButton, &QAbstractButton::clicked,
+            this, &PlaySoundWidget::play);
 }
 
 PlaySoundWidget::~PlaySoundWidget()
@@ -48,5 +61,29 @@ void PlaySoundWidget::setAudioUrl(const QUrl &url)
 {
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
     mMediaPlayer->setMedia(url);
-    //mPlayButton->setEnabled(true);
+    mPlayButton->setEnabled(true);
+}
+
+void PlaySoundWidget::play()
+{
+    switch (mMediaPlayer->state()) {
+    case QMediaPlayer::PlayingState:
+        mMediaPlayer->pause();
+        break;
+    default:
+        mMediaPlayer->play();
+        break;
+    }
+}
+
+void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
+{
+    switch (state) {
+    case QMediaPlayer::PlayingState:
+        mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
+        break;
+    default:
+        mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+        break;
+    }
 }

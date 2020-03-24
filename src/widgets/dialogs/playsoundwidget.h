@@ -22,9 +22,11 @@
 #define PLAYSOUNDWIDGET_H
 
 #include <QWidget>
+#include <QMediaPlayer>
 
 #include "libruqolawidgets_private_export.h"
 class QMediaPlayer;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundWidget : public QWidget
 {
     Q_OBJECT
@@ -33,7 +35,10 @@ public:
     ~PlaySoundWidget();
     void setAudioUrl(const QUrl &url);
 private:
+    void play();
+    void mediaStateChanged(QMediaPlayer::State state);
     QMediaPlayer *mMediaPlayer = nullptr;
+    QPushButton *mPlayButton = nullptr;
 };
 
 #endif // PLAYSOUNDWIDGET_H
