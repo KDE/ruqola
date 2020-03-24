@@ -35,7 +35,7 @@ public:
 
 private:
     struct SoundLayout {
-        QString imagePath;
+        QString audioPath;
         QString title;
         QString description;
         QSize titleSize;

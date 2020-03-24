@@ -35,7 +35,7 @@ public:
 
 private:
     struct VideoLayout {
-        QString imagePath;
+        QString videoPath;
         QString title;
         QString description;
         QSize titleSize;

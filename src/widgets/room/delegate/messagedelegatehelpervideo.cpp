@@ -85,7 +85,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
             const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Video"));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
-                QFile sourceFile(layout.imagePath);
+                QFile sourceFile(layout.videoPath);
                 if (!sourceFile.copy(file)) {
                     QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
                 }
@@ -94,7 +94,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
         } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
-            dlg->setVideoUrl(QUrl::fromLocalFile(layout.imagePath));
+            dlg->setVideoUrl(QUrl::fromLocalFile(layout.videoPath));
             dlg->exec();
             delete dlg;
             return true;
@@ -116,7 +116,7 @@ MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(
     const MessageAttachment &msgAttach = message->attachements().at(0);
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     if (url.isLocalFile()) {
-        layout.imagePath = url.toLocalFile();
+        layout.videoPath = url.toLocalFile();
         //or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();
