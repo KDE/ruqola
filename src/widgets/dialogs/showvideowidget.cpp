@@ -78,12 +78,17 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
             this, &ShowVideoWidget::handleError);
 
     mSoundButton = new QToolButton(this);
+    mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
+    connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     controlLayout->addWidget(mSoundButton);
     mSoundSlider = new QSlider(Qt::Horizontal, this);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
+    connect(mSoundSlider, &QAbstractSlider::sliderMoved,
+            mMediaPlayer, &QMediaPlayer::setVolume);
+
     controlLayout->addWidget(mSoundSlider);
 }
 
