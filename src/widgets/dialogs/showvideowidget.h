@@ -28,6 +28,7 @@ class QMediaPlayer;
 class QPushButton;
 class QSlider;
 class QLabel;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 {
     Q_OBJECT
@@ -48,6 +49,8 @@ private:
     QPushButton *mPlayButton = nullptr;
     QSlider *mPositionSlider = nullptr;
     QLabel *mErrorLabel = nullptr;
+    QToolButton *mSoundButton = nullptr;
+    QSlider *mSoundSlider = nullptr;
 };
 
 #endif // SHOWVIDEOWIDGET_H

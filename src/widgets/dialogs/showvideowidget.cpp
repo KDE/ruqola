@@ -27,6 +27,7 @@
 #include <QSlider>
 #include <QStyle>
 #include <QLabel>
+#include <QToolButton>
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
@@ -75,7 +76,15 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
     connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error),
             this, &ShowVideoWidget::handleError);
-    //TODO add sound support
+
+    mSoundButton = new QToolButton(this);
+    mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
+    mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
+    controlLayout->addWidget(mSoundButton);
+    mSoundSlider = new QSlider(this);
+    mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
+    mSoundSlider->setRange(0, 100);
+    controlLayout->addWidget(mSoundSlider);
 }
 
 ShowVideoWidget::~ShowVideoWidget()
