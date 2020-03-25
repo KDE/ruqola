@@ -89,7 +89,7 @@ set_package_properties(Qt5Keychain PROPERTIES
                                    TYPE OPTIONAL)
 set(HAVE_QT5KEYCHAIN ${Qt5Keychain_FOUND})
 
-find_package(KUserFeedback CONFIG)
+find_package(KUserFeedback 0.9.90 CONFIG) # Needs Provider::describeDataSources()
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
 set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional). It can be disable in apps.")
 
