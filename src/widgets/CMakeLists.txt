@@ -70,6 +70,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showvideodialog.cpp
     dialogs/playsounddialog.cpp
     dialogs/playsoundwidget.cpp
+    dialogs/createvideomessagedialog.cpp
     )
 
 set(Ruqola_configure_SRCS
