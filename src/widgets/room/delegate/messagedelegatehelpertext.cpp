@@ -131,11 +131,9 @@ static void fillTextDocument(const QModelIndex &index, QTextDocument &doc, const
 {
     doc.setHtml(text);
     doc.setTextWidth(width);
-    if (useItalicsForMessage(index)) {
-        QFont font = doc.defaultFont();
-        font.setItalic(true);
-        doc.setDefaultFont(font);
-    }
+    QFont font = doc.defaultFont();
+    font.setItalic(useItalicsForMessage(index));
+    doc.setDefaultFont(font);
     QTextFrame *frame = doc.frameAt(0);
     QTextFrameFormat frameFormat = frame->frameFormat();
     frameFormat.setMargin(0);
@@ -216,6 +214,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         }
         mCurrentIndex = index;
         const QString text = makeMessageText(index, option.widget);
+        mCurrentDocument.clear();
         fillTextDocument(index, mCurrentDocument, text, messageRect.width());
         const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
         // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
