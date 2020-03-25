@@ -47,6 +47,7 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     auto *mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));
     QVERIFY(mInfo);
     QVERIFY(mInfo->text().isEmpty());
+    QCOMPARE(mInfo->contextMenuPolicy(), Qt::NoContextMenu);
 
     auto *mListAttachment = w.findChild<QListView *>(QStringLiteral("mListAttachment"));
     QVERIFY(mListAttachment);

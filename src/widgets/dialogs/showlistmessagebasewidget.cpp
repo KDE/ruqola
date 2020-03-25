@@ -45,6 +45,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mMessageListInfo = new QLabel(this);
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);
+    mMessageListInfo->setContextMenuPolicy(Qt::NoContextMenu);
     QFont labFont = mMessageListInfo->font();
     labFont.setBold(true);
     mMessageListInfo->setFont(labFont);

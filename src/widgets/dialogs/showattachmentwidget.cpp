@@ -45,6 +45,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mInfo = new QLabel(this);
     mInfo->setObjectName(QStringLiteral("mInfo"));
     mInfo->setTextFormat(Qt::RichText);
+    mInfo->setContextMenuPolicy(Qt::NoContextMenu);
     mainLayout->addWidget(mInfo);
     QFont labFont = mInfo->font();
     labFont.setBold(true);

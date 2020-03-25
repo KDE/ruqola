@@ -49,6 +49,7 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessageListInfo);
     QVERIFY(mMessageListInfo->text().isEmpty());
     QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
+    QCOMPARE(mMessageListInfo->contextMenuPolicy(), Qt::NoContextMenu);
 
     auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
