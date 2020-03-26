@@ -23,12 +23,15 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
+class CreateVideoMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit CreateVideoMessageDialog(QWidget *parent = nullptr);
     ~CreateVideoMessageDialog();
+private:
+    CreateVideoMessageWidget *mCreateVideoMessageWidget = nullptr;
 };
 
 #endif // CREATEVIDEOMESSAGEDIALOG_H

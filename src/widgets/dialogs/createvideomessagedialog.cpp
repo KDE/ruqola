@@ -19,6 +19,7 @@
 */
 
 #include "createvideomessagedialog.h"
+#include "createvideomessagewidget.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -31,6 +32,10 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+
+    mCreateVideoMessageWidget = new CreateVideoMessageWidget(this);
+    mCreateVideoMessageWidget->setObjectName(QStringLiteral("mCreateVideoMessageWidget"));
+    mainLayout->addWidget(mCreateVideoMessageWidget);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
