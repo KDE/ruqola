@@ -28,3 +28,9 @@ CreateVideoMessageWidgetTest::CreateVideoMessageWidgetTest(QObject *parent)
 {
 
 }
+
+void CreateVideoMessageWidgetTest::shouldHaveDefaultValues()
+{
+    CreateVideoMessageWidget w;
+
+}
