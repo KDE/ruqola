@@ -20,6 +20,7 @@
 
 #include "createvideomessagedialogtest.h"
 #include "dialogs/createvideomessagedialog.h"
+#include "dialogs/createvideomessagewidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
