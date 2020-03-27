@@ -674,7 +674,9 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
-    // COMMENT for the moment restApi()->channelList();
+#if 0
+    restApi()->channelList();
+#else
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
@@ -687,6 +689,7 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
         ddp()->channelAndPrivateAutocomplete(pattern, addUserNameToException);
 #endif
     }
+#endif
 }
 
 void RocketChatAccount::listEmojiCustom()
@@ -916,7 +919,8 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)
 {
-    qDebug() << " void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)" << obj;
+    //qDebug() << " void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)" << obj;
+    mSearchChannelModel->parseAllChannels(obj);
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
