@@ -317,7 +317,7 @@ void RestApiRequest::logout()
     connect(job, &LogoutJob::logoutDone, this, &RestApiRequest::slotLogout);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LogoutJob job";
     }
 }
 
@@ -327,7 +327,7 @@ void RestApiRequest::channelList()
     connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::channelListDone);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelList job";
     }
 }
 
@@ -339,7 +339,7 @@ void RestApiRequest::getAvatar(const QString &userId)
     initializeRestApiJob(job);
     job->setAvatarUserId(userId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getAvatar job";
     }
 }
 
@@ -349,7 +349,7 @@ void RestApiRequest::getPrivateSettings()
     connect(job, &PrivateInfoJob::privateInfoDone, this, &RestApiRequest::privateInfoDone);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPrivateSettings job";
     }
 }
 
@@ -359,7 +359,7 @@ void RestApiRequest::getOwnInfo()
     connect(job, &OwnInfoJob::ownInfoDone, this, &RestApiRequest::getOwnInfoDone);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getOwnInfo job";
     }
 }
 
@@ -370,7 +370,7 @@ void RestApiRequest::starMessage(const QString &messageId, bool starred)
     job->setMessageId(messageId);
     job->setStarMessage(starred);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start starMessage job";
     }
 }
 
@@ -384,7 +384,7 @@ void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool
     job->setStoreInCache(storeInCache);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob job";
     }
 }
 
@@ -396,7 +396,7 @@ void RestApiRequest::serverInfo(bool useDeprecatedVersion)
     connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
     connect(job, &ServerInfoJob::serverInfoFailed, this, &RestApiRequest::getServerInfoFailed);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ServerInfoJob job";
     }
 }
 
@@ -412,7 +412,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     info.threadMessageId = threadMessageId;
     job->setUploadFileInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UploadFileJob job";
     }
 }
 
@@ -423,7 +423,7 @@ void RestApiRequest::changeChannelTopic(const QString &roomId, const QString &to
     job->setRoomId(roomId);
     job->setTopic(topic);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeChannelTopicJob job";
     }
 }
 
@@ -434,7 +434,7 @@ void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &top
     job->setRoomId(roomId);
     job->setTopic(topic);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsTopicJob job";
     }
 }
 
@@ -445,7 +445,7 @@ void RestApiRequest::changeChannelReadOnly(const QString &roomId, bool b)
     job->setRoomId(roomId);
     job->setReadOnly(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeChannelReadonlyJob job";
     }
 }
 
@@ -456,7 +456,7 @@ void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
     job->setRoomId(roomId);
     job->setReadOnly(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsReadOnly job";
     }
 }
 
@@ -467,7 +467,7 @@ void RestApiRequest::changeChannelEncrypted(const QString &roomId, bool b)
     job->setRoomId(roomId);
     job->setEncrypted(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelEncrypted job";
     }
 }
 
@@ -478,7 +478,7 @@ void RestApiRequest::changeGroupsEncrypted(const QString &roomId, bool b)
     job->setRoomId(roomId);
     job->setEncrypted(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsEncryptedJob job";
     }
 }
 
@@ -489,7 +489,7 @@ void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QStr
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelAnnouncement job";
     }
 }
 
@@ -500,7 +500,7 @@ void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QStri
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
     }
 }
 
@@ -511,7 +511,7 @@ void RestApiRequest::changeChannelDescription(const QString &roomId, const QStri
     job->setRoomId(roomId);
     job->setDescription(description);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelDescription job";
     }
 }
 
@@ -522,7 +522,7 @@ void RestApiRequest::changeGroupsDescription(const QString &roomId, const QStrin
     job->setRoomId(roomId);
     job->setDescription(description);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsDescription job";
     }
 }
 
@@ -533,7 +533,7 @@ void RestApiRequest::postMessage(const QString &roomId, const QString &text)
     job->setRoomId(roomId);
     job->setText(text);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PostMessageJob job";
     }
 }
 
@@ -544,7 +544,7 @@ void RestApiRequest::deleteMessage(const QString &roomId, const QString &message
     job->setRoomId(roomId);
     job->setMessageId(messageId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start deleteMessage job";
     }
 }
 
@@ -563,7 +563,7 @@ void RestApiRequest::createChannels(const QString &channelName, bool readOnly, c
     job->setMembers(members);
     job->setPassword(password);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateChannelJob job";
     }
 }
 
@@ -575,7 +575,7 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
     job->setReadOnly(readOnly);
     job->setMembers(members);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
     }
 }
 
@@ -588,7 +588,7 @@ void RestApiRequest::leaveChannel(const QString &roomId)
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start leaveChannel job";
     }
 }
 
@@ -598,7 +598,7 @@ void RestApiRequest::leaveGroups(const QString &roomId)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start leaveGroups job";
     }
 }
 
@@ -609,7 +609,7 @@ void RestApiRequest::archiveChannel(const QString &roomId, bool archive)
     job->setRoomId(roomId);
     job->setArchive(archive);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ArchiveChannelJob job";
     }
 }
 
@@ -620,7 +620,7 @@ void RestApiRequest::archiveGroups(const QString &roomId, bool archive)
     job->setRoomId(roomId);
     job->setArchive(archive);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start archiveGroups job";
     }
 }
 
@@ -632,7 +632,7 @@ void RestApiRequest::updateMessage(const QString &roomId, const QString &message
     job->setMessageId(messageId);
     job->setUpdatedText(text);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start updateMessage job";
     }
 }
 
@@ -652,7 +652,7 @@ void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emo
     job->setEmoji(fixedEmoji);
     job->setShouldReact(shouldReact);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start reactOnMessage job";
     }
 }
 
@@ -672,7 +672,7 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
         job->setChannelType(ChannelCloseJob::Channel);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelCloseJob job";
     }
 }
 
@@ -698,7 +698,7 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
         job->setChannelHistoryInfo(historyInfo);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start historyChannel job";
     }
 }
 
@@ -708,7 +708,7 @@ void RestApiRequest::createDirectMessage(const QString &userName)
     initializeRestApiJob(job);
     job->setUserName(userName);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start createDirectMessage job";
     }
 }
 
@@ -744,7 +744,7 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
         job->setChannelType(ChannelFilesJob::Channel);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start filesInRoom job";
     }
 }
 
@@ -770,7 +770,7 @@ void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, i
         job->setChannelType(ChannelMembersJob::Channel);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start membersInRoom job";
     }
 }
 
@@ -784,7 +784,7 @@ void RestApiRequest::addUserInChannel(const QString &roomId, const QString &user
     job->setChannelInfo(info);
     job->setInviteUserId(userId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInChannel job";
     }
 }
 
@@ -795,7 +795,7 @@ void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId
     job->setRoomId(roomId);
     job->setUserId(userId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInGroup job";
     }
 }
 
@@ -805,7 +805,7 @@ void RestApiRequest::listEmojiCustom()
     initializeRestApiJob(job);
     connect(job, &LoadEmojiCustomJob::loadEmojiCustomDone, this, &RestApiRequest::loadEmojiCustomDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start listEmojiCustom job";
     }
 }
 
@@ -816,7 +816,7 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
     initializeRestApiJob(job);
     connect(job, &SpotlightJob::spotlightDone, this, &RestApiRequest::spotlightDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchRoomUser job";
     }
 }
 
@@ -829,7 +829,7 @@ void RestApiRequest::searchMessages(const QString &roomId, const QString &patter
     initializeRestApiJob(job);
     connect(job, &SearchMessageJob::searchMessageDone, this, &RestApiRequest::searchMessageDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchMessages job";
     }
 }
 
@@ -839,7 +839,7 @@ void RestApiRequest::markAsRead(const QString &roomId)
     job->setRoomId(roomId);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markAsRead job";
     }
 }
 
@@ -850,7 +850,7 @@ void RestApiRequest::markRoomAsUnRead(const QString &roomId)
     job->setUnReadObject(MarkRoomAsUnReadJob::Room);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markRoomAsUnRead job";
     }
 }
 
@@ -861,7 +861,7 @@ void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
     job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markMessageAsUnReadFrom job";
     }
 }
 
@@ -871,7 +871,7 @@ void RestApiRequest::getRooms()
     initializeRestApiJob(job);
     connect(job, &GetRoomsJob::getRoomsDone, this, &RestApiRequest::getRoomsDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getRooms job";
     }
 }
 
@@ -882,7 +882,7 @@ void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
     job->setFavorite(favorite);
     job->setRoomId(roomId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markAsFavorite job";
     }
 }
 
@@ -893,7 +893,7 @@ void RestApiRequest::disableNotifications(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setDisableNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start disableNotifications job";
     }
 }
 
@@ -904,7 +904,7 @@ void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setMuteGroupMentions(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start muteGroupMentions job";
     }
 }
 
@@ -915,7 +915,7 @@ void RestApiRequest::desktopDurationNotifications(const QString &roomId, int val
     job->setRoomId(roomId);
     job->setDesktopNotificationDuration(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopDurationNotifications job";
     }
 }
 
@@ -926,7 +926,7 @@ void RestApiRequest::desktopSoundNotifications(const QString &roomId, const QStr
     job->setRoomId(roomId);
     job->setAudioNotificationValue(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopSoundNotifications job";
     }
 }
 
@@ -937,7 +937,7 @@ void RestApiRequest::changeGroupName(const QString &roomId, const QString &newNa
     job->setRoomId(roomId);
     job->setName(newName);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupName job";
     }
 }
 
@@ -948,7 +948,7 @@ void RestApiRequest::changeChannelName(const QString &roomId, const QString &new
     job->setRoomId(roomId);
     job->setName(newName);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelName job";
     }
 }
 
@@ -961,7 +961,7 @@ void RestApiRequest::channelInfo(const QString &roomId)
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelInfo job";
     }
 }
 
@@ -971,7 +971,7 @@ void RestApiRequest::groupInfo(const QString &roomId)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupInfo job";
     }
 }
 
@@ -982,7 +982,7 @@ void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setHideUnreadStatus(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start hideUnreadStatus job";
     }
 }
 
@@ -993,7 +993,7 @@ void RestApiRequest::audioNotifications(const QString &roomId, const QString &va
     job->setRoomId(roomId);
     job->setAudioNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start audioNotifications job";
     }
 }
 
@@ -1004,7 +1004,7 @@ void RestApiRequest::desktopNotifications(const QString &roomId, const QString &
     job->setRoomId(roomId);
     job->setDesktopNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopNotifications job";
     }
 }
 
@@ -1015,7 +1015,7 @@ void RestApiRequest::emailNotifications(const QString &roomId, const QString &va
     job->setRoomId(roomId);
     job->setEmailNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start emailNotifications job";
     }
 }
 
@@ -1026,7 +1026,7 @@ void RestApiRequest::mobilePushNotifications(const QString &roomId, const QStrin
     job->setRoomId(roomId);
     job->setMobilePushNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start mobilePushNotifications job";
     }
 }
 
@@ -1037,7 +1037,7 @@ void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
     job->setRoomId(roomId);
     job->setUnreadAlert(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start unreadAlert job";
     }
 }
 
@@ -1047,7 +1047,7 @@ void RestApiRequest::setAvatar(const QString &avatarUrl)
     initializeRestApiJob(job);
     job->setAvatarUrl(avatarUrl);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setAvatar job";
     }
 }
 
@@ -1057,7 +1057,7 @@ void RestApiRequest::forgotPassword(const QString &email)
     initializeRestApiJob(job);
     job->setEmail(email);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start forgotPassword job";
     }
 }
 
@@ -1071,7 +1071,7 @@ void RestApiRequest::userInfo(const QString &identifier, bool userName)
     job->setUserInfo(info);
     connect(job, &UserInfoJob::userInfoDone, this, &RestApiRequest::userInfoDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userInfo job";
     }
 }
 
@@ -1084,7 +1084,7 @@ void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bo
     job->setIgnore(ignore);
     connect(job, &IgnoreUserJob::ignoreUserDone, this, &RestApiRequest::ignoreUserDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ignoreUser job";
     }
 }
 
@@ -1095,7 +1095,7 @@ void RestApiRequest::userPresence(const QString &userId)
     job->setPresenceUserId(userId);
     connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userPresence job";
     }
 }
 
@@ -1106,7 +1106,7 @@ void RestApiRequest::reportMessage(const QString &messageId, const QString &mess
     job->setMessageId(messageId);
     job->setReportMessage(message);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start reportMessage job";
     }
 }
 
@@ -1117,7 +1117,7 @@ void RestApiRequest::setGroupType(const QString &roomId, bool isPrivate)
     job->setRoomId(roomId);
     job->setType(isPrivate ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setGroupType job";
     }
 }
 
@@ -1131,7 +1131,7 @@ void RestApiRequest::setChannelType(const QString &roomId, bool isPrivate)
     job->setChannelInfo(info);
     job->setType(isPrivate ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelType job";
     }
 }
 
