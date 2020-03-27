@@ -50,6 +50,8 @@ public:
 
     void clear();
 
+    void parseAllChannels(const QJsonObject &obj);
+
 private:
     QIcon channelIconName(const Channel &channel) const;
     QString channelId(const Channel &channel) const;

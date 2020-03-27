@@ -426,6 +426,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelListDone, this, &RocketChatAccount::slotChannelListDone);
 
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::ThreadsMessages);
@@ -673,6 +674,7 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
+    // COMMENT for the moment restApi()->channelList();
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
@@ -910,6 +912,11 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
     //qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
     //If empty ! show empty list
     loadAutoCompleteChannel(obj);
+}
+
+void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)
+{
+    qDebug() << " void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)" << obj;
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)

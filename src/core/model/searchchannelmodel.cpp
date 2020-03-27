@@ -48,6 +48,11 @@ void SearchChannelModel::setChannels(const QVector<Channel> &channels)
     }
 }
 
+void SearchChannelModel::parseAllChannels(const QJsonObject &obj)
+{
+    //TODO
+}
+
 void SearchChannelModel::parseChannels(const QJsonObject &obj)
 {
     QVector<Channel> channelList;
