@@ -82,11 +82,13 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
+    connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::muteChanged);
     controlLayout->addWidget(mSoundButton);
     mSoundSlider = new QSlider(Qt::Horizontal, this);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
-    connect(mSoundSlider, &QAbstractSlider::sliderMoved,
+    mSoundSlider->setValue(100);
+    connect(mSoundSlider, &QAbstractSlider::valueChanged,
             mMediaPlayer, &QMediaPlayer::setVolume);
 
     controlLayout->addWidget(mSoundSlider);
@@ -94,6 +96,11 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 
 ShowVideoWidget::~ShowVideoWidget()
 {
+}
+
+void ShowVideoWidget::muteChanged(bool state)
+{
+    mSoundButton->setIcon(state ? QIcon::fromTheme(QStringLiteral("player-volume-muted")) : QIcon::fromTheme(QStringLiteral("player-volume")));
 }
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)

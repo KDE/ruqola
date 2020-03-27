@@ -41,6 +41,7 @@ private:
     void mediaStateChanged(QMediaPlayer::State state);
     void positionChanged(qint64 position);
     void durationChanged(qint64 duration);
+    void muteChanged(bool state);
     void setPosition(int position);
     void handleError();
     void play();
