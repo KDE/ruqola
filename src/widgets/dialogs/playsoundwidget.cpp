@@ -23,7 +23,9 @@
 #include <QHBoxLayout>
 #include <QMediaPlayer>
 #include <QPushButton>
+#include <QSlider>
 #include <QStyle>
+#include <QToolButton>
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     : QWidget(parent)
@@ -49,10 +51,34 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mainLayout->addWidget(mPlayButton);
     connect(mPlayButton, &QAbstractButton::clicked,
             this, &PlaySoundWidget::play);
+
+
+    mSoundButton = new QToolButton(this);
+    mSoundButton->setCheckable(true);
+    mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
+    mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
+    connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
+    connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
+    mainLayout->addWidget(mSoundButton);
+    mSoundSlider = new QSlider(Qt::Horizontal, this);
+    mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
+    mSoundSlider->setRange(0, 100);
+    mSoundSlider->setValue(100);
+    mSoundSlider->setTickPosition(QSlider::TicksAbove);
+    connect(mSoundSlider, &QAbstractSlider::valueChanged,
+            mMediaPlayer, &QMediaPlayer::setVolume);
+
+    mainLayout->addWidget(mSoundSlider);
+
 }
 
 PlaySoundWidget::~PlaySoundWidget()
 {
+}
+
+void PlaySoundWidget::muteChanged(bool state)
+{
+    mSoundButton->setIcon(state ? QIcon::fromTheme(QStringLiteral("player-volume-muted")) : QIcon::fromTheme(QStringLiteral("player-volume")));
 }
 
 void PlaySoundWidget::setAudioUrl(const QUrl &url)

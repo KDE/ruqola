@@ -27,6 +27,8 @@
 #include "libruqolawidgets_private_export.h"
 class QMediaPlayer;
 class QPushButton;
+class QToolButton;
+class QSlider;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundWidget : public QWidget
 {
     Q_OBJECT
@@ -36,9 +38,12 @@ public:
     void setAudioUrl(const QUrl &url);
 private:
     void play();
+    void muteChanged(bool state);
     void mediaStateChanged(QMediaPlayer::State state);
     QMediaPlayer *mMediaPlayer = nullptr;
     QPushButton *mPlayButton = nullptr;
+    QToolButton *mSoundButton = nullptr;
+    QSlider *mSoundSlider = nullptr;
 };
 
 #endif // PLAYSOUNDWIDGET_H
