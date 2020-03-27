@@ -88,6 +88,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(100);
+    mSoundSlider->setTickPosition(QSlider::TicksAbove);
     connect(mSoundSlider, &QAbstractSlider::valueChanged,
             mMediaPlayer, &QMediaPlayer::setVolume);
 
