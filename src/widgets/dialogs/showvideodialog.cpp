@@ -56,6 +56,7 @@ ShowVideoDialog::~ShowVideoDialog()
 void ShowVideoDialog::setVideoUrl(const QUrl &videoPath)
 {
     mShowVideoWidget->setVideoUrl(videoPath);
+    setWindowTitle(i18nc("@title:window", "Video: %1", videoPath.fileName()));
 }
 
 void ShowVideoDialog::readConfig()
