@@ -226,6 +226,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotStartDiscussion(index);
         });
         menu.addAction(startDiscussion);
+        menu.addSeparator();
 
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
@@ -311,9 +312,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 void MessageListView::createSeparator(QMenu &menu)
 {
     if (!menu.isEmpty()) {
-        auto *separator = new QAction(&menu);
-        separator->setSeparator(true);
-        menu.addAction(separator);
+        menu.addSeparator();
     }
 }
 
