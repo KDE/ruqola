@@ -22,6 +22,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QDebug>
+#include <KNotification>
 
 NotificationWidget::NotificationWidget(QWidget *parent)
     : QWidget(parent)
@@ -45,6 +46,8 @@ void NotificationWidget::slotSendNotification()
 {
     const QString str = mLineEdit->text();
     if (!str.isEmpty()) {
+        KNotification::event(KNotification::Notification, QStringLiteral("title:") + str,
+                             QStringLiteral("message:") + str.toHtmlEscaped(), QPixmap());
 
     }
 }
