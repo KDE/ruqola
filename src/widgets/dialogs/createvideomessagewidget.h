@@ -23,13 +23,15 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
     ~CreateVideoMessageWidget();
+private:
+    QLabel *mErrorLabel = nullptr;
 };
 
 #endif // CREATEVIDEOMESSAGEWIDGET_H

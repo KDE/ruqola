@@ -22,6 +22,7 @@
 #include "createvideomessagewidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QLabel>
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
@@ -29,6 +30,12 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mErrorLabel = new QLabel(this);
+    mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
+    mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+    mainLayout->addWidget(mErrorLabel);
+    mErrorLabel->setVisible(false);
 
 }
 
