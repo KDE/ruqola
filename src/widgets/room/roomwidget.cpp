@@ -27,6 +27,7 @@
 #include "roomwrapper.h"
 #include "readonlylineeditwidget.h"
 #include "messagetextedit.h"
+#include "roomutil.h"
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
@@ -317,7 +318,7 @@ void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString
 
 void RoomWidget::slotCreatePrivateDiscussion(const QString &userName)
 {
-    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(QStringLiteral("ruqola:/user/") + userName);
+    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(userName));
 }
 
 void RoomWidget::dragEnterEvent(QDragEnterEvent *event)

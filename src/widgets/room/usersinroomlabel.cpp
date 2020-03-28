@@ -22,6 +22,7 @@
 #include "roomwrapper.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "roomutil.h"
 #include "dialogs/directchannelinfodialog.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
@@ -93,7 +94,7 @@ void UserLabel::setUserId(const QString &userId)
 
 void UserLabel::slotOpenConversation()
 {
-    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(QStringLiteral("ruqola:/user/") + mUserName);
+    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(mUserName));
 }
 
 void UserLabel::slotBlockUser()

@@ -120,6 +120,7 @@ set(Ruqola_roomwidget_SRCS
     room/usersinroomflowwidget.cpp
     room/usersinroomlabel.cpp
     room/channelactionpopupmenu.cpp
+    room/roomutil.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
