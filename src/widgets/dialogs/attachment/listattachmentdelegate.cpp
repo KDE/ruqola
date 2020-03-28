@@ -50,9 +50,6 @@ static qreal basicMargin()
 
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // user
-    // alias
-    // date
     painter->save();
 
     QStyleOptionViewItem optionCopy = option;
@@ -60,7 +57,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     drawBackground(painter, optionCopy, index);
 
-    // Draw Mimetype
+    // Draw Mimetype Icon
     const Layout layout = doLayout(option, index);
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
     const bool fileComplete = file->complete();
@@ -75,33 +72,29 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
 
-    //draw filename
-    QFont oldFont = painter->font();
+    // Draw filename
+    const QFont oldFont = painter->font();
     if (!fileComplete) {
         QFont newFont = oldFont;
         newFont.setStrikeOut(true);
         painter->setFont(newFont);
     }
     painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.attachmentNameY, layout.attachmentName);
-    if (!fileComplete) {
-        painter->setFont(oldFont);
-    }
-    // Draw the sender
-    oldFont = painter->font();
+    // Draw the sender (below the filename)
     painter->setFont(layout.senderFont);
-    //TODO fix me timeStampHeight
     painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.senderY, layout.senderText);
     painter->setFont(oldFont);
 
-    // Timestamp
+    // Draw the timestamp (below the sender)
     DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
 
+    // Draw delete icon (for our own messages)
     if (file->userId() == Ruqola::self()->rocketChatAccount()->userID()) {
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
     }
 
     if (fileComplete) {
-        // draw Icon.
+        // Draw download icon
         mDownloadIcon.paint(painter, layout.downloadAttachmentRect);
     }
 

@@ -64,7 +64,7 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::ShowSnippered);
     });
 
-    mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachment..."), this);
+    mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachments..."), this);
     mMenu->addAction(mShowFileAttachments);
     connect(mShowFileAttachments, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowAttachment);
