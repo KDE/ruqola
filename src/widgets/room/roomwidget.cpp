@@ -104,6 +104,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
+    connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidget::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
     connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, &MessageLineWidget::setReplyInThread);
 
@@ -312,6 +313,11 @@ void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString
         mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
     }
     delete dlg;
+}
+
+void RoomWidget::slotCreatePrivateDiscussion(const QString &userName)
+{
+    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(QStringLiteral("ruqola:/user/") + userName);
 }
 
 void RoomWidget::dragEnterEvent(QDragEnterEvent *event)

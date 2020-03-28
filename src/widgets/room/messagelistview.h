@@ -57,6 +57,7 @@ Q_SIGNALS:
     void modelChanged();
     void editMessageRequested(const QString &messageId, const QString &text);
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
+    void createPrivateConversation(const QString &userName);
     void loadHistoryRequested();
     void goToMessageRequested(const QString &messageId);
     void replyInThreadRequested(const QString &messageId);
@@ -70,6 +71,7 @@ private:
     void slotSetAsFavorite(const QModelIndex &index, bool isStarred);
     void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
     void slotStartDiscussion(const QModelIndex &index);
+    void slotStartPrivateConversation(const QModelIndex &index);
     void slotCopyText(const QModelIndex &index);
     void slotTranslateMessage(const QModelIndex &index, bool checked);
     void createSeparator(QMenu &menu);

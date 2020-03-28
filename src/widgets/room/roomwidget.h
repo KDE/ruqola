@@ -71,6 +71,7 @@ private:
     void slotEncryptedChanged(bool b);
     void slotGoBackToRoom();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
+    void slotCreatePrivateDiscussion(const QString &userName);
     void slotSearchMessages();
     void slotActionRequested(RoomHeaderWidget::ChannelActionType type);
     void slotShowDiscussions();

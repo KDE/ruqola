@@ -214,6 +214,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     if (mMode == Mode::Editing) {
+        // ## Ideally we'd want to show this when the mouse is over the nickname
+        QAction *startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);
+        connect(startPrivateConversation, &QAction::triggered, this, [=]() {
+            slotStartPrivateConversation(index);
+        });
+        menu.addAction(startPrivateConversation);
+
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
             slotStartDiscussion(index);
@@ -358,6 +365,12 @@ void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinn
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     rcAccount->pinMessage(messageId, !isPinned);
+}
+
+void MessageListView::slotStartPrivateConversation(const QModelIndex &index)
+{
+    const QString userName = index.data(MessageModel::Username).toString();
+    Q_EMIT createPrivateConversation(userName);
 }
 
 void MessageListView::slotStartDiscussion(const QModelIndex &index)
