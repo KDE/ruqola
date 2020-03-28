@@ -20,7 +20,13 @@
 
 #include "showvideowidgettest.h"
 #include "dialogs/showvideowidget.h"
+#include <QLabel>
+#include <QPushButton>
+#include <QSlider>
 #include <QTest>
+#include <QToolButton>
+#include <QVBoxLayout>
+#include <QVideoWidget>
 QTEST_MAIN(ShowVideoWidgetTest)
 ShowVideoWidgetTest::ShowVideoWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +36,33 @@ ShowVideoWidgetTest::ShowVideoWidgetTest(QObject *parent)
 void ShowVideoWidgetTest::shouldHaveDefaultValues()
 {
     ShowVideoWidget w;
-    //TODO
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QVideoWidget *videoWidget = w.findChild<QVideoWidget *>(QStringLiteral("videoWidget"));
+    QVERIFY(videoWidget);
+
+    QBoxLayout *controlLayout = w.findChild<QHBoxLayout *>(QStringLiteral("controlLayout"));
+    QVERIFY(controlLayout);
+    QCOMPARE(controlLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QPushButton *mPlayButton = w.findChild<QPushButton *>(QStringLiteral("mPlayButton"));
+    QVERIFY(mPlayButton);
+    QVERIFY(!mPlayButton->isEnabled());
+
+    QSlider *mPositionSlider = w.findChild<QSlider *>(QStringLiteral("mPositionSlider"));
+    QVERIFY(mPositionSlider);
+
+    QLabel *mErrorLabel = w.findChild<QLabel *>(QStringLiteral("mErrorLabel"));
+    QVERIFY(mErrorLabel);
+
+    QToolButton *mSoundButton = w.findChild<QToolButton *>(QStringLiteral("mSoundButton"));
+    QVERIFY(mSoundButton);
+    QVERIFY(mSoundButton->isCheckable());
+    QVERIFY(!mSoundButton->icon().isNull());
+
+    QSlider *mSoundSlider = w.findChild<QSlider *>(QStringLiteral("mSoundSlider"));
+    QVERIFY(mSoundSlider);
+    QCOMPARE(mSoundSlider->value(), 100);
 }
