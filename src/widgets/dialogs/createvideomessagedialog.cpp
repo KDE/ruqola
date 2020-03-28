@@ -32,7 +32,6 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-
     mCreateVideoMessageWidget = new CreateVideoMessageWidget(this);
     mCreateVideoMessageWidget->setObjectName(QStringLiteral("mCreateVideoMessageWidget"));
     mainLayout->addWidget(mCreateVideoMessageWidget);
@@ -45,5 +44,4 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
 
 CreateVideoMessageDialog::~CreateVideoMessageDialog()
 {
-
 }

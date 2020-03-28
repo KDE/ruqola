@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createvideomessagewidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -36,10 +35,8 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     mainLayout->addWidget(mErrorLabel);
     mErrorLabel->setVisible(false);
-
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget()
 {
-
 }

@@ -29,7 +29,6 @@ QTEST_MAIN(CreateVideoMessageDialogTest)
 CreateVideoMessageDialogTest::CreateVideoMessageDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CreateVideoMessageDialogTest::shouldHaveDefaultValues()

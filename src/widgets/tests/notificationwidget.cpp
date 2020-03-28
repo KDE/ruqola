@@ -39,7 +39,6 @@ NotificationWidget::NotificationWidget(QWidget *parent)
 
 NotificationWidget::~NotificationWidget()
 {
-
 }
 
 void NotificationWidget::slotSendNotification()
@@ -48,6 +47,5 @@ void NotificationWidget::slotSendNotification()
     if (!str.isEmpty()) {
         KNotification::event(KNotification::Notification, QStringLiteral("title:") + str,
                              QStringLiteral("message:") + str.toHtmlEscaped(), QPixmap());
-
     }
 }

@@ -26,11 +26,9 @@ QTEST_MAIN(CreateVideoMessageWidgetTest)
 CreateVideoMessageWidgetTest::CreateVideoMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CreateVideoMessageWidgetTest::shouldHaveDefaultValues()
 {
     CreateVideoMessageWidget w;
-
 }

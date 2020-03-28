@@ -31,7 +31,6 @@ public:
     ~CreateVideoMessageDialogTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
-
 };
 
 #endif // CREATEVIDEOMESSAGEDIALOGTEST_H

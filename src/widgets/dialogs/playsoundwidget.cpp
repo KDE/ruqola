@@ -52,7 +52,6 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     connect(mPlayButton, &QAbstractButton::clicked,
             this, &PlaySoundWidget::play);
 
-
     mSoundButton = new QToolButton(this);
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
@@ -69,7 +68,6 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
             mMediaPlayer, &QMediaPlayer::setVolume);
 
     mainLayout->addWidget(mSoundSlider);
-
 }
 
 PlaySoundWidget::~PlaySoundWidget()
