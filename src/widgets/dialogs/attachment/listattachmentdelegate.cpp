@@ -79,14 +79,19 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         newFont.setStrikeOut(true);
         painter->setFont(newFont);
     }
-    painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.attachmentNameY, layout.attachmentName);
+    painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight,
+                      layout.attachmentNameY + painter->fontMetrics().ascent(),
+                      layout.attachmentName);
     // Draw the sender (below the filename)
     painter->setFont(layout.senderFont);
-    painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.senderY, layout.senderText);
+    painter->drawText(basicMargin() + option.rect.x() + layout.mimetypeHeight,
+                      layout.senderY + painter->fontMetrics().ascent(),
+                      layout.senderText);
     painter->setFont(oldFont);
 
     // Draw the timestamp (below the sender)
-    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY));
+    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText,
+                                     QPoint(basicMargin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));
 
     // Draw delete icon (for our own messages)
     if (file->userId() == Ruqola::self()->rocketChatAccount()->userID()) {
@@ -137,15 +142,9 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
-    int additionalHeight = 0;
-    // A little bit of margin below the very last item, it just looks better
-    if (index.row() == index.model()->rowCount() - 1) {
-        additionalHeight += 4;
-    }
-
-    const int contentsHeight = layout.timeStampY /* + layout.senderY + layout.attachmentNameY*/ - option.rect.y();
+    const int contentsHeight = layout.timeStampY  + option.fontMetrics.height() - option.rect.y();
     return QSize(option.rect.width(),
-                 contentsHeight + additionalHeight);
+                 contentsHeight);
 }
 
 ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -157,7 +156,7 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
     layout.attachmentName = file->fileName();
-    layout.attachmentNameY = usableRect.top() + option.fontMetrics.height();
+    layout.attachmentNameY = usableRect.top();
 
     layout.senderText = file->userName();
     layout.senderFont = option.font;
