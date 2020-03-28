@@ -25,6 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QTabWidget;
+class QLineEdit;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
@@ -38,6 +39,8 @@ Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
 private:
     void initializeTab(RocketChatAccount *account);
+
+    QLineEdit *mSearchLineEdit = nullptr;
     QTabWidget *mTabWidget = nullptr;
 };
 

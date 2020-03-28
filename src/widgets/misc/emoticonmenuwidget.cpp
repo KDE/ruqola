@@ -22,9 +22,16 @@
 #include "emoticonselectorwidget.h"
 #include "ruqola.h"
 #include "emoticons/emojimanager.h"
+#include "model/emoticonmodel.h"
 #include "rocketchataccount.h"
+#include <KLocalizedString>
+
 #include <QTabWidget>
 #include <QVBoxLayout>
+#include <QLineEdit>
+#include <QSortFilterProxyModel>
+
+#include <common/emojicompletiondelegate.h>
 
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
@@ -33,13 +40,16 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
+    mSearchLineEdit = new QLineEdit(this);
+    layout->addWidget(mSearchLineEdit);
+
     mTabWidget = new QTabWidget(this);
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     layout->addWidget(mTabWidget);
     QFont f = mTabWidget->font();
     f.setPointSize(22);
     f.setFamily(QStringLiteral("NotoColorEmoji"));
-    mTabWidget->setFont(f);
+    mTabWidget->tabBar()->setFont(f);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
@@ -50,6 +60,7 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mTabWidget->clear();
     initializeTab(account);
+    mSearchLineEdit->setFocus();
 }
 
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
@@ -62,4 +73,20 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         w->setEmoticons(emojiManager->emojisForCategory(category.category()));
         connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);
     }
+
+    QListView *allEmojisView = new QListView(this);
+    auto *emoticonFilterProxyModel = new QSortFilterProxyModel(this);
+    emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
+    allEmojisView->setModel(emoticonFilterProxyModel);
+    allEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
+
+    mTabWidget->addTab(allEmojisView, i18n("All"));
+    connect(mSearchLineEdit, &QLineEdit::textChanged, [=](const QString &text) {
+        mTabWidget->setCurrentWidget(allEmojisView);
+        emoticonFilterProxyModel->setFilterFixedString(text);
+    });
+    connect(allEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
+      const QString identifier = index.data().toString();
+      Q_EMIT insertEmoticons(identifier);
+    });
 }
