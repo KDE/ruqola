@@ -23,6 +23,7 @@
 
 #include "libruqolawidgets_private_export.h"
 
+#include <lrucache.h>
 #include <QPixmap>
 #include <QVector>
 
@@ -34,14 +35,9 @@ public:
 
 private:
     friend class PixmapCacheTest;
+    LRUCache<QString, QPixmap, 5> mCachedImages;
     QPixmap findCachedPixmap(const QString &link);
     void insertCachedPixmap(const QString &link, const QPixmap &pixmap);
-
-    struct CachedImage {
-        QString link;
-        QPixmap pixmap;
-    };
-    QVector<CachedImage> mCachedImages; // most recent first
 };
 
 #endif // PIXMAPCACHE_H

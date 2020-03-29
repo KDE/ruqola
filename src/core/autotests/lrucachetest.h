@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PIXMAPCACHETEST_H
-#define PIXMAPCACHETEST_H
+#ifndef LRUCACHETEST_H
+#define LRUCACHETEST_H
 
 #include <QObject>
 
-class PixmapCacheTest : public QObject
+class LRUCacheTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit PixmapCacheTest(QObject *parent = nullptr);
-    ~PixmapCacheTest() override = default;
+    explicit LRUCacheTest(QObject *parent = nullptr);
+    ~LRUCacheTest() override = default;
 
 private Q_SLOTS:
-    void shouldCacheLastFivePixmaps();
+    void shouldCacheLastFiveEntries();
 };
 
-#endif // PIXMAPCACHETEST_H
+#endif // LRUCACHETEST_H

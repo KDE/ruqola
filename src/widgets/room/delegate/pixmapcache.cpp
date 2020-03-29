@@ -23,40 +23,15 @@
 
 QPixmap PixmapCache::pixmapForLocalFile(const QString &path)
 {
-    QPixmap pixmap = findCachedPixmap(path);
+    auto it = mCachedImages.find(path);
+    if (it != mCachedImages.end()) {
+        return it->value;
+    }
+    auto pixmap = QPixmap(path);
     if (pixmap.isNull()) {
-        if (pixmap.load(path)) {
-            insertCachedPixmap(path, pixmap);
-        } else {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path;
-        }
+        qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path;
+        return pixmap;
     }
+    mCachedImages.insert(path, pixmap);
     return pixmap;
-}
-
-QPixmap PixmapCache::findCachedPixmap(const QString &link)
-{
-    auto matchesLink = [&](const CachedImage &cached) {
-                           return cached.link == link;
-                       };
-    auto it = std::find_if(mCachedImages.begin(), mCachedImages.end(), matchesLink);
-    if (it == mCachedImages.end()) {
-        return QPixmap();
-    }
-    QPixmap result = it->pixmap; // grab pixmap before 'it' gets invalidated
-    // Move it to the front
-    if (it != mCachedImages.begin()) {
-        const auto idx = std::distance(mCachedImages.begin(), it);
-        mCachedImages.move(idx, 0);
-    }
-    return result;
-}
-
-void PixmapCache::insertCachedPixmap(const QString &link, const QPixmap &pixmap)
-{
-    mCachedImages.prepend(CachedImage{link, pixmap});
-    static const int s_maxCacheSize = 5;
-    if (mCachedImages.size() > s_maxCacheSize) {
-        mCachedImages.resize(s_maxCacheSize);
-    }
 }
