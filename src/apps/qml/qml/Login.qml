@@ -67,6 +67,7 @@ Kirigami.Page {
             font.pointSize: 40
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
+            wrapMode: Text.Wrap
         }
         
         Item {
