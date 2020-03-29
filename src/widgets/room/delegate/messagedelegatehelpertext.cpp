@@ -126,42 +126,22 @@ static bool useItalicsForMessage(const QModelIndex &index)
     return isSystemMessage || messageType == Message::Video || messageType == Message::Audio;
 }
 
-// QTextDocument lacks a move constructor
-static void fillTextDocument(const QModelIndex &index, QTextDocument &doc, const QString &text, int width)
-{
-    doc.setHtml(text);
-    doc.setTextWidth(width);
-    QFont font = doc.defaultFont();
-    font.setItalic(useItalicsForMessage(index));
-    doc.setDefaultFont(font);
-    QTextFrame *frame = doc.frameAt(0);
-    QTextFrameFormat frameFormat = frame->frameFormat();
-    frameFormat.setMargin(0);
-    frame->setFrameFormat(frameFormat);
-}
-
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
-    const QString text = makeMessageText(index, option.widget);
-
-    if (text.isEmpty()) {
+    auto *doc = documentForIndex(index, rect.width(), option.widget);
+    if (!doc) {
         return;
     }
-    // Possible optimisation: store the QTextDocument into the Message itself?
-    QTextDocument doc;
-    QTextDocument *pDoc = &doc;
+
     QVector<QAbstractTextDocumentLayout::Selection> selections;
     if (index == mCurrentIndex) {
-        pDoc = &mCurrentDocument; // optimization, not stricly necessary
         QTextCharFormat selectionFormat;
         selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
         selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
         selections.append({mCurrentTextCursor, selectionFormat});
-    } else {
-        fillTextDocument(index, doc, text, rect.width());
     }
     if (useItalicsForMessage(index)) {
-        QTextCursor cursor(pDoc);
+        QTextCursor cursor(doc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
         format.setForeground(Qt::gray); //TODO use color from theme.
@@ -179,22 +159,20 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
         painter->setClipRect(clip);
         ctx.clip = clip;
     }
-    pDoc->documentLayout()->draw(painter, ctx);
+    doc->documentLayout()->draw(painter, ctx);
     painter->restore();
 }
 
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
-    const QString text = makeMessageText(index, option.widget);
-    if (text.isEmpty()) {
+    auto *doc = documentForIndex(index, maxWidth, option.widget);
+    if (!doc) {
         return QSize();
     }
-    QTextDocument doc;
-    fillTextDocument(index, doc, text, maxWidth);
-    const QSize size(doc.idealWidth(), doc.size().height()); // do the layouting, required by lineAt(0) below
+    const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
 
-    const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
+    const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
     *pBaseLine = line.y() + line.ascent(); // relative
 
     return size;
@@ -213,21 +191,23 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             updateView(option.widget, mCurrentIndex);
         }
         mCurrentIndex = index;
-        const QString text = makeMessageText(index, option.widget);
-        mCurrentDocument.clear();
-        fillTextDocument(index, mCurrentDocument, text, messageRect.width());
-        const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
-        if (charPos != -1) {
-            mCurrentTextCursor = QTextCursor(&mCurrentDocument);
-            mCurrentTextCursor.setPosition(charPos);
-            return true;
+        mCurrentDocument = documentForIndex(index, messageRect.width(), option.widget);
+        if (mCurrentDocument) {
+            const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            if (charPos != -1) {
+                mCurrentTextCursor = QTextCursor(mCurrentDocument);
+                mCurrentTextCursor.setPosition(charPos);
+                return true;
+            }
+        } else {
+            mCurrentIndex = QModelIndex();
         }
         break;
     }
     case QEvent::MouseMove:
-        if (index == mCurrentIndex) {
-            const int charPos = mCurrentDocument.documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        if (index == mCurrentIndex && mCurrentDocument) {
+            const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             if (charPos != -1) {
                 // QWidgetTextControl also has code to support dragging, isPreediting()/commitPreedit(), selectBlockOnTripleClick
                 mCurrentTextCursor.setPosition(charPos, QTextCursor::KeepAnchor);
@@ -256,12 +236,11 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     }
     // Clicks on links
     if (eventType == QEvent::MouseButtonRelease) {
-        // ## we should really cache that QTextDocument...
-        const QString text = makeMessageText(index, option.widget);
-        QTextDocument doc;
-        fillTextDocument(index, doc, text, messageRect.width());
-
-        const QString link = doc.documentLayout()->anchorAt(pos);
+        const auto *doc = documentForIndex(index, messageRect.width(), option.widget);
+        if (!doc) {
+            return false;
+        }
+        const QString link = doc->documentLayout()->anchorAt(pos);
         if (!link.isEmpty()) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();
             Q_EMIT rcAccount->openLinkRequested(link);
@@ -277,13 +256,13 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
         return false;
     }
 
-    // ## we should really cache that QTextDocument...
-    const auto text = makeMessageText(index, view);
-    QTextDocument doc;
-    fillTextDocument(index, doc, text, messageRect.width());
+    const auto *doc = documentForIndex(index, messageRect.width(), view);
+    if (!doc) {
+        return false;
+    }
 
     const QPoint pos = helpEvent->pos() - messageRect.topLeft();
-    const auto format = doc.documentLayout()->formatAt(pos);
+    const auto format = doc->documentLayout()->formatAt(pos);
     const auto tooltip = format.property(QTextFormat::TextToolTip).toString();
     const auto href = format.property(QTextFormat::AnchorHref).toString();
     if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith(QLatin1String("ruqola:/")))) {
@@ -310,4 +289,46 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
 void MessageDelegateHelperText::setShowThreadContext(bool b)
 {
     mShowThreadContext = b;
+}
+
+static std::unique_ptr<QTextDocument> createTextDocument(const QModelIndex &index, const QString &text, int width)
+{
+    std::unique_ptr<QTextDocument> doc(new QTextDocument);
+    doc->setHtml(text);
+    doc->setTextWidth(width);
+    QFont font = doc->defaultFont();
+    font.setItalic(useItalicsForMessage(index));
+    doc->setDefaultFont(font);
+    QTextFrame *frame = doc->frameAt(0);
+    QTextFrameFormat frameFormat = frame->frameFormat();
+    frameFormat.setMargin(0);
+    frame->setFrameFormat(frameFormat);
+    return doc;
+}
+
+QTextDocument * MessageDelegateHelperText::documentForIndex(const QModelIndex& index, int width, const QWidget *widget) const
+{
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    Q_ASSERT(message);
+    const auto messageId = message->messageId();
+    Q_ASSERT(!messageId.isEmpty());
+
+    auto it = mDocumentCache.find(messageId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (ret->textWidth() != width) {
+            ret->setTextWidth(width);
+        }
+        return ret;
+    }
+
+    const QString text = makeMessageText(index, widget);
+    if (text.isEmpty()) {
+        return nullptr;
+    }
+
+    auto doc = createTextDocument(index, text, width);
+    auto ret = doc.get();
+    mDocumentCache.insert(messageId, std::move(doc));
+    return ret;
 }

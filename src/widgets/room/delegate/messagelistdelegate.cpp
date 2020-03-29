@@ -150,7 +150,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
     layout.baseLine = 0;
-    const QSize textSize = mHelperText->sizeHint(index, maxWidth, option, &layout.baseLine); // TODO share the QTextDocument
+    const QSize textSize = mHelperText->sizeHint(index, maxWidth, option, &layout.baseLine);
     int attachmentsY;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {

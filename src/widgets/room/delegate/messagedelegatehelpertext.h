@@ -25,7 +25,12 @@
 #include <QSize>
 #include <QTextCursor>
 #include <QTextDocument>
+#include <QPointer>
 #include <messagecache.h>
+#include <lrucache.h>
+
+#include <memory>
+
 class QPainter;
 class QRect;
 class QModelIndex;
@@ -49,12 +54,14 @@ private:
     QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();
     void updateView(const QWidget *widget, const QModelIndex &index);
+    QTextDocument *documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const;
 
     bool mShowThreadContext = true;
     QPersistentModelIndex mCurrentIndex; // during selection
-    QTextDocument mCurrentDocument; // during selection
+    QPointer<QTextDocument> mCurrentDocument = nullptr; // during selection
     QTextCursor mCurrentTextCursor; // during selection
     mutable MessageCache mMessageCache;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 
 #endif // MESSAGEDELEGATEHELPERTEXT_H
