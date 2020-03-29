@@ -798,7 +798,8 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 const QJsonValue errorValue(error.value(QLatin1String("error")));
                 if (errorValue.toInt() == 403) {
                     qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Wrong password or token expired";
-
+                    //When we have a login error make sure to change expire token otherwise we can't login.
+                    mRocketChatAccount->settings()->setExpireToken(-1);
                     login(); // Let's keep trying to log in
                 } else if (errorValue.toString() == QLatin1String("totp-required") || errorValue.toString() == QLatin1String("totp-invalid")) {
                     qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "A 2FA code or backup code is required to login";
