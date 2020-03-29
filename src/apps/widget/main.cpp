@@ -29,7 +29,10 @@
 #include "managerdatapaths.h"
 
 #include "ruqolamainwindow.h"
+
+#if HAVE_KUSERFEEDBACK
 #include "userfeedback/ruqolauserfeedbackprovider.h"
+#endif
 
 #include <iostream>
 
