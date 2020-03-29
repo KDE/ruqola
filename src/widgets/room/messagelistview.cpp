@@ -40,6 +40,7 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
     , mMode(mode)
 {
+    mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
     auto *delegate = new MessageListDelegate(this);
     delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     delegate->setShowThreadContext(mMode != Mode::ThreadEditing);
@@ -304,6 +305,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(reportMessageAction);
 
+    if (mDebug) {
+        createSeparator(menu);
+        QAction *debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu);
+        connect(debugMessageAction, &QAction::triggered, this, [=]() {
+            slotDebugMessage(index);
+        });
+        menu.addAction(debugMessageAction);
+    }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
@@ -321,6 +330,12 @@ void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checke
     auto *model = const_cast<QAbstractItemModel *>(index.model());
     model->setData(index, checked, MessageModel::ShowTranslatedMessage);
     qDebug() << "No implemented yet" << checked;
+}
+
+void MessageListView::slotDebugMessage(const QModelIndex &index)
+{
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    qDebug() << " message " << *message;
 }
 
 void MessageListView::slotEditMessage(const QModelIndex &index)

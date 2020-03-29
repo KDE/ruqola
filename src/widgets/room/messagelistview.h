@@ -78,11 +78,13 @@ private:
     void slotVerticalScrollbarChanged(int value);
     void slotReplyInThread(const QModelIndex &index);
     void updateVerticalPageStep();
+    void slotDebugMessage(const QModelIndex &index);
 
 private:
     QString mRoomId;
     MessageListView::Mode mMode = MessageListView::Mode::Editing;
     bool mAtBottom = true;
+    bool mDebug = false;
 };
 
 #endif // MESSAGELISTVIEW_H
