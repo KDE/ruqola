@@ -21,7 +21,6 @@
 #include "reportmessagewidget.h"
 
 #include <QLabel>
-#include <QTextDocument>
 #include <KTextEdit>
 #include <QHBoxLayout>
 
