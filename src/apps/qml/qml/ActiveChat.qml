@@ -77,7 +77,8 @@ ListView {
 
     // TODO: Move prop to C++ settings class
     // note: This is a server-side setting (/api/v1/settings)-- adhere to it!
-    property bool compactViewMode: true
+    // Default to true on the desktop, default to false on mobile since it does not work well there
+    property bool compactViewMode: !Kirigami.Settings.isMobile
 
     spacing: 0//Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange

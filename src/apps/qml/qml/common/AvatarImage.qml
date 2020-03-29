@@ -127,6 +127,10 @@ Rectangle {
         // HACK: Remove me, just for demonstration
         anchors.fill: parent
         onClicked: {
+            if (Kirigami.Settings.isMobile) {
+                return; // prevent switching to compact mode on mobile
+            }
+
             activeChat.compactViewMode = !activeChat.compactViewMode // toggle
             console.log("compactViewMode: " + activeChat.compactViewMode);
         }
