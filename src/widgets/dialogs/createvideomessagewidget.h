@@ -24,6 +24,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class QLabel;
+class QCamera;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,7 @@ public:
     ~CreateVideoMessageWidget();
 private:
     QLabel *mErrorLabel = nullptr;
+    QCamera *mCamera = nullptr;
 };
 
 #endif // CREATEVIDEOMESSAGEWIDGET_H

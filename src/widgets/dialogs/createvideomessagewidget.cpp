@@ -22,6 +22,9 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
+#include <QCamera>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
@@ -29,6 +32,21 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mCamera = new QCamera(this);
+    mCamera->setObjectName(QStringLiteral("mCamera"));
+
+
+    QCameraViewfinder *viewfinder = new QCameraViewfinder(this);
+    viewfinder->show();
+
+    mCamera->setViewfinder(viewfinder);
+
+    QCameraImageCapture *imageCapture = new QCameraImageCapture(mCamera);
+
+    mCamera->setCaptureMode(QCamera::CaptureStillImage);
+    mCamera->start();
+
 
     mErrorLabel = new QLabel(this);
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
