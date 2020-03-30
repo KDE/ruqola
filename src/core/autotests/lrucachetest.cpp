@@ -39,20 +39,20 @@ LRUCacheTest::LRUCacheTest(QObject *parent)
 void LRUCacheTest::shouldCacheLastFiveEntries()
 {
     auto makeString = [](const char *prefix, int i) -> QString
-    {
-        return QLatin1String(prefix) + QString::number(i);
-    };
+                      {
+                          return QLatin1String(prefix) + QString::number(i);
+                      };
 
     using Cache = LRUCache<QString, QString, 5>;
     Cache cache;
     auto contents = [&cache]() -> QVector<QString>
-    {
-        QVector<QString> ret(cache.size());
-        std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
+                    {
+                        QVector<QString> ret(cache.size());
+                        std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
             return entry.value;
         });
-        return ret;
-    };
+                        return ret;
+                    };
 
     QCOMPARE(cache.size(), 0);
     QCOMPARE(cache.begin(), cache.end());
@@ -71,8 +71,9 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
         QCOMPARE(std::distance(cache.begin(), cache.find(key)), 0);
         QCOMPARE(cache.find(key)->value, value);
         expected.prepend(value);
-        if (expected.size() == 6)
+        if (expected.size() == 6) {
             expected.removeLast();
+        }
         QCOMPARE(contents(), expected);
     }
 

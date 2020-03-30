@@ -23,8 +23,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QString>
-namespace RoomUtil
-{
+namespace RoomUtil {
 LIBRUQOLAWIDGETS_TESTS_EXPORT QString generateUserLink(const QString &userName);
 }
 

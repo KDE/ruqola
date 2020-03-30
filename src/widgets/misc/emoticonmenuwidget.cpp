@@ -86,7 +86,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         emoticonFilterProxyModel->setFilterFixedString(text);
     });
     connect(allEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
-      const QString identifier = index.data().toString();
-      Q_EMIT insertEmoticons(identifier);
+        const QString identifier = index.data().toString();
+        Q_EMIT insertEmoticons(identifier);
     });
 }

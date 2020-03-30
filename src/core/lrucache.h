@@ -48,10 +48,20 @@ public:
     using iterator = typename Entries::const_iterator;
     using const_iterator = typename Entries::const_iterator;
 
-    std::size_t size() const { return mNumEntries; }
+    std::size_t size() const
+    {
+        return mNumEntries;
+    }
 
-    const_iterator begin() const { return mEntries.begin(); }
-    const_iterator end() const { return std::next(mEntries.begin(), mNumEntries); }
+    const_iterator begin() const
+    {
+        return mEntries.begin();
+    }
+
+    const_iterator end() const
+    {
+        return std::next(mEntries.begin(), mNumEntries);
+    }
 
     const_iterator find(const Key &key)
     {
@@ -59,8 +69,9 @@ public:
         const auto begin = mEntries.begin();
         const auto end = std::next(mEntries.begin(), mNumEntries);
         auto it = std::find(begin, end, key);
-        if (it == begin || it == end) // not found or already the last recently used one
+        if (it == begin || it == end) { // not found or already the last recently used one
             return it;
+        }
 
         // rotate to mark entry as last recently used one
         std::rotate(begin, it, it + 1);

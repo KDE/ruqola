@@ -185,7 +185,6 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     // Text selection
     switch (eventType) {
     case QEvent::MouseButtonPress:
-    {
         if (mCurrentIndex.isValid()) {
             // The old index no longer has selection, repaint it
             updateView(option.widget, mCurrentIndex);
@@ -204,7 +203,6 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             mCurrentIndex = QModelIndex();
         }
         break;
-    }
     case QEvent::MouseMove:
         if (index == mCurrentIndex && mCurrentDocument) {
             const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
@@ -306,7 +304,7 @@ static std::unique_ptr<QTextDocument> createTextDocument(const QModelIndex &inde
     return doc;
 }
 
-QTextDocument * MessageDelegateHelperText::documentForIndex(const QModelIndex& index, int width, const QWidget *widget) const
+QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
