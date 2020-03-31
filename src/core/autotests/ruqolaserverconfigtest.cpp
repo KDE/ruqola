@@ -59,6 +59,9 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.uploadFileEnabled());
     QCOMPARE(config.fileMaxFileSize(), -1);
     QVERIFY(!config.broadCastEnabled());
+
+    QVERIFY(config.videoRecorderEnabled());
+    QVERIFY(config.audioRecorderEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -78,6 +81,10 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool encryptionEnabled = false;
     bool autoTranslateEnabled = true;
     bool broadCastEnabled = true;
+
+    bool audioRecorderEnabled = false;
+    bool videoRecorderEnabled = false;
+
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
@@ -94,6 +101,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setAutoTranslateEnabled(autoTranslateEnabled);
     config.setAutoTranslateGoogleKey(googleKey);
     config.setBroadCastEnabled(broadCastEnabled);
+    config.setAudioRecorderEnabled(audioRecorderEnabled);
+    config.setVideoRecorderEnabled(videoRecorderEnabled);
 
     bool pinning = true;
     bool snippeting = true;
@@ -138,6 +147,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.discussionEnabled(), discussionEnabled);
     QCOMPARE(config.autoTranslateEnabled(), autoTranslateEnabled);
     QCOMPARE(config.autoTranslateGoogleKey(), googleKey);
+
+    QCOMPARE(config.audioRecorderEnabled(), audioRecorderEnabled);
+    QCOMPARE(config.videoRecorderEnabled(), videoRecorderEnabled);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

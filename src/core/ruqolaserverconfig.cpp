@@ -197,6 +197,26 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::audioRecorderEnabled() const
+{
+    return mAudioRecorderEnabled;
+}
+
+void RuqolaServerConfig::setAudioRecorderEnabled(bool audioRecorderEnabled)
+{
+    mAudioRecorderEnabled = audioRecorderEnabled;
+}
+
+bool RuqolaServerConfig::videoRecorderEnabled() const
+{
+    return mVideoRecorderEnabled;
+}
+
+void RuqolaServerConfig::setVideoRecorderEnabled(bool videoRecorderEnabled)
+{
+    mVideoRecorderEnabled = videoRecorderEnabled;
+}
+
 bool RuqolaServerConfig::broadCastEnabled() const
 {
     return mBroadCastEnabled;
@@ -460,6 +480,11 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setFileMaxFileSize(value.toULongLong());
         } else if (id == QLatin1String("Broadcasting_enabled")) {
             setBroadCastEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_VideoRecorderEnabled")) {
+            setVideoRecorderEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
+            setBroadCastEnabled(value.toBool());
+
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

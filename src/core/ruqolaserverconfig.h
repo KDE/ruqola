@@ -126,6 +126,12 @@ public:
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
     void setBroadCastEnabled(bool broadCastEnabled);
 
+    Q_REQUIRED_RESULT bool videoRecorderEnabled() const;
+    void setVideoRecorderEnabled(bool videoRecorderEnabled);
+
+    Q_REQUIRED_RESULT bool audioRecorderEnabled() const;
+    void setAudioRecorderEnabled(bool audioRecorderEnabled);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -159,6 +165,8 @@ private:
     bool mAutoTranslateEnabled = false;
     bool mUploadFileEnabled = true;
     bool mBroadCastEnabled = false;
+    bool mVideoRecorderEnabled = true;
+    bool mAudioRecorderEnabled = true;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H
