@@ -98,16 +98,19 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mCommentReadOnly->text().isEmpty());
     QCOMPARE(mCommentReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mCommentReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
+    QVERIFY(mCommentReadOnly->wordWrap());
 
     auto *mAnnouncementReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mAnnouncementReadOnly"));
     QVERIFY(mAnnouncementReadOnly);
     QVERIFY(mAnnouncementReadOnly->text().isEmpty());
     QCOMPARE(mAnnouncementReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mAnnouncementReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
+    QVERIFY(mAnnouncementReadOnly->wordWrap());
 
     auto *mDescriptionReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mDescriptionReadOnly"));
     QVERIFY(mDescriptionReadOnly);
     QCOMPARE(mDescriptionReadOnly->textFormat(), Qt::RichText);
     QVERIFY(mDescriptionReadOnly->text().isEmpty());
     QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
+    QVERIFY(mDescriptionReadOnly->wordWrap());
 }

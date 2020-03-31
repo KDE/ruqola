@@ -160,6 +160,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
     mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mCommentReadOnly->setOpenExternalLinks(true);
+    mCommentReadOnly->setWordWrap(true);
     mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
 
@@ -168,6 +169,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
     mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mAnnouncementReadOnly->setOpenExternalLinks(true);
+    mAnnouncementReadOnly->setWordWrap(true);
     mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
 
@@ -176,6 +178,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
     mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescriptionReadOnly->setOpenExternalLinks(true);
+    mDescriptionReadOnly->setWordWrap(true);
     mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
