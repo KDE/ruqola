@@ -34,7 +34,7 @@ ListDiscussionDelegate::~ListDiscussionDelegate()
 
 static qreal basicMargin()
 {
-    return 8;
+    return 4;
 }
 
 // [date]
@@ -44,26 +44,36 @@ static qreal basicMargin()
 
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    painter->save();
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    const int margin = 8;
-
-    const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
 
     const QString text = index.data(DiscussionsModel::Description).toString();
 
+    const Layout layout = doLayout(option, index);
     //TODO improve it.
-    const int xText = option.rect.x() + iconSize + 2 * margin;
+    const int xText = option.rect.x() + iconSize + 2 * basicMargin();
     const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText - margin,
+                            option.rect.width() - xText - basicMargin(),
                             option.rect.height());
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
     drawBackground(painter, optionCopy, index);
-    const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
-    icon.paint(painter, decorationRect, Qt::AlignCenter);
-
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
+
+    // Draw the sender (below the filename)
+    const QFont oldFont = painter->font();
+    painter->setFont(layout.senderFont);
+    painter->drawText(basicMargin() + option.rect.x(),
+                      layout.senderY + painter->fontMetrics().ascent(),
+                      layout.senderText);
+    painter->setFont(oldFont);
+
+    // Draw the timestamp (below the sender)
+    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText,
+                                     QPoint(basicMargin() + option.rect.x() , layout.timeStampY + painter->fontMetrics().ascent()));
+
+    painter->restore();
 }
 
 bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -81,16 +91,9 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
-    int additionalHeight = 0;
-    // A little bit of margin below the very last item, it just looks better
-    if (index.row() == index.model()->rowCount() - 1) {
-        additionalHeight += 4;
-    }
-
-//    const int contentsHeight = layout.timeStampY /* + layout.senderY + layout.attachmentNameY*/ - option.rect.y();
-
+    const int contentsHeight = layout.timeStampY  + option.fontMetrics.height() - option.rect.y();
     return QSize(option.rect.width(),
-                 /*contentsHeight +*/ additionalHeight);
+                 contentsHeight);
 }
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
