@@ -128,8 +128,10 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userID())) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::Yes == KMessageBox::questionYesNo(parentWidget, i18n("Do you want to Delete this File?"), i18n("Delete File"))) {
+                const QString fileId = file->fileId();
+                Q_EMIT deleteAttachment(fileId);
                 //TODO
-                //appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
+                //appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileId, appid.selectedRoom.channelType)
             }
             return true;
         }

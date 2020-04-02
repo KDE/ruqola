@@ -55,7 +55,9 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mListAttachment = new QListView(this);
     mListAttachment->setObjectName(QStringLiteral("mListAttachment"));
     mainLayout->addWidget(mListAttachment);
-    mListAttachment->setItemDelegate(new ListAttachmentDelegate(this));
+    ListAttachmentDelegate *delegate = new ListAttachmentDelegate(this);
+    connect(delegate, &ListAttachmentDelegate::deleteAttachment, this, &ShowAttachmentWidget::deleteAttachment);
+    mListAttachment->setItemDelegate(delegate);
 }
 
 ShowAttachmentWidget::~ShowAttachmentWidget()

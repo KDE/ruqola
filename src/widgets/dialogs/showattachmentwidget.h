@@ -37,6 +37,7 @@ public:
 
 Q_SIGNALS:
     void loadMoreFileAttachment();
+    void deleteAttachment(const QString &fileId);
 
 private:
     void slotSearchMessageTextChanged(const QString &str);

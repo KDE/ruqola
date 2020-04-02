@@ -49,12 +49,18 @@ ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowAttachmentDialog::reject);
     connect(mShowAttachmentWidget, &ShowAttachmentWidget::loadMoreFileAttachment, this, &ShowAttachmentDialog::slotLoadMoreAttachment);
+    connect(mShowAttachmentWidget, &ShowAttachmentWidget::deleteAttachment, this, &ShowAttachmentDialog::slotDeleteAttachment);
     readConfig();
 }
 
 ShowAttachmentDialog::~ShowAttachmentDialog()
 {
     writeConfig();
+}
+
+void ShowAttachmentDialog::slotDeleteAttachment(const QString &fileId)
+{
+    Ruqola::self()->rocketChatAccount()->deleteFileMessage(mRoomId, fileId, mRoomType);
 }
 
 void ShowAttachmentDialog::setModel(FilesForRoomFilterProxyModel *model)

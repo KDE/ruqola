@@ -45,6 +45,7 @@ private:
     void readConfig();
     void writeConfig();
     void slotLoadMoreAttachment();
+    void slotDeleteAttachment(const QString &fileId);
     QString mRoomId;
     QString mRoomType;
     ShowAttachmentWidget *mShowAttachmentWidget = nullptr;
