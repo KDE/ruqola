@@ -36,6 +36,10 @@ public:
 
 private:
     struct Layout {
+        //Attachment name
+        QString text;
+        qreal textY = 0;
+
         // Sender
         QString senderText;
         QFont senderFont;

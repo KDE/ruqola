@@ -59,7 +59,11 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
     drawBackground(painter, optionCopy, index);
-    drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
+
+    painter->drawText(basicMargin() + option.rect.x(),
+                      layout.textY + painter->fontMetrics().ascent(),
+                      text);
+    //drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 
     // Draw the sender (below the filename)
     const QFont oldFont = painter->font();
@@ -101,12 +105,16 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     Layout layout;
     QRect usableRect = option.rect;
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
+
+    layout.text = index.data(DiscussionsModel::Description).toString();
+    layout.textY = usableRect.top();
+
     layout.senderFont = option.font;
     layout.senderFont.setItalic(true);
     layout.senderText = index.data(DiscussionsModel::Description).toString();
 
     layout.timeStampText = index.data(DiscussionsModel::TimeStamp).toString();;
-    layout.timeStampY = usableRect.top() + option.fontMetrics.height();
+    layout.timeStampY = layout.textY + option.fontMetrics.height();
 
 
     return layout;
