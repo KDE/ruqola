@@ -45,37 +45,23 @@ static qreal basicMargin()
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-
-    const QString text = index.data(DiscussionsModel::Description).toString();
 
     const Layout layout = doLayout(option, index);
-    //TODO improve it.
-    const int xText = option.rect.x() + iconSize + 2 * basicMargin();
-    const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText - basicMargin(),
-                            option.rect.height());
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
     drawBackground(painter, optionCopy, index);
 
+    // Draw the sender (below the filename)
     painter->drawText(basicMargin() + option.rect.x(),
                       layout.textY + painter->fontMetrics().ascent(),
-                      text);
-    //drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
-
-    // Draw the sender (below the filename)
-    const QFont oldFont = painter->font();
-    painter->setFont(layout.senderFont);
-    painter->drawText(basicMargin() + option.rect.x(),
-                      layout.senderY + painter->fontMetrics().ascent(),
-                      layout.senderText);
-    painter->setFont(oldFont);
+                      layout.text);
 
     // Draw the timestamp (below the sender)
     DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText,
                                      QPoint(basicMargin() + option.rect.x() , layout.timeStampY + painter->fontMetrics().ascent()));
+
+    //TODO add open discussion text.
 
     painter->restore();
 }
@@ -108,10 +94,6 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     layout.text = index.data(DiscussionsModel::Description).toString();
     layout.textY = usableRect.top();
-
-    layout.senderFont = option.font;
-    layout.senderFont.setItalic(true);
-    layout.senderText = index.data(DiscussionsModel::Description).toString();
 
     layout.timeStampText = index.data(DiscussionsModel::TimeStamp).toString();;
     layout.timeStampY = layout.textY + option.fontMetrics.height();
