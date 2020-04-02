@@ -101,5 +101,13 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     Layout layout;
     QRect usableRect = option.rect;
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
+    layout.senderFont = option.font;
+    layout.senderFont.setItalic(true);
+    layout.senderText = index.data(DiscussionsModel::Description).toString();
+
+    layout.timeStampText = index.data(DiscussionsModel::TimeStamp).toString();;
+    layout.timeStampY = usableRect.top() + option.fontMetrics.height();
+
+
     return layout;
 }
