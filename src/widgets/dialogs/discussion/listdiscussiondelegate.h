@@ -43,6 +43,10 @@ private:
         //TimeStamp
         QString timeStampText;
         qreal timeStampY = 0;
+
+        //OpenDiscussionText
+        QString openDiscussionText;
+        qreal openDiscussionTextY = 0;
         //
         QRect usableRect;
     };

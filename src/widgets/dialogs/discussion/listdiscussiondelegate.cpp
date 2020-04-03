@@ -20,6 +20,9 @@
 #include "listdiscussiondelegate.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include <KColorScheme>
+#include <KLocalizedString>
+
 #include "model/discussionsmodel.h"
 #include "common/delegatepaintutil.h"
 
@@ -61,6 +64,12 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText,
                                      QPoint(basicMargin() + option.rect.x() , layout.timeStampY + painter->fontMetrics().ascent()));
 
+    KColorScheme scheme;
+    const QString discussionsText = i18n("Open Discussion");
+    painter->setPen(scheme.foreground(KColorScheme::LinkText).color());
+    painter->drawText(basicMargin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
+    // Note: pen still blue, currently relying on restore()
+
     //TODO add open discussion text.
 
     painter->restore();
@@ -81,7 +90,7 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
-    const int contentsHeight = layout.timeStampY  + option.fontMetrics.height() - option.rect.y();
+    const int contentsHeight = layout.openDiscussionTextY  + option.fontMetrics.height() - option.rect.y();
     return QSize(option.rect.width(),
                  contentsHeight);
 }
@@ -98,6 +107,6 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     layout.timeStampText = index.data(DiscussionsModel::TimeStamp).toString();;
     layout.timeStampY = layout.textY + option.fontMetrics.height();
 
-
+    layout.openDiscussionTextY = layout.timeStampY + option.fontMetrics.height();
     return layout;
 }
