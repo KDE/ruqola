@@ -41,8 +41,8 @@ private:
         qreal textY = 0;
 
         //TimeStamp
-        QString timeStampText;
-        qreal timeStampY = 0;
+        QString lastMessageTimeText;
+        qreal lastMessageTimeY = 0;
 
         //OpenDiscussionText
         QString openDiscussionText;

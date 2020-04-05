@@ -61,8 +61,8 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
                       layout.text);
 
     // Draw the timestamp (below the sender)
-    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText,
-                                     QPoint(basicMargin() + option.rect.x() , layout.timeStampY + painter->fontMetrics().ascent()));
+    DelegatePaintUtil::drawTimestamp(painter, layout.lastMessageTimeText,
+                                     QPoint(basicMargin() + option.rect.x() , layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     KColorScheme scheme;
     const QString discussionsText = i18n("Open Discussion");
@@ -104,9 +104,9 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     layout.text = index.data(DiscussionsModel::Description).toString();
     layout.textY = usableRect.top();
 
-    layout.timeStampText = index.data(DiscussionsModel::TimeStamp).toString();;
-    layout.timeStampY = layout.textY + option.fontMetrics.height();
+    layout.lastMessageTimeText = index.data(DiscussionsModel::LastMessage).toString();;
+    layout.lastMessageTimeY = layout.textY + option.fontMetrics.height();
 
-    layout.openDiscussionTextY = layout.timeStampY + option.fontMetrics.height();
+    layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
     return layout;
 }
