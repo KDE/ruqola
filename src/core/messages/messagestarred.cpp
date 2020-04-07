@@ -44,12 +44,12 @@ void MessageStarred::setIsStarred(bool isStarred)
     mIsStarred = isStarred;
 }
 
-bool MessageStarred::operator==(const MessageStarred &other) const
+bool MessageStarred::operator==(MessageStarred other) const
 {
     return mIsStarred == other.isStarred();
 }
 
-QDebug operator <<(QDebug d, const MessageStarred &t)
+QDebug operator <<(QDebug d, MessageStarred t)
 {
     d << "isStarred " << t.isStarred();
     return d;

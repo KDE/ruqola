@@ -22,7 +22,7 @@
 #include <QString>
 #include <QPainter>
 
-void DelegatePaintUtil::drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
+void DelegatePaintUtil::drawTimestamp(QPainter *painter, const QString &timeStampText, QPoint timeStampPos)
 {
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();

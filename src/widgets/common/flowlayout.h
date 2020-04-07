@@ -55,7 +55,7 @@ public:
     void clearAndDeleteWidgets();
 
 private:
-    int doFlow(const QRect &rect, bool effective) const;
+    int doFlow(QRect rect, bool effective) const;
 
 private:
     QVector<QLayoutItem *> mItems;

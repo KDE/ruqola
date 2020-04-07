@@ -34,7 +34,7 @@ public:
         Direct,
         Unknown
     };
-    Q_ENUMS(ChannelType)
+    Q_ENUM(ChannelType)
 
     struct ChannelHistoryInfo {
         QString latestMessage;

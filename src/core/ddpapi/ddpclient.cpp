@@ -693,7 +693,7 @@ quint64 DDPClient::ignoreUser(const QString &roomId, const QString &userId, bool
     return method(result, user_ignore, DDPClient::Persistent);
 }
 
-quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, const std::function<void(QJsonObject, RocketChatAccount *)> &callback, DDPClient::MessageType messageType)
 {
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
@@ -720,7 +720,7 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
     return method(m, params, empty_callback, messageType);
 }
 
-quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &method, const QJsonDocument &params, const std::function<void(QJsonObject, RocketChatAccount *)> &callback, DDPClient::MessageType messageType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);

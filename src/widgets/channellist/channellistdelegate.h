@@ -25,6 +25,7 @@
 
 class ChannelListDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit ChannelListDelegate(QObject *parent = nullptr);
 

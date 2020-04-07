@@ -30,10 +30,10 @@ public:
     Q_REQUIRED_RESULT bool isStarred() const;
     void setIsStarred(bool isStarred);
 
-    Q_REQUIRED_RESULT bool operator==(const MessageStarred &other) const;
+    Q_REQUIRED_RESULT bool operator==(MessageStarred other) const;
     void parse(const QJsonObject &o);
 private:
     bool mIsStarred = false;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageStarred &t);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, MessageStarred t);
 #endif // MESSAGESTARRED_H

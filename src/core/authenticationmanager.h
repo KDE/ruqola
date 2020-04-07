@@ -66,7 +66,7 @@ public:
         Wordpress = 64,
         Password = 128
     };
-    Q_ENUMS(OauthType)
+    Q_ENUM(OauthType)
     Q_DECLARE_FLAGS(OauthTypes, OauthType)
 
     explicit AuthenticationManager(QObject *parent = nullptr);

@@ -347,7 +347,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
                  qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight);
 }
 
-static void positionPopup(const QPoint &pos, QWidget *parentWindow, QWidget *popup)
+static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     const QRect screenRect = parentWindow->screen()->availableGeometry();

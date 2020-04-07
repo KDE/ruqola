@@ -232,7 +232,7 @@ qint64 RuqolaServerConfig::fileMaxFileSize() const
     return mFileMaxFileSize;
 }
 
-void RuqolaServerConfig::setFileMaxFileSize(const qint64 &fileMaxFileSize)
+void RuqolaServerConfig::setFileMaxFileSize(qint64 fileMaxFileSize)
 {
     mFileMaxFileSize = fileMaxFileSize;
 }

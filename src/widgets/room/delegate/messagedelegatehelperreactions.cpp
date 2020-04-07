@@ -152,7 +152,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     return QSize(maxWidth, reactionsHeight);
 }
 
-bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &reactionsRect, const QStyleOptionViewItem &option, const Message *message)
+bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
@@ -170,7 +170,7 @@ bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, c
     return false;
 }
 
-bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &reactionsRect, const QStyleOptionViewItem &option, const Message *message)
+bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message)
 {
     const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
     for (const ReactionLayout &reactionLayout : reactions) {

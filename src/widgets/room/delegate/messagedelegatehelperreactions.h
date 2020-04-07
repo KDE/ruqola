@@ -43,8 +43,8 @@ public:
     MessageDelegateHelperReactions();
     void draw(QPainter *painter, const QRect &reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &reactionsRect, const QStyleOptionViewItem &option, const Message *message);
-    bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &reactionsRect, const QStyleOptionViewItem &option, const Message *message);
+    bool handleMouseEvent(QMouseEvent *mouseEvent, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message);
+    bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message);
 
 private:
     struct ReactionLayout {

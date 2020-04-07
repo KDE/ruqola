@@ -165,7 +165,7 @@ void FlowLayout::clearAndDeleteWidgets()
     }
 }
 
-int FlowLayout::doFlow(const QRect &rect, bool effective) const
+int FlowLayout::doFlow(QRect rect, bool effective) const
 {
     const QMargins margins = contentsMargins();
     const QRect effectiveRect = rect.adjusted(margins.left(), margins.top(), -margins.right(), -margins.bottom());

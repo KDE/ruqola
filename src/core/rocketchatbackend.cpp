@@ -157,7 +157,7 @@ void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
-    QMap<MessageModel *, QVector<Message> > dispatcher;
+    QHash<MessageModel *, QVector<Message> > dispatcher;
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
         if (mRocketChatAccount->ruqolaLogger()) {

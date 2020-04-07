@@ -121,7 +121,7 @@ public:
     void parsePublicSettings(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
-    void setFileMaxFileSize(const qint64 &fileMaxFileSize);
+    void setFileMaxFileSize(qint64 fileMaxFileSize);
 
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
     void setBroadCastEnabled(bool broadCastEnabled);

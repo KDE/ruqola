@@ -77,9 +77,9 @@ public:
     * @param messageType The type of message
     * @return unsigned int, the ID of the called method
     */
-    quint64 method(const QString &method, const QJsonDocument &params, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const QString &method, const QJsonDocument &params, const std::function<void(QJsonObject, RocketChatAccount *)> &callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
-    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, const std::function<void(QJsonObject, RocketChatAccount *)> &callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
     /**
     * @brief Subscribes to a collection with name @param collection and parameters @param params

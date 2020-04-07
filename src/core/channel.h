@@ -40,7 +40,7 @@ public:
     void parseChannel(const QJsonObject &object, Channel::ChannelType);
 
     Q_REQUIRED_RESULT ChannelType type() const;
-    void setType(const ChannelType &type);
+    void setType(Channel::ChannelType type);
 
     Q_REQUIRED_RESULT bool operator==(const Channel &other) const;
 

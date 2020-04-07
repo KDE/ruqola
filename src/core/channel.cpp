@@ -52,7 +52,7 @@ Channel::ChannelType Channel::type() const
     return mType;
 }
 
-void Channel::setType(const ChannelType &type)
+void Channel::setType(ChannelType type)
 {
     mType = type;
 }

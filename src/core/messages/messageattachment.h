@@ -37,7 +37,7 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
     Q_PROPERTY(QString displayTitle READ displayTitle CONSTANT)
     Q_PROPERTY(QString imageTitle READ imageTitle CONSTANT)
     Q_PROPERTY(QString mimeType READ mimeType CONSTANT)
-    Q_PROPERTY(QString isAnimatedImage READ isAnimatedImage CONSTANT)
+    Q_PROPERTY(bool isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     MessageAttachment();
     Q_REQUIRED_RESULT bool isEmpty() const;
