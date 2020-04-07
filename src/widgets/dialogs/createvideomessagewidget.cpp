@@ -58,3 +58,13 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 CreateVideoMessageWidget::~CreateVideoMessageWidget()
 {
 }
+
+void CreateVideoMessageWidget::startCamera()
+{
+    mCamera->start();
+}
+
+void CreateVideoMessageWidget::stopCamera()
+{
+    mCamera->stop();
+}

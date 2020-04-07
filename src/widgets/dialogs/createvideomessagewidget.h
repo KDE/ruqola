@@ -32,6 +32,8 @@ public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
     ~CreateVideoMessageWidget();
 private:
+    void stopCamera();
+    void startCamera();
     QLabel *mErrorLabel = nullptr;
     QCamera *mCamera = nullptr;
 };
