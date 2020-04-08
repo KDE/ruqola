@@ -228,6 +228,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(startDiscussion);
         menu.addSeparator();
+        if (rcAccount->threadsEnabled()) {
+            QAction *replyInThreadAction = new QAction(i18n("Reply in Thread"), &menu);
+            connect(replyInThreadAction, &QAction::triggered, this, [=]() {
+                slotReplyInThread(index);
+            });
+            menu.addAction(replyInThreadAction);
+        }
+        menu.addSeparator();
 
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
@@ -235,7 +243,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
         }
-        createSeparator(menu);
+        menu.addSeparator();
 
         if (index.data(MessageModel::CanEditMessage).toBool()) {
             QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
@@ -244,18 +252,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(editAction);
         }
-        if (rcAccount->threadsEnabled()) {
-            QAction *replyInThreadAction = new QAction(i18n("Reply in Thread"), &menu);
-            connect(replyInThreadAction, &QAction::triggered, this, [=]() {
-                slotReplyInThread(index);
-            });
-            menu.addAction(replyInThreadAction);
-        }
-        createSeparator(menu);
+        menu.addSeparator();
         menu.addAction(copyAction);
 
         if (deleteAction) {
-            createSeparator(menu);
+            menu.addSeparator();
             menu.addAction(deleteAction);
         }
         if (rcAccount->autoTranslateEnabled()) {
