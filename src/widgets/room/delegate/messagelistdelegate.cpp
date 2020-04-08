@@ -408,7 +408,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
                 const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
-                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(), threadMessagePreview);
+                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(), threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString() : threadMessagePreview);
                 return true;
             }
         }
