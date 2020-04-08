@@ -112,11 +112,7 @@ void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCr
 {
     mInviteUserLineEdit->setText(info.url.toString());
     if (info.maxUses > 0) {
-        if (info.maxUses == 1) {
-            mExpireDateLabel->setText(i18n("Your invite link will expire on %1 or after 1 use.", info.expireDateTime));
-        } else {
-            mExpireDateLabel->setText(i18n("Your invite link will expire on %1 or after %2 uses.", info.expireDateTime, info.maxUses));
-        }
+        mExpireDateLabel->setText(i18np("Your invite link will expire on %2 or after %1 use.", "Your invite link will expire on %2 or after %1 uses.", info.maxUses, info.expireDateTime));
     } else {
         mExpireDateLabel->setText(i18n("Your invite link will expire on %1.", info.expireDateTime));
     }
