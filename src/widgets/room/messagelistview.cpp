@@ -330,7 +330,6 @@ void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checke
 {
     auto *model = const_cast<QAbstractItemModel *>(index.model());
     model->setData(index, checked, MessageModel::ShowTranslatedMessage);
-    qDebug() << "No implemented yet" << checked;
 }
 
 void MessageListView::slotDebugMessage(const QModelIndex &index)

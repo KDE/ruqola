@@ -441,6 +441,10 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         message.setShowAttachment(value.toBool());
         Q_EMIT dataChanged(index, index);
         return true;
+    case MessageModel::ShowTranslatedMessage:
+        message.setShowTranslatedMessage(value.toBool());
+        Q_EMIT dataChanged(index, index);
+        return true;
     }
     return false;
 }
