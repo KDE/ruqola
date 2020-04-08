@@ -56,9 +56,9 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!copyLinkButton->icon().isNull());
     QVERIFY(!copyLinkButton->toolTip().isEmpty());
 
-    QLabel *mLink = w.findChild<QLabel *>(QStringLiteral("mLink"));
-    QVERIFY(mLink);
-    QVERIFY(mLink->text().isEmpty());
+    QLabel *mExpireDateLabel = w.findChild<QLabel *>(QStringLiteral("mExpireDateLabel"));
+    QVERIFY(mExpireDateLabel);
+    QVERIFY(mExpireDateLabel->text().isEmpty());
 
     QFormLayout *formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
     QVERIFY(formLayout);

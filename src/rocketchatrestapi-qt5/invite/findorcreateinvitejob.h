@@ -35,7 +35,7 @@ public:
         QUrl url;
         QString roomId;
         QString userId;
-        QDateTime expireDateTime;
+        QString expireDateTime;
         Q_REQUIRED_RESULT bool operator==(const InviteUsersInfo &other) const;
     };
     explicit FindOrCreateInviteJob(QObject *parent = nullptr);

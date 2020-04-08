@@ -63,9 +63,10 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     hlayout->addWidget(copyLinkButton);
     connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
 
-    mLink = new QLabel(this);
-    mLink->setObjectName(QStringLiteral("mLink"));
-    mainLayout->addWidget(mLink);
+    mExpireDateLabel = new QLabel(this);
+    mExpireDateLabel->setObjectName(QStringLiteral("mExpireDateLabel"));
+    mExpireDateLabel->setWordWrap(true);
+    mainLayout->addWidget(mExpireDateLabel);
 
     connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
 
@@ -110,6 +111,15 @@ void InviteUsersWidget::slotCopyLink()
 void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info)
 {
     mInviteUserLineEdit->setText(info.url.toString());
+    if (info.maxUses > 0) {
+        if (info.maxUses == 1) {
+            mExpireDateLabel->setText(i18n("Your invite link will expire on %1 or after 1 use.", info.expireDateTime));
+        } else {
+            mExpireDateLabel->setText(i18n("Your invite link will expire on %1 or after %2 uses.", info.expireDateTime, info.maxUses));
+        }
+    } else {
+        mExpireDateLabel->setText(i18n("Your invite link will expire on %1.", info.expireDateTime));
+    }
 }
 
 QString InviteUsersWidget::roomId() const
@@ -142,4 +152,5 @@ void InviteUsersWidget::fillComboBox()
     mMaxUses->addItem(QString::number(50), 50);
     mMaxUses->addItem(QString::number(100), 100);
     mMaxUses->addItem(i18n("No Limit"), 0);
+    mMaxUses->setCurrentIndex(3);
 }

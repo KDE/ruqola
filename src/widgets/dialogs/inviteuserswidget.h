@@ -37,7 +37,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    void generateLink(int maxUses = 20, int numberOfDays = 0);
+    void generateLink(int maxUses = 25, int numberOfDays = 1);
 
 private:
     void fillComboBox();
@@ -47,7 +47,7 @@ private:
     void slotGenerateNewLink();
     QString mRoomId;
     KLineEdit *mInviteUserLineEdit = nullptr;
-    QLabel *mLink = nullptr;
+    QLabel *mExpireDateLabel = nullptr;
     QComboBox *mExpirationDays = nullptr;
     QComboBox *mMaxUses = nullptr;
 };

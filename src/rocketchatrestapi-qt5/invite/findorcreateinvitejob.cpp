@@ -74,7 +74,7 @@ FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const 
     info.url = QUrl(replyObject[QStringLiteral("url")].toString());
     info.userId = replyObject[QStringLiteral("userId")].toString();
     info.roomId = replyObject[QStringLiteral("rid")].toString();
-    //info.expireDateTime =
+    info.expireDateTime = QDateTime::fromString(replyObject[QStringLiteral("expires")].toString(), Qt::ISODate).toString();
     info.maxUses = replyObject[QStringLiteral("maxUses")].toInt();
     return info;
 }
