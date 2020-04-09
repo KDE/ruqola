@@ -18,27 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONRECENTUSEDFILTERPROXYMODEL_H
-#define EMOTICONRECENTUSEDFILTERPROXYMODEL_H
+#ifndef EMOTICONRECENTUSEDFILTERPROXYMODELTEST_H
+#define EMOTICONRECENTUSEDFILTERPROXYMODELTEST_H
 
-#include <QSortFilterProxyModel>
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonRecentUsedFilterProxyModel : public QSortFilterProxyModel
+#include <QObject>
+
+class EmoticonRecentUsedFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmoticonRecentUsedFilterProxyModel(QObject *parent = nullptr);
-    ~EmoticonRecentUsedFilterProxyModel();
-
-    Q_REQUIRED_RESULT QStringList usedIdentifier() const;
-    void setUsedIdentifier(const QStringList &usedIdentifier);
-
-protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-private:
-    QStringList mUsedIdentifier;
-
+    explicit EmoticonRecentUsedFilterProxyModelTest(QObject *parent = nullptr);
+    ~EmoticonRecentUsedFilterProxyModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // EMOTICONRECENTUSEDFILTERPROXYMODEL_H
+#endif // EMOTICONRECENTUSEDFILTERPROXYMODELTEST_H
