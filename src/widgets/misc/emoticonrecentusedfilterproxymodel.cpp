@@ -23,6 +23,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QDebug>
 
 namespace {
 static const char myConfigGroupName[] = "EmoticonRecentUsed";
@@ -61,7 +62,6 @@ void EmoticonRecentUsedFilterProxyModel::setUsedIdentifier(const QStringList &us
 {
     if (mUsedIdentifier != usedIdentifier) {
         mUsedIdentifier = usedIdentifier;
-        writeRecentUsed();
         invalidateFilter();
     }
 }
@@ -70,6 +70,7 @@ void EmoticonRecentUsedFilterProxyModel::addIdentifier(const QString &identifier
 {
     if (!mUsedIdentifier.contains(identifier)) {
         mUsedIdentifier.append(identifier);
+        writeRecentUsed();
         invalidateFilter();
     }
 }
