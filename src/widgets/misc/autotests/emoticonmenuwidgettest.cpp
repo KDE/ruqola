@@ -20,6 +20,7 @@
 
 #include "emoticonmenuwidgettest.h"
 #include "misc/emoticonmenuwidget.h"
+#include <QLineEdit>
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -35,6 +36,12 @@ void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
     QVBoxLayout *layout = w.findChild<QVBoxLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
+
     QTabWidget *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);
+
+    QLineEdit *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
+    QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 }
