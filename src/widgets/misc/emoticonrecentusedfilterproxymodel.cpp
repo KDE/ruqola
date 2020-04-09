@@ -30,3 +30,23 @@ EmoticonRecentUsedFilterProxyModel::~EmoticonRecentUsedFilterProxyModel()
 {
 
 }
+
+QStringList EmoticonRecentUsedFilterProxyModel::usedIdentifier() const
+{
+    return mUsedIdentifier;
+}
+
+void EmoticonRecentUsedFilterProxyModel::setUsedIdentifier(const QStringList &usedIdentifier)
+{
+    if (mUsedIdentifier != usedIdentifier) {
+        mUsedIdentifier = usedIdentifier;
+        //TODO update it.
+    }
+}
+
+
+bool EmoticonRecentUsedFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    //TODO
+    return false;
+}

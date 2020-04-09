@@ -29,6 +29,16 @@ class EmoticonRecentUsedFilterProxyModel : public QSortFilterProxyModel
 public:
     explicit EmoticonRecentUsedFilterProxyModel(QObject *parent = nullptr);
     ~EmoticonRecentUsedFilterProxyModel();
+
+    Q_REQUIRED_RESULT QStringList usedIdentifier() const;
+    void setUsedIdentifier(const QStringList &usedIdentifier);
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private:
+    QStringList mUsedIdentifier;
+
 };
 
 #endif // EMOTICONRECENTUSEDFILTERPROXYMODEL_H
