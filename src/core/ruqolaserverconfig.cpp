@@ -484,7 +484,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setVideoRecorderEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
             setBroadCastEnabled(value.toBool());
-
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

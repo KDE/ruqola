@@ -25,7 +25,6 @@ QTEST_MAIN(EmoticonRecentUsedFilterProxyModelTest)
 EmoticonRecentUsedFilterProxyModelTest::EmoticonRecentUsedFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void EmoticonRecentUsedFilterProxyModelTest::shouldHaveDefaultValues()

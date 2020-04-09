@@ -36,7 +36,6 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mCamera = new QCamera(this);
     mCamera->setObjectName(QStringLiteral("mCamera"));
 
-
     QCameraViewfinder *viewfinder = new QCameraViewfinder(this);
     viewfinder->show();
 
@@ -46,7 +45,6 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
     mCamera->setCaptureMode(QCamera::CaptureStillImage);
     mCamera->start();
-
 
     mErrorLabel = new QLabel(this);
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));

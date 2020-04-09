@@ -58,7 +58,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     // Draw the timestamp (below the sender)
     DelegatePaintUtil::drawTimestamp(painter, layout.lastMessageTimeText,
-                                     QPoint(basicMargin() + option.rect.x() , layout.lastMessageTimeY + painter->fontMetrics().ascent()));
+                                     QPoint(basicMargin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     KColorScheme scheme;
     const QString discussionsText = i18n("Open Discussion");
@@ -77,7 +77,6 @@ bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
         //TODO check if we muse open discussion
-
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }
@@ -101,7 +100,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     layout.text = index.data(DiscussionsModel::Description).toString();
     layout.textY = usableRect.top();
 
-    layout.lastMessageTimeText = index.data(DiscussionsModel::LastMessage).toString();;
+    layout.lastMessageTimeText = index.data(DiscussionsModel::LastMessage).toString();
     layout.lastMessageTimeY = layout.textY + option.fontMetrics.height();
 
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
