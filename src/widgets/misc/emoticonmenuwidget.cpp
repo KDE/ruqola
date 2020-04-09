@@ -20,6 +20,7 @@
 
 #include "emoticonmenuwidget.h"
 #include "emoticonselectorwidget.h"
+#include "emoticonrecentusedfilterproxymodel.h"
 #include "ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "model/emoticonmodel.h"
@@ -68,6 +69,7 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
+    // "all" tab
     QListView *allEmojisView = new QListView(this);
     auto *emoticonFilterProxyModel = new QSortFilterProxyModel(this);
     emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
@@ -81,6 +83,20 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     });
     connect(allEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
+        slotInsertEmoticons(identifier);
+    });
+
+    // Recent
+    QListView *recentUsedEmojisView = new QListView(this);
+    mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
+    mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
+    recentUsedEmojisView->setModel(mRecentUsedFilterProxyModel);
+    recentUsedEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
+
+    mTabWidget->addTab(recentUsedEmojisView, i18n("Recent"));
+    connect(recentUsedEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
+        const QString identifier = index.data().toString();
+        // It's already in recent tab => don't try to save it
         Q_EMIT insertEmoticons(identifier);
     });
 
@@ -90,7 +106,12 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         auto *w = new EmoticonSelectorWidget(this);
         mTabWidget->addTab(w, category.name());
         w->setEmoticons(emojiManager->emojisForCategory(category.category()));
-        connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);
+        connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
     }
+}
 
+void EmoticonMenuWidget::slotInsertEmoticons(const QString &identifier)
+{
+    mRecentUsedFilterProxyModel->addIdentifier(identifier);
+    Q_EMIT insertEmoticons(identifier);
 }

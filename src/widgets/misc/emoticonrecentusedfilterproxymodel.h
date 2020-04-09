@@ -33,12 +33,15 @@ public:
     Q_REQUIRED_RESULT QStringList usedIdentifier() const;
     void setUsedIdentifier(const QStringList &usedIdentifier);
 
+    void addIdentifier(const QString &identifier);
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
+    void loadRecentUsed();
+    void writeRecentUsed();
     QStringList mUsedIdentifier;
-
 };
 
 #endif // EMOTICONRECENTUSEDFILTERPROXYMODEL_H
