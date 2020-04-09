@@ -126,6 +126,7 @@ set(Ruqola_misc_widget_SRCS
     misc/accountsoverviewwidget.cpp
     misc/emoticonmenuwidget.cpp
     misc/emoticonselectorwidget.cpp
+    misc/emoticonrecentusedfilterproxymodel.cpp
     misc/adduserswidget.cpp
     misc/clickableuserwidget.cpp
     )
