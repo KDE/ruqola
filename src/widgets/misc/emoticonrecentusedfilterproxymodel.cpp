@@ -19,6 +19,7 @@
 */
 
 #include "emoticonrecentusedfilterproxymodel.h"
+#include "model/emoticonmodel.h"
 
 EmoticonRecentUsedFilterProxyModel::EmoticonRecentUsedFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -47,6 +48,13 @@ void EmoticonRecentUsedFilterProxyModel::setUsedIdentifier(const QStringList &us
 
 bool EmoticonRecentUsedFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    //TODO
+    Q_UNUSED(source_row)
+    if (!source_parent.isValid()) {
+        return false;
+    }
+    const QString identifier = source_parent.data(EmoticonModel::Identifier).toString();
+    if (mUsedIdentifier.contains(identifier)) {
+        return true;
+    }
     return false;
 }
