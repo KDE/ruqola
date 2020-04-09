@@ -51,10 +51,6 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     const Layout layout = doLayout(option, index);
 
-    QStyleOptionViewItem optionCopy = option;
-    optionCopy.showDecorationSelected = true;
-    drawBackground(painter, optionCopy, index);
-
     // Draw the sender (below the filename)
     painter->drawText(basicMargin() + option.rect.x(),
                       layout.textY + painter->fontMetrics().ascent(),
@@ -80,7 +76,8 @@ bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
-        //TODO
+        //TODO check if we muse open discussion
+
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }
