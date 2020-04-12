@@ -86,6 +86,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         slotInsertEmoticons(identifier);
     });
 
+    //TODO allow to clear it/remove element
     // Recent
     QListView *recentUsedEmojisView = new QListView(this);
     mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
