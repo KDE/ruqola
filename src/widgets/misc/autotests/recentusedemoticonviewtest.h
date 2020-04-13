@@ -18,35 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONMENUWIDGET_H
-#define EMOTICONMENUWIDGET_H
+#ifndef RECENTUSEDEMOTICONVIEWTEST_H
+#define RECENTUSEDEMOTICONVIEWTEST_H
 
-#include <QWidget>
+#include <QObject>
 
-#include "libruqolawidgets_private_export.h"
-class QTabWidget;
-class QLineEdit;
-class RocketChatAccount;
-class EmoticonRecentUsedFilterProxyModel;
-class RecentUsedEmoticonView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
+class RecentUsedEmoticonViewTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmoticonMenuWidget(QWidget *parent = nullptr);
-    ~EmoticonMenuWidget() override;
-
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
-Q_SIGNALS:
-    void insertEmoticons(const QString &emoticon);
-private:
-    void slotInsertEmoticons(const QString &identifier);
-    void initializeTab(RocketChatAccount *account);
-
-    QLineEdit *mSearchLineEdit = nullptr;
-    QTabWidget *mTabWidget = nullptr;
-    EmoticonRecentUsedFilterProxyModel *mRecentUsedFilterProxyModel = nullptr;
-    RecentUsedEmoticonView *mRecentUsedEmoticonView = nullptr;
+    explicit RecentUsedEmoticonViewTest(QObject *parent = nullptr);
+    ~RecentUsedEmoticonViewTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // EMOTICONMENUWIDGET_H
+#endif // RECENTUSEDEMOTICONVIEWTEST_H

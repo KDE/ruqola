@@ -7,9 +7,9 @@ macro(add_ruqolamisc_test _source)
   target_link_libraries( ${_name} Qt5::Test libruqolacore libruqolawidgets)
 endmacro()
 
-#add_ruqolamisc_test(directchannelinfowidgettest.cpp)
 add_ruqolamisc_test(adduserswidgettest.cpp)
 add_ruqolamisc_test(clickableuserwidgettest.cpp)
 add_ruqolamisc_test(emoticonmenuwidgettest.cpp)
 
 add_ruqolamisc_test(emoticonrecentusedfilterproxymodeltest.cpp)
+add_ruqolamisc_test(recentusedemoticonviewtest.cpp)

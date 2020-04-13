@@ -24,6 +24,7 @@
 #include "ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "model/emoticonmodel.h"
+#include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 
@@ -86,16 +87,15 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         slotInsertEmoticons(identifier);
     });
 
-    //TODO allow to clear it/remove element
     // Recent
-    QListView *recentUsedEmojisView = new QListView(this);
+    mRecentUsedEmoticonView = new RecentUsedEmoticonView(this);
     mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
-    recentUsedEmojisView->setModel(mRecentUsedFilterProxyModel);
-    recentUsedEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
+    mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
+    mRecentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(this));
 
-    mTabWidget->addTab(recentUsedEmojisView, i18n("Recent"));
-    connect(recentUsedEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
+    mTabWidget->addTab(mRecentUsedEmoticonView, i18n("Recent"));
+    connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         // It's already in recent tab => don't try to save it
         Q_EMIT insertEmoticons(identifier);

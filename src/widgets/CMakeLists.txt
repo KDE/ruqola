@@ -129,6 +129,7 @@ set(Ruqola_misc_widget_SRCS
     misc/emoticonrecentusedfilterproxymodel.cpp
     misc/adduserswidget.cpp
     misc/clickableuserwidget.cpp
+    misc/recentusedemoticonview.cpp
     )
 
 set(Ruqola_common_SRCS
