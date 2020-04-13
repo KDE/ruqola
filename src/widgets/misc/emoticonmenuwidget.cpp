@@ -93,6 +93,9 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
     mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
     mRecentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(this));
+    connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
+        mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
+    });
 
     mTabWidget->addTab(mRecentUsedEmoticonView, i18n("Recent"));
     connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {

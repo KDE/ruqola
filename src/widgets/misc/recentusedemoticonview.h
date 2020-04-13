@@ -29,6 +29,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RecentUsedEmoticonView : public QListView
 public:
     explicit RecentUsedEmoticonView(QWidget *parent = nullptr);
     ~RecentUsedEmoticonView();
+
+Q_SIGNALS:
+    void clearAll();
+
+private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
 };
 
 #endif // RECENTUSEDEMOTICONVIEW_H
