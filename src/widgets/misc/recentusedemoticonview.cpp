@@ -40,5 +40,6 @@ void RecentUsedEmoticonView::slotCustomContextMenuRequested(const QPoint &pos)
     QAction *clearRecent = new QAction(i18n("Clear Recents"), &menu);
     connect(clearRecent, &QAction::triggered, this, &RecentUsedEmoticonView::clearAll);
     menu.addAction(clearRecent);
-    menu.exec(mapToGlobal(pos));
+    //FIXME position
+    menu.exec(viewport()->mapToGlobal(pos));
 }
