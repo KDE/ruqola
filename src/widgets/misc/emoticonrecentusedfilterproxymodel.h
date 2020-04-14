@@ -35,11 +35,11 @@ public:
 
     void addIdentifier(const QString &identifier);
 
+    void loadRecentUsed();
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
-    void loadRecentUsed();
     void writeRecentUsed();
     QStringList mUsedIdentifier;
 };

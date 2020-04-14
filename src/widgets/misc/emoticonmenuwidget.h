@@ -37,6 +37,7 @@ public:
     ~EmoticonMenuWidget() override;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void loadRecentUsed();
 Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
 private:

@@ -55,10 +55,16 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     f.setPointSize(22);
     f.setFamily(QStringLiteral("NotoColorEmoji"));
     mTabWidget->tabBar()->setFont(f);
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
 {
+}
+
+void EmoticonMenuWidget::loadRecentUsed()
+{
+    mRecentUsedFilterProxyModel->loadRecentUsed();
 }
 
 void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
