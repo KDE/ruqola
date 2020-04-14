@@ -33,8 +33,8 @@ public:
 Q_SIGNALS:
     void clearAll();
 
-private:
-    void slotCustomContextMenuRequested(const QPoint &pos);
+protected:
+    void contextMenuEvent(QContextMenuEvent *event) override;
 };
 
 #endif // RECENTUSEDEMOTICONVIEW_H

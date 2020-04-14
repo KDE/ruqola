@@ -20,13 +20,14 @@
 
 #include "recentusedemoticonview.h"
 #include <KLocalizedString>
+#include <QDebug>
+#include <QContextMenuEvent>
 #include <QMenu>
 
 RecentUsedEmoticonView::RecentUsedEmoticonView(QWidget *parent)
     : QListView(parent)
 {
-    setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(this, &RecentUsedEmoticonView::customContextMenuRequested, this, &RecentUsedEmoticonView::slotCustomContextMenuRequested);
+    setContextMenuPolicy(Qt::DefaultContextMenu);
 }
 
 RecentUsedEmoticonView::~RecentUsedEmoticonView()
@@ -34,12 +35,11 @@ RecentUsedEmoticonView::~RecentUsedEmoticonView()
 
 }
 
-void RecentUsedEmoticonView::slotCustomContextMenuRequested(const QPoint &pos)
+void RecentUsedEmoticonView::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
     QAction *clearRecent = new QAction(i18n("Clear Recents"), &menu);
     connect(clearRecent, &QAction::triggered, this, &RecentUsedEmoticonView::clearAll);
     menu.addAction(clearRecent);
-    //FIXME position
-    menu.exec(viewport()->mapToGlobal(pos));
+    menu.exec(event->globalPos());
 }
