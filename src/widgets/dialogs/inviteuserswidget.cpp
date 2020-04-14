@@ -103,9 +103,11 @@ void InviteUsersWidget::slotGenerateNewLink()
 void InviteUsersWidget::slotCopyLink()
 {
     const QString link = mInviteUserLineEdit->text();
-    QClipboard *clip = QApplication::clipboard();
-    clip->setText(link, QClipboard::Clipboard);
-    clip->setText(link, QClipboard::Selection);
+    if (!link.isEmpty()) {
+        QClipboard *clip = QApplication::clipboard();
+        clip->setText(link, QClipboard::Clipboard);
+        clip->setText(link, QClipboard::Selection);
+    }
 }
 
 void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info)
