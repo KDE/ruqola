@@ -103,6 +103,18 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                  << QStringLiteral(
         "<div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>:vader:</code></td></tr></table><div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div>")
                                  << QStringLiteral("www.kde.org");
+
+    QTest::newRow("inline-code-with-brackets") << QStringLiteral("`[[test]]` and `a[b` something")
+                                               << QStringLiteral(
+                                                      "<div><code>`[[test]]`</code> and <code>`a[b`</code> "
+                                                      "something</div>")
+                                               << QStringLiteral("www.kde.org");
+
+    QTest::newRow("inline-code-with-tilde") << QStringLiteral("`auto [a, b] = std::minmax_element(~~~);`")
+                                            << QStringLiteral(
+                                                   "<div><code>`auto [a, b] = "
+                                                   "std::minmax_element(~~~);`</code></div>")
+                                            << QStringLiteral("www.kde.org");
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()
