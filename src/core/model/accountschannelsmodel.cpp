@@ -181,7 +181,7 @@ void AccountsChannelsModel::mapModelToIndex(QAbstractItemModel *model, const std
     connect(model, &QAbstractItemModel::dataChanged, this,
             [this, model](const QModelIndex &tl, const QModelIndex &br) {
         const auto parent = modelRoot(model);
-        emit dataChanged(index(tl.row(), tl.column(), parent), index(br.row(), br.column(), parent));
+        Q_EMIT dataChanged(index(tl.row(), tl.column(), parent), index(br.row(), br.column(), parent));
     });
 
     mProxied.append({model, root});

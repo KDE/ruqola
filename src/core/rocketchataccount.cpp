@@ -2023,7 +2023,7 @@ void RocketChatAccount::initializeAccount()
     }
     //customUsersStatus(); Only for test
 
-    emit accountInitialized();
+    Q_EMIT accountInitialized();
 }
 
 void RocketChatAccount::getListCommands()
