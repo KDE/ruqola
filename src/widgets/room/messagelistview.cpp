@@ -41,10 +41,10 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     , mMode(mode)
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
-    auto *delegate = new MessageListDelegate(this);
-    delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
-    delegate->setShowThreadContext(mMode != Mode::ThreadEditing);
-    setItemDelegate(delegate);
+    mMessageListDelegate = new MessageListDelegate(this);
+    mMessageListDelegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
+    mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
+    setItemDelegate(mMessageListDelegate);
 
     setSelectionMode(QAbstractItemView::NoSelection);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -183,7 +183,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
     QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
     connect(copyAction, &QAction::triggered, this, [=]() {
@@ -191,7 +190,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     //TODO fix me we can't pinned message when we are not owner
     QAction *setPinnedMessage = nullptr;
-    if (rcAccount->allowMessagePinningEnabled()) {
+    if (mCurrentRocketChatAccount->allowMessagePinningEnabled()) {
         const bool isPinned = index.data(MessageModel::Pinned).toBool();
         setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
         connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
@@ -199,7 +198,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
     QAction *setAsFavoriteAction = nullptr;
-    if (rcAccount->allowMessageStarringEnabled()) {
+    if (mCurrentRocketChatAccount->allowMessageStarringEnabled()) {
         const bool isStarred = index.data(MessageModel::Starred).toBool();
         setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
         connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
@@ -228,7 +227,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(startDiscussion);
         menu.addSeparator();
-        if (rcAccount->threadsEnabled()) {
+        if (mCurrentRocketChatAccount->threadsEnabled()) {
             QAction *replyInThreadAction = new QAction(i18n("Reply in Thread"), &menu);
             connect(replyInThreadAction, &QAction::triggered, this, [=]() {
                 slotReplyInThread(index);
@@ -259,7 +258,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             menu.addAction(deleteAction);
         }
-        if (rcAccount->autoTranslateEnabled()) {
+        if (mCurrentRocketChatAccount->autoTranslateEnabled()) {
             createSeparator(menu);
             const bool isTranslated = index.data(MessageModel::ShowTranslatedMessage).toBool();
             QAction *translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
@@ -338,6 +337,12 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
     qDebug() << " message " << *message;
 }
 
+void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    mCurrentRocketChatAccount = currentRocketChatAccount;
+    mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+}
+
 void MessageListView::slotEditMessage(const QModelIndex &index)
 {
     const QString text = index.data(MessageModel::OriginalMessage).toString();
@@ -348,9 +353,8 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
 void MessageListView::slotDeleteMessage(const QModelIndex &index)
 {
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this message?"), i18n("Delete Message"))) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const QString messageId = index.data(MessageModel::MessageId).toString();
-        rcAccount->deleteMessage(messageId, mRoomId);
+        mCurrentRocketChatAccount->deleteMessage(messageId, mRoomId);
     }
 }
 
@@ -360,25 +364,22 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
     const QString message = index.data(MessageModel::OriginalMessage).toString();
     dlg->setPreviewMessage(message);
     if (dlg->exec()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const QString messageId = index.data(MessageModel::MessageId).toString();
-        rcAccount->reportMessage(messageId, dlg->message());
+        mCurrentRocketChatAccount->reportMessage(messageId, dlg->message());
     }
     delete dlg;
 }
 
 void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString messageId = index.data(MessageModel::MessageId).toString();
-    rcAccount->starMessage(messageId, !isStarred);
+    mCurrentRocketChatAccount->starMessage(messageId, !isStarred);
 }
 
 void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString messageId = index.data(MessageModel::MessageId).toString();
-    rcAccount->pinMessage(messageId, !isPinned);
+    mCurrentRocketChatAccount->pinMessage(messageId, !isPinned);
 }
 
 void MessageListView::slotStartPrivateConversation(const QModelIndex &index)

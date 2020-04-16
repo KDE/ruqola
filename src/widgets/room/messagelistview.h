@@ -22,8 +22,10 @@
 #define MESSAGELISTVIEW_H
 
 #include <QListView>
+#include <QPointer>
 #include "libruqolawidgets_private_export.h"
-
+class MessageListDelegate;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
 {
     Q_OBJECT
@@ -48,6 +50,7 @@ public:
     void setRoomId(const QString &roomID);
 
     void goToMessage(const QString &messageId);
+    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
@@ -83,6 +86,8 @@ private:
 private:
     QString mRoomId;
     MessageListView::Mode mMode = MessageListView::Mode::Editing;
+    MessageListDelegate *mMessageListDelegate = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mAtBottom = true;
     bool mDebug = false;
 };
