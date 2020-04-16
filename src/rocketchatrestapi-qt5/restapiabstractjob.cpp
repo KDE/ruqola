@@ -372,6 +372,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
         return i18n("Not allowed");
     } else if (str == QLatin1String("error-not-authorized")) {
         return i18n("Not authorized");
+    } else if (str == QLatin1String("not-authorized")) {
+        return i18n("Not authorized");
     } else if (str == QLatin1String("error-password-policy-not-met")) {
         return i18n("Password does not meet the server's policy");
     } else if (str == QLatin1String("error-password-policy-not-met-maxLength")) {
