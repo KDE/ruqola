@@ -238,6 +238,16 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     painter->setPen(origPen);
 }
 
+QString MessageListDelegate::selectedText() const
+{
+    return mHelperText->selectedText();
+}
+
+bool MessageListDelegate::hasSelection() const
+{
+    return mHelperText->hasSelection();
+}
+
 void MessageListDelegate::setShowThreadContext(bool b)
 {
     mHelperText->setShowThreadContext(b);

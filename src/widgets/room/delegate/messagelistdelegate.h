@@ -57,6 +57,8 @@ public:
 
     void setShowThreadContext(bool b);
 
+    Q_REQUIRED_RESULT bool hasSelection() const;
+    Q_REQUIRED_RESULT QString selectedText() const;
 private:
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 

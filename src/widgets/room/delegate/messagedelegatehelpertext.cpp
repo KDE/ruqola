@@ -101,6 +101,18 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
     return text;
 }
 
+bool MessageDelegateHelperText::hasSelection() const
+{
+    return mCurrentTextCursor.hasSelection();
+}
+
+QString MessageDelegateHelperText::selectedText() const
+{
+    const QTextDocumentFragment fragment(mCurrentTextCursor);
+    const QString text = fragment.toPlainText();
+    return text;
+}
+
 void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();

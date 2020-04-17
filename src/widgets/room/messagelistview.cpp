@@ -36,6 +36,8 @@
 #include <QClipboard>
 #include <QApplication>
 
+#include <KIO/KUriFilterSearchProviderActions>
+
 MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
     , mMode(mode)
@@ -313,6 +315,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(debugMessageAction);
     }
+    if (mMessageListDelegate->hasSelection()) {
+        menu.addSeparator();
+        KIO::KUriFilterSearchProviderActions *mWebShortcutMenuManager = new KIO::KUriFilterSearchProviderActions(&menu);
+        mWebShortcutMenuManager->setSelectedText(mMessageListDelegate->selectedText());
+        mWebShortcutMenuManager->addWebShortcutsToMenu(&menu);
+    }
+
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
