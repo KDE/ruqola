@@ -70,7 +70,6 @@
 #include "listmessages.h"
 
 #include <QDesktopServices>
-#include <QRegularExpression>
 #include <QTimer>
 
 #include <plugins/pluginauthentication.h>
