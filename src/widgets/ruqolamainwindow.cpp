@@ -117,14 +117,12 @@ void RuqolaMainWindow::slotAccountChanged()
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
-    mStartVideoChat->setEnabled(enabled);
     mSaveAs->setEnabled(enabled);
 }
 
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
-    mStartVideoChat->setVisible(mCurrentRocketChatAccount->jitsiEnabled());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -192,10 +190,6 @@ void RuqolaMainWindow::setupActions()
     ac->setDefaultShortcut(clearAlerts, Qt::SHIFT + Qt::Key_Escape);
     connect(clearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), clearAlerts);
-
-    mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
-    connect(mStartVideoChat, &QAction::triggered, this, &RuqolaMainWindow::slotStartVideoChat);
-    ac->addAction(QStringLiteral("video_chat"), mStartVideoChat);
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()
@@ -279,11 +273,6 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
         mCurrentRocketChatAccount->joinRoom(channelInfo.channelInfoIdentifier, dlg->password());
     }
     delete dlg;
-}
-
-void RuqolaMainWindow::slotStartVideoChat()
-{
-    mCurrentRocketChatAccount->createJitsiConfCall(mMainWidget->roomId());
 }
 
 void RuqolaMainWindow::slotSaveAs()

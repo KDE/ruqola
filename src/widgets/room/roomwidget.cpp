@@ -173,7 +173,15 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::AddUsersInRoom:
         slotAddUsersInRoom();
         break;
+    case RoomHeaderWidget::VideoChat:
+        slotVideoChat();
+        break;
     }
+}
+
+void RoomWidget::slotVideoChat()
+{
+    mCurrentRocketChatAccount->createJitsiConfCall(mRoomId);
 }
 
 void RoomWidget::slotAddUsersInRoom()
@@ -182,7 +190,7 @@ void RoomWidget::slotAddUsersInRoom()
     if (dlg->exec()) {
         const QStringList users = dlg->users();
         for (const QString &user : users) {
-            Ruqola::self()->rocketChatAccount()->addUserToRoom(user, mRoomId, mRoomType);
+            mCurrentRocketChatAccount->addUserToRoom(user, mRoomId, mRoomType);
         }
     }
     delete dlg;
@@ -298,7 +306,7 @@ void RoomWidget::slotSearchMessages()
 {
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
     dlg->setRoomId(mRoomId);
-    dlg->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
+    dlg->setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
     connect(dlg, &SearchMessageDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
@@ -318,7 +326,7 @@ void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString
 
 void RoomWidget::slotCreatePrivateDiscussion(const QString &userName)
 {
-    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(userName));
+    Q_EMIT mCurrentRocketChatAccount->openLinkRequested(RoomUtil::generateUserLink(userName));
 }
 
 void RoomWidget::dragEnterEvent(QDragEnterEvent *event)

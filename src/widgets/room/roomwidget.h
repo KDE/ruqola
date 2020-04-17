@@ -89,6 +89,7 @@ private:
     void slotInviteUsers();
     void slotAddUsersInRoom();
     void updateListView();
+    void slotVideoChat();
 
     QString mRoomId;
     QString mRoomType;

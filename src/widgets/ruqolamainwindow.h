@@ -57,7 +57,6 @@ private:
     void slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
-    void slotStartVideoChat();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -65,7 +64,6 @@ private:
     QAction *mSearchChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
     QAction *mUnreadOnTop = nullptr;
-    QAction *mStartVideoChat = nullptr;
     QAction *mSaveAs = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

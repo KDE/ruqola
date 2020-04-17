@@ -82,7 +82,7 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::ShowThreads);
     });
 
-    createSeparator();
+    mMenu->addSeparator();
 
     mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
     mMenu->addAction(mConfigureNotification);
@@ -90,14 +90,14 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::Notification);
     });
 
-    mAutoTranslateSeparator = createSeparator();
+    mAutoTranslateSeparator = mMenu->addSeparator();
     mAutoTranslate = new QAction(i18n("Configure Auto-Translate..."), this);
     mMenu->addAction(mAutoTranslate);
     connect(mAutoTranslate, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AutoTranslate);
     });
 
-    mInviteUsersGenerateUrlSeparator = createSeparator();
+    mInviteUsersGenerateUrlSeparator = mMenu->addSeparator();
     mMenu->addAction(mInviteUsersGenerateUrlSeparator);
     mInviteUsersGenerateUrl = new QAction(i18n("Invite Users"), this);
     mMenu->addAction(mInviteUsersGenerateUrl);
@@ -105,13 +105,20 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::InviteUsers);
     });
 
-    mAddUserInRoomsSeparator = createSeparator();
+    mAddUserInRoomsSeparator = mMenu->addSeparator();
     mAddUserInRooms = new QAction(i18n("Add Users in Channel..."), this);
     mMenu->addAction(mAddUserInRoomsSeparator);
     connect(mAddUserInRooms, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AddUsersInRoom);
     });
     mMenu->addAction(mAddUserInRooms);
+
+    mMenu->addSeparator();
+    mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
+    mMenu->addAction(mStartVideoChat);
+    connect(mStartVideoChat, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::VideoChat);
+    });
 }
 
 QAction *ChannelActionPopupMenu::createSeparator()
@@ -144,6 +151,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     //TODO fix me. We can't generate it if we are not owner
     mInviteUsersGenerateUrl->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
     mInviteUsersGenerateUrlSeparator->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
+    mStartVideoChat->setVisible(mCurrentRocketChatAccount->jitsiEnabled());
 
     mAddUserInRoomsSeparator->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
     mAddUserInRooms->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());

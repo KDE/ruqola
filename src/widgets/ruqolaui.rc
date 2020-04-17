@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="11">
+<gui name="ruqola" version="12">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_account" />
@@ -19,10 +19,6 @@
    <Action name="create_new_channel" />
    <Separator/>
    <Action name="add_user_in_room" />
-  </Menu>
-  <Menu name="message" >
-   <text>Message</text>
-   <Action name="video_chat" />
   </Menu>
   <Menu name="display" >
    <text>Display</text>
