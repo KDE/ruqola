@@ -28,6 +28,7 @@ class KLineEdit;
 class MessageListView;
 class QLabel;
 class SearchMessageFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -39,6 +40,7 @@ public:
     void setRoomId(const QString &roomId);
 
     void setModel(SearchMessageFilterProxyModel *model);
+    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId);
 

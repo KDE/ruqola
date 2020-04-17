@@ -101,3 +101,8 @@ void SearchMessageWidget::setModel(SearchMessageFilterProxyModel *model)
     connect(mModel, &SearchMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
     updateLabel();
 }
+
+void SearchMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    mResultListWidget->setCurrentRocketChatAccount(currentRocketChatAccount);
+}

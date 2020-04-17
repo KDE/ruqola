@@ -78,3 +78,8 @@ void SearchMessageDialog::setModel(SearchMessageFilterProxyModel *model)
 {
     mSearchMessageWidget->setModel(model);
 }
+
+void SearchMessageDialog::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    mSearchMessageWidget->setCurrentRocketChatAccount(currentRocketChatAccount);
+}
