@@ -29,7 +29,6 @@
 
 #include <model/threadmessagemodel.h>
 
-#include <QJsonArray>
 
 MessageCache::MessageCache(QObject *parent)
     : QObject(parent)

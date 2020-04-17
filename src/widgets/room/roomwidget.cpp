@@ -48,16 +48,12 @@
 
 #include "threadwidget/threadmessagedialog.h"
 
-#include <QApplication>
 #include <QVBoxLayout>
 #include <QKeyEvent>
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>
 #include <QScrollBar>
-#include <QTemporaryFile>
-#include <QDir>
-#include <QImageWriter>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)

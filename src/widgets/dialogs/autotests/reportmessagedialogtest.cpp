@@ -26,7 +26,6 @@
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <QLineEdit>
 #include <KTextEdit>
 
 QTEST_MAIN(ReportMessageDialogTest)

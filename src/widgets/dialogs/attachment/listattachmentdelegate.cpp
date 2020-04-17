@@ -22,7 +22,6 @@
 #include "rocketchataccount.h"
 #include "common/delegatepaintutil.h"
 #include <QFileDialog>
-#include <QMessageBox>
 #include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>

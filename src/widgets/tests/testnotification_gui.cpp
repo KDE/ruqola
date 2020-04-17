@@ -20,7 +20,6 @@
 
 #include <QCommandLineParser>
 #include <QApplication>
-#include <QUrl>
 #include "notificationwidget.h"
 int main(int argc, char **argv)
 {

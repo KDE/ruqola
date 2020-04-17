@@ -22,7 +22,6 @@
 #define ACCOUNTSCHANNELSMODEL_H
 
 #include <QAbstractItemModel>
-#include <QPointer>
 
 #include "libruqolacore_export.h"
 

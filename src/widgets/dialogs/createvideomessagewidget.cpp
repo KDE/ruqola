@@ -20,7 +20,6 @@
 
 #include "createvideomessagewidget.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
 #include <QLabel>
 #include <QCamera>
 #include <QCameraViewfinder>

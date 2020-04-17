@@ -19,7 +19,6 @@
 */
 
 #include "playsoundwidget.h"
-#include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QMediaPlayer>
 #include <QPushButton>

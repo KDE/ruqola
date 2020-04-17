@@ -30,7 +30,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QIcon>
-#include <QPicture>
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)

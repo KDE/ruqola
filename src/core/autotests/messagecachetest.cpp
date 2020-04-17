@@ -24,7 +24,6 @@
 #include "messages/message.h"
 
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QSignalSpy>
 #include <QTest>
 #include <QTimer>

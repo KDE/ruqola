@@ -20,7 +20,6 @@
 
 #include "configuregeneralwidget.h"
 #include <QVBoxLayout>
-#include <QLabel>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include "ruqolaglobalconfig.h"

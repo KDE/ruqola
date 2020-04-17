@@ -23,8 +23,6 @@
 #include "common/flowlayout.h"
 #include "misc/clickableuserwidget.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
-#include <QDebug>
 
 AddUsersWidget::AddUsersWidget(QWidget *parent)
     : QWidget(parent)

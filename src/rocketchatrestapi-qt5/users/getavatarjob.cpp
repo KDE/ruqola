@@ -23,8 +23,6 @@
 #include "restapimethod.h"
 #include <KLocalizedString>
 
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;

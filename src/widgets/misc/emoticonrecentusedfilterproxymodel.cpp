@@ -23,7 +23,6 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <QDebug>
 
 namespace {
 static const char myConfigGroupName[] = "EmoticonRecentUsed";

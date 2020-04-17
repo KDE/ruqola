@@ -23,8 +23,6 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
-#include <QDialogButtonBox>
-#include <QVBoxLayout>
 
 #include <KLocalizedString>
 #include <KConfigGroup>

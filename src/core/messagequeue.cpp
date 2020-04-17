@@ -31,7 +31,6 @@
 #include <QDir>
 #include <QDataStream>
 #include <QCborValue>
-#include <QCborMap>
 
 MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)

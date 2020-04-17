@@ -21,7 +21,6 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QDebug>
 #include <KNotification>
 
 NotificationWidget::NotificationWidget(QWidget *parent)

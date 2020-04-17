@@ -20,7 +20,6 @@
 
 #include <QCommandLineParser>
 #include <QApplication>
-#include <QUrl>
 #include "dialogs/createvideomessagedialog.h"
 int main(int argc, char **argv)
 {

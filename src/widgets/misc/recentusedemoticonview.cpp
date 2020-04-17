@@ -20,7 +20,6 @@
 
 #include "recentusedemoticonview.h"
 #include <KLocalizedString>
-#include <QDebug>
 #include <QContextMenuEvent>
 #include <QMenu>
 

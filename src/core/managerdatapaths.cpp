@@ -20,7 +20,6 @@
 
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
-#include <QDir>
 #include <QStandardPaths>
 
 ManagerDataPaths::ManagerDataPaths()

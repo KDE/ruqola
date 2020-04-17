@@ -26,7 +26,6 @@
 #include "room/messagetextedit.h"
 #include <QMimeData>
 #include <QVBoxLayout>
-#include <QKeyEvent>
 #include <QLabel>
 
 ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
