@@ -72,6 +72,16 @@ void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *mode
     updateLabel();
 }
 
+MessageListView *ShowListMessageBaseWidget::messageListView() const
+{
+    return mMessageListView;
+}
+
+void ShowListMessageBaseWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    mMessageListView->setCurrentRocketChatAccount(currentRocketChatAccount);
+}
+
 void ShowListMessageBaseWidget::updateLabel()
 {
     if (mModel->loadMoreListMessagesInProgress()) {

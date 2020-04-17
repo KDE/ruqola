@@ -75,3 +75,8 @@ QString ShowListMessageBaseDialog::roomId() const
 {
     return mRoomId;
 }
+
+void ShowListMessageBaseDialog::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    mShowListMessage->setCurrentRocketChatAccount(currentRocketChatAccount);
+}

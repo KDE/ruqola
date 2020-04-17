@@ -26,6 +26,7 @@
 
 class ShowListMessageBaseWidget;
 class ListMessagesModelFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
 
     void setRoomId(const QString &roomId);
     Q_REQUIRED_RESULT QString roomId() const;
+    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId);
