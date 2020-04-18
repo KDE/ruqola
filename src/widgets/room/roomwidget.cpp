@@ -430,7 +430,7 @@ void RoomWidget::setRoomId(const QString &roomId)
     mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
     connectRoomWrapper();
     mMessageLineWidget->setRoomId(roomId);
-    mMessageListView->setChannelSelected(roomId);
+    mMessageListView->setChannelSelected(mRoomWrapper);
     mUsersInRoomFlowWidget->setRoomWrapper(mRoomWrapper);
     mRoomHeaderWidget->setRoomWrapper(mRoomWrapper);
 }
@@ -519,7 +519,7 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const Q
     dlg->setThreadMessageId(threadMessageId);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setThreadPreview(threadMessagePreview);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomWrapper(mRoomWrapper);
     dlg->exec();
     delete dlg;
 }

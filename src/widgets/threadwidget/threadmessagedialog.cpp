@@ -83,9 +83,9 @@ void ThreadMessageDialog::setCurrentRocketChatAccount(RocketChatAccount *account
     mThreadMessageWidget->setCurrentRocketChatAccount(account);
 }
 
-void ThreadMessageDialog::setRoomId(const QString &roomId)
+void ThreadMessageDialog::setRoomWrapper(RoomWrapper *roomWrapper)
 {
-    mThreadMessageWidget->setRoomId(roomId);
+    mThreadMessageWidget->setRoomWrapper(roomWrapper);
 }
 
 void ThreadMessageDialog::setThreadPreview(const QString &preview)

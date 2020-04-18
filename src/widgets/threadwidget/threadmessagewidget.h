@@ -26,6 +26,7 @@
 class MessageListView;
 class MessageLineWidget;
 class RocketChatAccount;
+class RoomWrapper;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
@@ -39,10 +40,9 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
-    void setRoomId(const QString &roomId);
-
     void setThreadPreview(const QString &preview);
 
+    void setRoomWrapper(RoomWrapper *roomWrapper);
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;
