@@ -114,7 +114,7 @@ void MessageListView::setChannelSelected(RoomWrapper *roomWrapper)
     if (oldModel) {
         oldModel->deactivate();
     }
-    mRoomWrapper = roomWrapper;
+    setRoomWrapper(roomWrapper);
     const QString roomId = roomWrapper->roomId();
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
     MessageModel *model = Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId);

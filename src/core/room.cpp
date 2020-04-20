@@ -532,6 +532,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setDescription(json[QStringLiteral("description")].toString());
     }
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
+    setLastSeeAt(Utils::parseDate(QStringLiteral("ls"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
@@ -587,7 +588,6 @@ void Room::setLastSeeAt(qint64 lastSeeAt)
         mLastSeeAt = lastSeeAt;
         Q_EMIT lastSeeChanged();
     }
-    //Add signal otherwise it's not necessary to check value
 }
 
 bool Room::blocked() const
@@ -652,6 +652,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setReadOnly(json[QStringLiteral("ro")].toBool());
 
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
+    setLastSeeAt(Utils::parseDate(QStringLiteral("ls"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setUserMentions(json[QStringLiteral("userMentions")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
