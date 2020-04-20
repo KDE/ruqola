@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextPluginManager : public QObject
 public:
     explicit TextPluginManager(QObject *parent = nullptr);
     ~TextPluginManager();
+    static TextPluginManager *self();
 };
 
 #endif // TEXTPLUGINMANAGER_H

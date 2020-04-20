@@ -31,3 +31,9 @@ TextPluginManager::~TextPluginManager()
 {
 
 }
+
+TextPluginManager *TextPluginManager::self()
+{
+    static TextPluginManager s_self;
+    return &s_self;
+}
