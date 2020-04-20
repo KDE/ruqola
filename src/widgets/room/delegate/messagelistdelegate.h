@@ -59,6 +59,9 @@ public:
 
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;
+
+    void setLastSeeAt(qint64 lastSee);
+
 private:
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 
@@ -110,6 +113,8 @@ private:
     MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;
 
     friend class MessageListDelegateTest;
+
+    qint64 mLastSeeAt = -1;
 
     QIcon mEditedIcon;
     QIcon mRolesIcon;

@@ -73,9 +73,18 @@ MessageListView::~MessageListView()
 {
 }
 
+void MessageListView::slotUpdateLastSee()
+{
+    mMessageListDelegate->setLastSeeAt(mRoomWrapper->lastSeeAt());
+    viewport()->update();
+}
+
 void MessageListView::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mRoomWrapper = roomWrapper;
+    if (mRoomWrapper) {
+        connect(mRoomWrapper, &RoomWrapper::lastSeeChanged, this, &MessageListView::slotUpdateLastSee);
+    }
 }
 
 void MessageListView::slotVerticalScrollbarChanged(int value)

@@ -243,6 +243,12 @@ QString MessageListDelegate::selectedText() const
     return mHelperText->selectedText();
 }
 
+void MessageListDelegate::setLastSeeAt(qint64 lastSee)
+{
+    qDebug() << " void MessageListDelegate::setLastSeeAt(qint64 lastSee)" << lastSee;
+    mLastSeeAt = lastSee;
+}
+
 bool MessageListDelegate::hasSelection() const
 {
     return mHelperText->hasSelection();
