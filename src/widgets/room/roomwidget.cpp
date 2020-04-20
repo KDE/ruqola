@@ -456,6 +456,7 @@ void RoomWidget::connectRoomWrapper()
         connect(mRoomWrapper, &RoomWrapper::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
         connect(mRoomWrapper, &RoomWrapper::autoTranslateChanged, this, &RoomWidget::updateListView);
         connect(mRoomWrapper, &RoomWrapper::ignoredUsersChanged, this, &RoomWidget::updateListView);
+        connect(mRoomWrapper, &RoomWrapper::lastSeeChanged, this, &RoomWidget::updateListView);
     }
     updateRoomHeader();
 }
