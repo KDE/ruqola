@@ -142,11 +142,16 @@ set(Ruqola_common_SRCS
     common/delegatepaintutil.cpp
     )
 
+set(Ruqola_textplugin_SRCS
+    room/textpluginmanager.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 
 qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
 
 add_library(libruqolawidgets
+    ${Ruqola_textplugin_SRCS}
     ${ruqola_userfeedback_SRCS}
     ${Ruqola_common_SRCS}
     ${Ruqola_widgets_SRCS}
