@@ -465,7 +465,6 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
         if (!messageTranslation.isEmpty()) {
             messageStr = messageTranslation;
         }
-        //qDebug() << " autotranslate true && mRoom->autoTranslateLanguage() :" << mRoom->autoTranslateLanguage();
     }
 
     return mTextConverter->convertMessageText(messageStr, userName, mAllMessages);
