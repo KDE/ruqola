@@ -24,7 +24,6 @@ QTEST_MAIN(RecentUsedEmoticonViewTest)
 RecentUsedEmoticonViewTest::RecentUsedEmoticonViewTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RecentUsedEmoticonViewTest::shouldHaveDefaultValues()

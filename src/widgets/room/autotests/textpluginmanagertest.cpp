@@ -25,5 +25,4 @@ QTEST_MAIN(TextPluginManagerTest)
 TextPluginManagerTest::TextPluginManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }

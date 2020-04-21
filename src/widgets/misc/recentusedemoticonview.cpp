@@ -31,7 +31,6 @@ RecentUsedEmoticonView::RecentUsedEmoticonView(QWidget *parent)
 
 RecentUsedEmoticonView::~RecentUsedEmoticonView()
 {
-
 }
 
 void RecentUsedEmoticonView::contextMenuEvent(QContextMenuEvent *event)

@@ -18,18 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "textpluginmanager.h"
 
 TextPluginManager::TextPluginManager(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 TextPluginManager::~TextPluginManager()
 {
-
 }
 
 TextPluginManager *TextPluginManager::self()

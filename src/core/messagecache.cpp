@@ -29,7 +29,6 @@
 
 #include <model/threadmessagemodel.h>
 
-
 MessageCache::MessageCache(QObject *parent)
     : QObject(parent)
 {

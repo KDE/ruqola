@@ -106,14 +106,14 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
 
     QTest::newRow("inline-code-with-brackets") << QStringLiteral("`[[test]]` and `a[b` something")
                                                << QStringLiteral(
-                                                      "<div><code>`[[test]]`</code> and <code>`a[b`</code> "
-                                                      "something</div>")
+        "<div><code>`[[test]]`</code> and <code>`a[b`</code> "
+        "something</div>")
                                                << QStringLiteral("www.kde.org");
 
     QTest::newRow("inline-code-with-tilde") << QStringLiteral("`auto [a, b] = std::minmax_element(~~~);`")
                                             << QStringLiteral(
-                                                   "<div><code>`auto [a, b] = "
-                                                   "std::minmax_element(~~~);`</code></div>")
+        "<div><code>`auto [a, b] = "
+        "std::minmax_element(~~~);`</code></div>")
                                             << QStringLiteral("www.kde.org");
 }
 
