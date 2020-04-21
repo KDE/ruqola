@@ -53,7 +53,7 @@ public:
 
     bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-    void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeeLine) const;
 
     void setShowThreadContext(bool b);
 

@@ -121,13 +121,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
 
     QRect usableRect = option.rect;
+    const bool displayLastSeeMessage = index.data(MessageModel::DisplayLastSeeMessage).toBool();
     if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
-    }
-
-    if (index.data(MessageModel::DisplayLastSeeMessage).toBool()) {
+    } else if (displayLastSeeMessage) {
         usableRect.setTop(usableRect.top() + 10);
-        layout.displayLastSeeMessageY = usableRect.top() + 5;
+        layout.displayLastSeeMessageY = usableRect.top();
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
@@ -235,7 +234,7 @@ void MessageListDelegate::drawLastSeeLine(QPainter *painter, qint64 displayLastS
     painter->setPen(origPen);
 }
 
-void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeeLine) const
 {
     const QPen origPen = painter->pen();
     const qreal margin = basicMargin();
@@ -245,9 +244,13 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     const QRect dateTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, dateSize, dateAreaRect);
     painter->drawText(dateTextRect, dateStr);
     const int lineY = (dateAreaRect.top() + dateAreaRect.bottom()) / 2;
-    QColor lightColor(painter->pen().color());
-    lightColor.setAlpha(60);
-    painter->setPen(lightColor);
+    if (drawLastSeeLine) {
+        painter->setPen(Qt::red);
+    } else {
+        QColor lightColor(painter->pen().color());
+        lightColor.setAlpha(60);
+        painter->setPen(lightColor);
+    }
     painter->drawLine(dateAreaRect.left(), lineY, dateTextRect.left() - margin, lineY);
     painter->drawLine(dateTextRect.right() + margin, lineY, dateAreaRect.right(), lineY);
     painter->setPen(origPen);
@@ -274,18 +277,18 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     drawBackground(painter, option, index);
 
-    // Draw date if it differs from the previous message
-    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
-        drawDate(painter, index, option);
-    }
-
     const Layout layout = doLayout(option, index);
 
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    if (index.data(MessageModel::DisplayLastSeeMessage).toBool()) {
+    // Draw date if it differs from the previous message
+    const bool displayLastSeeMessage = index.data(MessageModel::DisplayLastSeeMessage).toBool();
+    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
+        drawDate(painter, index, option, displayLastSeeMessage);
+    } else if (displayLastSeeMessage) {
         drawLastSeeLine(painter, layout.displayLastSeeMessageY, option);
     }
 
+
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     // Timestamp
     DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
     const Message::MessageType messageType = message->messageType();
