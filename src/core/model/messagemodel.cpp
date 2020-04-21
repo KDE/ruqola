@@ -422,6 +422,19 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.showTranslatedMessage();
     case MessageModel::DisplayAttachment:
         return message.showAttachment();
+    case MessageModel::DisplayLastSeeMessage:
+        if (idx > 0) {
+            if (mRoom) {
+                const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
+                const QDateTime lastSeeDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeeAt());
+                if (currentDate > lastSeeDate) {
+                    const Message &previousMessage = mAllMessages.at(idx - 1);
+                    const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp());
+                    return previewMessageDate < lastSeeDate;
+                }
+            }
+        }
+        return false;
     }
 
     return {};

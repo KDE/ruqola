@@ -105,16 +105,18 @@ private:
 
         // Discussions
         qreal discussionsHeight = 0;
+
+        // Last See
+        qreal displayLastSeeMessageY = 0;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
+    void drawLastSeeLine(QPainter *painter, qint64 displayLastSeeY, const QStyleOptionViewItem &option) const;
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;
 
     friend class MessageListDelegateTest;
-
-    qint64 mLastSeeAt = -1;
 
     QIcon mEditedIcon;
     QIcon mRolesIcon;

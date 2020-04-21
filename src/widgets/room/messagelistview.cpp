@@ -75,7 +75,6 @@ MessageListView::~MessageListView()
 
 void MessageListView::slotUpdateLastSee()
 {
-    mMessageListDelegate->setLastSeeAt(mRoomWrapper->lastSeeAt());
     viewport()->update();
 }
 

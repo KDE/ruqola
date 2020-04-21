@@ -124,6 +124,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     }
+
+    if (index.data(MessageModel::DisplayLastSeeMessage).toBool()) {
+        usableRect.setTop(usableRect.top() + 10);
+        layout.displayLastSeeMessageY = usableRect.top() + 10;
+    }
+
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
     const qreal margin = basicMargin();
@@ -220,6 +226,15 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const Message 
     return nullptr;
 }
 
+void MessageListDelegate::drawLastSeeLine(QPainter *painter, qint64 displayLastSeeY, const QStyleOptionViewItem &option) const
+{
+    const QPen origPen = painter->pen();
+    const int lineY = displayLastSeeY / 2;
+    painter->setPen(Qt::red);
+    painter->drawLine(option.rect.x(), lineY, option.rect.width(), lineY);
+    painter->setPen(origPen);
+}
+
 void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const QPen origPen = painter->pen();
@@ -243,12 +258,6 @@ QString MessageListDelegate::selectedText() const
     return mHelperText->selectedText();
 }
 
-void MessageListDelegate::setLastSeeAt(qint64 lastSee)
-{
-    qDebug() << " void MessageListDelegate::setLastSeeAt(qint64 lastSee)" << lastSee;
-    mLastSeeAt = lastSee;
-}
-
 bool MessageListDelegate::hasSelection() const
 {
     return mHelperText->hasSelection();
@@ -270,8 +279,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         drawDate(painter, index, option);
     }
 
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const Layout layout = doLayout(option, index);
+
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    if (index.data(MessageModel::DisplayLastSeeMessage).toBool()) {
+        drawLastSeeLine(painter, layout.displayLastSeeMessageY, option);
+    }
 
     // Timestamp
     DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
