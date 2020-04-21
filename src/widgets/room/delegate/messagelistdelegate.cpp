@@ -127,7 +127,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     if (index.data(MessageModel::DisplayLastSeeMessage).toBool()) {
         usableRect.setTop(usableRect.top() + 10);
-        layout.displayLastSeeMessageY = usableRect.top() + 10;
+        layout.displayLastSeeMessageY = usableRect.top() + 5;
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
@@ -229,7 +229,7 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const Message 
 void MessageListDelegate::drawLastSeeLine(QPainter *painter, qint64 displayLastSeeY, const QStyleOptionViewItem &option) const
 {
     const QPen origPen = painter->pen();
-    const int lineY = displayLastSeeY / 2;
+    const int lineY = displayLastSeeY;
     painter->setPen(Qt::red);
     painter->drawLine(option.rect.x(), lineY, option.rect.width(), lineY);
     painter->setPen(origPen);
