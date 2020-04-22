@@ -130,6 +130,7 @@ set(Ruqola_misc_widget_SRCS
     misc/adduserswidget.cpp
     misc/clickableuserwidget.cpp
     misc/recentusedemoticonview.cpp
+    misc/lineeditcatchreturnkey.cpp
     )
 
 set(Ruqola_common_SRCS
