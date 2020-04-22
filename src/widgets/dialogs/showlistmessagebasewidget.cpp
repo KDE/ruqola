@@ -21,10 +21,11 @@
 #include "showlistmessagebasewidget.h"
 #include "room/messagelistview.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
+#include "misc/lineeditcatchreturnkey.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QLabel>
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
@@ -34,12 +35,12 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchMessageLineEdit = new KLineEdit(this);
+    mSearchMessageLineEdit = new QLineEdit(this);
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
-    mSearchMessageLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mSearchMessageLineEdit, this);
     mSearchMessageLineEdit->setPlaceholderText(i18n("Search Messages..."));
-    connect(mSearchMessageLineEdit, &KLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
+    connect(mSearchMessageLineEdit, &QLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);
 
     mMessageListInfo = new QLabel(this);

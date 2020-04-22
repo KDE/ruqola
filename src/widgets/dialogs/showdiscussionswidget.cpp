@@ -21,9 +21,10 @@
 #include "showdiscussionswidget.h"
 #include "discussion/listdiscussiondelegate.h"
 #include "model/discussionsfilterproxymodel.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QLabel>
 #include <QListView>
 
@@ -34,12 +35,12 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchDiscussionLineEdit = new KLineEdit(this);
+    mSearchDiscussionLineEdit = new QLineEdit(this);
     mSearchDiscussionLineEdit->setObjectName(QStringLiteral("mSearchDiscussionLineEdit"));
     mSearchDiscussionLineEdit->setClearButtonEnabled(true);
-    mSearchDiscussionLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mSearchDiscussionLineEdit, this);
     mSearchDiscussionLineEdit->setPlaceholderText(i18n("Search Discussion..."));
-    connect(mSearchDiscussionLineEdit, &KLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
+    connect(mSearchDiscussionLineEdit, &QLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
 
     mDiscussionInfoLabel = new QLabel(this);

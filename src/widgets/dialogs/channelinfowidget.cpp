@@ -23,7 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <KMessageBox>

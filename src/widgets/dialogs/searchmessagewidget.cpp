@@ -23,7 +23,8 @@
 #include "searchmessagewidget.h"
 #include "room/messagelistview.h"
 #include "model/searchmessagefilterproxymodel.h"
-#include <KLineEdit>
+#include "misc/lineeditcatchreturnkey.h"
+#include <QLineEdit>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -35,10 +36,10 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchLineEdit = new KLineEdit(this);
+    mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
-    mSearchLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
     mSearchLineEdit->setPlaceholderText(i18n("Search Word..."));
     mainLayout->addWidget(mSearchLineEdit);
 

@@ -21,7 +21,7 @@
 #include "createnewdiscussionwidgettest.h"
 #include "dialogs/createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QLabel>
 #include <QTest>
 #include <KTextEdit>
@@ -45,20 +45,18 @@ void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
     QVERIFY(channelLabel);
     QVERIFY(!channelLabel->text().isEmpty());
 
-    KLineEdit *mChannelNameLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mChannelNameLineEdit"));
+    QLineEdit *mChannelNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mChannelNameLineEdit"));
     QVERIFY(mChannelNameLineEdit);
     QVERIFY(mChannelNameLineEdit->text().isEmpty());
-    QVERIFY(mChannelNameLineEdit->trapReturnKey());
     QVERIFY(mChannelNameLineEdit->isClearButtonEnabled());
 
     QLabel *discussionName = w.findChild<QLabel *>(QStringLiteral("discussionName"));
     QVERIFY(discussionName);
     QVERIFY(!discussionName->text().isEmpty());
 
-    KLineEdit *mDiscussionNameLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mDiscussionNameLineEdit"));
+    QLineEdit *mDiscussionNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mDiscussionNameLineEdit"));
     QVERIFY(mDiscussionNameLineEdit);
     QVERIFY(mDiscussionNameLineEdit->text().isEmpty());
-    QVERIFY(mDiscussionNameLineEdit->trapReturnKey());
     QVERIFY(mDiscussionNameLineEdit->isClearButtonEnabled());
 
     QLabel *usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));

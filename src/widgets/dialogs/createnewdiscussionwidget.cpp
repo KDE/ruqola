@@ -20,9 +20,10 @@
 
 #include "createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <QVBoxLayout>
 #include <QLabel>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KLocalizedString>
 #include <KTextEdit>
 
@@ -37,11 +38,11 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     channelLabel->setObjectName(QStringLiteral("channelLabel"));
     mainLayout->addWidget(channelLabel);
 
-    mChannelNameLineEdit = new KLineEdit(this);
+    mChannelNameLineEdit = new QLineEdit(this);
     mChannelNameLineEdit->setObjectName(QStringLiteral("mChannelNameLineEdit"));
-    mChannelNameLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mChannelNameLineEdit, this);
     mChannelNameLineEdit->setClearButtonEnabled(true);
-    connect(mChannelNameLineEdit, &KLineEdit::textChanged, this, [this](const QString &str) {
+    connect(mChannelNameLineEdit, &QLineEdit::textChanged, this, [this](const QString &str) {
         Q_EMIT updateOkButton(!str.trimmed().isEmpty());
     });
     mainLayout->addWidget(mChannelNameLineEdit);
@@ -50,9 +51,9 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     discussionName->setObjectName(QStringLiteral("discussionName"));
     mainLayout->addWidget(discussionName);
 
-    mDiscussionNameLineEdit = new KLineEdit(this);
+    mDiscussionNameLineEdit = new QLineEdit(this);
     mDiscussionNameLineEdit->setObjectName(QStringLiteral("mDiscussionNameLineEdit"));
-    mDiscussionNameLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mDiscussionNameLineEdit, this);
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 

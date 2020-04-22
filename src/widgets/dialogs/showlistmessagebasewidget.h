@@ -24,7 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class MessageListView;
 class QLabel;
 class ListMessagesModelFilterProxyModel;
@@ -48,7 +48,7 @@ private:
     void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    KLineEdit *mSearchMessageLineEdit = nullptr;
+    QLineEdit *mSearchMessageLineEdit = nullptr;
     MessageListView *mMessageListView = nullptr;
     QLabel *mMessageListInfo = nullptr;
     ListMessagesModelFilterProxyModel *mModel = nullptr;

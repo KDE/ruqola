@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class QLabel;
 class QListView;
 class FilesForRoomFilterProxyModel;
@@ -43,7 +43,7 @@ private:
     void slotSearchMessageTextChanged(const QString &str);
     void updateLabel();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    KLineEdit *mSearchAttachmentFileLineEdit = nullptr;
+    QLineEdit *mSearchAttachmentFileLineEdit = nullptr;
     QLabel *mInfo = nullptr;
     QListView *mListAttachment = nullptr;
     FilesForRoomFilterProxyModel *mModel = nullptr;

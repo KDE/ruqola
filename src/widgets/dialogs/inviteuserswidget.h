@@ -24,7 +24,7 @@
 #include <QWidget>
 #include "invite/findorcreateinvitejob.h"
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class QLabel;
 class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
@@ -46,7 +46,7 @@ private:
     void slotCopyLink();
     void slotGenerateNewLink();
     QString mRoomId;
-    KLineEdit *mInviteUserLineEdit = nullptr;
+    QLineEdit *mInviteUserLineEdit = nullptr;
     QLabel *mExpireDateLabel = nullptr;
     QComboBox *mExpirationDays = nullptr;
     QComboBox *mMaxUses = nullptr;

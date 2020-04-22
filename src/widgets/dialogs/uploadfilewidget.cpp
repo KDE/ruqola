@@ -19,6 +19,7 @@
 */
 
 #include "uploadfilewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <KUrlRequester>
 
@@ -32,8 +33,8 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
-    mDescription = new KLineEdit(this);
-    mDescription->setTrapReturnKey(true);
+    mDescription = new QLineEdit(this);
+    new LineEditCatchReturnKey(mDescription, this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mDescription->setClearButtonEnabled(true);
     layout->addRow(i18n("Description:"), mDescription);

@@ -22,11 +22,12 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "restapirequest.h"
+#include "misc/lineeditcatchreturnkey.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QToolButton>
 #include <QClipboard>
 #include <QApplication>
@@ -50,10 +51,10 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     hlayout->addWidget(label);
 
-    mInviteUserLineEdit = new KLineEdit(this);
+    mInviteUserLineEdit = new QLineEdit(this);
     mInviteUserLineEdit->setObjectName(QStringLiteral("mInviteUserLineEdit"));
     mInviteUserLineEdit->setReadOnly(true);
-    mInviteUserLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mInviteUserLineEdit, this);
     hlayout->addWidget(mInviteUserLineEdit);
 
     QToolButton *copyLinkButton = new QToolButton(this);

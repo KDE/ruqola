@@ -21,7 +21,7 @@
 #include "createnewchannelwidget.h"
 #include "misc/adduserswidget.h"
 #include <QFormLayout>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <KPasswordLineEdit>
@@ -33,7 +33,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mChannelName = new KLineEdit(this);
+    mChannelName = new QLineEdit(this);
     mChannelName->setObjectName(QStringLiteral("mChannelName"));
     mainLayout->addRow(i18n("Name:"), mChannelName);
 
@@ -66,7 +66,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
-    connect(mChannelName, &KLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
+    connect(mChannelName, &QLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget()

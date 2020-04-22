@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
 {
@@ -34,7 +34,7 @@ public:
 private:
     void slotOpenChannel(const QModelIndex &index);
     void slotTextChanged(const QString &str);
-    KLineEdit *mSearchLineEdit = nullptr;
+    QLineEdit *mSearchLineEdit = nullptr;
     QListView *mResultListWidget = nullptr;
 };
 

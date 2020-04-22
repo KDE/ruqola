@@ -20,7 +20,7 @@
 
 #include "searchchannelwidgettest.h"
 #include "dialogs/searchchannelwidget.h"
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
@@ -38,10 +38,9 @@ void SearchChannelWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mSearchLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
-    QVERIFY(mSearchLineEdit->trapReturnKey());
 
     auto *mResultListWidget = w.findChild<QListView *>(QStringLiteral("mResultListWidget"));
     QVERIFY(mResultListWidget);

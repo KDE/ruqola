@@ -20,7 +20,7 @@
 
 #include "inviteuserswidgettest.h"
 #include "dialogs/inviteuserswidget.h"
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QComboBox>
 #include <QFormLayout>
 #include <QLabel>
@@ -46,10 +46,9 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    KLineEdit *mInviteUserLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
+    QLineEdit *mInviteUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
     QVERIFY(mInviteUserLineEdit->isReadOnly());
-    QVERIFY(mInviteUserLineEdit->trapReturnKey());
 
     QToolButton *copyLinkButton = w.findChild<QToolButton *>(QStringLiteral("copyLinkButton"));
     QVERIFY(copyLinkButton);

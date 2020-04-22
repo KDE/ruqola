@@ -22,7 +22,7 @@
 #include "dialogs/showlistmessagebasewidget.h"
 #include "room/messagelistview.h"
 #include <QLabel>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -40,7 +40,7 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mSearchMessageLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
+    auto *mSearchMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
     QVERIFY(mSearchMessageLineEdit);
     QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchMessageLineEdit->placeholderText().isEmpty());

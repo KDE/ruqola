@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class KUrlRequester;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget
 {
@@ -40,7 +40,7 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
-    KLineEdit *mDescription = nullptr;
+    QLineEdit *mDescription = nullptr;
     KUrlRequester *mSelectFile = nullptr;
 };
 

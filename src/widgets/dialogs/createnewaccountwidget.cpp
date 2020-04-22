@@ -19,9 +19,9 @@
 */
 
 #include "createnewaccountwidget.h"
-
+#include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
-#include <KLineEdit>
+#include <QLineEdit>
 
 #include <KLocalizedString>
 
@@ -32,27 +32,27 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mAccountName = new KLineEdit(this);
+    mAccountName = new QLineEdit(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setClearButtonEnabled(true);
-    mAccountName->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mAccountName, this);
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
 
-    mServerName = new KLineEdit(this);
+    mServerName = new QLineEdit(this);
     mServerName->setObjectName(QStringLiteral("mServerName"));
     mServerName->setClearButtonEnabled(true);
-    mServerName->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mServerName, this);
     mainLayout->addRow(i18n("Server Name:"), mServerName);
 
-    mUserName = new KLineEdit(this);
+    mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
-    mUserName->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mUserName, this);
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
-    connect(mUserName, &KLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
-    connect(mServerName, &KLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
-    connect(mAccountName, &KLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mServerName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
 
     //TODO add support for two factor ?
 }

@@ -24,7 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class QCheckBox;
 class KPasswordLineEdit;
 class AddUsersWidget;
@@ -58,7 +58,7 @@ Q_SIGNALS:
 
 private:
     void slotChangeOkButtonEnabled();
-    KLineEdit *mChannelName = nullptr;
+    QLineEdit *mChannelName = nullptr;
     AddUsersWidget *mUsers = nullptr;
     QCheckBox *mReadOnly = nullptr;
     QCheckBox *mBroadcast = nullptr;

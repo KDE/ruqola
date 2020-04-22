@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class QLineEdit;
 class QLabel;
 class QListView;
 class DiscussionsFilterProxyModel;
@@ -43,7 +43,7 @@ private:
     void slotSearchMessageTextChanged(const QString &str);
     void updateLabel();
     QString displayShowDiscussionInRoom() const;
-    KLineEdit *mSearchDiscussionLineEdit = nullptr;
+    QLineEdit *mSearchDiscussionLineEdit = nullptr;
     QLabel *mDiscussionInfoLabel = nullptr;
     QListView *mListDiscussions = nullptr;
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;

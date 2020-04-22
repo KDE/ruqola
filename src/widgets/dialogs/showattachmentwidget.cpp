@@ -21,7 +21,8 @@
 #include "showattachmentwidget.h"
 #include "attachment/listattachmentdelegate.h"
 #include "model/filesforroomfilterproxymodel.h"
-#include <KLineEdit>
+#include "misc/lineeditcatchreturnkey.h"
+#include <QLineEdit>
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
@@ -34,12 +35,12 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchAttachmentFileLineEdit = new KLineEdit(this);
+    mSearchAttachmentFileLineEdit = new QLineEdit(this);
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
-    mSearchAttachmentFileLineEdit->setTrapReturnKey(true);
+    new LineEditCatchReturnKey(mSearchAttachmentFileLineEdit, this);
     mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search Attachments..."));
-    connect(mSearchAttachmentFileLineEdit, &KLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
+    connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchAttachmentFileLineEdit);
 
     mInfo = new QLabel(this);

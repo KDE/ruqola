@@ -21,13 +21,14 @@
 #include "completionlineedit.h"
 #include "completionlistview.h"
 #include "rocketchataccount.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "ruqola.h"
 
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)
-    : KLineEdit(parent)
+    : QLineEdit(parent)
 {
     setClearButtonEnabled(true);
-    setTrapReturnKey(true);
+    new LineEditCatchReturnKey(this, this);
 
     mCompletionListView = new CompletionListView;
     mCompletionListView->setTextWidget(this);
