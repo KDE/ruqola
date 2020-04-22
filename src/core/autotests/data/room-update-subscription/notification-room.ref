@@ -10,7 +10,7 @@
     "favorite": false,
     "fname": "",
     "jitsiTimeout": -1,
-    "lastSeeAt": -1,
+    "lastSeeAt": 1519664810617,
     "name": "test",
     "notifications": {
         "audioNotificationValue": "chime",

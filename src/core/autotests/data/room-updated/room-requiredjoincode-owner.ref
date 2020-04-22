@@ -12,7 +12,7 @@
     ],
     "jitsiTimeout": -1,
     "joinCodeRequired": true,
-    "lastSeeAt": -1,
+    "lastSeeAt": 1520852615485,
     "name": "sales",
     "notifications": {
         "audioNotificationValue": "",
