@@ -44,6 +44,7 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
 Q_SIGNALS:
     void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
 
