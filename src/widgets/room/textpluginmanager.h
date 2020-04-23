@@ -21,8 +21,37 @@
 #ifndef TEXTPLUGINMANAGER_H
 #define TEXTPLUGINMANAGER_H
 
+#include <KPluginMetaData>
 #include <QObject>
 #include "libruqolawidgets_private_export.h"
+
+class PluginText;
+
+class PluginUtilData
+{
+public:
+    PluginUtilData()
+    {
+    }
+
+    QStringList mExtraInfo;
+    QString mIdentifier;
+    QString mName;
+};
+
+
+class TextPluginManagerInfo
+{
+public:
+    TextPluginManagerInfo()
+    {
+    }
+
+    QString metaDataFileNameBaseName;
+    QString metaDataFileName;
+    PluginUtilData pluginData;
+    PluginText *plugin = nullptr;
+};
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextPluginManager : public QObject
 {
@@ -31,6 +60,16 @@ public:
     explicit TextPluginManager(QObject *parent = nullptr);
     ~TextPluginManager();
     static TextPluginManager *self();
+
+    Q_REQUIRED_RESULT QVector<PluginText *> pluginsList() const;
+
+private:
+    Q_DISABLE_COPY(TextPluginManager)
+    bool initializePluginList();
+    void loadPlugin(TextPluginManagerInfo *item);
+    PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
+    QVector<TextPluginManagerInfo> mPluginList;
+    QVector<PluginUtilData> mPluginDataList;
 };
 
 #endif // TEXTPLUGINMANAGER_H

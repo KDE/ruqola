@@ -19,6 +19,13 @@
 */
 
 #include "textpluginmanager.h"
+#include "plugintext.h"
+
+#include <KPluginLoader>
+#include <KPluginMetaData>
+#include <KPluginFactory>
+#include <QFileInfo>
+#include <QSet>
 
 TextPluginManager::TextPluginManager(QObject *parent)
     : QObject(parent)
@@ -33,4 +40,64 @@ TextPluginManager *TextPluginManager::self()
 {
     static TextPluginManager s_self;
     return &s_self;
+}
+
+bool TextPluginManager::initializePluginList()
+{
+    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
+
+    QVectorIterator<KPluginMetaData> i(plugins);
+    i.toBack();
+    QSet<QString> unique;
+    while (i.hasPrevious()) {
+        TextPluginManagerInfo info;
+        const KPluginMetaData data = i.previous();
+
+        //1) get plugin data => name/description etc.
+        info.pluginData = createPluginMetaData(data);
+        //2) look at if plugin is activated
+        info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
+        info.metaDataFileName = data.fileName();
+        // only load plugins once, even if found multiple times!
+        if (unique.contains(info.metaDataFileNameBaseName)) {
+            continue;
+        }
+        info.plugin = nullptr;
+        mPluginList.push_back(info);
+        unique.insert(info.metaDataFileNameBaseName);
+    }
+    QVector<TextPluginManagerInfo>::iterator end(mPluginList.end());
+    for (QVector<TextPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
+        loadPlugin(&(*it));
+    }
+    return true;
+}
+
+void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
+{
+    KPluginLoader pluginLoader(item->metaDataFileName);
+    if (pluginLoader.factory()) {
+        item->plugin = pluginLoader.factory()->create<PluginText>(this, QVariantList() << item->metaDataFileNameBaseName);
+        mPluginDataList.append(item->pluginData);
+    }
+}
+
+QVector<PluginText *> TextPluginManager::pluginsList() const
+{
+    QVector<PluginText *> lst;
+    QVector<TextPluginManagerInfo>::ConstIterator end(mPluginList.constEnd());
+    for (QVector<TextPluginManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
+        if (auto plugin = (*it).plugin) {
+            lst << plugin;
+        }
+    }
+    return lst;
+}
+
+PluginUtilData TextPluginManager::createPluginMetaData(const KPluginMetaData &metaData)
+{
+    PluginUtilData pluginData;
+    pluginData.mName = metaData.name();
+    pluginData.mIdentifier = metaData.pluginId();
+    return pluginData;
 }
