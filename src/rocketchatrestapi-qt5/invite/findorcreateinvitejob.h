@@ -22,14 +22,14 @@
 #define FINDORCREATEINVITEJOB_H
 
 #include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT FindOrCreateInviteJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT FindOrCreateInviteJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct InviteUsersInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT InviteUsersInfo {
         int maxUses = -1;
         QUrl url;
         QString roomId;
