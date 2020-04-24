@@ -19,7 +19,7 @@
 */
 
 #include "textpluginmanager.h"
-#include "plugintext.h"
+#include "plugins/plugintext.h"
 
 #include <KPluginLoader>
 #include <KPluginMetaData>

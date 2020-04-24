@@ -1,1 +1,2 @@
 add_subdirectory(authentication)
+add_subdirectory(textplugin)
