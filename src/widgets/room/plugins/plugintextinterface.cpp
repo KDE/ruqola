@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "pluginauthenticationinterface.h"
+#include "plugintextinterface.h"
 
 PluginTextInterface::PluginTextInterface(QObject *parent)
     : QObject(parent)

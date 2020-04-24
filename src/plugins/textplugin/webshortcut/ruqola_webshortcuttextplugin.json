@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "Id": "webshortcuttextplugin",
+        "ServiceTypes": [
+            "Ruqola/TextPlugin"
+        ],
+        "Version": "1.0"
+    }
+}

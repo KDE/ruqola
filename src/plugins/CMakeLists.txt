@@ -1,2 +1,4 @@
 add_subdirectory(authentication)
-add_subdirectory(textplugin)
+if (NOT ANDROID)
+    add_subdirectory(textplugin)
+endif()

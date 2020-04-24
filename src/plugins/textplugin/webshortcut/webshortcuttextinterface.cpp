@@ -18,20 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLUGINTEXT_H
-#define PLUGINTEXT_H
+#include "webshortcuttextinterface.h"
 
-#include <QObject>
-#include "libruqolawidgets_export.h"
-class PluginTextInterface;
-class LIBRUQOLAWIDGETS_EXPORT PluginText : public QObject
+WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
+    : PluginTextInterface(parent)
 {
-    Q_OBJECT
-public:
-    explicit PluginText(QObject *parent = nullptr);
-    ~PluginText();
 
-    virtual PluginTextInterface *createInterface(QObject *parent) = 0;
-};
+}
 
-#endif // PLUGINTEXT_H
+WebShortcutTextInterface::~WebShortcutTextInterface()
+{
+
+}
+
+
+QAction *WebShortcutTextInterface::action()
+{
+    return {};
+}
