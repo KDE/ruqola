@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLUGINTEXT_H
-#define PLUGINTEXT_H
+#include "pluginauthenticationinterface.h"
 
-#include <QObject>
-#include "libruqolawidgets_export.h"
-class PluginAuthenticationInterface;
-class LIBRUQOLAWIDGETS_EXPORT PluginText : public QObject
+PluginTextInterface::PluginTextInterface(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit PluginText(QObject *parent = nullptr);
-    ~PluginText();
 
-    virtual PluginAuthenticationInterface *createInterface(QObject *parent) = 0;
-};
+}
 
-#endif // PLUGINTEXT_H
+PluginTextInterface::~PluginTextInterface()
+{
+
+}
+
+void PluginTextInterface::setSelectedText(const QString &str)
+{
+    mSelectedText = str;
+}

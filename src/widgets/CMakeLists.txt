@@ -146,6 +146,7 @@ set(Ruqola_common_SRCS
 set(Ruqola_textplugin_SRCS
     room/textpluginmanager.cpp
     room/plugins/plugintext.cpp
+    room/plugins/pluginauthenticationinterface.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
