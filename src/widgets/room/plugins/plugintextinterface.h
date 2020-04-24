@@ -32,7 +32,7 @@ public:
     explicit PluginTextInterface(QObject *parent = nullptr);
     ~PluginTextInterface();
 
-    virtual QAction *action() = 0;
+    virtual QAction *action() const = 0;
 
     void setSelectedText(const QString &str);
 private:

@@ -32,7 +32,7 @@ WebShortcutTextInterface::~WebShortcutTextInterface()
 }
 
 
-QAction *WebShortcutTextInterface::action()
+QAction *WebShortcutTextInterface::action() const
 {
-    return {};
+    return nullptr;
 }

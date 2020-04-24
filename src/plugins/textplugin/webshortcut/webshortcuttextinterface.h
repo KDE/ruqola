@@ -30,7 +30,7 @@ public:
     explicit WebShortcutTextInterface(QObject *parent = nullptr);
     ~WebShortcutTextInterface();
 
-    QAction *action() override;
+    QAction *action() const override;
 };
 
 #endif // WEBSHORTCUTTEXTINTERFACE_H
