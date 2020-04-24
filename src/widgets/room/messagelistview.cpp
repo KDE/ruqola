@@ -25,6 +25,9 @@
 #include "rocketchataccount.h"
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
+#include "textpluginmanager.h"
+#include "room/plugins/plugintext.h"
+#include "room/plugins/plugintextinterface.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -38,6 +41,8 @@
 #include <QApplication>
 
 #include <KIO/KUriFilterSearchProviderActions>
+
+
 
 MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
@@ -317,6 +322,16 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(reportMessageAction);
 
+    if (mMessageListDelegate->hasSelection()) {
+        const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
+        const QString selectedText = mMessageListDelegate->selectedText();
+        for (PluginText *plugin : plugins) {
+            PluginTextInterface *interface = plugin->createInterface(&menu);
+            interface->setSelectedText(selectedText);
+            interface->addAction(&menu);
+        }
+    }
+
     if (mDebug) {
         createSeparator(menu);
         QAction *debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu);
@@ -325,13 +340,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(debugMessageAction);
     }
-    if (mMessageListDelegate->hasSelection()) {
-        menu.addSeparator();
-        KIO::KUriFilterSearchProviderActions *mWebShortcutMenuManager = new KIO::KUriFilterSearchProviderActions(&menu);
-        mWebShortcutMenuManager->setSelectedText(mMessageListDelegate->selectedText());
-        mWebShortcutMenuManager->addWebShortcutsToMenu(&menu);
-    }
-
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }

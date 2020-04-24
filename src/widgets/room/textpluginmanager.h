@@ -27,10 +27,10 @@
 
 class PluginText;
 
-class PluginUtilData
+class PluginTextUtilData
 {
 public:
-    PluginUtilData()
+    PluginTextUtilData()
     {
     }
 
@@ -49,7 +49,7 @@ public:
 
     QString metaDataFileNameBaseName;
     QString metaDataFileName;
-    PluginUtilData pluginData;
+    PluginTextUtilData pluginData;
     PluginText *plugin = nullptr;
 };
 
@@ -67,9 +67,9 @@ private:
     Q_DISABLE_COPY(TextPluginManager)
     bool initializePluginList();
     void loadPlugin(TextPluginManagerInfo *item);
-    PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
+    PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QVector<TextPluginManagerInfo> mPluginList;
-    QVector<PluginUtilData> mPluginDataList;
+    QVector<PluginTextUtilData> mPluginDataList;
 };
 
 #endif // TEXTPLUGINMANAGER_H

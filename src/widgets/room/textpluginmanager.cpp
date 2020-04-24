@@ -30,6 +30,7 @@
 TextPluginManager::TextPluginManager(QObject *parent)
     : QObject(parent)
 {
+    initializePluginList();
 }
 
 TextPluginManager::~TextPluginManager()
@@ -94,9 +95,9 @@ QVector<PluginText *> TextPluginManager::pluginsList() const
     return lst;
 }
 
-PluginUtilData TextPluginManager::createPluginMetaData(const KPluginMetaData &metaData)
+PluginTextUtilData TextPluginManager::createPluginMetaData(const KPluginMetaData &metaData)
 {
-    PluginUtilData pluginData;
+    PluginTextUtilData pluginData;
     pluginData.mName = metaData.name();
     pluginData.mIdentifier = metaData.pluginId();
     return pluginData;
