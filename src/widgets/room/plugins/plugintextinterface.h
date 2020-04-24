@@ -25,6 +25,7 @@
 #include <QObject>
 #include "libruqolawidgets_export.h"
 class QAction;
+class QMenu;
 class LIBRUQOLAWIDGETS_EXPORT PluginTextInterface : public QObject
 {
     Q_OBJECT
@@ -32,11 +33,9 @@ public:
     explicit PluginTextInterface(QObject *parent = nullptr);
     ~PluginTextInterface();
 
-    virtual QAction *action() const = 0;
+    virtual void addAction(QMenu *menu) = 0;
 
-    void setSelectedText(const QString &str);
-private:
-    QString mSelectedText;
+    virtual void setSelectedText(const QString &str);
 };
 
 #endif // PLUGINTEXTINTERFACE_H

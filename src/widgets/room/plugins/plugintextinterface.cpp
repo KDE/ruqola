@@ -33,5 +33,5 @@ PluginTextInterface::~PluginTextInterface()
 
 void PluginTextInterface::setSelectedText(const QString &str)
 {
-    mSelectedText = str;
+    Q_UNUSED(str)
 }

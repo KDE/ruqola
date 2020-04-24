@@ -22,7 +22,9 @@
 #define WEBSHORTCUTTEXTINTERFACE_H
 
 #include "room/plugins/plugintextinterface.h"
-
+namespace KIO {
+class KUriFilterSearchProviderActions;
+}
 class WebShortcutTextInterface : public PluginTextInterface
 {
     Q_OBJECT
@@ -30,7 +32,12 @@ public:
     explicit WebShortcutTextInterface(QObject *parent = nullptr);
     ~WebShortcutTextInterface();
 
-    QAction *action() const override;
+    void addAction(QMenu *menu) override;
+
+    void setSelectedText(const QString &str) override;
+
+private:
+    KIO::KUriFilterSearchProviderActions *mWebShortcutMenuManager = nullptr;
 };
 
 #endif // WEBSHORTCUTTEXTINTERFACE_H

@@ -20,6 +20,10 @@
 
 #include "webshortcuttextinterface.h"
 
+#include <KIO/KUriFilterSearchProviderActions>
+
+#include <QMenu>
+
 WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
     : PluginTextInterface(parent)
 {
@@ -28,11 +32,15 @@ WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
 
 WebShortcutTextInterface::~WebShortcutTextInterface()
 {
-
 }
 
-
-QAction *WebShortcutTextInterface::action() const
+void WebShortcutTextInterface::addAction(QMenu *menu)
 {
-    return nullptr;
+    mWebShortcutMenuManager = new KIO::KUriFilterSearchProviderActions(menu);
+    mWebShortcutMenuManager->addWebShortcutsToMenu(menu);
+}
+
+void WebShortcutTextInterface::setSelectedText(const QString &str)
+{
+    mWebShortcutMenuManager->setSelectedText(str);
 }
