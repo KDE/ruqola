@@ -24,14 +24,14 @@
 #include <QNetworkRequest>
 #include <QObject>
 #include <QUrl>
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UploadFileJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UploadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct UploadFileInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UploadFileInfo {
         QString roomId;
         QString description;
         QString messageText;

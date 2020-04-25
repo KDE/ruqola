@@ -29,7 +29,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RunCommandJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct RunCommandInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT RunCommandInfo {
         QString commandName;
         QString roomId;
         QString threadMessageId;
