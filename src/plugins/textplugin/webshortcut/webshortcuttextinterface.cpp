@@ -28,7 +28,6 @@
 WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
     : PluginTextInterface(parent)
 {
-
 }
 
 WebShortcutTextInterface::~WebShortcutTextInterface()

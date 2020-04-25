@@ -287,7 +287,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         drawLastSeeLine(painter, layout.displayLastSeeMessageY, option);
     }
 
-
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     // Timestamp
     DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);

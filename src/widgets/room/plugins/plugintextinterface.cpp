@@ -23,12 +23,10 @@
 PluginTextInterface::PluginTextInterface(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 PluginTextInterface::~PluginTextInterface()
 {
-
 }
 
 void PluginTextInterface::setSelectedText(const QString &str)

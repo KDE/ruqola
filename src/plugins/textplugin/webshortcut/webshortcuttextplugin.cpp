@@ -27,14 +27,11 @@ K_PLUGIN_CLASS_WITH_JSON(WebShortcutTextPlugin, "ruqola_webshortcuttextplugin.js
 WebShortcutTextPlugin::WebShortcutTextPlugin(QObject *parent, const QVariantList &)
     : PluginText(parent)
 {
-
 }
 
 WebShortcutTextPlugin::~WebShortcutTextPlugin()
 {
-
 }
-
 
 PluginTextInterface *WebShortcutTextPlugin::createInterface(QObject *parent)
 {

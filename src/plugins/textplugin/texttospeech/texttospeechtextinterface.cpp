@@ -28,11 +28,9 @@
 
 #include <QTextToSpeech>
 
-
 TextToSpeechTextInterface::TextToSpeechTextInterface(QObject *parent)
     : PluginTextInterface(parent)
 {
-
 }
 
 TextToSpeechTextInterface::~TextToSpeechTextInterface()

@@ -113,7 +113,6 @@ QNetworkRequest GetThreadMessagesJob::request() const
     return request;
 }
 
-
 QString GetThreadMessagesJob::errorMessage(const QString &str)
 {
     if (str == QLatin1String("error-invalid-message")) {

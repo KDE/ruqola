@@ -23,10 +23,8 @@
 PluginText::PluginText(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 PluginText::~PluginText()
 {
-
 }

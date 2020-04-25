@@ -42,8 +42,6 @@
 
 #include <KIO/KUriFilterSearchProviderActions>
 
-
-
 MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
     , mMode(mode)

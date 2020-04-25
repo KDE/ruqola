@@ -27,14 +27,11 @@ K_PLUGIN_CLASS_WITH_JSON(TextToSpeechTextPlugin, "ruqola_texttospeechtextplugin.
 TextToSpeechTextPlugin::TextToSpeechTextPlugin(QObject *parent, const QVariantList &)
     : PluginText(parent)
 {
-
 }
 
 TextToSpeechTextPlugin::~TextToSpeechTextPlugin()
 {
-
 }
-
 
 PluginTextInterface *TextToSpeechTextPlugin::createInterface(QObject *parent)
 {
