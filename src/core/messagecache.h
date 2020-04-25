@@ -25,8 +25,8 @@
 #include <QCache>
 #include <QMap>
 #include <QObject>
+#include "model/threadmessagemodel.h"
 
-class ThreadMessageModel;
 class Message;
 namespace RocketChatRestApi {
 class RestApiAbstractJob;
