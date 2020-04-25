@@ -33,6 +33,10 @@ class QMovie;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:
+    MessageDelegateHelperImage() = default;
+    ~MessageDelegateHelperImage() = default;
+    MessageDelegateHelperImage(const MessageDelegateHelperImage &) = delete;
+    MessageDelegateHelperImage &operator=(const MessageDelegateHelperImage &) = delete;
     void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
