@@ -85,7 +85,7 @@ private:
     void slotReplyInThread(const QModelIndex &index);
     void updateVerticalPageStep();
     void slotDebugMessage(const QModelIndex &index);
-    void slotUpdateLastSee();
+    void slotUpdateLastSeen();
 
 private:
     RoomWrapper *mRoomWrapper = nullptr;

@@ -78,7 +78,7 @@ bool Room::isEqual(const Room &other) const
            && (mUserMentions == other.userMentions())
            && (mNotificationOptions == other.notificationOptions())
            && (mUpdatedAt == other.updatedAt())
-           && (mLastSeeAt == other.lastSeeAt())
+           && (mLastSeenAt == other.lastSeeAt())
            && (mBlocked == other.blocked())
            && (mRoles == other.roles())
            && (mIgnoredUsers == other.ignoredUsers())
@@ -130,7 +130,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "userMentions: " << t.userMentions();
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
-    d << "LastSeeAt: " << t.lastSeeAt();
+    d << "LastSeenAt: " << t.lastSeeAt();
     d << "blocked: " << t.blocked();
     d << "roles: " << t.roles();
     d << "ignoredUsers: " << t.ignoredUsers();
@@ -532,7 +532,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setDescription(json[QStringLiteral("description")].toString());
     }
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
-    setLastSeeAt(Utils::parseDate(QStringLiteral("ls"), json));
+    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
@@ -579,13 +579,13 @@ void Room::parseInsertRoom(const QJsonObject &json)
 
 qint64 Room::lastSeeAt() const
 {
-    return mLastSeeAt;
+    return mLastSeenAt;
 }
 
-void Room::setLastSeeAt(qint64 lastSeeAt)
+void Room::setLastSeenAt(qint64 lastSeeAt)
 {
-    if (mLastSeeAt != lastSeeAt) {
-        mLastSeeAt = lastSeeAt;
+    if (mLastSeenAt != lastSeeAt) {
+        mLastSeenAt = lastSeeAt;
         Q_EMIT lastSeeChanged();
     }
 }
@@ -652,7 +652,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setReadOnly(json[QStringLiteral("ro")].toBool());
 
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
-    setLastSeeAt(Utils::parseDate(QStringLiteral("ls"), json));
+    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setUserMentions(json[QStringLiteral("userMentions")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
@@ -918,7 +918,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setE2eKeyId(o[QStringLiteral("e2ekeyid")].toString());
     r->setJoinCodeRequired(o[QStringLiteral("joinCodeRequired")].toBool());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
-    r->setLastSeeAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
+    r->setLastSeenAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     lst.reserve(mutedArray.count());

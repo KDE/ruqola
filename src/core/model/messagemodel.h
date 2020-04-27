@@ -77,7 +77,7 @@ public:
         ThreadMessagePreview,
         ShowTranslatedMessage,
         DisplayAttachment,
-        DisplayLastSeeMessage,
+        DisplayLastSeenMessage,
     };
     Q_ENUM(MessageRoles)
 

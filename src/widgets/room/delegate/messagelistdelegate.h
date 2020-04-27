@@ -53,14 +53,14 @@ public:
 
     bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-    void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeeLine) const;
+    void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const;
 
     void setShowThreadContext(bool b);
 
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;
 
-    void setLastSeeAt(qint64 lastSee);
+    void setLastSeenAt(qint64 lastSee);
 
 private:
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
@@ -107,11 +107,11 @@ private:
         qreal discussionsHeight = 0;
 
         // Last See
-        qreal displayLastSeeMessageY = 0;
+        qreal displayLastSeenMessageY = 0;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
-    void drawLastSeeLine(QPainter *painter, qint64 displayLastSeeY, const QStyleOptionViewItem &option) const;
+    void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;

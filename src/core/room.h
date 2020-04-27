@@ -149,7 +149,7 @@ public:
     void parseInsertRoom(const QJsonObject &json);
 
     Q_REQUIRED_RESULT qint64 lastSeeAt() const;
-    void setLastSeeAt(qint64 lastSeeAt);
+    void setLastSeenAt(qint64 lastSeeAt);
 
     Q_REQUIRED_RESULT bool blocked() const;
     void setBlocked(bool blocked);
@@ -290,7 +290,7 @@ private:
     // jitsiTimeout
     qint64 mJitsiTimeout = -1;
     qint64 mUpdatedAt = -1;
-    qint64 mLastSeeAt = -1;
+    qint64 mLastSeenAt = -1;
 
     //Encryption Key
     QString mE2EKey;

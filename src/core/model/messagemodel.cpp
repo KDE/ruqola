@@ -422,7 +422,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.showTranslatedMessage();
     case MessageModel::DisplayAttachment:
         return message.showAttachment();
-    case MessageModel::DisplayLastSeeMessage:
+    case MessageModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
                 const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
