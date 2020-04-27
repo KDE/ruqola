@@ -10,3 +10,6 @@ target_link_libraries(ruqola_texttospeechtextplugin
     libruqolawidgets
     Qt5::TextToSpeech
     )
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
