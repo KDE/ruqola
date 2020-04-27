@@ -8,4 +8,5 @@ macro(add_ruqola_plugin_textplugin_unittest _source _additional)
     target_link_libraries( ${_name} Qt5::Test KF5::I18n libruqolawidgets Qt5::TextToSpeech)
 endmacro ()
 
-add_ruqola_plugin_textplugin_unittest(texttospeechtextplugin.cpp "../texttospeechtextplugin.cpp;../texttospeechtextinterface.cpp")
+add_ruqola_plugin_textplugin_unittest(texttospeechtextplugintest.cpp "../texttospeechtextplugin.cpp;../texttospeechtextinterface.cpp")
+add_ruqola_plugin_textplugin_unittest(texttospeechtextinterfacetest.cpp "")

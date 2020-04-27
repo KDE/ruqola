@@ -18,21 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "texttospeechtextplugin.h"
-#include "../texttospeechtextplugin.h"
-#include <QTest>
-QTEST_MAIN(TextToSpeechTextPluginTest)
+#ifndef TEXTTOSPEECHTEXTINTERFACETEST_H
+#define TEXTTOSPEECHTEXTINTERFACETEST_H
 
-TextToSpeechTextPluginTest::TextToSpeechTextPluginTest(QObject *parent)
-    : QObject(parent)
+#include <QObject>
+
+class TextToSpeechTextInterfaceTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit TextToSpeechTextInterfaceTest(QObject *parent = nullptr);
+    ~TextToSpeechTextInterfaceTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
 
-}
-
-void TextToSpeechTextPluginTest::shouldHaveDefaultValues()
-{
-    TextToSpeechTextPlugin w;
-    auto *interface = w.createInterface(nullptr);
-    QVERIFY(interface);
-    delete interface;
-}
+#endif // TEXTTOSPEECHTEXTINTERFACETEST_H

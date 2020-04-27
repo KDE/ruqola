@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit(i18n("Kevin Funk"), i18n("Bug fixing"), QStringLiteral("kfunk@kde.org"));
     aboutData.addCredit(i18n("Olivier JG"), i18n("Bug fixing"), QStringLiteral("olivier.de.gaalon@kdab.com"));
     aboutData.addCredit(i18n("Milian Wolff"), i18n("Bug fixing"), QStringLiteral("mail@milianw.de"));
+    aboutData.addCredit(i18n("Till Adam"), i18n("Windows compile bug fixing"), QStringLiteral("adam@kde.org"));
 
     KAboutData::setApplicationData(aboutData);
 
