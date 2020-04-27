@@ -103,11 +103,17 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
 
 bool MessageDelegateHelperText::hasSelection() const
 {
+    if (mCurrentTextCursor.isNull()) {
+        return false;
+    }
     return mCurrentTextCursor.hasSelection();
 }
 
 QString MessageDelegateHelperText::selectedText() const
 {
+    if (mCurrentTextCursor.isNull()) {
+        return QString();
+    }
     const QTextDocumentFragment fragment(mCurrentTextCursor);
     const QString text = fragment.toPlainText();
     return text;
@@ -232,7 +238,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         break;
     case QEvent::MouseButtonDblClick:
         if (index == mCurrentIndex) {
-            if (!mCurrentTextCursor.hasSelection()) {
+            if (!hasSelection()) {
                 mCurrentTextCursor.select(QTextCursor::WordUnderCursor);
                 // Interestingly the view repaints after mouse press, mouse move and mouse release
                 // but not after double-click, so make it happen:
