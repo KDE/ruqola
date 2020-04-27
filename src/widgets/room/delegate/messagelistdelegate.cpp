@@ -125,7 +125,6 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     } else if (displayLastSeeMessage) {
-        usableRect.setTop(usableRect.top() + 10);
         layout.displayLastSeeMessageY = usableRect.top();
     }
 
