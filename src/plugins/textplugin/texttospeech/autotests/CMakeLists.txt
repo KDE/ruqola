@@ -9,4 +9,4 @@ macro(add_ruqola_plugin_textplugin_unittest _source _additional)
 endmacro ()
 
 add_ruqola_plugin_textplugin_unittest(texttospeechtextplugintest.cpp "../texttospeechtextplugin.cpp;../texttospeechtextinterface.cpp")
-add_ruqola_plugin_textplugin_unittest(texttospeechtextinterfacetest.cpp "")
+add_ruqola_plugin_textplugin_unittest(texttospeechtextinterfacetest.cpp "../texttospeechtextinterface.cpp")

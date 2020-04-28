@@ -19,6 +19,8 @@
 */
 
 #include "texttospeechtextinterfacetest.h"
+#include "../texttospeechtextinterface.h"
+#include <QMenu>
 #include <QTest>
 QTEST_MAIN(TextToSpeechTextInterfaceTest)
 TextToSpeechTextInterfaceTest::TextToSpeechTextInterfaceTest(QObject *parent)
@@ -29,5 +31,9 @@ TextToSpeechTextInterfaceTest::TextToSpeechTextInterfaceTest(QObject *parent)
 
 void TextToSpeechTextInterfaceTest::shouldHaveDefaultValues()
 {
-
+    TextToSpeechTextInterface w;
+    QMenu menu;
+    QVERIFY(menu.actions().isEmpty());
+    w.addAction(&menu);
+    QCOMPARE(menu.actions().count(), 2);
 }
