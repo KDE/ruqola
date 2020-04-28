@@ -116,7 +116,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, const QRect &reacti
         // Rounded rect
         painter->setPen(buttonPen);
         painter->setBrush(buttonBrush);
-        painter->drawRoundedRect(reactionRect, 5, 5);
+        painter->drawRoundedRect(reactionRect.adjusted(0, 0, -1, -1), 5, 5);
         painter->setBrush(origBrush);
         painter->setPen(origPen);
 
