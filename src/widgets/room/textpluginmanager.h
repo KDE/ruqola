@@ -23,6 +23,7 @@
 
 #include <KPluginMetaData>
 #include <QObject>
+#include <QVector>
 #include "libruqolawidgets_private_export.h"
 
 class PluginText;
