@@ -110,7 +110,6 @@ private:
         qreal displayLastSeenMessageY = 0;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
 
     /// @note Ownership is not transferred
