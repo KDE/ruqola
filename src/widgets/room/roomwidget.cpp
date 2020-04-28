@@ -308,6 +308,7 @@ void RoomWidget::slotSearchMessages()
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoomId(mRoomId);
+    dlg->setRoomWrapper(mRoomWrapper);
     dlg->setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
     connect(dlg, &SearchMessageDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
