@@ -2064,3 +2064,13 @@ User RocketChatAccount::fullUserInfo(const QString &userName) const
 {
     return mUserModel->fullUserInfo(userName);
 }
+
+void RocketChatAccount::markMessageAsUnReadFrom(const QString &messageId)
+{
+    restApi()->markMessageAsUnReadFrom(messageId);
+}
+
+void RocketChatAccount::markRoomAsUnRead(const QString &roomId)
+{
+    restApi()->markRoomAsUnRead(roomId);
+}

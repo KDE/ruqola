@@ -227,6 +227,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotDeleteMessage(index);
         });
     }
+    QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
+    connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
+        slotMarkMessageAsUnread(index);
+    });
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
@@ -269,6 +273,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(copyAction);
 
+        menu.addSeparator();
+        menu.addAction(markMessageAsUnReadAction);
+
         if (deleteAction) {
             menu.addSeparator();
             menu.addAction(deleteAction);
@@ -293,6 +300,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             createSeparator(menu);
             menu.addAction(deleteAction);
         }
+        menu.addSeparator();
+        menu.addAction(markMessageAsUnReadAction);
     } else {
 #if 0
         if (setPinnedMessage) {
@@ -373,6 +382,12 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
     const QString text = index.data(MessageModel::OriginalMessage).toString();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     Q_EMIT editMessageRequested(messageId, text);
+}
+
+void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
+{
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    mCurrentRocketChatAccount->markMessageAsUnReadFrom(messageId);
 }
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)

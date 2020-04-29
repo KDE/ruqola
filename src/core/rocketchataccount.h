@@ -408,10 +408,12 @@ public:
     Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
 
     void getListCommands();
-    bool runCommand(const QString &msg, const QString &roomId);
+    Q_REQUIRED_RESULT bool runCommand(const QString &msg, const QString &roomId);
     Q_REQUIRED_RESULT bool hasOldSubscriptionSupport() const;
 
     void avatarChanged(const QJsonArray &contents);
+    void markMessageAsUnReadFrom(const QString &messageId);
+    void markRoomAsUnRead(const QString &roomId);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
