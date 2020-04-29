@@ -78,6 +78,11 @@ MessageListView *ShowListMessageBaseWidget::messageListView() const
     return mMessageListView;
 }
 
+void ShowListMessageBaseWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mMessageListView->setRoomWrapper(roomWrapper);
+}
+
 void ShowListMessageBaseWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
     mMessageListView->setCurrentRocketChatAccount(currentRocketChatAccount);

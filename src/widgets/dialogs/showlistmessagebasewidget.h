@@ -29,6 +29,7 @@ class MessageListView;
 class QLabel;
 class ListMessagesModelFilterProxyModel;
 class RocketChatAccount;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
 {
     Q_OBJECT
@@ -38,6 +39,8 @@ public:
 
     void setModel(ListMessagesModelFilterProxyModel *model);
     Q_REQUIRED_RESULT MessageListView *messageListView() const;
+
+    void setRoomWrapper(RoomWrapper *roomWrapper);
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 

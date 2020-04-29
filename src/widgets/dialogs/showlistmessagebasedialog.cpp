@@ -80,3 +80,8 @@ void ShowListMessageBaseDialog::setCurrentRocketChatAccount(RocketChatAccount *c
 {
     mShowListMessage->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
+
+void ShowListMessageBaseDialog::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mShowListMessage->setRoomWrapper(roomWrapper);
+}
