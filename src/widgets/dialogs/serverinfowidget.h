@@ -36,6 +36,7 @@ private:
     QLabel *mAccountName = nullptr;
     QLabel *mUserName = nullptr;
     QLabel *mServerVersion = nullptr;
+    QLabel *mServerUrl = nullptr;
 };
 
 #endif // SERVERINFOWIDGET_H

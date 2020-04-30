@@ -30,6 +30,7 @@ class LIBRUQOLACORE_EXPORT ServerConfigInfo : public QObject
     Q_PROPERTY(QString serverVersionStr READ serverVersionStr CONSTANT)
     Q_PROPERTY(QString serverName READ serverName CONSTANT)
     Q_PROPERTY(QString userName READ userName CONSTANT)
+    Q_PROPERTY(QString serverUrl READ serverUrl CONSTANT)
 
 public:
     explicit ServerConfigInfo(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
@@ -37,6 +38,7 @@ public:
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT QString serverName() const;
     Q_REQUIRED_RESULT QString userName() const;
+    Q_REQUIRED_RESULT QString serverUrl() const;
 private:
     Q_DISABLE_COPY(ServerConfigInfo)
     RocketChatAccount *mAccount = nullptr;

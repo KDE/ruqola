@@ -50,4 +50,9 @@ void ServerInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mServerVersion);
     QVERIFY(mServerVersion->text().isEmpty());
     QCOMPARE(mServerVersion->textInteractionFlags(), Qt::TextSelectableByMouse);
+
+    auto *mServerUrl = w.findChild<QLabel *>(QStringLiteral("mServerUrl"));
+    QVERIFY(mServerUrl);
+    QVERIFY(mServerUrl->text().isEmpty());
+    QCOMPARE(mServerUrl->textInteractionFlags(), Qt::TextSelectableByMouse);
 }

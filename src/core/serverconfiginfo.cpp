@@ -54,3 +54,11 @@ QString ServerConfigInfo::userName() const
     }
     return {};
 }
+
+QString ServerConfigInfo::serverUrl() const
+{
+    if (mAccount) {
+        return mAccount->settings()->serverUrl();
+    }
+    return {};
+}

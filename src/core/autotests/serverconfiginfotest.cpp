@@ -35,4 +35,5 @@ void ServerConfigInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.serverName().isEmpty());
     QVERIFY(info.userName().isEmpty());
     QVERIFY(info.serverVersionStr().isEmpty());
+    QVERIFY(info.serverUrl().isEmpty());
 }

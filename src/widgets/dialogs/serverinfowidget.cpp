@@ -43,6 +43,10 @@ ServerInfoWidget::ServerInfoWidget(QWidget *parent)
     mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
     mServerVersion->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layout->addRow(i18n("Server Version:"), mServerVersion);
+    mServerUrl = new QLabel(this);
+    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    layout->addRow(i18n("Server Url:"), mServerUrl);
 }
 
 ServerInfoWidget::~ServerInfoWidget()
@@ -55,5 +59,6 @@ void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
         mAccountName->setText(info->serverName());
         mUserName->setText(info->userName());
         mServerVersion->setText(info->serverVersionStr());
+        mServerUrl->setText(info->serverUrl());
     }
 }
