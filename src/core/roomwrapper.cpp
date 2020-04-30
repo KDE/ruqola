@@ -61,7 +61,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::autoTranslateLanguageChanged, this, &RoomWrapper::autoTranslateLanguageChanged);
     connect(mRoom, &Room::autoTranslateChanged, this, &RoomWrapper::autoTranslateChanged);
 
-    connect(mRoom, &Room::lastSeeChanged, this, &RoomWrapper::lastSeeChanged);
+    connect(mRoom, &Room::lastSeenChanged, this, &RoomWrapper::lastSeenChanged);
 }
 
 RoomWrapper::~RoomWrapper()

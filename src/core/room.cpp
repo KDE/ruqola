@@ -587,7 +587,7 @@ void Room::setLastSeenAt(qint64 lastSeeAt)
 {
     if (mLastSeenAt != lastSeeAt) {
         mLastSeenAt = lastSeeAt;
-        Q_EMIT lastSeeChanged();
+        Q_EMIT lastSeenChanged();
     }
 }
 

@@ -119,7 +119,7 @@ Q_SIGNALS:
     void fnameChanged();
     void autoTranslateLanguageChanged();
     void autoTranslateChanged();
-    void lastSeeChanged();
+    void lastSeenChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

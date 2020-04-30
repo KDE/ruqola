@@ -85,7 +85,7 @@ void MessageListView::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mRoomWrapper = roomWrapper;
     if (mRoomWrapper) {
-        connect(mRoomWrapper, &RoomWrapper::lastSeeChanged, this, &MessageListView::slotUpdateLastSeen);
+        connect(mRoomWrapper, &RoomWrapper::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
     }
 }
 
