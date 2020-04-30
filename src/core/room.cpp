@@ -273,6 +273,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setBroadcast(false);
     }
     setReadOnly(json[QStringLiteral("ro")].toBool());
+    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
 
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
