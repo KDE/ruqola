@@ -9,7 +9,7 @@
     "favorite": false,
     "fname": "foo",
     "jitsiTimeout": -1,
-    "lastSeeAt": 1521094705114,
+    "lastSeeAt": -1,
     "name": "foo",
     "notifications": {
         "audioNotificationValue": "",

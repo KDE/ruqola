@@ -74,6 +74,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.fName().isEmpty());
     QVERIFY(input.autoTranslateLanguage().isEmpty());
     QVERIFY(!input.autoTranslate());
+    QCOMPARE(input.lastSeeAt(), -1);
 }
 
 //TODO add notification, userMentions too
@@ -105,6 +106,7 @@ void RoomTest::shouldSerialized()
     input.setJoinCodeRequired(true);
     input.setAutoTranslateLanguage(QStringLiteral("blss"));
     input.setAutoTranslate(true);
+    input.setLastSeenAt(253);
     const QByteArray ba = Room::serialize(&input);
     //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     //Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
