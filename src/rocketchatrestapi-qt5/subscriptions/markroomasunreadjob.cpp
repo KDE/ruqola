@@ -129,6 +129,5 @@ QJsonDocument MarkRoomAsUnReadJob::json() const
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    qDebug() << "postData " << postData;
     return postData;
 }
