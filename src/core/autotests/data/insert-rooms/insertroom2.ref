@@ -10,7 +10,7 @@
     "favorite": false,
     "fname": "",
     "jitsiTimeout": -1,
-    "lastSeeAt": -1,
+    "lastSeenAt": -1,
     "name": "channeltest",
     "notifications": {
         "audioNotificationValue": "",

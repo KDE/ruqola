@@ -78,7 +78,6 @@ MessageListView::~MessageListView()
 
 void MessageListView::slotUpdateLastSeen()
 {
-    //qDebug() << "slotUpdateLastSeen " << mRoomWrapper->lastSeenAt();
     viewport()->update();
 }
 

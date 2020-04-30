@@ -8,7 +8,7 @@
     "favorite": false,
     "fname": "foo",
     "jitsiTimeout": -1,
-    "lastSeeAt": -1,
+    "lastSeenAt": -1,
     "mutedUsers": [
         "muteduser"
     ],

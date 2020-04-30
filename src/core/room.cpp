@@ -273,7 +273,10 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setBroadcast(false);
     }
     setReadOnly(json[QStringLiteral("ro")].toBool());
-    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
+    const qint64 result = Utils::parseDate(QStringLiteral("ls"), json);
+    if (result != -1) {
+        setLastSeenAt(result);
+    }
 
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
@@ -583,10 +586,10 @@ qint64 Room::lastSeenAt() const
     return mLastSeenAt;
 }
 
-void Room::setLastSeenAt(qint64 lastSeeAt)
+void Room::setLastSeenAt(qint64 lastSeenAt)
 {
-    if (mLastSeenAt != lastSeeAt) {
-        mLastSeenAt = lastSeeAt;
+    if (mLastSeenAt != lastSeenAt) {
+        mLastSeenAt = lastSeenAt;
         Q_EMIT lastSeenChanged();
     }
 }
@@ -919,7 +922,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setE2eKeyId(o[QStringLiteral("e2ekeyid")].toString());
     r->setJoinCodeRequired(o[QStringLiteral("joinCodeRequired")].toBool());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
-    r->setLastSeenAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
+    r->setLastSeenAt(static_cast<qint64>(o[QStringLiteral("lastSeenAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     lst.reserve(mutedArray.count());
@@ -978,7 +981,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("updatedAt")] = r->updatedAt();
-    o[QStringLiteral("lastSeeAt")] = r->lastSeenAt();
+    o[QStringLiteral("lastSeenAt")] = r->lastSeenAt();
     o[QStringLiteral("ro")] = r->readOnly();
     o[QStringLiteral("unread")] = r->unread();
     if (!r->announcement().isEmpty()) {
