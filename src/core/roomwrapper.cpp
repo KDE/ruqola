@@ -218,7 +218,7 @@ bool RoomWrapper::userIsIgnored(const QString &userId)
     return mRoom->userIsIgnored(userId);
 }
 
-qint64 RoomWrapper::lastSeeAt() const
+qint64 RoomWrapper::lastSeenAt() const
 {
-    return mRoom->lastSeeAt();
+    return mRoom->lastSeenAt();
 }

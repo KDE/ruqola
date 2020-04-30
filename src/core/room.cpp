@@ -78,7 +78,7 @@ bool Room::isEqual(const Room &other) const
            && (mUserMentions == other.userMentions())
            && (mNotificationOptions == other.notificationOptions())
            && (mUpdatedAt == other.updatedAt())
-           && (mLastSeenAt == other.lastSeeAt())
+           && (mLastSeenAt == other.lastSeenAt())
            && (mBlocked == other.blocked())
            && (mRoles == other.roles())
            && (mIgnoredUsers == other.ignoredUsers())
@@ -130,7 +130,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "userMentions: " << t.userMentions();
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
-    d << "LastSeenAt: " << t.lastSeeAt();
+    d << "LastSeenAt: " << t.lastSeenAt();
     d << "blocked: " << t.blocked();
     d << "roles: " << t.roles();
     d << "ignoredUsers: " << t.ignoredUsers();
@@ -578,7 +578,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     mNotificationOptions.parseNotificationOptions(json);
 }
 
-qint64 Room::lastSeeAt() const
+qint64 Room::lastSeenAt() const
 {
     return mLastSeenAt;
 }
@@ -978,7 +978,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("updatedAt")] = r->updatedAt();
-    o[QStringLiteral("lastSeeAt")] = r->lastSeeAt();
+    o[QStringLiteral("lastSeeAt")] = r->lastSeenAt();
     o[QStringLiteral("ro")] = r->readOnly();
     o[QStringLiteral("unread")] = r->unread();
     if (!r->announcement().isEmpty()) {

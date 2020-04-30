@@ -426,7 +426,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         if (idx > 0) {
             if (mRoom) {
                 const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
-                const QDateTime lastSeeDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeeAt());
+                const QDateTime lastSeeDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt());
                 if (currentDate > lastSeeDate) {
                     const Message &previousMessage = mAllMessages.at(idx - 1);
                     const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp());

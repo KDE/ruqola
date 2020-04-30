@@ -56,6 +56,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString autoTranslateLanguage READ autoTranslateLanguage NOTIFY autoTranslateLanguageChanged)
     Q_PROPERTY(bool autoTranslate READ autoTranslate NOTIFY autoTranslateChanged)
     Q_PROPERTY(NotificationOptionsWrapper * notificationOptions READ notificationOptions CONSTANT)
+    Q_PROPERTY(qint64 lastSeenAt READ lastSeenAt NOTIFY lastSeenChanged)
     Q_OBJECT
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
@@ -97,7 +98,7 @@ public:
     Q_REQUIRED_RESULT Q_INVOKABLE bool userHasModeratorRole(const QString &userId) const;
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
 
-    Q_REQUIRED_RESULT qint64 lastSeeAt() const;
+    Q_REQUIRED_RESULT qint64 lastSeenAt() const;
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();

@@ -148,8 +148,8 @@ public:
 
     void parseInsertRoom(const QJsonObject &json);
 
-    Q_REQUIRED_RESULT qint64 lastSeeAt() const;
-    void setLastSeenAt(qint64 lastSeeAt);
+    Q_REQUIRED_RESULT qint64 lastSeenAt() const;
+    void setLastSeenAt(qint64 lastSeenAt);
 
     Q_REQUIRED_RESULT bool blocked() const;
     void setBlocked(bool blocked);

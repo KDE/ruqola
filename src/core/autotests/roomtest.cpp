@@ -74,7 +74,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.fName().isEmpty());
     QVERIFY(input.autoTranslateLanguage().isEmpty());
     QVERIFY(!input.autoTranslate());
-    QCOMPARE(input.lastSeeAt(), -1);
+    QCOMPARE(input.lastSeenAt(), -1);
 }
 
 //TODO add notification, userMentions too
