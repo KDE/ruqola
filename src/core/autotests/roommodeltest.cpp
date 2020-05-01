@@ -68,6 +68,7 @@ void RoomModelTest::shouldHaveDefaultValues()
     roles[RoomModel::RoomUserMentions] = QByteArrayLiteral("userMentions");
     roles[RoomModel::RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
     roles[RoomModel::RoomAutotranslate] = QByteArrayLiteral("autotranslate");
+    roles[RoomModel::RoomDirectChannelUserId] = QByteArrayLiteral("directChannelUserId");
     QCOMPARE(sampleModel.roleNames(), roles);
 }
 

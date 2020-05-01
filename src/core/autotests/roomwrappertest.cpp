@@ -44,6 +44,7 @@ void RoomWrapperTest::shouldHaveDefaultValue()
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.description().isEmpty());
     QVERIFY(!w.archived());
+    QVERIFY(w.directChannelUserId().isEmpty());
 
     delete room;
 }
@@ -59,6 +60,7 @@ void RoomWrapperTest::shouldAssignValue()
     QSignalSpy spyRoomBlockerChanged(&w, &RoomWrapper::blockerChanged);
     QSignalSpy spyRoomDescriptionChanged(&w, &RoomWrapper::descriptionChanged);
     QSignalSpy spyRoomArchivedChanged(&w, &RoomWrapper::archivedChanged);
+    QSignalSpy spyDirectChannelUserIdChanged(&w, &RoomWrapper::directChannelUserIdChanged);
 
     room->setAnnouncement(QStringLiteral("foo"));
 
@@ -69,6 +71,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -77,6 +80,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setAnnouncement(QStringLiteral("foo"));
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -86,6 +90,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -94,6 +99,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setTopic(QStringLiteral("foo"));
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -103,6 +109,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -111,6 +118,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setTopic(QStringLiteral("foo"));
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -120,6 +128,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -128,6 +137,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     //favorite
     room->setFavorite(true);
@@ -138,6 +148,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -146,6 +157,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setFavorite(true);
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -155,6 +167,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -163,6 +176,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     //blocker
     room->setBlocker(true);
@@ -173,6 +187,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 1);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -181,6 +196,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setBlocker(true);
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -190,6 +206,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -198,6 +215,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setBlocker(false);
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -207,6 +225,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 1);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -215,6 +234,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     //Archived
     room->setArchived(true);
@@ -225,6 +245,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 1);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -233,6 +254,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setArchived(true);
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -242,6 +264,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -250,6 +273,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     room->setArchived(false);
     QCOMPARE(spyRoomAnnouncementChanged.count(), 0);
@@ -259,6 +283,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 1);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     spyRoomAnnouncementChanged.clear();
     spyRoomTopicChanged.clear();
@@ -267,6 +292,7 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomBlockerChanged.clear();
     spyRoomDescriptionChanged.clear();
     spyRoomArchivedChanged.clear();
+    spyDirectChannelUserIdChanged.clear();
 
     //
 
@@ -280,6 +306,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
     QCOMPARE(w.roomCreatorUserId(), userId);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
     const QString rId = QStringLiteral("foo");
     room->setRoomId(rId);
@@ -291,6 +318,13 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
     QCOMPARE(w.roomId(), rId);
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
+
+    const QString& directChannelUserId = QStringLiteral("TEST");
+    room->setDirectChannelUserId(directChannelUserId);
+
+    QCOMPARE(spyDirectChannelUserIdChanged.count(), 1);
+    QCOMPARE(w.directChannelUserId(), directChannelUserId);
 
     delete room;
 }

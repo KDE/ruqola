@@ -25,6 +25,7 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
+#include "rocketchataccount.h"
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>
@@ -75,6 +76,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.autoTranslateLanguage().isEmpty());
     QVERIFY(!input.autoTranslate());
     QCOMPARE(input.lastSeenAt(), -1);
+    QVERIFY(input.directChannelUserId().isEmpty());
 }
 
 //TODO add notification, userMentions too
@@ -139,6 +141,8 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
     QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
     QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
+    QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
+
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -165,6 +169,7 @@ void RoomTest::shouldEmitSignals()
     input.setParentRid(QStringLiteral("bla"));
     input.setAutoTranslateLanguage(QStringLiteral("bli"));
     input.setAutoTranslate(true);
+    input.setDirectChannelUserId(QStringLiteral("naninani"));
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -186,6 +191,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyparentRidChanged.count(), 1);
     QCOMPARE(spyautoTranslateLanguageChanged.count(), 1);
     QCOMPARE(spyautoTranslateChanged.count(), 1);
+    QCOMPARE(spydirectChannelUserIdChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()
@@ -214,6 +220,7 @@ void RoomTest::shouldParseRoom_data()
     QTest::newRow("muted-users") << QStringLiteral("muted-users");
     QTest::newRow("userignored-room") << QStringLiteral("userignored-room");
     QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage");
+    QTest::newRow("direct-room") << QStringLiteral("direct-room");
 }
 
 void RoomTest::shouldParseRoom()
@@ -256,6 +263,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() <<QStringLiteral("userignored-room-update"));
     QTest::newRow("room-requiredjoincode-owner") << QStringLiteral("room-requiredjoincode-owner") << (QStringList() <<QStringLiteral("room-requiredjoincode-update"));
     QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() <<QStringLiteral("autotranslatelanguage-update"));
+    QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));;
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
@@ -271,7 +279,9 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject fields = doc.object();
 
-    Room r;
+    RocketChatAccount account;
+    account.setUserID(QStringLiteral("uKK39zoewTkdacidH"));
+    Room r(&account);
     r.parseSubscriptionRoom(fields);
 
     for (const QString &updateFile : fileNameupdate) {

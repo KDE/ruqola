@@ -210,6 +210,9 @@ public:
     Q_REQUIRED_RESULT bool autoTranslate() const;
     void setAutoTranslate(bool autoTranslate);
 
+    Q_REQUIRED_RESULT QString directChannelUserId() const;
+    void setDirectChannelUserId(const QString& userId);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -243,6 +246,8 @@ Q_SIGNALS:
     void autoTranslateLanguageChanged();
     void autoTranslateChanged();
     void lastSeenChanged();
+
+    void directChannelUserIdChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -323,6 +328,8 @@ private:
     bool mWasInitialized = false;
     bool mBroadcast = false;
     bool mAutoTranslate = false;
+
+    QString mDirectChannelUserId;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;

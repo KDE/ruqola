@@ -1,0 +1,16 @@
+{
+    "_id": "Dic5wZD4Zu9ze5gk3uKK39zoewTkdacidH",
+    "usernames": [
+        "laurent",
+        "alessandro"
+    ],
+    "_updatedAt": {
+        "$date": 1575322438005
+    },
+    "t": "d",
+    "usersCount": 2,
+    "uids": [
+        "Dic5wZD4Zu9ze5gk3",
+        "uKK39zoewTkdacidH"
+    ]
+}

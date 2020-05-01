@@ -71,8 +71,10 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms:") + d.toJson());
         }
+        // TODO: why checking the room type?
         if (roomType == QLatin1Char('c') //Chat
-            || roomType == QLatin1Char('p') /*Private chat*/) {
+            || roomType == QLatin1Char('p') /*Private chat*/
+            || roomType == QLatin1Char('d') /*Direct chat*/ ) {
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 model->updateRoom(roomJson);

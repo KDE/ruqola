@@ -90,7 +90,8 @@ bool Room::isEqual(const Room &other) const
            && (mParentRid == other.parentRid())
            && (mFName == other.fName())
            && (mAutoTranslate == other.autoTranslate())
-           && (mAutotranslateLanguage == other.autoTranslateLanguage());
+           && (mAutotranslateLanguage == other.autoTranslateLanguage())
+           && (mDirectChannelUserId == other.directChannelUserId());
 }
 
 QString Room::displayRoomName() const
@@ -143,6 +144,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "Fname: " << t.fName();
     d << "autotranslate " << t.autoTranslate();
     d << "autotranslateLanguage " << t.autoTranslateLanguage();
+    d << "directChannelUserId " << t.directChannelUserId();
     return d;
 }
 
@@ -304,6 +306,12 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     if (json.contains(QLatin1String("prid"))) {
         setParentRid(json[QStringLiteral("prid")].toString());
+    }
+    if (json.contains(QLatin1String("uids"))) {
+        const QJsonArray &uids = json[QStringLiteral("uids")].toArray();
+        const auto &u0 = uids[0].toString();
+        const auto &u1 = uids[1].toString();
+        setDirectChannelUserId((u0 == mRocketChatAccount->userID()) ? u1 : u0);
     }
 }
 
@@ -952,6 +960,8 @@ Room *Room::fromJSon(const QJsonObject &o)
     const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
     r->setNotificationOptions(notifications);
 
+    r->setDirectChannelUserId(o[QStringLiteral("directChannelUserId")].toString());
+
     //TODO add parent RID
 
     return r;
@@ -1039,6 +1049,10 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
 
     o[QStringLiteral("notifications")] = NotificationOptions::serialize(r->notificationOptions());
+
+    if (!r->directChannelUserId().isEmpty()) {
+        o[QStringLiteral("directChannelUserId")] = r->directChannelUserId();
+    }
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
@@ -1160,4 +1174,17 @@ bool Room::userHasModeratorRole(const QString &userId) const
 void Room::updateRoles(const QJsonObject &obj)
 {
     mRolesForRooms.updateRoles(obj);
+}
+
+QString Room::directChannelUserId() const
+{
+    return mDirectChannelUserId;
+}
+
+void Room::setDirectChannelUserId(const QString &uid)
+{
+    if (mDirectChannelUserId != uid) {
+        mDirectChannelUserId = uid;
+        Q_EMIT directChannelUserIdChanged();
+    }
 }

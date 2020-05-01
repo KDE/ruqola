@@ -62,5 +62,6 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
     roles[RoomModel::RoomUserMentions] = QByteArrayLiteral("userMentions");
     roles[RoomModel::RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
     roles[RoomModel::RoomAutotranslate] = QByteArrayLiteral("autotranslate");
+    roles[RoomModel::RoomDirectChannelUserId] = QByteArrayLiteral("directChannelUserId");
     QCOMPARE(w.roleNames(), roles);
 }

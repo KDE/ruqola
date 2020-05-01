@@ -57,6 +57,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(bool autoTranslate READ autoTranslate NOTIFY autoTranslateChanged)
     Q_PROPERTY(NotificationOptionsWrapper * notificationOptions READ notificationOptions CONSTANT)
     Q_PROPERTY(qint64 lastSeenAt READ lastSeenAt NOTIFY lastSeenChanged)
+    Q_PROPERTY(QString directChannelUserId READ directChannelUserId NOTIFY directChannelUserIdChanged)
     Q_OBJECT
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
@@ -99,6 +100,8 @@ public:
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
 
     Q_REQUIRED_RESULT qint64 lastSeenAt() const;
+    Q_REQUIRED_RESULT QString directChannelUserId() const;
+
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();
@@ -121,6 +124,7 @@ Q_SIGNALS:
     void autoTranslateLanguageChanged();
     void autoTranslateChanged();
     void lastSeenChanged();
+    void directChannelUserIdChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)
