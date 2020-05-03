@@ -38,6 +38,7 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 
     mThreadPreview = new QLabel(this);
     mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
+    mThreadPreview->setContextMenuPolicy(Qt::CustomContextMenu);
     mainLayout->addWidget(mThreadPreview);
 
     mMessageListView = new MessageListView(MessageListView::Mode::ThreadEditing, this);
