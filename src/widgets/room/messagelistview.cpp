@@ -227,10 +227,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotDeleteMessage(index);
         });
     }
-    QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
-    connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
-        slotMarkMessageAsUnread(index);
-    });
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
@@ -274,6 +270,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyAction);
 
         menu.addSeparator();
+        QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
+        connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
+            slotMarkMessageAsUnread(index);
+        });
         menu.addAction(markMessageAsUnReadAction);
 
         if (deleteAction) {
@@ -300,8 +300,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             createSeparator(menu);
             menu.addAction(deleteAction);
         }
-        menu.addSeparator();
-        menu.addAction(markMessageAsUnReadAction);
     } else {
 #if 0
         if (setPinnedMessage) {
