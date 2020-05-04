@@ -29,6 +29,8 @@ struct NotificationInfo {
     QString message;
     QString title;
     QString sender;
+    QString roomId;
+    QString type;
 };
 
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
