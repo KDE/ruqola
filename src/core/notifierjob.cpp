@@ -19,6 +19,9 @@
 */
 
 #include "notifierjob.h"
+#include "ruqola_debug.h"
+
+#include <KNotification>
 
 NotifierJob::NotifierJob(QObject *parent)
     : QObject(parent)
@@ -33,5 +36,34 @@ NotifierJob::~NotifierJob()
 
 void NotifierJob::start()
 {
-    //TODO
+    if (mInfo.isValid()) {
+        KNotification *notification = new KNotification(QStringLiteral("new-notification"), nullptr, KNotification::CloseOnTimeout);
+        notification->setTitle(mInfo.title);
+        notification->setText(mInfo.message.toHtmlEscaped());
+        if (!mInfo.pixmap.isNull()) {
+            notification->setPixmap(mInfo.pixmap);
+        }
+        connect(notification, &KNotification::defaultActivated, this, &NotifierJob::slotDefaultActionActivated);
+        connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
+
+        notification->sendEvent();
+    } else {
+       qCWarning(RUQOLA_LOG) << "Info is Empty";
+       deleteLater();
+    }
+}
+
+Utils::NotificationInfo NotifierJob::info() const
+{
+    return mInfo;
+}
+
+void NotifierJob::setInfo(const Utils::NotificationInfo &info)
+{
+    mInfo = info;
+}
+
+void NotifierJob::slotDefaultActionActivated()
+{
+    Q_EMIT switchToRoom(mInfo.roomId, mInfo.type);
 }

@@ -23,6 +23,7 @@
 #include "libruqola_private_export.h"
 #include "user.h"
 #include <QUrl>
+#include <QPixmap>
 
 namespace Utils {
 struct NotificationInfo {
@@ -31,6 +32,15 @@ struct NotificationInfo {
     QString sender;
     QString roomId;
     QString type;
+    QPixmap pixmap;
+    //Pixmap can be null.
+    Q_REQUIRED_RESULT bool isValid() const {
+        return !roomId.isEmpty() &&
+                !message.isEmpty() &&
+                !sender.isEmpty() &&
+                !message.isEmpty() &&
+                !type.isEmpty();
+    }
 };
 
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
@@ -57,5 +67,6 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString iconFromStatus(const QStrin
  */
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString convertTextWithUrl(const QString &str);
 }
-
+Q_DECLARE_TYPEINFO(Utils::NotificationInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Utils::NotificationInfo &t);
 #endif // UTILS_H

@@ -194,6 +194,7 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
     }
+    qCDebug(RUQOLA_LOG) << "info " << info;
     return info;
 }
 
@@ -289,4 +290,15 @@ QString Utils::convertTextWithUrl(const QString &str)
         newStr += QLatin1Char('[') + references + QLatin1String("](") + url;
     }
     return newStr;
+}
+
+QDebug operator <<(QDebug d, const Utils::NotificationInfo &t)
+{
+    d << " message " << t.message;
+    d << " title " << t.title;
+    d << " sender " << t.sender;
+    d << " roomId " << t.roomId;
+    d << " type " << t.type;
+    d << " pixmap is null ? " << t.pixmap.isNull();
+    return d;
 }

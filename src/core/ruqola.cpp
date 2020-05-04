@@ -78,10 +78,10 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
     return mAccountManager->account();
 }
 
-void Ruqola::sendNotification(const Utils::NotificationInfo &info, const QPixmap &pixmap)
+void Ruqola::sendNotification(const Utils::NotificationInfo &info)
 {
     KNotification::event(KNotification::Notification, info.title,
-                         info.message.toHtmlEscaped(), pixmap);
+                         info.message.toHtmlEscaped(), info.pixmap);
 }
 
 #ifndef Q_OS_ANDROID

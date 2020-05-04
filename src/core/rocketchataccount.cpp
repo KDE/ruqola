@@ -1771,7 +1771,7 @@ void RocketChatAccount::parseOtr(const QJsonArray &contents)
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
-    const Utils::NotificationInfo info = Utils::parseNotification(contents);
+    Utils::NotificationInfo info = Utils::parseNotification(contents);
 
     const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.sender);
     //qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
@@ -1783,8 +1783,9 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         //qDebug() << " load pixmap : "<< loaded;
         //qDebug() << " pix " << pix.isNull();
         Q_UNUSED(loaded);
+        info.pixmap = pix;
     }
-    Q_EMIT notification(info, pix);
+    Q_EMIT notification(info);
 }
 
 void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)

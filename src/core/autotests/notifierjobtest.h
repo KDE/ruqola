@@ -18,31 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFIERJOB_H
-#define NOTIFIERJOB_H
+#ifndef NOTIFIERJOBTEST_H
+#define NOTIFIERJOBTEST_H
 
 #include <QObject>
-#include "libruqolacore_export.h"
-#include "utils.h"
 
-class LIBRUQOLACORE_EXPORT NotifierJob : public QObject
+class NotifierJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit NotifierJob(QObject *parent = nullptr);
-    ~NotifierJob();
-
-    void start();
-
-    Q_REQUIRED_RESULT Utils::NotificationInfo info() const;
-    void setInfo(const Utils::NotificationInfo &info);
-
-Q_SIGNALS:
-    void switchToRoom(const QString &roomId, const QString &channelType);
-
-private:
-    void slotDefaultActionActivated();
-    Utils::NotificationInfo mInfo;
+    explicit NotifierJobTest(QObject *parent = nullptr);
+    ~NotifierJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // NOTIFIERJOB_H
+#endif // NOTIFIERJOBTEST_H

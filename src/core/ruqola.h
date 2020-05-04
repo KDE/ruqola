@@ -69,7 +69,7 @@ public:
     void setCurrentAccount(const QString &accountName);
 private:
     Q_DISABLE_COPY(Ruqola)
-    void sendNotification(const Utils::NotificationInfo &info, const QPixmap &pixmap);
+    void sendNotification(const Utils::NotificationInfo &info);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
     AccountManager *mAccountManager = nullptr;
