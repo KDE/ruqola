@@ -42,6 +42,13 @@ AccountManager::~AccountManager()
 {
 }
 
+void AccountManager::connectToAccount(RocketChatAccount *account)
+{
+    connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+    connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
+    connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+}
+
 void AccountManager::loadAccount()
 {
     qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()"<<ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
@@ -52,9 +59,7 @@ void AccountManager::loadAccount()
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
         auto *account = new RocketChatAccount(val);
-        connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
-        connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
-        connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+        connectToAccount(account);
         lstAccounts.append(account);
     }
 
@@ -63,9 +68,7 @@ void AccountManager::loadAccount()
         qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccount";
         RocketChatAccount *account = new RocketChatAccount();
         if (account->accountEnabled()) {
-            connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
-            connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
-            connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+            connectToAccount(account);
         }
         lstAccounts.append(account);
     }
@@ -105,9 +108,7 @@ void AccountManager::addAccount(const QString &accountName, const QString &usern
     account->setServerUrl(url);
     account->setAccountEnabled(enabled);
     if (enabled) {
-        connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
-        connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
-        connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+        connectToAccount(account);
     }
     addAccount(account);
 }

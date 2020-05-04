@@ -66,6 +66,7 @@ private:
     Q_DISABLE_COPY(AccountManager)
 
     void loadAccount();
+    void connectToAccount(RocketChatAccount *account);
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
     RocketChatAccountFilterProxyModel *mRocketChatAccountProxyModel = nullptr;
