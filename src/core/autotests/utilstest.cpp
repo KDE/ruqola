@@ -193,16 +193,12 @@ void UtilsTest::shouldParseNotification()
     const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
     const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
 
-    QString parseTitle;
-    QString parseMessage;
-    QString parseSender;
-
-    Utils::parseNotification(contents, parseMessage, parseTitle, parseSender);
+    const Utils::NotificationInfo info = Utils::parseNotification(contents);
     QEXPECT_FAIL("notificationencrypted", "Encrypted message not supported yet", Continue);
-    QCOMPARE(parseMessage, message);
-    QCOMPARE(parseTitle, title);
+    QCOMPARE(info.message, message);
+    QCOMPARE(info.title, title);
     QEXPECT_FAIL("notificationencrypted", "Encrypted message not supported yet", Continue);
-    QCOMPARE(parseSender, sender);
+    QCOMPARE(info.sender, sender);
 }
 
 void UtilsTest::shouldConvertTextWithUrl_data()

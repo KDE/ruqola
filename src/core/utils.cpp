@@ -175,22 +175,24 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
     }
 }
 
-void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender)
+Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
 {
+    Utils::NotificationInfo info;
     QJsonObject obj = contents.at(0).toObject();
-    message = obj[QStringLiteral("text")].toString();
-    title = obj[QStringLiteral("title")].toString();
+    info.message = obj[QStringLiteral("text")].toString();
+    info.title = obj[QStringLiteral("title")].toString();
     obj = obj.value(QLatin1String("payload")).toObject();
     if (!obj.isEmpty()) {
         obj = obj.value(QLatin1String("sender")).toObject();
         if (!obj.isEmpty()) {
-            sender = obj.value(QLatin1String("_id")).toString();
+            info.sender = obj.value(QLatin1String("_id")).toString();
         } else {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
     }
+    return info;
 }
 
 QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId)

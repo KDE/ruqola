@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include "libruqolacore_export.h"
+#include "utils.h"
 class RocketChatAccountModel;
 class RocketChatAccount;
 class RocketChatAccountFilterProxyModel;
@@ -58,7 +59,7 @@ public:
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
-    void notification(const QString &title, const QString &message, const QPixmap &pixmap);
+    void notification(const Utils::NotificationInfo &info, const QPixmap &pixmap);
     void currentAccountChanged();
 
 private:

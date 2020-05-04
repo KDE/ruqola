@@ -25,6 +25,12 @@
 #include <QUrl>
 
 namespace Utils {
+struct NotificationInfo {
+    QString message;
+    QString title;
+    QString sender;
+};
+
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString presenceStatusToString(User::PresenceStatus status);
@@ -32,7 +38,7 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatus
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString generateRichText(const QString &markDown, const QString &username);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString formatQuotedRichText(const QString &richText);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
-LIBRUQOLACORE_TESTS_EXPORT void parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender);
+LIBRUQOLACORE_TESTS_EXPORT NotificationInfo parseNotification(const QJsonArray &contents);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString userIdFromDirectChannel(const QString &rid, const QString &userId);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT qint64 parseDate(const QString &key, const QJsonObject &o);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT qint64 parseIsoDate(const QString &key, const QJsonObject &o);

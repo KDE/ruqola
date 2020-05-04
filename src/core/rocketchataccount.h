@@ -32,6 +32,7 @@
 #include "libruqolacore_export.h"
 #include "authenticationinfo.h"
 #include "file.h"
+#include "utils.h"
 #include "inputtextmanager.h"
 #include "accountroomsettings.h"
 class TypingNotification;
@@ -429,7 +430,7 @@ Q_SIGNALS:
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);
-    void notification(const QString &title, const QString &message, const QPixmap &pixmap);
+    void notification(const Utils::NotificationInfo &info, const QPixmap &pixmap);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);

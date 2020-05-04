@@ -30,6 +30,7 @@
 #include "ddpapi/ddpclient.h"
 #include "model/roommodel.h"
 #include "model/messagemodel.h"
+#include "utils.h"
 
 #ifndef Q_OS_ANDROID
 #include "notification.h"
@@ -68,7 +69,7 @@ public:
     void setCurrentAccount(const QString &accountName);
 private:
     Q_DISABLE_COPY(Ruqola)
-    void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);
+    void sendNotification(const Utils::NotificationInfo &info, const QPixmap &pixmap);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
     AccountManager *mAccountManager = nullptr;

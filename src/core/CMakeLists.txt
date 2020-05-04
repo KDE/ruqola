@@ -174,6 +174,8 @@ set (Ruqola_core_srcs
     commands.cpp
 
     accountroomsettings.cpp
+
+    notifierjob.cpp
 )
 
 if (NOT WIN32)
