@@ -59,7 +59,6 @@ public:
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
-    void notification(const Utils::NotificationInfo &info);
     void currentAccountChanged();
 
 private:

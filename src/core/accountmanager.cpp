@@ -22,6 +22,7 @@
 #include "rocketchataccount.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
+#include "notifierjob.h"
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
@@ -44,7 +45,12 @@ AccountManager::~AccountManager()
 
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
-    connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+    connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {
+        NotifierJob *job = new NotifierJob;
+        job->setInfo(info);
+        //connect(job, &NotifierJob::switchToRoom, account, &RocketChatAccount::sw)
+        job->start();
+    });
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
     connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
 }
@@ -121,7 +127,8 @@ void AccountManager::modifyAccount(const QString &accountName, const QString &us
         account->setServerUrl(url);
         account->setAccountEnabled(enabled);
         if (!enabled) {
-            disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+            //TODO fixme
+            //disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
             disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
             disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
         }

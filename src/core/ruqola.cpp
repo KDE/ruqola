@@ -53,7 +53,6 @@ Ruqola::Ruqola(QObject *parent)
     //Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
-    connect(mAccountManager, &AccountManager::notification, this, &Ruqola::sendNotification);
     connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
 }
@@ -76,12 +75,6 @@ KAboutData Ruqola::applicationData() const
 RocketChatAccount *Ruqola::rocketChatAccount() const
 {
     return mAccountManager->account();
-}
-
-void Ruqola::sendNotification(const Utils::NotificationInfo &info)
-{
-    KNotification::event(KNotification::Notification, info.title,
-                         info.message.toHtmlEscaped(), info.pixmap);
 }
 
 #ifndef Q_OS_ANDROID
