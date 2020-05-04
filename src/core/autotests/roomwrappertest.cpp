@@ -320,7 +320,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(w.roomId(), rId);
     QCOMPARE(spyDirectChannelUserIdChanged.count(), 0);
 
-    const QString& directChannelUserId = QStringLiteral("TEST");
+    const QString &directChannelUserId = QStringLiteral("TEST");
     room->setDirectChannelUserId(directChannelUserId);
 
     QCOMPARE(spyDirectChannelUserIdChanged.count(), 1);

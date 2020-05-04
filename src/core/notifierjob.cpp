@@ -26,12 +26,10 @@
 NotifierJob::NotifierJob(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 NotifierJob::~NotifierJob()
 {
-
 }
 
 void NotifierJob::start()
@@ -48,8 +46,8 @@ void NotifierJob::start()
 
         notification->sendEvent();
     } else {
-       qCWarning(RUQOLA_LOG) << "Info is Empty";
-       deleteLater();
+        qCWarning(RUQOLA_LOG) << "Info is Empty";
+        deleteLater();
     }
 }
 

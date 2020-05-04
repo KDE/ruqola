@@ -263,7 +263,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() <<QStringLiteral("userignored-room-update"));
     QTest::newRow("room-requiredjoincode-owner") << QStringLiteral("room-requiredjoincode-owner") << (QStringList() <<QStringLiteral("room-requiredjoincode-update"));
     QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() <<QStringLiteral("autotranslatelanguage-update"));
-    QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));;
+    QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()

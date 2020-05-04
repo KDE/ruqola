@@ -26,7 +26,6 @@ QTEST_MAIN(TextToSpeechTextPluginTest)
 TextToSpeechTextPluginTest::TextToSpeechTextPluginTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void TextToSpeechTextPluginTest::shouldHaveDefaultValues()

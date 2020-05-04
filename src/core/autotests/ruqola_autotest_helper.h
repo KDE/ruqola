@@ -50,7 +50,7 @@ void compareFile(const QString &repo, const QByteArray &data, const QString &nam
     auto pStdOut = proc.readAllStandardOutput();
     if (pStdOut.size()) {
         qDebug() << "Files are different, diff output message:\n"
-                   << pStdOut.toStdString().c_str();
+                 << pStdOut.toStdString().c_str();
     }
 
     QCOMPARE(pStdOut.size(), 0);

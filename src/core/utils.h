@@ -34,12 +34,13 @@ struct NotificationInfo {
     QString type;
     QPixmap pixmap;
     //Pixmap can be null.
-    Q_REQUIRED_RESULT bool isValid() const {
-        return !roomId.isEmpty() &&
-                !message.isEmpty() &&
-                !sender.isEmpty() &&
-                !message.isEmpty() &&
-                !type.isEmpty();
+    Q_REQUIRED_RESULT bool isValid() const
+    {
+        return !roomId.isEmpty()
+               && !message.isEmpty()
+               && !sender.isEmpty()
+               && !message.isEmpty()
+               && !type.isEmpty();
     }
 };
 

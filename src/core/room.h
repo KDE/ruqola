@@ -211,7 +211,7 @@ public:
     void setAutoTranslate(bool autoTranslate);
 
     Q_REQUIRED_RESULT QString directChannelUserId() const;
-    void setDirectChannelUserId(const QString& userId);
+    void setDirectChannelUserId(const QString &userId);
 
 Q_SIGNALS:
     void nameChanged();

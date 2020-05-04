@@ -26,7 +26,6 @@ QTEST_MAIN(NotifierJobTest)
 NotifierJobTest::NotifierJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void NotifierJobTest::shouldHaveDefaultValues()

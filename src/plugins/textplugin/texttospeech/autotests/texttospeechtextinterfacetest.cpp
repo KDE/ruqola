@@ -26,7 +26,6 @@ QTEST_MAIN(TextToSpeechTextInterfaceTest)
 TextToSpeechTextInterfaceTest::TextToSpeechTextInterfaceTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void TextToSpeechTextInterfaceTest::shouldHaveDefaultValues()
