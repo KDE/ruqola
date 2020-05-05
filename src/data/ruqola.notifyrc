@@ -2,7 +2,7 @@
 IconName=ruqola
 Comment=Notification
 
-[Event/new-new-notification]
+[Event/new-notification]
 Name=A Notification Arrived
 Action=Popup
 Urgency=Normal
