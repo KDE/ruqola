@@ -1785,6 +1785,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         Q_UNUSED(loaded);
         info.pixmap = pix;
     }
+    qDebug() << " parsing info " << info;
     Q_EMIT notification(info);
 }
 

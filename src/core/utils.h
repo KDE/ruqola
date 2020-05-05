@@ -30,13 +30,13 @@ struct NotificationInfo {
     QString message;
     QString title;
     QString sender;
-    QString roomId;
+    QString roomName;
     QString type;
     QPixmap pixmap;
     //Pixmap can be null.
     Q_REQUIRED_RESULT bool isValid() const
     {
-        return !roomId.isEmpty()
+        return !roomName.isEmpty()
                && !message.isEmpty()
                && !sender.isEmpty()
                && !message.isEmpty()

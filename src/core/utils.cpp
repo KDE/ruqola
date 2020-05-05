@@ -189,7 +189,7 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
         } else {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
         }
-        info.roomId = obj.value(QLatin1String("rid")).toString();
+        info.roomName = obj.value(QLatin1String("name")).toString();
         info.type = obj.value(QLatin1String("type")).toString();
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
@@ -297,7 +297,7 @@ QDebug operator <<(QDebug d, const Utils::NotificationInfo &t)
     d << " message " << t.message;
     d << " title " << t.title;
     d << " sender " << t.sender;
-    d << " roomId " << t.roomId;
+    d << " roomId " << t.roomName;
     d << " type " << t.type;
     d << " pixmap is null ? " << t.pixmap.isNull();
     return d;

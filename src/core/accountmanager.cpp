@@ -46,13 +46,27 @@ AccountManager::~AccountManager()
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {
+        qDebug() << " NOTIFICATION!!!!!!!!!!!!!!!!!!!" << info;
         NotifierJob *job = new NotifierJob;
         job->setInfo(info);
-        //connect(job, &NotifierJob::switchToRoom, account, &RocketChatAccount::sw)
+        job->setAccountName(account->accountName());
+        connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
         job->start();
     });
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
     connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+}
+
+void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType)
+{
+    setCurrentAccount(accountName);
+    QString linkRoom;
+    if (channelType == QLatin1Char('c')) {
+        linkRoom = QStringLiteral("ruqola:/room/%1").arg(roomName);
+    } else {
+        linkRoom = QStringLiteral("ruqola:/user/%1").arg(roomName);
+    }
+    Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
 }
 
 void AccountManager::loadAccount()

@@ -1,0 +1,8 @@
+[Global]
+IconName=ruqola
+Comment=Notification
+
+[Event/new-new-notification]
+Name=A Notification Arrived
+Action=Popup
+Urgency=Normal

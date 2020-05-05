@@ -63,5 +63,15 @@ void NotifierJob::setInfo(const Utils::NotificationInfo &info)
 
 void NotifierJob::slotDefaultActionActivated()
 {
-    Q_EMIT switchToRoom(mInfo.roomId, mInfo.type);
+    Q_EMIT switchToAccountAndRoomName(mAccountName, mInfo.roomName, mInfo.type);
+}
+
+QString NotifierJob::accountName() const
+{
+    return mAccountName;
+}
+
+void NotifierJob::setAccountName(const QString &accountName)
+{
+    mAccountName = accountName;
 }

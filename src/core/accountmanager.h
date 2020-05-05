@@ -66,6 +66,7 @@ private:
 
     void loadAccount();
     void connectToAccount(RocketChatAccount *account);
+    void slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
     RocketChatAccountFilterProxyModel *mRocketChatAccountProxyModel = nullptr;

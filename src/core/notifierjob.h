@@ -37,12 +37,16 @@ public:
     Q_REQUIRED_RESULT Utils::NotificationInfo info() const;
     void setInfo(const Utils::NotificationInfo &info);
 
+    Q_REQUIRED_RESULT QString accountName() const;
+    void setAccountName(const QString &accountName);
+
 Q_SIGNALS:
-    void switchToRoom(const QString &roomId, const QString &channelType);
+    void switchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
 
 private:
     void slotDefaultActionActivated();
     Utils::NotificationInfo mInfo;
+    QString mAccountName;
 };
 
 #endif // NOTIFIERJOB_H
