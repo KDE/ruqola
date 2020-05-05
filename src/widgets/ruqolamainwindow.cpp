@@ -41,6 +41,7 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <KStandardAction>
+#include <KNotifyConfigWidget>
 #include <QIcon>
 #include <QStatusBar>
 #include <QLabel>
@@ -154,6 +155,7 @@ void RuqolaMainWindow::setupActions()
 
     KStandardAction::quit(this, &RuqolaMainWindow::close, ac);
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
+    KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
     mSaveAs = KStandardAction::saveAs(this, &RuqolaMainWindow::slotSaveAs, ac);
 
@@ -287,5 +289,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mCreateNewChannel->setEnabled(!loginPageActivated);
     mSaveAs->setEnabled(!loginPageActivated);
     mLogout->setEnabled(!loginPageActivated);
+}
 
+void RuqolaMainWindow::slotConfigureNotifications()
+{
+    KNotifyConfigWidget::configure(this);
 }
