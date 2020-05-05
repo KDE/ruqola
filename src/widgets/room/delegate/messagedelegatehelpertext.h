@@ -52,6 +52,9 @@ public:
 
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;
+
+    void selectAll();
+
 private:
     QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();

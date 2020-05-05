@@ -255,6 +255,11 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     painter->setPen(origPen);
 }
 
+void MessageListDelegate::selectedAll()
+{
+    mHelperText->selectAll();
+}
+
 QString MessageListDelegate::selectedText() const
 {
     return mHelperText->selectedText();

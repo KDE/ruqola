@@ -109,6 +109,14 @@ bool MessageDelegateHelperText::hasSelection() const
     return mCurrentTextCursor.hasSelection();
 }
 
+void MessageDelegateHelperText::selectAll()
+{
+    if (mCurrentDocument && mCurrentTextCursor.isNull()) {
+        mCurrentTextCursor = QTextCursor(mCurrentDocument);
+    }
+    mCurrentTextCursor.select(QTextCursor::Document);
+}
+
 QString MessageDelegateHelperText::selectedText() const
 {
     if (mCurrentTextCursor.isNull()) {
