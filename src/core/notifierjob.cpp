@@ -20,7 +20,7 @@
 
 #include "notifierjob.h"
 #include "ruqola_debug.h"
-
+#include <KLocalizedString>
 #include <KNotification>
 
 NotifierJob::NotifierJob(QObject *parent)
@@ -41,6 +41,7 @@ void NotifierJob::start()
         if (!mInfo.pixmap.isNull()) {
             notification->setPixmap(mInfo.pixmap);
         }
+        notification->setDefaultAction(i18nc("Open channel", "Open Channel"));
         connect(notification, &KNotification::defaultActivated, this, &NotifierJob::slotDefaultActionActivated);
         connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
 
@@ -63,7 +64,6 @@ void NotifierJob::setInfo(const Utils::NotificationInfo &info)
 
 void NotifierJob::slotDefaultActionActivated()
 {
-    qDebug() << " void NotifierJob::slotDefaultActionActivated()";
     Q_EMIT switchToAccountAndRoomName(mAccountName, mInfo.roomName, mInfo.channelType);
 }
 

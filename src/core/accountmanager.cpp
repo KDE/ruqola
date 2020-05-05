@@ -46,7 +46,6 @@ AccountManager::~AccountManager()
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {
-        qDebug() << " NOTIFICATION!!!!!!!!!!!!!!!!!!!" << info;
         NotifierJob *job = new NotifierJob;
         job->setInfo(info);
         job->setAccountName(account->accountName());
