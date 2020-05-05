@@ -31,7 +31,7 @@ struct NotificationInfo {
     QString title;
     QString sender;
     QString roomName;
-    QString type;
+    QString channelType;
     QPixmap pixmap;
     //Pixmap can be null.
     Q_REQUIRED_RESULT bool isValid() const
@@ -40,7 +40,7 @@ struct NotificationInfo {
                && !message.isEmpty()
                && !sender.isEmpty()
                && !message.isEmpty()
-               && !type.isEmpty();
+               && !channelType.isEmpty();
     }
 };
 

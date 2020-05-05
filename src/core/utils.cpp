@@ -183,14 +183,14 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
     info.title = obj[QStringLiteral("title")].toString();
     obj = obj.value(QLatin1String("payload")).toObject();
     if (!obj.isEmpty()) {
+        info.roomName = obj[QStringLiteral("name")].toString();
+        info.channelType = obj[QStringLiteral("type")].toString();
         obj = obj.value(QLatin1String("sender")).toObject();
         if (!obj.isEmpty()) {
             info.sender = obj.value(QLatin1String("_id")).toString();
         } else {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
         }
-        info.roomName = obj.value(QLatin1String("name")).toString();
-        info.type = obj.value(QLatin1String("type")).toString();
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
     }
@@ -298,7 +298,7 @@ QDebug operator <<(QDebug d, const Utils::NotificationInfo &t)
     d << " title " << t.title;
     d << " sender " << t.sender;
     d << " roomId " << t.roomName;
-    d << " type " << t.type;
+    d << " type " << t.channelType;
     d << " pixmap is null ? " << t.pixmap.isNull();
     return d;
 }
