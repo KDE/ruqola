@@ -101,10 +101,13 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
 {
     const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
     mRuqolaLoginWidget->setLoginStatus(loginStatus);
+    bool loginPage = false;
     if (loginStatus == DDPClient::LoggedIn) {
         mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
         mRuqolaLoginWidget->initialize();
+        loginPage = true;
     }
+    Q_EMIT loginPageActivated(loginPage);
 }

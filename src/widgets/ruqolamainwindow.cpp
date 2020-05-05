@@ -63,6 +63,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {
         changeActionStatus(true);
     });
+    connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotLoginPageActivated);
     setCentralWidget(mMainWidget);
     setupActions();
     setupStatusBar();
@@ -278,4 +279,13 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 void RuqolaMainWindow::slotSaveAs()
 {
     qWarning() << "RuqolaMainWindow::slotSaveAs not implemented yet ";
+}
+
+void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
+{
+    mSearchChannel->setEnabled(!loginPageActivated);
+    mCreateNewChannel->setEnabled(!loginPageActivated);
+    mSaveAs->setEnabled(!loginPageActivated);
+    mLogout->setEnabled(!loginPageActivated);
+
 }

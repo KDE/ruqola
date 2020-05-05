@@ -44,6 +44,7 @@ public:
     RoomWrapper *roomWrapper() const;
 Q_SIGNALS:
     void channelSelected();
+    void loginPageActivated(bool showLoginPage);
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);

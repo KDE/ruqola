@@ -57,6 +57,7 @@ private:
     void slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
+    void slotLoginPageActivated(bool loginPageActivated);
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
