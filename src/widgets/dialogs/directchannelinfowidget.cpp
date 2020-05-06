@@ -57,15 +57,15 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("Status:"), mStatus);
 
-    mCustomStatus = new QLabel(this);
-    mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
-    mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
-
     mTimeZone = new QLabel(this);
     mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
     mTimeZone->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("TimeZone:"), mTimeZone);
+
+    mCustomStatus = new QLabel(this);
+    mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
+    mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
