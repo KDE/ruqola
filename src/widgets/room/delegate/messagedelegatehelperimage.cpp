@@ -75,6 +75,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
                     rai.movie->start();
                     scaledPixmap = rai.movie->currentPixmap();
                 }
+                scaledPixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
             } else {
                 scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             }
@@ -167,6 +168,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
     if (url.isLocalFile()) {
         layout.imagePath = url.toLocalFile();
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
+        layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         //or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();
@@ -184,7 +186,8 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
             if (!layout.description.isEmpty()) {
                 imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
             }
-            layout.imageSize = layout.pixmap.size().scaled(attachmentsWidth, imageMaxHeight, Qt::KeepAspectRatio);
+            const auto dpr = layout.pixmap.devicePixelRatioF();
+            layout.imageSize = layout.pixmap.size().scaled(attachmentsWidth * dpr, imageMaxHeight * dpr, Qt::KeepAspectRatio);
         }
     }
     return layout;

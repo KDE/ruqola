@@ -36,20 +36,15 @@ public:
 
     void setImage(const QPixmap &pix);
 
-    QSize sizeHint() const override;
-
     Q_REQUIRED_RESULT bool isAnimatedPixmap() const;
     void setIsAnimatedPixmap(bool value);
 
     void setImagePath(const QString &imagePath);
 
 protected:
-    void showEvent(QShowEvent *event) override;
-    void resizeEvent(QResizeEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
 
 private:
-    void applyPixmap();
     void setZoom(double scale);
 
     QPixmap mPixmap;

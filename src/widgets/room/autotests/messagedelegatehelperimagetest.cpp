@@ -56,5 +56,6 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QVERIFY(!layout.isAnimatedImage);
     QVERIFY(layout.imagePath.endsWith(QLatin1String("/testfile.png")));
     QCOMPARE(layout.imageSize.height(), layout.imageSize.width() * 2); // aspect ratio is preserved
-    QVERIFY(layout.imageSize.height() < 500);
+    QCOMPARE(layout.pixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
+    QVERIFY(layout.imageSize.height() < 500 * fakeWidget.devicePixelRatioF());
 }

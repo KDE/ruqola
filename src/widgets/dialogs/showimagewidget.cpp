@@ -38,7 +38,6 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
 
     auto *scrollArea = new QScrollArea(this);
     scrollArea->setObjectName(QStringLiteral("scrollArea"));
-    scrollArea->setWidgetResizable(true);
     mainLayout->addWidget(scrollArea);
 
     mLabel = new QLabel(this);
@@ -87,9 +86,10 @@ void ShowImageWidget::setZoom(double scale)
 {
     if (!mIsAnimatedPixmap && !mIsUpdatingZoom) {
         QScopedValueRollback<bool> guard(mIsUpdatingZoom, true);
-        const QPixmap pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale,
-                                          Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        auto pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale,
+                                 Qt::KeepAspectRatio, Qt::SmoothTransformation);
         mLabel->setPixmap(pm);
+        mLabel->resize(pm.size());
         mSlider->setValue(static_cast<int>(scale * 100));
         mZoomSpin->setValue(scale);
     }
@@ -114,42 +114,21 @@ void ShowImageWidget::setImagePath(const QString &imagePath)
 {
     QMovie *movie = new QMovie(this);
     movie->setFileName(imagePath);
+    movie->start();
+    const auto size = movie->currentPixmap().size();
+    movie->stop();
     mLabel->setMovie(movie);
+    mLabel->resize(size);
     movie->start();
 }
 
 void ShowImageWidget::setImage(const QPixmap &pix)
 {
     mPixmap = pix;
-    applyPixmap();
+    mPixmap.setDevicePixelRatio(devicePixelRatioF());
+    mLabel->setPixmap(mPixmap);
+    mLabel->resize(mPixmap.size() / devicePixelRatioF());
     updateGeometry(); // sizeHint changed
-}
-
-QSize ShowImageWidget::sizeHint() const
-{
-    if (mIsAnimatedPixmap) {
-        return QWidget::sizeHint();
-    }
-    return mPixmap.size().boundedTo(QSize(800, 800));
-}
-
-void ShowImageWidget::showEvent(QShowEvent *event)
-{
-    applyPixmap();
-    QWidget::showEvent(event);
-}
-
-void ShowImageWidget::resizeEvent(QResizeEvent *event)
-{
-    applyPixmap();
-    QWidget::resizeEvent(event);
-}
-
-void ShowImageWidget::applyPixmap()
-{
-    if (!mIsAnimatedPixmap) {
-        mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    }
 }
 
 void ShowImageWidget::wheelEvent(QWheelEvent *e)
