@@ -271,7 +271,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         menu.addSeparator();
         menu.addAction(copyAction);
-        menu.addAction(selectAllAction);
+        //menu.addAction(selectAllAction); For the moment we can't have access to message under mouse.
 
         menu.addSeparator();
         QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
