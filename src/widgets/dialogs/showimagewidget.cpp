@@ -26,6 +26,8 @@
 #include <QSlider>
 #include <QWheelEvent>
 #include <QMovie>
+#include <QDoubleSpinBox>
+#include <QScopedValueRollback>
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
@@ -45,32 +47,49 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
 
     scrollArea->setWidget(mLabel);
 
+    mZoomControls = new QWidget(this);
+    mZoomControls->setObjectName(QStringLiteral("zoomControls"));
     auto *zoomLayout = new QHBoxLayout;
     zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
-    mainLayout->addLayout(zoomLayout);
+    mZoomControls->setLayout(zoomLayout);
+    mainLayout->addWidget(mZoomControls);
 
-    mZoomLabel = new QLabel(i18n("Zoom:"), this);
-    mZoomLabel->setObjectName(QStringLiteral("zoomLabel"));
-    zoomLayout->addWidget(mZoomLabel);
+    auto *zoomLabel = new QLabel(i18n("Zoom:"), this);
+    zoomLabel->setObjectName(QStringLiteral("zoomLabel"));
+    zoomLayout->addWidget(zoomLabel);
+
+    mZoomSpin = new QDoubleSpinBox(this);
+    mZoomSpin->setObjectName(QStringLiteral("mZoomSpin"));
+    mZoomSpin->setRange(0.1, 10);
+    mZoomSpin->setValue(1);
+    mZoomSpin->setDecimals(1);
+    zoomLayout->addWidget(mZoomSpin);
 
     mSlider = new QSlider(this);
     mSlider->setObjectName(QStringLiteral("mSlider"));
     mSlider->setOrientation(Qt::Horizontal);
     zoomLayout->addWidget(mSlider);
-    mSlider->setRange(10, 1000);
-    mSlider->setValue(100);
-    connect(mSlider, &QSlider::valueChanged, this, &ShowImageWidget::slotValueChanged);
+    mSlider->setRange(mZoomSpin->minimum() * 100, mZoomSpin->maximum() * 100);
+    mSlider->setValue(mZoomSpin->value() * 100);
+
+    connect(mZoomSpin, &QDoubleSpinBox::valueChanged, this, &ShowImageWidget::setZoom);
+    connect(mSlider, &QSlider::valueChanged, this, [this](int value) {
+        setZoom(static_cast<double>(value) / 100);
+    });
 }
 
 ShowImageWidget::~ShowImageWidget()
 {
 }
 
-void ShowImageWidget::slotValueChanged(int value)
+void ShowImageWidget::setZoom(double scale)
 {
-    if (!mIsAnimatedPixmap) {
-        const QPixmap pm = mPixmap.scaled(mPixmap.width()*value/100, mPixmap.height()*value/100, Qt::KeepAspectRatio);
+    if (!mIsAnimatedPixmap && !mIsUpdatingZoom) {
+        QScopedValueRollback<bool> guard(mIsUpdatingZoom, true);
+        const QPixmap pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale, Qt::KeepAspectRatio);
         mLabel->setPixmap(pm);
+        mSlider->setValue(static_cast<int>(scale * 100));
+        mZoomSpin->setValue(scale);
     }
 }
 
@@ -84,8 +103,7 @@ void ShowImageWidget::setIsAnimatedPixmap(bool value)
     if (mIsAnimatedPixmap != value) {
         mIsAnimatedPixmap = value;
         if (mIsAnimatedPixmap) {
-            mSlider->hide();
-            mZoomLabel->hide();
+            mZoomControls->hide();
         }
     }
 }

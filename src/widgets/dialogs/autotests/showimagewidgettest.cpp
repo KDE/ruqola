@@ -20,11 +20,14 @@
 
 #include "showimagewidgettest.h"
 #include "dialogs/showimagewidget.h"
+
 #include <QLabel>
 #include <QScrollArea>
 #include <QSlider>
 #include <QTest>
 #include <QVBoxLayout>
+#include <QDoubleSpinBox>
+
 QTEST_MAIN(ShowImageWidgetTest)
 
 ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
@@ -35,6 +38,9 @@ ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
 void ShowImageWidgetTest::shouldHaveDefaultValues()
 {
     ShowImageWidget w;
+    const auto pixmap = QPixmap(QStringLiteral(":/icons/systray.png"));
+    auto pixmapSize = pixmap.size();
+    w.setImage(pixmap);
 
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
@@ -48,6 +54,9 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabel);
     QVERIFY(mLabel->text().isEmpty());
     QCOMPARE(mLabel->backgroundRole(), QPalette::Base);
+    QVERIFY(mLabel->pixmap());
+    QEXPECT_FAIL("", "the pixmap is currently sized according to the label size, not vice versa", Continue);
+    QCOMPARE(mLabel->pixmap()->size(), pixmapSize);
 
     auto *zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
     QVERIFY(zoomLayout);
@@ -56,9 +65,24 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(zoomLabel);
     QVERIFY(!zoomLabel->text().isEmpty());
 
+    auto *mZoomSpin = w.findChild<QDoubleSpinBox *>(QStringLiteral("mZoomSpin"));
+    QVERIFY(mZoomSpin);
+    QCOMPARE(mZoomSpin->value(), 1.0);
+
     auto *mSlider = w.findChild<QSlider *>(QStringLiteral("mSlider"));
     QVERIFY(mSlider);
     QCOMPARE(mSlider->orientation(), Qt::Horizontal);
+    QCOMPARE(mSlider->value(), 100);
+
+    mSlider->setValue(200);
+    QCOMPARE(mSlider->value(), 200);
+    QCOMPARE(mZoomSpin->value(), 2);
+    QCOMPARE(mLabel->pixmap()->size(), 2 * pixmapSize);
+
+    mZoomSpin->setValue(3);
+    QCOMPARE(mZoomSpin->value(), 3);
+    QCOMPARE(mSlider->value(), 300);
+    QCOMPARE(mLabel->pixmap()->size(), 3 * pixmapSize);
 
     QVERIFY(!w.isAnimatedPixmap());
 }

@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLabel;
 class QSlider;
+class QDoubleSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
     Q_OBJECT
@@ -49,13 +50,15 @@ protected:
 
 private:
     void applyPixmap();
-    void slotValueChanged(int value);
+    void setZoom(double scale);
 
     QPixmap mPixmap;
-    QLabel *mZoomLabel = nullptr;
+    QWidget *mZoomControls = nullptr;
     QLabel *mLabel = nullptr;
+    QDoubleSpinBox *mZoomSpin = nullptr;
     QSlider *mSlider = nullptr;
     bool mIsAnimatedPixmap = false;
+    bool mIsUpdatingZoom = false;
 };
 
 #endif // SHOWIMAGEWIDGET_H
