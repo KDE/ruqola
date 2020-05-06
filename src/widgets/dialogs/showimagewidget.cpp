@@ -86,7 +86,8 @@ void ShowImageWidget::setZoom(double scale)
 {
     if (!mIsAnimatedPixmap && !mIsUpdatingZoom) {
         QScopedValueRollback<bool> guard(mIsUpdatingZoom, true);
-        const QPixmap pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale, Qt::KeepAspectRatio);
+        const QPixmap pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale,
+                                          Qt::KeepAspectRatio, Qt::SmoothTransformation);
         mLabel->setPixmap(pm);
         mSlider->setValue(static_cast<int>(scale * 100));
         mZoomSpin->setValue(scale);
@@ -146,7 +147,7 @@ void ShowImageWidget::resizeEvent(QResizeEvent *event)
 void ShowImageWidget::applyPixmap()
 {
     if (!mIsAnimatedPixmap) {
-        mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio));
+        mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 }
 

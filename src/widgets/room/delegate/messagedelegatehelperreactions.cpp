@@ -130,7 +130,8 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, const QRect &reacti
         } else {
             const QPixmap pixmap = mPixmapCache.pixmapForLocalFile(reactionLayout.emojiImagePath);
             const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-            const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize, Qt::KeepAspectRatio);
+            const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize,
+                                                       Qt::KeepAspectRatio, Qt::SmoothTransformation);
             painter->drawPixmap(r.x(), r.y(), scaledPixmap);
         }
 

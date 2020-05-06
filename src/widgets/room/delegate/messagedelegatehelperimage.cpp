@@ -76,7 +76,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
                     scaledPixmap = rai.movie->currentPixmap();
                 }
             } else {
-                scaledPixmap = layout.pixmap.scaled(layout.imageSize);
+                scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             }
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
             nextY += scaledPixmap.height() + DelegatePaintUtil::margin();
