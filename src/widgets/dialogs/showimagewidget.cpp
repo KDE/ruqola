@@ -44,6 +44,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("mLabel"));
     mLabel->setBackgroundRole(QPalette::Base);
+    mLabel->setAlignment(Qt::AlignCenter);
 
     scrollArea->setWidget(mLabel);
 
