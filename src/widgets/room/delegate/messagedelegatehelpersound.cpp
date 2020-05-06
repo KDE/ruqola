@@ -28,7 +28,6 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
-#include <QFileDialog>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QPainter>
@@ -81,7 +80,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, const
         const SoundLayout layout = layoutSound(message, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Sound"));
+            const QString file = querySaveFileName(parentWidget, i18n("Save Sound"), QUrl::fromLocalFile(layout.audioPath));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
                 QFile sourceFile(layout.audioPath);

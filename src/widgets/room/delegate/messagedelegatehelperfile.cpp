@@ -27,7 +27,6 @@
 
 #include <KLocalizedString>
 
-#include <QFileDialog>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
@@ -114,7 +113,7 @@ bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const 
         const QPoint pos = mouseEvent->pos();
 
         auto download = [&](const FileLayout &layout) {
-                            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
+                            const QString file = querySaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"), QUrl(layout.link));
                             if (!file.isEmpty()) {
                                 const QUrl fileUrl = QUrl::fromLocalFile(file);
                                 Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);

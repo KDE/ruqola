@@ -28,7 +28,6 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
-#include <QFileDialog>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QPainter>
@@ -82,7 +81,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const
         VideoLayout layout = layoutVideo(message, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            const QString file = QFileDialog::getSaveFileName(parentWidget, i18n("Save Video"));
+            const QString file = querySaveFileName(parentWidget, i18n("Save Video"), QUrl::fromLocalFile(layout.videoPath));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
                 QFile sourceFile(layout.videoPath);
