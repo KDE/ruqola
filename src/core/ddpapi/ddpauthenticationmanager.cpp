@@ -120,7 +120,7 @@ void DDPAuthenticationManager::loginOAuth(const QString &credentialToken, const 
     loginImpl(Utils::strToJsonArray(params));
 }
 
-void DDPAuthenticationManager::loginImpl(QJsonArray &params)
+void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
 {
     if (checkGenericError()) {
         return;
@@ -221,7 +221,6 @@ QString DDPAuthenticationManager::authToken() const
 
 void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const QJsonObject &response)
 {
-    qDebug() << operationId << response;
     switch (static_cast<Method>(operationId)) {
 
     case Method::Login: // intentional fall-through

@@ -119,7 +119,7 @@ private:
     // Authentication doesn't involve any subscriptions
     void processSubscriptionResultImpl(int subscriptionId, const QJsonObject &result) override {}
 
-    void loginImpl(QJsonArray &params);
+    void loginImpl(const QJsonArray &params);
     void setLoginStatus(LoginStatus newStatus);
     void clientConnectedChangedSlot();
     Q_REQUIRED_RESULT bool checkGenericError() const;
