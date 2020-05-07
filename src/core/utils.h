@@ -29,7 +29,9 @@ namespace Utils {
 struct NotificationInfo {
     QString message;
     QString title;
-    QString sender;
+    QString senderId;
+    QString senderName;
+    QString senderUserName;
     QString roomName;
     QString channelType;
     QPixmap pixmap;
@@ -38,7 +40,7 @@ struct NotificationInfo {
     {
         return !roomName.isEmpty()
                && !message.isEmpty()
-               && !sender.isEmpty()
+               && !senderId.isEmpty()
                && !message.isEmpty()
                && !channelType.isEmpty();
     }

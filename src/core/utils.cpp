@@ -177,19 +177,28 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 
 Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
 {
+    qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
     Utils::NotificationInfo info;
-    QJsonObject obj = contents.at(0).toObject();
-    info.message = obj[QStringLiteral("text")].toString();
+    const QJsonObject obj = contents.at(0).toObject();
     info.title = obj[QStringLiteral("title")].toString();
-    obj = obj.value(QLatin1String("payload")).toObject();
-    if (!obj.isEmpty()) {
-        info.roomName = obj[QStringLiteral("name")].toString();
-        info.channelType = obj[QStringLiteral("type")].toString();
-        obj = obj.value(QLatin1String("sender")).toObject();
-        if (!obj.isEmpty()) {
-            info.sender = obj.value(QLatin1String("_id")).toString();
+    const QJsonObject payloadObj = obj.value(QLatin1String("payload")).toObject();
+    if (!payloadObj.isEmpty()) {
+        info.roomName = payloadObj[QStringLiteral("name")].toString();
+        info.channelType = payloadObj[QStringLiteral("type")].toString();
+        const QJsonObject senderObj = payloadObj.value(QLatin1String("sender")).toObject();
+        if (!senderObj.isEmpty()) {
+            info.senderId = senderObj.value(QLatin1String("_id")).toString();
+            info.senderName = senderObj.value(QLatin1String("name")).toString();
+            info.senderUserName = senderObj.value(QLatin1String("username")).toString();
         } else {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
+        }
+        const QJsonObject messageObj = payloadObj.value(QLatin1String("message")).toObject();
+        if (!messageObj.isEmpty()) {
+            info.message = messageObj[QStringLiteral("msg")].toString();
+        } else {
+            qCDebug(RUQOLA_LOG) << "Problem with notification json: missing message";
+            info.message = obj[QStringLiteral("text")].toString();
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
@@ -296,7 +305,7 @@ QDebug operator <<(QDebug d, const Utils::NotificationInfo &t)
 {
     d << " message " << t.message;
     d << " title " << t.title;
-    d << " sender " << t.sender;
+    d << " sender " << t.senderId;
     d << " roomId " << t.roomName;
     d << " type " << t.channelType;
     d << " pixmap is null ? " << t.pixmap.isNull();

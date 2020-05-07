@@ -37,7 +37,8 @@ void NotifierJob::start()
     if (mInfo.isValid()) {
         KNotification *notification = new KNotification(QStringLiteral("new-notification"), nullptr, KNotification::CloseOnTimeout);
         notification->setTitle(mInfo.title);
-        notification->setText(mInfo.message.toHtmlEscaped());
+        const QString userName = mInfo.senderName.isEmpty() ? mInfo.senderUserName : mInfo.senderName;
+        notification->setText(i18n("%1: %2", userName, mInfo.message.toHtmlEscaped()));
         if (!mInfo.pixmap.isNull()) {
             notification->setPixmap(mInfo.pixmap);
         }
