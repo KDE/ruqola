@@ -111,6 +111,10 @@ bool MessageDelegateHelperText::hasSelection() const
 
 void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect)
 {
+    if (mCurrentIndex.isValid()) {
+        // The old index no longer has selection, repaint it
+        updateView(view, mCurrentIndex);
+    }
     mCurrentIndex = index;
     mCurrentDocument = documentForIndex(index, messageRect.width(), view);
 }
@@ -222,10 +226,6 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     // Text selection
     switch (eventType) {
     case QEvent::MouseButtonPress:
-        if (mCurrentIndex.isValid()) {
-            // The old index no longer has selection, repaint it
-            updateView(option.widget, mCurrentIndex);
-        }
         setCurrentIndex(index, option.widget, messageRect);
         if (mCurrentDocument) {
             const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
