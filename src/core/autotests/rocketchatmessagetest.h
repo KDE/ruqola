@@ -77,13 +77,10 @@ private Q_SLOTS:
     void shouldSplotlightWithoutRooms();
 
     void shouldAddUserToRoom();
-    void shouldLogin();
-    void shouldLoginCode();
 
     void inputChannelAutocomplete();
 
     void inputUserAutocomplete();
-    void shouldLoginProvider();
 
     void blockUser();
     void unBlockUser();

@@ -383,30 +383,6 @@ void RocketChatMessageTest::shouldAddUserToRoom()
     compareFile(r.result, QStringLiteral("addusertoroom"));
 }
 
-void RocketChatMessageTest::shouldLogin()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.login(QStringLiteral("user"), QStringLiteral("password"), QString(), 43);
-    compareFile(r.result, QStringLiteral("login"));
-}
-
-void RocketChatMessageTest::shouldLoginCode()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.login(QStringLiteral("user"), QStringLiteral("password"), QStringLiteral("1234"), 43);
-    compareFile(r.result, QStringLiteral("loginCode"));
-}
-
-void RocketChatMessageTest::shouldLoginProvider()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.loginProvider(QStringLiteral("credentialToken"), QStringLiteral("credentialSecret"), 43);
-    compareFile(r.result, QStringLiteral("loginProvider"));
-}
-
 void RocketChatMessageTest::inputChannelAutocomplete()
 {
     RocketChatMessage m;

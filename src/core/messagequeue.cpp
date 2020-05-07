@@ -22,6 +22,7 @@
 
 #include "ruqola.h"
 #include "ddpapi/ddpclient.h"
+#include "ddpapi/ddpauthenticationmanager.h"
 #include "ruqola_debug.h"
 #include "messagequeue.h"
 #include "rocketchataccount.h"
@@ -63,7 +64,8 @@ MessageQueue::~MessageQueue()
 
 void MessageQueue::loadCache()
 {
-    connect(mRocketChatAccount->ddp(), &DDPClient::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
+    connect(mRocketChatAccount->ddp()->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged,
+            this, &MessageQueue::onLoginStatusChanged);
 #if 0
     QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
     // load unsent messages cache
@@ -118,13 +120,14 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 void MessageQueue::onLoginStatusChanged()
 {
     //retry sending messages
+    // TODO: check login status?
     processQueue();
 }
 
 void MessageQueue::processQueue()
 {
     //can be optimized using single shot timer
-    while (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
+    while (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
         QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
         QString method = pair.first;
         QJsonDocument params = pair.second;

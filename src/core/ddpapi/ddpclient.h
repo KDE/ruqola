@@ -35,20 +35,12 @@ class QJsonDocument;
 class RocketChatMessage;
 class AbstractWebSocket;
 class RocketChatAccount;
+class DDPAuthenticationManager;
+class DDPManager;
 class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
 public:
-    enum LoginStatus {
-        NotConnected,
-        LoggingIn,
-        LoggedIn,
-        LoginFailed,
-        LoginCodeRequired,
-        LoggedOut,
-        FailedToLoginPluginProblem
-    };
-    Q_ENUM(LoginStatus)
 
     enum MessageType {
         Persistent,
@@ -90,9 +82,68 @@ public:
     void subscribe(const QString &collection, const QJsonArray &params);
 
     /**
+     * @brief Registers a @class DDPManager object to an event, represented by
+     *   a (collection name, event name) pair.
+     *
+     * @param collection the name of the collection to which the event belongs
+     * @param event the name of the event to which subsribe the @class DDPManager object
+     * @param ddpManager the @class DDPManager instance that will process event messages
+     * @param subscriptionId a manager specific id that helps the manager keep track of
+     *   the subscription
+     */
+    void registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId);
+
+    /**
+     * @brief Deregisters a @class DDPManager object to from a given event, represented by
+     *   a (collection name, event name) pair.
+     *
+     *   The (collection, event) pair should be enough to deregister the subscribed manager,
+     *   but the extra parameters are helpful to debug if subscription/unsubscription parameters
+     *   don't match.
+     *
+     * @param collection the name of the collection to which the event belongs
+     * @param event the name of the event to which subsribe the @class DDPManager object
+     * @param ddpManager the @class DDPManager instance that will process event messages
+     * @param subscriptionId a manager specific id that helps the manager keep track of
+     *   the subscription
+     */
+    void deregisterSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId);
+
+    /**
+     * @brief Calls a method on the websocket and registers the DDPManager invoking it
+     *   for later response dispatching.
+     *
+     * @param method the method to be invoked
+     * @param params parameters of the call
+     * @param ddpmanager the manager invoking the call
+     * @param operationId a manaager specific id to keep track of the operation invoked
+     *   through the method
+     */
+    quint64 invokeMethodAndRegister(const QString &method, const QJsonArray &params, DDPManager *ddpManager, int operationId);
+
+    /**
+     * @brief Deregister an API manager from responses to a method represented by its id.
+     *
+     *   Silmilarly to deregisterSubscriber(), the @param methodId parameter is enough
+     *   to deregister manager from method responses, but the other parameters are added
+     *   for debugging purposes.
+     *
+     * @param methodId the id of the method generated at invokation
+     * @param manager the current manager subscribed to method responses
+     * @param operationId the manager specific operation bound to the method invokation
+     */
+    void deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpManager, int operationId);
+
+    /**
     * @brief Calls method to log in the user with valid username and password
     */
     Q_INVOKABLE void login();
+
+    /**
+     * @brief Tries logging in if the client is connected or just sets a flag
+     *   so a login will be tried on connection.
+     */
+    void enqueueLogin();
 
     /**
     * @brief Check whether websocket is connected at url
@@ -100,13 +151,6 @@ public:
     * @return true if connected, else false
     */
     Q_REQUIRED_RESULT bool isConnected() const;
-
-    /**
-    * @brief Check whether user is logged in
-    *
-    * @return true if user is logged in, else false
-    */
-    Q_REQUIRED_RESULT bool isLoggedIn() const;
 
     /**
     * @brief Reconnects the websocket to new url
@@ -135,9 +179,8 @@ public:
 
     void setServerUrl(const QString &url);
     void start();
-    void setLoginJobId(quint64 jobid);
 
-    Q_REQUIRED_RESULT LoginStatus loginStatus() const;
+    Q_REQUIRED_RESULT DDPAuthenticationManager *authenticationManager() const;
 
     quint64 toggleFavorite(const QString &roomID, bool favorite);
     quint64 createChannel(const QString &name, const QStringList &userList, bool readOnly);
@@ -165,8 +208,6 @@ public:
     quint64  addUserToRoom(const QString &userId, const QString &roomId);
     quint64  inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     quint64  inputUserAutocomplete(const QString &pattern, const QString &exceptions);
-    quint64  login(const QString &username, const QString &password);
-    quint64  loginProvider(const QString &credentialToken, const QString &credentialSecret);
     quint64  unBlockUser(const QString &rid, const QString &userId);
     quint64  blockUser(const QString &rid, const QString &userId);
     quint64  disableNotifications(const QString &roomId, bool disabled);
@@ -182,7 +223,6 @@ public:
     quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
 Q_SIGNALS:
     void connectedChanged();
-    void loginStatusChanged();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);
@@ -209,8 +249,6 @@ private:
 
     QUrl adaptUrl(const QString &url);
 
-    void setLoginStatus(LoginStatus l);
-
     void pong();
     void executeSubsCallBack(const QJsonObject &root);
 
@@ -229,12 +267,28 @@ private:
      */
     QHash <quint64, std::function<void(QJsonObject, RocketChatAccount *)> > m_callbackHash;
 
-    quint64 m_loginJob = 0;
-    LoginStatus m_loginStatus;
+    /**
+     * @brief stores subscription handlers for a given event on a given collection
+     *
+     * @def The key of the hash is a QPair<QString, QString>, where the first element
+     *   is the collection (stream) name, and the second is the event name.
+     *   Each value is a pair (DDPManager, int), where the int value is an internal
+     *   reference for the manager to match internally method calls with responses.
+     *   When a subscription response is received by the client, it will be dispatched
+     *   to the corresponding manager iff both the collection and the event name match.
+     */
+    QHash<QPair<QString, QString>, QPair<DDPManager *, int>> mEventSubscriptionHash;
+
+    /**
+     * @brief stores subscription handlers for a given event on a given collection
+     * 
+     * @def The key of the hash is the generated id of the called method.
+     *   When a method response is received by the client, it will be dispatched
+     *   to the corresponding manager iff the method call id matches.
+     */
+    QHash<int, QPair<DDPManager *, int>> mMethodResponseHash;
 
     bool m_connected = false;
-
-    bool m_attemptedPasswordLogin = false;
 
     /**
     * @brief Abstract queue for all requests regarding network management
@@ -246,6 +300,9 @@ private:
     friend class Ruqola;
     RocketChatMessage *mRocketChatMessage = nullptr;
     RocketChatAccount *mRocketChatAccount = nullptr;
+    DDPAuthenticationManager *mAuthenticationManager = nullptr;
+
+    bool mLoginEnqueued = false;
 };
 
 #endif // DDPCLIENT_H

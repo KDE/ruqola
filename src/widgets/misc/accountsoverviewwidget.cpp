@@ -149,7 +149,7 @@ private:
         }
 
         if (mAccount) {
-            if (mAccount->loginStatus() != DDPClient::LoggedIn) {
+            if (mAccount->loginStatus() != DDPAuthenticationManager::LoggedIn) {
                 text += QStringLiteral(": %1").arg(currentLoginStatusText());
             } else if (int unread = currentUnreadAlert().unread) {
                 text += QStringLiteral(" (%1)").arg(unread);
@@ -169,21 +169,24 @@ private:
     Q_REQUIRED_RESULT QString currentLoginStatusText() const
     {
         if (mAccount) {
-            switch (mAccount->loginStatus()) {
-            case DDPClient::NotConnected:
+            if (!mAccount->ddp()->isConnected()) {
                 return i18n("Not connected");
-            case DDPClient::LoginCodeRequired:
-                return i18n("Login code required");
-            case DDPClient::LoginFailed:
-                return i18n("Login failed");
-            case DDPClient::LoggingIn:
+            }
+            switch (mAccount->loginStatus()) {
+            case DDPAuthenticationManager::LoginOtpAuthOngoing:
+                return i18n("Login OTP code required");
+            case DDPAuthenticationManager::LoginFailedInvalidUserOrPassword:
+                return i18n("Login failed: invalid username or password");
+            case DDPAuthenticationManager::LoginOngoing:
                 return i18n("Logging in");
-            case DDPClient::LoggedIn:
+            case DDPAuthenticationManager::LoggedIn:
                 return i18n("Logged in");
-            case DDPClient::LoggedOut:
+            case DDPAuthenticationManager::LoggedOut:
                 return i18n("Logged out");
-            case DDPClient::FailedToLoginPluginProblem:
+            case DDPAuthenticationManager::FailedToLoginPluginProblem:
                 return i18n("Failed to login due to plugin problem");
+            case DDPAuthenticationManager::GenericError:
+                return i18n("Login failed: generic error");
             }
         }
         return i18n("Unknown state");

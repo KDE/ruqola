@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include <ddpapi/ddpclient.h>
+#include <ddpapi/ddpauthenticationmanager.h>
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QPushButton;
@@ -38,7 +39,7 @@ public:
     ~RuqolaLoginWidget() override;
 
     void initialize();
-    void setLoginStatus(DDPClient::LoginStatus status);
+    void setLoginStatus(DDPAuthenticationManager::LoginStatus status);
     void showError(const QString &text);
 
 private:

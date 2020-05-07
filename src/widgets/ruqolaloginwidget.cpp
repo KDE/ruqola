@@ -146,40 +146,41 @@ void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
     mLoginButton->setEnabled(enabled);
 }
 
-void RuqolaLoginWidget::setLoginStatus(DDPClient::LoginStatus status)
+void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
 {
     mFailedError->setHidden(true);
     switch (status) {
-    case DDPClient::LoginStatus::NotConnected:
-        mBusyIndicatorWidget->hide();
-        changeWidgetStatus(true);
-        break;
-    case DDPClient::LoginStatus::LoggingIn:
+    case DDPAuthenticationManager::LoginStatus::LoginOngoing:
         mBusyIndicatorWidget->show();
         changeWidgetStatus(false);
         break;
-    case DDPClient::LoginStatus::LoggedIn:
+    case DDPAuthenticationManager::LoginStatus::LoggedIn:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         break;
-    case DDPClient::LoginStatus::LoginFailed:
+    case DDPAuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        showError(i18n("Login Failed"));
+        showError(i18n("Login Failed: invalid username or password"));
         break;
-    case DDPClient::LoginStatus::LoginCodeRequired:
+    case DDPAuthenticationManager::LoginStatus::LoginOtpRequired:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         mAuthenticationWidget->setVisible(true);
         break;
-    case DDPClient::LoginStatus::LoggedOut:
+    case DDPAuthenticationManager::LoginStatus::LoggedOut:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         break;
-    case DDPClient::LoginStatus::FailedToLoginPluginProblem:
+    case DDPAuthenticationManager::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Installation Problem found. No plugins found here."));
+        break;
+    case DDPAuthenticationManager::LoginStatus::GenericError:
+        mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
+        showError(i18n("Login Failed: generic error"));
         break;
     }
 }

@@ -1,6 +1,8 @@
 
 set(Ruqola_ddpapi_SRCS
+    ddpapi/ddpauthenticationmanager.cpp
     ddpapi/ddpclient.cpp
+    ddpapi/ddpmanager.cpp
     )
 
 set (Ruqola_model_core_srcs    

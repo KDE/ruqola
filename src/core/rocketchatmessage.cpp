@@ -460,47 +460,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomFiles(const QS
     return subscribe(QStringLiteral("roomFiles"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::login(const QString &username, const QString &password, const QString &twoFactorAuthenticationCode, quint64 id)
-{
-    QJsonObject user;
-    user[QStringLiteral("username")] = username;
-
-    QByteArray passwordAsArray = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-    const QString hash = QString::fromLatin1(passwordAsArray.toHex());
-
-    QJsonObject passwordObject;
-    passwordObject[QStringLiteral("digest")] = hash;
-    passwordObject[QStringLiteral("algorithm")] = QStringLiteral("sha-256");
-
-    QJsonObject params;
-    if (!twoFactorAuthenticationCode.isEmpty()) {
-        // Note: This currently isn't documented. The message structure here follows the iOS client
-        // https://github.com/RocketChat/Rocket.Chat.iOS/blob/ba49216daa50097745f15855238ef8f4d6519bcf/Rocket.Chat/Managers/Model/AuthManager/AuthManagerSocket.swift#L152
-        QJsonObject loginObject;
-        loginObject[QStringLiteral("user")] = user;
-        loginObject[QStringLiteral("password")] = passwordObject;
-        QJsonObject totpObject;
-        totpObject[QStringLiteral("code")] = twoFactorAuthenticationCode;
-        totpObject[QStringLiteral("login")] = loginObject;
-        params[QStringLiteral("totp")] = totpObject;
-    } else {
-        params[QStringLiteral("password")] = passwordObject;
-        params[QStringLiteral("user")] = user;
-    }
-    return generateMethod(QStringLiteral("login"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::loginProvider(const QString &credentialToken, const QString &credentialSecretd, quint64 id)
-{
-    QJsonObject params;
-    QJsonObject authKeys;
-    authKeys[QStringLiteral("credentialToken")] = credentialToken;
-    authKeys[QStringLiteral("credentialSecret")] = credentialSecretd;
-
-    params[QStringLiteral("oauth")] = authKeys;
-
-    return generateMethod(QStringLiteral("login"), QJsonDocument(params), id);
-}
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(const QString &username, const QString &roomId, quint64 id)
 {
@@ -515,14 +474,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(cons
     params.append(param);
 
     return generateMethod(QStringLiteral("addUserToRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
-{
-    Q_UNUSED(name);
-    //TODO add name
-    const QJsonArray params{{}};
-    return generateMethod(QStringLiteral("logout"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, const QString &exception, quint64 id)

@@ -69,7 +69,6 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setTemporaryStatus(User::PresenceStatus status, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult getUsersOfRoom(const QString &roomId, bool showAll, quint64 id);
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult logout(const QString &name, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult createPrivateGroup(const QString &roomName, const QStringList &userList, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult deleteMessage(const QString &messageId, quint64 id);
@@ -90,10 +89,8 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult addUserToRoom(const QString &username, const QString &roomId, quint64 id);
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult login(const QString &username, const QString &password, const QString &twoFactorAuthenticationCode, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult loginProvider(const QString &credentialToken, const QString &credentialSecretd, quint64 id);
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult disableNotifications(const QString &roomId, bool disabled, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult hideUnreadStatus(const QString &roomId, bool disabled, quint64 id);

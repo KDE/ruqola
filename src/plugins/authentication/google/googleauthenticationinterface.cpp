@@ -46,6 +46,5 @@ void GoogleAuthenticationInterface::login()
 
 void GoogleAuthenticationInterface::slotLoginProvider(const QString &credentialToken, const QString &credentialSecret)
 {
-    const quint64 loginJob = mAccount->ddp()->loginProvider(credentialToken, credentialSecret);
-    mAccount->ddp()->setLoginJobId(loginJob);
+    mAccount->ddp()->authenticationManager()->loginOAuth(credentialToken, credentialSecret);
 }

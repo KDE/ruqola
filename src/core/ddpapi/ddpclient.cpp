@@ -34,6 +34,9 @@
 #include "rocketchatbackend.h"
 #include "plugins/pluginauthenticationinterface.h"
 
+#include "ddpapi/ddpauthenticationmanager.h"
+#include "ddpapi/ddpmanager.h"
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
@@ -209,9 +212,9 @@ void create_channel(const QJsonObject &root, RocketChatAccount *account)
 DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , m_uid(1)
-    , m_loginStatus(NotConnected)
     , mRocketChatMessage(new RocketChatMessage)
     , mRocketChatAccount(account)
+    , mAuthenticationManager(new DDPAuthenticationManager(this))
 {
 }
 
@@ -257,20 +260,13 @@ void DDPClient::start()
 
     if (!mUrl.isEmpty()) {
         const QUrl serverUrl = adaptUrl(mUrl);
-        if (!serverUrl.isValid()) {
-            setLoginStatus(LoginFailed);
-        } else {
+        if (serverUrl.isValid()) {
             mWebSocket->openUrl(serverUrl);
             qCDebug(RUQOLA_DDPAPI_LOG) << "Trying to connect to URL" << serverUrl;
         }
     } else {
         qCDebug(RUQOLA_DDPAPI_LOG) << "url is empty";
     }
-}
-
-void DDPClient::setLoginJobId(quint64 jobid)
-{
-    m_loginJob = jobid;
 }
 
 QUrl DDPClient::adaptUrl(const QString &url)
@@ -292,31 +288,14 @@ void DDPClient::onServerURLChange()
     }
 }
 
-DDPClient::LoginStatus DDPClient::loginStatus() const
+DDPAuthenticationManager *DDPClient::authenticationManager() const
 {
-    return m_loginStatus;
-}
-
-void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
-{
-    qCDebug(RUQOLA_DDPAPI_LOG) << "Setting login status to" << l;
-    m_loginStatus = l;
-    Q_EMIT loginStatusChanged();
-
-    // reset flags
-    if (l == LoginFailed) {
-        m_attemptedPasswordLogin = false;
-    }
+    return mAuthenticationManager;
 }
 
 bool DDPClient::isConnected() const
 {
     return m_connected;
-}
-
-bool DDPClient::isLoggedIn() const
-{
-    return m_loginStatus == LoggedIn;
 }
 
 QString DDPClient::cachePath() const
@@ -636,18 +615,6 @@ quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &
     return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
 }
 
-quint64 DDPClient::loginProvider(const QString &credentialToken, const QString &credentialSecret)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->loginProvider(credentialToken, credentialSecret, m_uid);
-    return method(result, empty_callback, DDPClient::Ephemeral);
-}
-
-quint64 DDPClient::login(const QString &username, const QString &password)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->login(username, password, mRocketChatAccount->settings()->twoFactorAuthenticationCode(), m_uid);
-    return method(result, login_result, DDPClient::Ephemeral);
-}
-
 quint64 DDPClient::addUserToRoom(const QString &username, const QString &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addUserToRoom(username, roomId, m_uid);
@@ -772,6 +739,79 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     m_uid++;
 }
 
+void DDPClient::registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
+{
+    const QPair<QString, QString>& key {collection, event};
+
+    if (mEventSubscriptionHash.contains(key)) {
+        qCCritical(RUQOLA_DDPAPI_LOG) << "ERROR! Another manager is subscribed to this event, registration failed.";
+        return;
+    }
+
+    mEventSubscriptionHash[key] = {ddpManager, subscriptionId};
+    // Registering the client through its existing subscribe API
+    // TODO: check how useCollection and args are used
+    const QString params = QStringLiteral(R"([
+    "%1",
+    {
+        "useCollection": false,
+        "args": []
+    }
+])").arg(event);
+
+    subscribe(collection, Utils::strToJsonArray(params));
+}
+
+void DDPClient::deregisterSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
+{
+    const QPair<QString, QString> key {collection, event};
+
+    if (!mEventSubscriptionHash.contains(key)) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "No DDPManager is subscribed to this event"
+          << key;
+        return;
+    }
+
+    const QPair<DDPManager *, int> subscriptionParams = mEventSubscriptionHash.value(key);
+    const auto unsubscriptionParams = QPair<DDPManager *, int>{ddpManager, subscriptionId};
+    if (subscriptionParams != unsubscriptionParams) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "Unsubscription parameters don't match subscription parameters.";
+        qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Subscription parameters: " << subscriptionParams
+                                               << ", unsubscription parameters: " << unsubscriptionParams;
+        return;
+    }
+
+    qCDebug(RUQOLA_DDPAPI_LOG) << "Subscription to event" << key << "was removed successfully.";
+    mEventSubscriptionHash.remove(key);
+}
+
+quint64 DDPClient::invokeMethodAndRegister(const QString &methodName, const QJsonArray &params, DDPManager *ddpManager, int operationId)
+{
+    qCDebug(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "invoked with" << methodName << params;
+    mMethodResponseHash[m_uid] = QPair<DDPManager *, int>(ddpManager, operationId);
+    return method(methodName, QJsonDocument(params));
+}
+
+void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpManager, int operationId)
+{
+    if (!mMethodResponseHash.contains(methodId)) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "No API manager is registered to this method's responses. Method id:" << methodId;
+        return;
+    }
+
+    const auto registerParams = mMethodResponseHash[methodId];
+    const QPair<DDPManager *, int> deregisterParams {ddpManager, operationId};
+    if (registerParams != deregisterParams) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "Registration parameters for this method don't match the ones in the unregister request.";
+        qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Method ID: " << methodId << ", registration parameters: " << registerParams
+                                               << ", deregistration parameters: " << deregisterParams;
+        return;
+    }
+
+    qCDebug(RUQOLA_DDPAPI_LOG) << "Registration to method" << methodId << "was removed successfully.";
+    mMethodResponseHash.remove(methodId);
+}
+
 void DDPClient::onTextMessageReceived(const QString &message)
 {
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
@@ -786,39 +826,23 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == QLatin1String("result")) {
             quint64 id = root.value(QLatin1String("id")).toString().toULongLong();
 
+            // Checking first if any of the new DDPManager claimed the result,
+            // otherwise defaulting to old behaviour.
+            if (mMethodResponseHash.contains(id)) {
+                QPair<DDPManager *, int> managerOperationPair = mMethodResponseHash[id];
+                managerOperationPair.first->processMethodResponse(managerOperationPair.second, root);
+                return;
+            }
+
             if (m_callbackHash.contains(id)) {
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
-
                 callback(root, mRocketChatAccount);
             }
-            Q_EMIT result(id, QJsonDocument(root.value(QLatin1String("result")).toObject()));
 
-            if (id == m_loginJob) {
-                const QJsonObject error(root.value(QLatin1String("error")).toObject());
-                const QJsonValue errorValue(error.value(QLatin1String("error")));
-                if (errorValue.toInt() == 403) {
-                    qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Wrong password or token expired";
-                    //When we have a login error make sure to change expire token otherwise we can't login.
-                    mRocketChatAccount->settings()->setExpireToken(-1);
-                    login(); // Let's keep trying to log in
-                } else if (errorValue.toString() == QLatin1String("totp-required") || errorValue.toString() == QLatin1String("totp-invalid")) {
-                    qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "A 2FA code or backup code is required to login";
-                    setLoginStatus(LoginCodeRequired);
-                } else if (!error.isEmpty()) {
-                    qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << error.value(QLatin1String("message")).toString();
-                    setLoginStatus(LoginFailed);
-                } else {
-                    const QString token = root.value(QLatin1String("result")).toObject().value(QLatin1String("token")).toString();
-                    mRocketChatAccount->settings()->setAuthToken(token);
-                    mRocketChatAccount->restApi()->setAuthToken(token);
-                    mRocketChatAccount->restApi()->setUserId(root.value(QLatin1String("id")).toString());
-                    setLoginStatus(DDPClient::LoggedIn);
-                }
-            }
+            Q_EMIT result(id, QJsonDocument(root.value(QLatin1String("result")).toObject()));
         } else if (messageType == QLatin1String("connected")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
             m_connected = true;
-            setLoginStatus(DDPClient::LoggingIn);
             Q_EMIT connectedChanged();
         } else if (messageType == QLatin1String("error")) {
             qWarning() << mRocketChatAccount->accountName()  << " ERROR!!" << message;
@@ -867,28 +891,20 @@ quint64 DDPClient::loadHistory(const QJsonArray &params)
 
 void DDPClient::login()
 {
-    if (!mRocketChatAccount->settings()->authToken().isEmpty() && !mRocketChatAccount->settings()->tokenExpired()) {
-        m_attemptedPasswordLogin = true;
-        QJsonObject json;
-        json[QStringLiteral("resume")] = mRocketChatAccount->settings()->authToken();
-        m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
-    } else if (!mRocketChatAccount->settings()->password().isEmpty()) {
-        // If we have a password and we couldn't log in, let's stop here
-        if (m_attemptedPasswordLogin) {
-            setLoginStatus(LoginFailed);
-            return;
-        }
-        m_attemptedPasswordLogin = true;
-
-        //m_loginJob = login(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password());
-        if (mRocketChatAccount->defaultAuthenticationInterface()) {
-            mRocketChatAccount->defaultAuthenticationInterface()->login();
-        } else {
-            qCWarning(RUQOLA_DDPAPI_LOG) <<"No plugins loaded. Please verify your installation.";
-            setLoginStatus(FailedToLoginPluginProblem);
-        }
+    if (mRocketChatAccount->defaultAuthenticationInterface()) {
+        mRocketChatAccount->defaultAuthenticationInterface()->login();
     } else {
-        setLoginStatus(LoginFailed);
+        qCWarning(RUQOLA_DDPAPI_LOG) << "No plugins loaded. Please verify your installation.";
+    }
+}
+
+void DDPClient::enqueueLogin()
+{
+    if (isConnected()) {
+        login();
+    }
+    else {
+        mLoginEnqueued = true;
     }
 }
 
@@ -910,6 +926,11 @@ void DDPClient::onWSConnected()
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
     }
+
+    if (mLoginEnqueued) {
+        login();
+        mLoginEnqueued = false;
+    }
 }
 
 void DDPClient::onSslErrors(const QList<QSslError> &errors)
@@ -928,11 +949,12 @@ void DDPClient::onWSclosed()
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED" << mWebSocket->closeReason() << mWebSocket->error() << mWebSocket->closeCode();
     }
 
-    setLoginStatus(NotConnected);
-
     if (normalClose) {
         Q_EMIT disconnectedByServer();
     }
+
+    m_connected = false;
+    Q_EMIT connectedChanged();
 }
 
 void DDPClient::pong()

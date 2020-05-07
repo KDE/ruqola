@@ -26,6 +26,7 @@
 #include <channels/channelbasejob.h>
 #include <commands/runcommandjob.h>
 #include <ddpapi/ddpclient.h>
+#include "ddpapi/ddpauthenticationmanager.h"
 #include <model/listmessagesmodel.h>
 #include "messages/message.h"
 #include "rocketchataccountsettings.h"
@@ -88,7 +89,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(QString twoFactorAuthenticationCode READ twoFactorAuthenticationCode WRITE setTwoFactorAuthenticationCode NOTIFY twoFactorAuthenticationCodeChanged)
-    Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
+    Q_PROPERTY(DDPAuthenticationManager::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     Q_PROPERTY(bool editingMode READ editingMode NOTIFY editingModeChanged)
     Q_PROPERTY(bool sortUnreadOnTop READ sortUnreadOnTop NOTIFY sortUnreadOnTopChanged)
     Q_PROPERTY(bool autoTranslateEnabled READ autoTranslateEnabled CONSTANT)
@@ -294,7 +295,7 @@ public:
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
-    Q_REQUIRED_RESULT DDPClient::LoginStatus loginStatus();
+    Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
 
     //Make it private in future
@@ -488,6 +489,8 @@ private:
     void slotListCommandDone(const QJsonObject &obj);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void updateUserModel(const User &user);
+
+    void loginStatusChangedSlot();
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

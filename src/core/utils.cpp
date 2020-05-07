@@ -20,6 +20,8 @@
 
 #include "utils.h"
 #include "ruqola_debug.h"
+
+#include <QJsonDocument>
 #include <QJsonObject>
 #include <QDateTime>
 #include <QJsonArray>
@@ -310,4 +312,42 @@ QDebug operator <<(QDebug d, const Utils::NotificationInfo &t)
     d << " type " << t.channelType;
     d << " pixmap is null ? " << t.pixmap.isNull();
     return d;
+}
+
+QJsonObject Utils::strToJsonObject(const QString &jsonString)
+{
+    QJsonParseError jsonParseError;
+    const auto doc = QJsonDocument::fromJson(jsonString.toLatin1(), &jsonParseError);
+
+    if (jsonParseError.error != QJsonParseError::NoError) {
+        qCWarning(RUQOLA_LOG).nospace() << Q_FUNC_INFO << " Couldn't parse a valid JSON from argument: " << jsonString
+            << "\n JSON parse error: " << jsonParseError.errorString();
+        return {};
+    }
+
+    if (!doc.isObject()) {
+        qCWarning(RUQOLA_LOG) << Q_FUNC_INFO << "The JSON string argument is not a JSON object." << jsonString;
+        return {};
+    }
+
+    return doc.object();
+}
+
+QJsonArray Utils::strToJsonArray(const QString &jsonString)
+{
+    QJsonParseError jsonParseError;
+    const auto doc = QJsonDocument::fromJson(jsonString.toLatin1(), &jsonParseError);
+
+    if (jsonParseError.error != QJsonParseError::NoError) {
+        qCWarning(RUQOLA_LOG).nospace() << Q_FUNC_INFO << " Couldn't parse a valid JSON from argument: " << jsonString
+            << "\n JSON parse error: " << jsonParseError.errorString();
+        return {};
+    }
+
+    if (!doc.isArray()) {
+        qCWarning(RUQOLA_LOG) << Q_FUNC_INFO << "The JSON string argument is not a JSON array." << jsonString;
+        return {};
+    }
+
+    return doc.array();
 }

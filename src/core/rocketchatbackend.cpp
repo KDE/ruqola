@@ -76,7 +76,7 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
             || roomType == QLatin1Char('p') /*Private chat*/
             || roomType == QLatin1Char('d') /*Direct chat*/) {
             // let's be extra safe around crashes
-            if (account->loginStatus() == DDPClient::LoggedIn) {
+            if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
                 model->updateRoom(roomJson);
             }
         }
@@ -111,7 +111,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             || roomType == QLatin1Char('p')     /*Private chat*/
             || roomType == QLatin1Char('d')) {    //Direct chat) {
             // let's be extra safe around crashes
-            if (account->loginStatus() == DDPClient::LoggedIn) {
+            if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
                 model->addRoom(room);
             }
         } else if (roomType == QLatin1Char('l')) { //Live chat
@@ -144,10 +144,20 @@ RocketChatBackend::~RocketChatBackend()
 
 void RocketChatBackend::slotConnectedChanged()
 {
-    mRocketChatAccount->restApi()->serverInfo(false);
-    connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
-    connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getServerInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
-    mRocketChatAccount->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
+    if (!mRocketChatAccount->ddp()->isConnected()) {
+        return;
+    }
+
+    auto restApi = mRocketChatAccount->restApi();
+    auto ddp = mRocketChatAccount->ddp();
+
+    restApi->serverInfo(false);
+    connect(restApi, &RocketChatRestApi::RestApiRequest::getServerInfoDone,
+            this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
+    connect(restApi, &RocketChatRestApi::RestApiRequest::getServerInfoFailed,
+            this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
+
+    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
 void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
@@ -207,19 +217,26 @@ void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
 
 void RocketChatBackend::slotLoginStatusChanged()
 {
-    if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
+    if (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+        // Now that we are logged in the ddp authentication manager has all the information we need
+        mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
+        mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
+        mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
+
         connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
         std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
-                                                                                          getsubscription_parsing(obj, account);
-                                                                                      };
-        mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
-        mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
-        mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
-        mRocketChatAccount->restApi()->getPrivateSettings();
-        mRocketChatAccount->restApi()->getOwnInfo();
+            getsubscription_parsing(obj, account);
+        };
+
+        auto ddp = mRocketChatAccount->ddp();
+        ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
+
+        auto restApi = mRocketChatAccount->restApi();
+        restApi->getPrivateSettings();
+        restApi->getOwnInfo();
     }
 }
 

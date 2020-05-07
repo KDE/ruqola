@@ -63,6 +63,7 @@
 #include "authenticationmanager.h"
 
 #include "ddpapi/ddpclient.h"
+#include "ddpapi/ddpauthenticationmanager.h"
 #include "discussions.h"
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
@@ -474,7 +475,8 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
-        connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged,
+                this, &RocketChatAccount::loginStatusChangedSlot);
         connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
@@ -495,12 +497,13 @@ bool RocketChatAccount::editingMode() const
     return mEditingMode;
 }
 
-DDPClient::LoginStatus RocketChatAccount::loginStatus()
+DDPAuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
 {
+    // TODO: DDP API should exist as soon as the hostname is known
     if (mDdp) {
-        return ddp()->loginStatus();
+        return ddp()->authenticationManager()->loginStatus();
     } else {
-        return DDPClient::LoggedOut;
+        return DDPAuthenticationManager::LoggedOut;
     }
 }
 
@@ -508,12 +511,8 @@ void RocketChatAccount::tryLogin()
 {
     qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
-    delete mDdp;
-    mDdp = nullptr;
-
-    // This creates a new ddp() object.
-    // DDP will automatically try to connect and login.
-    ddp();
+    // ddp() creates a new DDPClient object if it doesn't exist.
+    ddp()->enqueueLogin();
 
     // In the meantime, load cache...
     mRoomModel->reset();
@@ -522,22 +521,8 @@ void RocketChatAccount::tryLogin()
 void RocketChatAccount::logOut()
 {
     mSettings->logout();
-
     mRoomModel->clear();
-#ifdef USE_REASTAPI_JOB
-    restApi()->logout();
-#else
-    QJsonObject user;
-    user[QStringLiteral("username")] = mSettings->userName();
-    QJsonObject json;
-    json[QStringLiteral("user")] = user;
-    ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
-#endif
-    delete mDdp;
-    mDdp = nullptr;
-    Q_EMIT logoutDone(accountName());
-    Q_EMIT loginStatusChanged();
-    qCDebug(RUQOLA_LOG) << "Successfully logged out!";
+    mDdp->authenticationManager()->logout();
 }
 
 void RocketChatAccount::clearAllUnreadMessages()
@@ -2072,4 +2057,14 @@ void RocketChatAccount::markMessageAsUnReadFrom(const QString &messageId)
 void RocketChatAccount::markRoomAsUnRead(const QString &roomId)
 {
     restApi()->markRoomAsUnRead(roomId);
+}
+
+void RocketChatAccount::loginStatusChangedSlot()
+{
+    if (loginStatus() == DDPAuthenticationManager::LoggedOut) {
+        Q_EMIT logoutDone(accountName());
+        qCDebug(RUQOLA_LOG) << "Successfully logged out!";
+    }
+
+    Q_EMIT loginStatusChanged();
 }
