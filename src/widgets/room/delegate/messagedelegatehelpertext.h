@@ -53,13 +53,14 @@ public:
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;
 
-    void selectAll();
+    void selectAll(const QWidget *view, const QRect &messageRect, const QModelIndex &index);
 
 private:
     QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();
     void updateView(const QWidget *widget, const QModelIndex &index);
     QTextDocument *documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const;
+    void setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect);
 
     bool mShowThreadContext = true;
     QPersistentModelIndex mCurrentIndex; // during selection

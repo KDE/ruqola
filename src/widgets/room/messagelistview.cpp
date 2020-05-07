@@ -229,7 +229,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QAction *selectAllAction = new QAction(i18n("Select All"), &menu);
-    connect(selectAllAction, &QAction::triggered, this, &MessageListView::slotSelectAll);
+    connect(selectAllAction, &QAction::triggered, this, [=]() {
+            slotSelectAll(index);
+    });
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
@@ -271,7 +273,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         menu.addSeparator();
         menu.addAction(copyAction);
-        //menu.addAction(selectAllAction); For the moment we can't have access to message under mouse.
+        menu.addAction(selectAllAction);
 
         menu.addSeparator();
         QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
@@ -361,9 +363,9 @@ void MessageListView::createSeparator(QMenu &menu)
     }
 }
 
-void MessageListView::slotSelectAll()
+void MessageListView::slotSelectAll(const QModelIndex &index)
 {
-    mMessageListDelegate->selectedAll();
+    mMessageListDelegate->selectAll(viewOptions(), index);
 }
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)

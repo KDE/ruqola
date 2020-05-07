@@ -87,7 +87,7 @@ private:
     void slotDebugMessage(const QModelIndex &index);
     void slotUpdateLastSeen();
     void slotMarkMessageAsUnread(const QModelIndex &index);
-    void slotSelectAll();
+    void slotSelectAll(const QModelIndex &index);
 
 private:
     RoomWrapper *mRoomWrapper = nullptr;

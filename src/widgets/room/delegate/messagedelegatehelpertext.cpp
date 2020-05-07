@@ -109,12 +109,23 @@ bool MessageDelegateHelperText::hasSelection() const
     return mCurrentTextCursor.hasSelection();
 }
 
-void MessageDelegateHelperText::selectAll()
+void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect)
 {
+    mCurrentIndex = index;
+    mCurrentDocument = documentForIndex(index, messageRect.width(), view);
+}
+
+void MessageDelegateHelperText::selectAll(const QWidget *view, const QRect &messageRect, const QModelIndex &index)
+{
+    if (mCurrentIndex != index) {
+        setCurrentIndex(index, view, messageRect);
+    }
     if (mCurrentDocument && mCurrentTextCursor.isNull()) {
         mCurrentTextCursor = QTextCursor(mCurrentDocument);
     }
     mCurrentTextCursor.select(QTextCursor::Document);
+    updateView(view, mCurrentIndex);
+    setClipboardSelection();
 }
 
 QString MessageDelegateHelperText::selectedText() const
@@ -215,8 +226,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             // The old index no longer has selection, repaint it
             updateView(option.widget, mCurrentIndex);
         }
-        mCurrentIndex = index;
-        mCurrentDocument = documentForIndex(index, messageRect.width(), option.widget);
+        setCurrentIndex(index, option.widget, messageRect);
         if (mCurrentDocument) {
             const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection

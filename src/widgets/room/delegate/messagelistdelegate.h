@@ -62,7 +62,7 @@ public:
 
     void setLastSeenAt(qint64 lastSee);
 
-    void selectedAll();
+    void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 

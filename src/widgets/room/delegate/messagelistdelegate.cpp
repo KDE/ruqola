@@ -255,9 +255,10 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     painter->setPen(origPen);
 }
 
-void MessageListDelegate::selectedAll()
+void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    mHelperText->selectAll();
+    const Layout layout = doLayout(option, index);
+    mHelperText->selectAll(option.widget, layout.textRect, index);
 }
 
 QString MessageListDelegate::selectedText() const
@@ -302,8 +303,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Message
     if (layout.textRect.isValid()) {
-        const QRect messageRect = layout.textRect;
-        mHelperText->draw(painter, messageRect, index, option);
+        mHelperText->draw(painter, layout.textRect, index, option);
     }
 
     // Draw the pixmap
