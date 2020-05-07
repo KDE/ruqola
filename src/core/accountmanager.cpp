@@ -43,6 +43,11 @@ AccountManager::~AccountManager()
 {
 }
 
+int AccountManager::accountNumber() const
+{
+    return mRocketChatAccountModel->accountNumber();
+}
+
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {

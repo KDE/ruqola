@@ -120,6 +120,7 @@ void RuqolaMainWindow::slotAccountChanged()
 
 void RuqolaMainWindow::slotRaiseWindow()
 {
+    show();
     raise();
     activateWindow();
 }

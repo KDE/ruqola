@@ -18,6 +18,8 @@
 */
 
 #include "ruqolauserfeedbackprovider.h"
+#include "accountinfosource.h"
+
 #include <KUserFeedback/ApplicationVersionSource>
 #include <KUserFeedback/PlatformInfoSource>
 #include <KUserFeedback/ScreenInfoSource>
@@ -45,6 +47,8 @@ RuqolaUserFeedbackProvider::RuqolaUserFeedbackProvider(QObject *parent)
     addDataSource(new KUserFeedback::UsageTimeSource);
 
     addDataSource(new KUserFeedback::LocaleInfoSource);
+
+    addDataSource(new AccountInfoSource);
 }
 
 RuqolaUserFeedbackProvider::~RuqolaUserFeedbackProvider()
