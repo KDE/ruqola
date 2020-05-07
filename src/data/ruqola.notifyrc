@@ -1,8 +1,24 @@
 [Global]
 IconName=ruqola
 Comment=Notification
+Comment[ca]=Notificació
+Comment[ca@valencia]=Notificació
+Comment[et]=Märguanne
+Comment[nl]=Melding
+Comment[pt]=Notificação
+Comment[pt_BR]=Notificação
+Comment[uk]=Сповіщення
+Comment[x-test]=xxNotificationxx
 
 [Event/new-notification]
 Name=A Notification Arrived
+Name[ca]=Ha arribat una notificació
+Name[ca@valencia]=Ha arribat una notificació
+Name[et]=Saabus märguanne
+Name[nl]=Er is een melding aangekomen
+Name[pt]=Chegou uma Notificação
+Name[pt_BR]=Uma notificação chegou
+Name[uk]=З'явилося сповіщення
+Name[x-test]=xxA Notification Arrivedxx
 Action=Popup
 Urgency=Normal
