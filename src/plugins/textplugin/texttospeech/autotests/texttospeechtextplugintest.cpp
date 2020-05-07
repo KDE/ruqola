@@ -20,6 +20,7 @@
 
 #include "texttospeechtextplugintest.h"
 #include "../texttospeechtextplugin.h"
+#include "room/plugins/plugintextinterface.h"
 #include <QTest>
 QTEST_MAIN(TextToSpeechTextPluginTest)
 
