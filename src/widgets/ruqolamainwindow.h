@@ -59,6 +59,7 @@ private:
     void slotClearAccountAlerts();
     void slotLoginPageActivated(bool loginPageActivated);
     void slotConfigureNotifications();
+    void slotRaiseWindow();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;

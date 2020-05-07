@@ -110,11 +110,18 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
 
     updateActions();
     changeActionStatus(false); //Disable actions when switching.
     slotClearNotification(); //Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+}
+
+void RuqolaMainWindow::slotRaiseWindow()
+{
+    raise();
+    activateWindow();
 }
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)

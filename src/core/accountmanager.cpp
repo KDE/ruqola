@@ -65,6 +65,7 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     } else {
         linkRoom = QStringLiteral("ruqola:/user/%1").arg(roomName);
     }
+    Q_EMIT mCurrentAccount->raiseWindow();
     Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
 }
 
