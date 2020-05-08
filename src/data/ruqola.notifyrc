@@ -7,6 +7,7 @@ Comment[et]=Märguanne
 Comment[nl]=Melding
 Comment[pt]=Notificação
 Comment[pt_BR]=Notificação
+Comment[sv]=Underrättelse
 Comment[uk]=Сповіщення
 Comment[x-test]=xxNotificationxx
 
@@ -18,6 +19,7 @@ Name[et]=Saabus märguanne
 Name[nl]=Er is een melding aangekomen
 Name[pt]=Chegou uma Notificação
 Name[pt_BR]=Uma notificação chegou
+Name[sv]=En underrättelse anlände
 Name[uk]=З'явилося сповіщення
 Name[x-test]=xxA Notification Arrivedxx
 Action=Popup
