@@ -322,7 +322,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             createSeparator(menu);
         }
         menu.addAction(copyAction);
-        createSeparator(menu);
+        menu.addAction(selectAllAction);
+        menu.addSeparator();
         QAction *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
             const QString messageId = index.data(MessageModel::MessageId).toString();
