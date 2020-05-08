@@ -331,13 +331,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(goToMessageAction);
     }
 
-    createSeparator(menu);
-    QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
-    connect(reportMessageAction, &QAction::triggered, this, [=]() {
-        slotReportMessage(index);
-    });
-    menu.addAction(reportMessageAction);
-
     if (mMessageListDelegate->hasSelection()) {
         const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
         const QString selectedText = mMessageListDelegate->selectedText();
@@ -347,6 +340,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             interface->addAction(&menu);
         }
     }
+
+    createSeparator(menu);
+    QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
+    connect(reportMessageAction, &QAction::triggered, this, [=]() {
+        slotReportMessage(index);
+    });
+    menu.addAction(reportMessageAction);
+
 
     if (mDebug) {
         createSeparator(menu);
