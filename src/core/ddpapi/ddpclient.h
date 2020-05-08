@@ -277,16 +277,16 @@ private:
      *   When a subscription response is received by the client, it will be dispatched
      *   to the corresponding manager iff both the collection and the event name match.
      */
-    QHash<QPair<QString, QString>, QPair<DDPManager *, int>> mEventSubscriptionHash;
+    QHash<QPair<QString, QString>, QPair<DDPManager *, int> > mEventSubscriptionHash;
 
     /**
      * @brief stores subscription handlers for a given event on a given collection
-     * 
+     *
      * @def The key of the hash is the generated id of the called method.
      *   When a method response is received by the client, it will be dispatched
      *   to the corresponding manager iff the method call id matches.
      */
-    QHash<int, QPair<DDPManager *, int>> mMethodResponseHash;
+    QHash<int, QPair<DDPManager *, int> > mMethodResponseHash;
 
     bool m_connected = false;
 

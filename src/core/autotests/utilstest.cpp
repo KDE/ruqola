@@ -196,14 +196,13 @@ void UtilsTest::shouldParseNotification_data()
                                            << QStringLiteral("bla");
 
     QTest::newRow("notification2") << QStringLiteral("notification1")
-                                           << QStringLiteral("my title")
-                                           << QStringLiteral("@here")
-                                           << QStringLiteral("Gsvg6BGoBfmPLoFie")
-                                           << QStringLiteral("roomname example")
-                                           << QStringLiteral("c")
-                                           << QStringLiteral("foo")
-                                           << QStringLiteral("foo.bla");
-
+                                   << QStringLiteral("my title")
+                                   << QStringLiteral("@here")
+                                   << QStringLiteral("Gsvg6BGoBfmPLoFie")
+                                   << QStringLiteral("roomname example")
+                                   << QStringLiteral("c")
+                                   << QStringLiteral("foo")
+                                   << QStringLiteral("foo.bla");
 }
 
 void UtilsTest::shouldParseNotification()

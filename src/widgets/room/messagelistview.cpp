@@ -230,7 +230,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *selectAllAction = new QAction(i18n("Select All"), &menu);
     connect(selectAllAction, &QAction::triggered, this, [=]() {
-            slotSelectAll(index);
+        slotSelectAll(index);
     });
 
     if (mMode == Mode::Editing) {
@@ -348,7 +348,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotReportMessage(index);
     });
     menu.addAction(reportMessageAction);
-
 
     if (mDebug) {
         createSeparator(menu);

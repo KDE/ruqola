@@ -460,7 +460,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomFiles(const QS
     return subscribe(QStringLiteral("roomFiles"), QJsonDocument(params), id);
 }
 
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(const QString &username, const QString &roomId, quint64 id)
 {
     //This method use multiusers

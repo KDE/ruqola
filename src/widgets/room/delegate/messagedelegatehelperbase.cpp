@@ -49,15 +49,18 @@ QString MessageDelegateHelperBase::querySaveFileName(QWidget *parent, const QStr
         // guess a proper file suffix if none is given
         [&]() {
             QFile file(info.absoluteFilePath());
-            if (!file.open(QIODevice::ReadOnly))
+            if (!file.open(QIODevice::ReadOnly)) {
                 return;
+            }
             QMimeDatabase mimeDb;
             const auto mime = mimeDb.mimeTypeForFileNameAndData(fileName, &file);
-            if (!mime.isValid())
+            if (!mime.isValid()) {
                 return;
+            }
             const auto suffix = mime.preferredSuffix();
-            if (!suffix.isEmpty())
+            if (!suffix.isEmpty()) {
                 fileName += QLatin1Char('.') + suffix;
+            }
         }();
     }
     return QFileDialog::getSaveFileName(parent, title, dir.absoluteFilePath(fileName));

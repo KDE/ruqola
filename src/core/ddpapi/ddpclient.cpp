@@ -741,7 +741,7 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 
 void DDPClient::registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
 {
-    const QPair<QString, QString>& key {collection, event};
+    const QPair<QString, QString> &key {collection, event};
 
     if (mEventSubscriptionHash.contains(key)) {
         qCCritical(RUQOLA_DDPAPI_LOG) << "ERROR! Another manager is subscribed to this event, registration failed.";
@@ -768,7 +768,7 @@ void DDPClient::deregisterSubscriber(const QString &collection, const QString &e
 
     if (!mEventSubscriptionHash.contains(key)) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "No DDPManager is subscribed to this event"
-          << key;
+                                     << key;
         return;
     }
 
@@ -902,8 +902,7 @@ void DDPClient::enqueueLogin()
 {
     if (isConnected()) {
         login();
-    }
-    else {
+    } else {
         mLoginEnqueued = true;
     }
 }

@@ -321,7 +321,7 @@ QJsonObject Utils::strToJsonObject(const QString &jsonString)
 
     if (jsonParseError.error != QJsonParseError::NoError) {
         qCWarning(RUQOLA_LOG).nospace() << Q_FUNC_INFO << " Couldn't parse a valid JSON from argument: " << jsonString
-            << "\n JSON parse error: " << jsonParseError.errorString();
+                                        << "\n JSON parse error: " << jsonParseError.errorString();
         return {};
     }
 
@@ -340,7 +340,7 @@ QJsonArray Utils::strToJsonArray(const QString &jsonString)
 
     if (jsonParseError.error != QJsonParseError::NoError) {
         qCWarning(RUQOLA_LOG).nospace() << Q_FUNC_INFO << " Couldn't parse a valid JSON from argument: " << jsonString
-            << "\n JSON parse error: " << jsonParseError.errorString();
+                                        << "\n JSON parse error: " << jsonParseError.errorString();
         return {};
     }
 

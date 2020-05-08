@@ -51,7 +51,9 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+        authManager.processMethodResponse(0,
+                                          Utils::strToJsonObject(QStringLiteral(
+                                                                     R"(
         {
             "msg": "result",
             "id": "0",
@@ -82,7 +84,9 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+        authManager.processMethodResponse(0,
+                                          Utils::strToJsonObject(QStringLiteral(
+                                                                     R"(
         {
             "msg": "result",
             "id": "0",
@@ -113,7 +117,9 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+        authManager.processMethodResponse(0,
+                                          Utils::strToJsonObject(QStringLiteral(
+                                                                     R"(
         {
             "msg": "result",
             "id": "0",
@@ -144,7 +150,9 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+        authManager.processMethodResponse(0,
+                                          Utils::strToJsonObject(QStringLiteral(
+                                                                     R"(
         {
             "msg": "result",
             "id": "0",
@@ -175,7 +183,9 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+        authManager.processMethodResponse(0,
+                                          Utils::strToJsonObject(QStringLiteral(
+                                                                     R"(
         {
             "msg": "result",
             "id": "0",
@@ -207,7 +217,9 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0,
+                                      Utils::strToJsonObject(QStringLiteral(
+                                                                 R"(
     {
         "msg": "result",
         "id": "0",
@@ -235,7 +247,9 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0,
+                                      Utils::strToJsonObject(QStringLiteral(
+                                                                 R"(
     {
         "msg": "result",
         "id": "0",
@@ -262,7 +276,9 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     QCOMPARE(spyStatusChanged.count(), 3);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
-    authManager.processMethodResponse(1, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(1,
+                                      Utils::strToJsonObject(QStringLiteral(
+                                                                 R"(
     {
         "msg": "result",
         "id": "1",
@@ -293,7 +309,9 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0,
+                                      Utils::strToJsonObject(QStringLiteral(
+                                                                 R"(
     {
         "msg": "result",
         "id": "0",
@@ -320,7 +338,9 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     QCOMPARE(spyStatusChanged.count(), 3);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
-    authManager.processMethodResponse(1, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(1,
+                                      Utils::strToJsonObject(QStringLiteral(
+                                                                 R"(
     {
         "msg": "result",
         "id": "1",

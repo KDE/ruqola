@@ -155,13 +155,13 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
 
     if (mLoginStatus == LoginStatus::LoginOtpAuthOngoing) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
-            << "Another OTP authentication is going on.";
+                                     << "Another OTP authentication is going on.";
         return;
     }
 
     if (mLoginStatus != LoginStatus::LoginOtpRequired) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
-            << "Trying to send OTP but none was requested by the server.";
+                                     << "Trying to send OTP but none was requested by the server.";
         return;
     }
 
@@ -222,23 +222,22 @@ QString DDPAuthenticationManager::authToken() const
 void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const QJsonObject &response)
 {
     switch (static_cast<Method>(operationId)) {
-
     case Method::Login: // intentional fall-through
-    case Method::SendOtp: {
+    case Method::SendOtp:
         if (response.contains(sl("result"))) {
             mAuthToken = response[sl("result")].toObject()
-                                 [sl("token")].toString();
+                         [sl("token")].toString();
             mUserId = response[sl("result")].toObject()
-                              [sl("id")].toString();
+                      [sl("id")].toString();
             mTokenExpires = QDateTime::fromMSecsSinceEpoch(
                 response[sl("tokenExpires")].toObject()
-                        [sl("$date")].toInt());
+                [sl("$date")].toInt());
             setLoginStatus(LoggedIn);
         }
 
         if (response.contains(sl("error"))) {
             const QJsonValue errorCode = response[sl("error")].toObject()
-                                                 [sl("error")];
+                                         [sl("error")];
 
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
@@ -250,7 +249,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
                 setLoginStatus(LoginFailedInvalidUserOrPassword);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-required")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Two factor authentication is enabled on the server."
-                    << "A one-time password is required to complete the login procedure.";
+                                             << "A one-time password is required to complete the login procedure.";
                 setLoginStatus(LoginOtpRequired);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-invalid")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Invalid OTP code.";
@@ -263,31 +262,29 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
         }
 
         break;
-    }
 
-    case Method::Logout: {
+    case Method::Logout:
         // Don't really expect any errors here, except maybe when logging out without
         // being logged in. That is being taken care of in DDPAuthenticationManager::logout.
         // Printing any error message that may come up just in case, and preventing any other
         // operations by switching to GenericError state.
         if (response.contains(sl("error"))) {
             qCWarning(RUQOLA_DDPAPI_LOG) << "Error while logging out. Server response:"
-                << response;
+                                         << response;
             setLoginStatus(GenericError);
             return;
         }
 
         setLoginStatus(LoggedOut);
         break;
-    }
 
-    case Method::LogoutCleanUp: {
+    case Method::LogoutCleanUp:
         // Maybe the clean up request payload is corrupted
         if (response.contains(sl("error"))) {
             const QJsonValue errorCode = response[sl("error")].toObject()
-                                                 [sl("error")];
+                                         [sl("error")];
             qCWarning(RUQOLA_DDPAPI_LOG) << "Couldn't clean up on logout. Server response:"
-                << response;
+                                         << response;
             // If we get here we're likely getting something wrong from the UI.
             // Need to prevent any further operation from now on.
             setLoginStatus(GenericError);
@@ -296,7 +293,6 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
 
         setLoginStatus(LoggedOutAndCleanedUp);
         break;
-    }
     }
 }
 
@@ -313,11 +309,12 @@ bool DDPAuthenticationManager::isLoggedIn() const
 bool DDPAuthenticationManager::isLoggedOut() const
 {
     return mLoginStatus == DDPAuthenticationManager::LoggedOut
-      || mLoginStatus == DDPAuthenticationManager::LogoutCleanUpOngoing
-      || mLoginStatus == DDPAuthenticationManager::LoggedOutAndCleanedUp;
+           || mLoginStatus == DDPAuthenticationManager::LogoutCleanUpOngoing
+           || mLoginStatus == DDPAuthenticationManager::LoggedOutAndCleanedUp;
 }
 
-void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginStatus status) {
+void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
+{
     if (mLoginStatus != status) {
         mLoginStatus = status;
         Q_EMIT loginStatusChanged();
@@ -339,7 +336,7 @@ bool DDPAuthenticationManager::checkGenericError() const
 {
     if (mLoginStatus == LoginStatus::GenericError) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
-            << "The authentication manager is in an irreversible error state and can't perform any operation.";
+                                     << "The authentication manager is in an irreversible error state and can't perform any operation.";
     }
 
     return mLoginStatus == LoginStatus::GenericError;

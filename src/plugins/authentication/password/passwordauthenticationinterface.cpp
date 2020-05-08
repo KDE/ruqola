@@ -38,8 +38,7 @@ void PasswordAuthenticationInterface::login()
     if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
         mAccount->ddp()->authenticationManager()->login();
-    }
-    else {
+    } else {
         mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
     }
 }
