@@ -302,6 +302,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
         }
+
+        menu.addSeparator();
+        menu.addAction(copyAction);
+        menu.addAction(selectAllAction);
+
         if (deleteAction) {
             createSeparator(menu);
             menu.addAction(deleteAction);
