@@ -182,6 +182,15 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
         changeWidgetStatus(true);
         showError(i18n("Login Failed: generic error"));
         break;
+    case DDPAuthenticationManager::LoginOtpAuthOngoing:
+    case DDPAuthenticationManager::LoginFailedInvalidOtp:
+    case DDPAuthenticationManager::LogoutOngoing:
+    case DDPAuthenticationManager::LogoutCleanUpOngoing:
+    case DDPAuthenticationManager::LoggedOutAndCleanedUp:
+        //TODO
+        mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
+        break;
     }
 }
 
