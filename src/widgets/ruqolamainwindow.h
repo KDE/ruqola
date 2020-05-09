@@ -58,7 +58,7 @@ private:
     void slotCreateNewChannel();
     void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
     void slotClearNotification();
-    void slotAccountChanged();
+    void slotAccountChanged(bool showLastRoom);
     void slotUnreadOnTop(bool checked);
     void updateActions();
     void slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
@@ -98,7 +98,6 @@ private:
     ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
-    AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
     Notification *mNotification = nullptr;
     StatusCombobox *mStatusComboBox = nullptr;
     StatusModelFilterProxyModel *mStatusProxyModel = nullptr;

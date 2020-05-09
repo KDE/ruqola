@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
     (void)Ruqola::self();
 
     if (!loadAccount.isEmpty()) {
-        Ruqola::self()->setCurrentAccount(loadAccount);
+        Ruqola::self()->setCurrentAccount(loadAccount, false /*showLastRoom*/);
     }
     KDBusService service(KDBusService::Unique);
 

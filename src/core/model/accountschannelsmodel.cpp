@@ -83,9 +83,24 @@ AccountsChannelsModel::~AccountsChannelsModel()
 {
 }
 
+void AccountsChannelsModel::setFilterString(const QString &filter)
+{
+    mFiltered = !filter.isEmpty();
+    visitProxied<RoomFilterProxyModel>([&](RoomFilterProxyModel *m, const QModelIndex &){
+        m->setFilterString(filter);
+        return Continue;
+    });
+}
+
+bool AccountsChannelsModel::isFiltered() const
+{
+    return mFiltered;
+}
+
 QModelIndex AccountsChannelsModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (auto model = rootModel(parent)) {
+    const auto model = rootModel(parent);
+    if (model && column == 0 && row >= 0 && row < model->rowCount()) {
         return createIndex(row, column, model);
     }
     return {};
@@ -131,6 +146,49 @@ QVariant AccountsChannelsModel::data(const QModelIndex &index, int role) const
     return model->index(index.row(), index.column()).data(role);
 }
 
+QModelIndex AccountsChannelsModel::findRoomById(const QString &roomId, const RocketChatAccount *acct) const
+{
+    return findRoomByRole(RoomModel::RoomId, roomId, acct);
+}
+
+QModelIndex AccountsChannelsModel::findRoomByName(const QString &roomName, const RocketChatAccount *acct) const
+{
+    return findRoomByRole(RoomModel::RoomName, roomName, acct);
+}
+
+QModelIndex AccountsChannelsModel::findRoomByRole(int role, const QVariant &value, const RocketChatAccount *acct) const
+{
+    QModelIndex found;
+    if (!acct)
+        return found;
+
+    visitProxied<RoomFilterProxyModel>([&](RoomFilterProxyModel *m, const QModelIndex &root){
+        if (m != acct->roomFilterProxyModel())
+            return Continue;
+
+        for (int i = 0, count = m->rowCount(); i < count; ++i)
+        {
+            if (m->index(i, 0).data(role) == value)
+            {
+                found = index(i, 0, root);
+                return Abort;
+            }
+        }
+        return  Continue;
+    });
+    return found;
+}
+
+QString AccountsChannelsModel::accountForIndex(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return {};
+
+    const auto parent = index.parent();
+    const auto accountIndex = parent.isValid() ? parent : index;
+    return accountIndex.data(RocketChatAccountModel::Name).toString();
+}
+
 QModelIndex AccountsChannelsModel::modelRoot(QAbstractItemModel *model) const
 {
     const auto find = [model](const ProxyIndex &i) {
@@ -156,12 +214,14 @@ void AccountsChannelsModel::mapModelToIndex(QAbstractItemModel *model, const std
         beginInsertRows(modelRoot(model), first, last);
     });
     connect(model, &QAbstractItemModel::rowsInserted, this, &AccountsChannelsModel::endInsertRows);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &AccountsChannelsModel::modelChanged);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, [this, model](const QModelIndex &parent, int first, int last) {
         Q_ASSERT(!parent.isValid());
         beginRemoveRows(modelRoot(model), first, last);
     });
     connect(model, &QAbstractItemModel::rowsRemoved, this, &AccountsChannelsModel::endRemoveRows);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, &AccountsChannelsModel::modelChanged);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeMoved, this, [this, model](const QModelIndex &src, int sf, int sl, const QModelIndex &dst, int df) {
         Q_ASSERT(!src.isValid() && !dst.isValid());
@@ -169,12 +229,15 @@ void AccountsChannelsModel::mapModelToIndex(QAbstractItemModel *model, const std
         beginMoveRows(idx, sf, sl, idx, df);
     });
     connect(model, &QAbstractItemModel::rowsMoved, this, &AccountsChannelsModel::endMoveRows);
+    connect(model, &QAbstractItemModel::rowsMoved, this, &AccountsChannelsModel::modelChanged);
 
     connect(model, &QAbstractItemModel::modelAboutToBeReset, this, &AccountsChannelsModel::beginResetModel);
     connect(model, &QAbstractItemModel::modelReset, this, &AccountsChannelsModel::endResetModel);
+    connect(model, &QAbstractItemModel::modelReset, this, &AccountsChannelsModel::modelChanged);
 
     connect(model, &QAbstractItemModel::layoutAboutToBeChanged, this, &AccountsChannelsModel::layoutAboutToBeChanged);
     connect(model, &QAbstractItemModel::layoutChanged, this, &AccountsChannelsModel::layoutChanged);
+    connect(model, &QAbstractItemModel::layoutChanged, this, &AccountsChannelsModel::modelChanged);
 
     connect(model, &QAbstractItemModel::dataChanged, this, [this, model](const QModelIndex &tl, const QModelIndex &br) {
         const auto parent = modelRoot(model);

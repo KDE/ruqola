@@ -50,7 +50,7 @@ public:
 
     explicit Ruqola(QObject *parent = nullptr);
 
-    void setCurrentAccount(const QString &accountName);
+    void setCurrentAccount(const QString &accountName, bool showLastRoom);
 
 private:
     Q_DISABLE_COPY(Ruqola)

@@ -61,7 +61,7 @@ void AccountsChannelsModelTest::accountsAndChannels()
     acct->setAccountName(newAcctName);
     QCOMPARE(model.data(newAcctIndex).toString(), newAcctName);
 
-    Ruqola::self()->setCurrentAccount(newAcctName);
+    Ruqola::self()->setCurrentAccount(newAcctName, false /*showLastRoom*/);
 
     const auto newRoomId = QStringLiteral("RoomId");
     const auto newRoomName = QStringLiteral("Room Name");

@@ -61,7 +61,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
 
 void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType)
 {
-    setCurrentAccount(accountName);
+    setCurrentAccount(accountName, false /*showLastRoom*/);
     QString linkRoom;
     if (channelType == QLatin1Char('c')) {
         linkRoom = QStringLiteral("ruqola:/room/%1").arg(roomName);
@@ -176,7 +176,7 @@ void AccountManager::selectAccount(const QString &accountName)
     }
 }
 
-void AccountManager::setCurrentAccount(const QString &accountName)
+void AccountManager::setCurrentAccount(const QString &accountName, bool showLastRoom)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
     if (account) {
@@ -185,7 +185,7 @@ void AccountManager::setCurrentAccount(const QString &accountName)
             settings.setValue(QStringLiteral("currentAccount"), accountName);
             settings.sync();
             mCurrentAccount = account;
-            Q_EMIT currentAccountChanged();
+            Q_EMIT currentAccountChanged(showLastRoom);
         }
     } else {
         qCWarning(RUQOLA_LOG) << "AccountName " << accountName << " is not found on system. Fallback to default one.";
@@ -205,7 +205,7 @@ void AccountManager::removeAccount(const QString &accountName)
     } else {
         // TODO create new dummy account !
     }
-    Q_EMIT currentAccountChanged();
+    Q_EMIT currentAccountChanged(false /*showLastRoom*/);
 }
 
 RocketChatAccountModel *AccountManager::rocketChatAccountModel() const

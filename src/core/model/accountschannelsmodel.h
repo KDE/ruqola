@@ -24,17 +24,32 @@
 
 #include "libruqolacore_export.h"
 
+class RocketChatAccount;
+
 class LIBRUQOLACORE_EXPORT AccountsChannelsModel : public QAbstractItemModel
 {
+    Q_OBJECT
 public:
     explicit AccountsChannelsModel(QObject *parent = nullptr);
     ~AccountsChannelsModel() override;
+
+    void setFilterString(const QString &filter);
+    bool isFiltered() const;
 
     QModelIndex index(int row, int column, const QModelIndex &parent = {}) const override;
     QModelIndex parent(const QModelIndex &child) const override;
     int rowCount(const QModelIndex &parent = {}) const override;
     int columnCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    QModelIndex findRoomById(const QString &roomId, const RocketChatAccount *acct) const;
+    QModelIndex findRoomByName(const QString &roomName, const RocketChatAccount *acct) const;
+    QModelIndex findRoomByRole(int role, const QVariant &value, const RocketChatAccount *acct) const;
+
+    QString accountForIndex(const QModelIndex &index) const;
+
+Q_SIGNALS:
+    void modelChanged();
 
 private:
     Q_REQUIRED_RESULT QModelIndex modelRoot(QAbstractItemModel *model) const;
@@ -47,5 +62,22 @@ private:
         std::function<QModelIndex()> root;
     };
     QVector<ProxyIndex> mProxied;
+    bool mFiltered = false;
+
+    enum Visit
+    {
+        Continue,
+        Abort
+    };
+    template<class T, class Fn>
+    void visitProxied(const Fn &fn) const
+    {
+        for (const auto &proxied: mProxied)
+        {
+            if (auto model = qobject_cast<T*>(proxied.model))
+                if (fn(model, proxied.root()) == Abort)
+                    return;
+        }
+    }
 };
 

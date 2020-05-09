@@ -19,8 +19,11 @@
 */
 
 #include "channellistview.h"
+
+#include "accountmanager.h"
 #include "channellistdelegate.h"
-#include "model/roomfilterproxymodel.h"
+#include "model/accountschannelsmodel.h"
+#include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -32,44 +35,48 @@
 #include <QMenu>
 
 ChannelListView::ChannelListView(QWidget *parent)
-    : QListView(parent)
+    : QTreeView(parent)
     , mChannelListDelegate(new ChannelListDelegate(this))
 {
     setItemDelegate(mChannelListDelegate);
+    setUniformRowHeights(true);
+    setHeaderHidden(true);
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
+    connect(this, &ChannelListView::clicked, this, &ChannelListView::activateChannel);
+
+    auto model = new AccountsChannelsModel(this);
+    auto syncCurrentIndex = [this, model](const RocketChatAccount *acct){
+        if (model->isFiltered())
+            return; // We don't keep in sync when filtering
+
+        const auto index = model->findRoomById(mCurrentChannelId, acct);
+        selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+    };
+
+    connect(model, &AccountsChannelsModel::modelChanged, this, [syncCurrentIndex]{
+        syncCurrentIndex(Ruqola::self()->rocketChatAccount());
+    });
+    connect(this, &ChannelListView::channelActivated, this, [syncCurrentIndex](const QString &acct){
+        syncCurrentIndex(Ruqola::self()->accountManager()->rocketChatAccountModel()->account(acct));
+    });
+    QTreeView::setModel(model);
 }
 
-ChannelListView::~ChannelListView()
-{
-}
 
 void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
-RoomFilterProxyModel *ChannelListView::model() const
+ChannelListView::~ChannelListView()
 {
-    return qobject_cast<RoomFilterProxyModel *>(QListView::model());
 }
 
-void ChannelListView::setModel(QAbstractItemModel *model)
+void ChannelListView::setModel(QAbstractItemModel *)
 {
-    if (!qobject_cast<RoomFilterProxyModel *>(model)) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Need to pass a RoomFilterProxyModel instance!";
-        return;
-    }
-
-    QListView::setModel(model);
-}
-
-void ChannelListView::slotClicked(const QModelIndex &index)
-{
-    if (index.isValid()) {
-        channelSelected(index);
-    }
+    Q_ASSERT_X(false, "", "Cannot change the channel list view model");
 }
 
 void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
@@ -129,11 +136,30 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
     }
 }
 
-void ChannelListView::channelSelected(const QModelIndex &index)
+AccountsChannelsModel *ChannelListView::rooms() const
 {
+    Q_ASSERT(qobject_cast<AccountsChannelsModel*>(QTreeView::model()));
+    return static_cast<AccountsChannelsModel*>(QTreeView::model());
+}
+
+void ChannelListView::activateChannel(const QModelIndex &index)
+{
+    if (!index.isValid())
+        return;
+
+    if (!index.parent().isValid())
+    {
+        // This is an account index, activate last selected room
+        if (auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount*>())
+            activateChannelById(account->settings()->lastSelectedRoom());
+        return;
+    }
+
     const QString roomId = index.data(RoomModel::RoomId).toString();
     const QString roomType = index.data(RoomModel::RoomType).toString();
-    Q_EMIT roomSelected(roomId, roomType);
+    const QString acct = rooms()->accountForIndex(index);
+    mCurrentChannelId = roomId;
+    Q_EMIT channelActivated(acct, roomId, roomType);
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, const QString &roomType)
@@ -157,43 +183,91 @@ void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavori
     rcAccount->changeFavorite(roomId, !isFavorite);
 }
 
-void ChannelListView::selectChannelRequested(const QString &channelId)
+void ChannelListView::activateChannelById(const QString &channelId)
 {
-    if (channelId.isEmpty()) {
-        return;
-    }
-    RoomFilterProxyModel *filterModel = model();
-    Q_ASSERT(filterModel);
-    const int nRooms = filterModel->rowCount();
-    if (nRooms == 0) {
-        return; // too early, next chance when accountInitialized is emitted
-    }
-    for (int roomIdx = 0; roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toString();
-        if (roomId == channelId) {
-            channelSelected(roomModelIndex);
-            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            return;
-        }
-    }
-    qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
+    activateChannel(rooms()->findRoomById(channelId, Ruqola::self()->rocketChatAccount()));
 }
 
-bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRoomName)
+bool ChannelListView::activateChannelByRoomName(const QString &selectedRoomName)
 {
-    if (selectedRoomName.isEmpty()) {
+    const auto roomIdx = rooms()->findRoomByName(selectedRoomName, Ruqola::self()->rocketChatAccount());
+    if (!roomIdx.isValid())
         return false;
-    }
-    RoomFilterProxyModel *filterModel = model();
-    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto roomName = roomModelIndex.data(RoomModel::RoomName).toString();
-        if (roomName == selectedRoomName) {
-            channelSelected(roomModelIndex);
-            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            return true;
+
+    activateChannel(roomIdx);
+    return true;
+}
+
+void ChannelListView::moveSelectionDown()
+{
+    const auto index = [&]() -> QModelIndex {
+        const auto current = currentIndex().isValid() ? currentIndex() : rooms()->index(0, 0);
+        if (!current.isValid())
+            return {};
+
+        const auto useParent = current.parent();
+        if (useParent.isValid())
+        {
+            const auto room = current.sibling(current.row() + 1, 0);
+            if (room.isValid())
+                return room;
         }
-    }
-    return false;
+
+        auto account = useParent.isValid() ? useParent.sibling(useParent.row() + 1, 0) : current;
+        while (account.isValid())
+        {
+            if (rooms()->hasChildren(account))
+                return rooms()->index(0, 0, account);
+            account = account.sibling(account.row() + 1, account.column());
+        }
+        return {};
+    }();
+
+    if (index.isValid())
+        selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
+}
+
+void ChannelListView::moveSelectionUp()
+{
+    const auto index = [&]() -> QModelIndex {
+        const auto current = [&]{
+            if (currentIndex().isValid())
+                return currentIndex();
+
+            const auto lastParent = rooms()->index(rooms()->rowCount() - 1, 0);
+            if (!lastParent.isValid())
+                return lastParent;
+
+            const auto lastChild = rooms()->index(rooms()->rowCount(lastParent) - 1, 0, lastParent);
+            return lastChild.isValid() ? lastChild : lastParent;
+        }();
+        if (!current.isValid())
+            return {};
+
+        const auto useParent = current.parent();
+        if (useParent.isValid())
+        {
+            const auto room = current.sibling(current.row() - 1, 0);
+            if (room.isValid())
+                return room;
+        }
+
+        auto account = useParent.isValid() ? useParent.sibling(useParent.row() - 1, 0) : current;
+        while (account.isValid())
+        {
+            if (rooms()->hasChildren(account))
+                return rooms()->index(rooms()->rowCount(account) - 1, 0, account);
+            account = account.sibling(account.row() - 1, account.column());
+        }
+
+        return {};
+    }();
+
+    if (index.isValid())
+        selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
+}
+
+void ChannelListView::setFilterString(const QString &filter)
+{
+    rooms()->setFilterString(filter);
 }

@@ -36,16 +36,16 @@ public:
     explicit RuqolaMainWidget(QWidget *parent = nullptr);
     ~RuqolaMainWidget() override;
     Q_REQUIRED_RESULT QString roomId() const;
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void setCurrentRocketChatAccount(RocketChatAccount *account, bool showLastRoom);
     Q_REQUIRED_RESULT QString roomType() const;
     Room *room() const;
 
-    void selectChannelRoom(const QString &roomId, const QString &roomType);
 Q_SIGNALS:
     void channelSelected();
 
 private:
     void showEvent(QShowEvent *event) override;
+    void selectChannelRoom(const QString &acct, const QString &roomId, const QString &roomType);
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;

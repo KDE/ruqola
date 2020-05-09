@@ -31,6 +31,7 @@ public:
         Name = Qt::UserRole + 1,
         SiteUrl,
         UserName,
+        Account
     };
     Q_ENUM(AccountRoles)
 

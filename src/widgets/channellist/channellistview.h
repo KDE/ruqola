@@ -20,37 +20,42 @@
 
 #pragma once
 
-#include <QListView>
+#include <QTreeView>
 
 #include "libruqolawidgets_private_export.h"
 
-class RoomFilterProxyModel;
+class AccountsChannelsModel;
 class ChannelListDelegate;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QTreeView
 {
     Q_OBJECT
 public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView() override;
 
-    RoomFilterProxyModel *model() const;
-    void setModel(QAbstractItemModel *model) override;
+    void setModel(QAbstractItemModel *) override;
+    void model() const = delete;
 
-    void selectChannelRequested(const QString &channelId);
+    void activateChannel(const QModelIndex &index);
+    void activateChannelById(const QString &channelId);
+    Q_REQUIRED_RESULT bool activateChannelByRoomName(const QString &selectedRoomName);
 
-    Q_REQUIRED_RESULT bool selectChannelByRoomNameRequested(const QString &selectedRoomName);
+    void moveSelectionDown();
+    void moveSelectionUp();
 
-    void channelSelected(const QModelIndex &index);
+    void setFilterString(const QString &filter);
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 Q_SIGNALS:
-    void roomSelected(const QString &roomId, const QString &roomType);
+    void channelActivated(const QString &acct, const QString &roomId, const QString &roomType);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
+    AccountsChannelsModel *rooms() const;
+
     void slotClicked(const QModelIndex &index);
     void slotHideChannel(const QModelIndex &index, const QString &roomType);
     void slotLeaveChannel(const QModelIndex &index, const QString &roomType);
@@ -58,5 +63,8 @@ private:
     void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
 
     ChannelListDelegate *const mChannelListDelegate;
+
+    // TODO: Move this state out of this widget
+    QString mCurrentChannelId;
 };
 

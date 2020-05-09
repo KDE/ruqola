@@ -83,7 +83,7 @@ QString RuqolaCentralWidget::roomType() const
     return mRuqolaMainWidget->roomType();
 }
 
-void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool showLastRoom)
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
@@ -92,7 +92,7 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::socketError, this, &RuqolaCentralWidget::slotSocketError);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
-    mRuqolaMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    mRuqolaMainWidget->setCurrentRocketChatAccount(account, showLastRoom);
     // Check if account is connected or not.
     slotLoginStatusChanged();
 }

@@ -53,8 +53,7 @@ public:
     RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
 
     void addAccount(RocketChatAccount *account);
-
-    void setCurrentAccount(const QString &accountName);
+    void setCurrentAccount(const QString &accountName, bool showLastRoom = true);
     Q_REQUIRED_RESULT QString currentAccount() const;
     void selectAccount(const QString &accountName);
 
@@ -65,7 +64,7 @@ public:
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
-    void currentAccountChanged();
+    void currentAccountChanged(bool showLastRoom);
     void roomNeedAttention();
 
 private:

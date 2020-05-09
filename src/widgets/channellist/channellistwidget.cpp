@@ -43,7 +43,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
-    connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
+    connect(mChannelView, &ChannelListView::channelActivated, this, &ChannelListWidget::channelActivated);
 
     // dummy action just for getting the icon)
     mSearchRoom->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
@@ -52,8 +52,8 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoom->setClearButtonEnabled(true);
     mSearchRoom->installEventFilter(this);
     mainLayout->addWidget(mSearchRoom);
-    connect(mSearchRoom, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
 
+    connect(mSearchRoom, &QLineEdit::textChanged, mChannelView, &ChannelListView::setFilterString);
     // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Channels"), this);
     searchRoomAction->setShortcut(Qt::CTRL | Qt::Key_K);
@@ -68,28 +68,18 @@ ChannelListWidget::~ChannelListWidget()
 {
 }
 
-void ChannelListWidget::clearFilterChannel()
-{
-    if (auto *model = mChannelView->model()) {
-        model->setFilterString(QString());
-        mSearchRoom->clear();
-    }
-}
-
 void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    clearFilterChannel();
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::accountInitialized, this, &ChannelListWidget::slotAccountInitialized);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openLinkRequested, this, &ChannelListWidget::slotOpenLinkRequested);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::activateChannelByRoomName);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::activateChannelById);
 
     mChannelView->setCurrentRocketChatAccount(account);
-    mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
 }
 
 ChannelListView *ChannelListWidget::channelListView() const
@@ -100,36 +90,26 @@ ChannelListView *ChannelListWidget::channelListView() const
 bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 {
     if (object == mSearchRoom && event->type() == QEvent::KeyPress) {
-        const auto *model = mChannelView->model();
         const auto keyEvent = static_cast<QKeyEvent *>(event);
         const int keyValue = keyEvent->key();
-        if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
-            const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
-            if (selectedIndex.isValid()) {
-                mChannelView->channelSelected(selectedIndex);
-                mSearchRoom->setText({});
-            }
-        } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
-            const QModelIndex currentIndex = mChannelView->selectionModel()->currentIndex();
-            int selectRow = -1;
-            if (keyValue == Qt::Key_Up) {
-                if (!currentIndex.isValid()) {
-                    selectRow = model->rowCount() - 1;
-                } else if (currentIndex.row() - 1 >= 0) {
-                    selectRow = currentIndex.row() - 1;
-                }
-            } else { // Qt::Key_Down
-                if (!currentIndex.isValid()) {
-                    selectRow = 0;
-                } else if (currentIndex.row() + 1 < model->rowCount()) {
-                    selectRow = currentIndex.row() + 1;
+        switch (keyValue)
+        {
+        case Qt::Key_Return:
+        case Qt::Key_Enter:
+            {
+                const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
+                if (selectedIndex.isValid()) {
+                    mChannelView->activateChannel(selectedIndex);
+                    mSearchRoom->setText({});
                 }
             }
-
-            if (selectRow != -1) {
-                mChannelView->selectionModel()->setCurrentIndex(model->index(selectRow, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            }
-            return true; // eat event
+            break;
+        case Qt::Key_Up:
+            mChannelView->moveSelectionUp();
+            return true;
+        case Qt::Key_Down:
+            mChannelView->moveSelectionDown();
+            return true;
         }
     }
 
@@ -138,12 +118,12 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 
 void ChannelListWidget::slotAccountInitialized()
 {
-    mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+    mChannelView->activateChannelById(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
 }
 
 void ChannelListWidget::slotSearchRoomTextChanged()
 {
-    mChannelView->model()->setFilterString(mSearchRoom->text());
+    mChannelView->setFilterString(mSearchRoom->text());
 }
 
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
@@ -158,14 +138,14 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
         }
         if (link.startsWith(QLatin1String("ruqola:/room/"))) {
-            if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
+            if (!mChannelView->activateChannelByRoomName(roomOrUser)) {
                 mCurrentRocketChatAccount->openChannel(roomOrUser, RocketChatAccount::ChannelTypeInfo::RoomName);
             }
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
             if (roomOrUser == QLatin1String("here") || roomOrUser == QLatin1String("all")) {
                 return;
             }
-            if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
+            if (!mChannelView->activateChannelByRoomName(roomOrUser)) {
                 if (roomOrUser != mCurrentRocketChatAccount->userName()) {
                     mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
                 }

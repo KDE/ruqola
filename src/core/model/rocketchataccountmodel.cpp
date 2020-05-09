@@ -20,8 +20,11 @@
 
 #include "rocketchataccountmodel.h"
 #include "rocketchataccount.h"
+#include "roommodel.h"
 #include "ruqola_debug.h"
 #include "ruqolaserverconfig.h"
+
+#include <QIcon>
 
 RocketChatAccountModel::RocketChatAccountModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -48,12 +51,21 @@ void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &acc
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRocketChatAccount.count() - 1);
+        for (auto acct: accounts)
+            acct->roomModel()->disconnect(this);
         mRocketChatAccount.clear();
         endRemoveRows();
     }
     if (!accounts.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, accounts.count() - 1);
         mRocketChatAccount = accounts;
+        for (auto acct: accounts)
+        {
+            connect(acct->roomModel(), &RoomModel::needToUpdateNotification, this, [this, acct]{
+                const auto idx = index(mRocketChatAccount.indexOf(acct));
+                Q_EMIT dataChanged(idx, idx);
+            });
+        }
         endInsertRows();
     }
     Q_EMIT accountNumberChanged();
@@ -113,6 +125,17 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     const int idx = index.row();
     RocketChatAccount *account = mRocketChatAccount.at(idx);
     switch (role) {
+    case Qt::DecorationRole:
+    {
+        bool hasAlert = false;
+        int nbUnread = 0;
+        account->roomModel()->getUnreadAlertFromAccount(hasAlert, nbUnread);
+        if (hasAlert)
+            return QIcon::fromTheme(QStringLiteral("flag-red"));
+        if (nbUnread)
+            return QIcon::fromTheme(QStringLiteral("flag-green"));
+        return QIcon::fromTheme(QStringLiteral("flag-black"));
+    }
     case Qt::DisplayRole:
     case Name:
         return account->displayName();
@@ -120,6 +143,8 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
         return account->ruqolaServerConfig()->siteUrl();
     case UserName:
         return account->userName();
+    case Account:
+        return QVariant::fromValue(account);
     }
     // Add icon ???
     return {};

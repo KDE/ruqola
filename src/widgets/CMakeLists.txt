@@ -157,7 +157,6 @@ set(Ruqola_misc_widget_SRCS
     misc/pixmapcache.cpp
     misc/avatarcachemanager.cpp
     misc/servermenu.cpp
-    misc/accountsoverviewwidget.cpp
     misc/emoticonmenuwidget.cpp
     misc/emoticonselectorwidget.cpp
     misc/emoticonrecentusedfilterproxymodel.cpp

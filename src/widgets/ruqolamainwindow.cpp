@@ -33,7 +33,6 @@
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/serverinfodialog.h"
-#include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"
 #include "model/statusmodel.h"
@@ -95,8 +94,8 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(Ruqola::self()->accountManager(), &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
     connect(Ruqola::self()->accountManager(), &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
+    slotAccountChanged(false /*showLastRoom*/);
 
-    slotAccountChanged();
 #if HAVE_KUSERFEEDBACK
     auto userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
@@ -145,11 +144,9 @@ void RuqolaMainWindow::setupStatusBar()
     mStatusBarTypingMessage->setTextFormat(Qt::RichText);
     mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
     statusBar()->addPermanentWidget(mStatusBarTypingMessage);
-    mAccountOverviewWidget = new AccountsOverviewWidget(this);
-    statusBar()->addPermanentWidget(mAccountOverviewWidget);
 }
 
-void RuqolaMainWindow::slotAccountChanged()
+void RuqolaMainWindow::slotAccountChanged(bool showLastRoom)
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
@@ -184,7 +181,7 @@ void RuqolaMainWindow::slotAccountChanged()
     updateActions();
     changeActionStatus(false); // Disable actions when switching.
     slotClearNotification(); // Clear notification when we switch too.
-    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount, showLastRoom);
 
     mStatusComboBox->blockSignals(true);
     mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
@@ -385,16 +382,14 @@ void RuqolaMainWindow::slotCreateNewChannel()
 void RuqolaMainWindow::slotConfigure()
 {
     QPointer<ConfigureSettingsDialog> dlg = new ConfigureSettingsDialog(this);
-    if (dlg->exec()) {
-        if (RuqolaGlobalConfig::self()->useCustomFont()) {
-            qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
-        } else {
-            qApp->setFont(QFontDatabase::systemFont(QFontDatabase::GeneralFont));
-        }
-
-        mAccountOverviewWidget->updateButtons();
-        createSystemTray();
+    dlg->exec();
+    if (RuqolaGlobalConfig::self()->useCustomFont()) {
+        qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
+    } else {
+        qApp->setFont(QFontDatabase::systemFont(QFontDatabase::GeneralFont));
     }
+
+        createSystemTray();
     delete dlg;
 }
 

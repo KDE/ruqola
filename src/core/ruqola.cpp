@@ -1,4 +1,4 @@
-﻿/*
+/*
 
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
@@ -57,9 +57,9 @@ Ruqola::Ruqola(QObject *parent)
     mAccountManager = new AccountManager(this);
 }
 
-void Ruqola::setCurrentAccount(const QString &accountName)
+void Ruqola::setCurrentAccount(const QString &accountName, bool showLastRoom)
 {
-    mAccountManager->setCurrentAccount(accountName);
+    mAccountManager->setCurrentAccount(accountName, showLastRoom);
 }
 
 AccountManager *Ruqola::accountManager() const

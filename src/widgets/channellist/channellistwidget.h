@@ -40,7 +40,7 @@ public:
     void setLayoutSpacing(int spacing);
 
 Q_SIGNALS:
-    void roomSelected(const QString &roomId, const QString &roomType);
+    void channelActivated(const QString &acct, const QString &roomId, const QString &roomType);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
@@ -48,7 +48,6 @@ protected:
 private:
     void slotAccountInitialized();
     void slotSearchRoomTextChanged();
-    void clearFilterChannel();
     void slotOpenLinkRequested(const QString &link);
 
     ChannelListView *const mChannelView;

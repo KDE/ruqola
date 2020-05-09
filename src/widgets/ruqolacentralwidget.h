@@ -38,7 +38,7 @@ public:
     ~RuqolaCentralWidget() override;
     Q_REQUIRED_RESULT QString roomId() const;
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void setCurrentRocketChatAccount(RocketChatAccount *account, bool showLastRoom);
     Q_REQUIRED_RESULT QString roomType() const;
     Room *room() const;
 Q_SIGNALS:
