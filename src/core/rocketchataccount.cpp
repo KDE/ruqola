@@ -658,9 +658,6 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
-#if 0
-    restApi()->channelList();
-#else
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
@@ -668,7 +665,6 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
         //Avoid to show own user
         restApi()->searchRoomUser(pattern);
     }
-#endif
 }
 
 void RocketChatAccount::listEmojiCustom()
