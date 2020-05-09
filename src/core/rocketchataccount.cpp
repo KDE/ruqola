@@ -666,12 +666,7 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
     } else {
         //Use restapi
         //Avoid to show own user
-#ifdef USE_REASTAPI_JOB
         restApi()->searchRoomUser(pattern);
-#else
-        const QString addUserNameToException = userName();
-        ddp()->channelAndPrivateAutocomplete(pattern, addUserNameToException);
-#endif
     }
 #endif
 }
@@ -683,7 +678,6 @@ void RocketChatAccount::listEmojiCustom()
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QString &messageStatus)
 {
-#ifdef USE_REASTAPI_JOB
     RocketChatRestApi::SetStatusJob::StatusType type = RocketChatRestApi::SetStatusJob::Unknown;
     switch (status) {
     case User::PresenceStatus::PresenceOnline:
@@ -704,10 +698,6 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
     }
     mPresenceStatus = status;
     restApi()->setUserStatus(userID(), type, messageStatus);
-#else
-    Q_UNUSED(messageStatus);
-    ddp()->setDefaultStatus(status);
-#endif
 }
 
 void RocketChatAccount::changeDefaultStatus(int index, const QString &messageStatus)
