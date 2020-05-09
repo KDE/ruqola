@@ -187,6 +187,12 @@ private:
                 return i18n("Failed to login due to plugin problem");
             case DDPAuthenticationManager::GenericError:
                 return i18n("Login failed: generic error");
+            case DDPAuthenticationManager::LoginOtpRequired:
+            case DDPAuthenticationManager::LoginFailedInvalidOtp:
+            case DDPAuthenticationManager::LogoutOngoing:
+            case DDPAuthenticationManager::LogoutCleanUpOngoing:
+            case DDPAuthenticationManager::LoggedOutAndCleanedUp:
+                break;
             }
         }
         return i18n("Unknown state");
