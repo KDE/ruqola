@@ -171,9 +171,6 @@ public:
     */
     Q_REQUIRED_RESULT QString cachePath() const;
 
-    quint64 leaveRoom(const QString &roomID);
-    quint64 hideRoom(const QString &roomID);
-    quint64 clearUnreadMessages(const QString &roomID);
 
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 
@@ -182,44 +179,18 @@ public:
 
     Q_REQUIRED_RESULT DDPAuthenticationManager *authenticationManager() const;
 
-    quint64 toggleFavorite(const QString &roomID, bool favorite);
-    quint64 createChannel(const QString &name, const QStringList &userList, bool readOnly);
-    quint64 createPrivateGroup(const QString &name, const QStringList &userList);
     quint64 joinRoom(const QString &roomId, const QString &joinCode);
     quint64 openDirectChannel(const QString &userId);
     void subscribeRoomMessage(const QString &roomId);
     quint64 setDefaultStatus(User::PresenceStatus status);
     quint64 createJitsiConfCall(const QString &roomId);
     quint64 userAutocomplete(const QString &pattern, const QString &exception);
-    quint64 deleteMessage(const QString &messageId);
-    quint64 eraseRoom(const QString &roomID);
-    quint64 setRoomName(const QString &roomId, const QString &name);
-    quint64 setRoomTopic(const QString &roomId, const QString &topic);
-    quint64  setRoomDescription(const QString &roomId, const QString &description);
-    quint64  setRoomAnnouncement(const QString &roomId, const QString &announcement);
-    quint64  starMessage(const QString &messageId, const QString &rid, bool starred);
-    quint64  setRoomIsReadOnly(const QString &roomId, bool readOnly);
-    quint64  archiveRoom(const QString &roomId);
-    quint64  setReaction(const QString &emoji, const QString &messageId);
-    quint64  getUsersOfRoom(const QString &roomId, bool showAll);
-    quint64  loadHistory(const QJsonArray &params);
-    quint64  channelAndPrivateAutocomplete(const QString &pattern, const QString &exception);
-    //quint64  roomFiles(const QString &roomId);
-    quint64  addUserToRoom(const QString &userId, const QString &roomId);
-    quint64  inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
-    quint64  inputUserAutocomplete(const QString &pattern, const QString &exceptions);
-    quint64  unBlockUser(const QString &rid, const QString &userId);
-    quint64  blockUser(const QString &rid, const QString &userId);
-    quint64  disableNotifications(const QString &roomId, bool disabled);
-    quint64  hideUnreadStatus(const QString &roomId, bool disabled);
-    quint64  audioNotifications(const QString &roomId, const QString &value);
-    quint64  mobilePushNotifications(const QString &roomId, const QString &value);
-    quint64  desktopNotifications(const QString &roomId, const QString &value);
-    quint64  emailNotifications(const QString &roomId, const QString &value);
-    quint64  unreadAlert(const QString &roomId, const QString &value);
-    quint64  deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
-    quint64  setRoomType(const QString &roomId, bool privateChannel);
-    quint64  ignoreUser(const QString &roomId, const QString &userId, bool ignore);
+    quint64 loadHistory(const QJsonArray &params);
+    quint64 inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
+    quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions);
+    quint64 unBlockUser(const QString &rid, const QString &userId);
+    quint64 blockUser(const QString &rid, const QString &userId);
+    quint64 deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
     quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
 Q_SIGNALS:
     void connectedChanged();
