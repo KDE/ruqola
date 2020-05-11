@@ -963,9 +963,17 @@ Room *Room::fromJSon(const QJsonObject &o)
     QStringList lst;
     lst.reserve(mutedArray.count());
     for (int i = 0; i < mutedArray.count(); ++i) {
-        lst <<mutedArray.at(i).toString();
+        lst << mutedArray.at(i).toString();
     }
     r->setMutedUsers(lst);
+
+    const QJsonArray systemMessagesArray = o.value(QLatin1String("systemMessages")).toArray();
+    lst.clear();
+    lst.reserve(systemMessagesArray.count());
+    for (int i = 0; i < systemMessagesArray.count(); ++i) {
+        lst << systemMessagesArray.at(i).toString();
+    }
+    r->setDisplaySystemMessageType(lst);
 
     const QJsonArray ignoredArray = o.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
@@ -1080,6 +1088,15 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     if (!r->directChannelUserId().isEmpty()) {
         o[QStringLiteral("directChannelUserId")] = r->directChannelUserId();
+    }
+
+    if (!r->displaySystemMessageType().isEmpty()) {
+        QJsonArray array;
+        const int nbDisplaySystemMessageType = r->displaySystemMessageType().count();
+        for (int i = 0; i < nbDisplaySystemMessageType; ++i) {
+            array.append(r->mutedUsers().at(i));
+        }
+        o[QStringLiteral("systemMessages")] = array;
     }
 
     if (toBinary) {
