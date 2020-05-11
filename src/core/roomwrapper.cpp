@@ -63,6 +63,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
 
     connect(mRoom, &Room::lastSeenChanged, this, &RoomWrapper::lastSeenChanged);
     connect(mRoom, &Room::directChannelUserIdChanged, this, &RoomWrapper::directChannelUserIdChanged);
+    connect(mRoom, &Room::displaySystemMessageTypesChanged, this, &RoomWrapper::displaySystemMessageTypesChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -227,4 +228,9 @@ qint64 RoomWrapper::lastSeenAt() const
 QString RoomWrapper::directChannelUserId() const
 {
     return mRoom->directChannelUserId();
+}
+
+QStringList RoomWrapper::displaySystemMessageTypes() const
+{
+    return mRoom->displaySystemMessageTypes();
 }

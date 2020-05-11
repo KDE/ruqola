@@ -92,7 +92,7 @@ bool Room::isEqual(const Room &other) const
            && (mAutoTranslate == other.autoTranslate())
            && (mAutotranslateLanguage == other.autoTranslateLanguage())
            && (mDirectChannelUserId == other.directChannelUserId())
-            && (mDisplaySystemMessageType == other.displaySystemMessageType());
+            && (mDisplaySystemMessageType == other.displaySystemMessageTypes());
 }
 
 QString Room::displayRoomName() const
@@ -146,7 +146,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "autotranslate " << t.autoTranslate();
     d << "autotranslateLanguage " << t.autoTranslateLanguage();
     d << "directChannelUserId " << t.directChannelUserId();
-    d << "DisplaySystemMessageType " << t.displaySystemMessageType();
+    d << "DisplaySystemMessageType " << t.displaySystemMessageTypes();
     return d;
 }
 
@@ -714,7 +714,7 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     for (int i = 0; i < sysMessArray.count(); ++i) {
         lst << sysMessArray.at(i).toString();
     }
-    setDisplaySystemMessageType(lst);
+    setDisplaySystemMessageTypes(lst);
 }
 
 void Room::parseCommonData(const QJsonObject &json)
@@ -744,16 +744,16 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
-QStringList Room::displaySystemMessageType() const
+QStringList Room::displaySystemMessageTypes() const
 {
     return mDisplaySystemMessageType;
 }
 
-void Room::setDisplaySystemMessageType(const QStringList &systemMessageType)
+void Room::setDisplaySystemMessageTypes(const QStringList &systemMessageType)
 {
     if (mDisplaySystemMessageType != systemMessageType) {
         mDisplaySystemMessageType = systemMessageType;
-        Q_EMIT displaySystemMessageChanged();
+        Q_EMIT displaySystemMessageTypesChanged();
     }
 }
 
@@ -973,7 +973,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     for (int i = 0; i < systemMessagesArray.count(); ++i) {
         lst << systemMessagesArray.at(i).toString();
     }
-    r->setDisplaySystemMessageType(lst);
+    r->setDisplaySystemMessageTypes(lst);
 
     const QJsonArray ignoredArray = o.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
@@ -1090,9 +1090,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QStringLiteral("directChannelUserId")] = r->directChannelUserId();
     }
 
-    if (!r->displaySystemMessageType().isEmpty()) {
+    if (!r->displaySystemMessageTypes().isEmpty()) {
         QJsonArray array;
-        const int nbDisplaySystemMessageType = r->displaySystemMessageType().count();
+        const int nbDisplaySystemMessageType = r->displaySystemMessageTypes().count();
         for (int i = 0; i < nbDisplaySystemMessageType; ++i) {
             array.append(r->mutedUsers().at(i));
         }

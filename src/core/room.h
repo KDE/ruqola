@@ -213,8 +213,8 @@ public:
     Q_REQUIRED_RESULT QString directChannelUserId() const;
     void setDirectChannelUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QStringList displaySystemMessageType() const;
-    void setDisplaySystemMessageType(const QStringList &displaySystemMessageType);
+    Q_REQUIRED_RESULT QStringList displaySystemMessageTypes() const;
+    void setDisplaySystemMessageTypes(const QStringList &displaySystemMessageTypes);
 
 Q_SIGNALS:
     void nameChanged();
@@ -251,7 +251,7 @@ Q_SIGNALS:
     void lastSeenChanged();
 
     void directChannelUserIdChanged();
-    void displaySystemMessageChanged();
+    void displaySystemMessageTypesChanged();
 
 private:
     Q_DISABLE_COPY(Room)
