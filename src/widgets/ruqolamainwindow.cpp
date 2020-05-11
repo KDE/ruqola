@@ -166,6 +166,7 @@ void RuqolaMainWindow::setupActions()
     KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
     mSaveAs = KStandardAction::saveAs(this, &RuqolaMainWindow::slotSaveAs, ac);
+    mSaveAs->setText(i18n("Save As Text..."));
 
     QAction *act = new QAction(i18n("Add Account..."), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
