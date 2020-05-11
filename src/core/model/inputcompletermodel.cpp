@@ -36,6 +36,24 @@ InputCompleterModel::~InputCompleterModel()
 {
 }
 
+void InputCompleterModel::setDefaultUserCompletion()
+{
+    //Show here/all when we only use "@"
+    QVector<Channel> customCompletion;
+
+    Channel here;
+    here.setName(QStringLiteral("here"));
+    here.setType(Channel::ChannelType::Unknown);
+    customCompletion.append(here);
+
+    Channel all;
+    all.setType(Channel::ChannelType::Unknown);
+    all.setName(QStringLiteral("all"));
+    customCompletion.append(all);
+
+    setChannels(customCompletion);
+}
+
 void InputCompleterModel::setChannels(const QVector<Channel> &channels)
 {
     if (rowCount() != 0) {
@@ -140,8 +158,7 @@ QString InputCompleterModel::channelName(const Channel &channel) const
     case Channel::ChannelType::Room:
         return channel.roomName();
     case Channel::ChannelType::Unknown:
-        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
-        return {};
+        return channel.name();
     }
     return {};
 }
@@ -160,7 +177,6 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
         qCWarning(RUQOLA_LOG) << "Unknown room type!" << channel.roomType();
         return {};
     case Channel::ChannelType::Unknown:
-        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
         return {};
     }
     return {};

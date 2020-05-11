@@ -51,6 +51,7 @@ public:
 
     void clear();
 
+    void setDefaultUserCompletion();
 private:
     Q_DISABLE_COPY(InputCompleterModel)
     Q_REQUIRED_RESULT QIcon channelIconName(const Channel &channel) const;

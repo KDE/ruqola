@@ -155,8 +155,12 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
     } else {
         if (word.startsWith(QLatin1Char('@'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
-            Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::User);
             setCompletionType(InputTextManager::CompletionForType::User);
+            if (str.isEmpty()) {
+                mInputCompleterModel->setDefaultUserCompletion();
+            } else {
+                Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::User);
+            }
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
