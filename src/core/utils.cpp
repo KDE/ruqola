@@ -179,7 +179,7 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 
 Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
 {
-    qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
+    //qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
     Utils::NotificationInfo info;
     const QJsonObject obj = contents.at(0).toObject();
     info.title = obj[QStringLiteral("title")].toString();
