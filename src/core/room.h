@@ -213,8 +213,8 @@ public:
     Q_REQUIRED_RESULT QString directChannelUserId() const;
     void setDirectChannelUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QStringList systemMessageType() const;
-    void setSystemMessageType(const QStringList &systemMessageType);
+    Q_REQUIRED_RESULT QStringList displaySystemMessageType() const;
+    void setDisplaySystemMessageType(const QStringList &displaySystemMessageType);
 
 Q_SIGNALS:
     void nameChanged();
@@ -251,10 +251,12 @@ Q_SIGNALS:
     void lastSeenChanged();
 
     void directChannelUserIdChanged();
+    void displaySystemMessageChanged();
 
 private:
     Q_DISABLE_COPY(Room)
     void parseCommonData(const QJsonObject &json);
+    void parseDisplaySystemMessage(const QJsonObject &json);
 
     //Room Object Fields
 
@@ -334,7 +336,7 @@ private:
 
     QString mDirectChannelUserId;
 
-    QStringList mSystemMessageType;
+    QStringList mDisplaySystemMessageType;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;

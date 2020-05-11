@@ -91,7 +91,8 @@ bool Room::isEqual(const Room &other) const
            && (mFName == other.fName())
            && (mAutoTranslate == other.autoTranslate())
            && (mAutotranslateLanguage == other.autoTranslateLanguage())
-           && (mDirectChannelUserId == other.directChannelUserId());
+           && (mDirectChannelUserId == other.directChannelUserId())
+            && (mDisplaySystemMessageType == other.displaySystemMessageType());
 }
 
 QString Room::displayRoomName() const
@@ -145,6 +146,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "autotranslate " << t.autoTranslate();
     d << "autotranslateLanguage " << t.autoTranslateLanguage();
     d << "directChannelUserId " << t.directChannelUserId();
+    d << "DisplaySystemMessageType " << t.displaySystemMessageType();
     return d;
 }
 
@@ -573,6 +575,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     }
 
     parseCommonData(json);
+    parseDisplaySystemMessage(json);
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -685,6 +688,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
 
     parseCommonData(json);
+    parseDisplaySystemMessage(json);
 //    const QJsonValue ownerValue = json.value(QLatin1String("u"));
 //    if (!ownerValue.isUndefined()) {
 //        const QJsonObject objOwner = ownerValue.toObject();
@@ -700,6 +704,17 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     mNotificationOptions.parseNotificationOptions(json);
 
     //TODO add muted
+}
+
+void Room::parseDisplaySystemMessage(const QJsonObject &json)
+{
+    const QJsonArray sysMessArray = json.value(QLatin1String("sysMes")).toArray();
+    QStringList lst;
+    lst.reserve(sysMessArray.count());
+    for (int i = 0; i < sysMessArray.count(); ++i) {
+        lst << sysMessArray.at(i).toString();
+    }
+    setDisplaySystemMessageType(lst);
 }
 
 void Room::parseCommonData(const QJsonObject &json)
@@ -729,14 +744,17 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
-QStringList Room::systemMessageType() const
+QStringList Room::displaySystemMessageType() const
 {
-    return mSystemMessageType;
+    return mDisplaySystemMessageType;
 }
 
-void Room::setSystemMessageType(const QStringList &systemMessageType)
+void Room::setDisplaySystemMessageType(const QStringList &systemMessageType)
 {
-    mSystemMessageType = systemMessageType;
+    if (mDisplaySystemMessageType != systemMessageType) {
+        mDisplaySystemMessageType = systemMessageType;
+        Q_EMIT displaySystemMessageChanged();
+    }
 }
 
 bool Room::autoTranslate() const
