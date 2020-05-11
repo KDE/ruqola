@@ -729,6 +729,16 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
+QStringList Room::systemMessageType() const
+{
+    return mSystemMessageType;
+}
+
+void Room::setSystemMessageType(const QStringList &systemMessageType)
+{
+    mSystemMessageType = systemMessageType;
+}
+
 bool Room::autoTranslate() const
 {
     return mAutoTranslate;

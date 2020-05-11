@@ -213,6 +213,9 @@ public:
     Q_REQUIRED_RESULT QString directChannelUserId() const;
     void setDirectChannelUserId(const QString &userId);
 
+    Q_REQUIRED_RESULT QStringList systemMessageType() const;
+    void setSystemMessageType(const QStringList &systemMessageType);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -330,6 +333,8 @@ private:
     bool mAutoTranslate = false;
 
     QString mDirectChannelUserId;
+
+    QStringList mSystemMessageType;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
