@@ -1756,7 +1756,9 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         Q_UNUSED(loaded);
         info.pixmap = pix;
     }
-    //qDebug() << " parsing info " << info;
+    if (!info.isValid()) {
+        qCWarning(RUQOLA_LOG) << " Info is invalod ! " << contents;
+    }
     Q_EMIT notification(info);
 }
 

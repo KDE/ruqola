@@ -48,7 +48,7 @@ void NotifierJob::start()
 
         notification->sendEvent();
     } else {
-        qCWarning(RUQOLA_LOG) << "Info is Empty";
+        qCWarning(RUQOLA_LOG) << "Info is invalid";
         deleteLater();
     }
 }
