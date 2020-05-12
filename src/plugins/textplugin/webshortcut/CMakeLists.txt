@@ -9,4 +9,7 @@ kcoreaddons_add_plugin(ruqola_webshortcuttextplugin JSON ruqola_webshortcuttextp
 target_link_libraries(ruqola_webshortcuttextplugin
     libruqolacore libruqolawidgets
     )
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
 
