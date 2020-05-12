@@ -34,6 +34,7 @@
 #include <QComboBox>
 #include <QFormLayout>
 #include <QPushButton>
+#include <KCollapsibleGroupBox>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -64,16 +65,15 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     hlayout->addWidget(copyLinkButton);
     connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
 
-    mExpireDateLabel = new QLabel(this);
-    mExpireDateLabel->setObjectName(QStringLiteral("mExpireDateLabel"));
-    mExpireDateLabel->setWordWrap(true);
-    mainLayout->addWidget(mExpireDateLabel);
+    KCollapsibleGroupBox *collapsibleGroupBox = new KCollapsibleGroupBox(this);
+    collapsibleGroupBox->setObjectName(QStringLiteral("collapsibleGroupBox"));
+    collapsibleGroupBox->setTitle(i18n("Options"));
+    mainLayout->addWidget(collapsibleGroupBox);
 
     connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
 
-    QFormLayout *formLayout = new QFormLayout;
+    QFormLayout *formLayout = new QFormLayout(collapsibleGroupBox);
     formLayout->setObjectName(QStringLiteral("formLayout"));
-    mainLayout->addLayout(formLayout);
     formLayout->setContentsMargins(0, 0, 0, 0);
 
     mExpirationDays = new QComboBox(this);
@@ -88,6 +88,12 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     generateNewLink->setObjectName(QStringLiteral("generateNewLink"));
     connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
     mainLayout->addWidget(generateNewLink);
+
+    mExpireDateLabel = new QLabel(this);
+    mExpireDateLabel->setObjectName(QStringLiteral("mExpireDateLabel"));
+    mExpireDateLabel->setWordWrap(true);
+    mainLayout->addWidget(mExpireDateLabel);
+
     mainLayout->addStretch(1);
     fillComboBox();
 }

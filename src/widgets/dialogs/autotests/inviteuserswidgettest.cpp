@@ -28,6 +28,7 @@
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <KCollapsibleGroupBox>
 QTEST_MAIN(InviteUsersWidgetTest)
 
 InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)
@@ -45,6 +46,11 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
+
+    KCollapsibleGroupBox *collapsibleGroupBox = w.findChild<KCollapsibleGroupBox *>(QStringLiteral("collapsibleGroupBox"));
+    QVERIFY(collapsibleGroupBox);
+    QVERIFY(!collapsibleGroupBox->title().isEmpty());
+
 
     QLineEdit *mInviteUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
