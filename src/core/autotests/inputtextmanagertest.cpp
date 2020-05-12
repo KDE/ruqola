@@ -98,8 +98,7 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     manager.setInputTextChanged(QStringLiteral("a @"), 3);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
-    QCOMPARE(requestSpy.count(), 1);
-    QCOMPARE(requestSpy.at(0).at(0).toString(), QString());
+    QCOMPARE(requestSpy.count(), 0); //We don't send signal when we have only "@" now.
     typeChangedSpy.clear();
     requestSpy.clear();
 
