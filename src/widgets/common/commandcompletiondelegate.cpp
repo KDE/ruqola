@@ -34,8 +34,8 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     // command <parameter> description at end
     drawBackground(painter, option, index);
     const int margin = 8;
-    QFont oldFont = painter->font();
-    QFontMetrics commandFontMetrics(painter->font());
+    const QFont oldFont = painter->font();
+    const QFontMetrics commandFontMetrics(painter->font());
     const QString commandText = index.data(CommandsModel::CommandName).toString();
     const int commandWidth = commandFontMetrics.horizontalAdvance(commandText);
 

@@ -35,7 +35,7 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     // [M] <unicode emoji> <:identifier:>     ([M] = margin)
     drawBackground(painter, option, index);
     const int margin = 8;
-    QFontMetricsF emojiFontMetrics(mEmojiFont);
+    const QFontMetricsF emojiFontMetrics(mEmojiFont);
     const QString emojiText = index.data(EmoticonModel::UnicodeEmoji).toString();
     const int emojiWidth = emojiFontMetrics.horizontalAdvance(emojiText);
     painter->setFont(mEmojiFont);
