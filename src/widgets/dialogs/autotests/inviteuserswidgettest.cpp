@@ -51,7 +51,6 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(collapsibleGroupBox);
     QVERIFY(!collapsibleGroupBox->title().isEmpty());
 
-
     QLineEdit *mInviteUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
     QVERIFY(mInviteUserLineEdit->isReadOnly());

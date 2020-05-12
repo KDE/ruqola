@@ -171,7 +171,6 @@ public:
     */
     Q_REQUIRED_RESULT QString cachePath() const;
 
-
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 
     void setServerUrl(const QString &url);

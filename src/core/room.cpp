@@ -92,7 +92,7 @@ bool Room::isEqual(const Room &other) const
            && (mAutoTranslate == other.autoTranslate())
            && (mAutotranslateLanguage == other.autoTranslateLanguage())
            && (mDirectChannelUserId == other.directChannelUserId())
-            && (mDisplaySystemMessageType == other.displaySystemMessageTypes());
+           && (mDisplaySystemMessageType == other.displaySystemMessageTypes());
 }
 
 QString Room::displayRoomName() const
