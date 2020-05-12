@@ -28,7 +28,6 @@
 #include <QDateTime>
 #include <QJsonObject>
 
-class RocketChatAccount;
 
 class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager
 {

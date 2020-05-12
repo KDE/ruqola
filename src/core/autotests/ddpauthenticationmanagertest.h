@@ -24,7 +24,6 @@
 
 #include <QObject>
 
-class RocketChatAccount;
 
 class DDPAuthenticationManagerTest : public QObject
 {

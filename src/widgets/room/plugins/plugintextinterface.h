@@ -23,7 +23,6 @@
 
 #include <QObject>
 #include "libruqolawidgets_export.h"
-class QAction;
 class QMenu;
 class LIBRUQOLAWIDGETS_EXPORT PluginTextInterface : public QObject
 {
