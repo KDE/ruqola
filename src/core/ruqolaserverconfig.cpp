@@ -401,6 +401,26 @@ AuthenticationManager::OauthTypes RuqolaServerConfig::serverOauthTypes() const
     return mServerOauthTypes;
 }
 
+QString RuqolaServerConfig::logoUrl() const
+{
+    return mLogoUrl;
+}
+
+void RuqolaServerConfig::setLogoUrl(const QString &url)
+{
+    mLogoUrl = url;
+}
+
+QString RuqolaServerConfig::faviconUrl() const
+{
+    return mFaviconUrl;
+}
+
+void RuqolaServerConfig::setFaviconUrl(const QString &url)
+{
+    mFaviconUrl = url;
+}
+
 QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
 {
     d << "mUniqueId  " << t.uniqueId();
@@ -417,6 +437,8 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
     d << "mEncryptionEnabled " << t.encryptionEnabled();
     d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
+    d << "mLogoUrl " << t.logoUrl();
+    d << "mFaviconUrl " << t.faviconUrl();
     return d;
 }
 
@@ -483,6 +505,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setVideoRecorderEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
             setBroadCastEnabled(value.toBool());
+        } else if (id == QLatin1String("Assets_logo")) {
+            setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+        } else if (id == QLatin1String("Assets_favicon")) {
+            setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

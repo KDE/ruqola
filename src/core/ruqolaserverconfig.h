@@ -132,6 +132,12 @@ public:
     Q_REQUIRED_RESULT bool audioRecorderEnabled() const;
     void setAudioRecorderEnabled(bool audioRecorderEnabled);
 
+    Q_REQUIRED_RESULT QString logoUrl() const;
+    void setLogoUrl(const QString &logoUrl);
+
+    Q_REQUIRED_RESULT QString faviconUrl() const;
+    void setFaviconUrl(const QString &faviconUrl);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -167,6 +173,9 @@ private:
     bool mBroadCastEnabled = false;
     bool mVideoRecorderEnabled = true;
     bool mAudioRecorderEnabled = true;
+
+    QString mLogoUrl;
+    QString mFaviconUrl;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

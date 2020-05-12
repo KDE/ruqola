@@ -59,6 +59,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.uploadFileEnabled());
     QCOMPARE(config.fileMaxFileSize(), -1);
     QVERIFY(!config.broadCastEnabled());
+    QVERIFY(config.logoUrl().isEmpty());
+    QVERIFY(config.faviconUrl().isEmpty());
 
     QVERIFY(config.videoRecorderEnabled());
     QVERIFY(config.audioRecorderEnabled());
@@ -81,6 +83,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool encryptionEnabled = false;
     bool autoTranslateEnabled = true;
     bool broadCastEnabled = true;
+    const QString logoUrl = QStringLiteral("path/to/logo");
+    const QString faviconUrl = QStringLiteral("path/to/favicon");
 
     bool audioRecorderEnabled = false;
     bool videoRecorderEnabled = false;
@@ -103,6 +107,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setBroadCastEnabled(broadCastEnabled);
     config.setAudioRecorderEnabled(audioRecorderEnabled);
     config.setVideoRecorderEnabled(videoRecorderEnabled);
+    config.setLogoUrl(logoUrl);
+    config.setFaviconUrl(faviconUrl);
 
     bool pinning = true;
     bool snippeting = true;
@@ -150,6 +156,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.audioRecorderEnabled(), audioRecorderEnabled);
     QCOMPARE(config.videoRecorderEnabled(), videoRecorderEnabled);
+
+    QCOMPARE(config.logoUrl(), logoUrl);
+    QCOMPARE(config.faviconUrl(), faviconUrl);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()
