@@ -234,6 +234,7 @@ void UtilsTest::shouldParseNotification()
     QCOMPARE(info.channelType, channelType);
     QCOMPARE(info.senderUserName, senderUserName);
     QCOMPARE(info.senderName, senderName);
+    QVERIFY(info.isValid());
 }
 
 void UtilsTest::shouldConvertTextWithUrl_data()
