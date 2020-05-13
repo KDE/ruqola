@@ -69,9 +69,9 @@ QString ServerConfigInfo::logoUrl() const
     if (mAccount) {
         const QString logoUrl = mAccount->ruqolaServerConfig()->logoUrl();
         if (logoUrl.isEmpty()) {
-            return mAccount->settings()->serverUrl() + QLatin1Char('/') + logoUrl;
+            return {};
         }
-        return logoUrl;
+        return mAccount->settings()->serverUrl() + QLatin1Char('/') + logoUrl;
     }
     return {};
 }
