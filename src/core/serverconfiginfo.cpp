@@ -63,3 +63,27 @@ QString ServerConfigInfo::serverUrl() const
     }
     return {};
 }
+
+QString ServerConfigInfo::logoUrl() const
+{
+    if (mAccount) {
+        const QString logoUrl = mAccount->ruqolaServerConfig()->logoUrl();
+        if (logoUrl.isEmpty()) {
+            return mAccount->settings()->serverUrl() + QLatin1Char('/') + logoUrl;
+        }
+        return logoUrl;
+    }
+    return {};
+}
+
+QString ServerConfigInfo::faviconUrl() const
+{
+    if (mAccount) {
+        const QString faviconUrl = mAccount->ruqolaServerConfig()->faviconUrl();
+        if (faviconUrl.isEmpty()) {
+            return {};
+        }
+        return mAccount->settings()->serverUrl() + QLatin1Char('/') + faviconUrl;
+    }
+    return {};
+}
