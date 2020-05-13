@@ -452,7 +452,11 @@ void MessageListView::slotStartDiscussion(const QModelIndex &index)
 
 void MessageListView::slotCopyText(const QModelIndex &index)
 {
-    const QString messageStr = index.data(MessageModel::OriginalMessage).toString();
+    QString messageStr = mMessageListDelegate->selectedText();
+    if (messageStr.isEmpty()) {
+        messageStr = index.data(MessageModel::OriginalMessage).toString();
+    }
+
     QClipboard *clip = QApplication::clipboard();
     clip->setText(messageStr, QClipboard::Clipboard);
     clip->setText(messageStr, QClipboard::Selection);
