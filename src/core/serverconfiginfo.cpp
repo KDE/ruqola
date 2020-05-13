@@ -20,6 +20,7 @@
 
 #include "rocketchataccount.h"
 #include "serverconfiginfo.h"
+#include "ruqolaserverconfig.h"
 
 ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -34,7 +35,7 @@ ServerConfigInfo::~ServerConfigInfo()
 QString ServerConfigInfo::serverVersionStr() const
 {
     if (mAccount) {
-        return mAccount->serverVersionStr();
+        return mAccount->ruqolaServerConfig()->serverVersionStr();
     }
     return {};
 }

@@ -1578,11 +1578,6 @@ bool RocketChatAccount::discussionEnabled() const
     return mRuqolaServerConfig->discussionEnabled();
 }
 
-QString RocketChatAccount::serverVersionStr() const
-{
-    return mRuqolaServerConfig->serverVersionStr();
-}
-
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
 {
     return mServerConfigInfo;

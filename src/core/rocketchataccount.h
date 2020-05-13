@@ -292,7 +292,6 @@ public:
     RoomModel *roomModel() const;
     LoginMethodModel *loginMethodModel() const;
     Q_REQUIRED_RESULT bool editingMode() const;
-    Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
     Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
