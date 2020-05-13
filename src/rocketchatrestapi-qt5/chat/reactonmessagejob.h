@@ -47,6 +47,9 @@ public:
     void setShouldReact(bool added);
     Q_REQUIRED_RESULT bool shouldReact() const;
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+
 Q_SIGNALS:
     void reactOnMessageDone();
 
@@ -56,6 +59,7 @@ private:
     QString mMessageId;
     QString mEmoji;
     bool mAddReact = true;
+
 };
 }
 #endif // REACTONMESSAGEJOB_H

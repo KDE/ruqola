@@ -21,9 +21,12 @@
 #include "reactonmessagejob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
 ReactOnMessageJob::ReactOnMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -134,4 +137,13 @@ QNetworkRequest ReactOnMessageJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+
+QString RocketChatRestApi::ReactOnMessageJob::errorMessage(const QString &str)
+{
+    if (str == QLatin1String("error-not-allowed")) {
+        return i18n("Invalid emoji provided.");
+    }
+    return RestApiAbstractJob::errorMessage(str);
 }
