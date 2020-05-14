@@ -198,8 +198,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userId, const QUrl &url)
 QString RocketChatCache::recordingVideoPath(const QString &accountName) const
 {
     const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Video, accountName);
-    QDir directory(path);
-    if (!directory.mkpath(path)) {
+    if (!QDir().mkpath(path)) {
         qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
         return QString();
     }
@@ -210,8 +209,7 @@ QString RocketChatCache::recordingVideoPath(const QString &accountName) const
 QString RocketChatCache::recordingImagePath(const QString &accountName) const
 {
     const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Picture, accountName);
-    QDir directory(path);
-    if (!directory.mkpath(path)) {
+    if (!QDir().mkpath(path)) {
         qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
         return QString();
     }
