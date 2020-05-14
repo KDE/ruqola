@@ -20,5 +20,6 @@
 
 #include "messages/messageattachment.h"
 
+void initTestAccount();
 MessageAttachment testAttachment();
 QUrl avatarLink();

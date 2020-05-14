@@ -36,8 +36,7 @@ QTEST_MAIN(MessageDelegateHelperImageTest)
 MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
     : QObject(parent)
 {
-    QStandardPaths::setTestModeEnabled(true);
-    Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
+    initTestAccount();
 }
 
 void MessageDelegateHelperImageTest::shouldExtractMessageData()

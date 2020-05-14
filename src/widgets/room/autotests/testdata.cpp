@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "testdata.h"
 #include "managerdatapaths.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
@@ -26,6 +27,12 @@
 #include <QPixmap>
 #include <QStandardPaths>
 #include <QTest>
+
+void initTestAccount()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
+}
 
 MessageAttachment testAttachment()
 {

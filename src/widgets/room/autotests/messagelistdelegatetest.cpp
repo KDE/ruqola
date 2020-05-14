@@ -37,12 +37,10 @@ QTEST_MAIN(MessageListDelegateTest)
 MessageListDelegateTest::MessageListDelegateTest(QObject *parent)
     : QObject(parent)
 {
-    QStandardPaths::setTestModeEnabled(true);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->setAccountName(QStringLiteral("accountName"));
+    initTestAccount();
 
     const QString userId = QStringLiteral("dfaureUserId");
-    rcAccount->insertAvatarUrl(userId, avatarLink());
+    Ruqola::self()->rocketChatAccount()->insertAvatarUrl(userId, avatarLink());
 }
 
 void MessageListDelegateTest::layoutChecks_data()
