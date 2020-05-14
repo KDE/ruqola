@@ -40,4 +40,4 @@ GenericName[x-test]=xxQML Rocket.Chat clientxx
 GenericName[zh_TW]=QML Rocket.Chat 用戶端
 Terminal=false
 StartupNotify=true
-Categories=Qt;KDE;Network;
+Categories=Qt;KDE;Network;InstantMessaging;
