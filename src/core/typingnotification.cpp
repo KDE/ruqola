@@ -20,6 +20,7 @@
 
 #include "typingnotification.h"
 #include <QTimer>
+#include <QDebug>
 
 extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
 LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs = 2000;

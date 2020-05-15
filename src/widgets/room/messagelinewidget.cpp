@@ -142,7 +142,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void MessageLineWidget::setText(const QString &text)
 {
-    mMessageTextEdit->setPlainText(text);
+    mMessageTextEdit->changeText(text);
 
     QTextCursor cursor(mMessageTextEdit->document());
     cursor.movePosition(QTextCursor::End);

@@ -47,6 +47,8 @@ public:
     QSize sizeHint() const override;
     QSize minimumSizeHint() const override;
 
+    void changeText(const QString &str);
+
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);

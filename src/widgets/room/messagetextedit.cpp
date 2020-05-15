@@ -101,6 +101,14 @@ QSize MessageTextEdit::minimumSizeHint() const
     return QSize(300, fontMetrics().height() + margin);
 }
 
+void MessageTextEdit::changeText(const QString &newText)
+{
+    disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
+    setPlainText(newText);
+    connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
+    mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+}
+
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
     const int key = e->key();
@@ -174,9 +182,7 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
     mEmojiCompletionListView->hide();
     mCommandCompletionListView->hide();
 
-    disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
-    setPlainText(newText);
-    connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
+    changeText(newText);
 
     cursor.setPosition(textPos);
     setTextCursor(cursor);

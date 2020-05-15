@@ -35,6 +35,7 @@
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/statusmodel.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqola_typing_notification_debug.h"
 #include "utils.h"
 #include "rocketchatcache.h"
 #include "fileattachments.h"
@@ -300,6 +301,7 @@ RocketChatAccountSettings *RocketChatAccount::settings() const
 
 void RocketChatAccount::slotInformTypingStatus(const QString &room, bool typing)
 {
+    qCDebug(RUQOLA_TYPING_NOTIFICATION_LOG) << " slotInformTypingStatus room " << room << " typing " << typing;
     ddp()->informTypingStatus(room, typing, mSettings->userName());
 }
 
