@@ -112,7 +112,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
             qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
             return {};
         }
-        downScaled = fullScale.scaledToHeight(maxHeight * dpr);
+        downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
         downScaled.setDevicePixelRatio(dpr);
         cache.insertCachedPixmap(iconUrlStr, downScaled);
     }
