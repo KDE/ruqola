@@ -232,6 +232,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(selectAllAction, &QAction::triggered, this, [=]() {
         slotSelectAll(index);
     });
+    QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
+    connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
+        slotMarkMessageAsUnread(index);
+    });
+
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
@@ -319,8 +324,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #endif
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
-            createSeparator(menu);
+            menu.addSeparator();
         }
+        menu.addAction(markMessageAsUnReadAction);
+        menu.addSeparator();
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
         menu.addSeparator();
