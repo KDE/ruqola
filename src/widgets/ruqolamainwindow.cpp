@@ -191,6 +191,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
     mAccountMenu = new AccountMenu(this);
+    mAccountMenu->setActionCollection(ac);
     ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
 
     mUnreadOnTop = new QAction(i18n("Unread on Top"), this);

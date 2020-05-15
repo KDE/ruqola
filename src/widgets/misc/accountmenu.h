@@ -23,14 +23,18 @@
 #include <KActionMenu>
 
 #include "libruqolawidgets_private_export.h"
+class KActionCollection;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountMenu : public KActionMenu
 {
     Q_OBJECT
 public:
     explicit AccountMenu(QWidget *parent = nullptr);
     ~AccountMenu() override;
+
+    void setActionCollection(KActionCollection *ac);
 private:
     void slotUpdateAccountMenu();
+    KActionCollection *mActionCollection = nullptr;
 };
 
 #endif // ACCOUNTMENU_H

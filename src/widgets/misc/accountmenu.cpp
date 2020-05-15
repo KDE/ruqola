@@ -25,6 +25,7 @@
 #include "accountmanager.h"
 #include <QMenu>
 #include <KLocalizedString>
+#include <KActionCollection>
 
 AccountMenu::AccountMenu(QWidget *parent)
     : KActionMenu(parent)
@@ -35,6 +36,11 @@ AccountMenu::AccountMenu(QWidget *parent)
 
 AccountMenu::~AccountMenu()
 {
+}
+
+void AccountMenu::setActionCollection(KActionCollection *ac)
+{
+    mActionCollection = ac;
 }
 
 void AccountMenu::slotUpdateAccountMenu()
@@ -63,6 +69,9 @@ void AccountMenu::slotUpdateAccountMenu()
                     action->setChecked(true);
                 }
                 menu()->addAction(action);
+                if (mActionCollection) {
+                    mActionCollection->setDefaultShortcut(action, QKeySequence(QStringLiteral("CTRL+%1").arg(i)));
+                }
                 connect(action, &QAction::triggered, this, [accountName](){
                     Ruqola::self()->accountManager()->setCurrentAccount(accountName);
                 });
