@@ -27,6 +27,8 @@
 #include <QItemDelegate>
 #include <QScopedPointer>
 
+#include "pixmapcache.h"
+
 class RocketChatAccount;
 class Message;
 class MessageDelegateHelperBase;
@@ -64,7 +66,7 @@ public:
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
-    QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
+    QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
     struct Layout {
         // Sender
@@ -129,6 +131,12 @@ private:
     QScopedPointer<MessageDelegateHelperReactions> mHelperReactions;
     QScopedPointer<MessageDelegateHelperVideo> mHelperVideo;
     QScopedPointer<MessageDelegateHelperSound> mHelperSound;
+    // DPR-dependent cache of avatars
+    struct AvatarCache {
+        qreal dpr = 0.;
+        PixmapCache cache;
+    };
+    mutable AvatarCache mAvatarCache;
 };
 
 #endif // MESSAGELISTDELEGATE_H

@@ -94,6 +94,12 @@ public:
         mEntries.front() = {std::move(key), std::move(value)};
     }
 
+    void clear()
+    {
+        mNumEntries = 0;
+        mEntries.fill({});
+    }
+
 private:
     Entries mEntries;
     std::size_t mNumEntries = 0;

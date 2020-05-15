@@ -38,12 +38,18 @@
 #include <QDesktopWidget>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QPixmapCache>
 #include <QScreen>
 #include <QToolTip>
 
 #include <KLocalizedString>
 #include <KColorScheme>
+
+static QSizeF dprAwareSize(const QPixmap &pixmap)
+{
+    if (pixmap.isNull())
+        return {0, 0}; // prevent division-by-zero
+    return pixmap.size() / pixmap.devicePixelRatioF();
+}
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -81,22 +87,36 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxHeight) const
+QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString userId = index.data(MessageModel::UserId).toString();
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(userId);
-    QPixmap pix;
-    if (!iconUrlStr.isEmpty() && !QPixmapCache::find(iconUrlStr, &pix)) {
+    if (iconUrlStr.isEmpty()) {
+        return {};
+    }
+
+    const auto dpr = widget->devicePixelRatioF();
+    if (dpr != mAvatarCache.dpr) {
+        mAvatarCache.dpr = dpr;
+        mAvatarCache.cache.clear();
+    }
+
+    auto &cache = mAvatarCache.cache;
+
+    auto downScaled = cache.findCachedPixmap(iconUrlStr);
+    if (downScaled.isNull()) {
         const QUrl iconUrl(iconUrlStr);
         Q_ASSERT(iconUrl.isLocalFile());
-        if (pix.load(iconUrl.toLocalFile())) {
-            pix = pix.scaledToHeight(maxHeight);
-            QPixmapCache::insert(iconUrlStr, pix);
-        } else {
+        QPixmap fullScale;
+        if (!fullScale.load(iconUrl.toLocalFile())) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
+            return {};
         }
+        downScaled = fullScale.scaledToHeight(maxHeight * dpr);
+        downScaled.setDevicePixelRatio(dpr);
+        cache.insertCachedPixmap(iconUrlStr, downScaled);
     }
-    return pix;
+    return downScaled;
 }
 
 // [Optional date header]
@@ -118,7 +138,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    layout.avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
+    layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
 
     QRect usableRect = option.rect;
     const bool displayLastSeenMessage = index.data(MessageModel::DisplayLastSeenMessage).toBool();
@@ -131,7 +151,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
     const qreal margin = basicMargin();
-    const int senderX = option.rect.x() + layout.avatarPixmap.width() + 2 * margin;
+    const int senderX = option.rect.x() + dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
     int textLeft = senderX + senderTextSize.width() + margin;
 
     // Roles icon
@@ -372,7 +392,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
     const int contentsHeight = layout.repliesY + layout.repliesHeight + layout.discussionsHeight - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
-                                                layout.avatarPos.y() + layout.avatarPixmap.height() - option.rect.y());
+                                                layout.avatarPos.y() + dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
     //qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
     //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;

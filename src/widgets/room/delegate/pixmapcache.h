@@ -32,11 +32,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PixmapCache
 public:
     QPixmap pixmapForLocalFile(const QString &path);
 
+    QPixmap findCachedPixmap(const QString &path);
+    void insertCachedPixmap(const QString &path, const QPixmap &pixmap);
+    void clear();
+
 private:
     friend class PixmapCacheTest;
     LRUCache<QString, QPixmap, 5> mCachedImages;
-    QPixmap findCachedPixmap(const QString &link);
-    void insertCachedPixmap(const QString &link, const QPixmap &pixmap);
 };
 
 #endif // PIXMAPCACHE_H
