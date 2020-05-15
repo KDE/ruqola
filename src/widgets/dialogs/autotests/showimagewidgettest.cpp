@@ -48,7 +48,6 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 
     auto *scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
     QVERIFY(scrollArea);
-    QVERIFY(scrollArea->widgetResizable());
 
     auto *mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
     QVERIFY(mLabel);
