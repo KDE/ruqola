@@ -54,9 +54,17 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabel);
     QVERIFY(mLabel->text().isEmpty());
     QCOMPARE(mLabel->backgroundRole(), QPalette::Base);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QVERIFY(mLabel->pixmap());
+#else
+    QVERIFY(!mLabel->pixmap().isNull());
+#endif
     QEXPECT_FAIL("", "the pixmap is currently sized according to the label size, not vice versa", Continue);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QCOMPARE(mLabel->pixmap()->size(), pixmapSize);
+#else
+    QCOMPARE(mLabel->pixmap().size(), pixmapSize);
+#endif
 
     auto *zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
     QVERIFY(zoomLayout);
@@ -77,12 +85,21 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     mSlider->setValue(200);
     QCOMPARE(mSlider->value(), 200);
     QCOMPARE(mZoomSpin->value(), 2);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QCOMPARE(mLabel->pixmap()->size(), 2 * pixmapSize);
+#else
+    QCOMPARE(mLabel->pixmap().size(), 2 * pixmapSize);
+#endif
+
 
     mZoomSpin->setValue(3);
     QCOMPARE(mZoomSpin->value(), 3);
     QCOMPARE(mSlider->value(), 300);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QCOMPARE(mLabel->pixmap()->size(), 3 * pixmapSize);
+#else
+    QCOMPARE(mLabel->pixmap().size(), 3 * pixmapSize);
+#endif
 
     QVERIFY(!w.isAnimatedPixmap());
 }
