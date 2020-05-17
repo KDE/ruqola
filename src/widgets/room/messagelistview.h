@@ -55,6 +55,8 @@ public:
     void goToMessage(const QString &messageId);
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
+    void copyMessageToClipboard(const QModelIndex &index = {});
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
@@ -78,7 +80,6 @@ private:
     void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
     void slotStartDiscussion(const QModelIndex &index);
     void slotStartPrivateConversation(const QModelIndex &index);
-    void slotCopyText(const QModelIndex &index);
     void slotTranslateMessage(const QModelIndex &index, bool checked);
     void createSeparator(QMenu &menu);
     void slotVerticalScrollbarChanged(int value);

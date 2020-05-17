@@ -488,6 +488,9 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
     if (key == Qt::Key_Escape) {
         slotClearNotification();
         ev->accept();
+    } else if (ev->matches(QKeySequence::Copy) && mMessageLineWidget->messageTextEdit()->textCursor().selectedText().isEmpty()) {
+        mMessageListView->copyMessageToClipboard();
+        ev->accept();
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }

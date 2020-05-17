@@ -201,7 +201,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     QMenu menu(this);
     QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
     connect(copyAction, &QAction::triggered, this, [=]() {
-        slotCopyText(index);
+        copyMessageToClipboard(index);
     });
     //TODO fix me we can't pinned message when we are not owner
     QAction *setPinnedMessage = nullptr;
@@ -456,16 +456,20 @@ void MessageListView::slotStartDiscussion(const QModelIndex &index)
     Q_EMIT createNewDiscussion(messageId, message);
 }
 
-void MessageListView::slotCopyText(const QModelIndex &index)
+void MessageListView::copyMessageToClipboard(const QModelIndex &index)
 {
-    QString messageStr = mMessageListDelegate->selectedText();
-    if (messageStr.isEmpty()) {
-        messageStr = index.data(MessageModel::OriginalMessage).toString();
+    QString message = mMessageListDelegate->selectedText();
+    if (message.isEmpty()) {
+        if (!index.isValid()) {
+            return;
+        }
+
+        message = index.data(MessageModel::OriginalMessage).toString();
     }
 
     QClipboard *clip = QApplication::clipboard();
-    clip->setText(messageStr, QClipboard::Clipboard);
-    clip->setText(messageStr, QClipboard::Selection);
+    clip->setText(message, QClipboard::Clipboard);
+    clip->setText(message, QClipboard::Selection);
 }
 
 MessageListView::Mode MessageListView::mode() const
