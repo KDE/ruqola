@@ -147,7 +147,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomTopic] = QByteArrayLiteral("topic");
     roles[RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
-    roles[RoomRo] = QByteArrayLiteral("readOnly");
+    roles[RoomReadOnly] = QByteArrayLiteral("readOnly");
     roles[RoomAnnouncement] = QByteArrayLiteral("announcement");
     roles[RoomOpen] = QByteArrayLiteral("open");
     roles[RoomAlert] = QByteArrayLiteral("alert");
@@ -201,7 +201,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->mutedUsers();
     case RoomModel::RoomJitsiTimeout:
         return r->jitsiTimeout();
-    case RoomModel::RoomRo:
+    case RoomModel::RoomReadOnly:
         return r->readOnly();
     case RoomModel::RoomAnnouncement:
         return r->announcement();

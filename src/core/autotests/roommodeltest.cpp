@@ -57,7 +57,7 @@ void RoomModelTest::shouldHaveDefaultValues()
     roles[RoomModel::RoomTopic] = QByteArrayLiteral("topic");
     roles[RoomModel::RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomModel::RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
-    roles[RoomModel::RoomRo] = QByteArrayLiteral("readOnly");
+    roles[RoomModel::RoomReadOnly] = QByteArrayLiteral("readOnly");
     roles[RoomModel::RoomAnnouncement] = QByteArrayLiteral("announcement");
     roles[RoomModel::RoomOpen] = QByteArrayLiteral("open");
     roles[RoomModel::RoomAlert] = QByteArrayLiteral("alert");
@@ -394,7 +394,7 @@ void RoomModelTest::shouldReturnDataDefault()
     QVERIFY(output.toStringList().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomJitsiTimeout);
     QCOMPARE(output, QVariant(qint64(-1)));
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomRo);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomReadOnly);
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnouncement);
     QVERIFY(output.toString().isEmpty());
@@ -469,7 +469,7 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output.toStringList(), mutedUsers);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomJitsiTimeout);
     QCOMPARE(output, QVariant(time));
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomRo);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomReadOnly);
     QCOMPARE(output.toBool(), readOnly);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnouncement);
     QCOMPARE(output.toString(), announcement);
