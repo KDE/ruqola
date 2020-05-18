@@ -814,7 +814,7 @@ Component {
         }
 
         Keys.onEscapePressed: {
-            appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
+            appid.rocketChatAccount.markRoomAsRead(appid.selectedRoomID);
         }
 
         Keys.forwardTo: [activeChat]
@@ -850,7 +850,7 @@ Component {
                         appid.userInputMessageText = str;
                     }
                     onClearUnreadMessages: {
-                        rcAccount.clearUnreadMessages(appid.selectedRoomID)
+                        rcAccount.markRoomAsRead(appid.selectedRoomID)
                     }
                     onUploadFile: {
                         uploadFileDialogLoader.active = true

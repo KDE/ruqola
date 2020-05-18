@@ -98,7 +98,7 @@ public:
     void listEmojiCustom();
     void searchRoomUser(const QString &pattern);
     void searchMessages(const QString &roomId, const QString &pattern, bool useRegularExpression = false);
-    void markAsRead(const QString &roomId);
+    void markRoomAsRead(const QString &roomId);
     void getRooms();
     void markAsFavorite(const QString &roomId, bool favorite);
     void addUserInGroup(const QString &roomId, const QString &userId);

@@ -82,6 +82,15 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(hideChannel);
 
+    const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
+    const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
+    QAction *markAsChannel = new QAction(actionMarkAsText, &menu);
+    connect(markAsChannel, &QAction::triggered, this, [=]() {
+        slotMarkAsChannel(index, isUnRead);
+    });
+    menu.addAction(markAsChannel);
+
+
     const bool isFavorite = index.data(RoomModel::RoomFavorite).toBool();
     const QString actionFavoriteText = isFavorite ? i18n("Unset as Favorite") : i18n("Set as Favorite");
     QAction *favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
@@ -102,6 +111,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
+    }
+}
+
+void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRead)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString roomId = index.data(RoomModel::RoomID).toString();
+    if (markAsRead) {
+        rcAccount->markRoomAsRead(roomId);
+    } else {
+        rcAccount->markRoomAsUnRead(roomId);
     }
 }
 

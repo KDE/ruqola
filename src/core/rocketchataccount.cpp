@@ -534,14 +534,14 @@ void RocketChatAccount::clearAllUnreadMessages()
         const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
         const bool roomHasAlert = roomModelIndex.data(RoomModel::RoomAlert).toBool();
         if (roomHasAlert) {
-            clearUnreadMessages(roomId);
+            markRoomAsRead(roomId);
         }
     }
 }
 
-void RocketChatAccount::clearUnreadMessages(const QString &roomId)
+void RocketChatAccount::markRoomAsRead(const QString &roomId)
 {
-    restApi()->markAsRead(roomId);
+    restApi()->markRoomAsRead(roomId);
 }
 
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)

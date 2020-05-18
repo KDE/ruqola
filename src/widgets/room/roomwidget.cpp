@@ -468,7 +468,7 @@ void RoomWidget::connectRoomWrapper()
 
 void RoomWidget::slotClearNotification()
 {
-    mCurrentRocketChatAccount->clearUnreadMessages(mRoomId);
+    mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
 }
 
 void RoomWidget::slotEncryptedChanged(bool b)

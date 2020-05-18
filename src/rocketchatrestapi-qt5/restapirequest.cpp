@@ -833,7 +833,7 @@ void RestApiRequest::searchMessages(const QString &roomId, const QString &patter
     }
 }
 
-void RestApiRequest::markAsRead(const QString &roomId)
+void RestApiRequest::markRoomAsRead(const QString &roomId)
 {
     auto *job = new MarkRoomAsReadJob(this);
     job->setRoomId(roomId);

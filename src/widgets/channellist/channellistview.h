@@ -54,6 +54,7 @@ private:
     void slotHideChannel(const QModelIndex &index, const QString &roomType);
     void slotLeaveChannel(const QModelIndex &index, const QString &roomType);
     void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
+    void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
 };
 
 #endif // CHANNELLISTVIEW_H

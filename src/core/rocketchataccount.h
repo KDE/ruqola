@@ -183,7 +183,7 @@ public:
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
     Q_INVOKABLE void clearAllUnreadMessages();
-    Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
+    Q_INVOKABLE void markRoomAsRead(const QString &roomId);
     Q_INVOKABLE void changeFavorite(const QString &roomId, bool checked);
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
