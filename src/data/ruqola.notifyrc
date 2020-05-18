@@ -1,5 +1,7 @@
 [Global]
 IconName=ruqola
+Name=Ruqola
+DesktopEntry=org.kde.ruqola
 Comment=Notification
 Comment[ca]=Notificació
 Comment[ca@valencia]=Notificació
