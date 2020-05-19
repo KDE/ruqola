@@ -199,6 +199,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Attachments] = QByteArrayLiteral("attachments");
     roles[Urls] = QByteArrayLiteral("urls");
     roles[Date] = QByteArrayLiteral("date");
+    roles[DateDiffersFromPrevious] = QByteArrayLiteral("dateDiffersFromPrevious");
     roles[CanEditMessage] = QByteArrayLiteral("canEditMessage");
     roles[CanDeleteMessage] = QByteArrayLiteral("canDeleteMessage");
     roles[Starred] = QByteArrayLiteral("starred");
@@ -523,7 +524,7 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
         }) != msgAttachments.end();
                            };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
-        if (msg.messageType() == Message::Image) {
+        if (msg.messageType() == Message::Image || msg.messageType() == Message::Audio || msg.messageType() == Message::Video) {
             return matchesFilePath(msg.attachements());
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();

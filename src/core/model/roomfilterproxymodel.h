@@ -48,4 +48,6 @@ private:
     QString mFilterString;
 };
 
+Q_DECLARE_METATYPE(RoomFilterProxyModel*)
+
 #endif // ROOMFILTERPROXYMODEL_H

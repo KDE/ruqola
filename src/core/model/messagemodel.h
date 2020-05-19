@@ -163,4 +163,6 @@ private:
     bool mQmlHacks = false;
 };
 
+Q_DECLARE_METATYPE(MessageModel*)
+
 #endif

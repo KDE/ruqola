@@ -45,6 +45,7 @@ public:
     void insertAccount(RocketChatAccount *account);
     void removeAccount(const QString &name);
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT int indexOf(RocketChatAccount *account) const;
 
     void clear();
 
@@ -64,5 +65,7 @@ private:
     Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
+
+Q_DECLARE_METATYPE(RocketChatAccountModel*);
 
 #endif // ROCKETCHATACCOUNTMODEL_H

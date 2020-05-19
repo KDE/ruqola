@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+    </qresource>
+
+    <qresource prefix="/components">
+        <file alias="EmojiDialog.qml">components/EmojiDialog.qml</file>
+        <file alias="FancyTextInput.qml">components/FancyTextInput.qml</file>
+        <file alias="MessageMenuPopup.qml">components/MessageMenuPopup.qml</file>
+        <file alias="RoomsListView.qml">components/RoomsListView.qml</file>
+        <file alias="ServerSelector.qml">components/ServerSelector.qml</file>
+        <file alias="ServerSelectorButton.qml">components/ServerSelectorButton.qml</file>
+    </qresource>
+
+    <qresource prefix="/components/chatmessage">
+        <file alias="AudioAttachment.qml">components/chatmessage/AudioAttachment.qml</file>
+        <file alias="VideoAttachment.qml">components/chatmessage/VideoAttachment.qml</file>
+        <file alias="ImageAttachment.qml">components/chatmessage/ImageAttachment.qml</file>
+        <file alias="UrlPreview.qml">components/chatmessage/UrlPreview.qml</file>
+    </qresource>
+
+    <qresource prefix="/delegates">
+        <file alias="ChatMessageDelegate.qml">delegates/ChatMessageDelegate.qml</file>
+        <file alias="RoomEntryDelegate.qml">delegates/RoomEntryDelegate.qml</file>
+    </qresource>
+
+    <qresource prefix="/pages">
+        <file alias="ChatPage.qml">pages/ChatPage.qml</file>
+        <file alias="DirectoryPage.qml">pages/DirectoryPage.qml</file>
+        <file alias="HomePage.qml">pages/HomePage.qml</file>
+        <file alias="SettingsPage.qml">pages/SettingsPage.qml</file>
+    </qresource>
+
+    <qresource prefix="/screen">
+        <file alias="ChatScreen.qml">screen/ChatScreen.qml</file>
+        <file alias="LoginScreen.qml">screen/LoginScreen.qml</file>
+    </qresource>
+</RCC>

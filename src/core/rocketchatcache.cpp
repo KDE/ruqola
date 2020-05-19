@@ -58,9 +58,9 @@ bool RocketChatCache::fileInCache(const QUrl &url)
 
 QString RocketChatCache::fileCachePath(const QUrl &url)
 {
-    QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
-    cachePath += QLatin1Char('/') + url.path();
-    return cachePath;
+    QUrl cachePath = QUrl::fromUserInput(ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName()));
+    cachePath.setPath(cachePath.path() + url.path());
+    return cachePath.toLocalFile();
 }
 
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
@@ -71,8 +71,14 @@ void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url
     const QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
     QDir().mkpath(urldir.toLocalFile());
     QFile file(newPath);
+    QByteArray dataCp = data;
+    if (dataCp.mid(0, 4) == "<svg") {
+        dataCp = dataCp.replace(R"( viewBox="0 0 200 200")", "");
+        dataCp = dataCp.replace(R"( width="100%" height="100%")", R"( width="200" height="200")");
+        dataCp = dataCp.replace(R"( x="50%" y="50%" dy="0.36em")", R"( x="100" y="145")");
+    }
     if (file.open(QIODevice::ReadWrite)) {
-        file.write(data);
+        file.write(dataCp);
         file.close();
         Q_EMIT fileDownloaded(url.path(), QUrl::fromLocalFile(newPath));
     } else {

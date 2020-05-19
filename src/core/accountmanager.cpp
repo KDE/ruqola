@@ -30,17 +30,20 @@
 #include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 
-AccountManager::AccountManager(QObject *parent)
+AccountManager::AccountManager(QObject *parent, bool createDefaultAccount)
     : QObject(parent)
 {
     mRocketChatAccountModel = new RocketChatAccountModel(this);
     mRocketChatAccountProxyModel = new RocketChatAccountFilterProxyModel(this);
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
+    mCreateDefaultAccount = createDefaultAccount;
     loadAccount();
 }
 
 AccountManager::~AccountManager()
 {
+    delete mRocketChatAccountModel;
+    delete mRocketChatAccountProxyModel;
 }
 
 int AccountManager::accountNumber() const
@@ -89,7 +92,7 @@ void AccountManager::loadAccount()
     }
 
     //New account => empty list.
-    if (lstAccounts.isEmpty()) {
+    if (lstAccounts.isEmpty() && mCreateDefaultAccount) {
         qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccount";
         RocketChatAccount *account = new RocketChatAccount();
         if (account->accountEnabled()) {
@@ -183,6 +186,7 @@ void AccountManager::setCurrentAccount(const QString &accountName)
             settings.setValue(QStringLiteral("currentAccount"), accountName);
             settings.sync();
             mCurrentAccount = account;
+            Q_EMIT currentAccountIndexChanged();
             Q_EMIT currentAccountChanged();
         }
     } else {
@@ -193,6 +197,38 @@ void AccountManager::setCurrentAccount(const QString &accountName)
 QString AccountManager::currentAccount() const
 {
     return mCurrentAccount ? mCurrentAccount->accountName() : QString();
+}
+
+void AccountManager::setCurrentAccountIndex(int index)
+{
+    RocketChatAccount *account = mRocketChatAccountModel->account(index);
+    if (account) {
+        if (mCurrentAccount != account) {
+            QSettings settings;
+            settings.setValue(QStringLiteral("currentAccount"), account->accountName());
+            settings.sync();
+            mCurrentAccount = account;
+            Q_EMIT currentAccountIndexChanged();
+            Q_EMIT currentAccountChanged();
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << Q_FUNC_INFO << "Invalid index " << index << "ignoring.";
+    }
+}
+
+int AccountManager::currentAccountIndex() const
+{
+    return mRocketChatAccountModel->indexOf(mCurrentAccount);
+}
+
+RocketChatAccount *AccountManager::accountByName(const QString &name) const
+{
+    return mRocketChatAccountModel->account(name);
+}
+
+RocketChatAccount *AccountManager::accountByIndex(int index)
+{
+    return mRocketChatAccountModel->account(index);
 }
 
 void AccountManager::removeAccount(const QString &accountName)

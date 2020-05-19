@@ -152,6 +152,11 @@ void RocketChatAccountModel::removeAccount(const QString &name)
     }
 }
 
+int RocketChatAccountModel::indexOf(RocketChatAccount *account) const
+{
+    return mRocketChatAccount.indexOf(account);
+}
+
 QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
 {
     QHash<int, QByteArray> roles;

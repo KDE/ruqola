@@ -135,4 +135,6 @@ private:
     QVector<Room *> mRoomsList;
 };
 
+Q_DECLARE_METATYPE(RoomModel*)
+
 #endif // ROOMMODEL_H

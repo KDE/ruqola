@@ -300,7 +300,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         const QJsonObject objOwner = ownerValue.toObject();
         setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
         setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
-    } else {
+    } else if (mChannelType.at(0) != QLatin1Char('d')) {
         //When room is initialized we are the owner. When we update room we have the real
         //owner and if it's empty => we need to clear it.
         setRoomCreatorUserId(QString());
@@ -650,15 +650,14 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     if (roomID.isEmpty()) {
         roomID = json.value(QLatin1String("_id")).toString();
     }
-    setRoomId(roomID);
+    setRoomId(json.value(QLatin1String("rid")).toString());
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
     setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setAutoTranslate(json[QStringLiteral("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     //topic/announcement/description is not part of update subscription
-    const QString roomType = json.value(QLatin1String("t")).toString();
-    setChannelType(roomType);
+    setChannelType(json.value(QLatin1String("t")).toString());
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());

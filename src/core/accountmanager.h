@@ -32,11 +32,12 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString currentAccount READ currentAccount WRITE setCurrentAccount NOTIFY currentAccountChanged)
+    Q_PROPERTY(int currentAccountIndex READ currentAccountIndex WRITE setCurrentAccountIndex NOTIFY currentAccountIndexChanged)
     Q_PROPERTY(RocketChatAccount *account READ account NOTIFY currentAccountChanged)
     Q_PROPERTY(RocketChatAccountModel *rocketChatAccountModel READ rocketChatAccountModel CONSTANT)
     Q_PROPERTY(RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel READ rocketChatAccountProxyModel CONSTANT)
 public:
-    explicit AccountManager(QObject *parent = nullptr);
+    explicit AccountManager(QObject *parent = nullptr, bool createDefaultAccount = true);
     ~AccountManager() override;
 
     Q_INVOKABLE void removeAccount(const QString &accountName);
@@ -50,8 +51,15 @@ public:
     void addAccount(RocketChatAccount *account);
 
     void setCurrentAccount(const QString &accountName);
+
     Q_REQUIRED_RESULT QString currentAccount() const;
     void selectAccount(const QString &accountName);
+
+    Q_REQUIRED_RESULT int currentAccountIndex() const;
+    void setCurrentAccountIndex(int index);
+
+    Q_REQUIRED_RESULT RocketChatAccount *accountByName(const QString &accountName) const;
+    Q_REQUIRED_RESULT RocketChatAccount *accountByIndex(int index);
 
     void modifyAccount(const QString &accountName, const QString &username, const QString &url, bool enabled);
     Q_REQUIRED_RESULT QStringList accountsName() const;
@@ -61,6 +69,7 @@ Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void currentAccountChanged();
+    void currentAccountIndexChanged();
 
 private:
     Q_DISABLE_COPY(AccountManager)
@@ -68,9 +77,11 @@ private:
     void loadAccount();
     void connectToAccount(RocketChatAccount *account);
     void slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
+    int mCurrentAccountIndex = -1;
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
     RocketChatAccountFilterProxyModel *mRocketChatAccountProxyModel = nullptr;
+    bool mCreateDefaultAccount = true;
 };
 
 #endif // ACCOUNTMANAGER_H
