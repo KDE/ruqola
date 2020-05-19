@@ -323,6 +323,9 @@ void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginSta
 
 void DDPAuthenticationManager::clientConnectedChangedSlot()
 {
+    if (mLoginStatus == DDPAuthenticationManager::FailedToLoginPluginProblem) {
+        return;
+    }
     if (checkGenericError()) {
         return;
     }

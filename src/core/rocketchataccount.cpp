@@ -1343,6 +1343,8 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) <<" No plugins loaded. Please verify your installation.";
+        ddp()->authenticationManager()->setLoginStatus(DDPAuthenticationManager::FailedToLoginPluginProblem);
+        return;
     }
     mLstPluginAuthenticationInterface.clear();
 

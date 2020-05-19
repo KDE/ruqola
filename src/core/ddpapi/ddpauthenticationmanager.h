@@ -101,6 +101,7 @@ public:
     Q_REQUIRED_RESULT bool isLoggedIn() const;
     Q_REQUIRED_RESULT bool isLoggedOut() const;
     Q_REQUIRED_RESULT LoginStatus loginStatus() const;
+    void setLoginStatus(LoginStatus newStatus);
 
 Q_SIGNALS:
     void loginStatusChanged();
@@ -123,7 +124,6 @@ private:
     }
 
     void loginImpl(const QJsonArray &params);
-    void setLoginStatus(LoginStatus newStatus);
     void clientConnectedChangedSlot();
     Q_REQUIRED_RESULT bool checkGenericError() const;
 };
