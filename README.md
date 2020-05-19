@@ -13,13 +13,12 @@ RC settings can be changed directly.
 You can get ruqola from:
 
 - <https://github.com/KDE/ruqola>
-- git@git.kde.org:ruqola
-- git://anongit.kde.org/ruqola
-
+- git@invent.kde.org:network/ruqola.git 
+- https://invent.kde.org/network/ruqola.git
 
 ## Requirements
 
-`cmake`, `cmake-extra-tools`, `qt5-websockets`, `qt5-networkauth`, `kirigami2`, `kwidgetaddons`, `ki18n`, `kcrash`, `kcoreaddons`, `syntaxhighlighting`, `sonnet`, `textwidgets`
+`cmake`, `cmake-extra-tools`, `qt5-websockets`, `qt5-networkauth`, `qt5-multimedia`, `kirigami2`, `kwidgetaddons`, `ki18n`, `kcrash`, `kcoreaddons`, `syntaxhighlighting`, `sonnet`, `textwidgets`, `notifyconfig`
 
 ## How to build ruqola
 
