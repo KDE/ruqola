@@ -30,6 +30,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <KBusyIndicatorWidget>
+#include <KColorScheme>
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
@@ -107,6 +108,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mFailedError = new QLabel(this);
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
+    QPalette pal = mFailedError->palette();
+    const KColorScheme colorScheme {QPalette::Active};
+    pal.setColor(foregroundRole(), colorScheme.foreground(KColorScheme::NegativeText).color());
+    mFailedError->setPalette(pal);
+    QFont font = mFailedError->font();
+    font.setBold(true);
+    mFailedError->setFont(font);
+
     mainLayout->addWidget(mFailedError);
     //Hide by default
     mFailedError->hide();
