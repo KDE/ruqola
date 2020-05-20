@@ -33,74 +33,85 @@
 #include "textconverter.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/emojiqmlmodel.h"
+#include "textconverter.h"
 
 #include <QDebug>
 
-namespace RuqolaQmlPlain
-{
-namespace Controllers
-{
+namespace RuqolaQmlPlain {
+namespace Controllers {
 
 QHash<int, QUrl> ChatScreenController::sPageToUrl = {
-    { (int)Page::HomePage, QUrl(QStringLiteral("qrc:/pages/HomePage.qml")) },
-    { (int)Page::ChatPage, QUrl(QStringLiteral("qrc:/pages/ChatPage.qml")) },
-    { (int)Page::SettingsPage, QUrl(QStringLiteral("qrc:/pages/SettingsPage.qml")) },
-    { (int)Page::DirectoryPage, QUrl(QStringLiteral("qrc:/pages/DirectoryPage.qml")) }
-};
+    {(int)Page::HomePage, QUrl(QStringLiteral("qrc:/pages/HomePage.qml"))},
+    {(int)Page::ChatPage, QUrl(QStringLiteral("qrc:/pages/ChatPage.qml"))},
+    {(int)Page::SettingsPage, QUrl(QStringLiteral("qrc:/pages/SettingsPage.qml"))},
+    {(int)Page::DirectoryPage, QUrl(QStringLiteral("qrc:/pages/DirectoryPage.qml"))}};
 
-ChatScreenController::ChatScreenController(AccountManager* accountManager, QObject* parent)
+ChatScreenController::ChatScreenController(AccountManager *accountManager, QObject *parent)
     : QObject(parent)
     , mAccountManager(accountManager)
 {
-    connect(mAccountManager, &AccountManager::currentAccountChanged,
-            this, &ChatScreenController::messageModelChanged);
-    connect(mAccountManager, &AccountManager::currentAccountChanged,
-            this, &ChatScreenController::roomsModelChanged);
-    connect(mAccountManager, &AccountManager::currentAccountChanged,
-            this, &ChatScreenController::usersModelChanged);
-    connect(mAccountManager, &AccountManager::currentAccountChanged,
-            this, &ChatScreenController::bindNewAccount);
+    connect(
+        mAccountManager, &AccountManager::currentAccountChanged, this,
+        &ChatScreenController::messageModelChanged);
+    connect(
+        mAccountManager, &AccountManager::currentAccountChanged, this,
+        &ChatScreenController::roomsModelChanged);
+    connect(
+        mAccountManager, &AccountManager::currentAccountChanged, this,
+        &ChatScreenController::usersModelChanged);
+    connect(
+        mAccountManager, &AccountManager::currentAccountChanged, this,
+        &ChatScreenController::bindNewAccount);
 
     if (mAccountManager->account()) {
         mEmojiModel = new EmojiQmlModel(mAccountManager->account()->emojiManager());
     }
 }
 
-MessageModel* ChatScreenController::messageModel() const {
+MessageModel *ChatScreenController::messageModel() const
+{
     return mMessageModel;
 }
 
-ListMessagesModel* ChatScreenController::listMessagesModel() const {
+ListMessagesModel *ChatScreenController::listMessagesModel() const
+{
     return mAccountManager->account()->listMessageModel();
 }
 
-RoomFilterProxyModel* ChatScreenController::roomsModel() const {
+RoomFilterProxyModel *ChatScreenController::roomsModel() const
+{
     return mAccountManager->account()->roomFilterProxyModel();
 }
 
-void ChatScreenController::selectRoom(const QString& roomId) {
+void ChatScreenController::selectRoom(const QString &roomId)
+{
     setAboutToChangeModel(true);
     setCurrentRoom(roomId);
     setMessageModel(mAccountManager->account()->messageModelForRoom(roomId));
 }
 
-UsersModel* ChatScreenController::usersModel() const {
+UsersModel *ChatScreenController::usersModel() const
+{
     return mAccountManager->account()->usersModel();
 }
 
-QString ChatScreenController::currentRoom() const {
+QString ChatScreenController::currentRoom() const
+{
     return mCurrentRoomId;
 }
 
-void ChatScreenController::loadHistory() {
+void ChatScreenController::loadHistory()
+{
     mAccountManager->account()->loadHistory(mCurrentRoomId);
 }
 
-void ChatScreenController::sendMessage(const QString& message) {
+void ChatScreenController::sendMessage(const QString &message)
+{
     mAccountManager->account()->sendMessage(mCurrentRoomId, message);
 }
 
-void ChatScreenController::setMessageModel(MessageModel* model) {
+void ChatScreenController::setMessageModel(MessageModel *model)
+{
     if (model != mMessageModel) {
         if (mMessageModel) {
             mMessageModel->deactivate();
@@ -114,7 +125,8 @@ void ChatScreenController::setMessageModel(MessageModel* model) {
     }
 }
 
-void ChatScreenController::setCurrentRoom(const QString& roomId) {
+void ChatScreenController::setCurrentRoom(const QString &roomId)
+{
     if (roomId != mCurrentRoomId) {
         mCurrentRoomId = roomId;
         mAccountManager->account()->switchingToRoom(roomId);
@@ -122,15 +134,16 @@ void ChatScreenController::setCurrentRoom(const QString& roomId) {
     }
 }
 
-QString ChatScreenController::avatarUrl(const QString& userId) const {
+QString ChatScreenController::avatarUrl(const QString &userId) const
+{
     if (!mAccountManager->account()) {
         return {};
     }
     return mAccountManager->account()->avatarUrl(userId);
 }
 
-
-QString ChatScreenController::roomAvatarUrl(const QString& roomId) const {
+QString ChatScreenController::roomAvatarUrl(const QString &roomId) const
+{
     if (!mAccountManager->account()) {
         return {};
     }
@@ -151,7 +164,8 @@ QString ChatScreenController::roomAvatarUrl(const QString& roomId) const {
     return {};
 }
 
-void ChatScreenController::bindNewAccount() {
+void ChatScreenController::bindNewAccount()
+{
     // TODO: Hack, better implement setEmojiManager in EmojiQmlModel
     if (mEmojiModel) {
         delete mEmojiModel;
@@ -165,8 +179,9 @@ void ChatScreenController::bindNewAccount() {
 
     disconnect(nullptr, &UsersModel::dataChanged, this, &ChatScreenController::usersModelRefreshed);
     if (mAccountManager->account()) {
-        connect(mAccountManager->account()->usersModel(), &UsersModel::dataChanged,
-                this, &ChatScreenController::usersModelRefreshed);
+        connect(
+            mAccountManager->account()->usersModel(), &UsersModel::dataChanged, this,
+            &ChatScreenController::usersModelRefreshed);
     }
 }
 
@@ -178,42 +193,49 @@ QString ChatScreenController::transform(const QString &txt)
     return tc.convertMessageText(txt, QStringLiteral(""), {msg});
 }
 
-void ChatScreenController::goToHomePage() {
+void ChatScreenController::goToHomePage()
+{
     mCurrentPage = HomePage;
     Q_EMIT currentPageChanged();
     Q_EMIT currentPageUrlChanged();
 }
 
-void ChatScreenController::goToChatPage() {
+void ChatScreenController::goToChatPage()
+{
     mCurrentPage = ChatPage;
     Q_EMIT currentPageChanged();
     Q_EMIT currentPageUrlChanged();
 }
 
-void ChatScreenController::goToSettingsPage() {
+void ChatScreenController::goToSettingsPage()
+{
     mCurrentPage = SettingsPage;
     Q_EMIT currentPageChanged();
     Q_EMIT currentPageUrlChanged();
 }
 
-void ChatScreenController::goToDirectoryPage() {
+void ChatScreenController::goToDirectoryPage()
+{
     mCurrentPage = DirectoryPage;
     Q_EMIT currentPageChanged();
     Q_EMIT currentPageUrlChanged();
 }
 
-bool ChatScreenController::aboutToChangeModel() const {
+bool ChatScreenController::aboutToChangeModel() const
+{
     return mAboutToChangeModel;
 }
 
-void ChatScreenController::setAboutToChangeModel(bool about) {
+void ChatScreenController::setAboutToChangeModel(bool about)
+{
     if (about != mAboutToChangeModel) {
         mAboutToChangeModel = about;
         Q_EMIT aboutToChangeModelChanged();
     }
 }
 
-void ChatScreenController::resetAboutToChangeModel() {
+void ChatScreenController::resetAboutToChangeModel()
+{
     setAboutToChangeModel(false);
 }
 
@@ -227,42 +249,44 @@ QUrl ChatScreenController::currentPageUrl() const
     return sPageToUrl[mCurrentPage];
 }
 
-EmojiQmlModel* ChatScreenController::emojiModel() const
+EmojiQmlModel *ChatScreenController::emojiModel() const
 {
     return mEmojiModel;
 }
 
-void ChatScreenController::toggleMessageReaction(const QString& messageId, const QString& emoji)
+void ChatScreenController::toggleMessageReaction(const QString &messageId, const QString &emoji)
 {
-    const auto& msg = mMessageModel->findMessageById(messageId);
-    const auto& reactions = msg.reactions();
-    for (const auto& reaction : reactions.reactions()) {
+    const auto &msg = mMessageModel->findMessageById(messageId);
+    const auto &reactions = msg.reactions();
+    for (const auto &reaction : reactions.reactions()) {
         if (reaction.reactionName() == emoji) {
-            const bool doAdd = !reaction.userNames().contains(mAccountManager->account()->userName());
+            const bool doAdd =
+                !reaction.userNames().contains(mAccountManager->account()->userName());
             reactToMessage(messageId, emoji, doAdd);
             return;
         }
     }
 }
 
-void ChatScreenController::reactToMessage(const QString& messageId, const QString& emoji, bool addRemoveFlag)
+void ChatScreenController::reactToMessage(
+    const QString &messageId, const QString &emoji, bool addRemoveFlag)
 {
     // TODO: make sure account is valid?
     mAccountManager->account()->reactOnMessage(messageId, emoji, addRemoveFlag);
 }
 
-void ChatScreenController::removeMessage(const QString& roomId, const QString& messageId)
+void ChatScreenController::removeMessage(const QString &roomId, const QString &messageId)
 {
     // TODO: make sure account is valid?
     mAccountManager->account()->deleteMessage(messageId, roomId);
 }
 
-QUrl ChatScreenController::attachmentUrl(const QString& link)
+QUrl ChatScreenController::attachmentUrl(const QString &link)
 {
     return mAccountManager->account()->attachmentUrl(link);
 }
 
-QString ChatScreenController::attachmentUrlLocalFile(const QString& link)
+QString ChatScreenController::attachmentUrlLocalFile(const QString &link)
 {
     return mAccountManager->account()->attachmentUrl(link).toLocalFile();
 }
