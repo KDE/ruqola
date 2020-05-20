@@ -126,7 +126,7 @@ int Q_DECL_EXPORT main(int argc, char *argv[])
     // }
 
     // For desktop we'd like to use native text rendering
-#ifndef Q_OS_ANDROID
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_WINDOWS)
     QQuickWindow::setTextRenderType(QQuickWindow::NativeTextRendering);
 #endif
 
