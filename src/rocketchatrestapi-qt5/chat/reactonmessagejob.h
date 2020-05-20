@@ -59,7 +59,6 @@ private:
     QString mMessageId;
     QString mEmoji;
     bool mAddReact = true;
-
 };
 }
 #endif // REACTONMESSAGEJOB_H

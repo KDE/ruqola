@@ -139,7 +139,6 @@ QNetworkRequest ReactOnMessageJob::request() const
     return request;
 }
 
-
 QString RocketChatRestApi::ReactOnMessageJob::errorMessage(const QString &str)
 {
     if (str == QLatin1String("error-not-allowed")) {

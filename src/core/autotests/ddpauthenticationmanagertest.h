@@ -24,7 +24,6 @@
 
 #include <QObject>
 
-
 class DDPAuthenticationManagerTest : public QObject
 {
     Q_OBJECT

@@ -25,7 +25,6 @@
 
 #include "libruqolacore_export.h"
 
-
 class LIBRUQOLACORE_EXPORT AccountsChannelsModel : public QAbstractItemModel
 {
 public:

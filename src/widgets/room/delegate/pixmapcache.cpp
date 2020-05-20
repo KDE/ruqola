@@ -43,7 +43,7 @@ QPixmap PixmapCache::findCachedPixmap(const QString &path)
     return it == mCachedImages.end() ? QPixmap() : it->value;
 }
 
-void PixmapCache::insertCachedPixmap(const QString& path, const QPixmap& pixmap)
+void PixmapCache::insertCachedPixmap(const QString &path, const QPixmap &pixmap)
 {
     mCachedImages.insert(path, pixmap);
 }

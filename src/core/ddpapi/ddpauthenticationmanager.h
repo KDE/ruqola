@@ -28,7 +28,6 @@
 #include <QDateTime>
 #include <QJsonObject>
 
-
 class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager
 {
     Q_OBJECT

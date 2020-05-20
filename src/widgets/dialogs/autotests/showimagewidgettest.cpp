@@ -90,7 +90,6 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mLabel->pixmap().size(), 2 * pixmapSize);
 #endif
 
-
     mZoomSpin->setValue(3);
     QCOMPARE(mZoomSpin->value(), 3);
     QCOMPARE(mSlider->value(), 300);

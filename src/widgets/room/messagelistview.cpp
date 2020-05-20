@@ -237,7 +237,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotMarkMessageAsUnread(index);
     });
 
-
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
         QAction *startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);

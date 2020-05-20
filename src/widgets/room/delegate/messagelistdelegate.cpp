@@ -46,8 +46,9 @@
 
 static QSizeF dprAwareSize(const QPixmap &pixmap)
 {
-    if (pixmap.isNull())
+    if (pixmap.isNull()) {
         return {0, 0}; // prevent division-by-zero
+    }
     return pixmap.size() / pixmap.devicePixelRatioF();
 }
 

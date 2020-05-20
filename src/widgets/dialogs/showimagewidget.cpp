@@ -73,7 +73,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mSlider->setValue(mZoomSpin->value() * 100);
 
     connect(mZoomSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
-        this, &ShowImageWidget::setZoom);
+            this, &ShowImageWidget::setZoom);
     connect(mSlider, &QSlider::valueChanged, this, [this](int value) {
         setZoom(static_cast<double>(value) / 100);
     });
