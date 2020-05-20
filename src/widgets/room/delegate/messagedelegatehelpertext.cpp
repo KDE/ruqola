@@ -145,7 +145,7 @@ QString MessageDelegateHelperText::selectedText() const
 void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
-    if (mCurrentTextCursor.hasSelection() && clipboard->supportsSelection()) {
+    if (!mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection() && clipboard->supportsSelection()) {
         const QTextDocumentFragment fragment(mCurrentTextCursor);
         const QString text = fragment.toPlainText();
         clipboard->setText(text, QClipboard::Selection);
