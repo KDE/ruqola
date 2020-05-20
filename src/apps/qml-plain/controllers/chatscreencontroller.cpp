@@ -30,7 +30,8 @@
 #include "model/roommodel.h"
 #include "model/usersmodel.h"
 
-#include "textconverter.h"
+#include "models/roomavatarsmodel.h"
+
 #include "emoticons/emojimanager.h"
 #include "emoticons/emojiqmlmodel.h"
 #include "textconverter.h"
@@ -45,6 +46,8 @@ QHash<int, QUrl> ChatScreenController::sPageToUrl = {
     {(int)Page::ChatPage, QUrl(QStringLiteral("qrc:/pages/ChatPage.qml"))},
     {(int)Page::SettingsPage, QUrl(QStringLiteral("qrc:/pages/SettingsPage.qml"))},
     {(int)Page::DirectoryPage, QUrl(QStringLiteral("qrc:/pages/DirectoryPage.qml"))}};
+
+QHash<RocketChatAccount *, RoomAvatarsModel *> ChatScreenController::sRoomAvatarModelByAccount;
 
 ChatScreenController::ChatScreenController(AccountManager *accountManager, QObject *parent)
     : QObject(parent)
@@ -71,6 +74,16 @@ ChatScreenController::ChatScreenController(AccountManager *accountManager, QObje
 MessageModel *ChatScreenController::messageModel() const
 {
     return mMessageModel;
+}
+
+RoomAvatarsModel *ChatScreenController::roomAvatarsModel() const
+{
+    if (mAccountManager->account() &&
+        !sRoomAvatarModelByAccount.contains(mAccountManager->account())) {
+        sRoomAvatarModelByAccount[mAccountManager->account()] =
+            new RoomAvatarsModel(mAccountManager->account());
+    }
+    return sRoomAvatarModelByAccount.value(mAccountManager->account(), nullptr);
 }
 
 ListMessagesModel *ChatScreenController::listMessagesModel() const

@@ -16,6 +16,14 @@ Item {
     property int roomUnread: 0
     property bool roomAlert: false
     property string avatarURL: ""
+    property var avatarsModel: null
+
+    Repeater {
+        model: _chatScreenController.roomAvatarsModel
+        Item {
+            Component.onCompleted: root.avatarsModel = model
+        }
+    }
 
     Button {
         id: btn
@@ -38,7 +46,7 @@ Item {
                                 return root.avatarURL;
                             }
                             else {
-                                return _serverSelectorController.currentServerUrl + "/avatar/" + roomName;
+                                return root.avatarsModel[roomName];
                             }
                         }
                         anchors.fill: parent

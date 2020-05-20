@@ -30,8 +30,10 @@ class AccountManager;
 class EmojiQmlModel;
 class ListMessagesModel;
 class MessageModel;
+class RoomAvatarsModel;
 class RoomFilterProxyModel;
 class UsersModel;
+class RocketChatAccount;
 
 namespace RuqolaQmlPlain {
 namespace Controllers {
@@ -60,6 +62,9 @@ class ChatScreenController : public QObject
                    NOTIFY currentPageChanged)
     Q_PROPERTY(QUrl currentPageUrl READ currentPageUrl NOTIFY currentPageUrlChanged)
     Q_PROPERTY(EmojiQmlModel *emojiModel READ emojiModel NOTIFY emojiModelChanged)
+    Q_PROPERTY(
+        RoomAvatarsModel *roomAvatarsModel READ roomAvatarsModel NOTIFY roomAvatarsModelChanged);
+
     // Used to make sure that any intermediate contentY change during the model
     // update doesn't trigger loadHistory
     Q_PROPERTY(bool aboutToChangeModel READ aboutToChangeModel NOTIFY aboutToChangeModelChanged)
@@ -69,6 +74,7 @@ class ChatScreenController : public QObject
 
     ListMessagesModel *listMessagesModel() const;
     MessageModel *messageModel() const;
+    RoomAvatarsModel *roomAvatarsModel() const;
     RoomFilterProxyModel *roomsModel() const;
     UsersModel *usersModel() const;
     QString currentRoom() const;
@@ -109,6 +115,7 @@ class ChatScreenController : public QObject
     void currentPageUrlChanged();
     void aboutToChangeModelChanged();
     void emojiModelChanged();
+    void roomAvatarsModelChanged();
 
     void emojiInserted(const QString &emojiText);
 
@@ -126,6 +133,7 @@ class ChatScreenController : public QObject
     EmojiQmlModel *mEmojiModel = nullptr;
 
     static QHash<int, QUrl> sPageToUrl;
+    static QHash<RocketChatAccount *, RoomAvatarsModel *> sRoomAvatarModelByAccount;
 
     void setMessageModel(MessageModel *);
     void setCurrentRoom(const QString &);

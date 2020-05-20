@@ -47,6 +47,7 @@
 #include "model/roomfilterproxymodel.h"
 
 #include "models/rocketchaticonsmodel.h"
+#include "models/roomavatarsmodel.h"
 
 namespace RuqolaQmlPlain {
 
@@ -74,6 +75,7 @@ bool ApplicationEngine::initialize()
     qRegisterMetaType<RoomFilterProxyModel *>();
     qRegisterMetaType<EmojiQmlModel *>();
     qRegisterMetaType<EmojiCategoryQmlModel *>();
+    qRegisterMetaType<RoomAvatarsModel *>();
 
     rootContext()->setContextProperty(QStringLiteral("_screenController"), m_screenController);
     rootContext()->setContextProperty(QStringLiteral("_accountManager"), m_accountManager);

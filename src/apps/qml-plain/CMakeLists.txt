@@ -33,6 +33,8 @@ set(Ruqola_qmlplain_SRCS
 
     models/rocketchaticonsmodel.cpp
     models/rocketchaticonsmodel.h
+    models/roomavatarsmodel.cpp
+    models/roomavatarsmodel.h
 
     ${RuqolaPlainResources}
     ${ruqolaplain_qml_files})
