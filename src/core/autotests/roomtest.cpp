@@ -245,7 +245,7 @@ void RoomTest::shouldParseRoom()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(QStringLiteral("/room/"), jsonIndented, fileName);
+    AutoTestHelper::compareFile(QStringLiteral("/room/"), jsonIndented, fileName);
 
     Room *m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
@@ -304,7 +304,7 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(QStringLiteral("/room-updated/"), jsonIndented, fileNameinit);
+    AutoTestHelper::compareFile(QStringLiteral("/room-updated/"), jsonIndented, fileNameinit);
 
     Room *m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
@@ -386,7 +386,7 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(QStringLiteral("/room-update-subscription/"), jsonIndented, fileNameinit);
+    AutoTestHelper::compareFile(QStringLiteral("/room-update-subscription/"), jsonIndented, fileNameinit);
 
     Room *m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);

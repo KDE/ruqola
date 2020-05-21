@@ -26,23 +26,15 @@
 #include <QTest>
 #include <QDebug>
 
-void compareFile(const QString &repo, const QByteArray &data, const QString &name)
+namespace AutoTestHelper {
+void diffFile(const QString &refFile, const QString &generatedFile)
 {
-    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
-    //Create generated file
-    QFile f(generatedFile);
-    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
-    f.write(data);
-    f.close();
-
     QProcess proc;
-
 #ifdef _WIN32
     QStringList args = QStringList()
-                       << QStringLiteral("Compare-Object")
-                       << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
-                       << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
+            << QStringLiteral("Compare-Object")
+            << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
+            << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
 
     proc.start(QStringLiteral("powershell"), args);
     QVERIFY(proc.waitForFinished());
@@ -57,15 +49,30 @@ void compareFile(const QString &repo, const QByteArray &data, const QString &nam
 #else
     // compare to reference file
     QStringList args = QStringList()
-                       << QStringLiteral("-u")
-                       << refFile
-                       << generatedFile;
+            << QStringLiteral("-u")
+            << refFile
+            << generatedFile;
 
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
     proc.start(QStringLiteral("diff"), args);
     QVERIFY(proc.waitForFinished());
     QCOMPARE(proc.exitCode(), 0);
 #endif
+
+}
+
+void compareFile(const QString &repo, const QByteArray &data, const QString &name)
+{
+    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
+    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
+    //Create generated file
+    QFile f(generatedFile);
+    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
+    f.write(data);
+    f.close();
+
+    diffFile(refFile, generatedFile);
+}
 }
 
 #endif // RUQOLA_AUTOTEST_HELPER_H

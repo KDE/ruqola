@@ -20,6 +20,7 @@
 
 #include "rocketchatmessagetest.h"
 #include "rocketchatmessage.h"
+#include "ruqola_autotest_helper.h"
 #include <QProcess>
 #include <QTest>
 QTEST_GUILESS_MAIN(RocketChatMessageTest)
@@ -31,24 +32,7 @@ RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
 
 void RocketChatMessageTest::compareFile(const QString &data, const QString &name)
 {
-    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/method/") + name + QLatin1String(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/method/") + name + QLatin1String("-generated.ref");
-    //Create generated file
-    QFile f(generatedFile);
-    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
-    f.write(data.toUtf8());
-    f.close();
-
-    // compare to reference file
-    QStringList args = QStringList()
-                       << QStringLiteral("-u")
-                       << refFile
-                       << generatedFile;
-    QProcess proc;
-    proc.setProcessChannelMode(QProcess::ForwardedChannels);
-    proc.start(QStringLiteral("diff"), args);
-    QVERIFY(proc.waitForFinished());
-    QCOMPARE(proc.exitCode(), 0);
+    AutoTestHelper::compareFile(QLatin1String("/method/"), data.toUtf8(), name);
 }
 
 void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()

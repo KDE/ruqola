@@ -360,7 +360,7 @@ void MessageTest::shouldParseJsonMessage()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(QStringLiteral("/messages/"), jsonIndented, fileName);
+    AutoTestHelper::compareFile(QStringLiteral("/messages/"), jsonIndented, fileName);
 
     Message m = Message::fromJSon(docSerialized.object());
     bool compareMessage = (r == m);
@@ -418,7 +418,7 @@ void MessageTest::shouldUpdateJsonMessage()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(QStringLiteral("/messages-updated/"), jsonIndented, fileNameinit);
+    AutoTestHelper::compareFile(QStringLiteral("/messages-updated/"), jsonIndented, fileNameinit);
 
     Message m = Message::fromJSon(docSerialized.object());
     const bool compareMessage = (r == m);
