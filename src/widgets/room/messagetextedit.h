@@ -58,7 +58,6 @@ protected:
     void keyPressEvent(QKeyEvent *e) override;
 
 private:
-    void slotTextChanged();
     void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
     void slotCompletionAvailable();
     void slotComplete(const QModelIndex &index);

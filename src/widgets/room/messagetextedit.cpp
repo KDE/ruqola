@@ -32,7 +32,6 @@
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
 {
-    connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     setAcceptRichText(false);
 
     connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged,
@@ -55,7 +54,6 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 
 MessageTextEdit::~MessageTextEdit()
 {
-    disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     delete mUserAndChannelCompletionListView;
     delete mEmojiCompletionListView;
     delete mCommandCompletionListView;
@@ -103,9 +101,7 @@ QSize MessageTextEdit::minimumSizeHint() const
 
 void MessageTextEdit::changeText(const QString &newText)
 {
-    disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     setPlainText(newText);
-    connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
 }
 
@@ -115,6 +111,8 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
     if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {
             Q_EMIT sendMessage(text());
+            //We send text => we will clear => we will send textEditing is empty => clear notification
+            Q_EMIT textEditing(true);
             clear();
         } else {
             textCursor().insertBlock();
@@ -138,14 +136,22 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
     if (e->isAccepted()) {
         return;
     }
+    if (!e->modifiers()) {
+        if (key == Qt::Key_Delete || key == Qt::Key_Backspace) {
+            if (textCursor().hasSelection() && textCursor().selectedText() == text()) {
+                //We will clear all text => we will send textEditing is empty => clear notification
+                Q_EMIT textEditing(true);
+            } else {
+                mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+                Q_EMIT textEditing(document()->isEmpty());
+            }
+        } else {
+            mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+            Q_EMIT textEditing(document()->isEmpty());
+        }
+    }
 
     KTextEdit::keyPressEvent(e);
-}
-
-void MessageTextEdit::slotTextChanged()
-{
-    mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
-    Q_EMIT textEditing(document()->isEmpty());
 }
 
 void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForType type)
