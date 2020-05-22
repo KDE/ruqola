@@ -63,6 +63,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mZoomSpin->setRange(0.1, 10);
     mZoomSpin->setValue(1);
     mZoomSpin->setDecimals(1);
+    mZoomSpin->setSingleStep(0.1);
     zoomLayout->addWidget(mZoomSpin);
 
     mSlider = new QSlider(this);
