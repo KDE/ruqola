@@ -177,7 +177,7 @@ void RuqolaMainWindow::setupActions()
     connect(mServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotServerInfo);
     ac->addAction(QStringLiteral("server_info"), mServerInfo);
 
-    mLogout = new QAction(i18n("Logout"), this);
+    mLogout = new QAction(i18n("Logout Current Account"), this);
     connect(mLogout, &QAction::triggered, this, &RuqolaMainWindow::slotLogout);
     ac->addAction(QStringLiteral("logout"), mLogout);
 
