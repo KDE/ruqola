@@ -24,59 +24,30 @@ Item {
     property real contentPadding: 0
     property bool compact: _settings.compactMode
 
-    implicitHeight: layout.height + (showDate ? daySeparator.height : 0)
+    implicitHeight: layout.height + daySeparatorLoader.height
 
     signal reactionDialogRequested(real x, real y)
     signal reactionButtonClicked(string emojiId)
     signal menuButtonClicked(real x, real y)
 
-    Item {
-        id: daySeparator
+    Loader {
+        id: daySeparatorLoader
+        active: root.showDate
 
         width: parent.width
-        height: 25
-        visible: root.showDate
+        height: root.showDate ? 25 : 0
 
-        Rectangle {
-            id: leftDateLine
-            height: 1
-            color: "#EAEAEA"
-            width: ((parent.width - dateTextContainer.width) / 2) - root.contentPadding
-            anchors.left: parent.left
-            anchors.leftMargin: root.contentPadding
-            anchors.verticalCenter: parent.verticalCenter
-        }
-
-        Item {
-            id: dateTextContainer
-            width: 140
-            height: dateText.height
-            anchors.left: leftDateLine.right
-            anchors.verticalCenter: parent.verticalCenter
-
-            Text {
-                id: dateText
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: root.messageDate
-            }
-        }
-
-        Rectangle {
-            id: rightDateLine
-
-            height: 1
-            color: "#EAEAEA"
-            anchors.left: dateTextContainer.right
-            anchors.right: parent.right
-            anchors.rightMargin: root.contentPadding
-            anchors.verticalCenter: parent.verticalCenter
+        sourceComponent: DaySeparator {
+            id: daySeparator
+            text: root.messageDate
+            padding: root.contentPadding
         }
     }
 
     Rectangle {
         width: parent.width
         height: layout.height
-        anchors.top: showDate ? daySeparator.bottom : parent.top
+        anchors.top: daySeparatorLoader.bottom
         color: (mouseArea.containsMouse || (root.compact && textEditCompactHoverHandler.hovered)) ? "#F3F4F2" : "white"
 
         MouseArea {
