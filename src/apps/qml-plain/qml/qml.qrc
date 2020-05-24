@@ -15,6 +15,11 @@
     <qresource prefix="/components/chatmessage">
         <file alias="AudioAttachment.qml">components/chatmessage/AudioAttachment.qml</file>
         <file alias="DaySeparator.qml">components/chatmessage/DaySeparator.qml</file>
+        <file alias="MessageDelegateComponent.qml">components/chatmessage/MessageDelegateComponent.qml</file>
+        <file alias="NormalMessage.qml">components/chatmessage/NormalMessage.qml</file>
+        <file alias="NormalMessageCompact.qml">components/chatmessage/NormalMessageCompact.qml</file>
+        <file alias="SystemMessage.qml">components/chatmessage/SystemMessage.qml</file>
+        <file alias="SystemMessageCompact.qml">components/chatmessage/SystemMessageCompact.qml</file>
         <file alias="VideoAttachment.qml">components/chatmessage/VideoAttachment.qml</file>
         <file alias="ImageAttachment.qml">components/chatmessage/ImageAttachment.qml</file>
         <file alias="UrlPreview.qml">components/chatmessage/UrlPreview.qml</file>

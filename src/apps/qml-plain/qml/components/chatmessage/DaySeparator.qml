@@ -6,8 +6,6 @@ Item {
     property alias text: dateText.text
     property int padding: 0
 
-    height: 25
-
     Rectangle {
         id: leftDateLine
         height: 1
