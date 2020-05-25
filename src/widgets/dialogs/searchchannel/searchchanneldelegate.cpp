@@ -37,6 +37,9 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 {
     // [M] <icon> [M] <name> [M] <add channel icon> [M]   ([M] = margin)
     //TODO add channel type icon too
+    painter->save();
+    const Layout layout = doLayout(option, index);
+
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = 8;
 
@@ -51,6 +54,7 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
+
     drawBackground(painter, optionCopy, index);
     const QIcon icon = index.data(SearchChannelModel::IconName).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
@@ -59,6 +63,7 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     mAddChannel.paint(painter, addChannelIconRect, Qt::AlignCenter);
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
+    painter->restore();
 }
 
 bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -66,7 +71,14 @@ bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
+        const Layout layout = doLayout(option, index);
         //TODO
     }
     return QItemDelegate::editorEvent(event, model, option, index);
+}
+
+SearchChannelDelegate::Layout SearchChannelDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    //TODO
+    return {};
 }

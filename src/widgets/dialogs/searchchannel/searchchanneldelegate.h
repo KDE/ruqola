@@ -32,6 +32,14 @@ public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 private:
+    struct Layout {
+
+        QRect usableRect;
+
+        //Select Channel Rect
+        QRect selectChannelRect;
+    };
+    SearchChannelDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QIcon mAddChannel;
 };
 
