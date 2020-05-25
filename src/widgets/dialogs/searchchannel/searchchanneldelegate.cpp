@@ -18,11 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 #include "searchchanneldelegate.h"
+#include <QEvent>
+#include <QMouseEvent>
 #include <QPainter>
 #include "model/searchchannelmodel.h"
 
 SearchChannelDelegate::SearchChannelDelegate(QObject *parent)
     : QItemDelegate(parent)
+    , mAddChannel(QIcon::fromTheme(QStringLiteral("list-add")))
 {
 }
 
@@ -33,13 +36,13 @@ SearchChannelDelegate::~SearchChannelDelegate()
 void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <icon> [M] <name> [M] <add channel icon> [M]   ([M] = margin)
+    //TODO add channel type icon too
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = 8;
 
     const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
 
     const QString text = index.data(SearchChannelModel::ChannelName).toString();
-    const QIcon addChannelIcon = QIcon::fromTheme(QStringLiteral("list-add"));
 
     const int xText = option.rect.x() + iconSize + 2 * margin;
     const QRect displayRect(xText, option.rect.y(),
@@ -53,7 +56,17 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     icon.paint(painter, decorationRect, Qt::AlignCenter);
 
     const QRect addChannelIconRect(option.rect.width() - iconSize - 2 * margin, option.rect.y(), iconSize, option.rect.height());
-    addChannelIcon.paint(painter, addChannelIconRect, Qt::AlignCenter);
+    mAddChannel.paint(painter, addChannelIconRect, Qt::AlignCenter);
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
+}
+
+bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        auto *mev = static_cast<QMouseEvent *>(event);
+        //TODO
+    }
+    return QItemDelegate::editorEvent(event, model, option, index);
 }
