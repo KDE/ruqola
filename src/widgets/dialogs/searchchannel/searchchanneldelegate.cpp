@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "searchchanneldelegate.h"
+#include "common/delegatepaintutil.h"
 #include <QEvent>
 #include <QMouseEvent>
 #include <QPainter>
@@ -39,30 +40,18 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     //TODO add channel type icon too
     painter->save();
     const Layout layout = doLayout(option, index);
-
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    const int margin = 8;
-
-    const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
-
-    const QString text = index.data(SearchChannelModel::ChannelName).toString();
-
-    const int xText = option.rect.x() + iconSize + 2 * margin;
-    const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText - 2 * margin - iconSize,
-                            option.rect.height());
-
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
 
     drawBackground(painter, optionCopy, index);
+
     const QIcon icon = index.data(SearchChannelModel::IconName).value<QIcon>();
-    icon.paint(painter, decorationRect, Qt::AlignCenter);
+    icon.paint(painter, layout.iconChannelRect, Qt::AlignCenter);
 
-    const QRect addChannelIconRect(option.rect.width() - iconSize - 2 * margin, option.rect.y(), iconSize, option.rect.height());
-    mAddChannel.paint(painter, addChannelIconRect, Qt::AlignCenter);
+    painter->drawText(layout.usableRect, layout.channelName);
 
-    drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
+    mAddChannel.paint(painter, layout.selectChannelRect, Qt::AlignCenter);
+
     painter->restore();
 }
 
@@ -72,6 +61,9 @@ bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
         const Layout layout = doLayout(option, index);
+        if (layout.selectChannelRect.contains(mev->pos())) {
+            return true;
+        }
         //TODO
     }
     return QItemDelegate::editorEvent(event, model, option, index);
@@ -79,6 +71,16 @@ bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model
 
 SearchChannelDelegate::Layout SearchChannelDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    //TODO
-    return {};
+    Layout layout;
+    QRect usableRect = option.rect;
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
+
+    layout.iconChannelRect = QRect(option.rect.x() + DelegatePaintUtil::margin(), option.rect.y(), iconSize, option.rect.height());
+
+    layout.channelName = index.data(SearchChannelModel::ChannelName).toString();
+
+    layout.selectChannelRect = QRect(option.rect.width() - iconSize - 2 * DelegatePaintUtil::margin(), option.rect.y(), iconSize, option.rect.height());
+
+    return layout;
 }

@@ -34,7 +34,11 @@ public:
 private:
     struct Layout {
 
+        QRect iconChannelRect;
+
         QRect usableRect;
+
+        QString channelName;
 
         //Select Channel Rect
         QRect selectChannelRect;

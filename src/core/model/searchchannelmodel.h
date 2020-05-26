@@ -53,9 +53,9 @@ public:
     void parseAllChannels(const QJsonObject &obj);
 
 private:
-    QIcon channelIconName(const Channel &channel) const;
-    QString channelId(const Channel &channel) const;
-    QString channelName(const Channel &channel) const;
+    Q_REQUIRED_RESULT QIcon channelIconName(const Channel &channel) const;
+    Q_REQUIRED_RESULT QString channelId(const Channel &channel) const;
+    Q_REQUIRED_RESULT QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };
 
