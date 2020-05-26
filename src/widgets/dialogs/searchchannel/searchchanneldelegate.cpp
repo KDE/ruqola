@@ -80,7 +80,9 @@ SearchChannelDelegate::Layout SearchChannelDelegate::doLayout(const QStyleOption
 
     layout.channelName = index.data(SearchChannelModel::ChannelName).toString();
 
-    layout.selectChannelRect = QRect(option.rect.width() - iconSize - 2 * DelegatePaintUtil::margin(), option.rect.y(), iconSize, option.rect.height());
+    layout.selectChannelRect = QRect(option.rect.width() - iconSize - DelegatePaintUtil::margin(), option.rect.y(), iconSize, option.rect.height());
+
+    layout.usableRect.setLeft(layout.iconChannelRect.width() + DelegatePaintUtil::margin());
 
     return layout;
 }
