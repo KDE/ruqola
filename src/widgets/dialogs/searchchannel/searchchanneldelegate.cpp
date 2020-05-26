@@ -62,9 +62,9 @@ bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model
         auto *mev = static_cast<QMouseEvent *>(event);
         const Layout layout = doLayout(option, index);
         if (layout.selectChannelRect.contains(mev->pos())) {
+            Q_EMIT channelSelected(index);
             return true;
         }
-        //TODO
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }

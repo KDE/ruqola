@@ -31,6 +31,10 @@ public:
     ~SearchChannelDelegate() override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+Q_SIGNALS:
+    void channelSelected(const QModelIndex &index);
+
 private:
     struct Layout {
 

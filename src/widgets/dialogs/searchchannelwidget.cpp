@@ -49,8 +49,9 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchChannelFilterProxyModel());
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
-    mResultListWidget->setItemDelegate(new SearchChannelDelegate(this));
-    connect(mResultListWidget, &QListView::doubleClicked, this, &SearchChannelWidget::slotOpenChannel);
+    SearchChannelDelegate *searchDeletegate = new SearchChannelDelegate(this);
+    mResultListWidget->setItemDelegate(searchDeletegate);
+    connect(searchDeletegate, &SearchChannelDelegate::channelSelected, this, &SearchChannelWidget::slotOpenChannel);
 }
 
 SearchChannelWidget::~SearchChannelWidget()
