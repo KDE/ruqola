@@ -122,6 +122,14 @@ void MessageListView::setChannelSelected(RoomWrapper *roomWrapper)
     MessageModel *model = Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId);
     setModel(model);
     model->activate();
+    if (model->rowCount() == 0) {
+        connect(model, &MessageModel::rowsInserted, this, [this, roomId](){
+            Ruqola::self()->rocketChatAccount()->readMessages(roomId);
+        }, Qt::UniqueConnection);
+    }
+    else {
+        Ruqola::self()->rocketChatAccount()->readMessages(roomId);
+    }
 }
 
 void MessageListView::setModel(QAbstractItemModel *newModel)

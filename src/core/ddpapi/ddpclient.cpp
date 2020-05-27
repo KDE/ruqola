@@ -98,6 +98,13 @@ void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void read_messages_callback(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Read room messages:") + QJsonDocument(root).toJson());
+    }
+}
+
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
@@ -267,6 +274,12 @@ quint64 DDPClient::setRoomEncrypted(const QString &roomId, bool encrypted)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomEncrypted(roomId, encrypted, m_uid);
     return method(result, change_room_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::readMessages(const QString &roomId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomId, m_uid);
+    return method(result, read_messages_callback, DDPClient::Persistent);
 }
 
 void DDPClient::subscribeRoomMessage(const QString &roomId)

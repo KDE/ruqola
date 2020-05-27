@@ -191,6 +191,8 @@ public:
     quint64 blockUser(const QString &rid, const QString &userId);
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
     quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
+    quint64 readMessages(const QString &roomId);
+
 Q_SIGNALS:
     void connectedChanged();
     void added(const QJsonObject &item);
