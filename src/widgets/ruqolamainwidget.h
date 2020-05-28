@@ -21,6 +21,7 @@
 #ifndef RUQOLAMAINWIDGET_H
 #define RUQOLAMAINWIDGET_H
 
+#include <QPointer>
 #include <QStackedWidget>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
@@ -47,7 +48,7 @@ private:
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;
     QSplitter *mSplitter = nullptr;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QStackedWidget *mStackedRoomWidget = nullptr;
     QWidget *mEmptyRoomWidget = nullptr;
 };
