@@ -125,10 +125,10 @@ void MessageListView::setChannelSelected(RoomWrapper *roomWrapper)
     setModel(model);
     model->activate();
     // Mark all existing messages as read
-    Ruqola::self()->rocketChatAccount()->readMessages(roomId);
+    Ruqola::self()->rocketChatAccount()->markRoomAsRead(roomId);
     // Keep marking messages as read as long as the room is being shown
     connect(model, &MessageModel::rowsInserted, this, [this, roomId](){
-        Ruqola::self()->rocketChatAccount()->readMessages(roomId);
+        Ruqola::self()->rocketChatAccount()->markRoomAsRead(roomId);
     });
 }
 

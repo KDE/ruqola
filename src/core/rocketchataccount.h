@@ -249,7 +249,6 @@ public:
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
-    Q_INVOKABLE void readMessages(const QString& roomId);
 
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
     Q_INVOKABLE void getStarredMessages(const QString &roomId);

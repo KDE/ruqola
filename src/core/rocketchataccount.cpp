@@ -916,11 +916,6 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
     }
 }
 
-void RocketChatAccount::readMessages(const QString &roomId)
-{
-    ddp()->readMessages(roomId);
-}
-
 void RocketChatAccount::getMentionsMessages(const QString &roomId)
 {
     mListMessageModel->clear();
