@@ -229,7 +229,7 @@ void AccountsOverviewWidget::updateButtons()
         mAccounts[i]->setVisible(account->accountEnabled());
         mAccounts[i]->setAccount(model->account(i));
     }
-    for (int i = count; i < mAccounts.size(); ++i) {
+    for (int i = count, total = mAccounts.size(); i < total; ++i) {
         mAccounts[i]->deleteLater();
     }
     mAccounts.resize(count);
