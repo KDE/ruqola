@@ -114,7 +114,7 @@ void MessageListView::setChannelSelected(RoomWrapper *roomWrapper)
 {
     MessageModel *oldModel = qobject_cast<MessageModel *>(model());
     if (oldModel) {
-        // Stop marking messages as reads as the room is not being read anymore
+        // Stop marking messages as read since the room is not being read anymore from this point on
         disconnect(oldModel, &MessageModel::rowsInserted, this, nullptr);
         oldModel->deactivate();
     }
@@ -123,9 +123,10 @@ void MessageListView::setChannelSelected(RoomWrapper *roomWrapper)
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
     MessageModel *model = Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId);
     setModel(model);
+    model->activate();
     // Mark all existing messages as read
     Ruqola::self()->rocketChatAccount()->readMessages(roomId);
-    // Keep marking messages as read as lons as the room is being shown
+    // Keep marking messages as read as long as the room is being shown
     connect(model, &MessageModel::rowsInserted, this, [this, roomId](){
         Ruqola::self()->rocketChatAccount()->readMessages(roomId);
     });
