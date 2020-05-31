@@ -67,10 +67,11 @@ public:
     void clearMessageIdBeingEdited();
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox);
+    void setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox = false);
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
+    void threadMessageIdChanged(const QString &threadMessageId);
 
 private:
     void slotSendMessage(const QString &msg);

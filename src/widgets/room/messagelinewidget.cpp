@@ -110,7 +110,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             } else {
                 mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, msg);
                 if (!mReplyInThreadDialogBox) {
-                    mThreadMessageId.clear();
+                    setThreadMessageId({});
                 }
             }
         } else {
@@ -183,8 +183,14 @@ QString MessageLineWidget::threadMessageId() const
 
 void MessageLineWidget::setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox)
 {
-    mThreadMessageId = threadMessageId;
     mReplyInThreadDialogBox = replyInDialogBox;
+
+    if (mThreadMessageId == threadMessageId) {
+        return;
+    }
+
+    mThreadMessageId = threadMessageId;
+    Q_EMIT threadMessageIdChanged(mThreadMessageId);
 }
 
 MessageLineWidget::EditingMode MessageLineWidget::mode() const

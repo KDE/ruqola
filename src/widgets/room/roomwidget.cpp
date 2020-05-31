@@ -48,12 +48,17 @@
 
 #include "threadwidget/threadmessagedialog.h"
 
+#include <KLocalizedString>
+
+#include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QKeyEvent>
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>
 #include <QScrollBar>
+#include <QLabel>
+#include <QPushButton>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -75,6 +80,23 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);
 
+    mMessageThreadWidget = new QWidget(this);
+    mMessageThreadWidget->setObjectName(QStringLiteral("mMessageThreadWidget"));
+    mMessageThreadWidget->setVisible(false);
+    auto messageThreadLayout = new QHBoxLayout(mMessageThreadWidget);
+    mMessageThreadWidget->setLayout(messageThreadLayout);
+    mMessageThreadLabel = new QLabel(i18n("Replying in a thread"));
+    messageThreadLayout->addWidget(mMessageThreadLabel);
+    mMessageThreadButton = new QPushButton(mMessageThreadWidget);
+    mMessageThreadButton->setText(i18n("Cancel"));
+    mMessageThreadButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
+    connect(mMessageThreadButton, &QPushButton::clicked, this, [this] {
+        mMessageLineWidget->setThreadMessageId({});
+    });
+    messageThreadLayout->addWidget(mMessageThreadButton);
+    messageThreadLayout->addStretch();
+    mainLayout->addWidget(mMessageThreadWidget);
+
     mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
@@ -90,6 +112,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
     connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
+    connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidget::slotShowThreadMessage);
 
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
@@ -104,7 +127,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidget::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
     connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId) {
-        mMessageLineWidget->setThreadMessageId(messageId, false);
+        mMessageLineWidget->setThreadMessageId(messageId);
     });
 
     setAcceptDrops(true);
@@ -496,6 +519,11 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }
+}
+
+void RoomWidget::slotShowThreadMessage(const QString &threadMessageId)
+{
+    mMessageThreadWidget->setVisible(!threadMessageId.isEmpty());
 }
 
 QString RoomWidget::roomType() const

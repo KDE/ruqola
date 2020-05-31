@@ -33,6 +33,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldStorePendingTextPerRoom();
+    void shouldShowNoticeWhenReplyingToThread();
 };
 
 #endif // ROOMWIDGETTEST_H

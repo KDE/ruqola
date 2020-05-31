@@ -28,10 +28,12 @@
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 
+#include <ruqola.h>
+
 #include <QStackedWidget>
 #include <QTest>
+#include <QTimer>
 #include <QVBoxLayout>
-#include <ruqola.h>
 
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
@@ -123,4 +125,24 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     // THEN the other text should appear again
     w.setChannelSelected(room2->roomId(), room2->channelType());
     QCOMPARE(mMessageLineWidget->text(), QStringLiteral("Text for room 1"));
+}
+
+void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
+{
+    QEventLoop loop;
+    RoomWidget w;
+
+    auto *mMessageThreadWidget = w.findChild<QWidget *>(QStringLiteral("mMessageThreadWidget"));
+    QVERIFY(!mMessageThreadWidget->isVisible());
+
+    auto *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    QVERIFY(mMessageLineWidget);
+
+    mMessageLineWidget->setThreadMessageId(QStringLiteral("placeholder"));
+    loop.processEvents();
+    QVERIFY(!mMessageThreadWidget->isHidden());
+
+    mMessageLineWidget->setThreadMessageId({});
+    loop.processEvents();
+    QVERIFY(mMessageThreadWidget->isHidden());
 }
