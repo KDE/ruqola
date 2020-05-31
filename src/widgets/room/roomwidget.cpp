@@ -48,12 +48,15 @@
 
 #include "threadwidget/threadmessagedialog.h"
 
+#include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QKeyEvent>
 #include <QStackedWidget>
 #include <QMimeData>
 #include <QPointer>
 #include <QScrollBar>
+#include <QLabel>
+#include <QToolButton>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -75,6 +78,21 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);
 
+    mMessageThreadWidget = new QWidget(this);
+    mMessageThreadWidget->setVisible(false);
+    mMessageThreadLayout = new QHBoxLayout(mMessageThreadWidget);
+    mMessageThreadWidget->setLayout(mMessageThreadLayout);
+    mMessageThreadLabel = new QLabel(tr("Replying in a thread"));
+    mMessageThreadLayout->addWidget(mMessageThreadLabel);
+    mMessageThreadButton = new QToolButton(mMessageThreadWidget);
+    mMessageThreadButton->setToolTip(tr("Cancel"));
+    mMessageThreadButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
+    connect(mMessageThreadButton, &QToolButton::clicked, this, [this] {
+        mMessageLineWidget->setThreadMessageId({});
+    });
+    mMessageThreadLayout->addWidget(mMessageThreadButton);
+    mainLayout->addWidget(mMessageThreadWidget);
+
     mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
@@ -90,6 +108,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
     connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
+    connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidget::slotShowThreadMessage);
 
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
@@ -103,7 +122,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidget::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
-    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, &MessageLineWidget::setReplyInThread);
+    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, &MessageLineWidget::setThreadMessageId);
 
     setAcceptDrops(true);
 }
@@ -494,6 +513,11 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }
+}
+
+void RoomWidget::slotShowThreadMessage(const QString &threadMessageId)
+{
+    mMessageThreadWidget->setVisible(!threadMessageId.isEmpty());
 }
 
 QString RoomWidget::roomType() const

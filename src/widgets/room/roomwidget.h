@@ -23,6 +23,7 @@
 
 #include <QPointer>
 #include <QWidget>
+
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
 #include "roomheaderwidget.h"
@@ -33,6 +34,7 @@ class MessageLineWidget;
 class RoomWrapper;
 class ReadOnlyLineEditWidget;
 class QStackedWidget;
+class QHBoxLayout;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
 
@@ -67,6 +69,7 @@ private:
     void connectRoomWrapper();
     void slotChangeFavorite(bool b);
     void keyPressedInLineEdit(QKeyEvent *ev);
+    void slotShowThreadMessage(const QString &threadMessageId);
     void setRoomType(const QString &roomType);
     void slotEncryptedChanged(bool b);
     void slotGoBackToRoom();
@@ -96,6 +99,10 @@ private:
 
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
+    QWidget *mMessageThreadWidget = nullptr;
+    QHBoxLayout *mMessageThreadLayout = nullptr;
+    QLabel *mMessageThreadLabel = nullptr;
+    QToolButton *mMessageThreadButton = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
     RoomWrapper *mRoomWrapper = nullptr;
     QStackedWidget *mStackedWidget = nullptr;

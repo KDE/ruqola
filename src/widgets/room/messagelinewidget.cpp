@@ -109,7 +109,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                 mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
             } else {
                 mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, msg);
-                mThreadMessageId.clear();
+                setThreadMessageId({});
             }
         } else {
             mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
@@ -125,11 +125,6 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
     setMode(messageId.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
     setText(text);
     setFocus();
-}
-
-void MessageLineWidget::setReplyInThread(const QString &messageId)
-{
-    mThreadMessageId = messageId;
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
@@ -184,9 +179,14 @@ QString MessageLineWidget::threadMessageId() const
     return mThreadMessageId;
 }
 
-void MessageLineWidget::setThreadMessageId(const QString &threadMessageId)
+void MessageLineWidget::setThreadMessageId(const QString &messageId)
 {
-    mThreadMessageId = threadMessageId;
+    if (mThreadMessageId == messageId) {
+        return;
+    }
+
+    mThreadMessageId = messageId;
+    Q_EMIT threadMessageIdChanged(mThreadMessageId);
 }
 
 MessageLineWidget::EditingMode MessageLineWidget::mode() const
