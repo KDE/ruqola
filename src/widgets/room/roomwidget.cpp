@@ -48,6 +48,8 @@
 
 #include "threadwidget/threadmessagedialog.h"
 
+#include <KLocalizedString>
+
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QKeyEvent>
@@ -83,10 +85,10 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageThreadWidget->setVisible(false);
     mMessageThreadLayout = new QHBoxLayout(mMessageThreadWidget);
     mMessageThreadWidget->setLayout(mMessageThreadLayout);
-    mMessageThreadLabel = new QLabel(tr("Replying in a thread"));
+    mMessageThreadLabel = new QLabel(i18n("Replying in a thread"));
     mMessageThreadLayout->addWidget(mMessageThreadLabel);
     mMessageThreadButton = new QToolButton(mMessageThreadWidget);
-    mMessageThreadButton->setToolTip(tr("Cancel"));
+    mMessageThreadButton->setToolTip(i18n("Cancel"));
     mMessageThreadButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
     connect(mMessageThreadButton, &QToolButton::clicked, this, [this] {
         mMessageLineWidget->setThreadMessageId({});
