@@ -79,6 +79,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mainLayout->addWidget(mMessageListView, 1);
 
     mMessageThreadWidget = new QWidget(this);
+    mMessageThreadWidget->setObjectName(QStringLiteral("mMessageThreadWidget"));
     mMessageThreadWidget->setVisible(false);
     mMessageThreadLayout = new QHBoxLayout(mMessageThreadWidget);
     mMessageThreadWidget->setLayout(mMessageThreadLayout);
