@@ -35,6 +35,10 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mSetOnlineForAllAccount->setObjectName(QStringLiteral("mSetOnlineForAllAccount"));
     mainLayout->addWidget(mSetOnlineForAllAccount);
 
+    mShowImageByDefault = new QCheckBox(i18n("Show Image by Default"), this);
+    mShowImageByDefault->setObjectName(QStringLiteral("mShowImageByDefault"));
+    mainLayout->addWidget(mShowImageByDefault);
+
     mainLayout->addStretch(1);
 }
 
@@ -45,10 +49,12 @@ ConfigureGeneralWidget::~ConfigureGeneralWidget()
 void ConfigureGeneralWidget::save()
 {
     RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
+    RuqolaGlobalConfig::self()->setShowImage(mShowImageByDefault->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
 void ConfigureGeneralWidget::load()
 {
     mSetOnlineForAllAccount->setChecked(RuqolaGlobalConfig::self()->setOnlineAccounts());
+    mShowImageByDefault->setChecked(RuqolaGlobalConfig::self()->showImage());
 }

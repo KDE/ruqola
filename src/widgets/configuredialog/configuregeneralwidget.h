@@ -35,6 +35,7 @@ public:
     void load();
 private:
     QCheckBox *mSetOnlineForAllAccount = nullptr;
+    QCheckBox *mShowImageByDefault = nullptr;
 };
 
 #endif // CONFIGUREGENERALWIDGET_H

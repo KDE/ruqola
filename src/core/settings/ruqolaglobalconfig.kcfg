@@ -10,4 +10,10 @@
     </entry>
   </group>
 
+  <group name="View">
+    <entry name="ShowImage" type="Bool">
+      <default>true</default>
+    </entry>
+  </group>
+
 </kcfg>

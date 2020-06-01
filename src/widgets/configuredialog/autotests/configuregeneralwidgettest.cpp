@@ -20,7 +20,9 @@
 
 #include "configuregeneralwidgettest.h"
 #include "configuredialog/configuregeneralwidget.h"
+#include <QCheckBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ConfigureGeneralWidgetTest)
 
 ConfigureGeneralWidgetTest::ConfigureGeneralWidgetTest(QObject *parent)
@@ -30,5 +32,19 @@ ConfigureGeneralWidgetTest::ConfigureGeneralWidgetTest(QObject *parent)
 
 void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
 {
-    //TODO
+    ConfigureGeneralWidget w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QCheckBox *mSetOnlineForAllAccount = w.findChild<QCheckBox *>(QStringLiteral("mSetOnlineForAllAccount"));
+    QVERIFY(mSetOnlineForAllAccount);
+    QVERIFY(!mSetOnlineForAllAccount->isChecked());
+    QVERIFY(!mSetOnlineForAllAccount->text().isEmpty());
+
+    QCheckBox *mShowImageByDefault = w.findChild<QCheckBox *>(QStringLiteral("mShowImageByDefault"));
+    QVERIFY(mShowImageByDefault);
+    QVERIFY(!mShowImageByDefault->isChecked());
+    QVERIFY(!mShowImageByDefault->text().isEmpty());
 }
