@@ -57,7 +57,7 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 
     //qDebug() << " doc " << doc;
 
-    QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
+    //QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
     //qDebug() << " rooms_parsing: room removed *************************************************" << removed;
     const QJsonArray updated = obj.value(QLatin1String("update")).toArray();
     //qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;

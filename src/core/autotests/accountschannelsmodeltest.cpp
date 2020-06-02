@@ -48,7 +48,7 @@ void AccountsChannelsModelTest::accountsAndChannels()
     QAbstractItemModelTester tester(&model, QAbstractItemModelTester::FailureReportingMode::QtTest);
 
     QCOMPARE(model.rowCount(), 1); // Ruqola creates one account by default
-    QCOMPARE(model.data(model.index(1, 0)).toString(), QStringLiteral(""));
+    QCOMPARE(model.data(model.index(1, 0)).toString(), QString());
     QCOMPARE(model.rowCount(model.index(1, 0)), 0);
 
     const auto newAcctName = QStringLiteral("Test Account");
