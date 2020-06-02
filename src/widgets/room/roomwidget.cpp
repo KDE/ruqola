@@ -103,7 +103,9 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidget::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
-    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, &MessageLineWidget::setReplyInThread);
+    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId) {
+        mMessageLineWidget->setThreadMessageId(messageId, false);
+    });
 
     setAcceptDrops(true);
 }

@@ -65,7 +65,7 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
         mThreadMessageId = threadMessageId;
         Ruqola::self()->rocketChatAccount()->getThreadMessages(mThreadMessageId);
         mMessageListView->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
-        mMessageLineWidget->setThreadMessageId(mThreadMessageId);
+        mMessageLineWidget->setThreadMessageId(mThreadMessageId, true);
     }
 }
 

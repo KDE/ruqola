@@ -67,8 +67,7 @@ public:
     void clearMessageIdBeingEdited();
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId);
-    void setReplyInThread(const QString &messageId);
+    void setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox);
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
@@ -90,6 +89,7 @@ private:
     QToolButton *mSendMessageButton = nullptr;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    bool mReplyInThreadDialogBox = false;
 };
 
 #endif // MESSAGELINEWIDGET_H
