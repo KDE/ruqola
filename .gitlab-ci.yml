@@ -6,8 +6,6 @@ build_clazy_clang_tidy:
   stage: build
   image: kdeorg/ci-suse-qt514
   extends: .linux
-  only:
-    - merge_requests
   before_script:
     - zypper install -y clazy
     - git clone --depth=1 https://invent.kde.org/sysadmin/ci-tooling.git $CI_TOOLING
