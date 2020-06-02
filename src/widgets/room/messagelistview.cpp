@@ -200,6 +200,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     QMenu menu(this);
     QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
+    copyAction->setShortcut(QKeySequence::Copy);
     connect(copyAction, &QAction::triggered, this, [=]() {
         copyMessageToClipboard(index);
     });
