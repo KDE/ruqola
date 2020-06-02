@@ -146,8 +146,10 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             Q_EMIT textEditing(document()->isEmpty());
         }
     } else {
-        mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
-        Q_EMIT textEditing(document()->isEmpty());
+        if (!e->modifiers() || e->matches(QKeySequence::Paste)) {
+            mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+            Q_EMIT textEditing(document()->isEmpty());
+        }
     }
 }
 
