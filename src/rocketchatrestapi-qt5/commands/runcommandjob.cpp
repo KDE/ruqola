@@ -76,7 +76,7 @@ void RunCommandJob::setRunCommandInfo(const RunCommandInfo &runCommandInfo)
     mRunCommandInfo = runCommandInfo;
 }
 
-RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QString &roomId)
+RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QString &roomId, const QString &tmid)
 {
     RunCommandJob::RunCommandInfo info;
     if (str.length() > 1) {
@@ -89,6 +89,7 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = roomId;
+        info.threadMessageId = tmid;
         if (numberElement > 1) {
             info.params = lst.join(QLatin1Char(' '));
         }

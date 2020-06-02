@@ -409,7 +409,7 @@ public:
     Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
 
     void getListCommands();
-    Q_REQUIRED_RESULT bool runCommand(const QString &msg, const QString &roomId);
+    Q_REQUIRED_RESULT bool runCommand(const QString &msg, const QString &roomId, const QString &tmid = QString());
     Q_REQUIRED_RESULT bool hasOldSubscriptionSupport() const;
 
     void avatarChanged(const QJsonArray &contents);

@@ -100,7 +100,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
         if (mMessageIdBeingEdited.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 //a command ?
-                if (mCurrentRocketChatAccount->runCommand(msg, mRoomId)) {
+                if (mCurrentRocketChatAccount->runCommand(msg, mRoomId, mThreadMessageId)) {
                     setMode(MessageLineWidget::EditingMode::NewMessage);
                     return;
                 }

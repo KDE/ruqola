@@ -50,7 +50,7 @@ public:
     Q_REQUIRED_RESULT RunCommandInfo runCommandInfo() const;
     void setRunCommandInfo(const RunCommandInfo &runCommandInfo);
 
-    static RunCommandInfo parseString(const QString &str, const QString &roomId);
+    static RunCommandInfo parseString(const QString &str, const QString &roomId, const QString &tmid);
 Q_SIGNALS:
     void runCommandDone();
 

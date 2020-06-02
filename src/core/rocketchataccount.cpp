@@ -2016,9 +2016,9 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     //qDebug() << "slotListCommandDone " << obj;
 }
 
-bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId)
+bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId, const QString &tmid)
 {
-    const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId);
+    const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
     if (info.isValid()) {
         runCommand(info);
         return true;
