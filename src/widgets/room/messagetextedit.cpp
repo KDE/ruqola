@@ -129,29 +129,26 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             return;
         }
     }
-
     e->ignore();
     // Check if the listview or room widget want to handle the key (e.g Esc, PageUp)
     Q_EMIT keyPressed(e);
     if (e->isAccepted()) {
         return;
     }
-    if (!e->modifiers()) {
-        if (key == Qt::Key_Delete || key == Qt::Key_Backspace) {
-            if (textCursor().hasSelection() && textCursor().selectedText() == text()) {
-                //We will clear all text => we will send textEditing is empty => clear notification
-                Q_EMIT textEditing(true);
-            } else {
-                mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
-                Q_EMIT textEditing(document()->isEmpty());
-            }
+    //Assign key to KTextEdit first otherwise text() doesn't return correct text
+    KTextEdit::keyPressEvent(e);
+    if (key == Qt::Key_Delete || key == Qt::Key_Backspace) {
+        if (textCursor().hasSelection() && textCursor().selectedText() == text()) {
+            //We will clear all text => we will send textEditing is empty => clear notification
+            Q_EMIT textEditing(true);
         } else {
             mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
+    } else {
+        mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+        Q_EMIT textEditing(document()->isEmpty());
     }
-
-    KTextEdit::keyPressEvent(e);
 }
 
 void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForType type)
