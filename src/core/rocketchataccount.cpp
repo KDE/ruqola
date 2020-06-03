@@ -97,9 +97,11 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
     mInputTextManager = new InputTextManager(this);
+    mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
     connect(mInputTextManager, &InputTextManager::completionRequested, this, &RocketChatAccount::inputAutocomplete);
 
     mInputThreadMessageTextManager = new InputTextManager(this);
+    mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
     connect(mInputThreadMessageTextManager, &InputTextManager::completionRequested, this, &RocketChatAccount::inputAutocomplete);
 
     mRuqolaServerConfig = new RuqolaServerConfig;
