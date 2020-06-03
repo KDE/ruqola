@@ -20,9 +20,9 @@
 
 #include "reportmessagewidgettest.h"
 #include "dialogs/reportmessagewidget.h"
-#include <QHBoxLayout>
 #include <QLabel>
 #include <KTextEdit>
+#include <QVBoxLayout>
 #include <QTest>
 QTEST_MAIN(ReportMessageWidgetTest)
 ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)

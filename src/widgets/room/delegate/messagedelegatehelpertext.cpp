@@ -26,7 +26,6 @@
 #include "textconverter.h"
 #include "utils.h"
 
-#include <KLocalizedString>
 #include <KStringHandler>
 
 #include <QAbstractItemView>
@@ -35,10 +34,10 @@
 #include <QGuiApplication>
 #include <QPainter>
 #include <QStyleOptionViewItem>
-#include <QTextBlock>
 #include <QTextDocumentFragment>
 #include <QToolTip>
 #include <QTextStream>
+#include <QTextFrame>
 
 #include <model/threadmessagemodel.h>
 

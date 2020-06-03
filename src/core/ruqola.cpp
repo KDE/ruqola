@@ -29,7 +29,6 @@
 #include "accountmanager.h"
 #include "managerdatapaths.h"
 #include "restapirequest.h"
-#include <KNotification>
 
 static Ruqola *s_self = nullptr;
 

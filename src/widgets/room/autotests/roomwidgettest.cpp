@@ -32,7 +32,6 @@
 
 #include <QStackedWidget>
 #include <QTest>
-#include <QTimer>
 #include <QVBoxLayout>
 
 QTEST_MAIN(RoomWidgetTest)

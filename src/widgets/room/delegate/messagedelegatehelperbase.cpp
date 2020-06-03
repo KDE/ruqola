@@ -24,7 +24,6 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QMimeDatabase>
-#include <QMimeType>
 #include <QUrl>
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase()

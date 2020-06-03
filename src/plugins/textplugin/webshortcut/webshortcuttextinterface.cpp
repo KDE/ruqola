@@ -23,7 +23,6 @@
 #include <KIO/KUriFilterSearchProviderActions>
 
 #include <QMenu>
-#include <QDebug>
 
 WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
     : PluginTextInterface(parent)

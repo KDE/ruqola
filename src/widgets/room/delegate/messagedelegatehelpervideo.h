@@ -24,7 +24,7 @@
 #include "messagedelegatehelperbase.h"
 
 #include <QModelIndex>
-#include <QPixmap>
+#include <QRect>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperVideo : public MessageDelegateHelperBase
 {

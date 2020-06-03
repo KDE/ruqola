@@ -21,7 +21,6 @@
 #include "rocketchatmessagetest.h"
 #include "rocketchatmessage.h"
 #include "ruqola_autotest_helper.h"
-#include <QProcess>
 #include <QTest>
 QTEST_GUILESS_MAIN(RocketChatMessageTest)
 

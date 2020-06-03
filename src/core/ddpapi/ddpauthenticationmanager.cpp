@@ -30,7 +30,6 @@
 #include "utils.h"
 
 #include <QByteArray>
-#include <QDebug>
 #include <QJsonArray>
 #include <QJsonObject>
 

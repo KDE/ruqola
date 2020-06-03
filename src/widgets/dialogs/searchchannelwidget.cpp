@@ -27,7 +27,6 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
 #include <QLineEdit>
 #include <QListWidget>
 
