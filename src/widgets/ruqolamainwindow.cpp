@@ -199,10 +199,10 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
-    auto clearAlerts = new QAction(i18n("Mark all channels read"), this);
-    ac->setDefaultShortcut(clearAlerts, Qt::SHIFT + Qt::Key_Escape);
-    connect(clearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
-    ac->addAction(QStringLiteral("mark_all_channels_read"), clearAlerts);
+    mClearAlerts = new QAction(i18n("Mark all channels read"), this);
+    ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT + Qt::Key_Escape);
+    connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
+    ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()
@@ -299,6 +299,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mCreateNewChannel->setEnabled(!loginPageActivated);
     mSaveAs->setEnabled(!loginPageActivated);
     mLogout->setEnabled(!loginPageActivated);
+    mClearAlerts->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()

@@ -68,6 +68,7 @@ private:
     QAction *mCreateNewChannel = nullptr;
     QAction *mUnreadOnTop = nullptr;
     QAction *mSaveAs = nullptr;
+    QAction *mClearAlerts = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
