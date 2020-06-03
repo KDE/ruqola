@@ -146,7 +146,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             Q_EMIT textEditing(document()->isEmpty());
         }
     } else {
-        if (!e->modifiers() || e->matches(QKeySequence::Paste)) {
+        if (!e->modifiers() || e->matches(QKeySequence::Paste) || key == Qt::Key_Slash || key == '@' || key == '#') {
             mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
