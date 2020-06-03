@@ -185,8 +185,8 @@ public:
     quint64 createJitsiConfCall(const QString &roomId);
     quint64 userAutocomplete(const QString &pattern, const QString &exception);
     quint64 loadHistory(const QJsonArray &params);
-    quint64 inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
-    quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions);
+    quint64 inputChannelAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog);
+    quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);

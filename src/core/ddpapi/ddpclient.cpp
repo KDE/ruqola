@@ -66,8 +66,17 @@ void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount 
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete:") + QJsonDocument(root).toJson());
     }
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-
     account->inputTextManager()->inputTextCompleter(obj);
+}
+
+void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete thread dialog:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+
+    account->inputThreadMessageTextManager()->inputTextCompleter(obj);
 }
 
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
@@ -358,16 +367,24 @@ quint64 DDPClient::createJitsiConfCall(const QString &roomId)
     return method(result, create_jitsi_conf_call, DDPClient::Persistent);
 }
 
-quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QString &exceptions)
+quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(pattern, exceptions, m_uid);
-    return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
+    if (threadDialog) {
+        return method(result, input_user_channel_autocomplete_thread, DDPClient::Persistent);
+    } else {
+        return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
+    }
 }
 
-quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &exceptions)
+quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(pattern, exceptions, m_uid);
-    return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
+    if (threadDialog) {
+        return method(result, input_user_channel_autocomplete_thread, DDPClient::Persistent);
+    } else {
+        return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
+    }
 }
 
 quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)

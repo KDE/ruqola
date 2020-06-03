@@ -99,11 +99,17 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mInputTextManager = new InputTextManager(this);
     mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
-    connect(mInputTextManager, &InputTextManager::completionRequested, this, &RocketChatAccount::inputAutocomplete);
+    connect(mInputTextManager, &InputTextManager::completionRequested, this,
+            [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
+        inputAutocomplete(pattern, exceptions, type, false);
+    });
 
     mInputThreadMessageTextManager = new InputTextManager(this);
     mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
-    connect(mInputThreadMessageTextManager, &InputTextManager::completionRequested, this, &RocketChatAccount::inputAutocomplete);
+    connect(mInputThreadMessageTextManager, &InputTextManager::completionRequested, this,
+            [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
+        inputAutocomplete(pattern, exceptions, type, true);
+    });
 
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
@@ -1764,15 +1770,15 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     Q_EMIT notification(info);
 }
 
-void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
+void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog)
 {
     //TODO look at for restapi support.
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
-        ddp()->inputChannelAutocomplete(pattern, exceptions);
+        ddp()->inputChannelAutocomplete(pattern, exceptions, threadDialog);
         break;
     case InputTextManager::CompletionForType::User:
-        ddp()->inputUserAutocomplete(pattern, exceptions);
+        ddp()->inputUserAutocomplete(pattern, exceptions, threadDialog);
         break;
     default:
         break;
