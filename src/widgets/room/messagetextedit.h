@@ -63,6 +63,7 @@ private:
     void slotComplete(const QModelIndex &index);
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    InputTextManager *mCurrentInputTextManager = nullptr;
     CompletionListView *mUserAndChannelCompletionListView = nullptr;
     CompletionListView *mEmojiCompletionListView = nullptr;
     CompletionListView *mCommandCompletionListView = nullptr;

@@ -61,16 +61,16 @@ MessageTextEdit::~MessageTextEdit()
 
 void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    if (mCurrentRocketChatAccount) {
-        disconnect(mCurrentRocketChatAccount->inputTextManager(), &InputTextManager::completionTypeChanged,
+    if (mCurrentInputTextManager) {
+        disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged,
                    this, &MessageTextEdit::slotCompletionTypeChanged);
     }
     mCurrentRocketChatAccount = account;
-    InputTextManager *textManager = mCurrentRocketChatAccount->inputTextManager();
-    mUserAndChannelCompletionListView->setModel(textManager->inputCompleterModel());
-    mEmojiCompletionListView->setModel(textManager->emojiCompleterModel());
-    mCommandCompletionListView->setModel(textManager->commandModel());
-    connect(textManager, &InputTextManager::completionTypeChanged,
+    mCurrentInputTextManager = mCurrentRocketChatAccount->inputTextManager();
+    mUserAndChannelCompletionListView->setModel(mCurrentInputTextManager->inputCompleterModel());
+    mEmojiCompletionListView->setModel(mCurrentInputTextManager->emojiCompleterModel());
+    mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());
+    connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged,
             this, &MessageTextEdit::slotCompletionTypeChanged);
 }
 
@@ -102,7 +102,7 @@ QSize MessageTextEdit::minimumSizeHint() const
 void MessageTextEdit::changeText(const QString &newText)
 {
     setPlainText(newText);
-    mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+    mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
 }
 
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
@@ -142,12 +142,12 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             //We will clear all text => we will send textEditing is empty => clear notification
             Q_EMIT textEditing(true);
         } else {
-            mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+            mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
     } else {
         if (!e->modifiers() || e->matches(QKeySequence::Paste) || key == Qt::Key_Slash || key == '@' || key == '#') {
-            mCurrentRocketChatAccount->inputTextManager()->setInputTextChanged(text(), textCursor().position());
+            mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
     }
@@ -178,10 +178,9 @@ void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForT
 void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
-    auto *inputTextManager = mCurrentRocketChatAccount->inputTextManager();
     QTextCursor cursor = textCursor();
     int textPos = cursor.position();
-    const QString newText = inputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
+    const QString newText = mCurrentInputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
 
     mUserAndChannelCompletionListView->hide();
     mEmojiCompletionListView->hide();
