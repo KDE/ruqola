@@ -40,7 +40,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
     mCamera->setViewfinder(viewfinder);
 
-    QCameraImageCapture *imageCapture = new QCameraImageCapture(mCamera);
+    QCameraImageCapture *imageCapture = new QCameraImageCapture(mCamera, this);
 
     mCamera->setCaptureMode(QCamera::CaptureStillImage);
     mCamera->start();

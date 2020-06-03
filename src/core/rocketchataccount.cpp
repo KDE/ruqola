@@ -96,6 +96,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mServerConfigInfo = new ServerConfigInfo(this, this);
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
+
     mInputTextManager = new InputTextManager(this);
     mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
     connect(mInputTextManager, &InputTextManager::completionRequested, this, &RocketChatAccount::inputAutocomplete);
