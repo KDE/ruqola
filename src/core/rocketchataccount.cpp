@@ -125,11 +125,13 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmoticonModel = new EmoticonModel(this);
     mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
     mInputTextManager->setEmoticonModel(mEmoticonModel);
+    mInputThreadMessageTextManager->setEmoticonModel(mEmoticonModel);
 
     mCommandsModel = new CommandsModel(this);
 
     mEmoticonFilterModel = new EmoticonFilterModel(this);
     mEmoticonFilterModel->setSourceModel(mEmoticonModel);
+
 
     mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
@@ -2021,6 +2023,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
         //Initialize it after loading otherwise we will see listview at startup
         mCommandsModel->setCommands(commands);
         mInputTextManager->setCommandModel(mCommandsModel);
+        mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }
     //qDebug() << "slotListCommandDone " << obj;
 }
