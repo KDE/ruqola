@@ -129,10 +129,10 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
     setFocus();
 }
 
-void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
 {
     mCurrentRocketChatAccount = account;
-    mMessageTextEdit->setCurrentRocketChatAccount(account);
+    mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
     mSendFile->setVisible(account->ruqolaServerConfig()->uploadFileEnabled());
 }

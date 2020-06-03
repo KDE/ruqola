@@ -542,7 +542,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
             this, &RoomWidget::slotOpenThreadRequested);
     mMessageListView->setCurrentRocketChatAccount(account);
-    mMessageLineWidget->setCurrentRocketChatAccount(account);
+    mMessageLineWidget->setCurrentRocketChatAccount(account, false);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mRoomId.clear(); //Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
 }

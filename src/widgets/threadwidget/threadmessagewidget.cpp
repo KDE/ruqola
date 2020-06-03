@@ -71,7 +71,7 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
 
 void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    mMessageLineWidget->setCurrentRocketChatAccount(account);
+    mMessageLineWidget->setCurrentRocketChatAccount(account, true);
     mMessageListView->setCurrentRocketChatAccount(account);
 }
 

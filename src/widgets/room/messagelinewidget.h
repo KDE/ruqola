@@ -44,7 +44,7 @@ public:
     explicit MessageLineWidget(QWidget *parent = nullptr);
     ~MessageLineWidget() override;
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog);
 
     void setText(const QString &text);
     Q_REQUIRED_RESULT QString text() const;

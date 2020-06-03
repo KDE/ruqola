@@ -59,14 +59,14 @@ MessageTextEdit::~MessageTextEdit()
     delete mCommandCompletionListView;
 }
 
-void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account)
+void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
 {
     if (mCurrentInputTextManager) {
         disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged,
                    this, &MessageTextEdit::slotCompletionTypeChanged);
     }
     mCurrentRocketChatAccount = account;
-    mCurrentInputTextManager = mCurrentRocketChatAccount->inputTextManager();
+    mCurrentInputTextManager = threadMessageDialog ? mCurrentRocketChatAccount->inputThreadMessageTextManager() : mCurrentRocketChatAccount->inputTextManager();
     mUserAndChannelCompletionListView->setModel(mCurrentInputTextManager->inputCompleterModel());
     mEmojiCompletionListView->setModel(mCurrentInputTextManager->emojiCompleterModel());
     mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());

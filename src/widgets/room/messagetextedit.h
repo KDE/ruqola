@@ -39,7 +39,7 @@ public:
     explicit MessageTextEdit(QWidget *parent = nullptr);
     ~MessageTextEdit() override;
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog);
 
     void insertEmoji(const QString &text);
     Q_REQUIRED_RESULT QString text() const;
