@@ -20,6 +20,7 @@
 #include "listdiscussiondelegate.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include <QDebug>
 #include <KColorScheme>
 #include <KLocalizedString>
 
@@ -35,11 +36,6 @@ ListDiscussionDelegate::~ListDiscussionDelegate()
 {
 }
 
-static qreal basicMargin()
-{
-    return 4;
-}
-
 // [date]
 // text
 // number of discussion + last date
@@ -52,18 +48,18 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const Layout layout = doLayout(option, index);
 
     // Draw the sender (below the filename)
-    painter->drawText(basicMargin() + option.rect.x(),
+    painter->drawText(DelegatePaintUtil::margin() + option.rect.x(),
                       layout.textY + painter->fontMetrics().ascent(),
                       layout.text);
 
     // Draw the timestamp (below the sender)
     DelegatePaintUtil::drawTimestamp(painter, layout.lastMessageTimeText,
-                                     QPoint(basicMargin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
+                                     QPoint(DelegatePaintUtil::margin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     KColorScheme scheme;
     const QString discussionsText = i18n("Open Discussion");
     painter->setPen(scheme.foreground(KColorScheme::LinkText).color());
-    painter->drawText(basicMargin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
+    painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
     // Note: pen still blue, currently relying on restore()
 
     //TODO add open discussion text.
@@ -77,6 +73,7 @@ bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     if (eventType == QEvent::MouseButtonRelease) {
         auto *mev = static_cast<QMouseEvent *>(event);
         //TODO check if we muse open discussion
+        qDebug() << " open discussion not implemented yet";
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }
