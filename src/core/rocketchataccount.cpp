@@ -132,7 +132,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmoticonFilterModel = new EmoticonFilterModel(this);
     mEmoticonFilterModel->setSourceModel(mEmoticonModel);
 
-
     mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
     mOtrManager = new OtrManager(this);

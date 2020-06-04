@@ -37,7 +37,6 @@ Q_SIGNALS:
 
 private:
     struct Layout {
-
         QRect iconChannelRect;
 
         QRect usableRect;

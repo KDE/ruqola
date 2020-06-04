@@ -101,5 +101,4 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 #else
     QCOMPARE(mLabel->pixmap().size(), pixmapSize);
 #endif
-
 }

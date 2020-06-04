@@ -32,9 +32,9 @@ void diffFile(const QString &refFile, const QString &generatedFile)
     QProcess proc;
 #ifdef _WIN32
     QStringList args = QStringList()
-            << QStringLiteral("Compare-Object")
-            << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
-            << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
+                       << QStringLiteral("Compare-Object")
+                       << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
+                       << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
 
     proc.start(QStringLiteral("powershell"), args);
     QVERIFY(proc.waitForFinished());
@@ -49,16 +49,15 @@ void diffFile(const QString &refFile, const QString &generatedFile)
 #else
     // compare to reference file
     QStringList args = QStringList()
-            << QStringLiteral("-u")
-            << refFile
-            << generatedFile;
+                       << QStringLiteral("-u")
+                       << refFile
+                       << generatedFile;
 
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
     proc.start(QStringLiteral("diff"), args);
     QVERIFY(proc.waitForFinished());
     QCOMPARE(proc.exitCode(), 0);
 #endif
-
 }
 
 void compareFile(const QString &repo, const QByteArray &data, const QString &name)
