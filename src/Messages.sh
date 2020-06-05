@@ -1,2 +1,4 @@
 #! /usr/bin/env bash
-$XGETTEXT `find . -name "*.cpp" -o -name "*.qml" -o -name "*.ui" -name "*.h"` -L Java -o $podir/ruqola.pot
+$EXTRACTRC `find . -name "*.ui" -o -name "*.rc"` >> rc.cpp
+$XGETTEXT `find . -name "*.cpp"` -o $podir/ruqola.pot
+$XGETTEXT -j `find . -name "*.qml"` -L Java -o $podir/ruqola.pot
