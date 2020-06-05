@@ -43,6 +43,7 @@ bool ReactOnMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ReactOnMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ReactOnMessageJob::slotReactonMessageFinished);
     return true;

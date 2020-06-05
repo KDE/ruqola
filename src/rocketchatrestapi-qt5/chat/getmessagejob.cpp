@@ -49,7 +49,7 @@ bool GetMessageJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetMessageJob::slotGetMessageFinished);
-    addLoggerInfo(QByteArrayLiteral("GetMessageJob: get message starting"));
+    addStartRestApiInfo(QByteArrayLiteral("GetMessageJob: get message starting"));
     return true;
 }
 

@@ -41,6 +41,7 @@ bool CreateDmJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("CreateDmJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &CreateDmJob::slotCreateDmFinished);
     return true;

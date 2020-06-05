@@ -42,7 +42,7 @@ bool GroupsInfoJob::start()
         deleteLater();
         return false;
     }
-    addLoggerInfo("GroupsInfoJob::start: ");
+    addStartRestApiInfo("GroupsInfoJob::start: ");
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GroupsInfoJob::slotChannelInfoFinished);
     return true;

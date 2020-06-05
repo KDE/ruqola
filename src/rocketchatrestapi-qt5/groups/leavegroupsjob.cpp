@@ -41,6 +41,7 @@ bool LeaveGroupsJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("LeaveGroupsJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &LeaveGroupsJob::slotLeaveGroupsFinished);
     return true;

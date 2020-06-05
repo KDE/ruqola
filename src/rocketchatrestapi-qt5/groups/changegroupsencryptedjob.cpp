@@ -41,6 +41,7 @@ bool ChangeGroupsEncryptedJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeGroupsEncryptedJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeGroupsEncryptedJob::slotChangeEncryptedFinished);
     return true;

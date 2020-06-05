@@ -49,7 +49,7 @@ bool IgnoreUserJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &IgnoreUserJob::slotIgnoreUserFinished);
-    addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: ignore user starting"));
+    addStartRestApiInfo(QByteArrayLiteral("IgnoreUserJob: ignore user starting"));
     return true;
 }
 

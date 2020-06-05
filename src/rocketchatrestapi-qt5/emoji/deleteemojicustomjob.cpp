@@ -41,6 +41,7 @@ bool DeleteEmojiCustomJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("DeleteEmojiCustomJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &DeleteEmojiCustomJob::slotDeleteEmojiFinished);
     return true;

@@ -42,7 +42,7 @@ bool ChannelFilesJob::start()
         deleteLater();
         return false;
     }
-    addLoggerInfo("ChannelFilesJob::start: ");
+    addStartRestApiInfo("ChannelFilesJob::start: ");
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ChannelFilesJob::slotFilesinChannelFinished);
     return true;

@@ -41,6 +41,7 @@ bool GroupAddLeaderJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("GroupAddLeaderJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &GroupAddLeaderJob::slotAddLeaderFinished);
     return true;

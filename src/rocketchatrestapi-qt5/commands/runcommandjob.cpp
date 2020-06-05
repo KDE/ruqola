@@ -41,6 +41,7 @@ bool RunCommandJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("RunCommandJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &RunCommandJob::slotRunCommand);
     return true;

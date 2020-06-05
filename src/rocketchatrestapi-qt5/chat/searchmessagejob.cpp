@@ -49,7 +49,7 @@ bool SearchMessageJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &SearchMessageJob::slotSearchMessageFinished);
-    addLoggerInfo(QByteArrayLiteral("SearchMessageJob: search message starting"));
+    addStartRestApiInfo(QByteArrayLiteral("SearchMessageJob: search message starting"));
     return true;
 }
 

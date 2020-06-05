@@ -41,6 +41,7 @@ bool OpenDmJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("OpenDmJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &OpenDmJob::slotOpenDmFinished);
     return true;

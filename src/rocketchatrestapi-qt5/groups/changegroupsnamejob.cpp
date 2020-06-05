@@ -41,6 +41,7 @@ bool ChangeGroupsNameJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeGroupsNameJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeGroupsNameJob::slotChangeGroupsNameFinished);
     return true;

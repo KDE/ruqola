@@ -44,7 +44,7 @@ bool LogoutJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo("LogoutJob::start");
+    addStartRestApiInfo("LogoutJob::start");
     connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
     return true;
 }

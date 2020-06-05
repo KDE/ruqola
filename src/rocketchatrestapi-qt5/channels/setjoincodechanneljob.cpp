@@ -41,6 +41,7 @@ bool SetJoinCodeChannelJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SetJoinCodeChannelJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SetJoinCodeChannelJob::slotSetJoinCodeFinished);
     return true;

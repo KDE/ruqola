@@ -41,6 +41,7 @@ bool ChangeGroupsReadonlyJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeGroupsReadonlyJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeGroupsReadonlyJob::slotChangeReadonlyFinished);
     return true;

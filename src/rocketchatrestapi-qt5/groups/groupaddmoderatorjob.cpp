@@ -41,6 +41,7 @@ bool GroupAddModeratorJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("GroupAddModeratorJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &GroupAddModeratorJob::slotAddModeratorFinished);
     return true;

@@ -65,7 +65,7 @@ bool SyncThreadMessagesJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &SyncThreadMessagesJob::slotSyncThreadMessagesFinished);
-    addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: update threads message in room"));
+    addStartRestApiInfo(QByteArrayLiteral("SyncThreadMessagesJob: update threads message in room"));
     return true;
 }
 

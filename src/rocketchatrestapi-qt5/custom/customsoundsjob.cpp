@@ -42,7 +42,7 @@ bool CustomSoundsJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo(QByteArrayLiteral("CustomSoundsJob: Ask custom sounds info"));
+    addStartRestApiInfo(QByteArrayLiteral("CustomSoundsJob: Ask custom sounds info"));
     connect(reply, &QNetworkReply::finished, this, &CustomSoundsJob::slotCustomSoundsDone);
 
     return true;

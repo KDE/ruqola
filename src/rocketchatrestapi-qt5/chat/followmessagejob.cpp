@@ -40,6 +40,7 @@ bool FollowMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("FollowMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &FollowMessageJob::slotFollowMessageFinished);
     return true;

@@ -41,6 +41,7 @@ bool DeleteMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("DeleteMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &DeleteMessageJob::slotDeleteMessageFinished);
     return true;

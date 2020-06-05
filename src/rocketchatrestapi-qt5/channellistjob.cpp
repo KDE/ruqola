@@ -43,7 +43,7 @@ bool ChannelListJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo(QByteArrayLiteral("ChannelListJob: ask channel list"));
+    addStartRestApiInfo(QByteArrayLiteral("ChannelListJob: ask channel list"));
     connect(reply, &QNetworkReply::finished, this, &ChannelListJob::slotListInfo);
     return false;
 }

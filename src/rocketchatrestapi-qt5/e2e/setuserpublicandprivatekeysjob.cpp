@@ -41,6 +41,7 @@ bool SetUserPublicAndPrivateKeysJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SetUserPublicAndPrivateKeysJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SetUserPublicAndPrivateKeysJob::slotAddKeyToChainFinished);
     return true;

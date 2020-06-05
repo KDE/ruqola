@@ -186,6 +186,15 @@ void RestApiAbstractJob::addLoggerInfo(const QByteArray &str)
     }
 }
 
+void RestApiAbstractJob::addStartRestApiInfo(const QByteArray &str)
+{
+    if (mRestApiLogger) { // when $RUQOLA_LOGFILE is set
+        mRestApiLogger->dataSent(AbstractLogger::RESTApiType, "RESTAPI:", str);
+    } else {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RESTAPI: " << str;
+    }
+}
+
 void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
 {
     if (mRestApiLogger) {

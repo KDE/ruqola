@@ -30,10 +30,12 @@ public:
     explicit RuqolaLogger(const QString &accountName = QString());
     ~RuqolaLogger() override;
     void dataSent(const QByteArray &data) override;
+    void dataSent(DataType type, const QByteArray &label, const QByteArray &data) override;
     void dataReceived(const QByteArray &data) override;
 private:
     Q_DISABLE_COPY(RuqolaLogger)
-    QFile mFile;
+    QFile mLoggerFile;
+    QFile mRestApiLogFile;
     quint64 mIdentifier = 0;
 };
 

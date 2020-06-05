@@ -48,7 +48,7 @@ bool SettingsOauthJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &SettingsOauthJob::slotSettingsOauthFinished);
-    addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: Ask settings oauth"));
+    addStartRestApiInfo(QByteArrayLiteral("SettingsOauthJob: Ask settings oauth"));
     return true;
 }
 

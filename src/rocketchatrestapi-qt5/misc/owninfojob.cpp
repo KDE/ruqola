@@ -48,7 +48,7 @@ bool OwnInfoJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotOwnInfoFinished);
-    addLoggerInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
     return true;
 }
 

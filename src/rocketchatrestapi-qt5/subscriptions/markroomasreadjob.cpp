@@ -41,6 +41,7 @@ bool MarkRoomAsReadJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("MarkRoomAsReadJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &MarkRoomAsReadJob::slotMarkAsRead);
     return true;

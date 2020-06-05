@@ -41,6 +41,7 @@ bool ChangeChannelReadonlyJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeChannelReadonlyJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeChannelReadonlyJob::slotChangeReadonlyFinished);
     return true;

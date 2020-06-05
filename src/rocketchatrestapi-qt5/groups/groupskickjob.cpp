@@ -41,6 +41,7 @@ bool GroupsKickJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("GroupsKickJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &GroupsKickJob::slotKickUsersFinished);
     return true;

@@ -41,6 +41,7 @@ bool RoomLeaveJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("RoomLeaveJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &RoomLeaveJob::slotLeaveRoomFinished);
     return true;

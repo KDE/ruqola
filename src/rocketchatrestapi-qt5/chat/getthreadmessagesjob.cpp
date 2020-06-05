@@ -62,7 +62,7 @@ bool GetThreadMessagesJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetThreadMessagesJob::slotGetThreadMessagesFinished);
-    addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: Ask threads messages"));
+    addStartRestApiInfo(QByteArrayLiteral("GetThreadMessagesJob: Ask threads messages"));
     return true;
 }
 

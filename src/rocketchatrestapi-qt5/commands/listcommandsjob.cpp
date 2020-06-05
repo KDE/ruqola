@@ -48,7 +48,7 @@ bool ListCommandsJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ListCommandsJob::slotListCommandsFinished);
-    addLoggerInfo(QByteArrayLiteral("ListCommandsJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("ListCommandsJob: Ask info about me"));
     return true;
 }
 

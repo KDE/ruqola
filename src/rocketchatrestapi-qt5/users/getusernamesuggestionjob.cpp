@@ -50,7 +50,7 @@ bool GetUsernameSuggestionJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetUsernameSuggestionJob::slotGetUsernameSuggestion);
-    addLoggerInfo("GetUsernameSuggestionJob start");
+    addStartRestApiInfo("GetUsernameSuggestionJob start");
 
     return true;
 }

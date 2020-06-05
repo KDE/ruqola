@@ -41,6 +41,7 @@ bool PinMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("PinMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &PinMessageJob::slotPinMessage);
     return true;

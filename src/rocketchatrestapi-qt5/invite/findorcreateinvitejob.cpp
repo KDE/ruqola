@@ -43,6 +43,7 @@ bool FindOrCreateInviteJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("FindOrCreateInviteJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &FindOrCreateInviteJob::slotFindOrCreateInviteFinished);
     return true;

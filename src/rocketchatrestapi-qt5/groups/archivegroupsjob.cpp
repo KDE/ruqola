@@ -41,6 +41,7 @@ bool ArchiveGroupsJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ArchiveGroupsJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ArchiveGroupsJob::slotArchiveGroupsFinished);
     return true;

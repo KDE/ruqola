@@ -41,6 +41,7 @@ bool ResetAvatarJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ResetAvatarJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ResetAvatarJob::slotResetAvatar);
     return true;

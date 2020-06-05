@@ -41,6 +41,7 @@ bool SetGroupTypeJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SetGroupTypeJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SetGroupTypeJob::slotSetGroupTypeFinished);
     return true;

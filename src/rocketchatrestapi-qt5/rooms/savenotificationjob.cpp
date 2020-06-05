@@ -41,6 +41,7 @@ bool SaveNotificationJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SaveNotificationJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SaveNotificationJob::slotChangeNotificationFinished);
     return true;

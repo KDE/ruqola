@@ -41,6 +41,7 @@ bool ReportMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ReportMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ReportMessageJob::slotReportMessage);
     return true;

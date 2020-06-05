@@ -48,7 +48,7 @@ bool UsersPresenceJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &UsersPresenceJob::slotUsersPresenceFinished);
-    addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("UsersPresenceJob: Ask info about me"));
     return true;
 }
 

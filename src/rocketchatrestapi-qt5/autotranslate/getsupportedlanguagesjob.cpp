@@ -48,7 +48,7 @@ bool GetSupportedLanguagesJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetSupportedLanguagesJob::slotGetSupportedLanguagesFinished);
-    addLoggerInfo(QByteArrayLiteral("GetSupportedLanguagesJob: get message starting"));
+    addStartRestApiInfo(QByteArrayLiteral("GetSupportedLanguagesJob: get message starting"));
     return true;
 }
 

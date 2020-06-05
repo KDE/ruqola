@@ -62,7 +62,7 @@ bool GetStarredMessagesJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetStarredMessagesJob::slotGetStarredMessagesFinished);
-    addLoggerInfo(QByteArrayLiteral("GetStarredMessagesJob: Ask starred messages"));
+    addStartRestApiInfo(QByteArrayLiteral("GetStarredMessagesJob: Ask starred messages"));
     return true;
 }
 

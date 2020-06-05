@@ -41,6 +41,7 @@ bool SetStatusJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SetStatusJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SetStatusJob::slotSetStatus);
     return true;

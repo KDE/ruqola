@@ -43,7 +43,7 @@ bool SpotlightJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo(QByteArrayLiteral("SpotlightJob start"));
+    addStartRestApiInfo(QByteArrayLiteral("SpotlightJob start"));
     connect(reply, &QNetworkReply::finished, this, &SpotlightJob::slotSpotlightDone);
 
     return true;

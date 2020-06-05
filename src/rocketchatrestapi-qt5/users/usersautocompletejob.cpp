@@ -49,7 +49,7 @@ bool UsersAutocompleteJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &UsersAutocompleteJob::slotUsersAutocompleteFinished);
-    addLoggerInfo(QByteArrayLiteral("UsersAutocompleteJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("UsersAutocompleteJob: Ask info about me"));
     return true;
 }
 

@@ -41,6 +41,7 @@ bool ChangeGroupsAnnouncementJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeGroupsAnnouncementJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished);
     return true;

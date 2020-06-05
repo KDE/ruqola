@@ -22,6 +22,7 @@
 #include "ruqola_debug.h"
 #include <QCoreApplication>
 #include <QFileInfo>
+#include <QDateTime>
 
 RuqolaLogger::RuqolaLogger(const QString &accountName)
     : RocketChatRestApi::AbstractLogger()
@@ -29,32 +30,57 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
 
-    mFile.setFileName(QLatin1String(qgetenv("RUQOLA_LOGFILE"))
-                      + QLatin1Char('-') + accountName
-                      + QLatin1Char('.')
-                      + QString::number(QCoreApplication::applicationPid())
-                      + QLatin1Char('.')
-                      + QString::number(mIdentifier));
-    if (!mFile.open(QFile::WriteOnly)) {
-        qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mFile.fileName();
+    const QString filename = QLatin1String(qgetenv("RUQOLA_LOGFILE"))
+            + QLatin1Char('-') + accountName
+            + QLatin1Char('.')
+            + QString::number(QCoreApplication::applicationPid())
+            + QLatin1Char('.')
+            + QString::number(mIdentifier);
+
+    mLoggerFile.setFileName(filename);
+    if (!mLoggerFile.open(QFile::WriteOnly)) {
+        qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mLoggerFile.fileName();
     }
+
+    mRestApiLogFile.setFileName(QStringLiteral("RESTAPI") + filename);
+    if (!mRestApiLogFile.open(QFile::WriteOnly)) {
+        qCWarning(RUQOLA_LOG) << "Could not open log file for restapi:" << mRestApiLogFile.fileName();
+    }
+
     //No convert to qCDebug as we want to see this info.
-    qDebug() << "Log in file: " << QFileInfo(mFile.fileName()).absoluteFilePath();
+    qDebug() << "Log in file: " << QFileInfo(mLoggerFile.fileName()).absoluteFilePath();
+    qDebug() << "Log send RESTAPI in file: " << QFileInfo(mRestApiLogFile.fileName()).absoluteFilePath();
 }
 
 RuqolaLogger::~RuqolaLogger()
 {
-    mFile.close();
+    mLoggerFile.close();
+    mRestApiLogFile.close();
+}
+
+void RuqolaLogger::dataSent(DataType type, const QByteArray &label, const QByteArray &data)
+{
+    switch(type) {
+    case Unknown:
+    case DDPType:
+        break;
+    case RESTApiType: {
+        mRestApiLogFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] " + data + '\n');
+        mRestApiLogFile.flush();
+        break;
+    }
+    }
+    dataSent(label + ' ' + data);
 }
 
 void RuqolaLogger::dataSent(const QByteArray &data)
 {
-    mFile.write("Sent: " + data.trimmed() + '\n');
-    mFile.flush();
+    mLoggerFile.write("Sent: " + data.trimmed() + '\n');
+    mLoggerFile.flush();
 }
 
 void RuqolaLogger::dataReceived(const QByteArray &data)
 {
-    mFile.write("Received: " + data.trimmed() + '\n');
-    mFile.flush();
+    mLoggerFile.write("Received: " + data.trimmed() + '\n');
+    mLoggerFile.flush();
 }

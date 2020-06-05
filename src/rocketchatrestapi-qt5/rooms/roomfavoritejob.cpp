@@ -41,6 +41,7 @@ bool RoomFavoriteJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("RoomFavoriteJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &RoomFavoriteJob::slotChangeFavoriteFinished);
     return true;

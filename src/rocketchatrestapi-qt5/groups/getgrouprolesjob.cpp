@@ -56,7 +56,7 @@ bool GetGroupRolesJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo("GetGroupRolesJob::start");
+    addStartRestApiInfo("GetGroupRolesJob::start");
     connect(reply, &QNetworkReply::finished, this, &GetGroupRolesJob::slotGetGroupRolesFinished);
 
     return true;

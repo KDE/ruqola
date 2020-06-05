@@ -55,9 +55,9 @@ bool GetAvatarJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatar);
-    addLoggerInfo("GetAvatarJob ask for avatarUserId: " + mAvatarUserId.toLatin1());
+    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: " + mAvatarUserId.toLatin1());
     reply->setProperty("userId", mAvatarUserId);
-
+    addStartRestApiInfo("GetAvatarJob::start");
     return true;
 }
 

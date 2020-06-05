@@ -62,7 +62,7 @@ bool GetSnippetedMessagesJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetSnippetedMessagesJob::slotGetSnippetedMessagesFinished);
-    addLoggerInfo(QByteArrayLiteral("GetSnippetedMessagesJob: Ask starred messages"));
+    addStartRestApiInfo(QByteArrayLiteral("GetSnippetedMessagesJob: Ask starred messages"));
     return true;
 }
 

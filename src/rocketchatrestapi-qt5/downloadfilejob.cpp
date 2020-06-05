@@ -40,7 +40,7 @@ bool DownloadFileJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo("ChannelListJob: url:"
+    addStartRestApiInfo("ChannelListJob: url:"
                   +mUrl.toEncoded()
                   +" mimetype " + mMimeType.toLatin1()
                   +" saveAs " + mLocalFileUrl.toEncoded()

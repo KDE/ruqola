@@ -42,7 +42,7 @@ bool CustomUserStatusJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo(QByteArrayLiteral("CustomUserStatusJob: Ask custom user status info"));
+    addStartRestApiInfo(QByteArrayLiteral("CustomUserStatusJob: Ask custom user status info"));
     connect(reply, &QNetworkReply::finished, this, &CustomUserStatusJob::slotCustomUserStatusDone);
 
     return true;

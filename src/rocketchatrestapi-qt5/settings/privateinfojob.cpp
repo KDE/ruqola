@@ -42,7 +42,7 @@ bool PrivateInfoJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo(QByteArrayLiteral("PrivateInfoJob: Ask private info"));
+    addStartRestApiInfo(QByteArrayLiteral("PrivateInfoJob: Ask private info"));
     connect(reply, &QNetworkReply::finished, this, &PrivateInfoJob::slotPrivateInfoDone);
 
     return true;

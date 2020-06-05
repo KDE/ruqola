@@ -105,7 +105,7 @@ bool UploadFileJob::start()
     connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
     multiPart->setParent(reply); // delete the multiPart with the reply
     //TODO signal error ?
-
+    addStartRestApiInfo("UploadFileJob::start");
     return true;
 }
 

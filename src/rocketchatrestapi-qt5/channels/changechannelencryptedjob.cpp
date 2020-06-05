@@ -41,6 +41,7 @@ bool ChangeChannelEncryptedJob::start()
         return false;
     }
     QNetworkReply *reply = submitPostRequest(json());
+    addStartRestApiInfo("ChangeChannelEncryptedJob::start");
     connect(reply, &QNetworkReply::finished, this, &ChangeChannelEncryptedJob::slotChangeEncryptedFinished);
     return true;
 }

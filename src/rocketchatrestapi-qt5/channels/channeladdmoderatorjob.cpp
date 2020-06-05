@@ -41,6 +41,7 @@ bool ChannelAddModeratorJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChannelAddModeratorJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChannelAddModeratorJob::slotAddModeratorFinished);
     return true;

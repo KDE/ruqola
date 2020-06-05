@@ -50,7 +50,7 @@ bool FetchMyKeysJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &FetchMyKeysJob::slotFetchMyKeys);
-    addLoggerInfo("Start FetchMyKeysJob");
+    addStartRestApiInfo("Start FetchMyKeysJob");
 
     return true;
 }

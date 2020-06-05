@@ -41,6 +41,7 @@ bool ChannelKickJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChannelKickJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChannelKickJob::slotKickUsersFinished);
     return true;

@@ -53,6 +53,7 @@ bool StarMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("StarMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &StarMessageJob::slotStarMessageFinished);
     return true;

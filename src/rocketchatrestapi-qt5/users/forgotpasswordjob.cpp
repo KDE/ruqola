@@ -52,6 +52,7 @@ bool ForgotPasswordJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ForgotPasswordJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ForgotPasswordJob::slotForgotPassword);
     return true;

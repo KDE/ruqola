@@ -43,7 +43,7 @@ bool ServerInfoJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo("ServerInfoJob::start");
+    addStartRestApiInfo("ServerInfoJob::start");
     connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
 
     return true;

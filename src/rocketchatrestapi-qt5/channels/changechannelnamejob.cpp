@@ -41,6 +41,7 @@ bool ChangeChannelNameJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeChannelNameJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeChannelNameJob::slotChangeNameFinished);
     return true;

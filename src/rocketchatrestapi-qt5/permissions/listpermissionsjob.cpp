@@ -48,7 +48,7 @@ bool ListPermissionsJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ListPermissionsJob::slotListPermissionFinished);
-    addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;
 }
 

@@ -49,7 +49,7 @@ bool RoomsAutocompleteChannelAndPrivateJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &RoomsAutocompleteChannelAndPrivateJob::slotRoomsAutoCompleteChannelAndPrivateFinished);
-    addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: Ask all rooms"));
+    addStartRestApiInfo(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: Ask all rooms"));
     return true;
 }
 

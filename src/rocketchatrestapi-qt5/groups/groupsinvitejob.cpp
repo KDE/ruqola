@@ -41,6 +41,7 @@ bool GroupsInviteJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("GroupsInviteJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &GroupsInviteJob::slotInviteGroupsFinished);
     return true;

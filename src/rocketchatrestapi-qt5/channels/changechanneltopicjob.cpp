@@ -40,6 +40,7 @@ bool ChangeChannelTopicJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChangeChannelTopicJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChangeChannelTopicJob::slotChangeTopicFinished);
     return true;

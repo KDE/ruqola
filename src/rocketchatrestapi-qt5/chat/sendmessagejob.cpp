@@ -40,6 +40,7 @@ bool SendMessageJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SendMessageJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SendMessageJob::slotSendMessageDone);
     return true;

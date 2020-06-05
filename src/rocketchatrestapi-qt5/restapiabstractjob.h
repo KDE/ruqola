@@ -88,6 +88,7 @@ public:
 
     void addLoggerInfo(const QByteArray &str);
     void addLoggerWarning(const QByteArray &str);
+    void addStartRestApiInfo(const QByteArray &str);
 
     Q_REQUIRED_RESULT virtual bool canStart() const;
 
@@ -98,7 +99,6 @@ public:
 
     void addQueryParameter(QUrlQuery &urlQuery) const;
     void addRequestAttribute(QNetworkRequest &request) const;
-
 Q_SIGNALS:
     void failed(const QString &str);
 

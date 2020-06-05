@@ -55,7 +55,7 @@ bool GetPresenceJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetPresenceJob::slotGetPresenceUserId);
-    addLoggerInfo("GetPresenceJob ask for presenceUserId: " + mPresenceUserId.toLatin1());
+    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: " + mPresenceUserId.toLatin1());
 
     return true;
 }

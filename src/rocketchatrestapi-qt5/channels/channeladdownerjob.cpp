@@ -41,6 +41,7 @@ bool ChannelAddOwnerJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChannelAddOwnerJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChannelAddOwnerJob::slotAddOwnerFinished);
     return true;

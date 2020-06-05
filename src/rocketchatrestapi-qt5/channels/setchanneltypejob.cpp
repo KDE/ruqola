@@ -41,6 +41,7 @@ bool SetChannelTypeJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("SetChannelTypeJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &SetChannelTypeJob::slotSetGroupTypeFinished);
     return true;

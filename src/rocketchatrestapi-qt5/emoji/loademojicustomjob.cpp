@@ -43,7 +43,7 @@ bool LoadEmojiCustomJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob: Load Emoji custom"));
+    addStartRestApiInfo(QByteArrayLiteral("LoadEmojiCustomJob: Load Emoji custom"));
     connect(reply, &QNetworkReply::finished, this, &LoadEmojiCustomJob::slotloadEmojiCustomDone);
 
     return true;

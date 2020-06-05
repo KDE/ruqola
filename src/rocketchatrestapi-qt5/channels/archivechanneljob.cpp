@@ -41,6 +41,7 @@ bool ArchiveChannelJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ArchiveChannelJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ArchiveChannelJob::slotArchiveChannelFinished);
     return true;

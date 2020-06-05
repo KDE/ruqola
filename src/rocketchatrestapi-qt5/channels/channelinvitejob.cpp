@@ -41,6 +41,7 @@ bool ChannelInviteJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChannelInviteJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChannelInviteJob::slotInvitationFinished);
     return true;

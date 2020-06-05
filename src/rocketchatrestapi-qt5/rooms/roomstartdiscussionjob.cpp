@@ -42,6 +42,7 @@ bool RoomStartDiscussionJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("RoomStartDiscussionJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &RoomStartDiscussionJob::slotStartDiscussionFinished);
     return true;

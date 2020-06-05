@@ -41,6 +41,7 @@ bool ChannelRemoveModeratorJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChannelRemoveModeratorJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChannelRemoveModeratorJob::slotRemoveModeratorFinished);
     return true;

@@ -62,7 +62,7 @@ bool GetPinnedMessagesJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetPinnedMessagesJob::slotGetPinnedMessagesFinished);
-    addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: Ask pinned messages"));
+    addStartRestApiInfo(QByteArrayLiteral("GetPinnedMessagesJob: Ask pinned messages"));
     return true;
 }
 

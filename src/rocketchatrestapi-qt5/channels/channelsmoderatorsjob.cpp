@@ -42,7 +42,7 @@ bool ChannelsModeratorsJob::start()
         deleteLater();
         return false;
     }
-    addLoggerInfo("ChannelsModeratorsJob::start: ");
+    addStartRestApiInfo("ChannelsModeratorsJob::start: ");
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ChannelsModeratorsJob::slotFilesinChannelFinished);
     return true;

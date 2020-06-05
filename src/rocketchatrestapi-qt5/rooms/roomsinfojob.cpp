@@ -48,7 +48,7 @@ bool RoomsInfoJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &RoomsInfoJob::slotRoomsInfoFinished);
-    addLoggerInfo(QByteArrayLiteral("RoomsInfoJob: Ask info about rooms"));
+    addStartRestApiInfo(QByteArrayLiteral("RoomsInfoJob: Ask info about rooms"));
     return true;
 }
 

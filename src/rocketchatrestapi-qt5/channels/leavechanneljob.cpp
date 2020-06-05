@@ -41,6 +41,7 @@ bool LeaveChannelJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("LeaveChannelJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &LeaveChannelJob::slotLeaveChannelFinished);
     return true;

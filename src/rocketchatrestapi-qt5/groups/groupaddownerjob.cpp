@@ -41,6 +41,7 @@ bool GroupAddOwnerJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("GroupAddOwnerJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &GroupAddOwnerJob::slotAddOwnerFinished);
     return true;

@@ -41,6 +41,7 @@ bool ChannelHistoryJob::start()
         deleteLater();
         return false;
     }
+    addStartRestApiInfo("ChannelHistoryJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &ChannelHistoryJob::slotLoadHistoryChannelFinished);
     return true;
