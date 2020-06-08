@@ -39,6 +39,7 @@
 #include <QDir>
 #include <QImageWriter>
 #include <QTemporaryFile>
+#include <KFormat>
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
@@ -166,7 +167,7 @@ void MessageLineWidget::slotSendFile()
             const QFileInfo info(result.fileUrl.toLocalFile());
             if (info.size() > maximumFileSize) {
                 //TODO convert to Mib etc.
-                KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", QString::number(maximumFileSize)), i18n("File upload"));
+                KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KFormat().formatByteSize(maximumFileSize)), i18n("File upload"));
                 return;
             }
         }
