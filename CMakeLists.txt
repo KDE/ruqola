@@ -37,7 +37,7 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
-option(COMPILE_RUQOLA_QML "Allow to compile Ruqola qml version (true)" TRUE)
+option(COMPILE_RUQOLA_QML "Allow to compile Ruqola qml version (False by default)" FALSE)
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 if (NOT WIN32)
