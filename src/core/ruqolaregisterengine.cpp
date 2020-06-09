@@ -22,6 +22,7 @@
 #include "rocketchataccount.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
+#include "ruqola_qml.h"
 #include "ruqola_debug.h"
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
@@ -128,7 +129,6 @@ bool RuqolaRegisterEngine::initialize()
     qRegisterMetaType<AuthenticationManager::OauthType>();
     qRegisterMetaType<KAboutData>();
     mEngine = new QQmlApplicationEngine;
-
     QQmlContext *ctxt = mEngine->rootContext();
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     qmlRegisterType<Notification>(URI, 1, 0, "Notification");

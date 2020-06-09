@@ -25,8 +25,6 @@
 
 #include <QObject>
 #include "libruqolacore_export.h"
-#include <QQmlEngine>
-#include <QJSEngine>
 #include "ddpapi/ddpclient.h"
 #include "model/roommodel.h"
 #include "model/messagemodel.h"
@@ -76,14 +74,4 @@ private:
     Notification *mNotification = nullptr;
 #endif
 };
-
-inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
-
-    Ruqola *userData = Ruqola::self();
-    return userData;
-}
-
 #endif // RUQOLA_H
