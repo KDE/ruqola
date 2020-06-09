@@ -35,4 +35,5 @@ inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngi
     Ruqola *userData = Ruqola::self();
     return userData;
 }
+
 #endif // RUQOLA_QML_H

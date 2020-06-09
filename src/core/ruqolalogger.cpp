@@ -31,11 +31,11 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     mIdentifier = ++nextIdentifier;
 
     const QString filename = QLatin1String(qgetenv("RUQOLA_LOGFILE"))
-            + QLatin1Char('-') + accountName
-            + QLatin1Char('.')
-            + QString::number(QCoreApplication::applicationPid())
-            + QLatin1Char('.')
-            + QString::number(mIdentifier);
+                             + QLatin1Char('-') + accountName
+                             + QLatin1Char('.')
+                             + QString::number(QCoreApplication::applicationPid())
+                             + QLatin1Char('.')
+                             + QString::number(mIdentifier);
 
     mLoggerFile.setFileName(filename);
     if (!mLoggerFile.open(QFile::WriteOnly)) {
@@ -60,15 +60,14 @@ RuqolaLogger::~RuqolaLogger()
 
 void RuqolaLogger::dataSent(DataType type, const QByteArray &label, const QByteArray &data)
 {
-    switch(type) {
+    switch (type) {
     case Unknown:
     case DDPType:
         break;
-    case RESTApiType: {
+    case RESTApiType:
         mRestApiLogFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] " + data + '\n');
         mRestApiLogFile.flush();
         break;
-    }
     }
     dataSent(label + ' ' + data);
 }
