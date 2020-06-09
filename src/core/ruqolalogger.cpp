@@ -42,7 +42,7 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
         qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mLoggerFile.fileName();
     }
 
-    mRestApiLogFile.setFileName(QStringLiteral("RESTAPI") + filename);
+    mRestApiLogFile.setFileName(QStringLiteral("RESTAPI_") + filename);
     if (!mRestApiLogFile.open(QFile::WriteOnly)) {
         qCWarning(RUQOLA_LOG) << "Could not open log file for restapi:" << mRestApiLogFile.fileName();
     }
