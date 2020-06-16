@@ -80,7 +80,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
                 scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             }
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
-            nextY += scaledPixmap.height() + DelegatePaintUtil::margin();
+            nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
 
         // Draw description (if any)
