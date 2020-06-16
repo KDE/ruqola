@@ -186,6 +186,9 @@ public:
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
+    Q_REQUIRED_RESULT QStringList replies() const;
+    void setReplies(const QStringList &replies);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -212,6 +215,9 @@ private:
 
     //Mentions
     QMap<QString, QString> mMentions;
+
+    //Users which replies to thread
+    QStringList mReplies;
 
     //role used when we add/remove role. It will displaying in messagesystem
     QString mRole;

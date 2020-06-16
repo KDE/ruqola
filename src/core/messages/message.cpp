@@ -59,6 +59,14 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
         //Verify if a day we will use not restapi for it.
         mDiscussionLastMessage = Utils::parseDate(QStringLiteral("dlm"), o);
     }
+
+    QStringList lst;
+    const QJsonArray replieArray = o.value(QLatin1String("replies")).toArray();
+    for (int i = 0; i < replieArray.count(); ++i) {
+        lst.append(replieArray.at(i).toVariant().toString());
+    }
+    mReplies = lst;
+
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
     mName = o.value(QLatin1String("u")).toObject().value(QLatin1String("name")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
@@ -95,6 +103,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+QStringList Message::replies() const
+{
+    return mReplies;
+}
+
+void Message::setReplies(const QStringList &replies)
+{
+    mReplies = replies;
 }
 
 QString Message::name() const
@@ -408,7 +426,8 @@ bool Message::operator==(const Message &other) const
            && (mDiscussionRoomId == other.discussionRoomId())
            && (mThreadMessageId == other.threadMessageId())
            && (mMessageTranslation == other.messageTranslation())
-           && (mShowTranslatedMessage == other.showTranslatedMessage());
+           && (mShowTranslatedMessage == other.showTranslatedMessage())
+           && (mReplies == other.replies());
 }
 
 bool Message::operator<(const Message &other) const
@@ -733,6 +752,19 @@ Message Message::fromJSon(const QJsonObject &o)
     const QJsonObject reactionsArray = o.value(QLatin1String("reactions")).toObject();
     message.setReactions(Reactions::fromJSon(reactionsArray));
 
+    const QJsonArray repliesArray = o.value(QLatin1String("replies")).toArray();
+    QStringList replies;
+    replies.reserve(repliesArray.count());
+    for (int i = 0; i < repliesArray.count(); ++i) {
+        replies.append(urlsArray.at(i).toVariant().toString());
+    }
+    message.setReplies(replies);
+
+    if (!message.mReplies.isEmpty()) {
+        o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
+    }
+
+
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
     for (int i = 0; i < mentionsArray.count(); ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
@@ -831,6 +863,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mThreadMessageId.isEmpty()) {
         o[QStringLiteral("tmid")] = message.mThreadMessageId;
     }
+    if (!message.mReplies.isEmpty()) {
+        o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
+    }
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
@@ -879,5 +914,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "threadMessageId " << t.threadMessageId();
     d << "messagetranslation" << t.messageTranslation();
     d << "mShowOriginalMessage " << t.showTranslatedMessage();
+    d << "mReplies " << t.replies();
     return d;
 }
