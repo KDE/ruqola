@@ -21,7 +21,6 @@ Name[ru]=Ruqola
 Name[sk]=Ruqola
 Name[sv]=Ruqola
 Name[uk]=Ruqola
-Name[x-test]=xxRuqolaxx
 Name[zh_TW]=Ruqola
 DesktopEntry=org.kde.ruqola
 Comment=Notification
@@ -39,7 +38,6 @@ Comment[pt]=Notificação
 Comment[pt_BR]=Notificação
 Comment[sv]=Underrättelse
 Comment[uk]=Сповіщення
-Comment[x-test]=xxNotificationxx
 
 [Event/new-notification]
 Name=A Notification Arrived
@@ -57,6 +55,5 @@ Name[pt]=Chegou uma Notificação
 Name[pt_BR]=Uma notificação chegou
 Name[sv]=En underrättelse anlände
 Name[uk]=З'явилося сповіщення
-Name[x-test]=xxA Notification Arrivedxx
 Action=Popup
 Urgency=Normal
