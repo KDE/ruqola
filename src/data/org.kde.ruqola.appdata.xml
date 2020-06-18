@@ -25,6 +25,7 @@
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sv">Ruqola</name>
   <name xml:lang="uk">Ruqola</name>
+  <name xml:lang="x-test">xxRuqolaxx</name>
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
   <summary xml:lang="ca">Client de xat del Rocket</summary>
@@ -48,6 +49,7 @@
   <summary xml:lang="sk">Chatovací klient Rocket</summary>
   <summary xml:lang="sv">Rocket Chat klient</summary>
   <summary xml:lang="uk">Клієнт спілкування Rocket</summary>
+  <summary xml:lang="x-test">xxRocket Chat Clientxx</summary>
   <summary xml:lang="zh-TW">Rocket Chat 用戶端</summary>
   <description>
     <p>
@@ -76,6 +78,7 @@
     <p xml:lang="sk">Ruqola je chatovací klient Rocket založený na QML. Pripojenie sa aktivuje priamo pri spustení Ruqola.</p>
     <p xml:lang="sv">Ruqola är en Rocket Chat klient baserad på QML. Anslutningen aktiveras direkt när Ruqola startas.</p>
     <p xml:lang="uk">Ruqola — клієнт спілкування у мережі Rocket, заснований на технологіях QML. З'єднання активується безпосередньо, коли ви запускаєте Ruqola.</p>
+    <p xml:lang="x-test">xxRuqola is a Rocket Chat client based on QML. Connection is activated directly when you launch Ruqola.xx</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
   <project_group>KDE</project_group>
