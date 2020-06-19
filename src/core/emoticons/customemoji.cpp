@@ -18,41 +18,41 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emoticons/emoji.h"
+#include "emoticons/customemoji.h"
 #include "utils.h"
 
 #include <QJsonObject>
 #include <QJsonArray>
 
-Emoji::Emoji()
+CustomEmoji::CustomEmoji()
 {
 }
 
-Emoji::~Emoji()
+CustomEmoji::~CustomEmoji()
 {
 }
 
-bool Emoji::hasEmoji(const QString &identifier) const
+bool CustomEmoji::hasEmoji(const QString &identifier) const
 {
     return (mEmojiIdentifier == identifier) || mAliases.contains(identifier);
 }
 
-qint64 Emoji::updatedAt() const
+qint64 CustomEmoji::updatedAt() const
 {
     return mUpdatedAt;
 }
 
-void Emoji::setUpdatedAt(qint64 updatedAt)
+void CustomEmoji::setUpdatedAt(qint64 updatedAt)
 {
     mUpdatedAt = updatedAt;
 }
 
-bool Emoji::isAnimatedImage() const
+bool CustomEmoji::isAnimatedImage() const
 {
     return mExtension == QLatin1String("gif");
 }
 
-void Emoji::parseEmoji(const QJsonObject &emoji)
+void CustomEmoji::parseEmoji(const QJsonObject &emoji)
 {
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
@@ -69,13 +69,13 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
     mAliases = lst;
 }
 
-bool Emoji::isValid() const
+bool CustomEmoji::isValid() const
 {
     //Add more check ?
     return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
-QString Emoji::emojiUrl(const QString &serverUrl) const
+QString CustomEmoji::emojiUrl(const QString &serverUrl) const
 {
     QString url = serverUrl + emojiFileName();
     // ???? http ? not https ???
@@ -85,12 +85,12 @@ QString Emoji::emojiUrl(const QString &serverUrl) const
     return url;
 }
 
-QString Emoji::emojiFileName() const
+QString CustomEmoji::emojiFileName() const
 {
     return QStringLiteral("/emoji-custom/%1.%2").arg(mName, mExtension);
 }
 
-QString Emoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
+QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
 {
     if (mCachedHtml.isEmpty()) {
         const QString url = emojiUrl(serverUrl);
@@ -102,7 +102,7 @@ QString Emoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
     return mCachedHtml;
 }
 
-QString Emoji::generateHtmlFromCustomEmoji(const QString &serverUrl)
+QString CustomEmoji::generateHtmlFromCustomEmoji(const QString &serverUrl)
 {
     if (mCachedHtml.isEmpty()) {
         const QString url = emojiUrl(serverUrl);
@@ -114,67 +114,67 @@ QString Emoji::generateHtmlFromCustomEmoji(const QString &serverUrl)
     return mCachedHtml;
 }
 
-void Emoji::clearCachedHtml()
+void CustomEmoji::clearCachedHtml()
 {
     mCachedHtml.clear();
 }
 
-QStringList Emoji::aliases() const
+QStringList CustomEmoji::aliases() const
 {
     return mAliases;
 }
 
-void Emoji::setAliases(const QStringList &aliases)
+void CustomEmoji::setAliases(const QStringList &aliases)
 {
     mAliases = aliases;
 }
 
-QString Emoji::emojiIdentifier() const
+QString CustomEmoji::emojiIdentifier() const
 {
     return mEmojiIdentifier;
 }
 
-void Emoji::setEmojiIdentifier(const QString &emojiIdentifier)
+void CustomEmoji::setEmojiIdentifier(const QString &emojiIdentifier)
 {
     mEmojiIdentifier = emojiIdentifier;
 }
 
-QString Emoji::cachedHtml() const
+QString CustomEmoji::cachedHtml() const
 {
     return mCachedHtml;
 }
 
-QString Emoji::identifier() const
+QString CustomEmoji::identifier() const
 {
     return mIdentifier;
 }
 
-void Emoji::setIdentifier(const QString &identifier)
+void CustomEmoji::setIdentifier(const QString &identifier)
 {
     mIdentifier = identifier;
 }
 
-QString Emoji::extension() const
+QString CustomEmoji::extension() const
 {
     return mExtension;
 }
 
-void Emoji::setExtension(const QString &extension)
+void CustomEmoji::setExtension(const QString &extension)
 {
     mExtension = extension;
 }
 
-void Emoji::setName(const QString &name)
+void CustomEmoji::setName(const QString &name)
 {
     mName = name;
 }
 
-QString Emoji::name() const
+QString CustomEmoji::name() const
 {
     return mName;
 }
 
-bool Emoji::operator==(const Emoji &other) const
+bool CustomEmoji::operator==(const CustomEmoji &other) const
 {
     return (mName == other.name())
            && (mExtension == other.extension())
@@ -184,7 +184,7 @@ bool Emoji::operator==(const Emoji &other) const
            && (mUpdatedAt == other.updatedAt());
 }
 
-QDebug operator <<(QDebug d, const Emoji &t)
+QDebug operator <<(QDebug d, const CustomEmoji &t)
 {
     d << "Name: " << t.name() << " ";
     d << "Identifier: " << t.identifier() << " ";

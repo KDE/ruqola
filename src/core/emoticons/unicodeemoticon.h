@@ -56,7 +56,7 @@ public:
 
 private:
     QStringList mAliases;
-    QString escapeUnicodeEmoji(const QString &pString);
+    Q_REQUIRED_RESULT QString escapeUnicodeEmoji(const QString &pString);
     QString mIdentifier;
     QString mUnicode;
     QString mCategory;

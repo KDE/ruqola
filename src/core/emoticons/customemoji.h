@@ -25,12 +25,12 @@
 #include <QDebug>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT Emoji
+class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
 {
     Q_GADGET
 public:
-    Emoji();
-    ~Emoji();
+    CustomEmoji();
+    ~CustomEmoji();
 
     void parseEmoji(const QJsonObject &emoji);
 
@@ -43,9 +43,9 @@ public:
     void setName(const QString &name);
     Q_REQUIRED_RESULT QString name() const;
 
-    bool operator==(const Emoji &other) const;
+    bool operator==(const CustomEmoji &other) const;
 
-    Emoji &operator=(const Emoji &other) = default;
+    CustomEmoji &operator=(const CustomEmoji &other) = default;
 
     Q_REQUIRED_RESULT bool isValid() const;
 
@@ -81,7 +81,7 @@ private:
     QStringList mAliases;
     qint64 mUpdatedAt = 0;
 };
-Q_DECLARE_METATYPE(Emoji)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Emoji &t);
+Q_DECLARE_METATYPE(CustomEmoji)
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const CustomEmoji &t);
 
 #endif // EMOJI_H

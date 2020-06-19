@@ -23,12 +23,12 @@
 
 #include <QObject>
 
-class EmojiTest : public QObject
+class CustomEmojiTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmojiTest(QObject *parent = nullptr);
-    ~EmojiTest() override = default;
+    explicit CustomEmojiTest(QObject *parent = nullptr);
+    ~CustomEmojiTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();

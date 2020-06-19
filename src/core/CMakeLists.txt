@@ -66,7 +66,7 @@ set(Ruqola_plugins_srcs
     )
 
 set(Ruqola_emoticons_srcs 
-    emoticons/emoji.cpp
+    emoticons/customemoji.cpp
     emoticons/emojimanager.cpp
     emoticons/unicodeemoticon.cpp
     emoticons/unicodeemoticonparser.cpp

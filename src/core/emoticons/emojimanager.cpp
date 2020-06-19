@@ -64,7 +64,7 @@ QVector<EmoticonCategory> EmojiManager::categories() const
 {
     QVector<EmoticonCategory> categories;
     QSet<QString> seen;
-    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
+    for (const UnicodeEmoticon &emo : qAsConst(mUnicodeEmojiList)) {
         // Pick the first icon in each category
         const QString category = emo.category();
         if (!seen.contains(category)) {
@@ -100,9 +100,9 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
     const QJsonObject result = obj.value(QLatin1String("emojis")).toObject();
     const QJsonArray array = result.value(QLatin1String("update")).toArray();
     //TODO add support for remove when we store it in local
-    for (int i = 0; i < array.size(); i++) {
+    for (int i = 0, total = array.size(); i < total; ++i) {
         const QJsonObject emojiJson = array.at(i).toObject();
-        Emoji emoji;
+        CustomEmoji emoji;
         emoji.parseEmoji(emojiJson);
         if (emoji.isValid()) {
             mCustomEmojiList.append(emoji);
@@ -119,7 +119,7 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 {
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-            const Emoji emoji = mCustomEmojiList.at(i);
+            const CustomEmoji emoji = mCustomEmojiList.at(i);
             if (emoji.hasEmoji(emojiIdentifier)) {
                 return emoji.isAnimatedImage();
             }
@@ -140,7 +140,7 @@ UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdenti
 
 QString EmojiManager::customEmojiFileName(const QString &emojiIdentifier) const
 {
-    for (const Emoji &customEmoji : mCustomEmojiList) {
+    for (const CustomEmoji &customEmoji : mCustomEmojiList) {
         if (customEmoji.hasEmoji(emojiIdentifier)) {
             return customEmoji.emojiFileName();
         }
@@ -155,7 +155,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         return emojiIdentifier;
     }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
-        for (Emoji &emoji : mCustomEmojiList) {
+        for (CustomEmoji &emoji : mCustomEmojiList) {
             if (emoji.hasEmoji(emojiIdentifier)) {
                 QString cachedHtml = emoji.cachedHtml();
                 if (cachedHtml.isEmpty()) {

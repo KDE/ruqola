@@ -18,22 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emojitest.h"
-#include "emoticons/emoji.h"
+#include "customemojitest.h"
+#include "emoticons/customemoji.h"
 #include <QJsonObject>
 #include <QTest>
 #include <QJsonDocument>
 
-QTEST_GUILESS_MAIN(EmojiTest)
+QTEST_GUILESS_MAIN(CustomEmojiTest)
 
-EmojiTest::EmojiTest(QObject *parent)
+CustomEmojiTest::CustomEmojiTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void EmojiTest::shouldHaveDefaultValue()
+void CustomEmojiTest::shouldHaveDefaultValue()
 {
-    Emoji j;
+    CustomEmoji j;
     QVERIFY(j.extension().isEmpty());
     QVERIFY(j.identifier().isEmpty());
     QVERIFY(j.name().isEmpty());
@@ -43,9 +43,9 @@ void EmojiTest::shouldHaveDefaultValue()
     QCOMPARE(j.isAnimatedImage(), false);
 }
 
-void EmojiTest::shouldAssignValue()
+void CustomEmojiTest::shouldAssignValue()
 {
-    Emoji j;
+    CustomEmoji j;
     const QString ext{QStringLiteral("foo")};
     const QString id{QStringLiteral("bla")};
     const QString name{QStringLiteral("bli")};
@@ -69,9 +69,9 @@ void EmojiTest::shouldAssignValue()
     QCOMPARE(j.updatedAt(), updatedAt);
 }
 
-void EmojiTest::shouldCopyValue()
+void CustomEmojiTest::shouldCopyValue()
 {
-    Emoji j;
+    CustomEmoji j;
     const QString ext{QStringLiteral("foo")};
     const QString id{QStringLiteral("bla")};
     const QString name{QStringLiteral("bli")};
@@ -86,13 +86,13 @@ void EmojiTest::shouldCopyValue()
     const QString emojiId = QLatin1Char(':') + name + QLatin1Char(':');
     j.setEmojiIdentifier(emojiId);
 
-    Emoji copy = j;
+    CustomEmoji copy = j;
     QCOMPARE(copy, j);
 }
 
-void EmojiTest::shouldClearCachedHtml()
+void CustomEmojiTest::shouldClearCachedHtml()
 {
-    Emoji emojiRef;
+    CustomEmoji emojiRef;
     emojiRef.setExtension(QStringLiteral("gif"));
     emojiRef.setName(QStringLiteral("clapping"));
     emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
@@ -109,12 +109,12 @@ void EmojiTest::shouldClearCachedHtml()
     QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
 }
 
-void EmojiTest::shouldParseEmoji_data()
+void CustomEmojiTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<Emoji>("expectedEmoji");
+    QTest::addColumn<CustomEmoji>("expectedEmoji");
     {
-        Emoji emojiRef;
+        CustomEmoji emojiRef;
         emojiRef.setExtension(QStringLiteral("jpg"));
         emojiRef.setName(QStringLiteral("troll"));
         emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
@@ -125,10 +125,10 @@ void EmojiTest::shouldParseEmoji_data()
     }
 }
 
-void EmojiTest::shouldParseEmoji()
+void CustomEmojiTest::shouldParseEmoji()
 {
     QFETCH(QString, name);
-    QFETCH(Emoji, expectedEmoji);
+    QFETCH(CustomEmoji, expectedEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
@@ -136,7 +136,7 @@ void EmojiTest::shouldParseEmoji()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    Emoji originalEmoji;
+    CustomEmoji originalEmoji;
     originalEmoji.parseEmoji(obj);
     const bool emojiIsEqual = (originalEmoji == expectedEmoji);
     if (!emojiIsEqual) {
@@ -146,16 +146,16 @@ void EmojiTest::shouldParseEmoji()
     QVERIFY(emojiIsEqual);
 }
 
-void EmojiTest::shouldGenerateHtml_data()
+void CustomEmojiTest::shouldGenerateHtml_data()
 {
-    QTest::addColumn<Emoji>("emoji");
+    QTest::addColumn<CustomEmoji>("emoji");
     QTest::addColumn<QString>("serverUrl");
     QTest::addColumn<QString>("expectedFileName");
     QTest::addColumn<QString>("expectedUrl");
     QTest::addColumn<QString>("html");
 
     {
-        Emoji emojiRef;
+        CustomEmoji emojiRef;
         emojiRef.setExtension(QStringLiteral("gif"));
         emojiRef.setName(QStringLiteral("clapping"));
         emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
@@ -169,9 +169,9 @@ void EmojiTest::shouldGenerateHtml_data()
     }
 }
 
-void EmojiTest::shouldGenerateHtml()
+void CustomEmojiTest::shouldGenerateHtml()
 {
-    QFETCH(Emoji, emoji);
+    QFETCH(CustomEmoji, emoji);
     QFETCH(QString, serverUrl);
     QFETCH(QString, expectedFileName);
     QFETCH(QString, expectedUrl);

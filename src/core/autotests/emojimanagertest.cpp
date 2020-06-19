@@ -20,7 +20,7 @@
 
 #include "emojimanagertest.h"
 #include "emoticons/emojimanager.h"
-#include "emoticons/emoji.h"
+#include "emoticons/customemoji.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
