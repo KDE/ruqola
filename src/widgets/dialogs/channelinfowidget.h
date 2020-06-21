@@ -80,6 +80,7 @@ private:
     QStackedWidget *mStackedWidget = nullptr;
     QWidget *mEditableChannel = nullptr;
     QWidget *mReadOnlyChannel = nullptr;
+    QWidget *mEncryptedLabel = nullptr;
     QLabel *mNameReadOnly = nullptr;
     QLabel *mCommentReadOnly = nullptr;
     QLabel *mAnnouncementReadOnly = nullptr;

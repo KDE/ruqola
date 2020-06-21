@@ -132,8 +132,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     connect(mEncrypted, &QCheckBox::clicked, this, [this](bool checked) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Encrypted, checked, mRoomWrapper->channelType());
     });
-    //TODO reactivate it
-    mEncrypted->hide();
+    mEncryptedLabel = layout->labelForField(mEncrypted);
 
     mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
@@ -225,6 +224,9 @@ void ChannelInfoWidget::updateEditableChannelInfo()
     mReadOnly->setChecked(mRoomWrapper->readOnly());
     mArchive->setChecked(mRoomWrapper->archived());
     mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+    mEncrypted->setVisible(mRoomWrapper->encryptedEnabled());
+    mEncrypted->setChecked(mRoomWrapper->encrypted());
+    mEncryptedLabel->setVisible(mRoomWrapper->encryptedEnabled());
     joinCodeChanged();
 }
 
