@@ -22,6 +22,7 @@
 #include "dialogs/channelinfowidget.h"
 #include <KPasswordLineEdit>
 #include <QCheckBox>
+#include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QPushButton>
@@ -66,14 +67,22 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     auto *mArchive = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mArchive"));
     QVERIFY(mArchive);
     QVERIFY(mArchive->text().isEmpty());
+    QCOMPARE(mArchive->checkState(), Qt::Unchecked);
 
     auto *mReadOnly = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mReadOnly"));
     QVERIFY(mReadOnly);
     QVERIFY(mReadOnly->text().isEmpty());
+    QCOMPARE(mReadOnly->checkState(), Qt::Unchecked);
+
+    auto *mEncrypted = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mEncrypted"));
+    QVERIFY(mEncrypted);
+    QVERIFY(mEncrypted->text().isEmpty());
+    QCOMPARE(mEncrypted->checkState(), Qt::Unchecked);
 
     auto *mPrivate = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mPrivate"));
     QVERIFY(mPrivate);
     QVERIFY(mPrivate->text().isEmpty());
+    QCOMPARE(mPrivate->checkState(), Qt::Unchecked);
 
     auto *mDeleteChannel = mEditableChannel->findChild<QPushButton *>(QStringLiteral("mDeleteChannel"));
     QVERIFY(mDeleteChannel);

@@ -126,7 +126,14 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
     });
 
-    //TODO add encrypted too!
+    mEncrypted = new QCheckBox(this);
+    mEncrypted->setObjectName(QStringLiteral("mEncrypted"));
+    layout->addRow(i18n("Encrypted:"), mEncrypted);
+    connect(mEncrypted, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Encrypted, checked, mRoomWrapper->channelType());
+    });
+    //TODO reactivate it
+    mEncrypted->hide();
 
     mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
