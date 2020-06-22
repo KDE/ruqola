@@ -125,7 +125,9 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const auto file = querySaveFileName(parentWidget, i18n("Save Image"), QUrl::fromLocalFile(layout.imagePath));
             if (!file.isEmpty()) {
-                QFile::remove(file); // copy() doesn't overwrite
+                if (!QFile::remove(file)) { // copy() doesn't overwrite
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to remove : " << file;
+                }
                 QFile sourceFile(layout.imagePath);
                 if (!sourceFile.copy(file)) {
                     QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
