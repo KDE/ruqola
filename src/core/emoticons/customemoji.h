@@ -49,7 +49,7 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
-    Q_REQUIRED_RESULT QString generateHtmlFromCustomEmoji(const QString &serverUrl);
+    Q_REQUIRED_RESULT QString generateHtmlFromCustomEmoji(const QString &serverUrl) const;
 
     Q_REQUIRED_RESULT QStringList aliases() const;
     void setAliases(const QStringList &aliases);
@@ -67,7 +67,7 @@ public:
 
     Q_REQUIRED_RESULT bool isAnimatedImage() const;
 
-    Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl);
+    Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
 
     Q_REQUIRED_RESULT QString emojiUrl(const QString &serverUrl) const;
     Q_REQUIRED_RESULT QString emojiFileName() const;
@@ -77,7 +77,7 @@ private:
     QString mIdentifier;
     QString mExtension;
     QString mName;
-    QString mCachedHtml;
+    mutable QString mCachedHtml;
     QStringList mAliases;
     qint64 mUpdatedAt = 0;
 };

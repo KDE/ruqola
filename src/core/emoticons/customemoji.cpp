@@ -90,7 +90,7 @@ QString CustomEmoji::emojiFileName() const
     return QStringLiteral("/emoji-custom/%1.%2").arg(mName, mExtension);
 }
 
-QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
+QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const
 {
     if (mCachedHtml.isEmpty()) {
         const QString url = emojiUrl(serverUrl);
@@ -102,7 +102,7 @@ QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl
     return mCachedHtml;
 }
 
-QString CustomEmoji::generateHtmlFromCustomEmoji(const QString &serverUrl)
+QString CustomEmoji::generateHtmlFromCustomEmoji(const QString &serverUrl) const
 {
     if (mCachedHtml.isEmpty()) {
         const QString url = emojiUrl(serverUrl);
