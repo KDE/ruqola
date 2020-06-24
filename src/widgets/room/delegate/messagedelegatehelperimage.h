@@ -23,12 +23,12 @@
 
 #include "messagedelegatehelperbase.h"
 #include "pixmapcache.h"
+#include "runninganimatedimage.h"
 
 #include <QModelIndex>
 #include <QPixmap>
 #include <vector>
 
-class QMovie;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperImage : public MessageDelegateHelperBase
 {
@@ -59,18 +59,6 @@ private:
     };
     ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 
-    struct RunningAnimatedImage
-    {
-        RunningAnimatedImage(const QModelIndex &idx);
-        ~RunningAnimatedImage();
-        RunningAnimatedImage(const RunningAnimatedImage &) = delete;
-        RunningAnimatedImage(RunningAnimatedImage &&other) noexcept;
-        RunningAnimatedImage &operator=(const RunningAnimatedImage &) = delete;
-        RunningAnimatedImage &operator=(RunningAnimatedImage &&other);
-
-        QPersistentModelIndex index;
-        QMovie *movie;
-    };
     std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;
 

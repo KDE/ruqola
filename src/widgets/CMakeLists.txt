@@ -113,6 +113,7 @@ set(Ruqola_roomwidget_SRCS
     room/delegate/messagedelegatehelperreactions.cpp
     room/delegate/messagedelegatehelpervideo.cpp
     room/delegate/messagedelegatehelpersound.cpp
+    room/delegate/runninganimatedimage.cpp
     room/delegate/pixmapcache.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp

@@ -195,7 +195,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
     return layout;
 }
 
-std::vector<MessageDelegateHelperImage::RunningAnimatedImage>::iterator MessageDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
+std::vector<RunningAnimatedImage>::iterator MessageDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
 {
     auto matchesIndex = [&](const RunningAnimatedImage &rai) {
                             return rai.index == index;
@@ -209,31 +209,4 @@ void MessageDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &i
     if (it != mRunningAnimatedImages.end()) {
         mRunningAnimatedImages.erase(it);
     }
-}
-
-MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(const QModelIndex &idx)
-    : index(idx)
-    , movie(new QMovie)
-{
-}
-
-MessageDelegateHelperImage::RunningAnimatedImage::~RunningAnimatedImage()
-{
-    // Note that this happens (with a nullptr movie) when the vector is re-allocated
-    delete movie;
-}
-
-MessageDelegateHelperImage::RunningAnimatedImage::RunningAnimatedImage(RunningAnimatedImage &&other) noexcept
-    : index(other.index)
-    , movie(other.movie)
-{
-    other.movie = nullptr;
-}
-
-MessageDelegateHelperImage::RunningAnimatedImage &MessageDelegateHelperImage::RunningAnimatedImage::operator=(RunningAnimatedImage &&other)
-{
-    index = other.index;
-    movie = other.movie;
-    other.movie = nullptr;
-    return *this;
 }
