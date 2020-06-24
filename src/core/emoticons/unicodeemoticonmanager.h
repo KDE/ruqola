@@ -25,6 +25,7 @@
 #include <QObject>
 #include "libruqolacore_export.h"
 #include "unicodeemoticon.h"
+#include "emoticoncategory.h"
 
 class LIBRUQOLACORE_EXPORT UnicodeEmoticonManager : public QObject
 {
@@ -38,6 +39,9 @@ public:
 
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
 
+    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emojisForCategory(const QString &category) const;
+    Q_REQUIRED_RESULT QVector<EmoticonCategory> categories() const;
+    Q_REQUIRED_RESULT UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
 private:
     void loadUnicodeEmoji();
     QVector<UnicodeEmoticon> mUnicodeEmojiList;

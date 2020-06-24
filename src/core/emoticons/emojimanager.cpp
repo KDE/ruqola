@@ -48,36 +48,12 @@ QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
 
 QVector<EmoticonCategory> EmojiManager::categories() const
 {
-    QVector<EmoticonCategory> categories;
-    QSet<QString> seen;
-    for (const UnicodeEmoticon &emo : qAsConst(mUnicodeEmojiList)) {
-        // Pick the first icon in each category
-        const QString category = emo.category();
-        if (!seen.contains(category)) {
-            seen.insert(category);
-            if (category == QLatin1String("modifier")) { // pointless icons
-                continue;
-            }
-            EmoticonCategory cat;
-            cat.setCategory(category);
-            cat.setName(emo.unicode());
-            categories.append(std::move(cat));
-        }
-    }
-    // TODO sort categories in a way that makes sense for the user
-    return categories;
+    return UnicodeEmoticonManager::self()->categories();
 }
 
 QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
 {
-    QVector<UnicodeEmoticon> result;
-
-    auto hasRequestedCategory = [category](const UnicodeEmoticon &emo) {
-                                    return emo.category() == category;
-                                };
-    std::copy_if(mUnicodeEmojiList.begin(), mUnicodeEmojiList.end(),
-                 std::back_inserter(result), hasRequestedCategory);
-    return result;
+    return UnicodeEmoticonManager::self()->emojisForCategory(category);
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
@@ -116,12 +92,7 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 
 UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
 {
-    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
-        if (emo.hasEmoji(emojiIdentifier)) {
-            return emo;
-        }
-    }
-    return {};
+    return UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
 }
 
 QString EmojiManager::customEmojiFileName(const QString &emojiIdentifier) const

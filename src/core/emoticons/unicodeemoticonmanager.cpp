@@ -62,3 +62,48 @@ QVector<UnicodeEmoticon> UnicodeEmoticonManager::unicodeEmojiList() const
 {
     return mUnicodeEmojiList;
 }
+
+QVector<EmoticonCategory> UnicodeEmoticonManager::categories() const
+{
+    QVector<EmoticonCategory> categories;
+    QSet<QString> seen;
+    for (const UnicodeEmoticon &emo : qAsConst(mUnicodeEmojiList)) {
+        // Pick the first icon in each category
+        const QString category = emo.category();
+        if (!seen.contains(category)) {
+            seen.insert(category);
+            if (category == QLatin1String("modifier")) { // pointless icons
+                continue;
+            }
+            EmoticonCategory cat;
+            cat.setCategory(category);
+            cat.setName(emo.unicode());
+            categories.append(std::move(cat));
+        }
+    }
+    // TODO sort categories in a way that makes sense for the user
+    return categories;
+}
+
+QVector<UnicodeEmoticon> UnicodeEmoticonManager::emojisForCategory(const QString &category) const
+{
+    QVector<UnicodeEmoticon> result;
+
+    auto hasRequestedCategory = [category](const UnicodeEmoticon &emo) {
+                                    return emo.category() == category;
+                                };
+    std::copy_if(mUnicodeEmojiList.begin(), mUnicodeEmojiList.end(),
+                 std::back_inserter(result), hasRequestedCategory);
+    return result;
+}
+
+UnicodeEmoticon UnicodeEmoticonManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
+{
+    for (const UnicodeEmoticon &emo : mUnicodeEmojiList) {
+        if (emo.hasEmoji(emojiIdentifier)) {
+            return emo;
+        }
+    }
+    return {};
+}
+

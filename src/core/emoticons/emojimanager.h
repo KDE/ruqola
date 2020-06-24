@@ -22,7 +22,7 @@
 #define EMOJIMANAGER_H
 
 #include <QObject>
-#include <emoticoncategory.h>
+#include "emoticoncategory.h"
 #include "customemoji.h"
 #include "unicodeemoticon.h"
 #include "libruqolacore_export.h"
