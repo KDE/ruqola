@@ -19,7 +19,7 @@
 */
 
 #include "emoticons/emojimanager.h"
-#include "emoticons/unicodeemoticonparser.h"
+#include "emoticons/unicodeemoticonmanager.h"
 #include "ruqola_debug.h"
 
 #include <QJsonObject>
@@ -29,30 +29,16 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 
-EmojiManager::EmojiManager(QObject *parent, bool loadUnicode)
+EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
 {
-    if (loadUnicode) {
-        loadUnicodeEmoji();
-    }
+    //TODO move to manager
+    mUnicodeEmojiList = UnicodeEmoticonManager::self()->unicodeEmojiList();
 }
+
 
 EmojiManager::~EmojiManager()
 {
-}
-
-void EmojiManager::loadUnicodeEmoji()
-{
-    UnicodeEmoticonParser unicodeParser;
-    QFile file(QStringLiteral(":/emoji.json"));
-    if (!file.open(QFile::ReadOnly)) {
-        qCWarning(RUQOLA_LOG) << "Impossible to open file: " << file.errorString();
-        return;
-    }
-    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-
-    const QJsonObject obj = doc.object();
-    mUnicodeEmojiList = unicodeParser.parse(obj);
 }
 
 QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const

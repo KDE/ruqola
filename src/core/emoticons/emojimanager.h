@@ -31,7 +31,7 @@ class LIBRUQOLACORE_EXPORT EmojiManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmojiManager(QObject *parent = nullptr, bool loadUnicode = true);
+    explicit EmojiManager(QObject *parent = nullptr);
     ~EmojiManager() override;
 
     void loadCustomEmoji(const QJsonObject &obj);
@@ -56,7 +56,6 @@ public:
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();
-    void loadUnicodeEmoji();
     //Use identifier in a QMap ???
     QVector<CustomEmoji> mCustomEmojiList;
     QVector<UnicodeEmoticon> mUnicodeEmojiList;

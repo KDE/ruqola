@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2019-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,20 +18,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNICODEEMOTICONPARSER_H
-#define UNICODEEMOTICONPARSER_H
 
-#include "libruqola_private_export.h"
+#ifndef UNICODEEMOTICONMANAGER_H
+#define UNICODEEMOTICONMANAGER_H
+
+#include <QObject>
+#include "libruqolacore_export.h"
 #include "unicodeemoticon.h"
-#include <QVector>
 
-class LIBRUQOLACORE_TESTS_EXPORT UnicodeEmoticonParser
+class LIBRUQOLACORE_EXPORT UnicodeEmoticonManager : public QObject
 {
+    Q_OBJECT
 public:
-    UnicodeEmoticonParser();
-    ~UnicodeEmoticonParser();
+    explicit UnicodeEmoticonManager(QObject *parent = nullptr);
+    ~UnicodeEmoticonManager();
 
-    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> parse(const QJsonObject &o) const;
+    static UnicodeEmoticonManager *self();
+
+
+    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
+
+private:
+    void loadUnicodeEmoji();
+    QVector<UnicodeEmoticon> mUnicodeEmojiList;
 };
 
-#endif // UNICODEEMOTICONPARSER_H
+#endif // UNICODEEMOTICONMANAGER_H

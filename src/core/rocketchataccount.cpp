@@ -40,6 +40,7 @@
 #include "rocketchatcache.h"
 #include "fileattachments.h"
 #include "emoticons/emojimanager.h"
+#include "emoticons/unicodeemoticonmanager.h"
 #include "model/emoticonfiltermodel.h"
 #include "otrmanager.h"
 #include "inputtextmanager.h"
@@ -117,6 +118,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     initializeAuthenticationPlugins();
 
     mRocketChatBackend = new RocketChatBackend(this, this);
+
+    //Load list of unicode emoticon
+    UnicodeEmoticonManager::self();
 
     //After loadSettings
     mEmojiManager = new EmojiManager(this);

@@ -70,6 +70,7 @@ set(Ruqola_emoticons_srcs
     emoticons/emojimanager.cpp
     emoticons/unicodeemoticon.cpp
     emoticons/unicodeemoticonparser.cpp
+    emoticons/unicodeemoticonmanager.cpp
 )
     
 set(Ruqola_messages_srcs  

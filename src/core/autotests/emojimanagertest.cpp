@@ -21,6 +21,7 @@
 #include "emojimanagertest.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/customemoji.h"
+#include "emoticons/unicodeemoticonmanager.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -33,7 +34,7 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
 
 void EmojiManagerTest::shouldHaveDefaultValue()
 {
-    EmojiManager manager(nullptr, false);
+    EmojiManager manager(nullptr);
     QVERIFY(manager.serverUrl().isEmpty());
     QCOMPARE(manager.count(), 0);
 }
@@ -56,13 +57,15 @@ void EmojiManagerTest::shouldParseEmoji()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager(nullptr, false);
+    EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
 }
 
 void EmojiManagerTest::shouldSupportUnicodeEmojis()
 {
+    //Load list of unicode emoticon
+    UnicodeEmoticonManager::self();
     EmojiManager manager;
     QString grinning;
     grinning += QChar(0xd800+61);
@@ -84,6 +87,8 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
 {
+    //Load list of unicode emoticon
+    UnicodeEmoticonManager::self();
     EmojiManager manager;
     const QVector<UnicodeEmoticon> list = manager.unicodeEmojiList();
     auto hasCategory = [](const QString &category) {
@@ -115,7 +120,7 @@ void EmojiManagerTest::shouldGenerateHtml()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager(nullptr, false);
+    EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     //No serverUrl set.
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
@@ -145,7 +150,7 @@ void EmojiManagerTest::shouldChangeServerUrl()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager(nullptr, false);
+    EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     QString serverUrl = QStringLiteral("www.kde.org");
     manager.setServerUrl(serverUrl);
