@@ -58,7 +58,6 @@ private:
     void clearCustomEmojiCachedHtml();
     //Use identifier in a QMap ???
     QVector<CustomEmoji> mCustomEmojiList;
-    QVector<UnicodeEmoticon> mUnicodeEmojiList;
     QString mServerUrl;
 };
 

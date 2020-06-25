@@ -63,6 +63,11 @@ QVector<UnicodeEmoticon> UnicodeEmoticonManager::unicodeEmojiList() const
     return mUnicodeEmojiList;
 }
 
+int UnicodeEmoticonManager::count() const
+{
+    return mUnicodeEmojiList.count();
+}
+
 QVector<EmoticonCategory> UnicodeEmoticonManager::categories() const
 {
     QVector<EmoticonCategory> categories;

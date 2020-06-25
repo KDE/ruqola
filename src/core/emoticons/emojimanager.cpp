@@ -32,8 +32,6 @@
 EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
 {
-    //TODO move to manager
-    mUnicodeEmojiList = UnicodeEmoticonManager::self()->unicodeEmojiList();
 }
 
 
@@ -43,7 +41,7 @@ EmojiManager::~EmojiManager()
 
 QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
 {
-    return mUnicodeEmojiList;
+    return UnicodeEmoticonManager::self()->unicodeEmojiList();
 }
 
 QVector<EmoticonCategory> EmojiManager::categories() const
@@ -74,7 +72,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 
 int EmojiManager::count() const
 {
-    return mCustomEmojiList.count() + mUnicodeEmojiList.count();
+    return mCustomEmojiList.count() + UnicodeEmoticonManager::self()->count();
 }
 
 bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const

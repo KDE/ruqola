@@ -36,14 +36,14 @@ void EmojiManagerTest::shouldHaveDefaultValue()
 {
     EmojiManager manager(nullptr);
     QVERIFY(manager.serverUrl().isEmpty());
-    QCOMPARE(manager.count(), 0);
+    QCOMPARE(manager.count(), 3225);
 }
 
 void EmojiManagerTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
-    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 7;
+    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
 }
 
 void EmojiManagerTest::shouldParseEmoji()
