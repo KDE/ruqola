@@ -48,6 +48,7 @@
   <summary xml:lang="pt-BR">Cliente Rocket Chat</summary>
   <summary xml:lang="ru">Клиент для протокола Rocket.Chat</summary>
   <summary xml:lang="sk">Chatovací klient Rocket</summary>
+  <summary xml:lang="sl">Odjemalec za Rocket chat</summary>
   <summary xml:lang="sv">Rocket Chat klient</summary>
   <summary xml:lang="uk">Клієнт спілкування Rocket</summary>
   <summary xml:lang="x-test">xxRocket Chat Clientxx</summary>
@@ -77,6 +78,7 @@
     <p xml:lang="pt-BR">Ruqola é um cliente Rocket Chat baseado em QML. A conexão é ativada diretamente ao executar o Ruqola.</p>
     <p xml:lang="ru">Ruqola — приложение для работы по протоколу Rocket.Chat, основанное на QML. Соединение устанавливается при запуске приложения.</p>
     <p xml:lang="sk">Ruqola je chatovací klient Rocket založený na QML. Pripojenie sa aktivuje priamo pri spustení Ruqola.</p>
+    <p xml:lang="sl">Ruqola je odjemalec za Rocket chat na osnovi QML. Povezava je neposredno vzpostavljena ob zagonu Ruqole.</p>
     <p xml:lang="sv">Ruqola är en Rocket Chat klient baserad på QML. Anslutningen aktiveras direkt när Ruqola startas.</p>
     <p xml:lang="uk">Ruqola — клієнт спілкування у мережі Rocket, заснований на технологіях QML. З'єднання активується безпосередньо, коли ви запускаєте Ruqola.</p>
     <p xml:lang="x-test">xxRuqola is a Rocket Chat client based on QML. Connection is activated directly when you launch Ruqola.xx</p>
