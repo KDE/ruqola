@@ -132,8 +132,7 @@ void RuqolaLoginWidget::initialize()
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
     mPasswordLineEdit->setPassword(rocketChatAccount->password());
-    mAuthenticationWidget->setVisible(false);
-    mAuthenticationWidget->setVisible(mAuthenticationCombobox->count() > 1);
+    mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
 }
 
 void RuqolaLoginWidget::slotLogin()
@@ -162,15 +161,18 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
     case DDPAuthenticationManager::LoginStatus::LoginOngoing:
         mBusyIndicatorWidget->show();
         changeWidgetStatus(false);
+        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoggedIn:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
+        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: invalid username or password"));
+        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoginOtpRequired:
         mBusyIndicatorWidget->hide();
@@ -180,16 +182,19 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
     case DDPAuthenticationManager::LoginStatus::LoggedOut:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
+        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Installation Problem found. No plugins found here."));
+        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::GenericError:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: generic error"));
+        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginOtpAuthOngoing:
     case DDPAuthenticationManager::LoginFailedInvalidOtp:
@@ -197,6 +202,7 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
     case DDPAuthenticationManager::LogoutCleanUpOngoing:
     case DDPAuthenticationManager::LoggedOutAndCleanedUp:
         //TODO
+        mAuthenticationWidget->setVisible(false);
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         break;
