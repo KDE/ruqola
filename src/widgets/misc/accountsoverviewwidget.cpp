@@ -188,6 +188,7 @@ private:
             case DDPAuthenticationManager::GenericError:
                 return i18n("Login failed: generic error");
             case DDPAuthenticationManager::LoginOtpRequired:
+                return i18n("A one-time password is required to complete the login procedure.");
             case DDPAuthenticationManager::LoginFailedInvalidOtp:
             case DDPAuthenticationManager::LogoutOngoing:
             case DDPAuthenticationManager::LogoutCleanUpOngoing:
