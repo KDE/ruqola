@@ -81,6 +81,7 @@ set(Ruqola_configure_SRCS
     configuredialog/configurespellcheckingwidget.cpp
     configuredialog/configureuserfeedbackwidget.cpp
     configuredialog/configuregeneralwidget.cpp
+    configuredialog/configurefontwidget.cpp
     )
 
 set(Ruqola_threadwidget_SRCS
