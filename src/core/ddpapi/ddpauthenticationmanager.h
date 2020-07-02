@@ -85,7 +85,7 @@ public:
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
 
     void login();
-    void login(const QString &user, const QString &password, const QString &twoFactorAuthenticationCode = QString());
+    void login(const QString &user, const QString &password);
     void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
     void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
     void sendOTP(const QString &otp);

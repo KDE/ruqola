@@ -138,7 +138,6 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->setServerUrl(mServerName->text());
     rocketChatAccount->setUserName(mUserName->text());
     rocketChatAccount->setPassword(mPasswordLineEdit->password());
-    qDebug() << " mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text()" << mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text();
     rocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text());
     rocketChatAccount->tryLogin();
 }

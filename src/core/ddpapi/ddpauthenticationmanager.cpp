@@ -69,45 +69,23 @@ void DDPAuthenticationManager::login()
     loginImpl(Utils::strToJsonArray(params));
 }
 
-void DDPAuthenticationManager::login(const QString &user, const QString &password, const QString &twoFactorAuthenticationCode)
+void DDPAuthenticationManager::login(const QString &user, const QString &password)
 {
     // TODO: need to support login with email too ("email": "address" instead of "username": "user")
     const QByteArray sha256pw = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-    qDebug() << " twoFactorAuthenticationCode " << twoFactorAuthenticationCode;
-    if (twoFactorAuthenticationCode.isEmpty()) {
-        const QString params = sl(R"(
-                                  [
-                                  {
-                                  "user": {
-                                  "username": "%1"
-                                  },
-                                  "password": {
-                                  "digest": "%2",
-                                  "algorithm": "sha-256"
-                                  }
-                                  }
-                                  ])").arg(user, QString::fromLatin1(sha256pw.toHex()));
-        loginImpl(Utils::strToJsonArray(params));
-    } else {
-        const QString params = sl(R"(
-                                  [
-                                  {
-                                      "totp": {
-                                        "code": "%3",
-                                        "login": {
-                                            "user": {
-                                                "username": "%1"
-                                            },
-                                            "password": {
-                                                "digest": "%2",
-                                                "algorithm": "sha-256"
-                                            }
-                                        }
-                                    }
-                                  }
-                                  ])").arg(user, QString::fromLatin1(sha256pw.toHex()), twoFactorAuthenticationCode);
-        loginImpl(Utils::strToJsonArray(params));
-    }
+    const QString params = sl(R"(
+                              [
+                              {
+                              "user": {
+                              "username": "%1"
+                              },
+                              "password": {
+                              "digest": "%2",
+                              "algorithm": "sha-256"
+                              }
+                              }
+                              ])").arg(user, QString::fromLatin1(sha256pw.toHex()));
+    loginImpl(Utils::strToJsonArray(params));
 }
 
 void DDPAuthenticationManager::loginLDAP(const QString &user, const QString &password)
