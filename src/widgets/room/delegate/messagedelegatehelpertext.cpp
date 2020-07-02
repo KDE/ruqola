@@ -329,7 +329,7 @@ static std::unique_ptr<QTextDocument> createTextDocument(const QModelIndex &inde
     std::unique_ptr<QTextDocument> doc(new QTextDocument);
     doc->setHtml(text);
     doc->setTextWidth(width);
-    QFont font = doc->defaultFont();
+    QFont font = qApp->font();
     font.setItalic(useItalicsForMessage(index));
     doc->setDefaultFont(font);
     QTextFrame *frame = doc->frameAt(0);
