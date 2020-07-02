@@ -8,3 +8,5 @@ macro(add_ruqolaconfiguredialog_test _source)
 endmacro()
 
 add_ruqolaconfiguredialog_test(configuresettingsdialogtest)
+add_ruqolaconfiguredialog_test(configuregeneralwidgettest)
+add_ruqolaconfiguredialog_test(configurefontwidgettest)
