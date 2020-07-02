@@ -230,6 +230,12 @@ enum class RestApiUrlType {
 
     //Since 2.4.0
     RoomsAutocompleteChannelAndPrivate,
+
+
+    //two factor authentication
+    Users2FASendEmailCode,
+    Users2FAEnableEmail,
+    Users2FADisableEmail,
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

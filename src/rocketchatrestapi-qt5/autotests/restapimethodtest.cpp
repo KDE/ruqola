@@ -234,4 +234,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite), QUrl(QStringLiteral("http://www.kde.org/api/v1/removeInvite")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UseInviteToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/useInviteToken")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ValidateInviteToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/validateInviteToken")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Users2FASendEmailCode), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.2fa.sendEmailCode")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Users2FAEnableEmail), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.2fa.enable-email")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Users2FADisableEmail), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.2fa.disable-email")));
 }
