@@ -22,6 +22,7 @@
 #include "configureaccountwidget.h"
 #include "configurespellcheckingwidget.h"
 #include "configuregeneralwidget.h"
+#include "configurefontwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <KConfigGroup>
@@ -49,6 +50,12 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
     mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
     addPage(mConfigureGeneralWidgetPage);
+
+    const QString fontPageName = i18nc("@title Preferences page name", "Font");
+    mConfigureFontWidget = new ConfigureFontWidget(this);
+    mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
+    mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    addPage(mConfigureFontWidgetPage);
 
     const QString accountPageName = i18nc("@title Preferences page name", "Account");
     mConfigureAccountWidget = new ConfigureAccountWidget(this);
@@ -106,6 +113,7 @@ void ConfigureSettingsDialog::slotAccepted()
     mConfigureUserFeedBackWidget->save();
 #endif
     mConfigureGeneralWidget->save();
+    mConfigureFontWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
@@ -116,4 +124,5 @@ void ConfigureSettingsDialog::load()
     mConfigureUserFeedBackWidget->load();
 #endif
     mConfigureGeneralWidget->load();
+    mConfigureFontWidget->load();
 }

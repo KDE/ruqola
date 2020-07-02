@@ -34,4 +34,5 @@ void ConfigureSettingsDialogTest::shouldHaveDefaultValues()
 {
     ConfigureSettingsDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
+    //TODO (add more)
 }

@@ -32,6 +32,7 @@ class ConfigureSpellCheckingWidget;
 class ConfigureUserFeedbackWidget;
 #endif
 class ConfigureGeneralWidget;
+class ConfigureFontWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
@@ -53,6 +54,9 @@ private:
 #endif
     ConfigureGeneralWidget *mConfigureGeneralWidget = nullptr;
     KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
+
+    ConfigureFontWidget *mConfigureFontWidget = nullptr;
+    KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
 };
 
 #endif // CONFIGURESETTINGSDIALOG_H
