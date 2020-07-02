@@ -39,6 +39,6 @@ void PasswordAuthenticationInterface::login()
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
         mAccount->ddp()->authenticationManager()->login();
     } else {
-        mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+        mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password(), mAccount->settings()->twoFactorAuthenticationCode());
     }
 }

@@ -94,10 +94,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
-    connect(mTwoFactorAuthenticationPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, []() {
-        qDebug() << " not implemented";
-    });
-
     mainLayout->addWidget(mAuthenticationWidget);
 
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
@@ -142,7 +138,8 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->setServerUrl(mServerName->text());
     rocketChatAccount->setUserName(mUserName->text());
     rocketChatAccount->setPassword(mPasswordLineEdit->password());
-    //twoFactorAuthenticationCode ?
+    qDebug() << " mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text()" << mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text();
+    rocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text());
     rocketChatAccount->tryLogin();
 }
 
