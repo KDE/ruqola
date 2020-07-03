@@ -19,6 +19,7 @@
 */
 
 #include "ruqolamainwindow.h"
+#include "ruqolaglobalconfig.h"
 
 #include "config-ruqola.h"
 #include "ruqola.h"
@@ -45,11 +46,13 @@
 #include <QIcon>
 #include <QStatusBar>
 #include <QLabel>
+#include <QGuiApplication>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
+#include <QFontDatabase>
 #endif
 
 namespace {
@@ -59,6 +62,10 @@ static const char myConfigGroupName[] = "RuqolaMainWindow";
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
 {
+    if (RuqolaGlobalConfig::self()->useCustomFont()) {
+        qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
+    }
+
     mMainWidget = new RuqolaCentralWidget(this);
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {
@@ -235,6 +242,12 @@ void RuqolaMainWindow::slotConfigure()
 {
     QPointer<ConfigureSettingsDialog> dlg = new ConfigureSettingsDialog(this);
     if (dlg->exec()) {
+        if (RuqolaGlobalConfig::self()->useCustomFont()) {
+            qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
+        } else {
+            qApp->setFont(QFontDatabase::systemFont(QFontDatabase::GeneralFont));
+        }
+
         mAccountOverviewWidget->updateButtons();
     }
     delete dlg;
