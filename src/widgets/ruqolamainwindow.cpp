@@ -62,10 +62,6 @@ static const char myConfigGroupName[] = "RuqolaMainWindow";
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
 {
-    if (RuqolaGlobalConfig::self()->useCustomFont()) {
-        qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
-    }
-
     mMainWidget = new RuqolaCentralWidget(this);
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {

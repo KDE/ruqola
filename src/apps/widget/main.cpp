@@ -27,6 +27,7 @@
 #include "config-ruqola.h"
 #include "ruqola.h"
 #include "managerdatapaths.h"
+#include "ruqolaglobalconfig.h"
 
 #include "ruqolamainwindow.h"
 
@@ -122,6 +123,10 @@ int main(int argc, char *argv[])
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
     KDBusService service(KDBusService::Unique);
+
+    if (RuqolaGlobalConfig::self()->useCustomFont()) {
+        qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
+    }
 
     auto *mw = new RuqolaMainWindow();
     mw->show();
