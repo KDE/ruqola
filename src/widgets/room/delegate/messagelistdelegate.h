@@ -88,6 +88,7 @@ private:
         QRect addReactionRect;
         QString timeStampText;
         QPoint timeStampPos;
+        QRect timeStampRect;
 
         QRect usableRect; // rect for everything except the date header (at the top) and the sender (on the left)
 

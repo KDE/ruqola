@@ -204,6 +204,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
+    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
     if (!message->attachements().isEmpty()) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(message);
@@ -520,6 +521,11 @@ bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, 
             return true;
         }
         if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, view, layout.textRect, index)) {
+            return true;
+        }
+        if (layout.timeStampRect.contains(helpEvent->pos())) {
+            const QString dateStr = index.data(MessageModel::Date).toString();
+            QToolTip::showText(helpEvent->globalPos(), dateStr, view);
             return true;
         }
     }
