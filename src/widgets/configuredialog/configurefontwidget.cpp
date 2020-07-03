@@ -19,6 +19,7 @@
 */
 
 #include "configurefontwidget.h"
+#include "ruqolaglobalconfig.h"
 #include <KFontChooser>
 #include <KLocalizedString>
 
@@ -40,7 +41,7 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     mFontChooser->setObjectName(QStringLiteral("mFontChooser"));
     mFontChooser->setEnabled(false);   // since !mCustomFontCheck->isChecked()
     mainLayout->addWidget(mFontChooser);
-    connect(mCustomFontCheck, &QCheckBox::clicked, mFontChooser, &KFontChooser::setEnabled);
+    connect(mCustomFontCheck, &QCheckBox::toggled, mFontChooser, &KFontChooser::setEnabled);
 }
 
 ConfigureFontWidget::~ConfigureFontWidget()
@@ -50,11 +51,13 @@ ConfigureFontWidget::~ConfigureFontWidget()
 
 void ConfigureFontWidget::save()
 {
-
+    RuqolaGlobalConfig::self()->setUseCustomFont(mCustomFontCheck->isChecked());
+    RuqolaGlobalConfig::self()->setGeneralFont(mFontChooser->font());
+    RuqolaGlobalConfig::self()->save();
 }
 
 void ConfigureFontWidget::load()
 {
-//    mCustomFontCheck->setChecked();
-//    mFontChooser->setFont();
+    mCustomFontCheck->setChecked(RuqolaGlobalConfig::self()->useCustomFont());
+    mFontChooser->setFont(RuqolaGlobalConfig::self()->generalFont());
 }
