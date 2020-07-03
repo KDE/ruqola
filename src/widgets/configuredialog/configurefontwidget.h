@@ -23,7 +23,8 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class QCheckBox;
+class KFontChooser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureFontWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,9 @@ public:
     ~ConfigureFontWidget();
     void save();
     void load();
+private:
+    QCheckBox *mCustomFontCheck = nullptr;
+    KFontChooser *mFontChooser = nullptr;
 };
 
 #endif // CONFIGUREFONTWIDGET_H

@@ -19,11 +19,28 @@
 */
 
 #include "configurefontwidget.h"
+#include <KFontChooser>
+#include <KLocalizedString>
+
+#include <QCheckBox>
+#include <QVBoxLayout>
 
 ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mCustomFontCheck = new QCheckBox(i18n("&Use custom fonts"), this);
+    mCustomFontCheck->setObjectName(QStringLiteral("mCustomFontCheck"));
+    mainLayout->addWidget(mCustomFontCheck);
+
+    mFontChooser = new KFontChooser(this, KFontChooser::DisplayFrame, QStringList(), 4);
+    mFontChooser->setObjectName(QStringLiteral("mFontChooser"));
+    mFontChooser->setEnabled(false);   // since !mCustomFontCheck->isChecked()
+    mainLayout->addWidget(mFontChooser);
+    connect(mCustomFontCheck, &QCheckBox::clicked, mFontChooser, &KFontChooser::setEnabled);
 }
 
 ConfigureFontWidget::~ConfigureFontWidget()
@@ -38,5 +55,6 @@ void ConfigureFontWidget::save()
 
 void ConfigureFontWidget::load()
 {
-
+//    mCustomFontCheck->setChecked();
+//    mFontChooser->setFont();
 }

@@ -19,11 +19,32 @@
 */
 
 #include "configurefontwidgettest.h"
+#include "configuredialog/configurefontwidget.h"
+#include <KFontChooser>
+#include <QCheckBox>
 #include <QTest>
+#include <QVBoxLayout>
+#include <QStandardPaths>
 QTEST_MAIN(ConfigureFontWidgetTest)
 
 ConfigureFontWidgetTest::ConfigureFontWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
+}
 
+void ConfigureFontWidgetTest::shouldHaveDefaultValues()
+{
+    ConfigureFontWidget w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QCheckBox *mCustomFontCheck = w.findChild<QCheckBox *>(QStringLiteral("mCustomFontCheck"));
+    QVERIFY(mCustomFontCheck);
+    QVERIFY(!mCustomFontCheck->isChecked());
+
+    KFontChooser *mFontChooser = w.findChild<KFontChooser *>(QStringLiteral("mFontChooser"));
+    QVERIFY(mFontChooser);
+    QVERIFY(!mFontChooser->isEnabled());
 }

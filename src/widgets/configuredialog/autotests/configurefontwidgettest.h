@@ -29,6 +29,8 @@ class ConfigureFontWidgetTest : public QObject
 public:
     explicit ConfigureFontWidgetTest(QObject *parent = nullptr);
     ~ConfigureFontWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // CONFIGUREFONTWIDGETTEST_H
