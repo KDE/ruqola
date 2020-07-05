@@ -142,7 +142,7 @@ void MessageListDelegateTest::layoutChecks()
     const int bottom = layout.usableRect.y() + layout.usableRect.height();
 
     // Avatar
-    QCOMPARE(layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF(), layout.senderRect.height());
+    QCOMPARE(qRound(layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF()), layout.senderRect.height());
     QCOMPARE(layout.avatarPixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
     //qDebug() << layout.avatarPos.y() << "+" << layout.avatarPixmap.height() << "must be <=" << bottom;
     QVERIFY(layout.avatarPos.y() + layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF() <= bottom);
