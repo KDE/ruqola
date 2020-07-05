@@ -149,6 +149,9 @@ set (RocketChatRestApiQt_SRCS
 
     invite/findorcreateinvitejob.cpp
 
+    2fa/user2faenableemailjob.cpp
+    2fa/user2fadisableemailjob.cpp
+
     )
 
 
