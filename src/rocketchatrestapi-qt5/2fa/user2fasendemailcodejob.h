@@ -38,12 +38,16 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT QString usernameOrEmail() const;
+    void setUsernameOrEmail(const QString &usernameOrEmail);
+
 Q_SIGNALS:
     void enableEmailDone();
 
 private:
     Q_DISABLE_COPY(User2FASendEmailCodeJob)
     void slotEnabledEmail();
+    QString mUsernameOrEmail;
 };
 }
 #endif

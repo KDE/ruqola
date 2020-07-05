@@ -66,6 +66,16 @@ void User2FASendEmailCodeJob::slotEnabledEmail()
     deleteLater();
 }
 
+QString User2FASendEmailCodeJob::usernameOrEmail() const
+{
+    return mUsernameOrEmail;
+}
+
+void User2FASendEmailCodeJob::setUsernameOrEmail(const QString &usernameOrEmail)
+{
+    mUsernameOrEmail = usernameOrEmail;
+}
+
 bool User2FASendEmailCodeJob::requireHttpAuthentication() const
 {
     return true;
@@ -74,6 +84,10 @@ bool User2FASendEmailCodeJob::requireHttpAuthentication() const
 bool User2FASendEmailCodeJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mUsernameOrEmail.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mUsernameOrEmail is empty";
         return false;
     }
     return true;
