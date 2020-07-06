@@ -43,11 +43,11 @@ bool User2FASendEmailCodeJob::start()
     }
     addStartRestApiInfo("User2FASendEmailCodeJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &User2FASendEmailCodeJob::slotEnabledEmail);
+    connect(reply, &QNetworkReply::finished, this, &User2FASendEmailCodeJob::slotSendEmailCode);
     return true;
 }
 
-void User2FASendEmailCodeJob::slotEnabledEmail()
+void User2FASendEmailCodeJob::slotSendEmailCode()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -56,7 +56,7 @@ void User2FASendEmailCodeJob::slotEnabledEmail()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("User2FASendEmailCodeJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT enableEmailDone();
+            Q_EMIT sendEmailCodeDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("User2FASendEmailCodeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -105,6 +105,7 @@ QNetworkRequest User2FASendEmailCodeJob::request() const
 QJsonDocument User2FASendEmailCodeJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj[QLatin1String("emailOrUsername")] = mUsernameOrEmail;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

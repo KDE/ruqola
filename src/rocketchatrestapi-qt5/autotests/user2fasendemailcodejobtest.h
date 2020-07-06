@@ -18,36 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USER2FASENDEMAILCODEJOB_H
-#define USER2FASENDEMAILCODEJOB_H
+#ifndef USER2FASENDEMAILCODEJOBTEST_H
+#define USER2FASENDEMAILCODEJOBTEST_H
 
-#include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
-namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT User2FASendEmailCodeJob : public RestApiAbstractJob
+#include <QObject>
+
+class User2FASendEmailCodeJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit User2FASendEmailCodeJob(QObject *parent = nullptr);
-    ~User2FASendEmailCodeJob() override;
-
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-
-    Q_REQUIRED_RESULT QString usernameOrEmail() const;
-    void setUsernameOrEmail(const QString &usernameOrEmail);
-
-Q_SIGNALS:
-    void sendEmailCodeDone();
-
-private:
-    Q_DISABLE_COPY(User2FASendEmailCodeJob)
-    void slotSendEmailCode();
-    QString mUsernameOrEmail;
+    explicit User2FASendEmailCodeJobTest(QObject *parent = nullptr);
+    ~User2FASendEmailCodeJobTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
+    void shouldNotStarting();
 };
-}
+
 #endif
