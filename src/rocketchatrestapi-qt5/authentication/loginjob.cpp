@@ -119,6 +119,8 @@ QJsonDocument LoginJob::json() const
         if (!mCode.isEmpty()) {
             loginMap.insert(QStringLiteral("code"), mCode);
         }
+    } else {
+        loginMap.insert(QStringLiteral("resume"), mResume);
     }
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
