@@ -90,6 +90,16 @@ void LoginJob::slotLoginDone()
     deleteLater();
 }
 
+QString LoginJob::code() const
+{
+    return mCode;
+}
+
+void LoginJob::setCode(const QString &code)
+{
+    mCode = code;
+}
+
 QString LoginJob::resume() const
 {
     return mResume;
@@ -103,8 +113,13 @@ void LoginJob::setResume(const QString &resume)
 QJsonDocument LoginJob::json() const
 {
     QVariantMap loginMap;
-    loginMap.insert(QStringLiteral("user"), mUserName);
-    loginMap.insert(QStringLiteral("password"), mPassword);
+    if (mResume.isEmpty()) {
+        loginMap.insert(QStringLiteral("user"), mUserName);
+        loginMap.insert(QStringLiteral("password"), mPassword);
+        if (!mCode.isEmpty()) {
+            loginMap.insert(QStringLiteral("code"), mCode);
+        }
+    }
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }

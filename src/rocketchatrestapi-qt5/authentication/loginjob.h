@@ -48,6 +48,9 @@ public:
     Q_REQUIRED_RESULT QString resume() const;
     void setResume(const QString &resume);
 
+    Q_REQUIRED_RESULT QString code() const;
+    void setCode(const QString &code);
+
 Q_SIGNALS:
     void loginDone(const QString &authToken, const QString &userId);
 
@@ -57,6 +60,7 @@ private:
     QString mUserName;
     QString mPassword;
     QString mResume;
+    QString mCode;
 };
 }
 #endif // LOGINJOB_H
