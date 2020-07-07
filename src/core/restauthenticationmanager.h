@@ -29,6 +29,14 @@ class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
 public:
     explicit RESTAuthenticationManager(QObject *parent = nullptr);
     ~RESTAuthenticationManager();
+
+    void login();
+    void login(const QString &user, const QString &password);
+    void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
+    void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
+    void sendOTP(const QString &otp);
+    void logout();
+
 };
 
 #endif // RESTAUTHENTICATIONMANAGER_H

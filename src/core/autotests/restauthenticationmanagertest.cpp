@@ -17,46 +17,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-
+#include "restauthenticationmanagertest.h"
+#include <QTest>
 #include "restauthenticationmanager.h"
-
-RESTAuthenticationManager::RESTAuthenticationManager(QObject *parent)
+QTEST_MAIN(RESTAuthenticationManagerTest)
+RESTAuthenticationManagerTest::RESTAuthenticationManagerTest(QObject *parent)
     : QObject(parent)
-{
-
-}
-
-RESTAuthenticationManager::~RESTAuthenticationManager()
-{
-
-}
-
-void RESTAuthenticationManager::login()
-{
-
-}
-
-void RESTAuthenticationManager::login(const QString &user, const QString &password)
-{
-
-}
-
-void RESTAuthenticationManager::loginLDAP(const QString &user, const QString &password)
-{
-
-}
-
-void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
-{
-
-}
-
-void RESTAuthenticationManager::sendOTP(const QString &otp)
-{
-
-}
-
-void RESTAuthenticationManager::logout()
 {
 
 }
