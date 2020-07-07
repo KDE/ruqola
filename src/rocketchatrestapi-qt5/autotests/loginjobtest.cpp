@@ -47,24 +47,44 @@ void LoginJobTest::shouldHaveDefaultValue()
 
 void LoginJobTest::shouldHaveArguments()
 {
-    LoginJob job;
-    RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(&method);
-    QVERIFY(!job.canStart());
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
-    job.setPassword(QStringLiteral("bla"));
-    QVERIFY(!job.canStart());
-    job.setUserName(QStringLiteral("foo"));
-    QVERIFY(job.canStart());
+    {
+        LoginJob job;
+        RestApiMethod method;
+        method.setServerUrl(QStringLiteral("http://www.kde.org"));
+        job.setRestApiMethod(&method);
+        QVERIFY(!job.canStart());
+        QNetworkAccessManager mNetworkAccessManager;
+        job.setNetworkAccessManager(&mNetworkAccessManager);
+        QVERIFY(!job.canStart());
+        const QString auth = QStringLiteral("foo");
+        const QString userId = QStringLiteral("foo");
+        job.setAuthToken(auth);
+        QVERIFY(!job.canStart());
+        job.setUserId(userId);
+        QVERIFY(!job.canStart());
+        job.setPassword(QStringLiteral("bla"));
+        QVERIFY(!job.canStart());
+        job.setUserName(QStringLiteral("foo"));
+        QVERIFY(job.canStart());
+    }
+    {
+        LoginJob job;
+        RestApiMethod method;
+        method.setServerUrl(QStringLiteral("http://www.kde.org"));
+        job.setRestApiMethod(&method);
+        QVERIFY(!job.canStart());
+        QNetworkAccessManager mNetworkAccessManager;
+        job.setNetworkAccessManager(&mNetworkAccessManager);
+        QVERIFY(!job.canStart());
+        const QString auth = QStringLiteral("foo");
+        const QString userId = QStringLiteral("foo");
+        job.setAuthToken(auth);
+        QVERIFY(!job.canStart());
+        job.setUserId(userId);
+        QVERIFY(!job.canStart());
+        job.setResume(QStringLiteral("bla"));
+        QVERIFY(job.canStart());
+    }
 }
 
 void LoginJobTest::shouldGenerateLoginRequest()
