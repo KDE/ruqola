@@ -31,6 +31,11 @@ RESTAuthenticationManager::~RESTAuthenticationManager()
 
 }
 
+void RESTAuthenticationManager::setAuthToken(const QString &authToken)
+{
+    mAuthToken = authToken;
+}
+
 void RESTAuthenticationManager::login()
 {
 

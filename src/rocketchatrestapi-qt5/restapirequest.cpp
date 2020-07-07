@@ -295,8 +295,8 @@ void RestApiRequest::slotLogin(const QString &authToken, const QString &userId)
 
 void RestApiRequest::slotLogout()
 {
-    mUserId.clear();
     mAuthToken.clear();
+    mUserId.clear();
 }
 
 void RestApiRequest::initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job)
