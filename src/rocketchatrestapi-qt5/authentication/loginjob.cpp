@@ -87,6 +87,16 @@ void LoginJob::slotLoginDone()
     deleteLater();
 }
 
+QString LoginJob::resume() const
+{
+    return mResume;
+}
+
+void LoginJob::setResume(const QString &resume)
+{
+    mResume = resume;
+}
+
 QJsonDocument LoginJob::json() const
 {
     QVariantMap loginMap;

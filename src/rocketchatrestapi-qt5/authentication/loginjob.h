@@ -45,6 +45,9 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT QString resume() const;
+    void setResume(const QString &resume);
+
 Q_SIGNALS:
     void loginDone(const QString &authToken, const QString &userId);
 
@@ -53,6 +56,7 @@ private:
     void slotLoginDone();
     QString mUserName;
     QString mPassword;
+    QString mResume;
 };
 }
 #endif // LOGINJOB_H

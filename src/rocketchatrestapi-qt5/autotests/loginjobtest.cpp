@@ -20,12 +20,71 @@
 
 #include "loginjobtest.h"
 #include "authentication/loginjob.h"
+#include "restapimethod.h"
+#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(LoginJobTest)
-//TODO implement it!
+
 using namespace RocketChatRestApi;
 LoginJobTest::LoginJobTest(QObject *parent)
     : QObject(parent)
 {
-    //QVERIFY(!job.hasQueryParameterSupport());
+}
+
+void LoginJobTest::shouldHaveDefaultValue()
+{
+    LoginJob job;
+    QVERIFY(!job.restApiMethod());
+    QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.start());
+    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
+    QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
+}
+
+
+void LoginJobTest::shouldHaveArguments()
+{
+    LoginJob job;
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+    QVERIFY(!job.canStart());
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    job.setPassword(QStringLiteral("bla"));
+    QVERIFY(!job.canStart());
+    job.setUserName(QStringLiteral("foo"));
+    QVERIFY(job.canStart());
+}
+
+void LoginJobTest::shouldGenerateLoginRequest()
+{
+    LoginJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/login")));
+}
+
+
+void LoginJobTest::shouldGenerateJson()
+{
+    LoginJob job;
+    const QString password(QStringLiteral("bla"));
+    const QString username(QStringLiteral("foo"));
+    job.setPassword(QStringLiteral("bla"));
+    job.setUserName(QStringLiteral("foo"));
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"password\":\"%1\",\"user\":\"%2\"}").arg(password).arg(username).toLatin1());
 }

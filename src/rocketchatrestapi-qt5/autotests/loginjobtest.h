@@ -29,6 +29,11 @@ class LoginJobTest : public QObject
 public:
     explicit LoginJobTest(QObject *parent = nullptr);
     ~LoginJobTest() override = default;
+private Q_SLOTS:
+    void shouldHaveArguments();
+    void shouldHaveDefaultValue();
+    void shouldGenerateLoginRequest();
+    void shouldGenerateJson();
 };
 
 #endif // LOGINJOBTEST_H
