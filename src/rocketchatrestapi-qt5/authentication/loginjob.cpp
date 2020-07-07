@@ -40,6 +40,9 @@ bool LoginJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
+    if (!mResume.isEmpty()) {
+        return true;
+    }
     if (mUserName.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserName is empty";
         return false;
