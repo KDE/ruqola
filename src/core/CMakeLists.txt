@@ -183,6 +183,7 @@ set (Ruqola_core_srcs
     accountroomsettings.cpp
 
     notifierjob.cpp
+    restauthenticationmanager.cpp
 )
 
 if (NOT WIN32)

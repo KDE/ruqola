@@ -219,11 +219,12 @@ void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn) {
         // Now that we are logged in the ddp authentication manager has all the information we need
+        auto restApi = mRocketChatAccount->restApi();
         mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
-        mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
-        mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
+        restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
+        restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 
-        connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
+        connect(restApi, &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
@@ -234,7 +235,6 @@ void RocketChatBackend::slotLoginStatusChanged()
         auto ddp = mRocketChatAccount->ddp();
         ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
 
-        auto restApi = mRocketChatAccount->restApi();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
     }
