@@ -65,6 +65,8 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
     readJob->setKey(mAccountName);
     readJob->start();
+#else
+    qCWarning(RUQOLA_LOG) << "Ruqola was not compiled against qtkeychain";
 #endif
 }
 
