@@ -93,6 +93,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
     mainLayout->addWidget(mAuthenticationWidget);
 
