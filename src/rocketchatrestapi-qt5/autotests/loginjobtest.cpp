@@ -44,7 +44,6 @@ void LoginJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-
 void LoginJobTest::shouldHaveArguments()
 {
     {
@@ -97,7 +96,6 @@ void LoginJobTest::shouldGenerateLoginRequest()
     request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/login")));
 }
-
 
 void LoginJobTest::shouldGenerateJson()
 {
