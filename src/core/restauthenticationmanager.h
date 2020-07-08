@@ -22,12 +22,14 @@
 
 #include <QObject>
 #include "libruqolacore_export.h"
-
+namespace RocketChatRestApi {
+class RestApiRequest;
+}
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit RESTAuthenticationManager(QObject *parent = nullptr);
+    explicit RESTAuthenticationManager(RocketChatRestApi::RestApiRequest *restApiRequest, QObject *parent = nullptr);
     ~RESTAuthenticationManager();
 
     void login();
@@ -40,6 +42,7 @@ public:
     void setAuthToken(const QString &authToken);
 private:
     QString mAuthToken;
+    RocketChatRestApi::RestApiRequest *const mRestApiResquest;
 };
 
 #endif // RESTAUTHENTICATIONMANAGER_H
