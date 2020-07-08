@@ -19,7 +19,7 @@
 */
 
 #include "user2faenableemailjobtest.h"
-#include "2fa/user2faenableemailjob.h".h"
+#include "2fa/user2faenableemailjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
