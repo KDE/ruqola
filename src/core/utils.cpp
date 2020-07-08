@@ -153,12 +153,9 @@ QString Utils::iconFromStatus(const QString &status)
     } else if (status == QLatin1String("offline")) {
         return QStringLiteral("user-offline");
     } else {
-        qCDebug(RUQOLA_LOG) << "Problem with status " << status;
+        qCWarning(RUQOLA_LOG) << "Unknown status" << status;
         return QStringLiteral("unknown");
     }
-
-    qCDebug(RUQOLA_LOG) << " QString User::iconFromStatus() const" << status;
-    return {};
 }
 
 User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
