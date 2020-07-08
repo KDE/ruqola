@@ -185,6 +185,7 @@ public:
     void getMessage(const QString &messageId, const QString &roomId);
     void getCommand(const QString &commandName);
     void runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo);
+    void sendUserEmailCode(const QString &identifier);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -253,6 +254,7 @@ Q_SIGNALS:
 
     void getMessageDone(const QJsonObject &obj, const QString &roomId);
     void runCommandDone();
+    void sendEmailCodeDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

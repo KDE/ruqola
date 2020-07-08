@@ -147,6 +147,8 @@
 
 #include "invite/findorcreateinvitejob.h"
 
+#include "2fa/user2fasendemailcodejob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -1773,5 +1775,16 @@ void RestApiRequest::findOrCreateInvite(const QString &roomId, int maxUses, int 
     connect(job, &FindOrCreateInviteJob::findOrCreateInviteDone, this, &RestApiRequest::findOrCreateInviteDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start findOrCreateInviteJob";
+    }
+}
+
+void RestApiRequest::sendUserEmailCode(const QString &identifier)
+{
+    auto *job = new User2FASendEmailCodeJob(this);
+    job->setUsernameOrEmail(identifier);
+    initializeRestApiJob(job);
+    connect(job, &User2FASendEmailCodeJob::sendEmailCodeDone, this, &RestApiRequest::sendEmailCodeDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FASendEmailCodeJob";
     }
 }
