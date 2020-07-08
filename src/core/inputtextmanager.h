@@ -80,6 +80,7 @@ private:
     QSortFilterProxyModel *mEmoticonFilterProxyModel = nullptr;
     QSortFilterProxyModel *mCommandFilterProxyModel = nullptr;
     CompletionForType mCurrentCompletionType = None;
+    QString mCurrentCompletionPattern;
 };
 
 Q_DECLARE_METATYPE(InputTextManager::CompletionForType)

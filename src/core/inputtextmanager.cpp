@@ -158,6 +158,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         if (word.startsWith(QLatin1Char('@'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             setCompletionType(InputTextManager::CompletionForType::User);
+            mCurrentCompletionPattern = str;
             if (str.isEmpty()) {
                 mInputCompleterModel->setDefaultUserCompletion();
             } else {
@@ -165,6 +166,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             }
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
+            mCurrentCompletionPattern = str;
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
             setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
@@ -200,4 +202,12 @@ QAbstractItemModel *InputTextManager::emojiCompleterModel() const
 void InputTextManager::inputTextCompleter(const QJsonObject &obj)
 {
     mInputCompleterModel->parseChannels(obj);
+    // Don't show a popup with exactly the same as the pattern
+    // (e.g. type or navigate within @dfaure -> the offer is "dfaure", useless)
+    if (mInputCompleterModel->rowCount() == 1) {
+        const QString completerName = mInputCompleterModel->index(0, 0).data(InputCompleterModel::CompleterName).toString();
+        if (mCurrentCompletionPattern == completerName) {
+            clearCompleter();
+        }
+    }
 }
