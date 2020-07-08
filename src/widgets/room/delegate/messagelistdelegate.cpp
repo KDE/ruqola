@@ -431,7 +431,7 @@ static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
     popup->setGeometry(popupRect);
 }
 
-bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
@@ -495,7 +495,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             }
         }
     }
-    return QItemDelegate::editorEvent(event, model, option, index);
+    return false;
 }
 
 bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)

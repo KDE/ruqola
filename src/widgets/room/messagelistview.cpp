@@ -369,6 +369,26 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 }
 
+void MessageListView::mousePressEvent(QMouseEvent *event)
+{
+    handleMouseEvent(event);
+}
+
+void MessageListView::mouseMoveEvent(QMouseEvent *event)
+{
+    handleMouseEvent(event);
+}
+
+void MessageListView::mouseReleaseEvent(QMouseEvent *event)
+{
+    handleMouseEvent(event);
+}
+
+void MessageListView::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    handleMouseEvent(event);
+}
+
 void MessageListView::createSeparator(QMenu &menu)
 {
     if (!menu.isEmpty()) {
@@ -379,6 +399,18 @@ void MessageListView::createSeparator(QMenu &menu)
 void MessageListView::slotSelectAll(const QModelIndex &index)
 {
     mMessageListDelegate->selectAll(viewOptions(), index);
+}
+
+void MessageListView::handleMouseEvent(QMouseEvent *event)
+{
+    const QPersistentModelIndex index = indexAt(event->pos());
+    if (index.isValid()) {
+        QStyleOptionViewItem options = viewOptions();
+        options.rect = visualRect(index);
+        if (mMessageListDelegate->mouseEvent(event, options, index)) {
+            update(index);
+        }
+    }
 }
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)

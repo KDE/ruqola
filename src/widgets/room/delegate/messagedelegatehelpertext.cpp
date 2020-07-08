@@ -22,7 +22,7 @@
 #include <model/messagemodel.h>
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "ruqolawidgets_debug.h"
+#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"
 
@@ -110,6 +110,7 @@ bool MessageDelegateHelperText::hasSelection() const
 
 void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect)
 {
+    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << index.row();
     if (mCurrentIndex.isValid()) {
         // The old index no longer has selection, repaint it
         updateView(view, mCurrentIndex);
@@ -138,12 +139,14 @@ QString MessageDelegateHelperText::selectedText() const
     }
     const QTextDocumentFragment fragment(mCurrentTextCursor);
     const QString text = fragment.toPlainText();
+    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << text;
     return text;
 }
 
 void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
+    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "mCurrentTextCursor:" << (mCurrentTextCursor.isNull() ? "null" : "valid");
     if (!mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection() && clipboard->supportsSelection()) {
         const QTextDocumentFragment fragment(mCurrentTextCursor);
         const QString text = fragment.toPlainText();
@@ -228,6 +231,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         setCurrentIndex(index, option.widget, messageRect);
         if (mCurrentDocument) {
             const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             if (charPos != -1) {
                 mCurrentTextCursor = QTextCursor(mCurrentDocument);
@@ -249,18 +253,14 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         }
         break;
     case QEvent::MouseButtonRelease:
-        if (index == mCurrentIndex) {
-            setClipboardSelection();
-        }
-        break;
+        qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
+        setClipboardSelection();
+        return true;
     case QEvent::MouseButtonDblClick:
         if (index == mCurrentIndex) {
             if (!hasSelection()) {
                 mCurrentTextCursor.select(QTextCursor::WordUnderCursor);
-                // Interestingly the view repaints after mouse press, mouse move and mouse release
-                // but not after double-click, so make it happen:
-                updateView(option.widget, mCurrentIndex);
-                setClipboardSelection();
+                return true;
             }
         }
         break;

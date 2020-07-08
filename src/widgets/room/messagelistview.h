@@ -60,6 +60,10 @@ public:
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 Q_SIGNALS:
     void modelChanged();
@@ -89,6 +93,7 @@ private:
     void slotUpdateLastSeen();
     void slotMarkMessageAsUnread(const QModelIndex &index);
     void slotSelectAll(const QModelIndex &index);
+    void handleMouseEvent(QMouseEvent *event);
 
 private:
     RoomWrapper *mRoomWrapper = nullptr;
