@@ -255,6 +255,14 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     case QEvent::MouseButtonRelease:
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
         setClipboardSelection();
+        // Clicks on links
+        if (index == mCurrentIndex && mCurrentDocument && !hasSelection()) {
+            const QString link = mCurrentDocument->documentLayout()->anchorAt(pos);
+            if (!link.isEmpty()) {
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                Q_EMIT rcAccount->openLinkRequested(link);
+            }
+        }
         return true;
     case QEvent::MouseButtonDblClick:
         if (index == mCurrentIndex) {
@@ -266,19 +274,6 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         break;
     default:
         break;
-    }
-    // Clicks on links
-    if (eventType == QEvent::MouseButtonRelease) {
-        const auto *doc = documentForIndex(index, messageRect.width(), option.widget);
-        if (!doc) {
-            return false;
-        }
-        const QString link = doc->documentLayout()->anchorAt(pos);
-        if (!link.isEmpty()) {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
-            Q_EMIT rcAccount->openLinkRequested(link);
-            return true;
-        }
     }
     return false;
 }
