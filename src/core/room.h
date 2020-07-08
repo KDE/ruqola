@@ -83,7 +83,7 @@ public:
     Q_REQUIRED_RESULT bool favorite() const;
     void setFavorite(bool favorite);
 
-    QString topic() const;
+    Q_REQUIRED_RESULT QString topic() const;
     void setTopic(const QString &topic);
 
     Q_REQUIRED_RESULT bool readOnly() const;
