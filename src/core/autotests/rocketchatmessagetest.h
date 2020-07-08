@@ -30,36 +30,9 @@ public:
     explicit RocketChatMessageTest(QObject *parent = nullptr);
     ~RocketChatMessageTest() override = default;
 private Q_SLOTS:
-    void shouldGenerateSetTemporaryStatus();
-    void shouldHideRoom();
-    void shouldLeaveRoom();
-    void shouldOpenRoom();
-    void shouldUnarchiveRoom();
-    void shouldArchiveRoom();
-    void shouldEraseRoom();
-    void shouldGetRoomRoles();
-    void shouldSetRoomTopic();
-    void shouldToggleFavorite();
-    void shouldSetRoomName();
-    void shouldSetRoomDescription();
-    void shouldSetRoomIsReadOnly();
-    void shouldSetRoomIsDefault();
     void shouldJoinRoom();
-    void shouldSetRoomJoinCode();
     void shouldSetDefaultStatus();
     void shouldInformTypingStatus();
-
-    void shouldCreateRoom();
-    void shouldCreateRoom_data();
-
-    void shouldCreatePrivateGroup();
-    void shouldCreatePrivateGroup_data();
-
-    void shouldSetReaction();
-
-    void shouldDeleteMessage();
-
-    void shouldSearchMessage();
 
     void shouldUserAutoComplete();
     void shouldSendFileMessage();
@@ -71,12 +44,8 @@ private Q_SLOTS:
     RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
 #endif
 
-    void shouldSetRoomAnnouncement();
-    void shouldChannelAndPrivateAutocomplete();
     void shouldSplotlightWithoutUsers();
     void shouldSplotlightWithoutRooms();
-
-    void shouldAddUserToRoom();
 
     void inputChannelAutocomplete();
 
@@ -84,17 +53,8 @@ private Q_SLOTS:
 
     void blockUser();
     void unBlockUser();
-    void disableNotifications();
-    void hideUnreadStatus();
-    void audioNotifications();
-    void desktopNotifications();
-    void emailNotifications();
-    void mobilePushNotifications();
-    void unreadAlert();
     void deleteFileMessage();
-    void shouldSetRoomType();
 
-    void ignoreUser();
 private:
     void compareFile(const QString &data, const QString &name);
 };

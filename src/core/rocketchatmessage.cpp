@@ -37,33 +37,6 @@ void RocketChatMessage::setJsonFormat(QJsonDocument::JsonFormat jsonFormat)
     mJsonFormat = jsonFormat;
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setReaction(const QString &emoji, const QString &messageId, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(emoji),
-        QJsonValue(messageId)
-    };
-    return generateMethod(QStringLiteral("setReaction"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::messageSearch(const QString &roomId, const QString &pattern, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(pattern),
-        QJsonValue(roomId)
-        //TODO limit
-    };
-    return generateMethod(QStringLiteral("messageSearch"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(const QString &username, quint64 id)
 {
     const QJsonArray params{
@@ -72,149 +45,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(
     return generateMethod(QStringLiteral("createDirectMessage"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id)
-{
-    const QJsonArray params{
-        {
-            roomName
-        }, {
-            QJsonArray::fromStringList(userList)
-        }, {
-            readOnly
-        }
-    };
-
-    return generateMethod(QStringLiteral("createChannel"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::createPrivateGroup(const QString &roomName, const QStringList &userList, quint64 id)
-{
-    const QJsonArray params{
-        {
-            roomName
-        },
-        {
-            QJsonArray::fromStringList(userList)
-        }
-    };
-
-    return generateMethod(QStringLiteral("createPrivateGroup"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::eraseRoom(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("eraseRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::archiveRoom(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("archiveRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::unarchiveRoom(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("unarchiveRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::readMessages(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("readMessages"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("openRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::leaveRoom(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("leaveRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::hideRoom(const QString &roomID, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID)
-    };
-    return generateMethod(QStringLiteral("hideRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::toggleFavorite(const QString &roomID, bool favorite, quint64 id)
-{
-    const QJsonArray params{
-        QJsonValue(roomID), {
-            favorite
-        }
-    };
-    return generateMethod(QStringLiteral("toggleFavorite"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomName(const QString &roomId, const QString &name, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("roomName"), roomId, name, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomTopic(const QString &roomId, const QString &topic, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("roomTopic"), roomId, topic, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id)
 {
     return saveRoomSettings(QStringLiteral("encrypted"), roomId, encrypted, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomDescription(const QString &roomId, const QString &description, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("roomDescription"), roomId, description, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomAnnouncement(const QString &roomId, const QString &announcement, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("roomAnnouncement"), roomId, announcement, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomType(const QString &roomId, bool privateChannel, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("roomType"), roomId, privateChannel ? QStringLiteral("p") : QStringLiteral("c"), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("readOnly"), roomId, readOnly, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("systemMessages"), roomId, systemMessages, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomIsDefault(const QString &roomId, bool isDefault, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("default"), roomId, isDefault, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("joinCode"), roomId, joinCode, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
@@ -234,26 +67,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::ignoreUser(const QString &roomId, const QString &userId, bool ignore, quint64 id)
-{
-    QJsonObject obj{
-        {
-            QStringLiteral("userId"), userId
-        },
-        {
-            QStringLiteral("rid"), roomId
-        },
-        {
-            QStringLiteral("ignore"), ignore
-        }
-    };
-    const QJsonArray params{{
-        obj
-    }};
-
-    return generateMethod(QStringLiteral("ignoreUser"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{
@@ -269,54 +82,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const 
     }};
 
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
-}
-
-//TODO verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveNotificationsSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
-{
-    const QJsonArray params{{
-        roomId
-    }, {
-            key
-        }, {
-            value
-        }};
-    return generateMethod(QStringLiteral("saveNotificationSettings"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::disableNotifications(const QString &roomId, bool disabled, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("disableNotifications"), roomId, QJsonValue(disabled ? QLatin1String("1") : QLatin1String("0")), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::hideUnreadStatus(const QString &roomId, bool disabled, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("hideUnreadStatus"), roomId, QJsonValue(disabled ? QLatin1String("1") : QLatin1String("0")), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::audioNotifications(const QString &roomId, const QString &value, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("audioNotifications"), roomId, value, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::desktopNotifications(const QString &roomId, const QString &value, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("desktopNotifications"), roomId, value, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::mobilePushNotifications(const QString &roomId, const QString &value, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("mobilePushNotifications"), roomId, value, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::emailNotifications(const QString &roomId, const QString &value, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("emailNotifications"), roomId, value, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::unreadAlert(const QString &roomId, const QString &value, quint64 id)
-{
-    return saveNotificationsSettings(QStringLiteral("unreadAlert"), roomId, value, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
@@ -350,44 +115,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(
     return generateMethod(QStringLiteral("deleteFileMessage"), QJsonDocument(params), id);
 }
 
-//Verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateMessage(quint64 id)
-{
-    const QJsonArray params;
-    return generateMethod(QStringLiteral("updateMessage"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteMessage(const QString &messageId, quint64 id)
-{
-    QJsonObject obj{{
-        QStringLiteral("_id"), messageId
-    }};
-    const QJsonArray params{{
-        obj
-    }};
-    return generateMethod(QStringLiteral("deleteMessage"), QJsonDocument(params), id);
-}
-
-//TODO verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::starMessage(const QString &_id, const QString &rid, bool starred, quint64 id)
-{
-    QJsonObject obj{
-        {
-            QStringLiteral("_id"), _id
-        },
-        {
-            QStringLiteral("rid"), rid
-        },
-        {
-            QStringLiteral("starred"), starred
-        }
-    };
-    const QJsonArray params{{
-        obj
-    }};
-    return generateMethod(QStringLiteral("starMessage"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
     const QString eventName = roomId + QStringLiteral("/typing");
@@ -412,14 +139,6 @@ QJsonValue RocketChatMessage::toJsonDateTime(const QDateTime &dateTime)
     }};
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::getSubscriptions(const QDateTime &lastUpdate, quint64 id)
-{
-    const QJsonArray params{
-        toJsonDateTime(lastUpdate)
-    };
-    return generateMethod(QStringLiteral("subscriptions/get"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(User::PresenceStatus status, quint64 id)
 {
     const QString strPresence = Utils::presenceStatusToString(status);
@@ -429,50 +148,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(U
     return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setTemporaryStatus(User::PresenceStatus status, quint64 id)
-{
-    const QString strPresence = Utils::presenceStatusToString(status);
-    const QJsonArray params{{}};
-    return generateMethod((QStringLiteral("UserPresence:") + strPresence), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(const QString &roomId, bool showAll, quint64 id)
-{
-    const QJsonArray params{{
-        QJsonValue(roomId), showAll
-    }};
-    return generateMethod(QStringLiteral("getUsersOfRoom"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QString &roomId, quint64 id)
 {
     const QJsonArray params{{
         QJsonValue(roomId)
     }};
     return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomFiles(const QString &roomId, quint64 id)
-{
-    const QJsonArray params{{
-        QJsonValue(roomId)
-    }};
-    return subscribe(QStringLiteral("roomFiles"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(const QString &username, const QString &roomId, quint64 id)
-{
-    //This method use multiusers
-    const QJsonArray users = QJsonArray::fromStringList(QStringList() << username);
-
-    QJsonArray params;
-
-    QJsonObject param;
-    param[QStringLiteral("rid")] = roomId;
-    param[QStringLiteral("username")] = users.first();
-    params.append(param);
-
-    return generateMethod(QStringLiteral("addUserToRoom"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, const QString &exception, quint64 id)
@@ -490,11 +171,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     firstParam[QStringLiteral("term")] = searchText;
     params.append(firstParam);
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
-{
-    return searchRoomUsers(pattern, exceptions, true, true, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
@@ -522,15 +198,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(co
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 
-//We need to be able to send file for audio/video
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id)
-{
-    const QJsonArray obj = {roomId, serviceUploadType, result};
-    const QJsonArray params{{
-        obj
-    }};
-    return generateMethod(QStringLiteral("sendFileMessage"), QJsonDocument(params), id);
-}
 
 //Verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint64 id)

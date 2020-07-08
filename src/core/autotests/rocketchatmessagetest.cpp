@@ -34,178 +34,12 @@ void RocketChatMessageTest::compareFile(const QString &data, const QString &name
     AutoTestHelper::compareFile(QLatin1String("/method/"), data.toUtf8(), name);
 }
 
-void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setTemporaryStatus(User::PresenceStatus::PresenceBusy, 42);
-
-    compareFile(r.result, QStringLiteral("temporarybusy"));
-
-    r = m.setTemporaryStatus(User::PresenceStatus::PresenceAway, 43);
-    compareFile(r.result, QStringLiteral("temporaryaway"));
-
-    r = m.setTemporaryStatus(User::PresenceStatus::PresenceOffline, 44);
-    compareFile(r.result, QStringLiteral("temporaryoffline"));
-
-    r = m.setTemporaryStatus(User::PresenceStatus::PresenceOnline, 45);
-    compareFile(r.result, QStringLiteral("temporaryonline"));
-}
-
-void RocketChatMessageTest::shouldHideRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.hideRoom(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("hide"));
-}
-
-void RocketChatMessageTest::shouldLeaveRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.leaveRoom(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("leave"));
-}
-
-void RocketChatMessageTest::shouldOpenRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.openRoom(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("openroom"));
-}
-
-void RocketChatMessageTest::shouldUnarchiveRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.unarchiveRoom(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("unarchiveroom"));
-}
-
-void RocketChatMessageTest::shouldArchiveRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.archiveRoom(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("archiveroom"));
-}
-
-void RocketChatMessageTest::shouldEraseRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.eraseRoom(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("eraseroom"));
-}
-
-void RocketChatMessageTest::shouldGetRoomRoles()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.getRoomRoles(QStringLiteral("foo"), 42);
-
-    compareFile(r.result, QStringLiteral("getroomroles"));
-}
-
-void RocketChatMessageTest::shouldSetRoomTopic()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomTopic(QStringLiteral("foo"), QStringLiteral("topic"), 42);
-
-    compareFile(r.result, QStringLiteral("setRoomTopic"));
-}
-
-void RocketChatMessageTest::shouldSetRoomType()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomType(QStringLiteral("foo"), true, 42);
-
-    compareFile(r.result, QStringLiteral("setRoomTopicPrivate"));
-
-    r = m.setRoomType(QStringLiteral("foo"), false, 42);
-    compareFile(r.result, QStringLiteral("setRoomTopicPublic"));
-}
-
-void RocketChatMessageTest::shouldToggleFavorite()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.toggleFavorite(QStringLiteral("foo"), true, 42);
-
-    compareFile(r.result, QStringLiteral("togglefavoritetrue"));
-
-    r = m.toggleFavorite(QStringLiteral("foo1"), false, 43);
-
-    compareFile(r.result, QStringLiteral("togglefavoritefalse"));
-}
-
-void RocketChatMessageTest::shouldSetRoomName()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomName(QStringLiteral("foo"), QStringLiteral("name1"), 42);
-
-    compareFile(r.result, QStringLiteral("roomname"));
-}
-
-void RocketChatMessageTest::shouldSetRoomDescription()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomDescription(QStringLiteral("foo"), QStringLiteral("description1"), 43);
-
-    compareFile(r.result, QStringLiteral("roomdescription"));
-}
-
-void RocketChatMessageTest::shouldSetRoomAnnouncement()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomAnnouncement(QStringLiteral("foo"), QStringLiteral("announcement"), 43);
-
-    compareFile(r.result, QStringLiteral("roomannouncement"));
-}
-
-void RocketChatMessageTest::shouldSetRoomIsReadOnly()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomIsReadOnly(QStringLiteral("foo"), true, 43);
-    compareFile(r.result, QStringLiteral("roomisreadonly"));
-}
-
-void RocketChatMessageTest::shouldSetRoomIsDefault()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomIsDefault(QStringLiteral("foo"), true, 43);
-    compareFile(r.result, QStringLiteral("roomisdefault"));
-}
-
 void RocketChatMessageTest::shouldJoinRoom()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.joinRoom(QStringLiteral("foo"), QStringLiteral("access_code"), 43);
     compareFile(r.result, QStringLiteral("joinroom"));
-}
-
-void RocketChatMessageTest::shouldSetRoomJoinCode()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setRoomJoinCode(QStringLiteral("foo"), QStringLiteral("access_code"), 43);
-    compareFile(r.result, QStringLiteral("setroomjoincode"));
 }
 
 void RocketChatMessageTest::shouldSetDefaultStatus()
@@ -236,83 +70,6 @@ void RocketChatMessageTest::shouldInformTypingStatus()
     compareFile(r.result, QStringLiteral("informtypingstatustrue"));
 }
 
-void RocketChatMessageTest::shouldCreateRoom_data()
-{
-    QTest::addColumn<QString>("channelname");
-    QTest::addColumn<QStringList>("userlst");
-    QTest::addColumn<bool>("readonly");
-    QTest::addColumn<QString>("filename");
-
-    QTest::newRow("emptyfalse") << QStringLiteral("foo") << QStringList() << false << QStringLiteral("createroomemptyuserfalse");
-    QTest::newRow("emptytrue") << QStringLiteral("foo") << QStringList() << true << QStringLiteral("createroomemptyusertrue");
-    const QStringList users {
-        QStringLiteral("bla"), QStringLiteral("bla2")
-    };
-    QTest::newRow("emptytrue") << QStringLiteral("foo") << users << true << QStringLiteral("createroomlistusertrue");
-}
-
-void RocketChatMessageTest::shouldCreateRoom()
-{
-    QFETCH(QString, channelname);
-    QFETCH(QStringList, userlst);
-    QFETCH(bool, readonly);
-    QFETCH(QString, filename);
-
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.createChannel(channelname, userlst, readonly, 43);
-    compareFile(r.result, filename);
-}
-
-void RocketChatMessageTest::shouldCreatePrivateGroup_data()
-{
-    QTest::addColumn<QString>("channelname");
-    QTest::addColumn<QStringList>("userlst");
-    QTest::addColumn<QString>("filename");
-
-    QTest::newRow("emptyfalse") << QStringLiteral("foo") << QStringList() << QStringLiteral("createprivategroupemptyuser");
-    const QStringList users {
-        QStringLiteral("bla"), QStringLiteral("bla2")
-    };
-    QTest::newRow("emptytrue") << QStringLiteral("foo") << users << QStringLiteral("createprivategrouplistuser");
-}
-
-void RocketChatMessageTest::shouldSetReaction()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setReaction(QStringLiteral(":emoji:"), QStringLiteral("messid"), 43);
-    compareFile(r.result, QStringLiteral("setReaction"));
-}
-
-void RocketChatMessageTest::shouldDeleteMessage()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteMessage(QStringLiteral("messid"), 43);
-    compareFile(r.result, QStringLiteral("deleteMessage"));
-}
-
-void RocketChatMessageTest::shouldCreatePrivateGroup()
-{
-    QFETCH(QString, channelname);
-    QFETCH(QStringList, userlst);
-    QFETCH(QString, filename);
-
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.createPrivateGroup(channelname, userlst, 43);
-    compareFile(r.result, filename);
-}
-
-void RocketChatMessageTest::shouldSearchMessage()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.messageSearch(QStringLiteral("roomId"), QStringLiteral("foo"), 43);
-    compareFile(r.result, QStringLiteral("searchMessage"));
-}
-
 void RocketChatMessageTest::shouldUserAutoComplete()
 {
     RocketChatMessage m;
@@ -334,14 +91,6 @@ void RocketChatMessageTest::shouldSendFileMessage()
     //compareFile(r.result, QStringLiteral("sendFileMessage"));
 }
 
-void RocketChatMessageTest::shouldChannelAndPrivateAutocomplete()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.channelAndPrivateAutocomplete(QStringLiteral("room"), QStringLiteral("foo,bla"), 43);
-    compareFile(r.result, QStringLiteral("channelAndPrivateAutocomplete"));
-}
-
 void RocketChatMessageTest::shouldSplotlightWithoutUsers()
 {
     RocketChatMessage m;
@@ -356,14 +105,6 @@ void RocketChatMessageTest::shouldSplotlightWithoutRooms()
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QStringLiteral("room"), QStringLiteral("foo,bla"), true, false, 43);
     compareFile(r.result, QStringLiteral("spotlight-without-rooms"));
-}
-
-void RocketChatMessageTest::shouldAddUserToRoom()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.addUserToRoom(QStringLiteral("userId"), QStringLiteral("room"), 43);
-    compareFile(r.result, QStringLiteral("addusertoroom"));
 }
 
 void RocketChatMessageTest::inputChannelAutocomplete()
@@ -398,68 +139,6 @@ void RocketChatMessageTest::unBlockUser()
     compareFile(r.result, QStringLiteral("unBlockUser"));
 }
 
-void RocketChatMessageTest::disableNotifications()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.disableNotifications(QStringLiteral("rid"), true, 43);
-    compareFile(r.result, QStringLiteral("disableNotifications"));
-
-    r = m.disableNotifications(QStringLiteral("rid"), false, 43);
-    compareFile(r.result, QStringLiteral("disableNotificationsfalse"));
-}
-
-void RocketChatMessageTest::hideUnreadStatus()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.hideUnreadStatus(QStringLiteral("rid"), true, 43);
-    compareFile(r.result, QStringLiteral("hideUnreadStatus"));
-
-    r = m.hideUnreadStatus(QStringLiteral("rid"), false, 43);
-    compareFile(r.result, QStringLiteral("hideUnreadStatusfalse"));
-}
-
-void RocketChatMessageTest::audioNotifications()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.audioNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
-    compareFile(r.result, QStringLiteral("audioNotifications"));
-}
-
-void RocketChatMessageTest::desktopNotifications()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.desktopNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
-    compareFile(r.result, QStringLiteral("desktopNotifications"));
-}
-
-void RocketChatMessageTest::emailNotifications()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.emailNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
-    compareFile(r.result, QStringLiteral("emailNotifications"));
-}
-
-void RocketChatMessageTest::mobilePushNotifications()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.mobilePushNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
-    compareFile(r.result, QStringLiteral("mobilePushNotifications"));
-}
-
-void RocketChatMessageTest::unreadAlert()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.unreadAlert(QStringLiteral("rid"), QStringLiteral("bla"), 43);
-    compareFile(r.result, QStringLiteral("unreadAlert"));
-}
-
 void RocketChatMessageTest::deleteFileMessage()
 {
     RocketChatMessage m;
@@ -468,10 +147,3 @@ void RocketChatMessageTest::deleteFileMessage()
     compareFile(r.result, QStringLiteral("deleteFileMessage"));
 }
 
-void RocketChatMessageTest::ignoreUser()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.ignoreUser(QStringLiteral("roomId1"), QStringLiteral("user2"), true, 43);
-    compareFile(r.result, QStringLiteral("ignoreUser"));
-}
