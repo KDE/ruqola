@@ -42,13 +42,15 @@ void InputCompleterModel::setDefaultUserCompletion()
     QVector<Channel> customCompletion;
 
     Channel here;
-    here.setName(QStringLiteral("here"));
-    here.setType(Channel::ChannelType::Unknown);
+    here.setUserName(QStringLiteral("here"));
+    here.setStatus(QStringLiteral("online"));
+    here.setType(Channel::ChannelType::PrivateChannel);
     customCompletion.append(here);
 
     Channel all;
-    all.setType(Channel::ChannelType::Unknown);
-    all.setName(QStringLiteral("all"));
+    all.setUserName(QStringLiteral("all"));
+    all.setStatus(QStringLiteral("online"));
+    all.setType(Channel::ChannelType::PrivateChannel);
     customCompletion.append(all);
 
     setChannels(customCompletion);

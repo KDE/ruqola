@@ -99,10 +99,15 @@ QSize MessageTextEdit::minimumSizeHint() const
     return QSize(300, fontMetrics().height() + margin);
 }
 
-void MessageTextEdit::changeText(const QString &newText)
+void MessageTextEdit::changeText(const QString &newText, int cursorPosition)
 {
     setPlainText(newText);
-    mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
+
+    QTextCursor cursor(document());
+    cursor.setPosition(cursorPosition);
+    setTextCursor(cursor);
+
+    mCurrentInputTextManager->setInputTextChanged(text(), cursorPosition);
 }
 
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
@@ -178,16 +183,12 @@ void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForT
 void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
-    QTextCursor cursor = textCursor();
-    int textPos = cursor.position();
+    int textPos = textCursor().position();
     const QString newText = mCurrentInputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
 
     mUserAndChannelCompletionListView->hide();
     mEmojiCompletionListView->hide();
     mCommandCompletionListView->hide();
 
-    changeText(newText);
-
-    cursor.setPosition(textPos);
-    setTextCursor(cursor);
+    changeText(newText, textPos);
 }

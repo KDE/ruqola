@@ -44,6 +44,8 @@ void CompletionListView::setTextWidget(QWidget *textWidget)
     setFocusProxy(textWidget);
 }
 
+// Typically called with one of the 3 models returned by InputTextManager:
+// inputCompleterModel() for users and channels, emojiCompleterModel(), or commandModel()
 void CompletionListView::setModel(QAbstractItemModel *model)
 {
     QAbstractItemModel *oldModel = QListView::model();

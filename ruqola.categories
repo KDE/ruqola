@@ -8,3 +8,4 @@ org.kde.ruqola_passwordauthenticationplugin ruqola (password authentication plug
 org.kde.ruqola.ddp.collectiontype ruqola ddp unknown collection type IDENTIFIER [RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG]
 org.kde.ruqola.widgets ruqola lib widget IDENTIFIER [RUQOLAWIDGETS_LOG]
 org.kde.ruqola.typingnotification ruqola typingnotification IDENTIFIER [RUQOLA_TYPING_NOTIFICATION_LOG]
+org.kde.ruqola.completion ruqola completion IDENTIFIER [RUQOLA_COMPLETION_LOG]

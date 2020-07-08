@@ -77,6 +77,11 @@ void InputTextManagerTest::shouldSearchWord_data()
     QTest::addColumn<int>("position");
     QTest::addColumn<QString>("result");
     QTest::newRow("empty") << QString() << 5 << QString();
+    QTest::newRow("one_letter") << QStringLiteral("l") << 1 << QStringLiteral("l");
+    QTest::newRow("at") << QStringLiteral("@") << 1 << QStringLiteral("@");
+    QTest::newRow("at_letter_1") << QStringLiteral("@a") << 1 << QStringLiteral("@a");
+    QTest::newRow("at_letter") << QStringLiteral("@a") << 2 << QStringLiteral("@a");
+    QTest::newRow("at_word_space") << QStringLiteral("@abc ") << 5 << QString();
 }
 
 void InputTextManagerTest::shouldSearchWord()

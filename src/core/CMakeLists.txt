@@ -200,6 +200,7 @@ ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_debug.h ID
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_command_debug.h IDENTIFIER RUQOLA_DDPAPI_COMMAND_LOG CATEGORY_NAME org.kde.ruqola.ddpapi.command)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_unknown_collectiontype_debug.h IDENTIFIER RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG CATEGORY_NAME org.kde.ruqola.ddp.collectiontype)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.typingnotification)
+ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_completion_debug.h IDENTIFIER RUQOLA_COMPLETION_LOG CATEGORY_NAME org.kde.ruqola.completion)
 
 qt5_add_resources(libruqolacore_RSC ruqolacore.qrc)
 

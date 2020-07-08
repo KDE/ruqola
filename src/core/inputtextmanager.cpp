@@ -20,6 +20,7 @@
 
 #include "inputtextmanager.h"
 #include "ruqola_debug.h"
+#include "ruqola_completion_debug.h"
 #include "model/inputcompletermodel.h"
 #include "model/commandsmodel.h"
 #include <QSortFilterProxyModel>
@@ -63,17 +64,17 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
 QString InputTextManager::applyCompletion(const QString &newWord, const QString &text, int *pPosition)
 {
     if (newWord.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty newWord";
+        qCDebug(RUQOLA_COMPLETION_LOG) << "Empty newWord";
         return text;
     }
     if (text.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty text";
+        qCDebug(RUQOLA_COMPLETION_LOG) << "Empty text";
         return text;
     }
     int position = *pPosition;
     //Cursor position can be at the end of word => text.length
     if ((position > text.length()) || (position < 0)) {
-        qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Invalid position" << position;
+        qCDebug(RUQOLA_COMPLETION_LOG) << "Invalid position" << position;
         return text;
     }
 
@@ -147,9 +148,10 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         clearCompleter();
         return;
     }
+    qCDebug(RUQOLA_COMPLETION_LOG) << "calling searchWord(" << text << "," << position << ")";
     const QString word = searchWord(text, position);
     const QString str = word.mid(1);
-    // qDebug() << " str :" << str << ": word :" << word << ":" << " position : " << position;
+    qCDebug(RUQOLA_COMPLETION_LOG) << " str :" << str << ": word :" << word << ":" << " position : " << position;
     if (word.isEmpty()) {
         clearCompleter();
     } else {
