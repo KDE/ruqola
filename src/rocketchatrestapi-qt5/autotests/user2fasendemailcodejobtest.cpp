@@ -34,7 +34,7 @@ void User2FASendEmailCodeJobTest::shouldHaveDefaultValue()
 {
     User2FASendEmailCodeJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
