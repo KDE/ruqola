@@ -91,10 +91,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
     twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 
+    QHBoxLayout *twoFactorLayout = new QHBoxLayout;
+    twoFactorLayout->setContentsMargins(0, 0, 0, 0);
+    twoFactorAuthenticationLayout->addLayout(twoFactorLayout);
+
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
-    twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+    twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
     mainLayout->addWidget(mAuthenticationWidget);
 
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
