@@ -216,9 +216,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
             if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
                 if (roomOrUser != mCurrentRocketChatAccount->userName()) {
-                    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to open direct conversation with %1", roomOrUser))) {
-                        mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
-                    }
+                    mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
                 }
             }
         } else if (link == QLatin1String("ruqola:/jitsicall/")) {
