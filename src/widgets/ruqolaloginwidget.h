@@ -45,6 +45,7 @@ public:
 private:
     void changeWidgetStatus(bool enabled);
     void slotLogin();
+    void slotSendNewEmailCode();
 
     QLabel *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;

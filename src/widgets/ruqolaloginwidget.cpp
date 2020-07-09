@@ -101,6 +101,11 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
     mainLayout->addWidget(mAuthenticationWidget);
 
+    QPushButton *sendNewEmailCode = new QPushButton(i18n("Send new code"), this);
+    sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
+    twoFactorLayout->addWidget(sendNewEmailCode);
+    connect(sendNewEmailCode, &QPushButton::clicked, this, &RuqolaLoginWidget::slotSendNewEmailCode);
+
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     mainLayout->addWidget(mBusyIndicatorWidget);
@@ -124,6 +129,12 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
 RuqolaLoginWidget::~RuqolaLoginWidget()
 {
+}
+
+void RuqolaLoginWidget::slotSendNewEmailCode()
+{
+    auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
+    rocketChatAccount->sendUserEmailCode();
 }
 
 void RuqolaLoginWidget::initialize()

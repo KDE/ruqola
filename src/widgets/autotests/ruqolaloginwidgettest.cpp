@@ -26,6 +26,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QPushButton>
 #include <QTest>
 QTEST_MAIN(RuqolaLoginWidgetTest)
 RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
@@ -82,4 +83,9 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 
     KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
+
+
+    QPushButton *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
+    QVERIFY(sendNewEmailCode);
+    QVERIFY(!sendNewEmailCode->text().isEmpty());
 }
