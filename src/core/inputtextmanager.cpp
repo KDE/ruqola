@@ -152,7 +152,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
     const QString word = searchWord(text, position);
     const QString str = word.mid(1);
     qCDebug(RUQOLA_COMPLETION_LOG) << " str :" << str << ": word :" << word << ":" << " position : " << position;
-    if (word.isEmpty() || position != word.length()) { // only trigger completion at the end of the word
+    if (word.isEmpty() || position != text.length()) { // only trigger completion at the end of the word
         clearCompleter();
     } else {
         if (word.startsWith(QLatin1Char('@'))) {
@@ -172,7 +172,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         } else if (word.startsWith(QLatin1Char(':'))) {
             mEmoticonFilterProxyModel->setFilterFixedString(word);
             setCompletionType(InputTextManager::CompletionForType::Emoji);
-        } else if (word.startsWith(QLatin1Char('/'))) {
+        } else if (word.startsWith(QLatin1Char('/')) && position == word.length()) { // "/" must be at beginning of text
             mCommandFilterProxyModel->setFilterFixedString(word);
             setCompletionType(InputTextManager::CompletionForType::Command);
         } else {
