@@ -71,6 +71,7 @@ UserLabel::UserLabel(QWidget *parent)
     setTextFormat(Qt::RichText);
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, &UserLabel::customContextMenuRequested, this, &UserLabel::slotCustomContextMenuRequested);
+    connect(this, &QLabel::linkActivated, this, &UserLabel::slotOpenConversation);
 }
 
 UserLabel::~UserLabel()
