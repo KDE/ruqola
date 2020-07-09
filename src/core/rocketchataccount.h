@@ -415,6 +415,7 @@ public:
     void avatarChanged(const QJsonArray &contents);
     void markMessageAsUnReadFrom(const QString &messageId);
     void markRoomAsUnRead(const QString &roomId);
+    void sendUserEmailCode();
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

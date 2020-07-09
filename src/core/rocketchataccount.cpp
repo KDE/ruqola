@@ -2070,3 +2070,8 @@ void RocketChatAccount::loginStatusChangedSlot()
 
     Q_EMIT loginStatusChanged();
 }
+
+void RocketChatAccount::sendUserEmailCode()
+{
+    restApi()->sendUserEmailCode(userName());
+}
