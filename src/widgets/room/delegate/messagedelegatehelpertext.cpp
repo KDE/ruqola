@@ -261,9 +261,11 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             if (!link.isEmpty()) {
                 auto *rcAccount = Ruqola::self()->rocketChatAccount();
                 Q_EMIT rcAccount->openLinkRequested(link);
+                return true;
             }
         }
-        return true;
+        // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
+        break;
     case QEvent::MouseButtonDblClick:
         if (index == mCurrentIndex) {
             if (!hasSelection()) {
