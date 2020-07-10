@@ -91,7 +91,8 @@ void InputTextManagerTest::shouldSearchWord()
     QFETCH(QString, result);
 
     InputTextManager manager(nullptr);
-    QCOMPARE(manager.searchWord(text, position), result);
+    int start; // TODO test the output value
+    QCOMPARE(manager.searchWord(text, position, start), result);
 }
 
 void InputTextManagerTest::shouldEmitCompletionRequestSignals()
@@ -130,6 +131,13 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     manager.setInputTextChanged(QStringLiteral("hello @foo"), 10);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
+    QCOMPARE(requestSpy.count(), 1);
+    QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
+    requestSpy.clear();
+    typeChangedSpy.clear();
+
+    manager.setInputTextChanged(QStringLiteral("@foo hello"), 4);
+    QCOMPARE(typeChangedSpy.count(), 0); // User again
     QCOMPARE(requestSpy.count(), 1);
     QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
     requestSpy.clear();

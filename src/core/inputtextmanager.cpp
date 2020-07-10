@@ -106,12 +106,12 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
     return replaceText;
 }
 
-QString InputTextManager::searchWord(const QString &text, int position)
+QString InputTextManager::searchWord(const QString &text, int position, int &start)
 {
     if (text.isEmpty()) {
         return {};
     }
-    int start = 0;
+    start = 0;
     for (int i = position; i > 0; i--) {
         if (text.at(i-1).isSpace()) {
             start = i;
@@ -149,10 +149,11 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         return;
     }
     qCDebug(RUQOLA_COMPLETION_LOG) << "calling searchWord(" << text << "," << position << ")";
-    const QString word = searchWord(text, position);
+    int start;
+    const QString word = searchWord(text, position, start);
     const QString str = word.mid(1);
-    qCDebug(RUQOLA_COMPLETION_LOG) << " str :" << str << ": word :" << word << ":" << " position : " << position;
-    if (word.isEmpty() || position != text.length()) { // only trigger completion at the end of the word
+    qCDebug(RUQOLA_COMPLETION_LOG) << " str:" << str << "start:" << start << "word:" << word << "position:" << position;
+    if (word.isEmpty() || position != start + word.length()) { // only trigger completion at the end of the word
         clearCompleter();
     } else {
         if (word.startsWith(QLatin1Char('@'))) {

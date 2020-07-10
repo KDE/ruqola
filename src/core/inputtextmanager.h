@@ -60,7 +60,7 @@ public:
     void clearCompleter();
 
     //Only for autotests
-    Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
+    Q_REQUIRED_RESULT QString searchWord(const QString &text, int position, int &start);
 
     void setCommandModel(QAbstractItemModel *model);
     Q_REQUIRED_RESULT QAbstractItemModel *commandModel() const;
