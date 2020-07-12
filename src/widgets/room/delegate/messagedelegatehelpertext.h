@@ -47,6 +47,7 @@ public:
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &messageRect, const QModelIndex &index);
+    bool maybeStartDrag(QMouseEvent *event, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     void setShowThreadContext(bool b);
 
@@ -63,6 +64,7 @@ private:
     void setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect);
 
     bool mShowThreadContext = true;
+    bool mMightStartDrag = false;
     QPersistentModelIndex mCurrentIndex; // during selection
     QPointer<QTextDocument> mCurrentDocument = nullptr; // during selection
     QTextCursor mCurrentTextCursor; // during selection

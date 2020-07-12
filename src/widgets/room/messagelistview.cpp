@@ -371,11 +371,25 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
 void MessageListView::mousePressEvent(QMouseEvent *event)
 {
+    mPressedPosition = event->pos();
     handleMouseEvent(event);
 }
 
 void MessageListView::mouseMoveEvent(QMouseEvent *event)
 {
+    // Drag support
+    const int distance = (event->pos() - mPressedPosition).manhattanLength();
+    if (distance > QApplication::startDragDistance()) {
+        mPressedPosition = {};
+        const QPersistentModelIndex index = indexAt(event->pos());
+        if (index.isValid()) {
+            QStyleOptionViewItem options = viewOptions();
+            options.rect = visualRect(index);
+            if (mMessageListDelegate->maybeStartDrag(event, options, index)) {
+                return;
+            }
+        }
+    }
     handleMouseEvent(event);
 }
 

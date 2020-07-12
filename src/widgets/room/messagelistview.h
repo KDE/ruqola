@@ -100,6 +100,7 @@ private:
     MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *mMessageListDelegate = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QPoint mPressedPosition;
     bool mAtBottom = true;
     bool mDebug = false;
 };

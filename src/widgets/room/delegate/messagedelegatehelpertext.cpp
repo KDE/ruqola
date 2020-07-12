@@ -38,6 +38,8 @@
 #include <QToolTip>
 #include <QTextStream>
 #include <QTextFrame>
+#include <QDrag>
+#include <QMimeData>
 
 #include <model/threadmessagemodel.h>
 
@@ -228,25 +230,35 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     // Text selection
     switch (eventType) {
     case QEvent::MouseButtonPress:
+        mMightStartDrag = false;
         setCurrentIndex(index, option.widget, messageRect);
         if (mCurrentDocument) {
             const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
-            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
-            if (charPos != -1) {
-                mCurrentTextCursor = QTextCursor(mCurrentDocument);
-                mCurrentTextCursor.setPosition(charPos);
+            if (charPos == -1) {
+                return false;
+            }
+            if (mCurrentTextCursor.hasSelection() &&
+                    mCurrentTextCursor.selectionStart() <= charPos &&
+                    charPos <= mCurrentTextCursor.selectionEnd() &&
+                    mCurrentDocument->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mMightStartDrag = true;
                 return true;
             }
+
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            mCurrentTextCursor = QTextCursor(mCurrentDocument);
+            mCurrentTextCursor.setPosition(charPos);
+            return true;
         } else {
             mCurrentIndex = QModelIndex();
         }
         break;
     case QEvent::MouseMove:
-        if (index == mCurrentIndex && mCurrentDocument) {
+        if (index == mCurrentIndex && mCurrentDocument && !mMightStartDrag) {
             const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             if (charPos != -1) {
-                // QWidgetTextControl also has code to support dragging, isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
                 mCurrentTextCursor.setPosition(charPos, QTextCursor::KeepAnchor);
                 return true;
             }
@@ -314,6 +326,28 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
 
     QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
     return true;
+}
+
+bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (!mMightStartDrag) {
+        return false;
+    }
+    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
+    if (index == mCurrentIndex && !mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection()) {
+        const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        if (charPos != -1 && mCurrentTextCursor.selectionStart() <= charPos && charPos <= mCurrentTextCursor.selectionEnd()) {
+            QMimeData *mimeData = new QMimeData;
+            const QTextDocumentFragment fragment(mCurrentTextCursor);
+            mimeData->setHtml(fragment.toHtml());
+            mimeData->setText(fragment.toPlainText());
+            QDrag *drag = new QDrag(const_cast<QWidget *>(option.widget));
+            drag->setMimeData(mimeData);
+            drag->exec(Qt::CopyAction);
+            return true;
+        }
+    }
+    return false;
 }
 
 void MessageDelegateHelperText::setShowThreadContext(bool b)

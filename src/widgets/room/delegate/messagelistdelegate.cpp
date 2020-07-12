@@ -498,6 +498,16 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
     return false;
 }
 
+bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const Layout layout = doLayout(option, index);
+    if (mHelperText->maybeStartDrag(event, layout.textRect, option, index)) {
+        return true;
+    }
+    // TODO: dragging images/movies/...
+    return false;
+}
+
 bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (event->type() == QEvent::ToolTip) {
