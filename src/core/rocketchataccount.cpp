@@ -1155,6 +1155,16 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
     }
 }
 
+InputTextManager *RocketChatAccount::inputTextManager() const
+{
+    return mInputTextManager;
+}
+
+InputTextManager *RocketChatAccount::inputThreadMessageTextManager() const
+{
+    return mInputThreadMessageTextManager;
+}
+
 void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
     mSearchMessageModel->setLoadSearchMessageInProgress(false);

@@ -214,15 +214,9 @@ public:
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression = false);
-    InputTextManager *inputTextManager() const
-    {
-        return mInputTextManager;
-    }
+    InputTextManager *inputTextManager() const;
 
-    InputTextManager *inputThreadMessageTextManager() const
-    {
-        return mInputThreadMessageTextManager;
-    }
+    InputTextManager *inputThreadMessageTextManager() const;
 
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrlFromDirectChannel(const QString &rid);
