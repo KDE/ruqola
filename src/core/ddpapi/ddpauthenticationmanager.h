@@ -102,7 +102,7 @@ public:
     Q_REQUIRED_RESULT LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus newStatus);
 
-    Q_REQUIRED_RESULT QDateTime tokenExpires() const;
+    Q_REQUIRED_RESULT qint64 tokenExpires() const;
 
 Q_SIGNALS:
     void loginStatusChanged();
@@ -110,7 +110,7 @@ Q_SIGNALS:
 private:
     QString mUserId;
     QString mAuthToken;
-    QDateTime mTokenExpires;
+    qint64 mTokenExpires;
     LoginStatus mLoginStatus = LoggedOut;
     // Used when sending OTP
     QJsonObject mLastLoginPayload;

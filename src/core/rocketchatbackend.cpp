@@ -221,6 +221,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         // Now that we are logged in the ddp authentication manager has all the information we need
         auto restApi = mRocketChatAccount->restApi();
         mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
+        mRocketChatAccount->settings()->setExpireToken(mRocketChatAccount->ddp()->authenticationManager()->tokenExpires());
         restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
         restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 

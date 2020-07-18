@@ -226,7 +226,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             const QJsonObject result = response[sl("result")].toObject();
             mAuthToken = result[sl("token")].toString();
             mUserId = result[sl("id")].toString();
-            mTokenExpires = QDateTime::fromMSecsSinceEpoch(result[sl("tokenExpires")].toObject()[sl("$date")].toInt());
+            mTokenExpires = result[sl("tokenExpires")].toObject()[sl("$date")].toDouble();
             setLoginStatus(LoggedIn);
         }
 
@@ -316,7 +316,7 @@ void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginSta
     }
 }
 
-QDateTime DDPAuthenticationManager::tokenExpires() const
+qint64 DDPAuthenticationManager::tokenExpires() const
 {
     return mTokenExpires;
 }
