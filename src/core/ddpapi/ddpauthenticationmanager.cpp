@@ -223,13 +223,10 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
     case Method::Login: // intentional fall-through
     case Method::SendOtp:
         if (response.contains(sl("result"))) {
-            mAuthToken = response[sl("result")].toObject()
-                         [sl("token")].toString();
-            mUserId = response[sl("result")].toObject()
-                      [sl("id")].toString();
-            mTokenExpires = QDateTime::fromMSecsSinceEpoch(
-                response[sl("tokenExpires")].toObject()
-                [sl("$date")].toInt());
+            const QJsonObject result = response[sl("result")].toObject();
+            mAuthToken = result[sl("token")].toString();
+            mUserId = result[sl("id")].toString();
+            mTokenExpires = QDateTime::fromMSecsSinceEpoch(result[sl("tokenExpires")].toObject()[sl("$date")].toInt());
             setLoginStatus(LoggedIn);
         }
 
@@ -317,6 +314,11 @@ void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginSta
         mLoginStatus = status;
         Q_EMIT loginStatusChanged();
     }
+}
+
+QDateTime DDPAuthenticationManager::tokenExpires() const
+{
+    return mTokenExpires;
 }
 
 void DDPAuthenticationManager::clientConnectedChangedSlot()

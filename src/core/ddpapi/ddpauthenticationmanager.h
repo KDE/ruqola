@@ -102,6 +102,8 @@ public:
     Q_REQUIRED_RESULT LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus newStatus);
 
+    Q_REQUIRED_RESULT QDateTime tokenExpires() const;
+
 Q_SIGNALS:
     void loginStatusChanged();
 
