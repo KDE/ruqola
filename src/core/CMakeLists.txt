@@ -99,6 +99,10 @@ set(Ruqola_command_SRCS
     commands.cpp
     )
 
+set(Ruqola_apps_language_SRCS
+    downloadappslanguagesjob
+    )
+
 set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
 
 kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
@@ -119,6 +123,7 @@ set (Ruqola_core_srcs
     ${Ruqola_model_core_srcs}
     ${Ruqola_plugins_srcs}
     ${Ruqola_ddpapi_SRCS}
+    ${Ruqola_apps_language_SRCS}
     authenticationinfo.cpp
     room.cpp
     roomwrapper.cpp
