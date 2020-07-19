@@ -100,8 +100,9 @@ set(Ruqola_command_SRCS
     )
 
 set(Ruqola_apps_language_SRCS
-    downloadappslanguagesjob.cpp
-    downloadappslanguagesparser.cpp
+    downloadappslanguages/downloadappslanguagesjob.cpp
+    downloadappslanguages/downloadappslanguagesparser.cpp
+    downloadappslanguages/downloadappslanguagesmanager.cpp
     )
 
 set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
