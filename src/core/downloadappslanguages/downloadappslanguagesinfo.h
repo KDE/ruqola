@@ -21,9 +21,9 @@
 
 #ifndef DOWNLOADAPPSLANGUAGESINFO_H
 #define DOWNLOADAPPSLANGUAGESINFO_H
-#include "libruqolacore_export.h"
+#include "libruqola_private_export.h"
 #include <QJsonObject>
-class DownloadAppsLanguagesInfo
+class LIBRUQOLACORE_TESTS_EXPORT DownloadAppsLanguagesInfo
 {
 public:
     DownloadAppsLanguagesInfo();
