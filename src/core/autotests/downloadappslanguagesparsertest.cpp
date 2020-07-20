@@ -26,3 +26,17 @@ DownloadAppsLanguagesParserTest::DownloadAppsLanguagesParserTest(QObject *parent
 {
 
 }
+
+void DownloadAppsLanguagesParserTest::shouldParseFile_data()
+{
+    QTest::addColumn<QString>("filename");
+    QTest::addRow("empty") << QString();
+}
+
+void DownloadAppsLanguagesParserTest::shouldParseFile()
+{
+    QFETCH(QString, filename);
+    DownloadAppsLanguagesParser parser;
+    parser.setFilename(filename);
+    parser.parse();
+}
