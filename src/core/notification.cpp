@@ -94,6 +94,7 @@ void Notification::createToolTip()
     updateUnityService(unreadMessage);
     if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
+        Q_EMIT alert();
     } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
         setStatus(KStatusNotifierItem::Passive);
     }

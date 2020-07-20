@@ -47,12 +47,13 @@
 #include <QStatusBar>
 #include <QLabel>
 #include <QGuiApplication>
+#include <QFontDatabase>
+#include <QApplication>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
-#include <QFontDatabase>
 #endif
 
 namespace {
@@ -78,6 +79,13 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 #if HAVE_KUSERFEEDBACK
     KUserFeedback::NotificationPopup *userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
+#endif
+
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+    // Create systray to show notifications on Desktop
+    connect(Ruqola::self()->notification(), &Notification::alert, this, [this]() {
+        QApplication::alert(this, 0);
+    });
 #endif
 }
 

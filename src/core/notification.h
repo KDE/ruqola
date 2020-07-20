@@ -40,6 +40,9 @@ public:
 #ifdef UNITY_SUPPORT
     UnityServiceManager *unityServiceManager();
 #endif
+
+Q_SIGNALS:
+    void alert();
 private:
     Q_DISABLE_COPY(Notification)
     struct TrayInfo {
