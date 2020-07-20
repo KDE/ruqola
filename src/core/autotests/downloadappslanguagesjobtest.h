@@ -28,6 +28,8 @@ class DownloadAppsLanguagesJobTest : public QObject
 public:
     explicit DownloadAppsLanguagesJobTest(QObject *parent = nullptr);
     ~DownloadAppsLanguagesJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // DOWNLOADAPPSLANGUAGESJOBTEST_H

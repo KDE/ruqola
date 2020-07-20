@@ -19,6 +19,7 @@
 */
 
 #include "downloadappslanguagesjobtest.h"
+#include "downloadappslanguages/downloadappslanguagesjob.h"
 #include <QTest>
 
 QTEST_MAIN(DownloadAppsLanguagesJobTest)
@@ -26,4 +27,10 @@ DownloadAppsLanguagesJobTest::DownloadAppsLanguagesJobTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void DownloadAppsLanguagesJobTest::shouldHaveDefaultValues()
+{
+    DownloadAppsLanguagesJob job;
+    QVERIFY(!job.canStart());
 }

@@ -31,7 +31,14 @@ public:
     explicit DownloadAppsLanguagesJob(QObject *parent = nullptr);
     ~DownloadAppsLanguagesJob();
 
+    Q_REQUIRED_RESULT bool canStart() const;
     void start();
+
+    Q_REQUIRED_RESULT QString fileName() const;
+    void setFileName(const QString &fileName);
+
+private:
+    QString mFileName;
 };
 
 #endif // DOWNLOADAPPSLANGUAGESJOB_H

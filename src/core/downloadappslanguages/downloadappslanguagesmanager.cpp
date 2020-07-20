@@ -30,3 +30,14 @@ DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager()
 {
 
 }
+
+void DownloadAppsLanguagesManager::parse()
+{
+    //TODO verify if we need to download file.
+
+}
+
+void DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &appId)
+{
+    //TODO
+}

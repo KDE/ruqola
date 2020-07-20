@@ -20,6 +20,7 @@
 
 
 #include "downloadappslanguagesjob.h"
+#include "ruqola_debug.h"
 
 DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
     : QObject(parent)
@@ -32,7 +33,27 @@ DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob()
 
 }
 
+bool DownloadAppsLanguagesJob::canStart() const
+{
+    return !mFileName.isEmpty();
+}
+
 void DownloadAppsLanguagesJob::start()
 {
     //TODO download api/apps/languages file.
+    if (!canStart()) {
+        qCWarning(RUQOLA_LOG) << " FileName is empty";
+        deleteLater();
+        return;
+    }
+}
+
+QString DownloadAppsLanguagesJob::fileName() const
+{
+    return mFileName;
+}
+
+void DownloadAppsLanguagesJob::setFileName(const QString &fileName)
+{
+    mFileName = fileName;
 }

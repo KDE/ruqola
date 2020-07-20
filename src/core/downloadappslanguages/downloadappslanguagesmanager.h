@@ -30,6 +30,8 @@ class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesManager : public QObject
 public:
     explicit DownloadAppsLanguagesManager(QObject *parent = nullptr);
     ~DownloadAppsLanguagesManager();
+    void translatedString(const QString &language, const QString &appId);
+    void parse();
 };
 
 #endif // DOWNLOADAPPSLANGUAGESMANAGER_H
