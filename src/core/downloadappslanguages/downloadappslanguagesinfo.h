@@ -23,11 +23,15 @@
 #define DOWNLOADAPPSLANGUAGESINFO_H
 #include "libruqola_private_export.h"
 #include <QJsonObject>
+#include <QMap>
 class LIBRUQOLACORE_TESTS_EXPORT DownloadAppsLanguagesInfo
 {
 public:
     DownloadAppsLanguagesInfo();
-    void parse(const QJsonObject &language);
+    Q_REQUIRED_RESULT bool parse(const QJsonObject &language);
+    Q_REQUIRED_RESULT QMap<QString, QVariantMap> languageMap() const;
+private:
+    QMap<QString, QVariantMap> mLanguageMap;
 };
 
 #endif // DOWNLOADAPPSLANGUAGESINFO_H

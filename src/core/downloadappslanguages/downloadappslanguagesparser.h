@@ -31,6 +31,9 @@ public:
     DownloadAppsLanguagesParser();
     void setFilename(const QString &filename);
     void parse();
+
+    Q_REQUIRED_RESULT QMap<QString, DownloadAppsLanguagesInfo> map() const;
+
 private:
     Q_DISABLE_COPY(DownloadAppsLanguagesParser)
     QMap<QString, DownloadAppsLanguagesInfo> mMap;

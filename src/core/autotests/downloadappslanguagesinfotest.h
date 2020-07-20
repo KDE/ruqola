@@ -18,32 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "downloadappslanguagesinfo.h"
+#ifndef DOWNLOADAPPSLANGUAGESINFOTEST_H
+#define DOWNLOADAPPSLANGUAGESINFOTEST_H
 
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QDebug>
+#include <QObject>
 
-DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
+class DownloadAppsLanguagesInfoTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit DownloadAppsLanguagesInfoTest(QObject *parent = nullptr);
+    ~DownloadAppsLanguagesInfoTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
 
-}
-
-bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language)
-{
-    const QJsonObject languagesObj = language[QStringLiteral("languages")].toObject();
-    if (languagesObj.isEmpty()) {
-        return false;
-    }
-    const QStringList keys = languagesObj.keys();
-    for (const QString &lang : keys) {
-        mLanguageMap.insert(lang, languagesObj.value(lang).toObject().toVariantMap());
-    }
-    return true;
-}
-
-QMap<QString, QVariantMap> DownloadAppsLanguagesInfo::languageMap() const
-{
-    return mLanguageMap;
-}
-
+#endif // DOWNLOADAPPSLANGUAGESINFOTEST_H
