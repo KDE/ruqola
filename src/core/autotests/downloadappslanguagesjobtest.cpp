@@ -33,4 +33,5 @@ void DownloadAppsLanguagesJobTest::shouldHaveDefaultValues()
 {
     DownloadAppsLanguagesJob job;
     QVERIFY(!job.canStart());
+    QVERIFY(job.serverUrl().isEmpty());
 }

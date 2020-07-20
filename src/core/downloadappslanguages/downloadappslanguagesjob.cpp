@@ -24,13 +24,16 @@
 #include "utils.h"
 
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QUrl>
+#include <restapiutil.h>
 
 DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
     : QObject(parent)
     , mNetworkAccessManager(new QNetworkAccessManager(this))
 {
-
+    connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &DownloadAppsLanguagesJob::slotFileDownloaded);
 }
 
 DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob()
@@ -38,31 +41,30 @@ DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob()
 
 }
 
+void DownloadAppsLanguagesJob::slotFileDownloaded(QNetworkReply* reply)
+{
+    const QByteArray data = reply->readAll();
+    reply->deleteLater();
+    Q_EMIT fileDownloaded(data);
+    deleteLater();
+}
+
 bool DownloadAppsLanguagesJob::canStart() const
 {
-    return !mFileName.isEmpty();
+    return !mServerUrl.isEmpty();
 }
 
 void DownloadAppsLanguagesJob::start()
 {
-    //TODO download api/apps/languages file.
     if (!canStart()) {
         qCWarning(RUQOLA_LOG) << " FileName is empty";
         deleteLater();
         return;
     }
-    //QNetworkRequest request(QString()); //TODO
-    //mNetworkAccessManager->get(request);
-}
-
-QString DownloadAppsLanguagesJob::fileName() const
-{
-    return mFileName;
-}
-
-void DownloadAppsLanguagesJob::setFileName(const QString &fileName)
-{
-    mFileName = fileName;
+    const QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/apps/languages");
+    const QUrl url(urlStr);
+    QNetworkRequest request(url);
+    mNetworkAccessManager->get(request);
 }
 
 QString DownloadAppsLanguagesJob::serverUrl() const

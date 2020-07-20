@@ -19,6 +19,8 @@
 */
 
 #include "downloadappslanguagesmanager.h"
+#include "downloadappslanguagesjob.h"
+#include "downloadappslanguagesparser.h"
 
 DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(QObject *parent)
     : QObject(parent)
@@ -31,13 +33,26 @@ DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager()
 
 }
 
-void DownloadAppsLanguagesManager::parse()
+void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
 {
     //TODO verify if we need to download file.
+    DownloadAppsLanguagesJob *job = new DownloadAppsLanguagesJob(this);
+    job->setServerUrl(serverUrl);
+    connect(job, &DownloadAppsLanguagesJob::fileDownloaded, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
+    job->start();
+}
 
+void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)
+{
+    //TODO store data.
+    //TODO parse data.
+    mFileParsed = true;
 }
 
 void DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &appId)
 {
+    if (!mFileParsed) {
+        return;
+    }
     //TODO
 }

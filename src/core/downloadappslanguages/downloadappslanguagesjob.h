@@ -24,6 +24,7 @@
 #include <QObject>
 #include "libruqolacore_export.h"
 class QNetworkAccessManager;
+class QNetworkReply;
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesJob : public QObject
 {
     Q_OBJECT
@@ -34,14 +35,14 @@ public:
     Q_REQUIRED_RESULT bool canStart() const;
     void start();
 
-    Q_REQUIRED_RESULT QString fileName() const;
-    void setFileName(const QString &fileName);
-
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
+Q_SIGNALS:
+    void fileDownloaded(const QByteArray &data);
+
 private:
-    QString mFileName;
+    void slotFileDownloaded(QNetworkReply *reply);
     QString mServerUrl;
     QNetworkAccessManager *const mNetworkAccessManager;
 };
