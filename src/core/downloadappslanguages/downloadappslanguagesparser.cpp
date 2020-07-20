@@ -43,7 +43,7 @@ void DownloadAppsLanguagesParser::parse()
         qCWarning(RUQOLA_LOG) << "Filename is empty. Parsing impossible";
         return;
     }
-    if (QFileInfo::exists(mFileName)) {
+    if (!QFileInfo::exists(mFileName)) {
         qCWarning(RUQOLA_LOG) << "Filename doesn't exist: " << mFileName;
         return;
     }
@@ -57,6 +57,7 @@ void DownloadAppsLanguagesParser::parse()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     const QJsonArray array = obj.value(QLatin1String("apps")).toArray();
+    qDebug() << " array " << array << " count " << array.size();
     for (int i = 0, total = array.size(); i < total; ++i) {
         //TODO
     }
