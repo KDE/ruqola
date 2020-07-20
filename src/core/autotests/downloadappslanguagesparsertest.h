@@ -18,18 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOWNLOADAPPSLANGUAGESPARSER_H
-#define DOWNLOADAPPSLANGUAGESPARSER_H
+#ifndef DOWNLOADAPPSLANGUAGESPARSERTEST_H
+#define DOWNLOADAPPSLANGUAGESPARSERTEST_H
 
-#include "libruqolacore_export.h"
 #include <QObject>
-class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesParser
+
+class DownloadAppsLanguagesParserTest : public QObject
 {
+    Q_OBJECT
 public:
-    DownloadAppsLanguagesParser();
-    void setFilename(const QString &filename);
-private:
-    Q_DISABLE_COPY(DownloadAppsLanguagesParser)
+    explicit DownloadAppsLanguagesParserTest(QObject *parent = nullptr);
+    ~DownloadAppsLanguagesParserTest() = default;
 };
 
-#endif // DOWNLOADAPPSLANGUAGESPARSER_H
+#endif // DOWNLOADAPPSLANGUAGESPARSERTEST_H

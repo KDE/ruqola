@@ -24,3 +24,8 @@ DownloadAppsLanguagesParser::DownloadAppsLanguagesParser()
 {
 
 }
+
+void DownloadAppsLanguagesParser::setFilename(const QString &filename)
+{
+
+}

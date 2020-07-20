@@ -17,19 +17,11 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
-#ifndef DOWNLOADAPPSLANGUAGESPARSER_H
-#define DOWNLOADAPPSLANGUAGESPARSER_H
-
-#include "libruqolacore_export.h"
-#include <QObject>
-class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesParser
+#include "downloadappslanguagesparsertest.h"
+#include <QTest>
+QTEST_MAIN(DownloadAppsLanguagesParserTest)
+DownloadAppsLanguagesParserTest::DownloadAppsLanguagesParserTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    DownloadAppsLanguagesParser();
-    void setFilename(const QString &filename);
-private:
-    Q_DISABLE_COPY(DownloadAppsLanguagesParser)
-};
 
-#endif // DOWNLOADAPPSLANGUAGESPARSER_H
+}
