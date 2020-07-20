@@ -23,7 +23,7 @@
 
 #include <QObject>
 #include "libruqolacore_export.h"
-
+class QNetworkAccessManager;
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesJob : public QObject
 {
     Q_OBJECT
@@ -37,8 +37,13 @@ public:
     Q_REQUIRED_RESULT QString fileName() const;
     void setFileName(const QString &fileName);
 
+    Q_REQUIRED_RESULT QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
+
 private:
     QString mFileName;
+    QString mServerUrl;
+    QNetworkAccessManager *const mNetworkAccessManager;
 };
 
 #endif // DOWNLOADAPPSLANGUAGESJOB_H

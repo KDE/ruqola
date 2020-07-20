@@ -21,9 +21,14 @@
 
 #include "downloadappslanguagesjob.h"
 #include "ruqola_debug.h"
+#include "utils.h"
+
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
 
 DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
     : QObject(parent)
+    , mNetworkAccessManager(new QNetworkAccessManager(this))
 {
 
 }
@@ -46,6 +51,8 @@ void DownloadAppsLanguagesJob::start()
         deleteLater();
         return;
     }
+    //QNetworkRequest request(QString()); //TODO
+    //mNetworkAccessManager->get(request);
 }
 
 QString DownloadAppsLanguagesJob::fileName() const
@@ -56,4 +63,14 @@ QString DownloadAppsLanguagesJob::fileName() const
 void DownloadAppsLanguagesJob::setFileName(const QString &fileName)
 {
     mFileName = fileName;
+}
+
+QString DownloadAppsLanguagesJob::serverUrl() const
+{
+    return mServerUrl;
+}
+
+void DownloadAppsLanguagesJob::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl = serverUrl;
 }
