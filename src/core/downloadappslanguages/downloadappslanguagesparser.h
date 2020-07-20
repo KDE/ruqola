@@ -21,15 +21,20 @@
 #ifndef DOWNLOADAPPSLANGUAGESPARSER_H
 #define DOWNLOADAPPSLANGUAGESPARSER_H
 
+#include "downloadappslanguagesinfo.h"
 #include "libruqolacore_export.h"
 #include <QObject>
+#include <QMap>
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesParser
 {
 public:
     DownloadAppsLanguagesParser();
     void setFilename(const QString &filename);
+    void parse();
 private:
     Q_DISABLE_COPY(DownloadAppsLanguagesParser)
+    QMap<QString, DownloadAppsLanguagesInfo> mMap;
+    QString mFileName;
 };
 
 #endif // DOWNLOADAPPSLANGUAGESPARSER_H

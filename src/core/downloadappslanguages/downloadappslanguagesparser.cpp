@@ -19,6 +19,13 @@
 */
 
 #include "downloadappslanguagesparser.h"
+#include "ruqola_debug.h"
+
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QFileInfo>
+#include <QJsonDocument>
+#include <QJsonArray>
 
 DownloadAppsLanguagesParser::DownloadAppsLanguagesParser()
 {
@@ -27,5 +34,31 @@ DownloadAppsLanguagesParser::DownloadAppsLanguagesParser()
 
 void DownloadAppsLanguagesParser::setFilename(const QString &filename)
 {
+    mFileName = filename;
+}
 
+void DownloadAppsLanguagesParser::parse()
+{
+    if (mFileName.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "Filename is empty. Parsing impossible";
+        return;
+    }
+    if (QFileInfo::exists(mFileName)) {
+        qCWarning(RUQOLA_LOG) << "Filename doesn't exist: " << mFileName;
+        return;
+    }
+    QFile file(mFileName);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCWarning(RUQOLA_LOG) << "Impossible to read: " << mFileName;
+        return;
+    }
+    const QByteArray content = file.readAll();
+    file.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    const QJsonArray array = obj.value(QLatin1String("apps")).toArray();
+    for (int i = 0, total = array.size(); i < total; ++i) {
+        //TODO
+    }
+    //TODO parsing
 }

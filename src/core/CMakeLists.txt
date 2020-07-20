@@ -103,6 +103,7 @@ set(Ruqola_apps_language_SRCS
     downloadappslanguages/downloadappslanguagesjob.cpp
     downloadappslanguages/downloadappslanguagesparser.cpp
     downloadappslanguages/downloadappslanguagesmanager.cpp
+    downloadappslanguages/downloadappslanguagesinfo.cpp
     )
 
 set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
