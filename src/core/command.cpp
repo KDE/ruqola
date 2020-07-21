@@ -107,7 +107,7 @@ void Command::convertDescriptionI18n()
     } else if (mDescription == QLatin1String("Unarchive")) {
         mTranslatedDescription = i18n("Unarchive");
     } else {
-        qCDebug(RUQOLA_LOG) << "Unknown description" << mDescription;
+        mTranslatedDescription = mDescription;
     }
 }
 
