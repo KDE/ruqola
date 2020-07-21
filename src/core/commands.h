@@ -25,7 +25,7 @@
 #include "libruqola_private_export.h"
 #include <QVector>
 #include <QDebug>
-
+class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT Commands
 {
 public:
@@ -51,12 +51,16 @@ public:
     Q_REQUIRED_RESULT int commandsCount() const;
     void setCommandsCount(int commandsCount);
 
+    DownloadAppsLanguagesManager *downloadManager() const;
+    void setDownloadManager(DownloadAppsLanguagesManager *downloadManager);
+
 private:
     void parseListCommands(const QJsonObject &commandsObj);
     QVector<Command> mCommands;
     int mCommandsCount = 0;
     int mOffset = 0;
     int mTotal = 0;
+    DownloadAppsLanguagesManager *mDownloadManager = nullptr;
 };
 
 Q_DECLARE_METATYPE(Commands)

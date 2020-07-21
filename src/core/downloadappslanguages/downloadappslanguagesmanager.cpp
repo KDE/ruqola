@@ -114,11 +114,20 @@ bool DownloadAppsLanguagesManager::fileParsed() const
     return mFileParsed;
 }
 
-void DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &appId)
+QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id)
 {
     if (!mFileParsed) {
         qCWarning(RUQOLA_LOG) << "language file is not parsed yet!";
-        return;
+        return {};
     }
+    DownloadAppsLanguagesInfo info = mLanguageMap.value(language);
+    if (info.isEmpty()) {
+        info = mLanguageMap.value(QStringLiteral("en")); //Fallback to en
+        if (info.isEmpty()) {
+            return {};
+        }
+        //info.languageMap()
+    }
+    return {};
     //TODO
 }

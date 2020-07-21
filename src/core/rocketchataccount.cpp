@@ -2043,6 +2043,7 @@ void RocketChatAccount::getListCommands()
 void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
 {
     Commands commands;
+    commands.setDownloadManager(mDownloadAppsLanguagesManager);
     commands.parseCommands(obj);
     if (!mCommandsModel->commands().isEmpty()) { //Don't show command listview if we already have command (for example when we logout/login)
         QSignalBlocker blockSignal(mCommandsModel);

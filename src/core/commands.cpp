@@ -20,6 +20,7 @@
 
 #include "ruqola_debug.h"
 #include "commands.h"
+#include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -65,11 +66,27 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
             const QJsonObject commandsObj = current.toObject();
             Command m;
             m.parseCommand(commandsObj);
+            if (mDownloadManager) {
+                qDebug() << " m " << m;
+                //mDownloadManager->translatedString(m.description());
+                //        m.params();
+                //TODO
+            }
             mCommands.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current;
         }
     }
+}
+
+DownloadAppsLanguagesManager *Commands::downloadManager() const
+{
+    return mDownloadManager;
+}
+
+void Commands::setDownloadManager(DownloadAppsLanguagesManager *downloadManager)
+{
+    mDownloadManager = downloadManager;
 }
 
 int Commands::commandsCount() const

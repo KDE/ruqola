@@ -59,8 +59,9 @@ void DownloadAppsLanguagesParser::parse()
     for (int i = 0, total = array.size(); i < total; ++i) {
         DownloadAppsLanguagesInfo info;
         const QJsonObject languageJsonObject = array.at(i).toObject();
-        if (info.parse(languageJsonObject)) {
-            mMap.insert(languageJsonObject[QStringLiteral("id")].toString(), info);
+        const QString id = languageJsonObject[QStringLiteral("id")].toString();
+        if (info.parse(languageJsonObject, id)) {
+            mMap.insert(id, info);
         }
     }
 }

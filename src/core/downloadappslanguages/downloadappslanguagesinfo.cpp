@@ -28,7 +28,7 @@ DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
 {
 }
 
-bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language)
+bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString &id)
 {
     const QJsonObject languagesObj = language[QStringLiteral("languages")].toObject();
     if (languagesObj.isEmpty()) {
@@ -36,12 +36,25 @@ bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language)
     }
     const QStringList keys = languagesObj.keys();
     for (const QString &lang : keys) {
-        mLanguageMap.insert(lang, languagesObj.value(lang).toObject().toVariantMap());
+        const QVariantMap map = languagesObj.value(lang).toObject().toVariantMap();
+        QMap<QString, QVariant>::const_iterator i = map.constBegin();
+        QMap<QString, QString> translatedMap;
+        while (i != map.constEnd()) {
+            translatedMap.insert(QStringLiteral("apps-%1-%2").arg(id, i.key()), i.value().toString());
+            ++i;
+        }
+        mLanguageMap.insert(lang, translatedMap);
     }
+    qDebug() <<  " mLanguageMap "<< mLanguageMap;
     return true;
 }
 
-QMap<QString, QVariantMap> DownloadAppsLanguagesInfo::languageMap() const
+QMap<QString, QMap<QString, QString> > DownloadAppsLanguagesInfo::languageMap() const
 {
     return mLanguageMap;
+}
+
+bool DownloadAppsLanguagesInfo::isEmpty() const
+{
+    return mLanguageMap.isEmpty();
 }

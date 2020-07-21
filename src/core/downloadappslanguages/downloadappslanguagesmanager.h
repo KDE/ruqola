@@ -33,7 +33,7 @@ public:
     explicit DownloadAppsLanguagesManager(QObject *parent = nullptr);
     ~DownloadAppsLanguagesManager();
 
-    void translatedString(const QString &language, const QString &appId);
+    QString translatedString(const QString &language, const QString &id);
     void parse(const QString &serverUrl);
 
     Q_REQUIRED_RESULT bool fileParsed() const;
@@ -54,6 +54,7 @@ private:
     void parseLanguageFile();
     QString mAccountName;
     QString mServerVersion;
+    //<id, DownloadAppsLanguagesInfo>
     QMap<QString, DownloadAppsLanguagesInfo> mLanguageMap;
     bool mFileParsed = false;
 };
