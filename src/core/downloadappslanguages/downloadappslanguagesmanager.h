@@ -41,13 +41,18 @@ public:
     Q_REQUIRED_RESULT QString accountName() const;
     void setAccountName(const QString &accountName);
 
+    Q_REQUIRED_RESULT QString serverVersion() const;
+    void setServerVersion(const QString &serverVersion);
+
 Q_SIGNALS:
     void fileLanguagesParsed();
 
 private:
     Q_REQUIRED_RESULT QString storedFileName() const;
     void slotFileDownloaded(const QByteArray &data);
+    void parseLanguageFile();
     QString mAccountName;
+    QString mServerVersion;
     QMap<QString, DownloadAppsLanguagesInfo> mLanguageMap;
     bool mFileParsed = false;
 };

@@ -40,13 +40,21 @@ DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager()
 
 QString DownloadAppsLanguagesManager::storedFileName() const
 {
-    return ManagerDataPaths::self()->path(ManagerDataPaths::Config, mAccountName) + QStringLiteral("/languages.json");
+    return ManagerDataPaths::self()->path(ManagerDataPaths::Config, mAccountName) + QStringLiteral("/languages-%1.json").arg(mServerVersion);
 }
 
 void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
 {
+    if (mAccountName.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "account name is empty. It's a bug";
+        return;
+    }
+    if (mServerVersion.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "serverVersion is empty. It's a bug";
+        return;
+    }
     if (QFileInfo::exists(storedFileName())) {
-
+        parseLanguageFile();
     } else {
         DownloadAppsLanguagesJob *job = new DownloadAppsLanguagesJob(this);
         job->setServerUrl(serverUrl);
@@ -57,21 +65,34 @@ void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
 
 void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)
 {
-    if (mAccountName.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "account name is empty. It's a bug";
-    }
     QFile f(storedFileName());
     if (f.open(QIODevice::WriteOnly)) {
         QTextStream out(&f);
         out << data;
         f.close();
     }
+    parseLanguageFile();
+}
+
+void DownloadAppsLanguagesManager::parseLanguageFile()
+{
     DownloadAppsLanguagesParser parser;
     parser.setFilename(storedFileName());
     parser.parse();
     mLanguageMap = parser.map();
     qDebug() << "mLanguageMap " << mLanguageMap.count();
     mFileParsed = true;
+    Q_EMIT fileLanguagesParsed();
+}
+
+QString DownloadAppsLanguagesManager::serverVersion() const
+{
+    return mServerVersion;
+}
+
+void DownloadAppsLanguagesManager::setServerVersion(const QString &serverVersion)
+{
+    mServerVersion = serverVersion;
 }
 
 QString DownloadAppsLanguagesManager::accountName() const
@@ -92,6 +113,7 @@ bool DownloadAppsLanguagesManager::fileParsed() const
 void DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &appId)
 {
     if (!mFileParsed) {
+        qCWarning(RUQOLA_LOG) << "language file is not parsed yet!";
         return;
     }
     //TODO
