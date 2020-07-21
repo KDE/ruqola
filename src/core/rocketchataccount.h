@@ -75,6 +75,7 @@ class ListMessagesModel;
 class ListMessagesModelFilterProxyModel;
 class AutotranslateLanguagesModel;
 class CommandsModel;
+class DownloadAppsLanguagesManager;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -536,6 +537,7 @@ private:
 
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
+    DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
     bool mEditingMode = false;
 };
 

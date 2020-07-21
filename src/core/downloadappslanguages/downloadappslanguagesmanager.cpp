@@ -44,9 +44,15 @@ void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
 
 void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)
 {
+    qDebug() << " void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)" <<data;
     //TODO store data.
     //TODO parse data.
     mFileParsed = true;
+}
+
+bool DownloadAppsLanguagesManager::fileParsed() const
+{
+    return mFileParsed;
 }
 
 void DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &appId)

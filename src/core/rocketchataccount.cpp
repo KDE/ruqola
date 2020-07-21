@@ -63,6 +63,7 @@
 #include "model/emoticonmodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
+#include "downloadappslanguages/downloadappslanguagesmanager.h"
 
 #include "ddpapi/ddpclient.h"
 #include "ddpapi/ddpauthenticationmanager.h"
@@ -183,6 +184,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mMessageQueue = new MessageQueue(this, this); //TODO fix mem leak !
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
+
+    mDownloadAppsLanguagesManager = new DownloadAppsLanguagesManager(this);
+
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
@@ -2016,6 +2020,7 @@ void RocketChatAccount::initializeAccount()
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
     //customUsersStatus(); Only for test
+    mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
 
     Q_EMIT accountInitialized();
 }

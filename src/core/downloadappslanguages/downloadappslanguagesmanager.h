@@ -34,6 +34,8 @@ public:
     void translatedString(const QString &language, const QString &appId);
     void parse(const QString &serverUrl);
 
+    Q_REQUIRED_RESULT bool fileParsed() const;
+
 private:
     void slotFileDownloaded(const QByteArray &data);
     bool mFileParsed = false;
