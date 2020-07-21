@@ -120,14 +120,21 @@ QString DownloadAppsLanguagesManager::translatedString(const QString &language, 
         qCWarning(RUQOLA_LOG) << "language file is not parsed yet!";
         return {};
     }
-    DownloadAppsLanguagesInfo info = mLanguageMap.value(language);
-    if (info.isEmpty()) {
-        info = mLanguageMap.value(QStringLiteral("en")); //Fallback to en
-        if (info.isEmpty()) {
-            return {};
+    QMap<QString, DownloadAppsLanguagesInfo>::const_iterator i = mLanguageMap.constBegin();
+    while (i != mLanguageMap.constEnd()) {
+        if (id.contains(i.key())) {
+            const DownloadAppsLanguagesInfo info = i.value();
+            const QMap<QString, QMap<QString, QString> > mapLangId = info.languageMap();
+            QMap<QString, QString> mapId = mapLangId.value(language);
+            if (mapId.isEmpty()) {
+                mapId = mapLangId.value(QStringLiteral("en"));
+                if (mapId.isEmpty()) {
+                    return {};
+                }
+            }
+            return mapId.value(id);
         }
-        //info.languageMap()
+        ++i;
     }
     return {};
-    //TODO
 }

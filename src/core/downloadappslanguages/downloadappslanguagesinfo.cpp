@@ -45,7 +45,7 @@ bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString
         }
         mLanguageMap.insert(lang, translatedMap);
     }
-    qDebug() <<  " mLanguageMap "<< mLanguageMap;
+    //qDebug() <<  " mLanguageMap "<< mLanguageMap;
     return true;
 }
 
