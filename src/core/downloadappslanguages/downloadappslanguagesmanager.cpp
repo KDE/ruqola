@@ -43,12 +43,18 @@ QString DownloadAppsLanguagesManager::storedFileName() const
 
 void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
 {
+    if (mFileParsed) {
+        Q_EMIT fileLanguagesParseSuccess();
+        return;
+    }
     if (mAccountName.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "account name is empty. It's a bug";
+        Q_EMIT fileLanguagesParseFailed(); //Need to load commandlist
         return;
     }
     if (mServerVersion.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "serverVersion is empty. It's a bug";
+        Q_EMIT fileLanguagesParseFailed(); //Need to load commandlist
         return;
     }
     if (QFileInfo::exists(storedFileName())) {
@@ -80,7 +86,7 @@ void DownloadAppsLanguagesManager::parseLanguageFile()
     mLanguageMap = parser.map();
     qDebug() << "mLanguageMap " << mLanguageMap.count();
     mFileParsed = true;
-    Q_EMIT fileLanguagesParsed();
+    Q_EMIT fileLanguagesParseSuccess();
 }
 
 QString DownloadAppsLanguagesManager::serverVersion() const

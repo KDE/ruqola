@@ -45,7 +45,8 @@ public:
     void setServerVersion(const QString &serverVersion);
 
 Q_SIGNALS:
-    void fileLanguagesParsed();
+    void fileLanguagesParseSuccess();
+    void fileLanguagesParseFailed();
 
 private:
     Q_REQUIRED_RESULT QString storedFileName() const;

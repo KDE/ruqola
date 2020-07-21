@@ -486,6 +486,8 @@ private:
     void updateUserModel(const User &user);
 
     void loginStatusChangedSlot();
+    void slotFileLanguagedParsed();
+
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

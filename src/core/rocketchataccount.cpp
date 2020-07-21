@@ -186,6 +186,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mCache = new RocketChatCache(this, this);
 
     mDownloadAppsLanguagesManager = new DownloadAppsLanguagesManager(this);
+    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseSuccess, this, &RocketChatAccount::slotFileLanguagedParsed);
+    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseFailed, this, &RocketChatAccount::slotFileLanguagedParsed);
 
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
@@ -2008,7 +2010,7 @@ void RocketChatAccount::customUsersStatus()
 void RocketChatAccount::initializeAccount()
 {
     listEmojiCustom();
-    getListCommands();
+
     //load when necessary
     usersPresence();
     if (mRuqolaServerConfig->autoTranslateEnabled()) {
@@ -2025,6 +2027,12 @@ void RocketChatAccount::initializeAccount()
     mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
 
     Q_EMIT accountInitialized();
+}
+
+void RocketChatAccount::slotFileLanguagedParsed()
+{
+    // We need mDownloadAppsLanguagesManager result for updating command
+    getListCommands();
 }
 
 void RocketChatAccount::getListCommands()
