@@ -764,7 +764,6 @@ Message Message::fromJSon(const QJsonObject &o)
         o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
     }
 
-
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
     for (int i = 0; i < mentionsArray.count(); ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "downloadappslanguagesmanagertest.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include <QTest>
@@ -27,7 +26,6 @@ QTEST_MAIN(DownloadAppsLanguagesManagerTest)
 DownloadAppsLanguagesManagerTest::DownloadAppsLanguagesManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DownloadAppsLanguagesManagerTest::shouldHaveDefaultValues()

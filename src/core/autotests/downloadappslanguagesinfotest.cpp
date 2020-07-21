@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(DownloadAppsLanguagesInfoTest)
 DownloadAppsLanguagesInfoTest::DownloadAppsLanguagesInfoTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DownloadAppsLanguagesInfoTest::shouldHaveDefaultValues()

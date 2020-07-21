@@ -73,7 +73,8 @@ void DDPAuthenticationManager::login(const QString &user, const QString &passwor
 {
     // TODO: need to support login with email too ("email": "address" instead of "username": "user")
     const QByteArray sha256pw = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-    const QString params = sl(R"(
+    const QString params = sl(
+        R"(
                               [
                               {
                               "user": {

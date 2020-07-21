@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef UNICODEEMOTICONMANAGER_H
 #define UNICODEEMOTICONMANAGER_H
 
@@ -35,7 +34,6 @@ public:
     ~UnicodeEmoticonManager();
 
     static UnicodeEmoticonManager *self();
-
 
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
 

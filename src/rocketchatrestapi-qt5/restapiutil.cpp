@@ -408,7 +408,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.2fa.enable-email");
     case RestApiUtil::RestApiUrlType::Users2FADisableEmail:
         return QStringLiteral("users.2fa.disable-email");
-
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

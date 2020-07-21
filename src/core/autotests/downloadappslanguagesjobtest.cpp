@@ -26,7 +26,6 @@ QTEST_MAIN(DownloadAppsLanguagesJobTest)
 DownloadAppsLanguagesJobTest::DownloadAppsLanguagesJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DownloadAppsLanguagesJobTest::shouldHaveDefaultValues()

@@ -24,5 +24,4 @@ QTEST_MAIN(RESTAuthenticationManagerTest)
 RESTAuthenticationManagerTest::RESTAuthenticationManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }

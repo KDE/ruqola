@@ -30,12 +30,10 @@
 DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager()
 {
-
 }
 
 QString DownloadAppsLanguagesManager::storedFileName() const

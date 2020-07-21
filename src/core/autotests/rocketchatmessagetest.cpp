@@ -146,4 +146,3 @@ void RocketChatMessageTest::deleteFileMessage()
     RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QStringLiteral("fileid"), 43);
     compareFile(r.result, QStringLiteral("deleteFileMessage"));
 }
-

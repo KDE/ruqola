@@ -198,7 +198,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(co
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 
-
 //Verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint64 id)
 {

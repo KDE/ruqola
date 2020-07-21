@@ -24,7 +24,6 @@ QTEST_MAIN(DownloadAppsLanguagesParserTest)
 DownloadAppsLanguagesParserTest::DownloadAppsLanguagesParserTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DownloadAppsLanguagesParserTest::shouldParseFile_data()

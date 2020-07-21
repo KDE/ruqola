@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "restauthenticationmanager.h"
 
 #include "restapirequest.h"
@@ -26,12 +25,10 @@ RESTAuthenticationManager::RESTAuthenticationManager(RocketChatRestApi::RestApiR
     : QObject(parent)
     , mRestApiResquest(restApiRequest)
 {
-
 }
 
 RESTAuthenticationManager::~RESTAuthenticationManager()
 {
-
 }
 
 void RESTAuthenticationManager::setAuthToken(const QString &authToken)
@@ -46,22 +43,18 @@ void RESTAuthenticationManager::login()
 
 void RESTAuthenticationManager::login(const QString &user, const QString &password)
 {
-
 }
 
 void RESTAuthenticationManager::loginLDAP(const QString &user, const QString &password)
 {
-
 }
 
 void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
-
 }
 
 void RESTAuthenticationManager::sendOTP(const QString &otp)
 {
-
 }
 
 void RESTAuthenticationManager::logout()

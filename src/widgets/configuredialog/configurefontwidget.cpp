@@ -46,7 +46,6 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
 
 ConfigureFontWidget::~ConfigureFontWidget()
 {
-
 }
 
 void ConfigureFontWidget::save()

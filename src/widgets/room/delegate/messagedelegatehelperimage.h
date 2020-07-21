@@ -29,7 +29,6 @@
 #include <QPixmap>
 #include <vector>
 
-
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:

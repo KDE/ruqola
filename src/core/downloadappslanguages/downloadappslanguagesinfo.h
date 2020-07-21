@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef DOWNLOADAPPSLANGUAGESINFO_H
 #define DOWNLOADAPPSLANGUAGESINFO_H
 #include "libruqola_private_export.h"

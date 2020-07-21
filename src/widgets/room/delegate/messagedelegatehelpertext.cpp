@@ -238,10 +238,10 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
             if (charPos == -1) {
                 return false;
             }
-            if (mCurrentTextCursor.hasSelection() &&
-                    mCurrentTextCursor.selectionStart() <= charPos &&
-                    charPos <= mCurrentTextCursor.selectionEnd() &&
-                    mCurrentDocument->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+            if (mCurrentTextCursor.hasSelection()
+                && mCurrentTextCursor.selectionStart() <= charPos
+                && charPos <= mCurrentTextCursor.selectionEnd()
+                && mCurrentDocument->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
                 mMightStartDrag = true;
                 return true;
             }

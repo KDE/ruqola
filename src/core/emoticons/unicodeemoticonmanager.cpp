@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "unicodeemoticonmanager.h"
 #include "unicodeemoticonparser.h"
 #include "ruqola_debug.h"
@@ -35,7 +34,6 @@ UnicodeEmoticonManager::UnicodeEmoticonManager(QObject *parent)
 
 UnicodeEmoticonManager::~UnicodeEmoticonManager()
 {
-
 }
 
 UnicodeEmoticonManager *UnicodeEmoticonManager::self()
@@ -111,4 +109,3 @@ UnicodeEmoticon UnicodeEmoticonManager::unicodeEmoticonForEmoji(const QString &e
     }
     return {};
 }
-

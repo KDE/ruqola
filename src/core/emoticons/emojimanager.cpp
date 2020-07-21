@@ -34,7 +34,6 @@ EmojiManager::EmojiManager(QObject *parent)
 {
 }
 
-
 EmojiManager::~EmojiManager()
 {
 }

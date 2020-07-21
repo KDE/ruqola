@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "downloadappslanguagesjob.h"
 #include "ruqola_debug.h"
 #include "utils.h"
@@ -38,10 +37,9 @@ DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
 
 DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob()
 {
-
 }
 
-void DownloadAppsLanguagesJob::slotFileDownloaded(QNetworkReply* reply)
+void DownloadAppsLanguagesJob::slotFileDownloaded(QNetworkReply *reply)
 {
     const QByteArray data = reply->readAll();
     reply->deleteLater();

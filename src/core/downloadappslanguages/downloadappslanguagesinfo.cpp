@@ -26,7 +26,6 @@
 
 DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
 {
-
 }
 
 bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language)
@@ -46,4 +45,3 @@ QMap<QString, QVariantMap> DownloadAppsLanguagesInfo::languageMap() const
 {
     return mLanguageMap;
 }
-

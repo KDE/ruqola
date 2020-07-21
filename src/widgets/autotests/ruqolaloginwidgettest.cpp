@@ -84,7 +84,6 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 
-
     QPushButton *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());

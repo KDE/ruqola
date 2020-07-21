@@ -231,7 +231,6 @@ enum class RestApiUrlType {
     //Since 2.4.0
     RoomsAutocompleteChannelAndPrivate,
 
-
     //two factor authentication
     Users2FASendEmailCode,
     Users2FAEnableEmail,
