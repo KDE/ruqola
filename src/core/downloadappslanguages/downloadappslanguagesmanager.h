@@ -36,6 +36,9 @@ public:
 
     Q_REQUIRED_RESULT bool fileParsed() const;
 
+Q_SIGNALS:
+    void fileLanguagesParsed();
+
 private:
     void slotFileDownloaded(const QByteArray &data);
     bool mFileParsed = false;
