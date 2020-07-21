@@ -82,11 +82,13 @@ void DownloadAppsLanguagesManager::parseLanguageFile()
 {
     DownloadAppsLanguagesParser parser;
     parser.setFilename(storedFileName());
-    parser.parse();
-    mLanguageMap = parser.map();
-    qDebug() << "mLanguageMap " << mLanguageMap.count();
-    mFileParsed = true;
-    Q_EMIT fileLanguagesParseSuccess();
+    if (parser.parse()) {
+        mLanguageMap = parser.map();
+        mFileParsed = true;
+        Q_EMIT fileLanguagesParseSuccess();
+    } else {
+        Q_EMIT fileLanguagesParseFailed();
+    }
 }
 
 QString DownloadAppsLanguagesManager::serverVersion() const

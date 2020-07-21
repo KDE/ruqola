@@ -36,20 +36,20 @@ void DownloadAppsLanguagesParser::setFilename(const QString &filename)
     mFileName = filename;
 }
 
-void DownloadAppsLanguagesParser::parse()
+bool DownloadAppsLanguagesParser::parse()
 {
     if (mFileName.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "Filename is empty. Parsing impossible";
-        return;
+        return false;
     }
     if (!QFileInfo::exists(mFileName)) {
         qCWarning(RUQOLA_LOG) << "Filename doesn't exist: " << mFileName;
-        return;
+        return false;
     }
     QFile file(mFileName);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qCWarning(RUQOLA_LOG) << "Impossible to read: " << mFileName;
-        return;
+        return false;
     }
     const QByteArray content = file.readAll();
     file.close();
@@ -64,6 +64,7 @@ void DownloadAppsLanguagesParser::parse()
             mMap.insert(id, info);
         }
     }
+    return true;
 }
 
 QMap<QString, DownloadAppsLanguagesInfo> DownloadAppsLanguagesParser::map() const

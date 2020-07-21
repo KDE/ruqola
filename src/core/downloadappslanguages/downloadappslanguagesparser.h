@@ -30,7 +30,7 @@ class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesParser
 public:
     DownloadAppsLanguagesParser();
     void setFilename(const QString &filename);
-    void parse();
+    Q_REQUIRED_RESULT bool parse();
 
     Q_REQUIRED_RESULT QMap<QString, DownloadAppsLanguagesInfo> map() const;
 
