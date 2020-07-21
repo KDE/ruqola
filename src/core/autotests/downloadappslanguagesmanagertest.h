@@ -18,38 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOWNLOADAPPSLANGUAGESMANAGER_H
-#define DOWNLOADAPPSLANGUAGESMANAGER_H
+#ifndef DOWNLOADAPPSLANGUAGESMANAGERTEST_H
+#define DOWNLOADAPPSLANGUAGESMANAGERTEST_H
 
 #include <QObject>
-#include "downloadappslanguagesinfo.h"
-#include "libruqolacore_export.h"
-#include <QMap>
 
-class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesManager : public QObject
+class DownloadAppsLanguagesManagerTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit DownloadAppsLanguagesManager(QObject *parent = nullptr);
-    ~DownloadAppsLanguagesManager();
-
-    void translatedString(const QString &language, const QString &appId);
-    void parse(const QString &serverUrl);
-
-    Q_REQUIRED_RESULT bool fileParsed() const;
-
-    Q_REQUIRED_RESULT QString accountName() const;
-    void setAccountName(const QString &accountName);
-
-Q_SIGNALS:
-    void fileLanguagesParsed();
-
-private:
-    Q_REQUIRED_RESULT QString storedFileName() const;
-    void slotFileDownloaded(const QByteArray &data);
-    QString mAccountName;
-    QMap<QString, DownloadAppsLanguagesInfo> mLanguageMap;
-    bool mFileParsed = false;
+    explicit DownloadAppsLanguagesManagerTest(QObject *parent = nullptr);
+    ~DownloadAppsLanguagesManagerTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // DOWNLOADAPPSLANGUAGESMANAGER_H
+#endif // DOWNLOADAPPSLANGUAGESMANAGERTEST_H

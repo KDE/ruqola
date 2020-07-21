@@ -186,6 +186,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mCache = new RocketChatCache(this, this);
 
     mDownloadAppsLanguagesManager = new DownloadAppsLanguagesManager(this);
+    mDownloadAppsLanguagesManager->setAccountName(mSettings->accountName());
 
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);

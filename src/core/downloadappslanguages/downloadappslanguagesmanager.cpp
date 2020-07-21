@@ -21,6 +21,11 @@
 #include "downloadappslanguagesmanager.h"
 #include "downloadappslanguagesjob.h"
 #include "downloadappslanguagesparser.h"
+#include "managerdatapaths.h"
+#include "ruqola_debug.h"
+#include <QFileInfo>
+#include <QStandardPaths>
+#include <QTextStream>
 
 DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(QObject *parent)
     : QObject(parent)
@@ -33,21 +38,50 @@ DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager()
 
 }
 
+QString DownloadAppsLanguagesManager::storedFileName() const
+{
+    return ManagerDataPaths::self()->path(ManagerDataPaths::Config, mAccountName) + QStringLiteral("/languages.json");
+}
+
 void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
 {
-    //TODO verify if we need to download file.
-    DownloadAppsLanguagesJob *job = new DownloadAppsLanguagesJob(this);
-    job->setServerUrl(serverUrl);
-    connect(job, &DownloadAppsLanguagesJob::fileDownloaded, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
-    job->start();
+    if (QFileInfo::exists(storedFileName())) {
+
+    } else {
+        DownloadAppsLanguagesJob *job = new DownloadAppsLanguagesJob(this);
+        job->setServerUrl(serverUrl);
+        connect(job, &DownloadAppsLanguagesJob::fileDownloaded, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
+        job->start();
+    }
 }
 
 void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)
 {
-    //qDebug() << " void DownloadAppsLanguagesManager::slotFileDownloaded(const QByteArray &data)" <<data;
-    //TODO store data.
-    //TODO parse data.
+    if (mAccountName.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "account name is empty. It's a bug";
+    }
+    QFile f(storedFileName());
+    if (f.open(QIODevice::WriteOnly)) {
+        QTextStream out(&f);
+        out << data;
+        f.close();
+    }
+    DownloadAppsLanguagesParser parser;
+    parser.setFilename(storedFileName());
+    parser.parse();
+    mLanguageMap = parser.map();
+    qDebug() << "mLanguageMap " << mLanguageMap.count();
     mFileParsed = true;
+}
+
+QString DownloadAppsLanguagesManager::accountName() const
+{
+    return mAccountName;
+}
+
+void DownloadAppsLanguagesManager::setAccountName(const QString &accountName)
+{
+    mAccountName = accountName;
 }
 
 bool DownloadAppsLanguagesManager::fileParsed() const
