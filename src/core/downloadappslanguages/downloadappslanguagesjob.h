@@ -22,6 +22,7 @@
 #define DOWNLOADAPPSLANGUAGESJOB_H
 
 #include <QObject>
+#include <QSslError>
 #include "libruqolacore_export.h"
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -42,6 +43,7 @@ Q_SIGNALS:
     void fileDownloaded(const QByteArray &data);
 
 private:
+    void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     void slotFileDownloaded(QNetworkReply *reply);
     QString mServerUrl;
     QNetworkAccessManager *const mNetworkAccessManager;

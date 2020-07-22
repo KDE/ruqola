@@ -33,10 +33,16 @@ DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
     , mNetworkAccessManager(new QNetworkAccessManager(this))
 {
     connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &DownloadAppsLanguagesJob::slotFileDownloaded);
+    connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &DownloadAppsLanguagesJob::slotSslErrors);
 }
 
 DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob()
 {
+}
+
+void DownloadAppsLanguagesJob::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
+{
+    reply->ignoreSslErrors(error);
 }
 
 void DownloadAppsLanguagesJob::slotFileDownloaded(QNetworkReply *reply)
