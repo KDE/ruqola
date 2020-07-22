@@ -33,4 +33,5 @@ void DownloadAppsLanguagesManagerTest::shouldHaveDefaultValues()
     DownloadAppsLanguagesManager m;
     QVERIFY(!m.fileParsed());
     QVERIFY(m.accountName().isEmpty());
+    QVERIFY(m.serverVersion().isEmpty());
 }

@@ -66,12 +66,14 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
             const QJsonObject commandsObj = current.toObject();
             Command m;
             m.parseCommand(commandsObj);
+            //TODO customize it
+            const QString lang = QStringLiteral("en");
             if (mDownloadManager) {
-                const QString description = mDownloadManager->translatedString(QStringLiteral("en"), m.description());
+                const QString description = mDownloadManager->translatedString(lang, m.description());
                 if (!description.isEmpty()) {
                     m.setDescription(description);
                 }
-                const QString parameters = mDownloadManager->translatedString(QStringLiteral("en"), m.params());
+                const QString parameters = mDownloadManager->translatedString(lang, m.params());
                 if (!parameters.isEmpty()) {
                     m.setParams(parameters);
                 }
