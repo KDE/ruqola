@@ -52,7 +52,7 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     col.setAlpha(128);
     painter->setPen(col);
 
-    const QString parameter = index.data(CommandsModel::Parameters).toString();
+    const QString parameter = index.data(CommandsModel::TranslatedParams).toString();
     const int xText = option.rect.x() + 3 * margin + commandWidth;
     painter->drawText(xText, defaultCharHeight, parameter);
 

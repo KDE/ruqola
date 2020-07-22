@@ -36,6 +36,7 @@ public:
         Description,
         Parameters,
         TranslatedDescription,
+        TranslatedParams,
     };
     Q_ENUM(CommandsRoles)
 

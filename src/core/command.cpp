@@ -35,6 +35,7 @@ QString Command::params() const
 void Command::setParams(const QString &params)
 {
     mParams = params;
+    convertParamsI18n();
 }
 
 QString Command::commandName() const
@@ -56,6 +57,29 @@ void Command::setDescription(const QString &description)
 {
     mDescription = description;
     convertDescriptionI18n();
+}
+
+void Command::convertParamsI18n()
+{
+    if (mParams.isEmpty()) {
+        return;
+    }
+    if (mParams == QLatin1String("Slash_Status_Params")) {
+        mTranslatedParams = i18n("Status message");
+    } else if (mParams == QLatin1String("Slash_Topic_Params")) {
+        mTranslatedParams = i18n("Topic message");
+    } else if (mParams == QLatin1String("your_message")) {
+        mTranslatedParams = i18n("your message");
+    } else if (mParams == QLatin1String("your_message_optional")) {
+        mTranslatedParams = i18n("your message (optional)");
+    } else {
+        mTranslatedParams = mParams;
+    }
+}
+
+QString Command::translatedParams() const
+{
+    return mTranslatedParams;
 }
 
 void Command::convertDescriptionI18n()
@@ -128,13 +152,12 @@ void Command::parseCommand(const QJsonObject &obj)
     //Add "/" for completion.
     mCommandName = QLatin1Char('/') + obj.value(QStringLiteral("command")).toString();
     setDescription(obj.value(QStringLiteral("description")).toString());
-    mParams = obj.value(QStringLiteral("params")).toString();
+    setParams(obj.value(QStringLiteral("params")).toString());
 
     const QJsonArray permissionArray = obj.value(QStringLiteral("permission")).toArray();
     for (int i = 0, total = permissionArray.size(); i < total; ++i) {
         mPermissions.append(permissionArray.at(i).toString());
     }
-    //qDebug() << " *thios " << *this;
 }
 
 bool Command::operator ==(const Command &other) const
