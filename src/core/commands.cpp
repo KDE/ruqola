@@ -61,13 +61,13 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
 {
     const QJsonArray commandsArray = commandsObj[QStringLiteral("commands")].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
+    const QString lang = QLocale().name();
     for (const QJsonValue &current : commandsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject commandsObj = current.toObject();
             Command m;
             m.parseCommand(commandsObj);
             //TODO customize it
-            const QString lang = QStringLiteral("en");
             if (mDownloadManager) {
                 const QString description = mDownloadManager->translatedString(lang, m.description());
                 if (!description.isEmpty()) {
@@ -77,7 +77,6 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
                 if (!parameters.isEmpty()) {
                     m.setParams(parameters);
                 }
-                //qDebug() << "m******" << m;
             }
             mCommands.append(m);
         } else {
