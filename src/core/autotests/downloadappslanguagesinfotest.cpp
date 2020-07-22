@@ -31,4 +31,5 @@ void DownloadAppsLanguagesInfoTest::shouldHaveDefaultValues()
 {
     DownloadAppsLanguagesInfo info;
     QVERIFY(info.languageMap().isEmpty());
+    QVERIFY(info.isEmpty());
 }
