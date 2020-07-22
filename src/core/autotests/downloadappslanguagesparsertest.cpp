@@ -29,16 +29,18 @@ DownloadAppsLanguagesParserTest::DownloadAppsLanguagesParserTest(QObject *parent
 void DownloadAppsLanguagesParserTest::shouldParseFile_data()
 {
     QTest::addColumn<QString>("filename");
-    QTest::addRow("empty") << QStringLiteral("empty");
-    QTest::addRow("languages") << QStringLiteral("languages");
+    QTest::addColumn<int>("identifier");
+    QTest::addRow("empty") << QStringLiteral("empty") << 0;
+    QTest::addRow("languages") << QStringLiteral("languages") << 23;
 }
 
 void DownloadAppsLanguagesParserTest::shouldParseFile()
 {
     QFETCH(QString, filename);
+    QFETCH(int, identifier);
     DownloadAppsLanguagesParser parser;
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/downloadappslanguages/") + filename;
     parser.setFilename(originalJsonFile);
     QVERIFY(parser.parse());
-    //TODO compare value
+    QCOMPARE(parser.map().count(), identifier);
 }
