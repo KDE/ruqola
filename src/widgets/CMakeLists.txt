@@ -15,6 +15,11 @@ set(Ruqola_widgets_SRCS
     ruqolamainwidget.cpp
     )
 
+set(Ruqola_widget_register_user_SRCS
+    registeruser/registeruserdialog.cpp
+    registeruser/registeruserwidget.cpp
+    )
+
 set(Ruqola_widgets_dialog_SRCS
     dialogs/serverinfowidget.cpp
     dialogs/serverinfodialog.cpp
@@ -159,6 +164,7 @@ ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selecti
 qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
 
 add_library(libruqolawidgets
+    ${Ruqola_widget_register_user_SRCS}
     ${Ruqola_textplugin_SRCS}
     ${ruqola_userfeedback_SRCS}
     ${Ruqola_common_SRCS}
@@ -216,6 +222,7 @@ if (BUILD_TESTING)
     add_subdirectory(configuredialog/autotests)
     add_subdirectory(common/autotests)
     add_subdirectory(threadwidget/autotests)
+    add_subdirectory(registeruser/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
