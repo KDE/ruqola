@@ -31,6 +31,7 @@ class KPasswordLineEdit;
 class QLabel;
 class KBusyIndicatorWidget;
 class AuthenticationComboBox;
+class PasswordLineEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
@@ -46,11 +47,12 @@ private:
     void changeWidgetStatus(bool enabled);
     void slotLogin();
     void slotSendNewEmailCode();
+    void slotResetPasswordRequested(const QString &email);
 
     QLabel *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;
     QLineEdit *mUserName = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
+    PasswordLineEditWidget *mPasswordLineEditWidget = nullptr;
     QPushButton *mLoginButton = nullptr;
     KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
     QLabel *mFailedError = nullptr;

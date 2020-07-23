@@ -134,6 +134,7 @@ set(Ruqola_misc_widget_SRCS
     misc/clickableuserwidget.cpp
     misc/recentusedemoticonview.cpp
     misc/lineeditcatchreturnkey.cpp
+    misc/passwordlineeditwidget.cpp
     )
 
 set(Ruqola_common_SRCS

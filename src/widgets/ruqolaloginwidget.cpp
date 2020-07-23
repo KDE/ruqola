@@ -22,6 +22,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/authenticationcombobox.h"
+#include "misc/passwordlineeditwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -69,10 +70,11 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mAuthenticationAccountWidget->setVisible(false);
 
     // Password
-    mPasswordLineEdit = new KPasswordLineEdit(this);
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    connect(mPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
-    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+    mPasswordLineEditWidget = new PasswordLineEditWidget(this);
+    mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEditWidget"));
+    connect(mPasswordLineEditWidget->passwordLineEdit()->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
+    mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
+    connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
 
     mLoginButton = new QPushButton(i18n("Login"), this);
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
@@ -143,7 +145,7 @@ void RuqolaLoginWidget::initialize()
     mAccountName->setText(rocketChatAccount->accountName());
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
-    mPasswordLineEdit->setPassword(rocketChatAccount->password());
+    mPasswordLineEditWidget->passwordLineEdit()->setPassword(rocketChatAccount->password());
     mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
 }
 
@@ -153,7 +155,7 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->setAccountName(mAccountName->text());
     rocketChatAccount->setServerUrl(mServerName->text());
     rocketChatAccount->setUserName(mUserName->text());
-    rocketChatAccount->setPassword(mPasswordLineEdit->password());
+    rocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
     if (!mAuthenticationWidget->isHidden()) {
         rocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text());
     } else {
@@ -166,7 +168,7 @@ void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
 {
     mServerName->setEnabled(enabled);
     mUserName->setEnabled(enabled);
-    mPasswordLineEdit->setEnabled(enabled);
+    mPasswordLineEditWidget->setEnabled(enabled);
     mLoginButton->setEnabled(enabled);
 }
 
@@ -227,4 +229,10 @@ void RuqolaLoginWidget::showError(const QString &text)
 {
     mFailedError->setVisible(true);
     mFailedError->setText(text);
+}
+
+void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
+{
+    auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
+    rocketChatAccount->requestNewPassword(email);
 }

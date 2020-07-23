@@ -20,6 +20,7 @@
 
 #include "ruqolaloginwidgettest.h"
 #include "ruqolaloginwidget.h"
+#include "misc/passwordlineeditwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -53,8 +54,8 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
 
-    auto *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
-    QVERIFY(mPasswordLineEdit);
+    auto *mPasswordLineEditWidget = w.findChild<PasswordLineEditWidget *>(QStringLiteral("mPasswordLineEditWidget"));
+    QVERIFY(mPasswordLineEditWidget);
 
     auto *mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);
