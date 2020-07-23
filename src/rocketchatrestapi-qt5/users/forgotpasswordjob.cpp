@@ -37,7 +37,7 @@ ForgotPasswordJob::~ForgotPasswordJob()
 bool ForgotPasswordJob::canStart() const
 {
     if (mEmail.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Avatar email is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Email is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
