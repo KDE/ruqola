@@ -190,6 +190,7 @@ private:
             case DDPAuthenticationManager::LoginOtpRequired:
                 return i18n("A one-time password is required to complete the login procedure.");
             case DDPAuthenticationManager::LoginFailedInvalidOtp:
+                return i18n("Login failed: Invalid OTP code.");
             case DDPAuthenticationManager::LogoutOngoing:
             case DDPAuthenticationManager::LogoutCleanUpOngoing:
             case DDPAuthenticationManager::LoggedOutAndCleanedUp:

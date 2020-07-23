@@ -175,6 +175,7 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
         changeWidgetStatus(false);
         mAuthenticationWidget->setVisible(false);
         break;
+    case DDPAuthenticationManager::LoginStatus::LoggedOut:
     case DDPAuthenticationManager::LoginStatus::LoggedIn:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
@@ -186,15 +187,13 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
         showError(i18n("Login Failed: invalid username or password"));
         mAuthenticationWidget->setVisible(false);
         break;
+    case DDPAuthenticationManager::LoginFailedInvalidOtp:
+        showError(i18n("Login failed: Invalid OTP code."));
+        Q_FALLTHROUGH();
     case DDPAuthenticationManager::LoginStatus::LoginOtpRequired:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         mAuthenticationWidget->setVisible(true);
-        break;
-    case DDPAuthenticationManager::LoginStatus::LoggedOut:
-        mBusyIndicatorWidget->hide();
-        changeWidgetStatus(true);
-        mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
@@ -209,7 +208,6 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
         mAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginOtpAuthOngoing:
-    case DDPAuthenticationManager::LoginFailedInvalidOtp:
     case DDPAuthenticationManager::LogoutOngoing:
     case DDPAuthenticationManager::LogoutCleanUpOngoing:
     case DDPAuthenticationManager::LoggedOutAndCleanedUp:
