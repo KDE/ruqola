@@ -63,9 +63,16 @@ void ForgotPasswordJob::slotForgotPassword()
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        //qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
-        addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + data);
-        Q_EMIT forgotPasswordDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT forgotPasswordDone();
+        } else {
+            emitFailedMessage(replyObject, reply);
+            addLoggerWarning(QByteArrayLiteral("ForgotPasswordJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
         reply->deleteLater();
     }
     deleteLater();
@@ -85,6 +92,7 @@ QNetworkRequest ForgotPasswordJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ForgotPassword);
     QNetworkRequest request(url);
+    addRequestAttribute(request);
     return request;
 }
 
