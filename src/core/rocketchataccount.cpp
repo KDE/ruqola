@@ -2101,3 +2101,8 @@ void RocketChatAccount::sendUserEmailCode()
 {
     restApi()->sendUserEmailCode(userName());
 }
+
+void RocketChatAccount::requestNewPassword(const QString &email)
+{
+    restApi()->forgotPassword(email);
+}

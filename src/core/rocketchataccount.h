@@ -411,6 +411,7 @@ public:
     void markMessageAsUnReadFrom(const QString &messageId);
     void markRoomAsUnRead(const QString &roomId);
     void sendUserEmailCode();
+    void requestNewPassword(const QString &email);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
