@@ -33,7 +33,7 @@ public:
     explicit DownloadAppsLanguagesManager(QObject *parent = nullptr);
     ~DownloadAppsLanguagesManager();
 
-    QString translatedString(const QString &language, const QString &id);
+    Q_REQUIRED_RESULT QString translatedString(const QString &language, const QString &id);
     void parse(const QString &serverUrl);
 
     Q_REQUIRED_RESULT bool fileParsed() const;
