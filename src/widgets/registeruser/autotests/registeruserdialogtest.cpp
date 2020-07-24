@@ -31,7 +31,6 @@ QTEST_MAIN(RegisterUserDialogTest)
 RegisterUserDialogTest::RegisterUserDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RegisterUserDialogTest::shouldHaveDefaultValues()

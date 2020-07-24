@@ -28,7 +28,6 @@ QTEST_MAIN(PasswordLineEditWidgetTest)
 PasswordLineEditWidgetTest::PasswordLineEditWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PasswordLineEditWidgetTest::shouldHaveDefaultValues()

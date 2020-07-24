@@ -489,7 +489,6 @@ private:
     void loginStatusChangedSlot();
     void slotFileLanguagedParsed();
 
-
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;

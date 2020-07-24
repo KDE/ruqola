@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "passwordlineeditwidget.h"
 #include <QHBoxLayout>
 #include <KLocalizedString>
@@ -46,7 +45,6 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
 
 PasswordLineEditWidget::~PasswordLineEditWidget()
 {
-
 }
 
 KPasswordLineEdit *PasswordLineEditWidget::passwordLineEdit() const

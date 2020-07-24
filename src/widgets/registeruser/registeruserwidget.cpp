@@ -24,10 +24,8 @@
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 RegisterUserWidget::~RegisterUserWidget()
 {
-
 }

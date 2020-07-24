@@ -25,7 +25,6 @@ QTEST_MAIN(RegisterUserWidgetTest)
 RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RegisterUserWidgetTest::shouldHaveDefaultValues()

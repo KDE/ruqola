@@ -159,7 +159,7 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
     }
 
     if ((mLoginStatus != LoginStatus::LoginOtpRequired)
-            && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
+        && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
                                      << "Trying to send OTP but none was requested by the server.";
         return;

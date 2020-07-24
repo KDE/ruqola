@@ -44,5 +44,4 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
 
 RegisterUserDialog::~RegisterUserDialog()
 {
-
 }

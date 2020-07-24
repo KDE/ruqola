@@ -112,8 +112,8 @@ QJsonDocument RegisterUserJob::json() const
 
 bool RegisterUserJob::RegisterUserInfo::isValid() const
 {
-    return !username.trimmed().isEmpty() &&
-            !name.trimmed().isEmpty() &&
-            !email.trimmed().isEmpty() &&
-            !password.trimmed().isEmpty();
+    return !username.trimmed().isEmpty()
+           && !name.trimmed().isEmpty()
+           && !email.trimmed().isEmpty()
+           && !password.trimmed().isEmpty();
 }
