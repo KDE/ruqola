@@ -33,7 +33,12 @@ public:
     explicit RegisterUserWidget(QWidget *parent = nullptr);
     ~RegisterUserWidget();
     Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
+
+Q_SIGNALS:
+    void updateOkButton(bool b);
+
 private:
+    void slotUpdateOkButton();
     QLineEdit *mName = nullptr;
     QLineEdit *mEmail = nullptr;
     KPasswordLineEdit *mPasswordLineEdit = nullptr;

@@ -22,6 +22,7 @@
 #include "registeruserwidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <KLocalizedString>
 
 RegisterUserDialog::RegisterUserDialog(QWidget *parent)
@@ -40,6 +41,9 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &RegisterUserDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &RegisterUserDialog::accept);
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    connect(mRegisterUserWidget, &RegisterUserWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    okButton->setEnabled(false);
 }
 
 RegisterUserDialog::~RegisterUserDialog()

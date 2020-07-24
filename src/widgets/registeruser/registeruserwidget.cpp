@@ -34,25 +34,43 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     mName = new QLineEdit(this);
     mName->setObjectName(QStringLiteral("mName"));
     mainLayout->addRow(i18n("Name:"), mName);
+    connect(mName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateOkButton);
 
     mEmail = new QLineEdit(this);
     mEmail->setObjectName(QStringLiteral("mEmail"));
     mainLayout->addRow(i18n("Email:"), mEmail);
+    connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateOkButton);
 
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateOkButton);
 
     mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
+    connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateOkButton);
 }
 
 RegisterUserWidget::~RegisterUserWidget()
 {
 }
 
+void RegisterUserWidget::slotUpdateOkButton()
+{
+    const bool enableOkButton =
+            !mName->text().trimmed().isEmpty() &&
+            !mEmail->text().trimmed().isEmpty() &&
+            !mPasswordLineEdit->password().isEmpty() &&
+            (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
+    Q_EMIT updateOkButton(enableOkButton);
+}
+
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registerUserInfo() const
 {
-    return {};
+    RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
+    info.email = mEmail->text();
+    info.name = mName->text();
+    info.password = mPasswordLineEdit->password();
+    return info;
 }
