@@ -26,10 +26,18 @@
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RegisterUserJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT RegisterUserJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT RegisterUserInfo {
+        QString username;
+        QString name;
+        QString email;
+        QString password;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
+
     explicit RegisterUserJob(QObject *parent = nullptr);
     ~RegisterUserJob() override;
 
@@ -40,10 +48,10 @@ public:
 
     Q_REQUIRED_RESULT bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString email() const;
-    void setEmail(const QString &email);
-
     Q_REQUIRED_RESULT QJsonDocument json() const;
+
+    Q_REQUIRED_RESULT RegisterUserInfo registerUserInfo() const;
+    void setRegisterUserInfo(const RegisterUserInfo &registerUserInfo);
 
 Q_SIGNALS:
     void forgotPasswordDone();
@@ -51,7 +59,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RegisterUserJob)
     void slotForgotPassword();
-    QString mEmail;
+    RegisterUserInfo mRegisterUserInfo;
 };
 }
 #endif // REGISTERUSERJOB_H

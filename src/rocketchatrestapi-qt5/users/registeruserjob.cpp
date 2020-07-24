@@ -36,8 +36,8 @@ RegisterUserJob::~RegisterUserJob()
 
 bool RegisterUserJob::canStart() const
 {
-    if (mEmail.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Email is empty";
+    if (!mRegisterUserInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mRegisterUserInfo is empty"; //TODO improve it.
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -78,14 +78,14 @@ void RegisterUserJob::slotForgotPassword()
     deleteLater();
 }
 
-QString RegisterUserJob::email() const
+RegisterUserJob::RegisterUserInfo RegisterUserJob::registerUserInfo() const
 {
-    return mEmail;
+    return mRegisterUserInfo;
 }
 
-void RegisterUserJob::setEmail(const QString &email)
+void RegisterUserJob::setRegisterUserInfo(const RegisterUserInfo &registerUserInfo)
 {
-    mEmail = email;
+    mRegisterUserInfo = registerUserInfo;
 }
 
 QNetworkRequest RegisterUserJob::request() const
@@ -104,8 +104,16 @@ bool RegisterUserJob::requireHttpAuthentication() const
 QJsonDocument RegisterUserJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("email")] = mEmail;
+    //jsonObj[QLatin1String("email")] = mEmail;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool RegisterUserJob::RegisterUserInfo::isValid() const
+{
+    return !username.trimmed().isEmpty() &&
+            !name.trimmed().isEmpty() &&
+            !email.trimmed().isEmpty() &&
+            !password.trimmed().isEmpty();
 }
