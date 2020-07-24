@@ -106,7 +106,8 @@ QNetworkRequest DeleteOwnAccountJob::request() const
 QJsonDocument DeleteOwnAccountJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("password")] = mPassword; //TODO convert it to "encrypted in SHA256"
+    const QByteArray sha256pw = QCryptographicHash::hash(mPassword.toUtf8(), QCryptographicHash::Sha256);
+    jsonObj[QLatin1String("password")] = QString::fromLatin1(sha256pw); //TODO verify
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
