@@ -20,6 +20,9 @@
 
 #include "registeruserwidgettest.h"
 #include "registeruser/registeruserwidget.h"
+#include <KPasswordLineEdit>
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(RegisterUserWidgetTest)
 RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
@@ -30,5 +33,19 @@ RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
 void RegisterUserWidgetTest::shouldHaveDefaultValues()
 {
     RegisterUserWidget w;
-    //TODO
+    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+
+    QLineEdit *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    QVERIFY(mName);
+
+    QLineEdit *mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    QVERIFY(mEmail);
+
+    KPasswordLineEdit *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
+
+    KPasswordLineEdit *mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    QVERIFY(mConfirmPasswordLineEdit);
 }

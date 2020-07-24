@@ -36,6 +36,7 @@
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/channelpassworddialog.h"
+#include "registeruser/registeruserdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -214,6 +215,10 @@ void RuqolaMainWindow::setupActions()
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT + Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
+
+    mRegisterNewUser = new QAction(i18n("Register a New User..."), this);
+    connect(mRegisterNewUser, &QAction::triggered, this, &RuqolaMainWindow::slotRegisterNewUser);
+    ac->addAction(QStringLiteral("register_new_user"), mRegisterNewUser);
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()
@@ -322,4 +327,13 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 void RuqolaMainWindow::slotConfigureNotifications()
 {
     KNotifyConfigWidget::configure(this);
+}
+
+void RuqolaMainWindow::slotRegisterNewUser()
+{
+    QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }

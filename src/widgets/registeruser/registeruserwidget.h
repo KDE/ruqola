@@ -23,13 +23,19 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class QLineEdit;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit RegisterUserWidget(QWidget *parent = nullptr);
     ~RegisterUserWidget();
+private:
+    QLineEdit *mName = nullptr;
+    QLineEdit *mEmail = nullptr;
+    KPasswordLineEdit *mPasswordLineEdit = nullptr;
+    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
 };
 
 #endif // REGISTERUSERWIDGET_H
