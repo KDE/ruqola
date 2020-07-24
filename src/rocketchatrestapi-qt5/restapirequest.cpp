@@ -37,6 +37,7 @@
 #include "users/getusernamesuggestionjob.h"
 #include "users/setstatusjob.h"
 #include "users/userspresencejob.h"
+#include "users/deleteownaccountjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -1786,5 +1787,16 @@ void RestApiRequest::sendUserEmailCode(const QString &identifier)
     connect(job, &User2FASendEmailCodeJob::sendEmailCodeDone, this, &RestApiRequest::sendEmailCodeDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FASendEmailCodeJob";
+    }
+}
+
+void RestApiRequest::deleteOwnAccount(const QString &password)
+{
+    auto *job = new DeleteOwnAccountJob(this);
+    job->setPassword(password);
+    initializeRestApiJob(job);
+    connect(job, &DeleteOwnAccountJob::deleteOwnAccountDone, this, &RestApiRequest::deleteOwnAccountDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DeleteOwnAccountJob";
     }
 }
