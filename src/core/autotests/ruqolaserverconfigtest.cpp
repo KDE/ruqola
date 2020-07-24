@@ -64,6 +64,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
 
     QVERIFY(config.videoRecorderEnabled());
     QVERIFY(config.audioRecorderEnabled());
+    QVERIFY(config.allowDeleteOwnAccount());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -117,6 +118,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool threadsEnabled = true;
     bool discussionEnabled = true;
     bool uploadFileEnabled = true;
+    bool allowDeleteOwnAccount = false;
     quint64 uploadFileMax = 222222;
 
     config.setAllowMessagePinning(pinning);
@@ -127,6 +129,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setDiscussionEnabled(discussionEnabled);
     config.setUploadFileEnabled(uploadFileEnabled);
     config.setFileMaxFileSize(uploadFileMax);
+    config.setAllowDeleteOwnAccount(allowDeleteOwnAccount);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -159,6 +162,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.logoUrl(), logoUrl);
     QCOMPARE(config.faviconUrl(), faviconUrl);
+
+    QCOMPARE(config.allowDeleteOwnAccount(), allowDeleteOwnAccount);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

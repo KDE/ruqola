@@ -238,4 +238,6 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Users2FASendEmailCode), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.2fa.sendEmailCode")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Users2FAEnableEmail), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.2fa.enable-email")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Users2FADisableEmail), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.2fa.disable-email")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersDeleteOwnAccount), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.deleteOwnAccount")));
 }

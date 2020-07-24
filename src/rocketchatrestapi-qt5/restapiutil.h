@@ -52,6 +52,7 @@ enum class RestApiUrlType {
     UsersAutocomplete,
     /* ... 3.1 ? */
     UsersRemoveOtherTokens,
+    UsersDeleteOwnAccount,
 
     ChatDelete,
     ChatGetMessage,

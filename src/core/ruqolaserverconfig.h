@@ -138,6 +138,9 @@ public:
     Q_REQUIRED_RESULT QString faviconUrl() const;
     void setFaviconUrl(const QString &faviconUrl);
 
+    Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
+    void setAllowDeleteOwnAccount(bool allowDeleteOwnAccount);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -173,6 +176,7 @@ private:
     bool mBroadCastEnabled = false;
     bool mVideoRecorderEnabled = true;
     bool mAudioRecorderEnabled = true;
+    bool mAllowDeleteOwnAccount = true;
 
     QString mLogoUrl;
     QString mFaviconUrl;

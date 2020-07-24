@@ -196,6 +196,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::allowDeleteOwnAccount() const
+{
+    return mAllowDeleteOwnAccount;
+}
+
+void RuqolaServerConfig::setAllowDeleteOwnAccount(bool allowDeleteOwnAccount)
+{
+    mAllowDeleteOwnAccount = allowDeleteOwnAccount;
+}
+
 bool RuqolaServerConfig::audioRecorderEnabled() const
 {
     return mAudioRecorderEnabled;
@@ -509,6 +519,8 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
         } else if (id == QLatin1String("Assets_favicon")) {
             setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+        } else if (id == QLatin1String("Accounts_AllowDeleteOwnAccount")) {
+            setAllowDeleteOwnAccount(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
