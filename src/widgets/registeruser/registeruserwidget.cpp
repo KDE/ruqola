@@ -20,10 +20,14 @@
 
 #include "registeruserwidget.h"
 #include <KLocalizedString>
+#include <QFormLayout>
 
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QFormLayout *mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 RegisterUserWidget::~RegisterUserWidget()

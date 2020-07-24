@@ -8,3 +8,4 @@ macro(add_ruqola_registeruser_test _source)
 endmacro()
 
 add_ruqola_registeruser_test(registeruserdialogtest.cpp)
+add_ruqola_registeruser_test(registeruserwidgettest.cpp)
