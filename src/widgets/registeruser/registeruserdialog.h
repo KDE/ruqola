@@ -22,6 +22,7 @@
 #define REGISTERUSERDIALOG_H
 
 #include <QDialog>
+#include "users/registeruserjob.h"
 #include "libruqolawidgets_private_export.h"
 class RegisterUserWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserDialog : public QDialog
@@ -30,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserDialog : public QDialog
 public:
     explicit RegisterUserDialog(QWidget *parent = nullptr);
     ~RegisterUserDialog();
+    Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 private:
     RegisterUserWidget *mRegisterUserWidget = nullptr;
 };

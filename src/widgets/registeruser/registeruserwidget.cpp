@@ -51,3 +51,8 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
 RegisterUserWidget::~RegisterUserWidget()
 {
 }
+
+RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registerUserInfo() const
+{
+    return {};
+}

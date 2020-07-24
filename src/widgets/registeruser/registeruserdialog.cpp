@@ -45,3 +45,8 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
 RegisterUserDialog::~RegisterUserDialog()
 {
 }
+
+RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserDialog::registerUserInfo() const
+{
+    return mRegisterUserWidget->registerUserInfo();
+}

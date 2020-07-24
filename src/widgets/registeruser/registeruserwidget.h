@@ -22,6 +22,7 @@
 #define REGISTERUSERWIDGET_H
 
 #include <QWidget>
+#include "users/registeruserjob.h"
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class KPasswordLineEdit;
@@ -31,6 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 public:
     explicit RegisterUserWidget(QWidget *parent = nullptr);
     ~RegisterUserWidget();
+    Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 private:
     QLineEdit *mName = nullptr;
     QLineEdit *mEmail = nullptr;
