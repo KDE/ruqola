@@ -1800,3 +1800,14 @@ void RestApiRequest::deleteOwnAccount(const QString &password)
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DeleteOwnAccountJob";
     }
 }
+
+void RestApiRequest::registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo)
+{
+    auto *job = new RegisterUserJob(this);
+    job->setRegisterUserInfo(userInfo);
+    initializeRestApiJob(job);
+    connect(job, &RegisterUserJob::registerUserDone, this, &RestApiRequest::registerUserDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RegisterUserJob";
+    }
+}

@@ -31,6 +31,7 @@
 #include "restapiutil.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
+#include "users/registeruserjob.h"
 #include "librocketchatrestapi-qt5_export.h"
 
 class QNetworkAccessManager;
@@ -187,6 +188,8 @@ public:
     void runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo);
     void sendUserEmailCode(const QString &identifier);
     void deleteOwnAccount(const QString &password);
+    void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
+
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -257,6 +260,7 @@ Q_SIGNALS:
     void runCommandDone();
     void sendEmailCodeDone();
     void deleteOwnAccountDone();
+    void registerUserDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

@@ -54,7 +54,7 @@ public:
     void setRegisterUserInfo(const RegisterUserInfo &registerUserInfo);
 
 Q_SIGNALS:
-    void forgotPasswordDone();
+    void registerUserDone();
 
 private:
     Q_DISABLE_COPY(RegisterUserJob)
