@@ -23,13 +23,15 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-
+class RegisterUserWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit RegisterUserDialog(QWidget *parent = nullptr);
     ~RegisterUserDialog();
+private:
+    RegisterUserWidget *mRegisterUserWidget = nullptr;
 };
 
 #endif // REGISTERUSERDIALOG_H

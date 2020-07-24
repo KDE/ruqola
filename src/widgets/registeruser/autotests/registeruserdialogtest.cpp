@@ -20,8 +20,12 @@
 
 #include "registeruserdialogtest.h"
 #include "registeruser/registeruserdialog.h"
+#include "registeruser/registeruserwidget.h"
 
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
+
 QTEST_MAIN(RegisterUserDialogTest)
 
 RegisterUserDialogTest::RegisterUserDialogTest(QObject *parent)
@@ -33,5 +37,14 @@ RegisterUserDialogTest::RegisterUserDialogTest(QObject *parent)
 void RegisterUserDialogTest::shouldHaveDefaultValues()
 {
     RegisterUserDialog w;
-    //TODO
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    RegisterUserWidget *mRegisterUserWidget = w.findChild<RegisterUserWidget *>(QStringLiteral("mRegisterUserWidget"));
+    QVERIFY(mRegisterUserWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

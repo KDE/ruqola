@@ -19,6 +19,7 @@
 */
 
 #include "registeruserdialog.h"
+#include "registeruserwidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <KLocalizedString>
@@ -30,7 +31,9 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //TODO
+    mRegisterUserWidget = new RegisterUserWidget(this);
+    mRegisterUserWidget->setObjectName(QStringLiteral("mRegisterUserWidget"));
+    mainLayout->addWidget(mRegisterUserWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
