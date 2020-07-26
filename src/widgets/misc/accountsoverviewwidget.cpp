@@ -173,6 +173,8 @@ private:
                 return i18n("Not connected");
             }
             switch (mAccount->loginStatus()) {
+            case DDPAuthenticationManager::Connecting:
+                return i18n("Connecting");
             case DDPAuthenticationManager::LoginOtpAuthOngoing:
                 return i18n("Login OTP code required");
             case DDPAuthenticationManager::LoginFailedInvalidUserOrPassword:

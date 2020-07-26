@@ -67,6 +67,7 @@ public:
     //   - GenericError
     // GenericError is used when the class doesn't know what else to do, and is irreversible
     enum LoginStatus {
+        Connecting,
         LoginOngoing,
         LoggedIn,
         LoginFailedInvalidUserOrPassword,

@@ -227,6 +227,7 @@ void DDPClient::start()
         if (serverUrl.isValid()) {
             mWebSocket->openUrl(serverUrl);
             qCDebug(RUQOLA_DDPAPI_LOG) << "Trying to connect to URL" << serverUrl;
+            Q_EMIT connecting();
         }
     } else {
         qCDebug(RUQOLA_DDPAPI_LOG) << "url is empty";

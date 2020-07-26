@@ -176,6 +176,7 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
 {
     mFailedError->setHidden(true);
     switch (status) {
+    case DDPAuthenticationManager::LoginStatus::Connecting:
     case DDPAuthenticationManager::LoginStatus::LoginOngoing:
         mBusyIndicatorWidget->show();
         changeWidgetStatus(false);

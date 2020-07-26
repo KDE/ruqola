@@ -192,6 +192,7 @@ public:
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
     quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
 Q_SIGNALS:
+    void connecting();
     void connectedChanged();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
