@@ -1,4 +1,5 @@
 add_definitions( -DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+add_definitions( -DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data" )
 macro(add_ruqola_test _source)
   set( _test ${_source})
   get_filename_component( _name ${_source} NAME_WE )

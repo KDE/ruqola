@@ -63,7 +63,8 @@ void diffFile(const QString &refFile, const QString &generatedFile)
 void compareFile(const QString &repo, const QByteArray &data, const QString &name)
 {
     const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
+    const QString generatedFile = QLatin1String(RUQOLA_BINARY_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
+    QDir().mkpath(QLatin1String(RUQOLA_BINARY_DATA_DIR) + repo + name);
     //Create generated file
     QFile f(generatedFile);
     QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
