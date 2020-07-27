@@ -26,6 +26,7 @@
 #include <channels/channelbasejob.h>
 #include <commands/runcommandjob.h>
 #include <ddpapi/ddpclient.h>
+#include "users/registeruserjob.h"
 #include "ddpapi/ddpauthenticationmanager.h"
 #include <model/listmessagesmodel.h>
 #include "messages/message.h"
@@ -414,6 +415,7 @@ public:
     void requestNewPassword(const QString &email);
     Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
     Q_REQUIRED_RESULT bool registrationFromEnabled() const;
+    void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
