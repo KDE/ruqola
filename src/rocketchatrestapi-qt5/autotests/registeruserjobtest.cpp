@@ -34,26 +34,36 @@ void RegisterUserJobTest::shouldHaveDefaultValue()
 {
     RegisterUserJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.requireHttpAuthentication());
-    //QVERIFY(job.password().isEmpty());
+    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(!job.registerUserInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void RegisterUserJobTest::shouldGenerateRequest()
 {
     RegisterUserJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.deleteOwnAccount")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+    const QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.register")));
 }
 
 void RegisterUserJobTest::shouldGenerateJson()
 {
     RegisterUserJob job;
+    RegisterUserJob::RegisterUserInfo info;
     const QString password = QStringLiteral("foo1");
-    //job.setPassword(password);
-    //TODO QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"password\":\"\xC2\xBBN\xC3\x8A""3Oa\xC2\xAF;g\xC2\xB5\xC3\x95(\xC2\x90}0(QQa\\u0002\"}")); //TODO password encrypted in SHA256
+    const QString email = QStringLiteral("bla@bli.com");
+    const QString name = QStringLiteral("name");
+    const QString username = QStringLiteral("username");
+    info.email = email;
+    info.username = username;
+    info.name = name;
+    info.password = password;
+    job.setRegisterUserInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"email\":\"%1\",\"name\":\"%2\",\"pass\":\"%3\",\"username\":\"%4\"}")
+             .arg(email).arg(name).arg(password).arg(username).toLatin1());
 }
 
 void RegisterUserJobTest::shouldNotStarting()
@@ -73,7 +83,21 @@ void RegisterUserJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-//    const QString password = QStringLiteral("foo1");
-//    job.setPassword(password);
+    RegisterUserJob::RegisterUserInfo info;
+    const QString password = QStringLiteral("foo1");
+    const QString email = QStringLiteral("bla@bli.com");
+    const QString name = QStringLiteral("name");
+    const QString username = QStringLiteral("username");
+    info.email = email;
+    job.setRegisterUserInfo(info);
+    QVERIFY(!job.canStart());
+    info.username = username;
+    job.setRegisterUserInfo(info);
+    QVERIFY(!job.canStart());
+    info.name = name;
+    job.setRegisterUserInfo(info);
+    QVERIFY(!job.canStart());
+    info.password = password;
+    job.setRegisterUserInfo(info);
     QVERIFY(job.canStart());
 }
