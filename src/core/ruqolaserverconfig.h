@@ -141,6 +141,9 @@ public:
     Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
     void setAllowDeleteOwnAccount(bool allowDeleteOwnAccount);
 
+    void setAllowRegistrationFrom(const QString &registrationFromValue);
+    Q_REQUIRED_RESULT bool registrationFromEnabled() const;
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -177,6 +180,7 @@ private:
     bool mVideoRecorderEnabled = true;
     bool mAudioRecorderEnabled = true;
     bool mAllowDeleteOwnAccount = true;
+    bool mRegistrationFromEnabled = true;
 
     QString mLogoUrl;
     QString mFaviconUrl;

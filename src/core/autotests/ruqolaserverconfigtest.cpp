@@ -65,6 +65,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.videoRecorderEnabled());
     QVERIFY(config.audioRecorderEnabled());
     QVERIFY(config.allowDeleteOwnAccount());
+    QVERIFY(config.registrationFromEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -86,6 +87,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool broadCastEnabled = true;
     const QString logoUrl = QStringLiteral("path/to/logo");
     const QString faviconUrl = QStringLiteral("path/to/favicon");
+    const QString allowRegistrationFrom = QStringLiteral("Disabled");
 
     bool audioRecorderEnabled = false;
     bool videoRecorderEnabled = false;
@@ -110,6 +112,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setVideoRecorderEnabled(videoRecorderEnabled);
     config.setLogoUrl(logoUrl);
     config.setFaviconUrl(faviconUrl);
+    config.setAllowRegistrationFrom(allowRegistrationFrom);
 
     bool pinning = true;
     bool snippeting = true;
@@ -164,6 +167,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.faviconUrl(), faviconUrl);
 
     QCOMPARE(config.allowDeleteOwnAccount(), allowDeleteOwnAccount);
+    QCOMPARE(config.registrationFromEnabled(), false);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

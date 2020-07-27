@@ -196,9 +196,24 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::registrationFromEnabled() const
+{
+    return mRegistrationFromEnabled;
+}
+
 bool RuqolaServerConfig::allowDeleteOwnAccount() const
 {
     return mAllowDeleteOwnAccount;
+}
+
+void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
+{
+    //TODO using enum here ?
+    if (registrationFromValue == QStringLiteral("Disabled")) {
+        mRegistrationFromEnabled = false;
+    } else {
+        mRegistrationFromEnabled = true;
+    }
 }
 
 void RuqolaServerConfig::setAllowDeleteOwnAccount(bool allowDeleteOwnAccount)
@@ -449,6 +464,8 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
+    d << "mAllowDeleteOwnAccount " << t.allowDeleteOwnAccount();
+    d << "mRegistrationFromEnabled " << t.registrationFromEnabled();
     return d;
 }
 
@@ -521,6 +538,8 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
         } else if (id == QLatin1String("Accounts_AllowDeleteOwnAccount")) {
             setAllowDeleteOwnAccount(value.toBool());
+        } else if (id == QLatin1String("Accounts_RegistrationForm")) {
+            setAllowRegistrationFrom(value.toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

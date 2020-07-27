@@ -128,6 +128,7 @@ void RuqolaMainWindow::slotAccountChanged()
     changeActionStatus(false); //Disable actions when switching.
     slotClearNotification(); //Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    //TODO delete it mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->sett...);
 }
 
 void RuqolaMainWindow::slotRaiseWindow()

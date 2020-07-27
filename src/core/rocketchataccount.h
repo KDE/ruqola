@@ -412,6 +412,8 @@ public:
     void markRoomAsUnRead(const QString &roomId);
     void sendUserEmailCode();
     void requestNewPassword(const QString &email);
+    Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
+    Q_REQUIRED_RESULT bool registrationFromEnabled() const;
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
