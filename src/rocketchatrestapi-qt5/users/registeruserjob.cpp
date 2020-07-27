@@ -104,7 +104,10 @@ bool RegisterUserJob::requireHttpAuthentication() const
 QJsonDocument RegisterUserJob::json() const
 {
     QJsonObject jsonObj;
-    //jsonObj[QLatin1String("email")] = mEmail;
+    jsonObj[QLatin1String("username")] = mRegisterUserInfo.username;
+    jsonObj[QLatin1String("email")] = mRegisterUserInfo.email;
+    jsonObj[QLatin1String("name")] = mRegisterUserInfo.name;
+    jsonObj[QLatin1String("pass")] = mRegisterUserInfo.password; //TODO ??
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
