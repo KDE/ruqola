@@ -416,6 +416,7 @@ public:
     Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
     Q_REQUIRED_RESULT bool registrationFromEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
+    void deleteOwnAccount(const QString &password);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
