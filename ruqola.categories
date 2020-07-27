@@ -10,3 +10,4 @@ org.kde.ruqola.typingnotification ruqola typingnotification IDENTIFIER [RUQOLA_T
 org.kde.ruqola.completion ruqola (completion) IDENTIFIER [RUQOLA_COMPLETION_LOG]
 org.kde.ruqola.widgets ruqola widgets IDENTIFIER [RUQOLAWIDGETS_LOG]
 org.kde.ruqola.widgets.selection ruqola widgets (selection) IDENTIFIER [RUQOLAWIDGETS_SELECTION_LOG]
+org.kde.ruqola.notification ruqola notification IDENTIFIER [RUQOLA_NOTIFICATION_LOG]

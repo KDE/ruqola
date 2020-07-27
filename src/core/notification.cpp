@@ -23,7 +23,7 @@
 
 #include "notification.h"
 #include "ruqola.h"
-#include "ruqola_debug.h"
+#include "ruqola_notification_debug.h"
 #ifdef UNITY_SUPPORT
 #include "unityservicemanager.h"
 #endif
@@ -58,7 +58,7 @@ void Notification::clearNotification(const QString &account)
 
 void Notification::updateNotification(bool hasAlert, int unreadNumber, const QString &account)
 {
-    qCDebug(RUQOLA_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
+    qCDebug(RUQOLA_NOTIFICATION_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
     const TrayInfo info(unreadNumber, hasAlert);
     if (info.hasNotification()) {
         mListTrayIcon.insert(account, info);
@@ -95,6 +95,7 @@ void Notification::createToolTip()
     if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
         if (hasAlert) {
+            qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert";
             Q_EMIT alert();
         }
     } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
