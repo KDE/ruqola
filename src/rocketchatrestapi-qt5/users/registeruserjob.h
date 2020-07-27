@@ -58,8 +58,9 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RegisterUserJob)
-    void slotForgotPassword();
+    void slotRegisterUser();
     RegisterUserInfo mRegisterUserInfo;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::RegisterUserJob::RegisterUserInfo, Q_MOVABLE_TYPE);
 #endif // REGISTERUSERJOB_H

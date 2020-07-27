@@ -71,6 +71,7 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
     RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
     info.email = mEmail->text();
     info.name = mName->text();
+    info.username = mName->text().remove(QLatin1Char(' '));
     info.password = mPasswordLineEdit->password();
     return info;
 }

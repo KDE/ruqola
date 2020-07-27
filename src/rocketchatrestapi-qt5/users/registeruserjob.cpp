@@ -54,11 +54,11 @@ bool RegisterUserJob::start()
     }
     addStartRestApiInfo("RegisterUserJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &RegisterUserJob::slotForgotPassword);
+    connect(reply, &QNetworkReply::finished, this, &RegisterUserJob::slotRegisterUser);
     return true;
 }
 
-void RegisterUserJob::slotForgotPassword()
+void RegisterUserJob::slotRegisterUser()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
