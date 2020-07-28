@@ -471,6 +471,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone, this, &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -2126,4 +2127,9 @@ void RocketChatAccount::registerNewUser(const RocketChatRestApi::RegisterUserJob
 void RocketChatAccount::deleteOwnAccount(const QString &password)
 {
     restApi()->deleteOwnAccount(password);
+}
+
+void RocketChatAccount::slotRegisterUserDone()
+{
+    //TODO inform user. Notification ???
 }

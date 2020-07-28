@@ -493,6 +493,8 @@ private:
 
     void loginStatusChangedSlot();
     void slotFileLanguagedParsed();
+    void slotRegisterUserDone();
+
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 
