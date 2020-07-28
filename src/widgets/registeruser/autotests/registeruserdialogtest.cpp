@@ -25,12 +25,14 @@
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+#include <QStandardPaths>
 
 QTEST_MAIN(RegisterUserDialogTest)
 
 RegisterUserDialogTest::RegisterUserDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RegisterUserDialogTest::shouldHaveDefaultValues()

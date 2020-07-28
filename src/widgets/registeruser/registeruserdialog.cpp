@@ -24,6 +24,12 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <KLocalizedString>
+#include <KConfigGroup>
+#include <KSharedConfig>
+
+namespace {
+const char myConfigGroupName[] = "RegisterUserDialog";
+}
 
 RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     : QDialog(parent)
@@ -44,10 +50,27 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     connect(mRegisterUserWidget, &RegisterUserWidget::updateOkButton, okButton, &QPushButton::setEnabled);
     okButton->setEnabled(false);
+    readConfig();
 }
 
 RegisterUserDialog::~RegisterUserDialog()
 {
+    writeConfig();
+}
+
+void RegisterUserDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void RegisterUserDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }
 
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserDialog::registerUserInfo() const

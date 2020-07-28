@@ -34,6 +34,8 @@ public:
     Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 private:
     RegisterUserWidget *mRegisterUserWidget = nullptr;
+    void readConfig();
+    void writeConfig();
 };
 
 #endif // REGISTERUSERDIALOG_H
