@@ -2131,5 +2131,5 @@ void RocketChatAccount::deleteOwnAccount(const QString &password)
 
 void RocketChatAccount::slotRegisterUserDone()
 {
-    //TODO inform user. Notification ???
+    Q_EMIT registerUserSuccess();
 }

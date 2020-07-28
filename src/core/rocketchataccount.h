@@ -448,6 +448,7 @@ Q_SIGNALS:
     void selectRoomByRoomNameRequested(const QString &identifier);
     void openThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview);
     void raiseWindow();
+    void registerUserSuccess();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

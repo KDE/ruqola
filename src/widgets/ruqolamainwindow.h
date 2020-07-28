@@ -39,6 +39,7 @@ public:
     ~RuqolaMainWindow() override;
 
 private:
+    void slotRegisterUserSuccessed();
     void slotSaveAs();
     void setupActions();
     void readConfig();

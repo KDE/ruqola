@@ -50,6 +50,7 @@
 #include <QGuiApplication>
 #include <QFontDatabase>
 #include <QApplication>
+#include <KMessageBox>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
@@ -123,6 +124,7 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
 
     updateActions();
     changeActionStatus(false); //Disable actions when switching.
@@ -337,4 +339,9 @@ void RuqolaMainWindow::slotRegisterNewUser()
         mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
     }
     delete dlg;
+}
+
+void RuqolaMainWindow::slotRegisterUserSuccessed()
+{
+    KMessageBox::information(this, i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."), i18n("Register New User"));
 }
