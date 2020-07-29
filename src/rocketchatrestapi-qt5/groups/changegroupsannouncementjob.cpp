@@ -43,11 +43,11 @@ bool ChangeGroupsAnnouncementJob::start()
     }
     addStartRestApiInfo("ChangeGroupsAnnouncementJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChangeGroupsAnnouncementJob::slotChangeGroupsAnnouncementFinished);
     return true;
 }
 
-void ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished()
+void ChangeGroupsAnnouncementJob::slotChangeGroupsAnnouncementFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {

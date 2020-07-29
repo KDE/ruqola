@@ -49,7 +49,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeGroupsAnnouncementJob)
-    void slotChangeGroupsannouncementFinished();
+    void slotChangeGroupsAnnouncementFinished();
     QString mAnnouncement;
     QString mRoomId;
 };
