@@ -196,6 +196,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::allowPasswordReset() const
+{
+    return mAllowPasswordReset;
+}
+
+void RuqolaServerConfig::setAllowPasswordReset(bool allowPasswordReset)
+{
+    mAllowPasswordReset = allowPasswordReset;
+}
+
 bool RuqolaServerConfig::registrationFromEnabled() const
 {
     return mRegistrationFromEnabled;
@@ -540,6 +550,8 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setAllowDeleteOwnAccount(value.toBool());
         } else if (id == QLatin1String("Accounts_RegistrationForm")) {
             setAllowRegistrationFrom(value.toString());
+        } else if (id == QLatin1String("Accounts_PasswordReset")) {
+            setAllowPasswordReset(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

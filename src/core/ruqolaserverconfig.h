@@ -144,6 +144,9 @@ public:
     void setAllowRegistrationFrom(const QString &registrationFromValue);
     Q_REQUIRED_RESULT bool registrationFromEnabled() const;
 
+    Q_REQUIRED_RESULT bool allowPasswordReset() const;
+    void setAllowPasswordReset(bool allowPasswordReset);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -181,6 +184,7 @@ private:
     bool mAudioRecorderEnabled = true;
     bool mAllowDeleteOwnAccount = true;
     bool mRegistrationFromEnabled = true;
+    bool mAllowPasswordReset = true;
 
     QString mLogoUrl;
     QString mFaviconUrl;
