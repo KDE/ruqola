@@ -35,6 +35,10 @@ CompletionListView::CompletionListView()
     connect(this, &QListView::clicked, this, &CompletionListView::complete);
 }
 
+CompletionListView::~CompletionListView()
+{
+}
+
 void CompletionListView::setTextWidget(QWidget *textWidget)
 {
     mTextWidget = textWidget;

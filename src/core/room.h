@@ -39,6 +39,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_OBJECT
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
+    ~Room() override;
 
     // To be used in ID find: message ID
     Q_REQUIRED_RESULT bool operator==(const Room &other) const;

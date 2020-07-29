@@ -27,6 +27,7 @@ class CommandCompletionDelegate : public QItemDelegate
 {
 public:
     explicit CommandCompletionDelegate(QObject *parent = nullptr);
+    ~CommandCompletionDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };

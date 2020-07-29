@@ -31,6 +31,11 @@ RuqolaUtils::RuqolaUtils(QObject *parent)
 {
 }
 
+RuqolaUtils::~RuqolaUtils()
+{
+
+}
+
 RuqolaUtils *RuqolaUtils::self()
 {
     static RuqolaUtils *s_self = nullptr;

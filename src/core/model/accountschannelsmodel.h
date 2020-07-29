@@ -29,6 +29,7 @@ class LIBRUQOLACORE_EXPORT AccountsChannelsModel : public QAbstractItemModel
 {
 public:
     explicit AccountsChannelsModel(QObject *parent = nullptr);
+    ~AccountsChannelsModel() override;
 
     QModelIndex index(int row, int column, const QModelIndex &parent = {}) const override;
     QModelIndex parent(const QModelIndex &child) const override;

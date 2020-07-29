@@ -32,6 +32,7 @@ class CompletionListView : public QListView
     Q_OBJECT
 public:
     CompletionListView();
+    ~CompletionListView() override;
 
     void setTextWidget(QWidget *textWidget);
 

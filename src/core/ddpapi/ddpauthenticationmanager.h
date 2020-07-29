@@ -84,6 +84,7 @@ public:
     Q_ENUM(LoginStatus)
 
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
+    ~DDPAuthenticationManager() override;
 
     void login();
     void login(const QString &user, const QString &password);

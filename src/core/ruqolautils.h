@@ -34,6 +34,7 @@ class LIBRUQOLACORE_EXPORT RuqolaUtils : public QObject
 {
     Q_OBJECT
 public:
+    ~RuqolaUtils() override;
     static RuqolaUtils *self();
     Q_INVOKABLE QString markdownToRichText(const QString &markDown);
     Q_INVOKABLE void openUrl(const QString &url);

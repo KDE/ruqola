@@ -26,6 +26,7 @@ class AccountInfoSource : public KUserFeedback::AbstractDataSource
 {
 public:
     AccountInfoSource();
+    ~AccountInfoSource() override;
 
     Q_REQUIRED_RESULT QString name() const override;
     Q_REQUIRED_RESULT QString description() const override;

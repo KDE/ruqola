@@ -39,6 +39,7 @@ class LIBRUQOLACORE_EXPORT MessageCache : public QObject
     Q_OBJECT
 public:
     explicit MessageCache(QObject *parent = nullptr);
+    ~MessageCache() override;
 
     ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
     Message *messageForId(const QString &messageId);

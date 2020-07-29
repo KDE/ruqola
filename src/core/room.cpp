@@ -50,6 +50,11 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 }
 
+Room::~Room()
+{
+
+}
+
 bool Room::operator==(const Room &other) const
 {
     //qDebug() << " other.id"<<other.id << " id " << id;

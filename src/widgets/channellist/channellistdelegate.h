@@ -28,6 +28,7 @@ class ChannelListDelegate : public QItemDelegate
     Q_OBJECT
 public:
     explicit ChannelListDelegate(QObject *parent = nullptr);
+    ~ChannelListDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 

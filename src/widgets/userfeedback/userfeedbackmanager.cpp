@@ -26,6 +26,11 @@ UserFeedBackManager::UserFeedBackManager(QObject *parent)
     mUserFeedbackProvider = new RuqolaUserFeedbackProvider(this);
 }
 
+UserFeedBackManager::~UserFeedBackManager()
+{
+
+}
+
 UserFeedBackManager *UserFeedBackManager::self()
 {
     static UserFeedBackManager s_self;

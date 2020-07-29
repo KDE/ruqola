@@ -28,6 +28,11 @@ AccountInfoSource::AccountInfoSource()
 {
 }
 
+AccountInfoSource::~AccountInfoSource()
+{
+
+}
+
 QString AccountInfoSource::name() const
 {
     return i18n("Account information");

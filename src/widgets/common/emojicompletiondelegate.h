@@ -27,6 +27,7 @@ class EmojiCompletionDelegate : public QItemDelegate
 {
 public:
     explicit EmojiCompletionDelegate(QObject *parent = nullptr);
+    ~EmojiCompletionDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 

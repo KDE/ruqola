@@ -29,6 +29,7 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperSound : public MessageDelegateHelperBase
 {
 public:
+    ~MessageDelegateHelperSound() override;
     void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;

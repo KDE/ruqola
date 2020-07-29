@@ -219,6 +219,11 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     updateButtons();
 }
 
+AccountsOverviewWidget::~AccountsOverviewWidget()
+{
+
+}
+
 void AccountsOverviewWidget::updateButtons()
 {
     const auto model = Ruqola::self()->accountManager()->rocketChatAccountModel();

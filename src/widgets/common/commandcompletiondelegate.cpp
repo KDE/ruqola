@@ -29,6 +29,11 @@ CommandCompletionDelegate::CommandCompletionDelegate(QObject *parent)
 {
 }
 
+CommandCompletionDelegate::~CommandCompletionDelegate()
+{
+
+}
+
 void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // command <parameter> description at end

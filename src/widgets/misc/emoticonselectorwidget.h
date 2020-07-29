@@ -29,6 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonTextEditItem : public QListWidgetIte
 {
 public:
     explicit EmoticonTextEditItem(const QString &identifier, const QString &emoticonText, QListWidget *parent);
+    ~EmoticonTextEditItem() override;
     Q_REQUIRED_RESULT QString text() const;
     Q_REQUIRED_RESULT QString identifier() const;
 

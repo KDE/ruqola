@@ -41,7 +41,7 @@ class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
 public:
-
+    ~Ruqola() override;
     /**
     * @brief Singleton provider
     *

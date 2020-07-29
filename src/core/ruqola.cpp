@@ -32,6 +32,11 @@
 
 static Ruqola *s_self = nullptr;
 
+Ruqola::~Ruqola()
+{
+
+}
+
 Ruqola *Ruqola::self()
 {
     if (!s_self) {

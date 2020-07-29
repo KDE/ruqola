@@ -29,6 +29,7 @@ class UserFeedBackManager : public QObject
     Q_OBJECT
 public:
     explicit UserFeedBackManager(QObject *parent = nullptr);
+    ~UserFeedBackManager() override;
     static UserFeedBackManager *self();
 
     KUserFeedback::Provider *userFeedbackProvider() const;

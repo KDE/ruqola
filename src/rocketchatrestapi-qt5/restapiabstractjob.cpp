@@ -33,6 +33,11 @@ RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
 {
 }
 
+RestApiAbstractJob::~RestApiAbstractJob()
+{
+
+}
+
 QNetworkAccessManager *RestApiAbstractJob::networkAccessManager() const
 {
     return mNetworkAccessManager;

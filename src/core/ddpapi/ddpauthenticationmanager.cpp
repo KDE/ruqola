@@ -49,6 +49,11 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
             this, [this](){ setLoginStatus(LoginStatus::Connecting); });
 }
 
+DDPAuthenticationManager::~DDPAuthenticationManager()
+{
+
+}
+
 void DDPAuthenticationManager::setAuthToken(const QString &authToken)
 {
     mAuthToken = authToken;

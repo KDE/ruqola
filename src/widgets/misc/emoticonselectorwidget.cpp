@@ -29,6 +29,11 @@ EmoticonTextEditItem::EmoticonTextEditItem(const QString &identifier, const QStr
     setToolTip(identifier);
 }
 
+EmoticonTextEditItem::~EmoticonTextEditItem()
+{
+
+}
+
 QString EmoticonTextEditItem::text() const
 {
     return mText;

@@ -34,6 +34,11 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
+MessageDelegateHelperSound::~MessageDelegateHelperSound()
+{
+
+}
+
 void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();

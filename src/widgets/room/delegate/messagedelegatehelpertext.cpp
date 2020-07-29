@@ -171,6 +171,11 @@ static bool useItalicsForMessage(const QModelIndex &index)
     return isSystemMessage || messageType == Message::Video || messageType == Message::Audio;
 }
 
+MessageDelegateHelperText::~MessageDelegateHelperText()
+{
+
+}
+
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
     auto *doc = documentForIndex(index, rect.width(), option.widget);
