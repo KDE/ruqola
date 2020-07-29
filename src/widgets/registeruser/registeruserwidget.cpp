@@ -58,11 +58,11 @@ RegisterUserWidget::~RegisterUserWidget()
 
 void RegisterUserWidget::slotUpdateOkButton()
 {
-    const bool enableOkButton =
-            !mName->text().trimmed().isEmpty() &&
-            !mEmail->text().trimmed().isEmpty() &&
-            !mPasswordLineEdit->password().isEmpty() &&
-            (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
+    const bool enableOkButton
+        = !mName->text().trimmed().isEmpty()
+          && !mEmail->text().trimmed().isEmpty()
+          && !mPasswordLineEdit->password().isEmpty()
+          && (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
     Q_EMIT updateOkButton(enableOkButton);
 }
 

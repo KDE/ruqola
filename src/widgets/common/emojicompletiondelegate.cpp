@@ -32,7 +32,6 @@ EmojiCompletionDelegate::EmojiCompletionDelegate(QObject *parent)
 
 EmojiCompletionDelegate::~EmojiCompletionDelegate()
 {
-
 }
 
 void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const

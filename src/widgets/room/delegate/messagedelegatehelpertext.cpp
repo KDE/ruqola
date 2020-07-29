@@ -173,7 +173,6 @@ static bool useItalicsForMessage(const QModelIndex &index)
 
 MessageDelegateHelperText::~MessageDelegateHelperText()
 {
-
 }
 
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)

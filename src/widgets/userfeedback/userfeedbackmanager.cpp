@@ -28,7 +28,6 @@ UserFeedBackManager::UserFeedBackManager(QObject *parent)
 
 UserFeedBackManager::~UserFeedBackManager()
 {
-
 }
 
 UserFeedBackManager *UserFeedBackManager::self()

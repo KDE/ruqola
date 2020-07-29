@@ -36,7 +36,6 @@
 
 MessageDelegateHelperVideo::~MessageDelegateHelperVideo()
 {
-
 }
 
 void MessageDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const

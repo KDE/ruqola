@@ -46,12 +46,13 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
     connect(ddpClient, &DDPClient::connectedChanged,
             this, &DDPAuthenticationManager::clientConnectedChangedSlot);
     connect(ddpClient, &DDPClient::connecting,
-            this, [this](){ setLoginStatus(LoginStatus::Connecting); });
+            this, [this](){
+        setLoginStatus(LoginStatus::Connecting);
+    });
 }
 
 DDPAuthenticationManager::~DDPAuthenticationManager()
 {
-
 }
 
 void DDPAuthenticationManager::setAuthToken(const QString &authToken)

@@ -30,7 +30,6 @@ AccountInfoSource::AccountInfoSource()
 
 AccountInfoSource::~AccountInfoSource()
 {
-
 }
 
 QString AccountInfoSource::name() const

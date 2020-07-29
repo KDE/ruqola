@@ -84,7 +84,6 @@ AccountsChannelsModel::AccountsChannelsModel(QObject *parent)
 
 AccountsChannelsModel::~AccountsChannelsModel()
 {
-
 }
 
 QModelIndex AccountsChannelsModel::index(int row, int column, const QModelIndex &parent) const

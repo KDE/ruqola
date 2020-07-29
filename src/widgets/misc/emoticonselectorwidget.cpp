@@ -31,7 +31,6 @@ EmoticonTextEditItem::EmoticonTextEditItem(const QString &identifier, const QStr
 
 EmoticonTextEditItem::~EmoticonTextEditItem()
 {
-
 }
 
 QString EmoticonTextEditItem::text() const

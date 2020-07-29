@@ -221,7 +221,6 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
 
 AccountsOverviewWidget::~AccountsOverviewWidget()
 {
-
 }
 
 void AccountsOverviewWidget::updateButtons()

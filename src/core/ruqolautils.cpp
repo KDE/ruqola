@@ -33,7 +33,6 @@ RuqolaUtils::RuqolaUtils(QObject *parent)
 
 RuqolaUtils::~RuqolaUtils()
 {
-
 }
 
 RuqolaUtils *RuqolaUtils::self()

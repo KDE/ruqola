@@ -496,7 +496,6 @@ private:
     void slotFileLanguagedParsed();
     void slotRegisterUserDone();
 
-
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;

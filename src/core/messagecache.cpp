@@ -36,7 +36,6 @@ MessageCache::MessageCache(QObject *parent)
 
 MessageCache::~MessageCache()
 {
-
 }
 
 ThreadMessageModel *MessageCache::threadMessageModel(const QString &threadMessageId)

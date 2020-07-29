@@ -32,7 +32,6 @@ ChannelListDelegate::ChannelListDelegate(QObject *parent)
 
 ChannelListDelegate::~ChannelListDelegate()
 {
-
 }
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const

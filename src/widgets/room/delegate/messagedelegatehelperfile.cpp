@@ -38,7 +38,6 @@ static const int vMargin = 8;
 
 MessageDelegateHelperFile::~MessageDelegateHelperFile()
 {
-
 }
 
 void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const

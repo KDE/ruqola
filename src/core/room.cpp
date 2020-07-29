@@ -52,7 +52,6 @@ Room::Room(RocketChatAccount *account, QObject *parent)
 
 Room::~Room()
 {
-
 }
 
 bool Room::operator==(const Room &other) const

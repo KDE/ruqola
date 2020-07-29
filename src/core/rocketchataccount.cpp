@@ -1608,7 +1608,6 @@ bool RocketChatAccount::autoTranslateEnabled() const
     return mRuqolaServerConfig->autoTranslateEnabled();
 }
 
-
 bool RocketChatAccount::registrationFromEnabled() const
 {
     return mRuqolaServerConfig->registrationFromEnabled();
