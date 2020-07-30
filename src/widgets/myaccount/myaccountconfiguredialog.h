@@ -23,12 +23,17 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
+class MyAccountConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit MyAccountConfigureDialog(QWidget *parent = nullptr);
     ~MyAccountConfigureDialog();
+private:
+    void readConfig();
+    void writeConfig();
+    MyAccountConfigureWidget *mMyAccountConfigWidget = nullptr;
 };
 
 #endif // MYACCOUNTCONFIGUREDIALOG_H

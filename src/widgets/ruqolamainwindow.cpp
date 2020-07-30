@@ -37,6 +37,7 @@
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/channelpassworddialog.h"
 #include "registeruser/registeruserdialog.h"
+#include "myaccount/myaccountconfiguredialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -330,6 +331,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mSaveAs->setEnabled(!loginPageActivated);
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
+    mMyAccount->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
@@ -353,5 +355,10 @@ void RuqolaMainWindow::slotRegisterUserSuccessed()
 
 void RuqolaMainWindow::slotConfigureMyAccount()
 {
+    QPointer<MyAccountConfigureDialog> dlg = new MyAccountConfigureDialog(this);
+    if (dlg->exec()) {
+        //TODO ???
+    }
+    delete dlg;
 
 }

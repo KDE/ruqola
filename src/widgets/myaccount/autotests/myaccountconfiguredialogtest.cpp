@@ -21,11 +21,13 @@
 #include "myaccountconfiguredialogtest.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include <QTest>
+#include <QStandardPaths>
+
 QTEST_MAIN(MyAccountConfigureDialogTest)
 MyAccountConfigureDialogTest::MyAccountConfigureDialogTest(QObject *parent)
     : QObject(parent)
 {
-
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void MyAccountConfigureDialogTest::shouldHaveDefaultValue()

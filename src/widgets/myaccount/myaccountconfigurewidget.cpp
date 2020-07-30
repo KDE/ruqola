@@ -19,11 +19,16 @@
 */
 
 #include "myaccountconfigurewidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
 MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    //TODO
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget()

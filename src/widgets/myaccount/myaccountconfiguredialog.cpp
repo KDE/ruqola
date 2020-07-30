@@ -19,14 +19,54 @@
 */
 
 #include "myaccountconfiguredialog.h"
+#include "myaccountconfigurewidget.h"
+
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+namespace {
+const char myConfigGroupName[] = "RegisterUserDialog";
+}
+
 
 MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Configure my Account"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mMyAccountConfigWidget = new MyAccountConfigureWidget(this);
+    mMyAccountConfigWidget->setObjectName(QStringLiteral("mMyAccountConfigWidget"));
+    mainLayout->addWidget(mMyAccountConfigWidget);
+
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::accept);
+
+    readConfig();
 }
 
 MyAccountConfigureDialog::~MyAccountConfigureDialog()
 {
+    writeConfig();
+}
 
+void MyAccountConfigureDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void MyAccountConfigureDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }
