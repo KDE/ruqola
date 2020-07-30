@@ -158,6 +158,11 @@ set(Ruqola_textplugin_SRCS
     room/plugins/plugintextinterface.cpp
     )
 
+set(Ruqola_myaccount_SRCS
+    myaccount/myaccountconfiguredialog.cpp
+    myaccount/myaccountconfigurewidget.cpp
+    )    
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection)
 
@@ -175,6 +180,7 @@ add_library(libruqolawidgets
     ${Ruqola_configure_SRCS}
     ${Ruqola_misc_widget_SRCS}
     ${Ruqola_threadwidget_SRCS}
+    ${Ruqola_myaccount_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
@@ -223,6 +229,7 @@ if (BUILD_TESTING)
     add_subdirectory(common/autotests)
     add_subdirectory(threadwidget/autotests)
     add_subdirectory(registeruser/autotests)
+    add_subdirectory(myaccount/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
