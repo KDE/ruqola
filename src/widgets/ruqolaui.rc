@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="13">
+<gui name="ruqola" version="14">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_account" />
@@ -7,6 +7,8 @@
    <Action name="account_menu" />
    <Separator/>
    <Action name="server_info" />
+   <Separator/>
+   <Action name="configure_my_account" />
    <Separator/>
    <Action name="register_new_user" />
    <Separator/>

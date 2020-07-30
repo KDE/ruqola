@@ -62,6 +62,7 @@ private:
     void slotConfigureNotifications();
     void slotRaiseWindow();
     void slotRegisterNewUser();
+    void slotConfigureMyAccount();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -72,6 +73,7 @@ private:
     QAction *mSaveAs = nullptr;
     QAction *mClearAlerts = nullptr;
     QAction *mRegisterNewUser = nullptr;
+    QAction *mMyAccount = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;

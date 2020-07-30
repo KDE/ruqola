@@ -222,6 +222,11 @@ void RuqolaMainWindow::setupActions()
     mRegisterNewUser = new QAction(i18n("Register a New User..."), this);
     connect(mRegisterNewUser, &QAction::triggered, this, &RuqolaMainWindow::slotRegisterNewUser);
     ac->addAction(QStringLiteral("register_new_user"), mRegisterNewUser);
+
+
+    mMyAccount = new QAction(i18n("My Account..."), this);
+    connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
+    ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()
@@ -344,4 +349,9 @@ void RuqolaMainWindow::slotRegisterNewUser()
 void RuqolaMainWindow::slotRegisterUserSuccessed()
 {
     KMessageBox::information(this, i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."), i18n("Register New User"));
+}
+
+void RuqolaMainWindow::slotConfigureMyAccount()
+{
+
 }
