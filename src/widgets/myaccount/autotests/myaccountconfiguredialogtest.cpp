@@ -20,8 +20,11 @@
 
 #include "myaccountconfiguredialogtest.h"
 #include "myaccount/myaccountconfiguredialog.h"
+#include "myaccount/myaccountconfigurewidget.h"
 #include <QTest>
 #include <QStandardPaths>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
 
 QTEST_MAIN(MyAccountConfigureDialogTest)
 MyAccountConfigureDialogTest::MyAccountConfigureDialogTest(QObject *parent)
@@ -32,5 +35,15 @@ MyAccountConfigureDialogTest::MyAccountConfigureDialogTest(QObject *parent)
 
 void MyAccountConfigureDialogTest::shouldHaveDefaultValue()
 {
-    MyAccountConfigureDialog d;
+    MyAccountConfigureDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    MyAccountConfigureWidget *mMyAccountConfigWidget = w.findChild<MyAccountConfigureWidget *>(QStringLiteral("mMyAccountConfigWidget"));
+    QVERIFY(mMyAccountConfigWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
