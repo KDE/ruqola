@@ -58,6 +58,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
         job->start();
     });
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
+    connect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);
     connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
 }
 

@@ -56,6 +56,12 @@ void Notification::clearNotification(const QString &account)
     createToolTip();
 }
 
+void Notification::roomNeedAttention()
+{
+    qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert";
+    Q_EMIT alert();
+}
+
 void Notification::updateNotification(bool hasAlert, int unreadNumber, const QString &account)
 {
     qCDebug(RUQOLA_NOTIFICATION_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
@@ -94,10 +100,6 @@ void Notification::createToolTip()
     updateUnityService(unreadMessage);
     if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
-        if (hasAlert) {
-            qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert";
-            Q_EMIT alert();
-        }
     } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
         setStatus(KStatusNotifierItem::Passive);
     }

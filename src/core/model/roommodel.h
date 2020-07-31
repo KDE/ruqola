@@ -123,6 +123,7 @@ public:
     Q_REQUIRED_RESULT QModelIndex indexForRoomName(const QString &roomName) const;
 Q_SIGNALS:
     void needToUpdateNotification();
+    void roomNeedAttention();
 
 private:
     Q_DISABLE_COPY(RoomModel)

@@ -449,6 +449,7 @@ Q_SIGNALS:
     void openThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview);
     void raiseWindow();
     void registerUserSuccess();
+    void roomNeedAttention();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -495,6 +496,7 @@ private:
     void loginStatusChangedSlot();
     void slotFileLanguagedParsed();
     void slotRegisterUserDone();
+    void slotRoomNeedAttention();
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

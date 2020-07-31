@@ -43,7 +43,7 @@ AvatarManager::~AvatarManager()
 
 void AvatarManager::slotLoadNextAvatar()
 {
-    mAccount->restApi()->getAvatar(mAvatarDownloadUserIds.first());
+    mAccount->restApi()->getAvatar(mAvatarDownloadUserIds.constFirst());
 }
 
 void AvatarManager::slotRescheduleDownload()

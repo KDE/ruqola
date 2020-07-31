@@ -255,6 +255,7 @@ Room *RoomModel::createNewRoom()
     Room *r = new Room(mRocketChatAccount);
     connect(r, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
     connect(r, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
+    connect(r, &Room::needAttention, this, &RoomModel::roomNeedAttention);
     return r;
 }
 

@@ -57,6 +57,7 @@ Ruqola::Ruqola(QObject *parent)
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
     connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
+    connect(mAccountManager, &AccountManager::roomNeedAttention, this, &Ruqola::slotRoomNeedAttention);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
 }
 
@@ -90,6 +91,13 @@ Notification *Ruqola::notification()
 }
 
 #endif
+
+void Ruqola::slotRoomNeedAttention()
+{
+#ifndef Q_OS_ANDROID
+    notification()->roomNeedAttention();
+#endif
+}
 
 void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {

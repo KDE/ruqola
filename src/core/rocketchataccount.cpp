@@ -19,6 +19,7 @@
 */
 
 #include "model/messagemodel.h"
+#include "ruqola_notification_debug.h"
 #include "rocketchataccount.h"
 #include "model/roommodel.h"
 #include "roomwrapper.h"
@@ -178,6 +179,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
+    connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
@@ -224,6 +226,12 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
     connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
     connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
+}
+
+void RocketChatAccount::slotRoomNeedAttention()
+{
+    qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert" << " account name: " << accountName();
+    Q_EMIT roomNeedAttention();
 }
 
 void RocketChatAccount::slotNeedToUpdateNotification()

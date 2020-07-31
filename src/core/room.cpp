@@ -186,6 +186,10 @@ int Room::userMentions() const
 void Room::setUserMentions(int userMentions)
 {
     mUserMentions = userMentions;
+    //Send needAttention only if we have alert.
+    if (mUserMentions > 0) {
+        Q_EMIT needAttention();
+    }
 }
 
 void Room::updateSubscriptionRoom(const QJsonObject &json)
@@ -344,6 +348,11 @@ void Room::setUnread(int unread)
     if (mUnread != unread) {
         mUnread = unread;
         Q_EMIT unreadChanged();
+    }
+    if (channelType() != QLatin1Char('c')) { //TODO verify it
+        if (mUnread > 0) {
+            Q_EMIT needAttention();
+        }
     }
 }
 

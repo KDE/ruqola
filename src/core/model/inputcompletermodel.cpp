@@ -74,6 +74,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QVector<Channel> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    channelList.reserve(rooms.size());
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
         Channel channel;

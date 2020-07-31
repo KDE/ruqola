@@ -67,6 +67,7 @@ public:
 private:
     Q_DISABLE_COPY(Ruqola)
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
+    void slotRoomNeedAttention();
     void logout(const QString &accountName);
     AccountManager *mAccountManager = nullptr;
 

@@ -61,6 +61,7 @@ Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void currentAccountChanged();
+    void roomNeedAttention();
 
 private:
     Q_DISABLE_COPY(AccountManager)

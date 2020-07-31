@@ -35,6 +35,7 @@ public:
     explicit Notification(QObject *parent = nullptr);
     ~Notification() override;
 
+    void roomNeedAttention();
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
     void clearNotification(const QString &account);
 #ifdef UNITY_SUPPORT

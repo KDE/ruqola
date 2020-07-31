@@ -230,6 +230,7 @@ Q_SIGNALS:
     void encryptedChanged();
     void encryptionKeyChanged();
     void encryptionKeyIdChanged();
+    void needAttention();
 
     //Blocker we blocked the channel
     void blockerChanged();
