@@ -149,6 +149,8 @@
 #include "invite/findorcreateinvitejob.h"
 
 #include "2fa/user2fasendemailcodejob.h"
+#include "2fa/user2faenableemailjob.h"
+#include "2fa/user2fadisableemailjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -1811,3 +1813,24 @@ void RestApiRequest::registerNewUser(const RocketChatRestApi::RegisterUserJob::R
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RegisterUserJob";
     }
 }
+
+void RestApiRequest::enable2FaEmailJob(bool enable)
+{
+    if (enable) {
+        auto *job = new User2FAEnableEmailJob(this);
+        initializeRestApiJob(job);
+        connect(job, &User2FAEnableEmailJob::enableEmailDone, this, &RestApiRequest::enableEmailDone);
+        if (!job->start()) {
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FAEnableEmailJob";
+        }
+    } else {
+        auto *job = new User2FADisableEmailJob(this);
+        initializeRestApiJob(job);
+        connect(job, &User2FADisableEmailJob::disableEmailDone, this, &RestApiRequest::disableEmailDone);
+        if (!job->start()) {
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FADisableEmailJob";
+        }
+
+    }
+}
+

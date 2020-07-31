@@ -18,21 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTCONFIGUREWIDGET_H
-#define MYACCOUNTCONFIGUREWIDGET_H
+#include "myaccount2faconfigurewidget.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
 
-#include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-class MyAccount2FaConfigureWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
+MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit MyAccountConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccountConfigureWidget();
-private:
-    MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = nullptr;
-};
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    //TODO
+}
 
-#endif // MYACCOUNTCONFIGUREWIDGET_H
+MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
+{
+
+}

@@ -18,8 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "myaccount2faconfigurewidget.h"
 #include "myaccountconfigurewidget.h"
 #include <KLocalizedString>
+#include <QTabWidget>
 #include <QVBoxLayout>
 
 MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
@@ -28,6 +30,15 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    QTabWidget *tabWidget = new QTabWidget(this);
+    tabWidget->setObjectName(QStringLiteral("tabWidget"));
+    mainLayout->addWidget(tabWidget);
+
+    mMyAccount2FaConfigureWidget = new MyAccount2FaConfigureWidget(this);
+    mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
+
     //TODO
 }
 

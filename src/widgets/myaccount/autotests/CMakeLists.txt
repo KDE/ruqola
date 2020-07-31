@@ -9,3 +9,4 @@ endmacro()
 
 add_ruqola_myaccount_test(myaccountconfiguredialogtest.cpp)
 add_ruqola_myaccount_test(myaccountconfigurewidgettest.cpp)
+add_ruqola_myaccount_test(myaccount2faconfigurewidgettest.cpp)

@@ -18,21 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTCONFIGUREWIDGET_H
-#define MYACCOUNTCONFIGUREWIDGET_H
+#ifndef MYACCOUNT2FACONFIGUREWIDGETTEST_H
+#define MYACCOUNT2FACONFIGUREWIDGETTEST_H
 
-#include <QWidget>
+#include <QObject>
 
-#include "libruqolawidgets_private_export.h"
-class MyAccount2FaConfigureWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
+class MyAccount2FaConfigureWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit MyAccountConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccountConfigureWidget();
-private:
-    MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = nullptr;
+    explicit MyAccount2FaConfigureWidgetTest(QObject *parent = nullptr);
+    ~MyAccount2FaConfigureWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // MYACCOUNTCONFIGUREWIDGET_H
+#endif // MYACCOUNT2FACONFIGUREWIDGETTEST_H

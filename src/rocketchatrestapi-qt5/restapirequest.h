@@ -189,7 +189,7 @@ public:
     void sendUserEmailCode(const QString &identifier);
     void deleteOwnAccount(const QString &password);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
-
+    void enable2FaEmailJob(bool enable);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -261,6 +261,8 @@ Q_SIGNALS:
     void sendEmailCodeDone();
     void deleteOwnAccountDone();
     void registerUserDone();
+    void enableEmailDone();
+    void disableEmailDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
