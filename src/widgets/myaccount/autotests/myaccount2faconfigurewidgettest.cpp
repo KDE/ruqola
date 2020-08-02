@@ -21,6 +21,7 @@
 #include "myaccount2faconfigurewidgettest.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(MyAccount2FaConfigureWidgetTest)
 MyAccount2FaConfigureWidgetTest::MyAccount2FaConfigureWidgetTest(QObject *parent)
     : QObject(parent)
@@ -31,5 +32,7 @@ MyAccount2FaConfigureWidgetTest::MyAccount2FaConfigureWidgetTest(QObject *parent
 void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccount2FaConfigureWidget w;
-    //TODO
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 }
