@@ -132,6 +132,9 @@ public:
     Q_REQUIRED_RESULT bool archived() const;
     void setArchived(bool archived);
 
+    Q_REQUIRED_RESULT bool muted() const;
+    void setMuted(bool muted);
+
     Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
@@ -245,6 +248,7 @@ Q_SIGNALS:
     void jitsiTimeoutChanged();
     void joinCodeRequiredChanged();
     void channelTypeChanged();
+    void mutedChanged();
 
     void broadcastChanged();
     void parentRidChanged();
@@ -335,6 +339,7 @@ private:
     bool mWasInitialized = false;
     bool mBroadcast = false;
     bool mAutoTranslate = false;
+    bool mMuted = false;
 
     QString mDirectChannelUserId;
 

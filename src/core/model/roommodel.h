@@ -49,6 +49,7 @@ public:
         RoomMutedUsers,
         RoomJitsiTimeout,
         RoomReadOnly,
+        RoomMuted,
         RoomAnnouncement,
         RoomOpen,
         RoomAlert,
@@ -119,6 +120,7 @@ public:
     Q_REQUIRED_RESULT Room *findRoom(const QString &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
     QString insertRoom(const QJsonObject &room);
+    void setRoomMute(const QString &roomId, bool muted);
 
     Q_REQUIRED_RESULT QModelIndex indexForRoomName(const QString &roomName) const;
 Q_SIGNALS:
