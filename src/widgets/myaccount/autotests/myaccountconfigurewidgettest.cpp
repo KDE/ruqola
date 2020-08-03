@@ -20,7 +20,12 @@
 
 #include "myaccountconfigurewidgettest.h"
 #include "myaccount/myaccountconfigurewidget.h"
+#include "myaccount/myaccount2faconfigurewidget.h"
+#include "myaccount/myaccountprofileconfigurewidget.h"
+#include <QTabWidget>
 #include <QTest>
+#include <QVBoxLayout>
+
 QTEST_MAIN(MyAccountConfigureWidgetTest)
 MyAccountConfigureWidgetTest::MyAccountConfigureWidgetTest(QObject *parent)
     : QObject(parent)
@@ -31,4 +36,18 @@ MyAccountConfigureWidgetTest::MyAccountConfigureWidgetTest(QObject *parent)
 void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountConfigureWidget w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QTabWidget *tabWidget = w.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
+    QVERIFY(tabWidget);
+
+    MyAccountProfileConfigureWidget *mMyAccount2ProfileConfigureWidget = w.findChild<MyAccountProfileConfigureWidget *>(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
+    QVERIFY(mMyAccount2ProfileConfigureWidget);
+
+
+    MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    QVERIFY(mMyAccount2FaConfigureWidget);
 }

@@ -20,6 +20,7 @@
 
 #include "myaccount2faconfigurewidget.h"
 #include "myaccountconfigurewidget.h"
+#include "myaccountprofileconfigurewidget.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -35,11 +36,14 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     tabWidget->setObjectName(QStringLiteral("tabWidget"));
     mainLayout->addWidget(tabWidget);
 
+    mMyAccount2ProfileConfigureWidget = new MyAccountProfileConfigureWidget(this);
+    mMyAccount2ProfileConfigureWidget->setObjectName(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
+    tabWidget->addTab(mMyAccount2ProfileConfigureWidget, i18n("Profile"));
+
+
     mMyAccount2FaConfigureWidget = new MyAccount2FaConfigureWidget(this);
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
-
-    //TODO
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget()
