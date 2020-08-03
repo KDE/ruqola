@@ -18,27 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSUPDATEJOB_H
-#define USERSUPDATEJOB_H
+#ifndef USERSUPDATEOWNBASICINFO_H
+#define USERSUPDATEOWNBASICINFO_H
 
 #include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersUpdateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateOwnBasicInfo : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UpdateInfo {
-        //TODO add enum ?
-        QString mUserId;
-        QString mEmail;
-        QString mName;
-        QString mUserName;
-        QString mPassword;
-        //TODO add more
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateOwnBasicInfo {
+        QString email;
+        QString name;
+        QString userName;
+        QString nickName;
+        QString statusText;
+        QString currentPassword;
+        QString newPassword;
+        //Add custom field ?
     };
-    explicit UsersUpdateJob(QObject *parent = nullptr);
-    ~UsersUpdateJob() override;
+    explicit UsersUpdateOwnBasicInfo(QObject *parent = nullptr);
+    ~UsersUpdateOwnBasicInfo() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -48,11 +49,11 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
-    void usersUpdateDone();
+    void updateOwnBasicInfoDone();
 
 private:
-    Q_DISABLE_COPY(UsersUpdateJob)
-    void slotUsersUpdate();
+    Q_DISABLE_COPY(UsersUpdateOwnBasicInfo)
+    void slotUpdateOwnBasicInfo();
 };
 }
-#endif // UsersUpdateJob_H
+#endif // UsersUpdateOwnBasicInfo_H

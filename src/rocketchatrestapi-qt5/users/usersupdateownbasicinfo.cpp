@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersupdatejob.h"
+#include "usersupdateownbasicinfo.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -26,28 +26,28 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-UsersUpdateJob::UsersUpdateJob(QObject *parent)
+UsersUpdateOwnBasicInfo::UsersUpdateOwnBasicInfo(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-UsersUpdateJob::~UsersUpdateJob()
+UsersUpdateOwnBasicInfo::~UsersUpdateOwnBasicInfo()
 {
 }
 
-bool UsersUpdateJob::start()
+bool UsersUpdateOwnBasicInfo::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersUpdateJob::start");
+    addStartRestApiInfo("UsersUpdateOwnBasicInfo::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &UsersUpdateJob::slotUsersUpdate);
+    connect(reply, &QNetworkReply::finished, this, &UsersUpdateOwnBasicInfo::slotUpdateOwnBasicInfo);
     return true;
 }
 
-void UsersUpdateJob::slotUsersUpdate()
+void UsersUpdateOwnBasicInfo::slotUpdateOwnBasicInfo()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -55,48 +55,48 @@ void UsersUpdateJob::slotUsersUpdate()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UsersUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT usersUpdateDone();
+            addLoggerInfo(QByteArrayLiteral("UsersUpdateOwnBasicInfo: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT updateOwnBasicInfoDone();
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("UsersUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("UsersUpdateOwnBasicInfo: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-bool UsersUpdateJob::requireHttpAuthentication() const
+bool UsersUpdateOwnBasicInfo::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool UsersUpdateJob::canStart() const
+bool UsersUpdateOwnBasicInfo::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
 //    if (mStatusUserId.isEmpty()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateJob: mUserId is empty";
+//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mUserId is empty";
 //        return false;
 //    }
-//    if (mStatus == UsersUpdateJob::Unknown) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateJob: mStatus is not defined";
+//    if (mStatus == UsersUpdateOwnBasicInfo::Unknown) {
+//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mStatus is not defined";
 //        return false;
 //    }
     return true;
 }
 
-QNetworkRequest UsersUpdateJob::request() const
+QNetworkRequest UsersUpdateOwnBasicInfo::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersUpdate);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
 }
 
-QJsonDocument UsersUpdateJob::json() const
+QJsonDocument UsersUpdateOwnBasicInfo::json() const
 {
     QJsonObject jsonObj;
 
