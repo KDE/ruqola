@@ -24,13 +24,21 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit MyAccountProfileConfigureWidget(QWidget *parent = nullptr);
     ~MyAccountProfileConfigureWidget();
+private:
+    QLineEdit *mEmail;
+    QLineEdit *mName;
+    QLineEdit *mUserName;
+    QLineEdit *mNickName;
+    QLineEdit *mStatusText;
+//    QString currentPassword;
+//    QString newPassword;
 };
 
 #endif // MYACCOUNTPROFILECONFIGUREWIDGET_H

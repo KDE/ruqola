@@ -20,6 +20,8 @@
 
 #include "myaccountprofileconfigurewidgettest.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(MyAccountProfileConfigureWidgetTest)
 
@@ -31,5 +33,24 @@ MyAccountProfileConfigureWidgetTest::MyAccountProfileConfigureWidgetTest(QObject
 
 void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 {
+    MyAccountProfileConfigureWidget w;
 
+    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+
+    QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+
+    QLineEdit *mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    QVERIFY(mEmail);
+
+    QLineEdit *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    QVERIFY(mName);
+
+    QLineEdit *mNickName = w.findChild<QLineEdit *>(QStringLiteral("mNickName"));
+    QVERIFY(mNickName);
+
+    QLineEdit *mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
+    QVERIFY(mStatusText);
 }

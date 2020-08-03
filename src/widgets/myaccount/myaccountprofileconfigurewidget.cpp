@@ -19,15 +19,38 @@
 */
 
 #include "myaccountprofileconfigurewidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QFormLayout>
+#include <QLineEdit>
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mUserName = new QLineEdit(this);
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mainLayout->addRow(i18n("UserName:"), mUserName);
+
+    mEmail = new QLineEdit(this);
+    mEmail->setObjectName(QStringLiteral("mEmail"));
+    mainLayout->addRow(i18n("Email:"), mEmail);
+
+    mName = new QLineEdit(this);
+    mName->setObjectName(QStringLiteral("mName"));
+    mainLayout->addRow(i18n("Name:"), mName);
+
+    mNickName = new QLineEdit(this);
+    mNickName->setObjectName(QStringLiteral("mNickName"));
+    mainLayout->addRow(i18n("NickName:"), mNickName);
+
+    mStatusText = new QLineEdit(this);
+    mStatusText->setObjectName(QStringLiteral("mStatusText"));
+    mainLayout->addRow(i18n("Status Text:"), mStatusText);
+
+    //TODO add password.
+
 }
 
 MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
