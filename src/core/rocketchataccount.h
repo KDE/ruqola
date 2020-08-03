@@ -417,6 +417,13 @@ public:
     Q_REQUIRED_RESULT bool registrationFromEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void deleteOwnAccount(const QString &password);
+
+    Q_REQUIRED_RESULT bool allowEmailChange() const;
+
+    Q_REQUIRED_RESULT bool allowPasswordChange() const;
+
+    Q_REQUIRED_RESULT bool allowUsernameChange() const;
+
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

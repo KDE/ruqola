@@ -2136,6 +2136,21 @@ void RocketChatAccount::deleteOwnAccount(const QString &password)
     restApi()->deleteOwnAccount(password);
 }
 
+bool RocketChatAccount::allowEmailChange() const
+{
+    return mRuqolaServerConfig->allowEmailChange();
+}
+
+bool RocketChatAccount::allowPasswordChange() const
+{
+    return mRuqolaServerConfig->allowPasswordChange();
+}
+
+bool RocketChatAccount::allowUsernameChange() const
+{
+    return mRuqolaServerConfig->allowUsernameChange();
+}
+
 void RocketChatAccount::slotRegisterUserDone()
 {
     Q_EMIT registerUserSuccess();
