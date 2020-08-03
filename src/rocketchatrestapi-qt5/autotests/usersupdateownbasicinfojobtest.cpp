@@ -18,44 +18,45 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersupdateownbasicinfotest.h"
-#include "users/usersupdateownbasicinfo.h"
+#include "usersupdateownbasicinfojobtest.h"
+#include "users/usersupdateownbasicinfojob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
-QTEST_GUILESS_MAIN(UsersUpdateOwnBasicInfoTest)
+QTEST_GUILESS_MAIN(UsersUpdateOwnBasicInfoJobTest)
 using namespace RocketChatRestApi;
-UsersUpdateOwnBasicInfoTest::UsersUpdateOwnBasicInfoTest(QObject *parent)
+UsersUpdateOwnBasicInfoJobTest::UsersUpdateOwnBasicInfoJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void UsersUpdateOwnBasicInfoTest::shouldHaveDefaultValue()
+void UsersUpdateOwnBasicInfoJobTest::shouldHaveDefaultValue()
 {
-    UsersUpdateOwnBasicInfo job;
+    UsersUpdateOwnBasicInfoJob job;
+    QVERIFY(!job.updateOwnBasicInfo().isValid());
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void UsersUpdateOwnBasicInfoTest::shouldGenerateRequest()
+void UsersUpdateOwnBasicInfoJobTest::shouldGenerateRequest()
 {
-    UsersUpdateOwnBasicInfo job;
+    UsersUpdateOwnBasicInfoJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setStatus")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.updateOwnBasicInfo")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void UsersUpdateOwnBasicInfoTest::shouldGenerateJson()
+void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
 {
-    UsersUpdateOwnBasicInfo job;
+    UsersUpdateOwnBasicInfoJob job;
     //TODO
 }
 
-void UsersUpdateOwnBasicInfoTest::shouldNotStarting()
+void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
 {
-    UsersUpdateOwnBasicInfo job;
+    UsersUpdateOwnBasicInfoJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));

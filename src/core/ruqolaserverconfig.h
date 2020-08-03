@@ -175,6 +175,7 @@ private:
     int mServerVersionPatch = -1;
     qint64 mFileMaxFileSize = -1;
 
+    //TODO convert as enum
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;

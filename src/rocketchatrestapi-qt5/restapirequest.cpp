@@ -1830,7 +1830,16 @@ void RestApiRequest::enable2FaEmailJob(bool enable)
         if (!job->start()) {
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FADisableEmailJob";
         }
-
     }
 }
 
+void RestApiRequest::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
+{
+    auto *job = new UsersUpdateOwnBasicInfoJob(this);
+    job->setUpdateOwnBasicInfo(info);
+    initializeRestApiJob(job);
+    connect(job, &UsersUpdateOwnBasicInfoJob::updateOwnBasicInfoDone, this, &RestApiRequest::updateOwnBasicInfoDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
+    }
+}

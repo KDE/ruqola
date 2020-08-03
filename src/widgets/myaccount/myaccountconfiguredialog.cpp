@@ -46,14 +46,21 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::accept);
+    connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::slotAccept);
 
     readConfig();
+    load();
 }
 
 MyAccountConfigureDialog::~MyAccountConfigureDialog()
 {
     writeConfig();
+}
+
+void MyAccountConfigureDialog::slotAccept()
+{
+    mMyAccountConfigWidget->save();
+    accept();
 }
 
 void MyAccountConfigureDialog::readConfig()
@@ -70,3 +77,14 @@ void MyAccountConfigureDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
+
+void MyAccountConfigureDialog::save()
+{
+    mMyAccountConfigWidget->save();
+}
+
+void MyAccountConfigureDialog::load()
+{
+    mMyAccountConfigWidget->load();
+}
+

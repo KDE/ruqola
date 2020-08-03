@@ -24,7 +24,7 @@
 #include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateOwnBasicInfo : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateOwnBasicInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -36,10 +36,11 @@ public:
         QString statusText;
         QString currentPassword;
         QString newPassword;
+        Q_REQUIRED_RESULT bool isValid() const;
         //Add custom field ?
     };
-    explicit UsersUpdateOwnBasicInfo(QObject *parent = nullptr);
-    ~UsersUpdateOwnBasicInfo() override;
+    explicit UsersUpdateOwnBasicInfoJob(QObject *parent = nullptr);
+    ~UsersUpdateOwnBasicInfoJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -48,12 +49,17 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT UpdateOwnBasicInfo updateOwnBasicInfo() const;
+    void setUpdateOwnBasicInfo(const UpdateOwnBasicInfo &updateOwnBasicInfo);
+
 Q_SIGNALS:
     void updateOwnBasicInfoDone();
 
 private:
-    Q_DISABLE_COPY(UsersUpdateOwnBasicInfo)
+    Q_DISABLE_COPY(UsersUpdateOwnBasicInfoJob)
     void slotUpdateOwnBasicInfo();
+    UpdateOwnBasicInfo mUpdateOwnBasicInfo;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_MOVABLE_TYPE);
 #endif // UsersUpdateOwnBasicInfo_H

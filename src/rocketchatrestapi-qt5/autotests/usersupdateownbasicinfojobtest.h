@@ -23,12 +23,12 @@
 
 #include <QObject>
 
-class UsersUpdateOwnBasicInfoTest : public QObject
+class UsersUpdateOwnBasicInfoJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit UsersUpdateOwnBasicInfoTest(QObject *parent = nullptr);
-    ~UsersUpdateOwnBasicInfoTest() override = default;
+    explicit UsersUpdateOwnBasicInfoJobTest(QObject *parent = nullptr);
+    ~UsersUpdateOwnBasicInfoJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

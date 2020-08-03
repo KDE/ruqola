@@ -32,6 +32,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
 public:
     explicit MyAccountConfigureWidget(QWidget *parent = nullptr);
     ~MyAccountConfigureWidget();
+    void save();
+    void load();
 private:
     MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = nullptr;
     MyAccountProfileConfigureWidget *mMyAccount2ProfileConfigureWidget = nullptr;

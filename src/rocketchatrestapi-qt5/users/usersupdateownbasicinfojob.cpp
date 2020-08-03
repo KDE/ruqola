@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersupdateownbasicinfo.h"
+#include "usersupdateownbasicinfojob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -26,16 +26,16 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-UsersUpdateOwnBasicInfo::UsersUpdateOwnBasicInfo(QObject *parent)
+UsersUpdateOwnBasicInfoJob::UsersUpdateOwnBasicInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-UsersUpdateOwnBasicInfo::~UsersUpdateOwnBasicInfo()
+UsersUpdateOwnBasicInfoJob::~UsersUpdateOwnBasicInfoJob()
 {
 }
 
-bool UsersUpdateOwnBasicInfo::start()
+bool UsersUpdateOwnBasicInfoJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -43,11 +43,11 @@ bool UsersUpdateOwnBasicInfo::start()
     }
     addStartRestApiInfo("UsersUpdateOwnBasicInfo::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &UsersUpdateOwnBasicInfo::slotUpdateOwnBasicInfo);
+    connect(reply, &QNetworkReply::finished, this, &UsersUpdateOwnBasicInfoJob::slotUpdateOwnBasicInfo);
     return true;
 }
 
-void UsersUpdateOwnBasicInfo::slotUpdateOwnBasicInfo()
+void UsersUpdateOwnBasicInfoJob::slotUpdateOwnBasicInfo()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -66,28 +66,34 @@ void UsersUpdateOwnBasicInfo::slotUpdateOwnBasicInfo()
     deleteLater();
 }
 
-bool UsersUpdateOwnBasicInfo::requireHttpAuthentication() const
+UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo UsersUpdateOwnBasicInfoJob::updateOwnBasicInfo() const
+{
+    return mUpdateOwnBasicInfo;
+}
+
+void UsersUpdateOwnBasicInfoJob::setUpdateOwnBasicInfo(const UpdateOwnBasicInfo &updateOwnBasicInfo)
+{
+    mUpdateOwnBasicInfo = updateOwnBasicInfo;
+}
+
+bool UsersUpdateOwnBasicInfoJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool UsersUpdateOwnBasicInfo::canStart() const
+bool UsersUpdateOwnBasicInfoJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-//    if (mStatusUserId.isEmpty()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mUserId is empty";
-//        return false;
-//    }
-//    if (mStatus == UsersUpdateOwnBasicInfo::Unknown) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mStatus is not defined";
-//        return false;
-//    }
+    if (!mUpdateOwnBasicInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mUpdateOwnBasicInfo is not valid.";
+        return false;
+    }
     return true;
 }
 
-QNetworkRequest UsersUpdateOwnBasicInfo::request() const
+QNetworkRequest UsersUpdateOwnBasicInfoJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo);
     QNetworkRequest request(url);
@@ -96,10 +102,34 @@ QNetworkRequest UsersUpdateOwnBasicInfo::request() const
     return request;
 }
 
-QJsonDocument UsersUpdateOwnBasicInfo::json() const
+QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 {
     QJsonObject jsonObj;
+    if (!mUpdateOwnBasicInfo.email.isEmpty()) {
+        //TODO
+    }
+    if (!mUpdateOwnBasicInfo.userName.isEmpty()) {
+        //TODO
+    }
+    if (!mUpdateOwnBasicInfo.nickName.isEmpty()) {
+        //TODO
+    }
+    if (!mUpdateOwnBasicInfo.statusText.isEmpty()) {
+        //TODO
+    }
+    if (!mUpdateOwnBasicInfo.newPassword.isEmpty()) {
+        //TODO
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::isValid() const
+{
+    return !email.isEmpty() ||
+            !userName.isEmpty() ||
+            !nickName.isEmpty() ||
+            !statusText.isEmpty() ||
+            (!newPassword.isEmpty() && !currentPassword.isEmpty());
 }

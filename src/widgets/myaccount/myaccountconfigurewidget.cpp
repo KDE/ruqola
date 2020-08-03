@@ -40,7 +40,6 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     mMyAccount2ProfileConfigureWidget->setObjectName(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
     tabWidget->addTab(mMyAccount2ProfileConfigureWidget, i18n("Profile"));
 
-
     mMyAccount2FaConfigureWidget = new MyAccount2FaConfigureWidget(this);
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
@@ -49,4 +48,14 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
 MyAccountConfigureWidget::~MyAccountConfigureWidget()
 {
 
+}
+
+void MyAccountConfigureWidget::save()
+{
+    mMyAccount2ProfileConfigureWidget->save();
+}
+
+void MyAccountConfigureWidget::load()
+{
+    mMyAccount2ProfileConfigureWidget->load();
 }

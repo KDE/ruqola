@@ -20,6 +20,8 @@
 
 #include "myaccountprofileconfigurewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -30,6 +32,11 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mName = new QLineEdit(this);
+    mName->setObjectName(QStringLiteral("mName"));
+    new LineEditCatchReturnKey(mName, this);
+    mainLayout->addRow(i18n("Name:"), mName);
+
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     new LineEditCatchReturnKey(mUserName, this);
@@ -39,11 +46,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mEmail->setObjectName(QStringLiteral("mEmail"));
     new LineEditCatchReturnKey(mEmail, this);
     mainLayout->addRow(i18n("Email:"), mEmail);
-
-    mName = new QLineEdit(this);
-    mName->setObjectName(QStringLiteral("mName"));
-    new LineEditCatchReturnKey(mName, this);
-    mainLayout->addRow(i18n("Name:"), mName);
 
     mNickName = new QLineEdit(this);
     mNickName->setObjectName(QStringLiteral("mNickName"));
@@ -56,10 +58,27 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
 
     //TODO add password.
-
+    init();
 }
 
 MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 {
 
+}
+
+void MyAccountProfileConfigureWidget::init()
+{
+    mUserName->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowUsernameChange());
+    mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
+    //TODO !Ruqola::rocketChatAccount()->allowPasswordChange();
+}
+
+void MyAccountProfileConfigureWidget::load()
+{
+    //TODO
+}
+
+void MyAccountProfileConfigureWidget::save()
+{
+    //TODO
 }

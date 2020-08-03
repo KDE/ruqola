@@ -25,6 +25,7 @@
 #include <QUrl>
 #include <channels/channelbasejob.h>
 #include <commands/runcommandjob.h>
+#include "users/usersupdateownbasicinfojob.h"
 #include <ddpapi/ddpclient.h>
 #include "users/registeruserjob.h"
 #include "ddpapi/ddpauthenticationmanager.h"
@@ -424,6 +425,7 @@ public:
 
     Q_REQUIRED_RESULT bool allowUsernameChange() const;
 
+    void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

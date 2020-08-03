@@ -31,8 +31,11 @@ public:
     explicit MyAccountConfigureDialog(QWidget *parent = nullptr);
     ~MyAccountConfigureDialog();
 private:
+    void load();
+    void save();
     void readConfig();
     void writeConfig();
+    void slotAccept();
     MyAccountConfigureWidget *mMyAccountConfigWidget = nullptr;
 };
 
