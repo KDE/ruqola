@@ -89,7 +89,7 @@ bool UsersUpdateJob::canStart() const
 
 QNetworkRequest UsersUpdateJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersSetStatus);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersUpdate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
