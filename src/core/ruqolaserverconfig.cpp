@@ -196,6 +196,36 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::allowUsernameChange() const
+{
+    return mAllowUsernameChange;
+}
+
+void RuqolaServerConfig::setAllowUsernameChange(bool allowUsernameChange)
+{
+    mAllowUsernameChange = allowUsernameChange;
+}
+
+bool RuqolaServerConfig::allowPasswordChange() const
+{
+    return mAllowPasswordChange;
+}
+
+void RuqolaServerConfig::setAllowPasswordChange(bool allowPasswordChange)
+{
+    mAllowPasswordChange = allowPasswordChange;
+}
+
+bool RuqolaServerConfig::allowEmailChange() const
+{
+    return mAllowEmailChange;
+}
+
+void RuqolaServerConfig::setAllowEmailChange(bool allowEmailChange)
+{
+    mAllowEmailChange = allowEmailChange;
+}
+
 bool RuqolaServerConfig::allowPasswordReset() const
 {
     return mAllowPasswordReset;
@@ -552,6 +582,12 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setAllowRegistrationFrom(value.toString());
         } else if (id == QLatin1String("Accounts_PasswordReset")) {
             setAllowPasswordReset(value.toBool());
+        } else if (id == QLatin1String("Accounts_AllowEmailChange")) {
+            setAllowEmailChange(value.toBool());
+        } else if (id == QLatin1String("Accounts_AllowPasswordChange")) {
+            setAllowPasswordChange(value.toBool());
+        } else if (id == QLatin1String("Accounts_AllowUsernameChange")) {
+            setAllowUsernameChange(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

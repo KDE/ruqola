@@ -67,6 +67,9 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.allowDeleteOwnAccount());
     QVERIFY(config.registrationFromEnabled());
     QVERIFY(config.allowPasswordReset());
+    QVERIFY(config.allowEmailChange());
+    QVERIFY(config.allowPasswordChange());
+    QVERIFY(config.allowUsernameChange());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -124,6 +127,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool uploadFileEnabled = true;
     bool allowDeleteOwnAccount = false;
     bool allowPasswordReset = false;
+    bool allowEmailChange = false;
+    bool allowPasswordChange = false;
+    bool allowUsernameChange = false;
 
     quint64 uploadFileMax = 222222;
 
@@ -137,6 +143,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setFileMaxFileSize(uploadFileMax);
     config.setAllowDeleteOwnAccount(allowDeleteOwnAccount);
     config.setAllowPasswordReset(allowPasswordReset);
+    config.setAllowEmailChange(allowEmailChange);
+    config.setAllowPasswordChange(allowPasswordChange);
+    config.setAllowUsernameChange(allowUsernameChange);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -173,6 +182,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.allowDeleteOwnAccount(), allowDeleteOwnAccount);
     QCOMPARE(config.registrationFromEnabled(), false);
     QCOMPARE(config.allowPasswordReset(), allowPasswordReset);
+    QCOMPARE(config.allowEmailChange(), allowEmailChange);
+    QCOMPARE(config.allowPasswordChange(), allowPasswordChange);
+    QCOMPARE(config.allowUsernameChange(), allowUsernameChange);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

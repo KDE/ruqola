@@ -147,6 +147,15 @@ public:
     Q_REQUIRED_RESULT bool allowPasswordReset() const;
     void setAllowPasswordReset(bool allowPasswordReset);
 
+    Q_REQUIRED_RESULT bool allowEmailChange() const;
+    void setAllowEmailChange(bool allowEmailChange);
+
+    Q_REQUIRED_RESULT bool allowPasswordChange() const;
+    void setAllowPasswordChange(bool allowPasswordChange);
+
+    Q_REQUIRED_RESULT bool allowUsernameChange() const;
+    void setAllowUsernameChange(bool allowUsernameChange);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -185,6 +194,9 @@ private:
     bool mAllowDeleteOwnAccount = true;
     bool mRegistrationFromEnabled = true;
     bool mAllowPasswordReset = true;
+    bool mAllowEmailChange = true;
+    bool mAllowPasswordChange = true;
+    bool mAllowUsernameChange = true;
 
     QString mLogoUrl;
     QString mFaviconUrl;
