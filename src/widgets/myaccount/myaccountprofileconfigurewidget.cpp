@@ -19,6 +19,7 @@
 */
 
 #include "myaccountprofileconfigurewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -31,21 +32,26 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
 
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
+    new LineEditCatchReturnKey(mUserName, this);
     mainLayout->addRow(i18n("UserName:"), mUserName);
 
     mEmail = new QLineEdit(this);
     mEmail->setObjectName(QStringLiteral("mEmail"));
+    new LineEditCatchReturnKey(mEmail, this);
     mainLayout->addRow(i18n("Email:"), mEmail);
 
     mName = new QLineEdit(this);
     mName->setObjectName(QStringLiteral("mName"));
+    new LineEditCatchReturnKey(mName, this);
     mainLayout->addRow(i18n("Name:"), mName);
 
     mNickName = new QLineEdit(this);
     mNickName->setObjectName(QStringLiteral("mNickName"));
+    new LineEditCatchReturnKey(mNickName, this);
     mainLayout->addRow(i18n("NickName:"), mNickName);
 
     mStatusText = new QLineEdit(this);
+    new LineEditCatchReturnKey(mStatusText, this);
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
 
