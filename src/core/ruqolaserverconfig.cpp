@@ -196,6 +196,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+RuqolaServerConfig::ServerConfigFeatureTypes RuqolaServerConfig::serverConfigFeatureTypes() const
+{
+    return mServerConfigFeatureTypes;
+}
+
+void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes serverConfigFeatureTypes)
+{
+    mServerConfigFeatureTypes = serverConfigFeatureTypes;
+}
+
 bool RuqolaServerConfig::allowUsernameChange() const
 {
     return mAllowUsernameChange;

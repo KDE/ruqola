@@ -24,11 +24,41 @@
 #include "libruqolacore_export.h"
 #include "authenticationmanager.h"
 #include <QString>
+#include <QObject>
 
 class LIBRUQOLACORE_EXPORT RuqolaServerConfig
 {
+    Q_GADGET
 public:
     RuqolaServerConfig();
+
+    enum class ServerConfigFeatureType {
+        None = 0,
+        AllowEditingMessage = 1,
+        OtrEnabled = 2,
+        NeedAdaptNewSubscriptionRC60 = 4,
+        EncryptionEnabled = 8,
+        AllowMessagePinning = 0x10,
+        AllowMessageSnippeting = 0x20,
+        AllowMessageStarring = 0x40,
+        AllowMessageDeleting = 0x80,
+        JitsiEnabled = 0x100,
+        ThreadsEnabled = 0x200,
+        DiscussionEnabled = 0x400,
+        AutoTranslateEnabled = 0x800,
+        UploadFileEnabled = 0x1000,
+        BroadCastEnabled = 0x2000,
+        VideoRecorderEnabled = 0x4000,
+        AudioRecorderEnabled = 0x8000,
+        AllowDeleteOwnAccount = 0x10000,
+        RegistrationFromEnabled = 0x20000,
+        AllowPasswordReset = 0x40000,
+        AllowEmailChange = 0x80000,
+        AllowPasswordChange = 0x100000,
+        AllowUsernameChange = 0x200000
+    };
+    Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
+    Q_FLAG(ServerConfigFeatureType)
 
     Q_REQUIRED_RESULT QString uniqueId() const;
     void setUniqueId(const QString &uniqueId);
@@ -156,7 +186,11 @@ public:
     Q_REQUIRED_RESULT bool allowUsernameChange() const;
     void setAllowUsernameChange(bool allowUsernameChange);
 
+    Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
+    void setServerConfigFeatureTypes(ServerConfigFeatureTypes serverConfigFeatureTypes);
+
 private:
+    Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
     QString mUniqueId;
     QString mJitsiMeetUrl;
@@ -198,6 +232,8 @@ private:
     bool mAllowEmailChange = true;
     bool mAllowPasswordChange = true;
     bool mAllowUsernameChange = true;
+
+    ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 
     QString mLogoUrl;
     QString mFaviconUrl;
