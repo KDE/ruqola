@@ -201,7 +201,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
 {
     //Move code in rocketchataccount directly ?
-    //qDebug() << "replyJson " << replyJson;
+    qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
     User user;
     user.setUserId(replyObject.value(QLatin1String("_id")).toString());
     user.setUserName(replyObject.value(QLatin1String("username")).toString());
