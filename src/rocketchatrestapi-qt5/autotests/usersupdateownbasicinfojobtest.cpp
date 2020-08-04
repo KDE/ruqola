@@ -56,6 +56,17 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
     info.email = email;
     job.setUpdateOwnBasicInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\"}}").arg(email).toLatin1());
+
+    const QString username = QStringLiteral("username");
+    info.userName = username;
+    job.setUpdateOwnBasicInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"username\":\"%2\"}}").arg(email, username).toLatin1());
+
+    const QString nickname = QStringLiteral("nick");
+    info.nickName = nickname;
+    job.setUpdateOwnBasicInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"nickname\":\"%3\",\"username\":\"%2\"}}")
+             .arg(email, username, nickname).toLatin1());
 }
 
 void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
@@ -75,6 +86,11 @@ void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
+    UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo info;
+    const QString email = QStringLiteral("foo@kde.org");
+    info.email = email;
+    job.setUpdateOwnBasicInfo(info);
+
     //TODO
     QVERIFY(job.canStart());
 }
