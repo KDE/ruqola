@@ -522,7 +522,7 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
 void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
-
+    mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     for (QJsonValueRef currentConfig : configs) {
         QJsonObject currentConfObject = currentConfig.toObject();
         const QString id = currentConfObject[QStringLiteral("_id")].toString();
@@ -531,6 +531,7 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         if (id == QLatin1String("uniqueID")) {
             setUniqueId(value.toString());
         } else if (id == QLatin1String("Jitsi_Enabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::JitsiEnabled;
             setJitsiEnabled(value.toBool());
         } else if (id == QLatin1String("Jitsi_Domain")) {
             setJitsiMeetUrl(value.toString());
@@ -557,46 +558,62 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         } else if (id == QLatin1String("E2E_Enable")) {
             setEncryptionEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AllowPinning")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessagePinning;
             setAllowMessagePinning(value.toBool());
         } else if (id == QLatin1String("Message_AllowSnippeting")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageSnippeting;
             setAllowMessageSnippeting(value.toBool());
         } else if (id == QLatin1String("Message_AllowStarring")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageStarring;
             setAllowMessageStarring(value.toBool());
         } else if (id == QLatin1String("Message_AllowDeleting")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageDeleting;
             setAllowMessageDeleting(value.toBool());
         } else if (id == QLatin1String("Threads_enabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::ThreadsEnabled;
             setThreadsEnabled(value.toBool());
         } else if (id == QLatin1String("Discussion_enabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::DiscussionEnabled;
             setDiscussionEnabled(value.toBool());
         } else if (id == QLatin1String("AutoTranslate_Enabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AutoTranslateEnabled;
             setAutoTranslateEnabled(value.toBool());
         } else if (id == QLatin1String("AutoTranslate_GoogleAPIKey")) {
             setAutoTranslateGoogleKey(value.toString());
         } else if (id == QLatin1String("FileUpload_Enabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::UploadFileEnabled;
             setUploadFileEnabled(value.toBool());
         } else if (id == QLatin1String("FileUpload_MaxFileSize")) {
             setFileMaxFileSize(value.toULongLong());
         } else if (id == QLatin1String("Broadcasting_enabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::BroadCastEnabled;
             setBroadCastEnabled(value.toBool());
         } else if (id == QLatin1String("Message_VideoRecorderEnabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::VideoRecorderEnabled;
             setVideoRecorderEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AudioRecorderEnabled;
             setBroadCastEnabled(value.toBool());
         } else if (id == QLatin1String("Assets_logo")) {
             setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
         } else if (id == QLatin1String("Assets_favicon")) {
             setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
         } else if (id == QLatin1String("Accounts_AllowDeleteOwnAccount")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowDeleteOwnAccount;
             setAllowDeleteOwnAccount(value.toBool());
         } else if (id == QLatin1String("Accounts_RegistrationForm")) {
             setAllowRegistrationFrom(value.toString());
         } else if (id == QLatin1String("Accounts_PasswordReset")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowPasswordReset;
             setAllowPasswordReset(value.toBool());
         } else if (id == QLatin1String("Accounts_AllowEmailChange")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowEmailChange;
             setAllowEmailChange(value.toBool());
         } else if (id == QLatin1String("Accounts_AllowPasswordChange")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowPasswordChange;
             setAllowPasswordChange(value.toBool());
         } else if (id == QLatin1String("Accounts_AllowUsernameChange")) {
+            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUsernameChange;
             setAllowUsernameChange(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;

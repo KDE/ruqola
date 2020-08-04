@@ -185,6 +185,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.allowEmailChange(), allowEmailChange);
     QCOMPARE(config.allowPasswordChange(), allowPasswordChange);
     QCOMPARE(config.allowUsernameChange(), allowUsernameChange);
+    QCOMPARE(config.serverConfigFeatureTypes(), RuqolaServerConfig::ServerConfigFeatureType::None);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()
