@@ -79,5 +79,11 @@ void MyAccountProfileConfigureWidget::load()
 
 void MyAccountProfileConfigureWidget::save()
 {
-    //TODO
+    RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo updateInfo;
+    updateInfo.email = mEmail->text();
+    updateInfo.nickName = mNickName->text();
+    updateInfo.userName = mUserName->text();
+    updateInfo.statusText = mStatusText->text();
+    //TODO add more.
+    Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);
 }
