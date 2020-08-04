@@ -51,7 +51,11 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateRequest()
 void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
 {
     UsersUpdateOwnBasicInfoJob job;
-    //TODO
+    UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo info;
+    const QString email = QStringLiteral("foo@kde.org");
+    info.email = email;
+    job.setUpdateOwnBasicInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\"}}").arg(email).toLatin1());
 }
 
 void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()

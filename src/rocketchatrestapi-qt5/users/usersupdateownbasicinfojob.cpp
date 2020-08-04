@@ -105,22 +105,24 @@ QNetworkRequest UsersUpdateOwnBasicInfoJob::request() const
 QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 {
     QJsonObject jsonObj;
+    QJsonObject dataObj;
     if (!mUpdateOwnBasicInfo.email.isEmpty()) {
-        //TODO
+        dataObj[QLatin1String("email")] = mUpdateOwnBasicInfo.email;
     }
     if (!mUpdateOwnBasicInfo.userName.isEmpty()) {
-        //TODO
+        dataObj[QLatin1String("username")] = mUpdateOwnBasicInfo.userName;
     }
     if (!mUpdateOwnBasicInfo.nickName.isEmpty()) {
-        //TODO
+        dataObj[QLatin1String("nickname")] = mUpdateOwnBasicInfo.nickName;
     }
     if (!mUpdateOwnBasicInfo.statusText.isEmpty()) {
-        //TODO
+        dataObj[QLatin1String("statustext")] = mUpdateOwnBasicInfo.statusText;
     }
     if (!mUpdateOwnBasicInfo.newPassword.isEmpty()) {
         //TODO
     }
 
+    jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
