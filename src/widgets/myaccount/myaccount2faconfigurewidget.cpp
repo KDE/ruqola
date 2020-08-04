@@ -33,5 +33,4 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
 
 MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
 {
-
 }

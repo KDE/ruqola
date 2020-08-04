@@ -30,7 +30,6 @@ namespace {
 const char myConfigGroupName[] = "RegisterUserDialog";
 }
 
-
 MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -87,4 +86,3 @@ void MyAccountConfigureDialog::load()
 {
     mMyAccountConfigWidget->load();
 }
-

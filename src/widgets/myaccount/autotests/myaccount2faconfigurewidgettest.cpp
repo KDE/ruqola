@@ -26,7 +26,6 @@ QTEST_MAIN(MyAccount2FaConfigureWidgetTest)
 MyAccount2FaConfigureWidgetTest::MyAccount2FaConfigureWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()

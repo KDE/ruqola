@@ -63,7 +63,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
 
 MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 {
-
 }
 
 void MyAccountProfileConfigureWidget::init()

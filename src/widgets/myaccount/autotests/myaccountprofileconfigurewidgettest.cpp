@@ -28,7 +28,6 @@ QTEST_MAIN(MyAccountProfileConfigureWidgetTest)
 MyAccountProfileConfigureWidgetTest::MyAccountProfileConfigureWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
@@ -37,7 +36,6 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-
 
     QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);

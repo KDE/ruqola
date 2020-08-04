@@ -30,7 +30,6 @@ QTEST_MAIN(MyAccountConfigureWidgetTest)
 MyAccountConfigureWidgetTest::MyAccountConfigureWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
@@ -46,7 +45,6 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 
     MyAccountProfileConfigureWidget *mMyAccount2ProfileConfigureWidget = w.findChild<MyAccountProfileConfigureWidget *>(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
     QVERIFY(mMyAccount2ProfileConfigureWidget);
-
 
     MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
     QVERIFY(mMyAccount2FaConfigureWidget);

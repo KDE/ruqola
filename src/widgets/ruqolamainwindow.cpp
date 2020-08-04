@@ -224,7 +224,6 @@ void RuqolaMainWindow::setupActions()
     connect(mRegisterNewUser, &QAction::triggered, this, &RuqolaMainWindow::slotRegisterNewUser);
     ac->addAction(QStringLiteral("register_new_user"), mRegisterNewUser);
 
-
     mMyAccount = new QAction(i18n("My Account..."), this);
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
     ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
@@ -360,5 +359,4 @@ void RuqolaMainWindow::slotConfigureMyAccount()
         //TODO ???
     }
     delete dlg;
-
 }

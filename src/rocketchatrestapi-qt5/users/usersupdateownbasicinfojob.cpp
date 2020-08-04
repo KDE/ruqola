@@ -127,9 +127,9 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 
 bool UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::isValid() const
 {
-    return !email.isEmpty() ||
-            !userName.isEmpty() ||
-            !nickName.isEmpty() ||
-            !statusText.isEmpty() ||
-            (!newPassword.isEmpty() && !currentPassword.isEmpty());
+    return !email.isEmpty()
+           || !userName.isEmpty()
+           || !nickName.isEmpty()
+           || !statusText.isEmpty()
+           || (!newPassword.isEmpty() && !currentPassword.isEmpty());
 }
