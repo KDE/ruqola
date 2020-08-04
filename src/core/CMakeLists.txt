@@ -192,6 +192,8 @@ set (Ruqola_core_srcs
 
     notifierjob.cpp
     restauthenticationmanager.cpp
+
+    ownuser.cpp
 )
 
 if (NOT WIN32)
