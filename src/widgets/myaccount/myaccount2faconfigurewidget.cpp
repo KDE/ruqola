@@ -34,3 +34,13 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
 MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
 {
 }
+
+void MyAccount2FaConfigureWidget::load()
+{
+    //TODO
+}
+
+void MyAccount2FaConfigureWidget::save()
+{
+    //TODO
+}
