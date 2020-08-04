@@ -31,7 +31,7 @@ RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
 
 void RocketChatMessageTest::compareFile(const QString &data, const QString &name)
 {
-    AutoTestHelper::compareFile(QLatin1String("/method/"), data.toUtf8(), name);
+    AutoTestHelper::compareFile(QStringLiteral("/method/"), data.toUtf8(), name);
 }
 
 void RocketChatMessageTest::shouldJoinRoom()

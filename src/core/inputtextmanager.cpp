@@ -149,7 +149,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         return;
     }
     qCDebug(RUQOLA_COMPLETION_LOG) << "calling searchWord(" << text << "," << position << ")";
-    int start;
+    int start = -1;
     const QString word = searchWord(text, position, start);
     const QString str = word.mid(1);
     qCDebug(RUQOLA_COMPLETION_LOG) << " str:" << str << "start:" << start << "word:" << word << "position:" << position;

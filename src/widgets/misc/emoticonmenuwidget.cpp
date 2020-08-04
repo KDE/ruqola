@@ -84,7 +84,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     allEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
 
     mTabWidget->addTab(allEmojisView, i18n("All"));
-    connect(mSearchLineEdit, &QLineEdit::textChanged, [=](const QString &text) {
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
         mTabWidget->setCurrentWidget(allEmojisView);
         emoticonFilterProxyModel->setFilterFixedString(text);
     });

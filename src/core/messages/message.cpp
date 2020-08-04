@@ -225,7 +225,7 @@ MessageStarred Message::messageStarred() const
     return mMessageStarred;
 }
 
-void Message::setMessageStarred(const MessageStarred &messageStarred)
+void Message::setMessageStarred(MessageStarred messageStarred)
 {
     mMessageStarred = messageStarred;
 }

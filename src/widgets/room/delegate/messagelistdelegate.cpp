@@ -508,10 +508,9 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     return false;
 }
 
-bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    if (event->type() == QEvent::ToolTip) {
-        auto *helpEvent = static_cast<QHelpEvent *>(event);
+    if (helpEvent->type() == QEvent::ToolTip) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         if (!message) {
             // tooltip was requested in an empty space below the last message, nothing to do

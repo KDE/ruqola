@@ -49,6 +49,7 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
 {
     RocketChatAccountModel w;
     QVector<RocketChatAccount *> accounts;
+    accounts.reserve(10);
     for (int i = 0; i < 10; ++i) {
         RocketChatAccount *f = new RocketChatAccount();
         accounts.append(f);
@@ -72,6 +73,7 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
 
     qDeleteAll(accounts);
     accounts.clear();
+    accounts.reserve(3);
     for (int i = 0; i < 3; ++i) {
         RocketChatAccount *f = new RocketChatAccount();
         accounts.append(f);
@@ -91,6 +93,7 @@ void RocketChatAccountModelTest::shouldClearAccounts()
 {
     RocketChatAccountModel w;
     QVector<RocketChatAccount *> accounts;
+    accounts.reserve(10);
     for (int i = 0; i < 10; ++i) {
         RocketChatAccount *f = new RocketChatAccount();
         accounts.append(f);

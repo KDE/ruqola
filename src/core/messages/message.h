@@ -152,7 +152,7 @@ public:
     void setMessagePinned(const MessagePinned &messagePinned);
 
     Q_REQUIRED_RESULT MessageStarred messageStarred() const;
-    void setMessageStarred(const MessageStarred &messageStarred);
+    void setMessageStarred(MessageStarred messageStarred);
 
     Q_REQUIRED_RESULT int threadCount() const;
     void setThreadCount(int threadCount);
