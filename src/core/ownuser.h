@@ -42,10 +42,23 @@ public:
     void setStatus(const QString &status);
 
     Q_REQUIRED_RESULT bool operator ==(const OwnUser &other) const;
+
+    Q_REQUIRED_RESULT QString email() const;
+    void setEmail(const QString &email);
+
+    Q_REQUIRED_RESULT QString statusText() const;
+    void setStatusText(const QString &statusText);
+
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &name);
+
 private:
     QString mUserId;
     QString mUserName;
     QString mStatus;
+    QString mEmail;
+    QString mStatusText;
+    QString mName;
 };
 
 Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);

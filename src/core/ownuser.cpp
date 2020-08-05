@@ -33,6 +33,9 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     mUserId = replyObject.value(QLatin1String("_id")).toString();
     mUserName = replyObject.value(QLatin1String("username")).toString();
     mStatus = replyObject.value(QLatin1String("status")).toString();
+    mEmail = replyObject.value(QLatin1String("email")).toString();
+    mStatusText = replyObject.value(QLatin1String("statusText")).toString();
+    mName = replyObject.value(QLatin1String("name")).toString();
 }
 
 QString OwnUser::userId() const
@@ -70,6 +73,9 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     d << "UserId " << t.userId();
     d << "Status " << t.status();
     d << "UserName " << t.userName();
+    d << "Email " << t.email();
+    d << "StatusText " << t.statusText();
+    d << "Name " << t.name();
     return d;
 }
 
@@ -77,5 +83,38 @@ bool OwnUser::operator ==(const OwnUser &other) const
 {
     return (mUserId == other.userId())
            && (mStatus == other.status())
-           && (mUserName == other.userName());
+           && (mUserName == other.userName())
+            && (mEmail == other.email())
+            && (mStatusText == other.statusText())
+            && (mName == other.name());
+}
+
+QString OwnUser::email() const
+{
+    return mEmail;
+}
+
+void OwnUser::setEmail(const QString &email)
+{
+    mEmail = email;
+}
+
+QString OwnUser::statusText() const
+{
+    return mStatusText;
+}
+
+void OwnUser::setStatusText(const QString &statusText)
+{
+    mStatusText = statusText;
+}
+
+QString OwnUser::name() const
+{
+    return mName;
+}
+
+void OwnUser::setName(const QString &name)
+{
+    mName = name;
 }
