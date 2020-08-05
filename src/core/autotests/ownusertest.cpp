@@ -26,7 +26,6 @@ QTEST_MAIN(OwnUserTest)
 OwnUserTest::OwnUserTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void OwnUserTest::shouldHaveDefaultValues()

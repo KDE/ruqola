@@ -22,10 +22,8 @@
 
 OwnUser::OwnUser()
 {
-
 }
 
 OwnUser::~OwnUser()
 {
-
 }
