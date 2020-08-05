@@ -50,7 +50,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Password);
     QVERIFY(!config.allowMessageSnippeting());
     QVERIFY(!config.allowMessageStarring());
-    QVERIFY(config.allowMessageDeleting());
     QVERIFY(!config.threadsEnabled());
     QVERIFY(!config.discussionEnabled());
     QVERIFY(!config.autoTranslateEnabled());
@@ -119,7 +118,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     bool snippeting = true;
     bool starring = true;
-    bool deleting = true;
     bool threadsEnabled = true;
     bool discussionEnabled = true;
     bool uploadFileEnabled = true;
@@ -133,7 +131,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     config.setAllowMessageSnippeting(snippeting);
     config.setAllowMessageStarring(starring);
-    config.setAllowMessageDeleting(deleting);
     config.setThreadsEnabled(threadsEnabled);
     config.setDiscussionEnabled(discussionEnabled);
     config.setUploadFileEnabled(uploadFileEnabled);
@@ -163,7 +160,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.allowMessageSnippeting(), snippeting);
     QCOMPARE(config.allowMessageStarring(), starring);
-    QCOMPARE(config.allowMessageDeleting(), deleting);
     QCOMPARE(config.threadsEnabled(), threadsEnabled);
     QCOMPARE(config.discussionEnabled(), discussionEnabled);
     QCOMPARE(config.autoTranslateEnabled(), autoTranslateEnabled);

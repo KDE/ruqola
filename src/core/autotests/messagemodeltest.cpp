@@ -306,6 +306,10 @@ void MessageModelTest::shouldAllowEditing()
 {
     // GIVEN a message from me
     MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    RuqolaServerConfig::ServerConfigFeatureTypes settings;
+    settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
+    settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
+    Ruqola::self()->rocketChatAccount()->ruqolaServerConfig()->setServerConfigFeatureTypes(settings);
     Message input;
     fillTestMessage(input);
     model.addMessages({ input });

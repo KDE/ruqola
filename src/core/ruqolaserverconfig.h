@@ -124,9 +124,6 @@ public:
     Q_REQUIRED_RESULT bool allowMessageStarring() const;
     void setAllowMessageStarring(bool allowMessageStarring);
 
-    Q_REQUIRED_RESULT bool allowMessageDeleting() const;
-    void setAllowMessageDeleting(bool allowMessageDeleting);
-
     Q_REQUIRED_RESULT bool jitsiEnabled() const;
     void setJitsiEnabled(bool jitsiEnabled);
 
@@ -213,7 +210,6 @@ private:
     bool mEncryptionEnabled = false;
     bool mAllowMessageSnippeting = false;
     bool mAllowMessageStarring = false;
-    bool mAllowMessageDeleting = true;
     bool mJitsiEnabled = false;
     bool mThreadsEnabled = false;
     bool mDiscussionEnabled = false;

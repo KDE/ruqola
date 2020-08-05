@@ -1602,7 +1602,7 @@ bool RocketChatAccount::allowMessageStarringEnabled() const
 
 bool RocketChatAccount::allowMessageDeletingEnabled() const
 {
-    return mRuqolaServerConfig->allowMessageDeleting();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
 }
 
 bool RocketChatAccount::threadsEnabled() const
@@ -1769,7 +1769,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
-    if (!mRuqolaServerConfig->allowMessageDeleting()) {
+    if (!allowMessageDeletingEnabled()) {
         return false;
     }
     if (message.userId() != userID()) {

@@ -376,16 +376,6 @@ void RuqolaServerConfig::setJitsiEnabled(bool jitsiEnabled)
     mJitsiEnabled = jitsiEnabled;
 }
 
-bool RuqolaServerConfig::allowMessageDeleting() const
-{
-    return mAllowMessageDeleting;
-}
-
-void RuqolaServerConfig::setAllowMessageDeleting(bool allowMessageDeletingEnabled)
-{
-    mAllowMessageDeleting = allowMessageDeletingEnabled;
-}
-
 bool RuqolaServerConfig::allowMessageStarring() const
 {
     return mAllowMessageStarring;
@@ -566,7 +556,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setAllowMessageStarring(value.toBool());
         } else if (id == QLatin1String("Message_AllowDeleting")) {
             mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageDeleting;
-            setAllowMessageDeleting(value.toBool());
         } else if (id == QLatin1String("Threads_enabled")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::ThreadsEnabled;
