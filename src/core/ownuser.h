@@ -22,6 +22,7 @@
 #define OWNUSER_H
 
 #include "libruqolacore_export.h"
+#include "user.h"
 
 #include <QJsonObject>
 
@@ -52,13 +53,28 @@ public:
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
+    Q_REQUIRED_RESULT QString avatarUrl() const;
+    void setAvatarUrl(const QString &avatarUrl);
+
+    Q_REQUIRED_RESULT double utcOffset() const;
+    void setUtcOffset(double utcOffset);
+
+    Q_REQUIRED_RESULT QString statusDefault() const;
+    void setStatusDefault(const QString &statusDefault);
+
+    Q_REQUIRED_RESULT User user() const;
+
 private:
+    //TODO add service password support
     QString mUserId;
     QString mUserName;
     QString mStatus;
     QString mEmail;
     QString mStatusText;
     QString mName;
+    QString mAvatarUrl;
+    QString mStatusDefault;
+    double mUtcOffset = 0.0;
 };
 
 Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);

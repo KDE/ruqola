@@ -36,6 +36,9 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     mEmail = replyObject.value(QLatin1String("email")).toString();
     mStatusText = replyObject.value(QLatin1String("statusText")).toString();
     mName = replyObject.value(QLatin1String("name")).toString();
+    mAvatarUrl = replyObject.value(QLatin1String("avatarUrl")).toString();
+    mUtcOffset = replyObject.value(QLatin1String("utcOffset")).toDouble();
+    mStatusDefault = replyObject.value(QLatin1String("statusDefault")).toString();
 }
 
 QString OwnUser::userId() const
@@ -76,6 +79,9 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     d << "Email " << t.email();
     d << "StatusText " << t.statusText();
     d << "Name " << t.name();
+    d << "AvatarUrl " << t.avatarUrl();
+    d << "utcOffset " << t.utcOffset();
+    d << "defaultStatus " << t.statusDefault();
     return d;
 }
 
@@ -86,7 +92,10 @@ bool OwnUser::operator ==(const OwnUser &other) const
            && (mUserName == other.userName())
             && (mEmail == other.email())
             && (mStatusText == other.statusText())
-            && (mName == other.name());
+            && (mName == other.name())
+            && (mAvatarUrl == other.avatarUrl())
+            && (mUtcOffset == other.utcOffset())
+            && (mStatusDefault == other.statusDefault());
 }
 
 QString OwnUser::email() const
@@ -117,4 +126,43 @@ QString OwnUser::name() const
 void OwnUser::setName(const QString &name)
 {
     mName = name;
+}
+
+QString OwnUser::avatarUrl() const
+{
+    return mAvatarUrl;
+}
+
+void OwnUser::setAvatarUrl(const QString &avatarUrl)
+{
+    mAvatarUrl = avatarUrl;
+}
+
+double OwnUser::utcOffset() const
+{
+    return mUtcOffset;
+}
+
+void OwnUser::setUtcOffset(double utcOffset)
+{
+    mUtcOffset = utcOffset;
+}
+
+QString OwnUser::statusDefault() const
+{
+    return mStatusDefault;
+}
+
+void OwnUser::setStatusDefault(const QString &statusDefault)
+{
+    mStatusDefault = statusDefault;
+}
+
+User OwnUser::user() const
+{
+    User user;
+    user.setUserId(mUserId);
+    user.setUserName(mUserName);
+    user.setStatus(mStatus);
+    return user;
 }

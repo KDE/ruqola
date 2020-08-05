@@ -39,6 +39,7 @@
 #include "inputtextmanager.h"
 #include "accountroomsettings.h"
 #include "ruqolaserverconfig.h"
+#include "ownuser.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -429,6 +430,8 @@ public:
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
     Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void parseOwnInfoDone(const QJsonObject &replyObject);
+    Q_REQUIRED_RESULT OwnUser ownUser() const;
+
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();
@@ -561,6 +564,8 @@ private:
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
+    OwnUser mOwnUser;
+
     bool mEditingMode = false;
 };
 

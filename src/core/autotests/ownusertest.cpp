@@ -30,5 +30,13 @@ OwnUserTest::OwnUserTest(QObject *parent)
 
 void OwnUserTest::shouldHaveDefaultValues()
 {
-    //TODO
+    OwnUser user;
+    QVERIFY(user.userId().isEmpty());
+    QVERIFY(user.userName().isEmpty());
+    QVERIFY(user.status().isEmpty());
+    QVERIFY(user.email().isEmpty());
+    QVERIFY(user.statusText().isEmpty());
+    QVERIFY(user.name().isEmpty());
+    QVERIFY(user.avatarUrl().isEmpty());
+    QCOMPARE(user.utcOffset(), 0.0);
 }
