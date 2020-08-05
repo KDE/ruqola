@@ -1587,7 +1587,7 @@ bool RocketChatAccount::encryptedEnabled() const
 
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
-    return mRuqolaServerConfig->allowMessagePinning();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
 }
 
 bool RocketChatAccount::allowMessageSnippetingEnabled() const

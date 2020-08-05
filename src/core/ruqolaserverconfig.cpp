@@ -406,16 +406,6 @@ void RuqolaServerConfig::setAllowMessageSnippeting(bool allowMessageSnippetingEn
     mAllowMessageSnippeting = allowMessageSnippetingEnabled;
 }
 
-bool RuqolaServerConfig::allowMessagePinning() const
-{
-    return mAllowMessagePinning;
-}
-
-void RuqolaServerConfig::setAllowMessagePinning(bool allowMessagePinningEnabled)
-{
-    mAllowMessagePinning = allowMessagePinningEnabled;
-}
-
 int RuqolaServerConfig::serverVersionPatch() const
 {
     return mServerVersionPatch;
@@ -564,7 +554,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessagePinning;
             }
-            setAllowMessagePinning(value.toBool());
         } else if (id == QLatin1String("Message_AllowSnippeting")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageSnippeting;

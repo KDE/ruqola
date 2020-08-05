@@ -48,7 +48,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.blockDeletingMessageInMinutes(), 5);
     QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Password);
     QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Password);
-    QVERIFY(!config.allowMessagePinning());
     QVERIFY(!config.allowMessageSnippeting());
     QVERIFY(!config.allowMessageStarring());
     QVERIFY(config.allowMessageDeleting());
@@ -118,7 +117,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setFaviconUrl(faviconUrl);
     config.setAllowRegistrationFrom(allowRegistrationFrom);
 
-    bool pinning = true;
     bool snippeting = true;
     bool starring = true;
     bool deleting = true;
@@ -133,7 +131,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     quint64 uploadFileMax = 222222;
 
-    config.setAllowMessagePinning(pinning);
     config.setAllowMessageSnippeting(snippeting);
     config.setAllowMessageStarring(starring);
     config.setAllowMessageDeleting(deleting);
@@ -164,7 +161,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
     QCOMPARE(config.broadCastEnabled(), broadCastEnabled);
 
-    QCOMPARE(config.allowMessagePinning(), pinning);
     QCOMPARE(config.allowMessageSnippeting(), snippeting);
     QCOMPARE(config.allowMessageStarring(), starring);
     QCOMPARE(config.allowMessageDeleting(), deleting);

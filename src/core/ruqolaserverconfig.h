@@ -118,9 +118,6 @@ public:
 
     Q_REQUIRED_RESULT int serverVersionPatch() const;
 
-    Q_REQUIRED_RESULT bool allowMessagePinning() const;
-    void setAllowMessagePinning(bool allowMessagePinning);
-
     Q_REQUIRED_RESULT bool allowMessageSnippeting() const;
     void setAllowMessageSnippeting(bool allowMessageSnippeting);
 
@@ -214,7 +211,6 @@ private:
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mEncryptionEnabled = false;
-    bool mAllowMessagePinning = false;
     bool mAllowMessageSnippeting = false;
     bool mAllowMessageStarring = false;
     bool mAllowMessageDeleting = true;
