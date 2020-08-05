@@ -428,6 +428,7 @@ public:
 
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
     Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
+    void parseOwnInfoDone(const QJsonObject &replyObject);
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

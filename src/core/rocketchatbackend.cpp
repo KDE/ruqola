@@ -198,25 +198,6 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     }
 }
 
-void RocketChatBackend::parseOwnInfoDone(const QJsonObject &replyObject)
-{
-    //Move code in rocketchataccount directly ?
-    qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
-    User user;
-    user.setUserId(replyObject.value(QLatin1String("_id")).toString());
-    user.setUserName(replyObject.value(QLatin1String("username")).toString());
-    user.setStatus(replyObject.value(QLatin1String("status")).toString());
-    if (user.isValid()) {
-        mRocketChatAccount->usersModel()->addUser(user);
-        if (!RuqolaGlobalConfig::self()->setOnlineAccounts()) {
-            //Need to update own status.
-            mRocketChatAccount->setOwnStatus(user);
-        }
-    } else {
-        qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
-    }
-}
-
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn) {
@@ -227,7 +208,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
         restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 
-        connect(restApi, &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDone, Qt::UniqueConnection);
+        connect(restApi, &RocketChatRestApi::RestApiRequest::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 

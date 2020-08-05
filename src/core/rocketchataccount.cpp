@@ -2164,3 +2164,21 @@ RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeat
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes();
 }
+
+void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
+{
+    qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
+    User user;
+    user.setUserId(replyObject.value(QLatin1String("_id")).toString());
+    user.setUserName(replyObject.value(QLatin1String("username")).toString());
+    user.setStatus(replyObject.value(QLatin1String("status")).toString());
+    if (user.isValid()) {
+        usersModel()->addUser(user);
+        if (!RuqolaGlobalConfig::self()->setOnlineAccounts()) {
+            //Need to update own status.
+            setOwnStatus(user);
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
+    }
+}
