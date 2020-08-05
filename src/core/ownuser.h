@@ -23,11 +23,31 @@
 
 #include "libruqolacore_export.h"
 
+#include <QJsonObject>
+
 class LIBRUQOLACORE_EXPORT OwnUser
 {
 public:
     OwnUser();
     ~OwnUser();
+    void parseOwnUserInfo(const QJsonObject &replyObject);
+
+    Q_REQUIRED_RESULT QString userId() const;
+    void setUserId(const QString &userId);
+
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &userName);
+
+    Q_REQUIRED_RESULT QString status() const;
+    void setStatus(const QString &status);
+
+    Q_REQUIRED_RESULT bool operator ==(const OwnUser &other) const;
+private:
+    QString mUserId;
+    QString mUserName;
+    QString mStatus;
 };
 
+Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const OwnUser &t);
 #endif // OWNUSER_H

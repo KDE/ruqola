@@ -27,3 +27,55 @@ OwnUser::OwnUser()
 OwnUser::~OwnUser()
 {
 }
+
+void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
+{
+    mUserId = replyObject.value(QLatin1String("_id")).toString();
+    mUserName = replyObject.value(QLatin1String("username")).toString();
+    mStatus = replyObject.value(QLatin1String("status")).toString();
+}
+
+QString OwnUser::userId() const
+{
+    return mUserId;
+}
+
+void OwnUser::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+QString OwnUser::userName() const
+{
+    return mUserName;
+}
+
+void OwnUser::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
+QString OwnUser::status() const
+{
+    return mStatus;
+}
+
+void OwnUser::setStatus(const QString &status)
+{
+    mStatus = status;
+}
+
+QDebug operator <<(QDebug d, const OwnUser &t)
+{
+    d << "UserId " << t.userId();
+    d << "Status " << t.status();
+    d << "UserName " << t.userName();
+    return d;
+}
+
+bool OwnUser::operator ==(const OwnUser &other) const
+{
+    return (mUserId == other.userId())
+           && (mStatus == other.status())
+           && (mUserName == other.userName());
+}
