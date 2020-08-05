@@ -198,7 +198,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     }
 }
 
-void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
+void RocketChatBackend::parseOwnInfoDone(const QJsonObject &replyObject)
 {
     //Move code in rocketchataccount directly ?
     qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
@@ -227,7 +227,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
         restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 
-        connect(restApi, &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
+        connect(restApi, &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDone, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
