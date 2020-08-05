@@ -38,6 +38,7 @@
 #include "utils.h"
 #include "inputtextmanager.h"
 #include "accountroomsettings.h"
+#include "ruqolaserverconfig.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -426,6 +427,7 @@ public:
     Q_REQUIRED_RESULT bool allowUsernameChange() const;
 
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
+    Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

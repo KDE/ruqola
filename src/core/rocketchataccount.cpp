@@ -31,7 +31,6 @@
 #include "rocketchatbackend.h"
 #include "model/roomfilterproxymodel.h"
 #include "ruqolalogger.h"
-#include "ruqolaserverconfig.h"
 #include "model/usercompletermodel.h"
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/statusmodel.h"
@@ -2159,4 +2158,9 @@ void RocketChatAccount::slotRegisterUserDone()
 void RocketChatAccount::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
 {
     restApi()->updateOwnBasicInfo(info);
+}
+
+RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeatureTypes() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes();
 }
