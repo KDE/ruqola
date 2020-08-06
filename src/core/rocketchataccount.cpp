@@ -2142,7 +2142,7 @@ void RocketChatAccount::deleteOwnAccount(const QString &password)
 
 bool RocketChatAccount::allowEmailChange() const
 {
-    return mRuqolaServerConfig->allowEmailChange();
+    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowEmailChange;
 }
 
 bool RocketChatAccount::allowPasswordChange() const
@@ -2152,7 +2152,7 @@ bool RocketChatAccount::allowPasswordChange() const
 
 bool RocketChatAccount::allowUsernameChange() const
 {
-    return mRuqolaServerConfig->allowUsernameChange();
+    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUsernameChange;
 }
 
 void RocketChatAccount::slotRegisterUserDone()

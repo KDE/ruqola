@@ -206,16 +206,6 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
     mServerConfigFeatureTypes = serverConfigFeatureTypes;
 }
 
-bool RuqolaServerConfig::allowUsernameChange() const
-{
-    return mAllowUsernameChange;
-}
-
-void RuqolaServerConfig::setAllowUsernameChange(bool allowUsernameChange)
-{
-    mAllowUsernameChange = allowUsernameChange;
-}
-
 bool RuqolaServerConfig::allowPasswordChange() const
 {
     return mAllowPasswordChange;
@@ -224,16 +214,6 @@ bool RuqolaServerConfig::allowPasswordChange() const
 void RuqolaServerConfig::setAllowPasswordChange(bool allowPasswordChange)
 {
     mAllowPasswordChange = allowPasswordChange;
-}
-
-bool RuqolaServerConfig::allowEmailChange() const
-{
-    return mAllowEmailChange;
-}
-
-void RuqolaServerConfig::setAllowEmailChange(bool allowEmailChange)
-{
-    mAllowEmailChange = allowEmailChange;
 }
 
 bool RuqolaServerConfig::allowPasswordReset() const
@@ -269,26 +249,6 @@ void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFro
 void RuqolaServerConfig::setAllowDeleteOwnAccount(bool allowDeleteOwnAccount)
 {
     mAllowDeleteOwnAccount = allowDeleteOwnAccount;
-}
-
-bool RuqolaServerConfig::audioRecorderEnabled() const
-{
-    return mAudioRecorderEnabled;
-}
-
-void RuqolaServerConfig::setAudioRecorderEnabled(bool audioRecorderEnabled)
-{
-    mAudioRecorderEnabled = audioRecorderEnabled;
-}
-
-bool RuqolaServerConfig::videoRecorderEnabled() const
-{
-    return mVideoRecorderEnabled;
-}
-
-void RuqolaServerConfig::setVideoRecorderEnabled(bool videoRecorderEnabled)
-{
-    mVideoRecorderEnabled = videoRecorderEnabled;
 }
 
 bool RuqolaServerConfig::broadCastEnabled() const
@@ -589,12 +549,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::VideoRecorderEnabled;
             }
-            setVideoRecorderEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AudioRecorderEnabled;
             }
-            setBroadCastEnabled(value.toBool());
         } else if (id == QLatin1String("Assets_logo")) {
             setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
         } else if (id == QLatin1String("Assets_favicon")) {
@@ -615,7 +573,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowEmailChange;
             }
-            setAllowEmailChange(value.toBool());
         } else if (id == QLatin1String("Accounts_AllowPasswordChange")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowPasswordChange;
@@ -625,7 +582,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUsernameChange;
             }
-            setAllowUsernameChange(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

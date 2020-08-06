@@ -150,12 +150,6 @@ public:
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
     void setBroadCastEnabled(bool broadCastEnabled);
 
-    Q_REQUIRED_RESULT bool videoRecorderEnabled() const;
-    void setVideoRecorderEnabled(bool videoRecorderEnabled);
-
-    Q_REQUIRED_RESULT bool audioRecorderEnabled() const;
-    void setAudioRecorderEnabled(bool audioRecorderEnabled);
-
     Q_REQUIRED_RESULT QString logoUrl() const;
     void setLogoUrl(const QString &logoUrl);
 
@@ -171,14 +165,8 @@ public:
     Q_REQUIRED_RESULT bool allowPasswordReset() const;
     void setAllowPasswordReset(bool allowPasswordReset);
 
-    Q_REQUIRED_RESULT bool allowEmailChange() const;
-    void setAllowEmailChange(bool allowEmailChange);
-
     Q_REQUIRED_RESULT bool allowPasswordChange() const;
     void setAllowPasswordChange(bool allowPasswordChange);
-
-    Q_REQUIRED_RESULT bool allowUsernameChange() const;
-    void setAllowUsernameChange(bool allowUsernameChange);
 
     Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void setServerConfigFeatureTypes(ServerConfigFeatureTypes serverConfigFeatureTypes);
@@ -216,14 +204,10 @@ private:
     bool mAutoTranslateEnabled = false;
     bool mUploadFileEnabled = true;
     bool mBroadCastEnabled = false;
-    bool mVideoRecorderEnabled = true;
-    bool mAudioRecorderEnabled = true;
     bool mAllowDeleteOwnAccount = true;
     bool mRegistrationFromEnabled = true;
     bool mAllowPasswordReset = true;
-    bool mAllowEmailChange = true;
     bool mAllowPasswordChange = true;
-    bool mAllowUsernameChange = true;
 
     ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 
