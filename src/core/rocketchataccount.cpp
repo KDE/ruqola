@@ -1607,7 +1607,7 @@ bool RocketChatAccount::allowMessageDeletingEnabled() const
 
 bool RocketChatAccount::threadsEnabled() const
 {
-    return mRuqolaServerConfig->threadsEnabled();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::ThreadsEnabled;
 }
 
 bool RocketChatAccount::autoTranslateEnabled() const
@@ -1637,7 +1637,7 @@ bool RocketChatAccount::allowDeleteOwnAccount() const
 
 bool RocketChatAccount::discussionEnabled() const
 {
-    return mRuqolaServerConfig->discussionEnabled();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::DiscussionEnabled;
 }
 
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
@@ -1647,7 +1647,7 @@ ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
 
 bool RocketChatAccount::jitsiEnabled() const
 {
-    return mRuqolaServerConfig->jitsiEnabled();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::JitsiEnabled;
 }
 
 void RocketChatAccount::groupInfo(const QString &roomId)

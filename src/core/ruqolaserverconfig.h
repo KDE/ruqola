@@ -121,15 +121,6 @@ public:
     Q_REQUIRED_RESULT bool allowMessageStarring() const;
     void setAllowMessageStarring(bool allowMessageStarring);
 
-    Q_REQUIRED_RESULT bool jitsiEnabled() const;
-    void setJitsiEnabled(bool jitsiEnabled);
-
-    Q_REQUIRED_RESULT bool threadsEnabled() const;
-    void setThreadsEnabled(bool threadEnabled);
-
-    Q_REQUIRED_RESULT bool discussionEnabled() const;
-    void setDiscussionEnabled(bool discussionEnabled);
-
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
@@ -181,9 +172,6 @@ private:
     bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mAllowMessageSnippeting = false;
     bool mAllowMessageStarring = false;
-    bool mJitsiEnabled = false;
-    bool mThreadsEnabled = false;
-    bool mDiscussionEnabled = false;
     bool mUploadFileEnabled = true;
     bool mAllowDeleteOwnAccount = true;
 

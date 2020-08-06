@@ -35,7 +35,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     RuqolaServerConfig config;
     QVERIFY(config.jitsiMeetPrefix().isEmpty());
     QVERIFY(config.jitsiMeetUrl().isEmpty());
-    QVERIFY(!config.jitsiEnabled());
     QVERIFY(config.uniqueId().isEmpty());
     QVERIFY(config.fileUploadStorageType().isEmpty());
     QVERIFY(config.siteName().isEmpty());
@@ -49,8 +48,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Password);
     QVERIFY(!config.allowMessageSnippeting());
     QVERIFY(!config.allowMessageStarring());
-    QVERIFY(!config.threadsEnabled());
-    QVERIFY(!config.discussionEnabled());
     QVERIFY(config.autoTranslateGoogleKey().isEmpty());
     QVERIFY(config.uploadFileEnabled());
     QCOMPARE(config.fileMaxFileSize(), -1);
@@ -67,7 +64,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString uniqueId = QStringLiteral("test 3");
     const QString filestoragetype = QStringLiteral("test 4");
     const QString googleKey = QStringLiteral("Google12");
-    const bool jistsiEnabled = true;
     const bool allowEditing = false;
     const int minutes = 12;
     const int minutesDeletingMessage = 15;
@@ -88,15 +84,12 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setOtrEnabled(otrEnable);
     config.setSiteName(siteName);
     config.setSiteUrl(siteUrl);
-    config.setJitsiEnabled(jistsiEnabled);
     config.setAutoTranslateGoogleKey(googleKey);
     config.setLogoUrl(logoUrl);
     config.setFaviconUrl(faviconUrl);
 
     bool snippeting = true;
     bool starring = true;
-    bool threadsEnabled = true;
-    bool discussionEnabled = true;
     bool uploadFileEnabled = true;
     bool allowDeleteOwnAccount = false;
 
@@ -104,15 +97,12 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     config.setAllowMessageSnippeting(snippeting);
     config.setAllowMessageStarring(starring);
-    config.setThreadsEnabled(threadsEnabled);
-    config.setDiscussionEnabled(discussionEnabled);
     config.setUploadFileEnabled(uploadFileEnabled);
     config.setFileMaxFileSize(uploadFileMax);
     config.setAllowDeleteOwnAccount(allowDeleteOwnAccount);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
-    QCOMPARE(config.jitsiEnabled(), jistsiEnabled);
     QCOMPARE(config.uniqueId(), uniqueId);
     QCOMPARE(config.fileUploadStorageType(), filestoragetype);
     QCOMPARE(config.allowMessageEditing(), allowEditing);
@@ -127,8 +117,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.allowMessageSnippeting(), snippeting);
     QCOMPARE(config.allowMessageStarring(), starring);
-    QCOMPARE(config.threadsEnabled(), threadsEnabled);
-    QCOMPARE(config.discussionEnabled(), discussionEnabled);
     QCOMPARE(config.autoTranslateGoogleKey(), googleKey);
 
     QCOMPARE(config.logoUrl(), logoUrl);

@@ -259,36 +259,6 @@ void RuqolaServerConfig::setAutoTranslateGoogleKey(const QString &autoTranslateG
     mAutoTranslateGoogleKey = autoTranslateGoogleKey;
 }
 
-bool RuqolaServerConfig::discussionEnabled() const
-{
-    return mDiscussionEnabled;
-}
-
-void RuqolaServerConfig::setDiscussionEnabled(bool discussionEnabled)
-{
-    mDiscussionEnabled = discussionEnabled;
-}
-
-bool RuqolaServerConfig::threadsEnabled() const
-{
-    return mThreadsEnabled;
-}
-
-void RuqolaServerConfig::setThreadsEnabled(bool threadsEnabled)
-{
-    mThreadsEnabled = threadsEnabled;
-}
-
-bool RuqolaServerConfig::jitsiEnabled() const
-{
-    return mJitsiEnabled;
-}
-
-void RuqolaServerConfig::setJitsiEnabled(bool jitsiEnabled)
-{
-    mJitsiEnabled = jitsiEnabled;
-}
-
 bool RuqolaServerConfig::allowMessageStarring() const
 {
     return mAllowMessageStarring;
@@ -412,8 +382,9 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         if (id == QLatin1String("uniqueID")) {
             setUniqueId(value.toString());
         } else if (id == QLatin1String("Jitsi_Enabled")) {
-            mServerConfigFeatureTypes |= ServerConfigFeatureType::JitsiEnabled;
-            setJitsiEnabled(value.toBool());
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::JitsiEnabled;
+            }
         } else if (id == QLatin1String("Jitsi_Domain")) {
             setJitsiMeetUrl(value.toString());
         } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
@@ -455,17 +426,17 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             }
             setAllowMessageStarring(value.toBool());
         } else if (id == QLatin1String("Message_AllowDeleting")) {
-            mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageDeleting;
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageDeleting;
+            }
         } else if (id == QLatin1String("Threads_enabled")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::ThreadsEnabled;
             }
-            setThreadsEnabled(value.toBool());
         } else if (id == QLatin1String("Discussion_enabled")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::DiscussionEnabled;
             }
-            setDiscussionEnabled(value.toBool());
         } else if (id == QLatin1String("AutoTranslate_Enabled")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AutoTranslateEnabled;
