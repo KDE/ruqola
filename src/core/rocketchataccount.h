@@ -432,6 +432,7 @@ public:
 
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
     Q_REQUIRED_RESULT bool encryptionEnabled() const;
+    Q_REQUIRED_RESULT bool uploadFileEnabled() const;
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

@@ -1582,7 +1582,7 @@ bool RocketChatAccount::needAdaptNewSubscriptionRC60() const
 
 bool RocketChatAccount::otrEnabled() const
 {
-    return mRuqolaServerConfig->otrEnabled();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
 }
 
 bool RocketChatAccount::allowMessagePinningEnabled() const
@@ -1592,12 +1592,12 @@ bool RocketChatAccount::allowMessagePinningEnabled() const
 
 bool RocketChatAccount::allowMessageSnippetingEnabled() const
 {
-    return mRuqolaServerConfig->allowMessageSnippeting();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageSnippeting;
 }
 
 bool RocketChatAccount::allowMessageStarringEnabled() const
 {
-    return mRuqolaServerConfig->allowMessageStarring();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageStarring;
 }
 
 bool RocketChatAccount::allowMessageDeletingEnabled() const
@@ -1632,7 +1632,7 @@ bool RocketChatAccount::registrationFromEnabled() const
 
 bool RocketChatAccount::allowDeleteOwnAccount() const
 {
-    return mRuqolaServerConfig->allowDeleteOwnAccount();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowDeleteOwnAccount;
 }
 
 bool RocketChatAccount::discussionEnabled() const
@@ -1762,7 +1762,12 @@ void RocketChatAccount::channelInfo(const QString &roomId)
 
 bool RocketChatAccount::allowEditingMessages() const
 {
-    return mRuqolaServerConfig->allowMessageEditing();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
+}
+
+bool RocketChatAccount::uploadFileEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::UploadFileEnabled;
 }
 
 bool RocketChatAccount::isMessageEditable(const Message &message) const

@@ -36,7 +36,7 @@ public:
         None = 0,
         AllowEditingMessage = 1,
         OtrEnabled = 2,
-        NeedAdaptNewSubscriptionRC60 = 4,
+        //NeedAdaptNewSubscriptionRC60 = 4,
         EncryptionEnabled = 8,
         AllowMessagePinning = 0x10,
         AllowMessageSnippeting = 0x20,
@@ -72,17 +72,11 @@ public:
     Q_REQUIRED_RESULT QString fileUploadStorageType() const;
     void setFileUploadStorageType(const QString &type);
 
-    void setAllowMessageEditing(bool state);
-    Q_REQUIRED_RESULT bool allowMessageEditing() const;
-
     void setBlockEditingMessageInMinutes(int minutes);
     Q_REQUIRED_RESULT int blockEditingMessageInMinutes() const;
 
     void setBlockDeletingMessageInMinutes(int minutes);
     Q_REQUIRED_RESULT int blockDeletingMessageInMinutes() const;
-
-    Q_REQUIRED_RESULT bool otrEnabled() const;
-    void setOtrEnabled(bool otrEnabled);
 
     Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
 
@@ -115,17 +109,8 @@ public:
 
     Q_REQUIRED_RESULT int serverVersionPatch() const;
 
-    Q_REQUIRED_RESULT bool allowMessageSnippeting() const;
-    void setAllowMessageSnippeting(bool allowMessageSnippeting);
-
-    Q_REQUIRED_RESULT bool allowMessageStarring() const;
-    void setAllowMessageStarring(bool allowMessageStarring);
-
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
-
-    Q_REQUIRED_RESULT bool uploadFileEnabled() const;
-    void setUploadFileEnabled(bool uploadFileEnabled);
 
     void parsePublicSettings(const QJsonObject &obj);
 
@@ -137,9 +122,6 @@ public:
 
     Q_REQUIRED_RESULT QString faviconUrl() const;
     void setFaviconUrl(const QString &faviconUrl);
-
-    Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
-    void setAllowDeleteOwnAccount(bool allowDeleteOwnAccount);
 
     void setAllowRegistrationFrom(const QString &registrationFromValue);
 
@@ -166,14 +148,7 @@ private:
     int mServerVersionPatch = -1;
     qint64 mFileMaxFileSize = -1;
 
-    //TODO convert as enum
-    bool mAllowEditingMessage = true;
-    bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
-    bool mAllowMessageSnippeting = false;
-    bool mAllowMessageStarring = false;
-    bool mUploadFileEnabled = true;
-    bool mAllowDeleteOwnAccount = true;
 
     ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 

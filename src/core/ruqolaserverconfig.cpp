@@ -68,16 +68,6 @@ void RuqolaServerConfig::setFileUploadStorageType(const QString &type)
     mFileUploadStorageType = type;
 }
 
-void RuqolaServerConfig::setAllowMessageEditing(bool state)
-{
-    mAllowEditingMessage = state;
-}
-
-bool RuqolaServerConfig::allowMessageEditing() const
-{
-    return mAllowEditingMessage;
-}
-
 void RuqolaServerConfig::setBlockDeletingMessageInMinutes(int minutes)
 {
     mBlockDeletingMessageInMinutes = minutes;
@@ -91,16 +81,6 @@ void RuqolaServerConfig::setBlockEditingMessageInMinutes(int minutes)
 int RuqolaServerConfig::blockEditingMessageInMinutes() const
 {
     return mBlockEditingMessageInMinutes;
-}
-
-bool RuqolaServerConfig::otrEnabled() const
-{
-    return mOtrEnabled;
-}
-
-void RuqolaServerConfig::setOtrEnabled(bool otrEnabled)
-{
-    mOtrEnabled = otrEnabled;
 }
 
 bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
@@ -214,16 +194,6 @@ void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFro
     }
 }
 
-bool RuqolaServerConfig::allowDeleteOwnAccount() const
-{
-    return mAllowDeleteOwnAccount;
-}
-
-void RuqolaServerConfig::setAllowDeleteOwnAccount(bool allowDeleteOwnAccount)
-{
-    mAllowDeleteOwnAccount = allowDeleteOwnAccount;
-}
-
 qint64 RuqolaServerConfig::fileMaxFileSize() const
 {
     return mFileMaxFileSize;
@@ -232,16 +202,6 @@ qint64 RuqolaServerConfig::fileMaxFileSize() const
 void RuqolaServerConfig::setFileMaxFileSize(qint64 fileMaxFileSize)
 {
     mFileMaxFileSize = fileMaxFileSize;
-}
-
-bool RuqolaServerConfig::uploadFileEnabled() const
-{
-    return mUploadFileEnabled;
-}
-
-void RuqolaServerConfig::setUploadFileEnabled(bool uploadFileEnabled)
-{
-    mUploadFileEnabled = uploadFileEnabled;
 }
 
 int RuqolaServerConfig::blockDeletingMessageInMinutes() const
@@ -257,26 +217,6 @@ QString RuqolaServerConfig::autoTranslateGoogleKey() const
 void RuqolaServerConfig::setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey)
 {
     mAutoTranslateGoogleKey = autoTranslateGoogleKey;
-}
-
-bool RuqolaServerConfig::allowMessageStarring() const
-{
-    return mAllowMessageStarring;
-}
-
-void RuqolaServerConfig::setAllowMessageStarring(bool allowMessageStarringEnabled)
-{
-    mAllowMessageStarring = allowMessageStarringEnabled;
-}
-
-bool RuqolaServerConfig::allowMessageSnippeting() const
-{
-    return mAllowMessageSnippeting;
-}
-
-void RuqolaServerConfig::setAllowMessageSnippeting(bool allowMessageSnippetingEnabled)
-{
-    mAllowMessageSnippeting = allowMessageSnippetingEnabled;
 }
 
 int RuqolaServerConfig::serverVersionPatch() const
@@ -360,13 +300,10 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mServerOauthTypes " << t.serverOauthTypes();
     d << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
     d << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
-    d << "mAllowEditingMessage " << t.allowMessageEditing();
-    d << "mOtrEnabled " << t.otrEnabled();
     d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
     d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
-    d << "mAllowDeleteOwnAccount " << t.allowDeleteOwnAccount();
     return d;
 }
 
@@ -392,13 +329,17 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         } else if (id == QLatin1String("FileUpload_Storage_Type")) {
             setFileUploadStorageType(value.toString());
         } else if (id == QLatin1String("Message_AllowEditing")) {
-            setAllowMessageEditing(value.toBool());
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowEditingMessage;
+            }
         } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
             setBlockEditingMessageInMinutes(value.toInt());
         } else if (id == QLatin1String("Message_AllowDeleting_BlockDeleteInMinutes")) {
             setBlockDeletingMessageInMinutes(value.toInt());
         } else if (id == QLatin1String("OTR_Enable")) {
-            setOtrEnabled(value.toBool());
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::OtrEnabled;
+            }
         } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
             if (value.toBool()) {
                 addOauthService(id);
@@ -419,12 +360,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageSnippeting;
             }
-            setAllowMessageSnippeting(value.toBool());
         } else if (id == QLatin1String("Message_AllowStarring")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageStarring;
             }
-            setAllowMessageStarring(value.toBool());
         } else if (id == QLatin1String("Message_AllowDeleting")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowMessageDeleting;
@@ -447,7 +386,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::UploadFileEnabled;
             }
-            setUploadFileEnabled(value.toBool());
         } else if (id == QLatin1String("FileUpload_MaxFileSize")) {
             setFileMaxFileSize(value.toULongLong());
         } else if (id == QLatin1String("Broadcasting_enabled")) {
@@ -470,7 +408,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowDeleteOwnAccount;
             }
-            setAllowDeleteOwnAccount(value.toBool());
         } else if (id == QLatin1String("Accounts_RegistrationForm")) {
             setAllowRegistrationFrom(value.toString());
         } else if (id == QLatin1String("Accounts_PasswordReset")) {

@@ -135,7 +135,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, 
     mCurrentRocketChatAccount = account;
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
-    mSendFile->setVisible(account->ruqolaServerConfig()->uploadFileEnabled());
+    mSendFile->setVisible(account->uploadFileEnabled());
 }
 
 void MessageLineWidget::setText(const QString &text)
