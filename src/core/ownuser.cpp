@@ -39,6 +39,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     mAvatarUrl = replyObject.value(QLatin1String("avatarUrl")).toString();
     mUtcOffset = replyObject.value(QLatin1String("utcOffset")).toDouble();
     mStatusDefault = replyObject.value(QLatin1String("statusDefault")).toString();
+    mNickName = replyObject.value(QLatin1String("nickname")).toString();
 }
 
 QString OwnUser::userId() const
@@ -82,6 +83,7 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     d << "AvatarUrl " << t.avatarUrl();
     d << "utcOffset " << t.utcOffset();
     d << "defaultStatus " << t.statusDefault();
+    d << "nickname " << t.nickName();
     return d;
 }
 
@@ -95,7 +97,8 @@ bool OwnUser::operator ==(const OwnUser &other) const
             && (mName == other.name())
             && (mAvatarUrl == other.avatarUrl())
             && (mUtcOffset == other.utcOffset())
-            && (mStatusDefault == other.statusDefault());
+            && (mStatusDefault == other.statusDefault())
+            && (mNickName == other.nickName());
 }
 
 QString OwnUser::email() const
@@ -165,4 +168,14 @@ User OwnUser::user() const
     user.setUserName(mUserName);
     user.setStatus(mStatus);
     return user;
+}
+
+QString OwnUser::nickName() const
+{
+    return mNickName;
+}
+
+void OwnUser::setNickName(const QString &nickName)
+{
+    mNickName = nickName;
 }

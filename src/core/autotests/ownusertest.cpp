@@ -38,5 +38,6 @@ void OwnUserTest::shouldHaveDefaultValues()
     QVERIFY(user.statusText().isEmpty());
     QVERIFY(user.name().isEmpty());
     QVERIFY(user.avatarUrl().isEmpty());
+    QVERIFY(user.nickName().isEmpty());
     QCOMPARE(user.utcOffset(), 0.0);
 }

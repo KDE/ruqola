@@ -64,6 +64,9 @@ public:
 
     Q_REQUIRED_RESULT User user() const;
 
+    Q_REQUIRED_RESULT QString nickName() const;
+    void setNickName(const QString &nickName);
+
 private:
     //TODO add service password support
     QString mUserId;
@@ -74,6 +77,7 @@ private:
     QString mName;
     QString mAvatarUrl;
     QString mStatusDefault;
+    QString mNickName;
     double mUtcOffset = 0.0;
 };
 
