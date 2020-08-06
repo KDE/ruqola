@@ -22,7 +22,7 @@
 #define MYACCOUNTPROFILECONFIGUREWIDGET_H
 
 #include <QWidget>
-
+#include "ownuser.h"
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
@@ -40,6 +40,7 @@ private:
     QLineEdit *mUserName;
     QLineEdit *mNickName;
     QLineEdit *mStatusText;
+    OwnUser mOwnUser;
 //    QString currentPassword;
     //    QString newPassword;
 };

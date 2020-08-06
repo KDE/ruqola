@@ -75,22 +75,32 @@ void MyAccountProfileConfigureWidget::init()
 
 void MyAccountProfileConfigureWidget::load()
 {
-    const OwnUser &ownUser = Ruqola::self()->rocketChatAccount()->ownUser();
-    mEmail->setText(ownUser.email());
-    mName->setText(ownUser.name());
-    mUserName->setText(ownUser.userName());
-    mNickName->setText(ownUser.nickName());
-    mStatusText->setText(ownUser.statusText());
+    mOwnUser = Ruqola::self()->rocketChatAccount()->ownUser();
+    mEmail->setText(mOwnUser.email());
+    mName->setText(mOwnUser.name());
+    mUserName->setText(mOwnUser.userName());
+    mNickName->setText(mOwnUser.nickName());
+    mStatusText->setText(mOwnUser.statusText());
 }
 
 void MyAccountProfileConfigureWidget::save()
 {
     RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo updateInfo;
-    updateInfo.email = mEmail->text();
-    updateInfo.nickName = mNickName->text();
-    updateInfo.userName = mUserName->text();
-    updateInfo.statusText = mStatusText->text();
-    updateInfo.name = mName->text();
+    if (!mEmail->isReadOnly() && (mOwnUser.email() != mEmail->text())) {
+        updateInfo.email = mEmail->text();
+    }
+    if (!mNickName->isReadOnly() && (mOwnUser.nickName() != mNickName->text())) {
+        updateInfo.nickName = mNickName->text();
+    }
+    if (!mUserName->isReadOnly() && (mOwnUser.userName() != mUserName->text())) {
+        updateInfo.userName = mUserName->text();
+    }
+    if (!mStatusText->isReadOnly() && (mOwnUser.statusText() != mStatusText->text())) {
+        updateInfo.statusText = mStatusText->text();
+    }
+    if (!mName->isReadOnly() && (mOwnUser.name() != mName->text())) {
+        updateInfo.name = mName->text();
+    }
     //TODO add more.
     if (updateInfo.isValid()) {
         Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);
