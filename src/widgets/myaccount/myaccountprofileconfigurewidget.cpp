@@ -67,6 +67,13 @@ MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 
 void MyAccountProfileConfigureWidget::init()
 {
+    const OwnUser &ownUser = Ruqola::self()->rocketChatAccount()->ownUser();
+    mEmail->setText(ownUser.email());
+    mName->setText(ownUser.name());
+    mUserName->setText(ownUser.userName());
+    //TODO mNickName->setText(ownUser.);
+    mStatusText->setText(ownUser.statusText());
+
     mUserName->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowUsernameChange());
     mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
     //TODO !Ruqola::rocketChatAccount()->allowPasswordChange();
