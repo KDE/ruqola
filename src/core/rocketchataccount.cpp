@@ -1585,11 +1585,6 @@ bool RocketChatAccount::otrEnabled() const
     return mRuqolaServerConfig->otrEnabled();
 }
 
-bool RocketChatAccount::encryptedEnabled() const
-{
-    return mRuqolaServerConfig->encryptionEnabled();
-}
-
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
@@ -1618,6 +1613,11 @@ bool RocketChatAccount::threadsEnabled() const
 bool RocketChatAccount::autoTranslateEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AutoTranslateEnabled;
+}
+
+bool RocketChatAccount::encryptionEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::EncryptionEnabled;
 }
 
 bool RocketChatAccount::broadCastEnabled() const

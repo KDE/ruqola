@@ -100,7 +100,6 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool autoTranslateEnabled READ autoTranslateEnabled CONSTANT)
 
     Q_PROPERTY(bool jitsiEnabled READ jitsiEnabled CONSTANT)
-    Q_PROPERTY(bool encryptedEnabled READ encryptedEnabled CONSTANT)
     Q_PROPERTY(bool allowMessagePinningEnabled READ allowMessagePinningEnabled CONSTANT)
     Q_PROPERTY(bool allowMessageSnippetingEnabled READ allowMessageSnippetingEnabled CONSTANT)
     Q_PROPERTY(bool allowMessageStarringEnabled READ allowMessageStarringEnabled CONSTANT)
@@ -358,7 +357,6 @@ public:
 
     DiscussionsModel *discussionsModel() const;
 
-    Q_REQUIRED_RESULT bool encryptedEnabled() const;
     void updateThreadMessageList(const Message &m);
 
     void initializeAccount();
@@ -433,6 +431,7 @@ public:
     Q_REQUIRED_RESULT OwnUser ownUser() const;
 
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
+    Q_REQUIRED_RESULT bool encryptionEnabled() const;
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

@@ -329,16 +329,6 @@ QString RuqolaServerConfig::serverVersionStr() const
     return mServerVersionStr;
 }
 
-bool RuqolaServerConfig::encryptionEnabled() const
-{
-    return mEncryptionEnabled;
-}
-
-void RuqolaServerConfig::setEncryptionEnabled(bool encryptionEnabled)
-{
-    mEncryptionEnabled = encryptionEnabled;
-}
-
 QString RuqolaServerConfig::siteName() const
 {
     return mSiteName;
@@ -403,7 +393,6 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mAllowEditingMessage " << t.allowMessageEditing();
     d << "mOtrEnabled " << t.otrEnabled();
     d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
-    d << "mEncryptionEnabled " << t.encryptionEnabled();
     d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
@@ -448,7 +437,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         } else if (id == QLatin1String("Site_Name")) {
             setSiteName(value.toString());
         } else if (id == QLatin1String("E2E_Enable")) {
-            setEncryptionEnabled(value.toBool());
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::EncryptionEnabled;
             }

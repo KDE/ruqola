@@ -243,7 +243,7 @@ void RuqolaMainWindow::slotCreateNewChannel()
     if (mCurrentRocketChatAccount->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;
     }
-    if (mCurrentRocketChatAccount->ruqolaServerConfig()->encryptionEnabled()) {
+    if (mCurrentRocketChatAccount->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
     dlg->setFeatures(flags);

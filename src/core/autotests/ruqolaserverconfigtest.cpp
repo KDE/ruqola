@@ -42,7 +42,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.siteUrl().isEmpty());
     QVERIFY(config.allowMessageEditing());
     QVERIFY(config.otrEnabled());
-    QVERIFY(!config.encryptionEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
     QCOMPARE(config.blockDeletingMessageInMinutes(), 5);
@@ -75,7 +74,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const bool otrEnable = false;
     const QString siteName = QStringLiteral("sitename");
     const QString siteUrl = QStringLiteral("siteurl");
-    bool encryptionEnabled = false;
     const QString logoUrl = QStringLiteral("path/to/logo");
     const QString faviconUrl = QStringLiteral("path/to/favicon");
 
@@ -90,7 +88,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setOtrEnabled(otrEnable);
     config.setSiteName(siteName);
     config.setSiteUrl(siteUrl);
-    config.setEncryptionEnabled(encryptionEnabled);
     config.setJitsiEnabled(jistsiEnabled);
     config.setAutoTranslateGoogleKey(googleKey);
     config.setLogoUrl(logoUrl);
@@ -127,7 +124,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);
-    QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
 
     QCOMPARE(config.allowMessageSnippeting(), snippeting);
     QCOMPARE(config.allowMessageStarring(), starring);

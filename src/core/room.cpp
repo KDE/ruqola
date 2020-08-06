@@ -1173,7 +1173,7 @@ void Room::setDescription(const QString &description)
 bool Room::encryptedEnabled() const
 {
     if (mRocketChatAccount) {
-        return mRocketChatAccount->encryptedEnabled();
+        return mRocketChatAccount->encryptionEnabled();
     }
     return false;
 }

@@ -107,9 +107,6 @@ public:
 
     Q_REQUIRED_RESULT bool hasAtLeastVersion(int major, int minor, int patch) const;
 
-    Q_REQUIRED_RESULT bool encryptionEnabled() const;
-    void setEncryptionEnabled(bool encryptionEnabled);
-
     Q_REQUIRED_RESULT QString serverVersionStr() const;
 
     Q_REQUIRED_RESULT int serverVersionMajor() const;
@@ -182,7 +179,6 @@ private:
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
-    bool mEncryptionEnabled = false;
     bool mAllowMessageSnippeting = false;
     bool mAllowMessageStarring = false;
     bool mJitsiEnabled = false;
