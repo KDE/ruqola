@@ -52,18 +52,13 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.allowMessageStarring());
     QVERIFY(!config.threadsEnabled());
     QVERIFY(!config.discussionEnabled());
-    QVERIFY(!config.autoTranslateEnabled());
     QVERIFY(config.autoTranslateGoogleKey().isEmpty());
     QVERIFY(config.uploadFileEnabled());
     QCOMPARE(config.fileMaxFileSize(), -1);
-    QVERIFY(!config.broadCastEnabled());
     QVERIFY(config.logoUrl().isEmpty());
     QVERIFY(config.faviconUrl().isEmpty());
 
     QVERIFY(config.allowDeleteOwnAccount());
-    QVERIFY(config.registrationFromEnabled());
-    QVERIFY(config.allowPasswordReset());
-    QVERIFY(config.allowPasswordChange());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -81,11 +76,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString siteName = QStringLiteral("sitename");
     const QString siteUrl = QStringLiteral("siteurl");
     bool encryptionEnabled = false;
-    bool autoTranslateEnabled = true;
-    bool broadCastEnabled = true;
     const QString logoUrl = QStringLiteral("path/to/logo");
     const QString faviconUrl = QStringLiteral("path/to/favicon");
-    const QString allowRegistrationFrom = QStringLiteral("Disabled");
 
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
@@ -100,12 +92,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setSiteUrl(siteUrl);
     config.setEncryptionEnabled(encryptionEnabled);
     config.setJitsiEnabled(jistsiEnabled);
-    config.setAutoTranslateEnabled(autoTranslateEnabled);
     config.setAutoTranslateGoogleKey(googleKey);
-    config.setBroadCastEnabled(broadCastEnabled);
     config.setLogoUrl(logoUrl);
     config.setFaviconUrl(faviconUrl);
-    config.setAllowRegistrationFrom(allowRegistrationFrom);
 
     bool snippeting = true;
     bool starring = true;
@@ -113,8 +102,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool discussionEnabled = true;
     bool uploadFileEnabled = true;
     bool allowDeleteOwnAccount = false;
-    bool allowPasswordReset = false;
-    bool allowPasswordChange = false;
 
     quint64 uploadFileMax = 222222;
 
@@ -125,8 +112,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setUploadFileEnabled(uploadFileEnabled);
     config.setFileMaxFileSize(uploadFileMax);
     config.setAllowDeleteOwnAccount(allowDeleteOwnAccount);
-    config.setAllowPasswordReset(allowPasswordReset);
-    config.setAllowPasswordChange(allowPasswordChange);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -143,22 +128,17 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);
     QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
-    QCOMPARE(config.broadCastEnabled(), broadCastEnabled);
 
     QCOMPARE(config.allowMessageSnippeting(), snippeting);
     QCOMPARE(config.allowMessageStarring(), starring);
     QCOMPARE(config.threadsEnabled(), threadsEnabled);
     QCOMPARE(config.discussionEnabled(), discussionEnabled);
-    QCOMPARE(config.autoTranslateEnabled(), autoTranslateEnabled);
     QCOMPARE(config.autoTranslateGoogleKey(), googleKey);
 
     QCOMPARE(config.logoUrl(), logoUrl);
     QCOMPARE(config.faviconUrl(), faviconUrl);
 
     QCOMPARE(config.allowDeleteOwnAccount(), allowDeleteOwnAccount);
-    QCOMPARE(config.registrationFromEnabled(), false);
-    QCOMPARE(config.allowPasswordReset(), allowPasswordReset);
-    QCOMPARE(config.allowPasswordChange(), allowPasswordChange);
     QCOMPARE(config.serverConfigFeatureTypes(), RuqolaServerConfig::ServerConfigFeatureType::None);
 }
 

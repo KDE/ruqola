@@ -1617,12 +1617,17 @@ bool RocketChatAccount::threadsEnabled() const
 
 bool RocketChatAccount::autoTranslateEnabled() const
 {
-    return mRuqolaServerConfig->autoTranslateEnabled();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AutoTranslateEnabled;
+}
+
+bool RocketChatAccount::broadCastEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::BroadCastEnabled;
 }
 
 bool RocketChatAccount::registrationFromEnabled() const
 {
-    return mRuqolaServerConfig->registrationFromEnabled();
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFromEnabled;
 }
 
 bool RocketChatAccount::allowDeleteOwnAccount() const
@@ -2036,7 +2041,7 @@ void RocketChatAccount::initializeAccount()
 
     //load when necessary
     usersPresence();
-    if (mRuqolaServerConfig->autoTranslateEnabled()) {
+    if (autoTranslateEnabled()) {
         getSupportedLanguages();
     }
     //Force set online.
@@ -2147,7 +2152,7 @@ bool RocketChatAccount::allowEmailChange() const
 
 bool RocketChatAccount::allowPasswordChange() const
 {
-    return mRuqolaServerConfig->allowPasswordChange();
+    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange;
 }
 
 bool RocketChatAccount::allowUsernameChange() const

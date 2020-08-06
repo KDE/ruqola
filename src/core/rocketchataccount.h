@@ -432,6 +432,7 @@ public:
     void parseOwnInfoDone(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT OwnUser ownUser() const;
 
+    Q_REQUIRED_RESULT bool broadCastEnabled() const;
 Q_SIGNALS:
     void accountInitialized();
     void connectedChanged();

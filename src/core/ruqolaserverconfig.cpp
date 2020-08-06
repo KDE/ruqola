@@ -206,29 +206,12 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
     mServerConfigFeatureTypes = serverConfigFeatureTypes;
 }
 
-bool RuqolaServerConfig::allowPasswordChange() const
+void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
 {
-    return mAllowPasswordChange;
-}
-
-void RuqolaServerConfig::setAllowPasswordChange(bool allowPasswordChange)
-{
-    mAllowPasswordChange = allowPasswordChange;
-}
-
-bool RuqolaServerConfig::allowPasswordReset() const
-{
-    return mAllowPasswordReset;
-}
-
-void RuqolaServerConfig::setAllowPasswordReset(bool allowPasswordReset)
-{
-    mAllowPasswordReset = allowPasswordReset;
-}
-
-bool RuqolaServerConfig::registrationFromEnabled() const
-{
-    return mRegistrationFromEnabled;
+    //TODO using enum here ?
+    if (registrationFromValue != QStringLiteral("Disabled")) {
+        mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
+    }
 }
 
 bool RuqolaServerConfig::allowDeleteOwnAccount() const
@@ -236,29 +219,9 @@ bool RuqolaServerConfig::allowDeleteOwnAccount() const
     return mAllowDeleteOwnAccount;
 }
 
-void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
-{
-    //TODO using enum here ?
-    if (registrationFromValue == QStringLiteral("Disabled")) {
-        mRegistrationFromEnabled = false;
-    } else {
-        mRegistrationFromEnabled = true;
-    }
-}
-
 void RuqolaServerConfig::setAllowDeleteOwnAccount(bool allowDeleteOwnAccount)
 {
     mAllowDeleteOwnAccount = allowDeleteOwnAccount;
-}
-
-bool RuqolaServerConfig::broadCastEnabled() const
-{
-    return mBroadCastEnabled;
-}
-
-void RuqolaServerConfig::setBroadCastEnabled(bool broadCastEnabled)
-{
-    mBroadCastEnabled = broadCastEnabled;
 }
 
 qint64 RuqolaServerConfig::fileMaxFileSize() const
@@ -294,16 +257,6 @@ QString RuqolaServerConfig::autoTranslateGoogleKey() const
 void RuqolaServerConfig::setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey)
 {
     mAutoTranslateGoogleKey = autoTranslateGoogleKey;
-}
-
-bool RuqolaServerConfig::autoTranslateEnabled() const
-{
-    return mAutoTranslateEnabled;
-}
-
-void RuqolaServerConfig::setAutoTranslateEnabled(bool autoTranslateEnabled)
-{
-    mAutoTranslateEnabled = autoTranslateEnabled;
 }
 
 bool RuqolaServerConfig::discussionEnabled() const
@@ -455,7 +408,6 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
     d << "mAllowDeleteOwnAccount " << t.allowDeleteOwnAccount();
-    d << "mRegistrationFromEnabled " << t.registrationFromEnabled();
     return d;
 }
 
@@ -530,7 +482,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AutoTranslateEnabled;
             }
-            setAutoTranslateEnabled(value.toBool());
         } else if (id == QLatin1String("AutoTranslate_GoogleAPIKey")) {
             setAutoTranslateGoogleKey(value.toString());
         } else if (id == QLatin1String("FileUpload_Enabled")) {
@@ -544,7 +495,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::BroadCastEnabled;
             }
-            setBroadCastEnabled(value.toBool());
         } else if (id == QLatin1String("Message_VideoRecorderEnabled")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::VideoRecorderEnabled;
@@ -568,7 +518,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowPasswordReset;
             }
-            setAllowPasswordReset(value.toBool());
         } else if (id == QLatin1String("Accounts_AllowEmailChange")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowEmailChange;
@@ -577,7 +526,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowPasswordChange;
             }
-            setAllowPasswordChange(value.toBool());
         } else if (id == QLatin1String("Accounts_AllowUsernameChange")) {
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUsernameChange;

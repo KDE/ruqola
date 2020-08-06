@@ -133,9 +133,6 @@ public:
     Q_REQUIRED_RESULT bool discussionEnabled() const;
     void setDiscussionEnabled(bool discussionEnabled);
 
-    Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
-    void setAutoTranslateEnabled(bool autoTranslateEnabled);
-
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
@@ -147,9 +144,6 @@ public:
     Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
     void setFileMaxFileSize(qint64 fileMaxFileSize);
 
-    Q_REQUIRED_RESULT bool broadCastEnabled() const;
-    void setBroadCastEnabled(bool broadCastEnabled);
-
     Q_REQUIRED_RESULT QString logoUrl() const;
     void setLogoUrl(const QString &logoUrl);
 
@@ -160,13 +154,6 @@ public:
     void setAllowDeleteOwnAccount(bool allowDeleteOwnAccount);
 
     void setAllowRegistrationFrom(const QString &registrationFromValue);
-    Q_REQUIRED_RESULT bool registrationFromEnabled() const;
-
-    Q_REQUIRED_RESULT bool allowPasswordReset() const;
-    void setAllowPasswordReset(bool allowPasswordReset);
-
-    Q_REQUIRED_RESULT bool allowPasswordChange() const;
-    void setAllowPasswordChange(bool allowPasswordChange);
 
     Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void setServerConfigFeatureTypes(ServerConfigFeatureTypes serverConfigFeatureTypes);
@@ -201,13 +188,8 @@ private:
     bool mJitsiEnabled = false;
     bool mThreadsEnabled = false;
     bool mDiscussionEnabled = false;
-    bool mAutoTranslateEnabled = false;
     bool mUploadFileEnabled = true;
-    bool mBroadCastEnabled = false;
     bool mAllowDeleteOwnAccount = true;
-    bool mRegistrationFromEnabled = true;
-    bool mAllowPasswordReset = true;
-    bool mAllowPasswordChange = true;
 
     ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 
