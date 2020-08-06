@@ -92,5 +92,7 @@ void MyAccountProfileConfigureWidget::save()
     updateInfo.statusText = mStatusText->text();
     updateInfo.name = mName->text();
     //TODO add more.
-    Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);
+    if (updateInfo.isValid()) {
+        Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);
+    }
 }
