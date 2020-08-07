@@ -24,8 +24,10 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KPasswordDialog>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPointer>
 #include <QPushButton>
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
@@ -74,9 +76,13 @@ MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 {
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you really delete your account ?"), i18n("Delete my Account"))) {
-        //TODO enter password;
-        //Ruqola::self()->rocketChatAccount()->deleteOwnAccount(QString());
-        qDebug() << " void MyAccountProfileConfigureWidget::slotDeleteMyAccount() not implemented yet";
+        QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
+        dlg->setPrompt(i18n("Current Password"));
+        if (dlg->exec()) {
+            qDebug() << " void MyAccountProfileConfigureWidget::slotDeleteMyAccount() not implemented yet";
+            //Ruqola::self()->rocketChatAccount()->deleteOwnAccount(dlg->password());
+        }
+        delete dlg;
     }
 }
 
