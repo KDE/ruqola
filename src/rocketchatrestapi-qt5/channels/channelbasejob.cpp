@@ -50,7 +50,7 @@ void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
     }
 }
 
-void RocketChatRestApi::ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
+void ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
 {
     switch (mChannelInfo.channelInfoType) {
     case ChannelBaseJob::ChannelInfoType::Unknown:

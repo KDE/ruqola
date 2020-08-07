@@ -124,7 +124,7 @@ QNetworkRequest ChannelJoinJob::request() const
     return request;
 }
 
-QString RocketChatRestApi::ChannelJoinJob::errorMessage(const QString &str)
+QString ChannelJoinJob::errorMessage(const QString &str)
 {
     if (str == QLatin1String("error-room-not-found")) {
         return i18n("The required \'%1\' param provided does not match any channel", channelInfo().channelInfoIdentifier);

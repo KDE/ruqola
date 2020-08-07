@@ -107,7 +107,7 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
     deleteLater();
 }
 
-QString RocketChatRestApi::GetChannelRolesJob::jobName() const
+QString GetChannelRolesJob::jobName() const
 {
     return i18n("Extract Roles");
 }

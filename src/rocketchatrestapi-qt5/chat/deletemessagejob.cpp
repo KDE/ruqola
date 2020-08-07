@@ -127,12 +127,12 @@ QNetworkRequest DeleteMessageJob::request() const
     return request;
 }
 
-QString RocketChatRestApi::DeleteMessageJob::jobName() const
+QString DeleteMessageJob::jobName() const
 {
     return QStringLiteral("Delete Message");
 }
 
-QString RocketChatRestApi::DeleteMessageJob::errorMessage(const QString &str)
+QString DeleteMessageJob::errorMessage(const QString &str)
 {
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("Message deletion is not allowed.");

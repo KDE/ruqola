@@ -114,7 +114,7 @@ void ChannelGetAllUserMentionsJob::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-bool RocketChatRestApi::ChannelGetAllUserMentionsJob::hasQueryParameterSupport() const
+bool ChannelGetAllUserMentionsJob::hasQueryParameterSupport() const
 {
     return true;
 }
