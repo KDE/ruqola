@@ -45,7 +45,6 @@ void OwnUserTest::shouldHaveDefaultValues()
     QVERIFY(user.statusDefault().isEmpty());
 }
 
-
 void OwnUserTest::shouldLoadOwnUser_data()
 {
     QTest::addColumn<QString>("name");

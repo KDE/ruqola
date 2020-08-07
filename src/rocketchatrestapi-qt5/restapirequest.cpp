@@ -1618,7 +1618,6 @@ void RestApiRequest::getStarredMessages(const QString &roomId, int offset, int c
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
 
-
     connect(job, &GetStarredMessagesJob::getStarredMessagesDone, this, &RestApiRequest::getStarredMessagesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getStarredMessagesList";

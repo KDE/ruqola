@@ -86,7 +86,6 @@ public:
 
     Q_INVOKABLE void enableQmlHacks(bool qmlHacks);
 
-
     /**
     * @brief Adds a number of messages to the model
     *

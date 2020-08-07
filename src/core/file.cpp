@@ -81,7 +81,7 @@ bool File::operator ==(const File &other) const
            && (rid() == other.rid())
            && (userName() == other.userName())
            && (complete() == other.complete())
-            && (typeGroup() == other.typeGroup());
+           && (typeGroup() == other.typeGroup());
 }
 
 QString File::userId() const
