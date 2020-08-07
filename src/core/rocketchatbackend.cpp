@@ -314,7 +314,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << "room_files VALUE" << object;
         }
         File file;
-        file.parseFile(object);
+        file.parseFile(object, false);
         mFiles.append(file);
     } else if (collection == QLatin1String("stream-notify-room")) {
         //qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-room not implemented: "<< object;
