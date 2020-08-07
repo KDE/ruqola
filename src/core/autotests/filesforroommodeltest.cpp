@@ -50,6 +50,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
     roles[FilesForRoomModel::TimeStamp] = QByteArrayLiteral("timestamp");
     roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
     roles[FilesForRoomModel::Complete] = QByteArrayLiteral("complete");
+    roles[FilesForRoomModel::TypeGroup] = QByteArrayLiteral("typegroup");
     QCOMPARE(w.roleNames(), roles);
 }
 

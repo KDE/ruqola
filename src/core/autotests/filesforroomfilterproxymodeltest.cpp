@@ -53,6 +53,7 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     roles[FilesForRoomModel::TimeStamp] = QByteArrayLiteral("timestamp");
     roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
     roles[FilesForRoomModel::Complete] = QByteArrayLiteral("complete");
+    roles[FilesForRoomModel::TypeGroup] = QByteArrayLiteral("typegroup");
     QCOMPARE(proxy.roleNames(), roles);
 }
 

@@ -43,7 +43,8 @@ public:
         TimeStamp,
         UserName,
         SortByTimeStamp,
-        Complete
+        Complete,
+        TypeGroup,
     };
     Q_ENUM(UserRoles)
 

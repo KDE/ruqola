@@ -149,6 +149,8 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
         return file.uploadedAt();
     case Complete:
         return file.complete();
+    case TypeGroup:
+        return file.typeGroup();
     }
     return {};
 }
@@ -166,6 +168,7 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[TimeStamp] = QByteArrayLiteral("timestamp");
     roles[UserName] = QByteArrayLiteral("username");
     roles[Complete] = QByteArrayLiteral("complete");
+    roles[TypeGroup] = QByteArrayLiteral("typegroup");
     return roles;
 }
 
