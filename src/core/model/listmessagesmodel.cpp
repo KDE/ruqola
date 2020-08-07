@@ -44,9 +44,7 @@ void ListMessagesModel::parse(const QJsonObject &obj)
     }
     messages.parseMessages(obj, parseMessageName);
     mTotal = messages.total();
-    for (int i = 0, total = messages.count(); i < total; ++i) {
-        addMessage(messages.at(i));
-    }
+    addMessages(messages.listMessages());
     checkFullList();
 }
 

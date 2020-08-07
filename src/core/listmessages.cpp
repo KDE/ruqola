@@ -97,6 +97,11 @@ Message ListMessages::at(int index) const
     return mListMessages.at(index);
 }
 
+QVector<Message> ListMessages::listMessages() const
+{
+    return mListMessages;
+}
+
 QDebug operator <<(QDebug d, const ListMessages &t)
 {
     d << "total " << t.total();

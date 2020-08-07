@@ -42,6 +42,8 @@ public:
     void clear();
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT Message at(int index) const;
+    Q_REQUIRED_RESULT QVector<Message> listMessages() const;
+
 private:
     QVector<Message> mListMessages;
     int mMessagesCount = 0;
