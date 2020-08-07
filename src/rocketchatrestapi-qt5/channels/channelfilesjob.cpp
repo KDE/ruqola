@@ -132,7 +132,7 @@ QNetworkRequest ChannelFilesJob::request() const
     return request;
 }
 
-bool RocketChatRestApi::ChannelFilesJob::hasQueryParameterSupport() const
+bool ChannelFilesJob::hasQueryParameterSupport() const
 {
     return true;
 }
