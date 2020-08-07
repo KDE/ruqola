@@ -92,13 +92,13 @@ bool OwnUser::operator ==(const OwnUser &other) const
     return (mUserId == other.userId())
            && (mStatus == other.status())
            && (mUserName == other.userName())
-            && (mEmail == other.email())
-            && (mStatusText == other.statusText())
-            && (mName == other.name())
-            && (mAvatarUrl == other.avatarUrl())
-            && (mUtcOffset == other.utcOffset())
-            && (mStatusDefault == other.statusDefault())
-            && (mNickName == other.nickName());
+           && (mEmail == other.email())
+           && (mStatusText == other.statusText())
+           && (mName == other.name())
+           && (mAvatarUrl == other.avatarUrl())
+           && (mUtcOffset == other.utcOffset())
+           && (mStatusDefault == other.statusDefault())
+           && (mNickName == other.nickName());
 }
 
 QString OwnUser::email() const
