@@ -76,6 +76,7 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you really delete your account ?"), i18n("Delete my Account"))) {
         //TODO enter password;
         //Ruqola::self()->rocketChatAccount()->deleteOwnAccount(QString());
+        qDebug() << " void MyAccountProfileConfigureWidget::slotDeleteMyAccount() not implemented yet";
     }
 }
 
