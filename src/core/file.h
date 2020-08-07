@@ -68,6 +68,9 @@ public:
     Q_REQUIRED_RESULT bool complete() const;
     void setComplete(bool complete);
 
+    Q_REQUIRED_RESULT QString typeGroup() const;
+    void setTypeGroup(const QString &typeGroup);
+
 private:
     QString mFileName;
     QString mDescription;
@@ -78,6 +81,7 @@ private:
     QString mRid;
     QString mUserName;
     QString mUploadedDateTimeStr;
+    QString mTypeGroup;
 
     bool mComplete = false;
     qint64 mUploadedAt = -1;

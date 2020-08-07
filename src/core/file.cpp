@@ -36,6 +36,7 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     setUrl(fields.value(QLatin1String("url")).toString());
     setRid(fields.value(QLatin1String("rid")).toString());
     setComplete(fields.value(QLatin1String("complete")).toBool());
+    setTypeGroup(fields.value(QLatin1String("typeGroup")).toString());
     if (restApi) {
         setUploadedAt(Utils::parseIsoDate(QStringLiteral("uploadedAt"), fields));
     } else {
@@ -79,7 +80,8 @@ bool File::operator ==(const File &other) const
            && (fileId() == other.fileId())
            && (rid() == other.rid())
            && (userName() == other.userName())
-           && (complete() == other.complete());
+           && (complete() == other.complete())
+            && (typeGroup() == other.typeGroup());
 }
 
 QString File::userId() const
@@ -169,6 +171,16 @@ void File::setComplete(bool complete)
     mComplete = complete;
 }
 
+QString File::typeGroup() const
+{
+    return mTypeGroup;
+}
+
+void File::setTypeGroup(const QString &typeGroup)
+{
+    mTypeGroup = typeGroup;
+}
+
 QDebug operator <<(QDebug d, const File &t)
 {
     d << "Name : " << t.fileName();
@@ -181,5 +193,6 @@ QDebug operator <<(QDebug d, const File &t)
     d << "Rid: " << t.rid();
     d << "Username: " << t.userName();
     d << "Complete: " << t.complete();
+    d << "TypeGroup: " << t.typeGroup();
     return d;
 }

@@ -43,6 +43,7 @@ void FileTest::shouldHaveDefaultValue()
     QVERIFY(f.uploadedDateTimeStr().isEmpty());
     QCOMPARE(f.uploadedAt(), -1);
     QCOMPARE(f.complete(), false);
+    QVERIFY(f.typeGroup().isEmpty());
 }
 
 void FileTest::shouldAssignValue()
