@@ -1038,7 +1038,7 @@ void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 void RocketChatAccount::updateThreadMessageList(const Message &m)
 {
     if (mThreadMessageModel->threadMessageId() == m.threadMessageId()) {
-        mThreadMessageModel->addMessage(m);
+        mThreadMessageModel->addMessages({m});
     }
 }
 

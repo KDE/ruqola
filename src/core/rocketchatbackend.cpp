@@ -444,7 +444,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 }
                 //m.setMessageType(Message::System);
                 //TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})
-                messageModel->addMessage(m);
+                messageModel->addMessages({m});
             } else {
                 qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
             }

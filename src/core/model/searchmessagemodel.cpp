@@ -47,9 +47,7 @@ void SearchMessageModel::parse(const QJsonObject &obj)
     ListMessages messages;
     messages.parseMessages(obj, QStringLiteral("messages"));
     mTotal = messages.total();
-    for (int i = 0, total = messages.count(); i < total; ++i) {
-        addMessage(messages.at(i));
-    }
+    addMessages(messages.listMessages());
     setStringNotFound(rowCount() == 0);
 }
 
