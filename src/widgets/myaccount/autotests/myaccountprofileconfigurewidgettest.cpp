@@ -22,6 +22,7 @@
 #include "myaccount/myaccountprofileconfigurewidget.h"
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QTest>
 QTEST_MAIN(MyAccountProfileConfigureWidgetTest)
 
@@ -51,4 +52,8 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     QLineEdit *mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
     QVERIFY(mStatusText);
+
+    QPushButton *mDeleteMyAccount = w.findChild<QPushButton *>(QStringLiteral("mDeleteMyAccount"));
+    QVERIFY(mDeleteMyAccount);
+    QVERIFY(!mDeleteMyAccount->text().isEmpty());
 }

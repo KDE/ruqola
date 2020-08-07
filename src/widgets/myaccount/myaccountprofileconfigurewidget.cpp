@@ -23,8 +23,10 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPushButton>
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
     : QWidget(parent)
@@ -57,6 +59,10 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
 
+    mDeleteMyAccount = new QPushButton(i18n("Delete my Account"), this);
+    mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
+    mainLayout->addWidget(mDeleteMyAccount);
+    connect(mDeleteMyAccount, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotDeleteMyAccount);
     //TODO add password.
     init();
 }
@@ -65,11 +71,20 @@ MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 {
 }
 
+void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
+{
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you really delete your account ?"), i18n("Delete my Account"))) {
+        //TODO enter password;
+        //Ruqola::self()->rocketChatAccount()->deleteOwnAccount(QString());
+    }
+}
+
 void MyAccountProfileConfigureWidget::init()
 {
     mUserName->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowUsernameChange());
     mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
     //TODO !Ruqola::rocketChatAccount()->allowPasswordChange();
+    mDeleteMyAccount->setVisible(Ruqola::self()->rocketChatAccount()->allowDeleteOwnAccount());
 }
 
 void MyAccountProfileConfigureWidget::load()

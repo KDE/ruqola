@@ -25,6 +25,7 @@
 #include "ownuser.h"
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -34,12 +35,14 @@ public:
     void load();
     void save();
 private:
+    void slotDeleteMyAccount();
     void init();
     QLineEdit *mEmail;
     QLineEdit *mName;
     QLineEdit *mUserName;
     QLineEdit *mNickName;
     QLineEdit *mStatusText;
+    QPushButton *mDeleteMyAccount;
     OwnUser mOwnUser;
 //    QString currentPassword;
     //    QString newPassword;
