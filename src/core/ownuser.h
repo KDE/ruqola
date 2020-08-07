@@ -80,7 +80,7 @@ private:
     QString mNickName;
     double mUtcOffset = 0.0;
 };
-
+Q_DECLARE_METATYPE(OwnUser)
 Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const OwnUser &t);
 #endif // OWNUSER_H

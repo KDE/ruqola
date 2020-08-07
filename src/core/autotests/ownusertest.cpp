@@ -20,6 +20,8 @@
 
 #include "ownusertest.h"
 #include "ownuser.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_MAIN(OwnUserTest)
 
@@ -40,4 +42,45 @@ void OwnUserTest::shouldHaveDefaultValues()
     QVERIFY(user.avatarUrl().isEmpty());
     QVERIFY(user.nickName().isEmpty());
     QCOMPARE(user.utcOffset(), 0.0);
+    QVERIFY(user.statusDefault().isEmpty());
+}
+
+
+void OwnUserTest::shouldLoadOwnUser_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<OwnUser>("ownuser");
+    OwnUser result;
+    result.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+    result.setStatus(QStringLiteral("online"));
+    result.setUserName(QStringLiteral("foo-bla"));
+    result.setEmail(QStringLiteral("bla@kde.org"));
+    result.setName(QStringLiteral("foo-name"));
+    result.setAvatarUrl(QStringLiteral("https://open.rocket.chat/avatar/fooblabla"));
+    result.setStatusDefault(QStringLiteral("online"));
+    result.setNickName(QStringLiteral("tests"));
+    result.setUtcOffset(2);
+    QTest::addRow("example1") << QStringLiteral("example1") << result;
+}
+
+void OwnUserTest::shouldLoadOwnUser()
+{
+    QFETCH(QString, name);
+    QFETCH(OwnUser, ownuser);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/ownuser/") + name + QLatin1String(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+
+    OwnUser r;
+    r.parseOwnUserInfo(obj);
+    const bool equalOwner = (r == ownuser);
+    if (!equalOwner) {
+        qDebug() << "ACTUAL " << r;
+        qDebug() << "EXPECTED " << ownuser;
+    }
+    QVERIFY(equalOwner);
 }

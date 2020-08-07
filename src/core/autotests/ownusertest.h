@@ -31,6 +31,8 @@ public:
     ~OwnUserTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadOwnUser_data();
+    void shouldLoadOwnUser();
 };
 
 #endif // OWNUSERTEST_H
