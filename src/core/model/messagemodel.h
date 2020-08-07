@@ -86,12 +86,6 @@ public:
 
     Q_INVOKABLE void enableQmlHacks(bool qmlHacks);
 
-    /**
-    * @brief Adds a message to the model
-    *
-    * @param message The message to be added
-    */
-    void addMessage(const Message &message);
 
     /**
     * @brief Adds a number of messages to the model
@@ -147,12 +141,19 @@ private Q_SLOTS:
 
 private:
     Q_DISABLE_COPY(MessageModel)
+    /**
+    * @brief Adds a message to the model
+    *
+    * @param message The message to be added
+    */
+    void addMessage(const Message &message);
+
     void refresh();
-    QStringList roomRoles(const QString &userId) const;
-    QString convertMessageText(const Message &message, const QString &userName) const;
-    QString threadMessagePreview(const QString &threadMessageId) const;
-    QVector<Message>::iterator findMessage(const QString &messageId);
-    QVector<Message>::const_iterator findMessage(const QString &messageId) const;
+    Q_REQUIRED_RESULT QStringList roomRoles(const QString &userId) const;
+    Q_REQUIRED_RESULT QString convertMessageText(const Message &message, const QString &userName) const;
+    Q_REQUIRED_RESULT QString threadMessagePreview(const QString &threadMessageId) const;
+    Q_REQUIRED_RESULT QVector<Message>::iterator findMessage(const QString &messageId);
+    Q_REQUIRED_RESULT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
 
     QString mRoomId;
     QVector<Message> mAllMessages;

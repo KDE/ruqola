@@ -112,32 +112,32 @@ void MessageModelTest::shouldAddMessage()
     Message input;
     fillTestMessage(input);
     input.setMessageId(QStringLiteral("ff"));
-    w.addMessage(input);
+    w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
     //Don't create duplicates
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 1);
 
     //Add other messageId
     input.setMessageId(QStringLiteral("ff2"));
     input.setTimeStamp(43);
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 2);
 
     input.setMessageId(QStringLiteral("ff3"));
     input.setTimeStamp(44);
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 3);
 
     input.setMessageId(QStringLiteral("ff4"));
     input.setTimeStamp(45);
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 4);
 
     input.setMessageId(QStringLiteral("ff2"));
     input.setTimeStamp(43);
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 4);
 }
 
@@ -154,7 +154,7 @@ void MessageModelTest::shouldRemoveMessage()
 
     const QString messageId = QStringLiteral("ff");
     input.setMessageId(messageId);
-    w.addMessage(input);
+    w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
     //Remove existing message
@@ -187,7 +187,7 @@ void MessageModelTest::shouldRemoveMessage()
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
 
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(rowRemovedSpy.count(), 0);
@@ -203,7 +203,7 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     fillTestMessage(input);
     const QString messageId = QStringLiteral("ff");
     input.setMessageId(messageId);
-    w.addMessage(input);
+    w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
     //Remove non-existing message
@@ -211,11 +211,11 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     QCOMPARE(w.rowCount(), 1);
 
     input.setMessageId(QStringLiteral("ff3"));
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 2);
 
     input.setMessageId(QStringLiteral("ff4"));
-    w.addMessage(input);
+    w.addMessages({input});
     QCOMPARE(w.rowCount(), 3);
 
     //Remove 3th element
@@ -229,20 +229,20 @@ void MessageModelTest::shouldDetectDateChange()
     Message first;
     first.setMessageId(QStringLiteral("first"));
     first.setTimeStamp(QDateTime(QDate(2019, 6, 7), QTime(23, 50, 50)).toMSecsSinceEpoch());
-    model.addMessage(first);
+    model.addMessages({first});
     QVERIFY(model.index(0, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // first message
 
     Message second;
     second.setMessageId(QStringLiteral("second"));
     second.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 2, 3)).toMSecsSinceEpoch());
-    model.addMessage(second);
+    model.addMessages({second});
     QCOMPARE(model.rowCount(), 2);
     QVERIFY(model.index(1, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // next day
 
     Message third;
     third.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 4, 3)).toMSecsSinceEpoch());
     third.setMessageId(QStringLiteral("third"));
-    model.addMessage(third);
+    model.addMessages({third});
     QCOMPARE(model.rowCount(), 3);
     QVERIFY(!model.index(2, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // same day
 }
@@ -322,7 +322,7 @@ void MessageModelTest::shouldAllowEditing()
     // GIVEN a message from someone else
     input.setMessageId(QStringLiteral("msg2"));
     input.setUserId(QStringLiteral("someone_else"));
-    model.addMessage(input);
+    model.addMessages({input});
 
     // THEN
     QVERIFY(!model.index(1, 0).data(MessageModel::CanEditMessage).toBool());
