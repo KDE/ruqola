@@ -1275,7 +1275,7 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId, int offset
     job->setRoomId(roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("_updatedAt"), QueryParameters::SortOrder::Descendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -1573,7 +1573,7 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
     job->setRoomId(roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("_updatedAt"), QueryParameters::SortOrder::Descendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -1592,6 +1592,9 @@ void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int co
     QueryParameters parameters;
     parameters.setCount(count);
     parameters.setOffset(offset);
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+
     job->setQueryParameters(parameters);
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &RestApiRequest::getPinnedMessagesDone);
     if (!job->start()) {
@@ -1605,9 +1608,14 @@ void RestApiRequest::getStarredMessages(const QString &roomId, int offset, int c
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+    parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
+
+
     connect(job, &GetStarredMessagesJob::getStarredMessagesDone, this, &RestApiRequest::getStarredMessagesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getStarredMessagesList";
@@ -1622,6 +1630,9 @@ void RestApiRequest::getSnippetedMessages(const QString &roomId, int offset, int
     QueryParameters parameters;
     parameters.setCount(count);
     parameters.setOffset(offset);
+
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
     job->setQueryParameters(parameters);
     connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &RestApiRequest::getSnippetedMessagesDone);
     if (!job->start()) {
