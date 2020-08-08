@@ -148,7 +148,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
     roles[RoomReadOnly] = QByteArrayLiteral("readOnly");
-    roles[RoomMuted] = QByteArrayLiteral("muted");
+    roles[RoomNotificationsDisabled] = QByteArrayLiteral("notificationsDisabled");
     roles[RoomAnnouncement] = QByteArrayLiteral("announcement");
     roles[RoomOpen] = QByteArrayLiteral("open");
     roles[RoomAlert] = QByteArrayLiteral("alert");
@@ -204,8 +204,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->jitsiTimeout();
     case RoomModel::RoomReadOnly:
         return r->readOnly();
-    case RoomModel::RoomMuted:
-        return r->muted();
+    case RoomModel::RoomNotificationsDisabled:
+        return r->notificationsDisabled();
     case RoomModel::RoomAnnouncement:
         return r->announcement();
     case RoomModel::RoomUnread:
@@ -267,7 +267,7 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
     for (int i = 0; i < mRoomsList.count(); ++i) {
         Room *room = mRoomsList.at(i);
         if (room->open()) {
-            if (room->alert() && !room->muted()) {
+            if (room->alert() && !room->notificationsDisabled()) {
                 hasAlert = true;
             }
             nbUnread += room->unread();
@@ -310,11 +310,11 @@ QString RoomModel::insertRoom(const QJsonObject &room)
     return r->roomId();
 }
 
-void RoomModel::setRoomMute(const QString &roomId, bool muted)
+void RoomModel::setRoomNotificationsDisabled(const QString &roomId, bool disable)
 {
     Room *r = findRoom(roomId);
     if (r) {
-        r->setMuted(muted);
+        r->setNotificationsDisabled(disable);
     }
 }
 
@@ -555,7 +555,7 @@ int RoomModel::order(Room *r) const
 QIcon RoomModel::icon(Room *r) const
 {
     if (r->channelType() == QLatin1Char('c')) {
-        if (r->muted()) {
+        if (r->notificationsDisabled()) {
             return QIcon::fromTheme(QStringLiteral("notifications-disabled"));
         } else if (r->unread() > 0 || r->alert()) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-active"));

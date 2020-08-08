@@ -187,7 +187,7 @@ void Room::setUserMentions(int userMentions)
 {
     mUserMentions = userMentions;
     //Send needAttention only if we have alert.
-    if (mUserMentions > 0 && !mMuted) {
+    if (mUserMentions > 0 && !mNotificationsDisabled) {
         Q_EMIT needAttention();
     }
 }
@@ -350,7 +350,7 @@ void Room::setUnread(int unread)
         Q_EMIT unreadChanged();
     }
     if (channelType() != QLatin1Char('c')) { //TODO verify it
-        if (mUnread > 0 && !mMuted) {
+        if (mUnread > 0 && !mNotificationsDisabled) {
             Q_EMIT needAttention();
         }
     }
@@ -1157,16 +1157,16 @@ void Room::setArchived(bool archived)
     }
 }
 
-bool Room::muted() const
+bool Room::notificationsDisabled() const
 {
-    return mMuted;
+    return mNotificationsDisabled;
 }
 
-void Room::setMuted(bool muted)
+void Room::setNotificationsDisabled(bool disable)
 {
-    if (mMuted != muted) {
-        mMuted = muted;
-        Q_EMIT mutedChanged();
+    if (mNotificationsDisabled != disable) {
+        mNotificationsDisabled = disable;
+        Q_EMIT notificationsDisabledChanged();
     }
 }
 

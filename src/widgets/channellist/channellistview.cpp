@@ -99,13 +99,13 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(favoriteAction);
 
     if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { //Not direct channel
-        QAction *muteChannel = new QAction(QIcon::fromTheme(QStringLiteral("notifications-disabled")), i18n("Mute Channel"), &menu);
-        muteChannel->setCheckable(true);
-        muteChannel->setChecked(index.data(RoomModel::RoomMuted).toBool());
-        connect(muteChannel, &QAction::toggled, this, [=](bool checked) {
-            slotSetChannelMute(index, checked);
+        QAction *disableChannelNotifications = new QAction(QIcon::fromTheme(QStringLiteral("notifications-disabled")), i18n("Silence Notifications"), &menu);
+        disableChannelNotifications->setCheckable(true);
+        disableChannelNotifications->setChecked(index.data(RoomModel::RoomNotificationsDisabled).toBool());
+        connect(disableChannelNotifications, &QAction::toggled, this, [=](bool checked) {
+            slotDisableChannelNotifications(index, checked);
         });
-        menu.addAction(muteChannel);
+        menu.addAction(disableChannelNotifications);
 
         auto *separator = new QAction(&menu);
         separator->setSeparator(true);
@@ -139,13 +139,13 @@ void ChannelListView::channelSelected(const QModelIndex &index)
     Q_EMIT roomSelected(roomId, roomType);
 }
 
-void ChannelListView::slotSetChannelMute(const QModelIndex &index, bool muted)
+void ChannelListView::slotDisableChannelNotifications(const QModelIndex &index, bool disable)
 {
     const QString roomId = index.data(RoomModel::RoomID).toString();
     RoomModel *roomModel = static_cast<RoomModel*>(model()->sourceModel());
     Q_ASSERT(roomModel);
 
-    roomModel->setRoomMute(roomId, muted);
+    roomModel->setRoomNotificationsDisabled(roomId, disable);
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, const QString &roomType)

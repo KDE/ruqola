@@ -51,7 +51,7 @@ protected:
 
 private:
     void slotClicked(const QModelIndex &index);
-    void slotSetChannelMute(const QModelIndex &index, bool muted);
+    void slotDisableChannelNotifications(const QModelIndex& index, bool disable);
     void slotHideChannel(const QModelIndex &index, const QString &roomType);
     void slotLeaveChannel(const QModelIndex &index, const QString &roomType);
     void slotChangeFavorite(const QModelIndex &index, bool isFavorite);

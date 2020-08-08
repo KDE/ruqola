@@ -60,7 +60,7 @@ void RoomTest::shouldHaveDefaultValue()
     QCOMPARE(input.blocker(), false);
     QVERIFY(input.roles().isEmpty());
     QVERIFY(!input.archived());
-    QVERIFY(!input.muted());
+    QVERIFY(!input.notificationsDisabled());
     QVERIFY(input.name().isEmpty());
     QVERIFY(input.ignoredUsers().isEmpty());
     QVERIFY(input.e2EKey().isEmpty());
@@ -95,7 +95,7 @@ void RoomTest::shouldSerialized()
     input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
-    input.setMuted(true);
+    input.setNotificationsDisabled(true);
     input.setUnread(66);
     input.setSelected(true);
     input.setFavorite(true);
@@ -130,7 +130,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
     QSignalSpy spyalertChanged(&input, &Room::alertChanged);
     QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
-    QSignalSpy spymutedChanged(&input, &Room::mutedChanged);
+    QSignalSpy spynotificationsDisabled(&input, &Room::notificationsDisabledChanged);
     QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
     QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
     QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
@@ -157,7 +157,7 @@ void RoomTest::shouldEmitSignals()
     input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
-    input.setMuted(true);
+    input.setNotificationsDisabled(true);
     input.setUnread(66);
     input.setSelected(true);
     input.setFavorite(true);
@@ -182,7 +182,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyfavoriteChanged.count(), 1);
     QCOMPARE(spyalertChanged.count(), 1);
     QCOMPARE(spyreadOnlyChanged.count(), 1);
-    QCOMPARE(spymutedChanged.count(), 1);
+    QCOMPARE(spynotificationsDisabled.count(), 1);
     QCOMPARE(spyunreadChanged.count(), 1);
     QCOMPARE(spyblockerChanged.count(), 1);
     QCOMPARE(spyarchivedChanged.count(), 1);
