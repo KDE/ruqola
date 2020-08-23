@@ -135,6 +135,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, 
     mCurrentRocketChatAccount = account;
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
+    //TODO fix me. Settings is not updated.
     mSendFile->setVisible(account->uploadFileEnabled());
 }
 
