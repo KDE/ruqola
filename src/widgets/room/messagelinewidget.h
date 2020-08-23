@@ -62,12 +62,14 @@ public:
 
     void setEditMessage(const QString &messageId, const QString &text);
 
-    bool handleMimeData(const QMimeData *mimeData);
+    Q_REQUIRED_RESULT bool handleMimeData(const QMimeData *mimeData);
 
     void clearMessageIdBeingEdited();
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox = false);
+
+    void slotPublicSettingChanged();
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);

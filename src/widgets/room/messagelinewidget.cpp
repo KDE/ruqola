@@ -130,13 +130,16 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
     setFocus();
 }
 
+void MessageLineWidget::slotPublicSettingChanged()
+{
+    mSendFile->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
+}
+
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
 {
     mCurrentRocketChatAccount = account;
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
-    //TODO fix me. Settings is not updated.
-    mSendFile->setVisible(account->uploadFileEnabled());
 }
 
 void MessageLineWidget::setText(const QString &text)
