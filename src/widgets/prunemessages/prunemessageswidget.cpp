@@ -21,6 +21,8 @@
 #include "prunemessageswidget.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
+#include <QCheckBox>
+#include <QPushButton>
 
 PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,7 +30,22 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
-//TODO
+
+    mDoNotPrunePinnedMessage = new QCheckBox(i18n("Do not Prune Pinned Messages"), this);
+    mDoNotPrunePinnedMessage->setObjectName(QStringLiteral("mDoNotPrunePinnedMessage"));
+    mainLayout->addWidget(mDoNotPrunePinnedMessage);
+
+    mDoNotPruneDiscussionMessage = new QCheckBox(i18n("Do not Prune Discussion Messages"), this);
+    mDoNotPruneDiscussionMessage->setObjectName(QStringLiteral("mDoNotPruneDiscussionMessage"));
+    mainLayout->addWidget(mDoNotPruneDiscussionMessage);
+
+    mDoNotPruneThreads = new QCheckBox(i18n("Do not Prune Threads"), this);
+    mDoNotPruneThreads->setObjectName(QStringLiteral("mDoNotPruneThreads"));
+    mainLayout->addWidget(mDoNotPruneThreads);
+
+    mOnlyRemoveAttachedFiles = new QCheckBox(i18n("Only Remove Attached Files. Keep messages"), this);
+    mOnlyRemoveAttachedFiles->setObjectName(QStringLiteral("mOnlyRemoveAttachedFiles"));
+    mainLayout->addWidget(mOnlyRemoveAttachedFiles);
 }
 
 PruneMessagesWidget::~PruneMessagesWidget()

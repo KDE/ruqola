@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
 {
@@ -30,6 +31,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
 public:
     explicit PruneMessagesWidget(QWidget *parent = nullptr);
     ~PruneMessagesWidget();
+private:
+    QCheckBox *mDoNotPrunePinnedMessage = nullptr;
+    QCheckBox *mDoNotPruneDiscussionMessage = nullptr;
+    QCheckBox *mDoNotPruneThreads = nullptr;
+    QCheckBox *mOnlyRemoveAttachedFiles = nullptr;
 };
 
 #endif // PRUNEMESSAGESWIDGET_H
