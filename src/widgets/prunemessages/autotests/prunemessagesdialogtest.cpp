@@ -20,17 +20,30 @@
 
 #include "prunemessagesdialogtest.h"
 #include "prunemessages/prunemessagesdialog.h"
+#include "prunemessages/prunemessageswidget.h"
 #include <QTest>
+#include <QStandardPaths>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
 QTEST_MAIN(PruneMessagesDialogTest)
 
 PruneMessagesDialogTest::PruneMessagesDialogTest(QObject *parent)
     : QObject(parent)
 {
-
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void PruneMessagesDialogTest::shouldHaveDefaultValues()
 {
     PruneMessagesDialog d;
-    //TODO
+    QVERIFY(!d.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    PruneMessagesWidget *mPruneMessageWidget = d.findChild<PruneMessagesWidget *>(QStringLiteral("mPruneMessageWidget"));
+    QVERIFY(mPruneMessageWidget);
+
+    QDialogButtonBox *button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

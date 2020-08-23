@@ -24,13 +24,18 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
-
+class PruneMessagesWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit PruneMessagesDialog(QWidget *parent = nullptr);
     ~PruneMessagesDialog();
+
+private:
+    void readConfig();
+    void writeConfig();
+    PruneMessagesWidget *mPruneMessageWidget = nullptr;
 };
 
 #endif // PRUNEMESSAGESDIALOG_H

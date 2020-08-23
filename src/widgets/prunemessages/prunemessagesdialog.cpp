@@ -19,14 +19,54 @@
 */
 
 #include "prunemessagesdialog.h"
+#include "prunemessageswidget.h"
+
+#include <KConfigGroup>
+#include <KSharedConfig>
+#include <KLocalizedString>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
+
+namespace {
+const char myConfigGroupName[] = "PruneMessagesDialog";
+}
 
 PruneMessagesDialog::PruneMessagesDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Prune Messages"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mPruneMessageWidget = new PruneMessagesWidget(this);
+    mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
+    mainLayout->addWidget(mPruneMessageWidget);
+
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &PruneMessagesDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &PruneMessagesDialog::accept);
+    readConfig();
 }
 
 PruneMessagesDialog::~PruneMessagesDialog()
 {
-
+    writeConfig();
 }
+
+void PruneMessagesDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void PruneMessagesDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
+}
+
