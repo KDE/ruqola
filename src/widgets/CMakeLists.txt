@@ -105,6 +105,10 @@ set(Ruqola_channellist_SRCS
     channellist/channellistview.cpp
     channellist/channellistdelegate.cpp
     )
+set(Ruqola_prunemessages_SRCS
+    prunemessages/prunemessagesdialog.cpp
+    prunemessages/prunemessageswidget.cpp
+    )
 
 set(Ruqola_roomwidget_SRCS
     room/roomwidget.cpp
@@ -183,6 +187,7 @@ add_library(libruqolawidgets
     ${Ruqola_misc_widget_SRCS}
     ${Ruqola_threadwidget_SRCS}
     ${Ruqola_myaccount_SRCS}
+    ${Ruqola_prunemessages_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
@@ -232,6 +237,7 @@ if (BUILD_TESTING)
     add_subdirectory(threadwidget/autotests)
     add_subdirectory(registeruser/autotests)
     add_subdirectory(myaccount/autotests)
+    add_subdirectory(prunemessages/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
