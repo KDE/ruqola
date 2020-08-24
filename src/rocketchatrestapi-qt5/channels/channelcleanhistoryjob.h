@@ -23,6 +23,7 @@
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "channelbasejob.h"
+#include <QDateTime>
 namespace RocketChatRestApi {
 class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelCleanHistoryJob : public ChannelBaseJob
 {
