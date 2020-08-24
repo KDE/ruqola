@@ -84,10 +84,6 @@ bool ChannelCleanHistoryJob::requireHttpAuthentication() const
 
 bool ChannelCleanHistoryJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCleanHistoryJob: RoomId and RoomName are empty";
-        return false;
-    }
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
