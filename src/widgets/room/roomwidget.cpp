@@ -553,14 +553,13 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
                    this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged,
                    mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
-
     }
 
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
             this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged,
-               mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+            mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);

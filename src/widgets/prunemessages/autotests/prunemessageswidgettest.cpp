@@ -31,19 +31,17 @@ QTEST_MAIN(PruneMessagesWidgetTest)
 PruneMessagesWidgetTest::PruneMessagesWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 {
     PruneMessagesWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout*>(QStringLiteral("mainLayout"));
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-
-    QHBoxLayout *lastestLayout = w.findChild<QHBoxLayout*>(QStringLiteral("lastestLayout"));
+    QHBoxLayout *lastestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("lastestLayout"));
     QVERIFY(lastestLayout);
     QCOMPARE(lastestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
@@ -54,7 +52,7 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
     QDateTimeEdit *mLastestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
     QVERIFY(mLastestDateTimeEdit);
 
-    QHBoxLayout *oldestLayout = w.findChild<QHBoxLayout*>(QStringLiteral("oldestLayout"));
+    QHBoxLayout *oldestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("oldestLayout"));
     QVERIFY(oldestLayout);
     QCOMPARE(oldestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
@@ -64,7 +62,6 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 
     QDateTimeEdit *mOldestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
     QVERIFY(mOldestDateTimeEdit);
-
 
     QLabel *usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));
     QVERIFY(usersLabel);

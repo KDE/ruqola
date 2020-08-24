@@ -96,7 +96,6 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 
 PruneMessagesWidget::~PruneMessagesWidget()
 {
-
 }
 
 RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const

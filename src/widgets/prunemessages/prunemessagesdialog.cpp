@@ -74,5 +74,3 @@ void PruneMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
-
-
