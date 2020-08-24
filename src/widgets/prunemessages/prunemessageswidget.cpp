@@ -59,6 +59,14 @@ PruneMessagesWidget::~PruneMessagesWidget()
 
 RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
 {
+    RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo info;
+//    QDateTime lastest; //required
+//    QDateTime oldest; //required
+//    info.roomId; //required
+//    QStringList users;
+    info.inclusive = mInclusive->isChecked();
+    //info.excludePinned = false;
+    info.filesOnly = mOnlyRemoveAttachedFiles->isChecked();
     //TODO
-    return {};
+    return info;
 }
