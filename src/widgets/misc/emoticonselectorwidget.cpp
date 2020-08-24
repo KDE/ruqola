@@ -21,11 +21,10 @@
 #include "emoticonselectorwidget.h"
 #include <QFont>
 EmoticonTextEditItem::EmoticonTextEditItem(const QString &identifier, const QString &emoticonText, QListWidget *parent)
-    : QListWidgetItem(parent)
+    : QListWidgetItem(mText, parent)
     , mText(emoticonText)
     , mIdentifier(identifier)
 {
-    setText(mText);
     setToolTip(identifier);
 }
 
