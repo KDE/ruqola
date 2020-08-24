@@ -22,6 +22,7 @@
 #define PRUNEMESSAGESWIDGET_H
 
 #include <QWidget>
+#include "channels/channelcleanhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 
@@ -31,6 +32,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
 public:
     explicit PruneMessagesWidget(QWidget *parent = nullptr);
     ~PruneMessagesWidget();
+
+    Q_REQUIRED_RESULT RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 private:
     QCheckBox *mInclusive = nullptr;
     QCheckBox *mDoNotPrunePinnedMessage = nullptr;

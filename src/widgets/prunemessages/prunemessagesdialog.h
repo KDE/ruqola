@@ -23,6 +23,8 @@
 
 #include <QDialog>
 
+#include "channels/channelcleanhistoryjob.h"
+
 #include "libruqolawidgets_private_export.h"
 class PruneMessagesWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesDialog : public QDialog
@@ -31,6 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesDialog : public QDialog
 public:
     explicit PruneMessagesDialog(QWidget *parent = nullptr);
     ~PruneMessagesDialog();
+    Q_REQUIRED_RESULT RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
 private:
     void readConfig();

@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "channels/channelcleanhistoryjob.h"
 #include "users/usersupdateownbasicinfojob.h"
 #include "commands/runcommandjob.h"
 #include "invite/findorcreateinvitejob.h"
@@ -192,6 +193,7 @@ public:
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void enable2FaEmailJob(bool enable);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
+    void cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -266,6 +268,7 @@ Q_SIGNALS:
     void enableEmailDone();
     void disableEmailDone();
     void updateOwnBasicInfoDone();
+    void cleanHistoryDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

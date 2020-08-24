@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QUrl>
 #include <channels/channelbasejob.h>
+#include <channels/channelcleanhistoryjob.h>
 #include <commands/runcommandjob.h>
 #include "users/usersupdateownbasicinfojob.h"
 #include <ddpapi/ddpclient.h>
@@ -429,6 +430,8 @@ public:
     Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void parseOwnInfoDone(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT OwnUser ownUser() const;
+
+    void cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info);
 
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
     Q_REQUIRED_RESULT bool encryptionEnabled() const;

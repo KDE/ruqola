@@ -55,6 +55,11 @@ PruneMessagesDialog::~PruneMessagesDialog()
     writeConfig();
 }
 
+RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesDialog::cleanHistoryInfo() const
+{
+    return mPruneMessageWidget->cleanHistoryInfo();
+}
+
 void PruneMessagesDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
@@ -69,4 +74,5 @@ void PruneMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
+
 

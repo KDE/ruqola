@@ -238,6 +238,11 @@ OwnUser RocketChatAccount::ownUser() const
     return mOwnUser;
 }
 
+void RocketChatAccount::cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info)
+{
+    restApi()->cleanChannelHistory(info);
+}
+
 void RocketChatAccount::slotNeedToUpdateNotification()
 {
     bool hasAlert = false;

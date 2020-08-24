@@ -56,3 +56,9 @@ PruneMessagesWidget::~PruneMessagesWidget()
 {
 
 }
+
+RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
+{
+    //TODO
+    return {};
+}
