@@ -2187,7 +2187,7 @@ RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeat
 
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
-    qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
+    //qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
     mOwnUser.parseOwnUserInfo(replyObject);
     const User user = mOwnUser.user();
     //qDebug() << " USER  " << user;
@@ -2200,4 +2200,9 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
+}
+
+bool RocketChatAccount::isAdministrator() const
+{
+    return mOwnUser.isAdministrator();
 }

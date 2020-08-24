@@ -20,6 +20,8 @@
 
 #include "ownuser.h"
 
+#include <QJsonArray>
+
 OwnUser::OwnUser()
 {
 }
@@ -40,6 +42,17 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     mUtcOffset = replyObject.value(QLatin1String("utcOffset")).toDouble();
     mStatusDefault = replyObject.value(QLatin1String("statusDefault")).toString();
     mNickName = replyObject.value(QLatin1String("nickname")).toString();
+    const QJsonArray array = replyObject.value(QLatin1String("roles")).toArray();
+    const QVariantList rolesLst = array.toVariantList();
+    mRoles.reserve(rolesLst.count());
+    for (const auto &role : rolesLst) {
+        mRoles.append(role.toString());
+    }
+}
+
+bool OwnUser::isAdministrator() const
+{
+    return mRoles.contains(QStringLiteral("admin"));
 }
 
 QString OwnUser::userId() const
@@ -84,6 +97,7 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     d << "utcOffset " << t.utcOffset();
     d << "defaultStatus " << t.statusDefault();
     d << "nickname " << t.nickName();
+    d << "roles " << t.roles();
     return d;
 }
 
@@ -98,7 +112,8 @@ bool OwnUser::operator ==(const OwnUser &other) const
            && (mAvatarUrl == other.avatarUrl())
            && (mUtcOffset == other.utcOffset())
            && (mStatusDefault == other.statusDefault())
-           && (mNickName == other.nickName());
+           && (mNickName == other.nickName())
+           && (mRoles == other.roles());
 }
 
 QString OwnUser::email() const
@@ -178,4 +193,14 @@ QString OwnUser::nickName() const
 void OwnUser::setNickName(const QString &nickName)
 {
     mNickName = nickName;
+}
+
+QStringList OwnUser::roles() const
+{
+    return mRoles;
+}
+
+void OwnUser::setRoles(const QStringList &roles)
+{
+    mRoles = roles;
 }

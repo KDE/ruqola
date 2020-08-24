@@ -43,6 +43,7 @@ void OwnUserTest::shouldHaveDefaultValues()
     QVERIFY(user.nickName().isEmpty());
     QCOMPARE(user.utcOffset(), 0.0);
     QVERIFY(user.statusDefault().isEmpty());
+    QVERIFY(user.roles().isEmpty());
 }
 
 void OwnUserTest::shouldLoadOwnUser_data()

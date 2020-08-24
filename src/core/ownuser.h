@@ -67,6 +67,10 @@ public:
     Q_REQUIRED_RESULT QString nickName() const;
     void setNickName(const QString &nickName);
 
+    Q_REQUIRED_RESULT QStringList roles() const;
+    void setRoles(const QStringList &roles);
+
+    Q_REQUIRED_RESULT bool isAdministrator() const;
 private:
     //TODO add service password support
     QString mUserId;
@@ -78,6 +82,7 @@ private:
     QString mAvatarUrl;
     QString mStatusDefault;
     QString mNickName;
+    QStringList mRoles;
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(OwnUser)
