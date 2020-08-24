@@ -101,7 +101,7 @@ bool ChannelAddOwnerJob::canStart() const
 QJsonDocument ChannelAddOwnerJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = addownerUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

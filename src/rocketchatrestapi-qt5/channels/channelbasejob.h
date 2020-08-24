@@ -50,7 +50,7 @@ public:
     void setChannelInfo(const ChannelInfo &channelInfo);
 
 protected:
-    void generateJSon(QJsonObject &obj) const;
+    void generateJson(QJsonObject &obj) const;
     void generateQuery(QUrlQuery &queryUrl) const;
 
 private:

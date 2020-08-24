@@ -101,7 +101,7 @@ bool ChannelAddLeaderJob::canStart() const
 QJsonDocument ChannelAddLeaderJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = addLeaderUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

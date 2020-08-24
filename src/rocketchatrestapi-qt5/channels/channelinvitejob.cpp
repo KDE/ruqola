@@ -111,7 +111,7 @@ bool ChannelInviteJob::canStart() const
 QJsonDocument ChannelInviteJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     if (!inviteUserId().isEmpty()) {
         jsonObj[QLatin1String("userId")] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {

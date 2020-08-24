@@ -87,7 +87,7 @@ bool LeaveChannelJob::canStart() const
 QJsonDocument LeaveChannelJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

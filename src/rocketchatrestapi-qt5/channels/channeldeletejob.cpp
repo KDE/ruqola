@@ -87,7 +87,7 @@ bool ChannelDeleteJob::canStart() const
 QJsonDocument ChannelDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

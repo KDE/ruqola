@@ -101,7 +101,7 @@ bool SetJoinCodeChannelJob::canStart() const
 QJsonDocument SetJoinCodeChannelJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     jsonObj[QLatin1String("joinCode")] = joinCode();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

@@ -101,7 +101,7 @@ bool SetChannelTypeJob::canStart() const
 QJsonDocument SetChannelTypeJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     switch (mType) {
     case Public:
         jsonObj[QLatin1String("type")] = QStringLiteral("c");

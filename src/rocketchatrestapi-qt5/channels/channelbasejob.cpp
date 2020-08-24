@@ -35,7 +35,7 @@ bool ChannelBaseJob::hasRoomIdentifier() const
     return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelBaseJob::ChannelInfoType::Unknown);
 }
 
-void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
+void ChannelBaseJob::generateJson(QJsonObject &jsonObj) const
 {
     switch (mChannelInfo.channelInfoType) {
     case ChannelBaseJob::ChannelInfoType::Unknown:

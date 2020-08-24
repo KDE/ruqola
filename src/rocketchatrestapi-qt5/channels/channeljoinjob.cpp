@@ -106,7 +106,7 @@ bool ChannelJoinJob::canStart() const
 QJsonDocument ChannelJoinJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     if (!mJoinCode.isEmpty()) {
         jsonObj[QLatin1String("joinCode")] = mJoinCode;
     }

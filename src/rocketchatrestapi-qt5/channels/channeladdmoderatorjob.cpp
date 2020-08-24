@@ -101,7 +101,7 @@ bool ChannelAddModeratorJob::canStart() const
 QJsonDocument ChannelAddModeratorJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = addModeratorUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

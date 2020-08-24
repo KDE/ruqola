@@ -101,7 +101,7 @@ bool ChannelRemoveOwnerJob::canStart() const
 QJsonDocument ChannelRemoveOwnerJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

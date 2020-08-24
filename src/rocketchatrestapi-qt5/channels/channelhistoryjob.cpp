@@ -101,7 +101,7 @@ bool ChannelHistoryJob::canStart() const
 QJsonDocument ChannelHistoryJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

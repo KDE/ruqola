@@ -91,7 +91,7 @@ bool ChannelKickJob::canStart() const
 QJsonDocument ChannelKickJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = kickUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
