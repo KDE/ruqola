@@ -43,11 +43,11 @@ bool ChannelCleanHistoryJob::start()
     }
     addStartRestApiInfo("ChannelCleanHistoryJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChannelCleanHistoryJob::slotCloseChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChannelCleanHistoryJob::slotCleanHistoryFinished);
     return true;
 }
 
-void ChannelCleanHistoryJob::slotCloseChannelFinished()
+void ChannelCleanHistoryJob::slotCleanHistoryFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,7 +57,7 @@ void ChannelCleanHistoryJob::slotCloseChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelCleanHistoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT closeChannelDone();
+            Q_EMIT cleanHistoryDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelCleanHistoryJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -65,6 +65,16 @@ void ChannelCleanHistoryJob::slotCloseChannelFinished()
         reply->deleteLater();
     }
     deleteLater();
+}
+
+ChannelCleanHistoryJob::CleanHistoryInfo ChannelCleanHistoryJob::cleanHistoryInfo() const
+{
+    return mCleanHistoryInfo;
+}
+
+void ChannelCleanHistoryJob::setCleanHistoryInfo(const CleanHistoryInfo &cleanHistoryInfo)
+{
+    mCleanHistoryInfo = cleanHistoryInfo;
 }
 
 bool ChannelCleanHistoryJob::requireHttpAuthentication() const
@@ -101,4 +111,10 @@ QNetworkRequest ChannelCleanHistoryJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+bool ChannelCleanHistoryJob::CleanHistoryInfo::isValid() const
+{
+    //TODO
+    return false;
 }

@@ -21,13 +21,16 @@
 #ifndef CHANNELCLEANHISTORYJOB_H
 #define CHANNELCLEANHISTORYJOB_H
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelCleanHistoryJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelCleanHistoryJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT CleanHistoryInfo {
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
     explicit ChannelCleanHistoryJob(QObject *parent = nullptr);
     ~ChannelCleanHistoryJob() override;
 
@@ -39,13 +42,17 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT CleanHistoryInfo cleanHistoryInfo() const;
+    void setCleanHistoryInfo(const CleanHistoryInfo &cleanHistoryInfo);
+
 Q_SIGNALS:
-    void closeChannelDone();
+    void cleanHistoryDone();
 
 private:
     Q_DISABLE_COPY(ChannelCleanHistoryJob)
-    void slotCloseChannelFinished();
+    void slotCleanHistoryFinished();
+    CleanHistoryInfo mCleanHistoryInfo;
 };
 }
-
+Q_DECLARE_TYPEINFO(RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo, Q_MOVABLE_TYPE);
 #endif // CHANNELCLEANHISTORYJOB_H
