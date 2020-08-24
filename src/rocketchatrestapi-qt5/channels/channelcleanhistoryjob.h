@@ -30,6 +30,13 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelCleanHistoryJob : public ChannelBas
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT CleanHistoryInfo {
         Q_REQUIRED_RESULT bool isValid() const;
+        QDateTime lastest; //required
+        QDateTime oldest; //required
+        QString roomId; //required
+        QStringList users;
+        bool inclusive = false;
+        bool excludePinned = false;
+        bool filesOnly = false;
     };
     explicit ChannelCleanHistoryJob(QObject *parent = nullptr);
     ~ChannelCleanHistoryJob() override;
