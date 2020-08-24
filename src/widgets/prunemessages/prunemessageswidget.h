@@ -32,6 +32,7 @@ public:
     explicit PruneMessagesWidget(QWidget *parent = nullptr);
     ~PruneMessagesWidget();
 private:
+    QCheckBox *mInclusive = nullptr;
     QCheckBox *mDoNotPrunePinnedMessage = nullptr;
     QCheckBox *mDoNotPruneDiscussionMessage = nullptr;
     QCheckBox *mDoNotPruneThreads = nullptr;

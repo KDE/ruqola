@@ -20,7 +20,9 @@
 
 #include "prunemessageswidgettest.h"
 #include "prunemessages/prunemessageswidget.h"
+#include <QCheckBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(PruneMessagesWidgetTest)
 
 PruneMessagesWidgetTest::PruneMessagesWidgetTest(QObject *parent)
@@ -32,5 +34,33 @@ PruneMessagesWidgetTest::PruneMessagesWidgetTest(QObject *parent)
 void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 {
     PruneMessagesWidget w;
-    //TODO
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout*>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QCheckBox *mInclusive = w.findChild<QCheckBox *>(QStringLiteral("mInclusive"));
+    QVERIFY(mInclusive);
+    QVERIFY(!mInclusive->text().isEmpty());
+    QVERIFY(!mInclusive->isChecked());
+
+    QCheckBox *mDoNotPrunePinnedMessage = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPrunePinnedMessage"));
+    QVERIFY(mDoNotPrunePinnedMessage);
+    QVERIFY(!mDoNotPrunePinnedMessage->text().isEmpty());
+    QVERIFY(!mDoNotPrunePinnedMessage->isChecked());
+
+    QCheckBox *mDoNotPruneDiscussionMessage = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPruneDiscussionMessage"));
+    QVERIFY(mDoNotPruneDiscussionMessage);
+    QVERIFY(!mDoNotPruneDiscussionMessage->text().isEmpty());
+    QVERIFY(!mDoNotPruneDiscussionMessage->isChecked());
+
+    QCheckBox *mDoNotPruneThreads = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPruneThreads"));
+    QVERIFY(mDoNotPruneThreads);
+    QVERIFY(!mDoNotPruneThreads->text().isEmpty());
+    QVERIFY(!mDoNotPruneThreads->isChecked());
+
+    QCheckBox *mOnlyRemoveAttachedFiles = w.findChild<QCheckBox *>(QStringLiteral("mOnlyRemoveAttachedFiles"));
+    QVERIFY(mOnlyRemoveAttachedFiles);
+    QVERIFY(!mOnlyRemoveAttachedFiles->text().isEmpty());
+    QVERIFY(!mOnlyRemoveAttachedFiles->isChecked());
 }

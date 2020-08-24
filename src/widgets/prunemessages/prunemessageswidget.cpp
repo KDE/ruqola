@@ -31,6 +31,10 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mInclusive = new QCheckBox(i18n("Inclusive"), this);
+    mInclusive->setObjectName(QStringLiteral("mInclusive"));
+    mainLayout->addWidget(mInclusive);
+
     mDoNotPrunePinnedMessage = new QCheckBox(i18n("Do not Prune Pinned Messages"), this);
     mDoNotPrunePinnedMessage->setObjectName(QStringLiteral("mDoNotPrunePinnedMessage"));
     mainLayout->addWidget(mDoNotPrunePinnedMessage);
