@@ -25,7 +25,8 @@
 #include "channels/channelcleanhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
-
+class QDateTimeEdit;
+class AddUsersWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
 {
     Q_OBJECT
@@ -40,6 +41,9 @@ private:
     QCheckBox *mDoNotPruneDiscussionMessage = nullptr;
     QCheckBox *mDoNotPruneThreads = nullptr;
     QCheckBox *mOnlyRemoveAttachedFiles = nullptr;
+    QDateTimeEdit *mLastestDateTimeEdit = nullptr;
+    QDateTimeEdit *mOldestDateTimeEdit = nullptr;
+    AddUsersWidget *mUsers = nullptr;
 };
 
 #endif // PRUNEMESSAGESWIDGET_H

@@ -20,7 +20,10 @@
 
 #include "prunemessageswidgettest.h"
 #include "prunemessages/prunemessageswidget.h"
+#include "misc/adduserswidget.h"
 #include <QCheckBox>
+#include <QDateTimeEdit>
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(PruneMessagesWidgetTest)
@@ -38,6 +41,40 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout*>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+
+    QHBoxLayout *lastestLayout = w.findChild<QHBoxLayout*>(QStringLiteral("lastestLayout"));
+    QVERIFY(lastestLayout);
+    QCOMPARE(lastestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLabel *lastestLabel = w.findChild<QLabel *>(QStringLiteral("lastestLabel"));
+    QVERIFY(lastestLabel);
+    QVERIFY(!lastestLabel->text().isEmpty());
+
+    QDateTimeEdit *mLastestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
+    QVERIFY(mLastestDateTimeEdit);
+
+    QHBoxLayout *oldestLayout = w.findChild<QHBoxLayout*>(QStringLiteral("oldestLayout"));
+    QVERIFY(oldestLayout);
+    QCOMPARE(oldestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLabel *oldestLabel = w.findChild<QLabel *>(QStringLiteral("oldestLabel"));
+    QVERIFY(oldestLabel);
+    QVERIFY(!oldestLabel->text().isEmpty());
+
+    QDateTimeEdit *mOldestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
+    QVERIFY(mOldestDateTimeEdit);
+
+
+    QLabel *usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));
+    QVERIFY(usersLabel);
+    QVERIFY(!usersLabel->text().isEmpty());
+    QVERIFY(usersLabel->wordWrap());
+    QCOMPARE(usersLabel->textFormat(), Qt::PlainText);
+
+    AddUsersWidget *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
+    QVERIFY(mUsers);
+    mainLayout->addWidget(mUsers);
 
     QCheckBox *mInclusive = w.findChild<QCheckBox *>(QStringLiteral("mInclusive"));
     QVERIFY(mInclusive);

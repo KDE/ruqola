@@ -45,6 +45,7 @@
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/inviteusersdialog.h"
 #include "dialogs/addusersinroomdialog.h"
+#include "prunemessages/prunemessagesdialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
 
@@ -197,7 +198,19 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::VideoChat:
         slotVideoChat();
         break;
+    case RoomHeaderWidget::PruneMessages:
+        slotPruneMessages();
+        break;
     }
+}
+
+void RoomWidget::slotPruneMessages()
+{
+    QPointer<PruneMessagesDialog> dlg = new PruneMessagesDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotVideoChat()

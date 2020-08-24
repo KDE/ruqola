@@ -45,7 +45,8 @@ public:
         AutoTranslate = 9,
         InviteUsers = 10,
         AddUsersInRoom = 11,
-        VideoChat = 12
+        VideoChat = 12,
+        PruneMessages = 13,
     };
     Q_ENUM(ChannelActionType)
 

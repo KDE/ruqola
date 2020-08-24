@@ -92,6 +92,7 @@ private:
     void slotAddUsersInRoom();
     void updateListView();
     void slotVideoChat();
+    void slotPruneMessages();
 
     QString mRoomId;
     QString mRoomType;

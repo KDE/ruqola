@@ -116,5 +116,4 @@ QNetworkRequest ChannelCleanHistoryJob::request() const
 bool ChannelCleanHistoryJob::CleanHistoryInfo::isValid() const
 {
     return lastest.isValid() && oldest.isValid() && !roomId.isEmpty();
-    return false;
 }

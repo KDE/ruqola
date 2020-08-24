@@ -19,10 +19,14 @@
 */
 
 #include "prunemessageswidget.h"
+#include "misc/adduserswidget.h"
+
 #include <KLocalizedString>
 #include <QVBoxLayout>
 #include <QCheckBox>
 #include <QPushButton>
+#include <QDateTimeEdit>
+#include <QLabel>
 
 PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     : QWidget(parent)
@@ -30,6 +34,43 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    QHBoxLayout *lastestLayout = new QHBoxLayout;
+    lastestLayout->setObjectName(QStringLiteral("lastestLayout"));
+    lastestLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(lastestLayout);
+
+    QLabel *lastestLabel = new QLabel(i18n("Newer than:"), this);
+    lastestLabel->setObjectName(QStringLiteral("lastestLabel"));
+    lastestLayout->addWidget(lastestLabel);
+
+    mLastestDateTimeEdit = new QDateTimeEdit(this);
+    mLastestDateTimeEdit->setObjectName(QStringLiteral("mLastestDateTimeEdit"));
+    lastestLayout->addWidget(mLastestDateTimeEdit);
+
+    QHBoxLayout *oldestLayout = new QHBoxLayout;
+    oldestLayout->setObjectName(QStringLiteral("oldestLayout"));
+    oldestLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(oldestLayout);
+
+    QLabel *oldestLabel = new QLabel(i18n("Older than:"), this);
+    oldestLabel->setObjectName(QStringLiteral("oldestLabel"));
+    oldestLayout->addWidget(oldestLabel);
+
+    mOldestDateTimeEdit = new QDateTimeEdit(this);
+    mOldestDateTimeEdit->setObjectName(QStringLiteral("mOldestDateTimeEdit"));
+    oldestLayout->addWidget(mOldestDateTimeEdit);
+
+    QLabel *usersLabel = new QLabel(i18n("Only Prune content from these users (Keep empty to prune everyone's content)"), this);
+    usersLabel->setObjectName(QStringLiteral("usersLabel"));
+    usersLabel->setWordWrap(true);
+    usersLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(usersLabel);
+
+    mUsers = new AddUsersWidget(this);
+    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setPlaceholderText(i18n("Invite Users..."));
+    mainLayout->addWidget(mUsers);
 
     mInclusive = new QCheckBox(i18n("Inclusive"), this);
     mInclusive->setObjectName(QStringLiteral("mInclusive"));
@@ -50,6 +91,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     mOnlyRemoveAttachedFiles = new QCheckBox(i18n("Only Remove Attached Files. Keep messages"), this);
     mOnlyRemoveAttachedFiles->setObjectName(QStringLiteral("mOnlyRemoveAttachedFiles"));
     mainLayout->addWidget(mOnlyRemoveAttachedFiles);
+    mainLayout->addStretch(1);
 }
 
 PruneMessagesWidget::~PruneMessagesWidget()
@@ -60,13 +102,13 @@ PruneMessagesWidget::~PruneMessagesWidget()
 RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
 {
     RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo info;
-//    QDateTime lastest; //required
-//    QDateTime oldest; //required
-//    info.roomId; //required
-//    QStringList users;
+    info.lastest = mLastestDateTimeEdit->dateTime();
+    info.oldest = mOldestDateTimeEdit->dateTime();
     info.inclusive = mInclusive->isChecked();
+    //TODO verify ? user id or username ?
+    info.users = mUsers->usersId();
+//    QStringList users;
     //info.excludePinned = false;
     info.filesOnly = mOnlyRemoveAttachedFiles->isChecked();
-    //TODO
     return info;
 }

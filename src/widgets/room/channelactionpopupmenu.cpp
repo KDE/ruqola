@@ -40,6 +40,14 @@ ChannelActionPopupMenu::~ChannelActionPopupMenu()
 
 void ChannelActionPopupMenu::createMenu()
 {
+    mPruneMessages = new QAction(i18n("Prune Messages..."), this);
+    mMenu->addAction(mPruneMessages);
+    connect(mPruneMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::PruneMessages);
+    });
+
+    mPruneMessagesSeparator = mMenu->addSeparator();
+
     mShowMentions = new QAction(i18n("Show Mentions..."), this);
     mMenu->addAction(mShowMentions);
     connect(mShowMentions, &QAction::triggered, this, [this]() {
@@ -157,4 +165,6 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 
     mAddUserInRoomsSeparator->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
     mAddUserInRooms->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
+
+    //TODO enable/disable mPruneMessages/mPruneMessagesSeparator =>need to know if we are admin!
 }

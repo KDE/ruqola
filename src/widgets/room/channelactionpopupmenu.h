@@ -62,6 +62,8 @@ private:
     QAction *mAddUserInRoomsSeparator = nullptr;
     QAction *mAddUserInRooms = nullptr;
     QAction *mStartVideoChat = nullptr;
+    QAction *mPruneMessages = nullptr;
+    QAction *mPruneMessagesSeparator = nullptr;
     RoomWrapper *mRoomWrapper = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
