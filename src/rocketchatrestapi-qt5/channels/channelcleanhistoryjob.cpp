@@ -84,6 +84,11 @@ bool ChannelCleanHistoryJob::requireHttpAuthentication() const
 
 bool ChannelCleanHistoryJob::canStart() const
 {
+    if (!mCleanHistoryInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
+        return false;
+    }
+
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
@@ -93,7 +98,6 @@ bool ChannelCleanHistoryJob::canStart() const
 QJsonDocument ChannelCleanHistoryJob::json() const
 {
     QJsonObject jsonObj;
-    generateJSon(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
