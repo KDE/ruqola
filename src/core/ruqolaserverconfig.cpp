@@ -430,6 +430,5 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
     }
-    qDebug() << " mServerConfigFeatureTypes " << mServerConfigFeatureTypes;
     //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
 }
