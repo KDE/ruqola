@@ -21,7 +21,7 @@
 #include "emoticonselectorwidget.h"
 #include <QFont>
 EmoticonTextEditItem::EmoticonTextEditItem(const QString &identifier, const QString &emoticonText, QListWidget *parent)
-    : QListWidgetItem(mText, parent)
+    : QListWidgetItem(emoticonText, parent)
     , mText(emoticonText)
     , mIdentifier(identifier)
 {
