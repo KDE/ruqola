@@ -35,7 +35,12 @@ public:
     ~PruneMessagesWidget();
 
     Q_REQUIRED_RESULT RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
+
+Q_SIGNALS:
+    void updateOkButton(bool b);
+
 private:
+    void slotCheckDateTime();
     QCheckBox *mInclusive = nullptr;
     QCheckBox *mDoNotPrunePinnedMessage = nullptr;
     QCheckBox *mDoNotPruneDiscussionMessage = nullptr;

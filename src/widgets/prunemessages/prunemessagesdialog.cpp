@@ -26,6 +26,7 @@
 #include <KLocalizedString>
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QPushButton>
 
 namespace {
 const char myConfigGroupName[] = "PruneMessagesDialog";
@@ -47,6 +48,10 @@ PruneMessagesDialog::PruneMessagesDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &PruneMessagesDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &PruneMessagesDialog::accept);
+
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mPruneMessageWidget, &PruneMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
     readConfig();
 }
 

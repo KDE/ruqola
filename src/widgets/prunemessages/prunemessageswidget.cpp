@@ -46,6 +46,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 
     mLastestDateTimeEdit = new QDateTimeEdit(this);
     mLastestDateTimeEdit->setObjectName(QStringLiteral("mLastestDateTimeEdit"));
+    connect(mLastestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     lastestLayout->addWidget(mLastestDateTimeEdit);
 
     QHBoxLayout *oldestLayout = new QHBoxLayout;
@@ -59,6 +60,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 
     mOldestDateTimeEdit = new QDateTimeEdit(this);
     mOldestDateTimeEdit->setObjectName(QStringLiteral("mOldestDateTimeEdit"));
+    connect(mOldestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     oldestLayout->addWidget(mOldestDateTimeEdit);
 
     QLabel *usersLabel = new QLabel(i18n("Only Prune content from these users (Keep empty to prune everyone's content)"), this);
@@ -96,6 +98,13 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 
 PruneMessagesWidget::~PruneMessagesWidget()
 {
+}
+
+void PruneMessagesWidget::slotCheckDateTime()
+{
+    const bool valid = (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime())
+            && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
+    Q_EMIT updateOkButton(valid);
 }
 
 RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
