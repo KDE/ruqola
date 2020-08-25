@@ -18,35 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPROFILECONFIGUREWIDGET_H
-#define MYACCOUNTPROFILECONFIGUREWIDGET_H
+#ifndef SERVICEPASSWORDTEST_H
+#define SERVICEPASSWORDTEST_H
 
-#include <QWidget>
-#include "ownuser.h"
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QPushButton;
-class KPasswordLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
+#include <QObject>
+
+class ServicePasswordTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit MyAccountProfileConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccountProfileConfigureWidget();
-    void load();
-    void save();
-private:
-    void slotDeleteMyAccount();
-    void init();
-    QLineEdit *mEmail = nullptr;
-    QLineEdit *mName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    QLineEdit *mNickName = nullptr;
-    QLineEdit *mStatusText = nullptr;
-    QPushButton *mDeleteMyAccount = nullptr;
-    KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
-    OwnUser mOwnUser;
+    explicit ServicePasswordTest(QObject *parent = nullptr);
+    ~ServicePasswordTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // MYACCOUNTPROFILECONFIGUREWIDGET_H
+#endif // SERVICEPASSWORDTEST_H

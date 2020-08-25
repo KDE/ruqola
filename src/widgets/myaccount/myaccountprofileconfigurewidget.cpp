@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordDialog>
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPointer>
@@ -61,11 +62,18 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
 
+    mNewPasswordLineEdit = new KPasswordLineEdit(this);
+    mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
+    mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
+
+    mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
+    mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
+    mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
+
     mDeleteMyAccount = new QPushButton(i18n("Delete my Account"), this);
     mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
     mainLayout->addWidget(mDeleteMyAccount);
     connect(mDeleteMyAccount, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotDeleteMyAccount);
-    //TODO add password.
     init();
 }
 
@@ -90,7 +98,8 @@ void MyAccountProfileConfigureWidget::init()
 {
     mUserName->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowUsernameChange());
     mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
-    //TODO !Ruqola::rocketChatAccount()->allowPasswordChange();
+    mConfirmPasswordLineEdit->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
+    mNewPasswordLineEdit->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
     mDeleteMyAccount->setVisible(Ruqola::self()->rocketChatAccount()->allowDeleteOwnAccount());
 }
 
@@ -121,6 +130,9 @@ void MyAccountProfileConfigureWidget::save()
     }
     if (!mName->isReadOnly() && (mOwnUser.name() != mName->text())) {
         updateInfo.name = mName->text();
+    }
+    if (mNewPasswordLineEdit->isVisible() && (mNewPasswordLineEdit->password() == mConfirmPasswordLineEdit->password())) {
+        updateInfo.newPassword = mNewPasswordLineEdit->password(); //TOOD use ssha256 ???
     }
     //TODO add more.
     if (updateInfo.isValid()) {

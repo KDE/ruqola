@@ -20,6 +20,7 @@
 
 #include "myaccountprofileconfigurewidgettest.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -56,4 +57,11 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     QPushButton *mDeleteMyAccount = w.findChild<QPushButton *>(QStringLiteral("mDeleteMyAccount"));
     QVERIFY(mDeleteMyAccount);
     QVERIFY(!mDeleteMyAccount->text().isEmpty());
+
+
+    KPasswordLineEdit *mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mNewPasswordLineEdit"));
+    QVERIFY(mNewPasswordLineEdit);
+
+    KPasswordLineEdit *mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    QVERIFY(mConfirmPasswordLineEdit);
 }

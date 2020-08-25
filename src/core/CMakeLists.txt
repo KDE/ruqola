@@ -194,6 +194,7 @@ set (Ruqola_core_srcs
     restauthenticationmanager.cpp
 
     ownuser.cpp
+    servicepassword.cpp
 )
 
 if (NOT WIN32)

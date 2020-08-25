@@ -136,3 +136,16 @@ bool ChannelCleanHistoryJob::CleanHistoryInfo::isValid() const
 {
     return latest.isValid() && oldest.isValid() && !roomId.isEmpty();
 }
+
+QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &t)
+{
+    d << "latest " << t.latest;
+    d << "oldest " << t.oldest;
+    d << "roomId " << t.roomId;
+    d << "users " << t.users;
+    d << "inclusive " << t.inclusive;
+    d << "excludePinned " << t.excludePinned;
+    d << "filesOnly " << t.filesOnly;
+    d << "ignoreThreads " << t.ignoreThreads;
+    return d;
+}

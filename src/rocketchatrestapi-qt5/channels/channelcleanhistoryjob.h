@@ -24,6 +24,7 @@
 #include "librocketchatrestapi-qt5_export.h"
 #include "channelbasejob.h"
 #include <QDateTime>
+#include <QDebug>
 namespace RocketChatRestApi {
 class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelCleanHistoryJob : public ChannelBaseJob
 {
@@ -64,4 +65,5 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &t);
 #endif // CHANNELCLEANHISTORYJOB_H

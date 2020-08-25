@@ -18,35 +18,24 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPROFILECONFIGUREWIDGET_H
-#define MYACCOUNTPROFILECONFIGUREWIDGET_H
+#ifndef SERVICEPASSWORD_H
+#define SERVICEPASSWORD_H
 
-#include <QWidget>
-#include "ownuser.h"
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QPushButton;
-class KPasswordLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
+#include "libruqolacore_export.h"
+#include "user.h"
+
+#include <QJsonObject>
+
+class LIBRUQOLACORE_EXPORT ServicePassword
 {
-    Q_OBJECT
 public:
-    explicit MyAccountProfileConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccountProfileConfigureWidget();
-    void load();
-    void save();
-private:
-    void slotDeleteMyAccount();
-    void init();
-    QLineEdit *mEmail = nullptr;
-    QLineEdit *mName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    QLineEdit *mNickName = nullptr;
-    QLineEdit *mStatusText = nullptr;
-    QPushButton *mDeleteMyAccount = nullptr;
-    KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
-    OwnUser mOwnUser;
+    ServicePassword();
+    ~ServicePassword();
+    Q_REQUIRED_RESULT bool operator ==(const ServicePassword &other) const;
 };
 
-#endif // MYACCOUNTPROFILECONFIGUREWIDGET_H
+Q_DECLARE_METATYPE(ServicePassword)
+Q_DECLARE_TYPEINFO(ServicePassword, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ServicePassword &t);
+
+#endif // SERVICEPASSWORD_H
