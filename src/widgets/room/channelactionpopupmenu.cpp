@@ -166,5 +166,6 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mAddUserInRoomsSeparator->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
     mAddUserInRooms->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
 
-    //TODO enable/disable mPruneMessages/mPruneMessagesSeparator =>need to know if we are admin!
+    mPruneMessages->setVisible(mCurrentRocketChatAccount->isAdministrator());
+    mPruneMessagesSeparator->setVisible(mCurrentRocketChatAccount->isAdministrator());
 }
