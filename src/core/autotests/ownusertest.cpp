@@ -59,6 +59,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     result.setAvatarUrl(QStringLiteral("https://open.rocket.chat/avatar/fooblabla"));
     result.setStatusDefault(QStringLiteral("online"));
     result.setNickName(QStringLiteral("tests"));
+    result.setRoles({QStringLiteral("user")});
     result.setUtcOffset(2);
     QTest::addRow("example1") << QStringLiteral("example1") << result;
 }
