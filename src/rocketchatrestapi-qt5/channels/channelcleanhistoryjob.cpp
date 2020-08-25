@@ -22,6 +22,7 @@
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -98,6 +99,23 @@ bool ChannelCleanHistoryJob::canStart() const
 QJsonDocument ChannelCleanHistoryJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj[QLatin1String("roomId")] = mCleanHistoryInfo.roomId;
+    if (mCleanHistoryInfo.inclusive) {
+        jsonObj[QLatin1String("inclusive")] = true;
+    }
+    if (mCleanHistoryInfo.ignoreThreads) {
+        jsonObj[QLatin1String("ignoreThreads")] = true;
+    }
+    if (mCleanHistoryInfo.filesOnly) {
+        jsonObj[QLatin1String("filesOnly")] = true;
+    }
+    if (mCleanHistoryInfo.excludePinned) {
+        jsonObj[QLatin1String("excludePinned")] = true;
+    }
+
+    jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.lastest.toString(Qt::ISODate);
+    jsonObj[QLatin1String("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODate);
+    jsonObj[QLatin1String("users")] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -105,8 +123,7 @@ QJsonDocument ChannelCleanHistoryJob::json() const
 
 QNetworkRequest ChannelCleanHistoryJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsCleanHistory);
-    //TODO
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsCleanHistory);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
