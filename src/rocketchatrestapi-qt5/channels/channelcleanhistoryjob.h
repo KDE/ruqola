@@ -38,6 +38,7 @@ public:
         bool inclusive = false;
         bool excludePinned = false;
         bool filesOnly = false;
+        bool ignoreThreads = false;
     };
     explicit ChannelCleanHistoryJob(QObject *parent = nullptr);
     ~ChannelCleanHistoryJob() override;

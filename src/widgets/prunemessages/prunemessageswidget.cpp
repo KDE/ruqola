@@ -106,8 +106,8 @@ RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget:
     info.inclusive = mInclusive->isChecked();
     //TODO verify ? user id or username ?
     info.users = mUsers->usersId();
-//    QStringList users;
-    //info.excludePinned = false;
+    info.ignoreThreads = mDoNotPruneThreads->isChecked();
     info.filesOnly = mOnlyRemoveAttachedFiles->isChecked();
+    info.excludePinned = mDoNotPrunePinnedMessage->isChecked();
     return info;
 }
