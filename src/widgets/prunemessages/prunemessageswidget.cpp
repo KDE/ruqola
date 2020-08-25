@@ -110,8 +110,8 @@ void PruneMessagesWidget::slotCheckDateTime()
 RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
 {
     RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo info;
-    info.latest = mLastestDateTimeEdit->dateTime();
-    info.oldest = mOldestDateTimeEdit->dateTime();
+    info.latest = mLastestDateTimeEdit->dateTime().toUTC();
+    info.oldest = mOldestDateTimeEdit->dateTime().toUTC();
     info.inclusive = mInclusive->isChecked();
     //TODO verify ? user id or username ?
     info.users = mUsers->usersId();

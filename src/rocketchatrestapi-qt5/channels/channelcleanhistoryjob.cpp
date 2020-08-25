@@ -113,8 +113,8 @@ QJsonDocument ChannelCleanHistoryJob::json() const
         jsonObj[QLatin1String("excludePinned")] = true;
     }
 
-    jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.latest.toString(Qt::ISODate);
-    jsonObj[QLatin1String("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODate);
+    jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.latest.toString(Qt::ISODateWithMs);
+    jsonObj[QLatin1String("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODateWithMs);
     if (!mCleanHistoryInfo.users.isEmpty()) {
         jsonObj[QLatin1String("users")] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
     }
