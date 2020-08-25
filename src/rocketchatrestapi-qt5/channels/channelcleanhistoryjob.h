@@ -31,7 +31,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelCleanHistoryJob : public ChannelBas
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT CleanHistoryInfo {
         Q_REQUIRED_RESULT bool isValid() const;
-        QDateTime lastest; //required
+        QDateTime latest; //required
         QDateTime oldest; //required
         QString roomId; //required
         QStringList users;

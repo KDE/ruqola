@@ -113,9 +113,11 @@ QJsonDocument ChannelCleanHistoryJob::json() const
         jsonObj[QLatin1String("excludePinned")] = true;
     }
 
-    jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.lastest.toString(Qt::ISODate);
+    jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.latest.toString(Qt::ISODate);
     jsonObj[QLatin1String("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODate);
-    jsonObj[QLatin1String("users")] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
+    if (!mCleanHistoryInfo.users.isEmpty()) {
+        jsonObj[QLatin1String("users")] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -132,5 +134,5 @@ QNetworkRequest ChannelCleanHistoryJob::request() const
 
 bool ChannelCleanHistoryJob::CleanHistoryInfo::isValid() const
 {
-    return lastest.isValid() && oldest.isValid() && !roomId.isEmpty();
+    return latest.isValid() && oldest.isValid() && !roomId.isEmpty();
 }

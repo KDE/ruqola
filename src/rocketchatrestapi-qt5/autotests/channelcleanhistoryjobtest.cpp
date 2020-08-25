@@ -51,22 +51,13 @@ void ChannelCleanHistoryJobTest::shouldGenerateRequest()
 void ChannelCleanHistoryJobTest::shouldGenerateJson()
 {
     ChannelCleanHistoryJob job;
-//    UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo info;
-//    const QString email = QStringLiteral("foo@kde.org");
-//    info.email = email;
-//    job.setUpdateOwnBasicInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\"}}").arg(email).toLatin1());
-
-//    const QString username = QStringLiteral("username");
-//    info.userName = username;
-//    job.setUpdateOwnBasicInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"username\":\"%2\"}}").arg(email, username).toLatin1());
-
-//    const QString nickname = QStringLiteral("nick");
-//    info.nickName = nickname;
-//    job.setUpdateOwnBasicInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"nickname\":\"%3\",\"username\":\"%2\"}}")
-//             .arg(email, username, nickname).toLatin1());
+    ChannelCleanHistoryJob::CleanHistoryInfo info;
+    const QString roomId = QStringLiteral("room1");
+    info.roomId = roomId;
+    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50));
+    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
+    job.setCleanHistoryInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
 }
 
 void ChannelCleanHistoryJobTest::shouldNotStarting()
@@ -86,11 +77,14 @@ void ChannelCleanHistoryJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-//    UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo info;
-//    const QString email = QStringLiteral("foo@kde.org");
-//    info.email = email;
-//    job.setUpdateOwnBasicInfo(info);
+    ChannelCleanHistoryJob::CleanHistoryInfo info;
+    const QString roomId = QStringLiteral("room1");
+    info.roomId = roomId;
+    job.setCleanHistoryInfo(info);
+    QVERIFY(!job.canStart());
 
-    //TODO
+    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50));
+    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
+    job.setCleanHistoryInfo(info);
     QVERIFY(job.canStart());
 }

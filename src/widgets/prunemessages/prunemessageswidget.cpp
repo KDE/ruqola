@@ -101,7 +101,7 @@ PruneMessagesWidget::~PruneMessagesWidget()
 RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
 {
     RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo info;
-    info.lastest = mLastestDateTimeEdit->dateTime();
+    info.latest = mLastestDateTimeEdit->dateTime();
     info.oldest = mOldestDateTimeEdit->dateTime();
     info.inclusive = mInclusive->isChecked();
     //TODO verify ? user id or username ?
