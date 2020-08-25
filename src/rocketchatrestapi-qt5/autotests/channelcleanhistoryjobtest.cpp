@@ -54,20 +54,20 @@ void ChannelCleanHistoryJobTest::shouldGenerateJson()
     ChannelCleanHistoryJob::CleanHistoryInfo info;
     const QString roomId = QStringLiteral("room1");
     info.roomId = roomId;
-    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50));
-    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
+    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50)).toUTC();
+    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50)).toUTC();
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"latest\":\"2020-12-03T05:07:50\",\"oldest\":\"2020-03-03T05:07:50\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
     info.inclusive = true;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"inclusive\":true,\"latest\":\"2020-12-03T05:07:50\",\"oldest\":\"2020-03-03T05:07:50\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
     info.ignoreThreads = true;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T05:07:50\",\"oldest\":\"2020-03-03T05:07:50\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
     const QStringList users = {QStringLiteral("bla"), QStringLiteral("bli")};
     info.users = users;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T05:07:50\",\"oldest\":\"2020-03-03T05:07:50\",\"roomId\":\"room1\",\"users\":[\"bla\",\"bli\"]}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"room1\",\"users\":[\"bla\",\"bli\"]}").arg(roomId).toLatin1());
 }
 
 void ChannelCleanHistoryJobTest::shouldNotStarting()
