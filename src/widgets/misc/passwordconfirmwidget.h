@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
 public:
     explicit PasswordConfirmWidget(QWidget *parent = nullptr);
     ~PasswordConfirmWidget();
+    Q_REQUIRED_RESULT bool isNewPasswordConfirmed() const;
 private:
     KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
     KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;

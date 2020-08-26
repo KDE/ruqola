@@ -43,4 +43,6 @@ void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
 
     KPasswordLineEdit *mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
     QVERIFY(mConfirmPasswordLineEdit);
+
+    QVERIFY(!w.isNewPasswordConfirmed());
 }

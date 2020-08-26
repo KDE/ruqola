@@ -45,3 +45,9 @@ PasswordConfirmWidget::~PasswordConfirmWidget()
 {
 
 }
+
+bool PasswordConfirmWidget::isNewPasswordConfirmed() const
+{
+    const QString password = mConfirmPasswordLineEdit->password();
+    return !password.isEmpty() && (password == mNewPasswordLineEdit->password());
+}
