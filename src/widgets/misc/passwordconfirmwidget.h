@@ -31,6 +31,7 @@ public:
     explicit PasswordConfirmWidget(QWidget *parent = nullptr);
     ~PasswordConfirmWidget();
     Q_REQUIRED_RESULT bool isNewPasswordConfirmed() const;
+    Q_REQUIRED_RESULT QString password() const;
 private:
     KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
     KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;

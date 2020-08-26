@@ -22,6 +22,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "misc/passwordconfirmwidget.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordDialog>
@@ -62,13 +63,9 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
 
-    mNewPasswordLineEdit = new KPasswordLineEdit(this);
-    mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
-    mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
-
-    mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
-    mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
-    mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
+    mPasswordConfirmWidget = new PasswordConfirmWidget(this);
+    mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
+    mainLayout->addRow(mPasswordConfirmWidget);
 
     mDeleteMyAccount = new QPushButton(i18n("Delete my Account"), this);
     mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
@@ -98,8 +95,7 @@ void MyAccountProfileConfigureWidget::init()
 {
     mUserName->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowUsernameChange());
     mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
-    mConfirmPasswordLineEdit->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
-    mNewPasswordLineEdit->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
+    mPasswordConfirmWidget->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
     mDeleteMyAccount->setVisible(Ruqola::self()->rocketChatAccount()->allowDeleteOwnAccount());
 }
 
@@ -131,8 +127,8 @@ void MyAccountProfileConfigureWidget::save()
     if (!mName->isReadOnly() && (mOwnUser.name() != mName->text())) {
         updateInfo.name = mName->text();
     }
-    if (mNewPasswordLineEdit->isVisible() && (mNewPasswordLineEdit->password() == mConfirmPasswordLineEdit->password())) {
-        updateInfo.newPassword = mNewPasswordLineEdit->password(); //TOOD use ssha256 ???
+    if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
+        updateInfo.newPassword = mPasswordConfirmWidget->password(); //TOOD use ssha256 ???
     }
     //TODO add more.
     if (updateInfo.isValid()) {

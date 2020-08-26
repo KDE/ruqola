@@ -26,7 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QPushButton;
-class KPasswordLineEdit;
+class PasswordConfirmWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -44,8 +44,7 @@ private:
     QLineEdit *mNickName = nullptr;
     QLineEdit *mStatusText = nullptr;
     QPushButton *mDeleteMyAccount = nullptr;
-    KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
+    PasswordConfirmWidget *mPasswordConfirmWidget = nullptr;
     OwnUser mOwnUser;
 };
 

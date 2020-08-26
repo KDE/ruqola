@@ -20,6 +20,7 @@
 
 #include "myaccountprofileconfigurewidgettest.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
+#include "misc/passwordconfirmwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -59,9 +60,6 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDeleteMyAccount->text().isEmpty());
 
 
-    KPasswordLineEdit *mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mNewPasswordLineEdit"));
-    QVERIFY(mNewPasswordLineEdit);
-
-    KPasswordLineEdit *mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
-    QVERIFY(mConfirmPasswordLineEdit);
+    PasswordConfirmWidget *mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
+    QVERIFY(mPasswordConfirmWidget);
 }
