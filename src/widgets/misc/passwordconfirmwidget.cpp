@@ -20,10 +20,25 @@
 
 #include "passwordconfirmwidget.h"
 
+#include <KLocalizedString>
+#include <KPasswordLineEdit>
+#include <QFormLayout>
+#include <QVBoxLayout>
+
 PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QFormLayout *mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mNewPasswordLineEdit = new KPasswordLineEdit(this);
+    mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
+    mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
+
+    mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
+    mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
+    mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
 }
 
 PasswordConfirmWidget::~PasswordConfirmWidget()

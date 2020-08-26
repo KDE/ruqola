@@ -18,21 +18,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDCONFIRMWIDGET_H
-#define PASSWORDCONFIRMWIDGET_H
-
-#include <QWidget>
-#include "libruqolawidgets_private_export.h"
-class KPasswordLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
+#include "passwordconfirmwidgettest.h"
+#include "misc/passwordconfirmwidget.h"
+#include <KPasswordLineEdit>
+#include <QFormLayout>
+#include <QTest>
+QTEST_MAIN(PasswordConfirmWidgetTest)
+PasswordConfirmWidgetTest::PasswordConfirmWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit PasswordConfirmWidget(QWidget *parent = nullptr);
-    ~PasswordConfirmWidget();
-private:
-    KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
-};
 
-#endif // PASSWORDCONFIRMWIDGET_H
+}
+
+void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
+{
+    PasswordConfirmWidget w;
+
+    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    KPasswordLineEdit *mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mNewPasswordLineEdit"));
+    QVERIFY(mNewPasswordLineEdit);
+
+    KPasswordLineEdit *mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    QVERIFY(mConfirmPasswordLineEdit);
+}

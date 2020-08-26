@@ -18,21 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDCONFIRMWIDGET_H
-#define PASSWORDCONFIRMWIDGET_H
+#ifndef PASSWORDCONFIRMWIDGETTEST_H
+#define PASSWORDCONFIRMWIDGETTEST_H
 
-#include <QWidget>
-#include "libruqolawidgets_private_export.h"
-class KPasswordLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
+#include <QObject>
+
+class PasswordConfirmWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit PasswordConfirmWidget(QWidget *parent = nullptr);
-    ~PasswordConfirmWidget();
-private:
-    KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
+    explicit PasswordConfirmWidgetTest(QObject *parent = nullptr);
+    ~PasswordConfirmWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // PASSWORDCONFIRMWIDGET_H
+#endif // PASSWORDCONFIRMWIDGETTEST_H
