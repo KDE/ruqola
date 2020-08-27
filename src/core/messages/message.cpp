@@ -82,6 +82,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mDiscussionCount = o.value(QLatin1String("dcount")).toInt();
     mDiscussionRoomId = o.value(QLatin1String("drid")).toString();
     mThreadMessageId = o.value(QLatin1String("tmid")).toString();
+    mEmoji = o.value(QLatin1String("emoji")).toString();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
     mMessageTranslation.parse(o);
@@ -104,6 +105,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+QString Message::emoji() const
+{
+    return mEmoji;
+}
+
+void Message::setEmoji(const QString &emoji)
+{
+    mEmoji = emoji;
 }
 
 QStringList Message::replies() const
@@ -428,7 +439,8 @@ bool Message::operator==(const Message &other) const
            && (mThreadMessageId == other.threadMessageId())
            && (mMessageTranslation == other.messageTranslation())
            && (mShowTranslatedMessage == other.showTranslatedMessage())
-           && (mReplies == other.replies());
+           && (mReplies == other.replies())
+            && (mEmoji == other.emoji());
 }
 
 bool Message::operator<(const Message &other) const
@@ -733,6 +745,7 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mMessagePinned.setPinned(o[QStringLiteral("pinned")].toBool());
     message.mRole = o[QStringLiteral("role")].toString();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
+    message.mEmoji = o[QStringLiteral("emoji")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
     for (int i = 0; i < attachmentsArray.count(); ++i) {
@@ -813,6 +826,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     //TODO add pinned
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
+    }
+    if (!message.mEmoji.isEmpty()) {
+        o[QStringLiteral("emoji")] = message.mEmoji;
     }
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
@@ -915,5 +931,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "messagetranslation" << t.messageTranslation();
     d << "mShowOriginalMessage " << t.showTranslatedMessage();
     d << "mReplies " << t.replies();
+    d << "mEmoji " << t.emoji();
     return d;
 }

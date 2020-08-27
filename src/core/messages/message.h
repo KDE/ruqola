@@ -189,6 +189,9 @@ public:
     Q_REQUIRED_RESULT QStringList replies() const;
     void setReplies(const QStringList &replies);
 
+    Q_REQUIRED_RESULT QString emoji() const;
+    void setEmoji(const QString &emoji);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -247,6 +250,9 @@ private:
 
     // avatar
     QString mAvatar;
+
+    // emoji
+    QString mEmoji;
 
     //drid discussion room id
     QString mDiscussionRoomId;
