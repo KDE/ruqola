@@ -293,6 +293,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("rooms.upload");
     case RestApiUtil::RestApiUrlType::RoomsSaveNotification:
         return QStringLiteral("rooms.saveNotification");
+    case RestApiUtil::RestApiUrlType::RoomsAdminRooms:
+        return QStringLiteral("rooms.adminRooms");
     case RestApiUtil::RestApiUrlType::Spotlight:
         return QStringLiteral("spotlight");
     case RestApiUtil::RestApiUrlType::ImClose:
