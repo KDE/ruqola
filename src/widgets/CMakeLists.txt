@@ -170,6 +170,10 @@ set(Ruqola_myaccount_SRCS
     myaccount/myaccountprofileconfigurewidget.cpp
     )    
 
+set(Ruqola_administrator_SRCS
+    administratordialog/administratordialog.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection)
 
@@ -189,6 +193,7 @@ add_library(libruqolawidgets
     ${Ruqola_threadwidget_SRCS}
     ${Ruqola_myaccount_SRCS}
     ${Ruqola_prunemessages_SRCS}
+    ${Ruqola_administrator_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
@@ -239,6 +244,7 @@ if (BUILD_TESTING)
     add_subdirectory(registeruser/autotests)
     add_subdirectory(myaccount/autotests)
     add_subdirectory(prunemessages/autotests)
+    add_subdirectory(administratordialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
