@@ -21,6 +21,8 @@
 #include "myaccount2faconfigurewidget.h"
 #include "myaccountconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -43,6 +45,9 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     mMyAccount2FaConfigureWidget = new MyAccount2FaConfigureWidget(this);
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
+    if (!Ruqola::self()->rocketChatAccount()->allowProfileChange()) {
+        mMyAccount2ProfileConfigureWidget->setVisible(false);
+    }
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget()

@@ -1590,6 +1590,11 @@ bool RocketChatAccount::otrEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
 }
 
+bool RocketChatAccount::allowProfileChange() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserProfileChange;
+}
+
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
