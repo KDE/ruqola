@@ -46,23 +46,23 @@ public:
     ~MessageDelegateHelperText() override;
     void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option);
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &messageRect, const QModelIndex &index);
-    bool maybeStartDrag(QMouseEvent *event, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    bool maybeStartDrag(QMouseEvent *event, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     void setShowThreadContext(bool b);
 
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;
 
-    void selectAll(const QWidget *view, const QRect &messageRect, const QModelIndex &index);
+    void selectAll(const QWidget *view, QRect messageRect, const QModelIndex &index);
 
 private:
     QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();
     void updateView(const QWidget *widget, const QModelIndex &index);
     QTextDocument *documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const;
-    void setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect);
+    void setCurrentIndex(const QModelIndex &index, const QWidget *view, QRect messageRect);
 
     bool mShowThreadContext = true;
     bool mMightStartDrag = false;

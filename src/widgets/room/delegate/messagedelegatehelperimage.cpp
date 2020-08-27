@@ -110,7 +110,7 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();

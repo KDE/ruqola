@@ -91,7 +91,7 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
     return layouts;
 }
 
-void MessageDelegateHelperReactions::draw(QPainter *painter, const QRect &reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 

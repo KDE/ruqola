@@ -62,7 +62,7 @@ public:
 
     void setEditMessage(const QString &messageId, const QString &text);
 
-    Q_REQUIRED_RESULT bool handleMimeData(const QMimeData *mimeData);
+    bool handleMimeData(const QMimeData *mimeData);
 
     void clearMessageIdBeingEdited();
 

@@ -68,6 +68,8 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
 {
     QVector<Channel> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    const QJsonArray users = obj.value(QLatin1String("users")).toArray();
+    channelList.reserve(rooms.size() + users.size());
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
         Channel channel;
@@ -75,7 +77,6 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
         //Verify that it's valid
         channelList.append(channel);
     }
-    const QJsonArray users = obj.value(QLatin1String("users")).toArray();
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
         Channel channel;

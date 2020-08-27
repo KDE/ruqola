@@ -62,6 +62,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 
     QStringList lst;
     const QJsonArray replieArray = o.value(QLatin1String("replies")).toArray();
+    lst.reserve(replieArray.count());
     for (int i = 0; i < replieArray.count(); ++i) {
         lst.append(replieArray.at(i).toVariant().toString());
     }

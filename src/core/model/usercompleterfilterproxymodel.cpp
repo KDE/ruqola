@@ -44,7 +44,7 @@ QHash<int, QByteArray> UserCompleterFilterProxyModel::roleNames() const
 
 void UserCompleterFilterProxyModel::clear()
 {
-    return static_cast<UserCompleterModel *>(sourceModel())->clear();
+    static_cast<UserCompleterModel *>(sourceModel())->clear();
 }
 
 bool UserCompleterFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const

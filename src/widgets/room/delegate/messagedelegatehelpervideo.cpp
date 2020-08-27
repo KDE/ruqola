@@ -76,7 +76,7 @@ QSize MessageDelegateHelperVideo::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();

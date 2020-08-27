@@ -41,7 +41,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperReactions
 {
 public:
     MessageDelegateHelperReactions();
-    void draw(QPainter *painter, const QRect &reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    void draw(QPainter *painter, QRect reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
     bool handleMouseEvent(QMouseEvent *mouseEvent, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message);
     bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message);

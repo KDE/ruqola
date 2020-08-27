@@ -110,7 +110,7 @@ bool MessageDelegateHelperText::hasSelection() const
     return mCurrentTextCursor.hasSelection();
 }
 
-void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const QWidget *view, const QRect &messageRect)
+void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const QWidget *view, QRect messageRect)
 {
     qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << index.row();
     if (mCurrentIndex.isValid()) {
@@ -121,7 +121,7 @@ void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const 
     mCurrentDocument = documentForIndex(index, messageRect.width(), view);
 }
 
-void MessageDelegateHelperText::selectAll(const QWidget *view, const QRect &messageRect, const QModelIndex &index)
+void MessageDelegateHelperText::selectAll(const QWidget *view, QRect messageRect, const QModelIndex &index)
 {
     if (mCurrentIndex != index) {
         setCurrentIndex(index, view, messageRect);
@@ -227,7 +227,7 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
     return size;
 }
 
-bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     const QEvent::Type eventType = mouseEvent->type();
@@ -332,7 +332,7 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
     return true;
 }
 
-bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (!mMightStartDrag) {
         return false;
