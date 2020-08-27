@@ -55,7 +55,8 @@ public:
         AllowPasswordReset = 0x40000,
         AllowEmailChange = 0x80000,
         AllowPasswordChange = 0x100000,
-        AllowUsernameChange = 0x200000
+        AllowUsernameChange = 0x200000,
+        AllowUserProfileChange = 0x400000,
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureType)

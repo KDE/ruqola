@@ -309,6 +309,7 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
 
 void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
 {
+    //qDebug() << " void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)" << obj;
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
     mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     for (QJsonValueRef currentConfig : configs) {
@@ -426,9 +427,14 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUsernameChange;
             }
+        } else if (id == QLatin1String("Accounts_AllowUserProfileChange")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUserProfileChange;
+            }
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
+        //TODO Accounts_LoginExpiration
     }
     //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
 }
