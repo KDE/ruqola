@@ -49,6 +49,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     for (const auto &role : rolesLst) {
         mRoles.append(role.toString());
     }
+    mServicePassword.parseService(replyObject.value(QLatin1String("services")).toObject());
 }
 
 bool OwnUser::isAdministrator() const

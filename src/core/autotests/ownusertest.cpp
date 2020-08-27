@@ -44,6 +44,10 @@ void OwnUserTest::shouldHaveDefaultValues()
     QCOMPARE(user.utcOffset(), 0.0);
     QVERIFY(user.statusDefault().isEmpty());
     QVERIFY(user.roles().isEmpty());
+
+    QVERIFY(!user.servicePassword().totp());
+    QVERIFY(!user.servicePassword().email2faEnabled());
+    QVERIFY(user.servicePassword().password().isEmpty());
 }
 
 void OwnUserTest::shouldLoadOwnUser_data()
@@ -61,6 +65,11 @@ void OwnUserTest::shouldLoadOwnUser_data()
     result.setNickName(QStringLiteral("tests"));
     result.setRoles({QStringLiteral("user")});
     result.setUtcOffset(2);
+    ServicePassword pwd;
+    pwd.setEmail2faEnabled(true);
+    pwd.setTotp(false);
+    pwd.setPassword(QStringLiteral("$2BNmO77i"));
+    result.setServicePassword(pwd);
     QTest::addRow("example1") << QStringLiteral("example1") << result;
 }
 

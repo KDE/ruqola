@@ -32,6 +32,21 @@ public:
     ServicePassword();
     ~ServicePassword();
     Q_REQUIRED_RESULT bool operator ==(const ServicePassword &other) const;
+    void parseService(const QJsonObject &replyObject);
+
+    Q_REQUIRED_RESULT bool email2faEnabled() const;
+    void setEmail2faEnabled(bool email2faEnabled);
+
+    Q_REQUIRED_RESULT QString password() const;
+    void setPassword(const QString &password);
+
+    Q_REQUIRED_RESULT bool totp() const;
+    void setTotp(bool totp);
+
+private:
+    QString mPassword;
+    bool mEmail2faEnabled = false;
+    bool mTotp = false;
 };
 
 Q_DECLARE_METATYPE(ServicePassword)
