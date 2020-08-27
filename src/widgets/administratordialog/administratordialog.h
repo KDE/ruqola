@@ -30,6 +30,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDialog : public QDialog
 public:
     explicit AdministratorDialog(QWidget *parent = nullptr);
     ~AdministratorDialog();
+
+private:
+    void readConfig();
+    void writeConfig();
 };
 
 #endif // ADMINISTRATORDIALOG_H

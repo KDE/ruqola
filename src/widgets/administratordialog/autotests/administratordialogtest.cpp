@@ -20,10 +20,16 @@
 
 #include "administratordialogtest.h"
 #include "administratordialog/administratordialog.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_MAIN(AdministratorDialogTest)
 AdministratorDialogTest::AdministratorDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
+}
 
+void AdministratorDialogTest::shouldHaveDefaultValues()
+{
+    AdministratorDialog w;
 }

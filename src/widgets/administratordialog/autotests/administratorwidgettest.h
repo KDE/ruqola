@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORDIALOGTEST_H
-#define ADMINISTRATORDIALOGTEST_H
+#ifndef ADMINISTRATORWIDGETTEST_H
+#define ADMINISTRATORWIDGETTEST_H
 
 #include <QObject>
 
-class AdministratorDialogTest : public QObject
+class AdministratorWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AdministratorDialogTest(QObject *parent = nullptr);
-    ~AdministratorDialogTest() = default;
+    explicit AdministratorWidgetTest(QObject *parent = nullptr);
+    ~AdministratorWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // ADMINISTRATORDIALOGTEST_H
+#endif // ADMINISTRATORWIDGETTEST_H

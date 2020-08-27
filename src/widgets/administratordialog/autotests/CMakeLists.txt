@@ -8,3 +8,4 @@ macro(add_administrator_test _source)
 endmacro()
 
 add_administrator_test(administratordialogtest.cpp)
+add_administrator_test(administratorwidgettest.cpp)

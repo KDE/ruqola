@@ -18,19 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORDIALOGTEST_H
-#define ADMINISTRATORDIALOGTEST_H
-
-#include <QObject>
-
-class AdministratorDialogTest : public QObject
+#include "administratorwidgettest.h"
+#include "administratordialog/administratorwidget.h"
+#include <QTest>
+QTEST_MAIN(AdministratorWidgetTest)
+AdministratorWidgetTest::AdministratorWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit AdministratorDialogTest(QObject *parent = nullptr);
-    ~AdministratorDialogTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
 
-#endif // ADMINISTRATORDIALOGTEST_H
+}
+
+void AdministratorWidgetTest::shouldHaveDefaultValues()
+{
+    AdministratorWidget w;
+}

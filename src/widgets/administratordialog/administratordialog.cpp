@@ -20,13 +20,53 @@
 
 #include "administratordialog.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+#include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+namespace {
+const char myConfigGroupName[] = "AdministratorDialog";
+}
+
 AdministratorDialog::AdministratorDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Administrator"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+//    mPruneMessageWidget = new PruneMessagesWidget(this);
+//    mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
+//    mainLayout->addWidget(mPruneMessageWidget);
+
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &AdministratorDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &AdministratorDialog::accept);
+
+    readConfig();
 }
 
 AdministratorDialog::~AdministratorDialog()
 {
-
+    writeConfig();
 }
+
+void AdministratorDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void AdministratorDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
+}
+
