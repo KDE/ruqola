@@ -56,6 +56,16 @@ bool OwnUser::isAdministrator() const
     return mRoles.contains(QStringLiteral("admin"));
 }
 
+ServicePassword OwnUser::servicePassword() const
+{
+    return mServicePassword;
+}
+
+void OwnUser::setServicePassword(const ServicePassword &servicePassword)
+{
+    mServicePassword = servicePassword;
+}
+
 QString OwnUser::userId() const
 {
     return mUserId;
@@ -99,6 +109,7 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     d << "defaultStatus " << t.statusDefault();
     d << "nickname " << t.nickName();
     d << "roles " << t.roles();
+    d << "servicePassword " << t.servicePassword();
     return d;
 }
 
@@ -114,7 +125,8 @@ bool OwnUser::operator ==(const OwnUser &other) const
            && (mUtcOffset == other.utcOffset())
            && (mStatusDefault == other.statusDefault())
            && (mNickName == other.nickName())
-           && (mRoles == other.roles());
+           && (mRoles == other.roles())
+           && (mServicePassword == other.servicePassword());
 }
 
 QString OwnUser::email() const

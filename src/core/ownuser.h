@@ -22,10 +22,10 @@
 #define OWNUSER_H
 
 #include "libruqolacore_export.h"
+#include "servicepassword.h"
 #include "user.h"
 
 #include <QJsonObject>
-
 class LIBRUQOLACORE_EXPORT OwnUser
 {
 public:
@@ -71,6 +71,10 @@ public:
     void setRoles(const QStringList &roles);
 
     Q_REQUIRED_RESULT bool isAdministrator() const;
+
+    Q_REQUIRED_RESULT ServicePassword servicePassword() const;
+    void setServicePassword(const ServicePassword &servicePassword);
+
 private:
     //TODO add service password support
     QString mUserId;
@@ -83,6 +87,7 @@ private:
     QString mStatusDefault;
     QString mNickName;
     QStringList mRoles;
+    ServicePassword mServicePassword;
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(OwnUser)
