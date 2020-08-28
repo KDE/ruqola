@@ -22,15 +22,15 @@
 #define ROOMSADMINJOB_H
 
 #include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAdminJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAdminJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAdminJobInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAdminJobInfo {
         Q_REQUIRED_RESULT bool isValid() const;
         QString filter;
     };

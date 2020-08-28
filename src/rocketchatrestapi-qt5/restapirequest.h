@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "rooms/roomsadminjob.h"
 #include "channels/channelcleanhistoryjob.h"
 #include "users/usersupdateownbasicinfojob.h"
 #include "commands/runcommandjob.h"
@@ -194,6 +195,7 @@ public:
     void enable2FaEmailJob(bool enable);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
     void cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info);
+    void getRoomsAdmin(const RocketChatRestApi::RoomsAdminJob::RoomsAdminJobInfo &info);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -248,6 +250,7 @@ Q_SIGNALS:
     void getStarredMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getSupportedLanguagesDone(const QJsonObject &obj);
+    void roomsAdminDone(const QJsonObject &obj);
     void translateSavesettingsDone();
     void setStatusDone();
     void usersPresenceDone(const QJsonObject &obj);

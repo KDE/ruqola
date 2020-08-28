@@ -123,6 +123,7 @@
 #include "rooms/roomstartdiscussionjob.h"
 #include "rooms/getdiscussionsjob.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
+#include "rooms/roomsadminjob.h"
 
 #include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
@@ -1865,5 +1866,16 @@ void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::ChannelCleanHi
     connect(job, &ChannelCleanHistoryJob::cleanHistoryDone, this, &RestApiRequest::cleanHistoryDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelCleanHistoryJob";
+    }
+}
+
+void RestApiRequest::getRoomsAdmin(const RocketChatRestApi::RoomsAdminJob::RoomsAdminJobInfo &info)
+{
+    auto *job = new RoomsAdminJob(this);
+    job->setRoomsAdminInfo(info);
+    initializeRestApiJob(job);
+    connect(job, &RoomsAdminJob::roomsAdminDone, this, &RestApiRequest::roomsAdminDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsAdminJob";
     }
 }
