@@ -38,6 +38,7 @@ void RoomsAdminJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.roomsAdminInfo().isValid());
 }
 
 void RoomsAdminJobTest::shouldGenerateRequest()
@@ -47,6 +48,11 @@ void RoomsAdminJobTest::shouldGenerateRequest()
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     //TODO
-    const QNetworkRequest request = job.request();
+    QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms")));
+    RoomsAdminJob::RoomsAdminJobInfo info;
+    info.filter = QStringLiteral("foo");
+    job.setRoomsAdminInfo(info);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms?filter=%1").arg(info.filter)));
 }

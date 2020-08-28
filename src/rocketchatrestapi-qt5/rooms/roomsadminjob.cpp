@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 RoomsAdminJob::RoomsAdminJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -71,11 +72,33 @@ void RoomsAdminJob::slotRoomsAdminFinished()
     deleteLater();
 }
 
+RoomsAdminJob::RoomsAdminJobInfo RoomsAdminJob::roomsAdminInfo() const
+{
+    return mRoomsAdminInfo;
+}
+
+void RoomsAdminJob::setRoomsAdminInfo(const RoomsAdminJobInfo &roomsAdminInfo)
+{
+    mRoomsAdminInfo = roomsAdminInfo;
+}
+
 QNetworkRequest RoomsAdminJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms);
+    if (mRoomsAdminInfo.isValid()) {
+        QUrlQuery queryUrl;
+        queryUrl.addQueryItem(QStringLiteral("filter"), mRoomsAdminInfo.filter);
+        addQueryParameter(queryUrl);
+        url.setQuery(queryUrl);
+    }
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+bool RoomsAdminJob::RoomsAdminJobInfo::isValid() const
+{
+    return !filter.isEmpty();
 }

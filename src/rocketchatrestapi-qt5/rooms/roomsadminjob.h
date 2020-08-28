@@ -30,6 +30,10 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAdminJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAdminJobInfo {
+        Q_REQUIRED_RESULT bool isValid() const;
+        QString filter;
+    };
     explicit RoomsAdminJob(QObject *parent = nullptr);
     ~RoomsAdminJob() override;
 
@@ -39,12 +43,16 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    Q_REQUIRED_RESULT RoomsAdminJobInfo roomsAdminInfo() const;
+    void setRoomsAdminInfo(const RoomsAdminJobInfo &roomsAdminInfo);
+
 Q_SIGNALS:
     void roomsAdminDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RoomsAdminJob)
     void slotRoomsAdminFinished();
+    RoomsAdminJobInfo mRoomsAdminInfo;
 };
 }
 #endif // ROOMSADMINJOB_H
