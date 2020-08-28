@@ -23,7 +23,7 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-
+class AdministratorWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDialog : public QDialog
 {
     Q_OBJECT
@@ -34,6 +34,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    AdministratorWidget *mAdministratorWidget = nullptr;
 };
 
 #endif // ADMINISTRATORDIALOG_H

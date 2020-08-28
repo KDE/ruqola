@@ -39,6 +39,8 @@ void AdministratorDialogTest::shouldHaveDefaultValues()
     QVBoxLayout *mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
+    AdministratorWidget *mAdministratorWidget = d.findChild<AdministratorWidget *>(QStringLiteral("mAdministratorWidget"));
+    QVERIFY(mAdministratorWidget);
 
     QDialogButtonBox *button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);

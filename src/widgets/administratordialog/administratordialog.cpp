@@ -19,6 +19,7 @@
 */
 
 #include "administratordialog.h"
+#include "administratorwidget.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -37,9 +38,9 @@ AdministratorDialog::AdministratorDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-//    mPruneMessageWidget = new PruneMessagesWidget(this);
-//    mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
-//    mainLayout->addWidget(mPruneMessageWidget);
+    mAdministratorWidget = new AdministratorWidget(this);
+    mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
+    mainLayout->addWidget(mAdministratorWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
