@@ -122,13 +122,7 @@ QNetworkRequest ChannelFilesJob::request() const
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-#else
-    request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
-#endif
+    addRequestAttribute(request, false);
     return request;
 }
 

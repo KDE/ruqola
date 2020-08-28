@@ -104,7 +104,7 @@ bool RestApiAbstractJob::canStart() const
     return true;
 }
 
-void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request) const
+void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request, bool addContentTypeHeader) const
 {
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
@@ -112,7 +112,9 @@ void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request) const
 #else
     request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
 #endif
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    if (addContentTypeHeader) {
+        request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    }
 }
 
 void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const

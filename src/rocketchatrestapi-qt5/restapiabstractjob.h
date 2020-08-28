@@ -99,7 +99,7 @@ public:
     void setQueryParameters(const QueryParameters &queryParameters);
 
     void addQueryParameter(QUrlQuery &urlQuery) const;
-    void addRequestAttribute(QNetworkRequest &request) const;
+    void addRequestAttribute(QNetworkRequest &request, bool addContentTypeHeader = true) const;
 Q_SIGNALS:
     void failed(const QString &str);
 
