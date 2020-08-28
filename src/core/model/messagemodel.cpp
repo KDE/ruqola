@@ -216,6 +216,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     roles[ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     roles[DisplayAttachment] = QByteArrayLiteral("displayAttachment");
+    roles[Emoji] = QByteArrayLiteral("emoji");
     return roles;
 }
 
@@ -437,6 +438,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             }
         }
         return false;
+    case MessageModel::Emoji:
+        return message.emoji();
     }
 
     return {};

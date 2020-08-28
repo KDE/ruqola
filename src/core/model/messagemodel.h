@@ -78,6 +78,7 @@ public:
         ShowTranslatedMessage,
         DisplayAttachment,
         DisplayLastSeenMessage,
+        Emoji,
     };
     Q_ENUM(MessageRoles)
 

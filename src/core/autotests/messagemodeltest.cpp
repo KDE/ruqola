@@ -84,6 +84,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     roles[MessageModel::ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     roles[MessageModel::DisplayAttachment] = QByteArrayLiteral("displayAttachment");
+    roles[MessageModel::Emoji] = QByteArrayLiteral("emoji");
     QCOMPARE(w.roleNames(), roles);
 }
 
