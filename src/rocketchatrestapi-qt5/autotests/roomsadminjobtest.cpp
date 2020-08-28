@@ -47,7 +47,6 @@ void RoomsAdminJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    //TODO
     QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms")));
     RoomsAdminJob::RoomsAdminJobInfo info;
