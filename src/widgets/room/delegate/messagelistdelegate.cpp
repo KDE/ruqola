@@ -27,6 +27,7 @@
 #include "messagedelegatehelpervideo.h"
 #include "messagedelegatehelpersound.h"
 #include "model/messagemodel.h"
+#include "emoticons/emojimanager.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
@@ -54,6 +55,7 @@ static QSizeF dprAwareSize(const QPixmap &pixmap)
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
+    , mEmojiFont(QStringLiteral("NotoColorEmoji"))
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
@@ -88,7 +90,7 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
+QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString userId = index.data(MessageModel::UserId).toString();
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(userId);
@@ -118,6 +120,46 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
         cache.insertCachedPixmap(iconUrlStr, downScaled);
     }
     return downScaled;
+}
+
+QPixmap MessageListDelegate::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const
+{
+    const auto dpr = widget->devicePixelRatioF();
+    if (dpr != mAvatarCache.dpr) {
+        mAvatarCache.dpr = dpr;
+        mAvatarCache.cache.clear();
+    }
+
+    auto &cache = mAvatarCache.cache;
+
+    auto downScaled = cache.findCachedPixmap(emojiStr);
+    if (downScaled.isNull()) {
+        auto *emojiManager = mRocketChatAccount->emojiManager();
+        const UnicodeEmoticon emoticon = emojiManager->unicodeEmoticonForEmoji(emojiStr);
+        if (emoticon.isValid()) {
+            QPixmap fullScale(20,20);
+            fullScale.fill(Qt::white);
+            QPainter painter( &fullScale );
+            painter.setFont(mEmojiFont);
+            painter.drawText( QPoint(5, 15), emoticon.unicode() );
+            downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
+            downScaled.setDevicePixelRatio(dpr);
+            cache.insertCachedPixmap(emojiStr, downScaled);
+        } else {
+            return makeAvatarUrlPixmap(widget, index, maxHeight);
+        }
+    }
+    return downScaled;
+}
+
+QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
+{
+    const QString emojiStr = index.data(MessageModel::Emoji).toString();
+    if (!emojiStr.isEmpty()) {
+        return makeAvatarEmojiPixmap(emojiStr, widget, index, maxHeight);
+    } else {
+        return makeAvatarUrlPixmap(widget, index, maxHeight);
+    }
 }
 
 // [Optional date header]

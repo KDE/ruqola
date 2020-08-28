@@ -67,7 +67,7 @@ public:
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
-    QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
     struct Layout {
         // Sender
@@ -119,9 +119,12 @@ private:
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;
+    Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
     friend class MessageListDelegateTest;
 
+    QFont mEmojiFont;
     QIcon mEditedIcon;
     QIcon mRolesIcon;
     QIcon mAddReactionIcon;
