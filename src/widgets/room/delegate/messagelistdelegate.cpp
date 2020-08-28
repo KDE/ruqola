@@ -137,11 +137,17 @@ QPixmap MessageListDelegate::makeAvatarEmojiPixmap(const QString &emojiStr, cons
         auto *emojiManager = mRocketChatAccount->emojiManager();
         const UnicodeEmoticon emoticon = emojiManager->unicodeEmoticonForEmoji(emojiStr);
         if (emoticon.isValid()) {
-            QPixmap fullScale(20,20);
+            const QFontMetrics fm(mEmojiFont);
+            const QSize size = fm.boundingRect(emoticon.unicode()).size();
+
+            //qDebug() << " size " << size << "emojiStr "<< emojiStr << " emoticon.unicode() " <<emoticon.unicode() << fm.horizontalAdvance(emoticon.unicode());
+            //boundingRect can return a width == 0 for existing character as :warning: emoji.
+            QPixmap fullScale(fm.horizontalAdvance(emoticon.unicode()), size.height());
+
             fullScale.fill(Qt::white);
             QPainter painter( &fullScale );
             painter.setFont(mEmojiFont);
-            painter.drawText( QPoint(5, 15), emoticon.unicode() );
+            painter.drawText(fullScale.rect(), Qt::AlignCenter, emoticon.unicode());
             downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
             downScaled.setDevicePixelRatio(dpr);
             cache.insertCachedPixmap(emojiStr, downScaled);
