@@ -20,6 +20,7 @@
 
 #include "administratordialogtest.h"
 #include "administratordialog/administratordialog.h"
+#include "administratordialog/administratorwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
