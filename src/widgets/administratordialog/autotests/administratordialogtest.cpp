@@ -20,8 +20,10 @@
 
 #include "administratordialogtest.h"
 #include "administratordialog/administratordialog.h"
+#include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorDialogTest)
 AdministratorDialogTest::AdministratorDialogTest(QObject *parent)
     : QObject(parent)
@@ -31,5 +33,13 @@ AdministratorDialogTest::AdministratorDialogTest(QObject *parent)
 
 void AdministratorDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorDialog w;
+    AdministratorDialog d;
+    QVERIFY(!d.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+
+    QDialogButtonBox *button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
