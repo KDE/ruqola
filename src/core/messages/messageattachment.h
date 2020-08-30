@@ -40,7 +40,7 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
     Q_PROPERTY(bool isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     MessageAttachment();
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    Q_REQUIRED_RESULT bool isValid() const;
 
     Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
@@ -76,6 +76,9 @@ public:
 
     Q_REQUIRED_RESULT bool isAnimatedImage() const;
 
+    Q_REQUIRED_RESULT QString text() const;
+    void setText(const QString &text);
+
 private:
     //TODO add fields support ?
     QString mColor;
@@ -84,6 +87,7 @@ private:
     QString mLink;
     QString mAuthorName;
     QString mMimeType;
+    QString mText;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;

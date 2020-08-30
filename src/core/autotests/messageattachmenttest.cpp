@@ -35,7 +35,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(attachment.description().isEmpty());
     QVERIFY(attachment.title().isEmpty());
     QVERIFY(attachment.link().isEmpty());
-    QVERIFY(attachment.isEmpty());
+    QVERIFY(!attachment.isValid());
     QVERIFY(attachment.color().isEmpty());
     QVERIFY(attachment.mimeType().isEmpty());
     QVERIFY(attachment.authorName().isEmpty());

@@ -48,6 +48,10 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (!color.isEmpty()) {
         obj[QStringLiteral("color")] = color;
     }
+    const QString text = message.text();
+    if (!text.isEmpty()) {
+        obj[QStringLiteral("text")] = text;
+    }
     return obj;
 }
 
@@ -56,6 +60,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
     MessageAttachment att;
     att.setDescription(o.value(QLatin1String("description")).toString());
     att.setTitle(o.value(QLatin1String("title")).toString());
+    att.setText(o.value(QLatin1String("text")).toString());
     att.setLink(o.value(QLatin1String("url")).toString());
     att.setAuthorName(o.value(QLatin1String("authorname")).toString());
     att.setMimeType(o.value(QLatin1String("mimetype")).toString());
@@ -111,9 +116,9 @@ void MessageAttachment::setAuthorName(const QString &authorName)
     mAuthorName = authorName;
 }
 
-bool MessageAttachment::isEmpty() const
+bool MessageAttachment::isValid() const
 {
-    return mLink.isEmpty();
+    return !mLink.isEmpty() || !mText.isEmpty();
 }
 
 bool MessageAttachment::canDownloadAttachment() const
@@ -146,6 +151,16 @@ void MessageAttachment::setMimeType(const QString &type)
 bool MessageAttachment::isAnimatedImage() const
 {
     return mIsAnimatedImage;
+}
+
+QString MessageAttachment::text() const
+{
+    return mText;
+}
+
+void MessageAttachment::setText(const QString &text)
+{
+    mText = text;
 }
 
 QString MessageAttachment::displayTitle() const
@@ -198,7 +213,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mImageHeight == other.imageHeight())
            && (mImageWidth == other.imageWidth())
            && (mAuthorName == other.authorName())
-           && (mMimeType == other.mimeType());
+           && (mMimeType == other.mimeType())
+           && (mText == other.text());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
@@ -210,5 +226,6 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "color: " << t.color();
     d << "authorname: " << t.authorName();
     d << "mimeType: " << t.mimeType();
+    d << "text: " << t.text();
     return d;
 }

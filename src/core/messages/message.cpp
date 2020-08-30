@@ -398,7 +398,12 @@ void Message::parseAttachment(const QJsonArray &attachments)
             //MimeType
             messageAttachement.setMimeType(attachment.value(QLatin1String("image_type")).toString());
 
-            if (!messageAttachement.isEmpty()) {
+            //Text
+            const QJsonValue text = attachment.value(QLatin1String("text"));
+            if (!text.isUndefined()) {
+                messageAttachement.setText(text.toString());
+            }
+            if (messageAttachement.isValid()) {
                 mAttachements.append(messageAttachement);
             }
         }
@@ -751,7 +756,7 @@ Message Message::fromJSon(const QJsonObject &o)
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         const MessageAttachment att = MessageAttachment::fromJson(attachment);
-        if (!att.isEmpty()) {
+        if (att.isValid()) {
             message.mAttachements.append(att);
         }
     }

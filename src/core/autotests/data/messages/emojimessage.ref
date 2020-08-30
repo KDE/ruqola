@@ -1,5 +1,14 @@
 {
     "alias": "",
+    "attachments": [
+        {
+            "color": "warning",
+            "description": "",
+            "text": "\n* WARNINGs: Write IO Wait time is 4.44 (outside range [0:3]).",
+            "title": "",
+            "url": ""
+        }
+    ],
     "avatar": "",
     "editedAt": -1,
     "editedByUserID": "",
