@@ -1,0 +1,22 @@
+{
+    "alias": "",
+    "avatar": "",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "emoji": ":warning:",
+    "groupable": false,
+    "message": "Munin alert - WARNING: Disk latency per device",
+    "messageID": "854aAFAttBNpqZsYb",
+    "messageType": "NormalText",
+    "name": "foo",
+    "parseUrls": false,
+    "pinned": false,
+    "roomID": "YQfvzcjA7ixMNhrcT",
+    "starred": false,
+    "timestamp": 1598257386339,
+    "type": "",
+    "updatedAt": 1598257386365,
+    "userID": "CtmbQDdqNNNytdYsX",
+    "username": "foo"
+}
