@@ -39,32 +39,32 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 
     if (attachment.contains(QLatin1String("audio_url"))) {
         setLink(attachment.value(QLatin1String("audio_url")).toString());
-        //TODO mMessageType = Message::MessageType::Audio;
+        mAttachmentType = AttachmentType::Audio;
     } else if (attachment.contains(QLatin1String("video_url"))) {
         setLink(attachment.value(QLatin1String("video_url")).toString());
-        //TODO mMessageType = Message::MessageType::Video;
+        mAttachmentType = AttachmentType::Video;
     } else if (attachment.contains(QLatin1String("image_url"))) {
         setLink(attachment.value(QLatin1String("image_url")).toString());
-        //TODO mMessageType = Message::MessageType::Image;
+        mAttachmentType = AttachmentType::Image;
     } else if (attachment.contains(QLatin1String("title_link"))) { //Last as an image_url can have a title_link
         setLink(attachment.value(QLatin1String("title_link")).toString());
-        //TODO mMessageType = Message::MessageType::File;
+        mAttachmentType = AttachmentType::File;
     }
     //Add image dimension
-//    if (mMessageType == Message::MessageType::Image) {
-//        const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
-//        if (!imageDimensions.isUndefined()) {
-//            const QJsonObject imageDimensionsParams = imageDimensions.toObject();
+    if (mAttachmentType == AttachmentType::Image) {
+        const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
+        if (!imageDimensions.isUndefined()) {
+            const QJsonObject imageDimensionsParams = imageDimensions.toObject();
 
-//            setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
-//            setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
-//            //TODO validate image size
-//        } else {
-//            //Use default value
-//            setImageHeight(120);
-//            setImageWidth(120);
-//        }
-//    }
+            setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
+            setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
+            //TODO validate image size
+        } else {
+            //Use default value
+            setImageHeight(120);
+            setImageWidth(120);
+        }
+    }
 
     setAuthorName(attachment.value(QLatin1String("author_name")).toString());
     //Color
@@ -221,6 +221,16 @@ QString MessageAttachment::text() const
 void MessageAttachment::setText(const QString &text)
 {
     mText = text;
+}
+
+MessageAttachment::AttachmentType MessageAttachment::attachmentType() const
+{
+    return mAttachmentType;
+}
+
+void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
+{
+    mAttachmentType = attachmentType;
 }
 
 QString MessageAttachment::displayTitle() const

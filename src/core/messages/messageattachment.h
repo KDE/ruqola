@@ -41,6 +41,15 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
 public:
     MessageAttachment();
 
+    enum AttachmentType {
+        Unknown,
+        NormalText,
+        File,
+        Video,
+        Audio,
+        Image
+    };
+    Q_ENUM(AttachmentType)
     void parseAttachment(const QJsonObject &o);
 
     Q_REQUIRED_RESULT bool isValid() const;
@@ -82,8 +91,12 @@ public:
     Q_REQUIRED_RESULT QString text() const;
     void setText(const QString &text);
 
+    AttachmentType attachmentType() const;
+    void setAttachmentType(AttachmentType attachmentType);
+
 private:
     //TODO add fields support ?
+    AttachmentType mAttachmentType = Unknown;
     QString mColor;
     QString mDescription;
     QString mTitle;
