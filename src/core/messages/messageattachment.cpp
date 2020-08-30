@@ -51,7 +51,7 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     return obj;
 }
 
-MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
+MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
 {
     MessageAttachment att;
     att.setDescription(o.value(QLatin1String("description")).toString());

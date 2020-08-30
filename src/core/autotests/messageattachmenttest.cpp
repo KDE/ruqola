@@ -56,7 +56,7 @@ void MessageAttachmentTest::shouldSerializeData()
         input.setImageWidth(83);
         input.setAuthorName(QStringLiteral("auth"));
         const QJsonObject ba = MessageAttachment::serialize(input);
-        const MessageAttachment output = MessageAttachment::fromJSon(ba);
+        const MessageAttachment output = MessageAttachment::fromJson(ba);
         QCOMPARE(input, output);
     }
 
@@ -66,7 +66,7 @@ void MessageAttachmentTest::shouldSerializeData()
         input.setTitle(QStringLiteral("foo3"));
         input.setLink(QStringLiteral("foo4"));
         const QJsonObject ba = MessageAttachment::serialize(input);
-        const MessageAttachment output = MessageAttachment::fromJSon(ba);
+        const MessageAttachment output = MessageAttachment::fromJson(ba);
         QCOMPARE(input, output);
     }
 
@@ -78,7 +78,7 @@ void MessageAttachmentTest::shouldSerializeData()
         input.setLink(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("auth"));
         const QJsonObject ba = MessageAttachment::serialize(input);
-        const MessageAttachment output = MessageAttachment::fromJSon(ba);
+        const MessageAttachment output = MessageAttachment::fromJson(ba);
         QCOMPARE(input, output);
     }
 }

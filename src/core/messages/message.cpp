@@ -750,7 +750,7 @@ Message Message::fromJSon(const QJsonObject &o)
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
-        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
+        const MessageAttachment att = MessageAttachment::fromJson(attachment);
         if (!att.isEmpty()) {
             message.mAttachements.append(att);
         }
