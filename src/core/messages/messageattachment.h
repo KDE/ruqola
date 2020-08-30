@@ -40,6 +40,9 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
     Q_PROPERTY(bool isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     MessageAttachment();
+
+    void parseAttachment(const QJsonObject &o);
+
     Q_REQUIRED_RESULT bool isValid() const;
 
     Q_REQUIRED_RESULT QString description() const;

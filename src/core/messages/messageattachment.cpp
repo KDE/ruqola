@@ -26,6 +26,66 @@ MessageAttachment::MessageAttachment()
 {
 }
 
+void MessageAttachment::parseAttachment(const QJsonObject &attachment)
+{
+    const QJsonValue description = attachment.value(QLatin1String("description"));
+    if (!description.isUndefined()) {
+        setDescription(description.toString());
+    }
+    const QJsonValue title = attachment.value(QLatin1String("title"));
+    if (!title.isUndefined()) {
+        setTitle(title.toString());
+    }
+
+    if (attachment.contains(QLatin1String("audio_url"))) {
+        setLink(attachment.value(QLatin1String("audio_url")).toString());
+        //TODO mMessageType = Message::MessageType::Audio;
+    } else if (attachment.contains(QLatin1String("video_url"))) {
+        setLink(attachment.value(QLatin1String("video_url")).toString());
+        //TODO mMessageType = Message::MessageType::Video;
+    } else if (attachment.contains(QLatin1String("image_url"))) {
+        setLink(attachment.value(QLatin1String("image_url")).toString());
+        //TODO mMessageType = Message::MessageType::Image;
+    } else if (attachment.contains(QLatin1String("title_link"))) { //Last as an image_url can have a title_link
+        setLink(attachment.value(QLatin1String("title_link")).toString());
+        //TODO mMessageType = Message::MessageType::File;
+    }
+    //Add image dimension
+//    if (mMessageType == Message::MessageType::Image) {
+//        const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
+//        if (!imageDimensions.isUndefined()) {
+//            const QJsonObject imageDimensionsParams = imageDimensions.toObject();
+
+//            setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
+//            setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
+//            //TODO validate image size
+//        } else {
+//            //Use default value
+//            setImageHeight(120);
+//            setImageWidth(120);
+//        }
+//    }
+
+    setAuthorName(attachment.value(QLatin1String("author_name")).toString());
+    //Color
+    const QJsonValue color = attachment.value(QLatin1String("color"));
+    if (!color.isUndefined()) {
+        setColor(color.toString());
+    }
+    //MimeType
+    setMimeType(attachment.value(QLatin1String("image_type")).toString());
+
+    //Text
+    const QJsonValue text = attachment.value(QLatin1String("text"));
+    if (!text.isUndefined()) {
+        setText(text.toString());
+    }
+//    if (messageAttachement.isValid()) {
+//        mAttachements.append(messageAttachement);
+//    }
+
+}
+
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
 {
     QJsonObject obj;
