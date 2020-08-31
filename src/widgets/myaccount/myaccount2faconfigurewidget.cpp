@@ -31,9 +31,9 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mActivate2FACheckbox = new QCheckBox(i18n("Activate Two Authentication Factor"), this);
-    mActivate2FACheckbox->setObjectName(QStringLiteral("mActivate2FACheckbox"));
-    mainLayout->addWidget(mActivate2FACheckbox);
+    mActivate2FAViaEmailCheckbox = new QCheckBox(i18n("Activate Two Authentication Factor via Email"), this);
+    mActivate2FAViaEmailCheckbox->setObjectName(QStringLiteral("mActivate2FAViaEmailCheckbox"));
+    mainLayout->addWidget(mActivate2FAViaEmailCheckbox);
 
     mainLayout->addStretch(1);
     //TODO
@@ -45,11 +45,11 @@ MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
 
 void MyAccount2FaConfigureWidget::load()
 {
-    mActivate2FACheckbox->setChecked(Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled());
+    mActivate2FAViaEmailCheckbox->setChecked(Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled());
 }
 
 void MyAccount2FaConfigureWidget::save()
 {
     //TODO verify it
-    Ruqola::self()->rocketChatAccount()->enable2FaEmailJob(mActivate2FACheckbox->isChecked());
+    Ruqola::self()->rocketChatAccount()->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
 }

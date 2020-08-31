@@ -33,7 +33,7 @@ public:
     void load();
     void save();
 private:
-    QCheckBox *mActivate2FACheckbox = nullptr;
+    QCheckBox *mActivate2FAViaEmailCheckbox = nullptr;
 };
 
 #endif // MYACCOUNT2FACONFIGUREWIDGET_H
