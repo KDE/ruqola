@@ -52,7 +52,7 @@ bool MessagePinned::operator==(const MessagePinned &other) const
 void MessagePinned::parse(const QJsonObject &o)
 {
     mPinned = o.value(QLatin1String("pinned")).toBool();
-    //TODO pinnedBy
+    mPinnedBy = o.value(QLatin1String("pinnedBy")).toObject().value(QLatin1String("username")).toString();
 }
 
 QDebug operator <<(QDebug d, const MessagePinned &t)
