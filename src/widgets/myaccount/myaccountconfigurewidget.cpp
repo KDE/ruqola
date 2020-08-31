@@ -57,9 +57,11 @@ MyAccountConfigureWidget::~MyAccountConfigureWidget()
 void MyAccountConfigureWidget::save()
 {
     mMyAccount2ProfileConfigureWidget->save();
+    mMyAccount2FaConfigureWidget->save();
 }
 
 void MyAccountConfigureWidget::load()
 {
     mMyAccount2ProfileConfigureWidget->load();
+    mMyAccount2FaConfigureWidget->load();
 }
