@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +32,8 @@ public:
     ~MyAccount2FaConfigureWidget();
     void load();
     void save();
+private:
+    QCheckBox *mActivate2FACheckbox = nullptr;
 };
 
 #endif // MYACCOUNT2FACONFIGUREWIDGET_H

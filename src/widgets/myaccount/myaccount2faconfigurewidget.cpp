@@ -21,6 +21,7 @@
 #include "myaccount2faconfigurewidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QCheckBox>
 
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +29,12 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mActivate2FACheckbox = new QCheckBox(i18n("Activate Two Authentication Factor"), this);
+    mActivate2FACheckbox->setObjectName(QStringLiteral("mActivate2FACheckbox"));
+    mainLayout->addWidget(mActivate2FACheckbox);
+
+    mainLayout->addStretch(1);
     //TODO
 }
 
