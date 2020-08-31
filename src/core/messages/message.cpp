@@ -351,59 +351,29 @@ void Message::parseAttachment(const QJsonArray &attachments)
         for (int i = 0; i < attachments.size(); i++) {
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
-            const QJsonValue description = attachment.value(QLatin1String("description"));
-            if (!description.isUndefined()) {
-                messageAttachement.setDescription(description.toString());
-            }
-            const QJsonValue title = attachment.value(QLatin1String("title"));
-            if (!title.isUndefined()) {
-                messageAttachement.setTitle(title.toString());
-            }
+            messageAttachement.parseAttachment(attachment);
 
-            if (attachment.contains(QLatin1String("audio_url"))) {
-                messageAttachement.setLink(attachment.value(QLatin1String("audio_url")).toString());
-                mMessageType = Message::MessageType::Audio;
-            } else if (attachment.contains(QLatin1String("video_url"))) {
-                messageAttachement.setLink(attachment.value(QLatin1String("video_url")).toString());
-                mMessageType = Message::MessageType::Video;
-            } else if (attachment.contains(QLatin1String("image_url"))) {
-                messageAttachement.setLink(attachment.value(QLatin1String("image_url")).toString());
-                mMessageType = Message::MessageType::Image;
-            } else if (attachment.contains(QLatin1String("title_link"))) { //Last as an image_url can have a title_link
-                messageAttachement.setLink(attachment.value(QLatin1String("title_link")).toString());
-                mMessageType = Message::MessageType::File;
-            }
-            //Add image dimension
-            if (mMessageType == Message::MessageType::Image) {
-                const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
-                if (!imageDimensions.isUndefined()) {
-                    const QJsonObject imageDimensionsParams = imageDimensions.toObject();
-
-                    messageAttachement.setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
-                    messageAttachement.setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
-                    //TODO validate image size
-                } else {
-                    //Use default value
-                    messageAttachement.setImageHeight(120);
-                    messageAttachement.setImageWidth(120);
-                }
-            }
-
-            messageAttachement.setAuthorName(attachment.value(QLatin1String("author_name")).toString());
-            //Color
-            const QJsonValue color = attachment.value(QLatin1String("color"));
-            if (!color.isUndefined()) {
-                messageAttachement.setColor(color.toString());
-            }
-            //MimeType
-            messageAttachement.setMimeType(attachment.value(QLatin1String("image_type")).toString());
-
-            //Text
-            const QJsonValue text = attachment.value(QLatin1String("text"));
-            if (!text.isUndefined()) {
-                messageAttachement.setText(text.toString());
-            }
             if (messageAttachement.isValid()) {
+                switch(messageAttachement.attachmentType()) {
+                case MessageAttachment::AttachmentType::Unknown:
+                    qCWarning(RUQOLA_LOG) << "Attachment type is unknown!";
+                    break;
+                case MessageAttachment::AttachmentType::NormalText:
+                    mMessageType = Message::MessageType::NormalText;
+                    break;
+                case MessageAttachment::AttachmentType::File:
+                    mMessageType = Message::MessageType::File;
+                    break;
+                case MessageAttachment::AttachmentType::Video:
+                    mMessageType = Message::MessageType::Video;
+                    break;
+                case MessageAttachment::AttachmentType::Audio:
+                    mMessageType = Message::MessageType::Audio;
+                    break;
+                case MessageAttachment::AttachmentType::Image:
+                    mMessageType = Message::MessageType::Image;
+                    break;
+                }
                 mAttachements.append(messageAttachement);
             }
         }

@@ -80,10 +80,6 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     if (!text.isUndefined()) {
         setText(text.toString());
     }
-//    if (messageAttachement.isValid()) {
-//        mAttachements.append(messageAttachement);
-//    }
-
 }
 
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
