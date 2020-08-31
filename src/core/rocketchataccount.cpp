@@ -1595,6 +1595,11 @@ bool RocketChatAccount::allowProfileChange() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserProfileChange;
 }
 
+void RocketChatAccount::enable2FaEmailJob(bool enable)
+{
+    restApi()->enable2FaEmailJob(enable);
+}
+
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;

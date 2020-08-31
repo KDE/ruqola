@@ -50,5 +50,6 @@ void MyAccount2FaConfigureWidget::load()
 
 void MyAccount2FaConfigureWidget::save()
 {
-    //TODO
+    //TODO verify it
+    Ruqola::self()->rocketChatAccount()->enable2FaEmailJob(mActivate2FACheckbox->isChecked());
 }
