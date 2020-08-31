@@ -55,6 +55,7 @@ void MessageTest::shouldParseMessage_data()
         MessageAttachment att;
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
         att.setTitle(QStringLiteral("dd.pdf"));
+        att.setAttachmentType(MessageAttachment::File);
         firstMessageRef.setAttachements({att});
         QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
     }
@@ -102,6 +103,7 @@ void MessageTest::shouldParseMessage_data()
         attImage.setMimeType(QStringLiteral("image/png"));
         attImage.setImageWidth(120);
         attImage.setImageHeight(120);
+        attImage.setAttachmentType(MessageAttachment::Image);
         imageMessageRef.setAttachements({attImage});
 
         QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
@@ -128,6 +130,7 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setTitle(QStringLiteral("SampleVideo_1280x720_1mb.mp4"));
         attVideo.setLink(QStringLiteral("/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"));
         attVideo.setDescription(QStringLiteral("test"));
+        attVideo.setAttachmentType(MessageAttachment::Video);
         //Add video size/video type etc.
         videoMessageRef.setAttachements({attVideo});
 
@@ -153,6 +156,7 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setTitle(QStringLiteral("joint.wav"));
         attAudio.setLink(QStringLiteral("/file-upload/9E8YBGgq3H6GbASf3/joint.wav"));
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
+        attAudio.setAttachmentType(MessageAttachment::Audio);
         //Add video size/video type etc.
         audioMessageRef.setAttachements({attAudio});
 
@@ -242,6 +246,7 @@ void MessageTest::shouldParseMessage_data()
         fileAttachment.setTitle(QStringLiteral("webkit.txt"));
         fileAttachment.setLink(QStringLiteral("/file-upload/tmqfdJTCmJ3oqG/webkit.txt"));
         fileAttachment.setDescription(QStringLiteral("description"));
+        fileAttachment.setAttachmentType(MessageAttachment::File);
         //Add video size/video type etc.
         messageAttachmentFileRef.setAttachements({fileAttachment});
 

@@ -254,14 +254,15 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
-    if (!message->attachements().isEmpty()) {
+    if (message->attachements().isEmpty()) {
+        layout.reactionsY = attachmentsY;
+    } else {
         //TODO support multi attachments!
-        const MessageDelegateHelperBase *helper = attachmentsHelper(message);
+        const MessageAttachment &msgAttach = message->attachements().at(0);
+        const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
         const QSize attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
         layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         layout.reactionsY = attachmentsY + attachmentsSize.height();
-    } else {
-        layout.reactionsY = attachmentsY;
     }
     layout.reactionsHeight = mHelperReactions->sizeHint(index, maxWidth, option).height();
 
@@ -278,21 +279,22 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     return layout;
 }
 
-MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const Message *message) const
+MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageAttachment &msgAttach) const
 {
-    switch (message->messageType()) {
-    case Message::Image:
+    switch (msgAttach.attachmentType()) {
+    case MessageAttachment::Image:
         return mHelperImage.data();
-    case Message::File:
+    case MessageAttachment::File:
         return mHelperFile.data();
-    case Message::Video:
+    case MessageAttachment::Video:
         return mHelperVideo.data();
-    case Message::Audio:
+    case MessageAttachment::Audio:
         return mHelperSound.data();
-    case Message::System:
-    case Message::Information:
-    case Message::NormalText:
+    case MessageAttachment::NormalText:
+        //TODO create AttachmentTextHelper
+    case MessageAttachment::Unknown:
         break;
+
     }
     return nullptr;
 }
@@ -399,9 +401,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Attachments
-    const MessageDelegateHelperBase *helper = attachmentsHelper(message);
-    if (helper) {
-        helper->draw(painter, layout.attachmentsRect, index, option);
+    for (const MessageAttachment &att : message->attachements()) {
+        const MessageDelegateHelperBase *helper = attachmentsHelper(att);
+        if (helper) {
+            helper->draw(painter, layout.attachmentsRect, index, option);
+        }
     }
 
     // Reactions
@@ -533,9 +537,12 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             return true;
         }
 
-        MessageDelegateHelperBase *helper = attachmentsHelper(message);
-        if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
-            return true;
+        const auto attachements = message->attachements();
+        for (const MessageAttachment &att : attachements) {
+            MessageDelegateHelperBase *helper = attachmentsHelper(att);
+            if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
+                return true;
+            }
         }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto *mev = static_cast<QMouseEvent *>(event);

@@ -59,7 +59,8 @@ void MessageListDelegateTest::layoutChecks_data()
     QTest::newRow("text_with_date") << message << true;
 
     message.setMessageType(Message::Image);
-    const MessageAttachment msgAttach = testAttachment();
+    MessageAttachment msgAttach = testAttachment();
+    msgAttach.setAttachmentType(MessageAttachment::Image);
     message.setAttachements({msgAttach});
 
     QTest::newRow("attachment_no_text_no_date") << message << false;

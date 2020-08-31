@@ -38,6 +38,7 @@ class MessageDelegateHelperFile;
 class MessageDelegateHelperReactions;
 class MessageDelegateHelperVideo;
 class MessageDelegateHelperSound;
+class MessageAttachment;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
@@ -118,7 +119,7 @@ private:
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
 
     /// @note Ownership is not transferred
-    MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;
+    MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
