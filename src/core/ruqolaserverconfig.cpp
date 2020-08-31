@@ -169,6 +169,8 @@ void RuqolaServerConfig::addOauthService(const QString &service)
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
+    //Add Accounts_TwoFactorAuthentication_Enabled
+    //Add Accounts_TwoFactorAuthentication_By_Email_Enabled
 }
 
 void RuqolaServerConfig::adaptToServerVersion()
