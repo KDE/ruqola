@@ -20,6 +20,7 @@
 
 #include "myaccount2faconfigurewidgettest.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
+#include <QCheckBox>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccount2FaConfigureWidgetTest)
@@ -34,4 +35,8 @@ void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QCheckBox *mActivate2FACheckbox = w.findChild<QCheckBox *>(QStringLiteral("mActivate2FACheckbox"));
+    QVERIFY(mActivate2FACheckbox);
+    QVERIFY(!mActivate2FACheckbox->text().isEmpty());
 }
