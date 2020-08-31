@@ -78,6 +78,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     //Text
     const QJsonValue text = attachment.value(QLatin1String("text"));
     if (!text.isUndefined()) {
+        mAttachmentType = AttachmentType::NormalText;
         setText(text.toString());
     }
 }
