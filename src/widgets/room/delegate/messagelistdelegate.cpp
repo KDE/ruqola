@@ -288,7 +288,9 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const Message 
         return mHelperVideo.data();
     case Message::Audio:
         return mHelperSound.data();
-    default:
+    case Message::System:
+    case Message::Information:
+    case Message::NormalText:
         break;
     }
     return nullptr;
