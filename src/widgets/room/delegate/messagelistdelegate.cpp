@@ -255,6 +255,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
     if (!message->attachements().isEmpty()) {
+        //TODO support multi attachments!
         const MessageDelegateHelperBase *helper = attachmentsHelper(message);
         const QSize attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
         layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
