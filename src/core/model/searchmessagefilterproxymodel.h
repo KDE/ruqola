@@ -40,7 +40,7 @@ Q_SIGNALS:
     void stringNotFoundChanged();
     void loadingInProgressChanged();
 private:
-    SearchMessageModel *mSearchMessageModel = nullptr;
+    SearchMessageModel *const mSearchMessageModel;
 };
 
 #endif // SEARCHMESSAGEFILTERPROXYMODEL_H

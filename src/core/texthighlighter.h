@@ -36,7 +36,7 @@ protected:
 
 private:
     QString mCurrentLine;
-    QTextStream *mStream;
+    QTextStream *const mStream;
 };
 
 #endif // TEXTHIGHLIGHTER_H

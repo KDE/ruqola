@@ -42,7 +42,7 @@ Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();
 private:
-    DiscussionsModel *mDiscussionsModel = nullptr;
+    DiscussionsModel *const mDiscussionsModel;
 };
 
 #endif // DISCUSSIONSFILTERPROXYMODEL_H

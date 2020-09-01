@@ -44,7 +44,7 @@ public:
 
 private:
     Q_DISABLE_COPY(ServerConfigInfo)
-    RocketChatAccount *mAccount = nullptr;
+    RocketChatAccount *const mAccount;
 };
 
 #endif // SERVERCONFIGINFO_H

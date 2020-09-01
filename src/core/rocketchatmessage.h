@@ -64,7 +64,7 @@ private:
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
-    QJsonDocument::JsonFormat mJsonFormat;
+    QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
 };
 
 #endif // ROCKETCHATMESSAGE_H

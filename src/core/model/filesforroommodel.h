@@ -86,7 +86,7 @@ private:
     bool mHasFullList = false;
     bool mLoadMoreFilesInProgress = false;
     FileAttachments *mFileAttachments = nullptr;
-    RocketChatAccount *mRochetChantAccount = nullptr;
+    RocketChatAccount *const mRochetChantAccount;
 };
 
 #endif // FILESFORROOMMODEL_H

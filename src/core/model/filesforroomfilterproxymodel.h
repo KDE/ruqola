@@ -43,7 +43,7 @@ Q_SIGNALS:
     void totalChanged();
     void loadingInProgressChanged();
 private:
-    FilesForRoomModel *mFilesForRoomModel = nullptr;
+    FilesForRoomModel *const mFilesForRoomModel;
 };
 
 #endif // FILESFORROOMFILTERPROXYMODEL_H

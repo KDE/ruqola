@@ -53,7 +53,7 @@ Q_SIGNALS:
 private:
     Q_REQUIRED_RESULT QString title() const;
     Q_REQUIRED_RESULT ListMessagesModel::ListMessageType listMessageType() const;
-    ListMessagesModel *mModel = nullptr;
+    ListMessagesModel *const mModel;
 };
 
 #endif // PINNEDMESSAGEMODELFILTERPROXYMODEL_H

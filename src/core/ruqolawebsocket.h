@@ -49,7 +49,7 @@ private Q_SLOTS:
     void slotError(QAbstractSocket::SocketError error);
 private:
     QWebSocket *mWebSocket = nullptr;
-    RuqolaLogger *mLogger = nullptr;
+    RuqolaLogger *const mLogger;
 };
 
 #endif // RUQOLAWEBSOCKET_H

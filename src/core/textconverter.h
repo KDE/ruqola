@@ -35,7 +35,7 @@ public:
 
     Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QString &userName, const QVector<Message> &allMessages) const;
 private:
-    EmojiManager *mEmojiManager = nullptr;
+    EmojiManager *const mEmojiManager;
 };
 
 #endif // TEXTCONVERTER_H

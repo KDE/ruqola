@@ -28,7 +28,6 @@
 #include <QCryptographicHash>
 
 RocketChatMessage::RocketChatMessage()
-    : mJsonFormat(QJsonDocument::Compact)
 {
 }
 

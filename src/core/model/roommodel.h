@@ -132,7 +132,7 @@ private:
     Q_REQUIRED_RESULT int order(Room *r) const;
     Q_REQUIRED_RESULT QString sectionName(Room *r) const;
 
-    RocketChatAccount *mRocketChatAccount = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;
 };
 

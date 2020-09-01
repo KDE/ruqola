@@ -44,7 +44,7 @@ private:
     void slotLoadNextAvatar();
     void slotRescheduleDownload();
     QStringList mAvatarDownloadUserIds;
-    RocketChatAccount *mAccount = nullptr;
+    RocketChatAccount *const mAccount;
     QTimer *mTimer = nullptr;
 };
 

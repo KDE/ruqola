@@ -58,7 +58,7 @@ public:
 private:
     Q_DISABLE_COPY(MessageQueue)
     void onLoginStatusChanged();
-    RocketChatAccount *mRocketChatAccount = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
 #endif // MESSAGEQUEUE_H

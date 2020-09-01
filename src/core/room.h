@@ -343,7 +343,7 @@ private:
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     MessageModel *mMessageModel = nullptr;
-    RocketChatAccount *mRocketChatAccount = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

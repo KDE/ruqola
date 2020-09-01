@@ -59,7 +59,7 @@ private:
     void loadAvatarCache();
     QHash<QString, QUrl> mUserAvatarUrl;
     QSet<QString> mFileInDownload;
-    RocketChatAccount *mAccount = nullptr;
+    RocketChatAccount *const mAccount;
     AvatarManager *mAvatarManager = nullptr;
 };
 
