@@ -30,6 +30,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentComboBox : public QComboBox
 public:
     explicit ShowAttachmentComboBox(QWidget *parent = nullptr);
     ~ShowAttachmentComboBox();
+private:
+    void fillCombobox();
 };
 
 #endif // SHOWATTACHMENTCOMBOBOX_H

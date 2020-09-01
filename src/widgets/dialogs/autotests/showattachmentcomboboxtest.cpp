@@ -31,5 +31,5 @@ ShowAttachmentComboBoxTest::ShowAttachmentComboBoxTest(QObject *parent)
 void ShowAttachmentComboBoxTest::shouldHaveDefaultValues()
 {
     ShowAttachmentComboBox w;
-    //TODO
+    QVERIFY(w.count() != 0);
 }

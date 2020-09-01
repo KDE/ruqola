@@ -64,3 +64,21 @@ bool FilesForRoomFilterProxyModel::hasFullList() const
 {
     return mFilesForRoomModel->hasFullList();
 }
+
+void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
+{
+    if (mTypeGroup != typeGroup) {
+        mTypeGroup = typeGroup;
+        invalidateFilter();
+    }
+}
+
+bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (mTypeGroup.isEmpty()) {
+        return true;
+    }
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
+    return mTypeGroup == typegroup;
+}

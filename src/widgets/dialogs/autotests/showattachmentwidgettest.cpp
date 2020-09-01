@@ -20,6 +20,7 @@
 
 #include "showattachmentwidgettest.h"
 #include "dialogs/showattachmentwidget.h"
+#include "dialogs/showattachmentcombobox.h"
 #include <QLineEdit>
 #include <QLabel>
 #include <QListView>
@@ -38,10 +39,17 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
+    QHBoxLayout *searchAttachmentLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchAttachmentLayout"));
+    QVERIFY(searchAttachmentLayout);
+    QCOMPARE(searchAttachmentLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
     auto *mSearchAttachmentFileLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchAttachmentFileLineEdit"));
     QVERIFY(mSearchAttachmentFileLineEdit);
     QVERIFY(mSearchAttachmentFileLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchAttachmentFileLineEdit->placeholderText().isEmpty());
+
+    ShowAttachmentComboBox *mAttachmentCombobox = w.findChild<ShowAttachmentComboBox* >(QStringLiteral("mAttachmentCombobox"));
+    QVERIFY(mAttachmentCombobox);
 
     auto *mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));
     QVERIFY(mInfo);

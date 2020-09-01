@@ -38,11 +38,17 @@ public:
     Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
 
     Q_REQUIRED_RESULT bool hasFullList() const;
+
+    void setTypeGroup(const QString &typeGroup);
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
     void loadingInProgressChanged();
 private:
+    QString mTypeGroup;
     FilesForRoomModel *const mFilesForRoomModel;
 };
 

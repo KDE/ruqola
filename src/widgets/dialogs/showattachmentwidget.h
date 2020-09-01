@@ -27,6 +27,7 @@ class QLineEdit;
 class QLabel;
 class QListView;
 class FilesForRoomFilterProxyModel;
+class ShowAttachmentComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentWidget : public QWidget
 {
     Q_OBJECT
@@ -41,12 +42,14 @@ Q_SIGNALS:
 
 private:
     void slotSearchMessageTextChanged(const QString &str);
+    void slotChangeAttachmentType(int index);
     void updateLabel();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     QLineEdit *mSearchAttachmentFileLineEdit = nullptr;
     QLabel *mInfo = nullptr;
     QListView *mListAttachment = nullptr;
     FilesForRoomFilterProxyModel *mModel = nullptr;
+    ShowAttachmentComboBox *mAttachmentCombobox = nullptr;
 };
 
 #endif // SHOWATTACHMENTWIDGET_H

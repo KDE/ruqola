@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "showattachmentcombobox.h"
 #include "showattachmentwidget.h"
 #include "attachment/listattachmentdelegate.h"
 #include "model/filesforroomfilterproxymodel.h"
@@ -35,13 +36,24 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    QHBoxLayout *searchAttachmentLayout = new QHBoxLayout;
+    searchAttachmentLayout->setObjectName(QStringLiteral("searchAttachmentLayout"));
+    searchAttachmentLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(searchAttachmentLayout);
+
     mSearchAttachmentFileLineEdit = new QLineEdit(this);
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchAttachmentFileLineEdit, this);
     mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search Attachments..."));
     connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
-    mainLayout->addWidget(mSearchAttachmentFileLineEdit);
+    searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);
+
+    mAttachmentCombobox = new ShowAttachmentComboBox(this);
+    mAttachmentCombobox->setObjectName(QStringLiteral("mAttachmentCombobox"));
+    searchAttachmentLayout->addWidget(mAttachmentCombobox);
+    connect(mAttachmentCombobox, &ShowAttachmentComboBox::currentIndexChanged, this, &ShowAttachmentWidget::slotChangeAttachmentType);
+
 
     mInfo = new QLabel(this);
     mInfo->setObjectName(QStringLiteral("mInfo"));
@@ -65,9 +77,15 @@ ShowAttachmentWidget::~ShowAttachmentWidget()
 {
 }
 
+void ShowAttachmentWidget::slotChangeAttachmentType(int index)
+{
+    mModel->setTypeGroup(mAttachmentCombobox->itemData(index).toString());
+}
+
 void ShowAttachmentWidget::setModel(FilesForRoomFilterProxyModel *model)
 {
     mModel = model;
+    mModel->setTypeGroup(QString());
     mListAttachment->setModel(model);
     connect(mModel, &FilesForRoomFilterProxyModel::hasFullListChanged, this, &ShowAttachmentWidget::updateLabel);
     connect(mModel, &FilesForRoomFilterProxyModel::totalChanged, this, &ShowAttachmentWidget::updateLabel);
