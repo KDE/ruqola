@@ -24,6 +24,7 @@
 #include "rocketchataccount.h"
 #include "dialogs/showvideodialog.h"
 #include "common/delegatepaintutil.h"
+#include "common/delegateutil.h"
 
 #include <KLocalizedString>
 
@@ -85,7 +86,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, QRect
         VideoLayout layout = layoutVideo(message, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            const QString file = querySaveFileName(parentWidget, i18n("Save Video"), QUrl::fromLocalFile(layout.videoPath));
+            const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Video"), QUrl::fromLocalFile(layout.videoPath));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
                 QFile sourceFile(layout.videoPath);

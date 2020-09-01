@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/delegatepaintutil.h"
+#include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
 
 #include <KLocalizedString>
@@ -84,7 +85,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, QRect
         const SoundLayout layout = layoutSound(message, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            const QString file = querySaveFileName(parentWidget, i18n("Save Sound"), QUrl::fromLocalFile(layout.audioPath));
+            const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Sound"), QUrl::fromLocalFile(layout.audioPath));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
                 QFile sourceFile(layout.audioPath);

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 David Faure <faure@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,20 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelperbase.h"
-
-#include <QRect>
-
-MessageDelegateHelperBase::~MessageDelegateHelperBase()
-{
+#ifndef DELETEGATEUTIL_H
+#define DELETEGATEUTIL_H
+#include <QString>
+class QWidget;
+class QUrl;
+namespace DelegateUtil {
+Q_REQUIRED_RESULT QString querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave);
 }
 
-bool MessageDelegateHelperBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
-{
-    Q_UNUSED(mouseEvent)
-    Q_UNUSED(attachmentsRect)
-    Q_UNUSED(option)
-    Q_UNUSED(index)
-    return false;
-}
-
+#endif // DELETEGATEUTIL_H

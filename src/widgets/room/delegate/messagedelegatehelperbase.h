@@ -29,7 +29,6 @@ class QModelIndex;
 class QMouseEvent;
 class QStyleOptionViewItem;
 class QWidget;
-class QUrl;
 
 class Message;
 
@@ -41,8 +40,6 @@ public:
     virtual void draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
     virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
     virtual bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
-
-    static QString querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave);
 };
 
 #endif // MESSAGEDELEGATEHELPERBASE_H

@@ -21,15 +21,15 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/delegatepaintutil.h"
+#include "model/filesforroommodel.h"
+#include "common/delegateutil.h"
 #include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
-#include "model/filesforroommodel.h"
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include "room/delegate/messagedelegatehelperbase.h"
 
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -112,7 +112,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
         if (layout.downloadAttachmentRect.contains(mev->pos())) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            const QString fileName = MessageDelegateHelperBase::querySaveFileName(parentWidget, i18n("Save Attachment"), QUrl(file->url()));
+            const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Attachment"), QUrl(file->url()));
 
             if (!fileName.isEmpty()) {
                 Ruqola::self()->rocketChatAccount()->downloadFile(file->url(), QUrl::fromLocalFile(fileName));

@@ -24,6 +24,7 @@
 #include "rocketchataccount.h"
 #include "dialogs/showimagedialog.h"
 #include "common/delegatepaintutil.h"
+#include "common/delegateutil.h"
 
 #include <KLocalizedString>
 
@@ -123,7 +124,7 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, QRect
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            const auto file = querySaveFileName(parentWidget, i18n("Save Image"), QUrl::fromLocalFile(layout.imagePath));
+            const auto file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Image"), QUrl::fromLocalFile(layout.imagePath));
             if (!file.isEmpty()) {
                 if (!QFile::remove(file)) { // copy() doesn't overwrite
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to remove : " << file;

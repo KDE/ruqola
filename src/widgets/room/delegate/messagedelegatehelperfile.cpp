@@ -22,6 +22,7 @@
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include "common/delegateutil.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
 
@@ -117,7 +118,7 @@ bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
         const QPoint pos = mouseEvent->pos();
 
         auto download = [&](const FileLayout &layout) {
-                            const QString file = querySaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"), QUrl(layout.link));
+                            const QString file = DelegateUtil::querySaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"), QUrl(layout.link));
                             if (!file.isEmpty()) {
                                 const QUrl fileUrl = QUrl::fromLocalFile(file);
                                 Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
