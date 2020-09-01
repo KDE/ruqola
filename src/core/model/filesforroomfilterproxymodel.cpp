@@ -65,6 +65,11 @@ bool FilesForRoomFilterProxyModel::hasFullList() const
     return mFilesForRoomModel->hasFullList();
 }
 
+void FilesForRoomFilterProxyModel::resetTypeGroup()
+{
+    setTypeGroup({});
+}
+
 void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 {
     if (mTypeGroup != typeGroup) {

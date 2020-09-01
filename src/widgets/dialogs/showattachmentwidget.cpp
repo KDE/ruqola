@@ -85,7 +85,7 @@ void ShowAttachmentWidget::slotChangeAttachmentType(int index)
 void ShowAttachmentWidget::setModel(FilesForRoomFilterProxyModel *model)
 {
     mModel = model;
-    mModel->setTypeGroup(QString());
+    mModel->resetTypeGroup();
     mListAttachment->setModel(model);
     connect(mModel, &FilesForRoomFilterProxyModel::hasFullListChanged, this, &ShowAttachmentWidget::updateLabel);
     connect(mModel, &FilesForRoomFilterProxyModel::totalChanged, this, &ShowAttachmentWidget::updateLabel);
