@@ -87,8 +87,7 @@ void ShowAttachmentWidget::updateLabel()
 
 QString ShowAttachmentWidget::displayShowMessageInRoom() const
 {
-    QString displayMessageStr;
-    displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->rowCount(), mModel->total());
+    QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
