@@ -76,6 +76,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/playsoundwidget.cpp
     dialogs/createvideomessagedialog.cpp
     dialogs/createvideomessagewidget.cpp
+    dialogs/showattachmentcombobox.cpp
     )
 
 set(Ruqola_configure_SRCS
@@ -155,6 +156,7 @@ set(Ruqola_common_SRCS
     common/flowlayout.cpp
     common/commandcompletiondelegate.cpp
     common/delegatepaintutil.cpp
+    common/delegateutil.cpp
     )
 
 set(Ruqola_textplugin_SRCS
