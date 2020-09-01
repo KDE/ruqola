@@ -32,5 +32,4 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
 AdministratorWidget::~AdministratorWidget()
 {
-
 }

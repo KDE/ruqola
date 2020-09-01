@@ -89,7 +89,6 @@ void UnityServiceManager::initUnity()
 
         if (reply.isError()) {
             qCWarning(RUQOLA_LOG) << " reply"<<reply.error().message();
-            return;
         }
 
         const QStringList &services = reply.value();

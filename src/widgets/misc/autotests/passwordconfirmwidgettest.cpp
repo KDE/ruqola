@@ -27,7 +27,6 @@ QTEST_MAIN(PasswordConfirmWidgetTest)
 PasswordConfirmWidgetTest::PasswordConfirmWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PasswordConfirmWidgetTest::shouldHaveDefaultValues()

@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(ServicePasswordTest)
 ServicePasswordTest::ServicePasswordTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ServicePasswordTest::shouldHaveDefaultValues()

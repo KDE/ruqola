@@ -103,7 +103,7 @@ PruneMessagesWidget::~PruneMessagesWidget()
 void PruneMessagesWidget::slotCheckDateTime()
 {
     const bool valid = (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime())
-            && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
+                       && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
     Q_EMIT updateOkButton(valid);
 }
 

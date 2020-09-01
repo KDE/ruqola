@@ -59,7 +59,6 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDeleteMyAccount);
     QVERIFY(!mDeleteMyAccount->text().isEmpty());
 
-
     PasswordConfirmWidget *mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
     QVERIFY(mPasswordConfirmWidget);
 }

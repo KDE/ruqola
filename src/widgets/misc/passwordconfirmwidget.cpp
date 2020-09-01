@@ -43,7 +43,6 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
 
 PasswordConfirmWidget::~PasswordConfirmWidget()
 {
-
 }
 
 bool PasswordConfirmWidget::isNewPasswordConfirmed() const

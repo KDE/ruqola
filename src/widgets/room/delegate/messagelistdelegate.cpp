@@ -145,7 +145,7 @@ QPixmap MessageListDelegate::makeAvatarEmojiPixmap(const QString &emojiStr, cons
             QPixmap fullScale(fm.horizontalAdvance(emoticon.unicode()), size.height());
 
             fullScale.fill(Qt::white);
-            QPainter painter( &fullScale );
+            QPainter painter(&fullScale);
             painter.setFont(mEmojiFont);
             painter.drawText(fullScale.rect(), Qt::AlignCenter, emoticon.unicode());
             downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
@@ -291,10 +291,9 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageA
     case MessageAttachment::Audio:
         return mHelperSound.data();
     case MessageAttachment::NormalText:
-        //TODO create AttachmentTextHelper
+    //TODO create AttachmentTextHelper
     case MessageAttachment::Unknown:
         break;
-
     }
     return nullptr;
 }

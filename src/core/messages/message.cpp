@@ -354,7 +354,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
             messageAttachement.parseAttachment(attachment);
 
             if (messageAttachement.isValid()) {
-                switch(messageAttachement.attachmentType()) {
+                switch (messageAttachement.attachmentType()) {
                 case MessageAttachment::AttachmentType::Unknown:
                     qCWarning(RUQOLA_LOG) << "Attachment type is unknown!";
                     break;
@@ -415,7 +415,7 @@ bool Message::operator==(const Message &other) const
            && (mMessageTranslation == other.messageTranslation())
            && (mShowTranslatedMessage == other.showTranslatedMessage())
            && (mReplies == other.replies())
-            && (mEmoji == other.emoji());
+           && (mEmoji == other.emoji());
 }
 
 bool Message::operator<(const Message &other) const

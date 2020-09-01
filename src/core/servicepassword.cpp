@@ -23,19 +23,17 @@
 
 ServicePassword::ServicePassword()
 {
-
 }
 
 ServicePassword::~ServicePassword()
 {
-
 }
 
 bool ServicePassword::operator ==(const ServicePassword &other) const
 {
     return mEmail2faEnabled == other.email2faEnabled()
-            && mPassword == other.password()
-            && mTotp == other.totp();
+           && mPassword == other.password()
+           && mTotp == other.totp();
 }
 
 void ServicePassword::parseService(const QJsonObject &replyObject)
