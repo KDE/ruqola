@@ -40,9 +40,9 @@ int LoginMethodModel::rowCount(const QModelIndex &parent) const
 void LoginMethodModel::clear()
 {
     if (!mAuthentications.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, mAuthentications.count() - 1);
+        beginResetModel();
         mAuthentications.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 

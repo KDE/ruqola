@@ -44,7 +44,7 @@ public:
 private:
     Q_DISABLE_COPY(EmoticonFilterModel)
     QString mCurrentCategory;
-    EmoticonCategoriesModel *mEmoticonCategoriesModel = nullptr;
+    EmoticonCategoriesModel *const mEmoticonCategoriesModel;
 };
 
 #endif // EMOTICONFILTERMODEL_H
