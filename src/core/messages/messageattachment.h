@@ -91,7 +91,7 @@ public:
     Q_REQUIRED_RESULT QString text() const;
     void setText(const QString &text);
 
-    AttachmentType attachmentType() const;
+    Q_REQUIRED_RESULT AttachmentType attachmentType() const;
     void setAttachmentType(AttachmentType attachmentType);
 
 private:
