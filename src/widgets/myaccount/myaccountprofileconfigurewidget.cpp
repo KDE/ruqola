@@ -128,7 +128,7 @@ void MyAccountProfileConfigureWidget::save()
         updateInfo.name = mName->text();
     }
     if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
-        updateInfo.newPassword = mPasswordConfirmWidget->password(); //TOOD use ssha256 ???
+        updateInfo.newPassword = mPasswordConfirmWidget->password(); //TODO use ssha256 ???
     }
     //TODO add more.
     if (updateInfo.isValid()) {

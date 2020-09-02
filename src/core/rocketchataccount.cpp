@@ -2187,6 +2187,10 @@ void RocketChatAccount::slotRegisterUserDone()
 
 void RocketChatAccount::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
 {
+    if (!info.newPassword.isEmpty()) {
+        //TODO
+    }
+    //TODO add currentPassword (ssha256)
     restApi()->updateOwnBasicInfo(info);
 }
 

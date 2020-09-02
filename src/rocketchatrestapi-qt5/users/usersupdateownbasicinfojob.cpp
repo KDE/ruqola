@@ -119,6 +119,8 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
         dataObj[QLatin1String("statustext")] = mUpdateOwnBasicInfo.statusText;
     }
     if (!mUpdateOwnBasicInfo.newPassword.isEmpty()) {
+        dataObj[QLatin1String("currentPassword")] = mUpdateOwnBasicInfo.currentPassword;
+        dataObj[QLatin1String("newPassword")] = mUpdateOwnBasicInfo.newPassword;
         //TODO use ssh256
     }
 
