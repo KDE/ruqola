@@ -68,6 +68,7 @@ void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *mode
 {
     mModel = model;
     mMessageListView->setModel(model);
+    mModel->setFilterString({});
     connect(mModel, &ListMessagesModelFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
     connect(mModel, &ListMessagesModelFilterProxyModel::loadingInProgressChanged, this, &ShowListMessageBaseWidget::updateLabel);
     updateLabel();
