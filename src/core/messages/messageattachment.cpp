@@ -21,6 +21,7 @@
 #include "messageattachment.h"
 
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QJsonObject>
 
 MessageAttachment::MessageAttachment()
@@ -82,6 +83,14 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         mAttachmentType = AttachmentType::NormalText;
         setText(text.toString());
     }
+    const QJsonArray fieldsArray = attachment.value(QLatin1String("fields")).toArray();
+    QVector<MessageAttachmentField> messageFields;
+    messageFields.reserve(fieldsArray.size());
+    for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
+        messageFields.append(MessageAttachmentField::fromJson(fieldsArray.at(i).toObject()));
+    }
+    setAttachmentFields(messageFields);
+
 }
 
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
@@ -110,6 +119,15 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (!text.isEmpty()) {
         obj[QStringLiteral("text")] = text;
     }
+
+    QJsonArray fieldArray;
+    for (int i = 0; i < message.attachmentFields().count(); ++i) {
+        QJsonObject fields = MessageAttachmentField::serialize(message.attachmentFields().at(i));
+        fieldArray.append(fields);
+    }
+    if (!fieldArray.isEmpty()) {
+        obj[QStringLiteral("fields")] = fieldArray;
+    }
     return obj;
 }
 
@@ -131,6 +149,13 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
         att.setImageWidth(valWidth.toInt());
     }
     att.setColor(o.value(QLatin1String("color")).toString());
+    const QJsonArray fieldsArray = o.value(QLatin1String("fields")).toArray();
+    QVector<MessageAttachmentField> messageFields;
+    messageFields.reserve(fieldsArray.size());
+    for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
+        messageFields.append(MessageAttachmentField::fromJson(fieldsArray.at(i).toObject()));
+    }
+    att.setAttachmentFields(messageFields);
     return att;
 }
 
