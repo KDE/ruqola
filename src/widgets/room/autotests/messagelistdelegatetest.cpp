@@ -22,7 +22,7 @@
 #include "room/delegate/messagelistdelegate.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "messagedelegatehelperimagetest.h"
+#include "messageattachmentdelegatehelperimagetest.h"
 #include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "testdata.h"

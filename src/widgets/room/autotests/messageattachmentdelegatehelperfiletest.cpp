@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelperfiletest.h"
-#include "room/delegate/messagedelegatehelperfile.h"
+#include "messageattachmentdelegatehelperfiletest.h"
+#include "room/delegate/messageattachmentdelegatehelperfile.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "messages/message.h"
@@ -38,7 +38,7 @@ MessageDelegateHelperFileTest::MessageDelegateHelperFileTest(QObject *parent)
 void MessageDelegateHelperFileTest::shouldLayoutMultipleFiles()
 {
     // GIVEN a helper and a message with two attachments
-    MessageDelegateHelperFile helper;
+    MessageAttachmentDelegateHelperFile helper;
     QStyleOptionViewItem option;
     QWidget fakeWidget;
     option.widget = &fakeWidget;
@@ -63,16 +63,16 @@ void MessageDelegateHelperFileTest::shouldLayoutMultipleFiles()
     message.setAttachements({msgAttach1, msgAttach2});
 
     // WHEN
-    const QVector<MessageDelegateHelperFile::FileLayout> layouts = helper.doLayout(&message, option);
+    const QVector<MessageAttachmentDelegateHelperFile::FileLayout> layouts = helper.doLayout(&message, option);
 
     // THEN
     QCOMPARE(layouts.count(), 2);
-    const MessageDelegateHelperFile::FileLayout layout1 = layouts.at(0);
+    const MessageAttachmentDelegateHelperFile::FileLayout layout1 = layouts.at(0);
     QCOMPARE(layout1.title, title1);
     QCOMPARE(layout1.description, description1);
     QCOMPARE(layout1.y, 0);
     QVERIFY(layout1.height > 0);
-    const MessageDelegateHelperFile::FileLayout layout2 = layouts.at(1);
+    const MessageAttachmentDelegateHelperFile::FileLayout layout2 = layouts.at(1);
     QCOMPARE(layout2.title, title2);
     QCOMPARE(layout2.description, description2);
     QVERIFY(layout2.y >= layout1.y + layout1.height);

@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelpervideo.h"
+#include "messageattachmentdelegatehelpervideo.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
@@ -35,11 +35,11 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-MessageDelegateHelperVideo::~MessageDelegateHelperVideo()
+MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo()
 {
 }
 
-void MessageDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -60,7 +60,7 @@ void MessageDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRec
     }
 }
 
-QSize MessageDelegateHelperVideo::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperVideo::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -77,7 +77,7 @@ QSize MessageDelegateHelperVideo::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -107,7 +107,7 @@ bool MessageDelegateHelperVideo::handleMouseEvent(QMouseEvent *mouseEvent, QRect
     return false;
 }
 
-MessageDelegateHelperVideo::VideoLayout MessageDelegateHelperVideo::layoutVideo(const Message *message, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperVideo::VideoLayout MessageAttachmentDelegateHelperVideo::layoutVideo(const Message *message, const QStyleOptionViewItem &option) const
 {
     VideoLayout layout;
     if (message->attachements().isEmpty()) {

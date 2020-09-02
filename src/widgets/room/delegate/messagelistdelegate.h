@@ -33,11 +33,12 @@ class RocketChatAccount;
 class Message;
 class MessageDelegateHelperBase;
 class MessageDelegateHelperText;
-class MessageDelegateHelperImage;
-class MessageDelegateHelperFile;
+class MessageAttachmentDelegateHelperImage;
+class MessageAttachmentDelegateHelperFile;
 class MessageDelegateHelperReactions;
-class MessageDelegateHelperVideo;
-class MessageDelegateHelperSound;
+class MessageAttachmentDelegateHelperVideo;
+class MessageAttachmentDelegateHelperSound;
+class MessageAttachmentDelegateHelperText;
 class MessageAttachment;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
@@ -132,11 +133,12 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
-    QScopedPointer<MessageDelegateHelperImage> mHelperImage;
-    QScopedPointer<MessageDelegateHelperFile> mHelperFile;
+    QScopedPointer<MessageAttachmentDelegateHelperImage> mHelperAttachmentImage;
+    QScopedPointer<MessageAttachmentDelegateHelperFile> mHelperAttachmentFile;
     QScopedPointer<MessageDelegateHelperReactions> mHelperReactions;
-    QScopedPointer<MessageDelegateHelperVideo> mHelperVideo;
-    QScopedPointer<MessageDelegateHelperSound> mHelperSound;
+    QScopedPointer<MessageAttachmentDelegateHelperVideo> mHelperAttachmentVideo;
+    QScopedPointer<MessageAttachmentDelegateHelperSound> mHelperAttachmentSound;
+    QScopedPointer<MessageAttachmentDelegateHelperText> mHelperAttachmentText;
     // DPR-dependent cache of avatars
     struct AvatarCache {
         qreal dpr = 0.;

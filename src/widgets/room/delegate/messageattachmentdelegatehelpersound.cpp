@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelpersound.h"
+#include "messageattachmentdelegatehelpersound.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
@@ -35,11 +35,11 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-MessageDelegateHelperSound::~MessageDelegateHelperSound()
+MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
 {
 }
 
-void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperSound::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -59,7 +59,7 @@ void MessageDelegateHelperSound::draw(QPainter *painter, const QRect &messageRec
     }
 }
 
-QSize MessageDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -76,7 +76,7 @@ QSize MessageDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -106,7 +106,7 @@ bool MessageDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, QRect
     return false;
 }
 
-MessageDelegateHelperSound::SoundLayout MessageDelegateHelperSound::layoutSound(const Message *message, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelperSound::layoutSound(const Message *message, const QStyleOptionViewItem &option) const
 {
     SoundLayout layout;
     if (message->attachements().isEmpty()) {

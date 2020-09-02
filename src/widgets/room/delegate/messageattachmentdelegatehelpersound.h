@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 David Faure <faure@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,36 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERFILE_H
-#define MESSAGEDELEGATEHELPERFILE_H
+#ifndef MESSAGEATTACHMENTDELEGATEHELPERSOUND_H
+#define MESSAGEATTACHMENTDELEGATEHELPERSOUND_H
 
 #include "messagedelegatehelperbase.h"
 
-#include <QRect>
-#include <QString>
+#include <QModelIndex>
+#include <QPixmap>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperFile : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : public MessageDelegateHelperBase
 {
 public:
-    ~MessageDelegateHelperFile() override;
-    void draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    ~MessageAttachmentDelegateHelperSound() override;
+    void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    struct FileLayout
-    {
+    struct SoundLayout {
+        QString audioPath;
         QString title;
         QString description;
         QSize titleSize;
         QSize descriptionSize;
+        QRect playerVolumeButtonRect;
         QRect downloadButtonRect;
-        int y; // relative
-        int height;
-        QString link;
     };
-    QVector<FileLayout> doLayout(const Message *message, const QStyleOptionViewItem &option) const;
-    friend class MessageDelegateHelperFileTest;
+    Q_REQUIRED_RESULT SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option) const;
 };
 
-#endif // MESSAGEDELEGATEHELPERFILE_H
+#endif // MESSAGEATTACHMENTDELEGATEHELPERSOUND_H

@@ -119,11 +119,12 @@ set(Ruqola_roomwidget_SRCS
     room/delegate/messagelistdelegate.cpp
     room/delegate/messagedelegatehelperbase.cpp
     room/delegate/messagedelegatehelpertext.cpp
-    room/delegate/messagedelegatehelperimage.cpp
-    room/delegate/messagedelegatehelperfile.cpp
+    room/delegate/messageattachmentdelegatehelpertext.cpp
+    room/delegate/messageattachmentdelegatehelperimage.cpp
+    room/delegate/messageattachmentdelegatehelperfile.cpp
     room/delegate/messagedelegatehelperreactions.cpp
-    room/delegate/messagedelegatehelpervideo.cpp
-    room/delegate/messagedelegatehelpersound.cpp
+    room/delegate/messageattachmentdelegatehelpervideo.cpp
+    room/delegate/messageattachmentdelegatehelpersound.cpp
     room/delegate/runninganimatedimage.cpp
     room/delegate/pixmapcache.cpp
     room/messagelinewidget.cpp

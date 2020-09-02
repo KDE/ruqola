@@ -21,11 +21,12 @@
 #include "messagelistdelegate.h"
 #include "messagedelegatehelperbase.h"
 #include "messagedelegatehelpertext.h"
-#include "messagedelegatehelperimage.h"
-#include "messagedelegatehelperfile.h"
+#include "messageattachmentdelegatehelperimage.h"
+#include "messageattachmentdelegatehelperfile.h"
 #include "messagedelegatehelperreactions.h"
-#include "messagedelegatehelpervideo.h"
-#include "messagedelegatehelpersound.h"
+#include "messageattachmentdelegatehelpervideo.h"
+#include "messageattachmentdelegatehelpersound.h"
+#include "messageattachmentdelegatehelpertext.h"
 #include "model/messagemodel.h"
 #include "emoticons/emojimanager.h"
 #include "ruqola.h"
@@ -61,11 +62,12 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mHelperText(new MessageDelegateHelperText)
-    , mHelperImage(new MessageDelegateHelperImage)
-    , mHelperFile(new MessageDelegateHelperFile)
+    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
+    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
     , mHelperReactions(new MessageDelegateHelperReactions)
-    , mHelperVideo(new MessageDelegateHelperVideo)
-    , mHelperSound(new MessageDelegateHelperSound)
+    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo)
+    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound)
+    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText)
 {
 }
 
@@ -283,15 +285,15 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageA
 {
     switch (msgAttach.attachmentType()) {
     case MessageAttachment::Image:
-        return mHelperImage.data();
+        return mHelperAttachmentImage.data();
     case MessageAttachment::File:
-        return mHelperFile.data();
+        return mHelperAttachmentFile.data();
     case MessageAttachment::Video:
-        return mHelperVideo.data();
+        return mHelperAttachmentVideo.data();
     case MessageAttachment::Audio:
-        return mHelperSound.data();
+        return mHelperAttachmentSound.data();
     case MessageAttachment::NormalText:
-    //TODO create AttachmentTextHelper
+        return mHelperAttachmentText.data();
     case MessageAttachment::Unknown:
         break;
     }

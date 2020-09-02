@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,33 +18,52 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERVIDEO_H
-#define MESSAGEDELEGATEHELPERVIDEO_H
+#ifndef MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H
+#define MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H
 
 #include "messagedelegatehelperbase.h"
+#include "pixmapcache.h"
+#include "runninganimatedimage.h"
 
 #include <QModelIndex>
-#include <QRect>
+#include <QPixmap>
+#include <vector>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperVideo : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:
-    ~MessageDelegateHelperVideo() override;
+    MessageAttachmentDelegateHelperImage() = default;
+    ~MessageAttachmentDelegateHelperImage() = default;
+    MessageAttachmentDelegateHelperImage(const MessageAttachmentDelegateHelperImage &) = delete;
+    MessageAttachmentDelegateHelperImage &operator=(const MessageAttachmentDelegateHelperImage &) = delete;
     void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    struct VideoLayout {
-        QString videoPath;
+    friend class MessageDelegateHelperImageTest;
+
+    struct ImageLayout {
+        QPixmap pixmap;
+        QString imagePath;
         QString title;
         QString description;
         QSize titleSize;
+        QSize imageSize;
         QSize descriptionSize;
+        QRect hideShowButtonRect;
         QRect downloadButtonRect;
-        QRect showButtonRect;
+        bool isShown = true;
+        bool isAnimatedImage = false;
     };
-    VideoLayout layoutVideo(const Message *message, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
+
+    std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
+    void removeRunningAnimatedImage(const QModelIndex &index) const;
+
+private:
+    mutable PixmapCache mPixmapCache;
+    mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
 };
 
-#endif // MESSAGEDELEGATEHELPERVIDEO_H
+#endif // MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H

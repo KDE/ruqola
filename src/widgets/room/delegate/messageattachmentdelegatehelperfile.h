@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,33 +18,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERSOUND_H
-#define MESSAGEDELEGATEHELPERSOUND_H
+#ifndef MESSAGEATTACHMENTDELEGATEHELPERFILE_H
+#define MESSAGEATTACHMENTDELEGATEHELPERFILE_H
 
 #include "messagedelegatehelperbase.h"
 
-#include <QModelIndex>
-#include <QPixmap>
+#include <QRect>
+#include <QString>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperSound : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
-    ~MessageDelegateHelperSound() override;
-    void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    ~MessageAttachmentDelegateHelperFile() override;
+    void draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    struct SoundLayout {
-        QString audioPath;
+    struct FileLayout
+    {
         QString title;
         QString description;
         QSize titleSize;
         QSize descriptionSize;
-        QRect playerVolumeButtonRect;
         QRect downloadButtonRect;
+        int y; // relative
+        int height;
+        QString link;
     };
-    SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT QVector<FileLayout> doLayout(const Message *message, const QStyleOptionViewItem &option) const;
+    friend class MessageDelegateHelperFileTest;
 };
 
-#endif // MESSAGEDELEGATEHELPERSOUND_H
+#endif // MESSAGEATTACHMENTDELEGATEHELPERFILE_H

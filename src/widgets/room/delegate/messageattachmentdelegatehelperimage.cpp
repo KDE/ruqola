@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelperimage.h"
+#include "messageattachmentdelegatehelperimage.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
@@ -37,7 +37,7 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -91,7 +91,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
     }
 }
 
-QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -111,7 +111,7 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -156,7 +156,7 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, QRect
     return false;
 }
 
-MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
     ImageLayout layout;
     if (message->attachements().isEmpty()) {
@@ -196,7 +196,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
     return layout;
 }
 
-std::vector<RunningAnimatedImage>::iterator MessageDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
+std::vector<RunningAnimatedImage>::iterator MessageAttachmentDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
 {
     auto matchesIndex = [&](const RunningAnimatedImage &rai) {
                             return rai.index == index;
@@ -204,7 +204,7 @@ std::vector<RunningAnimatedImage>::iterator MessageDelegateHelperImage::findRunn
     return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
 }
 
-void MessageDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index) const
+void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index) const
 {
     auto it = findRunningAnimatedImage(index);
     if (it != mRunningAnimatedImages.end()) {

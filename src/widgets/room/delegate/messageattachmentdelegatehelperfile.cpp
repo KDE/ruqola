@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelperfile.h"
+#include "messageattachmentdelegatehelperfile.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -37,11 +37,11 @@
 
 static const int vMargin = 8;
 
-MessageDelegateHelperFile::~MessageDelegateHelperFile()
+MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 {
 }
 
-void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperFile::draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
@@ -72,7 +72,7 @@ void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &attachments
     }
 }
 
-QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
@@ -83,7 +83,7 @@ QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth
                  layouts.last().y + layouts.last().height + vMargin);
 }
 
-QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayout(const Message *message, const QStyleOptionViewItem &option) const
+QVector<MessageAttachmentDelegateHelperFile::FileLayout> MessageAttachmentDelegateHelperFile::doLayout(const Message *message, const QStyleOptionViewItem &option) const
 {
     QVector<FileLayout> layouts;
     const QVector<MessageAttachment> &attachments = message->attachements();
@@ -110,7 +110,7 @@ QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayo
     return layouts;
 }
 
-bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();

@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagedelegatehelperimagetest.h"
-#include "room/delegate/messagedelegatehelperimage.h"
+#include "messageattachmentdelegatehelperimagetest.h"
+#include "room/delegate/messageattachmentdelegatehelperimage.h"
 #include "managerdatapaths.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
@@ -41,7 +41,7 @@ MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
 
 void MessageDelegateHelperImageTest::shouldExtractMessageData()
 {
-    MessageDelegateHelperImage helper;
+    MessageAttachmentDelegateHelperImage helper;
     QStyleOptionViewItem option;
     QWidget fakeWidget;
     option.widget = &fakeWidget;
@@ -49,7 +49,7 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     const MessageAttachment msgAttach = testAttachment();
     message.setAttachements({msgAttach});
 
-    const MessageDelegateHelperImage::ImageLayout layout = helper.layoutImage(&message, option, 500, 500);
+    const MessageAttachmentDelegateHelperImage::ImageLayout layout = helper.layoutImage(&message, option, 500, 500);
     QCOMPARE(layout.title, msgAttach.title());
     QCOMPARE(layout.description, msgAttach.description());
     QVERIFY(layout.isShown);
