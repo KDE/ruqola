@@ -19,6 +19,7 @@
 */
 
 #include "messageattachment.h"
+
 #include <KLocalizedString>
 #include <QJsonObject>
 
@@ -228,6 +229,16 @@ MessageAttachment::AttachmentType MessageAttachment::attachmentType() const
 void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
 {
     mAttachmentType = attachmentType;
+}
+
+QVector<MessageAttachmentField> MessageAttachment::attachmentFields() const
+{
+    return mAttachmentFields;
+}
+
+void MessageAttachment::setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields)
+{
+    mAttachmentFields = attachmentFields;
 }
 
 QString MessageAttachment::displayTitle() const

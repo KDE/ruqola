@@ -22,7 +22,9 @@
 #define MESSAGEATTACHMENT_H
 
 #include "libruqolacore_export.h"
+#include "messageattachmentfield.h"
 #include <QDebug>
+class MessageAttachmentField;
 class LIBRUQOLACORE_EXPORT MessageAttachment
 {
     Q_GADGET
@@ -94,8 +96,11 @@ public:
     Q_REQUIRED_RESULT AttachmentType attachmentType() const;
     void setAttachmentType(AttachmentType attachmentType);
 
+    Q_REQUIRED_RESULT QVector<MessageAttachmentField> attachmentFields() const;
+    void setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields);
+
 private:
-    //TODO add fields support ?
+    QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
     QString mColor;
     QString mDescription;

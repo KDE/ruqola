@@ -43,5 +43,6 @@ private:
     QString mTitle;
     QString mValue;
 };
-
+Q_DECLARE_TYPEINFO(MessageAttachmentField, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachmentField &t);
 #endif // MESSAGEATTACHMENTFIELD_H
