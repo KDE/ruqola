@@ -93,14 +93,14 @@ void ShowListMessageBaseWidget::updateLabel()
     if (mModel->loadMoreListMessagesInProgress()) {
         mMessageListInfo->setText(i18n("Loading..."));
     } else {
-        mMessageListInfo->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+        mMessageListInfo->setText(mModel->numberOfMessages() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
     }
 }
 
 QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
 {
     QString displayMessageStr;
-    displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mModel->rowCount(), mModel->total());
+    displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mModel->numberOfMessages(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }

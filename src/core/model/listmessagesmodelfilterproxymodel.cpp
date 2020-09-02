@@ -97,3 +97,8 @@ bool ListMessagesModelFilterProxyModel::loadMoreListMessagesInProgress() const
 {
     return mModel->loadMoreListMessagesInProgress();
 }
+
+int ListMessagesModelFilterProxyModel::numberOfMessages() const
+{
+    return mModel->rowCount();
+}

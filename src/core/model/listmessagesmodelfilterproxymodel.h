@@ -44,6 +44,8 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
     Q_REQUIRED_RESULT bool loadMoreListMessagesInProgress() const;
 
+    Q_REQUIRED_RESULT int numberOfMessages() const;
+
 Q_SIGNALS:
     void hasFullListChanged();
     void listMessageTypeChanged();
