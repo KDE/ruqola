@@ -65,6 +65,11 @@ bool FilesForRoomFilterProxyModel::hasFullList() const
     return mFilesForRoomModel->hasFullList();
 }
 
+int FilesForRoomFilterProxyModel::attachmentCount() const
+{
+    return mFilesForRoomModel->rowCount();
+}
+
 void FilesForRoomFilterProxyModel::resetTypeGroup()
 {
     setTypeGroup({});

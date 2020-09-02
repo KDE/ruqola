@@ -100,12 +100,12 @@ void ShowAttachmentWidget::slotSearchMessageTextChanged(const QString &str)
 
 void ShowAttachmentWidget::updateLabel()
 {
-    mInfo->setText(mModel->rowCount() == 0 ? i18n("No Attachments found") : displayShowMessageInRoom());
+    mInfo->setText(mModel->attachmentCount() == 0 ? i18n("No Attachments found") : displayShowMessageInRoom());
 }
 
 QString ShowAttachmentWidget::displayShowMessageInRoom() const
 {
-    QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->rowCount(), mModel->total());
+    QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->attachmentCount(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }

@@ -39,6 +39,8 @@ public:
 
     Q_REQUIRED_RESULT bool hasFullList() const;
 
+    Q_REQUIRED_RESULT int attachmentCount() const;
+
     void setTypeGroup(const QString &typeGroup);
     void resetTypeGroup();
 protected:
