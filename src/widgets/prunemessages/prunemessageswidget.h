@@ -22,7 +22,7 @@
 #define PRUNEMESSAGESWIDGET_H
 
 #include <QWidget>
-#include "channels/channelcleanhistoryjob.h"
+#include "rooms/roomscleanhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QDateTimeEdit;
@@ -34,7 +34,7 @@ public:
     explicit PruneMessagesWidget(QWidget *parent = nullptr);
     ~PruneMessagesWidget();
 
-    Q_REQUIRED_RESULT RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
+    Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
 Q_SIGNALS:
     void updateOkButton(bool b);

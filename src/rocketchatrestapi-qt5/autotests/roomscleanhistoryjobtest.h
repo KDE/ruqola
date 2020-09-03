@@ -18,17 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSUPDATEOWNBASICINFOTEST_H
-#define USERSUPDATEOWNBASICINFOTEST_H
+#ifndef ROOMSCLEANHISTORYJOBTEST_H
+#define ROOMSCLEANHISTORYJOBTEST_H
 
 #include <QObject>
 
-class ChannelCleanHistoryJobTest : public QObject
+class RoomsCleanHistoryJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ChannelCleanHistoryJobTest(QObject *parent = nullptr);
-    ~ChannelCleanHistoryJobTest() override = default;
+    explicit RoomsCleanHistoryJobTest(QObject *parent = nullptr);
+    ~RoomsCleanHistoryJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
@@ -36,4 +36,4 @@ private Q_SLOTS:
     void shouldNotStarting();
 };
 
-#endif // USERSUPDATEOWNBASICINFOTEST_H
+#endif

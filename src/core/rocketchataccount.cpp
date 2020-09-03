@@ -238,7 +238,7 @@ OwnUser RocketChatAccount::ownUser() const
     return mOwnUser;
 }
 
-void RocketChatAccount::cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info)
+void RocketChatAccount::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)
 {
     restApi()->cleanChannelHistory(info);
 }

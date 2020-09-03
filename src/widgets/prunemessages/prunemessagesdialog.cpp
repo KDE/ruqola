@@ -60,7 +60,7 @@ PruneMessagesDialog::~PruneMessagesDialog()
     writeConfig();
 }
 
-RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesDialog::cleanHistoryInfo() const
+RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesDialog::cleanHistoryInfo() const
 {
     return mPruneMessageWidget->cleanHistoryInfo();
 }

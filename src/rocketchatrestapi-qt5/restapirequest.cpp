@@ -1858,12 +1858,12 @@ void RestApiRequest::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnB
     }
 }
 
-void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info)
+void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)
 {
-    auto *job = new ChannelCleanHistoryJob(this);
+    auto *job = new RoomsCleanHistoryJob(this);
     job->setCleanHistoryInfo(info);
     initializeRestApiJob(job);
-    connect(job, &ChannelCleanHistoryJob::cleanHistoryDone, this, &RestApiRequest::cleanHistoryDone);
+    connect(job, &RoomsCleanHistoryJob::cleanHistoryDone, this, &RestApiRequest::cleanHistoryDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelCleanHistoryJob";
     }

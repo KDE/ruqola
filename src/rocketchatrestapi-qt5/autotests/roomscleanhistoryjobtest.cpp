@@ -18,40 +18,40 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channelcleanhistoryjobtest.h"
-#include "channels/channelcleanhistoryjob.h"
+#include "roomscleanhistoryjobtest.h"
+#include "rooms/roomscleanhistoryjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
-QTEST_GUILESS_MAIN(ChannelCleanHistoryJobTest)
+QTEST_GUILESS_MAIN(RoomsCleanHistoryJobTest)
 using namespace RocketChatRestApi;
-ChannelCleanHistoryJobTest::ChannelCleanHistoryJobTest(QObject *parent)
+RoomsCleanHistoryJobTest::RoomsCleanHistoryJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void ChannelCleanHistoryJobTest::shouldHaveDefaultValue()
+void RoomsCleanHistoryJobTest::shouldHaveDefaultValue()
 {
-    ChannelCleanHistoryJob job;
+    RoomsCleanHistoryJob job;
     QVERIFY(!job.cleanHistoryInfo().isValid());
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void ChannelCleanHistoryJobTest::shouldGenerateRequest()
+void RoomsCleanHistoryJobTest::shouldGenerateRequest()
 {
-    ChannelCleanHistoryJob job;
+    RoomsCleanHistoryJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.cleanHistory")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void ChannelCleanHistoryJobTest::shouldGenerateJson()
+void RoomsCleanHistoryJobTest::shouldGenerateJson()
 {
-    ChannelCleanHistoryJob job;
-    ChannelCleanHistoryJob::CleanHistoryInfo info;
+    RoomsCleanHistoryJob job;
+    RoomsCleanHistoryJob::CleanHistoryInfo info;
     const QString roomId = QStringLiteral("room1");
     info.roomId = roomId;
     info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50)).toUTC();
@@ -70,9 +70,9 @@ void ChannelCleanHistoryJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"room1\",\"users\":[\"bla\",\"bli\"]}").arg(roomId).toLatin1());
 }
 
-void ChannelCleanHistoryJobTest::shouldNotStarting()
+void RoomsCleanHistoryJobTest::shouldNotStarting()
 {
-    ChannelCleanHistoryJob job;
+    RoomsCleanHistoryJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -87,7 +87,7 @@ void ChannelCleanHistoryJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    ChannelCleanHistoryJob::CleanHistoryInfo info;
+    RoomsCleanHistoryJob::CleanHistoryInfo info;
     const QString roomId = QStringLiteral("room1");
     info.roomId = roomId;
     job.setCleanHistoryInfo(info);

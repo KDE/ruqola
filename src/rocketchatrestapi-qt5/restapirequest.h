@@ -25,7 +25,7 @@
 #include <QSslError>
 #include <QUrl>
 #include "rooms/roomsadminjob.h"
-#include "channels/channelcleanhistoryjob.h"
+#include "rooms/roomscleanhistoryjob.h"
 #include "users/usersupdateownbasicinfojob.h"
 #include "commands/runcommandjob.h"
 #include "invite/findorcreateinvitejob.h"
@@ -194,7 +194,7 @@ public:
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void enable2FaEmailJob(bool enable);
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
-    void cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info);
+    void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
     void getRoomsAdmin(const RocketChatRestApi::RoomsAdminJob::RoomsAdminJobInfo &info);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);

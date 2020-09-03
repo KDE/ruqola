@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channelcleanhistoryjob.h"
+#include "roomscleanhistoryjob.h"
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
@@ -27,16 +27,16 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-ChannelCleanHistoryJob::ChannelCleanHistoryJob(QObject *parent)
-    : ChannelBaseJob(parent)
+RoomsCleanHistoryJob::RoomsCleanHistoryJob(QObject *parent)
+    : RestApiAbstractJob(parent)
 {
 }
 
-ChannelCleanHistoryJob::~ChannelCleanHistoryJob()
+RoomsCleanHistoryJob::~RoomsCleanHistoryJob()
 {
 }
 
-bool ChannelCleanHistoryJob::start()
+bool RoomsCleanHistoryJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -44,11 +44,11 @@ bool ChannelCleanHistoryJob::start()
     }
     addStartRestApiInfo("ChannelCleanHistoryJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChannelCleanHistoryJob::slotCleanHistoryFinished);
+    connect(reply, &QNetworkReply::finished, this, &RoomsCleanHistoryJob::slotCleanHistoryFinished);
     return true;
 }
 
-void ChannelCleanHistoryJob::slotCleanHistoryFinished()
+void RoomsCleanHistoryJob::slotCleanHistoryFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -68,22 +68,22 @@ void ChannelCleanHistoryJob::slotCleanHistoryFinished()
     deleteLater();
 }
 
-ChannelCleanHistoryJob::CleanHistoryInfo ChannelCleanHistoryJob::cleanHistoryInfo() const
+RoomsCleanHistoryJob::CleanHistoryInfo RoomsCleanHistoryJob::cleanHistoryInfo() const
 {
     return mCleanHistoryInfo;
 }
 
-void ChannelCleanHistoryJob::setCleanHistoryInfo(const CleanHistoryInfo &cleanHistoryInfo)
+void RoomsCleanHistoryJob::setCleanHistoryInfo(const CleanHistoryInfo &cleanHistoryInfo)
 {
     mCleanHistoryInfo = cleanHistoryInfo;
 }
 
-bool ChannelCleanHistoryJob::requireHttpAuthentication() const
+bool RoomsCleanHistoryJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ChannelCleanHistoryJob::canStart() const
+bool RoomsCleanHistoryJob::canStart() const
 {
     if (!mCleanHistoryInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
@@ -96,7 +96,7 @@ bool ChannelCleanHistoryJob::canStart() const
     return true;
 }
 
-QJsonDocument ChannelCleanHistoryJob::json() const
+QJsonDocument RoomsCleanHistoryJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = mCleanHistoryInfo.roomId;
@@ -124,7 +124,7 @@ QJsonDocument ChannelCleanHistoryJob::json() const
     return postData;
 }
 
-QNetworkRequest ChannelCleanHistoryJob::request() const
+QNetworkRequest RoomsCleanHistoryJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsCleanHistory);
     QNetworkRequest request(url);
@@ -133,12 +133,12 @@ QNetworkRequest ChannelCleanHistoryJob::request() const
     return request;
 }
 
-bool ChannelCleanHistoryJob::CleanHistoryInfo::isValid() const
+bool RoomsCleanHistoryJob::CleanHistoryInfo::isValid() const
 {
     return latest.isValid() && oldest.isValid() && !roomId.isEmpty();
 }
 
-QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &t)
+QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t)
 {
     d << "latest " << t.latest;
     d << "oldest " << t.oldest;

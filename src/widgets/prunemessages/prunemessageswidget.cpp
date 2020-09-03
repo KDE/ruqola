@@ -107,9 +107,9 @@ void PruneMessagesWidget::slotCheckDateTime()
     Q_EMIT updateOkButton(valid);
 }
 
-RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
+RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::cleanHistoryInfo() const
 {
-    RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo info;
+    RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info;
     info.latest = mLastestDateTimeEdit->dateTime().toUTC();
     info.oldest = mOldestDateTimeEdit->dateTime().toUTC();
     info.inclusive = mInclusive->isChecked();

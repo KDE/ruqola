@@ -208,7 +208,7 @@ void RoomWidget::slotPruneMessages()
 {
     QPointer<PruneMessagesDialog> dlg = new PruneMessagesDialog(this);
     if (dlg->exec()) {
-        RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
+        RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
         info.roomId = mRoomId;
         mCurrentRocketChatAccount->cleanChannelHistory(info);
     }

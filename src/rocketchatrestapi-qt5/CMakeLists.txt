@@ -94,7 +94,6 @@ set (RocketChatRestApiQt_SRCS
     channels/channelremoveleaderjob.cpp
     channels/channeladdleaderjob.cpp
     channels/channelbasejob.cpp
-    channels/channelcleanhistoryjob.cpp
 
     groups/changegroupstopicjob.cpp
     groups/changegroupsannouncementjob.cpp
@@ -131,6 +130,7 @@ set (RocketChatRestApiQt_SRCS
     rooms/getdiscussionsjob.cpp
     rooms/roomsautocompletechannelandprivatejob.cpp
     rooms/roomsadminjob.cpp
+    rooms/roomscleanhistoryjob.cpp
 
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp

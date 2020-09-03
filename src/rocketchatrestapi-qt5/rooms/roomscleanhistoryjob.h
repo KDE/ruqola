@@ -18,15 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELCLEANHISTORYJOB_H
-#define CHANNELCLEANHISTORYJOB_H
+#ifndef ROOMSCLEANHISTORYJOB_H
+#define ROOMSCLEANHISTORYJOB_H
 
 #include "librocketchatrestapi-qt5_export.h"
-#include "channelbasejob.h"
+#include "restapiabstractjob.h"
 #include <QDateTime>
 #include <QDebug>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelCleanHistoryJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsCleanHistoryJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -41,8 +41,8 @@ public:
         bool filesOnly = false;
         bool ignoreThreads = false;
     };
-    explicit ChannelCleanHistoryJob(QObject *parent = nullptr);
-    ~ChannelCleanHistoryJob() override;
+    explicit RoomsCleanHistoryJob(QObject *parent = nullptr);
+    ~RoomsCleanHistoryJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -59,11 +59,11 @@ Q_SIGNALS:
     void cleanHistoryDone();
 
 private:
-    Q_DISABLE_COPY(ChannelCleanHistoryJob)
+    Q_DISABLE_COPY(RoomsCleanHistoryJob)
     void slotCleanHistoryFinished();
     CleanHistoryInfo mCleanHistoryInfo;
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &t);
-#endif // CHANNELCLEANHISTORYJOB_H
+Q_DECLARE_TYPEINFO(RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t);
+#endif // ROOMSCLEANHISTORYJOB_H

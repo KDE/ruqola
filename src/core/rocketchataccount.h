@@ -23,14 +23,14 @@
 
 #include <QObject>
 #include <QUrl>
-#include <channels/channelbasejob.h>
-#include <channels/channelcleanhistoryjob.h>
-#include <commands/runcommandjob.h>
+#include "channels/channelbasejob.h"
+#include "rooms/roomscleanhistoryjob.h"
+#include "commands/runcommandjob.h"
 #include "users/usersupdateownbasicinfojob.h"
 #include <ddpapi/ddpclient.h>
 #include "users/registeruserjob.h"
 #include "ddpapi/ddpauthenticationmanager.h"
-#include <model/listmessagesmodel.h>
+#include "model/listmessagesmodel.h"
 #include "messages/message.h"
 #include "rocketchataccountsettings.h"
 #include "libruqolacore_export.h"
@@ -431,7 +431,7 @@ public:
     void parseOwnInfoDone(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT OwnUser ownUser() const;
 
-    void cleanChannelHistory(const RocketChatRestApi::ChannelCleanHistoryJob::CleanHistoryInfo &info);
+    void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
 
     Q_REQUIRED_RESULT bool broadCastEnabled() const;
     Q_REQUIRED_RESULT bool encryptionEnabled() const;
