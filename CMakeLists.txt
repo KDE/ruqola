@@ -1,7 +1,8 @@
 set(RUQOLA_VERSION "1.0.99")
 cmake_minimum_required(VERSION 3.5)
 project(Ruqola VERSION ${RUQOLA_VERSION})
-set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(KF5_MIN_VERSION "5.67.0")
 set(REQUIRED_QT_VERSION "5.12.0")
@@ -101,7 +102,6 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
 endif()
 add_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_KEYWORDS)
-
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")

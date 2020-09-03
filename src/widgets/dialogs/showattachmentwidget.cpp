@@ -52,7 +52,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mAttachmentCombobox = new ShowAttachmentComboBox(this);
     mAttachmentCombobox->setObjectName(QStringLiteral("mAttachmentCombobox"));
     searchAttachmentLayout->addWidget(mAttachmentCombobox);
-    connect(mAttachmentCombobox, &ShowAttachmentComboBox::currentIndexChanged, this, &ShowAttachmentWidget::slotChangeAttachmentType);
+    connect(mAttachmentCombobox, qOverload<int>(&ShowAttachmentComboBox::currentIndexChanged), this, &ShowAttachmentWidget::slotChangeAttachmentType);
 
 
     mInfo = new QLabel(this);
