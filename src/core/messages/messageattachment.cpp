@@ -89,8 +89,12 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
         messageFields.append(MessageAttachmentField::fromJson(fieldsArray.at(i).toObject()));
     }
-    setAttachmentFields(messageFields);
-
+    if (!messageFields.isEmpty()) {
+        setAttachmentFields(messageFields);
+        if (mAttachmentType == AttachmentType::Unknown) {
+            mAttachmentType = AttachmentType::NormalText;
+        }
+    }
 }
 
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
