@@ -50,6 +50,7 @@
 #include "threadwidget/threadmessagedialog.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -210,7 +211,9 @@ void RoomWidget::slotPruneMessages()
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
         info.roomId = mRoomId;
-        mCurrentRocketChatAccount->cleanChannelHistory(info);
+        if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Do you want really remove history?"), i18n("Remove History"))) {
+            mCurrentRocketChatAccount->cleanChannelHistory(info);
+        }
     }
     delete dlg;
 }
