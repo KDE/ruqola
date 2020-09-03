@@ -47,12 +47,16 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT UpdateInfo updateInfo() const;
+    void setUpdateInfo(const UpdateInfo &updateInfo);
+
 Q_SIGNALS:
     void usersUpdateDone();
 
 private:
     Q_DISABLE_COPY(UsersUpdateJob)
     void slotUsersUpdate();
+    UpdateInfo mUpdateInfo;
 };
 }
 #endif // UsersUpdateJob_H

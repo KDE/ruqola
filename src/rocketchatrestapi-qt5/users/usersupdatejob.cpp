@@ -66,6 +66,16 @@ void UsersUpdateJob::slotUsersUpdate()
     deleteLater();
 }
 
+UsersUpdateJob::UpdateInfo UsersUpdateJob::updateInfo() const
+{
+    return mUpdateInfo;
+}
+
+void UsersUpdateJob::setUpdateInfo(const UpdateInfo &updateInfo)
+{
+    mUpdateInfo = updateInfo;
+}
+
 bool UsersUpdateJob::requireHttpAuthentication() const
 {
     return true;
