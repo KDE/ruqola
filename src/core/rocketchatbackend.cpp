@@ -509,6 +509,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
         } else if (eventname.endsWith(QLatin1String("/deleteMessageBulk"))) {
             qDebug() << " DELETE MESSAGE TO IMPLEMENT";
+            QString roomId = eventname;
+            roomId.remove(QStringLiteral("/deleteMessageBulk"));
+            qDebug() << " deleteMessageBulk " << collection << " object "<<object;
+            //QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
