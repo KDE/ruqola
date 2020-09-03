@@ -507,6 +507,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 const bool status = contents.toVariantList().at(1).toBool();
                 mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, typingUserName, status);
             }
+        } else if (eventname.endsWith(QLatin1String("/deleteMessageBulk"))) {
+            qDebug() << " DELETE MESSAGE TO IMPLEMENT";
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
