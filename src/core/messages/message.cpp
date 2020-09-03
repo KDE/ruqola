@@ -718,6 +718,7 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
     message.mMessageStarred.setIsStarred(o[QStringLiteral("starred")].toBool());
     message.mMessagePinned.setPinned(o[QStringLiteral("pinned")].toBool());
+    message.mMessagePinned.setPinnedBy(o[QStringLiteral("pinnedBy")].toString());
     message.mRole = o[QStringLiteral("role")].toString();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mEmoji = o[QStringLiteral("emoji")].toString();
@@ -798,7 +799,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
     o[QStringLiteral("starred")] = message.mMessageStarred.isStarred();
     o[QStringLiteral("pinned")] = message.mMessagePinned.pinned();
-    //TODO add pinned
+    if (!message.mMessagePinned.pinnedBy().isEmpty()) {
+        o[QStringLiteral("pinnedBy")] = message.mMessagePinned.pinnedBy();
+    }
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
     }

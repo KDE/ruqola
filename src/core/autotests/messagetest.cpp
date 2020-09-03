@@ -199,6 +199,7 @@ void MessageTest::shouldParseMessage_data()
         messagePinnedRef.setStarred(false);
         MessagePinned pinned;
         pinned.setPinned(true);
+        pinned.setPinnedBy(QStringLiteral("laurent"));
         messagePinnedRef.setMessagePinned(pinned);
         messagePinnedRef.setText(QStringLiteral("sdfgsdfg"));
 
