@@ -120,12 +120,13 @@ QJsonDocument ChannelCleanHistoryJob::json() const
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    //qDebug() << " postData**************** " << postData;
     return postData;
 }
 
 QNetworkRequest ChannelCleanHistoryJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsCleanHistory);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsCleanHistory);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

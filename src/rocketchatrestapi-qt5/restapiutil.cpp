@@ -151,8 +151,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.archive");
     case RestApiUtil::RestApiUrlType::ChannelsModerators:
         return QStringLiteral("channels.moderators");
-    case RestApiUtil::RestApiUrlType::ChannelsCleanHistory:
-        return QStringLiteral("channels.cleanHistory");
     case RestApiUtil::RestApiUrlType::ChannelsClose:
         return QStringLiteral("channels.close");
     case RestApiUtil::RestApiUrlType::ChannelsCreate:
@@ -331,7 +329,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("rooms.get");
     case RestApiUtil::RestApiUrlType::RoomsFavorite:
         return QStringLiteral("rooms.favorite");
-    case RestApiUtil::RestApiUrlType::RoomscleanHistory:
+    case RestApiUtil::RestApiUrlType::RoomsCleanHistory:
         return QStringLiteral("rooms.cleanHistory");
     //since 1.0.0
     case RestApiUtil::RestApiUrlType::RoomsCreateDiscussion:
