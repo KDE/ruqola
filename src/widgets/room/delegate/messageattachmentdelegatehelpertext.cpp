@@ -61,6 +61,9 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const QModelIndex &index, in
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
+    Q_UNUSED(attachmentsRect);
+    Q_UNUSED(option);
+    Q_UNUSED(index);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         //TODO ???
 //        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
