@@ -24,13 +24,15 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorWidget(QWidget *parent = nullptr);
     ~AdministratorWidget();
+private:
+    QTabWidget *mTabWidget = nullptr;
 };
 
 #endif // ADMINISTRATORWIDGET_H

@@ -20,7 +20,9 @@
 
 #include "administratorwidgettest.h"
 #include "administratordialog/administratorwidget.h"
+#include <QTabWidget>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorWidgetTest)
 AdministratorWidgetTest::AdministratorWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,4 +32,11 @@ AdministratorWidgetTest::AdministratorWidgetTest(QObject *parent)
 void AdministratorWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorWidget w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QTabWidget *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    QVERIFY(mTabWidget);
 }

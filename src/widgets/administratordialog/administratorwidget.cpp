@@ -20,6 +20,7 @@
 
 #include "administratorwidget.h"
 #include <KLocalizedString>
+#include <QTabWidget>
 #include <QVBoxLayout>
 
 AdministratorWidget::AdministratorWidget(QWidget *parent)
@@ -28,6 +29,10 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mTabWidget = new QTabWidget(this);
+    mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
+    mainLayout->addWidget(mTabWidget);
 }
 
 AdministratorWidget::~AdministratorWidget()
