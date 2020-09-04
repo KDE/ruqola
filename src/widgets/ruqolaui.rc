@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="14">
+<gui name="ruqola" version="15">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_account" />
@@ -11,6 +11,8 @@
    <Action name="configure_my_account" />
    <Separator/>
    <Action name="register_new_user" />
+   <Separator/>
+   <Action name="administrator" />
    <Separator/>
    <Action name="mark_all_channels_read" />
    <Separator/>

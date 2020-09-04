@@ -39,6 +39,7 @@
 #include "registeruser/registeruserdialog.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "configuredialog/configuresettingsdialog.h"
+#include "administratordialog/administratordialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -149,6 +150,7 @@ void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
     mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->registrationFromEnabled());
+    mAdministrator->setEnabled(mCurrentRocketChatAccount->isAdministrator());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -227,6 +229,10 @@ void RuqolaMainWindow::setupActions()
     mMyAccount = new QAction(i18n("My Account..."), this);
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
     ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
+
+    mAdministrator = new QAction(i18n("Administrator..."), this);
+    connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
+    ac->addAction(QStringLiteral("administrator"), mAdministrator);
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()
@@ -358,5 +364,12 @@ void RuqolaMainWindow::slotConfigureMyAccount()
     if (dlg->exec()) {
         //TODO ???
     }
+    delete dlg;
+}
+
+void RuqolaMainWindow::slotAdministrator()
+{
+    QPointer<AdministratorDialog> dlg = new AdministratorDialog(this);
+    dlg->exec();
     delete dlg;
 }
