@@ -742,7 +742,7 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     parameters.setOffset(offset);
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("uploadedAt"), QueryParameters::SortOrder::Ascendant);
-    parameters.setOffset(offset);
+    parameters.setSorting(map);
     job->setQueryParameters(parameters);
 
     if (type == QLatin1Char('d')) {
