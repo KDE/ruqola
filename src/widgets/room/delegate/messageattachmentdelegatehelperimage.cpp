@@ -42,16 +42,16 @@ void MessageAttachmentDelegateHelperImage::draw(QPainter *painter, const QRect &
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     ImageLayout layout = layoutImage(message, option, messageRect.width(), messageRect.height());
+    painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+    int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     if (!layout.pixmap.isNull()) {
         // Draw title and buttons
-        painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
         const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
         downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
         // Draw main pixmap (if shown)
-        int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
         if (layout.isShown) {
             QPixmap scaledPixmap;
             if (layout.isAnimatedImage) {
@@ -84,10 +84,10 @@ void MessageAttachmentDelegateHelperImage::draw(QPainter *painter, const QRect &
             nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
 
-        // Draw description (if any)
-        if (!layout.description.isEmpty()) {
-            painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
-        }
+    }
+    // Draw description (if any)
+    if (!layout.description.isEmpty()) {
+        painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
     }
 }
 
@@ -168,17 +168,17 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     }
     const MessageAttachment &msgAttach = message->attachements().at(0);
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
+    layout.title = msgAttach.title();
+    layout.description = msgAttach.description();
+    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
     if (url.isLocalFile()) {
         layout.imagePath = url.toLocalFile();
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         //or we could do layout.attachment = msgAttach; if we need many fields from it
-        layout.title = msgAttach.title();
-        layout.description = msgAttach.description();
         layout.isShown = message->showAttachment();
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
-        layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-        layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
         layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
