@@ -39,7 +39,7 @@ MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo()
 {
 }
 
-void MessageAttachmentDelegateHelperVideo::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperVideo::draw(QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -115,7 +115,7 @@ MessageAttachmentDelegateHelperVideo::VideoLayout MessageAttachmentDelegateHelpe
         return layout;
     }
     if (message->attachements().count() > 1) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Video message? Can this happen?";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Video message? Can this happen?" << message->attachements();
     }
     const MessageAttachment &msgAttach = message->attachements().at(0);
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());

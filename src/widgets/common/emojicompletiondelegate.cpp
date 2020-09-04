@@ -19,7 +19,7 @@
 */
 
 #include "emojicompletiondelegate.h"
-
+#include "common/delegatepaintutil.h"
 #include <model/emoticonmodel.h>
 
 #include <QPainter>
@@ -38,7 +38,7 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 {
     // [M] <unicode emoji> <:identifier:>     ([M] = margin)
     drawBackground(painter, option, index);
-    const int margin = 8;
+    const int margin = DelegatePaintUtil::margin();
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
     const QString emojiText = index.data(EmoticonModel::UnicodeEmoji).toString();
     const int emojiWidth = emojiFontMetrics.horizontalAdvance(emojiText);

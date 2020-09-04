@@ -166,7 +166,14 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
     if (!emojiStr.isEmpty()) {
         return makeAvatarEmojiPixmap(emojiStr, widget, index, maxHeight);
     } else {
-        return makeAvatarUrlPixmap(widget, index, maxHeight);
+        const QString avatarUrl = index.data(MessageModel::Avatar).toString();
+        if (!avatarUrl.isEmpty()) {
+            //TODO
+            qDebug() << " avatarUrl is not empty " << avatarUrl;
+            return makeAvatarUrlPixmap(widget, index, maxHeight);
+        } else {
+            return makeAvatarUrlPixmap(widget, index, maxHeight);
+        }
     }
 }
 

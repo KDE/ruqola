@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "common/delegateutil.h"
+#include "common/delegatepaintutil.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
 
@@ -41,7 +42,7 @@ MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 {
 }
 
-void MessageAttachmentDelegateHelperFile::draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperFile::draw(QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
@@ -52,7 +53,8 @@ void MessageAttachmentDelegateHelperFile::draw(QPainter *painter, const QRect &a
     underlinedFont.setUnderline(true);
     for (const FileLayout &layout : layouts) {
         const int y = attachmentsRect.y() + layout.y;
-        if (!layout.link.isEmpty()) {
+        const bool hasLink = !layout.link.isEmpty();
+        if (hasLink) {
             painter->setPen(option.palette.color(QPalette::Link));
             painter->setFont(underlinedFont);
         }
@@ -61,7 +63,7 @@ void MessageAttachmentDelegateHelperFile::draw(QPainter *painter, const QRect &a
             downloadIcon.paint(painter, layout.downloadButtonRect.translated(attachmentsRect.topLeft()));
         }
 
-        if (!layout.link.isEmpty()) {
+        if (hasLink) {
             painter->setPen(oldPen);
             painter->setFont(oldFont);
         }
@@ -88,7 +90,7 @@ QVector<MessageAttachmentDelegateHelperFile::FileLayout> MessageAttachmentDelega
     QVector<FileLayout> layouts;
     const QVector<MessageAttachment> &attachments = message->attachements();
     layouts.reserve(attachments.count());
-    const int buttonMargin = 8;
+    const int buttonMargin = DelegatePaintUtil::margin();
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     int y = 0;
     for (const MessageAttachment &msgAttach : attachments) {

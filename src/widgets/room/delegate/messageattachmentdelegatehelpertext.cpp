@@ -39,7 +39,7 @@ MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 {
 }
 
-void MessageAttachmentDelegateHelperText::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperText::draw(QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -82,7 +82,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
         return layout;
     }
     if (message->attachements().count() > 1) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Text message? Can this happen?";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Text message? Can this happen?" << " message->attachements()" << message->attachements();
     }
     const MessageAttachment &msgAttach = message->attachements().at(0);
     layout.text = msgAttach.text();

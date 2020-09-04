@@ -21,6 +21,7 @@
 #include "commandcompletiondelegate.h"
 
 #include "model/commandsmodel.h"
+#include "common/delegatepaintutil.h"
 
 #include <QPainter>
 
@@ -37,7 +38,7 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 {
     // command <parameter> description at end
     drawBackground(painter, option, index);
-    const int margin = 8;
+    const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
     const QFontMetrics commandFontMetrics(painter->font());
     const QString commandText = index.data(CommandsModel::CommandName).toString();

@@ -95,6 +95,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
             mAttachmentType = AttachmentType::NormalText;
         }
     }
+    mCollapsed = attachment.value(QLatin1String("collapsed")).toBool();
 }
 
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
@@ -132,6 +133,9 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (!fieldArray.isEmpty()) {
         obj[QStringLiteral("fields")] = fieldArray;
     }
+    if (message.collapsed()) {
+        obj[QStringLiteral("collapsed")] = true;
+    }
     return obj;
 }
 
@@ -160,6 +164,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
         messageFields.append(MessageAttachmentField::fromJson(fieldsArray.at(i).toObject()));
     }
     att.setAttachmentFields(messageFields);
+    att.setCollapsed(o.value(QLatin1String("collapsed")).toBool());
     return att;
 }
 
@@ -270,6 +275,16 @@ void MessageAttachment::setAttachmentFields(const QVector<MessageAttachmentField
     mAttachmentFields = attachmentFields;
 }
 
+bool MessageAttachment::collapsed() const
+{
+    return mCollapsed;
+}
+
+void MessageAttachment::setCollapsed(bool collapsed)
+{
+    mCollapsed = collapsed;
+}
+
 QString MessageAttachment::displayTitle() const
 {
     if (canDownloadAttachment()) {
@@ -322,7 +337,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mAuthorName == other.authorName())
            && (mMimeType == other.mimeType())
            && (mText == other.text())
-            && (mAttachmentFields == other.attachmentFields());
+            && (mAttachmentFields == other.attachmentFields())
+            && (mCollapsed == other.collapsed());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
@@ -335,6 +351,7 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "authorname: " << t.authorName();
     d << "mimeType: " << t.mimeType();
     d << "text: " << t.text();
+    d << "collapsed " << t.collapsed();
     d << "attachmentfields " << t.attachmentFields();
     return d;
 }

@@ -19,7 +19,7 @@
 */
 
 #include "channellistdelegate.h"
-
+#include "common/delegatepaintutil.h"
 #include "model/roommodel.h"
 
 #include <QPainter>
@@ -38,7 +38,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 {
     // [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    const int margin = 8;
+    const int margin = DelegatePaintUtil::margin();
     const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
     const QString text = index.data(Qt::DisplayRole).toString();
     //const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);

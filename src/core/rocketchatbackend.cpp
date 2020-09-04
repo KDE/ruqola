@@ -450,6 +450,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
 
             qCDebug(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
+            qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -468,6 +469,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QLatin1String("/deleteMessage"))) {
+            qDebug() << " if (eventname.endsWith(QLatin1String(/deleteMessage))) {" << object;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);

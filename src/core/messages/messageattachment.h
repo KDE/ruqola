@@ -99,6 +99,9 @@ public:
     Q_REQUIRED_RESULT QVector<MessageAttachmentField> attachmentFields() const;
     void setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields);
 
+    Q_REQUIRED_RESULT bool collapsed() const;
+    void setCollapsed(bool collapsed);
+
 private:
     QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
@@ -112,6 +115,7 @@ private:
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
+    bool mCollapsed = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);

@@ -24,8 +24,8 @@
 
 FilesForRoomModel::FilesForRoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
-    , mRochetChantAccount(account)
     , mFileAttachments(new FileAttachments)
+    , mRochetChantAccount(account)
 {
 }
 
