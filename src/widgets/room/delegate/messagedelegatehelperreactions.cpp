@@ -39,7 +39,7 @@ MessageDelegateHelperReactions::MessageDelegateHelperReactions()
 {
 }
 
-QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions, const QRect &reactionsRect, const QStyleOptionViewItem &option) const
+QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const
 {
     QVector<ReactionLayout> layouts;
     layouts.reserve(reactions.count());

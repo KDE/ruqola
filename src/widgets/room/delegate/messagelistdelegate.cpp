@@ -402,7 +402,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Attachments
-    for (const MessageAttachment &att : message->attachements()) {
+    const auto attachements = message->attachements();
+    for (const MessageAttachment &att : attachements) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper) {
             helper->draw(painter, layout.attachmentsRect, index, option);

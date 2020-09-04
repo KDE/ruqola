@@ -58,7 +58,7 @@ private:
         bool useEmojiFont;
     };
 
-    QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
+    QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;
     QFont mEmojiFont;
     mutable PixmapCache mPixmapCache;
 };
