@@ -38,6 +38,7 @@ public:
 
     void setPlaceholderText(const QString &str);
 
+    Q_REQUIRED_RESULT QStringList usersName() const;
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);

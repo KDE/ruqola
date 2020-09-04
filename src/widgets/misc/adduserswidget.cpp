@@ -85,6 +85,17 @@ QStringList AddUsersWidget::usersId() const
     return addUsers;
 }
 
+QStringList AddUsersWidget::usersName() const
+{
+    QStringList addUsers;
+    QMapIterator<QString, ClickableUserWidget *> i(mMap);
+    while (i.hasNext()) {
+        i.next();
+        addUsers << i.value()->userName();
+    }
+    return addUsers;
+}
+
 void AddUsersWidget::setPlaceholderText(const QString &str)
 {
     mSearchUserLineEdit->setPlaceholderText(str);
