@@ -266,10 +266,17 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (message->attachements().isEmpty()) {
         layout.reactionsY = attachmentsY;
     } else {
-        //TODO support multi attachments!
-        const MessageAttachment &msgAttach = message->attachements().at(0);
-        const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-        const QSize attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
+        const auto attachements = message->attachements();
+        QSize attachmentsSize;
+        for (const MessageAttachment &msgAttach : attachements) {
+            const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+            if (attachmentsSize.isEmpty()) {
+                attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
+            } else {
+                const QSize attSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
+                attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
+            }
+        }
         layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         layout.reactionsY = attachmentsY + attachmentsSize.height();
     }
