@@ -39,27 +39,23 @@ MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 {
 }
 
-void MessageAttachmentDelegateHelperText::draw(QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    const TextLayout layout = layoutText(message, option);
+    const TextLayout layout = layoutText(msgAttach, option);
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.text);
 }
 
-QSize MessageAttachmentDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    const TextLayout layout = layoutText(message, option);
+    const TextLayout layout = layoutText(msgAttach, option);
     const int height = layout.textSize.height() + DelegatePaintUtil::margin();
     const int pixmapWidth = 0;
     return QSize(qMax(pixmapWidth, layout.textSize.width()),
                  height);
 }
 
-bool MessageAttachmentDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(attachmentsRect);
     Q_UNUSED(option);
@@ -74,17 +70,9 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEve
     return false;
 }
 
-MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const Message *message, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
 {
     TextLayout layout;
-    if (message->attachements().isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in Text message";
-        return layout;
-    }
-    if (message->attachements().count() > 1) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Text message? Can this happen?" << " message->attachements()" << message->attachements();
-    }
-    const MessageAttachment &msgAttach = message->attachements().at(0);
     layout.text = msgAttach.text();
     layout.textSize = option.fontMetrics.size(Qt::TextSingleLine, layout.text);
     return layout;

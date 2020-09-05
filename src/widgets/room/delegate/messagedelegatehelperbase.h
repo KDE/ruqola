@@ -22,6 +22,7 @@
 #define MESSAGEDELEGATEHELPERBASE_H
 
 #include "libruqolawidgets_private_export.h"
+#include "messages/messageattachment.h"
 #include <QSize>
 class QPainter;
 class QRect;
@@ -37,9 +38,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
 public:
     virtual ~MessageDelegateHelperBase();
 
-    virtual void draw(QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
-    virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
-    virtual bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    virtual void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
+    virtual QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
+    virtual bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 };
 
 #endif // MESSAGEDELEGATEHELPERBASE_H

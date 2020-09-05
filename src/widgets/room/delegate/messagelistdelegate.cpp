@@ -271,9 +271,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         for (const MessageAttachment &msgAttach : attachements) {
             const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
-                attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
+                attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
             } else {
-                const QSize attSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
+                const QSize attSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
                 attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
             }
         }
@@ -420,7 +420,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     for (const MessageAttachment &att : attachements) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper) {
-            helper->draw(painter, layout.attachmentsRect, index, option);
+            helper->draw(att, painter, layout.attachmentsRect, index, option);
         }
     }
 
@@ -556,7 +556,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         const auto attachements = message->attachements();
         for (const MessageAttachment &att : attachements) {
             MessageDelegateHelperBase *helper = attachmentsHelper(att);
-            if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
+            if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRect, option, index)) {
                 return true;
             }
         }

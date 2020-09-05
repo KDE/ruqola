@@ -37,11 +37,10 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-void MessageAttachmentDelegateHelperImage::draw(QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    ImageLayout layout = layoutImage(message, option, messageRect.width(), messageRect.height());
+    ImageLayout layout = layoutImage(msgAttach, message, option, messageRect.width(), messageRect.height());
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     if (!layout.pixmap.isNull()) {
@@ -91,11 +90,11 @@ void MessageAttachmentDelegateHelperImage::draw(QPainter *painter, QRect message
     }
 }
 
-QSize MessageAttachmentDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const ImageLayout layout = layoutImage(message, option, maxWidth, -1);
+    const ImageLayout layout = layoutImage(msgAttach, message, option, maxWidth, -1);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
@@ -111,13 +110,14 @@ QSize MessageAttachmentDelegateHelperImage::sizeHint(const QModelIndex &index, i
                  height);
 }
 
-bool MessageAttachmentDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         const QPoint pos = mouseEvent->pos();
 
-        ImageLayout layout = layoutImage(message, option, attachmentsRect.width(), attachmentsRect.height());
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+
+        ImageLayout layout = layoutImage(msgAttach, message, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
@@ -156,17 +156,9 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEv
     return false;
 }
 
-MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach, const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
     ImageLayout layout;
-    if (message->attachements().isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in Image message";
-        return layout;
-    }
-    if (message->attachements().count() > 1) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Image message? Can this happen?" << message->attachements();
-    }
-    const MessageAttachment &msgAttach = message->attachements().at(0);
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();

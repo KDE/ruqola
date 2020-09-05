@@ -30,9 +30,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : publi
 {
 public:
     ~MessageAttachmentDelegateHelperSound() override;
-    void draw(QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
-    QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
     struct SoundLayout {
@@ -44,7 +44,7 @@ private:
         QRect playerVolumeButtonRect;
         QRect downloadButtonRect;
     };
-    Q_REQUIRED_RESULT SoundLayout layoutSound(const Message *message, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT SoundLayout layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
 };
 
 #endif // MESSAGEATTACHMENTDELEGATEHELPERSOUND_H

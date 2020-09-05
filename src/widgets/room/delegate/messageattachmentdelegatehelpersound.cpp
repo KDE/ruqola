@@ -39,11 +39,9 @@ MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
 {
 }
 
-void MessageAttachmentDelegateHelperSound::draw(QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    const SoundLayout layout = layoutSound(message, option);
+    const SoundLayout layout = layoutSound(msgAttach, option);
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     const QIcon playerVolumeIcon = QIcon::fromTheme(QStringLiteral("player-volume"));
@@ -59,12 +57,10 @@ void MessageAttachmentDelegateHelperSound::draw(QPainter *painter, QRect message
     }
 }
 
-QSize MessageAttachmentDelegateHelperSound::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    const SoundLayout layout = layoutSound(message, option);
+    const SoundLayout layout = layoutSound(msgAttach, option);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     int descriptionWidth = 0;
@@ -76,13 +72,12 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const QModelIndex &index, i
                  height);
 }
 
-bool MessageAttachmentDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         const QPoint pos = mouseEvent->pos();
 
-        const SoundLayout layout = layoutSound(message, option);
+        const SoundLayout layout = layoutSound(msgAttach, option);
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Sound"), QUrl::fromLocalFile(layout.audioPath));
@@ -106,17 +101,9 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(QMouseEvent *mouseEv
     return false;
 }
 
-MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelperSound::layoutSound(const Message *message, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
 {
     SoundLayout layout;
-    if (message->attachements().isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in Sound message";
-        return layout;
-    }
-    if (message->attachements().count() > 1) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in Sound message? Can this happen?" << message->attachements();
-    }
-    const MessageAttachment &msgAttach = message->attachements().at(0);
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     if (url.isLocalFile()) {
         layout.audioPath = url.toLocalFile();

@@ -30,9 +30,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperFile : public
 {
 public:
     ~MessageAttachmentDelegateHelperFile() override;
-    void draw(QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
-    QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
     struct FileLayout
@@ -46,7 +46,7 @@ private:
         int height;
         QString link;
     };
-    Q_REQUIRED_RESULT QVector<FileLayout> doLayout(const Message *message, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
     friend class MessageDelegateHelperFileTest;
 };
 

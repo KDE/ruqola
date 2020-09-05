@@ -26,7 +26,7 @@ MessageDelegateHelperBase::~MessageDelegateHelperBase()
 {
 }
 
-bool MessageDelegateHelperBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(mouseEvent)
     Q_UNUSED(attachmentsRect)
