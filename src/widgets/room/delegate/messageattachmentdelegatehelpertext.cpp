@@ -53,8 +53,8 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const QModelIndex &index, in
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     const TextLayout layout = layoutText(message, option);
-    int height = layout.textSize.height() + DelegatePaintUtil::margin();
-    int pixmapWidth = 0;
+    const int height = layout.textSize.height() + DelegatePaintUtil::margin();
+    const int pixmapWidth = 0;
     return QSize(qMax(pixmapWidth, layout.textSize.width()),
                  height);
 }
