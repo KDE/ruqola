@@ -22,3 +22,5 @@ CMakeLists.txt.user*
 *.Ruqola.pro.user
 *-generated.ref
 .cmake/
+RESTAPI_log_*
+log_ruqola_file-*
