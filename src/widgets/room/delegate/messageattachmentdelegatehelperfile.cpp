@@ -44,6 +44,7 @@ MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 
 void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option);
     const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
     const QPen oldPen = painter->pen();
@@ -73,6 +74,7 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
 
 QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option);
     return QSize(maxWidth, // should be qMax of all sizes, but doesn't really matter
                  layout.y + layout.height + vMargin);
@@ -99,6 +101,7 @@ MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperF
 
 bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
+    Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const FileLayout layout = doLayout(msgAttach, option);
         const QPoint pos = mouseEvent->pos();

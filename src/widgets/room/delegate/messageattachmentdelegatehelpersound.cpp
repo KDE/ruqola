@@ -41,6 +41,7 @@ MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
 
 void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index)
     const SoundLayout layout = layoutSound(msgAttach, option);
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
@@ -60,6 +61,7 @@ void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAtta
 QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
+    Q_UNUSED(index)
     const SoundLayout layout = layoutSound(msgAttach, option);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
@@ -74,6 +76,7 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
 
 bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
+    Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
 

@@ -47,6 +47,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index)
     Q_UNUSED(maxWidth)
     const TextLayout layout = layoutText(msgAttach, option);
     const int height = layout.textSize.height() + DelegatePaintUtil::margin();
