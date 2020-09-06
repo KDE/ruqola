@@ -20,6 +20,7 @@
 
 #include "restapiutil.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QCryptographicHash>
 
 QString RestApiUtil::adaptUrl(const QString &url)
 {
@@ -414,4 +415,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
+}
+
+QByteArray RestApiUtil::convertSha256Password(const QString &pwd)
+{
+    const QByteArray sha256pw = QCryptographicHash::hash(pwd.toUtf8(), QCryptographicHash::Sha256);
+    return sha256pw;
 }

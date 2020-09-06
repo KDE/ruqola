@@ -21,6 +21,7 @@
 #include "deleteownaccountjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include "utils.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -106,8 +107,8 @@ QNetworkRequest DeleteOwnAccountJob::request() const
 QJsonDocument DeleteOwnAccountJob::json() const
 {
     QJsonObject jsonObj;
-    const QByteArray sha256pw = QCryptographicHash::hash(mPassword.toUtf8(), QCryptographicHash::Sha256);
-    jsonObj[QLatin1String("password")] = QString::fromLatin1(sha256pw); //TODO verify
+    const QByteArray sha256pw = RestApiUtil::convertSha256Password(mPassword);
+    jsonObj[QLatin1String("password")] = QString::fromLatin1(sha256pw);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

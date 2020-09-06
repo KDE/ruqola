@@ -240,6 +240,7 @@ enum class RestApiUrlType {
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString apiUri();
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QByteArray convertSha256Password(const QString &pwd);
 }
 
 #endif // RESTAPIUTIL_H

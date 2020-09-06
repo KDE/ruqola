@@ -27,6 +27,7 @@
 #include <QJsonArray>
 #include <KTextToHTML>
 #include <QRegularExpression>
+#include <QCryptographicHash>
 #include <KColorScheme>
 
 QUrl Utils::generateServerUrl(const QString &url)
@@ -347,4 +348,11 @@ QJsonArray Utils::strToJsonArray(const QString &jsonString)
     }
 
     return doc.array();
+}
+
+
+QByteArray Utils::convertSha256Password(const QString &pwd)
+{
+    const QByteArray sha256pw = QCryptographicHash::hash(pwd.toUtf8(), QCryptographicHash::Sha256);
+    return sha256pw;
 }

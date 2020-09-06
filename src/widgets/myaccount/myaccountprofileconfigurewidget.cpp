@@ -85,7 +85,7 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
             qDebug() << " void MyAccountProfileConfigureWidget::slotDeleteMyAccount() not implemented yet";
-            //Ruqola::self()->rocketChatAccount()->deleteOwnAccount(dlg->password());
+            Ruqola::self()->rocketChatAccount()->deleteOwnAccount(dlg->password());
         }
         delete dlg;
     }
