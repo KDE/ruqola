@@ -59,7 +59,7 @@ private:
     };
 
     QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;
-    QFont mEmojiFont;
+    const QFont mEmojiFont;
     mutable PixmapCache mPixmapCache;
 };
 

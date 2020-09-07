@@ -147,7 +147,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     int reactionsHeight = 0;
     const QVector<Reaction> reactions = message->reactions().reactions();
     if (!reactions.isEmpty()) {
-        QFontMetrics emojiFontMetrics(mEmojiFont);
+        const QFontMetrics emojiFontMetrics(mEmojiFont);
         reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + margin;
     }
     return QSize(maxWidth, reactionsHeight);
