@@ -19,11 +19,15 @@
 */
 
 #include "administratorroomswidget.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
 {
-
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()

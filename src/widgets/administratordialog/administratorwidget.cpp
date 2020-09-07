@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "administratorroomswidget.h"
 #include "administratorwidget.h"
 #include <KLocalizedString>
 #include <QTabWidget>
@@ -33,6 +34,10 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mTabWidget = new QTabWidget(this);
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     mainLayout->addWidget(mTabWidget);
+
+    mAdministratorRoomsWidget = new AdministratorRoomsWidget(this);
+    mAdministratorRoomsWidget->setObjectName(QStringLiteral("mAdministratorRoomsWidget"));
+    mTabWidget->addTab(mAdministratorRoomsWidget, i18n("Rooms"));
 }
 
 AdministratorWidget::~AdministratorWidget()
