@@ -2,7 +2,6 @@
     "alias": "foo",
     "attachments": [
         {
-            "description": "",
             "image_height": 120,
             "image_width": 120,
             "mimetype": "image/gif",

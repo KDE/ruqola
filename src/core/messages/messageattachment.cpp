@@ -101,8 +101,12 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
 {
     QJsonObject obj;
-    obj[QStringLiteral("description")] = message.description();
-    obj[QStringLiteral("title")] = message.title();
+    if (!message.description().isEmpty()) {
+        obj[QStringLiteral("description")] = message.description();
+    }
+    if (!message.title().isEmpty()) {
+        obj[QStringLiteral("title")] = message.title();
+    }
     obj[QStringLiteral("url")] = message.link();
     const QString authorname = message.authorName();
     if (!authorname.isEmpty()) {

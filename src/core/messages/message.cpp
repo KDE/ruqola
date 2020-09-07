@@ -805,6 +805,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     QMapIterator<QString, QString> i(message.mentions());
     while (i.hasNext()) {
         i.next();
+        qWarning() << " mentions not implemented";
         //TODO
     }
     //Urls
