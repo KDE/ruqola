@@ -9,3 +9,4 @@ endmacro()
 
 add_administrator_test(administratordialogtest.cpp)
 add_administrator_test(administratorwidgettest.cpp)
+add_administrator_test(administratorroomswidgettest.cpp)
