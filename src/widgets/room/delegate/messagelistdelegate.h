@@ -126,10 +126,10 @@ private:
 
     friend class MessageListDelegateTest;
 
-    QFont mEmojiFont;
-    QIcon mEditedIcon;
-    QIcon mRolesIcon;
-    QIcon mAddReactionIcon;
+    const QFont mEmojiFont;
+    const QIcon mEditedIcon;
+    const QIcon mRolesIcon;
+    const QIcon mAddReactionIcon;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
