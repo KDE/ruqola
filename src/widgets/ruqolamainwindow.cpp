@@ -333,7 +333,8 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 {
     mSearchChannel->setEnabled(!loginPageActivated);
     mCreateNewChannel->setEnabled(!loginPageActivated);
-    mSaveAs->setEnabled(!loginPageActivated);
+    //mSaveAs->setEnabled(!loginPageActivated);
+    mSaveAs->setEnabled(false); //Reactivate it when we will implement save as
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
