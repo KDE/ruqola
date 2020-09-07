@@ -30,9 +30,9 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PixmapCache
 {
 public:
-    QPixmap pixmapForLocalFile(const QString &path);
+    Q_REQUIRED_RESULT QPixmap pixmapForLocalFile(const QString &path);
 
-    QPixmap findCachedPixmap(const QString &path);
+    Q_REQUIRED_RESULT QPixmap findCachedPixmap(const QString &path);
     void insertCachedPixmap(const QString &path, const QPixmap &pixmap);
     void clear();
 
