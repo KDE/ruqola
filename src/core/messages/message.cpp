@@ -354,26 +354,6 @@ void Message::parseAttachment(const QJsonArray &attachments)
             messageAttachement.parseAttachment(attachment);
 
             if (messageAttachement.isValid()) {
-                switch (messageAttachement.attachmentType()) {
-                case MessageAttachment::AttachmentType::Unknown:
-                    qCWarning(RUQOLA_LOG) << "Attachment type is unknown!";
-                    break;
-                case MessageAttachment::AttachmentType::NormalText:
-                    mMessageType = Message::MessageType::NormalText;
-                    break;
-                case MessageAttachment::AttachmentType::File:
-                    mMessageType = Message::MessageType::File;
-                    break;
-                case MessageAttachment::AttachmentType::Video:
-                    mMessageType = Message::MessageType::Video;
-                    break;
-                case MessageAttachment::AttachmentType::Audio:
-                    mMessageType = Message::MessageType::Audio;
-                    break;
-                case MessageAttachment::AttachmentType::Image:
-                    mMessageType = Message::MessageType::Image;
-                    break;
-                }
                 mAttachements.append(messageAttachement);
             }
         }

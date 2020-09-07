@@ -104,7 +104,7 @@ static void fillTestMessage(Message &input)
     input.setSystemMessageType(QStringLiteral("type"));
     input.setGroupable(true);
     input.setParseUrls(true);
-    input.setMessageType(Message::MessageType::Audio);
+    input.setMessageType(Message::MessageType::NormalText);
 }
 
 void MessageModelTest::shouldAddMessage()

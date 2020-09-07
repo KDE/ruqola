@@ -26,7 +26,7 @@
     "groupable": false,
     "message": "_Change requests_",
     "messageID": "pqHKchf4SqGLw",
-    "messageType": "File",
+    "messageType": "NormalText",
     "name": "boo",
     "parseUrls": false,
     "pinned": false,

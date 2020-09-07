@@ -526,7 +526,7 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
         }) != msgAttachments.end();
                            };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
-        if (msg.messageType() == Message::Image) {
+        if (!msg.attachements().isEmpty()) {
             return matchesFilePath(msg.attachements());
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();

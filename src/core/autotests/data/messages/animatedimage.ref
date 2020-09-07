@@ -17,7 +17,7 @@
     "groupable": false,
     "message": "",
     "messageID": "ZGdbAFBZsLSrt7SLn",
-    "messageType": "Image",
+    "messageType": "NormalText",
     "name": "foo",
     "parseUrls": false,
     "pinned": false,

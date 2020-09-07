@@ -47,7 +47,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setUsername(QStringLiteral("foo.ff"));
         firstMessageRef.setName(QStringLiteral("newname"));
         firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
-        firstMessageRef.setMessageType(Message::File);
+        firstMessageRef.setMessageType(Message::NormalText);
         firstMessageRef.setUpdatedAt(1504509615063);
         firstMessageRef.setEditedAt(-1);
         firstMessageRef.setStarred(false);
@@ -120,7 +120,7 @@ void MessageTest::shouldParseMessage_data()
         videoMessageRef.setTimeStamp(1515580853098);
         videoMessageRef.setUsername(QStringLiteral("laurent"));
         videoMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
-        videoMessageRef.setMessageType(Message::Video);
+        videoMessageRef.setMessageType(Message::NormalText);
         videoMessageRef.setUpdatedAt(1515580853102);
         videoMessageRef.setEditedAt(-1);
         videoMessageRef.setStarred(false);
@@ -146,7 +146,7 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setTimeStamp(1515588347098);
         audioMessageRef.setUsername(QStringLiteral("laurent"));
         audioMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
-        audioMessageRef.setMessageType(Message::Audio);
+        audioMessageRef.setMessageType(Message::NormalText);
         audioMessageRef.setUpdatedAt(1515588347102);
         audioMessageRef.setEditedAt(-1);
         audioMessageRef.setStarred(false);
@@ -237,7 +237,7 @@ void MessageTest::shouldParseMessage_data()
         messageAttachmentFileRef.setTimeStamp(1520540888833);
         messageAttachmentFileRef.setUsername(QStringLiteral("laurent"));
         messageAttachmentFileRef.setUserId(QStringLiteral("39zoewTkdacidH"));
-        messageAttachmentFileRef.setMessageType(Message::File);
+        messageAttachmentFileRef.setMessageType(Message::NormalText);
         messageAttachmentFileRef.setUpdatedAt(1520540888836);
         messageAttachmentFileRef.setEditedAt(-1);
         messageAttachmentFileRef.setRoomId(QStringLiteral("Pa6bu7xHrS5xz6"));
@@ -296,7 +296,7 @@ void MessageTest::shouldSerializeData()
     input.setGroupable(true);
     input.setParseUrls(true);
     input.setRole(QStringLiteral("leader"));
-    input.setMessageType(Message::MessageType::Audio);
+    input.setMessageType(Message::MessageType::NormalText);
     //It will break as it's not supported yet
     input.setStarred(true);
 

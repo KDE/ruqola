@@ -42,10 +42,6 @@ public:
         System,
         Information,
         NormalText,
-        File,
-        Video,
-        Audio,
-        Image
     };
 
     Q_ENUM(MessageType)
