@@ -63,9 +63,9 @@ private:
         //Delete Attachment Rect
         QRect deleteAttachmentRect;
     };
-    ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QIcon mDownloadIcon;
-    QIcon mDeleteIcon;
+    Q_REQUIRED_RESULT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    const QIcon mDownloadIcon;
+    const QIcon mDeleteIcon;
 };
 
 #endif

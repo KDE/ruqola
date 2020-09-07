@@ -64,7 +64,7 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
     Q_UNUSED(index)
     const SoundLayout layout = layoutSound(msgAttach, option);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-    int pixmapWidth = 0;
+    const int pixmapWidth = 0;
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();

@@ -47,7 +47,7 @@ private:
         QRect selectChannelRect;
     };
     SearchChannelDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QIcon mAddChannel;
+    const QIcon mAddChannel;
 };
 
 #endif

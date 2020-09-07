@@ -58,7 +58,7 @@ public:
     void selectAll(const QWidget *view, QRect messageRect, const QModelIndex &index);
 
 private:
-    QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
+    Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();
     void updateView(const QWidget *widget, const QModelIndex &index);
     QTextDocument *documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const;

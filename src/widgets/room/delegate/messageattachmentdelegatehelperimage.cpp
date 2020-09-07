@@ -169,7 +169,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         //or we could do layout.attachment = msgAttach; if we need many fields from it
-        layout.isShown = message->showAttachment();
+        layout.isShown = message->showAttachment(); //TODO move element in attachment directly
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
