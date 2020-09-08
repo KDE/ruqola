@@ -27,8 +27,8 @@
 RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     : AbstractWebSocket(parent)
     , mLogger(logger)
+    , mWebSocket(new QWebSocket)
 {
-    mWebSocket = new QWebSocket;
     connect(mWebSocket, &QWebSocket::connected, this, &RuqolaWebSocket::connected);
     connect(mWebSocket, &QWebSocket::disconnected, this, &RuqolaWebSocket::disconnected);
     connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::slotTextMessageReceived);
@@ -39,7 +39,6 @@ RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
 RuqolaWebSocket::~RuqolaWebSocket()
 {
     delete mWebSocket;
-    mWebSocket = nullptr;
 }
 
 void RuqolaWebSocket::openUrl(const QUrl &url)

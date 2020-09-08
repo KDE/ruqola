@@ -48,8 +48,8 @@ private Q_SLOTS:
     void slotTextMessageReceived(const QString &msg);
     void slotError(QAbstractSocket::SocketError error);
 private:
-    QWebSocket *mWebSocket = nullptr;
     RuqolaLogger *const mLogger;
+    QWebSocket *const mWebSocket;
 };
 
 #endif // RUQOLAWEBSOCKET_H
