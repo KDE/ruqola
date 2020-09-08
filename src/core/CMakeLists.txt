@@ -112,12 +112,8 @@ set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
 kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
 
 set (Ruqola_qml_core_srcs)
-if (COMPILE_RUQOLA_QML)
-    set (Ruqola_qml_core_srcs ruqolaregisterengine.cpp)
-endif()
 
 set (Ruqola_core_srcs
-    ${Ruqola_qml_core_srcs}
     ${Ruqola_kcfg_SRCS}
     ${Ruqola_command_SRCS}
     ${Ruqola_autotranslatelanguage_SRCS}
@@ -221,11 +217,6 @@ add_library(libruqolacore ${Ruqola_core_srcs} ${libruqolacore_RSC})
 
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
-set(libruqolacore_qml)
-if (COMPILE_RUQOLA_QML)
-    set(libruqolacore_qml Qt5::Qml Qt5::Quick)
-endif()
-
 target_link_libraries(libruqolacore
     Qt5::Core
     Qt5::Gui
@@ -239,7 +230,6 @@ target_link_libraries(libruqolacore
     librocketchatrestapi-qt5
     KF5::ConfigGui
     KF5::ConfigWidgets
-    ${libruqolacore_qml}
 )
 
 
