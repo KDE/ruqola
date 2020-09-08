@@ -41,8 +41,16 @@ MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 
 void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index);
     const TextLayout layout = layoutText(msgAttach, option);
-    painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.text);
+    int y = messageRect.y();
+    if (!layout.title.isEmpty()) {
+        y += option.fontMetrics.ascent();
+        painter->drawText(messageRect.x(), y, layout.title);
+    }
+    if (!layout.text.isEmpty()) {
+        painter->drawText(messageRect.x(), y + option.fontMetrics.ascent(), layout.text);
+    }
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -50,9 +58,15 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     Q_UNUSED(index)
     Q_UNUSED(maxWidth)
     const TextLayout layout = layoutText(msgAttach, option);
-    const int height = layout.textSize.height() + DelegatePaintUtil::margin();
+    int height = layout.textSize.height() + DelegatePaintUtil::margin();
     const int pixmapWidth = 0;
-    return QSize(qMax(pixmapWidth, layout.textSize.width()),
+
+    int descriptionWidth = 0;
+    if (!layout.title.isEmpty()) {
+        descriptionWidth = layout.titleSize.width();
+        height += layout.titleSize.height() + DelegatePaintUtil::margin();
+    }
+    return QSize(qMax(qMax(pixmapWidth, layout.textSize.width()), descriptionWidth),
                  height);
 }
 
@@ -61,6 +75,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     Q_UNUSED(attachmentsRect);
     Q_UNUSED(option);
     Q_UNUSED(index);
+    Q_UNUSED(msgAttach);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         //TODO ???
 //        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -74,6 +89,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
 {
     TextLayout layout;
+    layout.title = msgAttach.title();
+    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.text = msgAttach.text();
     layout.textSize = option.fontMetrics.size(Qt::TextSingleLine, layout.text);
     return layout;
