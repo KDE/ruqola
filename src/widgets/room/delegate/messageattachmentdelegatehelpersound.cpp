@@ -108,16 +108,16 @@ MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelpe
 {
     SoundLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
+    //or we could do layout.attachment = msgAttach; if we need many fields from it
+    layout.title = msgAttach.title();
+    layout.description = msgAttach.description();
+    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    layout.playerVolumeButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+    layout.downloadButtonRect = layout.playerVolumeButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
     if (url.isLocalFile()) {
         layout.audioPath = url.toLocalFile();
-        //or we could do layout.attachment = msgAttach; if we need many fields from it
-        layout.title = msgAttach.title();
-        layout.description = msgAttach.description();
-        layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-        layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
-        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.playerVolumeButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
-        layout.downloadButtonRect = layout.playerVolumeButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
     }
     return layout;
 }
