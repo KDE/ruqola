@@ -30,6 +30,8 @@ class AdministratorRoomsWidgetTest : public QObject
 public:
     explicit AdministratorRoomsWidgetTest(QObject *parent = nullptr);
     ~AdministratorRoomsWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // ADMINISTRATORROOMSWIDGETTEST_H

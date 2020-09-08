@@ -19,10 +19,20 @@
 */
 
 #include "administratorroomswidgettest.h"
+#include "administratordialog/administratorroomswidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorRoomsWidgetTest)
 AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
+{
+    AdministratorRoomsWidget w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 }
