@@ -23,8 +23,6 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
-class QQmlEngine;
-class QJSEngine;
 
 class NotificationPreferenceModel;
 class NotificationDesktopDurationPreferenceModel;
@@ -62,12 +60,5 @@ private:
     NotificationDesktopDurationPreferenceModel *mDesktopDurationNotificationModel = nullptr;
     NotificationDesktopSoundPreferenceModel *mDesktopSoundNotificationModel = nullptr;
 };
-
-inline static QObject *notificationpreferences_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
-    return new NotificationPreferences();
-}
 
 #endif // NOTIFICATIONPREFERENCES_H

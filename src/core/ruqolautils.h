@@ -27,8 +27,6 @@
 #include <QObject>
 
 class QString;
-class QQmlEngine;
-class QJSEngine;
 
 class LIBRUQOLACORE_EXPORT RuqolaUtils : public QObject
 {
@@ -44,14 +42,5 @@ private:
     explicit RuqolaUtils(QObject *parent = nullptr);
     Q_DISABLE_COPY(RuqolaUtils)
 };
-
-inline static QObject *ruqolautils_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
-
-    RuqolaUtils *utils = RuqolaUtils::self();
-    return utils;
-}
 
 #endif // RUQOLAUTILS_H

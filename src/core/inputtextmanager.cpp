@@ -54,13 +54,6 @@ QAbstractItemModel *InputTextManager::commandModel() const
     return mCommandFilterProxyModel;
 }
 
-QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
-{
-    // Those two methods aren't the same. replaceWord is called from QML with a value "int position"
-    // while applyCompletion takes a ref (which is used by the Widgets code to update the position)
-    return applyCompletion(newWord, text, &position);
-}
-
 QString InputTextManager::applyCompletion(const QString &newWord, const QString &text, int *pPosition)
 {
     if (newWord.isEmpty()) {

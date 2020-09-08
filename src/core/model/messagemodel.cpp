@@ -116,11 +116,6 @@ MessageModel::~MessageModel()
     delete mLoadRecentHistoryManager;
 }
 
-void MessageModel::enableQmlHacks(bool qmlHacks)
-{
-    mQmlHacks = qmlHacks;
-}
-
 void MessageModel::activate()
 {
     if (mRocketChatAccount) {
@@ -246,18 +241,9 @@ void MessageModel::addMessage(const Message &message)
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
     auto emitChanged = [this](int rowNumber) {
-                           if (mQmlHacks) {
-                               //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
-                               beginRemoveRows(QModelIndex(), rowNumber, rowNumber);
-                               endRemoveRows();
-
-                               beginInsertRows(QModelIndex(), rowNumber, rowNumber);
-                               endInsertRows();
-                           } else {
-                               const QModelIndex index = createIndex(rowNumber, 0);
-                               Q_EMIT dataChanged(index, index);
-                           }
-                       };
+        const QModelIndex index = createIndex(rowNumber, 0);
+        Q_EMIT dataChanged(index, index);
+    };
 
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {

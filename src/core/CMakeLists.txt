@@ -111,8 +111,6 @@ set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
 
 kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
 
-set (Ruqola_qml_core_srcs)
-
 set (Ruqola_core_srcs
     ${Ruqola_kcfg_SRCS}
     ${Ruqola_command_SRCS}
@@ -137,7 +135,6 @@ set (Ruqola_core_srcs
     changetemporarystatus.cpp
     user.cpp
     utils.cpp
-    clipboardproxy.cpp
     otr.cpp
     otrmanager.cpp
     abstractwebsocket.cpp
