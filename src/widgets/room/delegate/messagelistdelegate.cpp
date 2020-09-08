@@ -560,11 +560,13 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         const auto attachements = message->attachements();
+        int i = 0;
         for (const MessageAttachment &att : attachements) {
             MessageDelegateHelperBase *helper = attachmentsHelper(att);
-            if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRect, option, index)) {
+            if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
                 return true;
             }
+            ++i;
         }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto *mev = static_cast<QMouseEvent *>(event);
