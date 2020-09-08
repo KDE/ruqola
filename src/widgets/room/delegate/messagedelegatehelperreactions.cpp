@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
+#include "common/delegatepaintutil.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticon.h"
 
@@ -31,8 +32,6 @@
 #include <QStyleOptionViewItem>
 #include <ruqola.h>
 #include <QToolTip>
-
-constexpr const qreal margin = 8;
 
 MessageDelegateHelperReactions::MessageDelegateHelperReactions()
     : mEmojiFont(QStringLiteral("NotoColorEmoji"))
@@ -46,7 +45,7 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto *emojiManager = rcAccount->emojiManager();
     QFontMetricsF emojiFontMetrics(mEmojiFont);
-    const qreal smallMargin = margin/2.0;
+    const qreal smallMargin = DelegatePaintUtil::margin()/2.0;
     qreal x = reactionsRect.x();
 
     for (const Reaction &reaction : reactions) {
@@ -80,13 +79,13 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
         const int countWidth = option.fontMetrics.horizontalAdvance(layout.countStr) + smallMargin;
         // [reactionRect] = [emojiOffset (margin)] [emojiWidth] [countWidth] [margin/2]
         layout.reactionRect = QRectF(x, reactionsRect.y(),
-                                     emojiWidth + countWidth + margin, reactionsRect.height());
+                                     emojiWidth + countWidth + DelegatePaintUtil::margin(), reactionsRect.height());
         layout.emojiOffset = smallMargin + 1;
         layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
         layout.reaction = reaction;
 
         layouts.append(layout);
-        x += layout.reactionRect.width() + margin;
+        x += layout.reactionRect.width() + DelegatePaintUtil::margin();
     }
     return layouts;
 }
@@ -148,7 +147,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     const QVector<Reaction> reactions = message->reactions().reactions();
     if (!reactions.isEmpty()) {
         const QFontMetrics emojiFontMetrics(mEmojiFont);
-        reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + margin;
+        reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + DelegatePaintUtil::margin();
     }
     return QSize(maxWidth, reactionsHeight);
 }

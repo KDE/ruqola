@@ -36,8 +36,6 @@
 //  Name <download icon>
 //  Description
 
-static const int vMargin = 8;
-
 MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 {
 }
@@ -67,7 +65,7 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
         painter->setFont(oldFont);
     }
     if (!layout.description.isEmpty()) {
-        const int descriptionY = y + layout.titleSize.height() + vMargin;
+        const int descriptionY = y + layout.titleSize.height() + DelegatePaintUtil::margin();
         painter->drawText(attachmentsRect.x(), descriptionY + option.fontMetrics.ascent(), layout.description);
     }
 }
@@ -77,7 +75,7 @@ QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msg
     Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option);
     return QSize(maxWidth, // should be qMax of all sizes, but doesn't really matter
-                 layout.y + layout.height + vMargin);
+                 layout.y + layout.height + DelegatePaintUtil::margin());
 }
 
 MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
@@ -92,7 +90,7 @@ MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperF
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
     layout.y = y;
-    layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : vMargin + layout.descriptionSize.height());
+    layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height());
     if (msgAttach.canDownloadAttachment()) {
         layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
     }
