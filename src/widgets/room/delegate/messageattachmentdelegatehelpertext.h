@@ -38,6 +38,8 @@ private:
     struct TextLayout {
         QString text;
         QSize textSize;
+        QString title;
+        QSize titleSize;
     };
     Q_REQUIRED_RESULT TextLayout layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
 };
