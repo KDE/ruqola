@@ -44,7 +44,7 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
     layouts.reserve(reactions.count());
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto *emojiManager = rcAccount->emojiManager();
-    QFontMetricsF emojiFontMetrics(mEmojiFont);
+    const QFontMetricsF emojiFontMetrics(mEmojiFont);
     const qreal smallMargin = DelegatePaintUtil::margin()/2.0;
     qreal x = reactionsRect.x();
 
