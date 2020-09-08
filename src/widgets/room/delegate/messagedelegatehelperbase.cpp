@@ -34,4 +34,3 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     Q_UNUSED(index)
     return false;
 }
-

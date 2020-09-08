@@ -25,7 +25,6 @@ EmoticonFilterModel::EmoticonFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
     , mEmoticonCategoriesModel(new EmoticonCategoriesModel(this))
 {
-
 }
 
 EmoticonFilterModel::~EmoticonFilterModel()

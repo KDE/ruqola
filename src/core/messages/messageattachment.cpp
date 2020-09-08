@@ -341,8 +341,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mAuthorName == other.authorName())
            && (mMimeType == other.mimeType())
            && (mText == other.text())
-            && (mAttachmentFields == other.attachmentFields())
-            && (mCollapsed == other.collapsed());
+           && (mAttachmentFields == other.attachmentFields())
+           && (mCollapsed == other.collapsed());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)

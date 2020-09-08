@@ -25,7 +25,6 @@ QTEST_MAIN(ShowAttachmentComboBoxTest)
 ShowAttachmentComboBoxTest::ShowAttachmentComboBoxTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ShowAttachmentComboBoxTest::shouldHaveDefaultValues()

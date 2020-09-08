@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "messageattachmentfieldtest.h"
 #include "messages/messageattachmentfield.h"
 #include <QTest>
@@ -26,7 +25,6 @@ QTEST_GUILESS_MAIN(MessageAttachmentFieldTest)
 MessageAttachmentFieldTest::MessageAttachmentFieldTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageAttachmentFieldTest::shouldHaveDefaultValues()

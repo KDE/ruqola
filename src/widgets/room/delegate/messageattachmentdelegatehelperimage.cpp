@@ -82,7 +82,6 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
             painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
             nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
-
     }
     // Draw description (if any)
     if (!layout.description.isEmpty()) {

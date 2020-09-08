@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showattachmentcombobox.h"
 #include <KLocalizedString>
 ShowAttachmentComboBox::ShowAttachmentComboBox(QWidget *parent)
@@ -29,7 +28,6 @@ ShowAttachmentComboBox::ShowAttachmentComboBox(QWidget *parent)
 
 ShowAttachmentComboBox::~ShowAttachmentComboBox()
 {
-
 }
 
 void ShowAttachmentComboBox::fillCombobox()

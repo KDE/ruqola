@@ -32,5 +32,4 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()
 {
-
 }

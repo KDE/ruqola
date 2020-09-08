@@ -24,18 +24,16 @@
 
 MessageAttachmentField::MessageAttachmentField()
 {
-
 }
 
 MessageAttachmentField::~MessageAttachmentField()
 {
-
 }
 
 bool MessageAttachmentField::operator==(const MessageAttachmentField &other) const
 {
-    return mTitle == other.title() &&
-            mValue == other.value();
+    return mTitle == other.title()
+           && mValue == other.value();
 }
 
 QString MessageAttachmentField::title() const

@@ -26,7 +26,6 @@ QTEST_MAIN(AdministratorRoomsWidgetTest)
 AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()

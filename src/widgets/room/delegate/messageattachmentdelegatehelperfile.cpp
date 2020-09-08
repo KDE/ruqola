@@ -45,8 +45,6 @@ MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 {
 }
 
-
-
 void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)

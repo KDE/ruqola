@@ -48,7 +48,7 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchAttachmentFileLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchAttachmentFileLineEdit->placeholderText().isEmpty());
 
-    ShowAttachmentComboBox *mAttachmentCombobox = w.findChild<ShowAttachmentComboBox* >(QStringLiteral("mAttachmentCombobox"));
+    ShowAttachmentComboBox *mAttachmentCombobox = w.findChild<ShowAttachmentComboBox * >(QStringLiteral("mAttachmentCombobox"));
     QVERIFY(mAttachmentCombobox);
 
     auto *mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));
