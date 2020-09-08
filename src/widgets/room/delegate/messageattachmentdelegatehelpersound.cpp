@@ -35,6 +35,13 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
+
+MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound()
+    : mPlayerVolumeIcon(QIcon::fromTheme(QStringLiteral("player-volume")))
+    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+{
+}
+
 MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
 {
 }
@@ -45,10 +52,8 @@ void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAtta
     const SoundLayout layout = layoutSound(msgAttach, option);
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
-    const QIcon playerVolumeIcon = QIcon::fromTheme(QStringLiteral("player-volume"));
-    playerVolumeIcon.paint(painter, layout.playerVolumeButtonRect.translated(messageRect.topLeft()));
-    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
-    downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+    mPlayerVolumeIcon.paint(painter, layout.playerVolumeButtonRect.translated(messageRect.topLeft()));
+    mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
     // Draw main pixmap (if shown)
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();

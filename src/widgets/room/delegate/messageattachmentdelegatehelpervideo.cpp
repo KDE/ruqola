@@ -35,6 +35,12 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
+MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo()
+    : mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+    , mVisibilityIcon(QIcon::fromTheme(QStringLiteral("visibility")))
+{
+}
+
 MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo()
 {
 }
@@ -46,10 +52,8 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
-    const QIcon showIcon = QIcon::fromTheme(QStringLiteral("visibility"));
-    showIcon.paint(painter, layout.showButtonRect.translated(messageRect.topLeft()));
-    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
-    downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+    mVisibilityIcon.paint(painter, layout.showButtonRect.translated(messageRect.topLeft()));
+    mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
 

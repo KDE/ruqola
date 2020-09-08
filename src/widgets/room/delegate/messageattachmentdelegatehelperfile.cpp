@@ -36,15 +36,21 @@
 //  Name <download icon>
 //  Description
 
+MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile()
+    : mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+{
+}
+
 MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 {
 }
+
+
 
 void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option);
-    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
     const QPen oldPen = painter->pen();
     const QFont oldFont = painter->font();
     QFont underlinedFont = oldFont;
@@ -57,7 +63,7 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
     }
     painter->drawText(attachmentsRect.x(), y + option.fontMetrics.ascent(), layout.title);
     if (layout.downloadButtonRect.isValid()) {
-        downloadIcon.paint(painter, layout.downloadButtonRect.translated(attachmentsRect.topLeft()));
+        mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(attachmentsRect.topLeft()));
     }
 
     if (hasLink) {

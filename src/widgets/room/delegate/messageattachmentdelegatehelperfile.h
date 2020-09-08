@@ -25,10 +25,12 @@
 
 #include <QRect>
 #include <QString>
+#include <QIcon>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
+    MessageAttachmentDelegateHelperFile();
     ~MessageAttachmentDelegateHelperFile() override;
     void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
@@ -48,6 +50,7 @@ private:
     };
     Q_REQUIRED_RESULT FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
     friend class MessageDelegateHelperFileTest;
+    const QIcon mDownloadIcon;
 };
 
 #endif // MESSAGEATTACHMENTDELEGATEHELPERFILE_H
