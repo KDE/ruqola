@@ -268,14 +268,18 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     } else {
         const auto attachements = message->attachements();
         QSize attachmentsSize;
+        int topAttachment = attachmentsY;
         for (const MessageAttachment &msgAttach : attachements) {
             const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
                 attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
+                layout.attachmentsRectList.append(QRect(textLeft, topAttachment, attachmentsSize.width(), attachmentsSize.height()));
             } else {
                 const QSize attSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
+                layout.attachmentsRectList.append(QRect(textLeft, topAttachment, attSize.width(), attSize.height()));
                 attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
             }
+            topAttachment += attachmentsSize.height();
         }
         layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         layout.reactionsY = attachmentsY + attachmentsSize.height();
@@ -417,11 +421,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Attachments
     const auto attachements = message->attachements();
+    int i = 0;
     for (const MessageAttachment &att : attachements) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper) {
-            helper->draw(att, painter, layout.attachmentsRect, index, option);
+            helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
         }
+        ++i;
     }
 
     // Reactions

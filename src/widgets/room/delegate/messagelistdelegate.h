@@ -101,6 +101,7 @@ private:
 
         // Attachments
         QRect attachmentsRect;
+        QVector<QRect> attachmentsRectList;
 
         // Reactions
         qreal reactionsY = 0;
