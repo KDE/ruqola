@@ -34,21 +34,26 @@ ServerInfoWidget::ServerInfoWidget(QWidget *parent)
     mAccountName = new QLabel(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mAccountName->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Account Name:"), mAccountName);
 
     mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mUserName->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("User Name:"), mUserName);
 
     mServerUrl = new QLabel(this);
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
-    mServerUrl->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mServerUrl->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
+    mServerUrl->setTextFormat(Qt::RichText);
+    mServerUrl->setOpenExternalLinks(true);
     layout->addRow(i18n("Server Url:"), mServerUrl);
 
     mServerVersion = new QLabel(this);
     mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
     mServerVersion->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mServerVersion->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Server Version:"), mServerVersion);
 }
 
@@ -62,6 +67,6 @@ void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
         mAccountName->setText(info->serverName());
         mUserName->setText(info->userName());
         mServerVersion->setText(info->serverVersionStr());
-        mServerUrl->setText(info->serverUrl());
+        mServerUrl->setText(QStringLiteral("<a href=\"%1\">%1</a>").arg(info->serverUrl()));
     }
 }
