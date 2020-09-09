@@ -264,6 +264,9 @@ void MessageModel::addMessage(const Message &message)
 
 void MessageModel::addMessages(const QVector<Message> &messages)
 {
+    if (messages.isEmpty()) {
+        return;
+    }
     if (mAllMessages.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, messages.count() - 1);
         mAllMessages = messages;
