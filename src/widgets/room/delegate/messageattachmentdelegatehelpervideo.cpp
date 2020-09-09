@@ -69,13 +69,12 @@ QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &ms
     Q_UNUSED(index)
     const VideoLayout layout = layoutVideo(msgAttach, option);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-    const int pixmapWidth = 0;
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return QSize(qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth),
+    return QSize(qMax(qMax(0, layout.titleSize.width()), descriptionWidth),
                  height);
 }
 
