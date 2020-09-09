@@ -26,8 +26,8 @@
 
 ChannelActionPopupMenu::ChannelActionPopupMenu(QObject *parent)
     : QObject(parent)
+    , mMenu(new QMenu)
 {
-    mMenu = new QMenu;
     mMenu->setObjectName(QStringLiteral("mMenu"));
     connect(mMenu, &QMenu::aboutToShow, this, &ChannelActionPopupMenu::slotUpdateMenu);
     createMenu();

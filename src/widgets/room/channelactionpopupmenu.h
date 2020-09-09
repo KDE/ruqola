@@ -46,7 +46,7 @@ private:
     void slotUpdateMenu();
     void createMenu();
     QAction *createSeparator();
-    QMenu *mMenu = nullptr;
+    QMenu *const mMenu;
     QAction *mShowMentions = nullptr;
     QAction *mShowPinnedMessages = nullptr;
     QAction *mShowStarredMessages = nullptr;
