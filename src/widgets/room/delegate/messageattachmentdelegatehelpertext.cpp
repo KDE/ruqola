@@ -51,6 +51,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     if (!layout.text.isEmpty()) {
         painter->drawText(messageRect.x(), y + option.fontMetrics.ascent(), layout.text);
     }
+    //TODO add fields
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -59,14 +60,12 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     Q_UNUSED(maxWidth)
     const TextLayout layout = layoutText(msgAttach, option);
     int height = layout.textSize.height() + DelegatePaintUtil::margin();
-    const int pixmapWidth = 0;
-
     int descriptionWidth = 0;
     if (!layout.title.isEmpty()) {
         descriptionWidth = layout.titleSize.width();
         height += layout.titleSize.height() + DelegatePaintUtil::margin();
     }
-    return QSize(qMax(qMax(pixmapWidth, layout.textSize.width()), descriptionWidth),
+    return QSize(qMax(qMax(0, layout.textSize.width()), descriptionWidth),
                  height);
 }
 
