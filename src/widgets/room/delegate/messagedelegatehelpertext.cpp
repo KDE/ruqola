@@ -45,13 +45,13 @@
 
 QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, const QWidget *widget) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    Q_ASSERT(message);
 
     // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
 
     if (mShowThreadContext) {
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        Q_ASSERT(message);
         const QString threadMessageId = message->threadMessageId();
         if (!threadMessageId.isEmpty()) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();
