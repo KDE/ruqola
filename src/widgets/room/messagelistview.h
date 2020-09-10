@@ -97,7 +97,7 @@ private:
 
 private:
     RoomWrapper *mRoomWrapper = nullptr;
-    MessageListView::Mode mMode = MessageListView::Mode::Editing;
+    const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *mMessageListDelegate = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QPoint mPressedPosition;
