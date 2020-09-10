@@ -1,6 +1,7 @@
 /*
 
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2020  Laurent Montel <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -28,8 +29,6 @@
 #include "ddpapi/ddpclient.h"
 #include "model/roommodel.h"
 #include "model/messagemodel.h"
-
-#include <KAboutData>
 
 class RocketChatAccount;
 class AccountManager;
