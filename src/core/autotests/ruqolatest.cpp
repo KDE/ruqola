@@ -35,20 +35,3 @@ void RuqolaTest::shouldHaveDefaultValue()
     Ruqola r(nullptr);
     QVERIFY(r.accountManager());
 }
-
-void RuqolaTest::shouldDestroy()
-{
-#ifndef Q_OS_ANDROID
-    // GIVEN
-    Ruqola *obj = Ruqola::self();
-    QPointer<Notification> pNotification(obj->notification());
-    QVERIFY(!pNotification.isNull());
-
-    // WHEN
-    Ruqola::destroy();
-
-    // THEN
-    QVERIFY(pNotification.isNull());
-    // otherwise the process won't exit...
-#endif
-}

@@ -56,9 +56,6 @@ Ruqola::Ruqola(QObject *parent)
     //Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
-    connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
-    connect(mAccountManager, &AccountManager::roomNeedAttention, this, &Ruqola::slotRoomNeedAttention);
-    connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
 }
 
 void Ruqola::setCurrentAccount(const QString &accountName)
@@ -76,36 +73,3 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
     return mAccountManager->account();
 }
 
-#ifndef Q_OS_ANDROID
-Notification *Ruqola::notification()
-{
-    if (!mNotification) {
-        mNotification = new Notification(this);
-    }
-    return mNotification;
-}
-
-#endif
-
-void Ruqola::slotRoomNeedAttention()
-{
-#ifndef Q_OS_ANDROID
-    notification()->roomNeedAttention();
-#endif
-}
-
-void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
-{
-#ifndef Q_OS_ANDROID
-    notification()->updateNotification(hasAlert, nbUnread, accountName);
-#endif
-}
-
-void Ruqola::logout(const QString &accountName)
-{
-#ifdef Q_OS_ANDROID
-    Q_UNUSED(accountName)
-#else
-    notification()->clearNotification(accountName);
-#endif
-}

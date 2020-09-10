@@ -29,10 +29,6 @@
 #include "model/roommodel.h"
 #include "model/messagemodel.h"
 
-#ifndef Q_OS_ANDROID
-#include "notification.h"
-#endif
-
 #include <KAboutData>
 
 class RocketChatAccount;
@@ -50,11 +46,6 @@ public:
     static Ruqola *self();
 
     static void destroy();
-
-#ifndef Q_OS_ANDROID
-    Notification *notification();
-#endif
-
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
     Q_INVOKABLE AccountManager *accountManager() const;
@@ -64,13 +55,6 @@ public:
     void setCurrentAccount(const QString &accountName);
 private:
     Q_DISABLE_COPY(Ruqola)
-    void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
-    void slotRoomNeedAttention();
-    void logout(const QString &accountName);
     AccountManager *mAccountManager = nullptr;
-
-#ifndef Q_OS_ANDROID
-    Notification *mNotification = nullptr;
-#endif
 };
 #endif // RUQOLA_H

@@ -40,6 +40,7 @@
 #include "myaccount/myaccountconfiguredialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "administratordialog/administratordialog.h"
+#include "notification.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -78,19 +79,24 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupStatusBar();
     setupGUI(/*QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc")*/);
     readConfig();
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+    mNotification = new Notification(this);
+    // Create systray to show notifications on Desktop
+    connect(mNotification, &Notification::alert, this, [this]() {
+        QApplication::alert(this, 0);
+    });
+#endif
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
+    connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
+    connect(Ruqola::self()->accountManager(), &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
+    connect(Ruqola::self()->accountManager(), &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
+
     slotAccountChanged();
 #if HAVE_KUSERFEEDBACK
     KUserFeedback::NotificationPopup *userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
 
-#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
-    // Create systray to show notifications on Desktop
-    connect(Ruqola::self()->notification(), &Notification::alert, this, [this]() {
-        QApplication::alert(this, 0);
-    });
-#endif
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
@@ -102,6 +108,31 @@ RuqolaMainWindow::~RuqolaMainWindow()
     delete mMainWidget; // before Ruqola::destroy()
 
     Ruqola::destroy();
+}
+
+void RuqolaMainWindow::slotRoomNeedAttention()
+{
+    if (mNotification) {
+        mNotification->roomNeedAttention();
+    }
+}
+
+void RuqolaMainWindow::logout(const QString &accountName)
+{
+#ifdef Q_OS_ANDROID
+    Q_UNUSED(accountName)
+#else
+    if (mNotification) {
+        mNotification->clearNotification(accountName);
+    }
+#endif
+}
+
+void RuqolaMainWindow::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
+{
+    if (mNotification) {
+        mNotification->updateNotification(hasAlert, nbUnread, accountName);
+    }
 }
 
 void RuqolaMainWindow::setupStatusBar()

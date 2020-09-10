@@ -31,6 +31,7 @@ class AccountMenu;
 class RocketChatAccount;
 class QLabel;
 class AccountsOverviewWidget;
+class Notification;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -64,6 +65,9 @@ private:
     void slotRegisterNewUser();
     void slotAdministrator();
     void slotConfigureMyAccount();
+    void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
+    void logout(const QString &accountName);
+    void slotRoomNeedAttention();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -80,6 +84,7 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
+    Notification *mNotification = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H
