@@ -49,9 +49,7 @@ endif()
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth Test MultimediaWidgets)
 
-if (ANDROID)
-    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Svg)
-endif()
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Svg)
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
@@ -63,9 +61,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     NotifyConfig
 )
 
-if (NOT ANDROID)
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DocTools)
-endif()
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DocTools)
 
 find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5XmlGui ${KF5_MIN_VERSION} CONFIG REQUIRED)
