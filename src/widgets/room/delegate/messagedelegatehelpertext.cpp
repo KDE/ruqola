@@ -359,13 +359,13 @@ void MessageDelegateHelperText::setShowThreadContext(bool b)
     mShowThreadContext = b;
 }
 
-static std::unique_ptr<QTextDocument> createTextDocument(const QModelIndex &index, const QString &text, int width)
+static std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width)
 {
     std::unique_ptr<QTextDocument> doc(new QTextDocument);
     doc->setHtml(text);
     doc->setTextWidth(width);
     QFont font = qApp->font();
-    font.setItalic(useItalicsForMessage(index));
+    font.setItalic(useItalic);
     doc->setDefaultFont(font);
     QTextFrame *frame = doc->frameAt(0);
     QTextFrameFormat frameFormat = frame->frameFormat();
@@ -395,7 +395,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
         return nullptr;
     }
 
-    auto doc = createTextDocument(index, text, width);
+    auto doc = createTextDocument(useItalicsForMessage(index), text, width);
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
