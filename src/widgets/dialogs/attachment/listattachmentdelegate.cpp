@@ -27,7 +27,6 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
 
@@ -57,12 +56,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const bool fileComplete = file->complete();
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
-    QPixmap pix;
-    if (mimeType.isValid()) {
-        pix = KIconLoader::global()->loadMimeTypeIcon(mimeType.iconName(), KIconLoader::Desktop);
-    } else {
-        pix = QIcon::fromTheme(QStringLiteral("unknown")).pixmap(layout.mimetypeHeight, layout.mimetypeHeight);
-    }
+    const QPixmap pix = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(layout.mimetypeHeight);
 
     painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
 
