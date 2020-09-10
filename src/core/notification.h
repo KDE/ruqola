@@ -53,7 +53,7 @@ private:
         {
         }
 
-        bool hasNotification() const
+        Q_REQUIRED_RESULT bool hasNotification() const
         {
             return (unreadMessage != 0) || hasAlert;
         }
