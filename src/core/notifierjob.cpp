@@ -35,7 +35,7 @@ NotifierJob::~NotifierJob()
 void NotifierJob::start()
 {
     if (mInfo.isValid()) {
-        KNotification *notification = new KNotification(QStringLiteral("new-notification"), nullptr, KNotification::CloseOnTimeout);
+        KNotification *notification = new KNotification(QStringLiteral("new-notification"), KNotification::CloseOnTimeout);
         notification->setTitle(mInfo.title);
         const QString userName = mInfo.senderName.isEmpty() ? mInfo.senderUserName : mInfo.senderName;
         notification->setText(i18n("%1: %2", userName, mInfo.message.toHtmlEscaped()));
