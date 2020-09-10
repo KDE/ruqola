@@ -71,11 +71,6 @@ AccountManager *Ruqola::accountManager() const
     return mAccountManager;
 }
 
-KAboutData Ruqola::applicationData() const
-{
-    return KAboutData::applicationData();
-}
-
 RocketChatAccount *Ruqola::rocketChatAccount() const
 {
     return mAccountManager->account();

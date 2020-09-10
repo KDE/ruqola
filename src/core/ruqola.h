@@ -57,8 +57,6 @@ public:
 
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
-    Q_INVOKABLE KAboutData applicationData() const;
-
     Q_INVOKABLE AccountManager *accountManager() const;
 
     explicit Ruqola(QObject *parent = nullptr);
