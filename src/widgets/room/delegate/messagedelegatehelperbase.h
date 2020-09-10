@@ -29,7 +29,6 @@ class QRect;
 class QModelIndex;
 class QMouseEvent;
 class QStyleOptionViewItem;
-class QWidget;
 
 class Message;
 
