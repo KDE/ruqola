@@ -114,5 +114,10 @@ if (TARGET KF5::DocTools)
     add_subdirectory(doc)
 endif()
 
-install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+ecm_qt_install_logging_categories(
+        EXPORT RUQOLA
+        FILE ruqola.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
