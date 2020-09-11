@@ -143,7 +143,7 @@ void RuqolaMainWindow::slotRaiseWindow()
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
-    mSaveAs->setEnabled(enabled);
+    //Laurent disable for the moment mSaveAs->setEnabled(enabled);
 }
 
 void RuqolaMainWindow::updateActions()
