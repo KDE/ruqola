@@ -59,6 +59,7 @@
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
+#include <QMenu>
 #endif
 
 namespace {
@@ -81,6 +82,9 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     readConfig();
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     mNotification = new Notification(this);
+    QMenu *trayMenu = qobject_cast<QMenu*>(mNotification->contextMenu());
+    trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
+    trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
     // Create systray to show notifications on Desktop
     connect(mNotification, &Notification::alert, this, [this]() {
         QApplication::alert(this, 0);
