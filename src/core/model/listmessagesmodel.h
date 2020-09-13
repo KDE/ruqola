@@ -48,7 +48,7 @@ public:
     void parseListMessages(const QJsonObject &obj);
     void loadMoreListMessages(const QJsonObject &obj);
 
-    Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
+    Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
     Q_REQUIRED_RESULT bool loadMoreListMessagesInProgress() const;

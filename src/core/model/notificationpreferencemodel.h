@@ -48,9 +48,9 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT int setCurrentNotificationPreference(const QString &preference);
+    Q_REQUIRED_RESULT int setCurrentNotificationPreference(const QString &preference);
 
-    Q_INVOKABLE Q_REQUIRED_RESULT QString currentPreference(int index) const;
+    Q_REQUIRED_RESULT QString currentPreference(int index) const;
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();

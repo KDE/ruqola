@@ -95,9 +95,9 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateLanguage() const;
     Q_REQUIRED_RESULT bool autoTranslate() const;
 
-    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasOwnerRole(const QString &userId) const;
-    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasLeaderRole(const QString &userId) const;
-    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasModeratorRole(const QString &userId) const;
+    Q_REQUIRED_RESULT bool userHasOwnerRole(const QString &userId) const;
+    Q_REQUIRED_RESULT bool userHasLeaderRole(const QString &userId) const;
+    Q_REQUIRED_RESULT bool userHasModeratorRole(const QString &userId) const;
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
 
     Q_REQUIRED_RESULT qint64 lastSeenAt() const;

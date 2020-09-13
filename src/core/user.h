@@ -51,7 +51,7 @@ public:
     void setStatus(const QString &status);
 
     void parseUser(const QJsonObject &json);
-    Q_REQUIRED_RESULT Q_INVOKABLE QString iconFromStatus() const;
+    Q_REQUIRED_RESULT QString iconFromStatus() const;
 
     Q_REQUIRED_RESULT bool operator ==(const User &other) const;
     Q_REQUIRED_RESULT bool operator !=(const User &other) const;

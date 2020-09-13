@@ -34,10 +34,10 @@ public:
     explicit EmoticonFilterModel(QObject *parent = nullptr);
     ~EmoticonFilterModel() override;
 
-    Q_INVOKABLE void setCurrentCategory(const QString &category);
-    Q_INVOKABLE Q_REQUIRED_RESULT QString currentCategory() const;
+    void setCurrentCategory(const QString &category);
+    Q_REQUIRED_RESULT QString currentCategory() const;
 
-    Q_INVOKABLE EmoticonCategoriesModel *emoticonCategoriesModel() const;
+    EmoticonCategoriesModel *emoticonCategoriesModel() const;
 
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 

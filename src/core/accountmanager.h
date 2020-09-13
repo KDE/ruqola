@@ -39,8 +39,8 @@ public:
     explicit AccountManager(QObject *parent = nullptr);
     ~AccountManager() override;
 
-    Q_INVOKABLE void removeAccount(const QString &accountName);
-    Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url, bool enabled = true);
+    void removeAccount(const QString &accountName);
+    void addAccount(const QString &accountName, const QString &username, const QString &url, bool enabled = true);
 
     RocketChatAccount *account() const;
     RocketChatAccountModel *rocketChatAccountModel() const;

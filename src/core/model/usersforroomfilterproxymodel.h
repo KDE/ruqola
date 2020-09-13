@@ -34,7 +34,7 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void setFilterString(const QString &string);
+    void setFilterString(const QString &string);
 
     Q_REQUIRED_RESULT bool hasFullList() const;
 Q_SIGNALS:

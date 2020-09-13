@@ -39,7 +39,7 @@ public:
     explicit LoginMethodModel(QObject *parent = nullptr);
     ~LoginMethodModel() override;
 
-    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);

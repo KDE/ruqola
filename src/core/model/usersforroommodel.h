@@ -46,7 +46,7 @@ public:
     void setUsers(const QVector<User> &users);
 
     void clear();
-    Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
+    int rowCount(const QModelIndex &parent = {}) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);

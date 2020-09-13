@@ -54,7 +54,7 @@ public:
 
     Q_REQUIRED_RESULT QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
 
-    Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
+    void setInputTextChanged(const QString &str, int position);
 
     void clearCompleter();
 

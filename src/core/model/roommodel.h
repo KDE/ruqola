@@ -78,7 +78,7 @@ public:
     * @param roomName The name of the room
     * @param selected True if room if @param roomID is selected, else false
     */
-    Q_INVOKABLE void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
+    void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
     /**
     * @brief Finds a room with @param roomID in mRoomsList

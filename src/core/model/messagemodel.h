@@ -126,8 +126,8 @@ public:
 
     Q_REQUIRED_RESULT QString roomId() const;
 
-    Q_INVOKABLE void activate();
-    Q_INVOKABLE void deactivate();
+    void activate();
+    void deactivate();
 
     Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
     Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;

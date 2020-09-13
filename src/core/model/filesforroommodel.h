@@ -51,7 +51,7 @@ public:
     explicit FilesForRoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~FilesForRoomModel() override;
 
-    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void setFiles(const QVector<File> &files);

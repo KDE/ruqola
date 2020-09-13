@@ -45,9 +45,9 @@ public:
     static Ruqola *self();
 
     static void destroy();
-    Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
+    RocketChatAccount *rocketChatAccount() const;
 
-    Q_INVOKABLE AccountManager *accountManager() const;
+    AccountManager *accountManager() const;
 
     explicit Ruqola(QObject *parent = nullptr);
 

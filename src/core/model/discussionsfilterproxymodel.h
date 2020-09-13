@@ -32,9 +32,9 @@ public:
     ~DiscussionsFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_INVOKABLE void setFilterString(const QString &string);
-    Q_INVOKABLE void clearFilter();
-    Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
+    void setFilterString(const QString &string);
+    void clearFilter();
+    Q_REQUIRED_RESULT int total() const;
 
     Q_REQUIRED_RESULT bool hasFullList() const;
     Q_REQUIRED_RESULT bool loadMoreDiscussionsInProgress() const;

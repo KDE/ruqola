@@ -137,7 +137,7 @@ public:
     /**
     * @brief Calls method to log in the user with valid username and password
     */
-    Q_INVOKABLE void login();
+    void login();
 
     /**
      * @brief Tries logging in if the client is connected or just sets a flag
