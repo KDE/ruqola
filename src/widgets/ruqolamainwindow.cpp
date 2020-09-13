@@ -54,12 +54,12 @@
 #include <QFontDatabase>
 #include <QApplication>
 #include <KMessageBox>
+#include <QMenu>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
-#include <QMenu>
 #endif
 
 namespace {
