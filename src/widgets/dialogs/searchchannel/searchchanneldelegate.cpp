@@ -95,3 +95,11 @@ SearchChannelDelegate::Layout SearchChannelDelegate::doLayout(const QStyleOption
 
     return layout;
 }
+
+QSize SearchChannelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(index);
+    const int contentsHeight = option.fontMetrics.height() + DelegatePaintUtil::margin() - option.rect.y();
+    return QSize(option.rect.width(),
+                 contentsHeight);
+}
