@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     struct Layout {
-        QRect iconChannelRect;
+        QRect joinButtonRect;
 
         QRect usableRect;
 
@@ -46,8 +46,8 @@ private:
         //Select Channel Rect
         QRect selectChannelRect;
     };
-    SearchChannelDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    const QIcon mAddChannel;
+    Q_REQUIRED_RESULT SearchChannelDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    const QString mJoinLabel;
 };
 
 #endif

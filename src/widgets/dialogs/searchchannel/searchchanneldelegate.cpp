@@ -19,14 +19,17 @@
 */
 #include "searchchanneldelegate.h"
 #include "common/delegatepaintutil.h"
+#include <KLocalizedString>
 #include <QEvent>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QApplication>
+#include <QStyle>
 #include "model/searchchannelmodel.h"
 
 SearchChannelDelegate::SearchChannelDelegate(QObject *parent)
     : QItemDelegate(parent)
-    , mAddChannel(QIcon::fromTheme(QStringLiteral("list-add")))
+    , mJoinLabel(i18n("Join"))
 {
 }
 
@@ -46,11 +49,17 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     drawBackground(painter, optionCopy, index);
 
     const QIcon icon = index.data(SearchChannelModel::IconName).value<QIcon>();
-    icon.paint(painter, layout.iconChannelRect, Qt::AlignCenter);
+    icon.paint(painter, layout.joinButtonRect, Qt::AlignCenter);
 
     painter->drawText(layout.usableRect, layout.channelName);
 
-    mAddChannel.paint(painter, layout.selectChannelRect, Qt::AlignCenter);
+    QStyleOptionButton buttonOpt;
+    buttonOpt.rect = layout.selectChannelRect;
+    buttonOpt.state = option.state;
+    buttonOpt.text = mJoinLabel;
+    buttonOpt.palette = option.palette;
+
+    QApplication::style()->drawControl(QStyle::CE_PushButton, &buttonOpt, painter);
 
     painter->restore();
 }
@@ -73,16 +82,16 @@ SearchChannelDelegate::Layout SearchChannelDelegate::doLayout(const QStyleOption
 {
     Layout layout;
     QRect usableRect = option.rect;
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
-    layout.iconChannelRect = QRect(option.rect.x() + DelegatePaintUtil::margin(), option.rect.y(), iconSize, option.rect.height());
+    const int joinLabelWidth = option.fontMetrics.boundingRect(mJoinLabel).width() + 2 * DelegatePaintUtil::margin();
+    layout.joinButtonRect = QRect(option.rect.x() + DelegatePaintUtil::margin(), option.rect.y(), joinLabelWidth, option.rect.height());
 
     layout.channelName = index.data(SearchChannelModel::ChannelName).toString();
 
-    layout.selectChannelRect = QRect(option.rect.width() - iconSize - DelegatePaintUtil::margin(), option.rect.y(), iconSize, option.rect.height());
+    layout.selectChannelRect = QRect(option.rect.width() - joinLabelWidth - DelegatePaintUtil::margin(), option.rect.y(), joinLabelWidth, option.rect.height());
 
-    layout.usableRect.setLeft(layout.iconChannelRect.width() + DelegatePaintUtil::margin());
+    layout.usableRect.setLeft(layout.joinButtonRect.width() + DelegatePaintUtil::margin());
 
     return layout;
 }
