@@ -80,8 +80,11 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     //Text
     const QJsonValue text = attachment.value(QLatin1String("text"));
     if (!text.isUndefined()) {
-        mAttachmentType = AttachmentType::NormalText;
-        setText(text.toString());
+        const QJsonValue messagelink = attachment.value(QLatin1String("message_link"));
+        if (messagelink.isUndefined()) { //Don't show attachment if we have message_link. We already implement message preview
+            mAttachmentType = AttachmentType::NormalText;
+            setText(text.toString());
+        }
     }
     const QJsonArray fieldsArray = attachment.value(QLatin1String("fields")).toArray();
     QVector<MessageAttachmentField> messageFields;
