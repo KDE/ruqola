@@ -56,46 +56,48 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
         if (!threadMessageId.isEmpty()) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();
             const MessageModel *model = rcAccount->messageModelForRoom(message->roomId());
-            auto *that = const_cast<MessageDelegateHelperText *>(this);
-            // Find the previous message in the same thread, to use it as context
-            auto hasSameThread = [&](const Message &msg) {
-                                     return msg.threadMessageId() == threadMessageId
-                                            || msg.messageId() == threadMessageId;
-                                 };
-            Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
-            if (contextMessage.messageId().isEmpty()) {
-                ThreadMessageModel *cachedModel = mMessageCache.threadMessageModel(threadMessageId);
-                if (cachedModel) {
-                    contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
-                    if (contextMessage.messageId().isEmpty()) {
-                        Message *msg = mMessageCache.messageForId(threadMessageId);
-                        if (msg) {
-                            contextMessage = *msg;
+            if (model) {
+                auto *that = const_cast<MessageDelegateHelperText *>(this);
+                // Find the previous message in the same thread, to use it as context
+                auto hasSameThread = [&](const Message &msg) {
+                    return msg.threadMessageId() == threadMessageId
+                        || msg.messageId() == threadMessageId;
+                };
+                Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
+                if (contextMessage.messageId().isEmpty()) {
+                    ThreadMessageModel *cachedModel = mMessageCache.threadMessageModel(threadMessageId);
+                    if (cachedModel) {
+                        contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
+                        if (contextMessage.messageId().isEmpty()) {
+                            Message *msg = mMessageCache.messageForId(threadMessageId);
+                            if (msg) {
+                                contextMessage = *msg;
+                            } else {
+                                QPersistentModelIndex persistentIndex(index);
+                                connect(&mMessageCache, &MessageCache::messageLoaded,
+                                        this, [=](const QString &msgId){
+                                        if (msgId == threadMessageId) {
+                                        that->updateView(widget, persistentIndex);
+                                        }
+                                        });
+                            }
                         } else {
-                            QPersistentModelIndex persistentIndex(index);
-                            connect(&mMessageCache, &MessageCache::messageLoaded,
-                                    this, [=](const QString &msgId){
-                                if (msgId == threadMessageId) {
-                                    that->updateView(widget, persistentIndex);
-                                }
-                            });
+                            //qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                         }
                     } else {
-                        //qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
+                        QPersistentModelIndex persistentIndex(index);
+                        connect(&mMessageCache, &MessageCache::modelLoaded,
+                                this, [=](){
+                                that->updateView(widget, persistentIndex);
+                                });
                     }
-                } else {
-                    QPersistentModelIndex persistentIndex(index);
-                    connect(&mMessageCache, &MessageCache::modelLoaded,
-                            this, [=](){
-                        that->updateView(widget, persistentIndex);
-                    });
                 }
+                // Use TextConverter in case it starts with a [](URL) reply marker
+                TextConverter textConverter(rcAccount->emojiManager());
+                const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
+                const QString contextString = textConverter.convertMessageText(contextText, rcAccount->userName(), {});
+                text.prepend(Utils::formatQuotedRichText(contextString));
             }
-            // Use TextConverter in case it starts with a [](URL) reply marker
-            TextConverter textConverter(rcAccount->emojiManager());
-            const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
-            const QString contextString = textConverter.convertMessageText(contextText, rcAccount->userName(), {});
-            text.prepend(Utils::formatQuotedRichText(contextString));
         }
     }
 
