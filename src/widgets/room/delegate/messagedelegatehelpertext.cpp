@@ -25,6 +25,7 @@
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"
+#include "messagedelegateutils.h"
 
 #include <KStringHandler>
 
@@ -361,21 +362,6 @@ void MessageDelegateHelperText::setShowThreadContext(bool b)
     mShowThreadContext = b;
 }
 
-static std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width)
-{
-    std::unique_ptr<QTextDocument> doc(new QTextDocument);
-    doc->setHtml(text);
-    doc->setTextWidth(width);
-    QFont font = qApp->font();
-    font.setItalic(useItalic);
-    doc->setDefaultFont(font);
-    QTextFrame *frame = doc->frameAt(0);
-    QTextFrameFormat frameFormat = frame->frameFormat();
-    frameFormat.setMargin(0);
-    frame->setFrameFormat(frameFormat);
-    return doc;
-}
-
 QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -397,7 +383,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
         return nullptr;
     }
 
-    auto doc = createTextDocument(useItalicsForMessage(index), text, width);
+    auto doc = MessageDelegateUtils::createTextDocument(useItalicsForMessage(index), text, width);
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;

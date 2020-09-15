@@ -127,6 +127,7 @@ set(Ruqola_roomwidget_SRCS
     room/delegate/messageattachmentdelegatehelpersound.cpp
     room/delegate/runninganimatedimage.cpp
     room/delegate/pixmapcache.cpp
+    room/delegate/messagedelegateutils.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp
     room/usersinroomflowwidget.cpp
