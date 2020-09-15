@@ -22,9 +22,10 @@
 #define MESSAGEATTACHMENTDELEGATEHELPERTEXT_H
 
 #include "messagedelegatehelperbase.h"
-
+#include "lrucache.h"
 #include <QModelIndex>
 #include <QRect>
+#include <QTextDocument>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageDelegateHelperBase
 {
@@ -42,6 +43,7 @@ private:
         QSize titleSize;
     };
     Q_REQUIRED_RESULT TextLayout layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 
 #endif // MESSAGEATTACHMENTDELEGATEHELPERTEXT_H
