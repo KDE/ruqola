@@ -352,7 +352,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
             messageAttachement.parseAttachment(attachment);
-
+            messageAttachement.setAttachementId(Message::generateAttachmentId(messageId(), i));
             if (messageAttachement.isValid()) {
                 mAttachements.append(messageAttachement);
             }
@@ -666,6 +666,11 @@ void Message::setGroupable(bool groupable)
     mGroupable = groupable;
 }
 
+QString Message::generateAttachmentId(const QString &messageId, int index)
+{
+    return QStringLiteral("%1_%2").arg(messageId, QString::number(index));
+}
+
 Message Message::fromJSon(const QJsonObject &o)
 {
     Message message;
@@ -706,7 +711,8 @@ Message Message::fromJSon(const QJsonObject &o)
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
-        const MessageAttachment att = MessageAttachment::fromJson(attachment);
+        MessageAttachment att = MessageAttachment::fromJson(attachment);
+        att.setAttachementId(Message::generateAttachmentId(message.messageId(), i));
         if (att.isValid()) {
             message.mAttachements.append(att);
         }

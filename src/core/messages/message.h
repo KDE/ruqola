@@ -189,6 +189,7 @@ public:
     void setEmoji(const QString &emoji);
 
 private:
+    static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
     void parseUrls(const QJsonArray &urls);
@@ -290,6 +291,7 @@ private:
     bool mShowAttachment = true;
 
     EmojiManager *mEmojiManager = nullptr;
+
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);

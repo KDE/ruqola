@@ -217,7 +217,7 @@ void MessageAttachment::setAuthorName(const QString &authorName)
 
 bool MessageAttachment::isValid() const
 {
-    return !mLink.isEmpty() || !mText.isEmpty();
+    return !mAttachementId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty());
 }
 
 bool MessageAttachment::canDownloadAttachment() const
@@ -290,6 +290,16 @@ bool MessageAttachment::collapsed() const
 void MessageAttachment::setCollapsed(bool collapsed)
 {
     mCollapsed = collapsed;
+}
+
+QString MessageAttachment::attachementId() const
+{
+    return mAttachementId;
+}
+
+void MessageAttachment::setAttachementId(const QString &attachementId)
+{
+    mAttachementId = attachementId;
 }
 
 QString MessageAttachment::displayTitle() const

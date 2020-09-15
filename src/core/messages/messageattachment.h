@@ -102,6 +102,9 @@ public:
     Q_REQUIRED_RESULT bool collapsed() const;
     void setCollapsed(bool collapsed);
 
+    Q_REQUIRED_RESULT QString attachementId() const;
+    void setAttachementId(const QString &attachementId);
+
 private:
     QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
@@ -112,6 +115,7 @@ private:
     QString mAuthorName;
     QString mMimeType;
     QString mText;
+    QString mAttachementId;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
