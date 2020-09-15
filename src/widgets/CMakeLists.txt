@@ -1,6 +1,6 @@
 set(ruqola_userfeedback_SRCS)
 if (TARGET KUserFeedbackWidgets)
-    set(ruqola_userfeedback_SRCS ${ruqola_userfeedback_SRCS}
+    set(ruqola_userfeedback_SRCS
         userfeedback/userfeedbackmanager.cpp
         userfeedback/ruqolauserfeedbackprovider.cpp
         userfeedback/accountinfosource.cpp
