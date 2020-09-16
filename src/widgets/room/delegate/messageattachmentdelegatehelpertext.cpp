@@ -104,6 +104,10 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     if (!doc) {
         return QSize();
     }
+    if (!msgAttach.title().isEmpty()) {
+        //qDebug() << " msgAttach.title()" << msgAttach.title();
+        //TODO
+    }
     const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
 
     //Define size for title
