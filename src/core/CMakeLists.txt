@@ -189,6 +189,7 @@ set (Ruqola_core_srcs
 
     ownuser.cpp
     servicepassword.cpp
+    serverinfo.cpp
 )
 
 if (NOT WIN32)
