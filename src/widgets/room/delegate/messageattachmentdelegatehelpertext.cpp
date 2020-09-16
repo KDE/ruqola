@@ -37,16 +37,17 @@
 #include <QPointer>
 #include <QTextBlock>
 #include <QStyleOptionViewItem>
-#define DRAW_NOT_MULTILINE 0
+
 MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 {
 }
 
 void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    const TextLayout layout = layoutText(msgAttach, option);
-#if DRAW_NOT_MULTILINE
     Q_UNUSED(index);
+    Q_UNUSED(option);
+
+#if 0
     int y = messageRect.y();
     if (!layout.title.isEmpty()) {
         qDebug() << " draw title!!!!!!!!!!!!!!!!!!!!" << layout.title;
@@ -56,8 +57,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     if (!layout.text.isEmpty()) {
         painter->drawText(messageRect.x(), y + option.fontMetrics.ascent(), layout.text);
     }
-#else
-#if 1
+#endif
     auto *doc = documentForIndex(msgAttach, messageRect.width());
     if (!doc) {
         return;
@@ -79,7 +79,6 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     }
 #endif
 
-    //qDebug() << " draw !!!!!!!!!!!!!!!!!!!!" << layout.text;
     painter->save();
     painter->translate(messageRect.left(), messageRect.top());
     const QRect clip(0, 0, messageRect.width(), messageRect.height());
@@ -93,37 +92,24 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     }
     doc->documentLayout()->draw(painter, ctx);
     painter->restore();
-#endif
-#endif
     //TODO add fields
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-#if DRAW_NOT_MULTILINE
-    Q_UNUSED(index)
-    Q_UNUSED(maxWidth)
-    const TextLayout layout = layoutText(msgAttach, option);
-    int height = layout.textSize.height() + DelegatePaintUtil::margin();
-    int descriptionWidth = 0;
-    if (!layout.title.isEmpty()) {
-        descriptionWidth = layout.titleSize.width();
-        height += layout.titleSize.height() + DelegatePaintUtil::margin();
-    }
-    return QSize(qMax(qMax(0, layout.textSize.width()), descriptionWidth),
-                 height);
-#else
+    Q_UNUSED(index);
+    Q_UNUSED(option);
     auto *doc = documentForIndex(msgAttach, maxWidth);
     if (!doc) {
         return QSize();
     }
     const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
 
-    const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
+    //Define size for title
+    //const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
     //FIXME *pBaseLine = line.y() + line.ascent(); // relative
 
     return size;
-#endif
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -140,16 +126,6 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 //        TextLayout layout = layoutText(message, option);
     }
     return false;
-}
-
-MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
-{
-    TextLayout layout;
-    layout.title = msgAttach.title();
-    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.text = msgAttach.text();
-    layout.textSize = option.fontMetrics.size(Qt::TextSingleLine, layout.text);
-    return layout;
 }
 
 QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach, int width) const

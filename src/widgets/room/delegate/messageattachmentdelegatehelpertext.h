@@ -36,14 +36,7 @@ public:
     bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    struct TextLayout {
-        QString text;
-        QSize textSize;
-        QString title;
-        QSize titleSize;
-    };
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach, int width) const;
-    Q_REQUIRED_RESULT TextLayout layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 
