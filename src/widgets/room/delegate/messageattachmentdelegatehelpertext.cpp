@@ -132,7 +132,8 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     TextConverter textConverter(rcAccount->emojiManager());
     //Add bold for title
-    const QString contextString = textConverter.convertMessageText(title + QLatin1Char('\n') + text, rcAccount->userName(), {});
+    const QString fullText = title.isEmpty() ? text : (title + QLatin1Char('\n') + text);
+    const QString contextString = textConverter.convertMessageText(fullText, rcAccount->userName(), {});
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));
