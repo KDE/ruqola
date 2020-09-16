@@ -26,6 +26,7 @@
 #include "dialogs/showvideodialog.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
+#include "textconverter.h"
 
 #include <KLocalizedString>
 
@@ -144,8 +145,13 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     if (text.isEmpty()) {
         return nullptr;
     }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    TextConverter textConverter(rcAccount->emojiManager());
+    const QString contextString = textConverter.convertMessageText(text, rcAccount->userName(), {});
 
-    auto doc = MessageDelegateUtils::createTextDocument(false, text, width);
+
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));
     return ret;
