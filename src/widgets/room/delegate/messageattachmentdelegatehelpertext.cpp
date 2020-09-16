@@ -121,11 +121,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     Q_UNUSED(msgAttach);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         //TODO ???
-//        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-//        const QPoint pos = mouseEvent->pos();
-
-//        TextLayout layout = layoutText(message, option);
     }
+    //Implement click on url
     return false;
 }
 
