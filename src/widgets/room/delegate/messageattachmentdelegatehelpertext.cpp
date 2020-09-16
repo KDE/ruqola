@@ -48,17 +48,6 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     Q_UNUSED(index);
     Q_UNUSED(option);
 
-#if 0
-    int y = messageRect.y();
-    if (!layout.title.isEmpty()) {
-        qDebug() << " draw title!!!!!!!!!!!!!!!!!!!!" << layout.title;
-        y += option.fontMetrics.ascent();
-        painter->drawText(messageRect.x(), y, layout.title);
-    }
-    if (!layout.text.isEmpty()) {
-        painter->drawText(messageRect.x(), y + option.fontMetrics.ascent(), layout.text);
-    }
-#endif
     auto *doc = documentForIndex(msgAttach, messageRect.width());
     if (!doc) {
         return;
@@ -104,16 +93,7 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     if (!doc) {
         return QSize();
     }
-    if (!msgAttach.title().isEmpty()) {
-        //qDebug() << " msgAttach.title()" << msgAttach.title();
-        //TODO
-    }
     const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
-
-    //Define size for title
-    //const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
-    //FIXME *pBaseLine = line.y() + line.ascent(); // relative
-
     return size;
 }
 
@@ -143,18 +123,18 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     }
 
     const QString text = msgAttach.text();
-    if (text.isEmpty()) {
+    const QString title = msgAttach.title();
+
+    if (text.isEmpty() && title.isEmpty()) {
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     TextConverter textConverter(rcAccount->emojiManager());
-    const QString contextString = textConverter.convertMessageText(text, rcAccount->userName(), {});
-
-
+    //Add bold for title
+    const QString contextString = textConverter.convertMessageText(title + QLatin1Char('\n') + text, rcAccount->userName(), {});
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));
     return ret;
 }
-
