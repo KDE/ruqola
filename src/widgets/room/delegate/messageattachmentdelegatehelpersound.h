@@ -46,7 +46,7 @@ private:
         QRect playerVolumeButtonRect;
         QRect downloadButtonRect;
     };
-    Q_REQUIRED_RESULT SoundLayout layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT SoundLayout layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
     const QIcon mPlayerVolumeIcon;
     const QIcon mDownloadIcon;
 };

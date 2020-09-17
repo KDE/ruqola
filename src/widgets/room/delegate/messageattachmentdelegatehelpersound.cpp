@@ -48,25 +48,21 @@ MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
 void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const SoundLayout layout = layoutSound(msgAttach, option);
+    const SoundLayout layout = layoutSound(msgAttach, option, messageRect.width());
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     mPlayerVolumeIcon.paint(painter, layout.playerVolumeButtonRect.translated(messageRect.topLeft()));
     mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
-    // Draw main pixmap (if shown)
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    // Draw description (if any)
-    if (!layout.description.isEmpty()) {
-        painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
-    }
+    drawDescription(msgAttach, messageRect, painter, nextY);
 }
 
 QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
     Q_UNUSED(index)
-    const SoundLayout layout = layoutSound(msgAttach, option);
+    const SoundLayout layout = layoutSound(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     const int pixmapWidth = 0;
     int descriptionWidth = 0;
@@ -84,7 +80,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
 
-        const SoundLayout layout = layoutSound(msgAttach, option);
+        const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Sound"), QUrl::fromLocalFile(layout.audioPath));
@@ -108,7 +104,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
     return false;
 }
 
-MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     SoundLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
@@ -116,7 +112,7 @@ MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelpe
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+    layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.playerVolumeButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.downloadButtonRect = layout.playerVolumeButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
