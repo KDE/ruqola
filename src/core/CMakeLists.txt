@@ -107,11 +107,16 @@ set(Ruqola_apps_language_SRCS
     downloadappslanguages/downloadappslanguagesinfo.cpp
     )
 
+set(Ruqola_apps_admin_SRCS
+    roomadmin.cpp
+    )
+
 set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
 
 kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
 
 set (Ruqola_core_srcs
+    ${Ruqola_apps_admin_SRCS}
     ${Ruqola_kcfg_SRCS}
     ${Ruqola_command_SRCS}
     ${Ruqola_autotranslatelanguage_SRCS}
