@@ -48,7 +48,7 @@ MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const FileLayout layout = doLayout(msgAttach, option);
+    const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
     const QPen oldPen = painter->pen();
     const QFont oldFont = painter->font();
     QFont underlinedFont = oldFont;
@@ -68,21 +68,19 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
         painter->setPen(oldPen);
         painter->setFont(oldFont);
     }
-    if (!layout.description.isEmpty()) {
-        const int descriptionY = y + layout.titleSize.height() + DelegatePaintUtil::margin();
-        painter->drawText(attachmentsRect.x(), descriptionY + option.fontMetrics.ascent(), layout.description);
-    }
+    const int descriptionY = y + layout.titleSize.height() + DelegatePaintUtil::margin();
+    drawDescription(msgAttach, attachmentsRect, painter, descriptionY);
 }
 
 QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const FileLayout layout = doLayout(msgAttach, option);
+    const FileLayout layout = doLayout(msgAttach, option, maxWidth);
     return QSize(maxWidth, // should be qMax of all sizes, but doesn't really matter
                  layout.y + layout.height + DelegatePaintUtil::margin());
 }
 
-MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     const int buttonMargin = DelegatePaintUtil::margin();
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -92,7 +90,7 @@ MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperF
     layout.description = msgAttach.description();
     layout.link = msgAttach.link();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+    layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
     layout.y = y;
     layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height());
     if (msgAttach.canDownloadAttachment()) {
@@ -105,7 +103,7 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
 {
     Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        const FileLayout layout = doLayout(msgAttach, option);
+        const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
         const QPoint pos = mouseEvent->pos();
 
         auto download = [&](const FileLayout &layout) {

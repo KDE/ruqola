@@ -48,7 +48,7 @@ private:
         int height;
         QString link;
     };
-    Q_REQUIRED_RESULT FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
     friend class MessageDelegateHelperFileTest;
     const QIcon mDownloadIcon;
 };

@@ -48,7 +48,7 @@ MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo()
 void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const VideoLayout layout = layoutVideo(msgAttach, option);
+    const VideoLayout layout = layoutVideo(msgAttach, option, messageRect.width());
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
@@ -57,17 +57,13 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
 
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
 
-    // Draw description (if any)
-    if (!layout.description.isEmpty()) {
-        painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
-    }
+    drawDescription(msgAttach, messageRect, painter, nextY);
 }
 
 QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(maxWidth)
     Q_UNUSED(index)
-    const VideoLayout layout = layoutVideo(msgAttach, option);
+    const VideoLayout layout = layoutVideo(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
@@ -84,7 +80,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
 
-        VideoLayout layout = layoutVideo(msgAttach, option);
+        VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Video"), QUrl::fromLocalFile(layout.videoPath));
@@ -108,7 +104,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
     return false;
 }
 
-MessageAttachmentDelegateHelperVideo::VideoLayout MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option) const
+MessageAttachmentDelegateHelperVideo::VideoLayout MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     VideoLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
@@ -116,7 +112,7 @@ MessageAttachmentDelegateHelperVideo::VideoLayout MessageAttachmentDelegateHelpe
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+    layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.showButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.downloadButtonRect = layout.showButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
