@@ -22,7 +22,6 @@
 #define MESSAGEATTACHMENTDELEGATEHELPERTEXT_H
 
 #include "messagedelegatehelperbase.h"
-#include "lrucache.h"
 #include <QModelIndex>
 #include <QRect>
 #include <QTextDocument>
@@ -37,7 +36,6 @@ public:
 
 private:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach, int width) const;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 
 #endif // MESSAGEATTACHMENTDELEGATEHELPERTEXT_H

@@ -24,6 +24,8 @@
 #include "libruqolawidgets_private_export.h"
 #include "messages/messageattachment.h"
 #include <QSize>
+#include <QTextDocument>
+#include "lrucache.h"
 class QPainter;
 class QRect;
 class QModelIndex;
@@ -40,6 +42,8 @@ public:
     virtual void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
     virtual QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
     virtual bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+protected:
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 
 #endif // MESSAGEDELEGATEHELPERBASE_H
