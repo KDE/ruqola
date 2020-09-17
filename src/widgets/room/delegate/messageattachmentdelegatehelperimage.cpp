@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
+#include <QAbstractTextDocumentLayout>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QMovie>
@@ -83,10 +84,25 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
             nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
     }
-    // Draw description (if any)
-    if (!layout.description.isEmpty()) {
-        painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
+
+    auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
+    if (!doc) {
+        return;
     }
+
+    painter->save();
+    painter->translate(messageRect.left(), nextY);
+    const QRect clip(0, 0, messageRect.width(), messageRect.height());
+
+    // Same as pDoc->drawContents(painter, clip) but we also set selections
+    QAbstractTextDocumentLayout::PaintContext ctx;
+    //FIXME ctx.selections = selections;
+    if (clip.isValid()) {
+        painter->setClipRect(clip);
+        ctx.clip = clip;
+    }
+    doc->documentLayout()->draw(painter, ctx);
+    painter->restore();
 }
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -162,7 +178,9 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+    auto *doc = documentDescriptionForIndex(msgAttach, attachmentsWidth);
+    layout.descriptionSize = doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
+
     if (url.isLocalFile()) {
         layout.imagePath = url.toLocalFile();
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);

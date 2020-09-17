@@ -19,6 +19,10 @@
 */
 
 #include "messagedelegatehelperbase.h"
+#include "textconverter.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "messagedelegateutils.h"
 
 #include <QRect>
 
@@ -34,4 +38,31 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     Q_UNUSED(option)
     Q_UNUSED(index)
     return false;
+}
+
+QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const
+{
+    const QString attachmentId = msgAttach.attachementId();
+    auto it = mDocumentCache.find(attachmentId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (ret->textWidth() != width) {
+            ret->setTextWidth(width);
+        }
+        return ret;
+    }
+
+    const QString description = msgAttach.description();
+
+    if (description.isEmpty()) {
+        return nullptr;
+    }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    TextConverter textConverter(rcAccount->emojiManager());
+    const QString contextString = textConverter.convertMessageText(description, rcAccount->userName(), {});
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+    auto ret = doc.get();
+    mDocumentCache.insert(attachmentId, std::move(doc));
+    return ret;
 }
