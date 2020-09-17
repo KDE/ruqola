@@ -71,6 +71,9 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     }
 #endif
 
+    //const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+    //Add icon for hidding attachment
+
     painter->save();
     painter->translate(messageRect.left(), messageRect.top());
     const QRect clip(0, 0, messageRect.width(), messageRect.height());

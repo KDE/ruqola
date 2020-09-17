@@ -105,6 +105,9 @@ public:
     Q_REQUIRED_RESULT QString attachementId() const;
     void setAttachementId(const QString &attachementId);
 
+    Q_REQUIRED_RESULT bool showAttachment() const;
+    void setShowAttachment(bool showAttachment);
+
 private:
     QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
@@ -120,6 +123,7 @@ private:
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
     bool mCollapsed = false;
+    bool mShowAttachment = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);

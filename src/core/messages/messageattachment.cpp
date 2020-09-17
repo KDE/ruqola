@@ -302,6 +302,16 @@ void MessageAttachment::setAttachementId(const QString &attachementId)
     mAttachementId = attachementId;
 }
 
+bool MessageAttachment::showAttachment() const
+{
+    return mShowAttachment;
+}
+
+void MessageAttachment::setShowAttachment(bool showAttachment)
+{
+    mShowAttachment = showAttachment;
+}
+
 QString MessageAttachment::displayTitle() const
 {
     if (canDownloadAttachment()) {
