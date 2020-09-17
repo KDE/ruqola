@@ -19,8 +19,15 @@
 */
 
 #include "administratorroomswidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "restapirequest.h"
+#include "rooms/adminroomsjob.h"
+#include "ruqolawidgets_debug.h"
+
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QJsonObject>
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,8 +35,26 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    initialize();
 }
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()
 {
+}
+
+void AdministratorRoomsWidget::initialize()
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    RocketChatRestApi::AdminRoomsJob *adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
+    rcAccount->restApi()->initializeRestApiJob(adminRoomsJob);
+    connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone,
+            this, &AdministratorRoomsWidget::slotAdminRoomDone);
+    if (!adminRoomsJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
+    }
+}
+
+void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
 }

@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomsadminjob.h"
+#include "adminroomsjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -26,21 +26,21 @@
 #include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
-RoomsAdminJob::RoomsAdminJob(QObject *parent)
+AdminRoomsJob::AdminRoomsJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-RoomsAdminJob::~RoomsAdminJob()
+AdminRoomsJob::~AdminRoomsJob()
 {
 }
 
-bool RoomsAdminJob::requireHttpAuthentication() const
+bool AdminRoomsJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool RoomsAdminJob::start()
+bool AdminRoomsJob::start()
 {
     if (!canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomAdmin job";
@@ -48,12 +48,12 @@ bool RoomsAdminJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &RoomsAdminJob::slotRoomsAdminFinished);
+    connect(reply, &QNetworkReply::finished, this, &AdminRoomsJob::slotRoomsAdminFinished);
     addStartRestApiInfo(QByteArrayLiteral("RoomsAdminJob: Ask info about room admin info"));
     return true;
 }
 
-void RoomsAdminJob::slotRoomsAdminFinished()
+void AdminRoomsJob::slotRoomsAdminFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -62,7 +62,7 @@ void RoomsAdminJob::slotRoomsAdminFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RoomsAdminJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT roomsAdminDone(replyObject);
+            Q_EMIT adminRoomsDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("RoomsAdminJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -72,17 +72,17 @@ void RoomsAdminJob::slotRoomsAdminFinished()
     deleteLater();
 }
 
-RoomsAdminJob::RoomsAdminJobInfo RoomsAdminJob::roomsAdminInfo() const
+AdminRoomsJob::AdminRoomsJobInfo AdminRoomsJob::roomsAdminInfo() const
 {
     return mRoomsAdminInfo;
 }
 
-void RoomsAdminJob::setRoomsAdminInfo(const RoomsAdminJobInfo &roomsAdminInfo)
+void AdminRoomsJob::setRoomsAdminInfo(const AdminRoomsJobInfo &roomsAdminInfo)
 {
     mRoomsAdminInfo = roomsAdminInfo;
 }
 
-QNetworkRequest RoomsAdminJob::request() const
+QNetworkRequest AdminRoomsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms);
     if (mRoomsAdminInfo.isValid()) {
@@ -98,7 +98,7 @@ QNetworkRequest RoomsAdminJob::request() const
     return request;
 }
 
-bool RoomsAdminJob::RoomsAdminJobInfo::isValid() const
+bool AdminRoomsJob::AdminRoomsJobInfo::isValid() const
 {
     return !filter.isEmpty();
 }

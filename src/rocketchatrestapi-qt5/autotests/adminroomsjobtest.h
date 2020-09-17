@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMSADMINJOBTEST_H
-#define ROOMSADMINJOBTEST_H
+#ifndef ADMINROOMSJOBTEST_H
+#define ADMINROOMSJOBTEST_H
 
 #include <QObject>
 
-class RoomsAdminJobTest : public QObject
+class AdminRoomsJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit RoomsAdminJobTest(QObject *parent = nullptr);
-    ~RoomsAdminJobTest() override = default;
+    explicit AdminRoomsJobTest(QObject *parent = nullptr);
+    ~AdminRoomsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
 };
 
-#endif // ROOMSADMINJOBTEST_H
+#endif // ADMINROOMSJOBTEST_H

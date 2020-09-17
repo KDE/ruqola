@@ -35,13 +35,48 @@ void AdminRoom::parseAdminRoom(const QJsonObject &object)
     //TODO
 }
 
+bool AdminRoom::defaultRoom() const
+{
+    return mDefaultRoom;
+}
+
+void AdminRoom::setDefaultRoom(bool defaultRoom)
+{
+    mDefaultRoom = defaultRoom;
+}
+
+int AdminRoom::usersCount() const
+{
+    return mUsersCount;
+}
+
+void AdminRoom::setUsersCount(int usersCount)
+{
+    mUsersCount = usersCount;
+}
+
+int AdminRoom::messageCount() const
+{
+    return mMessageCount;
+}
+
+void AdminRoom::setMessageCount(int messageCount)
+{
+    mMessageCount = messageCount;
+}
+
 bool AdminRoom::operator ==(const AdminRoom &other) const
 {
-    return true;
+    return mDefaultRoom == other.defaultRoom()
+            && mUsersCount == other.usersCount()
+            && mMessageCount == other.messageCount();
 }
 
 
 QDebug operator <<(QDebug d, const AdminRoom &t)
 {
+    d << " default Room : " << t.defaultRoom();
+    d << " user count : " << t.usersCount();
+    d << " message count : " << t.messageCount();
     return d;
 }

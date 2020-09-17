@@ -18,24 +18,24 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMSADMINJOB_H
-#define ROOMSADMINJOB_H
+#ifndef ADMINROOMSJOB_H
+#define ADMINROOMSJOB_H
 
 #include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAdminJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT AdminRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAdminJobInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT AdminRoomsJobInfo {
         Q_REQUIRED_RESULT bool isValid() const;
         QString filter;
     };
-    explicit RoomsAdminJob(QObject *parent = nullptr);
-    ~RoomsAdminJob() override;
+    explicit AdminRoomsJob(QObject *parent = nullptr);
+    ~AdminRoomsJob() override;
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
@@ -43,16 +43,16 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT RoomsAdminJobInfo roomsAdminInfo() const;
-    void setRoomsAdminInfo(const RoomsAdminJobInfo &roomsAdminInfo);
+    Q_REQUIRED_RESULT AdminRoomsJobInfo roomsAdminInfo() const;
+    void setRoomsAdminInfo(const AdminRoomsJobInfo &roomsAdminInfo);
 
 Q_SIGNALS:
-    void roomsAdminDone(const QJsonObject &obj);
+    void adminRoomsDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(RoomsAdminJob)
+    Q_DISABLE_COPY(AdminRoomsJob)
     void slotRoomsAdminFinished();
-    RoomsAdminJobInfo mRoomsAdminInfo;
+    AdminRoomsJobInfo mRoomsAdminInfo;
 };
 }
-#endif // ROOMSADMINJOB_H
+#endif // ADMINROOMSJOB_H

@@ -32,5 +32,8 @@ AdminRoomTest::AdminRoomTest(QObject *parent)
 
 void AdminRoomTest::shouldHaveDefaultValues()
 {
-    AdminRoom w; //TODO
+    AdminRoom w;
+    QVERIFY(!w.defaultRoom());
+    QCOMPARE(w.usersCount(), -1);
+    QCOMPARE(w.messageCount(), -1);
 }

@@ -29,6 +29,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public QWidget
 public:
     explicit AdministratorRoomsWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsWidget();
+
+private:
+    void slotAdminRoomDone(const QJsonObject &obj);
+    void initialize();
 };
 
 #endif // ADMINISTRATORROOMSWIDGET_H

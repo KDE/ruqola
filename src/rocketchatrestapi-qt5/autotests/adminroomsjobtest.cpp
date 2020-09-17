@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomsadminjobtest.h"
-#include "rooms/roomsadminjob.h"
+#include "adminroomsjobtest.h"
+#include "rooms/adminroomsjob.h"
 #include "restapimethod.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(RoomsAdminJobTest)
+QTEST_GUILESS_MAIN(AdminRoomsJobTest)
 using namespace RocketChatRestApi;
-RoomsAdminJobTest::RoomsAdminJobTest(QObject *parent)
+AdminRoomsJobTest::AdminRoomsJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void RoomsAdminJobTest::shouldHaveDefaultValue()
+void AdminRoomsJobTest::shouldHaveDefaultValue()
 {
-    RoomsAdminJob job;
+    AdminRoomsJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
@@ -41,15 +41,15 @@ void RoomsAdminJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.roomsAdminInfo().isValid());
 }
 
-void RoomsAdminJobTest::shouldGenerateRequest()
+void AdminRoomsJobTest::shouldGenerateRequest()
 {
-    RoomsAdminJob job;
+    AdminRoomsJob job;
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms")));
-    RoomsAdminJob::RoomsAdminJobInfo info;
+    AdminRoomsJob::AdminRoomsJobInfo info;
     info.filter = QStringLiteral("foo");
     job.setRoomsAdminInfo(info);
     request = job.request();

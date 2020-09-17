@@ -34,6 +34,20 @@ public:
     ~AdminRoom();
     Q_REQUIRED_RESULT bool operator ==(const AdminRoom &other) const;
     void parseAdminRoom(const QJsonObject &object);
+
+    Q_REQUIRED_RESULT bool defaultRoom() const;
+    void setDefaultRoom(bool defaultRoom);
+
+    Q_REQUIRED_RESULT int usersCount() const;
+    void setUsersCount(int usersCount);
+
+    Q_REQUIRED_RESULT int messageCount() const;
+    void setMessageCount(int messageCount);
+
+private:
+    int mMessageCount = -1;
+    int mUsersCount = -1;
+    bool mDefaultRoom = false;
 };
 Q_DECLARE_METATYPE(AdminRoom)
 Q_DECLARE_TYPEINFO(AdminRoom, Q_MOVABLE_TYPE);

@@ -49,38 +49,28 @@ AdminRoom AdminRooms::at(int index) const
 
 void AdminRooms::parseMoreAdminRooms(const QJsonObject &fileAttachmentsObj)
 {
-    const int commandsCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
+    const int adminRoomsCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
     mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
     mTotal = fileAttachmentsObj[QStringLiteral("total")].toInt();
     parseListAdminRooms(fileAttachmentsObj);
-    mAdminRoomsCount += commandsCount;
+    mAdminRoomsCount += adminRoomsCount;
 }
 
-void AdminRooms::parseListAdminRooms(const QJsonObject &commandsObj)
+void AdminRooms::parseListAdminRooms(const QJsonObject &adminRoomsObj)
 {
-//    const QJsonArray commandsArray = commandsObj[QStringLiteral("commands")].toArray();
-//    mAdminRooms.reserve(mAdminRooms.count() + commandsArray.count());
-//    const QString lang = QLocale().name();
-//    for (const QJsonValue &current : commandsArray) {
-//        if (current.type() == QJsonValue::Object) {
-//            const QJsonObject commandsObj = current.toObject();
-//            Command m;
-//            m.parseCommand(commandsObj);
-//            if (mDownloadManager) {
-//                const QString description = mDownloadManager->translatedString(lang, m.description());
-//                if (!description.isEmpty()) {
-//                    m.setDescription(description);
-//                }
-//                const QString parameters = mDownloadManager->translatedString(lang, m.params());
-//                if (!parameters.isEmpty()) {
-//                    m.setParams(parameters);
-//                }
-//            }
-//            mAdminRooms.append(m);
-//        } else {
-//            qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current;
-//        }
-//    }
+    const QJsonArray adminRoomsArray = adminRoomsObj[QStringLiteral("rooms")].toArray();
+    mAdminRooms.reserve(mAdminRooms.count() + adminRoomsArray.count());
+    for (const QJsonValue &current : adminRoomsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject adminRoomObject = current.toObject();
+            AdminRoom m;
+            m.parseAdminRoom(adminRoomObject);
+            mAdminRooms.append(m);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing admin Rooms" << current;
+        }
+    }
+
 }
 
 int AdminRooms::adminRoomsCount() const
@@ -136,9 +126,9 @@ QDebug operator <<(QDebug d, const AdminRooms &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "commandsCount " << t.adminRoomsCount();
-//    for (int i = 0, total = t.commands().count(); i < total; ++i) {
-//        d << t.commands().at(i);
-//    }
+    d << "adminRoomsCount " << t.adminRoomsCount();
+    for (int i = 0, total = t.adminRooms().count(); i < total; ++i) {
+        d << t.adminRooms().at(i);
+    }
     return d;
 }
