@@ -48,6 +48,8 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     Q_UNUSED(index);
     Q_UNUSED(option);
 
+    //painter->drawRect(messageRect);
+
     auto *doc = documentForIndex(msgAttach, messageRect.width());
     if (!doc) {
         return;

@@ -269,20 +269,22 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         const auto attachements = message->attachements();
         QSize attachmentsSize;
         int topAttachment = attachmentsY;
+        //TODO add spacing between attachment
         for (const MessageAttachment &msgAttach : attachements) {
             const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
                 attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
                 layout.attachmentsRectList.append(QRect(textLeft, topAttachment, attachmentsSize.width(), attachmentsSize.height()));
+                topAttachment += attachmentsSize.height();
             } else {
                 const QSize attSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
                 layout.attachmentsRectList.append(QRect(textLeft, topAttachment, attSize.width(), attSize.height()));
                 attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
+                topAttachment += attSize.height();
             }
-            topAttachment += attachmentsSize.height();
         }
         layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
-        layout.reactionsY = attachmentsY + attachmentsSize.height();
+        layout.reactionsY = attachmentsY + layout.attachmentsRect.height();
     }
     layout.reactionsHeight = mHelperReactions->sizeHint(index, maxWidth, option).height();
 
