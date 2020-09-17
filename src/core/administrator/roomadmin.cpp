@@ -30,7 +30,7 @@ RoomAdmin::~RoomAdmin()
 
 }
 
-void RoomAdmin::parseFile(const QJsonObject &object)
+void RoomAdmin::parseAdminRoom(const QJsonObject &object)
 {
     //TODO
 }

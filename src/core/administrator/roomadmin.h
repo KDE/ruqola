@@ -33,7 +33,7 @@ public:
     RoomAdmin();
     ~RoomAdmin();
     Q_REQUIRED_RESULT bool operator ==(const RoomAdmin &other) const;
-    void parseFile(const QJsonObject &object);
+    void parseAdminRoom(const QJsonObject &object);
 };
 Q_DECLARE_METATYPE(RoomAdmin)
 Q_DECLARE_TYPEINFO(RoomAdmin, Q_MOVABLE_TYPE);
