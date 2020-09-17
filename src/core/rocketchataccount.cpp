@@ -2214,6 +2214,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
+    Q_EMIT ownInfoChanged();
 }
 
 bool RocketChatAccount::isAdministrator() const

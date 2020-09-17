@@ -473,6 +473,7 @@ Q_SIGNALS:
     void raiseWindow();
     void registerUserSuccess();
     void roomNeedAttention();
+    void ownInfoChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
