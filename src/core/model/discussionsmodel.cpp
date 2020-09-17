@@ -22,8 +22,8 @@
 
 DiscussionsModel::DiscussionsModel(QObject *parent)
     : QAbstractListModel(parent)
+    , mDiscussions(new Discussions)
 {
-    mDiscussions = new Discussions;
 }
 
 DiscussionsModel::~DiscussionsModel()

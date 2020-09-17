@@ -78,7 +78,7 @@ private:
     QString mRoomId;
     bool mLoadMoreDiscussionsInProgress = false;
     bool mHasFullList = false;
-    Discussions *mDiscussions = nullptr;
+    Discussions *const mDiscussions;
 };
 
 #endif // DISCUSSIONSMODEL_H
