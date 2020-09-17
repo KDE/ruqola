@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMADMINTEST_H
-#define ROOMADMINTEST_H
+#include "adminroomtest.h"
+#include "administrator/adminroom.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(AdminRoomTest)
 
-#include <QObject>
-
-class RoomAdminTest : public QObject
+AdminRoomTest::AdminRoomTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RoomAdminTest(QObject *parent = nullptr);
-    ~RoomAdminTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
 
-#endif // ROOMADMINTEST_H
+}
+
+
+void AdminRoomTest::shouldHaveDefaultValues()
+{
+    AdminRoom w; //TODO
+}

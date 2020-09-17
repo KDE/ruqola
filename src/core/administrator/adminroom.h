@@ -18,30 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomadmin.h"
 
-RoomAdmin::RoomAdmin()
+#ifndef ROOMADMIN_H
+#define ROOMADMIN_H
+
+#include "libruqolacore_export.h"
+#include <QString>
+#include <QDebug>
+#include <QJsonObject>
+
+class LIBRUQOLACORE_EXPORT AdminRoom
 {
+public:
+    AdminRoom();
+    ~AdminRoom();
+    Q_REQUIRED_RESULT bool operator ==(const AdminRoom &other) const;
+    void parseAdminRoom(const QJsonObject &object);
+};
+Q_DECLARE_METATYPE(AdminRoom)
+Q_DECLARE_TYPEINFO(AdminRoom, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AdminRoom &t);
 
-}
-
-RoomAdmin::~RoomAdmin()
-{
-
-}
-
-void RoomAdmin::parseAdminRoom(const QJsonObject &object)
-{
-    //TODO
-}
-
-bool RoomAdmin::operator ==(const RoomAdmin &other) const
-{
-    return true;
-}
-
-
-QDebug operator <<(QDebug d, const RoomAdmin &t)
-{
-    return d;
-}
+#endif // ROOMADMIN_H

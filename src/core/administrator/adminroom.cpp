@@ -18,19 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomadmintest.h"
-#include "administrator/roomadmin.h"
-#include <QTest>
-QTEST_GUILESS_MAIN(RoomAdminTest)
+#include "adminroom.h"
 
-RoomAdminTest::RoomAdminTest(QObject *parent)
-    : QObject(parent)
+AdminRoom::AdminRoom()
 {
 
 }
 
-
-void RoomAdminTest::shouldHaveDefaultValues()
+AdminRoom::~AdminRoom()
 {
-    RoomAdmin w; //TODO
+
+}
+
+void AdminRoom::parseAdminRoom(const QJsonObject &object)
+{
+    //TODO
+}
+
+bool AdminRoom::operator ==(const AdminRoom &other) const
+{
+    return true;
+}
+
+
+QDebug operator <<(QDebug d, const AdminRoom &t)
+{
+    return d;
 }

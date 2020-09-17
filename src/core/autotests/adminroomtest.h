@@ -18,25 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef ADMINROOMTEST_H
+#define ADMINROOMTEST_H
 
-#ifndef ROOMADMIN_H
-#define ROOMADMIN_H
+#include <QObject>
 
-#include "libruqolacore_export.h"
-#include <QString>
-#include <QDebug>
-#include <QJsonObject>
-
-class LIBRUQOLACORE_EXPORT RoomAdmin
+class AdminRoomTest : public QObject
 {
+    Q_OBJECT
 public:
-    RoomAdmin();
-    ~RoomAdmin();
-    Q_REQUIRED_RESULT bool operator ==(const RoomAdmin &other) const;
-    void parseAdminRoom(const QJsonObject &object);
+    explicit AdminRoomTest(QObject *parent = nullptr);
+    ~AdminRoomTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
-Q_DECLARE_METATYPE(RoomAdmin)
-Q_DECLARE_TYPEINFO(RoomAdmin, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RoomAdmin &t);
 
-#endif // ROOMADMIN_H
+#endif // ADMINROOMTEST_H

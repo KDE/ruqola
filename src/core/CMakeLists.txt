@@ -108,7 +108,8 @@ set(Ruqola_apps_language_SRCS
     )
 
 set(Ruqola_apps_admin_SRCS
-    administrator/roomadmin.cpp
+    administrator/adminroom.cpp
+    administrator/adminrooms.cpp
     )
 
 set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
