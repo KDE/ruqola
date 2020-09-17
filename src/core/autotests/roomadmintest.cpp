@@ -19,7 +19,7 @@
 */
 
 #include "roomadmintest.h"
-#include "roomadmin.h"
+#include "administrator/roomadmin.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomAdminTest)
 
