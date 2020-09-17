@@ -24,6 +24,8 @@
 #include "rocketchataccount.h"
 #include "messagedelegateutils.h"
 
+#include <QAbstractTextDocumentLayout>
+#include <QPainter>
 #include <QRect>
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase()
@@ -38,6 +40,35 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     Q_UNUSED(option)
     Q_UNUSED(index)
     return false;
+}
+
+
+void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const
+{
+    auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
+    if (!doc) {
+        return;
+    }
+
+    painter->save();
+    painter->translate(messageRect.left(), topPos);
+    const QRect clip(0, 0, messageRect.width(), messageRect.height());
+
+    // Same as pDoc->drawContents(painter, clip) but we also set selections
+    QAbstractTextDocumentLayout::PaintContext ctx;
+    //FIXME ctx.selections = selections;
+    if (clip.isValid()) {
+        painter->setClipRect(clip);
+        ctx.clip = clip;
+    }
+    doc->documentLayout()->draw(painter, ctx);
+    painter->restore();
+}
+
+QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
+{
+    auto *doc = documentDescriptionForIndex(msgAttach, width);
+    return doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
 }
 
 QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const

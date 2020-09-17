@@ -85,24 +85,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
         }
     }
 
-    auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
-    if (!doc) {
-        return;
-    }
-
-    painter->save();
-    painter->translate(messageRect.left(), nextY);
-    const QRect clip(0, 0, messageRect.width(), messageRect.height());
-
-    // Same as pDoc->drawContents(painter, clip) but we also set selections
-    QAbstractTextDocumentLayout::PaintContext ctx;
-    //FIXME ctx.selections = selections;
-    if (clip.isValid()) {
-        painter->setClipRect(clip);
-        ctx.clip = clip;
-    }
-    doc->documentLayout()->draw(painter, ctx);
-    painter->restore();
+    drawDescription(msgAttach, messageRect, painter, nextY);
 }
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -178,8 +161,8 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    auto *doc = documentDescriptionForIndex(msgAttach, attachmentsWidth);
-    layout.descriptionSize = doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
+
+    layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
 
     if (url.isLocalFile()) {
         layout.imagePath = url.toLocalFile();
