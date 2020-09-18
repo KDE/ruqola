@@ -19,6 +19,7 @@
 */
 
 #include "messageattachment.h"
+#include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
 #include <QJsonArray>
@@ -26,6 +27,7 @@
 
 MessageAttachment::MessageAttachment()
 {
+    mShowAttachment = RuqolaGlobalConfig::self()->showImage();
 }
 
 void MessageAttachment::parseAttachment(const QJsonObject &attachment)
@@ -380,5 +382,6 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "text: " << t.text();
     d << "collapsed " << t.collapsed();
     d << "attachmentfields " << t.attachmentFields();
+    d << "showAttachment " << t.showAttachment();
     return d;
 }

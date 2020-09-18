@@ -288,8 +288,6 @@ private:
 
     bool mShowTranslatedMessage = true;
 
-    bool mShowAttachment = true;
-
     EmojiManager *mEmojiManager = nullptr;
 };
 Q_DECLARE_METATYPE(Message)

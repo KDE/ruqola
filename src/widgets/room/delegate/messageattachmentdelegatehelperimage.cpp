@@ -117,8 +117,11 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
 
         ImageLayout layout = layoutImage(msgAttach, message, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            MessageModel::AttachmentVisibility attachmentVisibility;
+            attachmentVisibility.show = !layout.isShown;
+            attachmentVisibility.attachmentId = msgAttach.attachementId();
             auto *model = const_cast<QAbstractItemModel *>(index.model());
-            model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
+            model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
@@ -156,6 +159,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
 
 MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach, const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
+    Q_UNUSED(message);
     ImageLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     layout.title = msgAttach.title();
@@ -169,8 +173,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         //or we could do layout.attachment = msgAttach; if we need many fields from it
-        layout.isShown = message->showAttachment(); //TODO move element in attachment directly
-        //TODO layout.isShown = msgAttach.showAttachment();
+        layout.isShown = msgAttach.showAttachment();
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);

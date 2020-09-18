@@ -260,7 +260,6 @@ public:
     UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     RoomWrapper *roomWrapper(const QString &roomId);
     MessageModel *messageModelForRoom(const QString &roomID);
-    void changeDisplayAttachment(const QString &roomId, const QString &messageId, bool displayAttachment);
     void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
     void loadMoreListMessages(const QString &roomId);

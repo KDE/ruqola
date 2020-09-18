@@ -37,6 +37,10 @@ class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLACORE_EXPORT AttachmentVisibility {
+        bool show = false;
+        QString attachmentId;
+    };
     enum MessageRoles {
         Username = Qt::UserRole + 1,
         MessagePointer,
@@ -120,8 +124,6 @@ public:
 
     void clear();
 
-    void changeDisplayAttachment(const QString &messageId, bool displayAttachment);
-
     void changeShowOriginalMessage(const QString &messageId, bool showOriginal);
 
     Q_REQUIRED_RESULT QString roomId() const;
@@ -160,5 +162,5 @@ private:
     Room *mRoom = nullptr;
     LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
 };
-
+Q_DECLARE_METATYPE(MessageModel::AttachmentVisibility)
 #endif

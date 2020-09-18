@@ -411,7 +411,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::ShowTranslatedMessage:
         return message.showTranslatedMessage();
     case MessageModel::DisplayAttachment:
-        return message.showAttachment();
+        return {}; //Unused.
     case MessageModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
@@ -444,10 +444,22 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     Message &message = mAllMessages[idx];
 
     switch (role) {
-    case MessageModel::DisplayAttachment:
-        message.setShowAttachment(value.toBool());
+    case MessageModel::DisplayAttachment: {
+        const AttachmentVisibility visibility = value.value<AttachmentVisibility>();
+        auto attachments = message.attachements();
+        for (int i = 0, total = attachments.count(); i < total; ++i) {
+            const MessageAttachment att = attachments.at(i);
+            if (att.attachementId() == visibility.attachmentId) {
+                MessageAttachment changeAttachment = attachments.takeAt(i);
+                changeAttachment.setShowAttachment(visibility.show);
+                attachments.insert(i, changeAttachment);
+                break;
+            }
+        }
+        message.setAttachements(attachments);
         Q_EMIT dataChanged(index, index);
         return true;
+    }
     case MessageModel::ShowTranslatedMessage:
         message.setShowTranslatedMessage(value.toBool());
         Q_EMIT dataChanged(index, index);
@@ -533,14 +545,6 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
         Q_EMIT dataChanged(idx, idx);
     } else {
         qCWarning(RUQOLA_LOG) << "Attachment not found:" << filePath;
-    }
-}
-
-void MessageModel::changeDisplayAttachment(const QString &messageId, bool displayAttachment)
-{
-    auto it = findMessage(messageId);
-    if (it != mAllMessages.end()) {
-        (*it).setShowAttachment(displayAttachment);
     }
 }
 

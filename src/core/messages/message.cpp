@@ -21,7 +21,6 @@
 #include "message.h"
 #include "utils.h"
 #include "ruqola_debug.h"
-#include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
 #include <QCborValue>
 #include <QDateTime>
@@ -31,7 +30,6 @@
 Message::Message(EmojiManager *emojiManager)
     : mEmojiManager(emojiManager)
 {
-    mShowAttachment = RuqolaGlobalConfig::self()->showImage();
 }
 
 void Message::parseMessage(const QJsonObject &o, bool restApi)
@@ -135,16 +133,6 @@ QString Message::name() const
 void Message::setName(const QString &name)
 {
     mName = name;
-}
-
-bool Message::showAttachment() const
-{
-    return mShowAttachment;
-}
-
-void Message::setShowAttachment(bool showAttachment)
-{
-    mShowAttachment = showAttachment;
 }
 
 bool Message::showTranslatedMessage() const

@@ -123,7 +123,7 @@ private:
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
     bool mCollapsed = false;
-    bool mShowAttachment = false;
+    bool mShowAttachment = true;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);
