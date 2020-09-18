@@ -40,4 +40,5 @@ void AdminRoomTest::shouldHaveDefaultValues()
     QVERIFY(w.topic().isEmpty());
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(!w.readOnly());
+    QVERIFY(w.name().isEmpty());
 }

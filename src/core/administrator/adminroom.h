@@ -56,10 +56,14 @@ public:
     Q_REQUIRED_RESULT bool readOnly() const;
     void setReadOnly(bool readOnly);
 
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &name);
+
 private:
     QString mTopic;
     QString mIdentifier;
     QString mChannelType;
+    QString mName;
     int mMessageCount = -1;
     int mUsersCount = -1;
     bool mDefaultRoom = false;

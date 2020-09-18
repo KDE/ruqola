@@ -32,6 +32,12 @@ AdminRoom::~AdminRoom()
 
 void AdminRoom::parseAdminRoom(const QJsonObject &object)
 {
+    if (object.contains(QLatin1String("topic"))) {
+        setTopic(object[QStringLiteral("topic")].toString());
+    }
+    if (object.contains(QLatin1String("name"))) {
+        setName(object[QStringLiteral("name")].toString());
+    }
     //TODO
 }
 
@@ -105,6 +111,16 @@ void AdminRoom::setReadOnly(bool readOnly)
     mReadOnly = readOnly;
 }
 
+QString AdminRoom::name() const
+{
+    return mName;
+}
+
+void AdminRoom::setName(const QString &name)
+{
+    mName = name;
+}
+
 bool AdminRoom::operator ==(const AdminRoom &other) const
 {
     return mDefaultRoom == other.defaultRoom()
@@ -112,7 +128,8 @@ bool AdminRoom::operator ==(const AdminRoom &other) const
             && mMessageCount == other.messageCount()
             && mChannelType == other.channelType()
             && mIdentifier == other.identifier()
-            && mTopic == other.topic();
+            && mTopic == other.topic()
+            && mName == other.name();
 }
 
 
@@ -124,5 +141,6 @@ QDebug operator <<(QDebug d, const AdminRoom &t)
     d << " channel type: " << t.channelType();
     d << " identifier: " << t.identifier();
     d << " topic: " << t.topic();
+    d << " name: " << t.name();
     return d;
 }
