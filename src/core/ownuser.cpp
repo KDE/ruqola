@@ -32,7 +32,7 @@ OwnUser::~OwnUser()
 
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
-    qDebug() << "replyObject "<<replyObject;
+    //qDebug() << "replyObject "<<replyObject;
     mUserId = replyObject.value(QLatin1String("_id")).toString();
     mUserName = replyObject.value(QLatin1String("username")).toString();
     mStatus = replyObject.value(QLatin1String("status")).toString();
