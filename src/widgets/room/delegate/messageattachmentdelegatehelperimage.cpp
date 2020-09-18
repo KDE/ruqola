@@ -40,8 +40,7 @@
 
 void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    ImageLayout layout = layoutImage(msgAttach, message, option, messageRect.width(), messageRect.height());
+    ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     if (!layout.pixmap.isNull()) {
@@ -90,9 +89,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    const ImageLayout layout = layoutImage(msgAttach, message, option, maxWidth, -1);
+    const ImageLayout layout = layoutImage(msgAttach, option, maxWidth, -1);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
@@ -113,9 +110,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
 
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-        ImageLayout layout = layoutImage(msgAttach, message, option, attachmentsRect.width(), attachmentsRect.height());
+        ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
@@ -157,9 +152,8 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     return false;
 }
 
-MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach, const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
-    Q_UNUSED(message);
     ImageLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     layout.title = msgAttach.title();

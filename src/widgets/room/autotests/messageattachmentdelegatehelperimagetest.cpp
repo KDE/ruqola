@@ -45,11 +45,9 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QStyleOptionViewItem option;
     QWidget fakeWidget;
     option.widget = &fakeWidget;
-    Message message;
     const MessageAttachment msgAttach = testAttachment();
-    message.setAttachements({msgAttach});
 
-    const MessageAttachmentDelegateHelperImage::ImageLayout layout = helper.layoutImage(msgAttach, &message, option, 500, 500);
+    const MessageAttachmentDelegateHelperImage::ImageLayout layout = helper.layoutImage(msgAttach, option, 500, 500);
     QCOMPARE(layout.title, msgAttach.title());
     QCOMPARE(layout.description, msgAttach.description());
     QVERIFY(layout.isShown);

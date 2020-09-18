@@ -56,7 +56,7 @@ private:
         bool isShown = true;
         bool isAnimatedImage = false;
     };
-    Q_REQUIRED_RESULT ImageLayout layoutImage(const MessageAttachment &msgAttach, const Message *message, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
+    Q_REQUIRED_RESULT ImageLayout layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 
     std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;
