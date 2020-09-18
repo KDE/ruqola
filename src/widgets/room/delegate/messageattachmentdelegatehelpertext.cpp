@@ -113,14 +113,19 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(attachmentsRect);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
-    Q_UNUSED(msgAttach);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        //TODO ???
+        const QPoint pos = mouseEvent->pos();
+        const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+        if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            qDebug() << " CLICKER";
+            MessageModel::AttachmentVisibility attachmentVisibility;
+            attachmentVisibility.show = !layout.isShown;
+            attachmentVisibility.attachmentId = msgAttach.attachementId();
+            auto *model = const_cast<QAbstractItemModel *>(index.model());
+            model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
+            return true;
+        }
     }
-    //Implement click on url
     return false;
 }
 
