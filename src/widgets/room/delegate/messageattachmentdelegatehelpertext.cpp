@@ -117,7 +117,6 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            qDebug() << " CLICKER";
             MessageModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
             attachmentVisibility.attachmentId = msgAttach.attachementId();
@@ -138,6 +137,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     }
+    layout.isShown = msgAttach.showAttachment();
     auto *doc = documentForIndex(msgAttach, attachmentsWidth);
     layout.textSize = doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
     return layout;
