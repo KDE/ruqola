@@ -50,56 +50,65 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 
     //painter->drawRect(messageRect);
 
-    auto *doc = documentForIndex(msgAttach, messageRect.width());
-    if (!doc) {
-        return;
+    const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
+    int nextY = messageRect.y();
+    if (!layout.title.isEmpty()) {
+        painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        nextY += layout.titleSize.height();
     }
-#if 0
-    QVector<QAbstractTextDocumentLayout::Selection> selections;
-    if (index == mCurrentIndex) {
-        QTextCharFormat selectionFormat;
-        selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
-        selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
-        selections.append({mCurrentTextCursor, selectionFormat});
-    }
-    if (useItalicsForMessage(index)) {
-        QTextCursor cursor(doc);
-        cursor.select(QTextCursor::Document);
-        QTextCharFormat format;
-        format.setForeground(Qt::gray); //TODO use color from theme.
-        cursor.mergeCharFormat(format);
-    }
-#endif
+    if (layout.isShown) {
+        auto *doc = documentForIndex(msgAttach, messageRect.width());
+        if (!doc) {
+            return;
+        }
+    #if 0
+        QVector<QAbstractTextDocumentLayout::Selection> selections;
+        if (index == mCurrentIndex) {
+            QTextCharFormat selectionFormat;
+            selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
+            selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
+            selections.append({mCurrentTextCursor, selectionFormat});
+        }
+        if (useItalicsForMessage(index)) {
+            QTextCursor cursor(doc);
+            cursor.select(QTextCursor::Document);
+            QTextCharFormat format;
+            format.setForeground(Qt::gray); //TODO use color from theme.
+            cursor.mergeCharFormat(format);
+        }
+    #endif
 
-    //const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
-    //Add icon for hidding attachment
+        painter->save();
+        painter->translate(messageRect.left(), nextY);
+        const QRect clip(0, 0, messageRect.width(), messageRect.height());
 
-    painter->save();
-    painter->translate(messageRect.left(), messageRect.top());
-    const QRect clip(0, 0, messageRect.width(), messageRect.height());
-
-    // Same as pDoc->drawContents(painter, clip) but we also set selections
-    QAbstractTextDocumentLayout::PaintContext ctx;
-    //FIXME ctx.selections = selections;
-    if (clip.isValid()) {
-        painter->setClipRect(clip);
-        ctx.clip = clip;
+        // Same as pDoc->drawContents(painter, clip) but we also set selections
+        QAbstractTextDocumentLayout::PaintContext ctx;
+        //FIXME ctx.selections = selections;
+        if (clip.isValid()) {
+            painter->setClipRect(clip);
+            ctx.clip = clip;
+        }
+        doc->documentLayout()->draw(painter, ctx);
+        painter->restore();
+        //TODO add fields
     }
-    doc->documentLayout()->draw(painter, ctx);
-    painter->restore();
-    //TODO add fields
+
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index);
     Q_UNUSED(option);
-    auto *doc = documentForIndex(msgAttach, maxWidth);
-    if (!doc) {
-        return QSize();
+    const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
+    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
+    if (layout.isShown && !layout.title.isEmpty()) {
+        height += layout.textSize.height();
     }
-    const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
-    return size;
+    return QSize(qMax(layout.titleSize.width(), maxWidth),
+                 height);
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -115,6 +124,21 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     return false;
 }
 
+MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+{
+    TextLayout layout;
+    layout.title = msgAttach.title();
+    if (!layout.title.isEmpty()) {
+        layout.titleSize = layout.title.isEmpty() ? QSize() : option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+    }
+    auto *doc = documentForIndex(msgAttach, attachmentsWidth);
+    layout.textSize = doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
+    return layout;
+}
+
+//Draw text + title as in image
 QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach, int width) const
 {
     const QString attachmentId = msgAttach.attachementId();
@@ -128,17 +152,14 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     }
 
     const QString text = msgAttach.text();
-    const QString title = msgAttach.title();
 
-    if (text.isEmpty() && title.isEmpty()) {
+    if (text.isEmpty()) {
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     TextConverter textConverter(rcAccount->emojiManager());
-    //Add bold for title
-    const QString fullText = title.isEmpty() ? text : (title + QLatin1Char('\n') + text);
-    const QString contextString = textConverter.convertMessageText(fullText, rcAccount->userName(), {});
+    const QString contextString = textConverter.convertMessageText(text, rcAccount->userName(), {});
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));

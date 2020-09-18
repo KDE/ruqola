@@ -35,6 +35,14 @@ public:
     bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
+    struct TextLayout {
+        QString title;
+        QSize titleSize;
+        QRect hideShowButtonRect;
+        QSize textSize;
+        bool isShown = true;
+    };
+    Q_REQUIRED_RESULT TextLayout layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach, int width) const;
 };
 
