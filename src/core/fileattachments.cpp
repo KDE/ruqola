@@ -125,9 +125,9 @@ QDebug operator <<(QDebug d, const FileAttachments &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "fileAttachmentsCount " << t.filesCount();
+    d << "fileAttachmentsCount " << t.filesCount() << "\n";
     for (int i = 0, total = t.fileAttachments().count(); i < total; ++i) {
-        d << t.fileAttachments().at(i);
+        d << t.fileAttachments().at(i) << "\n";
     }
     return d;
 }

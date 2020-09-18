@@ -129,9 +129,9 @@ QDebug operator <<(QDebug d, const Discussions &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "discussionsCount " << t.discussionsCount();
+    d << "discussionsCount " << t.discussionsCount() << "\n";
     for (int i = 0, total = t.discussions().count(); i < total; ++i) {
-        d << t.discussions().at(i);
+        d << t.discussions().at(i) << "\n";
     }
     return d;
 }

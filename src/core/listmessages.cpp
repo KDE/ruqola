@@ -106,9 +106,9 @@ QDebug operator <<(QDebug d, const ListMessages &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "threadMessagesCount " << t.messagesCount();
+    d << "threadMessagesCount " << t.messagesCount() << "\n";
     for (int i = 0, total = t.count(); i < total; ++i) {
-        d << t.at(i);
+        d << t.at(i) << "\n";
     }
     return d;
 }
