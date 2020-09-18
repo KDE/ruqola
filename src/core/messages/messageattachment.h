@@ -102,8 +102,8 @@ public:
     Q_REQUIRED_RESULT bool collapsed() const;
     void setCollapsed(bool collapsed);
 
-    Q_REQUIRED_RESULT QString attachementId() const;
-    void setAttachementId(const QString &attachementId);
+    Q_REQUIRED_RESULT QString attachmentId() const;
+    void setAttachmentId(const QString &attachementId);
 
     Q_REQUIRED_RESULT bool showAttachment() const;
     void setShowAttachment(bool showAttachment);
@@ -118,12 +118,12 @@ private:
     QString mAuthorName;
     QString mMimeType;
     QString mText;
-    QString mAttachementId;
+    QString mAttachmentId;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
     bool mCollapsed = false;
-    bool mShowAttachment = true;
+    bool mShowAttachment = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);

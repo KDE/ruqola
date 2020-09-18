@@ -114,7 +114,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
-            attachmentVisibility.attachmentId = msgAttach.attachementId();
+            attachmentVisibility.attachmentId = msgAttach.attachmentId();
             auto *model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;

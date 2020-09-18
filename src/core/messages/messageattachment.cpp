@@ -27,7 +27,6 @@
 
 MessageAttachment::MessageAttachment()
 {
-    mShowAttachment = RuqolaGlobalConfig::self()->showImage();
 }
 
 void MessageAttachment::parseAttachment(const QJsonObject &attachment)
@@ -40,22 +39,22 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     if (!title.isUndefined()) {
         setTitle(title.toString());
     }
-
+    AttachmentType attType;
     if (attachment.contains(QLatin1String("audio_url"))) {
         setLink(attachment.value(QLatin1String("audio_url")).toString());
-        mAttachmentType = AttachmentType::Audio;
+        attType = AttachmentType::Audio;
     } else if (attachment.contains(QLatin1String("video_url"))) {
         setLink(attachment.value(QLatin1String("video_url")).toString());
-        mAttachmentType = AttachmentType::Video;
+        attType = AttachmentType::Video;
     } else if (attachment.contains(QLatin1String("image_url"))) {
         setLink(attachment.value(QLatin1String("image_url")).toString());
-        mAttachmentType = AttachmentType::Image;
+        attType = AttachmentType::Image;
     } else if (attachment.contains(QLatin1String("title_link"))) { //Last as an image_url can have a title_link
         setLink(attachment.value(QLatin1String("title_link")).toString());
-        mAttachmentType = AttachmentType::File;
+        attType = AttachmentType::File;
     }
     //Add image dimension
-    if (mAttachmentType == AttachmentType::Image) {
+    if (attType == AttachmentType::Image) {
         const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
         if (!imageDimensions.isUndefined()) {
             const QJsonObject imageDimensionsParams = imageDimensions.toObject();
@@ -84,7 +83,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     if (!text.isUndefined()) {
         const QJsonValue messagelink = attachment.value(QLatin1String("message_link"));
         if (messagelink.isUndefined()) { //Don't show attachment if we have message_link. We already implement message preview
-            mAttachmentType = AttachmentType::NormalText;
+            attType = AttachmentType::NormalText;
             setText(text.toString());
         }
     }
@@ -96,10 +95,11 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     }
     if (!messageFields.isEmpty()) {
         setAttachmentFields(messageFields);
-        if (mAttachmentType == AttachmentType::Unknown) {
-            mAttachmentType = AttachmentType::NormalText;
+        if (attType == AttachmentType::Unknown) {
+            attType = AttachmentType::NormalText;
         }
     }
+    setAttachmentType(attType);
     mCollapsed = attachment.value(QLatin1String("collapsed")).toBool();
 }
 
@@ -219,7 +219,7 @@ void MessageAttachment::setAuthorName(const QString &authorName)
 
 bool MessageAttachment::isValid() const
 {
-    return !mAttachementId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty());
+    return !mAttachmentId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty());
 }
 
 bool MessageAttachment::canDownloadAttachment() const
@@ -272,6 +272,10 @@ MessageAttachment::AttachmentType MessageAttachment::attachmentType() const
 void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
 {
     mAttachmentType = attachmentType;
+    if (mAttachmentType == Image) {
+        //By default use false for showing it or using settings for image
+        mShowAttachment = RuqolaGlobalConfig::self()->showImage();
+    }
 }
 
 QVector<MessageAttachmentField> MessageAttachment::attachmentFields() const
@@ -294,14 +298,14 @@ void MessageAttachment::setCollapsed(bool collapsed)
     mCollapsed = collapsed;
 }
 
-QString MessageAttachment::attachementId() const
+QString MessageAttachment::attachmentId() const
 {
-    return mAttachementId;
+    return mAttachmentId;
 }
 
-void MessageAttachment::setAttachementId(const QString &attachementId)
+void MessageAttachment::setAttachmentId(const QString &attachementId)
 {
-    mAttachementId = attachementId;
+    mAttachmentId = attachementId;
 }
 
 bool MessageAttachment::showAttachment() const

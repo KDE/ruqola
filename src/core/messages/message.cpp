@@ -340,7 +340,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
             messageAttachement.parseAttachment(attachment);
-            messageAttachement.setAttachementId(Message::generateAttachmentId(messageId(), i));
+            messageAttachement.setAttachmentId(Message::generateAttachmentId(messageId(), i));
             if (messageAttachement.isValid()) {
                 mAttachements.append(messageAttachement);
             }
@@ -700,7 +700,7 @@ Message Message::fromJSon(const QJsonObject &o)
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         MessageAttachment att = MessageAttachment::fromJson(attachment);
-        att.setAttachementId(Message::generateAttachmentId(message.messageId(), i));
+        att.setAttachmentId(Message::generateAttachmentId(message.messageId(), i));
         if (att.isValid()) {
             message.mAttachements.append(att);
         }

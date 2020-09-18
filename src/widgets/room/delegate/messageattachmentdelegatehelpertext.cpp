@@ -119,7 +119,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
-            attachmentVisibility.attachmentId = msgAttach.attachementId();
+            attachmentVisibility.attachmentId = msgAttach.attachmentId();
             auto *model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
@@ -146,7 +146,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
 //Draw text + title as in image
 QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach, int width) const
 {
-    const QString attachmentId = msgAttach.attachementId();
+    const QString attachmentId = msgAttach.attachmentId();
     auto it = mDocumentCache.find(attachmentId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();

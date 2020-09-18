@@ -449,7 +449,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         auto attachments = message.attachements();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
             const MessageAttachment att = attachments.at(i);
-            if (att.attachementId() == visibility.attachmentId) {
+            if (att.attachmentId() == visibility.attachmentId) {
                 MessageAttachment changeAttachment = attachments.takeAt(i);
                 changeAttachment.setShowAttachment(visibility.show);
                 attachments.insert(i, changeAttachment);

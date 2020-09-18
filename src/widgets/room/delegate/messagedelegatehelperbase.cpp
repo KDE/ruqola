@@ -72,7 +72,7 @@ QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAt
 
 QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const
 {
-    const QString attachmentId = msgAttach.attachementId();
+    const QString attachmentId = msgAttach.attachmentId();
     auto it = mDocumentCache.find(attachmentId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();

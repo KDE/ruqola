@@ -46,7 +46,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(!attachment.isAnimatedImage());
     QVERIFY(attachment.attachmentFields().isEmpty());
     QVERIFY(!attachment.collapsed());
-    QVERIFY(attachment.showAttachment());
+    QVERIFY(!attachment.showAttachment());
 }
 
 void MessageAttachmentTest::shouldSerializeData()
