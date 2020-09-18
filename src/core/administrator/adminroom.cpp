@@ -65,11 +65,54 @@ void AdminRoom::setMessageCount(int messageCount)
     mMessageCount = messageCount;
 }
 
+QString AdminRoom::channelType() const
+{
+    return mChannelType;
+}
+
+void AdminRoom::setChannelType(const QString &channelType)
+{
+    mChannelType = channelType;
+}
+
+QString AdminRoom::identifier() const
+{
+    return mIdentifier;
+}
+
+void AdminRoom::setIdentifier(const QString &identifier)
+{
+    mIdentifier = identifier;
+}
+
+QString AdminRoom::topic() const
+{
+    return mTopic;
+}
+
+void AdminRoom::setTopic(const QString &topic)
+{
+    mTopic = topic;
+}
+
+bool AdminRoom::readOnly() const
+{
+    return mReadOnly;
+}
+
+void AdminRoom::setReadOnly(bool readOnly)
+{
+    mReadOnly = readOnly;
+}
+
 bool AdminRoom::operator ==(const AdminRoom &other) const
 {
     return mDefaultRoom == other.defaultRoom()
             && mUsersCount == other.usersCount()
-            && mMessageCount == other.messageCount();
+            && mMessageCount == other.messageCount()
+            && mChannelType == other.channelType()
+            && mIdentifier == other.identifier()
+            && mTopic == other.topic();
 }
 
 
@@ -78,5 +121,8 @@ QDebug operator <<(QDebug d, const AdminRoom &t)
     d << " default Room : " << t.defaultRoom();
     d << " user count : " << t.usersCount();
     d << " message count : " << t.messageCount();
+    d << " channel type: " << t.channelType();
+    d << " identifier: " << t.identifier();
+    d << " topic: " << t.topic();
     return d;
 }

@@ -36,4 +36,8 @@ void AdminRoomTest::shouldHaveDefaultValues()
     QVERIFY(!w.defaultRoom());
     QCOMPARE(w.usersCount(), -1);
     QCOMPARE(w.messageCount(), -1);
+    QVERIFY(w.channelType().isEmpty());
+    QVERIFY(w.topic().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
+    QVERIFY(!w.readOnly());
 }

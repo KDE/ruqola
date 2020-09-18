@@ -44,10 +44,26 @@ public:
     Q_REQUIRED_RESULT int messageCount() const;
     void setMessageCount(int messageCount);
 
+    Q_REQUIRED_RESULT QString channelType() const;
+    void setChannelType(const QString &channelType);
+
+    Q_REQUIRED_RESULT QString identifier() const;
+    void setIdentifier(const QString &identifier);
+
+    Q_REQUIRED_RESULT QString topic() const;
+    void setTopic(const QString &topic);
+
+    Q_REQUIRED_RESULT bool readOnly() const;
+    void setReadOnly(bool readOnly);
+
 private:
+    QString mTopic;
+    QString mIdentifier;
+    QString mChannelType;
     int mMessageCount = -1;
     int mUsersCount = -1;
     bool mDefaultRoom = false;
+    bool mReadOnly = false;
 };
 Q_DECLARE_METATYPE(AdminRoom)
 Q_DECLARE_TYPEINFO(AdminRoom, Q_MOVABLE_TYPE);
