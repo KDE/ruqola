@@ -21,12 +21,14 @@
 #include "messageattachmenttest.h"
 #include "messages/messageattachment.h"
 #include <QJsonObject>
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(MessageAttachmentTest)
 
 MessageAttachmentTest::MessageAttachmentTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void MessageAttachmentTest::shouldHaveDefaultValue()
@@ -44,7 +46,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(!attachment.isAnimatedImage());
     QVERIFY(attachment.attachmentFields().isEmpty());
     QVERIFY(!attachment.collapsed());
-    QVERIFY(!attachment.showAttachment());
+    QVERIFY(attachment.showAttachment());
 }
 
 void MessageAttachmentTest::shouldSerializeData()
