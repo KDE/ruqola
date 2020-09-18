@@ -44,7 +44,7 @@ public:
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile, bool storeInCache);
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
-    QUrl urlForLink(const QString &link) const;
+    Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
 
     void updateAvatar(const QString &userId);
 Q_SIGNALS:
@@ -52,8 +52,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatCache)
-    bool fileInCache(const QUrl &url);
-    QString fileCachePath(const QUrl &url);
+    Q_REQUIRED_RESULT bool fileInCache(const QUrl &url);
+    Q_REQUIRED_RESULT QString fileCachePath(const QUrl &url);
     void downloadAvatarFromServer(const QString &userId);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl);
     void loadAvatarCache();
