@@ -56,9 +56,9 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
-        nextY += layout.titleSize.height();
+        nextY += layout.titleSize.height() + DelegatePaintUtil::margin();
     }
-    if (layout.isShown) {
+    if (layout.isShown || layout.title.isEmpty()) {
         auto *doc = documentForIndex(msgAttach, messageRect.width());
         if (!doc) {
             return;
@@ -103,9 +103,9 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     Q_UNUSED(index);
     Q_UNUSED(option);
     const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
-    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-    if (layout.isShown && !layout.title.isEmpty()) {
-        height += layout.textSize.height();
+    int height = layout.titleSize.height();
+    if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
+        height += layout.textSize.height() + DelegatePaintUtil::margin();
     }
     return QSize(qMax(layout.titleSize.width(), maxWidth),
                  height);
