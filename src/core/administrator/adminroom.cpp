@@ -22,12 +22,10 @@
 
 AdminRoom::AdminRoom()
 {
-
 }
 
 AdminRoom::~AdminRoom()
 {
-
 }
 
 void AdminRoom::parseAdminRoom(const QJsonObject &object)
@@ -124,14 +122,13 @@ void AdminRoom::setName(const QString &name)
 bool AdminRoom::operator ==(const AdminRoom &other) const
 {
     return mDefaultRoom == other.defaultRoom()
-            && mUsersCount == other.usersCount()
-            && mMessageCount == other.messageCount()
-            && mChannelType == other.channelType()
-            && mIdentifier == other.identifier()
-            && mTopic == other.topic()
-            && mName == other.name();
+           && mUsersCount == other.usersCount()
+           && mMessageCount == other.messageCount()
+           && mChannelType == other.channelType()
+           && mIdentifier == other.identifier()
+           && mTopic == other.topic()
+           && mName == other.name();
 }
-
 
 QDebug operator <<(QDebug d, const AdminRoom &t)
 {

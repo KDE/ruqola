@@ -25,7 +25,6 @@ QTEST_MAIN(DownloadAvartarUrlManagerTest)
 DownloadAvartarUrlManagerTest::DownloadAvartarUrlManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DownloadAvartarUrlManagerTest::shouldHaveDefaultValues()

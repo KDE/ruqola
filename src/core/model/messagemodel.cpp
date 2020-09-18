@@ -241,9 +241,9 @@ void MessageModel::addMessage(const Message &message)
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
     auto emitChanged = [this](int rowNumber) {
-        const QModelIndex index = createIndex(rowNumber, 0);
-        Q_EMIT dataChanged(index, index);
-    };
+                           const QModelIndex index = createIndex(rowNumber, 0);
+                           Q_EMIT dataChanged(index, index);
+                       };
 
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {

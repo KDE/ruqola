@@ -46,7 +46,6 @@
 
 QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, const QWidget *widget) const
 {
-
     // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
 
@@ -61,9 +60,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 auto *that = const_cast<MessageDelegateHelperText *>(this);
                 // Find the previous message in the same thread, to use it as context
                 auto hasSameThread = [&](const Message &msg) {
-                    return msg.threadMessageId() == threadMessageId
-                        || msg.messageId() == threadMessageId;
-                };
+                                         return msg.threadMessageId() == threadMessageId
+                                                || msg.messageId() == threadMessageId;
+                                     };
                 Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
                 if (contextMessage.messageId().isEmpty()) {
                     ThreadMessageModel *cachedModel = mMessageCache.threadMessageModel(threadMessageId);
@@ -77,10 +76,10 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                                 QPersistentModelIndex persistentIndex(index);
                                 connect(&mMessageCache, &MessageCache::messageLoaded,
                                         this, [=](const QString &msgId){
-                                        if (msgId == threadMessageId) {
+                                    if (msgId == threadMessageId) {
                                         that->updateView(widget, persistentIndex);
-                                        }
-                                        });
+                                    }
+                                });
                             }
                         } else {
                             //qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
@@ -89,8 +88,8 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                         QPersistentModelIndex persistentIndex(index);
                         connect(&mMessageCache, &MessageCache::modelLoaded,
                                 this, [=](){
-                                that->updateView(widget, persistentIndex);
-                                });
+                            that->updateView(widget, persistentIndex);
+                        });
                     }
                 }
                 // Use TextConverter in case it starts with a [](URL) reply marker

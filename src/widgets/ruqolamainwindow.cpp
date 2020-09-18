@@ -82,7 +82,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     readConfig();
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     mNotification = new Notification(this);
-    QMenu *trayMenu = qobject_cast<QMenu*>(mNotification->contextMenu());
+    QMenu *trayMenu = qobject_cast<QMenu *>(mNotification->contextMenu());
     trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
     trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
     // Create systray to show notifications on Desktop
@@ -100,7 +100,6 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     KUserFeedback::NotificationPopup *userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
-
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()

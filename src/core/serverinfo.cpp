@@ -23,12 +23,10 @@
 
 ServerInfo::ServerInfo()
 {
-
 }
 
 ServerInfo::~ServerInfo()
 {
-
 }
 
 void ServerInfo::parseServerInfo(const QJsonObject &obj)

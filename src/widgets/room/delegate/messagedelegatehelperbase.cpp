@@ -42,7 +42,6 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     return false;
 }
 
-
 void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());

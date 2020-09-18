@@ -26,9 +26,7 @@ QTEST_GUILESS_MAIN(AdminRoomTest)
 AdminRoomTest::AdminRoomTest(QObject *parent)
     : QObject(parent)
 {
-
 }
-
 
 void AdminRoomTest::shouldHaveDefaultValues()
 {

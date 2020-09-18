@@ -24,8 +24,7 @@
 #include <QString>
 #include <QTextDocument>
 
-namespace MessageDelegateUtils
-{
+namespace MessageDelegateUtils {
 std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
 }
 

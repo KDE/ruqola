@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef ROOMADMIN_H
 #define ROOMADMIN_H
 

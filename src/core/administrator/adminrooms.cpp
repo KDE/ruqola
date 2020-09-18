@@ -70,7 +70,6 @@ void AdminRooms::parseListAdminRooms(const QJsonObject &adminRoomsObj)
             qCWarning(RUQOLA_LOG) << "Problem when parsing admin Rooms" << current;
         }
     }
-
 }
 
 int AdminRooms::adminRoomsCount() const

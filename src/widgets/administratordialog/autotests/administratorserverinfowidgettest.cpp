@@ -25,5 +25,4 @@ QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

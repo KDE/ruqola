@@ -291,7 +291,6 @@ private:
     bool mShowAttachment = true;
 
     EmojiManager *mEmojiManager = nullptr;
-
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);

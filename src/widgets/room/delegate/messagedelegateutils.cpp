@@ -24,7 +24,6 @@
 #include <QTextFrameFormat>
 #include <QApplication>
 
-
 std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool useItalic, const QString &text, int width)
 {
     std::unique_ptr<QTextDocument> doc(new QTextDocument);

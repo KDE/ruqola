@@ -72,4 +72,3 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
 {
     return mAccountManager->account();
 }
-
