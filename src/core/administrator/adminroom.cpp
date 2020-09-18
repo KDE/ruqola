@@ -36,6 +36,22 @@ void AdminRoom::parseAdminRoom(const QJsonObject &object)
     if (object.contains(QLatin1String("name"))) {
         setName(object[QStringLiteral("name")].toString());
     }
+    if (object.contains(QLatin1String("msgs"))) {
+        setMessageCount(object[QStringLiteral("msgs")].toInt());
+    }
+    if (object.contains(QLatin1String("t"))) {
+        setChannelType(object[QStringLiteral("t")].toString());
+    }
+    if (object.contains(QLatin1String("default"))) {
+        setDefaultRoom(object[QStringLiteral("default")].toBool());
+    }
+    setIdentifier(object[QStringLiteral("_id")].toString());
+    setReadOnly(object[QStringLiteral("ro")].toBool());
+    if (object.contains(QLatin1String("usersCount"))) {
+        setUsersCount(object[QStringLiteral("usersCount")].toInt());
+    }
+    //Add users "u"
+    //Add UserNames "usernames"
     //TODO
 }
 

@@ -24,6 +24,7 @@
 #include "restapirequest.h"
 #include "rooms/adminroomsjob.h"
 #include "ruqolawidgets_debug.h"
+#include "administrator/adminrooms.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -56,5 +57,7 @@ void AdministratorRoomsWidget::initialize()
 
 void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    AdminRooms rooms;
+    rooms.parseAdminRooms(obj);
+    qDebug() << " rooms " << rooms;
 }

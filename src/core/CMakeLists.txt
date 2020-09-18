@@ -58,6 +58,8 @@ set (Ruqola_model_core_srcs
     model/commandsmodel.cpp
 
     model/accountschannelsmodel.cpp
+
+    model/adminroomsmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
