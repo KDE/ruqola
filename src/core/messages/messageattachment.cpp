@@ -145,6 +145,7 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (message.collapsed()) {
         obj[QStringLiteral("collapsed")] = true;
     }
+    obj[QStringLiteral("attchmentType")] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(message.attachmentType()));
     return obj;
 }
 
@@ -174,6 +175,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
     }
     att.setAttachmentFields(messageFields);
     att.setCollapsed(o.value(QLatin1String("collapsed")).toBool());
+    att.setAttachmentType(o[QStringLiteral("attchmentType")].toVariant().value<AttachmentType>());
     return att;
 }
 
