@@ -40,7 +40,7 @@
 
 void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
+    const ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     if (!layout.pixmap.isNull()) {
@@ -110,7 +110,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
 
-        ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+        const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
