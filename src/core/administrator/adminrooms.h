@@ -25,7 +25,6 @@
 #include "libruqola_private_export.h"
 #include <QVector>
 #include <QDebug>
-class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT AdminRooms
 {
 public:
