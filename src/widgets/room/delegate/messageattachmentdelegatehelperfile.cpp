@@ -51,11 +51,11 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
     const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
     const QPen oldPen = painter->pen();
     const QFont oldFont = painter->font();
-    QFont underlinedFont = oldFont;
-    underlinedFont.setUnderline(true);
     const int y = attachmentsRect.y() + layout.y;
     const bool hasLink = !layout.link.isEmpty();
     if (hasLink) {
+        QFont underlinedFont = oldFont;
+        underlinedFont.setUnderline(true);
         painter->setPen(option.palette.color(QPalette::Link));
         painter->setFont(underlinedFont);
     }
