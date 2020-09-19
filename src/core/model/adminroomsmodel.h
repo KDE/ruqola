@@ -30,10 +30,17 @@ class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum CommandsRoles {
-        CommandName = Qt::UserRole + 1,
+    enum AdminRoomsRoles {
+        Name = Qt::UserRole + 1,
+        Total,
+        MessagesCount,
+        UsersCount,
+        Topic,
+        Identifier,
+        ReadOnly,
+        DefaultRoom,
     };
-    Q_ENUM(CommandsRoles)
+    Q_ENUM(AdminRoomsRoles)
 
     explicit AdminRoomsModel(QObject *parent = nullptr);
     ~AdminRoomsModel() override;
@@ -43,7 +50,7 @@ public:
 
     Q_REQUIRED_RESULT AdminRooms adminRooms() const;
 
-    void setAdminRooms(const AdminRooms &emoticons);
+    void setAdminRooms(const AdminRooms &adminrooms);
 
 private:
     Q_DISABLE_COPY(AdminRoomsModel)

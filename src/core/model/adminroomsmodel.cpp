@@ -44,8 +44,22 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
     }
     const AdminRoom &adminroom = mAdminRooms.at(index.row());
     switch (role) {
-    case CommandName:
-        return {};
+    case Name:
+        return adminroom.name();
+    case Total:
+        return mAdminRooms.total();
+    case MessagesCount:
+        return adminroom.messageCount();
+    case UsersCount:
+        return adminroom.usersCount();
+    case Topic:
+        return adminroom.topic();
+    case Identifier:
+        return adminroom.identifier();
+    case ReadOnly:
+        return adminroom.readOnly();
+    case DefaultRoom:
+        return adminroom.defaultRoom();
     }
 
     return {};
@@ -56,16 +70,16 @@ AdminRooms AdminRoomsModel::adminRooms() const
     return mAdminRooms;
 }
 
-void AdminRoomsModel::setAdminRooms(const AdminRooms &commands)
+void AdminRoomsModel::setAdminRooms(const AdminRooms &adminrooms)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
         mAdminRooms.clear();
         endRemoveRows();
     }
-    if (!commands.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, commands.count() - 1);
-        mAdminRooms = commands;
+    if (!adminrooms.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, adminrooms.count() - 1);
+        mAdminRooms = adminrooms;
         endInsertRows();
     }
 }
