@@ -135,6 +135,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
+    Q_UNUSED(attachmentsHeight);
     TextLayout layout;
     layout.title = msgAttach.title();
     if (!layout.title.isEmpty()) {
