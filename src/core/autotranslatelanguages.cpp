@@ -72,7 +72,7 @@ QDebug operator <<(QDebug d, const AutotranslateLanguages &t)
 {
     const QVector<AutotranslateLanguage> autotranslateLanguages = t.autotranslateLanguage();
     for (const AutotranslateLanguage &lang : autotranslateLanguages) {
-        d << "autotranslate :" << lang;
+        d << "autotranslate :" << lang << "\n";
     }
     return d;
 }
