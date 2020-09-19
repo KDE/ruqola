@@ -53,7 +53,12 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
     int nextY = messageRect.y();
     if (!layout.title.isEmpty()) {
+        const QFont oldFont = painter->font();
+        QFont underlinedFont = oldFont;
+        underlinedFont.setBold(true);
+        painter->setFont(underlinedFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+        painter->setFont(oldFont);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
         nextY += layout.titleSize.height() + DelegatePaintUtil::margin();
