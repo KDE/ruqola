@@ -117,7 +117,6 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = mouseEvent->type();
-    // Text selection
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
