@@ -51,6 +51,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineEdit);
 
     mResultTreeWidget = new QTableView(this);
+    mResultTreeWidget->setShowGrid(false);
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
     mainLayout->addWidget(mResultTreeWidget);
 
