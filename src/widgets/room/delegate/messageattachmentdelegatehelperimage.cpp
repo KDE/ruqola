@@ -89,6 +89,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index);
     const ImageLayout layout = layoutImage(msgAttach, option, maxWidth, -1);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
