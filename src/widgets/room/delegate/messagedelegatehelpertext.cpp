@@ -170,7 +170,7 @@ static bool useItalicsForMessage(const QModelIndex &index)
     const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = messageType == Message::System
                                  && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
-    return isSystemMessage /* || messageType == Message::Video || messageType == Message::Audio*/;
+    return isSystemMessage;
 }
 
 MessageDelegateHelperText::~MessageDelegateHelperText()
