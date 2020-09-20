@@ -37,9 +37,10 @@ public:
 private:
     struct TextLayout {
         QString title;
-        QSize titleSize;
+        QSizeF titleSize;
         QRect hideShowButtonRect;
         QSize textSize;
+        QFont textFont;
         bool isShown = true;
     };
     Q_REQUIRED_RESULT TextLayout layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;

@@ -54,9 +54,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     int nextY = messageRect.y();
     if (!layout.title.isEmpty()) {
         const QFont oldFont = painter->font();
-        QFont underlinedFont = oldFont;
-        underlinedFont.setBold(true);
-        painter->setFont(underlinedFont);
+        painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         painter->setFont(oldFont);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
@@ -112,7 +110,7 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
         height += layout.textSize.height() + DelegatePaintUtil::margin();
     }
-    return QSize(qMax(layout.titleSize.width(), maxWidth),
+    return QSize(qMax(layout.titleSize.width(), (qreal)maxWidth),
                  height);
 }
 
@@ -139,7 +137,11 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
     TextLayout layout;
     layout.title = msgAttach.title();
     if (!layout.title.isEmpty()) {
-        layout.titleSize = layout.title.isEmpty() ? QSize() : option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+        layout.textFont = option.font;
+        layout.textFont.setBold(true);
+        const QFontMetricsF textFontMetrics(layout.textFont);
+
+        layout.titleSize = textFontMetrics.size(Qt::TextSingleLine, layout.title);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     }
