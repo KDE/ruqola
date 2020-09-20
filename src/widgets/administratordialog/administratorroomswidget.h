@@ -23,6 +23,9 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
+class QTableView;
+class AdminRoomsModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public QWidget
 {
     Q_OBJECT
@@ -32,7 +35,11 @@ public:
 
 private:
     void slotAdminRoomDone(const QJsonObject &obj);
+    void slotTextChanged(const QString &text);
     void initialize();
+    QLineEdit *mSearchLineEdit = nullptr;
+    QTableView *mResultTreeWidget = nullptr;
+    AdminRoomsModel *mAdminRoomsModel = nullptr;
 };
 
 #endif // ADMINISTRATORROOMSWIDGET_H

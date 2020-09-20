@@ -37,6 +37,29 @@ int AdminRoomsModel::rowCount(const QModelIndex &parent) const
     return mAdminRooms.count();
 }
 
+QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
+        switch (section) {
+        case Name:
+        case Total:
+        case MessagesCount:
+        case UsersCount:
+        case Topic:
+        case Identifier:
+        case ReadOnly:
+        case DefaultRoom:
+            return QStringLiteral("col");
+        }
+    }
+    return QVariant();
+}
+
+int AdminRoomsModel::columnCount(const QModelIndex &parent) const
+{
+    return LastColumn - Name;
+}
+
 QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mAdminRooms.count()) {

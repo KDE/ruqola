@@ -25,10 +25,16 @@
 #include "rooms/adminroomsjob.h"
 #include "ruqolawidgets_debug.h"
 #include "administrator/adminrooms.h"
+#include "misc/lineeditcatchreturnkey.h"
+#include "model/adminroomsmodel.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QJsonObject>
+#include <QLineEdit>
+#include <QTableView>
+
+
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
@@ -36,11 +42,34 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mSearchLineEdit = new QLineEdit(this);
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorRoomsWidget::slotTextChanged);
+    mainLayout->addWidget(mSearchLineEdit);
+
+    mResultTreeWidget = new QTableView(this);
+    mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
+    mainLayout->addWidget(mResultTreeWidget);
+
+    mAdminRoomsModel = new AdminRoomsModel(this);
+    mAdminRoomsModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
+
+    mResultTreeWidget->setModel(mAdminRoomsModel);
+
+
     initialize();
 }
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()
 {
+}
+
+void AdministratorRoomsWidget::slotTextChanged(const QString &text)
+{
+    //TODO
 }
 
 void AdministratorRoomsWidget::initialize()
@@ -59,5 +88,6 @@ void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
 {
     AdminRooms rooms;
     rooms.parseAdminRooms(obj);
+    mAdminRoomsModel->setAdminRooms(rooms);
     qDebug() << " rooms " << rooms;
 }

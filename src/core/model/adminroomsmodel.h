@@ -39,6 +39,7 @@ public:
         Identifier,
         ReadOnly,
         DefaultRoom,
+        LastColumn
     };
     Q_ENUM(AdminRoomsRoles)
 
@@ -47,6 +48,8 @@ public:
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     Q_REQUIRED_RESULT AdminRooms adminRooms() const;
 
