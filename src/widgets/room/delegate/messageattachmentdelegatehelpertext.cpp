@@ -116,7 +116,10 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+    const QEvent::Type eventType = mouseEvent->type();
+    // Text selection
+    switch (eventType) {
+    case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
@@ -127,6 +130,24 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         }
+#if 0
+        // Clicks on links
+        auto *doc = documentForIndex(msgAttach, attachmentsRect.width());
+        if (doc) {
+            const QString link = doc->documentLayout()->anchorAt(pos);
+            qDebug() << " link " << link;
+            if (!link.isEmpty()) {
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                Q_EMIT rcAccount->openLinkRequested(link);
+                return true;
+            }
+        }
+        // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
+        break;
+#endif
+    }
+    default:
+        break;
     }
     return false;
 }
