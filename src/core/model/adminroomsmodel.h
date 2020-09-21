@@ -38,7 +38,8 @@ public:
         Identifier,
         ReadOnly,
         DefaultRoom,
-        LastColumn = DefaultRoom
+        ChannelType,
+        LastColumn = ChannelType
     };
     Q_ENUM(AdminRoomsRoles)
 
