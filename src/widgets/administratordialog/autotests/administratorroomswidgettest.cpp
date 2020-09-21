@@ -20,6 +20,8 @@
 
 #include "administratorroomswidgettest.h"
 #include "administratordialog/administratorroomswidget.h"
+#include <QLineEdit>
+#include <QTableView>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorRoomsWidgetTest)
@@ -34,4 +36,13 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+
+    QLineEdit *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
+
+    QTableView *mResultTreeWidget = w.findChild<QTableView *>(QStringLiteral("mResultTreeWidget"));
+    QVERIFY(mResultTreeWidget);
+    QVERIFY(!mResultTreeWidget->showGrid());
 }
