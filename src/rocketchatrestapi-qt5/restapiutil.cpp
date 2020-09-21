@@ -406,9 +406,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::Users2FASendEmailCode:
         return QStringLiteral("users.2fa.sendEmailCode");
     case RestApiUtil::RestApiUrlType::Users2FAEnableEmail:
-        return QStringLiteral("users.2fa.enable-email");
+        return QStringLiteral("users.2fa.enableEmail");
     case RestApiUtil::RestApiUrlType::Users2FADisableEmail:
-        return QStringLiteral("users.2fa.disable-email");
+        return QStringLiteral("users.2fa.disableEmail");
 
     case RestApiUtil::RestApiUrlType::UsersDeleteOwnAccount:
         return QStringLiteral("users.deleteOwnAccount");
