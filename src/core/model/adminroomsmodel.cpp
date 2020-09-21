@@ -19,6 +19,7 @@
 */
 
 #include "adminroomsmodel.h"
+#include <KLocalizedString>
 
 AdminRoomsModel::AdminRoomsModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -40,16 +41,21 @@ int AdminRoomsModel::rowCount(const QModelIndex &parent) const
 QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (section) {
-        case Name:
-        case Total:
-        case MessagesCount:
-        case UsersCount:
-        case Topic:
-        case Identifier:
-        case ReadOnly:
-        case DefaultRoom:
-            return QStringLiteral("col");
+        switch (static_cast<AdminRoomsRoles>(section)) {
+        case AdminRoomsRoles::Name:
+            return i18n("Name");
+        case AdminRoomsRoles::MessagesCount:
+            return i18n("Number Of Messages");
+        case AdminRoomsRoles::UsersCount:
+            return i18n("Number Of Users");
+        case AdminRoomsRoles::Topic:
+            return i18n("Topic");
+        case AdminRoomsRoles::Identifier:
+            return i18n("Identifier");
+        case AdminRoomsRoles::ReadOnly:
+            return i18n("Read Only");
+        case AdminRoomsRoles::DefaultRoom:
+            return i18n("Default Room");
         }
     }
     return QVariant();
@@ -57,7 +63,8 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
 
 int AdminRoomsModel::columnCount(const QModelIndex &parent) const
 {
-    return LastColumn - Name;
+    Q_UNUSED(parent)
+    return static_cast<int>(AdminRoomsRoles::LastColumn) + 1;
 }
 
 QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
@@ -65,23 +72,25 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mAdminRooms.count()) {
         return {};
     }
+    if (role != Qt::DisplayRole)
+        return {};
+
     const AdminRoom &adminroom = mAdminRooms.at(index.row());
-    switch (role) {
-    case Name:
+    const int col = index.column();
+    switch (static_cast<AdminRoomsRoles>(col)) {
+    case AdminRoomsRoles::Name:
         return adminroom.name();
-    case Total:
-        return mAdminRooms.total();
-    case MessagesCount:
+    case AdminRoomsRoles::MessagesCount:
         return adminroom.messageCount();
-    case UsersCount:
+    case AdminRoomsRoles::UsersCount:
         return adminroom.usersCount();
-    case Topic:
+    case AdminRoomsRoles::Topic:
         return adminroom.topic();
-    case Identifier:
+    case AdminRoomsRoles::Identifier:
         return adminroom.identifier();
-    case ReadOnly:
+    case AdminRoomsRoles::ReadOnly:
         return adminroom.readOnly();
-    case DefaultRoom:
+    case AdminRoomsRoles::DefaultRoom:
         return adminroom.defaultRoom();
     }
 

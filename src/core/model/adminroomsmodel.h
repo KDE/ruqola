@@ -30,16 +30,15 @@ class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum AdminRoomsRoles {
-        Name = Qt::UserRole + 1,
-        Total,
+    enum class AdminRoomsRoles {
+        Name,
         MessagesCount,
         UsersCount,
         Topic,
         Identifier,
         ReadOnly,
         DefaultRoom,
-        LastColumn
+        LastColumn = DefaultRoom
     };
     Q_ENUM(AdminRoomsRoles)
 
