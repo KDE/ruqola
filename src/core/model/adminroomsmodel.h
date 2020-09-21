@@ -32,14 +32,14 @@ class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
 public:
     enum class AdminRoomsRoles {
         Name,
+        Topic,
+        ChannelType,
         MessagesCount,
         UsersCount,
-        Topic,
-        Identifier,
         ReadOnly,
         DefaultRoom,
-        ChannelType,
-        LastColumn = ChannelType
+        Identifier,
+        LastColumn = Identifier
     };
     Q_ENUM(AdminRoomsRoles)
 
