@@ -27,6 +27,7 @@
 #include "administrator/adminrooms.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminroomsmodel.h"
+#include "model/adminroomsfilterproxymodel.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -58,7 +59,10 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mAdminRoomsModel = new AdminRoomsModel(this);
     mAdminRoomsModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
 
-    mResultTreeWidget->setModel(mAdminRoomsModel);
+    mAdminRoomsProxyModel = new AdminRoomsFilterProxyModel(mAdminRoomsModel, this);
+    mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminRoomsProxyModel"));
+
+    mResultTreeWidget->setModel(mAdminRoomsProxyModel);
 
 
     initialize();
@@ -70,7 +74,7 @@ AdministratorRoomsWidget::~AdministratorRoomsWidget()
 
 void AdministratorRoomsWidget::slotTextChanged(const QString &text)
 {
-    //TODO
+    mAdminRoomsProxyModel->setFilterString(text);
 }
 
 void AdministratorRoomsWidget::initialize()
