@@ -45,4 +45,5 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     QTableView *mResultTreeWidget = w.findChild<QTableView *>(QStringLiteral("mResultTreeWidget"));
     QVERIFY(mResultTreeWidget);
     QVERIFY(!mResultTreeWidget->showGrid());
+    QVERIFY(mResultTreeWidget->isSortingEnabled());
 }

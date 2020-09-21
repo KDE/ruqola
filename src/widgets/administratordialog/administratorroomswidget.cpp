@@ -53,6 +53,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
 
     mResultTreeWidget = new QTableView(this);
     mResultTreeWidget->setShowGrid(false);
+    mResultTreeWidget->setSortingEnabled(true);
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
     mainLayout->addWidget(mResultTreeWidget);
 
@@ -94,5 +95,5 @@ void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
     AdminRooms rooms;
     rooms.parseAdminRooms(obj);
     mAdminRoomsModel->setAdminRooms(rooms);
-    qDebug() << " rooms " << rooms;
+    //qDebug() << " rooms " << rooms;
 }
