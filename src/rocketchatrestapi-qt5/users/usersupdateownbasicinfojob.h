@@ -52,6 +52,9 @@ public:
     Q_REQUIRED_RESULT UpdateOwnBasicInfo updateOwnBasicInfo() const;
     void setUpdateOwnBasicInfo(const UpdateOwnBasicInfo &updateOwnBasicInfo);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+
 Q_SIGNALS:
     void updateOwnBasicInfoDone();
 
@@ -59,6 +62,7 @@ private:
     Q_DISABLE_COPY(UsersUpdateOwnBasicInfoJob)
     void slotUpdateOwnBasicInfo();
     UpdateOwnBasicInfo mUpdateOwnBasicInfo;
+
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_MOVABLE_TYPE);

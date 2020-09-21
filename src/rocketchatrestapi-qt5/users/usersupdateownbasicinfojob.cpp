@@ -22,6 +22,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -74,6 +76,14 @@ UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo UsersUpdateOwnBasicInfoJob::updat
 void UsersUpdateOwnBasicInfoJob::setUpdateOwnBasicInfo(const UpdateOwnBasicInfo &updateOwnBasicInfo)
 {
     mUpdateOwnBasicInfo = updateOwnBasicInfo;
+}
+
+QString UsersUpdateOwnBasicInfoJob::errorMessage(const QString &str)
+{
+    if (str == QLatin1String("totp-required")) {
+        return i18n("Two Authentication Password Required");
+    }
+    return RestApiAbstractJob::errorMessage(str);
 }
 
 bool UsersUpdateOwnBasicInfoJob::requireHttpAuthentication() const
