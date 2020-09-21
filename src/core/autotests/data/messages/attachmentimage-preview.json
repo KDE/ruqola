@@ -1,0 +1,44 @@
+{
+    "_id": "jrCdGBkCHjdCjhsJr",
+    "_updatedAt": {
+        "$date": 1600647439601
+    },
+    "attachments": [
+        {
+            "image_dimensions": {
+                "height": 688,
+                "width": 700
+            },
+            "image_preview": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAfACADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAABQYBAwQH/8QAKRAAAgEEAQMDAwUAAAAAAAAAAQMCAAQFEQYSIjETIWFBQlEUIzKRof/EABgBAAIDAAAAAAAAAAAAAAAAAAMEAAEF/8QAHxEAAgICAgMBAAAAAAAAAAAAAQIAAwQRITESExTw/9oADAMBAAIRAxEAPwBxylvjvVfG2xyYhB14PcarscHZX1qy4haLgPTJII8HXioz93CN0/8AT9Uh9uonz/VGMJcrRx5guGaZKJJBifb/ACnayTYQZhZIVMdGTuZU8RsZ2a3RQvZHjXyaJ2HGcbGAM7RM4/IrXj8lajHK23R6T9p/J+KMTyNvLGgyasfiIidiiOwQjQ7itFbXq5ZiNdRIyzyx9wIIUv0jpfaO6i+Oku9wE2ut1RaIES1EUjZ7k1hO6uDbyZo+Nw8GjOG5JjbTATWxri2UST+39aHU59h2eI1l0r86eI54k3F1tBiErXBY1A9I7js0xcZcvIYyLHoUGRPTLtFc+yHI8fKBCpM/ifYw+uzTBxXkeMssZGLmNLJHZ0upU59h31LzKV+ZfEc/tz//2Q==",
+            "image_size": 75788,
+            "image_type": "image/jpeg",
+            "image_url": "/file-upload/nPFrYY2wjCzFDK9S3/IMG_1925.JPG",
+            "title": "IMG_1925.JPG",
+            "title_link": "/file-upload/nPFrYY2wjCzFDK9S3/IMG_1925.JPG",
+            "title_link_download": true,
+            "ts": "1970-01-01T00:00:00.000Z",
+            "type": "file"
+        }
+    ],
+    "channels": [
+    ],
+    "file": {
+        "_id": "nPFrYY2wjCzFDK9S3",
+        "name": "IMG_1925.JPG",
+        "type": "image/jpeg"
+    },
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "rid": "Drjw54ftqGa4antMW",
+    "ts": {
+        "$date": 1600647439539
+    },
+    "u": {
+        "_id": "DzJdzFXuPYTQMfee4",
+        "name": "mo",
+        "username": "mohoss"
+    }
+}
+
