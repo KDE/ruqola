@@ -43,7 +43,7 @@ MessageAttachment testAttachment()
     msgAttach.setDescription(description);
     QPixmap pix(50, 100);
     pix.fill(Qt::white);
-    // Save the pixmap directly into the cache so that no download hpapens
+    // Save the pixmap directly into the cache so that no download happens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
     QDir().mkpath(cachePath);
     const QString link = QStringLiteral("/testfile.png");
