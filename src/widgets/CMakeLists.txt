@@ -77,6 +77,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/createvideomessagedialog.cpp
     dialogs/createvideomessagewidget.cpp
     dialogs/showattachmentcombobox.cpp
+    dialogs/asktwoauthenticationpassworddialog.cpp
+    dialogs/asktwoauthenticationpasswordwidget.cpp
     )
 
 set(Ruqola_configure_SRCS
