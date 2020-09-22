@@ -190,16 +190,21 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
         if (authorName.isEmpty()) {
             return nullptr;
         } else {
-            //TODO add support for url
-            text = authorName;
+            //Add support for icon_author too
+            const QString contextString = QStringLiteral("<a href=\"%1\">%2</a>").arg(msgAttach.link(), authorName);
+            auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+            auto ret = doc.get();
+            mDocumentCache.insert(attachmentId, std::move(doc));
+            return ret;
         }
+    } else {
+        // Use TextConverter in case it starts with a [](URL) reply marker
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        TextConverter textConverter(rcAccount->emojiManager());
+        const QString contextString = textConverter.convertMessageText(text, rcAccount->userName(), {});
+        auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+        auto ret = doc.get();
+        mDocumentCache.insert(attachmentId, std::move(doc));
+        return ret;
     }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    TextConverter textConverter(rcAccount->emojiManager());
-    const QString contextString = textConverter.convertMessageText(text, rcAccount->userName(), {});
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    mDocumentCache.insert(attachmentId, std::move(doc));
-    return ret;
 }
