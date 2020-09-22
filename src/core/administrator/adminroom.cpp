@@ -20,6 +20,8 @@
 
 #include "adminroom.h"
 
+#include <QJsonArray>
+
 AdminRoom::AdminRoom()
 {
 }
@@ -30,6 +32,7 @@ AdminRoom::~AdminRoom()
 
 void AdminRoom::parseAdminRoom(const QJsonObject &object)
 {
+    //qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("topic"))) {
         setTopic(object[QStringLiteral("topic")].toString());
     }
@@ -50,8 +53,15 @@ void AdminRoom::parseAdminRoom(const QJsonObject &object)
     if (object.contains(QLatin1String("usersCount"))) {
         setUsersCount(object[QStringLiteral("usersCount")].toInt());
     }
+    const QJsonArray userNamesArray = object[QStringLiteral("usernames")].toArray();
+    const QVariantList userNamesList = userNamesArray.toVariantList();
+    mUserNames.reserve(userNamesList.count());
+    for (const auto &var : userNamesList) {
+        mUserNames.append(var.toString());
+    }
+
+    //qDebug() << " * this " << *this;
     //Add users "u"
-    //Add UserNames "usernames"
     //TODO
 }
 
@@ -135,15 +145,37 @@ void AdminRoom::setName(const QString &name)
     mName = name;
 }
 
+QStringList AdminRoom::userNames() const
+{
+    return mUserNames;
+}
+
+void AdminRoom::setUserNames(const QStringList &userNames)
+{
+    mUserNames = userNames;
+}
+
+QStringList AdminRoom::users() const
+{
+    return mUsers;
+}
+
+void AdminRoom::setUsers(const QStringList &users)
+{
+    mUsers = users;
+}
+
 bool AdminRoom::operator ==(const AdminRoom &other) const
 {
     return mDefaultRoom == other.defaultRoom()
-           && mUsersCount == other.usersCount()
+            && mUsersCount == other.usersCount()
            && mMessageCount == other.messageCount()
            && mChannelType == other.channelType()
            && mIdentifier == other.identifier()
            && mTopic == other.topic()
-           && mName == other.name();
+           && mName == other.name()
+            && mUserNames == other.userNames()
+            && mUsers == other.users();
 }
 
 QDebug operator <<(QDebug d, const AdminRoom &t)
@@ -155,5 +187,7 @@ QDebug operator <<(QDebug d, const AdminRoom &t)
     d << " identifier: " << t.identifier();
     d << " topic: " << t.topic();
     d << " name: " << t.name();
+    d << " usernames: " << t.userNames();
+    d << " users: " << t.users();
     return d;
 }

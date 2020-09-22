@@ -58,7 +58,15 @@ public:
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
+    Q_REQUIRED_RESULT QStringList userNames() const;
+    void setUserNames(const QStringList &userNames);
+
+    Q_REQUIRED_RESULT QStringList users() const;
+    void setUsers(const QStringList &users);
+
 private:
+    QStringList mUserNames;
+    QStringList mUsers;
     QString mTopic;
     QString mIdentifier;
     QString mChannelType;
