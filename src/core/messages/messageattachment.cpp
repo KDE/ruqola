@@ -39,7 +39,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     if (!title.isUndefined()) {
         setTitle(title.toString());
     }
-    AttachmentType attType;
+    AttachmentType attType = AttachmentType::Unknown;
     if (attachment.contains(QLatin1String("audio_url"))) {
         setLink(attachment.value(QLatin1String("audio_url")).toString());
         attType = AttachmentType::Audio;
