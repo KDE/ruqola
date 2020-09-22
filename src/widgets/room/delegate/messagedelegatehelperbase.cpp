@@ -42,16 +42,16 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     return false;
 }
 
-void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const
+void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect descriptionRect, QPainter *painter, int topPos) const
 {
-    auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
+    auto *doc = documentDescriptionForIndex(msgAttach, descriptionRect.width());
     if (!doc) {
         return;
     }
 
     painter->save();
-    painter->translate(messageRect.left(), topPos);
-    const QRect clip(0, 0, messageRect.width(), messageRect.height());
+    painter->translate(descriptionRect.left(), topPos);
+    const QRect clip(0, 0, descriptionRect.width(), descriptionRect.height());
 
     // Same as pDoc->drawContents(painter, clip) but we also set selections
     QAbstractTextDocumentLayout::PaintContext ctx;
