@@ -40,7 +40,6 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
     connect(buttonBox, &QDialogButtonBox::rejected, this, &AskTwoAuthenticationPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &AskTwoAuthenticationPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
-    resize(600, 400);
 }
 
 AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog()

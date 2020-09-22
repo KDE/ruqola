@@ -36,7 +36,6 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
     mainLayout->addWidget(mActivate2FAViaEmailCheckbox);
 
     mainLayout->addStretch(1);
-    //TODO
 }
 
 MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()

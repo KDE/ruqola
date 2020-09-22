@@ -131,7 +131,7 @@ void MyAccountProfileConfigureWidget::save()
     if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
         updateInfo.newPassword = mPasswordConfirmWidget->password(); //TODO use ssha256 ???
     }
-    if (false) { //TODO
+    if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { //TODO verify it
         QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);
         QString code;
         if (dlg->exec()) {
