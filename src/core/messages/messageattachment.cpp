@@ -392,5 +392,6 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "collapsed " << t.collapsed();
     d << "attachmentfields " << t.attachmentFields();
     d << "showAttachment " << t.showAttachment();
+    d << "AttachmentType: " << t.attachmentType();
     return d;
 }
