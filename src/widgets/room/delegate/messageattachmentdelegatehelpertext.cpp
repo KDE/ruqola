@@ -184,10 +184,15 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
         return ret;
     }
 
-    const QString text = msgAttach.text();
-
+    QString text = msgAttach.text();
     if (text.isEmpty()) {
-        return nullptr;
+        const QString authorName = msgAttach.authorName();
+        if (authorName.isEmpty()) {
+            return nullptr;
+        } else {
+            //TODO add support for url
+            text = authorName;
+        }
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
