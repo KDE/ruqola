@@ -1,0 +1,35 @@
+{
+    "_id": "pErQaMzd8K94GGnW4",
+    "_updatedAt": {
+        "$date": 1600744018912
+    },
+    "alias": "dependabot[bot]",
+    "attachments": [
+        {
+            "author_icon": "https://cloud.githubusercontent.com/assets/51996/13893698/c047133c-ed2e-11e5-9233-13622bcb9b7b.png",
+            "author_link": "https://github.com/RocketChat/Rocket.Chat/pull/18771",
+            "author_name": "#18771 - Bump googleapis from 25.0.0 to 39.1.0",
+            "ts": "1970-01-01T00:00:00.000Z"
+        }
+    ],
+    "avatar": "https://avatars0.githubusercontent.com/in/29110?v=4",
+    "bot": {
+        "i": "QyWmDsdtdyzvkjucS"
+    },
+    "channels": [
+    ],
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "Pull request synchronized",
+    "parseUrls": false,
+    "rid": "GENERAL",
+    "ts": {
+        "$date": 1600744018880
+    },
+    "u": {
+        "_id": "rocket.cat",
+        "name": "Rocket.Cat",
+        "username": "rocket.cat"
+    }
+}

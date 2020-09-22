@@ -347,6 +347,7 @@ void MessageTest::shouldParseJsonMessage_data()
     QTest::newRow("emojimessage") << QStringLiteral("emojimessage");
     QTest::newRow("attachmentaudio") << QStringLiteral("attachmentaudio");
     QTest::newRow("attachmentimage-preview") << QStringLiteral("attachmentimage-preview");
+    QTest::newRow("message-attachment-link") << QStringLiteral("message-attachment-link");
 }
 
 void MessageTest::shouldParseJsonMessage()
