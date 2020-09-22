@@ -32,5 +32,4 @@ AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *
 
 AskTwoAuthenticationPasswordWidget::~AskTwoAuthenticationPasswordWidget()
 {
-
 }

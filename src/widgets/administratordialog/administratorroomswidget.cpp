@@ -35,8 +35,6 @@
 #include <QLineEdit>
 #include <QTableView>
 
-
-
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -64,7 +62,6 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminRoomsProxyModel"));
 
     mResultTreeWidget->setModel(mAdminRoomsProxyModel);
-
 
     initialize();
 }

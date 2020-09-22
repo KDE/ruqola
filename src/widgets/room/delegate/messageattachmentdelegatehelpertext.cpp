@@ -98,7 +98,6 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         painter->restore();
         //TODO add fields
     }
-
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -118,7 +117,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 {
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
-    case QEvent::MouseButtonRelease: {
+    case QEvent::MouseButtonRelease:
+    {
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {

@@ -62,7 +62,6 @@ private:
     Q_DISABLE_COPY(UsersUpdateOwnBasicInfoJob)
     void slotUpdateOwnBasicInfo();
     UpdateOwnBasicInfo mUpdateOwnBasicInfo;
-
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_MOVABLE_TYPE);

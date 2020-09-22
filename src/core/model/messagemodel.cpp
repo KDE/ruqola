@@ -444,7 +444,8 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     Message &message = mAllMessages[idx];
 
     switch (role) {
-    case MessageModel::DisplayAttachment: {
+    case MessageModel::DisplayAttachment:
+    {
         const AttachmentVisibility visibility = value.value<AttachmentVisibility>();
         auto attachments = message.attachements();
         for (int i = 0, total = attachments.count(); i < total; ++i) {

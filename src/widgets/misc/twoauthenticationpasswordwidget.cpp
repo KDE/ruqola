@@ -43,12 +43,10 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
     sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
     twoFactorLayout->addWidget(sendNewEmailCode);
     connect(sendNewEmailCode, &QPushButton::clicked, this, &TwoAuthenticationPasswordWidget::slotSendNewEmailCode);
-
 }
 
 TwoAuthenticationPasswordWidget::~TwoAuthenticationPasswordWidget()
 {
-
 }
 
 void TwoAuthenticationPasswordWidget::slotSendNewEmailCode()

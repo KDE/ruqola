@@ -45,5 +45,4 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
 
 AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog()
 {
-
 }

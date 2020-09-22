@@ -28,7 +28,6 @@ QTEST_MAIN(AskTwoAuthenticationPasswordDialogTest)
 AskTwoAuthenticationPasswordDialogTest::AskTwoAuthenticationPasswordDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AskTwoAuthenticationPasswordDialogTest::shouldHaveDefaultValues()
