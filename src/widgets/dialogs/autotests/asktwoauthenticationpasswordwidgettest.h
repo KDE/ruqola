@@ -18,21 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
-#define ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
+#ifndef ASKTWOAUTHENTICATIONPASSWORDWIDGETTEST_H
+#define ASKTWOAUTHENTICATIONPASSWORDWIDGETTEST_H
 
-#include <QWidget>
-#include "libruqolawidgets_private_export.h"
-class TwoAuthenticationPasswordWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordWidget : public QWidget
+#include <QObject>
+
+class AskTwoAuthenticationPasswordWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AskTwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
-    ~AskTwoAuthenticationPasswordWidget();
-    Q_REQUIRED_RESULT QString code() const;
-private:
-    TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
+    explicit AskTwoAuthenticationPasswordWidgetTest(QObject *parent = nullptr);
+    ~AskTwoAuthenticationPasswordWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
+#endif // ASKTWOAUTHENTICATIONPASSWORDWIDGETTEST_H

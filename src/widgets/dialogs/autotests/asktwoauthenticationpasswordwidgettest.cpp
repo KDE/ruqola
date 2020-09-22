@@ -18,27 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "asktwoauthenticationpasswordwidget.h"
+#include "asktwoauthenticationpasswordwidgettest.h"
+#include "dialogs/asktwoauthenticationpasswordwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
-#include <KLocalizedString>
+#include <QTest>
 #include <QVBoxLayout>
+QTEST_MAIN(AskTwoAuthenticationPasswordWidgetTest)
 
-AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *parent)
-    : QWidget(parent)
+AskTwoAuthenticationPasswordWidgetTest::AskTwoAuthenticationPasswordWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-    mTwoFactorAuthenticationPasswordLineEdit = new TwoAuthenticationPasswordWidget(this);
-    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
-    mainLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+
 }
 
-AskTwoAuthenticationPasswordWidget::~AskTwoAuthenticationPasswordWidget()
+void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
-}
+    AskTwoAuthenticationPasswordWidget w;
 
-QString AskTwoAuthenticationPasswordWidget::code() const
-{
-    return mTwoFactorAuthenticationPasswordLineEdit->code();
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins());
+
+    TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<TwoAuthenticationPasswordWidget *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
+    QVERIFY(mTwoFactorAuthenticationPasswordLineEdit->code().isEmpty());
 }
