@@ -20,6 +20,7 @@
 
 #include "myaccountprofileconfigurewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "misc/passwordconfirmwidget.h"
@@ -130,6 +131,14 @@ void MyAccountProfileConfigureWidget::save()
     if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
         updateInfo.newPassword = mPasswordConfirmWidget->password(); //TODO use ssha256 ???
     }
+    if (false) { //TODO
+        QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);
+        QString code;
+        if (dlg->exec()) {
+            code = dlg->code();
+        }
+    }
+
     //TODO add more.
     if (updateInfo.isValid()) {
         Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);

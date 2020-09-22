@@ -46,3 +46,8 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
 AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog()
 {
 }
+
+QString AskTwoAuthenticationPasswordDialog::code() const
+{
+    return mAskTwoAuthicationPasswordWidget->code();
+}

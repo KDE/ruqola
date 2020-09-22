@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordDialog : public 
 public:
     explicit AskTwoAuthenticationPasswordDialog(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordDialog();
+    Q_REQUIRED_RESULT QString code() const;
 private:
     AskTwoAuthenticationPasswordWidget *mAskTwoAuthicationPasswordWidget = nullptr;
 };
