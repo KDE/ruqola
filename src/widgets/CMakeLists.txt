@@ -150,6 +150,7 @@ set(Ruqola_misc_widget_SRCS
     misc/lineeditcatchreturnkey.cpp
     misc/passwordlineeditwidget.cpp
     misc/passwordconfirmwidget.cpp
+    misc/twoauthenticationpasswordwidget.cpp
     )
 
 set(Ruqola_common_SRCS
