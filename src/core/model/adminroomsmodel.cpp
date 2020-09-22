@@ -75,7 +75,7 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     if (role != Qt::DisplayRole) {
-        return {}
+        return {};
     }
 
     const AdminRoom &adminroom = mAdminRooms.at(index.row());

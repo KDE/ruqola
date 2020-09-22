@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "common/authenticationcombobox.h"
 #include "misc/passwordlineeditwidget.h"
+#include "misc/twoauthenticationpasswordwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -93,21 +94,11 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
     twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 
-    QHBoxLayout *twoFactorLayout = new QHBoxLayout;
-    twoFactorLayout->setContentsMargins(0, 0, 0, 0);
-    twoFactorAuthenticationLayout->addLayout(twoFactorLayout);
-
-    mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
+    mTwoFactorAuthenticationPasswordLineEdit = new TwoAuthenticationPasswordWidget(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
-    mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
-    twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+    twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+
     mainLayout->addWidget(mAuthenticationWidget);
-
-    QPushButton *sendNewEmailCode = new QPushButton(i18n("Send new code"), this);
-    sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
-    twoFactorLayout->addWidget(sendNewEmailCode);
-    connect(sendNewEmailCode, &QPushButton::clicked, this, &RuqolaLoginWidget::slotSendNewEmailCode);
-
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     mainLayout->addWidget(mBusyIndicatorWidget);
@@ -133,12 +124,6 @@ RuqolaLoginWidget::~RuqolaLoginWidget()
 {
 }
 
-void RuqolaLoginWidget::slotSendNewEmailCode()
-{
-    auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
-    rocketChatAccount->sendUserEmailCode();
-}
-
 void RuqolaLoginWidget::initialize()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
@@ -157,9 +142,9 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->setUserName(mUserName->text());
     rocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
     if (!mAuthenticationWidget->isHidden()) {
-        rocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text());
+        rocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
     } else {
-        mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->clear();
+        mTwoFactorAuthenticationPasswordLineEdit->clear();
     }
     rocketChatAccount->tryLogin();
 }

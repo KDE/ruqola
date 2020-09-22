@@ -49,6 +49,16 @@ TwoAuthenticationPasswordWidget::~TwoAuthenticationPasswordWidget()
 {
 }
 
+QString TwoAuthenticationPasswordWidget::code() const
+{
+    return mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->text();
+}
+
+void TwoAuthenticationPasswordWidget::clear()
+{
+    mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->clear();
+}
+
 void TwoAuthenticationPasswordWidget::slotSendNewEmailCode()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();

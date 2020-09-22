@@ -30,6 +30,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TwoAuthenticationPasswordWidget : public QWi
 public:
     explicit TwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
     ~TwoAuthenticationPasswordWidget();
+    Q_REQUIRED_RESULT QString code() const;
+
+    void clear();
 private:
     void slotSendNewEmailCode();
     KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
