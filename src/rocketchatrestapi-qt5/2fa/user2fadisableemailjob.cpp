@@ -52,7 +52,6 @@ void User2FADisableEmailJob::slotDisableEmail()
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        qDebug() << " data " << data;
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
