@@ -67,6 +67,12 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
     job.setUpdateOwnBasicInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"nickname\":\"%3\",\"username\":\"%2\"}}")
              .arg(email, username, nickname).toLatin1());
+
+    const QString statustext = QStringLiteral("tt");
+    info.statusText = statustext;
+    job.setUpdateOwnBasicInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"nickname\":\"%3\",\"statusText\":\"%4\",\"username\":\"%2\"}}")
+             .arg(email, username, nickname, statustext).toLatin1());
 }
 
 void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
