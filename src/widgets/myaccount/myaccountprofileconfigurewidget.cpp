@@ -47,7 +47,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     new LineEditCatchReturnKey(mUserName, this);
-    mainLayout->addRow(i18n("UserName:"), mUserName);
+    mainLayout->addRow(i18n("Username:"), mUserName);
 
     mEmail = new QLineEdit(this);
     mEmail->setObjectName(QStringLiteral("mEmail"));
@@ -57,7 +57,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mNickName = new QLineEdit(this);
     mNickName->setObjectName(QStringLiteral("mNickName"));
     new LineEditCatchReturnKey(mNickName, this);
-    mainLayout->addRow(i18n("NickName:"), mNickName);
+    mainLayout->addRow(i18n("Nickname:"), mNickName);
 
     mStatusText = new QLineEdit(this);
     new LineEditCatchReturnKey(mStatusText, this);
