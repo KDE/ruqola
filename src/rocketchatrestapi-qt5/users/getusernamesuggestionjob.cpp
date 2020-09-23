@@ -59,8 +59,7 @@ void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
-        const QByteArray data = reply->readAll();
-        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));

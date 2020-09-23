@@ -204,7 +204,7 @@ Q_SIGNALS:
     void getServerInfoDone(const QString &version);
     void getServerInfoFailed(bool useDeprecatedVersion);
     void getOwnInfoDone(const QJsonObject &data);
-    void privateInfoDone(const QByteArray &data);
+    void privateInfoDone(const QJsonObject &data);
     void channelFilesDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
@@ -254,7 +254,7 @@ Q_SIGNALS:
     void translateSavesettingsDone();
     void setStatusDone();
     void usersPresenceDone(const QJsonObject &obj);
-    void customUserStatusDone(const QByteArray &); //TODO QByteArray or QJson ?
+    void customUserStatusDone(const QJsonObject &); //TODO QByteArray or QJson ?
     void customSoundsDone(const QByteArray &); //TODO QByteArray or QJson ?
 
     void usersAutocompleteDone(const QJsonObject &obj);

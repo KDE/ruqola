@@ -53,20 +53,18 @@ void LogoutJob::slotLogout()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
-        const QByteArray data = reply->readAll();
-        addLoggerInfo("LogoutJob finished: " + data);
-        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success")) {
+            addLoggerInfo(QByteArrayLiteral("LogoutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
             Q_EMIT logoutDone(); // connected to RestApiRequest::slotLogout
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning("Error during to logout" + data);
+            addLoggerWarning("Error during to logout" + replyJson.toJson(QJsonDocument::Indented));
         }
 
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
         reply->deleteLater();
     }
     deleteLater();

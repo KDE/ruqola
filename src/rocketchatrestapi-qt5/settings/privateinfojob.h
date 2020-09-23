@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
-    void privateInfoDone(const QByteArray &data);
+    void privateInfoDone(const QJsonObject &data);
 private:
     Q_DISABLE_COPY(PrivateInfoJob)
     void slotPrivateInfoDone();

@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
-    void customUserStatusDone(const QByteArray &data);
+    void customUserStatusDone(const QJsonObject &data);
 private:
     Q_DISABLE_COPY(CustomUserStatusJob)
     void slotCustomUserStatusDone();

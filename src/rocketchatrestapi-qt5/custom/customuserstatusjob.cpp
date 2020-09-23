@@ -52,13 +52,12 @@ void CustomUserStatusJob::slotCustomUserStatusDone()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
-        const QByteArray data = reply->readAll();
-        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("CustomUserStatusJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT customUserStatusDone(data);
+            Q_EMIT customUserStatusDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("CustomUserStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -484,6 +484,16 @@ QNetworkReply *RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
     return reply;
 }
 
+QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply)
+{
+    const QByteArray data = reply->readAll();
+    const QJsonDocument replyDocument = QJsonDocument::fromJson(data);
+    if (replyDocument.isNull()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " convertToJsonObject return null jsondocument. It's a bug ";
+    }
+    return replyDocument;
+}
+
 QueryParameters::QueryParameters()
 {
 }
@@ -522,3 +532,5 @@ void QueryParameters::setSorting(const QMap<QString, QueryParameters::SortOrder>
 {
     mSorting = sorting;
 }
+
+

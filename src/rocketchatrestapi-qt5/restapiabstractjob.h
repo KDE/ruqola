@@ -105,6 +105,7 @@ Q_SIGNALS:
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
+    Q_REQUIRED_RESULT QJsonDocument convertToJsonDocument(QNetworkReply *reply);
     void emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply);
     void addAuthRawHeader(QNetworkRequest &request) const;
     virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str);

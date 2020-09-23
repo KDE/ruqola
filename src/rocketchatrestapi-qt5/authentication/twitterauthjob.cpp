@@ -78,8 +78,7 @@ void TwitterAuthJob::slotTwitterauthDone()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
-        const QByteArray data = reply->readAll();
-        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
@@ -92,7 +91,7 @@ void TwitterAuthJob::slotTwitterauthDone()
             }
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning("Error during login" + data);
+            addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
