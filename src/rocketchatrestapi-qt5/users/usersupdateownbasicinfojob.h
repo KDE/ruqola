@@ -29,6 +29,18 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateOwnBasicInfoJob : public RestAp
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateOwnBasicInfo {
+        enum class BasicInfoType {
+            Unknown = 0,
+            Email = 1,
+            Name = 2,
+            UserName = 4,
+            NickName = 8,
+            StatusText = 16,
+            Password = 32
+        };
+        Q_DECLARE_FLAGS(BasicInfoTypes, BasicInfoType)
+
+        BasicInfoTypes type = {};
         QString email;
         QString name;
         QString userName;
@@ -39,6 +51,7 @@ public:
         Q_REQUIRED_RESULT bool isValid() const;
         //Add custom field ?
     };
+
     explicit UsersUpdateOwnBasicInfoJob(QObject *parent = nullptr);
     ~UsersUpdateOwnBasicInfoJob() override;
 

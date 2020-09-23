@@ -114,21 +114,27 @@ void MyAccountProfileConfigureWidget::save()
 {
     RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo updateInfo;
     if (!mEmail->isReadOnly() && (mOwnUser.email() != mEmail->text())) {
+        updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Email;
         updateInfo.email = mEmail->text();
     }
     if (!mNickName->isReadOnly() && (mOwnUser.nickName() != mNickName->text())) {
+        updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::NickName;
         updateInfo.nickName = mNickName->text();
     }
     if (!mUserName->isReadOnly() && (mOwnUser.userName() != mUserName->text())) {
+        updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::UserName;
         updateInfo.userName = mUserName->text();
     }
     if (!mStatusText->isReadOnly() && (mOwnUser.statusText() != mStatusText->text())) {
+        updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::StatusText;
         updateInfo.statusText = mStatusText->text();
     }
     if (!mName->isReadOnly() && (mOwnUser.name() != mName->text())) {
+        updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Name;
         updateInfo.name = mName->text();
     }
     if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
+        updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Password;
         updateInfo.newPassword = mPasswordConfirmWidget->password(); //TODO use ssha256 ???
     }
     if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { //TODO verify it

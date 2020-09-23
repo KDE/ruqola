@@ -115,19 +115,19 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 {
     QJsonObject jsonObj;
     QJsonObject dataObj;
-    if (!mUpdateOwnBasicInfo.email.isEmpty()) {
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Email) {
         dataObj[QLatin1String("email")] = mUpdateOwnBasicInfo.email;
     }
-    if (!mUpdateOwnBasicInfo.userName.isEmpty()) {
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::UserName) {
         dataObj[QLatin1String("username")] = mUpdateOwnBasicInfo.userName;
     }
-    if (!mUpdateOwnBasicInfo.nickName.isEmpty()) {
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::NickName) {
         dataObj[QLatin1String("nickname")] = mUpdateOwnBasicInfo.nickName;
     }
-    if (!mUpdateOwnBasicInfo.statusText.isEmpty()) {
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::StatusText) {
         dataObj[QLatin1String("statusText")] = mUpdateOwnBasicInfo.statusText;
     }
-    if (!mUpdateOwnBasicInfo.newPassword.isEmpty()) {
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
         dataObj[QLatin1String("currentPassword")] = mUpdateOwnBasicInfo.currentPassword;
         dataObj[QLatin1String("newPassword")] = mUpdateOwnBasicInfo.newPassword;
         //TODO use ssh256
@@ -135,14 +135,11 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    qDebug() << " dataObj " << dataObj;
     return postData;
 }
 
 bool UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::isValid() const
 {
-    return !email.isEmpty()
-           || !userName.isEmpty()
-           || !nickName.isEmpty()
-           || !statusText.isEmpty()
-           || (!newPassword.isEmpty() && !currentPassword.isEmpty());
+    return static_cast<int>(type) != static_cast<int>(UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Unknown);
 }
