@@ -143,7 +143,7 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
 RocketChatBackend::~RocketChatBackend()
 {
 }
-
+//TODO load public info even if we are not connected.
 void RocketChatBackend::slotConnectedChanged()
 {
     if (!mRocketChatAccount->ddp()->isConnected()) {
