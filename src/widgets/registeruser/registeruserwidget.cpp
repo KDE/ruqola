@@ -19,10 +19,13 @@
 */
 
 #include "registeruserwidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPushButton>
 
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     : QWidget(parent)
@@ -31,47 +34,58 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mName = new QLineEdit(this);
-    mName->setObjectName(QStringLiteral("mName"));
-    mainLayout->addRow(i18n("Name:"), mName);
-    connect(mName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateOkButton);
+    mUserName = new QLineEdit(this);
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mainLayout->addRow(i18n("UserName:"), mUserName);
+    connect(mUserName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mEmail = new QLineEdit(this);
     mEmail->setObjectName(QStringLiteral("mEmail"));
     mainLayout->addRow(i18n("Email:"), mEmail);
-    connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateOkButton);
+    connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
-    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateOkButton);
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
-    connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateOkButton);
+    connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
+
+    mRegisterButton = new QPushButton(i18n("Register"), this);
+    mRegisterButton->setObjectName(QStringLiteral("mRegisterButton"));
+    connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
+    mainLayout->addWidget(mRegisterButton);
+    mRegisterButton->setEnabled(false);
 }
 
 RegisterUserWidget::~RegisterUserWidget()
 {
 }
 
-void RegisterUserWidget::slotUpdateOkButton()
+void RegisterUserWidget::slotUpdateRegisterButton()
 {
-    const bool enableOkButton
-        = !mName->text().trimmed().isEmpty()
+    const bool enableRegisterButton
+        = !mUserName->text().trimmed().isEmpty()
           && !mEmail->text().trimmed().isEmpty()
           && !mPasswordLineEdit->password().isEmpty()
           && (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
-    Q_EMIT updateOkButton(enableOkButton);
+    mRegisterButton->setEnabled(enableRegisterButton);
+}
+
+void RegisterUserWidget::slotRegisterNewUser()
+{
+    Ruqola::self()->rocketChatAccount()->registerNewUser(registerUserInfo());
 }
 
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registerUserInfo() const
 {
     RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
     info.email = mEmail->text();
-    info.name = mName->text();
-    info.username = mName->text().remove(QLatin1Char(' '));
+    info.name = mUserName->text();
+    info.username = mUserName->text().remove(QLatin1Char(' '));
     info.password = mPasswordLineEdit->password();
     return info;
 }

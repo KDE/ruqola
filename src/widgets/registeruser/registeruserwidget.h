@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class KPasswordLineEdit;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
     Q_OBJECT
@@ -38,8 +39,10 @@ Q_SIGNALS:
     void updateOkButton(bool b);
 
 private:
-    void slotUpdateOkButton();
-    QLineEdit *mName = nullptr;
+    void slotRegisterNewUser();
+    void slotUpdateRegisterButton();
+    QPushButton *mRegisterButton = nullptr;
+    QLineEdit *mUserName = nullptr;
     QLineEdit *mEmail = nullptr;
     KPasswordLineEdit *mPasswordLineEdit = nullptr;
     KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
