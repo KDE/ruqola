@@ -116,7 +116,7 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
         dataObj[QLatin1String("nickname")] = mUpdateOwnBasicInfo.nickName;
     }
     if (!mUpdateOwnBasicInfo.statusText.isEmpty()) {
-        dataObj[QLatin1String("statustext")] = mUpdateOwnBasicInfo.statusText;
+        dataObj[QLatin1String("statusText")] = mUpdateOwnBasicInfo.statusText;
     }
     if (!mUpdateOwnBasicInfo.newPassword.isEmpty()) {
         dataObj[QLatin1String("currentPassword")] = mUpdateOwnBasicInfo.currentPassword;
