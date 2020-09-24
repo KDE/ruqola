@@ -110,20 +110,6 @@ QString CustomEmoji::generateHtmlFromCustomEmojiLocalPath(const QString &emojoLo
     return mCachedHtml;
 }
 
-
-QString CustomEmoji::generateHtmlFromCustomEmoji(const QString &serverUrl) const
-{
-    if (mCachedHtml.isEmpty()) {
-        const QString url = emojiUrl(serverUrl);
-        //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
-        //http://yourhost.com/emoji-custom/Emoji%20Name.png
-        //TODO customize size.
-
-        mCachedHtml = QStringLiteral("<img height='22' width='22' src='%1' title='%2'/>").arg(url, mEmojiIdentifier);
-    }
-    return mCachedHtml;
-}
-
 void CustomEmoji::clearCachedHtml()
 {
     mCachedHtml.clear();

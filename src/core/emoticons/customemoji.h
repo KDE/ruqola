@@ -43,13 +43,11 @@ public:
     void setName(const QString &name);
     Q_REQUIRED_RESULT QString name() const;
 
-    bool operator==(const CustomEmoji &other) const;
+    Q_REQUIRED_RESULT bool operator==(const CustomEmoji &other) const;
 
     CustomEmoji &operator=(const CustomEmoji &other) = default;
 
     Q_REQUIRED_RESULT bool isValid() const;
-
-    Q_REQUIRED_RESULT QString generateHtmlFromCustomEmoji(const QString &serverUrl) const;
 
     Q_REQUIRED_RESULT QStringList aliases() const;
     void setAliases(const QStringList &aliases);
@@ -67,11 +65,11 @@ public:
 
     Q_REQUIRED_RESULT bool isAnimatedImage() const;
 
-    Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
 
     Q_REQUIRED_RESULT QString emojiUrl(const QString &serverUrl) const;
     Q_REQUIRED_RESULT QString emojiFileName() const;
 
+    Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
     Q_REQUIRED_RESULT QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
 private:
     QString mEmojiIdentifier;

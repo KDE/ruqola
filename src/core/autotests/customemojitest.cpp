@@ -90,24 +90,24 @@ void CustomEmojiTest::shouldCopyValue()
     QCOMPARE(copy, j);
 }
 
-void CustomEmojiTest::shouldClearCachedHtml()
-{
-    CustomEmoji emojiRef;
-    emojiRef.setExtension(QStringLiteral("gif"));
-    emojiRef.setName(QStringLiteral("clapping"));
-    emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
-    emojiRef.setAliases(QStringList{QStringLiteral(":clap:")});
-    emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
-    emojiRef.setUpdatedAt(50);
+//void CustomEmojiTest::shouldClearCachedHtml()
+//{
+//    CustomEmoji emojiRef;
+//    emojiRef.setExtension(QStringLiteral("gif"));
+//    emojiRef.setName(QStringLiteral("clapping"));
+//    emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
+//    emojiRef.setAliases(QStringList{QStringLiteral(":clap:")});
+//    emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
+//    emojiRef.setUpdatedAt(50);
 
-    const QString cachedHtml = emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org"));
-    QVERIFY(!cachedHtml.isEmpty());
-    QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
-    emojiRef.clearCachedHtml();
-    QVERIFY(emojiRef.cachedHtml().isEmpty());
-    QCOMPARE(emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org")), cachedHtml);
-    QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
-}
+//    const QString cachedHtml = emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org"));
+//    QVERIFY(!cachedHtml.isEmpty());
+//    QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
+//    emojiRef.clearCachedHtml();
+//    QVERIFY(emojiRef.cachedHtml().isEmpty());
+//    QCOMPARE(emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org")), cachedHtml);
+//    QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
+//}
 
 void CustomEmojiTest::shouldParseEmoji_data()
 {
@@ -146,39 +146,37 @@ void CustomEmojiTest::shouldParseEmoji()
     QVERIFY(emojiIsEqual);
 }
 
-void CustomEmojiTest::shouldGenerateHtml_data()
-{
-    QTest::addColumn<CustomEmoji>("emoji");
-    QTest::addColumn<QString>("serverUrl");
-    QTest::addColumn<QString>("expectedFileName");
-    QTest::addColumn<QString>("expectedUrl");
-    QTest::addColumn<QString>("html");
+//void CustomEmojiTest::shouldGenerateHtml_data()
+//{
+//    QTest::addColumn<CustomEmoji>("emoji");
+//    QTest::addColumn<QString>("serverUrl");
+//    QTest::addColumn<QString>("expectedFileName");
+//    QTest::addColumn<QString>("expectedUrl");
+//    QTest::addColumn<QString>("html");
 
-    {
-        CustomEmoji emojiRef;
-        emojiRef.setExtension(QStringLiteral("gif"));
-        emojiRef.setName(QStringLiteral("clapping"));
-        emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
-        emojiRef.setAliases(QStringList{QStringLiteral("clap")});
-        emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
-        emojiRef.setUpdatedAt(1514915356313);
-        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org")
-                               << QStringLiteral("/emoji-custom/clapping.gif")
-                               << QStringLiteral("http://www.kde.org/emoji-custom/clapping.gif")
-                               << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif' title=':clapping:'/>");
-    }
-}
+//    {
+//        CustomEmoji emojiRef;
+//        emojiRef.setExtension(QStringLiteral("gif"));
+//        emojiRef.setName(QStringLiteral("clapping"));
+//        emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
+//        emojiRef.setAliases(QStringList{QStringLiteral("clap")});
+//        emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
+//        emojiRef.setUpdatedAt(1514915356313);
+//        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org")
+//                               << QStringLiteral("/emoji-custom/clapping.gif")
+//                               << QStringLiteral("http://www.kde.org/emoji-custom/clapping.gif")
+//                               << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif' title=':clapping:'/>");
+//    }
+//}
 
-void CustomEmojiTest::shouldGenerateHtml()
-{
-    QFETCH(CustomEmoji, emoji);
-    QFETCH(QString, serverUrl);
-    QFETCH(QString, expectedFileName);
-    QFETCH(QString, expectedUrl);
-    QFETCH(QString, html);
+//void CustomEmojiTest::shouldGenerateHtml()
+//{
+//    QFETCH(CustomEmoji, emoji);
+//    QFETCH(QString, serverUrl);
+//    QFETCH(QString, expectedFileName);
+//    QFETCH(QString, expectedUrl);
+//    QFETCH(QString, html);
 
-    QCOMPARE(emoji.generateHtmlFromCustomEmoji(serverUrl), html);
-    QCOMPARE(emoji.emojiFileName(), expectedFileName);
-    QCOMPARE(emoji.emojiUrl(serverUrl), expectedUrl);
-    QCOMPARE(emoji.cachedHtml(), html);
-}
+//    QCOMPARE(emoji.emojiFileName(), expectedFileName);
+//    QCOMPARE(emoji.emojiUrl(serverUrl), expectedUrl);
+//}
