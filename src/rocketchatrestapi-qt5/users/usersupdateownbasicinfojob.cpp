@@ -135,7 +135,6 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    qDebug() << " dataObj " << dataObj;
     return postData;
 }
 
