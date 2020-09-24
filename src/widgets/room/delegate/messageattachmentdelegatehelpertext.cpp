@@ -171,7 +171,6 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
     return layout;
 }
 
-//Draw text + title as in image
 QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach, int width) const
 {
     const QString attachmentId = msgAttach.attachmentId();
