@@ -34,6 +34,7 @@
 #include <QJsonObject>
 #include <QLineEdit>
 #include <QTableView>
+#include <QHeaderView>
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
@@ -53,6 +54,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mResultTreeWidget->setShowGrid(false);
     mResultTreeWidget->setSortingEnabled(true);
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
+    mResultTreeWidget->verticalHeader()->hide();
     mainLayout->addWidget(mResultTreeWidget);
 
     mAdminRoomsModel = new AdminRoomsModel(this);
