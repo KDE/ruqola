@@ -99,6 +99,7 @@ void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
     UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo info;
     const QString email = QStringLiteral("foo@kde.org");
     info.email = email;
+    info.type = UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Email;
     job.setUpdateOwnBasicInfo(info);
 
     //TODO
