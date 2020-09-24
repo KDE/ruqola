@@ -23,6 +23,8 @@
 
 #include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include <QDebug>
+
 namespace RocketChatRestApi {
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateOwnBasicInfoJob : public RestApiAbstractJob
 {
@@ -46,7 +48,7 @@ public:
         QString userName;
         QString nickName;
         QString statusText;
-        QString currentPassword;
+        QByteArray currentPassword;
         QString newPassword;
         Q_REQUIRED_RESULT bool isValid() const;
         //Add custom field ?
@@ -78,4 +80,5 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t);
 #endif // UsersUpdateOwnBasicInfo_H

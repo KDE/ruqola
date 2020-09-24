@@ -85,7 +85,6 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
-            qDebug() << " void MyAccountProfileConfigureWidget::slotDeleteMyAccount() not implemented yet";
             Ruqola::self()->rocketChatAccount()->deleteOwnAccount(dlg->password());
         }
         delete dlg;
@@ -135,7 +134,17 @@ void MyAccountProfileConfigureWidget::save()
     }
     if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
         updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Password;
-        updateInfo.newPassword = mPasswordConfirmWidget->password(); //TODO use ssha256 ???
+        updateInfo.newPassword = mPasswordConfirmWidget->password(); //Not encrypt it ???!
+        QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
+        dlg->setPrompt(i18n("Current Password"));
+        if (dlg->exec()) {
+            updateInfo.currentPassword =  Utils::convertSha256Password(dlg->password());
+        } else {
+            delete dlg;
+            return;
+        }
+        delete dlg;
+
     }
     if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { //TODO verify it
         QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);

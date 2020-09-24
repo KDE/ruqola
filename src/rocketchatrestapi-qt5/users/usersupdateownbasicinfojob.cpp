@@ -128,9 +128,8 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
         dataObj[QLatin1String("statusText")] = mUpdateOwnBasicInfo.statusText;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
-        dataObj[QLatin1String("currentPassword")] = mUpdateOwnBasicInfo.currentPassword;
+        dataObj[QLatin1String("currentPassword")] = QString::fromLatin1(mUpdateOwnBasicInfo.currentPassword);
         dataObj[QLatin1String("newPassword")] = mUpdateOwnBasicInfo.newPassword;
-        //TODO use ssh256
     }
 
     jsonObj[QLatin1String("data")] = dataObj;
@@ -141,4 +140,17 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
 bool UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::isValid() const
 {
     return static_cast<int>(type) != static_cast<int>(UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Unknown);
+}
+
+QDebug operator <<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t)
+{
+    d << " type " << t.type;
+    d << " email " << t.email;
+    d << " name " << t.name;
+    d << " userName " << t.userName;
+    d << " statusText " << t.statusText;
+    d << " currentPassword " << t.currentPassword;
+    d << " newPassword " << t.newPassword;
+
+    return d;
 }

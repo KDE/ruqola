@@ -93,7 +93,7 @@ void DDPAuthenticationManager::login(const QString &user, const QString &passwor
                               "algorithm": "sha-256"
                               }
                               }
-                              ])").arg(user, QString::fromLatin1(sha256pw.toHex()));
+                              ])").arg(user, QString::fromLatin1(sha256pw));
     loginImpl(Utils::strToJsonArray(params));
 }
 
