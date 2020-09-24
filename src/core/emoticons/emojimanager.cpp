@@ -127,6 +127,8 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                             } else {
                                 cachedHtml = emoji.generateHtmlFromCustomEmojiLocalPath(emojiUrl.path());
                             }
+                        } else {
+                            qDebug() << " Impossible to find custom emoji " << emojiIdentifier;
                         }
 
                     }
