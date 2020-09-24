@@ -21,6 +21,8 @@
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
 #include "ruqola_debug.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -117,7 +119,16 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                     if (emoji.isAnimatedImage() && isReaction) {
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
                     } else {
-                        cachedHtml = emoji.generateHtmlFromCustomEmoji(mServerUrl);
+                        const QString fileName = customEmojiFileName(emojiIdentifier);
+                        if (!fileName.isEmpty()) {
+                            const QUrl emojiUrl = Ruqola::self()->rocketChatAccount()->attachmentUrl(fileName);
+                            if (emojiUrl.isEmpty()) {
+                                // The download is happening, this will all be updated again later
+                            } else {
+                                cachedHtml = emoji.generateHtmlFromCustomEmojiLocalPath(emojiUrl.path());
+                            }
+                        }
+
                     }
                 }
                 return cachedHtml;

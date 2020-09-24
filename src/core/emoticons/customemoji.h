@@ -72,6 +72,7 @@ public:
     Q_REQUIRED_RESULT QString emojiUrl(const QString &serverUrl) const;
     Q_REQUIRED_RESULT QString emojiFileName() const;
 
+    Q_REQUIRED_RESULT QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;
