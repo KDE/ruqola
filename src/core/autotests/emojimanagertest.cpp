@@ -132,34 +132,34 @@ void EmojiManagerTest::shouldGenerateHtml()
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
     QCOMPARE(manager.customEmojiFileName(QStringLiteral(":foo:")), QString());
 
-    // Existing emoji
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
-    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")), QStringLiteral("/emoji-custom/vader.png"));
+//    // Existing emoji
+//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
+//    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")), QStringLiteral("/emoji-custom/vader.png"));
 
-    // Alias
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
-    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")), QStringLiteral("/emoji-custom/vader.png"));
+//    // Alias
+//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
+//    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")), QStringLiteral("/emoji-custom/vader.png"));
 }
 
 void EmojiManagerTest::shouldChangeServerUrl()
 {
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
-    EmojiManager manager(nullptr);
-    manager.loadCustomEmoji(obj);
-    QString serverUrl = QStringLiteral("www.kde.org");
-    manager.setServerUrl(serverUrl);
+//    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
+//    QFile f(originalJsonFile);
+//    QVERIFY(f.open(QIODevice::ReadOnly));
+//    const QByteArray content = f.readAll();
+//    f.close();
+//    const QJsonDocument doc = QJsonDocument::fromJson(content);
+//    const QJsonObject obj = doc.object();
+//    EmojiManager manager(nullptr);
+//    manager.loadCustomEmoji(obj);
+//    QString serverUrl = QStringLiteral("www.kde.org");
+//    manager.setServerUrl(serverUrl);
 
-    //It exists
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
+//    //It exists
+//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
 
-    //Change server url => clear cache
-    serverUrl = QStringLiteral("www.bla.org");
-    manager.setServerUrl(serverUrl);
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
+//    //Change server url => clear cache
+//    serverUrl = QStringLiteral("www.bla.org");
+//    manager.setServerUrl(serverUrl);
+//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
 }
