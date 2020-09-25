@@ -41,10 +41,14 @@ public:
     Q_REQUIRED_RESULT uint messageCount() const;
     void setMessageCount(const uint &messageCount);
 
+    Q_REQUIRED_RESULT bool joined() const;
+    void setJoined(bool joined);
+
 private:
     QDateTime mUnreadFrom;
     uint mUnreadMessages = 0;
     uint mMessageCount = 0;
+    bool mJoined = false;
 };
 Q_DECLARE_METATYPE(ChannelCounterInfo)
 Q_DECLARE_TYPEINFO(ChannelCounterInfo, Q_MOVABLE_TYPE);
