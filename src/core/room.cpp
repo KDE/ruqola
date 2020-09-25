@@ -730,7 +730,7 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
-ChannelCounterInfo Room::getChannelCounterInfo() const
+ChannelCounterInfo Room::channelCounterInfo() const
 {
     return mChannelCounterInfo;
 }

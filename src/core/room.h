@@ -218,7 +218,7 @@ public:
     Q_REQUIRED_RESULT QStringList displaySystemMessageTypes() const;
     void setDisplaySystemMessageTypes(const QStringList &displaySystemMessageTypes);
 
-    Q_REQUIRED_RESULT ChannelCounterInfo getChannelCounterInfo() const;
+    Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
 
 Q_SIGNALS:
