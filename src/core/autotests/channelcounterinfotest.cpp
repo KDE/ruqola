@@ -21,6 +21,7 @@
 
 #include "channelcounterinfotest.h"
 #include "channelcounterinfo.h"
+#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelCounterInfoTest)
 ChannelCounterInfoTest::ChannelCounterInfoTest(QObject *parent)
@@ -34,4 +35,35 @@ void ChannelCounterInfoTest::shouldHaveDefaultValues()
     ChannelCounterInfo info;
     QCOMPARE(info.unreadMessages(), 0);
     QCOMPARE(info.messageCount(), 0);
+}
+
+void ChannelCounterInfoTest::shouldLoadOwnUser_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<ChannelCounterInfo>("channelcounter");
+    ChannelCounterInfo result;
+    //TODO
+    QTest::addRow("test1") << QStringLiteral("test1") << result;
+}
+
+void ChannelCounterInfoTest::shouldLoadOwnUser()
+{
+    QFETCH(QString, name);
+    QFETCH(ChannelCounterInfo, channelcounter);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/channelcounter/") + name + QLatin1String(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+
+    ChannelCounterInfo r;
+    r.parseCounterInfo(obj);
+    const bool equalOwner = (r == channelcounter);
+    if (!equalOwner) {
+        qDebug() << "ACTUAL " << r;
+        qDebug() << "EXPECTED " << channelcounter;
+    }
+    QVERIFY(equalOwner);
 }
