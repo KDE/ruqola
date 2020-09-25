@@ -136,6 +136,7 @@ set(Ruqola_roomwidget_SRCS
     room/usersinroomlabel.cpp
     room/channelactionpopupmenu.cpp
     room/roomutil.cpp
+    room/roomcounterinfowidget.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
