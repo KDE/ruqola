@@ -35,6 +35,7 @@ void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
     mMessageCount = replyObject.value(QLatin1String("msgs")).toInt();
     mUnreadMessages = replyObject.value(QLatin1String("unreads")).toInt();
     mJoined = replyObject.value(QLatin1String("joined")).toBool();
+    mUnreadFrom = QDateTime::fromString(replyObject.value(QLatin1String("unreadsFrom")).toString(), Qt::ISODate);
     //TODO
 }
 
