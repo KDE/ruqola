@@ -34,3 +34,48 @@ void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 {
     //TODO
 }
+
+bool ChannelCounterInfo::operator ==(const ChannelCounterInfo &other) const
+{
+    return mUnreadMessages == other.unreadMessages()
+            && mMessageCount == other.messageCount()
+            && mUnreadFrom == other.unreadFrom();
+}
+
+uint ChannelCounterInfo::unreadMessages() const
+{
+    return mUnreadMessages;
+}
+
+void ChannelCounterInfo::setUnreadMessages(uint unreadMessages)
+{
+    mUnreadMessages = unreadMessages;
+}
+
+QDateTime ChannelCounterInfo::unreadFrom() const
+{
+    return mUnreadFrom;
+}
+
+void ChannelCounterInfo::setUnreadFrom(const QDateTime &unreadFrom)
+{
+    mUnreadFrom = unreadFrom;
+}
+
+uint ChannelCounterInfo::messageCount() const
+{
+    return mMessageCount;
+}
+
+void ChannelCounterInfo::setMessageCount(const uint &messageCount)
+{
+    mMessageCount = messageCount;
+}
+
+QDebug operator <<(QDebug d, const ChannelCounterInfo &t)
+{
+    d << "Unread Messages " << t.unreadMessages();
+    d << "Messages count " << t.messageCount();
+    d << "Unread from " << t.unreadFrom();
+    return d;
+}

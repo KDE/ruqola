@@ -30,6 +30,23 @@ public:
     ChannelCounterInfo();
     ~ChannelCounterInfo();
     void parseCounterInfo(const QJsonObject &replyObject);
-};
 
+    Q_REQUIRED_RESULT bool operator ==(const ChannelCounterInfo &other) const;
+    Q_REQUIRED_RESULT uint unreadMessages() const;
+    void setUnreadMessages(uint unreadMessages);
+
+    Q_REQUIRED_RESULT QDateTime unreadFrom() const;
+    void setUnreadFrom(const QDateTime &unreadFrom);
+
+    Q_REQUIRED_RESULT uint messageCount() const;
+    void setMessageCount(const uint &messageCount);
+
+private:
+    QDateTime mUnreadFrom;
+    uint mUnreadMessages = 0;
+    uint mMessageCount = 0;
+};
+Q_DECLARE_METATYPE(ChannelCounterInfo)
+Q_DECLARE_TYPEINFO(ChannelCounterInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ChannelCounterInfo &t);
 #endif // CHANNELCOUNTERINFO_H
