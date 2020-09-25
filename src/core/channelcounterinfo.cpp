@@ -47,12 +47,12 @@ bool ChannelCounterInfo::operator ==(const ChannelCounterInfo &other) const
             && mJoined == other.joined();
 }
 
-uint ChannelCounterInfo::unreadMessages() const
+quint64 ChannelCounterInfo::unreadMessages() const
 {
     return mUnreadMessages;
 }
 
-void ChannelCounterInfo::setUnreadMessages(uint unreadMessages)
+void ChannelCounterInfo::setUnreadMessages(quint64 unreadMessages)
 {
     mUnreadMessages = unreadMessages;
 }
@@ -67,12 +67,12 @@ void ChannelCounterInfo::setUnreadFrom(const QDateTime &unreadFrom)
     mUnreadFrom = unreadFrom;
 }
 
-uint ChannelCounterInfo::messageCount() const
+quint64 ChannelCounterInfo::messageCount() const
 {
     return mMessageCount;
 }
 
-void ChannelCounterInfo::setMessageCount(const uint &messageCount)
+void ChannelCounterInfo::setMessageCount(quint64 messageCount)
 {
     mMessageCount = messageCount;
 }

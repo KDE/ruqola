@@ -28,6 +28,7 @@
 #include "notificationoptions.h"
 #include "roles.h"
 
+#include "channelcounterinfo.h"
 #include "libruqola_private_export.h"
 class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
@@ -217,6 +218,9 @@ public:
     Q_REQUIRED_RESULT QStringList displaySystemMessageTypes() const;
     void setDisplaySystemMessageTypes(const QStringList &displaySystemMessageTypes);
 
+    Q_REQUIRED_RESULT ChannelCounterInfo getChannelCounterInfo() const;
+    void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -339,6 +343,7 @@ private:
     QString mDirectChannelUserId;
 
     QStringList mDisplaySystemMessageType;
+    ChannelCounterInfo mChannelCounterInfo;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;

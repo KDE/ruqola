@@ -32,22 +32,22 @@ public:
     void parseCounterInfo(const QJsonObject &replyObject);
 
     Q_REQUIRED_RESULT bool operator ==(const ChannelCounterInfo &other) const;
-    Q_REQUIRED_RESULT uint unreadMessages() const;
-    void setUnreadMessages(uint unreadMessages);
+    Q_REQUIRED_RESULT quint64 unreadMessages() const;
+    void setUnreadMessages(quint64 unreadMessages);
 
     Q_REQUIRED_RESULT QDateTime unreadFrom() const;
     void setUnreadFrom(const QDateTime &unreadFrom);
 
-    Q_REQUIRED_RESULT uint messageCount() const;
-    void setMessageCount(const uint &messageCount);
+    Q_REQUIRED_RESULT quint64 messageCount() const;
+    void setMessageCount(quint64 messageCount);
 
     Q_REQUIRED_RESULT bool joined() const;
     void setJoined(bool joined);
 
 private:
     QDateTime mUnreadFrom;
-    uint mUnreadMessages = 0;
-    uint mMessageCount = 0;
+    quint64 mUnreadMessages = 0;
+    quint64 mMessageCount = 0;
     bool mJoined = false;
 };
 Q_DECLARE_METATYPE(ChannelCounterInfo)

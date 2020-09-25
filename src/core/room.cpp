@@ -730,6 +730,16 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
+ChannelCounterInfo Room::getChannelCounterInfo() const
+{
+    return mChannelCounterInfo;
+}
+
+void Room::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
+{
+    mChannelCounterInfo = channelCounterInfo;
+}
+
 void Room::parseCommonData(const QJsonObject &json)
 {
     const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();

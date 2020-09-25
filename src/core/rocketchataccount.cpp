@@ -72,6 +72,7 @@
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
 #include "listmessages.h"
+#include "channelcounterinfo.h"
 
 #include <QDesktopServices>
 #include <QTimer>
@@ -2211,5 +2212,10 @@ bool RocketChatAccount::isAdministrator() const
 
 void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    qDebug() << " Obj " << obj << " channelInfo " << channelInfo;
+    Room *room = mRoomModel->findRoom(channelInfo.channelInfoIdentifier);
+    if (room) {
+        ChannelCounterInfo info;
+        info.parseCounterInfo(obj);
+        qDebug() << " info " << info;
+    }
 }
