@@ -52,8 +52,9 @@ create_python_bindings(
   ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-# Make moduled import from build dir works
+# Make module import from build dir works
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/__init__.py ${CMAKE_CURRENT_BINARY_DIR}/__init__.py)
 
+#TODO define PYTHON_BINDINGS_INSTALL_PREFIX
 # install
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/__init__.py DESTINATION ${PYTHON_BINDINGS_INSTALL_PREFIX}/pyrocketchatrestapi-qt5)
