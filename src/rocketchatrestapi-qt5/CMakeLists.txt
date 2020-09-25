@@ -94,6 +94,7 @@ set (RocketChatRestApiQt_SRCS
     channels/channelremoveleaderjob.cpp
     channels/channeladdleaderjob.cpp
     channels/channelbasejob.cpp
+    channels/channelgetcountersjob.cpp
 
     groups/changegroupstopicjob.cpp
     groups/changegroupsannouncementjob.cpp
