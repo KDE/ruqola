@@ -478,6 +478,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone, this, &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -1902,6 +1903,7 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
         if (!r->archived()) {
             membersInRoom(r->roomId(), r->channelType());
             rolesInRoom(r->roomId(), r->channelType());
+            restApi()->getChannelsCounter(r->roomId());
         }
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
     } else if (!r) {
@@ -2205,4 +2207,9 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 bool RocketChatAccount::isAdministrator() const
 {
     return mOwnUser.isAdministrator();
+}
+
+void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+{
+    qDebug() << " Obj " << obj << " channelInfo " << channelInfo;
 }

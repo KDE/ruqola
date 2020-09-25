@@ -196,6 +196,7 @@ public:
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
     void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
     void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
+    void getChannelsCounter(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -272,6 +273,7 @@ Q_SIGNALS:
     void disableEmailDone();
     void updateOwnBasicInfoDone();
     void cleanHistoryDone();
+    void channelGetCountersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

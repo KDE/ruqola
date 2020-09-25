@@ -38,6 +38,7 @@ public:
         RoomId,
         RoomName,
     };
+    Q_ENUM(ChannelInfoType)
 
     struct ChannelInfo {
         QString channelInfoIdentifier;
@@ -52,10 +53,10 @@ public:
 protected:
     void generateJson(QJsonObject &obj) const;
     void generateQuery(QUrlQuery &queryUrl) const;
-
+    void addQueryItem(QUrl &url) const;
 private:
     ChannelInfo mChannelInfo;
 };
 }
-
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
 #endif // CHANNELBASEJOB_H

@@ -94,6 +94,7 @@
 #include "channels/changechannelencryptedjob.h"
 #include "channels/channeladdleaderjob.h"
 #include "channels/channelremoveleaderjob.h"
+#include "channels/channelgetcountersjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -1877,5 +1878,19 @@ void RestApiRequest::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::Admin
     connect(job, &AdminRoomsJob::adminRoomsDone, this, &RestApiRequest::roomsAdminDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsAdminJob";
+    }
+}
+
+void RestApiRequest::getChannelsCounter(const QString &roomId)
+{
+    auto *job = new ChannelGetCountersJob(this);
+    initializeRestApiJob(job);
+    ChannelBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    info.channelInfoIdentifier = roomId;
+    job->setChannelInfo(info);
+    connect(job, &ChannelGetCountersJob::channelGetCountersDone, this, &RestApiRequest::channelGetCountersDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetCountersJob";
     }
 }

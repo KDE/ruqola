@@ -18,36 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELGETCOUNTERSJOB_H
-#define CHANNELGETCOUNTERSJOB_H
+#ifndef CHANNELGETCOUNTERSJOBTEST_H
+#define CHANNELGETCOUNTERSJOBTEST_H
 
-#include "restapiabstractjob.h"
-#include "channelbasejob.h"
-class QNetworkRequest;
-namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelGetCountersJob : public ChannelBaseJob
+#include <QObject>
+
+class ChannelGetCountersJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ChannelGetCountersJob(QObject *parent = nullptr);
-    ~ChannelGetCountersJob() override;
-
-    Q_REQUIRED_RESULT bool start() override;
-
-    Q_REQUIRED_RESULT bool canStart() const override;
-
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
-
-Q_SIGNALS:
-    void channelGetCountersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
-
-private:
-    Q_DISABLE_COPY(ChannelGetCountersJob)
-    void slotChannelGetCountersFinished();
+    explicit ChannelGetCountersJobTest(QObject *parent = nullptr);
+    ~ChannelGetCountersJobTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldNotStarting();
 };
-}
-#endif // CHANNELGETCOUNTERSJOB_H
+
+#endif // CHANNELGETCOUNTERSJOBTEST_H

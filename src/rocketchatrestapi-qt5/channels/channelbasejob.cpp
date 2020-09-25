@@ -35,6 +35,24 @@ bool ChannelBaseJob::hasRoomIdentifier() const
     return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelBaseJob::ChannelInfoType::Unknown);
 }
 
+void ChannelBaseJob::addQueryItem(QUrl &url) const
+{
+    QUrlQuery queryUrl;
+    switch (mChannelInfo.channelInfoType) {
+    case ChannelBaseJob::ChannelInfoType::Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
+        return;
+    case ChannelBaseJob::ChannelInfoType::RoomId:
+        queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelInfo.channelInfoIdentifier);
+        break;
+    case ChannelBaseJob::ChannelInfoType::RoomName:
+        queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelInfo.channelInfoIdentifier);
+        break;
+    }
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+}
+
 void ChannelBaseJob::generateJson(QJsonObject &jsonObj) const
 {
     switch (mChannelInfo.channelInfoType) {
@@ -73,4 +91,11 @@ ChannelBaseJob::ChannelInfo ChannelBaseJob::channelInfo() const
 void ChannelBaseJob::setChannelInfo(const ChannelInfo &channelInfo)
 {
     mChannelInfo = channelInfo;
+}
+
+QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t)
+{
+    d << "channelInfoIdentifier " << t.channelInfoIdentifier;
+    d << "channelInfoType " << t.channelInfoType;
+    return d;
 }

@@ -501,6 +501,8 @@ private:
     void userStatusChanged(const User &user);
     void setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
+    void slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
+
 
     void getSupportedLanguages();
     void usersPresence();

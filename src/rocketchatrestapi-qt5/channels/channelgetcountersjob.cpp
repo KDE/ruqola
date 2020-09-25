@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelGetCountersJob::ChannelGetCountersJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -37,8 +37,8 @@ ChannelGetCountersJob::~ChannelGetCountersJob()
 
 bool ChannelGetCountersJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelGetCountersJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelGetCountersJob: RoomId and RoomName are empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -65,10 +65,7 @@ bool ChannelGetCountersJob::start()
 QNetworkRequest ChannelGetCountersJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsCounters);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
-    addQueryParameter(queryUrl);
-    url.setQuery(queryUrl);
+    addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
@@ -89,7 +86,7 @@ void ChannelGetCountersJob::slotChannelGetCountersFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelGetCountersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelGetCountersDone(replyObject, mRoomId);
+            Q_EMIT channelGetCountersDone(replyObject, channelInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelGetCountersJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -99,17 +96,7 @@ void ChannelGetCountersJob::slotChannelGetCountersFinished()
     deleteLater();
 }
 
-QString ChannelGetCountersJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelGetCountersJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
 bool ChannelGetCountersJob::hasQueryParameterSupport() const
 {
-    return true;
+    return false;
 }
