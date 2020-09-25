@@ -1,9 +1,9 @@
 # Auto-Genereate files every class will have his cpp/h files
 set(pyrocketchatrestapi-qt5_SRC
     # individual classes
-    ${CMAKE_CURRENT_BINARY_DIR}/rocketchatrestapi-qt5/rocketchatrestapi-qt5_module_wrapper.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/rocketchatrestapi-qt5/rocketchatrestapi-qt5_module_wrapper.h
-    ${CMAKE_CURRENT_BINARY_DIR}/rocketchatrestapi-qt5/rocketchatrestapi-qt5_python.h
+    ${CMAKE_CURRENT_BINARY_DIR}/RocketChatRestapiQt5/rocketchatrestapiqt5_module_wrapper.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/RocketChatRestapiQt5/rocketchatrestapiqt5_module_wrapper.h
+    ${CMAKE_CURRENT_BINARY_DIR}/RocketChatRestapiQt5/RocketChatRestapiQt5_python.h
 )
 
 # includes necessary to parse and build the classes specified on typesystem

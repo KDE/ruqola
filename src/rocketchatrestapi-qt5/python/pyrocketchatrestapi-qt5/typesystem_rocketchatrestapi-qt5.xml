@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- The package name -->
-<typesystem package="rocketchatrestapi-qt5">
+<typesystem package="RocketChatRestapiQt5">
     <!-- Pre-defined typesystem that contains types used by our class
         PySide has one typesystem for each module, here we use only the widgets
         typesystem because it already include gui and core typesystem -->
