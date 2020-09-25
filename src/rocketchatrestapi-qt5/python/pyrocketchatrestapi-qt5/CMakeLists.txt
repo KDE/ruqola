@@ -30,6 +30,7 @@ set(pyrocketchatrestapi-qt5_target_link_libraries
     Qt5::Gui
     Qt5::Widgets
     KF5::I18n
+    ${Python3_LIBRARIES}
 )
 
 # changes on these files should trigger a new generation
