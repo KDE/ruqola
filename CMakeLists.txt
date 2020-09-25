@@ -38,6 +38,13 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
+option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings" OFF)
+
+if (OPTION_BUILD_PYTHON_BINDINGS)
+   set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
+endif()   
+
+
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 if (NOT WIN32)
     option(UNITY_SUPPORT "Build unity support" TRUE)
