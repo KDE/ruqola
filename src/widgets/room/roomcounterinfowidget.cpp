@@ -22,7 +22,9 @@
 RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
-
+    setVisible(false);
+    setCloseButtonVisible(false);
+    setMessageType(Information);
 }
 
 RoomCounterInfoWidget::~RoomCounterInfoWidget()
