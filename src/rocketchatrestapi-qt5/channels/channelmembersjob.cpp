@@ -120,10 +120,7 @@ QNetworkRequest ChannelMembersJob::request() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelMembersJob: Type is not defined";
         break;
     }
-    QUrlQuery queryUrl;
-    generateQuery(queryUrl);
-    addQueryParameter(queryUrl);
-    url.setQuery(queryUrl);
+    addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

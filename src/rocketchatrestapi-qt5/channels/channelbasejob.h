@@ -52,7 +52,6 @@ public:
 
 protected:
     void generateJson(QJsonObject &obj) const;
-    void generateQuery(QUrlQuery &queryUrl) const;
     void addQueryItem(QUrl &url) const;
 private:
     ChannelInfo mChannelInfo;

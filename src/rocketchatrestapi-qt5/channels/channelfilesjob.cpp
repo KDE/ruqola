@@ -115,10 +115,7 @@ QNetworkRequest ChannelFilesJob::request() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelFilesJob: Type is not defined";
         break;
     }
-    QUrlQuery queryUrl;
-    generateQuery(queryUrl);
-    addQueryParameter(queryUrl);
-    url.setQuery(queryUrl);
+    addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

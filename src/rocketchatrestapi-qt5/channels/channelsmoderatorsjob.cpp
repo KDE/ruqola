@@ -87,9 +87,7 @@ bool ChannelsModeratorsJob::canStart() const
 QNetworkRequest ChannelsModeratorsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsModerators);
-    QUrlQuery queryUrl;
-    generateQuery(queryUrl);
-    url.setQuery(queryUrl);
+    addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

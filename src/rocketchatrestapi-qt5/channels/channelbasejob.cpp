@@ -68,21 +68,6 @@ void ChannelBaseJob::generateJson(QJsonObject &jsonObj) const
     }
 }
 
-void ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
-{
-    switch (mChannelInfo.channelInfoType) {
-    case ChannelBaseJob::ChannelInfoType::Unknown:
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
-        return;
-    case ChannelBaseJob::ChannelInfoType::RoomId:
-        queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelInfo.channelInfoIdentifier);
-        break;
-    case ChannelBaseJob::ChannelInfoType::RoomName:
-        queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelInfo.channelInfoIdentifier);
-        break;
-    }
-}
-
 ChannelBaseJob::ChannelInfo ChannelBaseJob::channelInfo() const
 {
     return mChannelInfo;

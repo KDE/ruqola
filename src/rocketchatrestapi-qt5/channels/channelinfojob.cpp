@@ -87,9 +87,7 @@ bool ChannelInfoJob::canStart() const
 QNetworkRequest ChannelInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsInfo);
-    QUrlQuery queryUrl;
-    generateQuery(queryUrl);
-    url.setQuery(queryUrl);
+    addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
