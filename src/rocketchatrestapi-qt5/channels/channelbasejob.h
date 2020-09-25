@@ -57,5 +57,5 @@ private:
     ChannelInfo mChannelInfo;
 };
 }
-LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
 #endif // CHANNELBASEJOB_H

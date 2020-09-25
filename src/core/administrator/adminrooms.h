@@ -25,7 +25,7 @@
 #include "libruqola_private_export.h"
 #include <QVector>
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT AdminRooms
+class LIBRUQOLACORE_EXPORT AdminRooms
 {
 public:
     AdminRooms();
