@@ -20,6 +20,7 @@
 
 #include "customemojitest.h"
 #include "emoticons/customemoji.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonObject>
 #include <QTest>
 #include <QJsonDocument>
@@ -130,12 +131,7 @@ void CustomEmojiTest::shouldParseEmoji()
     QFETCH(QString, name);
     QFETCH(CustomEmoji, expectedEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     CustomEmoji originalEmoji;
     originalEmoji.parseEmoji(obj);
     const bool emojiIsEqual = (originalEmoji == expectedEmoji);

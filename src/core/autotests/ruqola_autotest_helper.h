@@ -25,6 +25,8 @@
 #include <QString>
 #include <QTest>
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 namespace AutoTestHelper {
 void diffFile(const QString &refFile, const QString &generatedFile)
@@ -73,6 +75,18 @@ void compareFile(const QString &repo, const QByteArray &data, const QString &nam
 
     diffFile(refFile, generatedFile);
 }
+
+QJsonObject loadJsonObject(const QString &originalJsonFile)
+{
+    QFile f(originalJsonFile);
+    Q_ASSERT(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    return obj;
+}
+
 }
 
 #endif // RUQOLA_AUTOTEST_HELPER_H

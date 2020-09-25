@@ -19,6 +19,7 @@
 
 #include "otrtest.h"
 #include "otr.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>

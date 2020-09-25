@@ -20,6 +20,7 @@
 #include "textconvertertest.h"
 #include "textconverter.h"
 #include "messages/message.h"
+#include "ruqola_autotest_helper.h"
 #include "emoticons/emojimanager.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -136,12 +137,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
 
     //Load emoji
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager;
     manager.loadCustomEmoji(obj);
     manager.setServerUrl(serverUrl);

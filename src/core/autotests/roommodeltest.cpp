@@ -501,12 +501,7 @@ void RoomModelTest::shouldInsertRoom()
     QFETCH(QString, roomId);
 
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/insert-rooms/") + insertRoomFileName + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object();
+    const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RoomModel sampleModel;
     const QString generatedRoomId = sampleModel.insertRoom(fields);

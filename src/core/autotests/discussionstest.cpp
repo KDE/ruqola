@@ -19,6 +19,7 @@
 #include "discussionstest.h"
 #include "discussions.h"
 #include "discussion.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -56,13 +57,7 @@ void DiscussionsTest::shouldLoadDiscussions()
     QFETCH(int, total);
     QFETCH(int, offset);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/discussions/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
-
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Discussions m;
     m.parseDiscussions(obj);
     QCOMPARE(m.discussionsCount(), discussionsCount);

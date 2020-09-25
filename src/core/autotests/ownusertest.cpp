@@ -20,6 +20,7 @@
 
 #include "ownusertest.h"
 #include "ownuser.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -78,12 +79,7 @@ void OwnUserTest::shouldLoadOwnUser()
     QFETCH(QString, name);
     QFETCH(OwnUser, ownuser);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/ownuser/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     OwnUser r;
     r.parseOwnUserInfo(obj);

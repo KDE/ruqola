@@ -21,6 +21,7 @@
 
 #include "channelcounterinfotest.h"
 #include "channelcounterinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelCounterInfoTest)
@@ -55,12 +56,7 @@ void ChannelCounterInfoTest::shouldLoadOwnUser()
     QFETCH(QString, name);
     QFETCH(ChannelCounterInfo, channelcounter);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/channelcounter/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ChannelCounterInfo r;
     r.parseCounterInfo(obj);

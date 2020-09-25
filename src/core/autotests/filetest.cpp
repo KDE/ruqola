@@ -19,7 +19,7 @@
 
 #include "filetest.h"
 #include "file.h"
-
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QTest>
 
@@ -154,12 +154,7 @@ void FileTest::shouldParseFile()
     } else {
         originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
     }
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object();
+    const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     File newFile;
     newFile.parseFile(fields, usingRestApi);

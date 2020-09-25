@@ -229,12 +229,7 @@ void RoomTest::shouldParseRoom()
     QFETCH(QString, fileName);
 
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room/") + fileName + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object();
+    const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Room r;
     r.parseSubscriptionRoom(fields);
@@ -287,12 +282,7 @@ void RoomTest::shouldParseRoomAndUpdate()
 
     for (const QString &updateFile : fileNameupdate) {
         const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-updated/") + updateFile + QLatin1String(".json");
-        QFile f(originalUpdateJsonFile);
-        QVERIFY(f.open(QIODevice::ReadOnly));
-        const QByteArray content = f.readAll();
-        f.close();
-        const QJsonDocument doc = QJsonDocument::fromJson(content);
-        const QJsonObject fields = doc.object();
+        const QJsonObject fields = AutoTestHelper::loadJsonObject(originalUpdateJsonFile);
 
         r.parseUpdateRoom(fields);
     }
@@ -369,12 +359,7 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
 
     for (const QString &updateFile : UpdateSubscriptionFileNames) {
         const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-update-subscription/") + updateFile + QLatin1String(".json");
-        QFile f(originalUpdateJsonFile);
-        QVERIFY(f.open(QIODevice::ReadOnly));
-        const QByteArray content = f.readAll();
-        f.close();
-        const QJsonDocument doc = QJsonDocument::fromJson(content);
-        const QJsonObject fields = doc.object();
+        const QJsonObject fields = AutoTestHelper::loadJsonObject(originalUpdateJsonFile);
 
         r.updateSubscriptionRoom(fields);
     }

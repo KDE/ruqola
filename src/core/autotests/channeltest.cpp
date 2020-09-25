@@ -20,6 +20,7 @@
 
 #include "channeltest.h"
 #include "channel.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -84,12 +85,7 @@ void ChannelTest::shouldParseChannel()
     QFETCH(Channel::ChannelType, channelType);
     QFETCH(Channel, expectedChannel);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Channel originalChannel;
     originalChannel.parseChannel(obj, channelType);
     const bool channelIsEqual = (originalChannel == expectedChannel);

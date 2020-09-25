@@ -20,6 +20,7 @@
 
 #include "rolestest.h"
 #include "roles.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(RolesTest)
@@ -79,12 +80,7 @@ void RolesTest::shouldLoadRoles()
     QFETCH(QString, name);
     QFETCH(int, rolesCount);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesforroom/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Roles r;
     r.parseRole(obj);
