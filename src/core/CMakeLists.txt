@@ -201,6 +201,8 @@ set (Ruqola_core_srcs
     serverinfo.cpp
 
     downloadavartarurlmanager.cpp
+
+    channelcounterinfo.cpp
 )
 
 if (NOT WIN32)
