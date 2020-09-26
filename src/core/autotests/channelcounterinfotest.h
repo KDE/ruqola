@@ -31,8 +31,8 @@ public:
     ~ChannelCounterInfoTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
-    void shouldLoadOwnUser_data();
-    void shouldLoadOwnUser();
+    void shouldLoadChannelCounter_data();
+    void shouldLoadChannelCounter();
 };
 
 #endif // CHANNELCOUNTERINFOTEST_H

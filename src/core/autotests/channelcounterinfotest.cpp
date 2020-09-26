@@ -37,9 +37,10 @@ void ChannelCounterInfoTest::shouldHaveDefaultValues()
     QCOMPARE(info.unreadMessages(), 0);
     QCOMPARE(info.messageCount(), 0);
     QVERIFY(!info.joined());
+    QVERIFY(!info.isValid());
 }
 
-void ChannelCounterInfoTest::shouldLoadOwnUser_data()
+void ChannelCounterInfoTest::shouldLoadChannelCounter_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<ChannelCounterInfo>("channelcounter");
@@ -51,7 +52,7 @@ void ChannelCounterInfoTest::shouldLoadOwnUser_data()
     QTest::addRow("test1") << QStringLiteral("test1") << result;
 }
 
-void ChannelCounterInfoTest::shouldLoadOwnUser()
+void ChannelCounterInfoTest::shouldLoadChannelCounter()
 {
     QFETCH(QString, name);
     QFETCH(ChannelCounterInfo, channelcounter);

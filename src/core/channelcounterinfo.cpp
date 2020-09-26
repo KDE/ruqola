@@ -87,6 +87,11 @@ void ChannelCounterInfo::setJoined(bool joined)
     mJoined = joined;
 }
 
+bool ChannelCounterInfo::isValid() const
+{
+    return mUnreadFrom.isValid();
+}
+
 QDebug operator <<(QDebug d, const ChannelCounterInfo &t)
 {
     d << "Unread Messages " << t.unreadMessages();

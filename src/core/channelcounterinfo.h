@@ -44,6 +44,8 @@ public:
     Q_REQUIRED_RESULT bool joined() const;
     void setJoined(bool joined);
 
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
     QDateTime mUnreadFrom;
     quint64 mUnreadMessages = 0;
