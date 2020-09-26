@@ -1904,7 +1904,9 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
         if (!r->archived()) {
             membersInRoom(r->roomId(), r->channelType());
             rolesInRoom(r->roomId(), r->channelType());
-            restApi()->getChannelsCounter(r->roomId());
+            if (r->channelType() == QLatin1Char('c')) {
+                restApi()->getChannelsCounter(r->roomId());
+            }
         }
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
     } else if (!r) {
