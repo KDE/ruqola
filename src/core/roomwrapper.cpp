@@ -158,7 +158,7 @@ bool RoomWrapper::canBeModify() const
 
 NotificationOptionsWrapper *RoomWrapper::notificationOptions() const
 {
-    return mRoom->getNotificationWrapper();
+    return mRoom->notificationWrapper();
 }
 
 QString RoomWrapper::roomMessageInfo() const

@@ -175,7 +175,7 @@ public:
     Q_REQUIRED_RESULT QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
 
-    NotificationOptionsWrapper *getNotificationWrapper();
+    NotificationOptionsWrapper *notificationWrapper();
     Q_REQUIRED_RESULT bool joinCodeRequired() const;
     void setJoinCodeRequired(bool joinCodeRequired);
 
