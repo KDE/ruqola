@@ -131,6 +131,7 @@ Q_SIGNALS:
     void lastSeenChanged();
     void directChannelUserIdChanged();
     void displaySystemMessageTypesChanged();
+    void channelCounterInfoChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

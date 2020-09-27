@@ -438,6 +438,17 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
     mMessageLineWidget->setFocus();
 }
 
+void RoomWidget::slotUpdateRoomCounterInfoWidget()
+{
+    if (mRoomWrapper) {
+        if (mRoomWrapper->channelCounterInfo().isValid() && mRoomWrapper->channelCounterInfo().unreadMessages() > 0) {
+            mRoomCounterInfoWidget->animatedShow();
+        } else {
+            mRoomCounterInfoWidget->animatedHide();
+        }
+    }
+}
+
 void RoomWidget::updateRoomHeader()
 {
     if (mRoomWrapper) {
@@ -454,6 +465,11 @@ void RoomWidget::updateRoomHeader()
         } else {
             mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
             mReadOnlyLineEditWidget->setMessage(mRoomWrapper->roomMessageInfo());
+        }
+        if (mRoomWrapper->channelCounterInfo().isValid() && mRoomWrapper->channelCounterInfo().unreadMessages() > 0) {
+            mRoomCounterInfoWidget->animatedShow();
+        } else {
+            mRoomCounterInfoWidget->animatedHide();
         }
     }
 }
@@ -511,7 +527,9 @@ void RoomWidget::connectRoomWrapper()
         connect(mRoomWrapper, &RoomWrapper::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
         connect(mRoomWrapper, &RoomWrapper::autoTranslateChanged, this, &RoomWidget::updateListView);
         connect(mRoomWrapper, &RoomWrapper::ignoredUsersChanged, this, &RoomWidget::updateListView);
+        connect(mRoomWrapper, &RoomWrapper::channelCounterInfoChanged, this, &RoomWidget::slotUpdateRoomCounterInfoWidget);
     }
+    slotUpdateRoomCounterInfoWidget();
     updateRoomHeader();
 }
 

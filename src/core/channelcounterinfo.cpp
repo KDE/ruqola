@@ -47,6 +47,11 @@ bool ChannelCounterInfo::operator ==(const ChannelCounterInfo &other) const
             && mJoined == other.joined();
 }
 
+bool ChannelCounterInfo::operator !=(const ChannelCounterInfo &other) const
+{
+    return !operator==(other);
+}
+
 quint64 ChannelCounterInfo::unreadMessages() const
 {
     return mUnreadMessages;

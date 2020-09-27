@@ -64,6 +64,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::lastSeenChanged, this, &RoomWrapper::lastSeenChanged);
     connect(mRoom, &Room::directChannelUserIdChanged, this, &RoomWrapper::directChannelUserIdChanged);
     connect(mRoom, &Room::displaySystemMessageTypesChanged, this, &RoomWrapper::displaySystemMessageTypesChanged);
+    connect(mRoom, &Room::channelCounterInfoChanged, this, &RoomWrapper::channelCounterInfoChanged);
 }
 
 RoomWrapper::~RoomWrapper()

@@ -32,6 +32,7 @@ public:
     void parseCounterInfo(const QJsonObject &replyObject);
 
     Q_REQUIRED_RESULT bool operator ==(const ChannelCounterInfo &other) const;
+    Q_REQUIRED_RESULT bool operator !=(const ChannelCounterInfo &other) const;
     Q_REQUIRED_RESULT quint64 unreadMessages() const;
     void setUnreadMessages(quint64 unreadMessages);
 

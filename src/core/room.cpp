@@ -737,7 +737,10 @@ ChannelCounterInfo Room::channelCounterInfo() const
 
 void Room::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
 {
-    mChannelCounterInfo = channelCounterInfo;
+    if (mChannelCounterInfo != channelCounterInfo) {
+        mChannelCounterInfo = channelCounterInfo;
+        Q_EMIT channelCounterInfoChanged();
+    }
 }
 
 void Room::parseCommonData(const QJsonObject &json)
