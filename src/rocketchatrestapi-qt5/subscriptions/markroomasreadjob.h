@@ -42,7 +42,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void markAsReadDone();
+    void markAsReadDone(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(MarkRoomAsReadJob)

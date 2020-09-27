@@ -56,7 +56,7 @@ void MarkRoomAsReadJob::slotMarkAsRead()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT markAsReadDone();
+            Q_EMIT markAsReadDone(mRoomId);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("MarkRoomAsReadJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -522,6 +522,7 @@ private:
     void slotFileLanguagedParsed();
     void slotRegisterUserDone();
     void slotRoomNeedAttention();
+    void slotMarkAsReadDone(const QString &roomId);
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

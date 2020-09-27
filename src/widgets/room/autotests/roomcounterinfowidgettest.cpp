@@ -31,5 +31,8 @@ RoomCounterInfoWidgetTest::RoomCounterInfoWidgetTest(QObject *parent)
 void RoomCounterInfoWidgetTest::shouldHaveDefaultValues()
 {
     RoomCounterInfoWidget w;
-    //TODO
+    QVERIFY(!w.channelCounterInfo().isValid());
+    QVERIFY(!w.isVisible());
+    QVERIFY(!w.isCloseButtonVisible());
+    QCOMPARE(w.messageType(), KMessageWidget::Information);
 }

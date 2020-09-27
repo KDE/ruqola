@@ -456,6 +456,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelListDone, this, &RocketChatAccount::slotChannelListDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
 
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::ThreadsMessages);
@@ -2220,5 +2221,13 @@ void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const
         info.parseCounterInfo(obj);
         room->setChannelCounterInfo(info);
         qDebug() << " info " << info;
+    }
+}
+
+void RocketChatAccount::slotMarkAsReadDone(const QString &roomId)
+{
+    Room *room = getRoom(roomId);
+    if (room) {
+        room->setChannelCounterInfo({});
     }
 }

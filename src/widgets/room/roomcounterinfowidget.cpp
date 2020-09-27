@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "roomcounterinfowidget.h"
-
+#include <KLocalizedString>
 RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
@@ -30,4 +30,25 @@ RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
 RoomCounterInfoWidget::~RoomCounterInfoWidget()
 {
 
+}
+
+ChannelCounterInfo RoomCounterInfoWidget::channelCounterInfo() const
+{
+    return mChannelCounterInfo;
+}
+
+void RoomCounterInfoWidget::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
+{
+    mChannelCounterInfo = channelCounterInfo;
+    updateInfo();
+}
+
+void RoomCounterInfoWidget::updateInfo()
+{
+    if (mChannelCounterInfo.isValid() && mChannelCounterInfo.unreadMessages() > 0) {
+        setText(i18n("%1 new messages since %2.", mChannelCounterInfo.unreadMessages(), mChannelCounterInfo.unreadFrom().toString()));
+        animatedShow();
+    } else {
+        animatedHide();
+    }
 }

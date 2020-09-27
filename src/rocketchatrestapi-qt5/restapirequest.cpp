@@ -848,6 +848,7 @@ void RestApiRequest::markRoomAsRead(const QString &roomId)
     auto *job = new MarkRoomAsReadJob(this);
     job->setRoomId(roomId);
     initializeRestApiJob(job);
+    connect(job, &MarkRoomAsReadJob::markAsReadDone, this, &RestApiRequest::markAsReadDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markAsRead job";
     }

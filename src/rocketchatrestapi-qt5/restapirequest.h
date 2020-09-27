@@ -274,6 +274,7 @@ Q_SIGNALS:
     void updateOwnBasicInfoDone();
     void cleanHistoryDone();
     void channelGetCountersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
+    void markAsReadDone(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

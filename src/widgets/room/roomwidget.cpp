@@ -441,11 +441,7 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
 void RoomWidget::slotUpdateRoomCounterInfoWidget()
 {
     if (mRoomWrapper) {
-        if (mRoomWrapper->channelCounterInfo().isValid() && mRoomWrapper->channelCounterInfo().unreadMessages() > 0) {
-            mRoomCounterInfoWidget->animatedShow();
-        } else {
-            mRoomCounterInfoWidget->animatedHide();
-        }
+        mRoomCounterInfoWidget->setChannelCounterInfo(mRoomWrapper->channelCounterInfo());
     }
 }
 

@@ -22,6 +22,7 @@
 #define ROOMCOUNTERINFOWIDGET_H
 
 #include <KMessageWidget>
+#include "channelcounterinfo.h"
 #include "libruqolawidgets_private_export.h"
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomCounterInfoWidget : public KMessageWidget
@@ -30,6 +31,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomCounterInfoWidget : public KMessageWidge
 public:
     explicit RoomCounterInfoWidget(QWidget *parent = nullptr);
     ~RoomCounterInfoWidget();
+
+    Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
+    void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
+
+private:
+    void updateInfo();
+    ChannelCounterInfo mChannelCounterInfo;
 };
 
 #endif // ROOMCOUNTERINFOWIDGET_H
