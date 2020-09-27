@@ -24,6 +24,7 @@
 #include "room/roomheaderwidget.h"
 #include "room/messagelistview.h"
 #include "room/readonlylineeditwidget.h"
+#include "room/roomcounterinfowidget.h"
 #include "room/usersinroomflowwidget.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
@@ -33,6 +34,7 @@
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
 
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
@@ -68,6 +70,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
 
     QVERIFY(w.roomId().isEmpty());
+
+    auto *mRoomCounterInfoWidget = w.findChild<RoomCounterInfoWidget *>(QStringLiteral("mRoomCounterInfoWidget"));
+    QVERIFY(mRoomCounterInfoWidget);
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)

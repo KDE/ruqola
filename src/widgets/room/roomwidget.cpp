@@ -48,6 +48,7 @@
 #include "prunemessages/prunemessagesdialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
+#include "roomcounterinfowidget.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -77,6 +78,11 @@ RoomWidget::RoomWidget(QWidget *parent)
     mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
     mainLayout->addWidget(mUsersInRoomFlowWidget);
     mUsersInRoomFlowWidget->setVisible(false);
+
+    mRoomCounterInfoWidget = new RoomCounterInfoWidget(this);
+    mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
+    mainLayout->addWidget(mRoomCounterInfoWidget);
+
 
     mMessageListView = new MessageListView(MessageListView::Mode::Editing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));

@@ -105,6 +105,8 @@ public:
 
     Q_REQUIRED_RESULT QStringList displaySystemMessageTypes() const;
 
+    Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
+
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();

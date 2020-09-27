@@ -234,3 +234,8 @@ QStringList RoomWrapper::displaySystemMessageTypes() const
 {
     return mRoom->displaySystemMessageTypes();
 }
+
+ChannelCounterInfo RoomWrapper::channelCounterInfo() const
+{
+    return mRoom->channelCounterInfo();
+}

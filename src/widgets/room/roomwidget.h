@@ -36,6 +36,7 @@ class ReadOnlyLineEditWidget;
 class QStackedWidget;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
+class RoomCounterInfoWidget;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
@@ -107,6 +108,7 @@ private:
     QStackedWidget *mStackedWidget = nullptr;
     ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
     UsersInRoomFlowWidget *mUsersInRoomFlowWidget = nullptr;
+    RoomCounterInfoWidget *mRoomCounterInfoWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
