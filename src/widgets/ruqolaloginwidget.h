@@ -27,7 +27,6 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QPushButton;
-class KPasswordLineEdit;
 class QLabel;
 class KBusyIndicatorWidget;
 class AuthenticationComboBox;
