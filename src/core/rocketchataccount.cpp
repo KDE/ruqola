@@ -2215,7 +2215,6 @@ void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const
         ChannelCounterInfo info;
         info.parseCounterInfo(obj);
         room->setChannelCounterInfo(info);
-        qDebug() << " info " << info;
     }
 }
 
