@@ -265,3 +265,7 @@ endif()
 
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
+if(OPTION_BUILD_PYTHON_BINDINGS)
+    add_subdirectory(python)
+endif()
+
