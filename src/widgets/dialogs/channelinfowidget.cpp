@@ -94,10 +94,12 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     layout->addRow(str, mDescription);
 
+    //Show it if room is not private
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [](const QString &password) {
+        qWarning() << "change password not implemented yet ";
         //Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Password, password, mRoom->channelType());
     });
 
