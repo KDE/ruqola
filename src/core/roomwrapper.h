@@ -55,7 +55,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString parentRid READ parentRid CONSTANT)
     Q_PROPERTY(QString autoTranslateLanguage READ autoTranslateLanguage NOTIFY autoTranslateLanguageChanged)
     Q_PROPERTY(bool autoTranslate READ autoTranslate NOTIFY autoTranslateChanged)
-    Q_PROPERTY(NotificationOptionsWrapper * notificationOptions READ notificationOptions CONSTANT)
+    Q_PROPERTY(NotificationOptions notificationOptions READ notificationOptions CONSTANT)
     Q_PROPERTY(qint64 lastSeenAt READ lastSeenAt NOTIFY lastSeenChanged)
     Q_PROPERTY(QString directChannelUserId READ directChannelUserId NOTIFY directChannelUserIdChanged)
     Q_PROPERTY(QStringList displaySystemMessageTypes READ displaySystemMessageTypes NOTIFY displaySystemMessageTypesChanged)
@@ -89,7 +89,7 @@ public:
     Q_REQUIRED_RESULT bool isDiscussionRoom() const;
     Q_REQUIRED_RESULT QString parentRid() const;
 
-    Q_REQUIRED_RESULT NotificationOptionsWrapper *notificationOptions() const;
+    Q_REQUIRED_RESULT NotificationOptions notificationOptions() const;
     Q_REQUIRED_RESULT bool canChangeRoles() const;
 
     Q_REQUIRED_RESULT QString autoTranslateLanguage() const;

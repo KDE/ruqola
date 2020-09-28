@@ -23,7 +23,6 @@
 #include "roomwrapper.h"
 #include "ruqola_debug.h"
 #include "room.h"
-#include "notificationoptionswrapper.h"
 
 RoomWrapper::RoomWrapper(QObject *parent)
     : QObject(parent)
@@ -156,9 +155,9 @@ bool RoomWrapper::canBeModify() const
     return mRoom->canBeModify();
 }
 
-NotificationOptionsWrapper *RoomWrapper::notificationOptions() const
+NotificationOptions RoomWrapper::notificationOptions() const
 {
-    return mRoom->notificationWrapper();
+    return mRoom->notificationOptions();
 }
 
 QString RoomWrapper::roomMessageInfo() const

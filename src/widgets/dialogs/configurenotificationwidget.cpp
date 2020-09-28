@@ -21,7 +21,6 @@
 #include "configurenotificationwidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "notificationoptionswrapper.h"
 #include "roomwrapper.h"
 #include "notificationpreferences.h"
 #include "model/notificationpreferencemodel.h"
@@ -150,14 +149,14 @@ RoomWrapper *ConfigureNotificationWidget::roomWrapper() const
 void ConfigureNotificationWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mRoomWrapper = roomWrapper;
-    NotificationOptionsWrapper *notificationOptions = mRoomWrapper->notificationOptions();
-    mDisableNotification->setChecked(notificationOptions->disableNotifications());
-    mHideUnreadRoomStatus->setChecked(notificationOptions->hideUnreadStatus());
-    mMuteGroupMentions->setChecked(notificationOptions->muteGroupMentions());
-    mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(notificationOptions->desktopNotifications()));
-    mDesktopAudioCombobox->setCurrentIndex(NotificationPreferences::self()->desktopAudioNotificationModel()->setCurrentNotificationPreference(notificationOptions->audioNotifications()));
-    mDesktopSoundCombobox->setCurrentIndex(NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions->audioNotificationValue()));
-    mDesktopDurationCombobox->setCurrentIndex(NotificationPreferences::self()->desktopDurationNotificationModel()->setCurrentNotificationPreference(QString::number(notificationOptions->desktopNotificationDuration())));
-    mMobileAlertCombobox->setCurrentIndex(NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(notificationOptions->mobilePushNotification()));
-    mEmailAlertCombobox->setCurrentIndex(NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions->emailNotifications()));
+    NotificationOptions notificationOptions = mRoomWrapper->notificationOptions();
+    mDisableNotification->setChecked(notificationOptions.disableNotifications());
+    mHideUnreadRoomStatus->setChecked(notificationOptions.hideUnreadStatus());
+    mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());
+    mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(notificationOptions.desktopNotifications()));
+    mDesktopAudioCombobox->setCurrentIndex(NotificationPreferences::self()->desktopAudioNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotifications()));
+    mDesktopSoundCombobox->setCurrentIndex(NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotificationValue()));
+    mDesktopDurationCombobox->setCurrentIndex(NotificationPreferences::self()->desktopDurationNotificationModel()->setCurrentNotificationPreference(QString::number(notificationOptions.desktopNotificationDuration())));
+    mMobileAlertCombobox->setCurrentIndex(NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(notificationOptions.mobilePushNotification()));
+    mEmailAlertCombobox->setCurrentIndex(NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions.emailNotifications()));
 }

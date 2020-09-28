@@ -134,7 +134,6 @@ set (Ruqola_core_srcs
     authenticationinfo.cpp
     room.cpp
     roomwrapper.cpp
-    notificationoptionswrapper.cpp
     ruqola.cpp
     ruqolautils.cpp
     rocketchatbackend.cpp

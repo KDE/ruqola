@@ -21,7 +21,6 @@
  */
 
 #include "rocketchataccount.h"
-#include "notificationoptionswrapper.h"
 #include "room.h"
 #include "utils.h"
 #include "ruqola_debug.h"
@@ -160,12 +159,6 @@ bool Room::canBeModify() const
         return mRoles.contains(QLatin1String("owner"));
     }
     return false;
-}
-
-NotificationOptionsWrapper *Room::notificationWrapper()
-{
-    auto *wrapper = new NotificationOptionsWrapper(mNotificationOptions, this);
-    return wrapper;
 }
 
 NotificationOptions Room::notificationOptions() const
