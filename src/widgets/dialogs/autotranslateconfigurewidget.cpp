@@ -22,7 +22,7 @@
 #include "model/autotranslatelanguagesmodel.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -66,36 +66,36 @@ AutoTranslateConfigureWidget::~AutoTranslateConfigureWidget()
 {
 }
 
-RoomWrapper *AutoTranslateConfigureWidget::roomWrapper() const
+Room *AutoTranslateConfigureWidget::room() const
 {
-    return mRoomWrapper;
+    return mRoom;
 }
 
 void AutoTranslateConfigureWidget::slotLanguageChanged(int index)
 {
-    Ruqola::self()->rocketChatAccount()->autoTranslateSaveLanguageSettings(mRoomWrapper->roomId(), Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->selectedLanguage(index));
+    Ruqola::self()->rocketChatAccount()->autoTranslateSaveLanguageSettings(mRoom->roomId(), Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->selectedLanguage(index));
 }
 
 void AutoTranslateConfigureWidget::slotChangeAutoTranslate(bool status)
 {
-    Ruqola::self()->rocketChatAccount()->autoTranslateSaveAutoTranslateSettings(mRoomWrapper->roomId(), status);
+    Ruqola::self()->rocketChatAccount()->autoTranslateSaveAutoTranslateSettings(mRoom->roomId(), status);
 }
 
 void AutoTranslateConfigureWidget::slotAutoTranslateChanged()
 {
-    mAutoTranslate->setChecked(mRoomWrapper->autoTranslate());
+    mAutoTranslate->setChecked(mRoom->autoTranslate());
 }
 
 void AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged()
 {
-    mLanguage->setCurrentIndex(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->currentLanguage(mRoomWrapper->autoTranslateLanguage()));
+    mLanguage->setCurrentIndex(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->currentLanguage(mRoom->autoTranslateLanguage()));
 }
 
-void AutoTranslateConfigureWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+void AutoTranslateConfigureWidget::setRoom(Room *room)
 {
-    mRoomWrapper = roomWrapper;
-    connect(mRoomWrapper, &RoomWrapper::autoTranslateChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateChanged);
-    connect(mRoomWrapper, &RoomWrapper::autoTranslateLanguageChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged);
+    mRoom = room;
+    connect(mRoom, &Room::autoTranslateChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateChanged);
+    connect(mRoom, &Room::autoTranslateLanguageChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged);
     slotAutoTranslateChanged();
     slotAutoTranslateLanguageChanged();
 }

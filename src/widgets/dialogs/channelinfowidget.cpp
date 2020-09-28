@@ -19,7 +19,7 @@
 */
 
 #include "channelinfowidget.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 
@@ -61,7 +61,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mName = new ChangeTextWidget(this);
     mName->setObjectName(QStringLiteral("mName"));
     connect(mName, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Name, name, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Name, name, mRoom->channelType());
     });
     mName->setLabelText(str);
     layout->addRow(str, mName);
@@ -72,13 +72,13 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mComment->setLabelText(str);
     layout->addRow(str, mComment);
     connect(mComment, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Topic, name, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Topic, name, mRoom->channelType());
     });
 
     mAnnouncement = new ChangeTextWidget(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Announcement, name, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Announcement, name, mRoom->channelType());
     });
     str = i18n("Announcement:");
     mAnnouncement->setLabelText(str);
@@ -87,7 +87,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mDescription = new ChangeTextWidget(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     connect(mDescription, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Description, name, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Description, name, mRoom->channelType());
     });
     str = i18n("Description:");
     mDescription->setLabelText(str);
@@ -98,14 +98,14 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [](const QString &password) {
-        //Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Password, password, mRoomWrapper->channelType());
+        //Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Password, password, mRoom->channelType());
     });
 
     mReadOnly = new QCheckBox(this);
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     layout->addRow(i18n("ReadOnly:"), mReadOnly);
     connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::ReadOnly, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
     });
 
     mArchive = new QCheckBox(this);
@@ -115,7 +115,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
         const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, text, title)) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
 
@@ -123,14 +123,14 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     layout->addRow(i18n("Private:"), mPrivate);
     connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
     });
 
     mEncrypted = new QCheckBox(this);
     mEncrypted->setObjectName(QStringLiteral("mEncrypted"));
     layout->addRow(i18n("Encrypted:"), mEncrypted);
     connect(mEncrypted, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Encrypted, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Encrypted, checked, mRoom->channelType());
     });
     mEncryptedLabel = layout->labelForField(mEncrypted);
 
@@ -139,7 +139,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
-            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoomWrapper->roomId(), mRoomWrapper->channelType());
+            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());
             Q_EMIT channelDeleted();
         }
     });
@@ -193,10 +193,10 @@ ChannelInfoWidget::~ChannelInfoWidget()
 {
 }
 
-void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+void ChannelInfoWidget::setRoom(Room *room)
 {
-    mRoomWrapper = roomWrapper;
-    if (mRoomWrapper->canBeModify()) {
+    mRoom = room;
+    if (mRoom->canBeModify()) {
         mStackedWidget->setCurrentWidget(mEditableChannel);
         updateEditableChannelInfo();
         connectEditableWidget();
@@ -209,85 +209,85 @@ void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 
 void ChannelInfoWidget::updateReadOnlyChannelInfo()
 {
-    mNameReadOnly->setText(mRoomWrapper->name());
-    mCommentReadOnly->setText(mRoomWrapper->topic());
-    mAnnouncementReadOnly->setText(mRoomWrapper->announcement());
-    mDescriptionReadOnly->setText(mRoomWrapper->description());
+    mNameReadOnly->setText(mRoom->name());
+    mCommentReadOnly->setText(mRoom->topic());
+    mAnnouncementReadOnly->setText(mRoom->announcement());
+    mDescriptionReadOnly->setText(mRoom->description());
 }
 
 void ChannelInfoWidget::updateEditableChannelInfo()
 {
-    mName->setText(mRoomWrapper->name());
-    mComment->setText(mRoomWrapper->topic());
-    mAnnouncement->setText(mRoomWrapper->announcement());
-    mDescription->setText(mRoomWrapper->description());
-    mReadOnly->setChecked(mRoomWrapper->readOnly());
-    mArchive->setChecked(mRoomWrapper->archived());
-    mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
-    mEncrypted->setVisible(mRoomWrapper->encryptedEnabled());
-    mEncrypted->setChecked(mRoomWrapper->encrypted());
-    mEncryptedLabel->setVisible(mRoomWrapper->encryptedEnabled());
+    mName->setText(mRoom->name());
+    mComment->setText(mRoom->topic());
+    mAnnouncement->setText(mRoom->announcement());
+    mDescription->setText(mRoom->description());
+    mReadOnly->setChecked(mRoom->readOnly());
+    mArchive->setChecked(mRoom->archived());
+    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
+    mEncrypted->setVisible(mRoom->encryptedEnabled());
+    mEncrypted->setChecked(mRoom->encrypted());
+    mEncryptedLabel->setVisible(mRoom->encryptedEnabled());
     joinCodeChanged();
 }
 
 void ChannelInfoWidget::joinCodeChanged()
 {
-    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoomWrapper->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
+    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoom->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
 }
 
 void ChannelInfoWidget::connectReadOnlyWidget()
 {
-    connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
-        mAnnouncementReadOnly->setText(mRoomWrapper->announcement());
+    connect(mRoom, &Room::announcementChanged, this, [this]() {
+        mAnnouncementReadOnly->setText(mRoom->announcement());
     });
-    connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
-        mCommentReadOnly->setText(mRoomWrapper->topic());
+    connect(mRoom, &Room::topicChanged, this, [this]() {
+        mCommentReadOnly->setText(mRoom->topic());
     });
-    connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
-        mNameReadOnly->setText(mRoomWrapper->name());
+    connect(mRoom, &Room::nameChanged, this, [this]() {
+        mNameReadOnly->setText(mRoom->name());
     });
-    connect(mRoomWrapper, &RoomWrapper::descriptionChanged, this, [this]() {
-        mDescriptionReadOnly->setText(mRoomWrapper->description());
+    connect(mRoom, &Room::descriptionChanged, this, [this]() {
+        mDescriptionReadOnly->setText(mRoom->description());
     });
 }
 
 void ChannelInfoWidget::connectEditableWidget()
 {
-    connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
-        mAnnouncement->setText(mRoomWrapper->announcement());
+    connect(mRoom, &Room::announcementChanged, this, [this]() {
+        mAnnouncement->setText(mRoom->announcement());
     });
-    connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
-        mComment->setText(mRoomWrapper->topic());
+    connect(mRoom, &Room::topicChanged, this, [this]() {
+        mComment->setText(mRoom->topic());
     });
-    connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
-        mName->setText(mRoomWrapper->name());
+    connect(mRoom, &Room::nameChanged, this, [this]() {
+        mName->setText(mRoom->name());
     });
-    connect(mRoomWrapper, &RoomWrapper::descriptionChanged, this, [this]() {
-        mDescription->setText(mRoomWrapper->description());
+    connect(mRoom, &Room::descriptionChanged, this, [this]() {
+        mDescription->setText(mRoom->description());
     });
-    connect(mRoomWrapper, &RoomWrapper::readOnlyChanged, this, [this]() {
-        mReadOnly->setChecked(mRoomWrapper->readOnly());
+    connect(mRoom, &Room::readOnlyChanged, this, [this]() {
+        mReadOnly->setChecked(mRoom->readOnly());
     });
-    connect(mRoomWrapper, &RoomWrapper::archivedChanged, this, [this]() {
-        mArchive->setChecked(mRoomWrapper->archived());
+    connect(mRoom, &Room::archivedChanged, this, [this]() {
+        mArchive->setChecked(mRoom->archived());
     });
-    connect(mRoomWrapper, &RoomWrapper::joinCodeRequiredChanged, this, [this]() {
+    connect(mRoom, &Room::joinCodeRequiredChanged, this, [this]() {
         joinCodeChanged();
     });
-    connect(mRoomWrapper, &RoomWrapper::channelTypeChanged, this, [this]() {
-        mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+    connect(mRoom, &Room::channelTypeChanged, this, [this]() {
+        mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
     });
     //TODO react when we change settings
     connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::ReadOnly, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
     });
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"), i18n("Archive room"))) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
     connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
     });
 }
 

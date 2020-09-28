@@ -35,7 +35,7 @@ ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent
 void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureNotificationWidget w;
-    QVERIFY(!w.roomWrapper());
+    QVERIFY(!w.room());
     auto *topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
     QVERIFY(topLayout);
     QCOMPARE(topLayout->contentsMargins(), QMargins(0, 0, 0, 0));

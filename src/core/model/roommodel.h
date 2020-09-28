@@ -27,7 +27,6 @@
 #include "user.h"
 #include <QAbstractListModel>
 #include <QObject>
-class RoomWrapper;
 class RocketChatAccount;
 class MessageModel;
 
@@ -79,14 +78,6 @@ public:
     * @param selected True if room if @param roomID is selected, else false
     */
     void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
-
-    /**
-    * @brief Finds a room with @param roomID in mRoomsList
-    *
-    * @param roomID The ID of the room to find
-    * @return RoomWrapper Pointer, The pointer to room with @param roomID in mRoomsList, if exists. Else return a new RoomWrapper object
-    */
-    RoomWrapper *findRoomWrapper(const QString &roomID) const;
 
     //Clear data and refill it with data in the cache, if there is
     void reset();

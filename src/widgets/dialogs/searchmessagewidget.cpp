@@ -108,7 +108,7 @@ void SearchMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *current
     mResultListWidget->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
-void SearchMessageWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+void SearchMessageWidget::setRoom(Room *room)
 {
-    mResultListWidget->setRoomWrapper(roomWrapper);
+    mResultListWidget->setRoom(room);
 }

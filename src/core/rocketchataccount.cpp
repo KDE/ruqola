@@ -22,7 +22,7 @@
 #include "ruqola_notification_debug.h"
 #include "rocketchataccount.h"
 #include "model/roommodel.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "typingnotification.h"
 #include "model/usersmodel.h"
 #include "ruqola_debug.h"
@@ -361,11 +361,6 @@ Room *RocketChatAccount::getRoom(const QString &roomId)
 DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel() const
 {
     return mDiscussionsFilterProxyModel;
-}
-
-RoomWrapper *RocketChatAccount::roomWrapper(const QString &roomId)
-{
-    return mRoomModel->findRoomWrapper(roomId);
 }
 
 MessageModel *RocketChatAccount::messageModelForRoom(const QString &roomID)

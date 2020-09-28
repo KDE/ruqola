@@ -27,7 +27,7 @@
 #include "roomheaderwidget.h"
 class QMenu;
 class QAction;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelActionPopupMenu : public QObject
 {
     Q_OBJECT
@@ -38,7 +38,7 @@ public:
     QMenu *menu() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 Q_SIGNALS:
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
 
@@ -64,7 +64,7 @@ private:
     QAction *mStartVideoChat = nullptr;
     QAction *mPruneMessages = nullptr;
     QAction *mPruneMessagesSeparator = nullptr;
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

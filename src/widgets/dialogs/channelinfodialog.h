@@ -24,14 +24,14 @@
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
 class ChannelInfoWidget;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ChannelInfoDialog(QWidget *parent = nullptr);
     ~ChannelInfoDialog() override;
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 private:
     ChannelInfoWidget *mChannelInfoWidget = nullptr;
 };

@@ -46,7 +46,7 @@ ConfigureNotificationDialog::~ConfigureNotificationDialog()
 {
 }
 
-void ConfigureNotificationDialog::setRoomWrapper(RoomWrapper *roomWrapper)
+void ConfigureNotificationDialog::setRoom(Room *room)
 {
-    mConfigureNoticationWidget->setRoomWrapper(roomWrapper);
+    mConfigureNoticationWidget->setRoom(room);
 }

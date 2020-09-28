@@ -68,9 +68,9 @@ void RuqolaCentralWidget::slotSocketError(QAbstractSocket::SocketError error, co
     mRuqolaLoginWidget->showError(errorString);
 }
 
-RoomWrapper *RuqolaCentralWidget::roomWrapper() const
+Room *RuqolaCentralWidget::room() const
 {
-    return mRuqolaMainWidget->roomWrapper();
+    return mRuqolaMainWidget->room();
 }
 
 QString RuqolaCentralWidget::roomId() const

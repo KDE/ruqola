@@ -25,7 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class ConfigureNotificationWidget;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationDialog : public QDialog
 {
     Q_OBJECT
@@ -33,7 +33,7 @@ public:
     explicit ConfigureNotificationDialog(QWidget *parent = nullptr);
     ~ConfigureNotificationDialog() override;
 
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 
 private:
     ConfigureNotificationWidget *mConfigureNoticationWidget = nullptr;

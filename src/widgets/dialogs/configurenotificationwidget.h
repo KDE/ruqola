@@ -25,7 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
-class RoomWrapper;
+class Room;
 class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 {
@@ -33,14 +33,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 public:
     explicit ConfigureNotificationWidget(QWidget *parent = nullptr);
     ~ConfigureNotificationWidget() override;
-    RoomWrapper *roomWrapper() const;
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    Room *room() const;
+    void setRoom(Room *room);
 
 private:
     QCheckBox *mDisableNotification = nullptr;
     QCheckBox *mHideUnreadRoomStatus = nullptr;
     QCheckBox *mMuteGroupMentions = nullptr;
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
     QComboBox *mDesktopAlertCombobox = nullptr;
     QComboBox *mDesktopAudioCombobox = nullptr;
     QComboBox *mDesktopSoundCombobox = nullptr;

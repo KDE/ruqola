@@ -19,7 +19,7 @@
 */
 
 #include "channelactionpopupmenu.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QMenu>
@@ -139,9 +139,9 @@ QMenu *ChannelActionPopupMenu::menu() const
     return mMenu;
 }
 
-void ChannelActionPopupMenu::setRoomWrapper(RoomWrapper *roomWrapper)
+void ChannelActionPopupMenu::setRoom(Room *room)
 {
-    mRoomWrapper = roomWrapper;
+    mRoom = room;
 }
 
 void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *account)
@@ -153,7 +153,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 {
     mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport()
                                     && mCurrentRocketChatAccount->allowMessagePinningEnabled()
-                                    && (mRoomWrapper->channelType() == QLatin1Char('c')));
+                                    && (mRoom->channelType() == QLatin1Char('c')));
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
@@ -163,8 +163,8 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mInviteUsersGenerateUrlSeparator->setVisible(mCurrentRocketChatAccount->hasInviteUserSupport());
     mStartVideoChat->setVisible(mCurrentRocketChatAccount->jitsiEnabled());
 
-    mAddUserInRoomsSeparator->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
-    mAddUserInRooms->setVisible(mRoomWrapper && mRoomWrapper->canBeModify());
+    mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
+    mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
 
     mPruneMessages->setVisible(mCurrentRocketChatAccount->isAdministrator());
     mPruneMessagesSeparator->setVisible(mCurrentRocketChatAccount->isAdministrator());

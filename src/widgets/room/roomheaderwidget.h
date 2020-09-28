@@ -28,7 +28,7 @@ class QLabel;
 class QToolButton;
 class ChannelActionPopupMenu;
 class RocketChatAccount;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -63,7 +63,7 @@ public:
     void setIsDiscussion(bool isDiscussion);
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 
 Q_SIGNALS:
     void favoriteChanged(bool b);

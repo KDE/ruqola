@@ -20,7 +20,7 @@
 
 #include "channelinfodialog.h"
 #include "channelinfowidget.h"
-#include "roomwrapper.h"
+#include "room.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -48,8 +48,8 @@ ChannelInfoDialog::~ChannelInfoDialog()
 {
 }
 
-void ChannelInfoDialog::setRoomWrapper(RoomWrapper *roomWrapper)
+void ChannelInfoDialog::setRoom(Room *room)
 {
-    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", roomWrapper->name()));
-    mChannelInfoWidget->setRoomWrapper(roomWrapper);
+    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", room->name()));
+    mChannelInfoWidget->setRoom(room);
 }

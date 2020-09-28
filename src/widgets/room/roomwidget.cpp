@@ -24,7 +24,7 @@
 #include "messagelinewidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "readonlylineeditwidget.h"
 #include "messagetextedit.h"
 #include "roomutil.h"
@@ -143,7 +143,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
 RoomWidget::~RoomWidget()
 {
-    delete mRoomWrapper;
+    delete mRoom;
 }
 
 void RoomWidget::slotLoadHistory()
@@ -155,12 +155,12 @@ void RoomWidget::slotChannelInfoRequested()
 {
     if (mRoomType == QLatin1String("d")) {
         QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
-        dlg->setUserName(mRoomWrapper->name());
+        dlg->setUserName(mRoom->name());
         dlg->exec();
         delete dlg;
     } else {
         QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
-        dlg->setRoomWrapper(mRoomWrapper);
+        dlg->setRoom(mRoom);
         dlg->exec();
         delete dlg;
     }
@@ -258,7 +258,7 @@ void RoomWidget::updateListView()
 void RoomWidget::slotConfigureAutoTranslate()
 {
     QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(this);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
 }
@@ -266,7 +266,7 @@ void RoomWidget::slotConfigureAutoTranslate()
 void RoomWidget::slotConfigureNotification()
 {
     QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
 }
@@ -277,7 +277,7 @@ void RoomWidget::slotStarredMessages()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::StarredMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
@@ -289,7 +289,7 @@ void RoomWidget::slotPinnedMessages()
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
     dlg->setRoomId(mRoomId);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::PinnedMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
@@ -303,7 +303,7 @@ void RoomWidget::slotShowMentions()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::MentionsMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
@@ -316,7 +316,7 @@ void RoomWidget::slotSnipperedMessages()
     dlg->setRoomId(mRoomId);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::SnipperedMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
@@ -329,7 +329,7 @@ void RoomWidget::slotShowThreads()
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setRoomId(mRoomId);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::ThreadsMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
@@ -362,7 +362,7 @@ void RoomWidget::slotSearchMessages()
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoomId(mRoomId);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
     connect(dlg, &SearchMessageDialog::goToMessageRequested, mMessageListView, &MessageListView::goToMessage);
     dlg->exec();
@@ -440,29 +440,29 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
 
 void RoomWidget::slotUpdateRoomCounterInfoWidget()
 {
-    if (mRoomWrapper) {
-        mRoomCounterInfoWidget->setChannelCounterInfo(mRoomWrapper->channelCounterInfo());
+    if (mRoom) {
+        mRoomCounterInfoWidget->setChannelCounterInfo(mRoom->channelCounterInfo());
     }
 }
 
 void RoomWidget::updateRoomHeader()
 {
-    if (mRoomWrapper) {
-        mRoomHeaderWidget->setRoomName(mRoomWrapper->displayRoomName());
-        mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
-        mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
-        mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
-        mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
-        mRoomHeaderWidget->setIsDiscussion(mRoomWrapper->isDiscussionRoom());
+    if (mRoom) {
+        mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
+        mRoomHeaderWidget->setRoomAnnouncement(mRoom->announcement());
+        mRoomHeaderWidget->setRoomTopic(mRoom->topic());
+        mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
+        mRoomHeaderWidget->setEncypted(mRoom->encrypted());
+        mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         //TODO Description ?
 
-        if (mRoomWrapper->roomMessageInfo().isEmpty()) {
+        if (mRoom->roomMessageInfo().isEmpty()) {
             mStackedWidget->setCurrentWidget(mMessageLineWidget);
         } else {
             mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
-            mReadOnlyLineEditWidget->setMessage(mRoomWrapper->roomMessageInfo());
+            mReadOnlyLineEditWidget->setMessage(mRoom->roomMessageInfo());
         }
-        if (mRoomWrapper->channelCounterInfo().isValid() && mRoomWrapper->channelCounterInfo().unreadMessages() > 0) {
+        if (mRoom->channelCounterInfo().isValid() && mRoom->channelCounterInfo().unreadMessages() > 0) {
             mRoomCounterInfoWidget->animatedShow();
         } else {
             mRoomCounterInfoWidget->animatedHide();
@@ -480,9 +480,9 @@ void RoomWidget::setRoomType(const QString &roomType)
     mRoomType = roomType;
 }
 
-RoomWrapper *RoomWidget::roomWrapper() const
+Room *RoomWidget::room() const
 {
-    return mRoomWrapper;
+    return mRoom;
 }
 
 void RoomWidget::slotShowListOfUsersInRoom(bool checked)
@@ -493,37 +493,36 @@ void RoomWidget::slotShowListOfUsersInRoom(bool checked)
 void RoomWidget::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
-    delete mRoomWrapper;
-    mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
+    mRoom = mCurrentRocketChatAccount->getRoom(mRoomId);
     connectRoomWrapper();
     mMessageLineWidget->setRoomId(roomId);
-    mMessageListView->setChannelSelected(mRoomWrapper);
-    mUsersInRoomFlowWidget->setRoomWrapper(mRoomWrapper);
-    mRoomHeaderWidget->setRoomWrapper(mRoomWrapper);
+    mMessageListView->setChannelSelected(mRoom);
+    mUsersInRoomFlowWidget->setRoom(mRoom);
+    mRoomHeaderWidget->setRoom(mRoom);
 }
 
 void RoomWidget::connectRoomWrapper()
 {
-    if (mRoomWrapper) {
-        connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
-            mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
+    if (mRoom) {
+        connect(mRoom, &Room::announcementChanged, this, [this]() {
+            mRoomHeaderWidget->setRoomAnnouncement(mRoom->announcement());
         });
-        connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
-            mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+        connect(mRoom, &Room::topicChanged, this, [this]() {
+            mRoomHeaderWidget->setRoomTopic(mRoom->topic());
         });
-        connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
-            mRoomHeaderWidget->setRoomName(mRoomWrapper->displayRoomName());
+        connect(mRoom, &Room::nameChanged, this, [this]() {
+            mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
         });
-        connect(mRoomWrapper, &RoomWrapper::favoriteChanged, this, [this]() {
-            mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
+        connect(mRoom, &Room::favoriteChanged, this, [this]() {
+            mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
         });
-        connect(mRoomWrapper, &RoomWrapper::encryptedChanged, this, [this]() {
-            mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
+        connect(mRoom, &Room::encryptedChanged, this, [this]() {
+            mRoomHeaderWidget->setEncypted(mRoom->encrypted());
         });
-        connect(mRoomWrapper, &RoomWrapper::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
-        connect(mRoomWrapper, &RoomWrapper::autoTranslateChanged, this, &RoomWidget::updateListView);
-        connect(mRoomWrapper, &RoomWrapper::ignoredUsersChanged, this, &RoomWidget::updateListView);
-        connect(mRoomWrapper, &RoomWrapper::channelCounterInfoChanged, this, &RoomWidget::slotUpdateRoomCounterInfoWidget);
+        connect(mRoom, &Room::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
+        connect(mRoom, &Room::autoTranslateChanged, this, &RoomWidget::updateListView);
+        connect(mRoom, &Room::ignoredUsersChanged, this, &RoomWidget::updateListView);
+        connect(mRoom, &Room::channelCounterInfoChanged, this, &RoomWidget::slotUpdateRoomCounterInfoWidget);
     }
     slotUpdateRoomCounterInfoWidget();
     updateRoomHeader();
@@ -591,7 +590,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RoomWidget::slotGoBackToRoom()
 {
-    Q_EMIT selectChannelRequested(mRoomWrapper->parentRid());
+    Q_EMIT selectChannelRequested(mRoom->parentRid());
 }
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
@@ -600,7 +599,7 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const Q
     dlg->setThreadMessageId(threadMessageId);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setThreadPreview(threadMessagePreview);
-    dlg->setRoomWrapper(mRoomWrapper);
+    dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
 }

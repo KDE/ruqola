@@ -23,7 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/flowlayout.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
@@ -42,11 +42,11 @@ UsersInRoomFlowWidget::~UsersInRoomFlowWidget()
 {
 }
 
-void UsersInRoomFlowWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+void UsersInRoomFlowWidget::setRoom(Room *room)
 {
-    mRoomWrapper = roomWrapper;
-    if (mRoomWrapper) {
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
+    mRoom = room;
+    if (mRoom) {
+        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
         connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
         connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
         connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
@@ -91,7 +91,7 @@ void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, co
 void UsersInRoomFlowWidget::generateListUsersWidget()
 {
     if (isVisible()) {
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoomWrapper->roomId());
+        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
         const auto count = model->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         mListUsersWidget.clear();
@@ -108,7 +108,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             info.userName = userName;
             UsersInRoomLabel *userLabel = new UsersInRoomLabel(this);
             userLabel->setUserInfo(info);
-            userLabel->setRoomWrapper(mRoomWrapper);
+            userLabel->setRoom(mRoom);
             mFlowLayout->addWidget(userLabel);
             mListUsersWidget.insert(userId, userLabel);
         }
@@ -126,5 +126,5 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
 
 void UsersInRoomFlowWidget::loadMoreUsersAttachment()
 {
-    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoomWrapper->roomId(), mRoomWrapper->channelType());
+    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
 }

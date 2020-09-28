@@ -24,7 +24,6 @@
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
 #include "usersforroommodel.h"
-#include "roomwrapper.h"
 #include <KLocalizedString>
 
 #include <QIcon>
@@ -71,8 +70,8 @@ void RoomModel::clear()
 {
     if (!mRoomsList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
-        qDeleteAll(mRoomsList);
         mRoomsList.clear();
+        qDeleteAll(mRoomsList);
         endRemoveRows();
     }
 }
@@ -82,17 +81,6 @@ Room *RoomModel::findRoom(const QString &roomID) const
     for (Room *r : qAsConst(mRoomsList)) {
         if (r->roomId() == roomID) {
             return r;
-        }
-    }
-    return nullptr;
-}
-
-RoomWrapper *RoomModel::findRoomWrapper(const QString &roomID) const
-{
-    for (Room *r : qAsConst(mRoomsList)) {
-        if (r->roomId() == roomID) {
-            auto *wrapper = new RoomWrapper(r);
-            return wrapper;
         }
     }
     return nullptr;

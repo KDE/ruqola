@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class ThreadMessageWidget;
 class RocketChatAccount;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageDialog : public QDialog
 {
     Q_OBJECT
@@ -38,7 +38,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setThreadPreview(const QString &preview);
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 private:
     void writeConfig();
     void readConfig();

@@ -24,14 +24,14 @@
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
 class AutoTranslateConfigureWidget;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit AutoTranslateConfigureDialog(QWidget *parent = nullptr);
     ~AutoTranslateConfigureDialog();
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 private:
     AutoTranslateConfigureWidget *mAutoTranslateConfigureWidget = nullptr;
 };

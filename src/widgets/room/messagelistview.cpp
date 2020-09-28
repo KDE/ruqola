@@ -20,7 +20,7 @@
 
 #include "messagelistview.h"
 #include "ruqola.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "delegate/messagelistdelegate.h"
@@ -81,11 +81,11 @@ void MessageListView::slotUpdateLastSeen()
     viewport()->update();
 }
 
-void MessageListView::setRoomWrapper(RoomWrapper *roomWrapper)
+void MessageListView::setRoom(Room *room)
 {
-    mRoomWrapper = roomWrapper;
-    if (mRoomWrapper) {
-        connect(mRoomWrapper, &RoomWrapper::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
+    mRoom = room;
+    if (mRoom) {
+        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
     }
 }
 
@@ -110,14 +110,14 @@ void MessageListView::goToMessage(const QString &messageId)
     }
 }
 
-void MessageListView::setChannelSelected(RoomWrapper *roomWrapper)
+void MessageListView::setChannelSelected(Room *room)
 {
     MessageModel *oldModel = qobject_cast<MessageModel *>(model());
     if (oldModel) {
         oldModel->deactivate();
     }
-    setRoomWrapper(roomWrapper);
-    const QString roomId = roomWrapper->roomId();
+    setRoom(room);
+    const QString roomId = room->roomId();
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
     MessageModel *model = Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId);
     setModel(model);
@@ -206,7 +206,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     //TODO fix me we can't pinned message when we are not owner
     QAction *setPinnedMessage = nullptr;
-    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && (mRoomWrapper->channelType() == QLatin1Char('c'))) {
+    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && (mRoom->channelType() == QLatin1Char('c'))) {
         const bool isPinned = index.data(MessageModel::Pinned).toBool();
         setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
         connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
@@ -462,7 +462,7 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
 {
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this message?"), i18n("Delete Message"))) {
         const QString messageId = index.data(MessageModel::MessageId).toString();
-        mCurrentRocketChatAccount->deleteMessage(messageId, mRoomWrapper->roomId());
+        mCurrentRocketChatAccount->deleteMessage(messageId, mRoom->roomId());
     }
 }
 

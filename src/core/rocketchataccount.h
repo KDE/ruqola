@@ -44,7 +44,6 @@
 class TypingNotification;
 class UsersModel;
 class RoomModel;
-class RoomWrapper;
 class MessageModel;
 class DDPClient;
 class MessageQueue;
@@ -258,7 +257,6 @@ public:
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
     UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
-    RoomWrapper *roomWrapper(const QString &roomId);
     MessageModel *messageModelForRoom(const QString &roomID);
     void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
@@ -294,6 +292,9 @@ public:
 
     Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
+
+    Room *getRoom(const QString &roomId);
+
 
     //Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
@@ -476,7 +477,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
-    Room *getRoom(const QString &roomId);
 
     void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);

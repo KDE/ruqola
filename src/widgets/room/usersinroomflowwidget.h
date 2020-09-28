@@ -25,7 +25,7 @@
 #include <QMap>
 #include "libruqolawidgets_private_export.h"
 class FlowLayout;
-class RoomWrapper;
+class Room;
 class UsersInRoomLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomFlowWidget : public QWidget
 {
@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomFlowWidget : public QWidget
 public:
     explicit UsersInRoomFlowWidget(QWidget *parent = nullptr);
     ~UsersInRoomFlowWidget();
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 
 protected:
     void showEvent(QShowEvent *event) override;
@@ -43,7 +43,7 @@ private:
     void generateListUsersWidget();
     void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     FlowLayout *mFlowLayout = nullptr;
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
     // userId, UsersInRoomLabel
     QMap<QString, UsersInRoomLabel *> mListUsersWidget;
 };

@@ -29,7 +29,7 @@ class QStackedWidget;
 class RuqolaMainWidget;
 class RuqolaLoginWidget;
 class RocketChatAccount;
-class RoomWrapper;
+class Room;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
@@ -41,7 +41,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
-    RoomWrapper *roomWrapper() const;
+    Room *room() const;
 Q_SIGNALS:
     void channelSelected();
     void loginPageActivated(bool showLoginPage);

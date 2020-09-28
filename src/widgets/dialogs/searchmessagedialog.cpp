@@ -84,7 +84,7 @@ void SearchMessageDialog::setCurrentRocketChatAccount(RocketChatAccount *current
     mSearchMessageWidget->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
-void SearchMessageDialog::setRoomWrapper(RoomWrapper *roomWrapper)
+void SearchMessageDialog::setRoom(Room *room)
 {
-    mSearchMessageWidget->setRoomWrapper(roomWrapper);
+    mSearchMessageWidget->setRoom(room);
 }

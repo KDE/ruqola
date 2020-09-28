@@ -24,14 +24,14 @@
 #include <QLabel>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel
 {
     Q_OBJECT
 public:
     explicit UserLabel(QWidget *parent = nullptr);
     ~UserLabel();
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
     void setUserId(const QString &userId);
     void setUserName(const QString &userName);
 private:
@@ -43,7 +43,7 @@ private:
     void slotBlockUser();
     QString mUserId;
     QString mUserName;
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomLabel : public QWidget
@@ -60,7 +60,7 @@ public:
     ~UsersInRoomLabel();
 
     void setUserInfo(const UsersInRoomLabel::UserInfo &info);
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 private:
     UsersInRoomLabel::UserInfo mInfo;
     QLabel *mIconLabel = nullptr;

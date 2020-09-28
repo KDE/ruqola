@@ -19,7 +19,6 @@
 */
 
 #include "room.h"
-#include "roomwrapper.h"
 #include "roommodeltest.h"
 #include "test_model_helpers.h"
 #include "model/roommodel.h"
@@ -125,34 +124,30 @@ void RoomModelTest::shouldReturnRowCount()
 void RoomModelTest::shouldFindRoom()
 {
     RoomModel sampleModel;
-    RoomWrapper *sampleWrapper = nullptr;
+    Room *room = nullptr;
 
     sampleModel.addRoom(QStringLiteral("RA15"), QStringLiteral("master"));
-    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
-    QVERIFY(!sampleWrapper);
+    room = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    QVERIFY(!room);
 
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
-    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
-    QVERIFY(sampleWrapper);
-    QCOMPARE(QStringLiteral("myRoom"), sampleWrapper->name());
-
-    delete sampleWrapper;
+    room = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    QVERIFY(room);
+    QCOMPARE(QStringLiteral("myRoom"), room->name());
 }
 
 void RoomModelTest::shouldAddRoom()
 {
     RoomModel sampleModel;
-    RoomWrapper *sampleWrapper = nullptr;
+    Room *room = nullptr;
 
     QCOMPARE(sampleModel.rowCount(), 0);
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
-    QVERIFY(sampleWrapper);
-    QCOMPARE(QStringLiteral("myRoom"), sampleWrapper->name());
-
-    delete sampleWrapper;
+    room = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    QVERIFY(room);
+    QCOMPARE(QStringLiteral("myRoom"), room->name());
 }
 
 void RoomModelTest::shouldUpdateRoom()
@@ -188,7 +183,7 @@ void RoomModelTest::shouldUpdateRoom()
 void RoomModelTest::shouldUpdateRoomFromQJsonObject()
 {
     RoomModel sampleModel;
-    RoomWrapper *sampleWrapper = nullptr;
+    Room *room = nullptr;
     QJsonObject roomData;
 
     const QString name = QStringLiteral("newName");
@@ -205,16 +200,14 @@ void RoomModelTest::shouldUpdateRoomFromQJsonObject()
 
     QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
     sampleModel.updateRoom(roomData);
-    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
-    QVERIFY(sampleWrapper);
+    room = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    QVERIFY(room);
 
-    QCOMPARE(name, sampleWrapper->name());
-    QCOMPARE(topic, sampleWrapper->topic());
-    QCOMPARE(announcement, sampleWrapper->announcement());
-    QCOMPARE(sampleWrapper->readOnly(), false);
+    QCOMPARE(name, room->name());
+    QCOMPARE(topic, room->topic());
+    QCOMPARE(announcement, room->announcement());
+    QCOMPARE(room->readOnly(), false);
     QCOMPARE(spy.count(), 1);
-
-    delete sampleWrapper;
 }
 
 void RoomModelTest::shouldUpdateSubcriptionActionRemoved()
@@ -264,7 +257,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     RoomModel sampleModel;
     //QJsonArray input;
     QJsonObject roomData;
-    RoomWrapper *sampleWrapper = nullptr;
+    Room *room = nullptr;
 
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
 
@@ -283,16 +276,14 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     sampleModel.updateRoom(roomData);
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
-    QVERIFY(sampleWrapper);
+    room = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    QVERIFY(room);
 
-    QCOMPARE(name, sampleWrapper->name());
-    QCOMPARE(topic, sampleWrapper->topic());
-    QCOMPARE(announcement, sampleWrapper->announcement());
-    QCOMPARE(sampleWrapper->readOnly(), false);
+    QCOMPARE(name, room->name());
+    QCOMPARE(topic, room->topic());
+    QCOMPARE(announcement, room->announcement());
+    QCOMPARE(room->readOnly(), false);
     QCOMPARE(spy.count(), 1);
-
-    delete sampleWrapper;
 }
 
 void RoomModelTest::shouldClear()

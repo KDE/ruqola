@@ -26,7 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class MessageListDelegate;
 class RocketChatAccount;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
 {
     Q_OBJECT
@@ -40,9 +40,9 @@ public:
     explicit MessageListView(MessageListView::Mode mode, QWidget *parent = nullptr);
     ~MessageListView() override;
 
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 
-    void setChannelSelected(RoomWrapper *roomWrapper);
+    void setChannelSelected(Room *room);
 
     void setModel(QAbstractItemModel *newModel) override;
 
@@ -96,7 +96,7 @@ private:
     void handleMouseEvent(QMouseEvent *event);
 
 private:
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *mMessageListDelegate = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

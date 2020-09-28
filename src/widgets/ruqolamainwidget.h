@@ -29,7 +29,7 @@ class ChannelListWidget;
 class RoomWidget;
 class QSplitter;
 class RocketChatAccount;
-class RoomWrapper;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
@@ -39,7 +39,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
-    RoomWrapper *roomWrapper() const;
+    Room *room() const;
 
     void selectChannelRoom(const QString &roomId, const QString &roomType);
 Q_SIGNALS:

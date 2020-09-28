@@ -25,7 +25,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "accountmanager.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "ruqolaserverconfig.h"
 #include "receivetypingnotificationmanager.h"
 #include "ruqolacentralwidget.h"

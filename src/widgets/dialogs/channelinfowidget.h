@@ -28,7 +28,7 @@ class QCheckBox;
 class QPushButton;
 class QStackedWidget;
 class QLabel;
-class RoomWrapper;
+class Room;
 class QToolButton;
 class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
 {
@@ -55,7 +55,7 @@ public:
     explicit ChannelInfoWidget(QWidget *parent = nullptr);
     ~ChannelInfoWidget() override;
 
-    void setRoomWrapper(RoomWrapper *roomWrapper);
+    void setRoom(Room *room);
 
 Q_SIGNALS:
     void channelDeleted();
@@ -85,7 +85,7 @@ private:
     QLabel *mCommentReadOnly = nullptr;
     QLabel *mAnnouncementReadOnly = nullptr;
     QLabel *mDescriptionReadOnly = nullptr;
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
 };
 
 #endif // CHANNELINFOWIDGET_H

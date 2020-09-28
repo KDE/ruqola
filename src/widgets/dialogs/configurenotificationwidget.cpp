@@ -21,7 +21,7 @@
 #include "configurenotificationwidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "notificationpreferences.h"
 #include "model/notificationpreferencemodel.h"
 #include "model/notificationpreferencemodel.h"
@@ -50,21 +50,21 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
     mainLayout->addRow(i18n("Disable Notification:"), mDisableNotification);
     connect(mDisableNotification, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DisableNotifications, checked);
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DisableNotifications, checked);
     });
 
     mHideUnreadRoomStatus = new QCheckBox(this);
     mHideUnreadRoomStatus->setObjectName(QStringLiteral("mHideUnreadRoomStatus"));
     mainLayout->addRow(i18n("Hide Unread Room Status:"), mHideUnreadRoomStatus);
     connect(mHideUnreadRoomStatus, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::HideUnreadStatus, checked);
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideUnreadStatus, checked);
     });
 
     mMuteGroupMentions = new QCheckBox(this);
     mMuteGroupMentions->setObjectName(QStringLiteral("mMuteGroupMentions"));
     mainLayout->addRow(i18n("Mute Group Mentions:"), mMuteGroupMentions);
     connect(mMuteGroupMentions, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::MuteGroupMentions, checked);
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
     });
 
     QGroupBox *desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
@@ -79,7 +79,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
     mDesktopAlertCombobox->setModel(NotificationPreferences::self()->desktopNotificationModel());
     connect(mDesktopAlertCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopNotifications, NotificationPreferences::self()->desktopNotificationModel()->currentPreference(index));
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DesktopNotifications, NotificationPreferences::self()->desktopNotificationModel()->currentPreference(index));
     });
 
     mDesktopAudioCombobox = new QComboBox(this);
@@ -87,7 +87,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Audio:"), mDesktopAudioCombobox);
     mDesktopAudioCombobox->setModel(NotificationPreferences::self()->desktopAudioNotificationModel());
     connect(mDesktopAudioCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::AudioNotifications, NotificationPreferences::self()->desktopAudioNotificationModel()->currentPreference(index));
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::AudioNotifications, NotificationPreferences::self()->desktopAudioNotificationModel()->currentPreference(index));
     });
 
     mDesktopSoundCombobox = new QComboBox(this);
@@ -95,7 +95,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
     mDesktopSoundCombobox->setModel(NotificationPreferences::self()->desktopSoundNotificationModel());
     connect(mDesktopSoundCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopSoundNotifications, NotificationPreferences::self()->desktopSoundNotificationModel()->currentPreference(index));
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DesktopSoundNotifications, NotificationPreferences::self()->desktopSoundNotificationModel()->currentPreference(index));
     });
 
     mDesktopDurationCombobox = new QComboBox(this);
@@ -103,7 +103,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
     mDesktopDurationCombobox->setModel(NotificationPreferences::self()->desktopDurationNotificationModel());
     connect(mDesktopDurationCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopDurationNotifications, NotificationPreferences::self()->desktopDurationNotificationModel()->currentPreference(index));
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DesktopDurationNotifications, NotificationPreferences::self()->desktopDurationNotificationModel()->currentPreference(index));
     });
 
     QGroupBox *mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
@@ -118,7 +118,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
     mMobileAlertCombobox->setModel(NotificationPreferences::self()->mobileNotificationModel());
     connect(mMobileAlertCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::MobilePushNotifications, NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MobilePushNotifications, NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
     });
 
     QGroupBox *emailGroupBox = new QGroupBox(i18n("Email"), this);
@@ -133,7 +133,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
     mEmailAlertCombobox->setModel(NotificationPreferences::self()->emailNotificationModel());
     connect(mEmailAlertCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
-        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::EmailNotifications, NotificationPreferences::self()->emailNotificationModel()->currentPreference(index));
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::EmailNotifications, NotificationPreferences::self()->emailNotificationModel()->currentPreference(index));
     });
 }
 
@@ -141,15 +141,15 @@ ConfigureNotificationWidget::~ConfigureNotificationWidget()
 {
 }
 
-RoomWrapper *ConfigureNotificationWidget::roomWrapper() const
+Room *ConfigureNotificationWidget::room() const
 {
-    return mRoomWrapper;
+    return mRoom;
 }
 
-void ConfigureNotificationWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+void ConfigureNotificationWidget::setRoom(Room *room)
 {
-    mRoomWrapper = roomWrapper;
-    NotificationOptions notificationOptions = mRoomWrapper->notificationOptions();
+    mRoom = room;
+    NotificationOptions notificationOptions = mRoom->notificationOptions();
     mDisableNotification->setChecked(notificationOptions.disableNotifications());
     mHideUnreadRoomStatus->setChecked(notificationOptions.hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());

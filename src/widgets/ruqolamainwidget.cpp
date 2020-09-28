@@ -91,9 +91,9 @@ void RuqolaMainWidget::selectChannelRoom(const QString &roomId, const QString &r
     Q_EMIT channelSelected();
 }
 
-RoomWrapper *RuqolaMainWidget::roomWrapper() const
+Room *RuqolaMainWidget::room() const
 {
-    return mRoomWidget->roomWrapper();
+    return mRoomWidget->room();
 }
 
 QString RuqolaMainWidget::roomId() const

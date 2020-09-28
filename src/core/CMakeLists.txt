@@ -133,7 +133,6 @@ set (Ruqola_core_srcs
     ${Ruqola_apps_language_SRCS}
     authenticationinfo.cpp
     room.cpp
-    roomwrapper.cpp
     ruqola.cpp
     ruqolautils.cpp
     rocketchatbackend.cpp

@@ -20,7 +20,7 @@
 
 #include "threadmessagewidget.h"
 #include "ruqola.h"
-#include "roomwrapper.h"
+#include "room.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "room/messagelinewidget.h"
@@ -75,10 +75,10 @@ void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account
     mMessageListView->setCurrentRocketChatAccount(account);
 }
 
-void ThreadMessageWidget::setRoomWrapper(RoomWrapper *roomWrapper)
+void ThreadMessageWidget::setRoom(Room *room)
 {
-    mMessageLineWidget->setRoomId(roomWrapper->roomId());
-    mMessageListView->setRoomWrapper(roomWrapper);
+    mMessageLineWidget->setRoomId(room->roomId());
+    mMessageListView->setRoom(room);
 }
 
 void ThreadMessageWidget::setThreadPreview(const QString &preview)

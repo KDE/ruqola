@@ -56,5 +56,5 @@ void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
     QComboBox *mLanguage = w.findChild<QComboBox *>(QStringLiteral("mLanguage"));
     QVERIFY(mLanguage);
 
-    QVERIFY(!w.roomWrapper());
+    QVERIFY(!w.room());
 }

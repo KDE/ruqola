@@ -31,13 +31,12 @@
 class RoomHeaderWidget;
 class MessageListView;
 class MessageLineWidget;
-class RoomWrapper;
 class ReadOnlyLineEditWidget;
 class QStackedWidget;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
-
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -51,7 +50,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
 
-    RoomWrapper *roomWrapper() const;
+    Room *room() const;
 
     void slotShowListOfUsersInRoom(bool checked);
     void setChannelSelected(const QString &roomId, const QString &roomType);
@@ -105,7 +104,7 @@ private:
     QLabel *mMessageThreadLabel = nullptr;
     QPushButton *mMessageThreadButton = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
-    RoomWrapper *mRoomWrapper = nullptr;
+    Room *mRoom = nullptr;
     QStackedWidget *mStackedWidget = nullptr;
     ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
     UsersInRoomFlowWidget *mUsersInRoomFlowWidget = nullptr;
