@@ -46,7 +46,7 @@ void RoomCounterInfoWidget::setChannelCounterInfo(const ChannelCounterInfo &chan
 void RoomCounterInfoWidget::updateInfo()
 {
     if (mChannelCounterInfo.isValid() && mChannelCounterInfo.unreadMessages() > 0) {
-        setText(i18n("%1 new messages since %2.", mChannelCounterInfo.unreadMessages(), mChannelCounterInfo.unreadFrom().toString()));
+        setText(i18np("%1 new message since %2.", "%1 new messages since %2.", mChannelCounterInfo.unreadMessages(), mChannelCounterInfo.unreadFrom().toString()));
         animatedShow();
     } else {
         setVisible(false);
