@@ -63,7 +63,7 @@ RoomModel::~RoomModel()
         }
     }
 #endif
-    qDeleteAll(mRoomsList);
+    //VERIFY qDeleteAll(mRoomsList);
 }
 
 void RoomModel::clear()
