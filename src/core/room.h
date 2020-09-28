@@ -260,6 +260,8 @@ Q_SIGNALS:
     void displaySystemMessageTypesChanged();
     void channelCounterInfoChanged();
 
+    void notificationOptionsChanged();
+
 private:
     Q_DISABLE_COPY(Room)
     void parseCommonData(const QJsonObject &json);

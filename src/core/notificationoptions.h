@@ -75,6 +75,7 @@ public:
 
     NotificationOptions &operator =(const NotificationOptions &other) = default;
     Q_REQUIRED_RESULT bool operator==(const NotificationOptions &other) const;
+    Q_REQUIRED_RESULT bool operator!=(const NotificationOptions &other) const;
 
     Q_REQUIRED_RESULT bool muteGroupMentions() const;
     void setMuteGroupMentions(bool muteGroupMentions);

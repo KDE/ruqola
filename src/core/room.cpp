@@ -175,7 +175,10 @@ NotificationOptions Room::notificationOptions() const
 
 void Room::setNotificationOptions(const NotificationOptions &notificationOptions)
 {
-    mNotificationOptions = notificationOptions;
+    if (mNotificationOptions != notificationOptions) {
+        mNotificationOptions = notificationOptions;
+        Q_EMIT notificationOptionsChanged();
+    }
 }
 
 int Room::userMentions() const
