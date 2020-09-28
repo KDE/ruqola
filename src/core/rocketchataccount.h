@@ -293,7 +293,7 @@ public:
     Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
 
-    Room *getRoom(const QString &roomId);
+    Room *room(const QString &roomId);
 
 
     //Make it private in future

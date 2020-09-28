@@ -65,7 +65,7 @@ protected:
 private:
     void slotClearNotification();
     void updateRoomHeader();
-    void connectRoomWrapper();
+    void connectRoom();
     void slotChangeFavorite(bool b);
     void keyPressedInLineEdit(QKeyEvent *ev);
     void slotShowThreadMessage(const QString &threadMessageId);

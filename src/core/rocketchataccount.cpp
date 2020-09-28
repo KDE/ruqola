@@ -353,7 +353,7 @@ UsersModel *RocketChatAccount::usersModel() const
     return mUserModel;
 }
 
-Room *RocketChatAccount::getRoom(const QString &roomId)
+Room *RocketChatAccount::room(const QString &roomId)
 {
     return mRoomModel->findRoom(roomId);
 }
@@ -2221,7 +2221,7 @@ void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const
 
 void RocketChatAccount::slotMarkAsReadDone(const QString &roomId)
 {
-    Room *room = getRoom(roomId);
+    Room *room = this->room(roomId);
     if (room) {
         room->setChannelCounterInfo({});
     }

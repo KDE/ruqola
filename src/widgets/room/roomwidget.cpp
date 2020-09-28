@@ -493,15 +493,15 @@ void RoomWidget::slotShowListOfUsersInRoom(bool checked)
 void RoomWidget::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
-    mRoom = mCurrentRocketChatAccount->getRoom(mRoomId);
-    connectRoomWrapper();
+    mRoom = mCurrentRocketChatAccount->room(mRoomId);
+    connectRoom();
     mMessageLineWidget->setRoomId(roomId);
     mMessageListView->setChannelSelected(mRoom);
     mUsersInRoomFlowWidget->setRoom(mRoom);
     mRoomHeaderWidget->setRoom(mRoom);
 }
 
-void RoomWidget::connectRoomWrapper()
+void RoomWidget::connectRoom()
 {
     if (mRoom) {
         connect(mRoom, &Room::announcementChanged, this, [this]() {
