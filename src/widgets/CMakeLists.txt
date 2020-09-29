@@ -176,6 +176,7 @@ set(Ruqola_myaccount_SRCS
     myaccount/myaccountconfigurewidget.cpp
     myaccount/myaccount2faconfigurewidget.cpp
     myaccount/myaccountprofileconfigurewidget.cpp
+    myaccount/myaccountpreferenceconfigurewidget.cpp
     )    
 
 set(Ruqola_administrator_SRCS
