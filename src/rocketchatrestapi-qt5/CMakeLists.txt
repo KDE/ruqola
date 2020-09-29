@@ -29,6 +29,7 @@ set (RocketChatRestApiQt_SRCS
     users/deleteownaccountjob.cpp
     users/usersupdatejob.cpp
     users/usersupdateownbasicinfojob.cpp
+    users/userssetpreferencesjob.cpp
 
     authentication/logoutjob.cpp
     authentication/loginjob.cpp
