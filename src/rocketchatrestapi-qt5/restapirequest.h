@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "users/userssetpreferencesjob.h"
 #include "rooms/adminroomsjob.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "users/usersupdateownbasicinfojob.h"
@@ -197,6 +198,7 @@ public:
     void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
     void getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info);
     void getChannelsCounter(const QString &roomId);
+    void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
 Q_SIGNALS:
     void avatar(const QString &userId, const QUrl &url);
     void redownloadAvatar();
@@ -275,6 +277,7 @@ Q_SIGNALS:
     void cleanHistoryDone();
     void channelGetCountersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void markAsReadDone(const QString &roomId);
+    void usersSetPreferencesDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

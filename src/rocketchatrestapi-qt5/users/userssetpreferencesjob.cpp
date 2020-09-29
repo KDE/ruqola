@@ -43,24 +43,24 @@ bool UsersSetPreferencesJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersUpdateOwnBasicInfo::start");
+    addStartRestApiInfo("UsersSetPreferencesJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &UsersSetPreferencesJob::slotUpdateOwnBasicInfo);
+    connect(reply, &QNetworkReply::finished, this, &UsersSetPreferencesJob::slotUsersSetPreferences);
     return true;
 }
 
-void UsersSetPreferencesJob::slotUpdateOwnBasicInfo()
+void UsersSetPreferencesJob::slotUsersSetPreferences()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UsersUpdateOwnBasicInfo: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT updateOwnBasicInfoDone();
+            addLoggerInfo(QByteArrayLiteral("UsersSetPreferencesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT usersSetPreferencesDone();
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("UsersUpdateOwnBasicInfo: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("UsersSetPreferencesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
@@ -115,12 +115,17 @@ QJsonDocument UsersSetPreferencesJob::json() const
 
 QDebug operator <<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t)
 {
-    //TODO
+    d << "userId : " << t.userId;
+    d << "newRoomNotification : " << t.newRoomNotification;
+    d << "newMessageNotification : " << t.newMessageNotification;
+    d << "desktopNotifications : " << t.desktopNotifications;
+    d << "mobileNotifications : " << t.mobileNotifications;
+    d << "userId : " << t.userId;
     return d;
 }
 
 bool UsersSetPreferencesJob::UsersSetPreferencesInfo::isValid() const
 {
     //TODO
-    return false;
+    return !userId.isEmpty();
 }

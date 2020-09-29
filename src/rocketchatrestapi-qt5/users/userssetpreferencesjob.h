@@ -31,7 +31,14 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesJob : public RestApiAbs
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesInfo {
+
         Q_REQUIRED_RESULT bool isValid() const;
+        QString userId;
+        QString newRoomNotification;
+        QString newMessageNotification;
+        QString desktopNotifications;
+        QString mobileNotifications;
+        //Add more
     };
 
     explicit UsersSetPreferencesJob(QObject *parent = nullptr);
@@ -48,11 +55,11 @@ public:
     void setUsersSetPreferencesInfo(const UsersSetPreferencesInfo &usersSetPreferencesInfo);
 
 Q_SIGNALS:
-    void updateOwnBasicInfoDone();
+    void usersSetPreferencesDone();
 
 private:
     Q_DISABLE_COPY(UsersSetPreferencesJob)
-    void slotUpdateOwnBasicInfo();
+    void slotUsersSetPreferences();
     UsersSetPreferencesInfo mUsersSetPreferencesInfo;
 };
 }

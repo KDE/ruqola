@@ -1895,3 +1895,14 @@ void RestApiRequest::getChannelsCounter(const QString &roomId)
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetCountersJob";
     }
 }
+
+void RestApiRequest::setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info)
+{
+    auto *job = new UsersSetPreferencesJob(this);
+    job->setUsersSetPreferencesInfo(info);
+    initializeRestApiJob(job);
+    connect(job, &UsersSetPreferencesJob::usersSetPreferencesDone, this, &RestApiRequest::usersSetPreferencesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersSetPreferencesJob";
+    }
+}
