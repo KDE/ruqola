@@ -107,7 +107,19 @@ QJsonDocument UsersSetPreferencesJob::json() const
 {
     QJsonObject jsonObj;
     QJsonObject dataObj;
-    //TODO
+    jsonObj[QLatin1String("userId")] = mUsersSetPreferencesInfo.userId;
+    if (!mUsersSetPreferencesInfo.newRoomNotification.isEmpty()) {
+        dataObj[QLatin1String("newRoomNotification")] = mUsersSetPreferencesInfo.newRoomNotification;
+    }
+    if (!mUsersSetPreferencesInfo.newMessageNotification.isEmpty()) {
+        dataObj[QLatin1String("newMessageNotification")] = mUsersSetPreferencesInfo.newMessageNotification;
+    }
+    if (!mUsersSetPreferencesInfo.desktopNotifications.isEmpty()) {
+        dataObj[QLatin1String("desktopNotifications")] = mUsersSetPreferencesInfo.desktopNotifications;
+    }
+    if (!mUsersSetPreferencesInfo.mobileNotifications.isEmpty()) {
+        dataObj[QLatin1String("mobileNotifications")] = mUsersSetPreferencesInfo.mobileNotifications;
+    }
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -126,6 +138,5 @@ QDebug operator <<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Us
 
 bool UsersSetPreferencesJob::UsersSetPreferencesInfo::isValid() const
 {
-    //TODO
     return !userId.isEmpty();
 }
