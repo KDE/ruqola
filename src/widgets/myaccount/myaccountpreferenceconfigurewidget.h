@@ -31,6 +31,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public 
 public:
     explicit MyAccountPreferenceConfigureWidget(QWidget *parent = nullptr);
     ~MyAccountPreferenceConfigureWidget();
+    void save();
+    void load();
 };
 
 #endif // MYACCOUNTPREFERENCECONFIGUREWIDGET_H

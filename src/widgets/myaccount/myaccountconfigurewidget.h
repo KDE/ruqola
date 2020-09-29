@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class MyAccount2FaConfigureWidget;
 class MyAccountProfileConfigureWidget;
+class MyAccountPreferenceConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
 private:
     MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = nullptr;
     MyAccountProfileConfigureWidget *mMyAccount2ProfileConfigureWidget = nullptr;
+    MyAccountPreferenceConfigureWidget *mMyAccountPreferenceConfigureWidget = nullptr;
 };
 
 #endif // MYACCOUNTCONFIGUREWIDGET_H

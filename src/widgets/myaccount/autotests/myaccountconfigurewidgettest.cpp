@@ -22,6 +22,7 @@
 #include "myaccount/myaccountconfigurewidget.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
+#include "myaccount/myaccountpreferenceconfigurewidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -48,4 +49,7 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 
     MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
     QVERIFY(mMyAccount2FaConfigureWidget);
+
+    MyAccountPreferenceConfigureWidget *mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    QVERIFY(mMyAccountPreferenceConfigureWidget);
 }

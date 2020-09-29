@@ -1,4 +1,4 @@
-/*
+﻿/*
    Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
@@ -20,6 +20,7 @@
 
 #include "myaccount2faconfigurewidget.h"
 #include "myaccountconfigurewidget.h"
+#include "myaccountpreferenceconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -48,6 +49,10 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     if (!Ruqola::self()->rocketChatAccount()->allowProfileChange()) {
         mMyAccount2ProfileConfigureWidget->setVisible(false);
     }
+
+    mMyAccountPreferenceConfigureWidget = new MyAccountPreferenceConfigureWidget(this);
+    mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget()
@@ -58,10 +63,12 @@ void MyAccountConfigureWidget::save()
 {
     mMyAccount2ProfileConfigureWidget->save();
     mMyAccount2FaConfigureWidget->save();
+    mMyAccountPreferenceConfigureWidget->save();
 }
 
 void MyAccountConfigureWidget::load()
 {
     mMyAccount2ProfileConfigureWidget->load();
     mMyAccount2FaConfigureWidget->load();
+    mMyAccountPreferenceConfigureWidget->load();
 }
