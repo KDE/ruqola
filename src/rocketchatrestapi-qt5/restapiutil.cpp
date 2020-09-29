@@ -412,6 +412,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 
     case RestApiUtil::RestApiUrlType::UsersDeleteOwnAccount:
         return QStringLiteral("users.deleteOwnAccount");
+    case RestApiUtil::RestApiUrlType::UsersSetPreferences:
+        return QStringLiteral("users.setPreferences");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
