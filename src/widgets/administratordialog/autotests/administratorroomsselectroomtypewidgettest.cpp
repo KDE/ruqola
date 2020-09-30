@@ -20,6 +20,7 @@
 
 #include "administratorroomsselectroomtypewidgettest.h"
 #include "administratordialog/administratorroomsselectroomtypewidget.h"
+#include <QHBoxLayout>
 #include <QTest>
 QTEST_MAIN(AdministratorRoomsSelectRoomTypeWidgetTest)
 
@@ -32,5 +33,8 @@ AdministratorRoomsSelectRoomTypeWidgetTest::AdministratorRoomsSelectRoomTypeWidg
 void AdministratorRoomsSelectRoomTypeWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorRoomsSelectRoomTypeWidget w;
-    //TODO
+
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins());
 }

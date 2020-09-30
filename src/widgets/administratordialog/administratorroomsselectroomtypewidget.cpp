@@ -19,10 +19,15 @@
 */
 
 #include "administratorroomsselectroomtypewidget.h"
+#include <QHBoxLayout>
+#include <KLocalizedString>
 
 AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 
 }
 
