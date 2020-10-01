@@ -21,10 +21,10 @@
 #ifndef ResetAvatarJob_H
 #define ResetAvatarJob_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "userbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ResetAvatarJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ResetAvatarJob : public UserBaseJob
 {
     Q_OBJECT
 public:
@@ -38,16 +38,12 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString avatarUserId() const;
-    void setAvatarUserId(const QString &avatarUserId);
-
 Q_SIGNALS:
     void resetAvatarDone();
 
 private:
     Q_DISABLE_COPY(ResetAvatarJob)
     void slotResetAvatar();
-    QString mAvatarUserId;
 };
 }
 #endif // ResetAvatarJob_H

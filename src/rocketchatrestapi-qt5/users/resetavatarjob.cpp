@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ResetAvatarJob::ResetAvatarJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : UserBaseJob(parent)
 {
 }
 
@@ -66,16 +66,6 @@ void ResetAvatarJob::slotResetAvatar()
     deleteLater();
 }
 
-QString ResetAvatarJob::avatarUserId() const
-{
-    return mAvatarUserId;
-}
-
-void ResetAvatarJob::setAvatarUserId(const QString &avatarUserId)
-{
-    mAvatarUserId = avatarUserId;
-}
-
 bool ResetAvatarJob::requireHttpAuthentication() const
 {
     return true;
@@ -86,8 +76,8 @@ bool ResetAvatarJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mAvatarUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetAvatarJob: mAvatarUserId is empty";
+    if (!hasUserIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetAvatarJob: identifier is empty";
         return false;
     }
     return true;
@@ -105,8 +95,7 @@ QNetworkRequest ResetAvatarJob::request() const
 QJsonDocument ResetAvatarJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("userId")] = mAvatarUserId;
-
+    generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

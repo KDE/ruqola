@@ -35,7 +35,7 @@ void ResetAvatarJobTest::shouldHaveDefaultValue()
     ResetAvatarJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.avatarUserId().isEmpty());
+    QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -51,9 +51,11 @@ void ResetAvatarJobTest::shouldGenerateRequest()
 void ResetAvatarJobTest::shouldGenerateJson()
 {
     ResetAvatarJob job;
-    const QString avatarid = QStringLiteral("foo1");
-    job.setAvatarUserId(avatarid);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"userId\":\"%1\"}").arg(avatarid).toLatin1());
+    UserBaseJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo1");
+    info.userInfoType = UserBaseJob::UserInfoType::UserId;
+    job.setUserInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"userId\":\"%1\"}").arg(info.userIdentifier).toLatin1());
 }
 
 void ResetAvatarJobTest::shouldNotStarting()
@@ -73,7 +75,9 @@ void ResetAvatarJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString avatarid = QStringLiteral("foo1");
-    job.setAvatarUserId(avatarid);
+    UserBaseJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo1");
+    info.userInfoType = UserBaseJob::UserInfoType::UserName;
+    job.setUserInfo(info);
     QVERIFY(job.canStart());
 }
