@@ -74,13 +74,7 @@ void UserInfoJob::slotUserInfoFinished()
 QNetworkRequest UserInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
-    QUrlQuery queryUrl;
-    if (mUserInfo.userInfoType == UserBaseJob::UserInfoType::UserName) {
-        queryUrl.addQueryItem(QStringLiteral("username"), mUserInfo.userIdentifier);
-    } else {
-        queryUrl.addQueryItem(QStringLiteral("userId"), mUserInfo.userIdentifier);
-    }
-    url.setQuery(queryUrl);
+    addQueryUrl(url);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);

@@ -27,7 +27,7 @@
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : UserBaseJob(parent)
 {
 }
 
@@ -37,8 +37,8 @@ GetAvatarJob::~GetAvatarJob()
 
 bool GetAvatarJob::canStart() const
 {
-    if (mAvatarUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Avatar userid is empty";
+    if (!hasUserIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetAvatarJob: identifier is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -55,8 +55,7 @@ bool GetAvatarJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatar);
-    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: " + mAvatarUserId.toLatin1());
-    reply->setProperty("userId", mAvatarUserId);
+    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: " + mUserInfo.userIdentifier.toLatin1());
     addStartRestApiInfo("GetAvatarJob::start");
     return true;
 }
@@ -65,7 +64,7 @@ void GetAvatarJob::slotGetAvatar()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
-        const QString userId = reply->property("userId").toString();
+        const QString userId = mUserInfo.userIdentifier;
         if (!reply->error()) {
             const QUrl url = reply->url();
             if (url.isValid() && !url.scheme().isEmpty()) {
@@ -86,9 +85,7 @@ void GetAvatarJob::slotGetAvatar()
 QNetworkRequest GetAvatarJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), mAvatarUserId);
-    url.setQuery(queryUrl);
+    addQueryUrl(url);
     QNetworkRequest request(url);
     return request;
 }
@@ -96,16 +93,6 @@ QNetworkRequest GetAvatarJob::request() const
 bool GetAvatarJob::requireHttpAuthentication() const
 {
     return false;
-}
-
-QString GetAvatarJob::avatarUserId() const
-{
-    return mAvatarUserId;
-}
-
-void GetAvatarJob::setAvatarUserId(const QString &avatarUserId)
-{
-    mAvatarUserId = avatarUserId;
 }
 
 QString GetAvatarJob::jobName() const

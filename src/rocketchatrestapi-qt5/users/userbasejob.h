@@ -35,7 +35,7 @@ public:
         UserName,
     };
 
-    struct UserInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UserInfo {
         QString userIdentifier;
         UserBaseJob::UserInfoType userInfoType = UserBaseJob::UserInfoType::Unknown;
     };
@@ -47,6 +47,8 @@ public:
 
     Q_REQUIRED_RESULT bool hasUserIdentifier() const;
 
+    void addQueryUrl(QUrl &url) const;
+    Q_REQUIRED_RESULT QString identifier() const;
 protected:
     UserInfo mUserInfo;
 };

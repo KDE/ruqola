@@ -344,7 +344,12 @@ void RestApiRequest::getAvatar(const QString &userId)
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
     connect(job, &GetAvatarJob::redownloadAvatar, this, &RestApiRequest::redownloadAvatar);
     initializeRestApiJob(job);
-    job->setAvatarUserId(userId);
+    //TODO customize
+    UserBaseJob::UserInfo info;
+    info.userInfoType = UserBaseJob::UserInfoType::UserId;
+    info.userIdentifier = userId;
+
+    job->setUserInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getAvatar job";
     }

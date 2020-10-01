@@ -36,7 +36,7 @@ void GetAvatarJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(!job.requireHttpAuthentication());
-    QVERIFY(job.avatarUserId().isEmpty());
+    QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -47,8 +47,11 @@ void GetAvatarJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
+    UserBaseJob::UserInfo info;
+    info.userInfoType = UserBaseJob::UserInfoType::UserId;
     const QString avatarUserId = QStringLiteral("avat");
-    job.setAvatarUserId(avatarUserId);
+    info.userIdentifier = avatarUserId;
+    job.setUserInfo(info);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getAvatar?userId=avat")));
 }

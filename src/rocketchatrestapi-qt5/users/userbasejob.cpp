@@ -19,6 +19,8 @@
 */
 
 #include "userbasejob.h"
+
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 
 UserBaseJob::UserBaseJob(QObject *parent)
@@ -43,4 +45,27 @@ void UserBaseJob::setUserInfo(const UserInfo &userInfo)
 bool UserBaseJob::hasUserIdentifier() const
 {
     return !mUserInfo.userIdentifier.isEmpty() && (mUserInfo.userInfoType != UserBaseJob::UserInfoType::Unknown);
+}
+
+void UserBaseJob::addQueryUrl(QUrl &url) const
+{
+    QUrlQuery queryUrl;
+    if (mUserInfo.userInfoType == UserBaseJob::UserInfoType::UserName) {
+        queryUrl.addQueryItem(QStringLiteral("username"), mUserInfo.userIdentifier);
+    } else {
+        queryUrl.addQueryItem(QStringLiteral("userId"), mUserInfo.userIdentifier);
+    }
+    url.setQuery(queryUrl);
+}
+
+QString UserBaseJob::identifier() const
+{
+    switch (mUserInfo.userInfoType) {
+    case UserBaseJob::UserInfoType::UserName:
+    case UserBaseJob::UserInfoType::UserId:
+        return mUserInfo.userIdentifier;
+    case UserBaseJob::UserInfoType::Unknown:
+        return {};
+    }
+    return {};
 }

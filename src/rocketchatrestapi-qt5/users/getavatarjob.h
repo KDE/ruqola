@@ -22,11 +22,11 @@
 #define GETAVATARJOB_H
 
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
+#include "userbasejob.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetAvatarJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetAvatarJob : public UserBaseJob
 {
     Q_OBJECT
 public:
@@ -35,9 +35,6 @@ public:
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-
-    Q_REQUIRED_RESULT QString avatarUserId() const;
-    void setAvatarUserId(const QString &avatarUserId);
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
@@ -53,7 +50,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GetAvatarJob)
     void slotGetAvatar();
-    QString mAvatarUserId;
 };
 }
 #endif // GETAVATARJOB_H
