@@ -1919,7 +1919,13 @@ void RocketChatAccount::openDocumentation()
 
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
-    qCWarning(RUQOLA_LOG) << "Need to implement updateAvatar :" << contents;
+    qWarning() << "Need to implement updateAvatar :" << contents << " account name " << accountName();
+    for (int i = 0; i < contents.count(); ++i) {
+        const QJsonObject obj = contents.at(i).toObject();
+        const QString userName = obj[QLatin1String("username")].toString();
+        qDebug() << "need to update userName"  << userName;
+        //mCache->updateAvatar(userName);
+    }
 
     //TODO parse "QJsonObject({"args":[{"username":"foo"}],"eventName":"updateAvatar"})"
 }
