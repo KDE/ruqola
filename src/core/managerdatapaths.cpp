@@ -33,13 +33,25 @@ ManagerDataPaths *ManagerDataPaths::self()
     return &s_self;
 }
 
-QString ManagerDataPaths::accountConfigFileName(const QString &accountName)
+QString ManagerDataPaths::accountAvatarConfigPath(const QString &accountName) const
 {
-    const QString accountPath = path(ManagerDataPaths::PathType::Config, accountName) + QStringLiteral("/ruqola.conf");
+    const QString accountPath = accountConfigPath(accountName) + QStringLiteral("/avatar.conf");
     return accountPath;
 }
 
-QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &accountName, const QString &subdirectory)
+QString ManagerDataPaths::accountConfigPath(const QString &accountName) const
+{
+    const QString accountPath = path(ManagerDataPaths::PathType::Config, accountName);
+    return accountPath;
+}
+
+QString ManagerDataPaths::accountConfigFileName(const QString &accountName) const
+{
+    const QString accountPath = accountConfigPath(accountName) + QStringLiteral("/ruqola.conf");
+    return accountPath;
+}
+
+QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &accountName, const QString &subdirectory) const
 {
     QString path = mPathTypeHash.value(type);
     Q_ASSERT(!path.isEmpty());
