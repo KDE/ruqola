@@ -424,9 +424,9 @@ void RocketChatAccount::deleteFileMessage(const QString &roomId, const QString &
     ddp()->deleteFileMessage(roomId, fileId, channelType);
 }
 
-QString RocketChatAccount::avatarUrl(const QString &userId)
+QString RocketChatAccount::avatarUrl(const QString &userIdentifier)
 {
-    return mCache->avatarUrl(userId);
+    return mCache->avatarUrl(userIdentifier);
 }
 
 void RocketChatAccount::insertAvatarUrl(const QString &userId, const QUrl &url)

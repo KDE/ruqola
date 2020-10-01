@@ -94,7 +94,7 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 
 QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
-    const QString userId = index.data(MessageModel::UserId).toString();
+    const QString userId = index.data(MessageModel::Username).toString();
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(userId);
     if (iconUrlStr.isEmpty()) {
         return {};

@@ -209,7 +209,7 @@ public:
     void starMessage(const QString &messageId, bool starred);
     void pinMessage(const QString &messageId, bool pinned);
     void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
-    Q_REQUIRED_RESULT QString avatarUrl(const QString &userId);
+    Q_REQUIRED_RESULT QString avatarUrl(const QString &userIdentifier);
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
     void channelAndPrivateAutocomplete(const QString &pattern);

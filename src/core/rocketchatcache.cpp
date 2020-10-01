@@ -40,7 +40,7 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
 
 RocketChatCache::~RocketChatCache()
 {
-    QSettings settings;
+    QSettings settings(ManagerDataPaths::self()->accountAvatarConfigPath(mAccount->accountName()), QSettings::IniFormat);
 
     settings.beginGroup(QStringLiteral("Avatar"));
     QHash<QString, QUrl>::const_iterator i = mUserAvatarUrl.constBegin();
@@ -85,7 +85,7 @@ void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url
 
 void RocketChatCache::loadAvatarCache()
 {
-    QSettings settings;
+    QSettings settings(ManagerDataPaths::self()->accountAvatarConfigPath(mAccount->accountName()), QSettings::IniFormat);
     settings.beginGroup(QStringLiteral("Avatar"));
     const QStringList keys = settings.childKeys();
     for (const QString &key : keys) {
@@ -164,6 +164,7 @@ QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
 void RocketChatCache::removeAvatar(const QString &userIdentifier)
 {
     const QUrl avatarUrl = mUserAvatarUrl.value(userIdentifier);
+    qDebug() << "avatarUrl " << avatarUrl;
     QFile f(fileCachePath(avatarUrl));
     if (f.exists()) {
         if (!f.remove()) {
@@ -180,22 +181,22 @@ void RocketChatCache::updateAvatar(const QString &userIdentifier)
     downloadAvatarFromServer(userIdentifier);
 }
 
-QString RocketChatCache::avatarUrl(const QString &userId)
+QString RocketChatCache::avatarUrl(const QString &userIdentifier)
 {
     //avoid to call this method several time.
-    if (!mUserAvatarUrl.contains(userId)) {
-        insertAvatarUrl(userId, QUrl());
-        downloadAvatarFromServer(userId);
+    if (!mUserAvatarUrl.contains(userIdentifier)) {
+        insertAvatarUrl(userIdentifier, QUrl());
+        downloadAvatarFromServer(userIdentifier);
         return {};
     } else {
-        const QUrl valueUrl = mUserAvatarUrl.value(userId);
+        const QUrl valueUrl = mUserAvatarUrl.value(userIdentifier);
         if (!valueUrl.isEmpty() && fileInCache(valueUrl)) {
             const QString url = QUrl::fromLocalFile(fileCachePath(valueUrl)).toString();
             //qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
 
             return url;
         } else {
-            downloadAvatarFromServer(userId);
+            downloadAvatarFromServer(userIdentifier);
         }
         return {};
     }

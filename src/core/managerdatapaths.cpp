@@ -36,6 +36,7 @@ ManagerDataPaths *ManagerDataPaths::self()
 QString ManagerDataPaths::accountAvatarConfigPath(const QString &accountName) const
 {
     const QString accountPath = accountConfigPath(accountName) + QStringLiteral("/avatar.conf");
+    qDebug() << " accountPath" << accountPath;
     return accountPath;
 }
 

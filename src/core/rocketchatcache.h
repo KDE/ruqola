@@ -36,7 +36,7 @@ public:
 
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;
-    Q_REQUIRED_RESULT QString avatarUrl(const QString &userId);
+    Q_REQUIRED_RESULT QString avatarUrl(const QString &userIdentifier);
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
     void downloadFileFromServer(const QString &filename);
