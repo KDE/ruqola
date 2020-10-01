@@ -19,7 +19,8 @@
 */
 
 #include "userbasejob.h"
-
+#include "rocketchatqtrestapi_debug.h"
+#include <QJsonObject>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 
@@ -68,4 +69,19 @@ QString UserBaseJob::identifier() const
         return {};
     }
     return {};
+}
+
+void UserBaseJob::generateJson(QJsonObject &jsonObj) const
+{
+    switch (mUserInfo.userInfoType) {
+    case UserBaseJob::UserInfoType::UserName:
+        jsonObj[QStringLiteral("username")] = mUserInfo.userIdentifier;
+        break;
+    case UserBaseJob::UserInfoType::UserId:
+        jsonObj[QStringLiteral("userId")] = mUserInfo.userIdentifier;
+        break;
+    case UserBaseJob::UserInfoType::Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserBaseJob::UserInfoType::Unknown is a bug !";
+        break;
+    }
 }

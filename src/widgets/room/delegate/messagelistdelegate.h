@@ -70,6 +70,7 @@ public:
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    void slotAvatarChanged(const QString &userIdentifier);
 
     struct Layout {
         // Sender

@@ -77,7 +77,12 @@ MessageListDelegate::~MessageListDelegate()
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
+    if (mRocketChatAccount) {
+        disconnect(mRocketChatAccount, nullptr, this, nullptr);
+    }
+
     mRocketChatAccount = rcAccount;
+    connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &MessageListDelegate::slotAvatarChanged);
 }
 
 static qreal basicMargin()
@@ -90,6 +95,20 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     // This gives incorrect results (too small bounding rect), no idea why!
     //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+}
+
+void MessageListDelegate::slotAvatarChanged(const QString &userIdentifier)
+{
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(userIdentifier);
+    if (iconUrlStr.isEmpty()) {
+        return;
+    }
+    auto &cache = mAvatarCache.cache;
+    auto downScaled = cache.findCachedPixmap(iconUrlStr);
+    //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
+    if (!downScaled.isNull()) {
+        mAvatarCache.cache.clear();
+    }
 }
 
 QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const

@@ -47,9 +47,10 @@ public:
 
     Q_REQUIRED_RESULT bool hasUserIdentifier() const;
 
-    void addQueryUrl(QUrl &url) const;
     Q_REQUIRED_RESULT QString identifier() const;
 protected:
+    void addQueryUrl(QUrl &url) const;
+    void generateJson(QJsonObject &jsonObj) const;
     UserInfo mUserInfo;
 };
 }

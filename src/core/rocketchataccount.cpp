@@ -1919,11 +1919,10 @@ void RocketChatAccount::openDocumentation()
 
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
-    qWarning() << "Need to implement updateAvatar :" << contents << " account name " << accountName();
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
         const QString userName = obj[QLatin1String("username")].toString();
-        qDebug() << "need to update userName"  << userName;
+        Q_EMIT avatarWasChanged(userName);
         mCache->updateAvatar(userName);
     }
 

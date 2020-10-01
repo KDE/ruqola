@@ -441,6 +441,7 @@ public:
 
     void enable2FaEmailJob(bool enable);
 Q_SIGNALS:
+    void avatarWasChanged(const QString &userIdentifier);
     void accountInitialized();
     void connectedChanged();
     void accountNameChanged();

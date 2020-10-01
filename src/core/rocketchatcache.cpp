@@ -164,7 +164,6 @@ QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
 void RocketChatCache::removeAvatar(const QString &userIdentifier)
 {
     const QUrl avatarUrl = mUserAvatarUrl.value(userIdentifier);
-    qDebug() << "avatarUrl " << avatarUrl;
     QFile f(fileCachePath(avatarUrl));
     if (f.exists()) {
         if (!f.remove()) {
