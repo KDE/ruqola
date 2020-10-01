@@ -43,7 +43,10 @@ AvatarManager::~AvatarManager()
 
 void AvatarManager::slotLoadNextAvatar()
 {
-    mAccount->restApi()->getAvatar(mAvatarDownloadUserIds.constFirst());
+    RocketChatRestApi::UserBaseJob::UserInfo info;
+    info.userIdentifier = mAvatarDownloadUserIds.constFirst();
+    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserName;
+    mAccount->restApi()->getAvatar(info);
 }
 
 void AvatarManager::slotRescheduleDownload()
@@ -75,13 +78,14 @@ RocketChatAccount *AvatarManager::account() const
     return mAccount;
 }
 
-void AvatarManager::slotInsertAvatarUrl(const QString &userId, const QUrl &url)
+void AvatarManager::slotInsertAvatarUrl(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url)
 {
+    const QString identifier = info.userIdentifier;
     if (!url.isEmpty()) {
-        Q_EMIT insertAvatarUrl(userId, url);
+        Q_EMIT insertAvatarUrl(identifier, url);
     } //Else error for downloading => don't redownload it + continue.
 
-    mAvatarDownloadUserIds.removeAll(userId);
+    mAvatarDownloadUserIds.removeAll(identifier);
     //qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
     if (!mAvatarDownloadUserIds.isEmpty()) {
         mTimer->start();

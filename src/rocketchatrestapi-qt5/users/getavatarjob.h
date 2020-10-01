@@ -44,7 +44,7 @@ protected:
     Q_REQUIRED_RESULT QString jobName() const override;
 
 Q_SIGNALS:
-    void avatar(const QString &userId, const QUrl &url);
+    void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
 
 private:

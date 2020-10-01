@@ -41,10 +41,13 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
 RocketChatCache::~RocketChatCache()
 {
     QSettings settings;
+
     settings.beginGroup(QStringLiteral("Avatar"));
     QHash<QString, QUrl>::const_iterator i = mUserAvatarUrl.constBegin();
     while (i != mUserAvatarUrl.constEnd()) {
-        settings.setValue(i.key(), i.value().toString());
+        if (!i.value().toString().isEmpty()) {
+            settings.setValue(i.key(), i.value().toString());
+        }
         ++i;
     }
     settings.endGroup();
@@ -158,11 +161,23 @@ QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
     return {};
 }
 
-void RocketChatCache::updateAvatar(const QString &userId)
+void RocketChatCache::removeAvatar(const QString &userIdentifier)
 {
-    mUserAvatarUrl.remove(userId);
-    insertAvatarUrl(userId, QUrl());
-    downloadAvatarFromServer(userId);
+    const QUrl avatarUrl = mUserAvatarUrl.value(userIdentifier);
+    QFile f(fileCachePath(avatarUrl));
+    if (f.exists()) {
+        if (!f.remove()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to remove f" << f.fileName();
+        }
+    }
+}
+
+void RocketChatCache::updateAvatar(const QString &userIdentifier)
+{
+    removeAvatar(userIdentifier);
+    mUserAvatarUrl.remove(userIdentifier);
+    insertAvatarUrl(userIdentifier, QUrl());
+    downloadAvatarFromServer(userIdentifier);
 }
 
 QString RocketChatCache::avatarUrl(const QString &userId)
@@ -186,9 +201,9 @@ QString RocketChatCache::avatarUrl(const QString &userId)
     }
 }
 
-void RocketChatCache::insertAvatarUrl(const QString &userId, const QUrl &url)
+void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl &url)
 {
-    mUserAvatarUrl.insert(userId, url);
+    mUserAvatarUrl.insert(userIdentifier, url);
     if (!url.isEmpty() && !fileInCache(url)) {
         mAccount->restApi()->downloadFile(url);
         // this will call slotDataDownloaded

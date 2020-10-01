@@ -22,6 +22,7 @@
 #define AVATARMANAGER_H
 
 #include <QObject>
+#include "users/userbasejob.h"
 #include "libruqola_private_export.h"
 class QTimer;
 class RocketChatAccount;
@@ -40,7 +41,7 @@ Q_SIGNALS:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 private:
-    void slotInsertAvatarUrl(const QString &userId, const QUrl &url);
+    void slotInsertAvatarUrl(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
     void slotLoadNextAvatar();
     void slotRescheduleDownload();
     QStringList mAvatarDownloadUserIds;

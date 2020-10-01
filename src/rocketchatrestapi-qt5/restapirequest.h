@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "users/userbasejob.h"
 #include "users/userssetpreferencesjob.h"
 #include "rooms/adminroomsjob.h"
 #include "rooms/roomscleanhistoryjob.h"
@@ -70,7 +71,7 @@ public:
     void login();
     void logout();
     void channelList();
-    void getAvatar(const QString &userId);
+    void getAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
 
     void serverInfo(bool useDeprecatedVersion);
     void getPrivateSettings();
@@ -200,7 +201,7 @@ public:
     void getChannelsCounter(const QString &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
 Q_SIGNALS:
-    void avatar(const QString &userId, const QUrl &url);
+    void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
     void loginDone(const QString &authToken, const QString &userId);
     void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);

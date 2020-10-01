@@ -338,17 +338,12 @@ void RestApiRequest::channelList()
     }
 }
 
-void RestApiRequest::getAvatar(const QString &userId)
+void RestApiRequest::getAvatar(const UserBaseJob::UserInfo &info)
 {
     auto *job = new GetAvatarJob(this);
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
     connect(job, &GetAvatarJob::redownloadAvatar, this, &RestApiRequest::redownloadAvatar);
     initializeRestApiJob(job);
-    //TODO customize
-    UserBaseJob::UserInfo info;
-    info.userInfoType = UserBaseJob::UserInfoType::UserId;
-    info.userIdentifier = userId;
-
     job->setUserInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getAvatar job";

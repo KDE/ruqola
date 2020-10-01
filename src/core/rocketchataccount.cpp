@@ -1924,7 +1924,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
         const QJsonObject obj = contents.at(i).toObject();
         const QString userName = obj[QLatin1String("username")].toString();
         qDebug() << "need to update userName"  << userName;
-        //mCache->updateAvatar(userName);
+        mCache->updateAvatar(userName);
     }
 
     //TODO parse "QJsonObject({"args":[{"username":"foo"}],"eventName":"updateAvatar"})"

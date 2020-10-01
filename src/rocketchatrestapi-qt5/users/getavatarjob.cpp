@@ -69,13 +69,13 @@ void GetAvatarJob::slotGetAvatar()
             const QUrl url = reply->url();
             if (url.isValid() && !url.scheme().isEmpty()) {
                 addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
-                Q_EMIT avatar(userId, url);
+                Q_EMIT avatar(mUserInfo, url);
             } else {
                 qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
             }
         } else {
             addLoggerWarning(QByteArrayLiteral("GetAvatarJob error: ") + userId.toUtf8());
-            Q_EMIT avatar(userId, QUrl());
+            Q_EMIT avatar(mUserInfo, QUrl());
         }
         reply->deleteLater();
     }
