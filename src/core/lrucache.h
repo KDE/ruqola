@@ -94,6 +94,20 @@ public:
         mEntries.front() = {std::move(key), std::move(value)};
     }
 
+    bool remove(const Key &key)
+    {
+        const auto begin = mEntries.begin();
+        const auto end = std::next(mEntries.begin(), mNumEntries);
+        auto it = std::find(begin, end, key);
+        if (it == end) { // not found or already the last recently used one
+            return false;
+        }
+
+        std::move(std::next(it), end, it);
+        --mNumEntries;
+        return true;
+    }
+
     void clear()
     {
         mNumEntries = 0;

@@ -36,6 +36,20 @@ LRUCacheTest::LRUCacheTest(QObject *parent)
     QStandardPaths::setTestModeEnabled(true);
 }
 
+
+namespace QTest
+{
+// Why does qtest.h have QList but not QVector support? Oh well, Qt6 unifies that.
+template <typename T>
+inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected,
+                     const char *file, int line) {
+    return qCompare(QList<T>(t1.begin(), t1.end()),
+                    QList<T>(t2.begin(), t2.end()),
+                    actual, expected, file, line);
+}
+}
+
+
 void LRUCacheTest::shouldCacheLastFiveEntries()
 {
     auto makeString = [](const char *prefix, int i) -> QString
@@ -45,12 +59,11 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
 
     using Cache = LRUCache<QString, QString, 5>;
     Cache cache;
-    auto contents = [&cache]() -> QVector<QString>
-                    {
+    auto contents = [&cache]() -> QVector<QString> {
                         QVector<QString> ret(cache.size());
                         std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
-            return entry.value;
-        });
+                                return entry.value;
+                        });
                         return ret;
                     };
 
@@ -92,9 +105,16 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
         QCOMPARE(contents(), expected);
     }
 
+    // Looking up an entry moves it the front
     auto value = makeString("value", 4);
     QCOMPARE(cache.find(makeString("key", 4))->value, value);
     QVERIFY(expected.removeOne(value));
     expected.prepend(value);
+    QCOMPARE(contents(), expected);
+
+    // Remove an entry
+    auto value3 = makeString("value", 3);
+    QVERIFY(cache.remove(makeString("key", 3)));
+    QVERIFY(expected.removeOne(value3));
     QCOMPARE(contents(), expected);
 }
