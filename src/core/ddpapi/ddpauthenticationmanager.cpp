@@ -289,7 +289,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             const QJsonValue errorCode = response[sl("error")].toObject()
                                          [sl("error")];
             qCWarning(RUQOLA_DDPAPI_LOG) << "Couldn't clean up on logout. Server response:"
-                                         << response;
+                                         << response << " error code " << errorCode;
             // If we get here we're likely getting something wrong from the UI.
             // Need to prevent any further operation from now on.
             setLoginStatus(GenericError);
