@@ -27,7 +27,7 @@
 #include <QJsonObject>
 using namespace RocketChatRestApi;
 GetPresenceJob::GetPresenceJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : UserBaseJob(parent)
 {
 }
 
@@ -37,8 +37,8 @@ GetPresenceJob::~GetPresenceJob()
 
 bool GetPresenceJob::canStart() const
 {
-    if (mPresenceUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "presenceuserid is empty";
+    if (!hasUserIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetPresenceJob: identifier is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -55,7 +55,7 @@ bool GetPresenceJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &GetPresenceJob::slotGetPresenceUserId);
-    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: " + mPresenceUserId.toLatin1());
+    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: " + mUserInfo.userIdentifier.toLatin1());
 
     return true;
 }
@@ -79,22 +79,10 @@ void GetPresenceJob::slotGetPresenceUserId()
     deleteLater();
 }
 
-QString GetPresenceJob::presenceUserId() const
-{
-    return mPresenceUserId;
-}
-
-void GetPresenceJob::setPresenceUserId(const QString &presenceUserId)
-{
-    mPresenceUserId = presenceUserId;
-}
-
 QNetworkRequest GetPresenceJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetPresence);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), mPresenceUserId);
-    url.setQuery(queryUrl);
+    addQueryUrl(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     return request;

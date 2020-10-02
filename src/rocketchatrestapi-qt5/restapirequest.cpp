@@ -1052,11 +1052,12 @@ void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
     }
 }
 
-void RestApiRequest::setAvatar(const QString &avatarUrl)
+void RestApiRequest::setAvatar(const UserInfoJob::UserInfo &info, const QString &avatarUrl)
 {
     auto *job = new SetAvatarJob(this);
     initializeRestApiJob(job);
     job->setAvatarUrl(avatarUrl);
+    job->setUserInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setAvatar job";
     }
@@ -1103,7 +1104,11 @@ void RestApiRequest::userPresence(const QString &userId)
 {
     auto *job = new GetPresenceJob(this);
     initializeRestApiJob(job);
-    job->setPresenceUserId(userId);
+    UserInfoJob::UserInfo info;
+    info.userIdentifier = userId;
+    info.userInfoType = UserInfoJob::UserInfoType::UserId;
+
+    job->setUserInfo(info);
     connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userPresence job";

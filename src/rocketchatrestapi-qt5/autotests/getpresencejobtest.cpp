@@ -36,7 +36,7 @@ void GetPresenceJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.presenceUserId().isEmpty());
+    QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -47,8 +47,11 @@ void GetPresenceJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QString avatarUserId = QStringLiteral("avat");
-    job.setPresenceUserId(avatarUserId);
+
+    UserBaseJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo");
+    info.userInfoType = UserBaseJob::UserInfoType::UserId;
+    job.setUserInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=avat")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=%1").arg(info.userIdentifier)));
 }

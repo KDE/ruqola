@@ -22,11 +22,11 @@
 #define GETPRESENCEJOB_H
 
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
+#include "userbasejob.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetPresenceJob : public UserBaseJob
 {
     Q_OBJECT
 public:
@@ -40,16 +40,12 @@ public:
 
     Q_REQUIRED_RESULT bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString presenceUserId() const;
-    void setPresenceUserId(const QString &presenceUserId);
-
 Q_SIGNALS:
     void getPresenceDone(const QString &presence);
 
 private:
     Q_DISABLE_COPY(GetPresenceJob)
     void slotGetPresenceUserId();
-    QString mPresenceUserId;
 };
 }
 #endif // GETPRESENCEJOB_H
