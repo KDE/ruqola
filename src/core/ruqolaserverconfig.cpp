@@ -433,6 +433,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUserProfileChange;
             }
+        } else if (id == QLatin1String("Accounts_AllowUserAvatarChange")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUserAvatarChange;
+            }
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

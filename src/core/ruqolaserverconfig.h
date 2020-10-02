@@ -57,6 +57,7 @@ public:
         AllowPasswordChange = 0x100000,
         AllowUsernameChange = 0x200000,
         AllowUserProfileChange = 0x400000,
+        AllowUserAvatarChange = 0x800000,
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureType)
