@@ -2230,3 +2230,8 @@ void RocketChatAccount::slotMarkAsReadDone(const QString &roomId)
         room->setChannelCounterInfo({});
     }
 }
+
+void RocketChatAccount::logoutFromOtherLocation()
+{
+    restApi()->removeOtherTokens();
+}

@@ -81,7 +81,7 @@ bool RemoveOtherTokensJob::canStart() const
 
 QNetworkRequest RemoveOtherTokensJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersDeleteOwnAccount);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersRemoveOtherTokens);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

@@ -36,6 +36,7 @@ public:
     void load();
     void save();
 private:
+    void slotLogoutFromOtherLocation();
     void slotDeleteMyAccount();
     void init();
     QLineEdit *mEmail = nullptr;
@@ -44,6 +45,7 @@ private:
     QLineEdit *mNickName = nullptr;
     QLineEdit *mStatusText = nullptr;
     QPushButton *mDeleteMyAccount = nullptr;
+    QPushButton *mLogoutFromOtherLocation = nullptr;
     PasswordConfirmWidget *mPasswordConfirmWidget = nullptr;
     OwnUser mOwnUser;
 };

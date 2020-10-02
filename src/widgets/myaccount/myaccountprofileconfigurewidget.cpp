@@ -72,11 +72,23 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
     mainLayout->addWidget(mDeleteMyAccount);
     connect(mDeleteMyAccount, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotDeleteMyAccount);
+
+    mLogoutFromOtherLocation = new QPushButton(i18n("Logout From Other Logged In Locations"), this);
+    mLogoutFromOtherLocation->setObjectName(QStringLiteral("mLogoutFromOtherLocation"));
+    mainLayout->addWidget(mLogoutFromOtherLocation);
+    connect(mLogoutFromOtherLocation, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation);
+
+
     init();
 }
 
 MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 {
+}
+
+void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
+{
+    Ruqola::self()->rocketChatAccount()->logoutFromOtherLocation();
 }
 
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()

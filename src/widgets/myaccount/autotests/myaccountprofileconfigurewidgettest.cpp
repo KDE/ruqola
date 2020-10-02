@@ -61,4 +61,8 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     PasswordConfirmWidget *mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
     QVERIFY(mPasswordConfirmWidget);
+
+    QPushButton *mLogoutFromOtherLocation = w.findChild<QPushButton *>(QStringLiteral("mLogoutFromOtherLocation"));
+    QVERIFY(mLogoutFromOtherLocation);
+    QVERIFY(!mLogoutFromOtherLocation->text().isEmpty());
 }

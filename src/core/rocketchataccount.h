@@ -440,6 +440,7 @@ public:
     Q_REQUIRED_RESULT bool allowProfileChange() const;
 
     void enable2FaEmailJob(bool enable);
+    void logoutFromOtherLocation();
 Q_SIGNALS:
     void avatarWasChanged(const QString &userIdentifier);
     void accountInitialized();
