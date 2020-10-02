@@ -38,6 +38,7 @@
 #include "users/setstatusjob.h"
 #include "users/userspresencejob.h"
 #include "users/deleteownaccountjob.h"
+#include "users/removeothertokensjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -1860,9 +1861,23 @@ void RestApiRequest::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnB
     job->setUpdateOwnBasicInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersUpdateOwnBasicInfoJob::updateOwnBasicInfoDone, this, &RestApiRequest::updateOwnBasicInfoDone);
+    //Clear all other tokens when password was changed
+    connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &RestApiRequest::removeOtherTokens);
+
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
     }
+}
+
+void RestApiRequest::removeOtherTokens()
+{
+    auto *job = new RemoveOtherTokensJob(this);
+    initializeRestApiJob(job);
+    connect(job, &RemoveOtherTokensJob::removeOtherTokensDone, this, &RestApiRequest::removeOtherTokensDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RemoveOtherTokensJob";
+    }
+
 }
 
 void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)

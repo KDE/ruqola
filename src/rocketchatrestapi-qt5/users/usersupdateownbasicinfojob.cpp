@@ -58,6 +58,9 @@ void UsersUpdateOwnBasicInfoJob::slotUpdateOwnBasicInfo()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("UsersUpdateOwnBasicInfo: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT updateOwnBasicInfoDone();
+            if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
+                Q_EMIT passwordChanged();
+            }
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("UsersUpdateOwnBasicInfo: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

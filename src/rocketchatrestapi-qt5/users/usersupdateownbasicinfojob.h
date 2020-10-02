@@ -72,6 +72,7 @@ protected:
 
 Q_SIGNALS:
     void updateOwnBasicInfoDone();
+    void passwordChanged();
 
 private:
     Q_DISABLE_COPY(UsersUpdateOwnBasicInfoJob)
