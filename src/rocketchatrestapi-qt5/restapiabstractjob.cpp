@@ -477,7 +477,7 @@ QNetworkReply *RestApiAbstractJob::submitGetRequest()
 
 QNetworkReply *RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
 {
-    const QByteArray baPostData = doc.toJson(QJsonDocument::Compact);
+    const QByteArray baPostData = doc.isNull() ? QByteArray() : doc.toJson(QJsonDocument::Compact);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     reply->setProperty("job", QVariant::fromValue(this));
     addLoggerInfo(QByteArray(metaObject()->className()) + " started " + baPostData);
