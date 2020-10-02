@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 SetAvatarJob::SetAvatarJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : UserBaseJob(parent)
 {
 }
 
@@ -75,16 +75,6 @@ void SetAvatarJob::setAvatarUrl(const QString &avatarUrl)
     mAvatarUrl = avatarUrl;
 }
 
-QString SetAvatarJob::avatarUserId() const
-{
-    return mAvatarUserId;
-}
-
-void SetAvatarJob::setAvatarUserId(const QString &avatarUserId)
-{
-    mAvatarUserId = avatarUserId;
-}
-
 bool SetAvatarJob::requireHttpAuthentication() const
 {
     return true;
@@ -92,6 +82,10 @@ bool SetAvatarJob::requireHttpAuthentication() const
 
 bool SetAvatarJob::canStart() const
 {
+    if (!hasUserIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetAvatarJob: identifier is empty";
+        return false;
+    }
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
@@ -115,7 +109,7 @@ QJsonDocument SetAvatarJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("avatarUrl")] = mAvatarUrl;
-
+    generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -36,7 +36,7 @@ void SetAvatarJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.avatarUrl().isEmpty());
-    QVERIFY(job.avatarUserId().isEmpty());
+    QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -54,7 +54,13 @@ void SetAvatarJobTest::shouldGenerateJson()
     SetAvatarJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setAvatarUrl(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"avatarUrl\":\"%1\"}").arg(roomId).toLatin1());
+    UserBaseJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo");
+    info.userInfoType = UserBaseJob::UserInfoType::UserId;
+    job.setUserInfo(info);
+
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"avatarUrl\":\"%1\",\"userId\":\"%2\"}")
+             .arg(roomId).arg(info.userIdentifier).toLatin1());
 }
 
 void SetAvatarJobTest::shouldNotStarting()
@@ -76,5 +82,11 @@ void SetAvatarJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
     job.setAvatarUrl(roomId);
+    QVERIFY(!job.canStart());
+    UserBaseJob::UserInfo info;
+    info.userIdentifier = QStringLiteral("foo");
+    info.userInfoType = UserBaseJob::UserInfoType::UserId;
+    job.setUserInfo(info);
     QVERIFY(job.canStart());
+
 }
