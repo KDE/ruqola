@@ -438,6 +438,7 @@ public:
     Q_REQUIRED_RESULT bool uploadFileEnabled() const;
     Q_REQUIRED_RESULT bool isAdministrator() const;
     Q_REQUIRED_RESULT bool allowProfileChange() const;
+    Q_REQUIRED_RESULT bool allowAvatarChanged() const;
 
     void enable2FaEmailJob(bool enable);
     void logoutFromOtherLocation();

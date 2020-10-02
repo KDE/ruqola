@@ -69,4 +69,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.autoTranslateLanguagesModel());
     QVERIFY(w.accountRoomSettings());
     QVERIFY(w.commandsModel());
+    QVERIFY(!w.allowAvatarChanged());
 }

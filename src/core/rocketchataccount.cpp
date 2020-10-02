@@ -1642,6 +1642,11 @@ bool RocketChatAccount::discussionEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::DiscussionEnabled;
 }
 
+bool RocketChatAccount::allowAvatarChanged() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserAvatarChange;
+}
+
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
 {
     return mServerConfigInfo;
