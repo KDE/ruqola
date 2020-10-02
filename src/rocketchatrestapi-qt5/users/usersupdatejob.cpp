@@ -85,14 +85,10 @@ bool UsersUpdateJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-//    if (mStatusUserId.isEmpty()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateJob: mUserId is empty";
-//        return false;
-//    }
-//    if (mStatus == UsersUpdateJob::Unknown) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateJob: mStatus is not defined";
-//        return false;
-//    }
+    if (!mUpdateInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateJob: mUpdateInfo is not valid.";
+        return false;
+    }
     return true;
 }
 
@@ -111,4 +107,9 @@ QJsonDocument UsersUpdateJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool UsersUpdateJob::UpdateInfo::isValid() const
+{
+    return !mUserId.isEmpty();
 }

@@ -69,7 +69,10 @@ void UsersUpdateJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-    QVERIFY(!job.canStart());
-    //TODO
+
+    UsersUpdateJob::UpdateInfo info;
+    info.mUserId = QStringLiteral("userid");
+    job.setUpdateInfo(info);
+
     QVERIFY(job.canStart());
 }

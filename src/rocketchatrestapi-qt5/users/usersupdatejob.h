@@ -35,6 +35,7 @@ public:
         QString mName;
         QString mUserName;
         QString mPassword;
+        Q_REQUIRED_RESULT bool isValid() const;
         //TODO add more
     };
     explicit UsersUpdateJob(QObject *parent = nullptr);
