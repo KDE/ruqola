@@ -52,3 +52,8 @@ void PixmapCache::clear()
 {
     mCachedImages.clear();
 }
+
+void PixmapCache::remove(const QString &path)
+{
+    mCachedImages.remove(path);
+}

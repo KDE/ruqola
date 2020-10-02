@@ -35,6 +35,7 @@ public:
     Q_REQUIRED_RESULT QPixmap findCachedPixmap(const QString &path);
     void insertCachedPixmap(const QString &path, const QPixmap &pixmap);
     void clear();
+    void remove(const QString &path);
 
 private:
     friend class PixmapCacheTest;

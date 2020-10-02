@@ -107,7 +107,7 @@ void MessageListDelegate::slotAvatarChanged(const QString &userIdentifier)
     auto downScaled = cache.findCachedPixmap(iconUrlStr);
     //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
     if (!downScaled.isNull()) {
-        mAvatarCache.cache.clear();
+        mAvatarCache.cache.remove(iconUrlStr);
     }
 }
 
