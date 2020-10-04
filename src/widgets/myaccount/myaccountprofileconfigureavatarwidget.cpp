@@ -20,6 +20,8 @@
 
 #include "myaccountprofileconfigureavatarwidget.h"
 #include <KLocalizedString>
+#include <QContextMenuEvent>
+#include <QMenu>
 #include <QVBoxLayout>
 
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
@@ -27,10 +29,46 @@ MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWi
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mAvatarImage = new AvatarImage(this);
+    mAvatarImage->setObjectName(QStringLiteral("mAvatarImage"));
+    mainLayout->addWidget(mAvatarImage, 0, Qt::AlignLeft);
+
 }
 
 MyAccountProfileConfigureAvatarWidget::~MyAccountProfileConfigureAvatarWidget()
 {
 
+}
+
+AvatarImage::AvatarImage(QWidget *parent)
+    : QPushButton(parent)
+{
+    setIconSize(QSize(100, 100));
+    setFixedSize(QSize(120, 120));
+
+    connect(this, &AvatarImage::clicked, this, &AvatarImage::changeImage);
+
+}
+
+AvatarImage::~AvatarImage()
+{
+
+}
+
+void AvatarImage::changeImage()
+{
+}
+
+void AvatarImage::changeUrl()
+{
+
+}
+
+void AvatarImage::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu menu;
+
+    menu.addAction(i18n("Change photo..."), this, &AvatarImage::changeImage);
+    menu.addAction(i18n("Change URL..."), this, &AvatarImage::changeUrl);
+    menu.exec(event->globalPos());
 }

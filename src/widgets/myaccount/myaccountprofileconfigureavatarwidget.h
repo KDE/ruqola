@@ -21,14 +21,32 @@
 #ifndef MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
 #define MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
 
+#include <QPushButton>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarImage : public QPushButton
+{
+    Q_OBJECT
+public:
+    explicit AvatarImage(QWidget *parent = nullptr);
+    ~AvatarImage();
+protected:
+    void contextMenuEvent(QContextMenuEvent *event) override;
+
+private:
+    void changeUrl();
+    void changeImage();
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit MyAccountProfileConfigureAvatarWidget(QWidget *parent = nullptr);
     ~MyAccountProfileConfigureAvatarWidget();
+private:
+    AvatarImage *mAvatarImage = nullptr;
 };
 
 #endif // MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
