@@ -119,6 +119,7 @@ void MyAccountProfileConfigureWidget::init()
     mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
     mPasswordConfirmWidget->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
     mDeleteMyAccount->setVisible(Ruqola::self()->rocketChatAccount()->allowDeleteOwnAccount());
+    mConfigureAvatarWidget->setVisible(Ruqola::self()->rocketChatAccount()->allowAvatarChanged());
 }
 
 void MyAccountProfileConfigureWidget::load()
