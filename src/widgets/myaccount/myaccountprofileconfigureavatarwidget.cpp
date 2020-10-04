@@ -32,12 +32,10 @@ MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWi
     mAvatarImage = new AvatarImage(this);
     mAvatarImage->setObjectName(QStringLiteral("mAvatarImage"));
     mainLayout->addWidget(mAvatarImage, 0, Qt::AlignLeft);
-
 }
 
 MyAccountProfileConfigureAvatarWidget::~MyAccountProfileConfigureAvatarWidget()
 {
-
 }
 
 AvatarImage::AvatarImage(QWidget *parent)
@@ -47,12 +45,10 @@ AvatarImage::AvatarImage(QWidget *parent)
     setFixedSize(QSize(120, 120));
 
     connect(this, &AvatarImage::clicked, this, &AvatarImage::changeImage);
-
 }
 
 AvatarImage::~AvatarImage()
 {
-
 }
 
 void AvatarImage::changeImage()
@@ -61,7 +57,6 @@ void AvatarImage::changeImage()
 
 void AvatarImage::changeUrl()
 {
-
 }
 
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)

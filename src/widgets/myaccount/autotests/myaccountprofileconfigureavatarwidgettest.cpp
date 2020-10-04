@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "myaccountprofileconfigureavatarwidgettest.h"
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
 #include <QHBoxLayout>
@@ -33,7 +32,7 @@ void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountProfileConfigureAvatarWidget w;
 
-    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout*>(QStringLiteral("mainLayout"));
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
     AvatarImage *mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));

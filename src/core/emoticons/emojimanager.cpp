@@ -130,7 +130,6 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                         } else {
                             qDebug() << " Impossible to find custom emoji " << emojiIdentifier;
                         }
-
                     }
                 }
                 return cachedHtml;

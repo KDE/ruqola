@@ -295,7 +295,6 @@ public:
 
     Room *room(const QString &roomId);
 
-
     //Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
 
@@ -505,7 +504,6 @@ private:
     void setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
     void slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
-
 
     void getSupportedLanguages();
     void usersPresence();

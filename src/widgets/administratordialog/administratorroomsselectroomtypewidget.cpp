@@ -28,10 +28,8 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-
 }
 
 AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget()
 {
-
 }

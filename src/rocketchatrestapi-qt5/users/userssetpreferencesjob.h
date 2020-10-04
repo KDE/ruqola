@@ -31,7 +31,6 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesJob : public RestApiAbs
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesInfo {
-
         Q_REQUIRED_RESULT bool isValid() const;
         QString userId;
         QString newRoomNotification;

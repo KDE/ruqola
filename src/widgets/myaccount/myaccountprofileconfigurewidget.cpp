@@ -88,7 +88,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mainLayout->addWidget(mLogoutFromOtherLocation);
     connect(mLogoutFromOtherLocation, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation);
 
-
     init();
 }
 
@@ -161,13 +160,12 @@ void MyAccountProfileConfigureWidget::save()
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
-            updateInfo.currentPassword =  Utils::convertSha256Password(dlg->password());
+            updateInfo.currentPassword = Utils::convertSha256Password(dlg->password());
         } else {
             delete dlg;
             return;
         }
         delete dlg;
-
     }
     if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { //TODO verify it
         QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);

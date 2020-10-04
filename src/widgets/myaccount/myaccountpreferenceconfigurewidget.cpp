@@ -30,15 +30,12 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 {
-
 }
 
 void MyAccountPreferenceConfigureWidget::save()
 {
-
 }
 
 void MyAccountPreferenceConfigureWidget::load()
 {
-
 }

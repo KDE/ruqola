@@ -65,7 +65,6 @@ public:
 
     Q_REQUIRED_RESULT bool isAnimatedImage() const;
 
-
     Q_REQUIRED_RESULT QString emojiUrl(const QString &serverUrl) const;
     Q_REQUIRED_RESULT QString emojiFileName() const;
 

@@ -168,14 +168,14 @@ void AdminRoom::setUsers(const QStringList &users)
 bool AdminRoom::operator ==(const AdminRoom &other) const
 {
     return mDefaultRoom == other.defaultRoom()
-            && mUsersCount == other.usersCount()
+           && mUsersCount == other.usersCount()
            && mMessageCount == other.messageCount()
            && mChannelType == other.channelType()
            && mIdentifier == other.identifier()
            && mTopic == other.topic()
            && mName == other.name()
-            && mUserNames == other.userNames()
-            && mUsers == other.users();
+           && mUserNames == other.userNames()
+           && mUsers == other.users();
 }
 
 QDebug operator <<(QDebug d, const AdminRoom &t)

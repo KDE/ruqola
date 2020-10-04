@@ -83,7 +83,6 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
     mainLayout->addWidget(mRoomCounterInfoWidget);
 
-
     mMessageListView = new MessageListView(MessageListView::Mode::Editing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);

@@ -86,7 +86,6 @@ QJsonObject loadJsonObject(const QString &originalJsonFile)
     const QJsonObject obj = doc.object();
     return obj;
 }
-
 }
 
 #endif // RUQOLA_AUTOTEST_HELPER_H

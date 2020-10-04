@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channelcounterinfotest.h"
 #include "channelcounterinfo.h"
 #include "ruqola_autotest_helper.h"
@@ -28,7 +27,6 @@ QTEST_GUILESS_MAIN(ChannelCounterInfoTest)
 ChannelCounterInfoTest::ChannelCounterInfoTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelCounterInfoTest::shouldHaveDefaultValues()

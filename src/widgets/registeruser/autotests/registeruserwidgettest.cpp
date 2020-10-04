@@ -53,7 +53,6 @@ void RegisterUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mConfirmPasswordLineEdit);
     QVERIFY(mConfirmPasswordLineEdit->password().isEmpty());
 
-
     QPushButton *mRegisterButton = w.findChild<QPushButton *>(QStringLiteral("mRegisterButton"));
     QVERIFY(mRegisterButton);
     QVERIFY(!mRegisterButton->isEnabled());

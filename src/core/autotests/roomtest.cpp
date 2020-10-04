@@ -91,7 +91,7 @@ void RoomTest::shouldSerialized()
     input.setRoomCreatorUserName(QStringLiteral("pp"));
     input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+    input.setMutedUsers(QStringList {QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
     input.setUnread(66);
@@ -151,7 +151,7 @@ void RoomTest::shouldEmitSignals()
     input.setRoomCreatorUserName(QStringLiteral("pp"));
     input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+    input.setMutedUsers(QStringList {QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
     input.setUnread(66);

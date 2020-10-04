@@ -29,7 +29,6 @@ RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
 
 RoomCounterInfoWidget::~RoomCounterInfoWidget()
 {
-
 }
 
 ChannelCounterInfo RoomCounterInfoWidget::channelCounterInfo() const

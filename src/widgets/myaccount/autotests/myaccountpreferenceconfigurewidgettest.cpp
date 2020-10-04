@@ -26,7 +26,6 @@ QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
 MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()

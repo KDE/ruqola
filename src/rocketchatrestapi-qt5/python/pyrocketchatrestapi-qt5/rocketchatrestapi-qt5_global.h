@@ -24,4 +24,3 @@
 
 // Define PYTHON_BINDINGS this will be used in some part of c++ to skip problematic parts
 #define PYTHON_BINDINGS
-

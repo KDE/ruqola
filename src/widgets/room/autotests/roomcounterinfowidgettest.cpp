@@ -25,7 +25,6 @@ QTEST_MAIN(RoomCounterInfoWidgetTest)
 RoomCounterInfoWidgetTest::RoomCounterInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomCounterInfoWidgetTest::shouldHaveDefaultValues()

@@ -533,7 +533,7 @@ void DDPClient::deregisterSubscriber(const QString &collection, const QString &e
     }
 
     const QPair<DDPManager *, int> subscriptionParams = mEventSubscriptionHash.value(key);
-    const auto unsubscriptionParams = QPair<DDPManager *, int>{ddpManager, subscriptionId};
+    const auto unsubscriptionParams = QPair<DDPManager *, int> {ddpManager, subscriptionId};
     if (subscriptionParams != unsubscriptionParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Unsubscription parameters don't match subscription parameters.";
         qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Subscription parameters: " << subscriptionParams

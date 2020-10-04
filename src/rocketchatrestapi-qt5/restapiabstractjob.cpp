@@ -532,5 +532,3 @@ void QueryParameters::setSorting(const QMap<QString, QueryParameters::SortOrder>
 {
     mSorting = sorting;
 }
-
-

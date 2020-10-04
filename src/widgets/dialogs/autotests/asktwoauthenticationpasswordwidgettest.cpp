@@ -28,7 +28,6 @@ QTEST_MAIN(AskTwoAuthenticationPasswordWidgetTest)
 AskTwoAuthenticationPasswordWidgetTest::AskTwoAuthenticationPasswordWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()

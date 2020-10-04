@@ -173,7 +173,7 @@ bool NotificationOptions::operator==(const NotificationOptions &other) const
            && (mHideUnreadStatus == other.hideUnreadStatus())
            && (mAudioNotificationValue == other.audioNotificationValue())
            && (mDesktopNotificationDuration == other.desktopNotificationDuration())
-            && (mMuteGroupMentions == other.muteGroupMentions());
+           && (mMuteGroupMentions == other.muteGroupMentions());
 }
 
 bool NotificationOptions::operator!=(const NotificationOptions &other) const

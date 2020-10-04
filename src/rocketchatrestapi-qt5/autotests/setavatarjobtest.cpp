@@ -88,5 +88,4 @@ void SetAvatarJobTest::shouldNotStarting()
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
     QVERIFY(job.canStart());
-
 }

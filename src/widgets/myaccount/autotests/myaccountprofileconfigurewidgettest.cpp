@@ -71,7 +71,6 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLogoutFromOtherLocation);
     QVERIFY(!mLogoutFromOtherLocation->text().isEmpty());
 
-
     MyAccountProfileConfigureAvatarWidget *mConfigureAvatarWidget = w.findChild<MyAccountProfileConfigureAvatarWidget *>(QStringLiteral("mConfigureAvatarWidget"));
     QVERIFY(mConfigureAvatarWidget);
 }

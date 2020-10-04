@@ -36,19 +36,16 @@ LRUCacheTest::LRUCacheTest(QObject *parent)
     QStandardPaths::setTestModeEnabled(true);
 }
 
-
-namespace QTest
-{
+namespace QTest {
 // Why does qtest.h have QList but not QVector support? Oh well, Qt6 unifies that.
-template <typename T>
-inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected,
-                     const char *file, int line) {
+template<typename T>
+inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected, const char *file, int line)
+{
     return qCompare(QList<T>(t1.begin(), t1.end()),
                     QList<T>(t2.begin(), t2.end()),
                     actual, expected, file, line);
 }
 }
-
 
 void LRUCacheTest::shouldCacheLastFiveEntries()
 {
@@ -62,8 +59,8 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
     auto contents = [&cache]() -> QVector<QString> {
                         QVector<QString> ret(cache.size());
                         std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
-                                return entry.value;
-                        });
+            return entry.value;
+        });
                         return ret;
                     };
 

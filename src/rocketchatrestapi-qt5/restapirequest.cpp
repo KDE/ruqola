@@ -1877,7 +1877,6 @@ void RestApiRequest::removeOtherTokens()
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RemoveOtherTokensJob";
     }
-
 }
 
 void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)

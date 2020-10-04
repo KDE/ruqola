@@ -42,7 +42,6 @@ void ChannelGetCountersJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-
 void ChannelGetCountersJobTest::shouldGenerateRequest()
 {
     ChannelGetCountersJob job;
