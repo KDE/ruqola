@@ -20,6 +20,7 @@
 
 #include "myaccountprofileconfigurewidgettest.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
+#include "myaccount/myaccountprofileconfigureavatarwidget.h"
 #include "misc/passwordconfirmwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -69,4 +70,8 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     QPushButton *mLogoutFromOtherLocation = w.findChild<QPushButton *>(QStringLiteral("mLogoutFromOtherLocation"));
     QVERIFY(mLogoutFromOtherLocation);
     QVERIFY(!mLogoutFromOtherLocation->text().isEmpty());
+
+
+    MyAccountProfileConfigureAvatarWidget *mConfigureAvatarWidget = w.findChild<MyAccountProfileConfigureAvatarWidget *>(QStringLiteral("mConfigureAvatarWidget"));
+    QVERIFY(mConfigureAvatarWidget);
 }

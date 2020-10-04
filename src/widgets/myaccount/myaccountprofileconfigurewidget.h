@@ -27,6 +27,7 @@
 class QLineEdit;
 class QPushButton;
 class PasswordConfirmWidget;
+class MyAccountProfileConfigureAvatarWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -47,6 +48,7 @@ private:
     QPushButton *mDeleteMyAccount = nullptr;
     QPushButton *mLogoutFromOtherLocation = nullptr;
     PasswordConfirmWidget *mPasswordConfirmWidget = nullptr;
+    MyAccountProfileConfigureAvatarWidget *mConfigureAvatarWidget = nullptr;
     OwnUser mOwnUser;
 };
 

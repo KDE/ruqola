@@ -23,6 +23,7 @@
 #include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "myaccountprofileconfigureavatarwidget.h"
 #include "misc/passwordconfirmwidget.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -39,6 +40,10 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     QVBoxLayout *topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
+
+    mConfigureAvatarWidget = new MyAccountProfileConfigureAvatarWidget(this);
+    mConfigureAvatarWidget->setObjectName(QStringLiteral("mConfigureAvatarWidget"));
+    topLayout->addWidget(mConfigureAvatarWidget);
 
     QFormLayout *mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
