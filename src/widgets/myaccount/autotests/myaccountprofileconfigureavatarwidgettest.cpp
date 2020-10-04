@@ -21,6 +21,7 @@
 
 #include "myaccountprofileconfigureavatarwidgettest.h"
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
+#include <QHBoxLayout>
 #include <QTest>
 QTEST_MAIN(MyAccountProfileConfigureAvatarWidgetTest)
 MyAccountProfileConfigureAvatarWidgetTest::MyAccountProfileConfigureAvatarWidgetTest(QObject *parent)
@@ -31,5 +32,10 @@ MyAccountProfileConfigureAvatarWidgetTest::MyAccountProfileConfigureAvatarWidget
 void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountProfileConfigureAvatarWidget w;
-    //TODO
+
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout*>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    AvatarImage *mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));
+    QVERIFY(mAvatarImage);
 }
