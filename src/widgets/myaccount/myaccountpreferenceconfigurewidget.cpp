@@ -19,11 +19,13 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
-
+#include <QVBoxLayout>
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()

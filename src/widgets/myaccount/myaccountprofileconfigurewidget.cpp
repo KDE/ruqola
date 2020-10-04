@@ -36,8 +36,13 @@
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QFormLayout *mainLayout = new QFormLayout(this);
+    QVBoxLayout *topLayout = new QVBoxLayout(this);
+    topLayout->setObjectName(QStringLiteral("topLayout"));
+    topLayout->setContentsMargins({});
+
+    QFormLayout *mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    topLayout->addLayout(mainLayout);
 
     mName = new QLineEdit(this);
     mName->setObjectName(QStringLiteral("mName"));

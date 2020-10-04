@@ -37,6 +37,10 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountProfileConfigureWidget w;
 
+    QVBoxLayout *topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
+    QVERIFY(topLayout);
+    QCOMPARE(topLayout->contentsMargins(), QMargins());
+
     QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

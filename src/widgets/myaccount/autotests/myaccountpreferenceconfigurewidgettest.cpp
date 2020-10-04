@@ -21,6 +21,7 @@
 #include "myaccountpreferenceconfigurewidgettest.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
 MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(QObject *parent)
     : QObject(parent)
@@ -31,5 +32,8 @@ MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(Q
 void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountPreferenceConfigureWidget w;
-    //TODO
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 }
