@@ -32,6 +32,7 @@ public:
     explicit CreateDirectMessagesDialog(QWidget *parent = nullptr);
     ~CreateDirectMessagesDialog();
 
+    Q_REQUIRED_RESULT QStringList userNames() const;
 private:
     void readConfig();
     void writeConfig();

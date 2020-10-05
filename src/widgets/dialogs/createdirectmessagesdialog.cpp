@@ -62,6 +62,11 @@ CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
 
 }
 
+QStringList CreateDirectMessagesDialog::userNames() const
+{
+    return mCreateDirectMessagesWidget->userNames();
+}
+
 void CreateDirectMessagesDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

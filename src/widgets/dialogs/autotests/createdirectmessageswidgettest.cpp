@@ -47,4 +47,6 @@ void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
     QVERIFY(label->wordWrap());
+
+    QVERIFY(w.userNames().isEmpty());
 }

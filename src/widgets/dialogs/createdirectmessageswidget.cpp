@@ -36,6 +36,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
                                     "everyone in the same place, using direct messages."), this);
     label->setObjectName(QStringLiteral("label"));
     label->setWordWrap(true);
+    mainLayout->addWidget(label);
 
 
     mUsers = new AddUsersWidget(this);
@@ -43,6 +44,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     mUsers->setPlaceholderText(i18n("Invite Users..."));
     mainLayout->addWidget(mUsers);
     mainLayout->addStretch(1);
+    connect(mUsers, &AddUsersWidget::userListChanged, this, &CreateDirectMessagesWidget::updateOkButton);
 }
 
 CreateDirectMessagesWidget::~CreateDirectMessagesWidget()
