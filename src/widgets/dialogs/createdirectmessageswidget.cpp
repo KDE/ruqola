@@ -32,6 +32,12 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    QLabel *label = new QLabel(i18n("You are about to create a chat with multiple users. Add the ones you would like to talk, "
+                                    "everyone in the same place, using direct messages."), this);
+    label->setObjectName(QStringLiteral("label"));
+    label->setWordWrap(true);
+
+
     mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Invite Users..."));

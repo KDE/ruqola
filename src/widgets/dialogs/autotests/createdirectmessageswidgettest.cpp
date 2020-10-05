@@ -21,6 +21,7 @@
 #include "createdirectmessageswidgettest.h"
 #include "dialogs/createdirectmessageswidget.h"
 #include "misc/adduserswidget.h"
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(CreateDirectMessagesWidgetTest)
@@ -41,4 +42,9 @@ void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
     AddUsersWidget *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
     QVERIFY(mUsers);
     QVERIFY(!mUsers->placeHolderText().isEmpty());
+
+    QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+    QVERIFY(label->wordWrap());
 }
