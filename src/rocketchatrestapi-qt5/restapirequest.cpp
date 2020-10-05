@@ -710,11 +710,11 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
     }
 }
 
-void RestApiRequest::createDirectMessage(const QString &userName)
+void RestApiRequest::createDirectMessage(const QStringList &userNames)
 {
     auto *job = new CreateDmJob(this);
     initializeRestApiJob(job);
-    job->setUserName(userName);
+    job->setUserNames(userNames);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start createDirectMessage job";
     }

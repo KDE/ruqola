@@ -35,7 +35,7 @@ void CreateDmJobTest::shouldHaveDefaultValue()
     CreateDmJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.userName().isEmpty());
+    QVERIFY(job.userNames().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -52,7 +52,7 @@ void CreateDmJobTest::shouldGenerateJson()
 {
     CreateDmJob job;
     const QString channelname = QStringLiteral("foo1");
-    job.setUserName(channelname);
+    job.setUserNames({channelname});
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"username\":\"%1\"}").arg(channelname).toLatin1());
 }
 
@@ -74,6 +74,6 @@ void CreateDmJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString username = QStringLiteral("foo1");
-    job.setUserName(username);
+    job.setUserNames({username});
     QVERIFY(job.canStart());
 }

@@ -39,8 +39,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString userName() const;
-    void setUserName(const QString &userName);
+    Q_REQUIRED_RESULT QStringList userNames() const;
+    void setUserNames(const QStringList &userNames);
 
 Q_SIGNALS:
     void createDmDone();
@@ -48,7 +48,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(CreateDmJob)
     void slotCreateDmFinished();
-    QString mUserName;
+    QStringList mUserNames;
 };
 }
 #endif

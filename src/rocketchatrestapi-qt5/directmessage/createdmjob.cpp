@@ -22,6 +22,7 @@
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -66,14 +67,14 @@ void CreateDmJob::slotCreateDmFinished()
     deleteLater();
 }
 
-QString CreateDmJob::userName() const
+QStringList CreateDmJob::userNames() const
 {
-    return mUserName;
+    return mUserNames;
 }
 
-void CreateDmJob::setUserName(const QString &userName)
+void CreateDmJob::setUserNames(const QStringList &userNames)
 {
-    mUserName = userName;
+    mUserNames = userNames;
 }
 
 bool CreateDmJob::requireHttpAuthentication() const
@@ -83,8 +84,8 @@ bool CreateDmJob::requireHttpAuthentication() const
 
 bool CreateDmJob::canStart() const
 {
-    if (mUserName.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateDmJob: username is empty";
+    if (mUserNames.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateDmJob: usernames is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -96,7 +97,11 @@ bool CreateDmJob::canStart() const
 QJsonDocument CreateDmJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("username")] = mUserName;
+    if (mUserNames.count() == 1) {
+        jsonObj[QLatin1String("username")] = mUserNames.at(0);
+    } else {
+        jsonObj[QLatin1String("usernames")] = QJsonArray::fromStringList(mUserNames);
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -93,7 +93,7 @@ public:
     void updateMessage(const QString &roomId, const QString &messageId, const QString &text);
     void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     void closeChannel(const QString &roomId, const QString &type);
-    void createDirectMessage(const QString &userName);
+    void createDirectMessage(const QStringList &userName);
     void historyChannel(const QString &roomId, const QString &type);
     void changeChannelDescription(const QString &roomId, const QString &description);
     void changeGroupsDescription(const QString &roomId, const QString &description);
