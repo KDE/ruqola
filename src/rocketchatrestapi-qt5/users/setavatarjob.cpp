@@ -65,14 +65,14 @@ void SetAvatarJob::slotSetAvatar()
     deleteLater();
 }
 
-QString SetAvatarJob::avatarUrl() const
+SetAvatarJob::SetAvatarInfo SetAvatarJob::avatarInfo() const
 {
-    return mAvatarUrl;
+    return mAvatarInfo;
 }
 
-void SetAvatarJob::setAvatarUrl(const QString &avatarUrl)
+void SetAvatarJob::setAvatarInfo(const SetAvatarInfo &avatarInfo)
 {
-    mAvatarUrl = avatarUrl;
+    mAvatarInfo = avatarInfo;
 }
 
 bool SetAvatarJob::requireHttpAuthentication() const
@@ -89,8 +89,8 @@ bool SetAvatarJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mAvatarUrl.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetAvatarJob: mAvatarUrl is empty";
+    if (!mAvatarInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetAvatarJob: mAvatarInfo is not valid";
         return false;
     }
     return true;
@@ -108,8 +108,13 @@ QNetworkRequest SetAvatarJob::request() const
 QJsonDocument SetAvatarJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("avatarUrl")] = mAvatarUrl;
+    jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
     generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool SetAvatarJob::SetAvatarInfo::isValid() const
+{
+    return !mAvatarUrl.isEmpty();
 }

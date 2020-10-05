@@ -1057,7 +1057,11 @@ void RestApiRequest::setAvatar(const UserInfoJob::UserInfo &info, const QString 
 {
     auto *job = new SetAvatarJob(this);
     initializeRestApiJob(job);
-    job->setAvatarUrl(avatarUrl);
+
+    SetAvatarJob::SetAvatarInfo avatarInfo;
+    avatarInfo.mAvatarUrl = avatarUrl;
+    job->setAvatarInfo(avatarInfo);
+
     job->setUserInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setAvatar job";
