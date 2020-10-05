@@ -23,6 +23,7 @@
 #include <QContextMenuEvent>
 #include <QMenu>
 #include <QVBoxLayout>
+#include <QDebug>
 
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
     : QWidget(parent)
@@ -53,17 +54,19 @@ AvatarImage::~AvatarImage()
 
 void AvatarImage::changeImage()
 {
+    qDebug() << " Not implemented yet";
 }
 
 void AvatarImage::changeUrl()
 {
+    qDebug() << " Not implemented yet";
 }
 
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
 
-    menu.addAction(i18n("Change photo..."), this, &AvatarImage::changeImage);
+    menu.addAction(i18n("Change Picture..."), this, &AvatarImage::changeImage);
     menu.addAction(i18n("Change URL..."), this, &AvatarImage::changeUrl);
     menu.exec(event->globalPos());
 }
