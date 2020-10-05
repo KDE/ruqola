@@ -100,3 +100,8 @@ void AddUsersWidget::setPlaceholderText(const QString &str)
 {
     mSearchUserLineEdit->setPlaceholderText(str);
 }
+
+QString AddUsersWidget::placeHolderText() const
+{
+    return mSearchUserLineEdit->placeholderText();
+}

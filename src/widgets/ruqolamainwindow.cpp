@@ -36,6 +36,7 @@
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/channelpassworddialog.h"
+#include "dialogs/createdirectmessagesdialog.h"
 #include "registeruser/registeruserdialog.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "configuredialog/configuresettingsdialog.h"
@@ -243,6 +244,11 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
+    mCreateDirectMessages = new QAction(i18n("Create Direct Messages..."), this);
+    mCreateDirectMessages->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
+    ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
+
     mAccountMenu = new AccountMenu(this);
     mAccountMenu->setActionCollection(ac);
     ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
@@ -275,6 +281,15 @@ void RuqolaMainWindow::slotClearAccountAlerts()
     if (auto acct = Ruqola::self()->accountManager()->account()) {
         acct->clearAllUnreadMessages();
     }
+}
+
+void RuqolaMainWindow::slotCreateDirectMessages()
+{
+    QPointer<CreateDirectMessagesDialog> dlg = new CreateDirectMessagesDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()
@@ -368,6 +383,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 {
     mSearchChannel->setEnabled(!loginPageActivated);
     mCreateNewChannel->setEnabled(!loginPageActivated);
+    mCreateDirectMessages->setEnabled(!loginPageActivated);
     //mSaveAs->setEnabled(!loginPageActivated);
     mSaveAs->setEnabled(false); //Reactivate it when we will implement save as
     mLogout->setEnabled(!loginPageActivated);

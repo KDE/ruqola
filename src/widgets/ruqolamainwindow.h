@@ -68,12 +68,14 @@ private:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
     void slotRoomNeedAttention();
+    void slotCreateDirectMessages();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
     QAction *mLogout = nullptr;
     QAction *mSearchChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
+    QAction *mCreateDirectMessages = nullptr;
     QAction *mUnreadOnTop = nullptr;
     QAction *mSaveAs = nullptr;
     QAction *mClearAlerts = nullptr;

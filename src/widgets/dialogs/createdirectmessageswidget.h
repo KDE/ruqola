@@ -18,39 +18,23 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADDUSERSWIDGET_H
-#define ADDUSERSWIDGET_H
+#ifndef CREATEDIRECTMESSAGESWIDGET_H
+#define CREATEDIRECTMESSAGESWIDGET_H
 
 #include <QWidget>
-#include <QMap>
-#include "dialogs/adduserscompletionlineedit.h"
+
 #include "libruqolawidgets_private_export.h"
-class FlowLayout;
-class ClickableUserWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
+class AddUsersWidget;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AddUsersWidget(QWidget *parent = nullptr);
-    ~AddUsersWidget();
-
-    Q_REQUIRED_RESULT QStringList usersId() const;
-
-    void setPlaceholderText(const QString &str);
-
-    Q_REQUIRED_RESULT QString placeHolderText() const;
-
-    Q_REQUIRED_RESULT QStringList usersName() const;
+    explicit CreateDirectMessagesWidget(QWidget *parent = nullptr);
+    ~CreateDirectMessagesWidget();
 Q_SIGNALS:
-    void textChanged(const QString &str);
-    void userListChanged(bool isNotEmpty);
-
+    void updateOkButton(bool state);
 private:
-    void slotRemoveUser(const QString &username);
-    void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
-    AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
-    FlowLayout *mFlowLayout = nullptr;
-    QMap<QString, ClickableUserWidget *> mMap;
+    AddUsersWidget *mUsers = nullptr;
 };
 
-#endif // ADDUSERSWIDGET_H
+#endif // CREATEDIRECTMESSAGESWIDGET_H
