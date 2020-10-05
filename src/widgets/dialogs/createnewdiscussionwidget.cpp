@@ -113,5 +113,5 @@ QString CreateNewDiscussionWidget::message() const
 
 QStringList CreateNewDiscussionWidget::usersId() const
 {
-    return mUsers->usersId();
+    return mUsers->userIds();
 }

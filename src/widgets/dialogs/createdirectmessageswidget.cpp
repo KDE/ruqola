@@ -49,3 +49,8 @@ CreateDirectMessagesWidget::~CreateDirectMessagesWidget()
 {
 
 }
+
+QStringList CreateDirectMessagesWidget::userNames() const
+{
+    return mUsers->userNames();
+}

@@ -113,7 +113,7 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::c
     info.latest = mLastestDateTimeEdit->dateTime().toUTC();
     info.oldest = mOldestDateTimeEdit->dateTime().toUTC();
     info.inclusive = mInclusive->isChecked();
-    info.users = mUsers->usersName();
+    info.users = mUsers->userNames();
     info.ignoreThreads = mDoNotPruneThreads->isChecked();
     info.filesOnly = mOnlyRemoveAttachedFiles->isChecked();
     info.excludePinned = mDoNotPrunePinnedMessage->isChecked();

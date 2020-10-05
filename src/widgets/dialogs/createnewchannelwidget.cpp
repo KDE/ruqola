@@ -85,7 +85,7 @@ QString CreateNewChannelWidget::channelName() const
 
 QStringList CreateNewChannelWidget::users() const
 {
-    return mUsers->usersId();
+    return mUsers->userIds();
 }
 
 bool CreateNewChannelWidget::readOnly() const

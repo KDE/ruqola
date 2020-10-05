@@ -34,13 +34,13 @@ public:
     explicit AddUsersWidget(QWidget *parent = nullptr);
     ~AddUsersWidget();
 
-    Q_REQUIRED_RESULT QStringList usersId() const;
+    Q_REQUIRED_RESULT QStringList userIds() const;
 
     void setPlaceholderText(const QString &str);
 
     Q_REQUIRED_RESULT QString placeHolderText() const;
 
-    Q_REQUIRED_RESULT QStringList usersName() const;
+    Q_REQUIRED_RESULT QStringList userNames() const;
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);

@@ -74,7 +74,7 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-QStringList AddUsersWidget::usersId() const
+QStringList AddUsersWidget::userIds() const
 {
     QStringList addUsers;
     QMapIterator<QString, ClickableUserWidget *> i(mMap);
@@ -85,7 +85,7 @@ QStringList AddUsersWidget::usersId() const
     return addUsers;
 }
 
-QStringList AddUsersWidget::usersName() const
+QStringList AddUsersWidget::userNames() const
 {
     QStringList addUsers;
     QMapIterator<QString, ClickableUserWidget *> i(mMap);
