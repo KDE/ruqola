@@ -51,9 +51,17 @@ void CreateDmJobTest::shouldGenerateRequest()
 void CreateDmJobTest::shouldGenerateJson()
 {
     CreateDmJob job;
-    const QString channelname = QStringLiteral("foo1");
-    job.setUserNames({channelname});
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"username\":\"%1\"}").arg(channelname).toLatin1());
+    {
+        const QString channelname = QStringLiteral("foo1");
+        job.setUserNames({channelname});
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"username\":\"%1\"}").arg(channelname).toLatin1());
+    }
+    {
+        const QStringList userNames = {QStringLiteral("foo1"), QStringLiteral("bla"), QStringLiteral("bli")};
+        job.setUserNames(userNames);
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"usernames\":\"foo1,bla,bli\"}").toLatin1());
+
+    }
 }
 
 void CreateDmJobTest::shouldNotStarting()
