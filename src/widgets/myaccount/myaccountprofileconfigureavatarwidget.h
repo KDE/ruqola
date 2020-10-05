@@ -37,6 +37,7 @@ protected:
 private:
     void changeUrl();
     void changeImage();
+    void resetAvatar();
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : public QWidget
