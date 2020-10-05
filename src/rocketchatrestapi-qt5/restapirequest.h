@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "users/setavatarjob.h"
 #include "users/userbasejob.h"
 #include "users/userssetpreferencesjob.h"
 #include "rooms/adminroomsjob.h"
@@ -115,7 +116,7 @@ public:
     void emailNotifications(const QString &roomId, const QString &value);
     void mobilePushNotifications(const QString &roomId, const QString &value);
     void unreadAlert(const QString &roomId, const QString &value);
-    void setAvatar(const UserBaseJob::UserInfo &info, const QString &avatarUrl);
+    void setAvatar(const UserBaseJob::UserInfo &info, const RocketChatRestApi::SetAvatarJob::SetAvatarInfo &avatarInfo);
     void markRoomAsUnRead(const QString &roomId);
     void markMessageAsUnReadFrom(const QString &messageId);
     void forgotPassword(const QString &email);
