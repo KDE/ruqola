@@ -41,7 +41,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
 
     mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Invite Users..."));
+    mUsers->setPlaceholderText(i18n("Select Users..."));
     mainLayout->addWidget(mUsers);
     mainLayout->addStretch(1);
     connect(mUsers, &AddUsersWidget::userListChanged, this, &CreateDirectMessagesWidget::updateOkButton);
