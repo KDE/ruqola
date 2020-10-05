@@ -2240,3 +2240,9 @@ void RocketChatAccount::logoutFromOtherLocation()
 {
     restApi()->removeOtherTokens();
 }
+
+
+void RocketChatAccount::createDirectMessages(const QStringList &usernames)
+{
+    restApi()->createDirectMessage(usernames);
+}
