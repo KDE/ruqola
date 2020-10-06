@@ -37,6 +37,7 @@ public:
         QString newMessageNotification;
         QString desktopNotifications;
         QString mobileNotifications;
+        QStringList highlights;
         //Add more
     };
 
