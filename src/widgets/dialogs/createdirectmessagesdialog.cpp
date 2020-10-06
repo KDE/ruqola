@@ -59,7 +59,7 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
 
 CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
 {
-
+    writeConfig();
 }
 
 QStringList CreateDirectMessagesDialog::userNames() const
