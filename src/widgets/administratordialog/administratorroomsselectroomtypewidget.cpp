@@ -21,13 +21,29 @@
 #include "administratorroomsselectroomtypewidget.h"
 #include <QHBoxLayout>
 #include <KLocalizedString>
+#include <QCheckBox>
 
 AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(QWidget *parent)
     : QWidget(parent)
+    , mDirectRooms(new QCheckBox(i18n("Direct"), this))
+    , mPublicRooms(new QCheckBox(i18n("Public"), this))
+    , mPrivateRooms(new QCheckBox(i18n("Private"), this))
+    , mDiscussionRooms(new QCheckBox(i18n("Discussion"), this))
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mDirectRooms->setObjectName(QStringLiteral("mDirectRooms"));
+    mPublicRooms->setObjectName(QStringLiteral("mPublicRooms"));
+    mPrivateRooms->setObjectName(QStringLiteral("mPrivateRooms"));
+    mDiscussionRooms->setObjectName(QStringLiteral("mDiscussionRooms"));
+
+    mainLayout->addWidget(mDirectRooms);
+    mainLayout->addWidget(mPublicRooms);
+    mainLayout->addWidget(mPrivateRooms);
+    mainLayout->addWidget(mDiscussionRooms);
+
 }
 
 AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget()

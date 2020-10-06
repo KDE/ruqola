@@ -32,10 +32,10 @@ public:
     explicit AdministratorRoomsSelectRoomTypeWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsSelectRoomTypeWidget();
 private:
-    QCheckBox *mDirectRooms = nullptr;
-    QCheckBox *mPublicRooms = nullptr;
-    QCheckBox *mPrivateRooms = nullptr;
-    QCheckBox *mDiscussionRooms = nullptr;
+    QCheckBox *const mDirectRooms;
+    QCheckBox *const mPublicRooms;
+    QCheckBox *const mPrivateRooms;
+    QCheckBox *const mDiscussionRooms;
     //Omnichannel ?? what is it?
 };
 
