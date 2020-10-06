@@ -43,6 +43,7 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     mainLayout->addWidget(mPublicRooms);
     mainLayout->addWidget(mPrivateRooms);
     mainLayout->addWidget(mDiscussionRooms);
+    mainLayout->addStretch(0);
 
 }
 

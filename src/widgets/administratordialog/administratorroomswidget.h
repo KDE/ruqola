@@ -27,6 +27,7 @@ class QLineEdit;
 class QTableView;
 class AdminRoomsModel;
 class AdminRoomsFilterProxyModel;
+class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public QWidget
 {
     Q_OBJECT
@@ -42,6 +43,7 @@ private:
     QTableView *mResultTreeWidget = nullptr;
     AdminRoomsModel *mAdminRoomsModel = nullptr;
     AdminRoomsFilterProxyModel *mAdminRoomsProxyModel = nullptr;
+    AdministratorRoomsSelectRoomTypeWidget *mSelectRoomType = nullptr;
 };
 
 #endif // ADMINISTRATORROOMSWIDGET_H

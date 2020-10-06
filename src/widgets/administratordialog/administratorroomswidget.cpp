@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "restapirequest.h"
 #include "rooms/adminroomsjob.h"
+#include "administratorroomsselectroomtypewidget.h"
 #include "ruqolawidgets_debug.h"
 #include "administrator/adminrooms.h"
 #include "misc/lineeditcatchreturnkey.h"
@@ -50,6 +51,11 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorRoomsWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
+
+    mSelectRoomType = new AdministratorRoomsSelectRoomTypeWidget(this);
+    mSelectRoomType->setObjectName(QStringLiteral("mSelectRoomType"));
+    mainLayout->addWidget(mSelectRoomType);
+
 
     mResultTreeWidget = new QTableView(this);
     mResultTreeWidget->setShowGrid(false);

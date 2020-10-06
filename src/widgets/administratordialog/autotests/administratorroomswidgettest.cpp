@@ -20,6 +20,7 @@
 
 #include "administratorroomswidgettest.h"
 #include "administratordialog/administratorroomswidget.h"
+#include "administratordialog/administratorroomsselectroomtypewidget.h"
 #include <QLineEdit>
 #include <QTableView>
 #include <QTest>
@@ -45,4 +46,8 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mResultTreeWidget);
     QVERIFY(!mResultTreeWidget->showGrid());
     QVERIFY(mResultTreeWidget->isSortingEnabled());
+
+
+    AdministratorRoomsSelectRoomTypeWidget *mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
+    QVERIFY(mSelectRoomType);
 }
