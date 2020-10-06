@@ -22,6 +22,7 @@
 #include "administratordialog/administratorroomsselectroomtypewidget.h"
 #include <QHBoxLayout>
 #include <QTest>
+#include <QCheckBox>
 QTEST_MAIN(AdministratorRoomsSelectRoomTypeWidgetTest)
 
 AdministratorRoomsSelectRoomTypeWidgetTest::AdministratorRoomsSelectRoomTypeWidgetTest(QObject *parent)
@@ -36,4 +37,25 @@ void AdministratorRoomsSelectRoomTypeWidgetTest::shouldHaveDefaultValues()
     QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
+
+
+    QCheckBox *mDirectRooms = w.findChild<QCheckBox *>(QStringLiteral("mDirectRooms"));
+    QVERIFY(mDirectRooms);
+    QVERIFY(!mDirectRooms->text().isEmpty());
+    QVERIFY(!mDirectRooms->isChecked());
+
+    QCheckBox *mPublicRooms = w.findChild<QCheckBox *>(QStringLiteral("mPublicRooms"));
+    QVERIFY(mPublicRooms);
+    QVERIFY(!mPublicRooms->text().isEmpty());
+    QVERIFY(!mPublicRooms->isChecked());
+
+    QCheckBox *mPrivateRooms = w.findChild<QCheckBox *>(QStringLiteral("mPrivateRooms"));
+    QVERIFY(mPrivateRooms);
+    QVERIFY(!mPrivateRooms->text().isEmpty());
+    QVERIFY(!mPrivateRooms->isChecked());
+
+    QCheckBox *mDiscussionRooms = w.findChild<QCheckBox *>(QStringLiteral("mDiscussionRooms"));
+    QVERIFY(mDiscussionRooms);
+    QVERIFY(!mDiscussionRooms->text().isEmpty());
+    QVERIFY(!mDiscussionRooms->isChecked());
 }
