@@ -374,6 +374,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("roles.list");
     case RestApiUtil::RestApiUrlType::RolesCreate:
         return QStringLiteral("roles.create");
+    case RestApiUtil::RestApiUrlType::RolesSync:
+        return QStringLiteral("roles.sync");
+    case RestApiUtil::RestApiUrlType::RolesGetUsersInRole:
+        return QStringLiteral("roles.getUsersInRole");
     case RestApiUtil::RestApiUrlType::RolesAddUserToRole:
         return QStringLiteral("roles.addUserToRole");
     case RestApiUtil::RestApiUrlType::VideoConfJitsi:

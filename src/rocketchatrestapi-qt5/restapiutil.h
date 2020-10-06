@@ -209,7 +209,9 @@ enum class RestApiUrlType {
 
     RolesList,
     RolesCreate,
+    RolesSync,
     RolesAddUserToRole,
+    RolesGetUsersInRole,
     //since 0.74
     VideoConfJitsi,
 

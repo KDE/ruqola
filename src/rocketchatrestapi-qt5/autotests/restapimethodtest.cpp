@@ -218,6 +218,9 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ERequestSubscriptionKeys), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.requestSubscriptionKeys")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesList), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesSync), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.sync")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesGetUsersInRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.getUsersInRole")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.create")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesAddUserToRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.addUserToRole")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference/jitsi.update-timeout")));
