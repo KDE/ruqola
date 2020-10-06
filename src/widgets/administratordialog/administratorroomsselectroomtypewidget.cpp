@@ -44,9 +44,17 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     mainLayout->addWidget(mPrivateRooms);
     mainLayout->addWidget(mDiscussionRooms);
     mainLayout->addStretch(0);
-
+    connect(mDirectRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
+    connect(mPublicRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
+    connect(mPrivateRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
+    connect(mDiscussionRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
 }
 
 AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget()
 {
+}
+
+void AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged()
+{
+    //TODO
 }

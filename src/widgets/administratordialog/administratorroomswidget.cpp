@@ -55,6 +55,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mSelectRoomType = new AdministratorRoomsSelectRoomTypeWidget(this);
     mSelectRoomType->setObjectName(QStringLiteral("mSelectRoomType"));
     mainLayout->addWidget(mSelectRoomType);
+    connect(mSelectRoomType, &AdministratorRoomsSelectRoomTypeWidget::filterChanged, this, &AdministratorRoomsWidget::slotFilterChanged);
 
 
     mResultTreeWidget = new QTableView(this);
@@ -77,6 +78,11 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()
 {
+}
+
+void AdministratorRoomsWidget::slotFilterChanged(AdministratorRoomsSelectRoomTypeWidget::FilterRooms filters)
+{
+    //TODO fix mAdminRoomsProxyModel
 }
 
 void AdministratorRoomsWidget::slotTextChanged(const QString &text)

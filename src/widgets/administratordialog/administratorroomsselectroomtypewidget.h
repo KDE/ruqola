@@ -29,9 +29,23 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsSelectRoomTypeWidget : pub
 {
     Q_OBJECT
 public:
+    enum class FilterRoom {
+        None = 0,
+        DirectRooms = 1,
+        PublicRooms = 2,
+        PrivateRooms = 4,
+        DiscussionRooms = 8,
+    };
+    Q_FLAGS(FilterRoom FilterRooms)
+    Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
     explicit AdministratorRoomsSelectRoomTypeWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsSelectRoomTypeWidget();
+
+Q_SIGNALS:
+    void filterChanged(AdministratorRoomsSelectRoomTypeWidget::FilterRooms filters);
+
 private:
+    void slotFilterChanged();
     QCheckBox *const mDirectRooms;
     QCheckBox *const mPublicRooms;
     QCheckBox *const mPrivateRooms;
