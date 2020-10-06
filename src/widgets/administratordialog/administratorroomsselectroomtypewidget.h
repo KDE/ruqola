@@ -24,12 +24,19 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsSelectRoomTypeWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorRoomsSelectRoomTypeWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsSelectRoomTypeWidget();
+private:
+    QCheckBox *mDirectRooms = nullptr;
+    QCheckBox *mPublicRooms = nullptr;
+    QCheckBox *mPrivateRooms = nullptr;
+    QCheckBox *mDiscussionRooms = nullptr;
+    //Omnichannel ?? what is it?
 };
 
 #endif // ADMINISTRATORROOMSSELECTROOMTYPEWIDGET_H
