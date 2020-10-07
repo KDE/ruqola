@@ -26,18 +26,26 @@ class AdminRoomsModel;
 class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    //Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
+    enum class FilterRoom {
+        None = 0,
+        DirectRooms = 1,
+        PublicRooms = 2,
+        PrivateRooms = 4,
+        DiscussionRooms = 8,
+    };
+    Q_FLAGS(FilterRoom FilterRooms)
+    Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
+
     explicit AdminRoomsFilterProxyModel(AdminRoomsModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     void setFilterString(const QString &string);
     void clearFilter();
-//    Q_REQUIRED_RESULT int total() const;
 
-//    Q_REQUIRED_RESULT bool hasFullList() const;
-//    Q_REQUIRED_RESULT bool loadMoreAdminRoomsInProgress() const;
+    void setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters);
+
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();

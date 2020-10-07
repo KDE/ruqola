@@ -80,9 +80,9 @@ AdministratorRoomsWidget::~AdministratorRoomsWidget()
 {
 }
 
-void AdministratorRoomsWidget::slotFilterChanged(AdministratorRoomsSelectRoomTypeWidget::FilterRooms filters)
+void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)
 {
-    //TODO fix mAdminRoomsProxyModel
+    mAdminRoomsProxyModel->setFilterRooms(filters);
 }
 
 void AdministratorRoomsWidget::slotTextChanged(const QString &text)

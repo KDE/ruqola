@@ -23,11 +23,13 @@
 
 #include <QWidget>
 #include "administratorroomsselectroomtypewidget.h"
+#include "model/adminroomsfilterproxymodel.h"
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QTableView;
 class AdminRoomsModel;
 class AdminRoomsFilterProxyModel;
+class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public QWidget
 {
     Q_OBJECT
@@ -36,7 +38,7 @@ public:
     ~AdministratorRoomsWidget();
 
 private:
-    void slotFilterChanged(AdministratorRoomsSelectRoomTypeWidget::FilterRooms filters);
+    void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
     void slotAdminRoomDone(const QJsonObject &obj);
     void slotTextChanged(const QString &text);
     void initialize();

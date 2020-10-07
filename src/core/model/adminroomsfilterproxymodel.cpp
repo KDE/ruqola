@@ -26,11 +26,7 @@ AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(AdminRoomsModel *model, Q
     setSourceModel(mAdminRoomsModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-//    setFilterRole(DiscussionsModel::Description);
-//    setSortRole(DiscussionsModel::SortByTimeStamp);
     sort(0, Qt::DescendingOrder);
-//    connect(mAdminRoomsModel, &AdminRoomsModel::hasFullListChanged, this, &AdminRoomsFilterProxyModel::hasFullListChanged);
-//    connect(mAdminRoomsModel, &AdminRoomsModel::loadingInProgressChanged, this, &AdminRoomsFilterProxyModel::loadingInProgressChanged);
 }
 
 AdminRoomsFilterProxyModel::~AdminRoomsFilterProxyModel()
@@ -55,17 +51,7 @@ void AdminRoomsFilterProxyModel::clearFilter()
     setFilterFixedString(QString());
 }
 
-//int AdminRoomsFilterProxyModel::total() const
-//{
-//    return mAdminRoomsModel->total();
-//}
-
-//bool AdminRoomsFilterProxyModel::hasFullList() const
-//{
-//    return mAdminRoomsModel->hasFullList();
-//}
-
-//bool AdminRoomsFilterProxyModel::loadMoreAdminRoomsInProgress() const
-//{
-//    return mAdminRoomsModel->loadMoreDiscussionsInProgress();
-//}
+void AdminRoomsFilterProxyModel::setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters)
+{
+    //TODO
+}
