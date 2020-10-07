@@ -53,20 +53,16 @@ void AdminRoomsFilterProxyModel::clearFilter()
 
 void AdminRoomsFilterProxyModel::setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters)
 {
-    mFilters = filters;
-    invalidate();
+    if (mFilters != filters) {
+        mFilters = filters;
+        invalidate();
+    }
 }
 
 bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString channelType = sourceIndex.data(static_cast<int>(AdminRoomsModel::AdminRoomsRoles::ChannelType)).toString();
-    qDebug() << "channelType " << channelType << " sourceIndex " << sourceIndex;
-    qDebug() << " mFilters " << mFilters;
-    if (mFilters & FilterRoom::All) {
-        return true;
-    }
-
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::ChannelType, source_parent);
+    const QString channelType = sourceModel()->data(sourceIndex).toString();
     if (mFilters & FilterRoom::DirectRooms) {
         if (channelType == QLatin1String("d")) {
             return true;
@@ -79,11 +75,6 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
     }
     if (mFilters & FilterRoom::PrivateRooms) {
         if (channelType == QLatin1String("p")) {
-            return true;
-        }
-    }
-    if (mFilters & FilterRoom::DiscussionRooms) {
-        if (channelType == QLatin1String("d")) { // ????? no idea.
             return true;
         }
     }

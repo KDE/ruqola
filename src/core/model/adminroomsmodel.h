@@ -30,7 +30,7 @@ class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum class AdminRoomsRoles {
+    enum AdminRoomsRoles {
         Name,
         Topic,
         ChannelType,
