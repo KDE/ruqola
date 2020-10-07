@@ -56,5 +56,19 @@ AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget(
 
 void AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged()
 {
-    //TODO
+    AdminRoomsFilterProxyModel::FilterRooms filters;
+    filters |= AdminRoomsFilterProxyModel::FilterRoom::None;
+    if (mDirectRooms->isChecked()) {
+        filters |= AdminRoomsFilterProxyModel::FilterRoom::DirectRooms;
+    }
+    if (mPublicRooms->isChecked()) {
+        filters |= AdminRoomsFilterProxyModel::FilterRoom::PublicRooms;
+    }
+    if (mPrivateRooms->isChecked()) {
+        filters |= AdminRoomsFilterProxyModel::FilterRoom::PrivateRooms;
+    }
+    if (mDiscussionRooms->isChecked()) {
+        filters |= AdminRoomsFilterProxyModel::FilterRoom::DiscussionRooms;
+    }
+    Q_EMIT filterChanged(filters);
 }
