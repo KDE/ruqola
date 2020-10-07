@@ -27,12 +27,13 @@ class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public QSortFilterProxyM
 {
     Q_OBJECT
 public:
-    enum class FilterRoom {
-        None = 1,
-        DirectRooms = 2,
-        PublicRooms = 4,
-        PrivateRooms = 8,
-        DiscussionRooms = 16,
+    enum FilterRoom {
+        None = 0,
+        DirectRooms = 1,
+        PublicRooms = 2,
+        PrivateRooms = 4,
+        DiscussionRooms = 8,
+        All = DirectRooms | PublicRooms | DiscussionRooms | PrivateRooms
     };
     Q_FLAGS(FilterRoom FilterRooms)
     Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
@@ -52,7 +53,7 @@ Q_SIGNALS:
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 private:
-    AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::None;
+    AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::All;
     AdminRoomsModel *const mAdminRoomsModel;
 };
 

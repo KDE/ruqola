@@ -70,5 +70,8 @@ void AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged()
     if (mDiscussionRooms->isChecked()) {
         filters |= AdminRoomsFilterProxyModel::FilterRoom::DiscussionRooms;
     }
+    if (filters == AdminRoomsFilterProxyModel::FilterRoom::None) {
+        filters = AdminRoomsFilterProxyModel::FilterRoom::All;
+    }
     Q_EMIT filterChanged(filters);
 }

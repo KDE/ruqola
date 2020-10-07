@@ -59,14 +59,14 @@ void AdminRoomsFilterProxyModel::setFilterRooms(AdminRoomsFilterProxyModel::Filt
 
 bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (mFilters & FilterRoom::None) {
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QString channelType = sourceIndex.data(static_cast<int>(AdminRoomsModel::AdminRoomsRoles::ChannelType)).toString();
+    qDebug() << "channelType " << channelType << " sourceIndex " << sourceIndex;
+    qDebug() << " mFilters " << mFilters;
+    if (mFilters & FilterRoom::All) {
         return true;
     }
 
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString channelType = sourceIndex.data(static_cast<int>(AdminRoomsModel::AdminRoomsRoles::ChannelType)).toString();
-    qDebug() << "channelType " << channelType;
-    qDebug() << " mFilters " << mFilters;
     if (mFilters & FilterRoom::DirectRooms) {
         if (channelType == QLatin1String("d")) {
             return true;
