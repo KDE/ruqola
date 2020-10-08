@@ -63,6 +63,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mResultTreeWidget->setSortingEnabled(true);
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
     mResultTreeWidget->verticalHeader()->hide();
+    mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     mainLayout->addWidget(mResultTreeWidget);
 
     mAdminRoomsModel = new AdminRoomsModel(this);
