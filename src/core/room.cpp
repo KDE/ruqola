@@ -95,7 +95,8 @@ bool Room::isEqual(const Room &other) const
            && (mAutoTranslate == other.autoTranslate())
            && (mAutotranslateLanguage == other.autoTranslateLanguage())
            && (mDirectChannelUserId == other.directChannelUserId())
-           && (mDisplaySystemMessageType == other.displaySystemMessageTypes());
+           && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
+            && (mAvatarETag == other.avatarETag());
 }
 
 QString Room::displayRoomName() const
@@ -150,6 +151,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "autotranslateLanguage " << t.autoTranslateLanguage();
     d << "directChannelUserId " << t.directChannelUserId();
     d << "DisplaySystemMessageType " << t.displaySystemMessageTypes();
+    d << "AvatarEtag " << t.avatarETag();
     return d;
 }
 
@@ -319,6 +321,8 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         const auto &u1 = uids[1].toString();
         setDirectChannelUserId((u0 == mRocketChatAccount->userID()) ? u1 : u0);
     }
+
+    setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
 }
 
 bool Room::selected() const
@@ -726,6 +730,19 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
+QString Room::avatarETag() const
+{
+    return mAvatarETag;
+}
+
+void Room::setAvatarETag(const QString &avatarETag)
+{
+    if (mAvatarETag != avatarETag) {
+        mAvatarETag = avatarETag;
+        Q_EMIT avatarETagChanged();
+    }
+}
+
 ChannelCounterInfo Room::channelCounterInfo() const
 {
     return mChannelCounterInfo;
@@ -1039,6 +1056,7 @@ Room *Room::fromJSon(const QJsonObject &o)
 
     r->setDirectChannelUserId(o[QStringLiteral("directChannelUserId")].toString());
 
+    r->setAvatarETag(o[QStringLiteral("avatarETag")].toString());
     //TODO add parent RID
 
     return r;
@@ -1138,6 +1156,10 @@ QByteArray Room::serialize(Room *r, bool toBinary)
             array.append(r->mutedUsers().at(i));
         }
         o[QStringLiteral("systemMessages")] = array;
+    }
+
+    if (!r->avatarETag().isEmpty()) {
+        o[QStringLiteral("avatarETag")] = r->avatarETag();
     }
 
     if (toBinary) {

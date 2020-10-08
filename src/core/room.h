@@ -222,6 +222,9 @@ public:
     void newMessageAdded();
 
     Q_REQUIRED_RESULT bool allowToPinMessage() const;
+    Q_REQUIRED_RESULT QString avatarETag() const;
+    void setAvatarETag(const QString &avatarETag);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -262,6 +265,7 @@ Q_SIGNALS:
     void channelCounterInfoChanged();
 
     void notificationOptionsChanged();
+    void avatarETagChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -318,6 +322,9 @@ private:
 
     //Autotranslate
     QString mAutotranslateLanguage;
+
+    //AvatarEtag
+    QString mAvatarETag;
 
     //Roles In Room
     Roles mRolesForRooms;
