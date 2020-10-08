@@ -28,6 +28,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    //TODO add label ?
 }
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()

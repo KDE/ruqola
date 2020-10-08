@@ -376,7 +376,6 @@ void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const Q
     } else {
         qCWarning(RUQOLA_LOG) << "impossible to find room: " << roomId;
     }
-    //TODO
 }
 
 QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)

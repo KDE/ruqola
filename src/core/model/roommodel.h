@@ -109,7 +109,7 @@ public:
     void setInputMessage(const QString &roomId, const QString &inputMessage);
     Q_REQUIRED_RESULT Room *findRoom(const QString &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
-    QString insertRoom(const QJsonObject &room);
+    Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
 
     Q_REQUIRED_RESULT QModelIndex indexForRoomName(const QString &roomName) const;
 Q_SIGNALS:
