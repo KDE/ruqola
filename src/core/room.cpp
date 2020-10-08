@@ -879,6 +879,13 @@ void Room::setRolesForRooms(const Roles &rolesForRooms)
     mRolesForRooms = rolesForRooms;
 }
 
+bool Room::allowToPinMessage() const
+{
+    return mRoles.contains(QStringLiteral("owner")) ||
+            mRoles.contains(QStringLiteral("moderator")) ||
+            mRoles.contains(QStringLiteral("admin"));
+}
+
 QStringList Room::rolesForUserId(const QString &userId)
 {
     QStringList lstRoles;

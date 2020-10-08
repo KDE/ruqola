@@ -206,7 +206,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     //TODO fix me we can't pinned message when we are not owner
     QAction *setPinnedMessage = nullptr;
-    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && (mRoom->channelType() == QLatin1Char('c'))) {
+    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && (mRoom->channelType() == QLatin1Char('c')) &&
+            mRoom->allowToPinMessage()) {
         const bool isPinned = index.data(MessageModel::Pinned).toBool();
         setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
         connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
