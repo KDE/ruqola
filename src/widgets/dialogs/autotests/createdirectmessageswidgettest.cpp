@@ -28,7 +28,6 @@ QTEST_MAIN(CreateDirectMessagesWidgetTest)
 CreateDirectMessagesWidgetTest::CreateDirectMessagesWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()

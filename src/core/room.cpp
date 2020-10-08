@@ -96,7 +96,7 @@ bool Room::isEqual(const Room &other) const
            && (mAutotranslateLanguage == other.autoTranslateLanguage())
            && (mDirectChannelUserId == other.directChannelUserId())
            && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
-            && (mAvatarETag == other.avatarETag());
+           && (mAvatarETag == other.avatarETag());
 }
 
 QString Room::displayRoomName() const
@@ -898,9 +898,9 @@ void Room::setRolesForRooms(const Roles &rolesForRooms)
 
 bool Room::allowToPinMessage() const
 {
-    return mRoles.contains(QStringLiteral("owner")) ||
-            mRoles.contains(QStringLiteral("moderator")) ||
-            mRoles.contains(QStringLiteral("admin"));
+    return mRoles.contains(QStringLiteral("owner"))
+           || mRoles.contains(QStringLiteral("moderator"))
+           || mRoles.contains(QStringLiteral("admin"));
 }
 
 QStringList Room::rolesForUserId(const QString &userId)

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createdirectmessagesdialogtest.h"
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createdirectmessageswidget.h"

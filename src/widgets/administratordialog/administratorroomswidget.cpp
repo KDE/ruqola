@@ -57,7 +57,6 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mainLayout->addWidget(mSelectRoomType);
     connect(mSelectRoomType, &AdministratorRoomsSelectRoomTypeWidget::filterChanged, this, &AdministratorRoomsWidget::slotFilterChanged);
 
-
     mResultTreeWidget = new QTableView(this);
     mResultTreeWidget->setShowGrid(false);
     mResultTreeWidget->setSortingEnabled(true);

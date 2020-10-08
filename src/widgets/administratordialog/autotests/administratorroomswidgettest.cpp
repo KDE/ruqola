@@ -47,7 +47,6 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mResultTreeWidget->showGrid());
     QVERIFY(mResultTreeWidget->isSortingEnabled());
 
-
     AdministratorRoomsSelectRoomTypeWidget *mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
     QVERIFY(mSelectRoomType);
 }

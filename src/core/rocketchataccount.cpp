@@ -1931,7 +1931,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             Q_EMIT avatarWasChanged(userName);
             mCache->updateAvatar(userName);
         } else if (obj.contains(QLatin1String("rid"))) {
-            qDebug() << "need to update room avatar " ;
+            qDebug() << "need to update room avatar ";
             //TODO avatar room
         }
     }
@@ -2245,7 +2245,6 @@ void RocketChatAccount::logoutFromOtherLocation()
 {
     restApi()->removeOtherTokens();
 }
-
 
 void RocketChatAccount::createDirectMessages(const QStringList &usernames)
 {

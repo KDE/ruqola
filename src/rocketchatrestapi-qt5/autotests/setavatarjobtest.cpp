@@ -59,7 +59,6 @@ void SetAvatarJobTest::shouldGenerateJson()
     avatarInfo.mAvatarUrl = avatarurl;
     job.setAvatarInfo(avatarInfo);
 
-
     UserBaseJob::UserInfo info;
     info.userIdentifier = QStringLiteral("foo");
     info.userInfoType = UserBaseJob::UserInfoType::UserId;

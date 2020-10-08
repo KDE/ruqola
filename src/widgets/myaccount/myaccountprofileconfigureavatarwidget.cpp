@@ -62,7 +62,6 @@ void AvatarImage::changeUrl()
 {
     const QString url = QInputDialog::getText(this, i18n("Change Url"), i18n("Define Avatar Url"));
     if (!url.isEmpty()) {
-
     }
     qDebug() << " Not implemented yet";
 }

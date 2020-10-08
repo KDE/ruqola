@@ -38,7 +38,6 @@ void AdministratorRoomsSelectRoomTypeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-
     QCheckBox *mDirectRooms = w.findChild<QCheckBox *>(QStringLiteral("mDirectRooms"));
     QVERIFY(mDirectRooms);
     QVERIFY(!mDirectRooms->text().isEmpty());

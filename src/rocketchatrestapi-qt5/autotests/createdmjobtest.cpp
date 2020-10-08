@@ -60,7 +60,6 @@ void CreateDmJobTest::shouldGenerateJson()
         const QStringList userNames = {QStringLiteral("foo1"), QStringLiteral("bla"), QStringLiteral("bli")};
         job.setUserNames(userNames);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"usernames\":\"foo1,bla,bli\"}").toLatin1());
-
     }
 }
 

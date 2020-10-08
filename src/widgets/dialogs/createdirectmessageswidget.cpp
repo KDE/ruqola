@@ -24,7 +24,6 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
-
 CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -38,7 +37,6 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     label->setWordWrap(true);
     mainLayout->addWidget(label);
 
-
     mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Select Users..."));
@@ -49,7 +47,6 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
 
 CreateDirectMessagesWidget::~CreateDirectMessagesWidget()
 {
-
 }
 
 QStringList CreateDirectMessagesWidget::userNames() const
