@@ -1059,6 +1059,8 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setAvatarETag(o[QStringLiteral("avatarETag")].toString());
     //TODO add parent RID
 
+    //Download element : https://<server url>/avatar/room/QgCf8GcnXYW5QXiHN?etag=7djQjiwgD5N3CgPpr
+
     return r;
 }
 
