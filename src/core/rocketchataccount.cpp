@@ -1923,11 +1923,17 @@ void RocketChatAccount::openDocumentation()
 
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
+    qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
-        const QString userName = obj[QLatin1String("username")].toString();
-        Q_EMIT avatarWasChanged(userName);
-        mCache->updateAvatar(userName);
+        if (obj.contains(QLatin1String("username"))) {
+            const QString userName = obj[QLatin1String("username")].toString();
+            Q_EMIT avatarWasChanged(userName);
+            mCache->updateAvatar(userName);
+        } else if (obj.contains(QLatin1String("rid"))) {
+            qDebug() << "need to update room avatar " ;
+            //TODO avatar room
+        }
     }
 
     //TODO parse "QJsonObject({"args":[{"username":"foo"}],"eventName":"updateAvatar"})"
