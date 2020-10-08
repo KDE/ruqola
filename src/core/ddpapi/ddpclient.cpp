@@ -83,7 +83,7 @@ void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     //qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1String("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
+    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true);
 }
 
 void change_notifications_settings(const QJsonObject &root, RocketChatAccount *account)

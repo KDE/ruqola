@@ -219,6 +219,9 @@ public:
     Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
 
+    void newMessageAdded();
+
+    Q_REQUIRED_RESULT bool allowToPinMessage() const;
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();

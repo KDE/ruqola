@@ -739,6 +739,18 @@ void Room::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
     }
 }
 
+void Room::newMessageAdded()
+{
+    if (mChannelCounterInfo.isValid()) {
+        if (mChannelCounterInfo.unreadMessages() > 0) {
+            const auto unreadMessageCount = mChannelCounterInfo.unreadMessages() + 1;
+            mChannelCounterInfo.setUnreadMessages(unreadMessageCount);
+            Q_EMIT channelCounterInfoChanged();
+            //qDebug() << " mChannelCounterInfo " << mChannelCounterInfo;
+        }
+    }
+}
+
 void Room::parseCommonData(const QJsonObject &json)
 {
     const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();

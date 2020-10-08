@@ -170,7 +170,7 @@ void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
     }
 }
 
-void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
+void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory)
 {
     QHash<MessageModel *, QVector<Message> > dispatcher;
     for (const QJsonValue &v : messages) {
@@ -190,6 +190,11 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
                 mRocketChatAccount->updateThreadMessageList(m);
             }
             dispatcher[messageModel].append(std::move(m));
+            if (!loadHistory) {
+                if (Room *room = mRocketChatAccount->room(m.roomId())) {
+                    room->newMessageAdded();
+                }
+            }
         } else {
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
         }
@@ -333,7 +338,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     if (collection == QLatin1String("stream-room-messages")) {
         const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
-        processIncomingMessages(contents);
+        processIncomingMessages(contents, false);
     } else if (collection == QLatin1String("users")) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;

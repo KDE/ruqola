@@ -38,8 +38,10 @@ ChannelCounterInfo RoomCounterInfoWidget::channelCounterInfo() const
 
 void RoomCounterInfoWidget::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
 {
-    mChannelCounterInfo = channelCounterInfo;
-    updateInfo();
+    if (mChannelCounterInfo != channelCounterInfo) {
+        mChannelCounterInfo = channelCounterInfo;
+        updateInfo();
+    }
 }
 
 void RoomCounterInfoWidget::updateInfo()
