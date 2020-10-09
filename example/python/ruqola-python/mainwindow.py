@@ -41,7 +41,7 @@ class RuqolaMainWindow(QtWidgets.QMainWindow):
     def open_add_account_dialog(self):
         addaccount = AddAccountDialog()
         if addaccount.exec():
-            print(f"account name {addaccount.get_accountName()}")
+            print(f"account name {addaccount.accountInfo()}")
 
     def send_message_clicked(self):
         self.textEdit.setText(self.lineEdit.text())

@@ -22,19 +22,20 @@ class AddAccountDialog(QDialog):
         self.serverUrl = QLineEdit();
         self.formLayout.addRow(self.tr("Server Url:"), self.serverUrl);
 
+        #Server Url
+        self.userName = QLineEdit();
+        self.formLayout.addRow(self.tr("User Name:"), self.userName);
+
         mainLayout.addLayout(self.formLayout)
         mainLayout.addWidget(self.buttonBox)
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
 
-
+    # Return account info.
     def accountInfo(self)->AccountInfo:
         info = AccountInfo()
-        info.accountName(self.accountName.text())
+        info.accountName = self.accountName.text()
+        info.userName = self.userName.text()
+        info.serverUrl = self.serverUrl.text()
         return info
 
-    def get_accountName(self)->str:
-        return self.accountName.text()
-
-    def get_serverUrl(self)->str:
-        return self.serverUrl.text()
