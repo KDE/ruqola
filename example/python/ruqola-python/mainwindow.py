@@ -3,6 +3,7 @@ from PySide2 import QtWidgets, QtGui
 from PySide2 import QtCore
 from lineedit import LineEdit
 from addaccount import AddAccountDialog
+from PyRuqolaCore import RuqolaCore
 
 class RuqolaMainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -42,6 +43,7 @@ class RuqolaMainWindow(QtWidgets.QMainWindow):
         addaccount = AddAccountDialog()
         if addaccount.exec():
             print(f"account name {addaccount.accountInfo()}")
+            Ruqola.rocketChatAccount.addaccount()
 
     def send_message_clicked(self):
         self.textEdit.setText(self.lineEdit.text())

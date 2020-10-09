@@ -1,9 +1,9 @@
 # Auto-Genereate files every class will have his cpp/h files
 set(pyruqolacore_SRC
     # individual classes
-    ${CMAKE_CURRENT_BINARY_DIR}/PyRuqolaCore/pyruqolacore_module_wrapper.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/PyRuqolaCore/pyruqolacore_module_wrapper.h
-    ${CMAKE_CURRENT_BINARY_DIR}/PyRuqolaCore/PyRuqolaCore_python.h
+    ${CMAKE_CURRENT_BINARY_DIR}/RuqolaCore/ruqolacore_module_wrapper.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/RuqolaCore/ruqolacore_module_wrapper.h
+    ${CMAKE_CURRENT_BINARY_DIR}/RuqolaCore/PyRuqolaCore_python.h
     )
 
 # includes necessary to parse and build the classes specified on typesystem
@@ -40,7 +40,7 @@ set(pyruqolacore_DEPENDS
     )
 
 create_python_bindings(
-    "PyRuqolaCore"
+    "RuqolaCore"
     "${pyruqolacore_typesystem_paths}"
     "${pyruqolacore_include_paths}"
     "${pyruqolacore_SRC}"

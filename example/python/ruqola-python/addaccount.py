@@ -2,6 +2,7 @@
 from PySide2 import QtWidgets, QtGui
 from PySide2.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QVBoxLayout, QLineEdit
 from accountinfo import AccountInfo
+import pyruqolacore
 
 class AddAccountDialog(QDialog):
     def __init__(self):
