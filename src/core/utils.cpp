@@ -381,3 +381,11 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, AvatarInfo avatarInfo)
     }
     return QUrl(serverUrl + QStringLiteral("/avatar") + subFolder);
 }
+
+QDebug operator <<(QDebug d, const Utils::AvatarInfo &t)
+{
+    d << "etag " << t.etag;
+    d << "identifier " << t.identifier;
+    d << "avatarType " << static_cast<int>(t.avatarType);
+    return d;
+}

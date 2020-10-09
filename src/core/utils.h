@@ -100,4 +100,5 @@ Q_DECLARE_TYPEINFO(Utils::NotificationInfo, Q_MOVABLE_TYPE);
 Q_DECLARE_METATYPE(Utils::AvatarInfo)
 Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Utils::NotificationInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Utils::AvatarInfo &t);
 #endif // UTILS_H
