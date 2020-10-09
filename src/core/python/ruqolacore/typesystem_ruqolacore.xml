@@ -8,4 +8,6 @@
 
     <!-- Our classes are declared in a namespace, so we should define this -->
         <object-type name="RocketChatAccount" />
+	<object-type name="Ruqola" />
 </typesystem>
+
