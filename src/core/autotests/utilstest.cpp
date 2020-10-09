@@ -305,6 +305,15 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
                                << avatarInfo
                                << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
     }
+    {
+        Utils::AvatarInfo avatarInfo;
+        avatarInfo.identifier = QStringLiteral("room1");
+        avatarInfo.avatarType = Utils::AvatarType::Room;
+        avatarInfo.etag = QStringLiteral("etagIdentifier");
+        QTest::newRow("room1-etag-without-protocol") << QStringLiteral("www.kde.org")
+                               << avatarInfo
+                               << QUrl(QStringLiteral("https://www.kde.org/avatar/room/%1?etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
+    }
 }
 
 void UtilsTest::shouldGenerateAvatarUrl()

@@ -375,7 +375,7 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, AvatarInfo avatarInfo)
     if (!avatarInfo.etag.isEmpty()) {
         subFolder += QStringLiteral("?etag=%1").arg(avatarInfo.etag);
     }
-    if (!serverUrl.startsWith(QStringView(u"https://")) || !serverUrl.startsWith(QStringView(u"http://"))) {
+    if (!serverUrl.startsWith(QStringView(u"https://")) && !serverUrl.startsWith(QStringView(u"http://"))) {
         serverUrl.prepend(QStringLiteral("https://"));
     }
 
