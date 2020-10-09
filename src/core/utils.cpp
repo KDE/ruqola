@@ -356,12 +356,12 @@ QByteArray Utils::convertSha256Password(const QString &pwd)
     return sha256pw;
 }
 
-QUrl Utils::avatarUrl(const QString &url, AvatarInfo avatarInfo)
+QUrl Utils::avatarUrl(const QString &serverRcUrl, AvatarInfo avatarInfo)
 {
-    if (url.isEmpty()) {
+    if (serverRcUrl.isEmpty()) {
         return {};
     }
-    const QString serverUrl = url;
+    QString serverUrl = serverRcUrl;
     QString subFolder;
     switch (avatarInfo.avatarType) {
     case AvatarType::Room:
@@ -374,6 +374,9 @@ QUrl Utils::avatarUrl(const QString &url, AvatarInfo avatarInfo)
     subFolder += QLatin1Char('/') + avatarInfo.identifier;
     if (!avatarInfo.etag.isEmpty()) {
         subFolder += QStringLiteral("?etag=%1").arg(avatarInfo.etag);
+    }
+    if (!serverUrl.startsWith(QStringView(u"https://")) || !serverUrl.startsWith(QStringView(u"http://"))) {
+        serverUrl.prepend(QStringLiteral("https://"));
     }
 
     return QUrl(serverUrl + QStringLiteral("/avatar") + subFolder);

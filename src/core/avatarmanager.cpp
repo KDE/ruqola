@@ -20,7 +20,6 @@
 
 #include "avatarmanager.h"
 #include "rocketchataccount.h"
-#include "restapirequest.h"
 #include "ruqola_debug.h"
 #include <QTimer>
 
@@ -33,8 +32,6 @@ AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
     //increase interval otherwise we can have some error
     mTimer->setInterval(2000);
     connect(mTimer, &QTimer::timeout, this, &AvatarManager::slotLoadNextAvatar);
-    connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::avatar, this, &AvatarManager::slotInsertAvatarUrl);
-    connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::redownloadAvatar, this, &AvatarManager::slotRescheduleDownload);
 }
 
 AvatarManager::~AvatarManager()
@@ -43,10 +40,15 @@ AvatarManager::~AvatarManager()
 
 void AvatarManager::slotLoadNextAvatar()
 {
-    RocketChatRestApi::UserBaseJob::UserInfo info;
-    info.userIdentifier = mAvatarDownloadUserIds.constFirst();
-    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserName;
-    mAccount->restApi()->getAvatar(info);
+    Utils::AvatarInfo info;
+    info.identifier = mAvatarDownloadIdentifer.constFirst();
+    info.avatarType = Utils::AvatarType::User;
+    const QUrl url =  Utils::avatarUrl(mAccount->serverUrl(), info);
+    qDebug() << " url " << url;
+    if (url.isEmpty()) {
+        return;
+    }
+    slotInsertAvatarUrl(info.identifier, url);
 }
 
 void AvatarManager::slotRescheduleDownload()
@@ -55,18 +57,18 @@ void AvatarManager::slotRescheduleDownload()
     QTimer::singleShot(20000, this, &AvatarManager::slotLoadNextAvatar);
 }
 
-void AvatarManager::insertInDownloadQueue(const QString &userId)
+void AvatarManager::insertInDownloadQueue(const QString &avatarIdentifier)
 {
-    if (userId.isEmpty()) {
+    if (avatarIdentifier.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "AvatarManager::insertInDownloadQueue userid is empty!";
         return;
     }
     bool startDownload = false;
-    if (mAvatarDownloadUserIds.isEmpty()) {
+    if (mAvatarDownloadIdentifer.isEmpty()) {
         startDownload = true;
     }
-    if (!mAvatarDownloadUserIds.contains(userId)) {
-        mAvatarDownloadUserIds.append(userId);
+    if (!mAvatarDownloadIdentifer.contains(avatarIdentifier)) {
+        mAvatarDownloadIdentifer.append(avatarIdentifier);
     }
     if (startDownload) {
         mTimer->start();
@@ -78,16 +80,16 @@ RocketChatAccount *AvatarManager::account() const
     return mAccount;
 }
 
-void AvatarManager::slotInsertAvatarUrl(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url)
+void AvatarManager::slotInsertAvatarUrl(const QString &avatarIdentifier, const QUrl &url)
 {
-    const QString identifier = info.userIdentifier;
+    const QString identifier = avatarIdentifier;
     if (!url.isEmpty()) {
         Q_EMIT insertAvatarUrl(identifier, url);
     } //Else error for downloading => don't redownload it + continue.
 
-    mAvatarDownloadUserIds.removeAll(identifier);
+    mAvatarDownloadIdentifer.removeAll(identifier);
     //qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
-    if (!mAvatarDownloadUserIds.isEmpty()) {
+    if (!mAvatarDownloadIdentifer.isEmpty()) {
         mTimer->start();
     }
 }

@@ -33,7 +33,7 @@ public:
     explicit AvatarManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~AvatarManager() override;
 
-    void insertInDownloadQueue(const QString &url);
+    void insertInDownloadQueue(const QString &avatarIdentifier);
 
     RocketChatAccount *account() const;
 
@@ -41,10 +41,10 @@ Q_SIGNALS:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 private:
-    void slotInsertAvatarUrl(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
+    void slotInsertAvatarUrl(const QString &avatarIdentifier, const QUrl &url);
     void slotLoadNextAvatar();
     void slotRescheduleDownload();
-    QStringList mAvatarDownloadUserIds;
+    QStringList mAvatarDownloadIdentifer;
     RocketChatAccount *const mAccount;
     QTimer *mTimer = nullptr;
 };
