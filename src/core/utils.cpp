@@ -355,3 +355,26 @@ QByteArray Utils::convertSha256Password(const QString &pwd)
     const QByteArray sha256pw = QCryptographicHash::hash(pwd.toUtf8(), QCryptographicHash::Sha256).toHex();
     return sha256pw;
 }
+
+QUrl Utils::avatarUrl(const QString &url, AvatarInfo avatarInfo)
+{
+    if (url.isEmpty()) {
+        return {};
+    }
+    const QString serverUrl = url;
+    QString subFolder;
+    switch (avatarInfo.avatarType) {
+    case AvatarType::Room:
+        subFolder = QStringLiteral("/room");
+        break;
+    case AvatarType::Unknown:
+    case AvatarType::User:
+        break;
+    }
+    subFolder += QLatin1Char('/') + avatarInfo.identifier;
+    if (!avatarInfo.etag.isEmpty()) {
+        subFolder += QStringLiteral("?etag=%1").arg(avatarInfo.etag);
+    }
+
+    return QUrl(serverUrl + QStringLiteral("/avatar") + subFolder);
+}

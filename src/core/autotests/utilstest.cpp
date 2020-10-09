@@ -261,3 +261,47 @@ void UtilsTest::shouldConvertTextWithUrl()
     QFETCH(QString, convertedText);
     QCOMPARE(Utils::convertTextWithUrl(text), convertedText);
 }
+
+void UtilsTest::shouldGenerateAvatarUrl_data()
+{
+    QTest::addColumn<QString>("serverUrl");
+    QTest::addColumn<Utils::AvatarInfo>("avatarInfo");
+    QTest::addColumn<QUrl>("result");
+    {
+        Utils::AvatarInfo avatarInfo;
+        QTest::newRow("empty") << QString() << avatarInfo << QUrl();
+    }
+    {
+        Utils::AvatarInfo avatarInfo;
+        avatarInfo.identifier = QStringLiteral("user1");
+        avatarInfo.avatarType = Utils::AvatarType::User;
+        QTest::newRow("user1") << QStringLiteral("http://www.kde.org")
+                               << avatarInfo
+                               << QUrl(QStringLiteral("http://www.kde.org/avatar/%1").arg(avatarInfo.identifier));
+    }
+    {
+        Utils::AvatarInfo avatarInfo;
+        avatarInfo.identifier = QStringLiteral("room1");
+        avatarInfo.avatarType = Utils::AvatarType::Room;
+        QTest::newRow("room1") << QStringLiteral("http://www.kde.org")
+                               << avatarInfo
+                               << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1").arg(avatarInfo.identifier));
+    }
+    {
+        Utils::AvatarInfo avatarInfo;
+        avatarInfo.identifier = QStringLiteral("room1");
+        avatarInfo.avatarType = Utils::AvatarType::Room;
+        avatarInfo.etag = QStringLiteral("etagIdentifier");
+        QTest::newRow("room1-etag") << QStringLiteral("http://www.kde.org")
+                               << avatarInfo
+                               << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
+    }
+}
+
+void UtilsTest::shouldGenerateAvatarUrl()
+{
+    QFETCH(QString, serverUrl);
+    QFETCH(Utils::AvatarInfo, avatarInfo);
+    QFETCH(QUrl, result);
+    QCOMPARE(Utils::avatarUrl(serverUrl, avatarInfo), result);
+}

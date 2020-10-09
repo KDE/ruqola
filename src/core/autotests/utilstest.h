@@ -50,6 +50,9 @@ private Q_SLOTS:
 
     void shouldConvertTextWithUrl_data();
     void shouldConvertTextWithUrl();
+
+    void shouldGenerateAvatarUrl_data();
+    void shouldGenerateAvatarUrl();
 };
 
 #endif // UTILSTEST_H

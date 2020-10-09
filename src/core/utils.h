@@ -74,7 +74,24 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QByteArray convertSha256Password(const QS
  *   "[NAME](LINK)"                   => "<a href="LINK">NAME</a>"
  */
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString convertTextWithUrl(const QString &str);
+
+enum class AvatarType {
+    Unknown,
+    Room,
+    User,
+};
+
+struct AvatarInfo {
+    QString etag;
+    QString identifier;
+    AvatarType avatarType = AvatarType::Unknown;
+};
+
+Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, AvatarInfo avatarInfo);
+
 }
 Q_DECLARE_TYPEINFO(Utils::NotificationInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_METATYPE(Utils::AvatarInfo)
+Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Utils::NotificationInfo &t);
 #endif // UTILS_H
