@@ -82,6 +82,12 @@ enum class AvatarType {
 };
 
 struct AvatarInfo {
+    Q_REQUIRED_RESULT bool isValid() const {
+        return (avatarType != AvatarType::Unknown) && !identifier.isEmpty();
+    }
+    Q_REQUIRED_RESULT bool operator==(const AvatarInfo &other) const {
+        return etag == other.etag && identifier == other.identifier && avatarType == other.avatarType;
+    }
     QString etag;
     QString identifier;
     AvatarType avatarType = AvatarType::Unknown;

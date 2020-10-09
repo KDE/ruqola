@@ -372,12 +372,12 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, AvatarInfo avatarInfo)
         break;
     }
     subFolder += QLatin1Char('/') + avatarInfo.identifier;
+    subFolder += QStringLiteral("?format=png&size=22");
     if (!avatarInfo.etag.isEmpty()) {
-        subFolder += QStringLiteral("?etag=%1").arg(avatarInfo.etag);
+        subFolder += QStringLiteral("&etag=%1").arg(avatarInfo.etag);
     }
     if (!serverUrl.startsWith(QStringView(u"https://")) && !serverUrl.startsWith(QStringView(u"http://"))) {
         serverUrl.prepend(QStringLiteral("https://"));
     }
-
     return QUrl(serverUrl + QStringLiteral("/avatar") + subFolder);
 }
