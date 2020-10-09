@@ -59,6 +59,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     drawBackground(painter, optionCopy, index);
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
+    const QString avatarUrl = index.data(RoomModel::RoomAvatar).toString();
+    if (!avatarUrl.isEmpty()) {
+        qDebug() << "avatarUrl " << avatarUrl;
+    }
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 

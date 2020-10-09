@@ -113,6 +113,9 @@ void DirectChannelInfoWidget::setUser(const User &user)
     mStatus->setText(user.status());
     mTimeZone->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
     //Download avatar ?
-    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(user.userName()));
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = user.userName();
+    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
 }

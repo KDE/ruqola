@@ -97,9 +97,9 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-void MessageListDelegate::slotAvatarChanged(const QString &userIdentifier)
+void MessageListDelegate::slotAvatarChanged(const Utils::AvatarInfo &info)
 {
-    const QString iconUrlStr = mRocketChatAccount->avatarUrl(userIdentifier);
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
     if (iconUrlStr.isEmpty()) {
         return;
     }
@@ -114,7 +114,10 @@ void MessageListDelegate::slotAvatarChanged(const QString &userIdentifier)
 QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString userId = index.data(MessageModel::Username).toString();
-    const QString iconUrlStr = mRocketChatAccount->avatarUrl(userId);
+    Utils::AvatarInfo info; //Optimize ???
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = userId;
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
     if (iconUrlStr.isEmpty()) {
         return {};
     }

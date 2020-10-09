@@ -22,12 +22,13 @@
 #define MESSAGELISTDELEGATE_H
 
 #include "libruqolawidgets_private_export.h"
+#include "utils.h"
+
+#include "pixmapcache.h"
 
 #include <QFont>
 #include <QItemDelegate>
 #include <QScopedPointer>
-
-#include "pixmapcache.h"
 
 class RocketChatAccount;
 class Message;
@@ -70,7 +71,7 @@ public:
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
-    void slotAvatarChanged(const QString &userIdentifier);
+    void slotAvatarChanged(const Utils::AvatarInfo &info);
 
     struct Layout {
         // Sender

@@ -413,19 +413,14 @@ void RocketChatAccount::replyOnThread(const QString &roomID, const QString &thre
     restApi()->sendMessage(roomID, message, QString(), threadMessageId);
 }
 
-QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)
-{
-    return mCache->avatarUrl(Utils::userIdFromDirectChannel(rid, userID()));
-}
-
 void RocketChatAccount::deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType)
 {
     ddp()->deleteFileMessage(roomId, fileId, channelType);
 }
 
-QString RocketChatAccount::avatarUrl(const QString &userIdentifier)
+QString RocketChatAccount::avatarUrl(const Utils::AvatarInfo &info)
 {
-    return mCache->avatarUrl(userIdentifier);
+    return mCache->avatarUrl(info);
 }
 
 void RocketChatAccount::insertAvatarUrl(const QString &userId, const QUrl &url)
@@ -1928,11 +1923,19 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
         const QJsonObject obj = contents.at(i).toObject();
         if (obj.contains(QLatin1String("username"))) {
             const QString userName = obj[QLatin1String("username")].toString();
-            Q_EMIT avatarWasChanged(userName);
-            mCache->updateAvatar(userName);
+            Utils::AvatarInfo info;
+            info.avatarType = Utils::AvatarType::User;
+            info.identifier = userName;
+            mCache->updateAvatar(info);
+            Q_EMIT avatarWasChanged(info);
         } else if (obj.contains(QLatin1String("rid"))) {
             qDebug() << "need to update room avatar ";
-            //TODO avatar room
+            //TODO FIXME
+//            Utils::AvatarInfo info;
+//            info.avatarType = Utils::AvatarType::Room;
+//            info.identifier = userName; //Etag
+//            mCache->updateAvatar(info);
+//            //TODO avatar room
         }
     }
 

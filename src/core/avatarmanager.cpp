@@ -40,15 +40,13 @@ AvatarManager::~AvatarManager()
 
 void AvatarManager::slotLoadNextAvatar()
 {
-    Utils::AvatarInfo info;
-    info.identifier = mAvatarDownloadIdentifer.constFirst();
-    info.avatarType = Utils::AvatarType::User;
+    const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
     const QUrl url =  Utils::avatarUrl(mAccount->serverUrl(), info);
     qDebug() << " url " << url;
     if (url.isEmpty()) {
         return;
     }
-    slotInsertAvatarUrl(info.identifier, url);
+    slotInsertAvatarUrl(info, url);
 }
 
 void AvatarManager::slotRescheduleDownload()
@@ -57,9 +55,9 @@ void AvatarManager::slotRescheduleDownload()
     QTimer::singleShot(20000, this, &AvatarManager::slotLoadNextAvatar);
 }
 
-void AvatarManager::insertInDownloadQueue(const QString &avatarIdentifier)
+void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
 {
-    if (avatarIdentifier.isEmpty()) {
+    if (!info.isValid()) {
         qCWarning(RUQOLA_LOG) << "AvatarManager::insertInDownloadQueue userid is empty!";
         return;
     }
@@ -67,8 +65,8 @@ void AvatarManager::insertInDownloadQueue(const QString &avatarIdentifier)
     if (mAvatarDownloadIdentifer.isEmpty()) {
         startDownload = true;
     }
-    if (!mAvatarDownloadIdentifer.contains(avatarIdentifier)) {
-        mAvatarDownloadIdentifer.append(avatarIdentifier);
+    if (!mAvatarDownloadIdentifer.contains(info)) {
+        mAvatarDownloadIdentifer.append(info);
     }
     if (startDownload) {
         mTimer->start();
@@ -80,14 +78,14 @@ RocketChatAccount *AvatarManager::account() const
     return mAccount;
 }
 
-void AvatarManager::slotInsertAvatarUrl(const QString &avatarIdentifier, const QUrl &url)
+void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo info, const QUrl &url)
 {
-    const QString identifier = avatarIdentifier;
+    const QString identifier = info.identifier;
     if (!url.isEmpty()) {
         Q_EMIT insertAvatarUrl(identifier, url);
     } //Else error for downloading => don't redownload it + continue.
 
-    mAvatarDownloadIdentifer.removeAll(identifier);
+    mAvatarDownloadIdentifer.removeAll(info);
     //qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
     if (!mAvatarDownloadIdentifer.isEmpty()) {
         mTimer->start();

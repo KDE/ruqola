@@ -730,6 +730,17 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
+
+Utils::AvatarInfo Room::avatarInfo() const
+{
+    Utils::AvatarInfo info;
+    if (!mAvatarETag.isEmpty()) {
+        info.avatarType = Utils::AvatarType::Room;
+        info.identifier = mAvatarETag;
+    }
+    return info;
+}
+
 QString Room::avatarETag() const
 {
     return mAvatarETag;

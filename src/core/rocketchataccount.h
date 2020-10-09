@@ -209,7 +209,7 @@ public:
     void starMessage(const QString &messageId, bool starred);
     void pinMessage(const QString &messageId, bool pinned);
     void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
-    Q_REQUIRED_RESULT QString avatarUrl(const QString &userIdentifier);
+    Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
     void channelAndPrivateAutocomplete(const QString &pattern);
@@ -223,7 +223,6 @@ public:
     InputTextManager *inputThreadMessageTextManager() const;
 
     void blockUser(const QString &userId, bool block);
-    Q_REQUIRED_RESULT QString avatarUrlFromDirectChannel(const QString &rid);
     void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
     void openDocumentation();
     void clearSearchModel();
@@ -443,7 +442,7 @@ public:
     void logoutFromOtherLocation();
     void createDirectMessages(const QStringList &usernames);
 Q_SIGNALS:
-    void avatarWasChanged(const QString &userIdentifier);
+    void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
     void connectedChanged();
     void accountNameChanged();

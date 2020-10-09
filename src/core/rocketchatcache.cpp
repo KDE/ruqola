@@ -121,11 +121,9 @@ QUrl RocketChatCache::attachmentUrl(const QString &url)
     return {};
 }
 
-void RocketChatCache::downloadAvatarFromServer(const QString &avatarIdentifier)
+void RocketChatCache::downloadAvatarFromServer(const Utils::AvatarInfo &info)
 {
-    if (!avatarIdentifier.isEmpty()) {
-        mAvatarManager->insertInDownloadQueue(avatarIdentifier);
-    }
+    mAvatarManager->insertInDownloadQueue(info);
 }
 
 void RocketChatCache::downloadFileFromServer(const QString &filename)
@@ -175,20 +173,22 @@ void RocketChatCache::removeAvatar(const QString &avatarIdentifier)
     }
 }
 
-void RocketChatCache::updateAvatar(const QString &avatarIdentifier)
+void RocketChatCache::updateAvatar(const Utils::AvatarInfo &info)
 {
+    const QString avatarIdentifier = info.identifier;
     removeAvatar(avatarIdentifier);
     mAvatarUrl.remove(avatarIdentifier);
     insertAvatarUrl(avatarIdentifier, QUrl());
-    downloadAvatarFromServer(avatarIdentifier);
+    downloadAvatarFromServer(info);
 }
 
-QString RocketChatCache::avatarUrl(const QString &avatarIdentifier)
+QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
 {
+    const QString avatarIdentifier = info.identifier;
     //avoid to call this method several time.
     if (!mAvatarUrl.contains(avatarIdentifier)) {
         insertAvatarUrl(avatarIdentifier, QUrl());
-        downloadAvatarFromServer(avatarIdentifier);
+        downloadAvatarFromServer(info);
         return {};
     } else {
         const QUrl valueUrl = mAvatarUrl.value(avatarIdentifier);
@@ -198,7 +198,7 @@ QString RocketChatCache::avatarUrl(const QString &avatarIdentifier)
 
             return url;
         } else {
-            downloadAvatarFromServer(avatarIdentifier);
+            downloadAvatarFromServer(info);
         }
         return {};
     }

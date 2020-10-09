@@ -25,6 +25,7 @@
 #include <QObject>
 #include <QSet>
 #include "libruqola_private_export.h"
+#include "utils.h"
 class RocketChatAccount;
 class AvatarManager;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
@@ -36,7 +37,7 @@ public:
 
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;
-    Q_REQUIRED_RESULT QString avatarUrl(const QString &avatarIdentifier);
+    Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
     void downloadFileFromServer(const QString &filename);
@@ -46,7 +47,7 @@ public:
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
     Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
 
-    void updateAvatar(const QString &avatarIdentifier);
+    void updateAvatar(const Utils::AvatarInfo &info);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
@@ -54,7 +55,7 @@ private:
     Q_DISABLE_COPY(RocketChatCache)
     Q_REQUIRED_RESULT bool fileInCache(const QUrl &url);
     Q_REQUIRED_RESULT QString fileCachePath(const QUrl &url);
-    void downloadAvatarFromServer(const QString &avatarIdentifier);
+    void downloadAvatarFromServer(const Utils::AvatarInfo &info);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl);
     void removeAvatar(const QString &avatarIdentifier);
     void loadAvatarCache();

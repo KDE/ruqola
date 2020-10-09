@@ -219,6 +219,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->autoTranslateLanguage();
     case RoomModel::RoomDirectChannelUserId:
         return r->directChannelUserId();
+    case RoomModel::RoomAvatar:
+        return mRocketChatAccount->avatarUrl(r->avatarInfo());
     }
     return {};
 }

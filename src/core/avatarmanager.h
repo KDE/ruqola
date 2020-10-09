@@ -24,6 +24,7 @@
 #include <QObject>
 #include "users/userbasejob.h"
 #include "libruqola_private_export.h"
+#include "utils.h"
 class QTimer;
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT AvatarManager : public QObject
@@ -33,7 +34,7 @@ public:
     explicit AvatarManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~AvatarManager() override;
 
-    void insertInDownloadQueue(const QString &avatarIdentifier);
+    void insertInDownloadQueue(const Utils::AvatarInfo &info);
 
     RocketChatAccount *account() const;
 
@@ -41,10 +42,10 @@ Q_SIGNALS:
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 private:
-    void slotInsertAvatarUrl(const QString &avatarIdentifier, const QUrl &url);
+    void slotInsertAvatarUrl(const Utils::AvatarInfo info, const QUrl &url);
     void slotLoadNextAvatar();
     void slotRescheduleDownload();
-    QStringList mAvatarDownloadIdentifer;
+    QVector<Utils::AvatarInfo> mAvatarDownloadIdentifer;
     RocketChatAccount *const mAccount;
     QTimer *mTimer = nullptr;
 };

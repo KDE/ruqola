@@ -30,6 +30,7 @@
 
 #include "channelcounterinfo.h"
 #include "libruqola_private_export.h"
+#include "utils.h"
 class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
 class MessageModel;
@@ -225,6 +226,7 @@ public:
     Q_REQUIRED_RESULT QString avatarETag() const;
     void setAvatarETag(const QString &avatarETag);
 
+    Q_REQUIRED_RESULT Utils::AvatarInfo avatarInfo() const;
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
