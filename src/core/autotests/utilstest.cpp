@@ -284,7 +284,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         avatarInfo.identifier = QStringLiteral("user1");
         avatarInfo.avatarType = Utils::AvatarType::User;
         avatarInfo.etag = QStringLiteral("etag-user-identifier");
-        QTest::newRow("user1") << QStringLiteral("http://www.kde.org")
+        QTest::newRow("user1-etag") << QStringLiteral("http://www.kde.org")
                                << avatarInfo
                                << QUrl(QStringLiteral("http://www.kde.org/avatar/%1?etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
     }
