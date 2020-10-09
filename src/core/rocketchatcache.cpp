@@ -43,8 +43,8 @@ RocketChatCache::~RocketChatCache()
     QSettings settings(ManagerDataPaths::self()->accountAvatarConfigPath(mAccount->accountName()), QSettings::IniFormat);
 
     settings.beginGroup(QStringLiteral("Avatar"));
-    QHash<QString, QUrl>::const_iterator i = mUserAvatarUrl.constBegin();
-    while (i != mUserAvatarUrl.constEnd()) {
+    QHash<QString, QUrl>::const_iterator i = mAvatarUrl.constBegin();
+    while (i != mAvatarUrl.constEnd()) {
         if (!i.value().toString().isEmpty()) {
             settings.setValue(i.key(), i.value().toString());
         }
@@ -89,7 +89,7 @@ void RocketChatCache::loadAvatarCache()
     settings.beginGroup(QStringLiteral("Avatar"));
     const QStringList keys = settings.childKeys();
     for (const QString &key : keys) {
-        mUserAvatarUrl[key] = QUrl(settings.value(key).toString());
+        mAvatarUrl[key] = QUrl(settings.value(key).toString());
     }
     settings.endGroup();
 }
@@ -121,10 +121,10 @@ QUrl RocketChatCache::attachmentUrl(const QString &url)
     return {};
 }
 
-void RocketChatCache::downloadAvatarFromServer(const QString &userId)
+void RocketChatCache::downloadAvatarFromServer(const QString &avatarIdentifier)
 {
-    if (!userId.isEmpty()) {
-        mAvatarManager->insertInDownloadQueue(userId);
+    if (!avatarIdentifier.isEmpty()) {
+        mAvatarManager->insertInDownloadQueue(avatarIdentifier);
     }
 }
 
@@ -152,53 +152,53 @@ QUrl RocketChatCache::urlForLink(const QString &link) const
 
 QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
 {
-    const QUrl avatarUrl = mUserAvatarUrl.value(userId);
+    const QUrl avatarUrl = mAvatarUrl.value(userId);
     if (!avatarUrl.isEmpty() && fileInCache(avatarUrl)) {
         const QString url = QUrl::fromLocalFile(fileCachePath(avatarUrl)).toString();
-        qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+        qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mAvatarUrl.value(userId);
         return url;
     }
     return {};
 }
 
-void RocketChatCache::removeAvatar(const QString &userIdentifier)
+void RocketChatCache::removeAvatar(const QString &avatarIdentifier)
 {
-    const QUrl avatarUrl = mUserAvatarUrl.value(userIdentifier);
+    const QUrl avatarUrl = mAvatarUrl.value(avatarIdentifier);
     if (avatarUrl.isEmpty()) {
         return;
     }
     QFile f(fileCachePath(avatarUrl));
     if (f.exists()) {
         if (!f.remove()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to remove f" << f.fileName() << " avartarUrl " << avatarUrl << " userIdentifier  " << userIdentifier;
+            qCWarning(RUQOLA_LOG) << "Impossible to remove f" << f.fileName() << " avartarUrl " << avatarUrl << " userIdentifier  " << avatarIdentifier;
         }
     }
 }
 
-void RocketChatCache::updateAvatar(const QString &userIdentifier)
+void RocketChatCache::updateAvatar(const QString &avatarIdentifier)
 {
-    removeAvatar(userIdentifier);
-    mUserAvatarUrl.remove(userIdentifier);
-    insertAvatarUrl(userIdentifier, QUrl());
-    downloadAvatarFromServer(userIdentifier);
+    removeAvatar(avatarIdentifier);
+    mAvatarUrl.remove(avatarIdentifier);
+    insertAvatarUrl(avatarIdentifier, QUrl());
+    downloadAvatarFromServer(avatarIdentifier);
 }
 
-QString RocketChatCache::avatarUrl(const QString &userIdentifier)
+QString RocketChatCache::avatarUrl(const QString &avatarIdentifier)
 {
     //avoid to call this method several time.
-    if (!mUserAvatarUrl.contains(userIdentifier)) {
-        insertAvatarUrl(userIdentifier, QUrl());
-        downloadAvatarFromServer(userIdentifier);
+    if (!mAvatarUrl.contains(avatarIdentifier)) {
+        insertAvatarUrl(avatarIdentifier, QUrl());
+        downloadAvatarFromServer(avatarIdentifier);
         return {};
     } else {
-        const QUrl valueUrl = mUserAvatarUrl.value(userIdentifier);
+        const QUrl valueUrl = mAvatarUrl.value(avatarIdentifier);
         if (!valueUrl.isEmpty() && fileInCache(valueUrl)) {
             const QString url = QUrl::fromLocalFile(fileCachePath(valueUrl)).toString();
             //qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
 
             return url;
         } else {
-            downloadAvatarFromServer(userIdentifier);
+            downloadAvatarFromServer(avatarIdentifier);
         }
         return {};
     }
@@ -206,7 +206,7 @@ QString RocketChatCache::avatarUrl(const QString &userIdentifier)
 
 void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl &url)
 {
-    mUserAvatarUrl.insert(userIdentifier, url);
+    mAvatarUrl.insert(userIdentifier, url);
     if (!url.isEmpty() && !fileInCache(url)) {
         mAccount->restApi()->downloadFile(url);
         // this will call slotDataDownloaded

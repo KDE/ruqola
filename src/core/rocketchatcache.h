@@ -36,7 +36,7 @@ public:
 
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;
-    Q_REQUIRED_RESULT QString avatarUrl(const QString &userIdentifier);
+    Q_REQUIRED_RESULT QString avatarUrl(const QString &avatarIdentifier);
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
     void downloadFileFromServer(const QString &filename);
@@ -46,7 +46,7 @@ public:
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
     Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
 
-    void updateAvatar(const QString &userIdentifier);
+    void updateAvatar(const QString &avatarIdentifier);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
@@ -54,11 +54,11 @@ private:
     Q_DISABLE_COPY(RocketChatCache)
     Q_REQUIRED_RESULT bool fileInCache(const QUrl &url);
     Q_REQUIRED_RESULT QString fileCachePath(const QUrl &url);
-    void downloadAvatarFromServer(const QString &userId);
+    void downloadAvatarFromServer(const QString &avatarIdentifier);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl);
-    void removeAvatar(const QString &userIdentifier);
+    void removeAvatar(const QString &avatarIdentifier);
     void loadAvatarCache();
-    QHash<QString, QUrl> mUserAvatarUrl;
+    QHash<QString, QUrl> mAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *const mAccount;
     AvatarManager *mAvatarManager = nullptr;
