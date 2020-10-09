@@ -36,6 +36,7 @@ public:
 private:
     QCheckBox *mSetOnlineForAllAccount = nullptr;
     QCheckBox *mShowImageByDefault = nullptr;
+    QCheckBox *mShowRoomAvatar = nullptr;
 };
 
 #endif // CONFIGUREGENERALWIDGET_H

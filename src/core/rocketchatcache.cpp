@@ -184,6 +184,9 @@ void RocketChatCache::updateAvatar(const Utils::AvatarInfo &info)
 
 QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
 {
+    if (!info.isValid()) {
+        return {};
+    }
     const QString avatarIdentifier = info.identifier;
     //avoid to call this method several time.
     if (!mAvatarUrl.contains(avatarIdentifier)) {

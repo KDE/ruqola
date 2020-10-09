@@ -736,7 +736,8 @@ Utils::AvatarInfo Room::avatarInfo() const
     Utils::AvatarInfo info;
     if (!mAvatarETag.isEmpty()) {
         info.avatarType = Utils::AvatarType::Room;
-        info.identifier = mAvatarETag;
+        info.etag = mAvatarETag;
+        info.identifier = mRoomId;
     }
     return info;
 }

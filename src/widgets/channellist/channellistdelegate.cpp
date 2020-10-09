@@ -21,6 +21,7 @@
 #include "channellistdelegate.h"
 #include "common/delegatepaintutil.h"
 #include "model/roommodel.h"
+#include "ruqolaglobalconfig.h"
 
 #include <QPainter>
 #include <KColorScheme>
@@ -36,7 +37,7 @@ ChannelListDelegate::~ChannelListDelegate()
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
+    // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
     const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
@@ -62,6 +63,9 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QString avatarUrl = index.data(RoomModel::RoomAvatar).toString();
     if (!avatarUrl.isEmpty()) {
         qDebug() << "avatarUrl " << avatarUrl;
+    }
+    if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
+        //TODO
     }
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long

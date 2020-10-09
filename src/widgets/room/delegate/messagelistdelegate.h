@@ -126,6 +126,7 @@ private:
     MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    Q_REQUIRED_RESULT qreal checkIfNeededToClearCache(const QWidget *widget) const;
 
     friend class MessageListDelegateTest;
 

@@ -122,11 +122,7 @@ QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QM
         return {};
     }
 
-    const auto dpr = widget->devicePixelRatioF();
-    if (dpr != mAvatarCache.dpr) {
-        mAvatarCache.dpr = dpr;
-        mAvatarCache.cache.clear();
-    }
+    const auto dpr = checkIfNeededToClearCache(widget);
 
     auto &cache = mAvatarCache.cache;
 
@@ -146,14 +142,19 @@ QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QM
     return downScaled;
 }
 
-QPixmap MessageListDelegate::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const
+qreal MessageListDelegate::checkIfNeededToClearCache(const QWidget *widget) const
 {
     const auto dpr = widget->devicePixelRatioF();
     if (dpr != mAvatarCache.dpr) {
         mAvatarCache.dpr = dpr;
         mAvatarCache.cache.clear();
     }
+    return dpr;
+}
 
+QPixmap MessageListDelegate::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const
+{
+    const auto dpr = checkIfNeededToClearCache(widget);
     auto &cache = mAvatarCache.cache;
 
     auto downScaled = cache.findCachedPixmap(emojiStr);

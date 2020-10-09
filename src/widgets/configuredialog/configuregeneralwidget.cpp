@@ -39,6 +39,10 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mShowImageByDefault->setObjectName(QStringLiteral("mShowImageByDefault"));
     mainLayout->addWidget(mShowImageByDefault);
 
+    mShowRoomAvatar = new QCheckBox(i18n("Show Room Avatar"), this);
+    mShowRoomAvatar->setObjectName(QStringLiteral("mShowRoomAvatar"));
+    mainLayout->addWidget(mShowRoomAvatar);
+
     mainLayout->addStretch(1);
 }
 
@@ -50,6 +54,7 @@ void ConfigureGeneralWidget::save()
 {
     RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
     RuqolaGlobalConfig::self()->setShowImage(mShowImageByDefault->isChecked());
+    RuqolaGlobalConfig::self()->setShowRoomAvatar(mShowRoomAvatar->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -57,4 +62,5 @@ void ConfigureGeneralWidget::load()
 {
     mSetOnlineForAllAccount->setChecked(RuqolaGlobalConfig::self()->setOnlineAccounts());
     mShowImageByDefault->setChecked(RuqolaGlobalConfig::self()->showImage());
+    mShowRoomAvatar->setChecked(RuqolaGlobalConfig::self()->showRoomAvatar());
 }

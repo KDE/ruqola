@@ -58,7 +58,7 @@ void AvatarManager::slotRescheduleDownload()
 void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
 {
     if (!info.isValid()) {
-        //qCWarning(RUQOLA_LOG) << "AvatarManager::insertInDownloadQueue info is not valid!" << info;
+        qCWarning(RUQOLA_LOG) << "AvatarManager::insertInDownloadQueue info is not valid!" << info;
         return;
     }
     bool startDownload = false;

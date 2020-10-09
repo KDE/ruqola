@@ -220,6 +220,9 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomDirectChannelUserId:
         return r->directChannelUserId();
     case RoomModel::RoomAvatar:
+        if (r->avatarETag().isEmpty()) {
+            return {};
+        }
         return mRocketChatAccount->avatarUrl(r->avatarInfo());
     }
     return {};
