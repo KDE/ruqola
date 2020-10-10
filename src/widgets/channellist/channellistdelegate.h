@@ -21,8 +21,9 @@
 #ifndef CHANNELLISTDELEGATE_H
 #define CHANNELLISTDELEGATE_H
 
+#include "utils.h"
 #include <QItemDelegate>
-
+class RocketChatAccount;
 class ChannelListDelegate : public QItemDelegate
 {
     Q_OBJECT
@@ -32,8 +33,12 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
+    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 private:
     Q_REQUIRED_RESULT QString makeUnreadText(const QModelIndex &index) const;
+    void slotAvatarChanged(const Utils::AvatarInfo &info);
+
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif // CHANNELLISTDELEGATE_H

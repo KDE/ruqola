@@ -107,6 +107,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
 
+    mChannelView->setCurrentRocketChatAccount(account);
     mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
     mStatusComboBox->blockSignals(true);
     mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());

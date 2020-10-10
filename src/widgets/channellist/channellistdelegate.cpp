@@ -21,6 +21,7 @@
 #include "channellistdelegate.h"
 #include "common/delegatepaintutil.h"
 #include "model/roommodel.h"
+#include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
 
 #include <QPainter>
@@ -33,6 +34,33 @@ ChannelListDelegate::ChannelListDelegate(QObject *parent)
 
 ChannelListDelegate::~ChannelListDelegate()
 {
+}
+
+void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    if (mRocketChatAccount) {
+        disconnect(mRocketChatAccount, nullptr, this, nullptr);
+    }
+
+    mRocketChatAccount = currentRocketChatAccount;
+    connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &ChannelListDelegate::slotAvatarChanged);
+}
+
+void ChannelListDelegate::slotAvatarChanged(const Utils::AvatarInfo &info)
+{
+    if (info.avatarType == Utils::AvatarType::Room) {
+        const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
+        if (iconUrlStr.isEmpty()) {
+            return;
+        }
+        //TODO
+//        auto &cache = mAvatarCache.cache;
+//        auto downScaled = cache.findCachedPixmap(iconUrlStr);
+//        //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
+//        if (!downScaled.isNull()) {
+//            mAvatarCache.cache.remove(iconUrlStr);
+//        }
+    }
 }
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const

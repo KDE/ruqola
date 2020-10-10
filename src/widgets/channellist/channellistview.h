@@ -26,7 +26,8 @@
 #include "libruqolawidgets_private_export.h"
 
 class RoomFilterProxyModel;
-
+class ChannelListDelegate;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
 {
     Q_OBJECT
@@ -43,6 +44,7 @@ public:
 
     void channelSelected(const QModelIndex &index);
 
+    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 Q_SIGNALS:
     void roomSelected(const QString &roomId, const QString &roomType);
 
@@ -55,6 +57,8 @@ private:
     void slotLeaveChannel(const QModelIndex &index, const QString &roomType);
     void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
     void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
+
+    ChannelListDelegate *mChannelListDelegate = nullptr;
 };
 
 #endif // CHANNELLISTVIEW_H

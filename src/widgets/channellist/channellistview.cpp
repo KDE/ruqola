@@ -34,8 +34,8 @@
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
 {
-    auto *delegate = new ChannelListDelegate(this);
-    setItemDelegate(delegate);
+    mChannelListDelegate = new ChannelListDelegate(this);
+    setItemDelegate(mChannelListDelegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
@@ -43,6 +43,11 @@ ChannelListView::ChannelListView(QWidget *parent)
 
 ChannelListView::~ChannelListView()
 {
+}
+
+void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
+{
+    mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
 RoomFilterProxyModel *ChannelListView::model() const
