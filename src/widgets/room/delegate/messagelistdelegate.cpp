@@ -99,15 +99,17 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 
 void MessageListDelegate::slotAvatarChanged(const Utils::AvatarInfo &info)
 {
-    const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
-    if (iconUrlStr.isEmpty()) {
-        return;
-    }
-    auto &cache = mAvatarCache.cache;
-    auto downScaled = cache.findCachedPixmap(iconUrlStr);
-    //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
-    if (!downScaled.isNull()) {
-        mAvatarCache.cache.remove(iconUrlStr);
+    if (info.avatarType == Utils::AvatarType::User) {
+        const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
+        if (iconUrlStr.isEmpty()) {
+            return;
+        }
+        auto &cache = mAvatarCache.cache;
+        auto downScaled = cache.findCachedPixmap(iconUrlStr);
+        //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
+        if (!downScaled.isNull()) {
+            mAvatarCache.cache.remove(iconUrlStr);
+        }
     }
 }
 
