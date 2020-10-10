@@ -1929,13 +1929,17 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             mCache->updateAvatar(info);
             Q_EMIT avatarWasChanged(info);
         } else if (obj.contains(QLatin1String("rid"))) {
+            const QString roomId = obj[QLatin1String("rid")].toString();
+            const QString etag = obj[QLatin1String("etag")].toString();
             qDebug() << "need to update room avatar ";
-            //TODO FIXME
-//            Utils::AvatarInfo info;
-//            info.avatarType = Utils::AvatarType::Room;
-//            info.identifier = userName; //Etag
-//            mCache->updateAvatar(info);
-//            //TODO avatar room
+            Utils::AvatarInfo info;
+            info.avatarType = Utils::AvatarType::Room;
+            info.etag = etag; //Etag
+            info.identifier = roomId; //roomId
+            mCache->updateAvatar(info);
+            Q_EMIT avatarWasChanged(info);
+        } else {
+            qDebug() << "avatar changed ? " << contents;
         }
     }
 
