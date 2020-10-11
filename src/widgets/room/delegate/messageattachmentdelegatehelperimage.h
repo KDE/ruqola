@@ -22,7 +22,7 @@
 #define MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H
 
 #include "messagedelegatehelperbase.h"
-#include "pixmapcache.h"
+#include "misc/pixmapcache.h"
 #include "runninganimatedimage.h"
 
 #include <QModelIndex>

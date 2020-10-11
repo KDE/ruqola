@@ -130,7 +130,6 @@ set(Ruqola_roomwidget_SRCS
     room/delegate/messageattachmentdelegatehelpervideo.cpp
     room/delegate/messageattachmentdelegatehelpersound.cpp
     room/delegate/runninganimatedimage.cpp
-    room/delegate/pixmapcache.cpp
     room/delegate/messagedelegateutils.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp
@@ -142,6 +141,8 @@ set(Ruqola_roomwidget_SRCS
     )
 
 set(Ruqola_misc_widget_SRCS
+    misc/pixmapcache.cpp
+    misc/avatarcachemanager.cpp
     misc/accountmenu.cpp
     misc/accountsoverviewwidget.cpp
     misc/emoticonmenuwidget.cpp

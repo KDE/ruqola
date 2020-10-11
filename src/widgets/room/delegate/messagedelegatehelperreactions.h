@@ -22,7 +22,7 @@
 #define MESSAGEDELEGATEHELPERREACTIONS_H
 
 #include "libruqolawidgets_private_export.h"
-#include "pixmapcache.h"
+#include "misc/pixmapcache.h"
 
 #include <QRectF>
 #include <QSize>

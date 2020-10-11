@@ -24,7 +24,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "utils.h"
 
-#include "pixmapcache.h"
+#include "misc/pixmapcache.h"
 
 #include <QFont>
 #include <QItemDelegate>
