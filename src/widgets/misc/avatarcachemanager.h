@@ -23,22 +23,39 @@
 #define AVATARCACHEMANAGER_H
 
 #include <QObject>
+#include "utils.h"
 #include "libruqolawidgets_private_export.h"
 #include "pixmapcache.h"
+#include <QFont>
 
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarCacheManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit AvatarCacheManager(QObject *parent = nullptr);
+    explicit AvatarCacheManager(const Utils::AvatarType avatarType, QObject *parent = nullptr);
     ~AvatarCacheManager();
+
+    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
+
+    Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QString &identifier, int maxHeight) const;
+    Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QString &identifier, int maxHeight) const;
+public Q_SLOTS:
+    void slotAvatarChanged(const Utils::AvatarInfo &info);
+
 private:
+
+    Q_REQUIRED_RESULT qreal checkIfNeededToClearCache(const QWidget *widget) const;
+
     // DPR-dependent cache of avatars
     struct AvatarCache {
         qreal dpr = 0.;
         PixmapCache cache;
     };
     mutable AvatarCache mAvatarCache;
+    const Utils::AvatarType mAvatarType;
+    const QFont mEmojiFont;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif // AVATARCACHEMANAGER_H
