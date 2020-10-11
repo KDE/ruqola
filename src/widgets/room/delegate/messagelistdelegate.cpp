@@ -33,6 +33,7 @@
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "misc/emoticonmenuwidget.h"
+#include "misc/avatarcachemanager.h"
 #include "common/delegatepaintutil.h"
 
 #include <QApplication>
@@ -46,6 +47,7 @@
 #include <KLocalizedString>
 #include <KColorScheme>
 
+
 static QSizeF dprAwareSize(const QPixmap &pixmap)
 {
     if (pixmap.isNull()) {
@@ -56,7 +58,6 @@ static QSizeF dprAwareSize(const QPixmap &pixmap)
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
-    , mEmojiFont(QStringLiteral("NotoColorEmoji"))
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
@@ -68,6 +69,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo)
     , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound)
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText)
+    , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
 }
 
@@ -77,12 +79,8 @@ MessageListDelegate::~MessageListDelegate()
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
-    if (mRocketChatAccount) {
-        disconnect(mRocketChatAccount, nullptr, this, nullptr);
-    }
-
+    mAvatarCacheManager->setCurrentRocketChatAccount(rcAccount);
     mRocketChatAccount = rcAccount;
-    connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &MessageListDelegate::slotAvatarChanged);
 }
 
 static qreal basicMargin()
@@ -97,107 +95,20 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-void MessageListDelegate::slotAvatarChanged(const Utils::AvatarInfo &info)
-{
-    if (info.avatarType == Utils::AvatarType::User) {
-        const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
-        if (iconUrlStr.isEmpty()) {
-            return;
-        }
-        auto &cache = mAvatarCache.cache;
-        auto downScaled = cache.findCachedPixmap(iconUrlStr);
-        //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
-        if (!downScaled.isNull()) {
-            mAvatarCache.cache.remove(iconUrlStr);
-        }
-    }
-}
-
-QPixmap MessageListDelegate::makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
-{
-    const QString userId = index.data(MessageModel::Username).toString();
-    Utils::AvatarInfo info; //Optimize ???
-    info.avatarType = Utils::AvatarType::User;
-    info.identifier = userId;
-    const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
-    if (iconUrlStr.isEmpty()) {
-        return {};
-    }
-
-    const auto dpr = checkIfNeededToClearCache(widget);
-
-    auto &cache = mAvatarCache.cache;
-
-    auto downScaled = cache.findCachedPixmap(iconUrlStr);
-    if (downScaled.isNull()) {
-        const QUrl iconUrl(iconUrlStr);
-        Q_ASSERT(iconUrl.isLocalFile());
-        QPixmap fullScale;
-        if (!fullScale.load(iconUrl.toLocalFile())) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
-            return {};
-        }
-        downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
-        downScaled.setDevicePixelRatio(dpr);
-        cache.insertCachedPixmap(iconUrlStr, downScaled);
-    }
-    return downScaled;
-}
-
-qreal MessageListDelegate::checkIfNeededToClearCache(const QWidget *widget) const
-{
-    const auto dpr = widget->devicePixelRatioF();
-    if (dpr != mAvatarCache.dpr) {
-        mAvatarCache.dpr = dpr;
-        mAvatarCache.cache.clear();
-    }
-    return dpr;
-}
-
-QPixmap MessageListDelegate::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const
-{
-    const auto dpr = checkIfNeededToClearCache(widget);
-    auto &cache = mAvatarCache.cache;
-
-    auto downScaled = cache.findCachedPixmap(emojiStr);
-    if (downScaled.isNull()) {
-        auto *emojiManager = mRocketChatAccount->emojiManager();
-        const UnicodeEmoticon emoticon = emojiManager->unicodeEmoticonForEmoji(emojiStr);
-        if (emoticon.isValid()) {
-            const QFontMetrics fm(mEmojiFont);
-            const QSize size = fm.boundingRect(emoticon.unicode()).size();
-
-            //qDebug() << " size " << size << "emojiStr "<< emojiStr << " emoticon.unicode() " <<emoticon.unicode() << fm.horizontalAdvance(emoticon.unicode());
-            //boundingRect can return a width == 0 for existing character as :warning: emoji.
-            QPixmap fullScale(fm.horizontalAdvance(emoticon.unicode()), size.height());
-
-            fullScale.fill(Qt::white);
-            QPainter painter(&fullScale);
-            painter.setFont(mEmojiFont);
-            painter.drawText(fullScale.rect(), Qt::AlignCenter, emoticon.unicode());
-            downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
-            downScaled.setDevicePixelRatio(dpr);
-            cache.insertCachedPixmap(emojiStr, downScaled);
-        } else {
-            return makeAvatarUrlPixmap(widget, index, maxHeight);
-        }
-    }
-    return downScaled;
-}
-
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString emojiStr = index.data(MessageModel::Emoji).toString();
+    const QString userId = index.data(MessageModel::Username).toString();
     if (!emojiStr.isEmpty()) {
-        return makeAvatarEmojiPixmap(emojiStr, widget, index, maxHeight);
+        return mAvatarCacheManager->makeAvatarEmojiPixmap(emojiStr, widget, userId, maxHeight);
     } else {
         const QString avatarUrl = index.data(MessageModel::Avatar).toString();
         if (!avatarUrl.isEmpty()) {
             //TODO
             qDebug() << " avatarUrl is not empty " << avatarUrl;
-            return makeAvatarUrlPixmap(widget, index, maxHeight);
+            return mAvatarCacheManager->makeAvatarUrlPixmap(widget, userId, maxHeight);
         } else {
-            return makeAvatarUrlPixmap(widget, index, maxHeight);
+            return mAvatarCacheManager->makeAvatarUrlPixmap(widget, userId, maxHeight);
         }
     }
 }

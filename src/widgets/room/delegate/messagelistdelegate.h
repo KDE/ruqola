@@ -41,7 +41,7 @@ class MessageAttachmentDelegateHelperVideo;
 class MessageAttachmentDelegateHelperSound;
 class MessageAttachmentDelegateHelperText;
 class MessageAttachment;
-
+class AvatarCacheManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
     Q_OBJECT
@@ -71,7 +71,6 @@ public:
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
-    void slotAvatarChanged(const Utils::AvatarInfo &info);
 
     struct Layout {
         // Sender
@@ -124,13 +123,9 @@ private:
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
-    Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
-    Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QModelIndex &index, int maxHeight) const;
-    Q_REQUIRED_RESULT qreal checkIfNeededToClearCache(const QWidget *widget) const;
 
     friend class MessageListDelegateTest;
 
-    const QFont mEmojiFont;
     const QIcon mEditedIcon;
     const QIcon mRolesIcon;
     const QIcon mAddReactionIcon;
@@ -143,12 +138,7 @@ private:
     QScopedPointer<MessageAttachmentDelegateHelperVideo> mHelperAttachmentVideo;
     QScopedPointer<MessageAttachmentDelegateHelperSound> mHelperAttachmentSound;
     QScopedPointer<MessageAttachmentDelegateHelperText> mHelperAttachmentText;
-    // DPR-dependent cache of avatars
-    struct AvatarCache {
-        qreal dpr = 0.;
-        PixmapCache cache;
-    };
-    mutable AvatarCache mAvatarCache;
+    AvatarCacheManager *const mAvatarCacheManager;
 };
 
 #endif // MESSAGELISTDELEGATE_H
