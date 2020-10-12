@@ -65,4 +65,9 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTimeZone);
     QVERIFY(mTimeZone->text().isEmpty());
     QCOMPARE(mTimeZone->textInteractionFlags(), Qt::TextBrowserInteraction);
+
+    QLabel *mRoles = w.findChild<QLabel * >(QStringLiteral("mRoles"));
+    QVERIFY(mRoles);
+    QVERIFY(mRoles->text().isEmpty());
+    QCOMPARE(mRoles->textInteractionFlags(), Qt::TextBrowserInteraction);
 }

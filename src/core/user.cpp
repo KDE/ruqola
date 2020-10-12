@@ -70,7 +70,8 @@ bool User::operator ==(const User &other) const
            && (mStatus == other.status())
            && (mUserName == other.userName())
            && (mUtcOffset == other.utcOffset())
-           && (mStatusText == other.statusText());
+           && (mStatusText == other.statusText())
+            && (mRoles == other.roles());
 }
 
 bool User::operator !=(const User &other) const
@@ -121,6 +122,7 @@ QDebug operator <<(QDebug d, const User &t)
     d << "UserName " << t.userName();
     d << "UtcOffset " << t.utcOffset();
     d << "StatusText " << t.statusText();
+    d << "roles : " << t.roles();
     return d;
 }
 
@@ -133,6 +135,13 @@ void User::parseUserRestApi(const QJsonObject &object)
     setUserName(object.value(QLatin1String("username")).toString());
     setStatusText(object.value(QLatin1String("statusText")).toString());
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
+    const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
+    QStringList roles;
+    for (int i = 0, total = rolesArray.size(); i < total; ++i) {
+        roles.append(rolesArray.at(i).toString());
+    }
+    setRoles(roles);
+    qDebug() << " object "  << object;
 }
 
 void User::parseUser(const QVariantList &list)
@@ -160,6 +169,16 @@ void User::parseUser(const QVariantList &list)
     if (customText.isValid()) {
         setStatusText(customText.toString());
     }
+}
+
+QStringList User::roles() const
+{
+    return mRoles;
+}
+
+void User::setRoles(const QStringList &roles)
+{
+    mRoles = roles;
 }
 
 void User::parseUser(const QJsonObject &object)

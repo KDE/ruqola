@@ -66,6 +66,11 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
     mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
+
+    mRoles = new QLabel(this);
+    mRoles->setObjectName(QStringLiteral("mRoles"));
+    mRoles->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mainLayout->addRow(i18n("Roles:"), mRoles);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
@@ -118,4 +123,6 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
+    //TODO use i18n ?
+    mRoles->setText(user.roles().join(QLatin1Char(',')));
 }

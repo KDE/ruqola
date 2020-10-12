@@ -71,12 +71,17 @@ public:
 
     static Q_REQUIRED_RESULT QVector<User> parseUsersList(const QJsonObject &object);
     void parseUser(const QVariantList &list);
+
+    Q_REQUIRED_RESULT QStringList roles() const;
+    void setRoles(const QStringList &roles);
+
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;
     QString mName;
     QString mUserName;
     QString mStatusText;
+    QStringList mRoles;
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(User)

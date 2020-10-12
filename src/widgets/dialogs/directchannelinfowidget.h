@@ -44,6 +44,7 @@ private:
     QLabel *mStatus = nullptr;
     QLabel *mTimeZone = nullptr;
     QLabel *mAvatar = nullptr;
+    QLabel *mRoles = nullptr;
 };
 
 #endif // DIRECTCHANNELINFOWIDGET_H
