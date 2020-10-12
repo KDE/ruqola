@@ -286,7 +286,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         avatarInfo.etag = QStringLiteral("etag-user-identifier");
         QTest::newRow("user1-etag") << QStringLiteral("http://www.kde.org")
                                     << avatarInfo
-                                    << QUrl(QStringLiteral("http://www.kde.org/avatar/%1?format=png&size=22&etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
+                                    << QUrl(QStringLiteral("http://www.kde.org/avatar/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
     {
         Utils::AvatarInfo avatarInfo;
@@ -303,7 +303,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         avatarInfo.etag = QStringLiteral("etagIdentifier");
         QTest::newRow("room1-etag") << QStringLiteral("http://www.kde.org")
                                     << avatarInfo
-                                    << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?format=png&size=22&etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
+                                    << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
     {
         Utils::AvatarInfo avatarInfo;
@@ -312,7 +312,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         avatarInfo.etag = QStringLiteral("etagIdentifier");
         QTest::newRow("room1-etag-without-protocol") << QStringLiteral("www.kde.org")
                                                      << avatarInfo
-                                                     << QUrl(QStringLiteral("https://www.kde.org/avatar/room/%1?format=png&size=22&etag=%2").arg(avatarInfo.identifier, avatarInfo.etag));
+                                                     << QUrl(QStringLiteral("https://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
 }
 
