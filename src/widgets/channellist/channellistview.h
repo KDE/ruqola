@@ -58,7 +58,7 @@ private:
     void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
     void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
 
-    ChannelListDelegate *mChannelListDelegate = nullptr;
+    ChannelListDelegate *const mChannelListDelegate;
 };
 
 #endif // CHANNELLISTVIEW_H

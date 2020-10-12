@@ -33,8 +33,8 @@
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
+    , mChannelListDelegate(new ChannelListDelegate(this))
 {
-    mChannelListDelegate = new ChannelListDelegate(this);
     setItemDelegate(mChannelListDelegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
