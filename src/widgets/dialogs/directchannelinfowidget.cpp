@@ -124,5 +124,5 @@ void DirectChannelInfoWidget::setUser(const User &user)
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
     //TODO use i18n ?
-    mRoles->setText(user.roles().join(QLatin1Char(',')));
+    mRoles->setText(user.roles().join(QStringLiteral(", ")));
 }
