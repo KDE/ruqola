@@ -30,7 +30,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 {
     auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mStatusCombobox = new StatusCombobox(false, this);
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));

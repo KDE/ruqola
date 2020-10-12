@@ -31,7 +31,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
 {
     mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mChannelName = new QLineEdit(this);
     mChannelName->setObjectName(QStringLiteral("mChannelName"));

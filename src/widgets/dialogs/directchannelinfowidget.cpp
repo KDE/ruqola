@@ -36,7 +36,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
 {
     auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mAvatar = new QLabel(this);
     mAvatar->setObjectName(QStringLiteral("mAvatar"));

@@ -27,7 +27,7 @@ ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mConfigureAccountServerWidget = new ConfigureAccountServerWidget(this);
     mConfigureAccountServerWidget->setObjectName(QStringLiteral("mConfigureAccountServerWidget"));

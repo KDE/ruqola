@@ -32,7 +32,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     QLabel *channelLabel = new QLabel(i18n("Channel or Group parent"), this);
     channelLabel->setObjectName(QStringLiteral("channelLabel"));

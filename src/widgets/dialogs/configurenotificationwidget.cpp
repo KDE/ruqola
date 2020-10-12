@@ -39,11 +39,11 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 {
     auto *topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
-    topLayout->setContentsMargins(0, 0, 0, 0);
+    topLayout->setContentsMargins({});
 
     auto *mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     topLayout->addLayout(mainLayout);
 
     mDisableNotification = new QCheckBox(this);

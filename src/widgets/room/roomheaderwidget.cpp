@@ -32,11 +32,11 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     auto *headerLayout = new QHBoxLayout;
     headerLayout->setObjectName(QStringLiteral("headerLayout"));
-    headerLayout->setContentsMargins(0, 0, 0, 0);
+    headerLayout->setContentsMargins({});
     mainLayout->addLayout(headerLayout);
 
     mFavoriteButton = new QToolButton(this);
@@ -64,7 +64,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 
     auto *infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
-    infoLayout->setContentsMargins(0, 0, 0, 0);
+    infoLayout->setContentsMargins({});
     headerLayout->addLayout(infoLayout);
 
     mRoomName = new QLabel(this);
@@ -102,7 +102,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 
     auto *buttonLayout = new QHBoxLayout;
     buttonLayout->setObjectName(QStringLiteral("buttonLayout"));
-    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setContentsMargins({});
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 

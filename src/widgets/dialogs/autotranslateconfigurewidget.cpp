@@ -35,7 +35,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mAutoTranslate = new QCheckBox(i18n("Auto-Translate"), this);
     mAutoTranslate->setObjectName(QStringLiteral("mAutoTranslate"));
@@ -44,7 +44,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
 
     QHBoxLayout *horizontalLayout = new QHBoxLayout;
     horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-    horizontalLayout->setContentsMargins(0, 0, 0, 0);
+    horizontalLayout->setContentsMargins({});
     mainLayout->addLayout(horizontalLayout);
 
     QLabel *label = new QLabel(i18n("Language:"), this);

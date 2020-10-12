@@ -40,11 +40,11 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QHBoxLayout *hboxLayout = new QHBoxLayout;
-    hboxLayout->setContentsMargins(0, 0, 0, 0);
+    hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
     QVBoxLayout *mainComponentLayout = new QVBoxLayout;
-    mainComponentLayout->setContentsMargins(0, 0, 0, 0);
+    mainComponentLayout->setContentsMargins({});
 
     mSearchEmoticon = new KListWidgetSearchLine(this);
     mListWidget = new QListWidget(this);
@@ -124,7 +124,7 @@ UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
     : QWidget(parent)
 {
     QFormLayout *mainLayout = new QFormLayout(this);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     mIdentifier = new QLineEdit(this);
     mainLayout->addRow(QStringLiteral("identifier:"), mIdentifier);
     mUnicode = new QLineEdit(this);

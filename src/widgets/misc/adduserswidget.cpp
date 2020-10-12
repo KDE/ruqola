@@ -29,7 +29,7 @@ AddUsersWidget::AddUsersWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mSearchUserLineEdit = new AddUsersCompletionLineEdit(this);
     mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));

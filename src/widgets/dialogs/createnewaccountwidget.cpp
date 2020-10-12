@@ -30,7 +30,7 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
 {
     auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mAccountName = new QLineEdit(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));

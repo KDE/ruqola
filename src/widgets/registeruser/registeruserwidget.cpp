@@ -32,7 +32,7 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
 {
     QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));

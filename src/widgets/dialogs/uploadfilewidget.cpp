@@ -31,7 +31,7 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
 {
     auto *layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
 
     mDescription = new QLineEdit(this);
     new LineEditCatchReturnKey(mDescription, this);

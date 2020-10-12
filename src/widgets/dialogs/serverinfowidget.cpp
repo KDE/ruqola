@@ -29,7 +29,7 @@ ServerInfoWidget::ServerInfoWidget(QWidget *parent)
 {
     auto *layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
 
     mAccountName = new QLabel(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));

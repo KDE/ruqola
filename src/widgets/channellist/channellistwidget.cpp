@@ -44,7 +44,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mSearchRoom = new QLineEdit(this);
     // dummy action just for getting the icon)

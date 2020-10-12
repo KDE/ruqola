@@ -26,7 +26,7 @@ ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("label"));

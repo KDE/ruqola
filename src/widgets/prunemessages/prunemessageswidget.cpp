@@ -33,11 +33,11 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     QHBoxLayout *lastestLayout = new QHBoxLayout;
     lastestLayout->setObjectName(QStringLiteral("lastestLayout"));
-    lastestLayout->setContentsMargins(0, 0, 0, 0);
+    lastestLayout->setContentsMargins({});
     mainLayout->addLayout(lastestLayout);
 
     QLabel *lastestLabel = new QLabel(i18n("Newer than:"), this);
@@ -51,7 +51,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 
     QHBoxLayout *oldestLayout = new QHBoxLayout;
     oldestLayout->setObjectName(QStringLiteral("oldestLayout"));
-    oldestLayout->setContentsMargins(0, 0, 0, 0);
+    oldestLayout->setContentsMargins({});
     mainLayout->addLayout(oldestLayout);
 
     QLabel *oldestLabel = new QLabel(i18n("Older than:"), this);

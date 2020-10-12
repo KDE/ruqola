@@ -37,7 +37,7 @@ UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
     mIconLabel = new QLabel(this);
     mIconLabel->setObjectName(QStringLiteral("mIconLabel"));

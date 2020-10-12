@@ -31,7 +31,7 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mCustomFontCheck = new QCheckBox(i18n("&Use custom fonts"), this);
     mCustomFontCheck->setObjectName(QStringLiteral("mCustomFontCheck"));

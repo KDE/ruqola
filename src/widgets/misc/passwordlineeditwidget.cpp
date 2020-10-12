@@ -30,7 +30,7 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));

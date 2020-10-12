@@ -30,7 +30,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
 {
     QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mNewPasswordLineEdit = new KPasswordLineEdit(this);
     mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));

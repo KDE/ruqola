@@ -44,7 +44,7 @@ private:
     void slotCompletionAvailable();
 
 protected:
-    CompletionListView *mCompletionListView;
+    CompletionListView *const mCompletionListView;
 };
 
 #endif // COMPLETIONLINEEDIT_H

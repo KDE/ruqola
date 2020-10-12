@@ -40,7 +40,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
 {
     auto *layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
 
     mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));

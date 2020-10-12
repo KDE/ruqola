@@ -46,7 +46,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 {
     auto *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     mSendFile = new QToolButton(this);

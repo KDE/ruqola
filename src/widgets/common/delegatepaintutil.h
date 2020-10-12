@@ -27,7 +27,7 @@ class QPoint;
 
 namespace DelegatePaintUtil {
 void drawTimestamp(QPainter *painter, const QString &timeStampText, QPoint timeStampPos);
-int margin();
+Q_REQUIRED_RESULT int margin();
 }
 
 #endif // DELETEPAINTUTIL_H

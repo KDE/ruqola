@@ -42,7 +42,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
@@ -55,7 +55,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     auto *layout = new QFormLayout(mEditableChannel);
     layout->setObjectName(QStringLiteral("layout"));
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
 
     QString str = i18n("Name:");
     mName = new ChangeTextWidget(this);
@@ -153,7 +153,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     auto *layoutReadOnly = new QFormLayout(mReadOnlyChannel);
     layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
-    layoutReadOnly->setContentsMargins(0, 0, 0, 0);
+    layoutReadOnly->setContentsMargins({});
 
     mNameReadOnly = new QLabel(this);
     mNameReadOnly->setTextFormat(Qt::RichText);
@@ -298,7 +298,7 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
 {
     auto *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("mLabel"));
     mLabel->setWordWrap(true);

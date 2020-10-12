@@ -34,7 +34,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mMediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
@@ -45,7 +45,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 
     QBoxLayout *controlLayout = new QHBoxLayout;
     controlLayout->setObjectName(QStringLiteral("controlLayout"));
-    controlLayout->setContentsMargins(0, 0, 0, 0);
+    controlLayout->setContentsMargins({});
     mainLayout->addLayout(controlLayout);
 
     mPlayButton = new QPushButton(this);

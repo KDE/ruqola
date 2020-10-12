@@ -34,11 +34,11 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     QHBoxLayout *searchAttachmentLayout = new QHBoxLayout;
     searchAttachmentLayout->setObjectName(QStringLiteral("searchAttachmentLayout"));
-    searchAttachmentLayout->setContentsMargins(0, 0, 0, 0);
+    searchAttachmentLayout->setContentsMargins({});
     mainLayout->addLayout(searchAttachmentLayout);
 
     mSearchAttachmentFileLineEdit = new QLineEdit(this);

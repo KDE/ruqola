@@ -29,7 +29,7 @@ ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *paren
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mUserLabel = new QLabel(mUserName, this);
     mUserLabel->setObjectName(QStringLiteral("mUserLabel"));

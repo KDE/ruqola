@@ -29,7 +29,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mSetOnlineForAllAccount = new QCheckBox(i18n("Set Online Account on Startup"), this);
     mSetOnlineForAllAccount->setObjectName(QStringLiteral("mSetOnlineForAllAccount"));

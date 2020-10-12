@@ -41,11 +41,11 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     QHBoxLayout *hlayout = new QHBoxLayout;
     hlayout->setObjectName(QStringLiteral("hlayout"));
-    hlayout->setContentsMargins(0, 0, 0, 0);
+    hlayout->setContentsMargins({});
     mainLayout->addLayout(hlayout);
 
     QLabel *label = new QLabel(i18n("Invite Link:"), this);
@@ -74,7 +74,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 
     QFormLayout *formLayout = new QFormLayout(collapsibleGroupBox);
     formLayout->setObjectName(QStringLiteral("formLayout"));
-    formLayout->setContentsMargins(0, 0, 0, 0);
+    formLayout->setContentsMargins({});
 
     mExpirationDays = new QComboBox(this);
     mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));

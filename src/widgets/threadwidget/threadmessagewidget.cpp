@@ -34,7 +34,7 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mThreadPreview = new QLabel(this);
     mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));

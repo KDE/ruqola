@@ -68,7 +68,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
 
     mRoomHeaderWidget = new RoomHeaderWidget(this);
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));

@@ -26,11 +26,11 @@
 
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)
     : QLineEdit(parent)
+    , mCompletionListView(new CompletionListView)
 {
     setClearButtonEnabled(true);
     new LineEditCatchReturnKey(this, this);
 
-    mCompletionListView = new CompletionListView;
     mCompletionListView->setTextWidget(this);
 
     connect(mCompletionListView, &CompletionListView::complete, this, &CompletionLineEdit::complete);
