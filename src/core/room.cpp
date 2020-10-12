@@ -732,6 +732,7 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
 
 Utils::AvatarInfo Room::avatarInfo() const
 {
+    //TODO direct channel or group channel
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::Room;
     info.etag = mAvatarETag;
