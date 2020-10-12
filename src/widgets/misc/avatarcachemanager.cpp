@@ -31,12 +31,10 @@ AvatarCacheManager::AvatarCacheManager(const Utils::AvatarType avatarType, QObje
     , mAvatarType(avatarType)
     , mEmojiFont(QStringLiteral("NotoColorEmoji"))
 {
-
 }
 
 AvatarCacheManager::~AvatarCacheManager()
 {
-
 }
 
 qreal AvatarCacheManager::checkIfNeededToClearCache(const QWidget *widget) const
@@ -105,7 +103,6 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
     }
     return downScaled;
 }
-
 
 QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
 {

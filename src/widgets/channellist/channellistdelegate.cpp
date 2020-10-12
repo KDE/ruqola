@@ -28,7 +28,6 @@
 #include <QPainter>
 #include <KColorScheme>
 
-
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
@@ -47,7 +46,6 @@ void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *current
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();

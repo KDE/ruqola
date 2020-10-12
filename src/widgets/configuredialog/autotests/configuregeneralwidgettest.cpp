@@ -48,7 +48,6 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mShowImageByDefault->isChecked());
     QVERIFY(!mShowImageByDefault->text().isEmpty());
 
-
     QCheckBox *mShowRoomAvatar = w.findChild<QCheckBox *>(QStringLiteral("mShowRoomAvatar"));
     QVERIFY(mShowRoomAvatar);
     QVERIFY(!mShowRoomAvatar->isChecked());

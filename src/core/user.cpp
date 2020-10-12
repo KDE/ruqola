@@ -71,7 +71,7 @@ bool User::operator ==(const User &other) const
            && (mUserName == other.userName())
            && (mUtcOffset == other.utcOffset())
            && (mStatusText == other.statusText())
-            && (mRoles == other.roles());
+           && (mRoles == other.roles());
 }
 
 bool User::operator !=(const User &other) const

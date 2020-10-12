@@ -730,7 +730,6 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
-
 Utils::AvatarInfo Room::avatarInfo() const
 {
     Utils::AvatarInfo info;

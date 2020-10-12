@@ -47,7 +47,6 @@
 #include <KLocalizedString>
 #include <KColorScheme>
 
-
 static QSizeF dprAwareSize(const QPixmap &pixmap)
 {
     if (pixmap.isNull()) {
