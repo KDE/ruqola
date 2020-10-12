@@ -47,12 +47,12 @@ void RoomModelTest::shouldHaveDefaultValues()
     QHash<int, QByteArray> roles;
     roles[RoomModel::RoomName] = QByteArrayLiteral("name");
     roles[RoomModel::RoomFName] = QByteArrayLiteral("fname");
-    roles[RoomModel::RoomID] = QByteArrayLiteral("room_id");
+    roles[RoomModel::RoomId] = QByteArrayLiteral("room_id");
     roles[RoomModel::RoomSelected] = QByteArrayLiteral("selected");
     roles[RoomModel::RoomUnread] = QByteArrayLiteral("unread");
     roles[RoomModel::RoomType] = QByteArrayLiteral("type");
     roles[RoomModel::RoomOwnerUserName] = QByteArrayLiteral("username");
-    roles[RoomModel::RoomOwnerUserID] = QByteArrayLiteral("userID");
+    roles[RoomModel::RoomOwnerUserId] = QByteArrayLiteral("userID");
     roles[RoomModel::RoomTopic] = QByteArrayLiteral("topic");
     roles[RoomModel::RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomModel::RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
@@ -369,13 +369,13 @@ void RoomModelTest::shouldReturnDataDefault()
 
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomName);
     QCOMPARE(output.toString(), name);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomID);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomId);
     QCOMPARE(output.toString(), Id);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSelected);
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); //channel type
     QVERIFY(output.toString().isEmpty());
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserID);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserName);
     QVERIFY(output.toString().isEmpty());
@@ -444,13 +444,13 @@ void RoomModelTest::shouldReturnData()
 
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomName);
     QCOMPARE(output.toString(), name);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomID);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomId);
     QCOMPARE(output.toString(), Id);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSelected);
     QCOMPARE(output.toBool(), selected);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); //channel type
     QCOMPARE(output.toString(), roomType);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserID);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
     QCOMPARE(output.toString(), userId);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserName);
     QCOMPARE(output.toString(), userName);

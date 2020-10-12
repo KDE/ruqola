@@ -223,7 +223,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
         } else if (link == QLatin1String("ruqola:/jitsicall/")) {
             const QModelIndex jitsiSelectedIndex = mChannelView->selectionModel()->currentIndex();
             if (jitsiSelectedIndex.isValid()) {
-                const QString roomId = jitsiSelectedIndex.data(RoomModel::RoomID).toString();
+                const QString roomId = jitsiSelectedIndex.data(RoomModel::RoomId).toString();
                 mCurrentRocketChatAccount->joinJitsiConfCall(roomId);
             }
         }

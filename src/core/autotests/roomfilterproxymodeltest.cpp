@@ -42,12 +42,12 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
     QHash<int, QByteArray> roles;
     roles[RoomModel::RoomName] = QByteArrayLiteral("name");
     roles[RoomModel::RoomFName] = QByteArrayLiteral("fname");
-    roles[RoomModel::RoomID] = QByteArrayLiteral("room_id");
+    roles[RoomModel::RoomId] = QByteArrayLiteral("room_id");
     roles[RoomModel::RoomSelected] = QByteArrayLiteral("selected");
     roles[RoomModel::RoomUnread] = QByteArrayLiteral("unread");
     roles[RoomModel::RoomType] = QByteArrayLiteral("type");
     roles[RoomModel::RoomOwnerUserName] = QByteArrayLiteral("username");
-    roles[RoomModel::RoomOwnerUserID] = QByteArrayLiteral("userID");
+    roles[RoomModel::RoomOwnerUserId] = QByteArrayLiteral("userID");
     roles[RoomModel::RoomTopic] = QByteArrayLiteral("topic");
     roles[RoomModel::RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomModel::RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");

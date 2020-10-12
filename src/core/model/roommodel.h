@@ -39,11 +39,11 @@ public:
         RoomName = Qt::UserRole + 1,
         RoomFName,
         RoomSelected,
-        RoomID,
+        RoomId,
         RoomUnread,
         RoomType,
         RoomOwnerUserName, //created by UserName
-        RoomOwnerUserID,
+        RoomOwnerUserId,
         RoomTopic,
         RoomMutedUsers,
         RoomJitsiTimeout,

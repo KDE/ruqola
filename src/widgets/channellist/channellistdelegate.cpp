@@ -72,6 +72,8 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     icon.paint(painter, decorationRect, Qt::AlignCenter);
     const QString avatarUrl = index.data(RoomModel::RoomAvatar).toString();
     if (!avatarUrl.isEmpty()) {
+        //return mAvatarCacheManager->makeAvatarUrlPixmap(widget, userId, maxHeight);
+        //painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
         qDebug() << "avatarUrl " << avatarUrl;
     }
     if (RuqolaGlobalConfig::self()->showRoomAvatar()) {

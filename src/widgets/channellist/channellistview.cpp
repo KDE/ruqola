@@ -121,7 +121,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRead)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString roomId = index.data(RoomModel::RoomID).toString();
+    const QString roomId = index.data(RoomModel::RoomId).toString();
     if (markAsRead) {
         rcAccount->markRoomAsRead(roomId);
     } else {
@@ -131,7 +131,7 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
-    const QString roomId = index.data(RoomModel::RoomID).toString();
+    const QString roomId = index.data(RoomModel::RoomId).toString();
     const QString roomType = index.data(RoomModel::RoomType).toString();
     Q_EMIT roomSelected(roomId, roomType);
 }
@@ -139,21 +139,21 @@ void ChannelListView::channelSelected(const QModelIndex &index)
 void ChannelListView::slotHideChannel(const QModelIndex &index, const QString &roomType)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString roomId = index.data(RoomModel::RoomID).toString();
+    const QString roomId = index.data(RoomModel::RoomId).toString();
     rcAccount->hideRoom(roomId, roomType);
 }
 
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, const QString &roomType)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString roomId = index.data(RoomModel::RoomID).toString();
+    const QString roomId = index.data(RoomModel::RoomId).toString();
     rcAccount->leaveRoom(roomId, roomType);
 }
 
 void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavorite)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString roomId = index.data(RoomModel::RoomID).toString();
+    const QString roomId = index.data(RoomModel::RoomId).toString();
     rcAccount->changeFavorite(roomId, !isFavorite);
 }
 
@@ -170,7 +170,7 @@ void ChannelListView::selectChannelRequested(const QString &channelId)
     }
     for (int roomIdx = 0; roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
+        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toString();
         if (roomId == channelId) {
             channelSelected(roomModelIndex);
             selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
