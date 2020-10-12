@@ -141,6 +141,7 @@ void User::parseUserRestApi(const QJsonObject &object)
         roles.append(rolesArray.at(i).toString());
     }
     setRoles(roles);
+    //TODO createdAt, emails, lastLogin
     qDebug() << " object "  << object;
 }
 
