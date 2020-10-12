@@ -28,6 +28,7 @@
 #include "messagestarred.h"
 #include "reactions.h"
 #include "messagetranslation.h"
+#include "utils.h"
 #include <QJsonObject>
 #include <QString>
 #include <QVector>
@@ -188,6 +189,7 @@ public:
     Q_REQUIRED_RESULT QString emoji() const;
     void setEmoji(const QString &emoji);
 
+    Q_REQUIRED_RESULT Utils::AvatarInfo avatarInfo() const;
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);

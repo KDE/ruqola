@@ -38,8 +38,8 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
-    Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QString &identifier, int maxHeight) const;
-    Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QString &identifier, int maxHeight) const;
+    Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
+    Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
 public Q_SLOTS:
     void slotAvatarChanged(const Utils::AvatarInfo &info);
 

@@ -1065,7 +1065,7 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
 
 void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
-    qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array;
+    qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array << " account name " << accountName();
 
     //TODO
 }

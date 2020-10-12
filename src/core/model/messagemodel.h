@@ -83,6 +83,7 @@ public:
         DisplayAttachment,
         DisplayLastSeenMessage,
         Emoji,
+        AvatarInfo,
     };
     Q_ENUM(MessageRoles)
 
@@ -131,10 +132,10 @@ public:
     void activate();
     void deactivate();
 
-    Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
-    Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
-    Message findMessageById(const QString &messageId) const;
-    QModelIndex indexForMessage(const QString &messageId) const;
+    Q_REQUIRED_RESULT Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
+    Q_REQUIRED_RESULT Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
+    Q_REQUIRED_RESULT Message findMessageById(const QString &messageId) const;
+    Q_REQUIRED_RESULT QModelIndex indexForMessage(const QString &messageId) const;
 
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

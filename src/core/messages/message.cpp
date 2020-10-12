@@ -661,6 +661,14 @@ QString Message::generateAttachmentId(const QString &messageId, int index)
     return QStringLiteral("%1_%2").arg(messageId, QString::number(index));
 }
 
+Utils::AvatarInfo Message::avatarInfo() const
+{
+    Utils::AvatarInfo info; //Optimize ???
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = mUsername;
+    return info;
+}
+
 Message Message::fromJSon(const QJsonObject &o)
 {
     Message message;

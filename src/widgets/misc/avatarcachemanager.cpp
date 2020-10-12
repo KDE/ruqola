@@ -75,7 +75,7 @@ void AvatarCacheManager::setCurrentRocketChatAccount(RocketChatAccount *currentR
     connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &AvatarCacheManager::slotAvatarChanged);
 }
 
-QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const QString &identifier, int maxHeight) const
+QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
 {
     const auto dpr = checkIfNeededToClearCache(widget);
     auto &cache = mAvatarCache.cache;
@@ -100,18 +100,15 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
             downScaled.setDevicePixelRatio(dpr);
             cache.insertCachedPixmap(emojiStr, downScaled);
         } else {
-            return makeAvatarUrlPixmap(widget, identifier, maxHeight);
+            return makeAvatarUrlPixmap(widget, info, maxHeight);
         }
     }
     return downScaled;
 }
 
 
-QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QString &identifier, int maxHeight) const
+QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
 {
-    Utils::AvatarInfo info; //Optimize ???
-    info.avatarType = mAvatarType;
-    info.identifier = identifier;
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
     if (iconUrlStr.isEmpty()) {
         return {};

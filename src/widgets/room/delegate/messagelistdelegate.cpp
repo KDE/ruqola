@@ -98,17 +98,17 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString emojiStr = index.data(MessageModel::Emoji).toString();
-    const QString userId = index.data(MessageModel::Username).toString();
+    const Utils::AvatarInfo info = index.data(MessageModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (!emojiStr.isEmpty()) {
-        return mAvatarCacheManager->makeAvatarEmojiPixmap(emojiStr, widget, userId, maxHeight);
+        return mAvatarCacheManager->makeAvatarEmojiPixmap(emojiStr, widget, info, maxHeight);
     } else {
         const QString avatarUrl = index.data(MessageModel::Avatar).toString();
         if (!avatarUrl.isEmpty()) {
             //TODO
             qDebug() << " avatarUrl is not empty " << avatarUrl;
-            return mAvatarCacheManager->makeAvatarUrlPixmap(widget, userId, maxHeight);
+            return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
         } else {
-            return mAvatarCacheManager->makeAvatarUrlPixmap(widget, userId, maxHeight);
+            return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
         }
     }
 }

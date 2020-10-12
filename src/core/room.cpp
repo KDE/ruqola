@@ -734,11 +734,9 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
 Utils::AvatarInfo Room::avatarInfo() const
 {
     Utils::AvatarInfo info;
-    if (!mAvatarETag.isEmpty()) {
-        info.avatarType = Utils::AvatarType::Room;
-        info.etag = mAvatarETag;
-        info.identifier = mRoomId;
-    }
+    info.avatarType = Utils::AvatarType::Room;
+    info.etag = mAvatarETag;
+    info.identifier = mRoomId;
     return info;
 }
 

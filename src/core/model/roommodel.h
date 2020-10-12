@@ -61,7 +61,7 @@ public:
         RoomAutotranslateLanguage,
         RoomAutotranslate,
         RoomDirectChannelUserId,
-        RoomAvatar,
+        RoomAvatarInfo,
     };
     Q_ENUM(RoomRoles)
 

@@ -429,6 +429,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return false;
     case MessageModel::Emoji:
         return message.emoji();
+    case MessageModel::AvatarInfo:
+        return QVariant::fromValue(message.avatarInfo());
     }
 
     return {};

@@ -76,10 +76,9 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
     if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
-        const QString avatarUrl = index.data(RoomModel::RoomAvatar).toString();
-        if (!avatarUrl.isEmpty()) {
-            const QString roomId = index.data(RoomModel::RoomId).toString();
-            const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, roomId, option.rect.height());
+        const Utils::AvatarInfo avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
+        if (avatarInfo.isValid()) {
+            const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, avatarInfo, option.rect.height());
             painter->drawPixmap(option.rect.topLeft(), pix);
             //qDebug() << "avatarUrl " << avatarUrl;
         }
