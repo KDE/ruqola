@@ -47,15 +47,20 @@ void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *current
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
-    const QRect decorationRect(option.rect.x() + margin, option.rect.y(), iconSize, option.rect.height());
+    int offsetAvatarRoom = 0;
+    if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
+        offsetAvatarRoom = margin + iconSize;
+    }
+    const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y(), iconSize, option.rect.height());
     const QString text = index.data(Qt::DisplayRole).toString();
     //const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
     const QString unreadText = makeUnreadText(index);
     const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
-    const int xText = option.rect.x() + iconSize + 2 * margin;
+    const int xText = offsetAvatarRoom + option.rect.x() + iconSize + 2 * margin;
     const QRect displayRect(xText, option.rect.y(),
                             option.rect.width() - xText - unreadSize.width() - margin,
                             option.rect.height());
@@ -70,14 +75,14 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     drawBackground(painter, optionCopy, index);
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
-    const QString avatarUrl = index.data(RoomModel::RoomAvatar).toString();
-    if (!avatarUrl.isEmpty()) {
-        //return mAvatarCacheManager->makeAvatarUrlPixmap(widget, userId, maxHeight);
-        //painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
-        qDebug() << "avatarUrl " << avatarUrl;
-    }
     if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
-        //TODO
+        const QString avatarUrl = index.data(RoomModel::RoomAvatar).toString();
+        if (!avatarUrl.isEmpty()) {
+            const QString roomId = index.data(RoomModel::RoomId).toString();
+            const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, roomId, option.rect.height());
+            painter->drawPixmap(option.rect.topLeft(), pix);
+            qDebug() << "avatarUrl " << avatarUrl;
+        }
     }
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
