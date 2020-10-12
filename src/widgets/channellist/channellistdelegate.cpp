@@ -22,13 +22,16 @@
 #include "common/delegatepaintutil.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
+#include "misc/avatarcachemanager.h"
 #include "ruqolaglobalconfig.h"
 
 #include <QPainter>
 #include <KColorScheme>
 
+
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
     : QItemDelegate(parent)
+    , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
 {
 }
 
@@ -38,29 +41,8 @@ ChannelListDelegate::~ChannelListDelegate()
 
 void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
-    if (mRocketChatAccount) {
-        disconnect(mRocketChatAccount, nullptr, this, nullptr);
-    }
-
+    mAvatarCacheManager->setCurrentRocketChatAccount(currentRocketChatAccount);
     mRocketChatAccount = currentRocketChatAccount;
-    connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &ChannelListDelegate::slotAvatarChanged);
-}
-
-void ChannelListDelegate::slotAvatarChanged(const Utils::AvatarInfo &info)
-{
-    if (info.avatarType == Utils::AvatarType::Room) {
-        const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
-        if (iconUrlStr.isEmpty()) {
-            return;
-        }
-        //TODO
-//        auto &cache = mAvatarCache.cache;
-//        auto downScaled = cache.findCachedPixmap(iconUrlStr);
-//        //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
-//        if (!downScaled.isNull()) {
-//            mAvatarCache.cache.remove(iconUrlStr);
-//        }
-    }
 }
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
