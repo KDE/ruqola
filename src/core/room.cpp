@@ -780,20 +780,20 @@ Utils::AvatarInfo Room::avatarInfo() const
 {
     //TODO direct channel or group channel
     Utils::AvatarInfo info;
-    info.avatarType = Utils::AvatarType::Room;
     info.etag = mAvatarETag;
     //Group => uids >= 3
-    //TODO fixme
-//    if (mUids.count() > 2) {
-//        QString identifier;
-//        for (const QString &username : mUserNames) {
-//            identifier.append(username);
-//        }
-//        identifier.prepend(QString::number(mUids.count()));
-//        info.identifier = identifier;
-//    } else {
+    if (mUids.count() > 2) {
+        QString identifier;
+        for (const QString &username : mUserNames) {
+            identifier.append(username);
+        }
+        identifier.prepend(QString::number(mUids.count()));
+        info.avatarType = Utils::AvatarType::User;
+        info.identifier = identifier;
+    } else {
+        info.avatarType = Utils::AvatarType::Room;
         info.identifier = mRoomId;
-//    }
+    }
     return info;
 }
 
