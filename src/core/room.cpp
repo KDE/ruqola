@@ -97,7 +97,8 @@ bool Room::isEqual(const Room &other) const
            && (mDirectChannelUserId == other.directChannelUserId())
            && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
            && (mAvatarETag == other.avatarETag())
-            && (mUids == other.uids());
+            && (mUids == other.uids())
+            && (mUserNames == other.userNames());
 }
 
 QString Room::displayRoomName() const
@@ -154,6 +155,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "DisplaySystemMessageType " << t.displaySystemMessageTypes();
     d << "AvatarEtag " << t.avatarETag();
     d << "uids " << t.uids();
+    d << "usernames " << t.userNames();
     return d;
 }
 
@@ -331,6 +333,14 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         lstUids << uidsArray.at(i).toString();
     }
     setUids(lstUids);
+
+    const QJsonArray userNamesArray = json.value(QLatin1String("usernames")).toArray();
+    QStringList lstUserNames;
+    lstUids.reserve(userNamesArray.count());
+    for (int i = 0; i < userNamesArray.count(); ++i) {
+        lstUserNames << userNamesArray.at(i).toString();
+    }
+    setUserNames(lstUserNames);
 
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
 }
@@ -740,6 +750,19 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
+QStringList Room::userNames() const
+{
+    return mUserNames;
+}
+
+void Room::setUserNames(const QStringList &userNames)
+{
+    if (mUserNames != userNames) {
+        mUserNames = userNames;
+        Q_EMIT userNamesChanged();
+    }
+}
+
 QStringList Room::uids() const
 {
     return mUids;
@@ -759,8 +782,18 @@ Utils::AvatarInfo Room::avatarInfo() const
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::Room;
     info.etag = mAvatarETag;
-    info.identifier = mRoomId;
-    //Group => uids > 3
+    //Group => uids >= 3
+    //TODO fixme
+//    if (mUids.count() > 2) {
+//        QString identifier;
+//        for (const QString &username : mUserNames) {
+//            identifier.append(username);
+//        }
+//        identifier.prepend(QString::number(mUids.count()));
+//        info.identifier = identifier;
+//    } else {
+        info.identifier = mRoomId;
+//    }
     return info;
 }
 

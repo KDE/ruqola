@@ -231,6 +231,9 @@ public:
     Q_REQUIRED_RESULT QStringList uids() const;
     void setUids(const QStringList &uids);
 
+    Q_REQUIRED_RESULT QStringList userNames() const;
+    void setUserNames(const QStringList &userNames);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -274,6 +277,7 @@ Q_SIGNALS:
     void avatarETagChanged();
 
     void uidsChanged();
+    void userNamesChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -292,6 +296,7 @@ private:
     QStringList mRoles;
 
     QStringList mUids;
+    QStringList mUserNames;
 
     QString mInputMessage;
 
