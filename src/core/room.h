@@ -227,6 +227,10 @@ public:
     void setAvatarETag(const QString &avatarETag);
 
     Q_REQUIRED_RESULT Utils::AvatarInfo avatarInfo() const;
+
+    Q_REQUIRED_RESULT QStringList uids() const;
+    void setUids(const QStringList &uids);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -269,6 +273,8 @@ Q_SIGNALS:
     void notificationOptionsChanged();
     void avatarETagChanged();
 
+    void uidsChanged();
+
 private:
     Q_DISABLE_COPY(Room)
     void parseCommonData(const QJsonObject &json);
@@ -284,6 +290,8 @@ private:
 
     //Roles
     QStringList mRoles;
+
+    QStringList mUids;
 
     QString mInputMessage;
 

@@ -96,7 +96,8 @@ bool Room::isEqual(const Room &other) const
            && (mAutotranslateLanguage == other.autoTranslateLanguage())
            && (mDirectChannelUserId == other.directChannelUserId())
            && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
-           && (mAvatarETag == other.avatarETag());
+           && (mAvatarETag == other.avatarETag())
+            && (mUids == other.uids());
 }
 
 QString Room::displayRoomName() const
@@ -152,6 +153,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "directChannelUserId " << t.directChannelUserId();
     d << "DisplaySystemMessageType " << t.displaySystemMessageTypes();
     d << "AvatarEtag " << t.avatarETag();
+    d << "uids " << t.uids();
     return d;
 }
 
@@ -321,6 +323,14 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         const auto &u1 = uids[1].toString();
         setDirectChannelUserId((u0 == mRocketChatAccount->userID()) ? u1 : u0);
     }
+
+    const QJsonArray uidsArray = json.value(QLatin1String("uids")).toArray();
+    QStringList lstUids;
+    lstUids.reserve(uidsArray.count());
+    for (int i = 0; i < uidsArray.count(); ++i) {
+        lstUids << uidsArray.at(i).toString();
+    }
+    setUids(lstUids);
 
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
 }
@@ -730,6 +740,19 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
+QStringList Room::uids() const
+{
+    return mUids;
+}
+
+void Room::setUids(const QStringList &uids)
+{
+    if (mUids != uids) {
+        mUids = uids;
+        Q_EMIT uidsChanged();
+    }
+}
+
 Utils::AvatarInfo Room::avatarInfo() const
 {
     //TODO direct channel or group channel
@@ -737,6 +760,7 @@ Utils::AvatarInfo Room::avatarInfo() const
     info.avatarType = Utils::AvatarType::Room;
     info.etag = mAvatarETag;
     info.identifier = mRoomId;
+    //Group => uids > 3
     return info;
 }
 
@@ -1067,9 +1091,17 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setDirectChannelUserId(o[QStringLiteral("directChannelUserId")].toString());
 
     r->setAvatarETag(o[QStringLiteral("avatarETag")].toString());
-    //TODO add parent RID
 
-    //Download element : https://<server url>/avatar/room/QgCf8GcnXYW5QXiHN?etag=7djQjiwgD5N3CgPpr
+    const QJsonArray uidsArray = o.value(QLatin1String("uids")).toArray();
+    QStringList lstUids;
+    lstUids.reserve(uidsArray.count());
+    for (int i = 0; i < uidsArray.count(); ++i) {
+        lstUids << uidsArray.at(i).toString();
+    }
+    r->setUids(lstUids);
+
+
+    //TODO add parent RID
 
     return r;
 }
@@ -1172,6 +1204,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     if (!r->avatarETag().isEmpty()) {
         o[QStringLiteral("avatarETag")] = r->avatarETag();
+    }
+    if (!r->uids().isEmpty()) {
+        o[QStringLiteral("uids")] = QJsonArray::fromStringList(r->uids());
     }
 
     if (toBinary) {
