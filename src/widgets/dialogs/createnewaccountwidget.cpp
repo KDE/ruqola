@@ -61,40 +61,26 @@ CreateNewAccountWidget::~CreateNewAccountWidget()
 {
 }
 
-QString CreateNewAccountWidget::accountName() const
+AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
 {
-    return mAccountName->text().trimmed();
+    mAccountInfo.accountName = mAccountName->text().trimmed();
+    mAccountInfo.url = mServerName->text().trimmed();
+    mAccountInfo.username = mUserName->text().trimmed();
+    return mAccountInfo;
 }
 
-QString CreateNewAccountWidget::serverName() const
+void CreateNewAccountWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
-    return mServerName->text().trimmed();
-}
-
-void CreateNewAccountWidget::setAccountName(const QString &name)
-{
-    mAccountName->setText(name);
+    mAccountInfo = info;
+    mAccountName->setText(info.accountName);
     mAccountName->setReadOnly(true);
-}
-
-void CreateNewAccountWidget::setUserName(const QString &username)
-{
-    mUserName->setText(username);
-}
-
-void CreateNewAccountWidget::setServerName(const QString &servername)
-{
-    mServerName->setText(servername);
+    mUserName->setText(info.username);
+    mServerName->setText(info.url);
 }
 
 void CreateNewAccountWidget::setExistingAccountName(const QStringList &lst)
 {
     mNames = lst;
-}
-
-QString CreateNewAccountWidget::userName() const
-{
-    return mUserName->text().trimmed();
 }
 
 void CreateNewAccountWidget::slotChangeOkButtonEnabled()

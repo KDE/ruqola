@@ -37,6 +37,7 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
     Q_PROPERTY(RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel READ rocketChatAccountProxyModel CONSTANT)
 public:
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
+        QString displayName;
         QString accountName;
         QString username;
         QString url;

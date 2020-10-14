@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+#include "accountmanager.h"
 class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget
 {
@@ -32,13 +33,8 @@ public:
     explicit CreateNewAccountWidget(QWidget *parent = nullptr);
     ~CreateNewAccountWidget() override;
 
-    Q_REQUIRED_RESULT QString accountName() const;
-    Q_REQUIRED_RESULT QString userName() const;
-    Q_REQUIRED_RESULT QString serverName() const;
-
-    void setAccountName(const QString &name);
-    void setUserName(const QString &username);
-    void setServerName(const QString &servername);
+    Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo();
+    void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
     void setExistingAccountName(const QStringList &lst);
 
@@ -51,6 +47,7 @@ private:
     QLineEdit *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;
     QLineEdit *mUserName = nullptr;
+    AccountManager::AccountManagerInfo mAccountInfo;
 };
 
 #endif // CREATENEWACCOUNTWIDGET_H
