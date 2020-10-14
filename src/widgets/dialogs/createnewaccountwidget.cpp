@@ -64,7 +64,7 @@ CreateNewAccountWidget::~CreateNewAccountWidget()
 AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
 {
     mAccountInfo.accountName = mAccountName->text().trimmed();
-    mAccountInfo.url = mServerName->text().trimmed();
+    mAccountInfo.serverUrl = mServerName->text().trimmed();
     mAccountInfo.username = mUserName->text().trimmed();
     return mAccountInfo;
 }
@@ -75,7 +75,7 @@ void CreateNewAccountWidget::setAccountInfo(const AccountManager::AccountManager
     mAccountName->setText(info.accountName);
     mAccountName->setReadOnly(true);
     mUserName->setText(info.username);
-    mServerName->setText(info.url);
+    mServerName->setText(info.serverUrl);
 }
 
 void CreateNewAccountWidget::setExistingAccountName(const QStringList &lst)

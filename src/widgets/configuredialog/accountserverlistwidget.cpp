@@ -46,7 +46,7 @@ void AccountServerListWidget::load()
         auto *item = new AccountServerListWidgetItem(this);
         AccountManager::AccountManagerInfo info;
         info.accountName = model->account(i)->accountName();
-        info.url = model->account(i)->serverUrl();
+        info.serverUrl = model->account(i)->serverUrl();
         info.username = model->account(i)->userName();
         item->setAccountInfo(info);
         item->setNewAccount(false);

@@ -40,7 +40,7 @@ public:
         QString displayName;
         QString accountName;
         QString username;
-        QString url;
+        QString serverUrl;
         bool enabled = true;
     };
 

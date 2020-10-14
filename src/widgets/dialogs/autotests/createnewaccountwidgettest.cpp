@@ -53,6 +53,6 @@ void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mUserName->isClearButtonEnabled());
 
     QVERIFY(w.accountInfo().username.isEmpty());
-    QVERIFY(w.accountInfo().url.isEmpty());
+    QVERIFY(w.accountInfo().serverUrl.isEmpty());
     QVERIFY(w.accountInfo().accountName.isEmpty());
 }
