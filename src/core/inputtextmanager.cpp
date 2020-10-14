@@ -27,12 +27,10 @@
 
 InputTextManager::InputTextManager(QObject *parent)
     : QObject(parent)
+    , mInputCompleterModel(new InputCompleterModel(this))
+    , mEmoticonFilterProxyModel(new QSortFilterProxyModel(this))
+    , mCommandFilterProxyModel(new QSortFilterProxyModel(this))
 {
-    mInputCompleterModel = new InputCompleterModel(this);
-
-    mEmoticonFilterProxyModel = new QSortFilterProxyModel(this);
-
-    mCommandFilterProxyModel = new QSortFilterProxyModel(this);
 }
 
 InputTextManager::~InputTextManager()

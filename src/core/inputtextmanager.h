@@ -75,9 +75,9 @@ private:
 
     void setCompletionType(CompletionForType type);
 
-    InputCompleterModel *mInputCompleterModel = nullptr;
-    QSortFilterProxyModel *mEmoticonFilterProxyModel = nullptr;
-    QSortFilterProxyModel *mCommandFilterProxyModel = nullptr;
+    InputCompleterModel *const mInputCompleterModel;
+    QSortFilterProxyModel *const mEmoticonFilterProxyModel;
+    QSortFilterProxyModel *const mCommandFilterProxyModel;
     CompletionForType mCurrentCompletionType = None;
     QString mCurrentCompletionPattern;
 };

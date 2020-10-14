@@ -32,9 +32,9 @@
 
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
+    , mRocketChatAccountModel(new RocketChatAccountModel(this))
+    , mRocketChatAccountProxyModel(new RocketChatAccountFilterProxyModel(this))
 {
-    mRocketChatAccountModel = new RocketChatAccountModel(this);
-    mRocketChatAccountProxyModel = new RocketChatAccountFilterProxyModel(this);
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
     loadAccount();
 }
@@ -130,7 +130,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     //TODO verify if account exist or not ?
     RocketChatAccount *account = new RocketChatAccount();
     account->setAccountName(info.accountName);
-    account->setUserName(info.username);
+    account->setUserName(info.userName);
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
     if (info.enabled) {
@@ -144,7 +144,7 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
     RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {
         account->setDisplayName(info.displayName);
-        account->setUserName(info.username);
+        account->setUserName(info.userName);
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
         if (!info.enabled) {

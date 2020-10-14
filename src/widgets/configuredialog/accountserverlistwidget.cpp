@@ -48,7 +48,7 @@ void AccountServerListWidget::load()
         info.displayName = model->account(i)->displayName();
         info.accountName = model->account(i)->accountName();
         info.serverUrl = model->account(i)->serverUrl();
-        info.username = model->account(i)->userName();
+        info.userName = model->account(i)->userName();
         item->setAccountInfo(info);
         item->setNewAccount(false);
         item->setCheckState(model->account(i)->accountEnabled() ? Qt::Checked : Qt::Unchecked);

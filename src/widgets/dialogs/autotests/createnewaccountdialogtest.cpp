@@ -47,6 +47,6 @@ void CreateNewAccountDialogTest::shouldHaveDefaultValues()
 
     const AccountManager::AccountManagerInfo info = w.accountInfo();
     QVERIFY(info.accountName.isEmpty());
-    QVERIFY(info.username.isEmpty());
+    QVERIFY(info.userName.isEmpty());
     QVERIFY(info.serverUrl.isEmpty());
 }

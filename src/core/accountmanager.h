@@ -39,7 +39,7 @@ public:
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
         QString displayName;
         QString accountName;
-        QString username;
+        QString userName;
         QString serverUrl;
         bool enabled = true;
     };
@@ -78,8 +78,8 @@ private:
     void connectToAccount(RocketChatAccount *account);
     void slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
     RocketChatAccount *mCurrentAccount = nullptr;
-    RocketChatAccountModel *mRocketChatAccountModel = nullptr;
-    RocketChatAccountFilterProxyModel *mRocketChatAccountProxyModel = nullptr;
+    RocketChatAccountModel *const mRocketChatAccountModel;
+    RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 };
 
 #endif // ACCOUNTMANAGER_H
