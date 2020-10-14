@@ -143,7 +143,7 @@ protected:
 private:
     Q_REQUIRED_RESULT QString currentText() const
     {
-        QString text = mAccount ? mAccount->accountName() : QString();
+        QString text = mAccount ? mAccount->displayName() : QString();
         if (text.isEmpty()) {
             text = i18n("(Unnamed)");
         }

@@ -63,7 +63,11 @@ CreateNewAccountWidget::~CreateNewAccountWidget()
 
 AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
 {
-    mAccountInfo.accountName = mAccountName->text().trimmed();
+    if (mAccountInfo.accountName.isEmpty()) {
+        mAccountInfo.accountName = mAccountName->text().trimmed();
+    } else {
+        mAccountInfo.displayName = mAccountName->text().trimmed();
+    }
     mAccountInfo.serverUrl = mServerName->text().trimmed();
     mAccountInfo.username = mUserName->text().trimmed();
     return mAccountInfo;
@@ -72,8 +76,7 @@ AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
 void CreateNewAccountWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mAccountInfo = info;
-    mAccountName->setText(info.accountName);
-    mAccountName->setReadOnly(true);
+    mAccountName->setText(info.displayName.isEmpty() ? info.accountName : info.displayName);
     mUserName->setText(info.username);
     mServerName->setText(info.serverUrl);
 }

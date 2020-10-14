@@ -143,6 +143,7 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {
+        account->setDisplayName(info.displayName);
         account->setUserName(info.username);
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);

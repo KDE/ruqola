@@ -45,6 +45,7 @@ void AccountServerListWidget::load()
     for (int i = 0; i < accountNumber; ++i) {
         auto *item = new AccountServerListWidgetItem(this);
         AccountManager::AccountManagerInfo info;
+        info.displayName = model->account(i)->displayName();
         info.accountName = model->account(i)->accountName();
         info.serverUrl = model->account(i)->serverUrl();
         info.username = model->account(i)->userName();
@@ -144,7 +145,7 @@ AccountManager::AccountManagerInfo AccountServerListWidgetItem::accountInfo() co
 void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mInfo = info;
-    setText(info.accountName);
+    setText(info.displayName);
 }
 
 bool AccountServerListWidgetItem::newAccount() const

@@ -62,7 +62,8 @@ void AccountMenu::slotUpdateAccountMenu()
             RocketChatAccount *account = model->account(i);
             if (account->accountEnabled()) {
                 const QString accountName = account->accountName();
-                auto *action = new QAction(accountName, this);
+                const QString displayName = account->displayName();
+                auto *action = new QAction(displayName, this);
                 action->setCheckable(true);
                 group->addAction(action);
                 if (currentAccountName == accountName) {
