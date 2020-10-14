@@ -60,21 +60,21 @@ CreateNewAccountDialog::~CreateNewAccountDialog()
     writeConfig();
 }
 
-CreateNewAccountDialog::AccountInfo CreateNewAccountDialog::accountInfo() const
+AccountManager::AccountManagerInfo CreateNewAccountDialog::accountInfo() const
 {
-    AccountInfo info;
+    AccountManager::AccountManagerInfo info;
     info.accountName = mNewAccountWidget->accountName();
-    info.userName = mNewAccountWidget->userName();
-    info.serverName = mNewAccountWidget->serverName();
+    info.username = mNewAccountWidget->userName();
+    info.url = mNewAccountWidget->serverName();
     return info;
 }
 
-void CreateNewAccountDialog::setAccountInfo(const CreateNewAccountDialog::AccountInfo &info)
+void CreateNewAccountDialog::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     setWindowTitle(i18nc("@title:window", "Modify Account"));
     mNewAccountWidget->setAccountName(info.accountName);
-    mNewAccountWidget->setServerName(info.serverName);
-    mNewAccountWidget->setUserName(info.userName);
+    mNewAccountWidget->setServerName(info.url);
+    mNewAccountWidget->setUserName(info.username);
 }
 
 void CreateNewAccountDialog::setExistingAccountName(const QStringList &lst)

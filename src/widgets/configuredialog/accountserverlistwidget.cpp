@@ -44,10 +44,10 @@ void AccountServerListWidget::load()
     const int accountNumber = model->accountNumber();
     for (int i = 0; i < accountNumber; ++i) {
         auto *item = new AccountServerListWidgetItem(this);
-        CreateNewAccountDialog::AccountInfo info;
+        AccountManager::AccountManagerInfo info;
         info.accountName = model->account(i)->accountName();
-        info.serverName = model->account(i)->serverUrl();
-        info.userName = model->account(i)->userName();
+        info.url = model->account(i)->serverUrl();
+        info.username = model->account(i)->userName();
         item->setAccountInfo(info);
         item->setNewAccount(false);
         item->setCheckState(model->account(i)->accountEnabled() ? Qt::Checked : Qt::Unchecked);
@@ -65,11 +65,13 @@ void AccountServerListWidget::save()
     for (int i = 0; i < count(); ++i) {
         QListWidgetItem *it = item(i);
         auto *serverListItem = static_cast<AccountServerListWidgetItem *>(it);
-        const CreateNewAccountDialog::AccountInfo info = serverListItem->accountInfo();
+        AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
+
+        info.enabled = serverListItem->checkState() == Qt::Checked;
         if (serverListItem->newAccount()) {
-            Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName, serverListItem->checkState() == Qt::Checked);
+            Ruqola::self()->accountManager()->addAccount(info);
         } else {
-            Ruqola::self()->accountManager()->modifyAccount(info.accountName, info.userName, info.serverName, serverListItem->checkState() == Qt::Checked);
+            Ruqola::self()->accountManager()->modifyAccount(info);
         }
     }
 }
@@ -85,7 +87,7 @@ void AccountServerListWidget::modifyAccountConfig()
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     dlg->setAccountInfo(serverListItem->accountInfo());
     if (dlg->exec()) {
-        const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        const AccountManager::AccountManagerInfo info = dlg->accountInfo();
         serverListItem->setAccountInfo(info);
     }
 }
@@ -105,7 +107,7 @@ void AccountServerListWidget::addAccountConfig()
     }
     dlg->setExistingAccountName(listAccounts);
     if (dlg->exec()) {
-        CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        AccountManager::AccountManagerInfo info = dlg->accountInfo();
         QStringList accountList;
         for (int i = 0; i < count(); ++i) {
             QListWidgetItem *it = item(i);
@@ -134,12 +136,12 @@ AccountServerListWidgetItem::~AccountServerListWidgetItem()
 {
 }
 
-CreateNewAccountDialog::AccountInfo AccountServerListWidgetItem::accountInfo() const
+AccountManager::AccountManagerInfo AccountServerListWidgetItem::accountInfo() const
 {
     return mInfo;
 }
 
-void AccountServerListWidgetItem::setAccountInfo(const CreateNewAccountDialog::AccountInfo &info)
+void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mInfo = info;
     setText(info.accountName);

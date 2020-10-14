@@ -36,11 +36,18 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
     Q_PROPERTY(RocketChatAccountModel *rocketChatAccountModel READ rocketChatAccountModel CONSTANT)
     Q_PROPERTY(RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel READ rocketChatAccountProxyModel CONSTANT)
 public:
+    struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
+        QString accountName;
+        QString username;
+        QString url;
+        bool enabled = true;
+    };
+
     explicit AccountManager(QObject *parent = nullptr);
     ~AccountManager() override;
 
     void removeAccount(const QString &accountName);
-    void addAccount(const QString &accountName, const QString &username, const QString &url, bool enabled = true);
+    void addAccount(const AccountManagerInfo &info);
 
     RocketChatAccount *account() const;
     RocketChatAccountModel *rocketChatAccountModel() const;
@@ -53,7 +60,7 @@ public:
     Q_REQUIRED_RESULT QString currentAccount() const;
     void selectAccount(const QString &accountName);
 
-    void modifyAccount(const QString &accountName, const QString &username, const QString &url, bool enabled);
+    void modifyAccount(const AccountManagerInfo &info);
     Q_REQUIRED_RESULT QStringList accountsName() const;
 
     Q_REQUIRED_RESULT int accountNumber() const;

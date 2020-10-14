@@ -115,7 +115,7 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     case Name:
-        return account->accountName();
+        return account->displayName();
     case SiteUrl:
         return account->ruqolaServerConfig()->siteUrl();
     case UserName:

@@ -45,8 +45,8 @@ void CreateNewAccountDialogTest::shouldHaveDefaultValues()
     auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 
-    const CreateNewAccountDialog::AccountInfo info = w.accountInfo();
+    const AccountManager::AccountManagerInfo info = w.accountInfo();
     QVERIFY(info.accountName.isEmpty());
-    QVERIFY(info.userName.isEmpty());
-    QVERIFY(info.serverName.isEmpty());
+    QVERIFY(info.username.isEmpty());
+    QVERIFY(info.url.isEmpty());
 }

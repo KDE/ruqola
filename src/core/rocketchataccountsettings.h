@@ -77,6 +77,9 @@ public:
     Q_REQUIRED_RESULT QString lastSelectedRoom() const;
     void setLastSelectedRoom(const QString &roomId);
 
+    Q_REQUIRED_RESULT QString displayName() const;
+    void setDisplayName(const QString &displayName);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -85,6 +88,7 @@ Q_SIGNALS:
     void passwordChanged();
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
+    void displayNameChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
@@ -96,6 +100,7 @@ private:
     QString mAuthToken;
     QString mServerUrl;
     QString mAccountName;
+    QString mDisplayName;
     QString mCachePath;
     QString mUserName;
     QString mPassword;

@@ -23,6 +23,7 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
+#include "accountmanager.h"
 class CreateNewAccountWidget;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountDialog : public QDialog
@@ -31,14 +32,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountDialog : public QDialog
 public:
     explicit CreateNewAccountDialog(QWidget *parent = nullptr);
     ~CreateNewAccountDialog() override;
-    struct AccountInfo {
-        QString accountName;
-        QString serverName;
-        QString userName;
-    };
-
-    Q_REQUIRED_RESULT AccountInfo accountInfo() const;
-    void setAccountInfo(const AccountInfo &info);
+    Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo() const;
+    void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     void setExistingAccountName(const QStringList &lst);
 private:
     void readConfig();

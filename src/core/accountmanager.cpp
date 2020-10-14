@@ -125,28 +125,28 @@ RocketChatAccount *AccountManager::account() const
     return mCurrentAccount;
 }
 
-void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url, bool enabled)
+void AccountManager::addAccount(const AccountManagerInfo &info)
 {
     //TODO verify if account exist or not ?
     RocketChatAccount *account = new RocketChatAccount();
-    account->setAccountName(accountName);
-    account->setUserName(username);
-    account->setServerUrl(url);
-    account->setAccountEnabled(enabled);
-    if (enabled) {
+    account->setAccountName(info.accountName);
+    account->setUserName(info.username);
+    account->setServerUrl(info.url);
+    account->setAccountEnabled(info.enabled);
+    if (info.enabled) {
         connectToAccount(account);
     }
     addAccount(account);
 }
 
-void AccountManager::modifyAccount(const QString &accountName, const QString &username, const QString &url, bool enabled)
+void AccountManager::modifyAccount(const AccountManagerInfo &info)
 {
-    RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
+    RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {
-        account->setUserName(username);
-        account->setServerUrl(url);
-        account->setAccountEnabled(enabled);
-        if (!enabled) {
+        account->setUserName(info.username);
+        account->setServerUrl(info.url);
+        account->setAccountEnabled(info.enabled);
+        if (!info.enabled) {
             //TODO fixme
             //disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
             disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);

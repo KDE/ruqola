@@ -214,4 +214,5 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(!chat.showUnreadOnTop());
     QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
     QVERIFY(chat.accountEnabled());
+    QVERIFY(chat.displayName().isEmpty());
 }

@@ -441,6 +441,8 @@ public:
     void enable2FaEmailJob(bool enable);
     void logoutFromOtherLocation();
     void createDirectMessages(const QStringList &usernames);
+    void setDisplayName(const QString &displayName);
+    Q_REQUIRED_RESULT QString displayName() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
