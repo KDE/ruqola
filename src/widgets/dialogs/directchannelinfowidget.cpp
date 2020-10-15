@@ -114,7 +114,12 @@ void DirectChannelInfoWidget::setUser(const User &user)
 {
     mName->setText(user.name());
     mUserName->setText(user.userName());
-    mCustomStatus->setText(user.statusText());
+    if (user.statusText().isEmpty()) {
+        mCustomStatus->setVisible(false);
+        mMainLayout->labelForField(mCustomStatus)->setVisible(false);
+    } else {
+        mCustomStatus->setText(user.statusText());
+    }
     mStatus->setText(user.status());
     mTimeZone->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
     //Download avatar ?
