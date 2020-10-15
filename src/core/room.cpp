@@ -97,8 +97,8 @@ bool Room::isEqual(const Room &other) const
            && (mDirectChannelUserId == other.directChannelUserId())
            && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
            && (mAvatarETag == other.avatarETag())
-            && (mUids == other.uids())
-            && (mUserNames == other.userNames());
+           && (mUids == other.uids())
+           && (mUserNames == other.userNames());
 }
 
 QString Room::displayRoomName() const
@@ -1132,7 +1132,6 @@ Room *Room::fromJSon(const QJsonObject &o)
         lstUids << uidsArray.at(i).toString();
     }
     r->setUids(lstUids);
-
 
     //TODO add parent RID
 
