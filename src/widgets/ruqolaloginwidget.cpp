@@ -127,7 +127,7 @@ RuqolaLoginWidget::~RuqolaLoginWidget()
 void RuqolaLoginWidget::initialize()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
-    mAccountName->setText(rocketChatAccount->accountName());
+    mAccountName->setText(rocketChatAccount->displayName());
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(rocketChatAccount->password());
@@ -137,7 +137,7 @@ void RuqolaLoginWidget::initialize()
 void RuqolaLoginWidget::slotLogin()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
-    rocketChatAccount->setAccountName(mAccountName->text());
+    rocketChatAccount->setAccountName(rocketChatAccount->accountName());
     rocketChatAccount->setServerUrl(mServerName->text());
     rocketChatAccount->setUserName(mUserName->text());
     rocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
