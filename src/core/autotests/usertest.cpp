@@ -19,6 +19,7 @@
 */
 
 #include "usertest.h"
+#include "ruqola_autotest_helper.h"
 #include "user.h"
 
 #include <QTest>
@@ -157,18 +158,17 @@ void UserTest::checkEqualsAndUnequalsOperator()
     QVERIFY(sampleuser != sampleuserOther);
 }
 
-//FIXME
 void UserTest::shouldParseJson_data()
 {
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<User>("expectedUser");
-    User *expected = new User;
-    expected->setName(QStringLiteral("Laurent M"));
-    expected->setStatus(QStringLiteral("away"));
-    expected->setUserId(QStringLiteral("yi2ucvqkdkxiTkyZ5"));
-    expected->setUserName(QStringLiteral("laurent"));
-    expected->setUtcOffset(1);
-    QTest::newRow("user1") << QStringLiteral("adduser") << *expected;
+    User expected;
+    expected.setName(QStringLiteral("Laurent M"));
+    expected.setStatus(QStringLiteral("away"));
+    expected.setUserId(QStringLiteral("yi2ucvqkdkxiTkyZ5"));
+    expected.setUserName(QStringLiteral("laurent"));
+    expected.setUtcOffset(1);
+    QTest::newRow("user1") << QStringLiteral("adduser") << expected;
 }
 
 void UserTest::shouldParseJson()
@@ -176,15 +176,39 @@ void UserTest::shouldParseJson()
     QFETCH(QString, fileName);
     QFETCH(User, expectedUser);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object();
-
+    const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
     User user;
     user.parseUser(fields);
+    const bool equal = (user == expectedUser);
+    if (!equal) {
+        qDebug() << " current value " << user;
+        qDebug() << " expected value " << expectedUser;
+    }
+    QVERIFY(equal);
+}
+
+void UserTest::shouldParseRestApiJson_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<User>("expectedUser");
+    User expected;
+    expected.setName(QStringLiteral("name_user"));
+    expected.setStatus(QStringLiteral("offline"));
+    expected.setUserId(QStringLiteral("BDFj6E7Z9RYucn8C"));
+    expected.setUserName(QStringLiteral("username"));
+    expected.setUtcOffset(0);
+    expected.setRoles({QStringLiteral("user")});
+    QTest::newRow("userrestapi1") << QStringLiteral("userrestapi") << expected;
+}
+
+void UserTest::shouldParseRestApiJson()
+{
+    QFETCH(QString, fileName);
+    QFETCH(User, expectedUser);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
+    User user;
+    user.parseUserRestApi(fields);
     const bool equal = (user == expectedUser);
     if (!equal) {
         qDebug() << " current value " << user;

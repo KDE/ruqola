@@ -142,7 +142,7 @@ void User::parseUserRestApi(const QJsonObject &object)
     }
     setRoles(roles);
     //TODO createdAt, emails, lastLogin
-    //qDebug() << " object "  << object;
+    qDebug() << " object "  << object;
 }
 
 void User::parseUser(const QVariantList &list)

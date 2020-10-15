@@ -45,6 +45,9 @@ private Q_SLOTS:
     void shouldGetStatusIcon();
 
     void shouldBeValid();
+
+    void shouldParseRestApiJson_data();
+    void shouldParseRestApiJson();
 };
 
 #endif // USERTEST_H
