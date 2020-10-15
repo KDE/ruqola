@@ -34,43 +34,43 @@
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(this);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mAvatar = new QLabel(this);
     mAvatar->setObjectName(QStringLiteral("mAvatar"));
-    mainLayout->addWidget(mAvatar);
+    mMainLayout->addWidget(mAvatar);
 
     mName = new QLabel(this);
     mName->setObjectName(QStringLiteral("mName"));
     mName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("Name:"), mName);
+    mMainLayout->addRow(i18n("Name:"), mName);
 
     mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("UserName:"), mUserName);
+    mMainLayout->addRow(i18n("UserName:"), mUserName);
 
     mStatus = new QLabel(this);
     mStatus->setObjectName(QStringLiteral("mStatus"));
     mStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("Status:"), mStatus);
+    mMainLayout->addRow(i18n("Status:"), mStatus);
 
     mTimeZone = new QLabel(this);
     mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
     mTimeZone->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("TimeZone:"), mTimeZone);
+    mMainLayout->addRow(i18n("TimeZone:"), mTimeZone);
 
     mCustomStatus = new QLabel(this);
     mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
     mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
+    mMainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
 
     mRoles = new QLabel(this);
     mRoles->setObjectName(QStringLiteral("mRoles"));
     mRoles->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mainLayout->addRow(i18n("Roles:"), mRoles);
+    mMainLayout->addRow(i18n("Roles:"), mRoles);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
@@ -124,5 +124,10 @@ void DirectChannelInfoWidget::setUser(const User &user)
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
     //TODO use i18n ?
-    mRoles->setText(user.roles().join(QStringLiteral(", ")));
+    if (user.roles().isEmpty()) {
+        mRoles->setVisible(false);
+        mMainLayout->labelForField(mRoles)->setVisible(false);
+    } else {
+        mRoles->setText(user.roles().join(QStringLiteral(", ")));
+    }
 }

@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLabel;
 class User;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -45,6 +46,7 @@ private:
     QLabel *mTimeZone = nullptr;
     QLabel *mAvatar = nullptr;
     QLabel *mRoles = nullptr;
+    QFormLayout *mMainLayout = nullptr;
 };
 
 #endif // DIRECTCHANNELINFOWIDGET_H
