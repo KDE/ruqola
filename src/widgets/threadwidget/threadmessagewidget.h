@@ -48,8 +48,6 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-    void slotSendMessage(const QString &msg);
-
     QString mThreadMessageId;
     QLabel *mThreadPreview = nullptr;
     MessageListView *mMessageListView = nullptr;

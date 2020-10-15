@@ -40,9 +40,6 @@ public:
 Q_SIGNALS:
     void complete(const QModelIndex &index);
 
-private:
-    void slotCompletionAvailable();
-
 protected:
     CompletionListView *const mCompletionListView;
 };

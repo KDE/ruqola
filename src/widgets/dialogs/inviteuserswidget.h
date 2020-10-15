@@ -41,7 +41,6 @@ public:
 
 private:
     void fillComboBox();
-    void createInviteLink();
     void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
     void slotCopyLink();
     void slotGenerateNewLink();

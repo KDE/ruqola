@@ -66,8 +66,6 @@ public:
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;
 
-    void setLastSeenAt(qint64 lastSee);
-
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 private:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
