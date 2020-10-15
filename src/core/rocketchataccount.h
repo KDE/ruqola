@@ -526,6 +526,7 @@ private:
     void slotRegisterUserDone();
     void slotRoomNeedAttention();
     void slotMarkAsReadDone(const QString &roomId);
+    void slotCustomUserStatusDone(const QJsonObject &customList);
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

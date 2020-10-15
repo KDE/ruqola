@@ -470,6 +470,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -2091,7 +2092,7 @@ void RocketChatAccount::initializeAccount()
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
-    //customUsersStatus(); Only for test
+    customUsersStatus();
     mDownloadAppsLanguagesManager->setServerVersion(mServerConfigInfo->serverVersionStr());
     mDownloadAppsLanguagesManager->setAccountName(mSettings->accountName());
     mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
@@ -2266,4 +2267,10 @@ void RocketChatAccount::logoutFromOtherLocation()
 void RocketChatAccount::createDirectMessages(const QStringList &usernames)
 {
     restApi()->createDirectMessage(usernames);
+}
+
+void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
+{
+    //TODO
+    qDebug() << "customList  " << customList;
 }
