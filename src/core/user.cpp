@@ -71,7 +71,8 @@ bool User::operator ==(const User &other) const
            && (mUserName == other.userName())
            && (mUtcOffset == other.utcOffset())
            && (mStatusText == other.statusText())
-           && (mRoles == other.roles());
+           && (mRoles == other.roles())
+            && (mCreatedAt == other.createdAt());
 }
 
 bool User::operator !=(const User &other) const
@@ -123,6 +124,7 @@ QDebug operator <<(QDebug d, const User &t)
     d << "UtcOffset " << t.utcOffset();
     d << "StatusText " << t.statusText();
     d << "roles : " << t.roles();
+    d << "CreatedAt: " << t.createdAt();
     return d;
 }
 
@@ -141,7 +143,9 @@ void User::parseUserRestApi(const QJsonObject &object)
         roles.append(rolesArray.at(i).toString());
     }
     setRoles(roles);
-    //TODO createdAt, emails, lastLogin
+    setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), object)));
+
+    //TODO emails, lastLogin
     qDebug() << " object "  << object;
 }
 
@@ -180,6 +184,16 @@ QStringList User::roles() const
 void User::setRoles(const QStringList &roles)
 {
     mRoles = roles;
+}
+
+QDateTime User::createdAt() const
+{
+    return mCreatedAt;
+}
+
+void User::setCreatedAt(const QDateTime &createdAt)
+{
+    mCreatedAt = createdAt;
 }
 
 void User::parseUser(const QJsonObject &object)

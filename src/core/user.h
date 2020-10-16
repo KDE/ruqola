@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QDebug>
+#include <QDateTime>
 #include "libruqolacore_export.h"
 class LIBRUQOLACORE_EXPORT User
 {
@@ -75,7 +76,12 @@ public:
     Q_REQUIRED_RESULT QStringList roles() const;
     void setRoles(const QStringList &roles);
 
+    Q_REQUIRED_RESULT QDateTime createdAt() const;
+    void setCreatedAt(const QDateTime &createdAt);
+
 private:
+    QDateTime mCreatedAt;
+
     QString mStatus = QStringLiteral("offline");
     QString mUserId;
     QString mName;

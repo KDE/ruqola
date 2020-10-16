@@ -198,6 +198,10 @@ void UserTest::shouldParseRestApiJson_data()
     expected.setUserName(QStringLiteral("username"));
     expected.setUtcOffset(0);
     expected.setRoles({QStringLiteral("user")});
+    QDateTime createdTime;
+    createdTime.setDate(QDate(2020, 10, 05));
+    createdTime.setTime(QTime(00, 48, 01, 903));
+    expected.setCreatedAt(createdTime);
     QTest::newRow("userrestapi1") << QStringLiteral("userrestapi") << expected;
 }
 
