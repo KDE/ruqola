@@ -95,7 +95,7 @@ public:
     *
     * @param messages The messages to be added
     */
-    void addMessages(const QVector<Message> &messages);
+    void addMessages(const QVector<Message> &messages, bool insertListMessages = false);
 
     /**
     * @brief returns number of messages in the model

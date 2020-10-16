@@ -262,7 +262,7 @@ void MessageModel::addMessage(const Message &message)
     }
 }
 
-void MessageModel::addMessages(const QVector<Message> &messages)
+void MessageModel::addMessages(const QVector<Message> &messages, bool insertListMessages)
 {
     if (messages.isEmpty()) {
         return;
@@ -272,6 +272,11 @@ void MessageModel::addMessages(const QVector<Message> &messages)
         mAllMessages = messages;
         std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
         endInsertRows();
+    } else if (insertListMessages) {
+        beginResetModel();
+        mAllMessages += messages;
+        std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
+        endResetModel();
     } else {
         // TODO optimize this case as well?
         for (const Message &message : messages) {

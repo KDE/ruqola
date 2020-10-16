@@ -1288,7 +1288,7 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId, int offset
     job->setRoomId(roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -1586,7 +1586,7 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
     job->setRoomId(roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -1606,7 +1606,7 @@ void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int co
     parameters.setCount(count);
     parameters.setOffset(offset);
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
 
     job->setQueryParameters(parameters);
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &RestApiRequest::getPinnedMessagesDone);
@@ -1622,7 +1622,7 @@ void RestApiRequest::getStarredMessages(const QString &roomId, int offset, int c
     job->setRoomId(roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -1644,7 +1644,7 @@ void RestApiRequest::getSnippetedMessages(const QString &roomId, int offset, int
     parameters.setOffset(offset);
 
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Ascendant);
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
     job->setQueryParameters(parameters);
     connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &RestApiRequest::getSnippetedMessagesDone);
     if (!job->start()) {
