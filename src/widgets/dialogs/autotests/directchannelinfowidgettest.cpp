@@ -70,4 +70,14 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRoles);
     QVERIFY(mRoles->text().isEmpty());
     QCOMPARE(mRoles->textInteractionFlags(), Qt::TextBrowserInteraction);
+
+    QLabel *mCreateAt = w.findChild<QLabel * >(QStringLiteral("mCreateAt"));
+    QVERIFY(mCreateAt);
+    QVERIFY(mCreateAt->text().isEmpty());
+    QCOMPARE(mCreateAt->textInteractionFlags(), Qt::TextBrowserInteraction);
+
+    QLabel *mLastLogin = w.findChild<QLabel * >(QStringLiteral("mLastLogin"));
+    QVERIFY(mLastLogin);
+    QVERIFY(mLastLogin->text().isEmpty());
+    QCOMPARE(mLastLogin->textInteractionFlags(), Qt::TextBrowserInteraction);
 }

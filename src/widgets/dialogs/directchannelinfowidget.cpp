@@ -71,6 +71,16 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mRoles->setObjectName(QStringLiteral("mRoles"));
     mRoles->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Roles:"), mRoles);
+
+    mCreateAt = new QLabel(this);
+    mCreateAt->setObjectName(QStringLiteral("mCreateAt"));
+    mCreateAt->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mMainLayout->addRow(i18n("Created At:"), mCreateAt);
+
+    mLastLogin = new QLabel(this);
+    mLastLogin->setObjectName(QStringLiteral("mLastLogin"));
+    mLastLogin->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mMainLayout->addRow(i18n("Last Login:"), mLastLogin);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
@@ -130,9 +140,28 @@ void DirectChannelInfoWidget::setUser(const User &user)
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
     //TODO use i18n ?
     if (user.roles().isEmpty()) {
-        mRoles->setVisible(false);
-        mMainLayout->labelForField(mRoles)->setVisible(false);
+        hideWidget(mRoles);
     } else {
         mRoles->setText(user.roles().join(QStringLiteral(", ")));
     }
+
+    if (user.createdAt().isValid()) {
+        mCreateAt->setText(user.createdAt().date().toString());
+    } else {
+        hideWidget(mCreateAt);
+    }
+
+    if (user.lastLogin().isValid()) {
+        mLastLogin->setText(user.lastLogin().date().toString());
+    } else {
+        hideWidget(mLastLogin);
+    }
+
+}
+
+
+void DirectChannelInfoWidget::hideWidget(QLabel *label)
+{
+    label->setVisible(false);
+    mMainLayout->labelForField(label)->setVisible(false);
 }

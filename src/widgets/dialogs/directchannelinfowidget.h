@@ -39,6 +39,7 @@ private:
     void slotUserInfoDone(const QJsonObject &obj);
     void fetchUserInfo(const QString &userName);
     void setUser(const User &user);
+    void hideWidget(QLabel *label);
     QLabel *mName = nullptr;
     QLabel *mUserName = nullptr;
     QLabel *mCustomStatus = nullptr;
@@ -46,6 +47,8 @@ private:
     QLabel *mTimeZone = nullptr;
     QLabel *mAvatar = nullptr;
     QLabel *mRoles = nullptr;
+    QLabel *mCreateAt = nullptr;
+    QLabel *mLastLogin = nullptr;
     QFormLayout *mMainLayout = nullptr;
 };
 
