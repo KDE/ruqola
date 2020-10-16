@@ -22,7 +22,7 @@
 #define CHANNELCOUNTERINFO_H
 
 #include "libruqolacore_export.h"
-
+#include <QDateTime>
 #include <QJsonObject>
 class LIBRUQOLACORE_EXPORT ChannelCounterInfo
 {
