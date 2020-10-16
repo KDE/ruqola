@@ -39,6 +39,14 @@ public:
     };
     Q_ENUM(PresenceStatus)
 
+    struct LIBRUQOLACORE_EXPORT UserEmailsInfo {
+        QString email;
+        bool verified = false;
+        Q_REQUIRED_RESULT bool operator ==(const UserEmailsInfo &other) const {
+            return (email == other.email) && (verified == other.verified);
+        }
+    };
+
     User();
     ~User();
 
@@ -82,7 +90,11 @@ public:
     Q_REQUIRED_RESULT QDateTime lastLogin() const;
     void setLastLogin(const QDateTime &lastLogin);
 
+    Q_REQUIRED_RESULT UserEmailsInfo userEmailsInfo() const;
+    void setUserEmailsInfo(const UserEmailsInfo &userEmailsInfo);
+
 private:
+    UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
     QDateTime mLastLogin;
 
@@ -97,5 +109,6 @@ private:
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User &t);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User::UserEmailsInfo &t);
 
 #endif // USER_H

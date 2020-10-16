@@ -76,6 +76,7 @@ bool User::operator ==(const User &other) const
             && (mLastLogin == other.lastLogin());
 }
 
+
 bool User::operator !=(const User &other) const
 {
     return !operator ==(other);
@@ -116,6 +117,13 @@ void User::setStatusText(const QString &statusText)
     mStatusText = statusText;
 }
 
+QDebug operator <<(QDebug d, const User::UserEmailsInfo &t)
+{
+    d << "email " << t.email;
+    d << "verified " << t.verified;
+    return d;
+}
+
 QDebug operator <<(QDebug d, const User &t)
 {
     d << "Name " << t.name();
@@ -127,6 +135,7 @@ QDebug operator <<(QDebug d, const User &t)
     d << "roles : " << t.roles();
     d << "CreatedAt: " << t.createdAt();
     d << "Last Login " << t.lastLogin();
+    d << "userEmailsInfo " << t.userEmailsInfo();
     return d;
 }
 
@@ -150,6 +159,18 @@ void User::parseUserRestApi(const QJsonObject &object)
     }
     if (object.contains(QLatin1String("lastLogin"))) {
         setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("lastLogin"), object)));
+    }
+    if (object.contains(QLatin1String("emails"))) {
+        const QJsonArray emails = object.value(QStringLiteral("emails")).toArray();
+        if (emails.count() > 1) {
+            qCWarning(RUQOLA_LOG) << " Users info has more that 1 emails. Bug or missing feature" << emails;
+        } else {
+            const QJsonObject emailObj = emails.at(0).toObject();
+            UserEmailsInfo info;
+            info.email = emailObj.value(QLatin1String("address")).toString();
+            info.verified = emailObj.value(QLatin1String("verified")).toBool();
+            setUserEmailsInfo(info);
+        }
     }
 
     //TODO emails
@@ -211,6 +232,16 @@ QDateTime User::lastLogin() const
 void User::setLastLogin(const QDateTime &lastLogin)
 {
     mLastLogin = lastLogin;
+}
+
+User::UserEmailsInfo User::userEmailsInfo() const
+{
+    return mUserEmailsInfo;
+}
+
+void User::setUserEmailsInfo(const UserEmailsInfo &userEmailsInfo)
+{
+    mUserEmailsInfo = userEmailsInfo;
 }
 
 void User::parseUser(const QJsonObject &object)
