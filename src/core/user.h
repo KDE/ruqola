@@ -79,8 +79,12 @@ public:
     Q_REQUIRED_RESULT QDateTime createdAt() const;
     void setCreatedAt(const QDateTime &createdAt);
 
+    Q_REQUIRED_RESULT QDateTime lastLogin() const;
+    void setLastLogin(const QDateTime &lastLogin);
+
 private:
     QDateTime mCreatedAt;
+    QDateTime mLastLogin;
 
     QString mStatus = QStringLiteral("offline");
     QString mUserId;

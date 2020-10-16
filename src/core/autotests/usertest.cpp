@@ -202,6 +202,7 @@ void UserTest::shouldParseRestApiJson_data()
     createdTime.setDate(QDate(2020, 10, 05));
     createdTime.setTime(QTime(00, 48, 01, 903));
     expected.setCreatedAt(createdTime);
+    expected.setLastLogin(QDateTime());
     QTest::newRow("userrestapi1") << QStringLiteral("userrestapi") << expected;
 }
 
