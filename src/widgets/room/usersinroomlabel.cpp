@@ -201,8 +201,7 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
 
 void UserLabel::slotUserInfo()
 {
-    QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
-    dlg->setUserName(mUserName);
-    dlg->exec();
-    delete dlg;
+    DirectChannelInfoDialog dlg(this);
+    dlg.setUserName(mUserName);
+    dlg.exec();
 }
