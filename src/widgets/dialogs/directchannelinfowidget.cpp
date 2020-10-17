@@ -81,6 +81,11 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mLastLogin->setObjectName(QStringLiteral("mLastLogin"));
     mLastLogin->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Last Login:"), mLastLogin);
+
+    mEmailsInfo = new QLabel(this);
+    mEmailsInfo->setObjectName(QStringLiteral("mEmailsInfo"));
+    mEmailsInfo->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mMainLayout->addRow(i18n("Last Login:"), mEmailsInfo);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()

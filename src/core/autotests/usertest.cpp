@@ -40,6 +40,10 @@ void UserTest::shouldHaveDefaultValue()
     QCOMPARE(u.status(), QStringLiteral("offline"));
     QVERIFY(u.userName().isEmpty());
     QVERIFY(!u.isValid());
+    QVERIFY(u.roles().isEmpty());
+    QVERIFY(!u.userEmailsInfo().isValid());
+    QVERIFY(!u.createdAt().isValid());
+    QVERIFY(!u.lastLogin().isValid());
 }
 
 void UserTest::shouldBeValid()

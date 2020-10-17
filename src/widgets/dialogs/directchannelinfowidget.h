@@ -49,6 +49,7 @@ private:
     QLabel *mRoles = nullptr;
     QLabel *mCreateAt = nullptr;
     QLabel *mLastLogin = nullptr;
+    QLabel *mEmailsInfo = nullptr;
     QFormLayout *mMainLayout = nullptr;
 };
 
