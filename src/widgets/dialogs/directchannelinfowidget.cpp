@@ -85,7 +85,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mEmailsInfo = new QLabel(this);
     mEmailsInfo->setObjectName(QStringLiteral("mEmailsInfo"));
     mEmailsInfo->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Last Login:"), mEmailsInfo);
+    mMainLayout->addRow(i18n("Email:"), mEmailsInfo);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
@@ -160,6 +160,13 @@ void DirectChannelInfoWidget::setUser(const User &user)
         mLastLogin->setText(user.lastLogin().date().toString());
     } else {
         hideWidget(mLastLogin);
+    }
+
+    if (user.userEmailsInfo().isValid()) {
+        const QString info = i18n("%1 %2", user.userEmailsInfo().email, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
+        mEmailsInfo->setText(info);
+    } else {
+        hideWidget(mEmailsInfo);
     }
 
 }
