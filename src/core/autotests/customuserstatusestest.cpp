@@ -90,3 +90,13 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses()
     QVERIFY(compareCustom);
     QCOMPARE(r.count(), customStatusesCount);
 }
+
+void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
+{
+
+}
+
+void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
+{
+
+}

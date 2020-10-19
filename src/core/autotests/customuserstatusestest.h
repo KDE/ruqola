@@ -33,6 +33,9 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadUserCustomStatuses_data();
     void shouldLoadUserCustomStatuses();
+
+    void shouldUpdateUserCustomStatuses_data();
+    void shouldUpdateUserCustomStatuses();
 };
 
 #endif // CUSTOMUSERSTATUSESTEST_H
