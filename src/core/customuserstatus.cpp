@@ -30,8 +30,51 @@ CustomUserStatus::~CustomUserStatus()
 
 }
 
+QString CustomUserStatus::name() const
+{
+    return mName;
+}
+
+void CustomUserStatus::setName(const QString &value)
+{
+    mName = value;
+}
+
+qint64 CustomUserStatus::updatedAt() const
+{
+    return mUpdatedAt;
+}
+
+void CustomUserStatus::setUpdatedAt(const qint64 &updatedAt)
+{
+    mUpdatedAt = updatedAt;
+}
+
+QString CustomUserStatus::identifier() const
+{
+    return mIdentifier;
+}
+
+void CustomUserStatus::setIdentifier(const QString &identifier)
+{
+    mIdentifier = identifier;
+}
+
+QString CustomUserStatus::statusType() const
+{
+    return mStatusType;
+}
+
+void CustomUserStatus::setStatusType(const QString &statusType)
+{
+    mStatusType = statusType;
+}
+
 QDebug operator <<(QDebug d, const CustomUserStatus &t)
 {
-    //TODO
+    d << "name " << t.name();
+    d << "identifier " << t.identifier();
+    d << "updatedAt " << t.updatedAt();
+    d << "StatusType " << t.statusType();
     return d;
 }

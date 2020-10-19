@@ -29,6 +29,25 @@ class LIBRUQOLACORE_TESTS_EXPORT CustomUserStatus
 public:
     CustomUserStatus();
     ~CustomUserStatus();
+
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &value);
+
+    Q_REQUIRED_RESULT qint64 updatedAt() const;
+    void setUpdatedAt(const qint64 &updatedAt);
+
+    Q_REQUIRED_RESULT QString identifier() const;
+    void setIdentifier(const QString &identifier);
+
+    Q_REQUIRED_RESULT QString statusType() const;
+    void setStatusType(const QString &statusType);
+
+private:
+    QString mIdentifier;
+    QString mName;
+    QString mStatusType;
+    qint64 mUpdatedAt = -1;
+
 };
 Q_DECLARE_METATYPE(CustomUserStatus)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_MOVABLE_TYPE);
