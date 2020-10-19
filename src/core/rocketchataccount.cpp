@@ -2283,6 +2283,7 @@ void RocketChatAccount::createDirectMessages(const QStringList &usernames)
 
 void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
 {
-    //TODO
-    qDebug() << "customList  " << customList;
+    mCustomUserStatuses.parseCustomUserStatuses(customList);
+    qDebug() << "customList  " << mCustomUserStatuses;
+    //TODO update combobox
 }

@@ -41,6 +41,7 @@
 #include "accountroomsettings.h"
 #include "ruqolaserverconfig.h"
 #include "ownuser.h"
+#include "customuserstatuses.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -584,6 +585,7 @@ private:
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
     OwnUser mOwnUser;
+    CustomUserStatuses mCustomUserStatuses;
 
     bool mEditingMode = false;
 };
