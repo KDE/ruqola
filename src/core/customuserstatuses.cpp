@@ -108,46 +108,58 @@ void CustomUserStatuses::setCustomUserses(const QVector<CustomUserStatus> &custo
     mCustomUserses = customUserses;
 }
 
-void CustomUserStatuses::deleteCustomUser(const QJsonObject &customStatusObj)
+void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
 {
-    if (customStatusObj.contains(QLatin1String("_id"))) {
-        const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
-        for (const CustomUserStatus &status : mCustomUserses) {
-            if (status.identifier() == identifier) {
-                mCustomUserses.removeOne(status);
-                break;
+    for (int i = 0; i < replyArray.count(); ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject customStatusObj = obj.value(QLatin1String("userStatusData")).toObject();
+        if (!customStatusObj.isEmpty()) {
+            if (customStatusObj.contains(QLatin1String("_id"))) {
+                const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
+                for (const CustomUserStatus &status : mCustomUserses) {
+                    if (status.identifier() == identifier) {
+                        mCustomUserses.removeOne(status);
+                        break;
+                    }
+                }
+            } else {
+                qCWarning(RUQOLA_LOG) << "deleteCustomUser invalid QJsonObject" << customStatusObj;
             }
         }
-    } else {
-        qCWarning(RUQOLA_LOG) << "deleteCustomUser invalid QJsonObject" << customStatusObj;
     }
 }
 
-void CustomUserStatuses::updateCustomUser(const QJsonObject &customStatusObj)
+void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
 {
-    if (customStatusObj.contains(QLatin1String("_id"))) {
-        //TODO
-        //previousStatusType
-        //previousName
-        //=> update otherwise add
-        if (customStatusObj.contains(QLatin1String("previousName"))) { //Update
-            const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
-            for (CustomUserStatus &status : mCustomUserses) {
-                if (status.identifier() == identifier) {
-                    status.parseCustomStatus(customStatusObj);
-                    break;
+    for (int i = 0; i < replyArray.count(); ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject customStatusObj = obj.value(QLatin1String("userStatusData")).toObject();
+        if (!customStatusObj.isEmpty()) {
+            if (customStatusObj.contains(QLatin1String("_id"))) {
+                //TODO
+                //previousStatusType
+                //previousName
+                //=> update otherwise add
+                if (customStatusObj.contains(QLatin1String("previousName"))) { //Update
+                    const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
+                    for (CustomUserStatus &status : mCustomUserses) {
+                        if (status.identifier() == identifier) {
+                            status.parseCustomStatus(customStatusObj);
+                            break;
+                        }
+                    }
+                } else {
+                    //Parse
+                    CustomUserStatus newStatus;
+                    newStatus.parseCustomStatus(customStatusObj);
+                    if (newStatus.isValid()) {
+                        mCustomUserses.append(newStatus);
+                    }
                 }
-            }
-        } else {
-            //Parse
-            CustomUserStatus newStatus;
-            newStatus.parseCustomStatus(customStatusObj);
-            if (newStatus.isValid()) {
-                mCustomUserses.append(newStatus);
+            } else {
+                qCWarning(RUQOLA_LOG) << "updateCustomUser invalid QJsonObject" << customStatusObj;
             }
         }
-    } else {
-        qCWarning(RUQOLA_LOG) << "updateCustomUser invalid QJsonObject" << customStatusObj;
     }
 }
 
