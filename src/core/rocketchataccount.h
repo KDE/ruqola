@@ -443,6 +443,10 @@ public:
     void createDirectMessages(const QStringList &usernames);
     void setDisplayName(const QString &displayName);
     Q_REQUIRED_RESULT QString displayName() const;
+
+    void deleteCustomUserStatus(const QJsonArray &replyArray);
+
+    void updateCustomUserStatus(const QJsonArray &replyArray);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

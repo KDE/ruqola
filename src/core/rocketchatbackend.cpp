@@ -546,9 +546,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname == QLatin1String("Users:Deleted")) {
             qCWarning(RUQOLA_LOG) << "Need to implement: Users:Deleted :" << fields;
         } else if (eventname == QLatin1String("deleteCustomUserStatus")) {
-            qCWarning(RUQOLA_LOG) << "Need to implement: deleteCustomUserStatus :" << fields;
+            mRocketChatAccount->deleteCustomUserStatus(contents);
         } else if (eventname == QLatin1String("updateCustomUserStatus")) {
-            qCWarning(RUQOLA_LOG) << "Need to implement: updateCustomUserStatus :" << fields;
+            mRocketChatAccount->updateCustomUserStatus(contents);
         } else if (eventname == QLatin1String("user-status")) {
             mRocketChatAccount->setUserStatusChanged(contents);
         } else {

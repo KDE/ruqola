@@ -1439,6 +1439,18 @@ QString RocketChatAccount::displayName() const
     return settings()->displayName();
 }
 
+void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
+{
+    //TODO
+    qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
+
+}
+
+void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
+{
+    qDebug() << " void RocketChatAccount::updateCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
+}
+
 void RocketChatAccount::setDisplayName(const QString &displayName)
 {
     settings()->setDisplayName(displayName);
