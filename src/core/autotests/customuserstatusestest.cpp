@@ -68,9 +68,6 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
             f.setUpdatedAt(1588199612532);
             result << f;
         }
-
-        //QVector(name "CM"identifier "GZHpA5fENrWHRfaoN"updatedAt -1StatusType "busy", name "Vacation"identifier "tygCbhbgCojk8G28G"updatedAt -1StatusType "away")
-
         QTest::addRow("customuser2") << QStringLiteral("customuser2") << 2 << result;
     }
 }
