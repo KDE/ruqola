@@ -19,6 +19,9 @@
 */
 
 #include "customuserstatuses.h"
+#include "ruqola_debug.h"
+
+#include <QJsonArray>
 
 CustomUserStatuses::CustomUserStatuses()
 {
@@ -27,8 +30,33 @@ CustomUserStatuses::CustomUserStatuses()
 
 CustomUserStatuses::~CustomUserStatuses()
 {
-
 }
+
+void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &customStatusObj)
+{
+    mCustomUserCount = customStatusObj[QStringLiteral("count")].toInt();
+    mOffset = customStatusObj[QStringLiteral("offset")].toInt();
+    mTotal = customStatusObj[QStringLiteral("total")].toInt();
+    mCustomUserses.clear();
+    parseListCustomUserStatuses(customStatusObj);
+}
+
+void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customStatusObj)
+{
+    const QJsonArray customsUserArray = customStatusObj[QStringLiteral("statuses")].toArray();
+    mCustomUserses.reserve(mCustomUserses.count() + customsUserArray.count());
+    for (const QJsonValue &current : customsUserArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject customUserObj = current.toObject();
+            CustomUserStatus m;
+            m.parseCustomStatus(customUserObj);
+            mCustomUserses.append(m);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing customStatusUser" << current;
+        }
+    }
+}
+
 
 bool CustomUserStatuses::isEmpty() const
 {

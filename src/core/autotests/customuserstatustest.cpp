@@ -32,5 +32,10 @@ CustomUserStatusTest::CustomUserStatusTest(QObject *parent)
 void CustomUserStatusTest::shouldHaveDefaultValues()
 {
     CustomUserStatus w;
-    //TODO
+    QVERIFY(!w.isValid());
+
+    QVERIFY(w.name().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
+    QVERIFY(w.statusType().isEmpty());
+    QCOMPARE(w.updatedAt(), -1);
 }

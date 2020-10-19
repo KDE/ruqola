@@ -22,6 +22,7 @@
 #define CUSTOMUSERSTATUSES_H
 
 #include <QDebug>
+#include <QJsonObject>
 #include <QVector>
 #include "customuserstatus.h"
 #include "libruqola_private_export.h"
@@ -46,7 +47,9 @@ public:
     Q_REQUIRED_RESULT QVector<CustomUserStatus> customUserses() const;
     void setCustomUserses(const QVector<CustomUserStatus> &customUserses);
 
+    void parseCustomUserStatuses(const QJsonObject &customStatusObj);
 private:
+    void parseListCustomUserStatuses(const QJsonObject &commandsObj);
     QVector<CustomUserStatus> mCustomUserses;
     int mCustomUserCount = 0;
     int mOffset = 0;

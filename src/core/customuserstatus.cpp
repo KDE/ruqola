@@ -20,6 +20,8 @@
 
 #include "customuserstatus.h"
 
+#include "utils.h"
+
 CustomUserStatus::CustomUserStatus()
 {
 
@@ -28,6 +30,19 @@ CustomUserStatus::CustomUserStatus()
 CustomUserStatus::~CustomUserStatus()
 {
 
+}
+
+bool CustomUserStatus::isValid() const
+{
+    return !mIdentifier.isEmpty() && !mStatusType.isEmpty();
+}
+
+void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj)
+{
+    mIdentifier = customStatusObj[QLatin1String("_id")].toString();
+    mName = customStatusObj[QLatin1String("name")].toString();
+    mStatusType = customStatusObj[QLatin1String("statusType")].toString();
+    mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
 }
 
 QString CustomUserStatus::name() const
@@ -72,9 +87,17 @@ void CustomUserStatus::setStatusType(const QString &statusType)
 
 QDebug operator <<(QDebug d, const CustomUserStatus &t)
 {
-    d << "name " << t.name();
-    d << "identifier " << t.identifier();
-    d << "updatedAt " << t.updatedAt();
-    d << "StatusType " << t.statusType();
+    d << "name " << t.name() << '\n';
+    d << "identifier " << t.identifier() << '\n';
+    d << "updatedAt " << t.updatedAt() << '\n';
+    d << "StatusType " << t.statusType() << '\n';
     return d;
+}
+
+bool CustomUserStatus::operator ==(const CustomUserStatus &other) const
+{
+    return mIdentifier == other.identifier()
+           && mName == other.name()
+           && mStatusType == other.statusType()
+           && mUpdatedAt == other.updatedAt();
 }

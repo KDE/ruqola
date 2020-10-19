@@ -31,6 +31,8 @@ public:
     ~CustomUserStatusesTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadUserCustomStatuses_data();
+    void shouldLoadUserCustomStatuses();
 };
 
 #endif // CUSTOMUSERSTATUSESTEST_H

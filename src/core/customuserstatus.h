@@ -22,6 +22,7 @@
 #define CUSTOMUSERSTATUS_H
 
 #include <QDebug>
+#include <QJsonObject>
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT CustomUserStatus
@@ -29,6 +30,8 @@ class LIBRUQOLACORE_TESTS_EXPORT CustomUserStatus
 public:
     CustomUserStatus();
     ~CustomUserStatus();
+
+    Q_REQUIRED_RESULT bool isValid() const;
 
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &value);
@@ -42,12 +45,14 @@ public:
     Q_REQUIRED_RESULT QString statusType() const;
     void setStatusType(const QString &statusType);
 
+    void parseCustomStatus(const QJsonObject &customStatusObj);
+
+    Q_REQUIRED_RESULT bool operator ==(const CustomUserStatus &other) const;
 private:
     QString mIdentifier;
     QString mName;
     QString mStatusType;
     qint64 mUpdatedAt = -1;
-
 };
 Q_DECLARE_METATYPE(CustomUserStatus)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_MOVABLE_TYPE);

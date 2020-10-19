@@ -21,6 +21,10 @@
 
 #include "customuserstatusestest.h"
 #include "customuserstatuses.h"
+#include "customuserstatus.h"
+#include "ruqola_autotest_helper.h"
+#include <QJsonDocument>
+
 #include <QTest>
 QTEST_GUILESS_MAIN(CustomUserStatusesTest)
 
@@ -33,5 +37,59 @@ CustomUserStatusesTest::CustomUserStatusesTest(QObject *parent)
 void CustomUserStatusesTest::shouldHaveDefaultValues()
 {
     CustomUserStatuses w;
-    //TODO
+    QVERIFY(w.customUserses().isEmpty());
+    QVERIFY(w.isEmpty());
+    QCOMPARE(w.offset(), 0);
+    QCOMPARE(w.count(), 0);
+    QCOMPARE(w.total(), 0);
+}
+
+void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("customStatusesCount");
+    QTest::addColumn< QVector<CustomUserStatus> >("customUserStatus");
+
+    {
+        QVector<CustomUserStatus> result;
+        {
+            CustomUserStatus f;
+            f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
+            f.setName(QStringLiteral("CM"));
+            f.setStatusType(QStringLiteral("busy"));
+            f.setUpdatedAt(1603106197911);
+            result << f;
+        }
+        {
+            CustomUserStatus f;
+            f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
+            f.setName(QStringLiteral("Vacation"));
+            f.setStatusType(QStringLiteral("away"));
+            f.setUpdatedAt(1588199612532);
+            result << f;
+        }
+
+        //QVector(name "CM"identifier "GZHpA5fENrWHRfaoN"updatedAt -1StatusType "busy", name "Vacation"identifier "tygCbhbgCojk8G28G"updatedAt -1StatusType "away")
+
+        QTest::addRow("customuser2") << QStringLiteral("customuser2") << 2 << result;
+    }
+}
+
+void CustomUserStatusesTest::shouldLoadUserCustomStatuses()
+{
+    QFETCH(QString, name);
+    QFETCH(int, customStatusesCount);
+    QFETCH(QVector<CustomUserStatus>, customUserStatus);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + name + QLatin1String(".json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    CustomUserStatuses r;
+    r.parseCustomUserStatuses(obj);
+    bool compareCustom = r.customUserses() == customUserStatus;
+    if (!compareCustom) {
+        qDebug() << "current : " << r.customUserses();
+        qDebug() << "expected: " << customUserStatus;
+    }
+    QVERIFY(compareCustom);
+    QCOMPARE(r.count(), customStatusesCount);
 }
