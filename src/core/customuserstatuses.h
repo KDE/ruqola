@@ -48,6 +48,8 @@ public:
     void setCustomUserses(const QVector<CustomUserStatus> &customUserses);
 
     void parseCustomUserStatuses(const QJsonObject &customStatusObj);
+    void deleteCustomUser(const QJsonObject &customStatusObj);
+    void updateCustomUser(const QJsonObject &customStatusObj);
 private:
     void parseListCustomUserStatuses(const QJsonObject &commandsObj);
     QVector<CustomUserStatus> mCustomUserses;

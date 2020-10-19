@@ -1441,14 +1441,28 @@ QString RocketChatAccount::displayName() const
 
 void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
 {
-    //TODO
     qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
-
+    for (int i = 0; i < replyArray.count(); ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject userStatusData = obj.value(QLatin1String("userStatusData")).toObject();
+        if (!userStatusData.isEmpty()) {
+            mCustomUserStatuses.deleteCustomUser(userStatusData);
+        }
+    }
+    //TODO updateCombobox
 }
 
 void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
 {
     qDebug() << " void RocketChatAccount::updateCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
+    for (int i = 0; i < replyArray.count(); ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject userStatusData = obj.value(QLatin1String("userStatusData")).toObject();
+        if (!userStatusData.isEmpty()) {
+            mCustomUserStatuses.updateCustomUser(userStatusData);
+        }
+    }
+    //TODO updateCombobox
 }
 
 void RocketChatAccount::setDisplayName(const QString &displayName)
