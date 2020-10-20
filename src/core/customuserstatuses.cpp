@@ -138,7 +138,6 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
         const QJsonObject customStatusObj = obj.value(QLatin1String("userStatusData")).toObject();
         if (!customStatusObj.isEmpty()) {
             if (customStatusObj.contains(QLatin1String("_id"))) {
-                //TODO
                 //previousStatusType
                 //previousName
                 //=> update otherwise add
