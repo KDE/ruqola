@@ -36,6 +36,9 @@ private Q_SLOTS:
 
     void shouldUpdateUserCustomStatuses_data();
     void shouldUpdateUserCustomStatuses();
+
+    void shouldDeleteUserCustomStatuses();
+    void shouldDeleteUserCustomStatuses_data();
 };
 
 #endif // CUSTOMUSERSTATUSESTEST_H
