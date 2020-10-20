@@ -45,7 +45,7 @@ public:
     Q_REQUIRED_RESULT QString statusType() const;
     void setStatusType(const QString &statusType);
 
-    void parseCustomStatus(const QJsonObject &customStatusObj);
+    void parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi = true);
 
     Q_REQUIRED_RESULT bool operator ==(const CustomUserStatus &other) const;
 private:

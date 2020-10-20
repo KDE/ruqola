@@ -37,12 +37,18 @@ bool CustomUserStatus::isValid() const
     return !mIdentifier.isEmpty() && !mStatusType.isEmpty();
 }
 
-void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj)
+void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi)
 {
     mIdentifier = customStatusObj[QLatin1String("_id")].toString();
     mName = customStatusObj[QLatin1String("name")].toString();
     mStatusType = customStatusObj[QLatin1String("statusType")].toString();
-    mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
+    if (customStatusObj.contains(QLatin1String("_updatedAt"))) {
+        if (useRestApi) {
+            mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
+        } else {
+            mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), customStatusObj);
+        }
+    }
 }
 
 QString CustomUserStatus::name() const

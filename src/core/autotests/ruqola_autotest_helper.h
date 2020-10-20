@@ -27,6 +27,7 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
 
 namespace AutoTestHelper {
 void diffFile(const QString &refFile, const QString &generatedFile)
@@ -84,6 +85,17 @@ QJsonObject loadJsonObject(const QString &originalJsonFile)
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
+    return obj;
+}
+
+QJsonArray loadJsonArrayObject(const QString &originalJsonFile)
+{
+    QFile f(originalJsonFile);
+    Q_ASSERT(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonArray obj = doc.array();
     return obj;
 }
 }
