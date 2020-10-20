@@ -65,6 +65,16 @@ void CustomUserStatusDeleteJob::slotUserStatusDelete()
     deleteLater();
 }
 
+QString CustomUserStatusDeleteJob::customUserStatusId() const
+{
+    return mCustomUserStatusId;
+}
+
+void CustomUserStatusDeleteJob::setCustomUserStatusId(const QString &customUserStatusId)
+{
+    mCustomUserStatusId = customUserStatusId;
+}
+
 bool CustomUserStatusDeleteJob::requireHttpAuthentication() const
 {
     return true;
@@ -75,10 +85,10 @@ bool CustomUserStatusDeleteJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-//    if (!mCreateInfo.isValid()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusDeleteJob: mCreateInfo is not valid.";
-//        return false;
-//    }
+    if (mCustomUserStatusId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusDeleteJob: mCustomUserStatusId is empty.";
+        return false;
+    }
     return true;
 }
 
@@ -94,6 +104,7 @@ QNetworkRequest CustomUserStatusDeleteJob::request() const
 QJsonDocument CustomUserStatusDeleteJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj[QStringLiteral("customUserStatusId")] = mCustomUserStatusId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

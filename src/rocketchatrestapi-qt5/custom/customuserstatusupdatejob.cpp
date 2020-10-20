@@ -65,6 +65,16 @@ void CustomUserStatusUpdateJob::slotCustomUserUpdate()
     deleteLater();
 }
 
+CustomUserStatusUpdateJob::StatusUpdateInfo CustomUserStatusUpdateJob::statusUpdateInfo() const
+{
+    return mStatusUpdateInfo;
+}
+
+void CustomUserStatusUpdateJob::setStatusUpdateInfo(const StatusUpdateInfo &statusUpdateInfo)
+{
+    mStatusUpdateInfo = statusUpdateInfo;
+}
+
 bool CustomUserStatusUpdateJob::requireHttpAuthentication() const
 {
     return true;
@@ -75,10 +85,10 @@ bool CustomUserStatusUpdateJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-//    if (!mCreateInfo.isValid()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusUpdateJob: mCreateInfo is not valid.";
-//        return false;
-//    }
+    if (!mStatusUpdateInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusUpdateJob: CustomUserStatusUpdateJob is not valid.";
+        return false;
+    }
     return true;
 }
 
@@ -94,6 +104,9 @@ QNetworkRequest CustomUserStatusUpdateJob::request() const
 QJsonDocument CustomUserStatusUpdateJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj[QStringLiteral("_id")] = mStatusUpdateInfo.identifier;
+    jsonObj[QStringLiteral("name")] = mStatusUpdateInfo.name;
+    jsonObj[QStringLiteral("statusType")] = mStatusUpdateInfo.statusType;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

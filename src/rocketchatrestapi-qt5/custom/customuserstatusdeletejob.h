@@ -38,12 +38,16 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT QString customUserStatusId() const;
+    void setCustomUserStatusId(const QString &customUserStatusId);
+
 Q_SIGNALS:
     void userStatusDeletedDone();
 
 private:
     Q_DISABLE_COPY(CustomUserStatusDeleteJob)
     void slotUserStatusDelete();
+    QString mCustomUserStatusId;
 };
 }
 #endif
