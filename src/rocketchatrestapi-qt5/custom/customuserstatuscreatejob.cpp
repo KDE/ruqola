@@ -65,6 +65,16 @@ void CustomUserStatusCreateJob::slotCreateUserStatus()
     deleteLater();
 }
 
+CustomUserStatusCreateJob::StatusCreateInfo CustomUserStatusCreateJob::statusCreateInfo() const
+{
+    return mStatusCreateInfo;
+}
+
+void CustomUserStatusCreateJob::setStatusCreateInfo(const StatusCreateInfo &statusCreateInfo)
+{
+    mStatusCreateInfo = statusCreateInfo;
+}
+
 bool CustomUserStatusCreateJob::requireHttpAuthentication() const
 {
     return true;
@@ -75,10 +85,10 @@ bool CustomUserStatusCreateJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-//    if (!mCreateInfo.isValid()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusCreateJob: mCreateInfo is not valid.";
-//        return false;
-//    }
+    if (!mStatusCreateInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusCreateJob: mStatusCreateInfo is not valid.";
+        return false;
+    }
     return true;
 }
 
@@ -94,6 +104,8 @@ QNetworkRequest CustomUserStatusCreateJob::request() const
 QJsonDocument CustomUserStatusCreateJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj[QLatin1String("name")] = mStatusCreateInfo.name;
+    jsonObj[QLatin1String("statusType")] = mStatusCreateInfo.statusType;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

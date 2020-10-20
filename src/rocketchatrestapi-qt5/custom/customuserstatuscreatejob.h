@@ -22,12 +22,19 @@
 #define CUSTOMUSERSTATUSCREATEJOB_H
 
 #include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CustomUserStatusCreateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT CustomUserStatusCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT StatusCreateInfo {
+        QString name;
+        QString statusType;
+        Q_REQUIRED_RESULT bool isValid() const {
+            return !name.isEmpty() && !statusType.isEmpty();
+        }
+    };
     explicit CustomUserStatusCreateJob(QObject *parent = nullptr);
     ~CustomUserStatusCreateJob() override;
 
@@ -37,12 +44,16 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
+    Q_REQUIRED_RESULT StatusCreateInfo statusCreateInfo() const;
+    void setStatusCreateInfo(const StatusCreateInfo &statusCreateInfo);
+
 Q_SIGNALS:
     void createUserStatusDone();
 
 private:
     Q_DISABLE_COPY(CustomUserStatusCreateJob)
     void slotCreateUserStatus();
+    StatusCreateInfo mStatusCreateInfo;
 };
 }
 #endif // CustomUserStatusCreateJob_H
