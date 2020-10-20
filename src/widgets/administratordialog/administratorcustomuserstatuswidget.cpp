@@ -21,13 +21,18 @@
 #include "administratorcustomuserstatuswidget.h"
 
 #include <QHBoxLayout>
+#include <QTreeWidget>
 
 AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget *parent)
     : QWidget(parent)
+    , mCustomUserStatusTreeWidget(new QTreeWidget(this))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mCustomUserStatusTreeWidget->setObjectName(QStringLiteral("mCustomUserStatusTreeWidget"));
+    mainLayout->addWidget(mCustomUserStatusTreeWidget);
 }
 
 AdministratorCustomUserStatusWidget::~AdministratorCustomUserStatusWidget()

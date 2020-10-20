@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "administratorcustomuserstatuswidget.h"
 #include "administratorroomswidget.h"
 #include "administratorwidget.h"
 #include <KLocalizedString>
@@ -26,6 +27,8 @@
 
 AdministratorWidget::AdministratorWidget(QWidget *parent)
     : QWidget(parent)
+    , mAdministratorRoomsWidget(new AdministratorRoomsWidget(this))
+    , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(this))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -35,9 +38,11 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     mainLayout->addWidget(mTabWidget);
 
-    mAdministratorRoomsWidget = new AdministratorRoomsWidget(this);
     mAdministratorRoomsWidget->setObjectName(QStringLiteral("mAdministratorRoomsWidget"));
     mTabWidget->addTab(mAdministratorRoomsWidget, i18n("Rooms"));
+
+    mAdministratorCustomUserStatusWidget->setObjectName(QStringLiteral("mAdministratorCustomUserStatusWidget"));
+    mTabWidget->addTab(mAdministratorCustomUserStatusWidget, i18n("Custom User Status"));
 }
 
 AdministratorWidget::~AdministratorWidget()

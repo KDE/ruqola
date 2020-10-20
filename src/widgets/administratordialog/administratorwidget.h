@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QTabWidget;
 class AdministratorRoomsWidget;
+class AdministratorCustomUserStatusWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
@@ -34,7 +35,8 @@ public:
     ~AdministratorWidget();
 private:
     QTabWidget *mTabWidget = nullptr;
-    AdministratorRoomsWidget *mAdministratorRoomsWidget = nullptr;
+    AdministratorRoomsWidget *const mAdministratorRoomsWidget;
+    AdministratorCustomUserStatusWidget *const mAdministratorCustomUserStatusWidget;
 };
 
 #endif // ADMINISTRATORWIDGET_H

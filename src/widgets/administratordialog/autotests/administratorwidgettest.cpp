@@ -20,9 +20,12 @@
 
 #include "administratorwidgettest.h"
 #include "administratordialog/administratorwidget.h"
+#include "administratordialog/administratorcustomuserstatuswidget.h"
+#include "administratordialog/administratorroomswidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
 QTEST_MAIN(AdministratorWidgetTest)
 AdministratorWidgetTest::AdministratorWidgetTest(QObject *parent)
     : QObject(parent)
@@ -39,4 +42,10 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     QTabWidget *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);
+
+    AdministratorRoomsWidget *mAdministratorRoomsWidget = w.findChild<AdministratorRoomsWidget *>(QStringLiteral("mAdministratorRoomsWidget"));
+    QVERIFY(mAdministratorRoomsWidget);
+
+    AdministratorCustomUserStatusWidget *mAdministratorCustomUserStatusWidget = w.findChild<AdministratorCustomUserStatusWidget *>(QStringLiteral("mAdministratorCustomUserStatusWidget"));
+    QVERIFY(mAdministratorCustomUserStatusWidget);
 }

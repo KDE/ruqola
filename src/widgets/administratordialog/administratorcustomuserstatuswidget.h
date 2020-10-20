@@ -23,12 +23,15 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QTreeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorCustomUserStatusWidget(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusWidget();
+private:
+    QTreeWidget *const mCustomUserStatusTreeWidget;
 };
 
 #endif // ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H
