@@ -230,6 +230,10 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.translateMessage")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.create")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.delete")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.update")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-sounds.list")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::FindOrCreateInvite), QUrl(QStringLiteral("http://www.kde.org/api/v1/findOrCreateInvite")));

@@ -18,26 +18,32 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "administratorcustomuserstatuswidgettest.h"
-#include "administratordialog/administratorcustomuserstatuswidget.h"
-#include <QTest>
-#include <QTreeWidget>
-#include <QVBoxLayout>
-QTEST_MAIN(AdministratorCustomUserStatusWidgetTest)
+#ifndef CUSTOMUSERSTATUSDELETEJOB_H
+#define CUSTOMUSERSTATUSDELETEJOB_H
 
-AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest(QObject *parent)
-    : QObject(parent)
+#include "restapiabstractjob.h"
+#include "librestapi_private_export.h"
+namespace RocketChatRestApi {
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CustomUserStatusDeleteJob : public RestApiAbstractJob
 {
+    Q_OBJECT
+public:
+    explicit CustomUserStatusDeleteJob(QObject *parent = nullptr);
+    ~CustomUserStatusDeleteJob() override;
 
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+    Q_REQUIRED_RESULT QJsonDocument json() const;
+
+Q_SIGNALS:
+    void userStatusDeletedDone();
+
+private:
+    Q_DISABLE_COPY(CustomUserStatusDeleteJob)
+    void slotUserStatusDelete();
+};
 }
-
-void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
-{
-    AdministratorCustomUserStatusWidget w;
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins());
-
-    QTreeWidget *mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
-    QVERIFY(mCustomUserStatusTreeWidget);
-}
+#endif

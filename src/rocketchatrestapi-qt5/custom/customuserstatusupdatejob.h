@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2019-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,21 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMUSERSTATUSJOBTEST_H
-#define CUSTOMUSERSTATUSJOBTEST_H
+#ifndef CUSTOMUSERSTATUSUPDATEJOB_H
+#define CUSTOMUSERSTATUSUPDATEJOB_H
 
-#include <QObject>
-
-class CustomUserStatusJobTest : public QObject
+#include "restapiabstractjob.h"
+#include "librestapi_private_export.h"
+namespace RocketChatRestApi {
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CustomUserStatusUpdateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit CustomUserStatusJobTest(QObject *parent = nullptr);
-    ~CustomUserStatusJobTest() override = default;
+    explicit CustomUserStatusUpdateJob(QObject *parent = nullptr);
+    ~CustomUserStatusUpdateJob() override;
 
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+    Q_REQUIRED_RESULT QJsonDocument json() const;
+Q_SIGNALS:
+    void customUserUpdateDone();
+
+private:
+    Q_DISABLE_COPY(CustomUserStatusUpdateJob)
+    void slotCustomUserUpdate();
 };
-
-#endif // CUSTOMUSERSTATUSJOBTEST_H
+}
+#endif // CustomUserStatusUpdateJob_H

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2019-2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,26 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "administratorcustomuserstatuswidgettest.h"
-#include "administratordialog/administratorcustomuserstatuswidget.h"
-#include <QTest>
-#include <QTreeWidget>
-#include <QVBoxLayout>
-QTEST_MAIN(AdministratorCustomUserStatusWidgetTest)
+#ifndef CUSTOMUSERSTATUSLISTJOBTEST_H
+#define CUSTOMUSERSTATUSLISTJOBTEST_H
 
-AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest(QObject *parent)
-    : QObject(parent)
+#include <QObject>
+
+class CustomUserStatusListJobTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit CustomUserStatusListJobTest(QObject *parent = nullptr);
+    ~CustomUserStatusListJobTest() override = default;
 
-}
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+};
 
-void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
-{
-    AdministratorCustomUserStatusWidget w;
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins());
-
-    QTreeWidget *mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
-    QVERIFY(mCustomUserStatusTreeWidget);
-}
+#endif // CUSTOMUSERSTATUSLISTJOBTEST_H

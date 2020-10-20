@@ -222,6 +222,9 @@ enum class RestApiUrlType {
 
     //Since 2.4
     CustomUserStatusList,
+    CustomUserStatusCreate,
+    CustomUserStatusDelete,
+    CustomUserStatusUpdate,
     CustomSoundsList,
 
     //Invite since 2.5 ?

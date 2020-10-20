@@ -147,7 +147,7 @@
 #include "autotranslate/translatesavesettingsjob.h"
 
 #include "custom/customsoundsjob.h"
-#include "custom/customuserstatusjob.h"
+#include "custom/customuserstatuslistjob.h"
 
 #include "invite/findorcreateinvitejob.h"
 
@@ -1751,9 +1751,9 @@ void RestApiRequest::usersPresence()
 
 void RestApiRequest::customUserStatus()
 {
-    auto *job = new CustomUserStatusJob(this);
+    auto *job = new CustomUserStatusListJob(this);
     initializeRestApiJob(job);
-    connect(job, &CustomUserStatusJob::customUserStatusDone, this, &RestApiRequest::customUserStatusDone);
+    connect(job, &CustomUserStatusListJob::customUserStatusDone, this, &RestApiRequest::customUserStatusDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJob";
     }

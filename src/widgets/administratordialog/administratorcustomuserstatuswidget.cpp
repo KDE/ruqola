@@ -22,6 +22,7 @@
 
 #include <QHBoxLayout>
 #include <QTreeWidget>
+#include <KLocalizedString>
 
 AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget *parent)
     : QWidget(parent)
@@ -33,6 +34,8 @@ AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget
 
     mCustomUserStatusTreeWidget->setObjectName(QStringLiteral("mCustomUserStatusTreeWidget"));
     mainLayout->addWidget(mCustomUserStatusTreeWidget);
+    mCustomUserStatusTreeWidget->setColumnCount(2);
+    mCustomUserStatusTreeWidget->setHeaderLabels({i18n("Name"), i18n("Presence")});
 }
 
 AdministratorCustomUserStatusWidget::~AdministratorCustomUserStatusWidget()

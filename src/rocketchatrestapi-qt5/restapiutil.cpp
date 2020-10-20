@@ -392,9 +392,16 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 
     case RestApiUtil::RestApiUrlType::CustomUserStatusList:
         return QStringLiteral("custom-user-status.list");
+    case RestApiUtil::RestApiUrlType::CustomUserStatusCreate:
+        return QStringLiteral("custom-user-status.create");
+    case RestApiUtil::RestApiUrlType::CustomUserStatusDelete:
+        return QStringLiteral("custom-user-status.delete");
+    case RestApiUtil::RestApiUrlType::CustomUserStatusUpdate:
+        return QStringLiteral("custom-user-status.update");
+
+
     case RestApiUtil::RestApiUrlType::CustomSoundsList:
         return QStringLiteral("custom-sounds.list");
-
     case RestApiUtil::RestApiUrlType::FindOrCreateInvite:
         return QStringLiteral("findOrCreateInvite");
     case RestApiUtil::RestApiUrlType::ListInvites:

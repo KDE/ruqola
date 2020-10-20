@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "customuserstatusjobtest.h"
-#include "custom/customuserstatusjob.h"
+#include "customuserstatuslistjobtest.h"
+#include "custom/customuserstatuslistjob.h"
 #include <QTest>
 #include <restapimethod.h>
-QTEST_GUILESS_MAIN(CustomUserStatusJobTest)
+QTEST_GUILESS_MAIN(CustomUserStatusListJobTest)
 using namespace RocketChatRestApi;
-CustomUserStatusJobTest::CustomUserStatusJobTest(QObject *parent)
+CustomUserStatusListJobTest::CustomUserStatusListJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void CustomUserStatusJobTest::shouldHaveDefaultValue()
+void CustomUserStatusListJobTest::shouldHaveDefaultValue()
 {
-    CustomUserStatusJob job;
+    CustomUserStatusListJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
@@ -42,9 +42,9 @@ void CustomUserStatusJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void CustomUserStatusJobTest::shouldGenerateRequest()
+void CustomUserStatusListJobTest::shouldGenerateRequest()
 {
-    CustomUserStatusJob job;
+    CustomUserStatusListJob job;
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);

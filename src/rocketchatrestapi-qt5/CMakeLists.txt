@@ -155,7 +155,11 @@ set (RocketChatRestApiQt_SRCS
     autotranslate/translatemessagejob.cpp
     autotranslate/translatesavesettingsjob.cpp
 
-    custom/customuserstatusjob.cpp
+    custom/customuserstatuslistjob.cpp
+    custom/customuserstatuscreatejob.cpp
+    custom/customuserstatusdeletejob.cpp
+    custom/customuserstatusupdatejob.cpp
+
     custom/customsoundsjob.cpp
 
     invite/findorcreateinvitejob.cpp

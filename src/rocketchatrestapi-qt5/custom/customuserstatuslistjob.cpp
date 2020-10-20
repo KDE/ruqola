@@ -18,37 +18,37 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "customuserstatusjob.h"
+#include "customuserstatuslistjob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-CustomUserStatusJob::CustomUserStatusJob(QObject *parent)
+CustomUserStatusListJob::CustomUserStatusListJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-CustomUserStatusJob::~CustomUserStatusJob()
+CustomUserStatusListJob::~CustomUserStatusListJob()
 {
 }
 
-bool CustomUserStatusJob::start()
+bool CustomUserStatusListJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJobList job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
     addStartRestApiInfo(QByteArrayLiteral("CustomUserStatusJob: Ask custom user status info"));
-    connect(reply, &QNetworkReply::finished, this, &CustomUserStatusJob::slotCustomUserStatusDone);
+    connect(reply, &QNetworkReply::finished, this, &CustomUserStatusListJob::slotCustomUserStatusDone);
 
     return true;
 }
 
-void CustomUserStatusJob::slotCustomUserStatusDone()
+void CustomUserStatusListJob::slotCustomUserStatusDone()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -67,12 +67,12 @@ void CustomUserStatusJob::slotCustomUserStatusDone()
     deleteLater();
 }
 
-bool CustomUserStatusJob::requireHttpAuthentication() const
+bool CustomUserStatusListJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-QNetworkRequest CustomUserStatusJob::request() const
+QNetworkRequest CustomUserStatusListJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList);
     QNetworkRequest req(url);
