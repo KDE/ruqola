@@ -19,9 +19,13 @@
 */
 
 #include "customuserstatustreewidget.h"
+#include "administratorcustomuserstatuscreatedialog.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QMenu>
+#include <QPointer>
 
 
 CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
@@ -44,17 +48,28 @@ CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
 
 void CustomUserStatusTreeWidget::addClicked()
 {
-
+    QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
+    if (dlg->exec()) {
+        //Ruqola::self()->rocketChatAccount()->createCustomUserStatus();
+    }
+    delete dlg;
 }
 
 void CustomUserStatusTreeWidget::editClicked()
 {
+    QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
+    //TODO setCustomStatus..
+    if (dlg->exec()) {
+        //Ruqola::self()->rocketChatAccount()->updateCustomUserStatus();
+    }
+    delete dlg;
 
 }
 
 void CustomUserStatusTreeWidget::removeClicked()
 {
-
+    //TODO remove ?
+    //Ruqola::self()->rocketChatAccount()->deleteCustomUserStatus();
 }
 
 void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)

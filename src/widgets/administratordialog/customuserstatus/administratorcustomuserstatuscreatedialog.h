@@ -37,6 +37,7 @@ private:
     void readConfig();
     void writeConfig();
     AdministratorCustomUserStatusCreateWidget *const mCreateWidget;
+    QPushButton *mOkButton = nullptr;
 };
 
 #endif // ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H

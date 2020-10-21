@@ -26,6 +26,7 @@
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QPushButton>
 namespace {
 static const char myConfigGroupName[] = "AdministratorCustomUserStatusCreateDialog";
 }
@@ -45,6 +46,9 @@ AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDi
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomUserStatusCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomUserStatusCreateDialog::accept);
+    mOkButton = button->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
+    connect(mCreateWidget, &AdministratorCustomUserStatusCreateWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
     readConfig();
 }
 

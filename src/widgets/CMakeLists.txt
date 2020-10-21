@@ -239,6 +239,7 @@ target_link_libraries(libruqolawidgets
     KF5::SonnetUi
     KF5::TextWidgets
     KF5::NotifyConfig
+    KF5::ItemViews
     librocketchatrestapi-qt5
     libruqolacore
     ${ruqola_userfeedback_LIB}

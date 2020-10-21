@@ -148,6 +148,7 @@
 
 #include "custom/customsoundsjob.h"
 #include "custom/customuserstatuslistjob.h"
+#include "custom/customuserstatusdeletejob.h"
 
 #include "invite/findorcreateinvitejob.h"
 
@@ -1924,5 +1925,38 @@ void RestApiRequest::setUserPreferences(const RocketChatRestApi::UsersSetPrefere
     connect(job, &UsersSetPreferencesJob::usersSetPreferencesDone, this, &RestApiRequest::usersSetPreferencesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersSetPreferencesJob";
+    }
+}
+
+void RestApiRequest::createCustomUserStatus(const CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo)
+{
+    auto *job = new CustomUserStatusCreateJob(this);
+    job->setStatusCreateInfo(statusCreateInfo);
+    initializeRestApiJob(job);
+    connect(job, &CustomUserStatusCreateJob::createUserStatusDone, this, &RestApiRequest::createUserStatusDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusCreateJob";
+    }
+}
+
+void RestApiRequest::deleteCustomUserStatus(const QString &customUserStatusId)
+{
+    auto *job = new CustomUserStatusDeleteJob(this);
+    job->setCustomUserStatusId(customUserStatusId);
+    initializeRestApiJob(job);
+    connect(job, &CustomUserStatusDeleteJob::userStatusDeletedDone, this, &RestApiRequest::userStatusDeletedDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusDeleteJob";
+    }
+}
+
+void RestApiRequest::updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo)
+{
+    auto *job = new CustomUserStatusUpdateJob(this);
+    job->setStatusUpdateInfo(statusUpdateInfo);
+    initializeRestApiJob(job);
+    connect(job, &CustomUserStatusUpdateJob::customUserUpdateDone, this, &RestApiRequest::customUserUpdateDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusUpdateJob";
     }
 }

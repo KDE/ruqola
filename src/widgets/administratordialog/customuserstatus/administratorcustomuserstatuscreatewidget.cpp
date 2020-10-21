@@ -38,10 +38,17 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
 
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
+    connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomUserStatusCreateWidget::slotCheckValues);
+    connect(mStatusCombobox, &StatusCombobox::activated, this, &AdministratorCustomUserStatusCreateWidget::slotCheckValues);
 }
 
 AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget()
 {
+}
+
+void AdministratorCustomUserStatusCreateWidget::slotCheckValues()
+{
+    Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && (mStatusCombobox->status() != User::PresenceStatus::Unknown));
 }
 
 AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUserStatusCreateWidget::userStatusInfo() const

@@ -44,7 +44,12 @@ public:
 
     Q_REQUIRED_RESULT UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
+
+Q_SIGNALS:
+    void updateOkButton(bool state);
+
 private:
+    void slotCheckValues();
     QLineEdit *const mName;
     StatusCombobox *const mStatusCombobox;
 };

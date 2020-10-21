@@ -20,6 +20,7 @@
 
 #include "administratorcustomuserstatuswidgettest.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
+#include <KTreeWidgetSearchLineWidget>
 #include <QTest>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -39,4 +40,7 @@ void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
 
     QTreeWidget *mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
     QVERIFY(mCustomUserStatusTreeWidget);
+
+    KTreeWidgetSearchLineWidget *mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
 }

@@ -2286,11 +2286,26 @@ void RocketChatAccount::createDirectMessages(const QStringList &usernames)
 void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
 {
     mCustomUserStatuses.parseCustomUserStatuses(customList);
-    qDebug() << "customList  " << mCustomUserStatuses;
+    //qDebug() << "customList  " << mCustomUserStatuses;
     //TODO update combobox
 }
 
 CustomUserStatuses RocketChatAccount::customUserStatuses() const
 {
     return mCustomUserStatuses;
+}
+
+void RocketChatAccount::removeCustomUserStatus(const QString &customUserStatusId)
+{
+    restApi()->deleteCustomUserStatus(customUserStatusId);
+}
+
+void RocketChatAccount::updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo)
+{
+    restApi()->updateCustomUserStatus(statusUpdateInfo);
+}
+
+void RocketChatAccount::createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo)
+{
+    restApi()->createCustomUserStatus(statusCreateInfo);
 }

@@ -24,6 +24,8 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "custom/customuserstatusupdatejob.h"
+#include "custom/customuserstatuscreatejob.h"
 #include "users/setavatarjob.h"
 #include "users/userbasejob.h"
 #include "users/userssetpreferencesjob.h"
@@ -202,6 +204,9 @@ public:
     void getChannelsCounter(const QString &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     void removeOtherTokens();
+    void createCustomUserStatus(const CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
+    void deleteCustomUserStatus(const QString &customUserStatusId);
+    void updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
@@ -282,6 +287,9 @@ Q_SIGNALS:
     void markAsReadDone(const QString &roomId);
     void usersSetPreferencesDone();
     void removeOtherTokensDone();
+    void createUserStatusDone();
+    void userStatusDeletedDone();
+    void customUserUpdateDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

@@ -21,17 +21,23 @@
 #include "administratorcustomuserstatuswidget.h"
 #include "customuserstatustreewidget.h"
 
+
 #include <QHBoxLayout>
 #include <QTreeWidget>
 #include <KLocalizedString>
+#include <KTreeWidgetSearchLineWidget>
 
 AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget *parent)
     : QWidget(parent)
     , mCustomUserStatusTreeWidget(new CustomUserStatusTreeWidget(this))
+    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomUserStatusTreeWidget))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mainLayout->addWidget(mSearchLineWidget);
 
     mCustomUserStatusTreeWidget->setObjectName(QStringLiteral("mCustomUserStatusTreeWidget"));
     mainLayout->addWidget(mCustomUserStatusTreeWidget);

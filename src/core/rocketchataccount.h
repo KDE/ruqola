@@ -42,6 +42,8 @@
 #include "ruqolaserverconfig.h"
 #include "ownuser.h"
 #include "customuserstatuses.h"
+#include "custom/customuserstatusupdatejob.h"
+#include "custom/customuserstatuscreatejob.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -450,6 +452,9 @@ public:
     void updateCustomUserStatus(const QJsonArray &replyArray);
     Q_REQUIRED_RESULT CustomUserStatuses customUserStatuses() const;
 
+    void removeCustomUserStatus(const QString &customUserStatusId);
+    void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
+    void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

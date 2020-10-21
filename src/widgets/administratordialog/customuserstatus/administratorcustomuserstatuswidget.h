@@ -24,6 +24,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class CustomUserStatusTreeWidget;
+class KTreeWidgetSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,7 @@ public:
     ~AdministratorCustomUserStatusWidget();
 private:
     CustomUserStatusTreeWidget *const mCustomUserStatusTreeWidget;
+    KTreeWidgetSearchLineWidget *const mSearchLineWidget;
 };
 
 #endif // ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H
