@@ -20,6 +20,7 @@
 
 
 #include "administratorcustomuserstatuscreatedialog.h"
+#include "administratorcustomuserstatuscreatewidget.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -31,14 +32,14 @@ static const char myConfigGroupName[] = "AdministratorCustomUserStatusCreateDial
 }
 AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateWidget(new AdministratorCustomUserStatusCreateWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create New User Status"));
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-//    mAddUsersInRoomWidget = new AddUsersInRoomWidget(this);
-//    mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
-//    mainLayout->addWidget(mAddUsersInRoomWidget);
+    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mainLayout->addWidget(mCreateWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));

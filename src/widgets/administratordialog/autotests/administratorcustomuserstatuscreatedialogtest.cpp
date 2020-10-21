@@ -21,17 +21,30 @@
 
 #include "administratorcustomuserstatuscreatedialogtest.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.h"
+#include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
 #include <QTest>
+#include <QStandardPaths>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
+
 QTEST_MAIN(AdministratorCustomUserStatusCreateDialogTest)
 
 AdministratorCustomUserStatusCreateDialogTest::AdministratorCustomUserStatusCreateDialogTest(QObject *parent)
     : QObject(parent)
 {
-
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AdministratorCustomUserStatusCreateDialogTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusCreateDialog w;
-    //TODO
+    QVERIFY(!w.windowTitle().isEmpty());
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto *mCreateWidget = w.findChild<AdministratorCustomUserStatusCreateWidget *>(QStringLiteral("mCreateWidget"));
+    QVERIFY(mCreateWidget);
+
+    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(buttonBox);
 }

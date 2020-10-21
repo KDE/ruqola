@@ -191,6 +191,7 @@ set(Ruqola_administrator_SRCS
     administratordialog/administratorroomsselectroomtypewidget.cpp
     administratordialog/customuserstatus/administratorcustomuserstatuswidget.cpp
     administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp
+    administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets

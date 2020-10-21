@@ -18,24 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
-#define ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
-
-#include <QDialog>
-
-#include "libruqolawidgets_private_export.h"
-class AdministratorCustomUserStatusCreateWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateDialog : public QDialog
+#include "administratorcustomuserstatuscreatewidgettest.h"
+#include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
+#include <QTest>
+QTEST_MAIN(AdministratorCustomUserStatusCreateWidgetTest)
+AdministratorCustomUserStatusCreateWidgetTest::AdministratorCustomUserStatusCreateWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit AdministratorCustomUserStatusCreateDialog(QWidget *parent = nullptr);
-    ~AdministratorCustomUserStatusCreateDialog();
 
-private:
-    void readConfig();
-    void writeConfig();
-    AdministratorCustomUserStatusCreateWidget *const mCreateWidget;
-};
+}
 
-#endif // ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
+void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
+{
+    AdministratorCustomUserStatusCreateWidget w;
+    //TODO
+}
