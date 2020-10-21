@@ -30,8 +30,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateWidget : 
 {
     Q_OBJECT
 public:
+    struct UserStatusInfo {
+        QString name;
+        QString statusType;
+    };
+
     explicit AdministratorCustomUserStatusCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusCreateWidget();
+
+    Q_REQUIRED_RESULT UserStatusInfo userStatusInfo() const;
 private:
     QLineEdit *const mName;
     StatusCombobox *const mStatusCombobox;

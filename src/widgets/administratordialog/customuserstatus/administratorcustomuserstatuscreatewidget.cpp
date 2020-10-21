@@ -43,3 +43,11 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
 AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget()
 {
 }
+
+AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUserStatusCreateWidget::userStatusInfo() const
+{
+    AdministratorCustomUserStatusCreateWidget::UserStatusInfo info;
+    info.name = mName->text();
+    //TODO info.statusType = mStatusCombobox->
+    return info;
+}
