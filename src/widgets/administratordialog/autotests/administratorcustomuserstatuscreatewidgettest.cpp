@@ -20,6 +20,9 @@
 
 #include "administratorcustomuserstatuscreatewidgettest.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
+#include "misc/statuscombobox.h"
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AdministratorCustomUserStatusCreateWidgetTest)
 AdministratorCustomUserStatusCreateWidgetTest::AdministratorCustomUserStatusCreateWidgetTest(QObject *parent)
@@ -30,5 +33,15 @@ AdministratorCustomUserStatusCreateWidgetTest::AdministratorCustomUserStatusCrea
 void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusCreateWidget w;
-    //TODO
+
+    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins());
+
+    QLineEdit *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    QVERIFY(mName);
+    QVERIFY(mName->text().isEmpty());
+
+    StatusCombobox *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
+    QVERIFY(mStatusCombobox);
 }
