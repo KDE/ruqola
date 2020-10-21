@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "administratorcustomuserstatuswidget.h"
+#include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratorroomswidget.h"
 #include "administratorwidget.h"
 #include <KLocalizedString>

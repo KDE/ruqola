@@ -19,7 +19,7 @@
 */
 
 #include "administratorcustomuserstatuswidgettest.h"
-#include "administratordialog/administratorcustomuserstatuswidget.h"
+#include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include <QTest>
 #include <QTreeWidget>
 #include <QVBoxLayout>

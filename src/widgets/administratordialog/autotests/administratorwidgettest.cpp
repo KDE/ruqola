@@ -20,7 +20,7 @@
 
 #include "administratorwidgettest.h"
 #include "administratordialog/administratorwidget.h"
-#include "administratordialog/administratorcustomuserstatuswidget.h"
+#include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/administratorroomswidget.h"
 #include <QTabWidget>
 #include <QTest>
