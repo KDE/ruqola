@@ -35,6 +35,6 @@ void CustomUserStatusTest::shouldHaveDefaultValues()
 
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.identifier().isEmpty());
-    QVERIFY(w.statusType().isEmpty());
+    QCOMPARE(w.statusType(), User::PresenceStatus::Unknown);
     QCOMPARE(w.updatedAt(), -1);
 }

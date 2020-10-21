@@ -19,7 +19,7 @@
 */
 
 #include "administratorcustomuserstatuscreatedialog.h"
-#include "administratorcustomuserstatuscreatewidget.h"
+
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -66,4 +66,15 @@ void AdministratorCustomUserStatusCreateDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
+}
+
+AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUserStatusCreateDialog::userStatusInfo() const
+{
+    return mCreateWidget->userStatusInfo();
+}
+
+void AdministratorCustomUserStatusCreateDialog::setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info)
+{
+    mCreateWidget->setUserStatusInfo(info);
+    setWindowTitle(i18nc("@title:window", "Edit User Status"));
 }

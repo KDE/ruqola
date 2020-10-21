@@ -48,6 +48,13 @@ AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUse
 {
     AdministratorCustomUserStatusCreateWidget::UserStatusInfo info;
     info.name = mName->text();
-    //TODO info.statusType = mStatusCombobox->
+    info.statusType = mStatusCombobox->status();
     return info;
 }
+
+void AdministratorCustomUserStatusCreateWidget::setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info)
+{
+    mName->setText(info.name);
+    mStatusCombobox->setStatus(info.statusType);
+}
+

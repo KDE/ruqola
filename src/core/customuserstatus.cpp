@@ -32,14 +32,14 @@ CustomUserStatus::~CustomUserStatus()
 
 bool CustomUserStatus::isValid() const
 {
-    return !mIdentifier.isEmpty() && !mStatusType.isEmpty();
+    return !mIdentifier.isEmpty() && (mStatusType != User::PresenceStatus::Unknown);
 }
 
 void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi)
 {
     mIdentifier = customStatusObj[QLatin1String("_id")].toString();
     mName = customStatusObj[QLatin1String("name")].toString();
-    mStatusType = customStatusObj[QLatin1String("statusType")].toString();
+    mStatusType = Utils::presenceStatusFromString(customStatusObj[QLatin1String("statusType")].toString());
     if (customStatusObj.contains(QLatin1String("_updatedAt"))) {
         if (useRestApi) {
             mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
@@ -79,12 +79,12 @@ void CustomUserStatus::setIdentifier(const QString &identifier)
     mIdentifier = identifier;
 }
 
-QString CustomUserStatus::statusType() const
+User::PresenceStatus CustomUserStatus::statusType() const
 {
     return mStatusType;
 }
 
-void CustomUserStatus::setStatusType(const QString &statusType)
+void CustomUserStatus::setStatusType(User::PresenceStatus statusType)
 {
     mStatusType = statusType;
 }

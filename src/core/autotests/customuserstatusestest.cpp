@@ -22,6 +22,7 @@
 #include "customuserstatuses.h"
 #include "customuserstatus.h"
 #include "ruqola_autotest_helper.h"
+#include "utils.h"
 #include <QJsonDocument>
 
 #include <QTest>
@@ -54,7 +55,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
             f.setName(QStringLiteral("CM"));
-            f.setStatusType(QStringLiteral("busy"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
             result << f;
         }
@@ -62,7 +63,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             result << f;
         }
@@ -102,7 +103,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
             f.setName(QStringLiteral("CM"));
-            f.setStatusType(QStringLiteral("busy"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
             result << f;
         }
@@ -110,7 +111,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             result << f;
         }
@@ -120,7 +121,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
             f.setName(QStringLiteral("CMs"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1603106197911);
             updating << f;
         }
@@ -128,7 +129,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             updating << f;
         }
@@ -145,7 +146,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
             f.setName(QStringLiteral("CM"));
-            f.setStatusType(QStringLiteral("busy"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
             result << f;
         }
@@ -153,7 +154,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             result << f;
         }
@@ -163,7 +164,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
             f.setName(QStringLiteral("CM"));
-            f.setStatusType(QStringLiteral("busy"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
             adding << f;
         }
@@ -171,7 +172,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             adding << f;
         }
@@ -179,7 +180,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("ycbgxsKtP7sv8HNiS"));
             f.setName(QStringLiteral("bla"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1603108134976);
             adding << f;
         }
@@ -235,7 +236,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
             f.setName(QStringLiteral("CM"));
-            f.setStatusType(QStringLiteral("busy"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("busy")));
             f.setUpdatedAt(1603106197911);
             result << f;
         }
@@ -243,7 +244,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             result << f;
         }
@@ -253,7 +254,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
             f.setName(QStringLiteral("Vacation"));
-            f.setStatusType(QStringLiteral("away"));
+            f.setStatusType(Utils::presenceStatusFromString(QStringLiteral("away")));
             f.setUpdatedAt(1588199612532);
             updating << f;
         }

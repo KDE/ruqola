@@ -46,4 +46,6 @@ void AdministratorCustomUserStatusCreateDialogTest::shouldHaveDefaultValues()
 
     auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
+
+    QVERIFY(!w.userStatusInfo().isValid());
 }

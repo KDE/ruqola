@@ -17,26 +17,18 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#include "customuserstatustreewidgettest.h"
+#include "administratordialog/customuserstatus/customuserstatustreewidget.h"
+#include <QTest>
+QTEST_MAIN(CustomUserStatusTreeWidgetTest)
 
-#ifndef ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
-#define ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
-
-#include <QDialog>
-#include "administratorcustomuserstatuscreatewidget.h"
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateDialog : public QDialog
+CustomUserStatusTreeWidgetTest::CustomUserStatusTreeWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit AdministratorCustomUserStatusCreateDialog(QWidget *parent = nullptr);
-    ~AdministratorCustomUserStatusCreateDialog();
 
-    Q_REQUIRED_RESULT AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusInfo() const;
-    void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
-private:
-    void readConfig();
-    void writeConfig();
-    AdministratorCustomUserStatusCreateWidget *const mCreateWidget;
-};
+}
 
-#endif // ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
+void CustomUserStatusTreeWidgetTest::shouldHaveDefaultValues()
+{
+    CustomUserStatusTreeWidget w;
+}

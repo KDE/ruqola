@@ -44,4 +44,5 @@ void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
 
     StatusCombobox *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
     QVERIFY(mStatusCombobox);
+    QVERIFY(!w.userStatusInfo().isValid());
 }

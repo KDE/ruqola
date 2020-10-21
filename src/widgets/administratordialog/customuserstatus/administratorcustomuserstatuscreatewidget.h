@@ -22,6 +22,7 @@
 #define ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H
 
 #include <QWidget>
+#include "user.h"
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
@@ -32,13 +33,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateWidget : 
 public:
     struct UserStatusInfo {
         QString name;
-        QString statusType;
+        User::PresenceStatus statusType;
+        Q_REQUIRED_RESULT bool isValid() const {
+            return !name.isEmpty() && statusType != User::PresenceStatus::Unknown;
+        }
     };
 
     explicit AdministratorCustomUserStatusCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusCreateWidget();
 
     Q_REQUIRED_RESULT UserStatusInfo userStatusInfo() const;
+    void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
 private:
     QLineEdit *const mName;
     StatusCombobox *const mStatusCombobox;

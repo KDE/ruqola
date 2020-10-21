@@ -24,7 +24,7 @@
 #include <QDebug>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
-
+#include "user.h"
 class LIBRUQOLACORE_TESTS_EXPORT CustomUserStatus
 {
 public:
@@ -42,8 +42,8 @@ public:
     Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);
 
-    Q_REQUIRED_RESULT QString statusType() const;
-    void setStatusType(const QString &statusType);
+    Q_REQUIRED_RESULT User::PresenceStatus statusType() const;
+    void setStatusType(User::PresenceStatus statusType);
 
     void parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi = true);
 
@@ -51,8 +51,8 @@ public:
 private:
     QString mIdentifier;
     QString mName;
-    QString mStatusType;
     qint64 mUpdatedAt = -1;
+    User::PresenceStatus mStatusType = User::PresenceStatus::Unknown;
 };
 Q_DECLARE_METATYPE(CustomUserStatus)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_MOVABLE_TYPE);
