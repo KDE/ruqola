@@ -19,13 +19,18 @@
 */
 
 #include "administratorcustomuserstatuscreatewidget.h"
+#include "misc/statuscombobox.h"
 #include <KLocalizedString>
+#include <QLineEdit>
 #include <QVBoxLayout>
 
 AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWidget(QWidget *parent)
     : QWidget(parent)
+    , mName(new QLineEdit(this))
+    , mStatusCombobox(new StatusCombobox(false, this))
 {
-
+    mName->setObjectName(QStringLiteral("mName"));
+    mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
 }
 
 AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget()

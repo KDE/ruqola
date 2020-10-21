@@ -20,7 +20,7 @@
 
 #include "modifystatuswidgettest.h"
 #include "dialogs/modifystatuswidget.h"
-#include "channellist/statuscombobox.h"
+#include "misc/statuscombobox.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>

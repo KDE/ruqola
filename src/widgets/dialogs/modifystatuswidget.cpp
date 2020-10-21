@@ -19,7 +19,7 @@
 */
 
 #include "modifystatuswidget.h"
-#include "channellist/statuscombobox.h"
+#include "misc/statuscombobox.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <QFormLayout>

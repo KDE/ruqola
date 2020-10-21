@@ -25,12 +25,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
+class StatusCombobox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorCustomUserStatusCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusCreateWidget();
+private:
+    QLineEdit *const mName;
+    StatusCombobox *const mStatusCombobox;
 };
 
 #endif // ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H

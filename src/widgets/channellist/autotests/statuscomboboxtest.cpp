@@ -19,7 +19,7 @@
 */
 
 #include "statuscomboboxtest.h"
-#include "channellist/statuscombobox.h"
+#include "misc/statuscombobox.h"
 #include <QTest>
 QTEST_MAIN(StatusComboboxTest)
 StatusComboboxTest::StatusComboboxTest(QObject *parent)

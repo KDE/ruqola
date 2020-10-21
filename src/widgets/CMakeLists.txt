@@ -106,7 +106,6 @@ ki18n_wrap_ui(Ruqola_configure_SRCS
 
 set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
-    channellist/statuscombobox.cpp
     channellist/channellistview.cpp
     channellist/channellistdelegate.cpp
     )
@@ -155,6 +154,7 @@ set(Ruqola_misc_widget_SRCS
     misc/passwordlineeditwidget.cpp
     misc/passwordconfirmwidget.cpp
     misc/twoauthenticationpasswordwidget.cpp
+    misc/statuscombobox.cpp
     )
 
 set(Ruqola_common_SRCS

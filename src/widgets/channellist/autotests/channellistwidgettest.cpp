@@ -20,7 +20,7 @@
 
 #include "channellistwidgettest.h"
 #include "channellist/channellistwidget.h"
-#include "channellist/statuscombobox.h"
+#include "misc/statuscombobox.h"
 #include "channellist/channellistview.h"
 #include "model/roomfilterproxymodel.h"
 
