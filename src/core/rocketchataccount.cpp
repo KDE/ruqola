@@ -2289,3 +2289,8 @@ void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
     qDebug() << "customList  " << mCustomUserStatuses;
     //TODO update combobox
 }
+
+CustomUserStatuses RocketChatAccount::customUserStatuses() const
+{
+    return mCustomUserStatuses;
+}

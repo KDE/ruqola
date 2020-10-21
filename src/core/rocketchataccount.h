@@ -448,6 +448,8 @@ public:
     void deleteCustomUserStatus(const QJsonArray &replyArray);
 
     void updateCustomUserStatus(const QJsonArray &replyArray);
+    Q_REQUIRED_RESULT CustomUserStatuses customUserStatuses() const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
