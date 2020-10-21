@@ -19,14 +19,53 @@
 */
 
 #include "customuserstatustreewidget.h"
+#include <KLocalizedString>
+#include <QHeaderView>
+#include <QMenu>
+
 
 CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
 {
+    setColumnCount(2);
+    setHeaderLabels({i18n("Name"), i18n("Presence")});
+    setAlternatingRowColors(true);
+    header()->setSectionsMovable(false);
+    header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    setSelectionMode(SingleSelection);
+    connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
 
 }
 
 CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
 {
+
+}
+
+void CustomUserStatusTreeWidget::addClicked()
+{
+
+}
+
+void CustomUserStatusTreeWidget::editClicked()
+{
+
+}
+
+void CustomUserStatusTreeWidget::removeClicked()
+{
+
+}
+
+void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &CustomUserStatusTreeWidget::addClicked);
+    QTreeWidgetItem *item = itemAt(pos);
+    if (item) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &CustomUserStatusTreeWidget::editClicked);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
+    }
+    menu.exec(viewport()->mapToGlobal(pos));
 
 }

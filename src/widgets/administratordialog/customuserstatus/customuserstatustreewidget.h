@@ -31,6 +31,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CustomUserStatusTreeWidget : public QTreeWid
 public:
     explicit CustomUserStatusTreeWidget(QWidget *parent = nullptr);
     ~CustomUserStatusTreeWidget();
+
+private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void addClicked();
+    void editClicked();
+    void removeClicked();
 };
 
 #endif // CUSTOMUSERSTATUSTREEWIDGET_H
