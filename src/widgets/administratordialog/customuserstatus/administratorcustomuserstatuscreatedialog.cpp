@@ -21,13 +21,49 @@
 
 #include "administratorcustomuserstatuscreatedialog.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+#include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+namespace {
+static const char myConfigGroupName[] = "AdministratorCustomUserStatusCreateDialog";
+}
 AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Create New User Status"));
+    auto *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+//    mAddUsersInRoomWidget = new AddUsersInRoomWidget(this);
+//    mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
+//    mainLayout->addWidget(mAddUsersInRoomWidget);
+
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomUserStatusCreateDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomUserStatusCreateDialog::accept);
+    readConfig();
 }
 
 AdministratorCustomUserStatusCreateDialog::~AdministratorCustomUserStatusCreateDialog()
 {
+    writeConfig();
+}
 
+void AdministratorCustomUserStatusCreateDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void AdministratorCustomUserStatusCreateDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }
