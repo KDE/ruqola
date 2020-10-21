@@ -32,7 +32,8 @@ public:
         QString identifier;
         QString name;
         QString statusType;
-        Q_REQUIRED_RESULT bool isValid() const {
+        Q_REQUIRED_RESULT bool isValid() const
+        {
             return !name.isEmpty() && !statusType.isEmpty() && !identifier.isEmpty();
         }
     };

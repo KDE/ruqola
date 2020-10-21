@@ -35,5 +35,4 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
 
 AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget()
 {
-
 }

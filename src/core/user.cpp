@@ -72,10 +72,9 @@ bool User::operator ==(const User &other) const
            && (mUtcOffset == other.utcOffset())
            && (mStatusText == other.statusText())
            && (mRoles == other.roles())
-            && (mCreatedAt == other.createdAt())
-            && (mLastLogin == other.lastLogin());
+           && (mCreatedAt == other.createdAt())
+           && (mLastLogin == other.lastLogin());
 }
-
 
 bool User::operator !=(const User &other) const
 {

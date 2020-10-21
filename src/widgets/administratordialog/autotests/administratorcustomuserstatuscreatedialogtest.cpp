@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "administratorcustomuserstatuscreatedialogtest.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"

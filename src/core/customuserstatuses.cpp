@@ -25,7 +25,6 @@
 
 CustomUserStatuses::CustomUserStatuses()
 {
-
 }
 
 CustomUserStatuses::~CustomUserStatuses()
@@ -56,7 +55,6 @@ void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customSt
         }
     }
 }
-
 
 bool CustomUserStatuses::isEmpty() const
 {

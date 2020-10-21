@@ -24,12 +24,10 @@
 
 CustomUserStatus::CustomUserStatus()
 {
-
 }
 
 CustomUserStatus::~CustomUserStatus()
 {
-
 }
 
 bool CustomUserStatus::isValid() const

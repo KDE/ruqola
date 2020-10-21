@@ -31,7 +31,8 @@ public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT StatusCreateInfo {
         QString name;
         QString statusType;
-        Q_REQUIRED_RESULT bool isValid() const {
+        Q_REQUIRED_RESULT bool isValid() const
+        {
             return !name.isEmpty() && !statusType.isEmpty();
         }
     };

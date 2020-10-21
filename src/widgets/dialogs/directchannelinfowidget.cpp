@@ -168,9 +168,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     } else {
         hideWidget(mEmailsInfo);
     }
-
 }
-
 
 void DirectChannelInfoWidget::hideWidget(QLabel *label)
 {

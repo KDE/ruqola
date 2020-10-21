@@ -28,7 +28,6 @@ QTEST_MAIN(AdministratorCustomUserStatusWidgetTest)
 AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()

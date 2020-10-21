@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(CustomUserStatusTest)
 CustomUserStatusTest::CustomUserStatusTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CustomUserStatusTest::shouldHaveDefaultValues()

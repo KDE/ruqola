@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "customuserstatusestest.h"
 #include "customuserstatuses.h"
 #include "customuserstatus.h"
@@ -31,7 +30,6 @@ QTEST_GUILESS_MAIN(CustomUserStatusesTest)
 CustomUserStatusesTest::CustomUserStatusesTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CustomUserStatusesTest::shouldHaveDefaultValues()
@@ -135,7 +133,6 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             updating << f;
         }
 
-
         QTest::addRow("customuser2") << QStringLiteral("customuser2")
                                      << QStringLiteral("customuser2-updating")
                                      << result
@@ -187,11 +184,10 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             adding << f;
         }
         QTest::addRow("customuser2-adding") << QStringLiteral("customuser2")
-                                     << QStringLiteral("customuser2-adding")
-                                     << result
-                                     << adding;
+                                            << QStringLiteral("customuser2-adding")
+                                            << result
+                                            << adding;
     }
-
 }
 
 void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
@@ -225,7 +221,6 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     }
     QVERIFY(compareCustom);
 }
-
 
 void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
 {
@@ -267,7 +262,6 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
                                      << result
                                      << updating;
     }
-
 }
 
 void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
