@@ -70,7 +70,7 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QString smiley;
     smiley += QChar(0xD83D);
     smiley += QChar(0xDE42);
-    const auto smileyText = QStringLiteral("<font face=\"NotoColorEmoji\" size=\"20\" title=\":slight_smile:\">%1</font>").arg(smiley);
+    const auto smileyText = QStringLiteral("<span style=\"font: x-large NotoColorEmoji\" title=\":slight_smile:\">%1</span>").arg(smiley);
     QTest::newRow("ascii-smiley") << QStringLiteral(":)") << QStringLiteral("<div>%1</div>").arg(smileyText) << QStringLiteral("www.kde.org");
     QTest::newRow("multi-smiley") << QStringLiteral(":):slight_smile::):)") << QStringLiteral("<div>%1</div>").arg(smileyText.repeated(4)) << QStringLiteral("www.kde.org");
 

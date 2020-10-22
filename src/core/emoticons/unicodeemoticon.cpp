@@ -49,7 +49,7 @@ QString UnicodeEmoticon::unicodeDisplay() const
 {
     if (!mUnicode.isEmpty()) {
         if (mCachedHtml.isEmpty()) {
-            mCachedHtml = QStringLiteral("<font face=\"NotoColorEmoji\" size=\"20\" title=\"%2\">%1</font>").arg(mUnicode, mIdentifier);
+            mCachedHtml = QStringLiteral("<span style=\"font: x-large NotoColorEmoji\" title=\"%2\">%1</span>").arg(mUnicode, mIdentifier);
         }
     }
     return mCachedHtml;
