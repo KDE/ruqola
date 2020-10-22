@@ -139,15 +139,16 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                 //previousStatusType
                 //previousName
                 //=> update otherwise add
-                if (customStatusObj.contains(QLatin1String("previousName"))) { //Update
-                    const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
-                    for (CustomUserStatus &status : mCustomUserses) {
-                        if (status.identifier() == identifier) {
-                            status.parseCustomStatus(customStatusObj);
-                            break;
-                        }
+                bool found = false;
+                const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
+                for (CustomUserStatus &status : mCustomUserses) {
+                    if (status.identifier() == identifier) {
+                        status.parseCustomStatus(customStatusObj);
+                        found = true;
+                        break;
                     }
-                } else {
+                }
+                if (!found) {
                     //Parse
                     CustomUserStatus newStatus;
                     newStatus.parseCustomStatus(customStatusObj, false);
