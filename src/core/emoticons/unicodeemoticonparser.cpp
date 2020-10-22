@@ -22,6 +22,8 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
+#include <algorithm>
+
 UnicodeEmoticonParser::UnicodeEmoticonParser()
 {
 }
@@ -32,6 +34,20 @@ UnicodeEmoticonParser::~UnicodeEmoticonParser()
 
 QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {
+    auto aliases = [](const QJsonArray &alternates, const QJsonArray &ascii)
+    {
+        QStringList ret;
+        ret.reserve(alternates.size() + ascii.size());
+        auto convert = [&](const QJsonArray &array) {
+            auto toString = [](const QJsonValue &value) { return value.toString(); };
+            std::transform(array.begin(), array.end(),
+                           std::back_inserter(ret), toString);
+        };
+        convert(alternates);
+        convert(ascii);
+        return ret;
+    };
+
     QVector<UnicodeEmoticon> lstEmoticons;
     const QStringList keys = o.keys();
     for (const QString &key : keys) {
@@ -45,16 +61,9 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
         emoticon.setCategory(category);
         emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
         emoticon.setOrder(emojiObj[QStringLiteral("order")].toInt());
-        const QJsonArray aliasArray = emojiObj[QStringLiteral("shortname_alternates")].toArray();
-        if (!aliasArray.isEmpty()) {
-            QStringList lst;
-            const int aliasArrayCount = aliasArray.count();
-            lst.reserve(aliasArrayCount);
-            for (int i = 0; i < aliasArrayCount; ++i) {
-                lst.append(aliasArray.at(i).toString());
-            }
-            emoticon.setAliases(lst);
-        }
+        const auto shortnameAlternates = emojiObj[QStringLiteral("shortname_alternates")].toArray();
+        const auto ascii = emojiObj[QStringLiteral("ascii")].toArray();
+        emoticon.setAliases(aliases(shortnameAlternates, ascii));
         if (emoticon.isValid()) {
             lstEmoticons.append(std::move(emoticon));
         }
