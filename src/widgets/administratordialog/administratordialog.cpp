@@ -42,7 +42,7 @@ AdministratorDialog::AdministratorDialog(QWidget *parent)
     mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
     mainLayout->addWidget(mAdministratorWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorDialog::reject);
