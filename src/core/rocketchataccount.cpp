@@ -1443,12 +1443,14 @@ void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
 {
     qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
     mCustomUserStatuses.deleteCustomUserStatuses(replyArray);
+    Q_EMIT customUserChanged();
     //TODO updateCombobox
 }
 
 void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
 {
     mCustomUserStatuses.updateCustomUserStatues(replyArray);
+    Q_EMIT customUserChanged();
     qDebug() << " void RocketChatAccount::updateCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
     //TODO updateCombobox
 }

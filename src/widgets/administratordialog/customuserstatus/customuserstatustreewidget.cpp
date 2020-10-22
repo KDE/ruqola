@@ -63,6 +63,7 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     setRootIsDecorated(false);
     connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
     initialize();
+    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::customUserChanged, this, &CustomUserStatusTreeWidget::initialize);
 }
 
 CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
@@ -72,6 +73,7 @@ CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
 
 void CustomUserStatusTreeWidget::initialize()
 {
+    clear();
     const CustomUserStatuses statuses = Ruqola::self()->rocketChatAccount()->customUserStatuses();
     const QVector<CustomUserStatus> customUserses = statuses.customUserses();
     for (const CustomUserStatus &status : customUserses) {
@@ -132,7 +134,6 @@ void CustomUserStatusTreeWidget::removeClicked()
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18n("Remove Custom User Status"))) {
         Ruqola::self()->rocketChatAccount()->removeCustomUserStatus(userStatus.identifier());
     }
-    delete customUserStatusItem;
 }
 
 void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)

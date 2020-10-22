@@ -490,6 +490,7 @@ Q_SIGNALS:
     void registerUserSuccess();
     void roomNeedAttention();
     void ownInfoChanged();
+    void customUserChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
