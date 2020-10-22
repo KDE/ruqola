@@ -22,6 +22,7 @@
 #define EMOJIMANAGER_H
 
 #include <QObject>
+#include <QRegularExpression>
 #include "emoticoncategory.h"
 #include "customemoji.h"
 #include "unicodeemoticon.h"
@@ -59,6 +60,8 @@ private:
     //Use identifier in a QMap ???
     QVector<CustomEmoji> mCustomEmojiList;
     QString mServerUrl;
+    QRegularExpression mReplacePattern;
+    bool mReplacePatternDirty = true;
 };
 
 #endif // EMOJIMANAGER_H

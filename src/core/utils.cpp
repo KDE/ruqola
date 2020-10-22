@@ -60,8 +60,7 @@ QString Utils::markdownToRichText(const QString &markDown)
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     QString str = markDown;
 
-    //TODO remove replaceSmileys when we will use unicode emoticons
-    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys | KTextToHTML::ConvertPhoneNumbers;
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
     str = KTextToHTML::convertToHtml(str, convertFlags);
 
     // substitute "[example.com](<a href="...">...</a>)" style urls

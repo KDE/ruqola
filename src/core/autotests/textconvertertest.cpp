@@ -66,6 +66,18 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QTest::newRow("underline2") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("<div><u>_personal: theming related tasks_</u></div>") << QStringLiteral("www.kde.org");
     QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<div>foo</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("customemojiwithmanager") << QStringLiteral(":foo:") << QStringLiteral("<div>:foo:</div>") << QStringLiteral("www.kde.org");
+
+    QString smiley;
+    smiley += QChar(0xD83D);
+    smiley += QChar(0xDE42);
+    const auto smileyText = QStringLiteral("<font face=\"NotoColorEmoji\" size=\"20\" title=\":slight_smile:\">%1</font>").arg(smiley);
+    QTest::newRow("ascii-smiley") << QStringLiteral(":)") << QStringLiteral("<div>%1</div>").arg(smileyText) << QStringLiteral("www.kde.org");
+    QTest::newRow("multi-smiley") << QStringLiteral(":):slight_smile::):)") << QStringLiteral("<div>%1</div>").arg(smileyText.repeated(4)) << QStringLiteral("www.kde.org");
+
+    QTest::newRow("url") << QStringLiteral("https://www.kde.org") << QStringLiteral("<div><a href=\"https://www.kde.org\">https://www.kde.org</a></div>") << QStringLiteral("www.kde.org");
+
+    QTest::newRow("\")") << QStringLiteral("\")") << QStringLiteral("<div>&quot;)</div>") << QStringLiteral("www.kde.org");
+
 //    QTest::newRow("customemojiwithmanager1") << QStringLiteral(":vader:")
 //                                             << QStringLiteral("<div><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></div>")
 //                                             << QStringLiteral("www.kde.org");

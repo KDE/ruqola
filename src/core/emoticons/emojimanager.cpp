@@ -30,6 +30,7 @@
 #include <QFile>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QTextStream>
 
 EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
@@ -69,6 +70,9 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
             mCustomEmojiList.append(emoji);
         }
     }
+
+    // clear cache
+    mReplacePatternDirty = true;
 }
 
 int EmojiManager::count() const
@@ -135,22 +139,77 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                 return cachedHtml;
             }
         }
-        const UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
-        if (unicodeEmoticon.isValid()) {
-            return unicodeEmoticon.unicodeDisplay();
-        }
-    } else {
-        qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
     }
+
+    const UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
+    if (unicodeEmoticon.isValid()) {
+        return unicodeEmoticon.unicodeDisplay();
+    }
+
     return emojiIdentifier;
 }
 
 void EmojiManager::replaceEmojis(QString *str)
 {
-    static const QRegularExpression pattern(QStringLiteral(":\\w+:"));
+    if (mReplacePatternDirty) {
+        // build a regexp pattern for all the possible emoticons we want to replace
+        // i.e. this is going to build a pattern like this:
+        // \:smiley\:|\:\-\)|...
+        // to optimize it a bit, we use a common pattern that matches most
+        // emojis and then we only need to add the other special (ascii) ones
+        // otherwise the pattern could become extremely long
+        //
+        // furthermore, we don't want to replace emojis (esp. non-colon escaped ones) in the
+        // middle of another string, such as within a URL or such. at the same time, multiple
+        // smileys may come after another...
+        const auto commonPattern = QLatin1String(":[\\w\\-]+:");
+        // TODO: use QRegularExpression::anchoredPattern once ruqola depends on Qt 5.15
+        static const QRegularExpression common(QLatin1Char('^') + commonPattern + QLatin1Char('$'));
+
+        QString pattern;
+        QTextStream stream(&pattern);
+        // prevent replacements within other strings, use a negative-lookbehind to rule out
+        // that we are within some word or link or such
+        stream << "(?<![\\w\\-])";
+        // put all other patterns in a non-capturing group
+        stream << "(?:";
+        stream << commonPattern;
+
+        auto addEmoji = [&](const QString &string) {
+            if (common.match(string).hasMatch())
+                return;
+            stream << '|';
+            stream << QRegularExpression::escape(string);
+        };
+        auto addEmojis = [&](const auto &emojis) {
+            for (const auto &emoji : emojis) {
+                addEmoji(emoji.identifier());
+                const auto aliases = emoji.aliases();
+                for (const auto &alias : aliases) {
+                    addEmoji(alias);
+                }
+            }
+        };
+
+        addEmojis(mCustomEmojiList);
+        addEmojis(unicodeEmojiList());
+        // close non-capturing group
+        stream << ")";
+        stream.flush();
+
+        mReplacePattern.setPattern(pattern);
+        mReplacePattern.optimize();
+        mReplacePatternDirty = false;
+    }
+
+    if (mReplacePattern.pattern().isEmpty() || !mReplacePattern.isValid()) {
+        qCWarning(RUQOLA_LOG) << "invalid emoji replace pattern" << mReplacePattern.pattern() << mReplacePattern.errorString();
+        return;
+    }
+
     int offset = 0;
     while (offset < str->size()) {
-        const auto match = pattern.match(str, offset);
+        const auto match = mReplacePattern.match(str, offset);
         if (!match.hasMatch()) {
             break;
         }
