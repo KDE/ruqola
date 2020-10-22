@@ -93,7 +93,6 @@ void CustomUserStatusTreeWidget::addClicked()
         statusCreateInfo.name = info.name;
         statusCreateInfo.statusType = Utils::presenceStatusToString(info.statusType);
         Ruqola::self()->rocketChatAccount()->createCustomUserStatus(statusCreateInfo);
-        //TODO update list ?
     }
     delete dlg;
 }
@@ -118,7 +117,6 @@ void CustomUserStatusTreeWidget::editClicked()
         statusUpdateInfo.statusType = Utils::presenceStatusToString(info.statusType);
         statusUpdateInfo.identifier = userStatus.identifier();
         Ruqola::self()->rocketChatAccount()->updateCustomUserStatus(statusUpdateInfo);
-        //TODO update list
     }
     delete dlg;
 
@@ -143,6 +141,7 @@ void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &po
     QTreeWidgetItem *item = itemAt(pos);
     if (item) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &CustomUserStatusTreeWidget::editClicked);
+        menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
     }
     menu.exec(viewport()->mapToGlobal(pos));
