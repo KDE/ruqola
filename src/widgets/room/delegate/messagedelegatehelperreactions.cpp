@@ -51,7 +51,7 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
     for (const Reaction &reaction : reactions) {
         ReactionLayout layout;
         layout.emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
-        qreal emojiWidth;
+        qreal emojiWidth = 0;
         if (!layout.emojiString.isEmpty()) {
             emojiWidth = emojiFontMetrics.horizontalAdvance(layout.emojiString);
             layout.useEmojiFont = true;
