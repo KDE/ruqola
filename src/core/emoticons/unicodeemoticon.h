@@ -65,6 +65,7 @@ private:
     int mOrder = -1;
 };
 Q_DECLARE_METATYPE(UnicodeEmoticon)
+Q_DECLARE_TYPEINFO(UnicodeEmoticon, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const UnicodeEmoticon &t);
 
 #endif // UNICODEEMOTICON_H
