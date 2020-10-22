@@ -22,13 +22,33 @@
 #define CUSTOMUSERSTATUSTREEWIDGET_H
 
 #include <QTreeWidget>
+#include "customuserstatus.h"
 
 #include "libruqolawidgets_private_export.h"
 class QTreeWidget;
+
+class CustomUserStatusTreeWidgetItem : public QTreeWidgetItem
+{
+public:
+    explicit CustomUserStatusTreeWidgetItem(QTreeWidget *parent = nullptr);
+    ~CustomUserStatusTreeWidgetItem();
+
+    Q_REQUIRED_RESULT CustomUserStatus userStatus() const;
+    void setUserStatus(const CustomUserStatus &userStatus);
+
+private:
+    CustomUserStatus mUserStatus;
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CustomUserStatusTreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:
+    enum UserStatusColumn {
+        Name = 0,
+        Presence,
+        Identifier,
+    };
     explicit CustomUserStatusTreeWidget(QWidget *parent = nullptr);
     ~CustomUserStatusTreeWidget();
 
@@ -37,6 +57,7 @@ private:
     void addClicked();
     void editClicked();
     void removeClicked();
+    void initialize();
 };
 
 #endif // CUSTOMUSERSTATUSTREEWIDGET_H

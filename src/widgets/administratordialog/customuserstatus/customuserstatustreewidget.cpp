@@ -21,12 +21,33 @@
 #include "customuserstatustreewidget.h"
 #include "administratorcustomuserstatuscreatedialog.h"
 #include "ruqola.h"
+#include "utils.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QMenu>
 #include <QPointer>
 
+CustomUserStatusTreeWidgetItem::CustomUserStatusTreeWidgetItem(QTreeWidget *parent)
+    : QTreeWidgetItem(parent)
+{
+
+}
+
+CustomUserStatusTreeWidgetItem::~CustomUserStatusTreeWidgetItem()
+{
+
+}
+
+CustomUserStatus CustomUserStatusTreeWidgetItem::userStatus() const
+{
+    return mUserStatus;
+}
+
+void CustomUserStatusTreeWidgetItem::setUserStatus(const CustomUserStatus &userStatus)
+{
+    mUserStatus = userStatus;
+}
 
 CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
@@ -37,6 +58,7 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     header()->setSectionsMovable(false);
     header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     setSelectionMode(SingleSelection);
+    setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
 
 }
@@ -46,20 +68,41 @@ CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
 
 }
 
+void CustomUserStatusTreeWidget::initialize()
+{
+    const CustomUserStatuses statuses = Ruqola::self()->rocketChatAccount()->customUserStatuses();
+    const QVector<CustomUserStatus> customUserses = statuses.customUserses();
+    for (const CustomUserStatus &status : customUserses) {
+        CustomUserStatusTreeWidgetItem *item = new CustomUserStatusTreeWidgetItem(this);
+        item->setUserStatus(status);
+        item->setText(CustomUserStatusTreeWidget::Name, status.name());
+        item->setText(CustomUserStatusTreeWidget::Presence, Utils::presenceStatusToString(status.statusType()));
+    }
+}
+
 void CustomUserStatusTreeWidget::addClicked()
 {
     QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
     if (dlg->exec()) {
-        //Ruqola::self()->rocketChatAccount()->createCustomUserStatus();
+        const AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
+        RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo statusCreateInfo;
+        statusCreateInfo.name = info.name;
+        statusCreateInfo.statusType = Utils::presenceStatusToString(info.statusType);
+        Ruqola::self()->rocketChatAccount()->createCustomUserStatus(statusCreateInfo);
     }
     delete dlg;
 }
 
 void CustomUserStatusTreeWidget::editClicked()
 {
+    if (!currentItem()) {
+        return;
+    }
+
     QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
     //TODO setCustomStatus..
     if (dlg->exec()) {
+        //AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
         //Ruqola::self()->rocketChatAccount()->updateCustomUserStatus();
     }
     delete dlg;

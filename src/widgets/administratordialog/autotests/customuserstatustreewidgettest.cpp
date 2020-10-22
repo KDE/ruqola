@@ -20,6 +20,7 @@
 #include "customuserstatustreewidgettest.h"
 #include "administratordialog/customuserstatus/customuserstatustreewidget.h"
 #include <QTest>
+#include <QHeaderView>
 QTEST_MAIN(CustomUserStatusTreeWidgetTest)
 
 CustomUserStatusTreeWidgetTest::CustomUserStatusTreeWidgetTest(QObject *parent)
@@ -31,4 +32,9 @@ CustomUserStatusTreeWidgetTest::CustomUserStatusTreeWidgetTest(QObject *parent)
 void CustomUserStatusTreeWidgetTest::shouldHaveDefaultValues()
 {
     CustomUserStatusTreeWidget w;
+    QCOMPARE(w.columnCount(), 2);
+    QVERIFY(w.alternatingRowColors());
+    QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
+    QCOMPARE(w.selectionMode(), QTreeWidget::SingleSelection);
+    QVERIFY(!w.header()->sectionsMoved());
 }
