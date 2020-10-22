@@ -19,7 +19,6 @@
 */
 
 #include "createnewchanneldialog.h"
-#include "createnewchannelwidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <QPushButton>

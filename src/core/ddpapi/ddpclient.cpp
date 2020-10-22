@@ -26,7 +26,6 @@
 #include "utils.h"
 #include "ruqola_ddpapi_debug.h"
 #include "ruqola_ddpapi_command_debug.h"
-#include "rocketchatmessage.h"
 #include "ruqolawebsocket.h"
 #include "rocketchataccount.h"
 #include "messagequeue.h"

@@ -19,7 +19,6 @@
 */
 
 #include "listmessagesmodelfilterproxymodel.h"
-#include "listmessagesmodel.h"
 #include <KLocalizedString>
 
 ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(ListMessagesModel *model, QObject *parent)

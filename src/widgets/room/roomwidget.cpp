@@ -19,7 +19,6 @@
 */
 
 #include "roomwidget.h"
-#include "roomheaderwidget.h"
 #include "messagelistview.h"
 #include "messagelinewidget.h"
 #include "ruqola.h"
@@ -58,7 +57,6 @@
 #include <QKeyEvent>
 #include <QStackedWidget>
 #include <QMimeData>
-#include <QPointer>
 #include <QScrollBar>
 #include <QLabel>
 #include <QPushButton>

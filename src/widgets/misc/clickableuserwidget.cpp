@@ -21,7 +21,6 @@
 #include "clickableuserwidget.h"
 #include <QHBoxLayout>
 #include <QIcon>
-#include <QLabel>
 
 ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *parent)
     : QWidget(parent)

@@ -19,7 +19,6 @@
 */
 
 #include "adduserswidget.h"
-#include "dialogs/adduserscompletionlineedit.h"
 #include "common/flowlayout.h"
 #include "misc/clickableuserwidget.h"
 #include <QVBoxLayout>

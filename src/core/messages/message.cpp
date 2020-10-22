@@ -19,7 +19,6 @@
 */
 
 #include "message.h"
-#include "utils.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QCborValue>

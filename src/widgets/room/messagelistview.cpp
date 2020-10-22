@@ -36,7 +36,6 @@
 #include <QMenu>
 #include <QScrollBar>
 #include <QIcon>
-#include <QPointer>
 #include <QClipboard>
 #include <QApplication>
 

@@ -29,15 +29,12 @@
 #include "ruqola_unknown_collectiontype_debug.h"
 #include "ddpapi/ddpclient.h"
 #include "restapirequest.h"
-#include "user.h"
 #include "model/usersmodel.h"
 #include "ruqolalogger.h"
 #include "model/messagemodel.h"
 #include "receivetypingnotificationmanager.h"
-#include "file.h"
 #include "ruqolaglobalconfig.h"
 
-#include <QJsonObject>
 #include <QJsonArray>
 
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)

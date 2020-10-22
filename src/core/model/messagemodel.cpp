@@ -24,7 +24,6 @@
 #include <QJsonDocument>
 #include <QDataStream>
 #include <QModelIndex>
-#include <QAbstractListModel>
 
 #include "messagemodel.h"
 #include "ruqolaserverconfig.h"

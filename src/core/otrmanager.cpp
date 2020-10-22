@@ -18,7 +18,6 @@
 */
 
 #include "otrmanager.h"
-#include "otr.h"
 
 OtrManager::OtrManager(QObject *parent)
     : QObject(parent)

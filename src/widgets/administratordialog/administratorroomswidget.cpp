@@ -23,12 +23,10 @@
 #include "rocketchataccount.h"
 #include "restapirequest.h"
 #include "rooms/adminroomsjob.h"
-#include "administratorroomsselectroomtypewidget.h"
 #include "ruqolawidgets_debug.h"
 #include "administrator/adminrooms.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminroomsmodel.h"
-#include "model/adminroomsfilterproxymodel.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>

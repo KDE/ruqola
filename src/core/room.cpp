@@ -22,7 +22,6 @@
 
 #include "rocketchataccount.h"
 #include "room.h"
-#include "utils.h"
 #include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"

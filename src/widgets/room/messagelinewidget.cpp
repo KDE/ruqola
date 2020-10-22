@@ -21,7 +21,6 @@
 #include "messagelinewidget.h"
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
-#include "dialogs/uploadfiledialog.h"
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 
@@ -30,7 +29,6 @@
 
 #include <QClipboard>
 #include <QGuiApplication>
-#include <QPointer>
 #include <QHBoxLayout>
 #include <QToolButton>
 #include <QMenu>

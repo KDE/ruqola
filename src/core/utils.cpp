@@ -22,9 +22,7 @@
 #include "ruqola_debug.h"
 
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QDateTime>
-#include <QJsonArray>
 #include <KTextToHTML>
 #include <QRegularExpression>
 #include <QCryptographicHash>

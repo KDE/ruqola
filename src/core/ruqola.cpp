@@ -22,7 +22,6 @@
 
 #include "ruqola.h"
 #include "typingnotification.h"
-#include "ddpapi/ddpclient.h"
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"

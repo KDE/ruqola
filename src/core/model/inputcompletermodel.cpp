@@ -24,7 +24,6 @@
 #include <QJsonArray>
 
 #include <QIcon>
-#include <QJsonObject>
 #include <QModelIndex>
 
 InputCompleterModel::InputCompleterModel(QObject *parent)

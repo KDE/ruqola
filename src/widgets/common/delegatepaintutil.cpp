@@ -19,7 +19,6 @@
 */
 
 #include "delegatepaintutil.h"
-#include <QString>
 #include <QPainter>
 
 void DelegatePaintUtil::drawTimestamp(QPainter *painter, const QString &timeStampText, QPoint timeStampPos)

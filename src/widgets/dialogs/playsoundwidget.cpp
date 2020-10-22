@@ -20,7 +20,6 @@
 
 #include "playsoundwidget.h"
 #include <QHBoxLayout>
-#include <QMediaPlayer>
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>

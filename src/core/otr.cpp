@@ -19,7 +19,6 @@
 
 #include "otr.h"
 #include "ruqola_debug.h"
-#include <QDebug>
 #include <QJsonObject>
 
 Otr::Otr()

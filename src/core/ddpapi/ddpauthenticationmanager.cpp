@@ -31,7 +31,6 @@
 
 #include <QByteArray>
 #include <QJsonArray>
-#include <QJsonObject>
 
 #define sl(x) QStringLiteral(x)
 

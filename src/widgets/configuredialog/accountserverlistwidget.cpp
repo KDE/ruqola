@@ -22,7 +22,6 @@
 #include "ruqola.h"
 #include "accountmanager.h"
 #include "rocketchataccount.h"
-#include "dialogs/createnewaccountdialog.h"
 #include "model/rocketchataccountmodel.h"
 
 #include <QListWidgetItem>

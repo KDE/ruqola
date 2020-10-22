@@ -20,7 +20,6 @@
 
 #include "downloadappslanguagesinfo.h"
 
-#include <QJsonObject>
 #include <QJsonArray>
 #include <QDebug>
 

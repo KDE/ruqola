@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QIcon>
-#include <QLabel>
 #include <QMenu>
 #include <QPointer>
 #include <KMessageBox>

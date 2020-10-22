@@ -30,12 +30,10 @@
 #include "spotlightjob.h"
 
 #include "users/getavatarjob.h"
-#include "users/setavatarjob.h"
 #include "users/forgotpasswordjob.h"
 #include "users/userinfojob.h"
 #include "users/getpresencejob.h"
 #include "users/getusernamesuggestionjob.h"
-#include "users/setstatusjob.h"
 #include "users/userspresencejob.h"
 #include "users/deleteownaccountjob.h"
 #include "users/removeothertokensjob.h"
@@ -124,8 +122,6 @@
 #include "rooms/savenotificationjob.h"
 #include "rooms/roomstartdiscussionjob.h"
 #include "rooms/getdiscussionsjob.h"
-#include "rooms/roomsautocompletechannelandprivatejob.h"
-#include "rooms/adminroomsjob.h"
 
 #include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
@@ -137,7 +133,6 @@
 
 #include "commands/listcommandsjob.h"
 #include "commands/getcommandsjob.h"
-#include "commands/runcommandjob.h"
 
 #include "e2e/fetchmykeysjob.h"
 
@@ -150,7 +145,6 @@
 #include "custom/customuserstatuslistjob.h"
 #include "custom/customuserstatusdeletejob.h"
 
-#include "invite/findorcreateinvitejob.h"
 
 #include "2fa/user2fasendemailcodejob.h"
 #include "2fa/user2faenableemailjob.h"
@@ -158,7 +152,6 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QUrl>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 using namespace RocketChatRestApi;

@@ -22,7 +22,6 @@
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
-#include <QJsonObject>
 
 Roles::Roles()
 {
