@@ -1764,7 +1764,7 @@ void RestApiRequest::customSounds()
 {
     auto *job = new CustomSoundsListJob(this);
     initializeRestApiJob(job);
-    connect(job, &CustomSoundsListJob::customSoundsDone, this, &RestApiRequest::customSoundsDone);
+    connect(job, &CustomSoundsListJob::customSoundsListDone, this, &RestApiRequest::customSoundsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsJob";
     }

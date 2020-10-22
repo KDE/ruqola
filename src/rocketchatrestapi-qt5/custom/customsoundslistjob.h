@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
-    void customSoundsDone(const QByteArray &data);
+    void customSoundsListDone(const QByteArray &data);
 private:
     Q_DISABLE_COPY(CustomSoundsListJob)
     void slotCustomSoundsDone();
