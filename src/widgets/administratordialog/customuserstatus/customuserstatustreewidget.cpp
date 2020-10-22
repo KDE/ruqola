@@ -24,6 +24,7 @@
 #include "utils.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHeaderView>
 #include <QMenu>
 #include <QPointer>
@@ -59,8 +60,9 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     setSelectionMode(SingleSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
+    setRootIsDecorated(false);
     connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
-
+    initialize();
 }
 
 CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
@@ -89,6 +91,7 @@ void CustomUserStatusTreeWidget::addClicked()
         statusCreateInfo.name = info.name;
         statusCreateInfo.statusType = Utils::presenceStatusToString(info.statusType);
         Ruqola::self()->rocketChatAccount()->createCustomUserStatus(statusCreateInfo);
+        //TODO update list ?
     }
     delete dlg;
 }
@@ -100,10 +103,20 @@ void CustomUserStatusTreeWidget::editClicked()
     }
 
     QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
-    //TODO setCustomStatus..
+    CustomUserStatusTreeWidgetItem *customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
+    const CustomUserStatus userStatus = customUserStatusItem->userStatus();
+    AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusinfo;
+    userStatusinfo.name = userStatus.name();
+    userStatusinfo.statusType = userStatus.statusType();
+    dlg->setUserStatusInfo(userStatusinfo);
     if (dlg->exec()) {
-        //AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
-        //Ruqola::self()->rocketChatAccount()->updateCustomUserStatus();
+        const AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
+        RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo statusUpdateInfo;
+        statusUpdateInfo.name = info.name;
+        statusUpdateInfo.statusType = Utils::presenceStatusToString(info.statusType);
+        statusUpdateInfo.identifier = userStatus.identifier();
+        Ruqola::self()->rocketChatAccount()->updateCustomUserStatus(statusUpdateInfo);
+        //TODO update list
     }
     delete dlg;
 
@@ -111,8 +124,15 @@ void CustomUserStatusTreeWidget::editClicked()
 
 void CustomUserStatusTreeWidget::removeClicked()
 {
-    //TODO remove ?
-    //Ruqola::self()->rocketChatAccount()->deleteCustomUserStatus();
+    if (!currentItem()) {
+        return;
+    }
+    CustomUserStatusTreeWidgetItem *customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
+    const CustomUserStatus userStatus = customUserStatusItem->userStatus();
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18n("Remove Custom User Status"))) {
+        Ruqola::self()->rocketChatAccount()->removeCustomUserStatus(userStatus.identifier());
+    }
+    delete customUserStatusItem;
 }
 
 void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)

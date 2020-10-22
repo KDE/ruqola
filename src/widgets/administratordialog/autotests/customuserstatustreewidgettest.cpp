@@ -37,4 +37,5 @@ void CustomUserStatusTreeWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
     QCOMPARE(w.selectionMode(), QTreeWidget::SingleSelection);
     QVERIFY(!w.header()->sectionsMoved());
+    QVERIFY(!w.rootIsDecorated());
 }
