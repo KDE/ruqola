@@ -298,6 +298,8 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("stream-notify-user")) {
         //qDebug() << "stream-notify-user: " << object;
     } else if (collection == QLatin1String("stream-notify-all")) {
+        //void RocketChatBackend::slotChanged(const QJsonObject &object) QJsonObject({"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"oikq5aYewRkYBGebK","_updatedAt":{"$date":1603350166714},"extension":"mp3","name":"test"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"})
+
         //qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-notify-all: " << object;
         //TODO verify that all is ok !
     } else if (collection == QLatin1String("autocompleteRecords")) {
@@ -333,6 +335,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
 
 void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
+    qDebug() << " void RocketChatBackend::slotChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
@@ -554,6 +557,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else {
             qWarning() << "stream-notify-logged not supported " << fields;
         }
+    } else if (collection == QLatin1String("stream-notify-all")) {
+        qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
+        //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object "<<object;
     }
@@ -637,6 +643,14 @@ void RocketChatBackend::slotUserIDChanged()
     {
         const QJsonArray params{
             QJsonValue(QStringLiteral("roles-change")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("deleteCustomSound")), {
                 true
             }
         };
