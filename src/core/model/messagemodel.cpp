@@ -65,13 +65,14 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
         if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
             QFile f(cacheDir.absoluteFilePath(roomID));
             if (f.open(QIODevice::ReadOnly)) {
+                auto *emojiManager = mRocketChatAccount->emojiManager();
                 QDataStream in(&f);
                 while (!f.atEnd()) {
                     char *byteArray;
                     quint32 length;
                     in.readBytes(byteArray, length);
                     const QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                    Message m = Message::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                    Message m = Message::fromJSon(QJsonDocument::fromBinaryData(arr).object(), emojiManager);
                     addMessage(m);
                 }
             }

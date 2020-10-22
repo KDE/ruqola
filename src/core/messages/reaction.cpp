@@ -19,7 +19,6 @@
 
 #include "reaction.h"
 #include "emoticons/emojimanager.h"
-#include <KTextToHTML>
 #include <KLocalizedString>
 Reaction::Reaction()
 {
@@ -74,9 +73,6 @@ void Reaction::setReactionName(const QString &reactionName, EmojiManager *emojiM
         if (emojiManager) {
             mCacheConvertedReactionName = emojiManager->replaceEmojiIdentifier(mReactionName, true);
             mIsAnimatedImage = emojiManager->isAnimatedImage(mReactionName);
-        } else {
-            const KTextToHTML::Options convertFlags = KTextToHTML::ReplaceSmileys;
-            mCacheConvertedReactionName = KTextToHTML::convertToHtml(mReactionName, convertFlags);
         }
     }
 }

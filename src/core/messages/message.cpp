@@ -668,9 +668,9 @@ Utils::AvatarInfo Message::avatarInfo() const
     return info;
 }
 
-Message Message::fromJSon(const QJsonObject &o)
+Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
 {
-    Message message;
+    Message message(emojiManager);
     message.mThreadCount = o[QStringLiteral("tcount")].toString().toInt();
     message.mDiscussionCount = o[QStringLiteral("dcount")].toString().toInt();
     message.mDiscussionRoomId = o[QStringLiteral("drid")].toString();
@@ -723,7 +723,7 @@ Message Message::fromJSon(const QJsonObject &o)
         }
     }
     const QJsonObject reactionsArray = o.value(QLatin1String("reactions")).toObject();
-    message.setReactions(Reactions::fromJSon(reactionsArray));
+    message.setReactions(Reactions::fromJSon(reactionsArray, emojiManager));
 
     const QJsonArray repliesArray = o.value(QLatin1String("replies")).toArray();
     QStringList replies;

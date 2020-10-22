@@ -83,7 +83,7 @@ QJsonObject Reactions::serialize(const Reactions &reactions)
     return obj;
 }
 
-Reactions Reactions::fromJSon(const QJsonObject &o)
+Reactions Reactions::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
 {
     QVector<Reaction> reacts;
     const QStringList lst = o.keys();
@@ -99,7 +99,7 @@ Reactions Reactions::fromJSon(const QJsonObject &o)
         }
         if (!users.isEmpty()) {
             Reaction r;
-            r.setReactionName(str);
+            r.setReactionName(str, emojiManager);
             r.setUserNames(users);
             reacts.append(r);
         }

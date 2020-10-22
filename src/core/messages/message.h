@@ -65,7 +65,7 @@ public:
     * @param source The Json containing message attributes
     * @return Message object, The message constructed from Json
     */
-    Q_REQUIRED_RESULT static Message fromJSon(const QJsonObject &source);
+    Q_REQUIRED_RESULT static Message fromJSon(const QJsonObject &source, EmojiManager *emojiManager = nullptr);
 
     /**
     * @brief Constructs QBytearray from Message object
