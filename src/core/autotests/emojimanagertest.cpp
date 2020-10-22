@@ -22,6 +22,7 @@
 #include "emoticons/emojimanager.h"
 #include "emoticons/customemoji.h"
 #include "emoticons/unicodeemoticonmanager.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -51,12 +52,7 @@ void EmojiManagerTest::shouldParseEmoji()
     QFETCH(QString, name);
     QFETCH(int, number);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
+    auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
