@@ -335,7 +335,6 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
 
 void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
-    qDebug() << " void RocketChatBackend::slotChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
@@ -558,7 +557,16 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             qWarning() << "stream-notify-logged not supported " << fields;
         }
     } else if (collection == QLatin1String("stream-notify-all")) {
-        qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
+        QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        if (eventname == QLatin1String("deleteCustomSound")) {
+            //TODO
+            qDebug() << " NEED TO IMPLEMENT stream-notify-all deleteCustomSound " << object;
+        } else if (eventname == QLatin1String("updateCustomSound")) {
+            qDebug() << " NEED TO IMPLEMENT stream-notify-all updateCustomSound " << object;
+        } else {
+            qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
+        }
         //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object "<<object;
@@ -648,9 +656,18 @@ void RocketChatBackend::slotUserIDChanged()
         };
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
+    //Sound
     {
         const QJsonArray params{
             QJsonValue(QStringLiteral("deleteCustomSound")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateCustomSound")), {
                 true
             }
         };
