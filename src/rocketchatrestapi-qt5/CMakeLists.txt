@@ -160,7 +160,7 @@ set (RocketChatRestApiQt_SRCS
     custom/customuserstatusdeletejob.cpp
     custom/customuserstatusupdatejob.cpp
 
-    custom/customsoundsjob.cpp
+    custom/customsoundslistjob.cpp
 
     invite/findorcreateinvitejob.cpp
 

@@ -146,7 +146,7 @@
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "autotranslate/translatesavesettingsjob.h"
 
-#include "custom/customsoundsjob.h"
+#include "custom/customsoundslistjob.h"
 #include "custom/customuserstatuslistjob.h"
 #include "custom/customuserstatusdeletejob.h"
 
@@ -1762,9 +1762,9 @@ void RestApiRequest::customUserStatus()
 
 void RestApiRequest::customSounds()
 {
-    auto *job = new CustomSoundsJob(this);
+    auto *job = new CustomSoundsListJob(this);
     initializeRestApiJob(job);
-    connect(job, &CustomSoundsJob::customSoundsDone, this, &RestApiRequest::customSoundsDone);
+    connect(job, &CustomSoundsListJob::customSoundsDone, this, &RestApiRequest::customSoundsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsJob";
     }

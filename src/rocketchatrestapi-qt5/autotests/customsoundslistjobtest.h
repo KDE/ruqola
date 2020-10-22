@@ -18,30 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMSOUNDSJOB_H
-#define CUSTOMSOUNDSJOB_H
+#ifndef CUSTOMSOUNDSLISTJOBTEST_H
+#define CUSTOMSOUNDSLISTJOBTEST_H
 
-#include "restapiabstractjob.h"
+#include <QObject>
 
-#include "librestapi_private_export.h"
-
-#include <QNetworkRequest>
-namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CustomSoundsJob : public RestApiAbstractJob
+class CustomSoundsListJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit CustomSoundsJob(QObject *parent = nullptr);
-    ~CustomSoundsJob() override;
+    explicit CustomSoundsListJobTest(QObject *parent = nullptr);
+    ~CustomSoundsListJobTest() override = default;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-Q_SIGNALS:
-    void customSoundsDone(const QByteArray &data);
-private:
-    Q_DISABLE_COPY(CustomSoundsJob)
-    void slotCustomSoundsDone();
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
 };
-}
-#endif // CUSTOMUSERSTATUSJOB_H
+
+#endif // CUSTOMSOUNDSLISTJOBTEST_H

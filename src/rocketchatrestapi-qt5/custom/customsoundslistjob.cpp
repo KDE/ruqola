@@ -18,23 +18,23 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "customsoundsjob.h"
+#include "customsoundslistjob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-CustomSoundsJob::CustomSoundsJob(QObject *parent)
+CustomSoundsListJob::CustomSoundsListJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-CustomSoundsJob::~CustomSoundsJob()
+CustomSoundsListJob::~CustomSoundsListJob()
 {
 }
 
-bool CustomSoundsJob::start()
+bool CustomSoundsListJob::start()
 {
     if (!canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsJob job";
@@ -43,12 +43,12 @@ bool CustomSoundsJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     addStartRestApiInfo(QByteArrayLiteral("CustomSoundsJob: Ask custom sounds info"));
-    connect(reply, &QNetworkReply::finished, this, &CustomSoundsJob::slotCustomSoundsDone);
+    connect(reply, &QNetworkReply::finished, this, &CustomSoundsListJob::slotCustomSoundsDone);
 
     return true;
 }
 
-void CustomSoundsJob::slotCustomSoundsDone()
+void CustomSoundsListJob::slotCustomSoundsDone()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -67,12 +67,12 @@ void CustomSoundsJob::slotCustomSoundsDone()
     deleteLater();
 }
 
-bool CustomSoundsJob::requireHttpAuthentication() const
+bool CustomSoundsListJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-QNetworkRequest CustomSoundsJob::request() const
+QNetworkRequest CustomSoundsListJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsList);
     QNetworkRequest req(url);

@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "customsoundsjobtest.h"
-#include "custom/customsoundsjob.h"
+#include "customsoundslistjobtest.h"
+#include "custom/customsoundslistjob.h"
 #include <QTest>
 #include <restapimethod.h>
-QTEST_GUILESS_MAIN(CustomSoundsJobTest)
+QTEST_GUILESS_MAIN(CustomSoundsListJobTest)
 using namespace RocketChatRestApi;
-CustomSoundsJobTest::CustomSoundsJobTest(QObject *parent)
+CustomSoundsListJobTest::CustomSoundsListJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void CustomSoundsJobTest::shouldHaveDefaultValue()
+void CustomSoundsListJobTest::shouldHaveDefaultValue()
 {
-    CustomSoundsJob job;
+    CustomSoundsListJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
@@ -42,9 +42,9 @@ void CustomSoundsJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void CustomSoundsJobTest::shouldGenerateRequest()
+void CustomSoundsListJobTest::shouldGenerateRequest()
 {
-    CustomSoundsJob job;
+    CustomSoundsListJob job;
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);
