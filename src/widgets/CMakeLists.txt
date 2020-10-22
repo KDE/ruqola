@@ -193,6 +193,8 @@ set(Ruqola_administrator_SRCS
     administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp
     administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp
     administratordialog/customuserstatus/customuserstatustreewidget.cpp
+
+    administratordialog/customsounds/administratorcustomsoundswidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
