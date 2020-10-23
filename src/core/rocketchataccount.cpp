@@ -1941,7 +1941,7 @@ void RocketChatAccount::openDocumentation()
 
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
-    qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
+    //qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
         if (obj.contains(QLatin1String("username"))) {
