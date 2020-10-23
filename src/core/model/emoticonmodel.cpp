@@ -34,26 +34,30 @@ int EmoticonModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mEmoticons.count();
+    return mRows.count();
 }
 
 QVariant EmoticonModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mEmoticons.count()) {
+    if (index.row() < 0 || index.row() >= mRows.count()) {
         return {};
     }
-    const UnicodeEmoticon &unicodeEmoti = mEmoticons.at(index.row());
+    const auto &row = mRows.at(index.row());
+    const UnicodeEmoticon &unicodeEmoti = mEmoticons.at(row.first);
+
     switch (role) {
     case CompleterName:
         return unicodeEmoti.identifier().mid(1);
-    case Identifier:
-        return unicodeEmoti.identifier();
     case UnicodeEmoji:
         return unicodeEmoti.unicode();
     case Category:
         return unicodeEmoti.category();
+    case Identifier:
     case Qt::DisplayRole: // for the completion popup (until we have a delegate)
-        return unicodeEmoti.identifier();
+        if (row.second == -1) {
+            return unicodeEmoti.identifier();
+        }
+        return unicodeEmoti.aliases().value(row.second);
     }
 
     return {};
@@ -74,14 +78,16 @@ QVector<UnicodeEmoticon> EmoticonModel::emoticons() const
 
 void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);
-        mEmoticons.clear();
-        endRemoveRows();
+    beginResetModel();
+    mEmoticons = emoticons;
+    mRows.clear();
+    int row = 0;
+    for (const auto &emoticon : emoticons) {
+        mRows.append({row, -1});
+        const auto numAliases = emoticon.aliases().size();
+        for (int i = 0; i < numAliases; ++i)
+            mRows.append({row, i});
+        ++row;
     }
-    if (!emoticons.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, emoticons.count() - 1);
-        mEmoticons = emoticons;
-        endInsertRows();
-    }
+    endResetModel();
 }

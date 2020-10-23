@@ -42,17 +42,32 @@ void EmoticonModelTest::shouldListEmojis()
     EmoticonModel model;
     QCOMPARE(model.rowCount(), 0);
     UnicodeEmoticon icon1;
+    icon1.setUnicode(QStringLiteral("hello world"));
     icon1.setIdentifier(QStringLiteral("id1"));
     icon1.setCategory(QStringLiteral("cat1"));
+    icon1.setAliases({QStringLiteral("id2"), QStringLiteral("id3")});
     QVector<UnicodeEmoticon> list{ icon1 };
 
     // WHEN
     model.setEmoticons(list);
 
     // THEN
-    QCOMPARE(model.rowCount(), 1);
-    QCOMPARE(model.index(0, 0).data(EmoticonModel::Identifier).toString(), QStringLiteral("id1"));
-    QCOMPARE(model.index(0, 0).data(EmoticonModel::Category).toString(), QStringLiteral("cat1"));
+    QCOMPARE(model.rowCount(), 3);
+
+    const auto idx1 = model.index(0, 0);
+    QCOMPARE(idx1.data(EmoticonModel::Identifier).toString(), icon1.identifier());
+    QCOMPARE(idx1.data(EmoticonModel::Category).toString(), icon1.category());
+    QCOMPARE(idx1.data(EmoticonModel::UnicodeEmoji).toString(), icon1.unicode());
+
+    const auto idx2 = model.index(1, 0);
+    QCOMPARE(idx2.data(EmoticonModel::Identifier).toString(), QStringLiteral("id2"));
+    QCOMPARE(idx2.data(EmoticonModel::Category).toString(), icon1.category());
+    QCOMPARE(idx1.data(EmoticonModel::UnicodeEmoji).toString(), icon1.unicode());
+
+    const auto idx3 = model.index(2, 0);
+    QCOMPARE(idx3.data(EmoticonModel::Identifier).toString(), QStringLiteral("id3"));
+    QCOMPARE(idx3.data(EmoticonModel::Category).toString(), icon1.category());
+    QCOMPARE(idx1.data(EmoticonModel::UnicodeEmoji).toString(), icon1.unicode());
 }
 
 void EmoticonModelTest::shouldFilterCategory()

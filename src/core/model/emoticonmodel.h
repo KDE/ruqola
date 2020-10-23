@@ -52,6 +52,9 @@ public:
 private:
     Q_DISABLE_COPY(EmoticonModel)
     QVector<UnicodeEmoticon> mEmoticons;
+    // first int is an index into mEmoticons
+    // second is -1 for the emoticon identifier or otherwise an index into the alias list
+    QVector<QPair<int, int>> mRows;
 };
 
 #endif // EMOTICONMODEL_H
