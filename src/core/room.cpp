@@ -1049,10 +1049,10 @@ void Room::setEncrypted(bool encrypted)
     }
 }
 
-Room *Room::fromJSon(const QJsonObject &o)
+std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
 {
     //FIXME
-    Room *r = new Room(nullptr);
+    auto r = std::make_unique<Room>(nullptr);
 
     r->setRoomId(o[QStringLiteral("rid")].toString());
     r->setChannelType(o[QStringLiteral("t")].toString());

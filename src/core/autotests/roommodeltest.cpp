@@ -510,9 +510,8 @@ void RoomModelTest::shouldInsertRoom()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/insert-rooms/"), jsonIndented, insertRoomFileName);
 
-    Room *m = Room::fromJSon(docSerialized.object());
+    auto m = Room::fromJSon(docSerialized.object());
     QCOMPARE(*r, *m);
-    delete m;
 }
 
 //TODO add autotest for notification update.

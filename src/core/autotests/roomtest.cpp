@@ -113,10 +113,9 @@ void RoomTest::shouldSerialized()
     const QByteArray ba = Room::serialize(&input);
     //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     //Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
-    Room *output = Room::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
+    auto output = Room::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
     //qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
     QVERIFY(input.isEqual(*output));
-    delete output;
 }
 
 void RoomTest::shouldEmitSignals()
@@ -242,9 +241,8 @@ void RoomTest::shouldParseRoom()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/room/"), jsonIndented, fileName);
 
-    Room *m = Room::fromJSon(docSerialized.object());
+    auto m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
-    delete m;
 }
 
 void RoomTest::shouldParseRoomAndUpdate_data()
@@ -296,9 +294,8 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/room-updated/"), jsonIndented, fileNameinit);
 
-    Room *m = Room::fromJSon(docSerialized.object());
+    auto m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
-    delete m;
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription_data()
@@ -373,9 +370,8 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/room-update-subscription/"), jsonIndented, fileNameinit);
 
-    Room *m = Room::fromJSon(docSerialized.object());
+    auto m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
-    delete m;
 }
 
 //TODO add more autotests signal and co.

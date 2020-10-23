@@ -31,6 +31,9 @@
 #include "channelcounterinfo.h"
 #include "libruqola_private_export.h"
 #include "utils.h"
+
+#include <memory>
+
 class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
 class MessageModel;
@@ -112,7 +115,7 @@ public:
     * @param source The Json containing room attributes
     * @return Room object, The room constructed from Json
     */
-    static Room *fromJSon(const QJsonObject &source);
+    static std::unique_ptr<Room> fromJSon(const QJsonObject &source);
 
     /**
     * @brief Constructs QBytearray from Room object
