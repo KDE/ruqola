@@ -42,7 +42,7 @@ void EmoticonModelTest::shouldListEmojis()
     EmoticonModel model;
     QCOMPARE(model.rowCount(), 0);
     UnicodeEmoticon icon1;
-    icon1.setUnicode(QStringLiteral("hello world"));
+    icon1.setUnicode(QStringLiteral("D83D-DE42"));
     icon1.setIdentifier(QStringLiteral("id1"));
     icon1.setCategory(QStringLiteral("cat1"));
     icon1.setAliases({QStringLiteral("id2"), QStringLiteral("id3")});
