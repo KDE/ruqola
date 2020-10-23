@@ -37,11 +37,8 @@ RuqolaUtils::~RuqolaUtils()
 
 RuqolaUtils *RuqolaUtils::self()
 {
-    static RuqolaUtils *s_self = nullptr;
-    if (!s_self) {
-        return new RuqolaUtils;
-    }
-    return s_self;
+    static RuqolaUtils s_self;
+    return &s_self;
 }
 
 QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)
