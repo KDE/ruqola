@@ -56,7 +56,7 @@ void EmojiCustomDeleteJob::slotDeleteEmojiFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("DeleteEmojiCustomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeOwnerDone();
+            Q_EMIT emojiCustomDeleteDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("DeleteEmojiCustomJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

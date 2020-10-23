@@ -56,7 +56,7 @@ void ChannelRemoveOwnerJob::slotRemoveOwnerFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeOwnerDone();
+            Q_EMIT channelRemoveOwnerDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

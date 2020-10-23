@@ -1387,7 +1387,7 @@ void RestApiRequest::groupRemoveOwner(const QString &roomId, const QString &user
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     job->setRoomId(roomId);
-    connect(job, &GroupRemoveOwnerJob::removeOwnerDone, this, &RestApiRequest::removeOwnerDone);
+    connect(job, &GroupRemoveOwnerJob::groupRemoveOwnerDone, this, &RestApiRequest::channelRemoveOwnerDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveOwner";
     }
@@ -1477,7 +1477,7 @@ void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &us
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
-    connect(job, &ChannelRemoveOwnerJob::removeOwnerDone, this, &RestApiRequest::removeOwnerDone);
+    connect(job, &ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, &RestApiRequest::channelRemoveOwnerDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob";
     }

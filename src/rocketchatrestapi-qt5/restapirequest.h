@@ -245,7 +245,8 @@ Q_SIGNALS:
     void addLeaderDone();
     void removeLeaderDone();
     void addOwnerDone();
-    void removeOwnerDone();
+    void channelRemoveOwnerDone();
+    void groupRemoveOwnerDone();
     void deletechannelDone();
     void deleteGroupsDone();
     void pinMessageDone();

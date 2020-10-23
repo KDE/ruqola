@@ -46,7 +46,7 @@ public:
     void setRemoveUserId(const QString &removeUserId);
 
 Q_SIGNALS:
-    void removeOwnerDone();
+    void groupRemoveOwnerDone();
 
 private:
     Q_DISABLE_COPY(GroupRemoveOwnerJob)

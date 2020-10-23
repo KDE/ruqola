@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2019-2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,18 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELREMOVEOWNERJOB_H
-#define CHANNELREMOVEOWNERJOB_H
+#ifndef EMOJICUSTOMCREATEJOB_H
+#define EMOJICUSTOMCREATEJOB_H
 
+#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelRemoveOwnerJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT EmojiCustomCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit ChannelRemoveOwnerJob(QObject *parent = nullptr);
-    ~ChannelRemoveOwnerJob() override;
+    explicit EmojiCustomCreateJob(QObject *parent = nullptr);
+    ~EmojiCustomCreateJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -39,16 +39,16 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString removeUserId() const;
-    void setRemoveUserId(const QString &removeUserId);
+    Q_REQUIRED_RESULT QString emojiId() const;
+    void setEmojiId(const QString &emojiId);
 
 Q_SIGNALS:
-    void channelRemoveOwnerDone();
+    void emojiCustomCreateDone();
 
 private:
-    Q_DISABLE_COPY(ChannelRemoveOwnerJob)
-    void slotRemoveOwnerFinished();
-    QString mRemoveUserId;
+    Q_DISABLE_COPY(EmojiCustomCreateJob)
+    void slotEmojiCustomCreateFinished();
+    QString mEmojiId;
 };
 }
-#endif // CHANGECHANNELANNOUNCEMENT_H
+#endif // EMOJICUSTOMCREATEJOB_H

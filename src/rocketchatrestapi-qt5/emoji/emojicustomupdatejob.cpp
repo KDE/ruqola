@@ -18,37 +18,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "groupremoveownerjob.h"
+#include "emojicustomupdatejob.h"
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
-#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-GroupRemoveOwnerJob::GroupRemoveOwnerJob(QObject *parent)
+EmojiCustomUpdateJob::EmojiCustomUpdateJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GroupRemoveOwnerJob::~GroupRemoveOwnerJob()
+EmojiCustomUpdateJob::~EmojiCustomUpdateJob()
 {
 }
 
-bool GroupRemoveOwnerJob::start()
+bool EmojiCustomUpdateJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupRemoveOwnerJob::start");
+    addStartRestApiInfo("DeleteEmojiCustomJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupRemoveOwnerJob::slotRemoveOwnerFinished);
+    connect(reply, &QNetworkReply::finished, this, &EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished);
     return true;
 }
 
-void GroupRemoveOwnerJob::slotRemoveOwnerFinished()
+void EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -56,43 +55,36 @@ void GroupRemoveOwnerJob::slotRemoveOwnerFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GroupRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT groupRemoveOwnerDone();
+            addLoggerInfo(QByteArrayLiteral("DeleteEmojiCustomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT emojiCustomUpdateDone();
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GroupRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            if (replyObject[QStringLiteral("errorType")].toString() == QLatin1String("error-remove-last-owner")) {
-                Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));
-            }
+            addLoggerWarning(QByteArrayLiteral("DeleteEmojiCustomJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-QString GroupRemoveOwnerJob::removeUserId() const
+QString EmojiCustomUpdateJob::emojiId() const
 {
-    return mRemoveUserId;
+    return mEmojiId;
 }
 
-void GroupRemoveOwnerJob::setRemoveUserId(const QString &removeUserId)
+void EmojiCustomUpdateJob::setEmojiId(const QString &emojiId)
 {
-    mRemoveUserId = removeUserId;
+    mEmojiId = emojiId;
 }
 
-bool GroupRemoveOwnerJob::requireHttpAuthentication() const
+bool EmojiCustomUpdateJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool GroupRemoveOwnerJob::canStart() const
+bool EmojiCustomUpdateJob::canStart() const
 {
-    if (mRemoveUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveOwnerJob: remove userid is empty";
-        return false;
-    }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveOwnerJob: RoomId is empty";
+    if (mEmojiId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: remove mEmojiId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -101,29 +93,17 @@ bool GroupRemoveOwnerJob::canStart() const
     return true;
 }
 
-QJsonDocument GroupRemoveOwnerJob::json() const
+QJsonDocument EmojiCustomUpdateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("userId")] = removeUserId();
-
+    jsonObj[QLatin1String("emojiId")] = emojiId();
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString GroupRemoveOwnerJob::roomId() const
+QNetworkRequest EmojiCustomUpdateJob::request() const
 {
-    return mRoomId;
-}
-
-void GroupRemoveOwnerJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
-QNetworkRequest GroupRemoveOwnerJob::request() const
-{
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupRemoveOwner);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomUpdate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

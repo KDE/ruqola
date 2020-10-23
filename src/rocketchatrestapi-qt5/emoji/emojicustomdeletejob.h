@@ -43,7 +43,7 @@ public:
     void setEmojiId(const QString &emojiId);
 
 Q_SIGNALS:
-    void removeOwnerDone();
+    void emojiCustomDeleteDone();
 
 private:
     Q_DISABLE_COPY(EmojiCustomDeleteJob)
