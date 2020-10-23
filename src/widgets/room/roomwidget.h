@@ -54,6 +54,7 @@ public:
 
     void slotShowListOfUsersInRoom(bool checked);
     void setChannelSelected(const QString &roomId, const QString &roomType);
+    void storeRoomSettings();
 
 Q_SIGNALS:
     void selectChannelRequested(const QString &channelId);

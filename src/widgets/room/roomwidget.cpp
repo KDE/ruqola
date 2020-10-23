@@ -399,25 +399,31 @@ void RoomWidget::dropEvent(QDropEvent *event)
     }
 }
 
-void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomType)
+void RoomWidget::storeRoomSettings()
 {
-    if (mMessageLineWidget->text().isEmpty()) {
-        auto *vbar = mMessageListView->verticalScrollBar();
-        if (vbar->value() != vbar->maximum()) {
+    if (mCurrentRocketChatAccount) {
+        if (mMessageLineWidget->text().isEmpty()) {
+            auto *vbar = mMessageListView->verticalScrollBar();
+            if (vbar->value() != vbar->maximum()) {
+                AccountRoomSettings::PendingTypedInfo info;
+                info.scrollbarPosition = mMessageListView->verticalScrollBar()->value();
+                mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
+            } else {
+                mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomId);
+            }
+        } else {
             AccountRoomSettings::PendingTypedInfo info;
+            info.text = mMessageLineWidget->text();
+            info.messageIdBeingEdited = mMessageLineWidget->messageIdBeingEdited();
             info.scrollbarPosition = mMessageListView->verticalScrollBar()->value();
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
-        } else {
-            mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomId);
         }
-    } else {
-        AccountRoomSettings::PendingTypedInfo info;
-        info.text = mMessageLineWidget->text();
-        info.messageIdBeingEdited = mMessageLineWidget->messageIdBeingEdited();
-        info.scrollbarPosition = mMessageListView->verticalScrollBar()->value();
-        mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
     }
+}
 
+void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomType)
+{
+    storeRoomSettings();
     setRoomId(roomId);
     setRoomType(roomType);
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);

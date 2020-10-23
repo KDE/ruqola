@@ -108,6 +108,8 @@ QString RuqolaMainWidget::roomType() const
 
 void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    //Before switching rocketchataccount otherwise
+    mRoomWidget->storeRoomSettings();
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
     }
