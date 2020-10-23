@@ -177,7 +177,7 @@ DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     , m_uid(1)
     , mRocketChatMessage(new RocketChatMessage)
     , mRocketChatAccount(account)
-    , mAuthenticationManager(new DDPAuthenticationManager(this))
+    , mAuthenticationManager(new DDPAuthenticationManager(this, this))
 {
 }
 
