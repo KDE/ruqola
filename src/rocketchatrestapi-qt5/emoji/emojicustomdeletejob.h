@@ -18,18 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DELETEEMOJICUSTOMJOB_H
-#define DELETEEMOJICUSTOMJOB_H
+#ifndef EMOJICUSTOMDELETEJOB_H
+#define EMOJICUSTOMDELETEJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT DeleteEmojiCustomJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT EmojiCustomDeleteJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit DeleteEmojiCustomJob(QObject *parent = nullptr);
-    ~DeleteEmojiCustomJob() override;
+    explicit EmojiCustomDeleteJob(QObject *parent = nullptr);
+    ~EmojiCustomDeleteJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -46,9 +46,9 @@ Q_SIGNALS:
     void removeOwnerDone();
 
 private:
-    Q_DISABLE_COPY(DeleteEmojiCustomJob)
+    Q_DISABLE_COPY(EmojiCustomDeleteJob)
     void slotDeleteEmojiFinished();
     QString mEmojiId;
 };
 }
-#endif // DELETEEMOJICUSTOMJOB_H
+#endif // EMOJICUSTOMDELETEJOB_H

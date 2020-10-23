@@ -46,7 +46,7 @@ set (RocketChatRestApiQt_SRCS
     downloadfilejob.cpp
 
     emoji/loademojicustomjob.cpp
-    emoji/deleteemojicustomjob.cpp
+    emoji/emojicustomdeletejob.cpp
 
     chat/starmessagejob.cpp
     chat/syncthreadmessagesjob.cpp

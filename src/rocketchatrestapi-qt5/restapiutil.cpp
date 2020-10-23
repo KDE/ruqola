@@ -314,11 +314,11 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.members");
     case RestApiUtil::RestApiUrlType::LoadEmojiCustom:
         return QStringLiteral("emoji-custom.list");
-    case RestApiUtil::RestApiUrlType::DeleteEmojiCustom:
+    case RestApiUtil::RestApiUrlType::EmojiCustomDelete:
         return QStringLiteral("emoji-custom.delete");
-    case RestApiUtil::RestApiUrlType::CreateEmojiCustom:
+    case RestApiUtil::RestApiUrlType::EmojiCustomCreate:
         return QStringLiteral("emoji-custom.create");
-    case RestApiUtil::RestApiUrlType::UpdateEmojiCustom:
+    case RestApiUtil::RestApiUrlType::EmojiCustomUpdate:
         return QStringLiteral("emoji-custom.update");
     case RestApiUtil::RestApiUrlType::SubscriptionsRead:
         return QStringLiteral("subscriptions.read");

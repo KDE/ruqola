@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DELETEEMOJICUSTOMJOBTEST_H
-#define DELETEEMOJICUSTOMJOBTEST_H
+#ifndef EmojiCustomDeleteJobTest_H
+#define EmojiCustomDeleteJobTest_H
 
 #include <QObject>
 
-class DeleteEmojiCustomJobTest : public QObject
+class EmojiCustomDeleteJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit DeleteEmojiCustomJobTest(QObject *parent = nullptr);
-    ~DeleteEmojiCustomJobTest() override = default;
+    explicit EmojiCustomDeleteJobTest(QObject *parent = nullptr);
+    ~EmojiCustomDeleteJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
     void shouldGenerateJson();
 };
 
-#endif // DELETEEMOJICUSTOMJOBTEST_H
+#endif // EmojiCustomDeleteJobTest_H

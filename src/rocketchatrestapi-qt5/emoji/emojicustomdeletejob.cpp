@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "deleteemojicustomjob.h"
+#include "emojicustomdeletejob.h"
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
@@ -26,16 +26,16 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-DeleteEmojiCustomJob::DeleteEmojiCustomJob(QObject *parent)
+EmojiCustomDeleteJob::EmojiCustomDeleteJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-DeleteEmojiCustomJob::~DeleteEmojiCustomJob()
+EmojiCustomDeleteJob::~EmojiCustomDeleteJob()
 {
 }
 
-bool DeleteEmojiCustomJob::start()
+bool EmojiCustomDeleteJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -43,11 +43,11 @@ bool DeleteEmojiCustomJob::start()
     }
     addStartRestApiInfo("DeleteEmojiCustomJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &DeleteEmojiCustomJob::slotDeleteEmojiFinished);
+    connect(reply, &QNetworkReply::finished, this, &EmojiCustomDeleteJob::slotDeleteEmojiFinished);
     return true;
 }
 
-void DeleteEmojiCustomJob::slotDeleteEmojiFinished()
+void EmojiCustomDeleteJob::slotDeleteEmojiFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -66,22 +66,22 @@ void DeleteEmojiCustomJob::slotDeleteEmojiFinished()
     deleteLater();
 }
 
-QString DeleteEmojiCustomJob::emojiId() const
+QString EmojiCustomDeleteJob::emojiId() const
 {
     return mEmojiId;
 }
 
-void DeleteEmojiCustomJob::setEmojiId(const QString &emojiId)
+void EmojiCustomDeleteJob::setEmojiId(const QString &emojiId)
 {
     mEmojiId = emojiId;
 }
 
-bool DeleteEmojiCustomJob::requireHttpAuthentication() const
+bool EmojiCustomDeleteJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool DeleteEmojiCustomJob::canStart() const
+bool EmojiCustomDeleteJob::canStart() const
 {
     if (mEmojiId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: remove mEmojiId is empty";
@@ -93,7 +93,7 @@ bool DeleteEmojiCustomJob::canStart() const
     return true;
 }
 
-QJsonDocument DeleteEmojiCustomJob::json() const
+QJsonDocument EmojiCustomDeleteJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("emojiId")] = emojiId();
@@ -101,9 +101,9 @@ QJsonDocument DeleteEmojiCustomJob::json() const
     return postData;
 }
 
-QNetworkRequest DeleteEmojiCustomJob::request() const
+QNetworkRequest EmojiCustomDeleteJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::DeleteEmojiCustom);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomDelete);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

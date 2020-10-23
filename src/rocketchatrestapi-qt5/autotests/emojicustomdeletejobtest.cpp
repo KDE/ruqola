@@ -18,38 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "deleteemojicustomjobtest.h"
-#include "emoji/deleteemojicustomjob.h"
+#include "emojicustomdeletejobtest.h"
+#include "emoji/emojicustomdeletejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
-QTEST_GUILESS_MAIN(DeleteEmojiCustomJobTest)
+QTEST_GUILESS_MAIN(EmojiCustomDeleteJobTest)
 using namespace RocketChatRestApi;
-DeleteEmojiCustomJobTest::DeleteEmojiCustomJobTest(QObject *parent)
+EmojiCustomDeleteJobTest::EmojiCustomDeleteJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void DeleteEmojiCustomJobTest::shouldHaveDefaultValue()
+void EmojiCustomDeleteJobTest::shouldHaveDefaultValue()
 {
-    DeleteEmojiCustomJob job;
+    EmojiCustomDeleteJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.emojiId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void DeleteEmojiCustomJobTest::shouldGenerateRequest()
+void EmojiCustomDeleteJobTest::shouldGenerateRequest()
 {
-    DeleteEmojiCustomJob job;
+    EmojiCustomDeleteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.delete")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void DeleteEmojiCustomJobTest::shouldGenerateJson()
+void EmojiCustomDeleteJobTest::shouldGenerateJson()
 {
-    DeleteEmojiCustomJob job;
+    EmojiCustomDeleteJob job;
     const QString emojiId = QStringLiteral("foo1");
     job.setEmojiId(emojiId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"emojiId\":\"%1\"}").arg(emojiId).toLatin1());
