@@ -704,7 +704,7 @@ void DDPClient::onWSclosed()
 {
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (!normalClose) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED" << mWebSocket->closeReason() << mWebSocket->error() << mWebSocket->closeCode();
+        qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error() << " close code : " <<mWebSocket->closeCode();
     }
 
     if (normalClose) {
