@@ -83,7 +83,7 @@ public:
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
-    void userIDChanged();
+    void userIdChanged();
     void accountNameChanged();
     void passwordChanged();
     void twoFactorAuthenticationCodeChanged();

@@ -104,7 +104,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
 {
     RocketChatAccountSettings SampleChat1;
 
-    QSignalSpy SpyID(&SampleChat1, &RocketChatAccountSettings::userIDChanged);
+    QSignalSpy SpyID(&SampleChat1, &RocketChatAccountSettings::userIdChanged);
     const QString userId = QStringLiteral("RA15");
     QVERIFY(userId != SampleChat1.userId());
     SampleChat1.setUserId(QStringLiteral("RA15"));

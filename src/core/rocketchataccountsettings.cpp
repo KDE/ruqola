@@ -184,7 +184,7 @@ void RocketChatAccountSettings::setUserId(const QString &userId)
     mUserId = userId;
     mSetting->setValue(QStringLiteral("userID"), userId);
     mSetting->sync();
-    Q_EMIT userIDChanged();
+    Q_EMIT userIdChanged();
 }
 
 QString RocketChatAccountSettings::authToken() const

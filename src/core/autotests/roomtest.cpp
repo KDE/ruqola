@@ -274,7 +274,7 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonObject fields = doc.object();
 
     RocketChatAccount account;
-    account.setUserID(QStringLiteral("uKK39zoewTkdacidH"));
+    account.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
     Room r(&account);
     r.parseSubscriptionRoom(fields);
 

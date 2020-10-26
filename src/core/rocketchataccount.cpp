@@ -219,7 +219,7 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
     delete mSettings;
     mSettings = new RocketChatAccountSettings(accountFileName, this);
     connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
-    connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
+    connect(mSettings, &RocketChatAccountSettings::userIdChanged, this, &RocketChatAccount::userIdChanged);
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
     connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
 }
@@ -1502,7 +1502,7 @@ bool RocketChatAccount::accountEnabled() const
     return settings()->accountEnabled();
 }
 
-void RocketChatAccount::setUserID(const QString &userID)
+void RocketChatAccount::setUserId(const QString &userID)
 {
     settings()->setUserId(userID);
 }
