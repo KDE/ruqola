@@ -82,7 +82,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
                                      QPoint(DelegatePaintUtil::margin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));
 
     // Draw delete icon (for our own messages)
-    if (file->userId() == Ruqola::self()->rocketChatAccount()->userID()) {
+    if (file->userId() == Ruqola::self()->rocketChatAccount()->userId()) {
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
     }
 
@@ -113,7 +113,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             }
             return true;
         }
-        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userID())) {
+        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userId())) {
             QWidget *parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::Yes == KMessageBox::questionYesNo(parentWidget, i18n("Do you want to Delete this File?"), i18n("Delete File"))) {
                 const QString fileId = file->fileId();

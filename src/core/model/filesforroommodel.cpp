@@ -138,7 +138,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     case Description:
         return file.description();
     case CanBeDeleted:
-        return mRochetChantAccount->userID() == file.userId();
+        return mRochetChantAccount->userId() == file.userId();
     case FileId:
         return file.fileId();
     case TimeStamp:

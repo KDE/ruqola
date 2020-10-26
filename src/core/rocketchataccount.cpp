@@ -711,7 +711,8 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
         break;
     }
     mPresenceStatus = status;
-    restApi()->setUserStatus(userID(), type, messageStatus);
+    qDebug() << "RocketChatAccount::setDefaultStatus  " << messageStatus;
+    restApi()->setUserStatus(userId(), type, messageStatus);
 }
 
 void RocketChatAccount::changeDefaultStatus(int index, const QString &messageStatus)
@@ -1456,7 +1457,7 @@ void RocketChatAccount::setDisplayName(const QString &displayName)
     settings()->setDisplayName(displayName);
 }
 
-QString RocketChatAccount::userID() const
+QString RocketChatAccount::userId() const
 {
     return settings()->userId();
 }
@@ -1799,7 +1800,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (!allowEditingMessages()) {
         return false;
     }
-    if (message.userId() != userID()) {
+    if (message.userId() != userId()) {
         return false;
     }
     return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000)
@@ -1811,7 +1812,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     if (!allowMessageDeletingEnabled()) {
         return false;
     }
-    if (message.userId() != userID()) {
+    if (message.userId() != userId()) {
         return false;
     }
     return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000)
@@ -1875,9 +1876,10 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
 
 void RocketChatAccount::userStatusChanged(const User &user)
 {
-    if (user.userId() == userID()) {
+    if (user.userId() == userId()) {
         mPresenceStatus = Utils::presenceStatusFromString(user.status());
         statusModel()->setCurrentPresenceStatus(mPresenceStatus);
+        //TODO customText!
         Q_EMIT userStatusUpdated(mPresenceStatus, accountName());
     }
     if (!hasOldSubscriptionSupport()) {
@@ -1899,11 +1901,11 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     } else {
         //qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
 
-        const QString userId = Utils::userIdFromDirectChannel(rid, userID());
+        const QString userIdFromDirectChannel = Utils::userIdFromDirectChannel(rid, userId());
         if (block) {
-            ddp()->blockUser(rid, userId);
+            ddp()->blockUser(rid, userIdFromDirectChannel);
         } else {
-            ddp()->unBlockUser(rid, userId);
+            ddp()->unBlockUser(rid, userIdFromDirectChannel);
         }
     }
 }

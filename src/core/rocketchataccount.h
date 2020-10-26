@@ -92,7 +92,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
-    Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
+    Q_PROPERTY(QString userId READ userId WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
     Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
@@ -317,7 +317,7 @@ public:
     Q_REQUIRED_RESULT QString accountName() const;
 
     void setUserID(const QString &userID);
-    Q_REQUIRED_RESULT QString userID() const;
+    Q_REQUIRED_RESULT QString userId() const;
 
     void setPassword(const QString &password);
     Q_REQUIRED_RESULT QString password() const;
