@@ -19,6 +19,7 @@
 */
 
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
+#include "customsounds/administratorcustomsoundswidget.h"
 #include "administratorroomswidget.h"
 #include "administratorwidget.h"
 #include <KLocalizedString>
@@ -29,6 +30,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     : QWidget(parent)
     , mAdministratorRoomsWidget(new AdministratorRoomsWidget(this))
     , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(this))
+    , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(this))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -43,6 +45,9 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
     mAdministratorCustomUserStatusWidget->setObjectName(QStringLiteral("mAdministratorCustomUserStatusWidget"));
     mTabWidget->addTab(mAdministratorCustomUserStatusWidget, i18n("Custom User Status"));
+
+    mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
+    mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 }
 
 AdministratorWidget::~AdministratorWidget()
