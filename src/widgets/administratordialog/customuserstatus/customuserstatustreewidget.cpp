@@ -32,12 +32,10 @@
 CustomUserStatusTreeWidgetItem::CustomUserStatusTreeWidgetItem(QTreeWidget *parent)
     : QTreeWidgetItem(parent)
 {
-
 }
 
 CustomUserStatusTreeWidgetItem::~CustomUserStatusTreeWidgetItem()
 {
-
 }
 
 CustomUserStatus CustomUserStatusTreeWidgetItem::userStatus() const
@@ -68,7 +66,6 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
 
 CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
 {
-
 }
 
 void CustomUserStatusTreeWidget::initialize()
@@ -119,7 +116,6 @@ void CustomUserStatusTreeWidget::editClicked()
         Ruqola::self()->rocketChatAccount()->updateCustomUserStatus(statusUpdateInfo);
     }
     delete dlg;
-
 }
 
 void CustomUserStatusTreeWidget::removeClicked()
@@ -145,5 +141,4 @@ void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &po
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
     }
     menu.exec(viewport()->mapToGlobal(pos));
-
 }

@@ -34,7 +34,8 @@ public:
     struct UserStatusInfo {
         QString name;
         User::PresenceStatus statusType;
-        Q_REQUIRED_RESULT bool isValid() const {
+        Q_REQUIRED_RESULT bool isValid() const
+        {
             return !name.isEmpty() && statusType != User::PresenceStatus::Unknown;
         }
     };

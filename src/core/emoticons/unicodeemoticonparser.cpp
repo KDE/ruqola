@@ -35,18 +35,20 @@ UnicodeEmoticonParser::~UnicodeEmoticonParser()
 QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {
     auto aliases = [](const QJsonArray &alternates, const QJsonArray &ascii)
-    {
-        QStringList ret;
-        ret.reserve(alternates.size() + ascii.size());
-        auto convert = [&](const QJsonArray &array) {
-            auto toString = [](const QJsonValue &value) { return value.toString(); };
-            std::transform(array.begin(), array.end(),
-                           std::back_inserter(ret), toString);
-        };
-        convert(alternates);
-        convert(ascii);
-        return ret;
-    };
+                   {
+                       QStringList ret;
+                       ret.reserve(alternates.size() + ascii.size());
+                       auto convert = [&](const QJsonArray &array) {
+                                          auto toString = [](const QJsonValue &value) {
+                                                              return value.toString();
+                                                          };
+                                          std::transform(array.begin(), array.end(),
+                                                         std::back_inserter(ret), toString);
+                                      };
+                       convert(alternates);
+                       convert(ascii);
+                       return ret;
+                   };
 
     QVector<UnicodeEmoticon> lstEmoticons;
     const QStringList keys = o.keys();

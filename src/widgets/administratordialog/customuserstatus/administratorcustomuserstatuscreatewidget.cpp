@@ -64,4 +64,3 @@ void AdministratorCustomUserStatusCreateWidget::setUserStatusInfo(const Administ
     mName->setText(info.name);
     mStatusCombobox->setStatus(info.statusType);
 }
-

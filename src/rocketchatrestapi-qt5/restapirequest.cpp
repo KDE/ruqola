@@ -145,7 +145,6 @@
 #include "custom/customuserstatuslistjob.h"
 #include "custom/customuserstatusdeletejob.h"
 
-
 #include "2fa/user2fasendemailcodejob.h"
 #include "2fa/user2faenableemailjob.h"
 #include "2fa/user2fadisableemailjob.h"

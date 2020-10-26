@@ -20,7 +20,6 @@
 
 #include "messageattachmentfield.h"
 
-
 MessageAttachmentField::MessageAttachmentField()
 {
 }

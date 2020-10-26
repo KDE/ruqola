@@ -26,7 +26,6 @@ QTEST_MAIN(CustomUserStatusTreeWidgetTest)
 CustomUserStatusTreeWidgetTest::CustomUserStatusTreeWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CustomUserStatusTreeWidgetTest::shouldHaveDefaultValues()

@@ -20,7 +20,6 @@
 
 #include "administratorcustomuserstatuscreatedialog.h"
 
-
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>

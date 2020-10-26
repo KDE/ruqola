@@ -21,7 +21,6 @@
 #include "administratorcustomuserstatuswidget.h"
 #include "customuserstatustreewidget.h"
 
-
 #include <QHBoxLayout>
 #include <QTreeWidget>
 #include <KLocalizedString>

@@ -85,8 +85,9 @@ void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
     for (const auto &emoticon : emoticons) {
         mRows.append({row, -1});
         const auto numAliases = emoticon.aliases().size();
-        for (int i = 0; i < numAliases; ++i)
+        for (int i = 0; i < numAliases; ++i) {
             mRows.append({row, i});
+        }
         ++row;
     }
     endResetModel();

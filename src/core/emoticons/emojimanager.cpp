@@ -176,20 +176,21 @@ void EmojiManager::replaceEmojis(QString *str)
         stream << commonPattern;
 
         auto addEmoji = [&](const QString &string) {
-            if (common.match(string).hasMatch())
-                return;
-            stream << '|';
-            stream << QRegularExpression::escape(string);
-        };
+                            if (common.match(string).hasMatch()) {
+                                return;
+                            }
+                            stream << '|';
+                            stream << QRegularExpression::escape(string);
+                        };
         auto addEmojis = [&](const auto &emojis) {
-            for (const auto &emoji : emojis) {
-                addEmoji(emoji.identifier());
-                const auto aliases = emoji.aliases();
-                for (const auto &alias : aliases) {
-                    addEmoji(alias);
-                }
-            }
-        };
+                             for (const auto &emoji : emojis) {
+                                 addEmoji(emoji.identifier());
+                                 const auto aliases = emoji.aliases();
+                                 for (const auto &alias : aliases) {
+                                     addEmoji(alias);
+                                 }
+                             }
+                         };
 
         addEmojis(mCustomEmojiList);
         addEmojis(unicodeEmojiList());
