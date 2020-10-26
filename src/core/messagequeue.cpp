@@ -128,9 +128,9 @@ void MessageQueue::processQueue()
 {
     //can be optimized using single shot timer
     while (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
-        QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
-        QString method = pair.first;
-        QJsonDocument params = pair.second;
+        const QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
+        const QString method = pair.first;
+        const QJsonDocument params = pair.second;
         mRocketChatAccount->ddp()->method(method, params);
     }
 }
