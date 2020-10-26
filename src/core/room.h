@@ -373,6 +373,7 @@ private:
 
     QStringList mDisplaySystemMessageType;
     ChannelCounterInfo mChannelCounterInfo;
+    mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;

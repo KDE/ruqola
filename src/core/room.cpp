@@ -771,12 +771,16 @@ void Room::setUids(const QStringList &uids)
 {
     if (mUids != uids) {
         mUids = uids;
+        mCurrentAvatarInfo = {};
         Q_EMIT uidsChanged();
     }
 }
 
 Utils::AvatarInfo Room::avatarInfo() const
 {
+    if (mCurrentAvatarInfo.isValid()) {
+        return mCurrentAvatarInfo;
+    }
     //TODO direct channel or group channel
     Utils::AvatarInfo info;
     info.etag = mAvatarETag;
@@ -804,7 +808,8 @@ Utils::AvatarInfo Room::avatarInfo() const
         info.avatarType = Utils::AvatarType::Room;
         info.identifier = mRoomId;
     }
-    return info;
+    mCurrentAvatarInfo = info;
+    return mCurrentAvatarInfo;
 }
 
 QString Room::avatarETag() const
@@ -816,6 +821,7 @@ void Room::setAvatarETag(const QString &avatarETag)
 {
     if (mAvatarETag != avatarETag) {
         mAvatarETag = avatarETag;
+        mCurrentAvatarInfo = {};
         Q_EMIT avatarETagChanged();
     }
 }
