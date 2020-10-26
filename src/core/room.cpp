@@ -789,6 +789,17 @@ Utils::AvatarInfo Room::avatarInfo() const
         identifier.prepend(QString::number(mUids.count()));
         info.avatarType = Utils::AvatarType::User;
         info.identifier = identifier;
+    } else if (mUids.count() == 2) {
+        info.avatarType = Utils::AvatarType::User;
+        if (mRocketChatAccount) {
+            QString otherUserName;
+            for (const QString &userName : mUserNames) {
+                if (userName != mRocketChatAccount->userName()) {
+                    otherUserName = userName;
+                }
+            }
+            info.identifier = otherUserName;
+        }
     } else {
         info.avatarType = Utils::AvatarType::Room;
         info.identifier = mRoomId;
