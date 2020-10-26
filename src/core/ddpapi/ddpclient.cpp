@@ -85,13 +85,6 @@ void process_backlog(const QJsonObject &root, RocketChatAccount *account)
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true);
 }
 
-void change_notifications_settings(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Notifications Settings:") + QJsonDocument(root).toJson());
-    }
-}
-
 void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -140,35 +133,6 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Empty call back :") + QJsonDocument(obj).toJson());
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "empty_callback "<< obj;
-    }
-}
-
-void login_result(const QJsonObject &obj, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Login result: ") + QJsonDocument(obj).toJson());
-    } else {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "Login result: "<< obj;
-    }
-
-    const QJsonObject result = obj.value(QLatin1String("result")).toObject();
-    //qDebug() << " result token " << result[QStringLiteral("token")].toString();
-    const qint64 tokenExpires = Utils::parseDate(QStringLiteral("tokenExpires"), result);
-    //qDebug() << " result tokenExpires " << tokenExpires;
-    account->settings()->setExpireToken(tokenExpires);
-}
-
-void create_channel(const QJsonObject &root, RocketChatAccount *account)
-{
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    if (!obj.isEmpty()) {
-        const QString rid = obj.value(QLatin1String("rid")).toString();
-        if (!rid.isEmpty()) {
-            account->joinRoom(rid);
-        }
-        if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("create Channel :") + QJsonDocument(root).toJson());
-        }
     }
 }
 
