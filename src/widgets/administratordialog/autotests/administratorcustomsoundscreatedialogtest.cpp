@@ -19,18 +19,18 @@
 */
 
 
-#include "administratorcustomsoundscreatewidget.h"
-#include <QFormLayout>
-
-AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWidget *parent)
-    : QWidget(parent)
+#include "administratorcustomsoundscreatedialogtest.h"
+#include "administratordialog/customsounds/administratorcustomsoundscreatedialog.h"
+#include <QTest>
+QTEST_MAIN(AdministratorCustomSoundsCreateDialogTest)
+AdministratorCustomSoundsCreateDialogTest::AdministratorCustomSoundsCreateDialogTest(QObject *parent)
+    : QObject(parent)
 {
-    QFormLayout *mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+
 }
 
-AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()
+void AdministratorCustomSoundsCreateDialogTest::shouldHaveDefaultValues()
 {
-
+    AdministratorCustomSoundsCreateDialog d;
+    //TODO
 }

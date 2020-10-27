@@ -18,19 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H
+#define ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H
 
-#include "administratorcustomsoundscreatewidget.h"
-#include <QFormLayout>
+#include <QObject>
 
-AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWidget *parent)
-    : QWidget(parent)
+class AdministratorCustomSoundsCreateDialogTest : public QObject
 {
-    QFormLayout *mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-}
+    Q_OBJECT
+public:
+    explicit AdministratorCustomSoundsCreateDialogTest(QObject *parent = nullptr);
+    ~AdministratorCustomSoundsCreateDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 
-AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()
-{
+};
 
-}
+#endif // ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H
