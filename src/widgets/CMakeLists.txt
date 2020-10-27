@@ -196,6 +196,7 @@ set(Ruqola_administrator_SRCS
 
     administratordialog/customsounds/administratorcustomsoundswidget.cpp
     administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp
+    administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets

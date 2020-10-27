@@ -18,25 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMSOUNDSCREATEDIALOG_H
-#define ADMINISTRATORCUSTOMSOUNDSCREATEDIALOG_H
 
-#include <QDialog>
-#include <QObject>
+#ifndef ADMINISTRATORCUSTOMSOUNDSCREATEWIDGET_H
+#define ADMINISTRATORCUSTOMSOUNDSCREATEWIDGET_H
+
+#include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class AdministratorCustomSoundsCreateWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorCustomSoundsCreateDialog(QWidget *parent = nullptr);
-    ~AdministratorCustomSoundsCreateDialog();
-
-private:
-    void readConfig();
-    void writeConfig();
-    AdministratorCustomSoundsCreateWidget *const mCreateWidget;
+    explicit AdministratorCustomSoundsCreateWidget(QWidget *parent = nullptr);
+    ~AdministratorCustomSoundsCreateWidget();
 };
 
-#endif // ADMINISTRATORCUSTOMSOUNDSCREATEDIALOG_H
+#endif // ADMINISTRATORCUSTOMSOUNDSCREATEWIDGET_H
