@@ -21,16 +21,29 @@
 
 #include "administratorcustomsoundscreatedialogtest.h"
 #include "administratordialog/customsounds/administratorcustomsoundscreatedialog.h"
+#include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
+#include <QStandardPaths>
+
 QTEST_MAIN(AdministratorCustomSoundsCreateDialogTest)
 AdministratorCustomSoundsCreateDialogTest::AdministratorCustomSoundsCreateDialogTest(QObject *parent)
     : QObject(parent)
 {
-
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AdministratorCustomSoundsCreateDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomSoundsCreateDialog d;
-    //TODO
+    AdministratorCustomSoundsCreateDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto *mCreateWidget = w.findChild<AdministratorCustomSoundsCreateWidget *>(QStringLiteral("mCreateWidget"));
+    QVERIFY(mCreateWidget);
+
+    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(buttonBox);
 }
