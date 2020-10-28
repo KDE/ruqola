@@ -144,10 +144,10 @@ void DirectChannelInfoWidget::setUser(const User &user)
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
     //TODO use i18n ?
-    if (user.roles().isEmpty()) {
+    if (user.i18nRoles().isEmpty()) {
         hideWidget(mRoles);
     } else {
-        mRoles->setText(user.roles().join(QStringLiteral(", ")));
+        mRoles->setText(user.i18nRoles().join(QStringLiteral(", ")));
     }
 
     if (user.createdAt().isValid()) {

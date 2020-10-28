@@ -99,6 +99,8 @@ public:
     Q_REQUIRED_RESULT UserEmailsInfo userEmailsInfo() const;
     void setUserEmailsInfo(const UserEmailsInfo &userEmailsInfo);
 
+    Q_REQUIRED_RESULT QStringList i18nRoles() const;
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -110,6 +112,7 @@ private:
     QString mUserName;
     QString mStatusText;
     QStringList mRoles;
+    QStringList mI18nRoles;
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(User)

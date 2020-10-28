@@ -22,6 +22,8 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -210,6 +212,19 @@ QStringList User::roles() const
 
 void User::setRoles(const QStringList &roles)
 {
+    qDebug() <<"void User::setRoles(const QStringList &roles) " << roles;
+    QStringList rolesI18n;
+    rolesI18n.reserve(roles.count());
+    for (const QString &role : roles) {
+        if (role == QLatin1String("user")) {
+            rolesI18n << i18n("User");
+        } else if (role == QLatin1String("admin")) {
+            rolesI18n << i18n("Administrator");
+        } else {
+            rolesI18n << role;
+        }
+    }
+    mI18nRoles = rolesI18n;
     mRoles = roles;
 }
 
@@ -241,6 +256,11 @@ User::UserEmailsInfo User::userEmailsInfo() const
 void User::setUserEmailsInfo(const UserEmailsInfo &userEmailsInfo)
 {
     mUserEmailsInfo = userEmailsInfo;
+}
+
+QStringList User::i18nRoles() const
+{
+    return mI18nRoles;
 }
 
 void User::parseUser(const QJsonObject &object)
