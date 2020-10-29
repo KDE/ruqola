@@ -2317,5 +2317,3 @@ void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
     //TODO
 
 }
-
-void RocketChatAccount::addMessage
