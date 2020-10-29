@@ -442,6 +442,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelListDone, this, &RocketChatAccount::slotChannelListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
 
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::ThreadsMessages);
@@ -2309,3 +2310,12 @@ void RocketChatAccount::createCustomUserStatus(const RocketChatRestApi::CustomUs
 {
     restApi()->createCustomUserStatus(statusCreateInfo);
 }
+
+void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
+{
+    qDebug() << "replyObject " << replyObject;
+    //TODO
+
+}
+
+void RocketChatAccount::addMessage

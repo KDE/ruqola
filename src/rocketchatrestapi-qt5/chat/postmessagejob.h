@@ -45,7 +45,7 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
-    void postMessageDone();
+    void postMessageDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(PostMessageJob)

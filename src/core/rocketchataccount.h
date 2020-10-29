@@ -540,6 +540,7 @@ private:
     void slotRoomNeedAttention();
     void slotMarkAsReadDone(const QString &roomId);
     void slotCustomUserStatusDone(const QJsonObject &customList);
+    void slotPostMessageDone(const QJsonObject &replyObject);
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

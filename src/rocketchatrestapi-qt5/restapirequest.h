@@ -291,6 +291,7 @@ Q_SIGNALS:
     void createUserStatusDone();
     void userStatusDeletedDone();
     void customUserUpdateDone();
+    void postMessageDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

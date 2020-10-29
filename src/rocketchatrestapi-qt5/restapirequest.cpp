@@ -530,6 +530,7 @@ void RestApiRequest::changeGroupsDescription(const QString &roomId, const QStrin
 void RestApiRequest::postMessage(const QString &roomId, const QString &text)
 {
     auto *job = new PostMessageJob(this);
+    connect(job, &PostMessageJob::postMessageDone, this, &RestApiRequest::postMessageDone);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setText(text);
