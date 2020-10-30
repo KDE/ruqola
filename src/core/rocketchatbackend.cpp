@@ -437,7 +437,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             const QJsonArray lst = fields.value(QLatin1String("args")).toArray();
             const QJsonObject roomData = lst[0].toObject();
-            QString roomId = roomData.value(QLatin1String("rid")).toString();
+            const QString roomId = roomData.value(QLatin1String("rid")).toString();
             if (!roomId.isEmpty()) {
                 MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
                 Message m(mRocketChatAccount->emojiManager());
