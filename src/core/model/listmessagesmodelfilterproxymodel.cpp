@@ -45,14 +45,6 @@ int ListMessagesModelFilterProxyModel::total() const
     return mModel->total();
 }
 
-QHash<int, QByteArray> ListMessagesModelFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void ListMessagesModelFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);

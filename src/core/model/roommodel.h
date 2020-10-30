@@ -104,8 +104,6 @@ public:
 
     MessageModel *messageModel(const QString &roomId) const;
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     Q_REQUIRED_RESULT QString inputMessage(const QString &roomId) const;
     void setInputMessage(const QString &roomId, const QString &inputMessage);
     Q_REQUIRED_RESULT Room *findRoom(const QString &roomID) const;

@@ -34,11 +34,6 @@ void NotificationDesktopDurationPreferenceModelTest::shouldHaveDefaultValue()
     NotificationDesktopDurationPreferenceModel w;
     QCOMPARE(w.rowCount(), 6);
 
-    QHash<int, QByteArray> roles;
-    roles[NotificationDesktopDurationPreferenceModel::NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
-    roles[NotificationDesktopDurationPreferenceModel::NotificationPreference] = QByteArrayLiteral("preference");
-
-    QCOMPARE(w.roleNames(), roles);
     //FIXME QCOMPARE(w.currentPreference(), 0);
 }
 

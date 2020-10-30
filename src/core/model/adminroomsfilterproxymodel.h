@@ -41,7 +41,6 @@ public:
     explicit AdminRoomsFilterProxyModel(AdminRoomsModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     void setFilterString(const QString &string);
     void clearFilter();
 

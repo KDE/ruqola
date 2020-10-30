@@ -55,14 +55,6 @@ QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index,
     return {};
 }
 
-QHash<int, QByteArray> NotificationDesktopSoundPreferenceModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
-    roles[NotificationPreference] = QByteArrayLiteral("preference");
-    return roles;
-}
-
 void NotificationDesktopSoundPreferenceModel::fillModel()
 {
     mNotificationDestktopSoundPreferenceList.reserve(8);

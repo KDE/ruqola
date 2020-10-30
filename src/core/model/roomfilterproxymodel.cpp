@@ -51,14 +51,6 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
     return false;
 }
 
-QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void RoomFilterProxyModel::setFilterString(const QString &string)
 {
     mFilterString = string;

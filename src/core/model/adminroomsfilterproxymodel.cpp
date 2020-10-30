@@ -33,14 +33,6 @@ AdminRoomsFilterProxyModel::~AdminRoomsFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> AdminRoomsFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void AdminRoomsFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);

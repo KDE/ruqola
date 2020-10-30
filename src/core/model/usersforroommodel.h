@@ -52,8 +52,6 @@ public:
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);
     void setUserStatusChanged(const User &newuser);
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 

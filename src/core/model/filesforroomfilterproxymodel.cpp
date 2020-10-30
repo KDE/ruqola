@@ -42,14 +42,6 @@ FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> FilesForRoomFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);

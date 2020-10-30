@@ -38,10 +38,4 @@ void RocketChatAccountFilterProxyModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.sourceModel());
     QCOMPARE(w.sourceModel(), &sourceModel);
-
-    QHash<int, QByteArray> roles;
-    roles[RocketChatAccountModel::Name] = QByteArrayLiteral("name");
-    roles[RocketChatAccountModel::SiteUrl] = QByteArrayLiteral("siteurl");
-    roles[RocketChatAccountModel::UserName] = QByteArrayLiteral("username");
-    QCOMPARE(w.roleNames(), roles);
 }

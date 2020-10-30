@@ -44,7 +44,6 @@ public:
 
     void insertAccount(RocketChatAccount *account);
     void removeAccount(const QString &name);
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     void clear();
 

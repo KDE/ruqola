@@ -47,15 +47,6 @@ User::PresenceStatus StatusModel::status(int index) const
     return mStatusList.at(index).status;
 }
 
-QHash<int, QByteArray> StatusModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[StatusI18n] = QByteArrayLiteral("statusi18n");
-    roles[Status] = QByteArrayLiteral("status");
-    roles[Icon] = QByteArrayLiteral("icon");
-    return roles;
-}
-
 void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
 {
     int newStatusIndex = 0;

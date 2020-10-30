@@ -34,14 +34,6 @@ UserCompleterFilterProxyModel::~UserCompleterFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> UserCompleterFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void UserCompleterFilterProxyModel::clear()
 {
     static_cast<UserCompleterModel *>(sourceModel())->clear();

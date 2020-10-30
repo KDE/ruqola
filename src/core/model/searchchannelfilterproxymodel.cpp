@@ -34,14 +34,6 @@ SearchChannelFilterProxyModel::~SearchChannelFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> SearchChannelFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 bool SearchChannelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {

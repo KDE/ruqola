@@ -155,23 +155,6 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> FilesForRoomModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[FileName] = QByteArrayLiteral("filename");
-    roles[UserId] = QByteArrayLiteral("userid");
-    roles[MimeType] = QByteArrayLiteral("mimetype");
-    roles[Url] = QByteArrayLiteral("url");
-    roles[Description] = QByteArrayLiteral("description");
-    roles[CanBeDeleted] = QByteArrayLiteral("canbedeleted");
-    roles[FileId] = QByteArrayLiteral("fileid");
-    roles[TimeStamp] = QByteArrayLiteral("timestamp");
-    roles[UserName] = QByteArrayLiteral("username");
-    roles[Complete] = QByteArrayLiteral("complete");
-    roles[TypeGroup] = QByteArrayLiteral("typegroup");
-    return roles;
-}
-
 FileAttachments *FilesForRoomModel::fileAttachments() const
 {
     return mFileAttachments;

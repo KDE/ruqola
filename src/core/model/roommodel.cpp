@@ -121,35 +121,6 @@ void RoomModel::reset()
     */
 }
 
-QHash<int, QByteArray> RoomModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[RoomName] = QByteArrayLiteral("name");
-    roles[RoomFName] = QByteArrayLiteral("fname");
-    roles[RoomId] = QByteArrayLiteral("room_id");
-    roles[RoomSelected] = QByteArrayLiteral("selected");
-    roles[RoomUnread] = QByteArrayLiteral("unread");
-    roles[RoomType] = QByteArrayLiteral("type");
-    roles[RoomOwnerUserName] = QByteArrayLiteral("username");
-    roles[RoomOwnerUserId] = QByteArrayLiteral("userID");
-    roles[RoomTopic] = QByteArrayLiteral("topic");
-    roles[RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
-    roles[RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
-    roles[RoomReadOnly] = QByteArrayLiteral("readOnly");
-    roles[RoomAnnouncement] = QByteArrayLiteral("announcement");
-    roles[RoomOpen] = QByteArrayLiteral("open");
-    roles[RoomAlert] = QByteArrayLiteral("alert");
-    roles[RoomOrder] = QByteArrayLiteral("roomorder");
-    roles[RoomFavorite] = QByteArrayLiteral("favorite");
-    roles[RoomSection] = QByteArrayLiteral("sectionname");
-    roles[RoomIcon] = QByteArrayLiteral("channelicon");
-    roles[RoomUserMentions] = QByteArrayLiteral("userMentions");
-    roles[RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
-    roles[RoomAutotranslate] = QByteArrayLiteral("autotranslate");
-    roles[RoomDirectChannelUserId] = QByteArrayLiteral("directChannelUserId");
-    return roles;
-}
-
 int RoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);

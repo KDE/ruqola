@@ -53,8 +53,6 @@ public:
 
     Q_REQUIRED_RESULT User::PresenceStatus status(int index) const;
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     Q_REQUIRED_RESULT int currentStatus() const;
 
     void setCurrentPresenceStatus(User::PresenceStatus status);

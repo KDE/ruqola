@@ -172,49 +172,6 @@ void MessageModel::refresh()
     endResetModel();
 }
 
-QHash<int, QByteArray> MessageModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[OriginalMessage] = QByteArrayLiteral("originalMessage");
-    roles[MessageConvertedText] = QByteArrayLiteral("messageConverted");
-    roles[Username] = QByteArrayLiteral("username");
-    roles[Timestamp] = QByteArrayLiteral("timestamp");
-    roles[UserId] = QByteArrayLiteral("userID");
-    roles[SystemMessageType] = QByteArrayLiteral("type");
-    roles[MessageId] = QByteArrayLiteral("messageID");
-    roles[RoomId] = QByteArrayLiteral("roomID");
-    roles[UpdatedAt] = QByteArrayLiteral("updatedAt");
-    roles[EditedAt] = QByteArrayLiteral("editedAt");
-    roles[EditedByUserName] = QByteArrayLiteral("editedByUsername");
-    roles[EditedByUserId] = QByteArrayLiteral("editedByUserID");
-    roles[Alias] = QByteArrayLiteral("alias");
-    roles[Avatar] = QByteArrayLiteral("avatar");
-    roles[Groupable] = QByteArrayLiteral("groupable");
-    roles[MessageType] = QByteArrayLiteral("messagetype");
-    roles[Attachments] = QByteArrayLiteral("attachments");
-    roles[Urls] = QByteArrayLiteral("urls");
-    roles[Date] = QByteArrayLiteral("date");
-    roles[CanEditMessage] = QByteArrayLiteral("canEditMessage");
-    roles[CanDeleteMessage] = QByteArrayLiteral("canDeleteMessage");
-    roles[Starred] = QByteArrayLiteral("starred");
-    roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
-    roles[Roles] = QByteArrayLiteral("roles");
-    roles[Reactions] = QByteArrayLiteral("reactions");
-    roles[Ignored] = QByteArrayLiteral("userIsIgnored");
-    roles[Pinned] = QByteArrayLiteral("pinned");
-    roles[DiscussionCount] = QByteArrayLiteral("discussionCount");
-    roles[DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
-    roles[DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
-    roles[ThreadCount] = QByteArrayLiteral("threadCount");
-    roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
-    roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
-    roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
-    roles[ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
-    roles[DisplayAttachment] = QByteArrayLiteral("displayAttachment");
-    roles[Emoji] = QByteArrayLiteral("emoji");
-    return roles;
-}
-
 qint64 MessageModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {

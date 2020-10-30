@@ -36,7 +36,6 @@ public:
     //Fix me
     explicit ListMessagesModelFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~ListMessagesModelFilterProxyModel() override;
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     void setFilterString(const QString &string);
 
     ListMessagesModel *listMessageModel() const;

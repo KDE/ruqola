@@ -102,11 +102,3 @@ void LoginMethodModel::setAuthenticationInfos(const QVector<AuthenticationInfo> 
     }
 }
 
-QHash<int, QByteArray> LoginMethodModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[Name] = QByteArrayLiteral("name");
-    roles[IconName] = QByteArrayLiteral("iconname");
-    roles[Type] = QByteArrayLiteral("type");
-    return roles;
-}

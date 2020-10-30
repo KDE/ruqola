@@ -32,8 +32,6 @@ public:
     explicit FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel = nullptr, QObject *parent = nullptr);
     ~FilesForRoomFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     void setFilterString(const QString &string);
     Q_REQUIRED_RESULT int total() const;
 

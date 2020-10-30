@@ -34,11 +34,6 @@ void NotificationPreferenceModelTest::shouldHaveDefaultValue()
     NotificationPreferenceModel w;
     QCOMPARE(w.rowCount(), 4);
 
-    QHash<int, QByteArray> roles;
-    roles[NotificationPreferenceModel::NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
-    roles[NotificationPreferenceModel::NotificationPreference] = QByteArrayLiteral("preference");
-
-    QCOMPARE(w.roleNames(), roles);
     //FIXME QCOMPARE(w.currentPreference(), 0);
 }
 

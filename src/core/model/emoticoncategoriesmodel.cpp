@@ -53,15 +53,6 @@ QVariant EmoticonCategoriesModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[Name] = QByteArrayLiteral("name");
-    roles[Category] = QByteArrayLiteral("category");
-    //Add tooltip ? we need to extract info from json file.
-    return roles;
-}
-
 void EmoticonCategoriesModel::setCategories(const QVector<EmoticonCategory> &categories)
 {
     if (rowCount() != 0) {

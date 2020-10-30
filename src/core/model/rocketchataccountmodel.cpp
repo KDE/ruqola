@@ -152,11 +152,3 @@ void RocketChatAccountModel::removeAccount(const QString &name)
     }
 }
 
-QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[Name] = QByteArrayLiteral("name");
-    roles[SiteUrl] = QByteArrayLiteral("siteurl");
-    roles[UserName] = QByteArrayLiteral("username");
-    return roles;
-}

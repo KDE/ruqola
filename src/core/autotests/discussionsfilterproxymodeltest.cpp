@@ -39,15 +39,6 @@ void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()
     QCOMPARE(proxy.filterCaseSensitivity(), Qt::CaseInsensitive);
     QCOMPARE(proxy.filterRole(), DiscussionsModel::Description);
     QCOMPARE(proxy.sortRole(), DiscussionsModel::SortByTimeStamp);
-
-    QHash<int, QByteArray> roles;
-    roles[DiscussionsModel::ParentId] = QByteArrayLiteral("parentid");
-    roles[DiscussionsModel::Description] = QByteArrayLiteral("description");
-    roles[DiscussionsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
-    roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
-    roles[DiscussionsModel::DiscussionRoomId] = QByteArrayLiteral("discussionid");
-    roles[DiscussionsModel::TimeStamp] = QByteArrayLiteral("timestamp");
-    QCOMPARE(proxy.roleNames(), roles);
 }
 
 void DiscussionsFilterProxyModelTest::shouldAssignValue()

@@ -31,8 +31,5 @@ AutotranslateLanguagesModelTest::AutotranslateLanguagesModelTest(QObject *parent
 void AutotranslateLanguagesModelTest::shouldHaveDefaultValues()
 {
     AutotranslateLanguagesModel model;
-    QHash<int, QByteArray> roles;
-    roles[AutotranslateLanguagesModel::LanguageName] = QByteArrayLiteral("language");
-    roles[AutotranslateLanguagesModel::DisplayName] = QByteArrayLiteral("displaylanguage");
-    QCOMPARE(model.roleNames(), roles);
+    //TODO
 }

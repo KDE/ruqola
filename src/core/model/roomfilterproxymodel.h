@@ -36,8 +36,6 @@ public:
     explicit RoomFilterProxyModel(QObject *parent = nullptr);
     ~RoomFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     void setFilterString(const QString &string);
 protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;

@@ -43,9 +43,6 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);
-
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     void clear();
 
     Q_REQUIRED_RESULT AuthenticationManager::OauthType loginType(int index);

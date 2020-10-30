@@ -119,7 +119,6 @@ public:
     void deleteMessage(const QString &messageId);
 
     Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     void setRoomId(const QString &roomID);
     Q_REQUIRED_RESULT bool isEmpty() const;

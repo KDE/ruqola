@@ -41,20 +41,6 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     QCOMPARE(proxy.filterCaseSensitivity(), Qt::CaseInsensitive);
     QCOMPARE(proxy.filterRole(), FilesForRoomModel::FileName);
     QCOMPARE(proxy.sortRole(), FilesForRoomModel::SortByTimeStamp);
-
-    QHash<int, QByteArray> roles;
-    roles[FilesForRoomModel::FileName] = QByteArrayLiteral("filename");
-    roles[FilesForRoomModel::UserId] = QByteArrayLiteral("userid");
-    roles[FilesForRoomModel::MimeType] = QByteArrayLiteral("mimetype");
-    roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
-    roles[FilesForRoomModel::Description] = QByteArrayLiteral("description");
-    roles[FilesForRoomModel::CanBeDeleted] = QByteArrayLiteral("canbedeleted");
-    roles[FilesForRoomModel::FileId] = QByteArrayLiteral("fileid");
-    roles[FilesForRoomModel::TimeStamp] = QByteArrayLiteral("timestamp");
-    roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
-    roles[FilesForRoomModel::Complete] = QByteArrayLiteral("complete");
-    roles[FilesForRoomModel::TypeGroup] = QByteArrayLiteral("typegroup");
-    QCOMPARE(proxy.roleNames(), roles);
 }
 
 void FilesForRoomFilterProxyModelTest::shouldAssignValue()

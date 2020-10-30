@@ -45,8 +45,6 @@ public:
     void clear();
     void insertUsers(const QVector<User> &users);
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
 private:
     Q_REQUIRED_RESULT QString displayUserName(const User &user) const;
     Q_DISABLE_COPY(UserCompleterModel)

@@ -37,13 +37,6 @@ void SearchChannelModelTest::shouldHaveDefaultValue()
 {
     SearchChannelModel w;
     QCOMPARE(w.rowCount(), 0);
-
-    QHash<int, QByteArray> roles;
-    roles[SearchChannelModel::ChannelName] = QByteArrayLiteral("channelname");
-    roles[SearchChannelModel::ChannelId] = QByteArrayLiteral("channelid");
-    roles[SearchChannelModel::IconName] = QByteArrayLiteral("iconname");
-    roles[SearchChannelModel::ChannelType] = QByteArrayLiteral("channeltype");
-    QCOMPARE(w.roleNames(), roles);
 }
 
 void SearchChannelModelTest::shouldAssignValues()

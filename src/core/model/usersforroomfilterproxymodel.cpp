@@ -36,14 +36,6 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> UsersForRoomFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);

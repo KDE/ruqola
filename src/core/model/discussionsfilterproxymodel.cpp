@@ -37,14 +37,6 @@ DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> DiscussionsFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 void DiscussionsFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);

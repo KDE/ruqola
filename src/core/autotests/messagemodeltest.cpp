@@ -45,47 +45,6 @@ void MessageModelTest::shouldHaveDefaultValue()
 {
     MessageModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
-
-    QHash<int, QByteArray> roles;
-    roles[MessageModel::OriginalMessage] = QByteArrayLiteral("originalMessage");
-    roles[MessageModel::MessageConvertedText] = QByteArrayLiteral("messageConverted");
-    roles[MessageModel::Username] = QByteArrayLiteral("username");
-    roles[MessageModel::Timestamp] = QByteArrayLiteral("timestamp");
-    roles[MessageModel::UserId] = QByteArrayLiteral("userID");
-    roles[MessageModel::SystemMessageType] = QByteArrayLiteral("type");
-    roles[MessageModel::MessageId] = QByteArrayLiteral("messageID");
-    roles[MessageModel::RoomId] = QByteArrayLiteral("roomID");
-    roles[MessageModel::UpdatedAt] = QByteArrayLiteral("updatedAt");
-    roles[MessageModel::EditedAt] = QByteArrayLiteral("editedAt");
-    roles[MessageModel::EditedByUserName] = QByteArrayLiteral("editedByUsername");
-    roles[MessageModel::EditedByUserId] = QByteArrayLiteral("editedByUserID");
-    roles[MessageModel::Alias] = QByteArrayLiteral("alias");
-    roles[MessageModel::Avatar] = QByteArrayLiteral("avatar");
-    roles[MessageModel::Groupable] = QByteArrayLiteral("groupable");
-    roles[MessageModel::MessageType] = QByteArrayLiteral("messagetype");
-    roles[MessageModel::Attachments] = QByteArrayLiteral("attachments");
-    roles[MessageModel::Urls] = QByteArrayLiteral("urls");
-    roles[MessageModel::Date] = QByteArrayLiteral("date");
-    roles[MessageModel::CanEditMessage] = QByteArrayLiteral("canEditMessage");
-    roles[MessageModel::CanDeleteMessage] = QByteArrayLiteral("canDeleteMessage");
-    roles[MessageModel::Starred] = QByteArrayLiteral("starred");
-    roles[MessageModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
-    roles[MessageModel::Roles] = QByteArrayLiteral("roles");
-    roles[MessageModel::Reactions] = QByteArrayLiteral("reactions");
-    roles[MessageModel::Ignored] = QByteArrayLiteral("userIsIgnored");
-    roles[MessageModel::Pinned] = QByteArrayLiteral("pinned");
-
-    roles[MessageModel::DiscussionCount] = QByteArrayLiteral("discussionCount");
-    roles[MessageModel::DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
-    roles[MessageModel::DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
-    roles[MessageModel::ThreadCount] = QByteArrayLiteral("threadCount");
-    roles[MessageModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
-    roles[MessageModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
-    roles[MessageModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
-    roles[MessageModel::ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
-    roles[MessageModel::DisplayAttachment] = QByteArrayLiteral("displayAttachment");
-    roles[MessageModel::Emoji] = QByteArrayLiteral("emoji");
-    QCOMPARE(w.roleNames(), roles);
 }
 
 static void fillTestMessage(Message &input)

@@ -34,10 +34,3 @@ RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> RocketChatAccountFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}

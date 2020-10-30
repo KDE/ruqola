@@ -39,19 +39,6 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QVERIFY(!w.loadMoreFilesInProgress());
-    QHash<int, QByteArray> roles;
-    roles[FilesForRoomModel::FileName] = QByteArrayLiteral("filename");
-    roles[FilesForRoomModel::UserId] = QByteArrayLiteral("userid");
-    roles[FilesForRoomModel::MimeType] = QByteArrayLiteral("mimetype");
-    roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
-    roles[FilesForRoomModel::Description] = QByteArrayLiteral("description");
-    roles[FilesForRoomModel::CanBeDeleted] = QByteArrayLiteral("canbedeleted");
-    roles[FilesForRoomModel::FileId] = QByteArrayLiteral("fileid");
-    roles[FilesForRoomModel::TimeStamp] = QByteArrayLiteral("timestamp");
-    roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
-    roles[FilesForRoomModel::Complete] = QByteArrayLiteral("complete");
-    roles[FilesForRoomModel::TypeGroup] = QByteArrayLiteral("typegroup");
-    QCOMPARE(w.roleNames(), roles);
 }
 
 void FilesForRoomModelTest::shouldAddFiles()

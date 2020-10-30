@@ -33,14 +33,6 @@ void DiscussionsModelTest::shouldHaveDefaultValues()
 {
     DiscussionsModel model;
     QVERIFY(!model.loadMoreDiscussionsInProgress());
-    QHash<int, QByteArray> roles;
-    roles[DiscussionsModel::ParentId] = QByteArrayLiteral("parentid");
-    roles[DiscussionsModel::Description] = QByteArrayLiteral("description");
-    roles[DiscussionsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
-    roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
-    roles[DiscussionsModel::DiscussionRoomId] = QByteArrayLiteral("discussionid");
-    roles[DiscussionsModel::TimeStamp] = QByteArrayLiteral("timestamp");
-    QCOMPARE(model.roleNames(), roles);
 }
 
 void DiscussionsModelTest::shouldAssignValues()

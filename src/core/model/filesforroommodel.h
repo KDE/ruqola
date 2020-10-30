@@ -56,8 +56,6 @@ public:
 
     void setFiles(const QVector<File> &files);
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     FileAttachments *fileAttachments() const;
 
     Q_REQUIRED_RESULT QString roomId() const;

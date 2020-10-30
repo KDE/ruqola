@@ -63,15 +63,6 @@ QVariant CommandsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> CommandsModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[CommandName] = QByteArrayLiteral("commandname");
-    roles[Description] = QByteArrayLiteral("description");
-    roles[Parameters] = QByteArrayLiteral("parameters");
-    return roles;
-}
-
 Commands CommandsModel::commands() const
 {
     return mCommands;

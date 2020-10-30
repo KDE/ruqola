@@ -136,18 +136,6 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> DiscussionsModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[ParentId] = QByteArrayLiteral("parentid");
-    roles[Description] = QByteArrayLiteral("description");
-    roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
-    roles[LastMessage] = QByteArrayLiteral("lastmessage");
-    roles[DiscussionRoomId] = QByteArrayLiteral("discussionid");
-    roles[TimeStamp] = QByteArrayLiteral("timestamp");
-    return roles;
-}
-
 void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
     if (rowCount() != 0) {

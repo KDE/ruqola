@@ -55,14 +55,6 @@ QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &ind
     return {};
 }
 
-QHash<int, QByteArray> NotificationDesktopDurationPreferenceModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
-    roles[NotificationPreference] = QByteArrayLiteral("preference");
-    return roles;
-}
-
 void NotificationDesktopDurationPreferenceModel::fillModel()
 {
     mNotificationDestktopDurationPreferenceList.reserve(6);

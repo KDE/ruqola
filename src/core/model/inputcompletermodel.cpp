@@ -184,12 +184,3 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
     return {};
 }
 
-QHash<int, QByteArray> InputCompleterModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[InputCompleterModel::DisplayName] = QByteArrayLiteral("displayname");
-    roles[InputCompleterModel::CompleterName] = QByteArrayLiteral("completername");
-    roles[InputCompleterModel::IconName] = QByteArrayLiteral("iconname");
-    roles[InputCompleterModel::ChannelType] = QByteArrayLiteral("channeltype");
-    return roles;
-}

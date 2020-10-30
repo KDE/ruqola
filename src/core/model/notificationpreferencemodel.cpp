@@ -53,14 +53,6 @@ QVariant NotificationPreferenceModel::data(const QModelIndex &index, int role) c
     return {};
 }
 
-QHash<int, QByteArray> NotificationPreferenceModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
-    roles[NotificationPreference] = QByteArrayLiteral("preference");
-    return roles;
-}
-
 void NotificationPreferenceModel::fillModel()
 {
     mNotificationPreferenceList.reserve(4);

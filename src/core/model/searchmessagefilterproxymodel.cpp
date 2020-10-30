@@ -38,14 +38,6 @@ SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
-
 bool SearchMessageFilterProxyModel::stringNotFound() const
 {
     return mSearchMessageModel->stringNotFound();

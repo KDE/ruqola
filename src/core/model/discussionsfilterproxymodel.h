@@ -31,7 +31,6 @@ public:
     explicit DiscussionsFilterProxyModel(DiscussionsModel *model = nullptr, QObject *parent = nullptr);
     ~DiscussionsFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     void setFilterString(const QString &string);
     void clearFilter();
     Q_REQUIRED_RESULT int total() const;

@@ -52,14 +52,6 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
     return {};
 }
 
-QHash<int, QByteArray> AutotranslateLanguagesModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[AutotranslateLanguagesModel::LanguageName] = QByteArrayLiteral("language");
-    roles[AutotranslateLanguagesModel::DisplayName] = QByteArrayLiteral("displaylanguage");
-    return roles;
-}
-
 void AutotranslateLanguagesModel::parseLanguages(const QJsonObject &obj)
 {
     if (rowCount() != 0) {

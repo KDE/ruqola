@@ -31,9 +31,6 @@ class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProx
 public:
     explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
     ~UsersForRoomFilterProxyModel() override;
-
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
     void setFilterString(const QString &string);
 
     Q_REQUIRED_RESULT bool hasFullList() const;

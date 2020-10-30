@@ -172,12 +172,3 @@ QIcon SearchChannelModel::channelIconName(const Channel &channel) const
     return {};
 }
 
-QHash<int, QByteArray> SearchChannelModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[SearchChannelModel::ChannelName] = QByteArrayLiteral("channelname");
-    roles[SearchChannelModel::ChannelId] = QByteArrayLiteral("channelid");
-    roles[SearchChannelModel::IconName] = QByteArrayLiteral("iconname");
-    roles[SearchChannelModel::ChannelType] = QByteArrayLiteral("channeltype");
-    return roles;
-}

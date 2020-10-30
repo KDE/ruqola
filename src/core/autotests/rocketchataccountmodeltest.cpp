@@ -36,13 +36,7 @@ RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
 void RocketChatAccountModelTest::shouldHaveDefaultValue()
 {
     RocketChatAccountModel w;
-
-    QHash<int, QByteArray> roles;
-    roles[RocketChatAccountModel::Name] = QByteArrayLiteral("name");
-    roles[RocketChatAccountModel::SiteUrl] = QByteArrayLiteral("siteurl");
-    roles[RocketChatAccountModel::UserName] = QByteArrayLiteral("username");
-
-    QCOMPARE(w.roleNames(), roles);
+    //TODO
 }
 
 void RocketChatAccountModelTest::shouldAddAccountValue()
