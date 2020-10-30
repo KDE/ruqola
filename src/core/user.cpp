@@ -212,7 +212,6 @@ QStringList User::roles() const
 
 void User::setRoles(const QStringList &roles)
 {
-    qDebug() <<"void User::setRoles(const QStringList &roles) " << roles;
     QStringList rolesI18n;
     rolesI18n.reserve(roles.count());
     for (const QString &role : roles) {
