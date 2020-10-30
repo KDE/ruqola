@@ -31,6 +31,12 @@ MessageTest::MessageTest(QObject *parent)
 {
 }
 
+void MessageTest::shouldHaveDefaultValues()
+{
+    Message m;
+    QVERIFY(!m.pendingMessage());
+}
+
 //TODO add check for default value ???
 
 void MessageTest::shouldParseMessage_data()

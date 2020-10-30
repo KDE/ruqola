@@ -252,6 +252,11 @@ void MessageModel::addMessage(const Message &message)
         emitChanged(0);
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_LOG) << "Update message";
+        if (message.pendingMessage()) {
+            //If we already have a message and we must add pending message it's that server
+            //send quickly new message => replace not it by a pending message
+            return;
+        }
         (*(it-1)) = message;
         emitChanged(std::distance(mAllMessages.begin(), it - 1));
     } else {
@@ -436,6 +441,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.emoji();
     case MessageModel::AvatarInfo:
         return QVariant::fromValue(message.avatarInfo());
+    case MessageModel::PendingMessage:
+        return message.pendingMessage();
     }
 
     return {};

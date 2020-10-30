@@ -30,6 +30,9 @@ public:
     explicit MessageTest(QObject *parent = nullptr);
     ~MessageTest() override = default;
 private Q_SLOTS:
+
+    void shouldHaveDefaultValues();
+
     void shouldParseMessage_data();
     void shouldParseMessage();
     void shouldSerializeData();

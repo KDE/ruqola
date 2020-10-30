@@ -190,6 +190,9 @@ public:
     void setEmoji(const QString &emoji);
 
     Q_REQUIRED_RESULT Utils::AvatarInfo avatarInfo() const;
+    Q_REQUIRED_RESULT bool pendingMessage() const;
+    void setPendingMessage(bool pendingMessage);
+
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -289,6 +292,8 @@ private:
     bool mUnread = false;
 
     bool mShowTranslatedMessage = true;
+
+    bool mPendingMessage = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };

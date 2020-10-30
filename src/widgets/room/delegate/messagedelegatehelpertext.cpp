@@ -173,6 +173,11 @@ static bool useItalicsForMessage(const QModelIndex &index)
     return isSystemMessage;
 }
 
+static bool pendingMessage(const QModelIndex &index)
+{
+    return index.data(MessageModel::PendingMessage).toBool();
+}
+
 MessageDelegateHelperText::~MessageDelegateHelperText()
 {
 }
@@ -191,14 +196,13 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
         selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
         selections.append({mCurrentTextCursor, selectionFormat});
     }
-    if (useItalicsForMessage(index)) {
+    if (useItalicsForMessage(index) || pendingMessage(index)) {
         QTextCursor cursor(doc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
         format.setForeground(Qt::gray); //TODO use color from theme.
         cursor.mergeCharFormat(format);
     }
-
     painter->save();
     painter->translate(rect.left(), rect.top());
     const QRect clip(0, 0, rect.width(), rect.height());

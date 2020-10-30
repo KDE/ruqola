@@ -181,7 +181,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         }
         Message m(mRocketChatAccount->emojiManager());
         m.parseMessage(o);
-        //qDebug() << " roomId"<<roomId << " add message " << m.message;
+        //qDebug() << " roomId"<<m.roomId() << " add message " << m;
         if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
             if (!m.threadMessageId().isEmpty()) {
                 mRocketChatAccount->updateThreadMessageList(m);

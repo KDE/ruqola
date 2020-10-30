@@ -104,6 +104,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+bool Message::pendingMessage() const
+{
+    return mPendingMessage;
+}
+
+void Message::setPendingMessage(bool pendingMessage)
+{
+    mPendingMessage = pendingMessage;
+}
+
 QString Message::emoji() const
 {
     return mEmoji;
@@ -382,7 +392,8 @@ bool Message::operator==(const Message &other) const
            && (mMessageTranslation == other.messageTranslation())
            && (mShowTranslatedMessage == other.showTranslatedMessage())
            && (mReplies == other.replies())
-           && (mEmoji == other.emoji());
+           && (mEmoji == other.emoji())
+            && (mPendingMessage == other.pendingMessage());
 }
 
 bool Message::operator<(const Message &other) const
@@ -894,5 +905,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mShowOriginalMessage " << t.showTranslatedMessage();
     d << "mReplies " << t.replies();
     d << "mEmoji " << t.emoji();
+    d << "mPendingMessage " << t.pendingMessage();
     return d;
 }

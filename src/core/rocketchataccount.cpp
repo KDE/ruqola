@@ -2313,18 +2313,20 @@ void RocketChatAccount::createCustomUserStatus(const RocketChatRestApi::CustomUs
 
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 {
-    qDebug() << "replyObject " << replyObject;
-    //TODO
+    //qDebug() << "replyObject " << replyObject;
+    const QJsonObject roomInfo = replyObject[QLatin1String("message")].toObject();
+    addMessage(roomInfo, true, true);
 }
 
-void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool temporaryMessage)
+void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestApi, bool temporaryMessage)
 {
     const QString roomId = replyObject.value(QLatin1String("rid")).toString();
     if (!roomId.isEmpty()) {
         MessageModel *messageModel = messageModelForRoom(roomId);
         Message m(emojiManager());
-        m.parseMessage(replyObject);
+        m.parseMessage(replyObject, useRestApi);
         m.setMessageType(Message::MessageType::Information);
+        m.setPendingMessage(temporaryMessage);
         if (!m.threadMessageId().isEmpty()) {
             //qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
             updateThreadMessageList(m);
@@ -2332,6 +2334,7 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool temporar
         //m.setMessageType(Message::System);
         //TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})
         messageModel->addMessages({m});
+        //qDebug() << " m " << m;
     } else {
         qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
     }

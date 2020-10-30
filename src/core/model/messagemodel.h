@@ -84,6 +84,7 @@ public:
         DisplayLastSeenMessage,
         Emoji,
         AvatarInfo,
+        PendingMessage,
     };
     Q_ENUM(MessageRoles)
 
