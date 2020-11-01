@@ -93,7 +93,7 @@ void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QString &mes
 {
     const QJsonObject msgObject = obj[QStringLiteral("message")].toObject();
     Q_ASSERT(!msgObject.isEmpty());
-    Message *message = new Message;
+    auto *message = new Message;
     message->parseMessage(msgObject, true);
     Q_ASSERT(messageId == message->messageId());
     mMessages.insert(message->messageId(), message);

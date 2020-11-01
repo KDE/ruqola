@@ -114,7 +114,7 @@ void ShowImageWidget::setIsAnimatedPixmap(bool value)
 
 void ShowImageWidget::setImagePath(const QString &imagePath)
 {
-    QMovie *movie = new QMovie(this);
+    auto *movie = new QMovie(this);
     movie->setFileName(imagePath);
     movie->start();
     const auto size = movie->currentPixmap().size();

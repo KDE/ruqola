@@ -77,7 +77,7 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
     // "all" tab
-    QListView *allEmojisView = new QListView(this);
+    auto *allEmojisView = new QListView(this);
     auto *emoticonFilterProxyModel = new QSortFilterProxyModel(this);
     emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
     allEmojisView->setModel(emoticonFilterProxyModel);

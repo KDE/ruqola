@@ -51,7 +51,7 @@ int AccountManager::accountNumber() const
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {
-        NotifierJob *job = new NotifierJob;
+        auto *job = new NotifierJob;
         job->setInfo(info);
         job->setAccountName(account->accountName());
         connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);

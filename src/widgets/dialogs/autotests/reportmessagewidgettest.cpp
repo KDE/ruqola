@@ -41,7 +41,7 @@ void ReportMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(lab);
     QVERIFY(!lab->text().isEmpty());
 
-    QLabel *mMessagePreview = w.findChild<QLabel *>(QStringLiteral("mMessagePreview"));
+    auto *mMessagePreview = w.findChild<QLabel *>(QStringLiteral("mMessagePreview"));
     QVERIFY(mMessagePreview);
     QVERIFY(mMessagePreview->wordWrap());
     QVERIFY(mMessagePreview->text().isEmpty());

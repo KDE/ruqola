@@ -38,39 +38,39 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountProfileConfigureWidget w;
 
-    QVBoxLayout *topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
+    auto *topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
     QVERIFY(topLayout);
     QCOMPARE(topLayout->contentsMargins(), QMargins());
 
-    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
 
-    QLineEdit *mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    auto *mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
     QVERIFY(mEmail);
 
-    QLineEdit *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    auto *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
 
-    QLineEdit *mNickName = w.findChild<QLineEdit *>(QStringLiteral("mNickName"));
+    auto *mNickName = w.findChild<QLineEdit *>(QStringLiteral("mNickName"));
     QVERIFY(mNickName);
 
-    QLineEdit *mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
+    auto *mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
     QVERIFY(mStatusText);
 
-    QPushButton *mDeleteMyAccount = w.findChild<QPushButton *>(QStringLiteral("mDeleteMyAccount"));
+    auto *mDeleteMyAccount = w.findChild<QPushButton *>(QStringLiteral("mDeleteMyAccount"));
     QVERIFY(mDeleteMyAccount);
     QVERIFY(!mDeleteMyAccount->text().isEmpty());
 
-    PasswordConfirmWidget *mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
+    auto *mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
     QVERIFY(mPasswordConfirmWidget);
 
-    QPushButton *mLogoutFromOtherLocation = w.findChild<QPushButton *>(QStringLiteral("mLogoutFromOtherLocation"));
+    auto *mLogoutFromOtherLocation = w.findChild<QPushButton *>(QStringLiteral("mLogoutFromOtherLocation"));
     QVERIFY(mLogoutFromOtherLocation);
     QVERIFY(!mLogoutFromOtherLocation->text().isEmpty());
 
-    MyAccountProfileConfigureAvatarWidget *mConfigureAvatarWidget = w.findChild<MyAccountProfileConfigureAvatarWidget *>(QStringLiteral("mConfigureAvatarWidget"));
+    auto *mConfigureAvatarWidget = w.findChild<MyAccountProfileConfigureAvatarWidget *>(QStringLiteral("mConfigureAvatarWidget"));
     QVERIFY(mConfigureAvatarWidget);
 }

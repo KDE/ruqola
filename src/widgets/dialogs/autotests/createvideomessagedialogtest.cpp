@@ -39,7 +39,7 @@ void CreateVideoMessageDialogTest::shouldHaveDefaultValues()
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    CreateVideoMessageWidget *mCreateVideoMessageWidget = w.findChild<CreateVideoMessageWidget *>(QStringLiteral("mCreateVideoMessageWidget"));
+    auto *mCreateVideoMessageWidget = w.findChild<CreateVideoMessageWidget *>(QStringLiteral("mCreateVideoMessageWidget"));
     QVERIFY(mCreateVideoMessageWidget);
 
     auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));

@@ -105,7 +105,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         const Layout layout = doLayout(option, index);
 
         if (layout.downloadAttachmentRect.contains(mev->pos())) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Attachment"), QUrl(file->url()));
 
             if (!fileName.isEmpty()) {
@@ -114,7 +114,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             return true;
         }
         if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userId())) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::Yes == KMessageBox::questionYesNo(parentWidget, i18n("Do you want to Delete this File?"), i18n("Delete File"))) {
                 const QString fileId = file->fileId();
                 Q_EMIT deleteAttachment(fileId);

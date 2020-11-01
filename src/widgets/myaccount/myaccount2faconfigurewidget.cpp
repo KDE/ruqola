@@ -28,7 +28,7 @@
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mActivate2FAViaEmailCheckbox = new QCheckBox(i18n("Activate Two Authentication Factor via Email"), this);

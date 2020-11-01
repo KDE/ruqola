@@ -32,7 +32,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(this))
     , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(this))
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

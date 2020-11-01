@@ -89,7 +89,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
     const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
-    QAction *markAsChannel = new QAction(actionMarkAsText, &menu);
+    auto *markAsChannel = new QAction(actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [=]() {
         slotMarkAsChannel(index, isUnRead);
     });

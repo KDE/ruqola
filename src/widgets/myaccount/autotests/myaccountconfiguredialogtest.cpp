@@ -38,12 +38,12 @@ void MyAccountConfigureDialogTest::shouldHaveDefaultValue()
     MyAccountConfigureDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    MyAccountConfigureWidget *mMyAccountConfigWidget = w.findChild<MyAccountConfigureWidget *>(QStringLiteral("mMyAccountConfigWidget"));
+    auto *mMyAccountConfigWidget = w.findChild<MyAccountConfigureWidget *>(QStringLiteral("mMyAccountConfigWidget"));
     QVERIFY(mMyAccountConfigWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

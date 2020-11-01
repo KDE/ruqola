@@ -36,18 +36,18 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 {
     ThreadMessageWidget w;
     QVERIFY(w.threadMessageId().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
     QCOMPARE(mMessageListView->mode(), MessageListView::Mode::ThreadEditing);
 
-    MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    auto *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
 
-    QLabel *mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
+    auto *mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
     QVERIFY(mThreadPreview);
     QVERIFY(mThreadPreview->wordWrap());
     QCOMPARE(mThreadPreview->contextMenuPolicy(), Qt::CustomContextMenu);

@@ -37,7 +37,7 @@
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *topLayout = new QVBoxLayout(this);
+    auto *topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
 
@@ -45,7 +45,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mConfigureAvatarWidget->setObjectName(QStringLiteral("mConfigureAvatarWidget"));
     topLayout->addWidget(mConfigureAvatarWidget);
 
-    QFormLayout *mainLayout = new QFormLayout;
+    auto *mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     topLayout->addLayout(mainLayout);
 

@@ -38,7 +38,7 @@ bool LineEditCatchReturnKey::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == mLineEdit) {
         if (event->type() == QEvent::KeyPress) {
-            QKeyEvent *e = static_cast<QKeyEvent *>(event);
+            auto *e = static_cast<QKeyEvent *>(event);
             if (e->key() == Qt::Key_Return || e->key() == Qt::Key_Enter) {
                 const bool stopEvent = (e->modifiers() == Qt::NoButton
                                         || e->modifiers() == Qt::KeypadModifier);

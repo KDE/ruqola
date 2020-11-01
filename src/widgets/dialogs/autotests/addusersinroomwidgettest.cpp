@@ -34,11 +34,11 @@ void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
     AddUsersInRoomWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    AddUsersWidget *mAddUsersWidget = w.findChild<AddUsersWidget *>(QStringLiteral("mAddUsersWidget"));
+    auto *mAddUsersWidget = w.findChild<AddUsersWidget *>(QStringLiteral("mAddUsersWidget"));
     QVERIFY(mAddUsersWidget);
 
     QVERIFY(w.users().isEmpty());

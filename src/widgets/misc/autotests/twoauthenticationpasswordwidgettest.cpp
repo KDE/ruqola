@@ -35,14 +35,14 @@ void TwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
     TwoAuthenticationPasswordWidget w;
 
-    QHBoxLayout *twoFactorLayout = w.findChild<QHBoxLayout *>(QStringLiteral("twoFactorLayout"));
+    auto *twoFactorLayout = w.findChild<QHBoxLayout *>(QStringLiteral("twoFactorLayout"));
     QVERIFY(twoFactorLayout);
     QCOMPARE(twoFactorLayout->contentsMargins(), QMargins());
 
-    KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 
-    QPushButton *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
+    auto *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }

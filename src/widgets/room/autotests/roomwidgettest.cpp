@@ -51,7 +51,7 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto *mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
     QVERIFY(mRoomHeaderWidget);
 
-    UsersInRoomFlowWidget *mUsersInRoomFlowWidget = w.findChild<UsersInRoomFlowWidget *>(QStringLiteral("mUsersInRoomFlowWidget"));
+    auto *mUsersInRoomFlowWidget = w.findChild<UsersInRoomFlowWidget *>(QStringLiteral("mUsersInRoomFlowWidget"));
     QVERIFY(mUsersInRoomFlowWidget);
 
     auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));

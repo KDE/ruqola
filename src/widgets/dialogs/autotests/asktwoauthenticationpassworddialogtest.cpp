@@ -37,7 +37,7 @@ void AskTwoAuthenticationPasswordDialogTest::shouldHaveDefaultValues()
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    AskTwoAuthenticationPasswordWidget *mAskTwoAuthicationPasswordWidget = w.findChild<AskTwoAuthenticationPasswordWidget *>(QStringLiteral("mAskTwoAuthicationPasswordWidget"));
+    auto *mAskTwoAuthicationPasswordWidget = w.findChild<AskTwoAuthenticationPasswordWidget *>(QStringLiteral("mAskTwoAuthicationPasswordWidget"));
     QVERIFY(mAskTwoAuthicationPasswordWidget);
 
     auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));

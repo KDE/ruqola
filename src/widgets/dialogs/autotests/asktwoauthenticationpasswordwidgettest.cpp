@@ -34,11 +34,11 @@ void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
     AskTwoAuthenticationPasswordWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<TwoAuthenticationPasswordWidget *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<TwoAuthenticationPasswordWidget *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit->code().isEmpty());
 }

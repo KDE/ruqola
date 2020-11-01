@@ -28,7 +28,7 @@
 PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QFormLayout *mainLayout = new QFormLayout(this);
+    auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

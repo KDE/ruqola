@@ -63,7 +63,7 @@ bool UploadFileJob::start()
         return false;
     }
     const QString fileNameAsLocalFile = mUploadFileInfo.filenameUrl.toLocalFile();
-    QFile *file = new QFile(fileNameAsLocalFile);
+    auto *file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mUploadFileInfo.filenameUrl;
         delete file;

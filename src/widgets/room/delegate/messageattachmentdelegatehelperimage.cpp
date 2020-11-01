@@ -120,7 +120,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             const auto file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Image"), QUrl::fromLocalFile(layout.imagePath));
             if (!file.isEmpty()) {
                 if (!QFile::remove(file)) { // copy() doesn't overwrite
@@ -136,7 +136,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
             const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
-                QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+                auto *parentWidget = const_cast<QWidget *>(option.widget);
                 QPointer<ShowImageDialog> dlg = new ShowImageDialog(parentWidget);
                 dlg->setIsAnimatedPixmap(layout.isAnimatedImage);
                 if (layout.isAnimatedImage) {

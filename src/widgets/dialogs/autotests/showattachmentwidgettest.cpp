@@ -39,7 +39,7 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QHBoxLayout *searchAttachmentLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchAttachmentLayout"));
+    auto *searchAttachmentLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchAttachmentLayout"));
     QVERIFY(searchAttachmentLayout);
     QCOMPARE(searchAttachmentLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
@@ -48,7 +48,7 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchAttachmentFileLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchAttachmentFileLineEdit->placeholderText().isEmpty());
 
-    ShowAttachmentComboBox *mAttachmentCombobox = w.findChild<ShowAttachmentComboBox * >(QStringLiteral("mAttachmentCombobox"));
+    auto *mAttachmentCombobox = w.findChild<ShowAttachmentComboBox * >(QStringLiteral("mAttachmentCombobox"));
     QVERIFY(mAttachmentCombobox);
 
     auto *mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));

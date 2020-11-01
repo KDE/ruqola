@@ -82,7 +82,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
 
         const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Sound"), QUrl::fromLocalFile(layout.audioPath));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
@@ -93,7 +93,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
             }
             return true;
         } else if (attachmentsRect.contains(pos) || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             QPointer<PlaySoundDialog> dlg = new PlaySoundDialog(parentWidget);
             dlg->setAudioUrl(QUrl::fromLocalFile(layout.audioPath));
             dlg->exec();

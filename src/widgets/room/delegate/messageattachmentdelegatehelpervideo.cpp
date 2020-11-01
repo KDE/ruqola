@@ -82,7 +82,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
 
         VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Video"), QUrl::fromLocalFile(layout.videoPath));
             if (!file.isEmpty()) {
                 QFile::remove(file); // copy() doesn't overwrite
@@ -93,7 +93,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
             }
             return true;
         } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
             QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
             dlg->setVideoUrl(QUrl::fromLocalFile(layout.videoPath));
             dlg->exec();

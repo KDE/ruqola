@@ -34,13 +34,13 @@ AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest
 void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusWidget w;
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    QTreeWidget *mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
+    auto *mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
     QVERIFY(mCustomUserStatusTreeWidget);
 
-    KTreeWidgetSearchLineWidget *mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    auto *mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
 }

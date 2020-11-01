@@ -457,8 +457,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         const Message::MessageType messageType = message->messageType();
         const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
         if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage) {
-            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
-            EmoticonMenuWidget *mEmoticonMenuWidget = new EmoticonMenuWidget(parentWidget);
+            auto *parentWidget = const_cast<QWidget *>(option.widget);
+            auto *mEmoticonMenuWidget = new EmoticonMenuWidget(parentWidget);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
             positionPopup(mev->globalPos(), parentWidget, mEmoticonMenuWidget);

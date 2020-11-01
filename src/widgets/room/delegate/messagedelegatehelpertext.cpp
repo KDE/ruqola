@@ -167,7 +167,7 @@ void MessageDelegateHelperText::updateView(const QWidget *widget, const QModelIn
 
 static bool useItalicsForMessage(const QModelIndex &index)
 {
-    const Message::MessageType messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = messageType == Message::System
                                  && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
     return isSystemMessage;
@@ -347,11 +347,11 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
     if (index == mCurrentIndex && !mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection()) {
         const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mCurrentTextCursor.selectionStart() <= charPos && charPos <= mCurrentTextCursor.selectionEnd()) {
-            QMimeData *mimeData = new QMimeData;
+            auto *mimeData = new QMimeData;
             const QTextDocumentFragment fragment(mCurrentTextCursor);
             mimeData->setHtml(fragment.toHtml());
             mimeData->setText(fragment.toPlainText());
-            QDrag *drag = new QDrag(const_cast<QWidget *>(option.widget));
+            auto *drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);
             return true;

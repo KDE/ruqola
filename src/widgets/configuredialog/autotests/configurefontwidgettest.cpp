@@ -36,15 +36,15 @@ ConfigureFontWidgetTest::ConfigureFontWidgetTest(QObject *parent)
 void ConfigureFontWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureFontWidget w;
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QCheckBox *mCustomFontCheck = w.findChild<QCheckBox *>(QStringLiteral("mCustomFontCheck"));
+    auto *mCustomFontCheck = w.findChild<QCheckBox *>(QStringLiteral("mCustomFontCheck"));
     QVERIFY(mCustomFontCheck);
     QVERIFY(!mCustomFontCheck->isChecked());
 
-    KFontChooser *mFontChooser = w.findChild<KFontChooser *>(QStringLiteral("mFontChooser"));
+    auto *mFontChooser = w.findChild<KFontChooser *>(QStringLiteral("mFontChooser"));
     QVERIFY(mFontChooser);
     QVERIFY(!mFontChooser->isEnabled());
 }

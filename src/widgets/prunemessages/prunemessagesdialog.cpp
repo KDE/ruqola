@@ -36,7 +36,7 @@ PruneMessagesDialog::PruneMessagesDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Prune Messages"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mPruneMessageWidget = new PruneMessagesWidget(this);

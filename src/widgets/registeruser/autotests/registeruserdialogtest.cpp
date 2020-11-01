@@ -40,12 +40,12 @@ void RegisterUserDialogTest::shouldHaveDefaultValues()
     RegisterUserDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    RegisterUserWidget *mRegisterUserWidget = w.findChild<RegisterUserWidget *>(QStringLiteral("mRegisterUserWidget"));
+    auto *mRegisterUserWidget = w.findChild<RegisterUserWidget *>(QStringLiteral("mRegisterUserWidget"));
     QVERIFY(mRegisterUserWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

@@ -37,20 +37,20 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QTabWidget *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    auto *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);
 
-    AdministratorRoomsWidget *mAdministratorRoomsWidget = w.findChild<AdministratorRoomsWidget *>(QStringLiteral("mAdministratorRoomsWidget"));
+    auto *mAdministratorRoomsWidget = w.findChild<AdministratorRoomsWidget *>(QStringLiteral("mAdministratorRoomsWidget"));
     QVERIFY(mAdministratorRoomsWidget);
 
-    AdministratorCustomUserStatusWidget *mAdministratorCustomUserStatusWidget = w.findChild<AdministratorCustomUserStatusWidget *>(QStringLiteral("mAdministratorCustomUserStatusWidget"));
+    auto *mAdministratorCustomUserStatusWidget = w.findChild<AdministratorCustomUserStatusWidget *>(QStringLiteral("mAdministratorCustomUserStatusWidget"));
     QVERIFY(mAdministratorCustomUserStatusWidget);
 
 
-    AdministratorCustomSoundsWidget *mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
+    auto *mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
     QVERIFY(mAdministratorCustomSoundsWidget);
 }

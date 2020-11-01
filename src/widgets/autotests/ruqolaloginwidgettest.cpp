@@ -71,21 +71,21 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QFont font = mFailedError->font();
     QVERIFY(font.bold());
 
-    QWidget *mAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("authenticationWidget"));
+    auto *mAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("authenticationWidget"));
     QVERIFY(mAuthenticationWidget);
     QVERIFY(!mAuthenticationWidget->isVisible());
 
-    QVBoxLayout *twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
+    auto *twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
     QVERIFY(twoFactorAuthenticationLayout);
 
-    QLabel *twoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("twoFactorAuthenticationLabel"));
+    auto *twoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("twoFactorAuthenticationLabel"));
     QVERIFY(twoFactorAuthenticationLabel);
     QVERIFY(!twoFactorAuthenticationLabel->text().isEmpty());
 
-    KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 
-    QPushButton *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
+    auto *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }

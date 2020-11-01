@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
     aboutData.processCommandLine(&parser);
 #if HAVE_KUSERFEEDBACK
     if (parser.isSet(QStringLiteral("feedback"))) {
-        RuqolaUserFeedbackProvider *userFeedback = new RuqolaUserFeedbackProvider(nullptr);
+        auto *userFeedback = new RuqolaUserFeedbackProvider(nullptr);
         QTextStream(stdout) << userFeedback->describeDataSources() << '\n';
         delete userFeedback;
         return 0;

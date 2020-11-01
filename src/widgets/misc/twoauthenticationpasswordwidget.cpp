@@ -30,7 +30,7 @@
 TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QHBoxLayout *twoFactorLayout = new QHBoxLayout(this);
+    auto *twoFactorLayout = new QHBoxLayout(this);
     twoFactorLayout->setObjectName(QStringLiteral("twoFactorLayout"));
     twoFactorLayout->setContentsMargins({});
 

@@ -37,63 +37,63 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 {
     PruneMessagesWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QHBoxLayout *lastestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("lastestLayout"));
+    auto *lastestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("lastestLayout"));
     QVERIFY(lastestLayout);
     QCOMPARE(lastestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLabel *lastestLabel = w.findChild<QLabel *>(QStringLiteral("lastestLabel"));
+    auto *lastestLabel = w.findChild<QLabel *>(QStringLiteral("lastestLabel"));
     QVERIFY(lastestLabel);
     QVERIFY(!lastestLabel->text().isEmpty());
 
-    QDateTimeEdit *mLastestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
+    auto *mLastestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
     QVERIFY(mLastestDateTimeEdit);
 
-    QHBoxLayout *oldestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("oldestLayout"));
+    auto *oldestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("oldestLayout"));
     QVERIFY(oldestLayout);
     QCOMPARE(oldestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLabel *oldestLabel = w.findChild<QLabel *>(QStringLiteral("oldestLabel"));
+    auto *oldestLabel = w.findChild<QLabel *>(QStringLiteral("oldestLabel"));
     QVERIFY(oldestLabel);
     QVERIFY(!oldestLabel->text().isEmpty());
 
-    QDateTimeEdit *mOldestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
+    auto *mOldestDateTimeEdit = w.findChild<QDateTimeEdit *>(QStringLiteral("mLastestDateTimeEdit"));
     QVERIFY(mOldestDateTimeEdit);
 
-    QLabel *usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));
+    auto *usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));
     QVERIFY(usersLabel);
     QVERIFY(!usersLabel->text().isEmpty());
     QVERIFY(usersLabel->wordWrap());
     QCOMPARE(usersLabel->textFormat(), Qt::PlainText);
 
-    AddUsersWidget *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
+    auto *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
     QVERIFY(mUsers);
     mainLayout->addWidget(mUsers);
 
-    QCheckBox *mInclusive = w.findChild<QCheckBox *>(QStringLiteral("mInclusive"));
+    auto *mInclusive = w.findChild<QCheckBox *>(QStringLiteral("mInclusive"));
     QVERIFY(mInclusive);
     QVERIFY(!mInclusive->text().isEmpty());
     QVERIFY(!mInclusive->isChecked());
 
-    QCheckBox *mDoNotPrunePinnedMessage = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPrunePinnedMessage"));
+    auto *mDoNotPrunePinnedMessage = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPrunePinnedMessage"));
     QVERIFY(mDoNotPrunePinnedMessage);
     QVERIFY(!mDoNotPrunePinnedMessage->text().isEmpty());
     QVERIFY(!mDoNotPrunePinnedMessage->isChecked());
 
-    QCheckBox *mDoNotPruneDiscussionMessage = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPruneDiscussionMessage"));
+    auto *mDoNotPruneDiscussionMessage = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPruneDiscussionMessage"));
     QVERIFY(mDoNotPruneDiscussionMessage);
     QVERIFY(!mDoNotPruneDiscussionMessage->text().isEmpty());
     QVERIFY(!mDoNotPruneDiscussionMessage->isChecked());
 
-    QCheckBox *mDoNotPruneThreads = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPruneThreads"));
+    auto *mDoNotPruneThreads = w.findChild<QCheckBox *>(QStringLiteral("mDoNotPruneThreads"));
     QVERIFY(mDoNotPruneThreads);
     QVERIFY(!mDoNotPruneThreads->text().isEmpty());
     QVERIFY(!mDoNotPruneThreads->isChecked());
 
-    QCheckBox *mOnlyRemoveAttachedFiles = w.findChild<QCheckBox *>(QStringLiteral("mOnlyRemoveAttachedFiles"));
+    auto *mOnlyRemoveAttachedFiles = w.findChild<QCheckBox *>(QStringLiteral("mOnlyRemoveAttachedFiles"));
     QVERIFY(mOnlyRemoveAttachedFiles);
     QVERIFY(!mOnlyRemoveAttachedFiles->text().isEmpty());
     QVERIFY(!mOnlyRemoveAttachedFiles->isChecked());

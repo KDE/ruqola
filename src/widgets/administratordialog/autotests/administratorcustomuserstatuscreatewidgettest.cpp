@@ -34,15 +34,15 @@ void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusCreateWidget w;
 
-    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    QLineEdit *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    auto *mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
 
-    StatusCombobox *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
+    auto *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
     QVERIFY(mStatusCombobox);
     QVERIFY(!w.userStatusInfo().isValid());
 }

@@ -83,26 +83,26 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDiscussionBackButton->isCheckable());
     QVERIFY(!mDiscussionBackButton->isVisible());
 
-    QToolButton *mChannelInfoButton = w.findChild<QToolButton *>(QStringLiteral("mChannelInfoButton"));
+    auto *mChannelInfoButton = w.findChild<QToolButton *>(QStringLiteral("mChannelInfoButton"));
     QVERIFY(mChannelInfoButton);
     QVERIFY(!mChannelInfoButton->isCheckable());
     QVERIFY(!mChannelInfoButton->toolTip().isEmpty());
     QVERIFY(!mChannelInfoButton->icon().isNull());
 
-    QToolButton *mListOfUsersButton = w.findChild<QToolButton *>(QStringLiteral("mListOfUsersButton"));
+    auto *mListOfUsersButton = w.findChild<QToolButton *>(QStringLiteral("mListOfUsersButton"));
     QVERIFY(mListOfUsersButton);
     QVERIFY(mListOfUsersButton->isCheckable());
     QVERIFY(!mListOfUsersButton->isChecked());
     QVERIFY(!mListOfUsersButton->toolTip().isEmpty());
     QVERIFY(!mListOfUsersButton->icon().isNull());
 
-    QToolButton *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
+    auto *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
     QVERIFY(mSearchMessageButton);
     QVERIFY(!mSearchMessageButton->isCheckable());
     QVERIFY(!mSearchMessageButton->toolTip().isEmpty());
     QVERIFY(!mSearchMessageButton->icon().isNull());
 
-    QToolButton *mChannelAction = w.findChild<QToolButton *>(QStringLiteral("mChannelAction"));
+    auto *mChannelAction = w.findChild<QToolButton *>(QStringLiteral("mChannelAction"));
     QVERIFY(mChannelAction);
     QCOMPARE(mChannelAction->popupMode(), QToolButton::InstantPopup);
     QVERIFY(!mChannelAction->icon().isNull());
@@ -114,8 +114,8 @@ void RoomHeaderWidgetTest::shouldShowHideIcon()
     w.show();
     QVERIFY(QTest::qWaitForWindowExposed(&w));
 
-    QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
-    QToolButton *mDiscussionBackButton = w.findChild<QToolButton *>(QStringLiteral("mDiscussionBackButton"));
+    auto *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
+    auto *mDiscussionBackButton = w.findChild<QToolButton *>(QStringLiteral("mDiscussionBackButton"));
 
     w.setIsDiscussion(true);
     QVERIFY(!mFavoriteButton->isVisible());
@@ -133,11 +133,11 @@ void RoomHeaderWidgetTest::shouldEmitSignal()
     QVERIFY(QTest::qWaitForWindowExposed(&w));
 
     QSignalSpy favoriteSignal(&w, &RoomHeaderWidget::favoriteChanged);
-    QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
+    auto *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
     QTest::mouseClick(mFavoriteButton, Qt::LeftButton);
     QCOMPARE(favoriteSignal.count(), 1);
 
-    QToolButton *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
+    auto *mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
 
     QSignalSpy searchMessageSignal(&w, &RoomHeaderWidget::searchMessageRequested);
     QTest::mouseClick(mSearchMessageButton, Qt::LeftButton);

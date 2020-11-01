@@ -37,12 +37,12 @@ void ThreadMessageDialogTest::shouldHaveDefaultValues()
 {
     ThreadMessageDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    ThreadMessageWidget *mThreadMessageWidget = w.findChild<ThreadMessageWidget *>(QStringLiteral("mThreadMessageWidget"));
+    auto *mThreadMessageWidget = w.findChild<ThreadMessageWidget *>(QStringLiteral("mThreadMessageWidget"));
     QVERIFY(mThreadMessageWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

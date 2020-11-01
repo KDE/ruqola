@@ -36,7 +36,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    QHBoxLayout *searchAttachmentLayout = new QHBoxLayout;
+    auto *searchAttachmentLayout = new QHBoxLayout;
     searchAttachmentLayout->setObjectName(QStringLiteral("searchAttachmentLayout"));
     searchAttachmentLayout->setContentsMargins({});
     mainLayout->addLayout(searchAttachmentLayout);
@@ -67,7 +67,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mListAttachment = new QListView(this);
     mListAttachment->setObjectName(QStringLiteral("mListAttachment"));
     mainLayout->addWidget(mListAttachment);
-    ListAttachmentDelegate *delegate = new ListAttachmentDelegate(this);
+    auto *delegate = new ListAttachmentDelegate(this);
     connect(delegate, &ListAttachmentDelegate::deleteAttachment, this, &ShowAttachmentWidget::deleteAttachment);
     mListAttachment->setItemDelegate(delegate);
 }

@@ -38,7 +38,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 
     mMediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
-    QVideoWidget *videoWidget = new QVideoWidget(this);
+    auto *videoWidget = new QVideoWidget(this);
     videoWidget->setObjectName(QStringLiteral("videoWidget"));
 
     mainLayout->addWidget(videoWidget);

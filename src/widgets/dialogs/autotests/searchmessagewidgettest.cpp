@@ -44,7 +44,7 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mResultListWidget);
     QCOMPARE(mResultListWidget->mode(), MessageListView::Mode::Viewing);
 
-    QLabel *mSearchLabel = w.findChild<QLabel *>(QStringLiteral("mSearchLabel"));
+    auto *mSearchLabel = w.findChild<QLabel *>(QStringLiteral("mSearchLabel"));
     QVERIFY(mSearchLabel);
     QVERIFY(mSearchLabel->text().isEmpty());
 }

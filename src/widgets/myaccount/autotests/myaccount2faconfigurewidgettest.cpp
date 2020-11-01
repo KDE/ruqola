@@ -32,10 +32,10 @@ MyAccount2FaConfigureWidgetTest::MyAccount2FaConfigureWidgetTest(QObject *parent
 void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccount2FaConfigureWidget w;
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    QCheckBox *mActivate2FAViaEmailCheckbox = w.findChild<QCheckBox *>(QStringLiteral("mActivate2FAViaEmailCheckbox"));
+    auto *mActivate2FAViaEmailCheckbox = w.findChild<QCheckBox *>(QStringLiteral("mActivate2FAViaEmailCheckbox"));
     QVERIFY(mActivate2FAViaEmailCheckbox);
     QVERIFY(!mActivate2FAViaEmailCheckbox->text().isEmpty());
 }
