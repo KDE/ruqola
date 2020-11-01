@@ -49,6 +49,7 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 
     QLabel *mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
     QVERIFY(mThreadPreview);
+    QVERIFY(mThreadPreview->wordWrap());
     QCOMPARE(mThreadPreview->contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(mThreadPreview->text().isEmpty());
 }
