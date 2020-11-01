@@ -41,8 +41,7 @@ struct NotificationInfo {
     //Pixmap can be null.
     Q_REQUIRED_RESULT bool isValid() const
     {
-        return !message.isEmpty()
-               && !senderId.isEmpty()
+        return !senderId.isEmpty()
                && !message.isEmpty()
                && !channelType.isEmpty();
     }
