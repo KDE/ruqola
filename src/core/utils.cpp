@@ -191,11 +191,15 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
         }
         const QJsonObject messageObj = payloadObj.value(QLatin1String("message")).toObject();
-        if (!messageObj.isEmpty()) {
-            info.message = messageObj[QStringLiteral("msg")].toString();
-        } else {
+        if (messageObj.isEmpty()) {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing message";
             info.message = obj[QStringLiteral("text")].toString();
+        } else {
+            info.message = messageObj[QStringLiteral("msg")].toString();
+            if (info.message.isEmpty()) {
+                //Fallback to text
+                info.message = obj[QStringLiteral("text")].toString();
+            }
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
