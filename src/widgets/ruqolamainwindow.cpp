@@ -215,7 +215,7 @@ void RuqolaMainWindow::setupActions()
 {
     KActionCollection *ac = actionCollection();
 
-    KStandardAction::quit(this, &RuqolaMainWindow::close, ac);
+    KStandardAction::quit(this, &RuqolaMainWindow::slotClose, ac);
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
@@ -423,4 +423,19 @@ void RuqolaMainWindow::slotAdministrator()
     QPointer<AdministratorDialog> dlg = new AdministratorDialog(this);
     dlg->exec();
     delete dlg;
+}
+
+bool RuqolaMainWindow::queryClose()
+{
+    if (qApp->isSavingSession() || mReallyClose) {
+        return true;
+    }
+    hide();
+    return false;
+}
+
+void RuqolaMainWindow::slotClose()
+{
+    mReallyClose = true;
+    close();
 }

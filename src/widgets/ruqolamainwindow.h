@@ -39,6 +39,9 @@ public:
     explicit RuqolaMainWindow(QWidget *parent = nullptr);
     ~RuqolaMainWindow() override;
 
+protected:
+    Q_REQUIRED_RESULT bool queryClose() override;
+
 private:
     void slotRegisterUserSuccessed();
     void slotSaveAs();
@@ -69,6 +72,8 @@ private:
     void logout(const QString &accountName);
     void slotRoomNeedAttention();
     void slotCreateDirectMessages();
+    void slotClose();
+    bool mReallyClose{false};
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
