@@ -26,22 +26,27 @@
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
+    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set Online Account on Startup"), this))
+    , mShowImageByDefault(new QCheckBox(i18n("Show Image by Default"), this))
+    , mShowRoomAvatar(new QCheckBox(i18n("Show Room Avatar"), this))
+    , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSetOnlineForAllAccount = new QCheckBox(i18n("Set Online Account on Startup"), this);
     mSetOnlineForAllAccount->setObjectName(QStringLiteral("mSetOnlineForAllAccount"));
     mainLayout->addWidget(mSetOnlineForAllAccount);
 
-    mShowImageByDefault = new QCheckBox(i18n("Show Image by Default"), this);
     mShowImageByDefault->setObjectName(QStringLiteral("mShowImageByDefault"));
     mainLayout->addWidget(mShowImageByDefault);
 
-    mShowRoomAvatar = new QCheckBox(i18n("Show Room Avatar"), this);
     mShowRoomAvatar->setObjectName(QStringLiteral("mShowRoomAvatar"));
     mainLayout->addWidget(mShowRoomAvatar);
+
+    mEnableSystemTray->setObjectName(QStringLiteral("mEnableSystemTray"));
+    mainLayout->addWidget(mEnableSystemTray);
+
 
     mainLayout->addStretch(1);
 }
@@ -55,6 +60,7 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
     RuqolaGlobalConfig::self()->setShowImage(mShowImageByDefault->isChecked());
     RuqolaGlobalConfig::self()->setShowRoomAvatar(mShowRoomAvatar->isChecked());
+    RuqolaGlobalConfig::self()->setEnableSystemTray(mEnableSystemTray->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -63,4 +69,5 @@ void ConfigureGeneralWidget::load()
     mSetOnlineForAllAccount->setChecked(RuqolaGlobalConfig::self()->setOnlineAccounts());
     mShowImageByDefault->setChecked(RuqolaGlobalConfig::self()->showImage());
     mShowRoomAvatar->setChecked(RuqolaGlobalConfig::self()->showRoomAvatar());
+    mEnableSystemTray->setChecked(RuqolaGlobalConfig::self()->enableSystemTray());
 }

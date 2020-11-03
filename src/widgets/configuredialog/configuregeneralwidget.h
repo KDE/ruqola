@@ -34,9 +34,10 @@ public:
     void save();
     void load();
 private:
-    QCheckBox *mSetOnlineForAllAccount = nullptr;
-    QCheckBox *mShowImageByDefault = nullptr;
-    QCheckBox *mShowRoomAvatar = nullptr;
+    QCheckBox *const mSetOnlineForAllAccount;
+    QCheckBox *const mShowImageByDefault;
+    QCheckBox *const mShowRoomAvatar;
+    QCheckBox *const mEnableSystemTray;
 };
 
 #endif // CONFIGUREGENERALWIDGET_H
