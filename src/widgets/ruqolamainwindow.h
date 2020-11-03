@@ -73,6 +73,7 @@ private:
     void slotRoomNeedAttention();
     void slotCreateDirectMessages();
     void slotClose();
+    void createSystemTray();
     bool mReallyClose{false};
 
     RuqolaCentralWidget *mMainWidget = nullptr;

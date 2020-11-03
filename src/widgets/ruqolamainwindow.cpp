@@ -81,16 +81,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupStatusBar();
     setupGUI(/*QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc")*/);
     readConfig();
-#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
-    mNotification = new Notification(this);
-    auto *trayMenu = qobject_cast<QMenu *>(mNotification->contextMenu());
-    trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
-    trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
-    // Create systray to show notifications on Desktop
-    connect(mNotification, &Notification::alert, this, [this]() {
-        QApplication::alert(this, 0);
-    });
-#endif
+    createSystemTray();
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(Ruqola::self()->accountManager(), &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
@@ -323,6 +314,7 @@ void RuqolaMainWindow::slotConfigure()
         }
 
         mAccountOverviewWidget->updateButtons();
+        createSystemTray();
     }
     delete dlg;
 }
@@ -427,7 +419,7 @@ void RuqolaMainWindow::slotAdministrator()
 
 bool RuqolaMainWindow::queryClose()
 {
-    if (qApp->isSavingSession() || mReallyClose) {
+    if (qApp->isSavingSession() || mReallyClose || !mNotification) {
         return true;
     }
     hide();
@@ -438,4 +430,25 @@ void RuqolaMainWindow::slotClose()
 {
     mReallyClose = true;
     close();
+}
+
+void RuqolaMainWindow::createSystemTray()
+{
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+    if (!RuqolaGlobalConfig::self()->enableSystemTray()) {
+        delete mNotification;
+        mNotification = nullptr;
+        return;
+    }
+    if (!mNotification) {
+        mNotification = new Notification(this);
+        auto *trayMenu = qobject_cast<QMenu *>(mNotification->contextMenu());
+        trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
+        trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
+        // Create systray to show notifications on Desktop
+        connect(mNotification, &Notification::alert, this, [this]() {
+            QApplication::alert(this, 0);
+        });
+    }
+#endif
 }
