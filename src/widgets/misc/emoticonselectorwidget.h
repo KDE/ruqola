@@ -34,8 +34,8 @@ public:
     Q_REQUIRED_RESULT QString identifier() const;
 
 private:
-    QString mText;
-    QString mIdentifier;
+    const QString mText;
+    const QString mIdentifier;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonSelectorWidget : public QListWidget
