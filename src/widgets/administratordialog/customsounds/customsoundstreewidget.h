@@ -31,6 +31,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT  CustomSoundsTreeWidget : public QTreeWidget
 public:
     explicit CustomSoundsTreeWidget(QWidget *parent = nullptr);
     ~CustomSoundsTreeWidget();
+
+private:
+    void addClicked();
+    void editClicked();
+    void removeClicked();
+    void slotCustomContextMenuRequested(const QPoint &pos);
 };
 
 #endif // CUSTOMSOUNDSTREEWIDGET_H

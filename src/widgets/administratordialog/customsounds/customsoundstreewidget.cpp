@@ -36,7 +36,7 @@ CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     setSelectionMode(SingleSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
     setRootIsDecorated(false);
-    //connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
+    connect(this, &CustomSoundsTreeWidget::customContextMenuRequested, this, &CustomSoundsTreeWidget::slotCustomContextMenuRequested);
     //initialize();
 
 }
@@ -45,3 +45,38 @@ CustomSoundsTreeWidget::~CustomSoundsTreeWidget()
 {
 
 }
+
+void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &CustomSoundsTreeWidget::addClicked);
+    QTreeWidgetItem *item = itemAt(pos);
+    if (item) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &CustomSoundsTreeWidget::editClicked);
+        menu.addSeparator();
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &CustomSoundsTreeWidget::removeClicked);
+    }
+    menu.exec(viewport()->mapToGlobal(pos));
+}
+
+void CustomSoundsTreeWidget::addClicked()
+{
+    //TODO
+}
+
+void CustomSoundsTreeWidget::editClicked()
+{
+    if (!currentItem()) {
+        return;
+    }
+    //TODO
+}
+
+void CustomSoundsTreeWidget::removeClicked()
+{
+    if (!currentItem()) {
+        return;
+    }
+    //TODO
+}
+
