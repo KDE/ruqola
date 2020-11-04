@@ -92,7 +92,6 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
 {
     if (isVisible()) {
         const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
-        qDebug() << " UsersInRoomFlowWidget::generateListUsersWidget() " << model;
         const auto count = model->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         mListUsersWidget.clear();
