@@ -151,4 +151,3 @@ void RocketChatAccountModel::removeAccount(const QString &name)
         }
     }
 }
-

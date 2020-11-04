@@ -101,4 +101,3 @@ void LoginMethodModel::setAuthenticationInfos(const QVector<AuthenticationInfo> 
         endInsertRows();
     }
 }
-

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "administratorcustomsoundscreatedialogtest.h"
 #include "administratordialog/customsounds/administratorcustomsoundscreatedialog.h"
 #include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"

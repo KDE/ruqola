@@ -50,7 +50,6 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
     auto *mAdministratorCustomUserStatusWidget = w.findChild<AdministratorCustomUserStatusWidget *>(QStringLiteral("mAdministratorCustomUserStatusWidget"));
     QVERIFY(mAdministratorCustomUserStatusWidget);
 
-
     auto *mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
     QVERIFY(mAdministratorCustomSoundsWidget);
 }

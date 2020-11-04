@@ -48,7 +48,6 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomSoundsCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomSoundsCreateDialog::accept);
     readConfig();
-
 }
 
 AdministratorCustomSoundsCreateDialog::~AdministratorCustomSoundsCreateDialog()

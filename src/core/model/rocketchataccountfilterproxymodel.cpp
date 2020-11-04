@@ -33,4 +33,3 @@ RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *pa
 RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel()
 {
 }
-

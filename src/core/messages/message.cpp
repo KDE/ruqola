@@ -393,7 +393,7 @@ bool Message::operator==(const Message &other) const
            && (mShowTranslatedMessage == other.showTranslatedMessage())
            && (mReplies == other.replies())
            && (mEmoji == other.emoji())
-            && (mPendingMessage == other.pendingMessage());
+           && (mPendingMessage == other.pendingMessage());
 }
 
 bool Message::operator<(const Message &other) const

@@ -31,7 +31,6 @@ public:
     ~AdministratorCustomSoundsCreateDialogTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
-
 };
 
 #endif // ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H

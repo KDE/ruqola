@@ -183,4 +183,3 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
     }
     return {};
 }
-

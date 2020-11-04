@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "customsoundstreewidget.h"
 #include <KLocalizedString>
 #include <QHeaderView>
@@ -38,12 +37,10 @@ CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     setRootIsDecorated(false);
     connect(this, &CustomSoundsTreeWidget::customContextMenuRequested, this, &CustomSoundsTreeWidget::slotCustomContextMenuRequested);
     //initialize();
-
 }
 
 CustomSoundsTreeWidget::~CustomSoundsTreeWidget()
 {
-
 }
 
 void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -79,4 +76,3 @@ void CustomSoundsTreeWidget::removeClicked()
     }
     //TODO
 }
-

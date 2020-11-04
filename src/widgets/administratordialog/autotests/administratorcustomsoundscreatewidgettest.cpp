@@ -24,10 +24,8 @@ QTEST_MAIN(AdministratorCustomSoundsCreateWidgetTest)
 AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AdministratorCustomSoundsCreateWidgetTest::shouldHaveDefaultValues()
 {
-
 }

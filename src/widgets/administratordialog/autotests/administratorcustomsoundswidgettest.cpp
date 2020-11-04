@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "administratorcustomsoundswidgettest.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include <QTest>
@@ -26,7 +25,6 @@ QTEST_MAIN(AdministratorCustomSoundsWidgetTest)
 AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()

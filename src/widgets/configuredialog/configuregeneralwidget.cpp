@@ -47,7 +47,6 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mEnableSystemTray->setObjectName(QStringLiteral("mEnableSystemTray"));
     mainLayout->addWidget(mEnableSystemTray);
 
-
     mainLayout->addStretch(1);
 }
 

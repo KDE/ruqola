@@ -171,4 +171,3 @@ QIcon SearchChannelModel::channelIconName(const Channel &channel) const
     }
     return {};
 }
-

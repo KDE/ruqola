@@ -18,14 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef CUSTOMSOUNDSTREEWIDGET_H
 #define CUSTOMSOUNDSTREEWIDGET_H
 
 #include <QTreeWidget>
 #include "libruqolawidgets_private_export.h"
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT  CustomSoundsTreeWidget : public QTreeWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CustomSoundsTreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:
