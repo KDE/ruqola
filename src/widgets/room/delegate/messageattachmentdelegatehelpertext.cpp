@@ -129,12 +129,11 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         }
-#if 0
         // Clicks on links
         auto *doc = documentForIndex(msgAttach, attachmentsRect.width());
         if (doc) {
-            const QString link = doc->documentLayout()->anchorAt(pos);
-            qDebug() << " link " << link;
+            const QPoint mouseClickPos = pos - attachmentsRect.topLeft();
+            const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 auto *rcAccount = Ruqola::self()->rocketChatAccount();
                 Q_EMIT rcAccount->openLinkRequested(link);
@@ -143,7 +142,6 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
         break;
-#endif
     }
     default:
         break;
