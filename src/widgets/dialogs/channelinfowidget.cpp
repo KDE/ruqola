@@ -124,7 +124,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPrivate = new QCheckBox(this);
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     layout->addRow(i18n("Private:"), mPrivate);
-    connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
+    connect(mPrivate, &QCheckBox::clicked, this, [this, layout](bool checked) {
+        mEncrypted->setVisible(checked);
+        layout->labelForField(mEncrypted)->setVisible(checked);
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
     });
 
