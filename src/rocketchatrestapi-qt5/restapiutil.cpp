@@ -214,8 +214,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.online");
     case RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel:
         return QStringLiteral("channels.getAllUserMentionsByChannel");
-    case RestApiUtil::RestApiUrlType::ChannelsSetEncrypted:
-        return QStringLiteral("channels.setEncrypted");
     case RestApiUtil::RestApiUrlType::GroupsAddAll:
         return QStringLiteral("groups.addAll");
     case RestApiUtil::RestApiUrlType::GroupsAddModerator:

@@ -166,7 +166,6 @@ public:
     void changeGroupsReadOnly(const QString &roomId, bool b);
     void channelAddLeader(const QString &roomId, const QString &userId);
     void channelRemoveLeader(const QString &roomId, const QString &userId);
-    void changeChannelEncrypted(const QString &roomId, bool b);
     void changeGroupsEncrypted(const QString &roomId, bool b);
     void pinMessage(const QString &messageId, bool pinned);
     void desktopDurationNotifications(const QString &roomId, int value);

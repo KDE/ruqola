@@ -1259,7 +1259,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         break;
     case Encrypted:
         if (channelType == QLatin1Char('c')) {
-            restApi()->changeChannelEncrypted(roomId, newValue.toBool());
+            qCWarning(RUQOLA_LOG) << "We can't add encrypted support in channel. It's a bug";
         } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupsEncrypted(roomId, newValue.toBool());
         } else {

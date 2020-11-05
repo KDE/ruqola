@@ -90,7 +90,6 @@
 #include "channels/channeldeletejob.h"
 #include "channels/channelmembersjob.h"
 #include "channels/changechannelreadonlyjob.h"
-#include "channels/changechannelencryptedjob.h"
 #include "channels/channeladdleaderjob.h"
 #include "channels/channelremoveleaderjob.h"
 #include "channels/channelgetcountersjob.h"
@@ -458,17 +457,6 @@ void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
     job->setReadOnly(b);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsReadOnly job";
-    }
-}
-
-void RestApiRequest::changeChannelEncrypted(const QString &roomId, bool b)
-{
-    auto *job = new ChangeChannelEncryptedJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setEncrypted(b);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelEncrypted job";
     }
 }
 
