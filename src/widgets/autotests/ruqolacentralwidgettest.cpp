@@ -22,6 +22,7 @@
 #include "ruqolacentralwidget.h"
 
 #include <QHBoxLayout>
+#include <QStackedWidget>
 #include <QTest>
 
 QTEST_MAIN(RuqolaCentralWidgetTest)
@@ -35,5 +36,8 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     RuqolaCentralWidget w;
     auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
+
+    auto *mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    QVERIFY(mStackedWidget);
     //TODO
 }
