@@ -3,6 +3,7 @@
     "attachments": [
         {
             "attchmentType": "NormalText",
+            "authoricon": "https://cloud.githubusercontent.com/assets/51996/13893698/c047133c-ed2e-11e5-9233-13622bcb9b7b.png",
             "authorname": "#18771 - Bump googleapis from 25.0.0 to 39.1.0",
             "url": "https://github.com/RocketChat/Rocket.Chat/pull/18771"
         }

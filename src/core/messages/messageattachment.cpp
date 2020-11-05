@@ -73,6 +73,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     }
 
     setAuthorName(attachment.value(QLatin1String("author_name")).toString());
+    setAuthorIcon(attachment.value(QLatin1String("author_icon")).toString());
     //Color
     const QJsonValue color = attachment.value(QLatin1String("color"));
     if (!color.isUndefined()) {
@@ -120,6 +121,10 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (!authorname.isEmpty()) {
         obj[QStringLiteral("authorname")] = authorname;
     }
+    const QString authorIcon = message.authorIcon();
+    if (!authorIcon.isEmpty()) {
+        obj[QStringLiteral("authoricon")] = authorIcon;
+    }
     const QString mimeType = message.mimeType();
     if (!mimeType.isEmpty()) {
         obj[QStringLiteral("mimetype")] = mimeType;
@@ -160,6 +165,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
     att.setText(o.value(QLatin1String("text")).toString());
     att.setLink(o.value(QLatin1String("url")).toString());
     att.setAuthorName(o.value(QLatin1String("authorname")).toString());
+    att.setAuthorIcon(o.value(QLatin1String("authoricon")).toString());
     att.setMimeType(o.value(QLatin1String("mimetype")).toString());
     const QJsonValue valHeight = o.value(QLatin1String("image_height"));
     if (!valHeight.isUndefined()) {
@@ -323,6 +329,16 @@ void MessageAttachment::setShowAttachment(bool showAttachment)
     mShowAttachment = showAttachment;
 }
 
+QString MessageAttachment::authorIcon() const
+{
+    return mAuthorIcon;
+}
+
+void MessageAttachment::setAuthorIcon(const QString &authorIcon)
+{
+    mAuthorIcon = authorIcon;
+}
+
 QString MessageAttachment::displayTitle() const
 {
     if (canDownloadAttachment()) {
@@ -376,7 +392,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mMimeType == other.mimeType())
            && (mText == other.text())
            && (mAttachmentFields == other.attachmentFields())
-           && (mCollapsed == other.collapsed());
+           && (mCollapsed == other.collapsed())
+            && (mAuthorIcon == other.authorIcon());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
@@ -393,5 +410,6 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "attachmentfields " << t.attachmentFields();
     d << "showAttachment " << t.showAttachment();
     d << "AttachmentType: " << t.attachmentType();
+    d << "mAuthorIcon: " << t.authorIcon();
     return d;
 }

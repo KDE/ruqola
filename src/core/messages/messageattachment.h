@@ -108,6 +108,9 @@ public:
     Q_REQUIRED_RESULT bool showAttachment() const;
     void setShowAttachment(bool showAttachment);
 
+    Q_REQUIRED_RESULT QString authorIcon() const;
+    void setAuthorIcon(const QString &authorIcon);
+
 private:
     QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
@@ -119,6 +122,7 @@ private:
     QString mMimeType;
     QString mText;
     QString mAttachmentId;
+    QString mAuthorIcon;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
