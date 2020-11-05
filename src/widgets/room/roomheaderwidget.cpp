@@ -43,6 +43,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
     mFavoriteButton->setCheckable(true);
+    mFavoriteButton->setToolTip(i18n("Favorite"));
     headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
@@ -57,6 +58,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mEncryptedButton = new QToolButton(this);
     mEncryptedButton->setObjectName(QStringLiteral("mEncryptedButton"));
     mEncryptedButton->setIcon(QIcon::fromTheme(QStringLiteral("encrypted")));
+    mEncryptedButton->setToolTip(i18n("E2E Enabled"));
     mEncryptedButton->setCheckable(true);
     mEncryptedButton->setVisible(false);
     headerLayout->addWidget(mEncryptedButton, Qt::AlignTop);
