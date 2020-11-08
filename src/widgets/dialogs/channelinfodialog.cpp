@@ -50,6 +50,6 @@ ChannelInfoDialog::~ChannelInfoDialog()
 
 void ChannelInfoDialog::setRoom(Room *room)
 {
-    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", room->name()));
+    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", room->fName()));
     mChannelInfoWidget->setRoom(room);
 }

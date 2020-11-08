@@ -213,7 +213,7 @@ void ChannelInfoWidget::setRoom(Room *room)
 
 void ChannelInfoWidget::updateReadOnlyChannelInfo()
 {
-    mNameReadOnly->setText(mRoom->name());
+    mNameReadOnly->setText(mRoom->fName());
     mCommentReadOnly->setText(mRoom->topic());
     mAnnouncementReadOnly->setText(mRoom->announcement());
     mDescriptionReadOnly->setText(mRoom->description());
@@ -221,7 +221,7 @@ void ChannelInfoWidget::updateReadOnlyChannelInfo()
 
 void ChannelInfoWidget::updateEditableChannelInfo()
 {
-    mName->setText(mRoom->name());
+    mName->setText(mRoom->fName());
     mComment->setText(mRoom->topic());
     mAnnouncement->setText(mRoom->announcement());
     mDescription->setText(mRoom->description());
