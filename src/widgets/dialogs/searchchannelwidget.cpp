@@ -53,6 +53,7 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     auto *searchDeletegate = new SearchChannelDelegate(this);
     mResultListWidget->setItemDelegate(searchDeletegate);
     connect(searchDeletegate, &SearchChannelDelegate::channelSelected, this, &SearchChannelWidget::slotOpenChannel);
+    Ruqola::self()->rocketChatAccount()->channelAndPrivateAutocomplete(QString());
 }
 
 SearchChannelWidget::~SearchChannelWidget()
