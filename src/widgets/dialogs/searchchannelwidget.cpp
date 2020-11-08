@@ -26,6 +26,7 @@
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include <KLocalizedString>
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QListWidget>
@@ -39,6 +40,7 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
 
     mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Channel..."));
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &SearchChannelWidget::slotTextChanged);

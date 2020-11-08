@@ -41,6 +41,7 @@ void SearchChannelWidgetTest::shouldHaveDefaultValues()
     auto *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
+    QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 
     auto *mResultListWidget = w.findChild<QListView *>(QStringLiteral("mResultListWidget"));
     QVERIFY(mResultListWidget);
