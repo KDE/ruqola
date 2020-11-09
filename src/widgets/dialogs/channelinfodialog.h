@@ -34,7 +34,7 @@ public:
     void setRoom(Room *room);
 private:
     void slotFnameChanged(const QString &fname);
-    ChannelInfoWidget *mChannelInfoWidget = nullptr;
+    ChannelInfoWidget *const mChannelInfoWidget;
 };
 
 #endif // CHANNELINFODIALOG_H

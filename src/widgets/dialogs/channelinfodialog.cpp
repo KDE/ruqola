@@ -28,12 +28,12 @@
 
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
+    , mChannelInfoWidget(new ChannelInfoWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mChannelInfoWidget = new ChannelInfoWidget(this);
     mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
     mainLayout->addWidget(mChannelInfoWidget);
 
