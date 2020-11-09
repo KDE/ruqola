@@ -63,11 +63,11 @@ CreateNewAccountWidget::~CreateNewAccountWidget()
 
 AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
 {
+    const QString accountName = mAccountName->text().trimmed();
     if (mAccountInfo.accountName.isEmpty()) {
-        mAccountInfo.accountName = mAccountName->text().trimmed();
-    } else {
-        mAccountInfo.displayName = mAccountName->text().trimmed();
+        mAccountInfo.accountName = accountName;
     }
+    mAccountInfo.displayName = accountName;
     mAccountInfo.serverUrl = mServerName->text().trimmed();
     mAccountInfo.userName = mUserName->text().trimmed();
     return mAccountInfo;
