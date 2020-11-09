@@ -90,6 +90,7 @@ void AccountServerListWidget::modifyAccountConfig()
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
         serverListItem->setAccountInfo(info);
     }
+    delete dlg;
 }
 
 void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
