@@ -336,6 +336,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::RoomsGetDiscussions:
         return QStringLiteral("rooms.getDiscussions");
 
+    //since 3.8.0
+    case RestApiUtil::RestApiUrlType::RoomsExport:
+        return QStringLiteral("rooms.export");
+
     //since 0.72 ? Need to implement it
     case RestApiUtil::RestApiUrlType::RoomsInfo:
         return QStringLiteral("rooms.info");
