@@ -41,7 +41,7 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     mMyAccountConfigWidget->setObjectName(QStringLiteral("mMyAccountConfigWidget"));
     mainLayout->addWidget(mMyAccountConfigWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);

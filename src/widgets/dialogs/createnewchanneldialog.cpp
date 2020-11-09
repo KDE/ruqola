@@ -40,7 +40,7 @@ CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     mCreateNewChannelWidget->setObjectName(QStringLiteral("mCreateNewChannelWidget"));
     mainLayout->addWidget(mCreateNewChannelWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &CreateNewChannelDialog::accept);

@@ -35,7 +35,7 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
     mAskTwoAuthicationPasswordWidget->setObjectName(QStringLiteral("mAskTwoAuthicationPasswordWidget"));
     mainLayout->addWidget(mAskTwoAuthicationPasswordWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &AskTwoAuthenticationPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &AskTwoAuthenticationPasswordDialog::accept);

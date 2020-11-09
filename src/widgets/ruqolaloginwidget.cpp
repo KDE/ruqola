@@ -60,7 +60,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     auto *authenticationAccountLayout = new QVBoxLayout(mAuthenticationAccountWidget);
     authenticationAccountLayout->setObjectName(QStringLiteral("authenticationAccountLayout"));
 
-    QLabel *authenticationAccountLabel = new QLabel(i18n("Authentication Method"), this);
+    auto *authenticationAccountLabel = new QLabel(i18n("Authentication Method"), this);
+    authenticationAccountLabel->setTextFormat(Qt::PlainText);
     authenticationAccountLabel->setObjectName(QStringLiteral("authenticationAccountLabel"));
     authenticationAccountLayout->addWidget(authenticationAccountLabel);
 

@@ -42,7 +42,7 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     mainLayout->addWidget(mReportMessageWidget);
     mainLayout->addStretch(1);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ReportMessageDialog::accept);

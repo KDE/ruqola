@@ -35,7 +35,7 @@ ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
     mConfigureNoticationWidget->setObjectName(QStringLiteral("mConfigureNoticationWidget"));
     mainLayout->addWidget(mConfigureNoticationWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureNotificationDialog::reject);
     mainLayout->addWidget(buttonBox);

@@ -41,7 +41,7 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
     mainLayout->addWidget(mInviteUsersWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &InviteUsersDialog::accept);

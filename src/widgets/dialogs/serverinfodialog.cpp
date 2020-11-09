@@ -35,7 +35,7 @@ ServerInfoDialog::ServerInfoDialog(QWidget *parent)
     mServerInfoWidget->setObjectName(QStringLiteral("mServerInfoWidget"));
     mainLayout->addWidget(mServerInfoWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ServerInfoDialog::close);

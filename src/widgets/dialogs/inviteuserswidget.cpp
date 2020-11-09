@@ -50,6 +50,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 
     QLabel *label = new QLabel(i18n("Invite Link:"), this);
     label->setObjectName(QStringLiteral("label"));
+    label->setTextFormat(Qt::PlainText);
     hlayout->addWidget(label);
 
     mInviteUserLineEdit = new QLineEdit(this);
@@ -91,6 +92,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
 
     mExpireDateLabel = new QLabel(this);
     mExpireDateLabel->setObjectName(QStringLiteral("mExpireDateLabel"));
+    mExpireDateLabel->setTextFormat(Qt::PlainText);
     mExpireDateLabel->setWordWrap(true);
     mainLayout->addWidget(mExpireDateLabel);
 

@@ -41,7 +41,7 @@ ThreadMessageDialog::ThreadMessageDialog(QWidget *parent)
     mThreadMessageWidget->setObjectName(QStringLiteral("mThreadMessageWidget"));
     mainLayout->addWidget(mThreadMessageWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ThreadMessageDialog::reject);

@@ -49,6 +49,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
 
     QLabel *label = new QLabel(i18n("Language:"), this);
     label->setObjectName(QStringLiteral("label"));
+    label->setTextFormat(Qt::PlainText);
     horizontalLayout->addWidget(label);
 
     mLanguage = new QComboBox(this);

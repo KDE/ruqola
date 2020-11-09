@@ -42,7 +42,7 @@ CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     mNewAccountWidget->setObjectName(QStringLiteral("mNewAccountWidget"));
     mainLayout->addWidget(mNewAccountWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewAccountDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);

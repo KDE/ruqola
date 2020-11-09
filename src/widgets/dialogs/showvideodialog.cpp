@@ -41,7 +41,7 @@ ShowVideoDialog::ShowVideoDialog(QWidget *parent)
     mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
     mainLayout->addWidget(mShowVideoWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowVideoDialog::reject);
     mainLayout->addWidget(buttonBox);

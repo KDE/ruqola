@@ -36,7 +36,7 @@ ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
     mChannelPasswordWidget->setObjectName(QStringLiteral("mChannelPasswordWidget"));
     mainLayout->addWidget(mChannelPasswordWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelPasswordDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelPasswordDialog::reject);

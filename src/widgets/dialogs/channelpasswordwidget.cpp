@@ -32,6 +32,7 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     QLabel *label = new QLabel(i18n("Channel Password:"), this);
+    label->setTextFormat(Qt::PlainText);
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);
 

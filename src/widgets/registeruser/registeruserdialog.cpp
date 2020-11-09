@@ -42,7 +42,7 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     mRegisterUserWidget->setObjectName(QStringLiteral("mRegisterUserWidget"));
     mainLayout->addWidget(mRegisterUserWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &RegisterUserDialog::reject);

@@ -35,7 +35,7 @@ DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     mDirectChannelInfoWidget->setObjectName(QStringLiteral("mDirectChannelInfoWidget"));
     mainLayout->addWidget(mDirectChannelInfoWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &DirectChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);

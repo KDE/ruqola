@@ -38,7 +38,7 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
     mShowListMessage->setObjectName(QStringLiteral("mShowListMessage"));
     mainLayout->addWidget(mShowListMessage);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowListMessageBaseDialog::reject);

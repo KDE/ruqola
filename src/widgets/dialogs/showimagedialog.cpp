@@ -36,7 +36,7 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
     mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
     mainLayout->addWidget(mShowImageWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
     mainLayout->addWidget(buttonBox);

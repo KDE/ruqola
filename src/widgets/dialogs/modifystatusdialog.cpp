@@ -35,7 +35,7 @@ ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     mModifyStatusWidget->setObjectName(QStringLiteral("mModifyStatusWidget"));
     mainLayout->addWidget(mModifyStatusWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ModifyStatusDialog::accept);

@@ -42,7 +42,7 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
     mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
     mainLayout->addWidget(mCreateWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomSoundsCreateDialog::reject);

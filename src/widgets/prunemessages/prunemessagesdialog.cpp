@@ -43,7 +43,7 @@ PruneMessagesDialog::PruneMessagesDialog(QWidget *parent)
     mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
     mainLayout->addWidget(mPruneMessageWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &PruneMessagesDialog::reject);

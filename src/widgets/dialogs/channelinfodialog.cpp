@@ -37,7 +37,7 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
     mainLayout->addWidget(mChannelInfoWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
     resize(600, 400);

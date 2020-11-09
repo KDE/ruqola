@@ -35,7 +35,7 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
     mSoundWidget->setObjectName(QStringLiteral("mSoundWidget"));
     mainLayout->addWidget(mSoundWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &PlaySoundDialog::reject);
     mainLayout->addWidget(buttonBox);

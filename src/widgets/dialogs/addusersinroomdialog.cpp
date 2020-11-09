@@ -40,7 +40,7 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
     mainLayout->addWidget(mAddUsersInRoomWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AddUsersInRoomDialog::reject);

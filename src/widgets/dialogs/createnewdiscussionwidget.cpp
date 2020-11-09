@@ -49,6 +49,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 
     QLabel *discussionName = new QLabel(i18n("Discussion Name"), this);
     discussionName->setObjectName(QStringLiteral("discussionName"));
+    discussionName->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(discussionName);
 
     mDiscussionNameLineEdit = new QLineEdit(this);
