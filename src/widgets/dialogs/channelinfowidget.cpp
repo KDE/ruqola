@@ -263,8 +263,9 @@ void ChannelInfoWidget::connectEditableWidget()
     connect(mRoom, &Room::topicChanged, this, [this]() {
         mComment->setText(mRoom->topic());
     });
-    connect(mRoom, &Room::nameChanged, this, [this]() {
-        mName->setText(mRoom->name());
+    connect(mRoom, &Room::fnameChanged, this, [this]() {
+        mName->setText(mRoom->fName());
+        Q_EMIT fnameChanged(mRoom->fName());
     });
     connect(mRoom, &Room::descriptionChanged, this, [this]() {
         mDescription->setText(mRoom->description());

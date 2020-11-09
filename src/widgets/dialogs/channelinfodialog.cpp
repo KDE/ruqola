@@ -42,6 +42,7 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
     resize(600, 400);
     connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
+    connect(mChannelInfoWidget, &ChannelInfoWidget::fnameChanged, this, &ChannelInfoDialog::slotFnameChanged);
 }
 
 ChannelInfoDialog::~ChannelInfoDialog()
@@ -50,6 +51,11 @@ ChannelInfoDialog::~ChannelInfoDialog()
 
 void ChannelInfoDialog::setRoom(Room *room)
 {
-    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", room->fName()));
+    slotFnameChanged(room->fName());
     mChannelInfoWidget->setRoom(room);
+}
+
+void ChannelInfoDialog::slotFnameChanged(const QString &fname)
+{
+    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", fname));
 }

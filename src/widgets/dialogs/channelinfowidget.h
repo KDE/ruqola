@@ -59,6 +59,7 @@ public:
 
 Q_SIGNALS:
     void channelDeleted();
+    void fnameChanged(const QString &fname);
 
 private:
     void updateReadOnlyChannelInfo();

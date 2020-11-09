@@ -33,6 +33,7 @@ public:
     ~ChannelInfoDialog() override;
     void setRoom(Room *room);
 private:
+    void slotFnameChanged(const QString &fname);
     ChannelInfoWidget *mChannelInfoWidget = nullptr;
 };
 
