@@ -137,6 +137,7 @@ set (RocketChatRestApiQt_SRCS
     rooms/roomsautocompletechannelandprivatejob.cpp
     rooms/adminroomsjob.cpp
     rooms/roomscleanhistoryjob.cpp
+    rooms/roomsexportjob.cpp
 
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp
