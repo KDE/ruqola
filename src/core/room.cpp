@@ -293,6 +293,16 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setLastSeenAt(result);
     }
 
+    const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
+    QStringList lstHighlightsWord;
+    const int highlightsWordArrayCount = highlightsWordArray.count();
+    lstHighlightsWord.reserve(highlightsWordArrayCount);
+    for (int i = 0; i < highlightsWordArrayCount; ++i) {
+        lstHighlightsWord << highlightsWordArray.at(i).toString();
+    }
+    setHighlightsWord(lstHighlightsWord);
+
+
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
     const int ignoredArrayCount = ignoredArray.count();
