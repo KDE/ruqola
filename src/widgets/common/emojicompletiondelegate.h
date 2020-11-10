@@ -32,7 +32,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    QFont mEmojiFont;
+    const QFont mEmojiFont;
 };
 
 #endif // EMOJICOMPLETIONDELEGATE_H
