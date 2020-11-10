@@ -22,7 +22,7 @@
 #define SERVICEPASSWORD_H
 
 #include "libruqolacore_export.h"
-#include "user.h"
+//#include "user.h"
 
 #include <QJsonObject>
 

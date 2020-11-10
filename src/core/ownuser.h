@@ -76,7 +76,6 @@ public:
     void setServicePassword(const ServicePassword &servicePassword);
 
 private:
-    //TODO add service password support
     QString mUserId;
     QString mUserName;
     QString mStatus;
@@ -88,6 +87,7 @@ private:
     QString mNickName;
     QStringList mRoles;
     ServicePassword mServicePassword;
+    //Add preferences.
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(OwnUser)

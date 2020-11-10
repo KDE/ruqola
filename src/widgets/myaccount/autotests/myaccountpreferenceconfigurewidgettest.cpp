@@ -20,7 +20,9 @@
 
 #include "myaccountpreferenceconfigurewidgettest.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
+#include <QLabel>
 #include <QTest>
+#include <QLineEdit>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
 MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(QObject *parent)
@@ -35,4 +37,14 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+
+    auto *highlightWordsLabel = w.findChild<QLabel *>(QStringLiteral("highlightWordsLabel"));
+    QVERIFY(highlightWordsLabel);
+    QCOMPARE(highlightWordsLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!highlightWordsLabel->text().isEmpty());
+
+    auto *mHighlightWords = w.findChild<QLineEdit *>(QStringLiteral("mHighlightWords"));
+    QVERIFY(mHighlightWords);
+    QVERIFY(mHighlightWords->text().isEmpty());
 }

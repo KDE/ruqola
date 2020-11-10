@@ -18,23 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPREFERENCECONFIGUREWIDGET_H
-#define MYACCOUNTPREFERENCECONFIGUREWIDGET_H
+#ifndef OWNUSERPREFERENCES_H
+#define OWNUSERPREFERENCES_H
 
-#include <QWidget>
+#include "libruqolacore_export.h"
 
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
+#include <QJsonObject>
+
+class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
-    Q_OBJECT
 public:
-    explicit MyAccountPreferenceConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccountPreferenceConfigureWidget();
-    void save();
-    void load();
-private:
-    QLineEdit *const mHighlightWords;
+    OwnUserPreferences();
+    ~OwnUserPreferences();
 };
 
-#endif // MYACCOUNTPREFERENCECONFIGUREWIDGET_H
+#endif // OWNUSERPREFERENCES_H

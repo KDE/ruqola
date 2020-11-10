@@ -20,12 +20,26 @@
 
 #include "myaccountpreferenceconfigurewidget.h"
 #include <QVBoxLayout>
+#include <QLabel>
+#include <KLocalizedString>
+#include <QLineEdit>
+
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *parent)
     : QWidget(parent)
+    , mHighlightWords(new QLineEdit(this))
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    auto *highlightWordsLabel = new QLabel(i18n("Highlight words:"), this);
+    highlightWordsLabel->setObjectName(QStringLiteral("highlightWordsLabel"));
+    highlightWordsLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(highlightWordsLabel);
+
+    mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
+    mainLayout->addWidget(mHighlightWords);
+
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
