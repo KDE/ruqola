@@ -33,6 +33,11 @@ public:
     ~OwnUserPreferences();
     void parsePreferences(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT bool operator ==(const OwnUserPreferences &other) const;
+    Q_REQUIRED_RESULT QStringList highlightWords() const;
+    void setHighlightWords(const QStringList &highlightWords);
+
+private:
+    QStringList mHighlightWords;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

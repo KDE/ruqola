@@ -50,7 +50,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
         mRoles.append(role.toString());
     }
     mServicePassword.parseService(replyObject.value(QLatin1String("services")).toObject());
-    mOwnUserPreferences.parsePreferences(replyObject.value(QLatin1String("settings")).toObject()); //Preferences ?
+    mOwnUserPreferences.parsePreferences(replyObject.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
 }
 
 bool OwnUser::isAdministrator() const

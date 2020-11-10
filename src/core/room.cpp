@@ -901,6 +901,16 @@ void Room::parseCommonData(const QJsonObject &json)
         lstRoles << rolesArray.at(i).toString();
     }
     setRoles(lstRoles);
+
+    //FIXME.
+    const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
+    QStringList lstHighlightsWord;
+    const int highlightsWordArrayCount = highlightsWordArray.count();
+    lstHighlightsWord.reserve(highlightsWordArrayCount);
+    for (int i = 0; i < highlightsWordArrayCount; ++i) {
+        lstHighlightsWord << highlightsWordArray.at(i).toString();
+    }
+    setHighlightsWord(lstHighlightsWord);
 }
 
 QStringList Room::displaySystemMessageTypes() const
@@ -1149,6 +1159,15 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
         lstIgnored <<ignoredArray.at(i).toString();
     }
     r->setIgnoredUsers(lstIgnored);
+
+    const QJsonArray highlightsWordArray = o.value(QLatin1String("userHighlights")).toArray();
+    QStringList lstHighlightsWord;
+    const int highlightsWordArrayCount = highlightsWordArray.count();
+    lstHighlightsWord.reserve(highlightsWordArrayCount);
+    for (int i = 0; i < highlightsWordArrayCount; ++i) {
+        lstHighlightsWord << highlightsWordArray.at(i).toString();
+    }
+    r->setHighlightsWord(lstHighlightsWord);
 
     const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;

@@ -51,7 +51,7 @@ void TextConverterTest::shouldConvertText()
     TextConverter w;
     output.prepend(QLatin1String("<qt>"));
     output.append(QLatin1String("</qt>"));
-    QCOMPARE(w.convertMessageText(input, QString(), {}), output);
+    QCOMPARE(w.convertMessageText(input, QString(), {}, {}), output); //TODO add autotests for highlightwords
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -155,5 +155,5 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.setServerUrl(serverUrl);
 
     TextConverter w(&manager);
-    QCOMPARE(w.convertMessageText(input, QString(), {}), output);
+    QCOMPARE(w.convertMessageText(input, QString(), {}, {}), output); //TODO add autotest for highlightwords
 }

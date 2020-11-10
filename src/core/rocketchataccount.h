@@ -456,6 +456,7 @@ public:
     void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
+    Q_REQUIRED_RESULT QStringList highlightWords() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

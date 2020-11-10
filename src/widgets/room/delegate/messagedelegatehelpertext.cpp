@@ -95,7 +95,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 // Use TextConverter in case it starts with a [](URL) reply marker
                 TextConverter textConverter(rcAccount->emojiManager());
                 const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
-                const QString contextString = textConverter.convertMessageText(contextText, rcAccount->userName(), {});
+                const QString contextString = textConverter.convertMessageText(contextText, rcAccount->userName(), {}, rcAccount->highlightWords());
                 text.prepend(Utils::formatQuotedRichText(contextString));
             }
         }

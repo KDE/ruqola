@@ -2339,3 +2339,8 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
         qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
     }
 }
+
+QStringList RocketChatAccount::highlightWords() const
+{
+    return ownUser().ownUserPreferences().highlightWords();
+}

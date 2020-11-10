@@ -20,6 +20,8 @@
 
 #include "ownuserpreferences.h"
 
+#include <QJsonArray>
+
 OwnUserPreferences::OwnUserPreferences()
 {
 
@@ -29,17 +31,33 @@ OwnUserPreferences::~OwnUserPreferences() = default;
 
 void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 {
-
+    const QJsonArray highlightsArray = replyObject.value(QLatin1String("highlights")).toArray();
+    QStringList lstHighlightsWord;
+    const int highlightsWordArrayCount = highlightsArray.count();
+    lstHighlightsWord.reserve(highlightsWordArrayCount);
+    for (int i = 0; i < highlightsWordArrayCount; ++i) {
+        lstHighlightsWord << highlightsArray.at(i).toString();
+    }
+    setHighlightWords(lstHighlightsWord);
 }
 
 bool OwnUserPreferences::operator ==(const OwnUserPreferences &other) const
 {
-    //TODO
-    return true;
+    return mHighlightWords == other.highlightWords();
+}
+
+QStringList OwnUserPreferences::highlightWords() const
+{
+    return mHighlightWords;
+}
+
+void OwnUserPreferences::setHighlightWords(const QStringList &highlightWords)
+{
+    mHighlightWords = highlightWords;
 }
 
 QDebug operator <<(QDebug d, const OwnUserPreferences &t)
 {
-    //TODO
+    d << "mHighlightWords " << t.highlightWords();
     return d;
 }

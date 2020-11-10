@@ -82,6 +82,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
     if (mRoom) {
         connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
+        connect(mRoom, &Room::highlightsWordChanged, this, &MessageModel::refresh);
     }
 }
 
@@ -267,11 +268,15 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         if (message.messageType() == Message::System) {
             return message.systemMessageText();
         } else {
-            if (mRoom && mRoom->userIsIgnored(message.userId())) {
-                return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+            QStringList highlightWords;
+            if (mRoom) {
+                if (mRoom->userIsIgnored(message.userId())) {
+                    return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+                }
+                highlightWords = mRoom->highlightsWord();
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            return convertMessageText(message, userName);
+            return convertMessageText(message, userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords);
         }
 
     case MessageModel::Timestamp:
@@ -448,7 +453,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     return QStringList();
 }
 
-QString MessageModel::convertMessageText(const Message &message, const QString &userName) const
+QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords) const
 {
     QString messageStr = message.text();
     if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
@@ -458,7 +463,7 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
         }
     }
 
-    return mTextConverter->convertMessageText(messageStr, userName, mAllMessages);
+    return mTextConverter->convertMessageText(messageStr, userName, mAllMessages, highlightWords);
 }
 
 void MessageModel::setRoomId(const QString &roomID)
@@ -542,7 +547,7 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
         auto it = findMessage(threadMessageId);
         if (it != mAllMessages.cend()) {
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            QString str = convertMessageText((*it), userName);
+            QString str = convertMessageText((*it), userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList());
             if (str.length() > 80) {
                 str = str.left(80) + QStringLiteral("...");
             }

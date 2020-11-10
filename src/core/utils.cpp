@@ -72,13 +72,20 @@ QString Utils::markdownToRichText(const QString &markDown)
     return str;
 }
 
-QString Utils::generateRichText(const QString &str, const QString &username)
+QString Utils::generateRichText(const QString &str, const QString &username, const QStringList &highlightWords)
 {
     QString newStr = Utils::markdownToRichText(str);
+    KColorScheme colorScheme;
+    //qDebug() << " highlightWords " << highlightWords;
+    const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
+    const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
+    for (const QString &word : highlightWords) {
+        newStr.replace(word, QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
+                       .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor));
+    }
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    KColorScheme colorScheme;
     const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::ActiveText).color().name();
     const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::ActiveBackground).color().name();
     while (userIterator.hasNext()) {
