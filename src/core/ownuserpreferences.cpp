@@ -26,3 +26,20 @@ OwnUserPreferences::OwnUserPreferences()
 }
 
 OwnUserPreferences::~OwnUserPreferences() = default;
+
+void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
+{
+
+}
+
+bool OwnUserPreferences::operator ==(const OwnUserPreferences &other) const
+{
+    //TODO
+    return true;
+}
+
+QDebug operator <<(QDebug d, const OwnUserPreferences &t)
+{
+    //TODO
+    return d;
+}

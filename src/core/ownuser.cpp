@@ -50,6 +50,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
         mRoles.append(role.toString());
     }
     mServicePassword.parseService(replyObject.value(QLatin1String("services")).toObject());
+    mOwnUserPreferences.parsePreferences(replyObject.value(QLatin1String("settings")).toObject()); //Preferences ?
 }
 
 bool OwnUser::isAdministrator() const
@@ -65,6 +66,16 @@ ServicePassword OwnUser::servicePassword() const
 void OwnUser::setServicePassword(const ServicePassword &servicePassword)
 {
     mServicePassword = servicePassword;
+}
+
+OwnUserPreferences OwnUser::ownUserPreferences() const
+{
+    return mOwnUserPreferences;
+}
+
+void OwnUser::setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences)
+{
+    mOwnUserPreferences = ownUserPreferences;
 }
 
 QString OwnUser::userId() const
@@ -111,6 +122,7 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     d << "nickname " << t.nickName();
     d << "roles " << t.roles();
     d << "servicePassword " << t.servicePassword();
+    d << "OwnUserPreferences " << t.ownUserPreferences();
     return d;
 }
 
@@ -127,7 +139,8 @@ bool OwnUser::operator ==(const OwnUser &other) const
            && (mStatusDefault == other.statusDefault())
            && (mNickName == other.nickName())
            && (mRoles == other.roles())
-           && (mServicePassword == other.servicePassword());
+           && (mServicePassword == other.servicePassword())
+           && (mOwnUserPreferences == other.ownUserPreferences());
 }
 
 QString OwnUser::email() const

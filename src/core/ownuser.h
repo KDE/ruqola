@@ -22,6 +22,7 @@
 #define OWNUSER_H
 
 #include "libruqolacore_export.h"
+#include "ownuserpreferences.h"
 #include "servicepassword.h"
 #include "user.h"
 
@@ -75,6 +76,9 @@ public:
     Q_REQUIRED_RESULT ServicePassword servicePassword() const;
     void setServicePassword(const ServicePassword &servicePassword);
 
+    Q_REQUIRED_RESULT OwnUserPreferences ownUserPreferences() const;
+    void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
+
 private:
     QString mUserId;
     QString mUserName;
@@ -87,7 +91,7 @@ private:
     QString mNickName;
     QStringList mRoles;
     ServicePassword mServicePassword;
-    //Add preferences.
+    OwnUserPreferences mOwnUserPreferences;
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(OwnUser)

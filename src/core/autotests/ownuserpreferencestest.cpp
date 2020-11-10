@@ -18,25 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OWNUSERPREFERENCES_H
-#define OWNUSERPREFERENCES_H
-
-#include "libruqolacore_export.h"
-
-#include <QJsonObject>
-#include <QDebug>
-
-class LIBRUQOLACORE_EXPORT OwnUserPreferences
+#include "ownuserpreferencestest.h"
+#include "ownuserpreferences.h"
+#include <QTest>
+OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    OwnUserPreferences();
-    ~OwnUserPreferences();
-    void parsePreferences(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT bool operator ==(const OwnUserPreferences &other) const;
-};
 
-Q_DECLARE_METATYPE(OwnUserPreferences)
-Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const OwnUserPreferences &t);
+}
 
-#endif // OWNUSERPREFERENCES_H
+void OwnUserPreferencesTest::shouldHaveDefaultValues()
+{
+    OwnUserPreferences p;
+    //TODO
+}
