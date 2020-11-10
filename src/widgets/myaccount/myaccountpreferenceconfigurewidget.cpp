@@ -30,7 +30,6 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
 
     auto *highlightWordsLabel = new QLabel(i18n("Highlight words:"), this);
     highlightWordsLabel->setObjectName(QStringLiteral("highlightWordsLabel"));
@@ -39,7 +38,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
 
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
     mainLayout->addWidget(mHighlightWords);
-
+    mainLayout->addStretch();
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
