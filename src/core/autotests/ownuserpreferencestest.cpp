@@ -21,6 +21,7 @@
 #include "ownuserpreferencestest.h"
 #include "ownuserpreferences.h"
 #include <QTest>
+QTEST_MAIN(OwnUserPreferencesTest)
 OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
     : QObject(parent)
 {
