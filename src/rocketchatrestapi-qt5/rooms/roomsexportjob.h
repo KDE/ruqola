@@ -31,7 +31,21 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsExportJob : public RestApiAbstractJob
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsExportInfo {
+        enum FileFormat {
+            Unknown = 0,
+            Html,
+            Json,
+        };
+
         Q_REQUIRED_RESULT bool isValid() const;
+        QString roomId;
+        QStringList toUsers;
+        QStringList toEmails;
+        QString subject;
+        QString messages;
+        FileFormat fileFormat = Unknown;
+        QDateTime dateFrom;
+        QDateTime dateTo;
     };
     explicit RoomsExportJob(QObject *parent = nullptr);
     ~RoomsExportJob() override;
