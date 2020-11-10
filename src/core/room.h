@@ -237,7 +237,11 @@ public:
     Q_REQUIRED_RESULT QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
+    Q_REQUIRED_RESULT QStringList highlightsWord() const;
+    void setHighlightsWord(const QStringList &highlightsWord);
+
 Q_SIGNALS:
+    void highlightsWordChanged();
     void nameChanged();
     void fnameChanged();
     void announcementChanged();
@@ -294,6 +298,8 @@ private:
     QStringList mMutedUsers;
 
     QStringList mIgnoredUsers;
+
+    QStringList mHighlightsWord;
 
     //Roles
     QStringList mRoles;

@@ -78,6 +78,7 @@ void RoomTest::shouldHaveDefaultValue()
     QCOMPARE(input.lastSeenAt(), -1);
     QVERIFY(input.directChannelUserId().isEmpty());
     QVERIFY(input.displaySystemMessageTypes().isEmpty());
+    QVERIFY(input.highlightsWord().isEmpty());
 }
 
 //TODO add notification, userMentions too

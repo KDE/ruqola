@@ -97,7 +97,8 @@ bool Room::isEqual(const Room &other) const
            && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
            && (mAvatarETag == other.avatarETag())
            && (mUids == other.uids())
-           && (mUserNames == other.userNames());
+           && (mUserNames == other.userNames())
+           && (mHighlightsWord == other.highlightsWord());
 }
 
 QString Room::displayRoomName() const
@@ -155,6 +156,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "AvatarEtag " << t.avatarETag();
     d << "uids " << t.uids();
     d << "usernames " << t.userNames();
+    d << "highlightsWord " << t.highlightsWord();
     return d;
 }
 
@@ -747,6 +749,19 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
         lst << sysMessArray.at(i).toString();
     }
     setDisplaySystemMessageTypes(lst);
+}
+
+QStringList Room::highlightsWord() const
+{
+    return mHighlightsWord;
+}
+
+void Room::setHighlightsWord(const QStringList &highlightsWord)
+{
+    if (mHighlightsWord != highlightsWord) {
+        mHighlightsWord = highlightsWord;
+        Q_EMIT highlightsWordChanged();
+    }
 }
 
 QStringList Room::userNames() const
