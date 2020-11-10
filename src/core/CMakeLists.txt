@@ -255,10 +255,8 @@ if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF5::IconThemes)
 endif()
 
-if (Qt5Keychain_FOUND)
-    target_link_libraries(libruqolacore qt5keychain)
-    target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
-endif()
+target_link_libraries(libruqolacore qt5keychain)
+target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
 set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}

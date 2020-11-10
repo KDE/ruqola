@@ -29,10 +29,8 @@
 #include <QSettings>
 #include <QStandardPaths>
 
-#if HAVE_QT5KEYCHAIN
 #include <qt5keychain/keychain.h>
 using namespace QKeychain;
-#endif
 
 RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -61,19 +59,14 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
-#if HAVE_QT5KEYCHAIN
     auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
     connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
     readJob->setKey(mAccountName);
     readJob->start();
-#else
-    qCWarning(RUQOLA_LOG) << "Ruqola was not compiled against qtkeychain";
-#endif
 }
 
 void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
 {
-#if HAVE_QT5KEYCHAIN
     auto *job = qobject_cast<ReadPasswordJob *>(baseJob);
     Q_ASSERT(job);
     if (!job->error()) {
@@ -81,18 +74,13 @@ void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
         qCDebug(RUQOLA_LOG) << "OK, we have the password now";
         Q_EMIT passwordChanged();
     }
-#else
-    Q_UNUSED(baseJob);
-#endif
 }
 
 void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
 {
-#if HAVE_QT5KEYCHAIN
     if (baseJob->error()) {
         qCWarning(RUQOLA_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
     }
-#endif
 }
 
 QString RocketChatAccountSettings::displayName() const
@@ -220,13 +208,11 @@ void RocketChatAccountSettings::setPassword(const QString &password)
 {
     mPassword = password;
 
-#if HAVE_QT5KEYCHAIN
     auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"), this);
     connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
     writeJob->setKey(mAccountName);
     writeJob->setTextData(mPassword);
     writeJob->start();
-#endif
 
     Q_EMIT passwordChanged();
 }
@@ -313,12 +299,10 @@ QString RocketChatAccountSettings::cacheBasePath()
 void RocketChatAccountSettings::removeSettings()
 {
     //Delete password
-#if HAVE_QT5KEYCHAIN
     auto deleteJob = new DeletePasswordJob(QStringLiteral("Ruqola"));
     deleteJob->setKey(mAccountName);
     deleteJob->setAutoDelete(true);
     deleteJob->start();
-#endif
     QFile f(mSetting->fileName());
     if (!f.remove()) {
         qCWarning(RUQOLA_LOG) << "Impossible to delete config file: " << mSetting->fileName();

@@ -81,8 +81,7 @@ find_package(Qt5Keychain CONFIG)
 set_package_properties(Qt5Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
-                                   TYPE OPTIONAL)
-set(HAVE_QT5KEYCHAIN ${Qt5Keychain_FOUND})
+                                   TYPE REQUIRED)
 
 find_package(KUserFeedback 1.0.0 CONFIG)
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
