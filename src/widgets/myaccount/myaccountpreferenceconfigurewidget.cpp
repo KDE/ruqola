@@ -19,6 +19,8 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <KLocalizedString>
@@ -51,4 +53,5 @@ void MyAccountPreferenceConfigureWidget::save()
 
 void MyAccountPreferenceConfigureWidget::load()
 {
+    mHighlightWords->setText(Ruqola::self()->rocketChatAccount()->highlightWords().join(QLatin1Char(',')));
 }
