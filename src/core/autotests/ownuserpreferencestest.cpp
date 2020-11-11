@@ -21,7 +21,7 @@
 #include "ownuserpreferencestest.h"
 #include "ownuserpreferences.h"
 #include <QTest>
-QTEST_MAIN(OwnUserPreferencesTest)
+QTEST_GUILESS_MAIN(OwnUserPreferencesTest)
 OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
     : QObject(parent)
 {
@@ -31,5 +31,5 @@ OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
 void OwnUserPreferencesTest::shouldHaveDefaultValues()
 {
     OwnUserPreferences p;
-    //TODO
+    QVERIFY(p.highlightWords().isEmpty());
 }
