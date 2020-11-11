@@ -80,13 +80,13 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
     const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
     const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
     for (const QString &word : highlightWords) {
-        static const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(word), QRegularExpression::CaseInsensitiveOption);
+        const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(word), QRegularExpression::CaseInsensitiveOption);
         QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
         while (userIterator.hasNext()) {
             const QRegularExpressionMatch match = userIterator.next();
-            const QStringRef word = match.capturedRef(1);
-            newStr.replace(word.toString(), QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
-                           .arg(word.toString(), userHighlightForegroundColor, userHighlightBackgroundColor));
+            const QString word = match.captured(1);
+            newStr.replace(word, QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
+                           .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor));
         }
     }
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));

@@ -139,6 +139,45 @@ void UtilsTest::shouldExtractGenerateRichText()
     QCOMPARE(Utils::generateRichText(input, QString(), {}), output);
 }
 
+void UtilsTest::shouldHighlightWords_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("username");
+    QTest::addColumn<QStringList>("highlightWords");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString() << QStringList{} << QString();
+    KColorScheme colorScheme;
+    const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
+    const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
+    const QStringList highlightWords{QStringLiteral("ruqola"), QStringLiteral("kde")};
+    QTest::newRow("lowercase") << QStringLiteral("Ruqola")
+                                     << QStringLiteral("foo")
+                                     << highlightWords
+                                     << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a>")
+        .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
+    QTest::newRow("two-word") << QStringLiteral("Ruqola kde")
+                                     << QStringLiteral("foo")
+                                     << highlightWords
+                                     << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> <a style=\"color:%1;background-color:%2;\">kde</a>")
+        .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
+
+    QTest::newRow("words") << QStringLiteral("Ruqola bla kde KDE.")
+                                     << QStringLiteral("foo")
+                                     << highlightWords
+                                     << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> bla <a style=\"color:%1;background-color:%2;\">kde</a> <a style=\"color:%1;background-color:%2;\">KDE</a>.")
+        .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
+}
+
+void UtilsTest::shouldHighlightWords()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, username);
+    QFETCH(QStringList, highlightWords);
+    QFETCH(QString, output);
+    QCOMPARE(Utils::generateRichText(input, username, highlightWords), output);
+}
+
+
 void UtilsTest::shouldHighlightText_data()
 {
     QTest::addColumn<QString>("input");
