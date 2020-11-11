@@ -80,7 +80,8 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
     const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
     const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
     for (const QString &word : highlightWords) {
-        newStr.replace(word, QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
+        static const QRegularExpression exp(word, QRegularExpression::CaseInsensitiveOption);
+        newStr.replace(exp, QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
                        .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor));
     }
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
