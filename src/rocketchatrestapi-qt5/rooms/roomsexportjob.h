@@ -36,6 +36,11 @@ public:
             Html,
             Json,
         };
+        enum class ExportAs {
+            Unknown,
+            File,
+            Email,
+        };
 
         Q_REQUIRED_RESULT bool isValid() const;
         QString roomId;
@@ -44,6 +49,7 @@ public:
         QString subject;
         QString messages;
         FileFormat fileFormat = FileFormat::Unknown;
+        ExportAs exportAs = ExportAs::Unknown;
         QDateTime dateFrom;
         QDateTime dateTo;
     };

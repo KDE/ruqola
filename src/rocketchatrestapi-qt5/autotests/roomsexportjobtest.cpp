@@ -37,6 +37,17 @@ void RoomsExportJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+
+    RoomsExportJob::RoomsExportInfo info;
+    QVERIFY(!info.isValid());
+    QCOMPARE(info.fileFormat, RoomsExportJob::RoomsExportInfo::FileFormat::Unknown);
+    QVERIFY(info.roomId.isEmpty());
+    QVERIFY(info.toUsers.isEmpty());
+    QVERIFY(info.toEmails.isEmpty());
+    QVERIFY(info.subject.isEmpty());
+    QVERIFY(info.messages.isEmpty());
+    QVERIFY(!info.dateFrom.isValid());
+    QVERIFY(!info.dateTo.isValid());
 }
 
 void RoomsExportJobTest::shouldGenerateRequest()

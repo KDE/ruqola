@@ -89,8 +89,22 @@ QJsonDocument RoomsExportJob::json() const
 {
     QJsonObject jsonObj;
 
-    const QJsonDocument postData = QJsonDocument(jsonObj);
+    jsonObj[QLatin1String("rid")] = mRoomExportInfo.roomId;
+    switch (mRoomExportInfo.exportAs) {
+    case RoomsExportInfo::ExportAs::Unknown:
+        break;
+    case RoomsExportInfo::ExportAs::File:
+        //TODO
+        break;
+    case RoomsExportInfo::ExportAs::Email:
+        //TODO
+        break;
+    }
+
+    //postData[QLatin1String("type")] = mRoomExportInfo.ty;
+
     //qDebug() << " postData**************** " << postData;
+    const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
@@ -123,11 +137,13 @@ QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExpor
     d << "dateFrom " << t.dateFrom;
     d << "dateTo " << t.dateTo;
     d << "fileFormat " << static_cast<int>(t.fileFormat);
+    d << "exportAs " << static_cast<int>(t.exportAs);
     return d;
 }
 
 bool RoomsExportJob::RoomsExportInfo::isValid() const
 {
     return fileFormat != RoomsExportInfo::FileFormat::Unknown
+            && exportAs != RoomsExportInfo::ExportAs::Unknown
             && !roomId.isEmpty();
 }
