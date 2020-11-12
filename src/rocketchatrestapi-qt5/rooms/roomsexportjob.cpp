@@ -115,12 +115,19 @@ QNetworkRequest RoomsExportJob::request() const
 
 QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t)
 {
-    //TODO
+    d << "roomId " << t.roomId;
+    d << "toUsers " << t.toUsers;
+    d << "toEmails " << t.toEmails;
+    d << "subject " << t.subject;
+    d << "messages " << t.messages;
+    d << "dateFrom " << t.dateFrom;
+    d << "dateTo " << t.dateTo;
+    d << "fileFormat " << static_cast<int>(t.fileFormat);
     return d;
 }
 
 bool RoomsExportJob::RoomsExportInfo::isValid() const
 {
-    //TODO
-    return false;
+    return fileFormat != RoomsExportInfo::FileFormat::Unknown
+            && !roomId.isEmpty();
 }

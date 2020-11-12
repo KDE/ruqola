@@ -31,8 +31,8 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsExportJob : public RestApiAbstractJob
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsExportInfo {
-        enum FileFormat {
-            Unknown = 0,
+        enum class FileFormat {
+            Unknown,
             Html,
             Json,
         };
@@ -43,7 +43,7 @@ public:
         QStringList toEmails;
         QString subject;
         QString messages;
-        FileFormat fileFormat = Unknown;
+        FileFormat fileFormat = FileFormat::Unknown;
         QDateTime dateFrom;
         QDateTime dateTo;
     };
