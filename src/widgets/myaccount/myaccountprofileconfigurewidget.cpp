@@ -87,7 +87,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mLogoutFromOtherLocation->setObjectName(QStringLiteral("mLogoutFromOtherLocation"));
     mainLayout->addWidget(mLogoutFromOtherLocation);
     connect(mLogoutFromOtherLocation, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation);
-
+    topLayout->addStretch();
     init();
 }
 
