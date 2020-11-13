@@ -43,7 +43,7 @@ public:
     void setJoinCode(const QString &joinCode);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
     void setChannelJoinDone(const ChannelBaseJob::ChannelInfo &channelInfo);

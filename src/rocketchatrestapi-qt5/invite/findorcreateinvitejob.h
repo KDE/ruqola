@@ -59,7 +59,7 @@ public:
     Q_REQUIRED_RESULT FindOrCreateInviteJob::InviteUsersInfo parseResult(const QJsonObject &replyObject);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 Q_SIGNALS:
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);

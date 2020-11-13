@@ -108,10 +108,10 @@ QNetworkRequest GetThreadMessagesJob::request() const
     return request;
 }
 
-QString GetThreadMessagesJob::errorMessage(const QString &str)
+QString GetThreadMessagesJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("error-invalid-message")) {
         return i18n("Invalid message: \'%1\'", mThreadMessageId);
     }
-    return RestApiAbstractJob::errorMessage(str);
+    return RestApiAbstractJob::errorMessage(str, details);
 }

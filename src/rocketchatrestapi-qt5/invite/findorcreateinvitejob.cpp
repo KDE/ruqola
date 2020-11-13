@@ -153,13 +153,12 @@ QJsonDocument FindOrCreateInviteJob::json() const
     return postData;
 }
 
-QString FindOrCreateInviteJob::errorMessage(const QString &str)
+QString FindOrCreateInviteJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("not_authorized")) {
         return i18n("Generate link is not authorized in this channel.");
-    } else {
-        return RestApiAbstractJob::errorMessage(str);
     }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 QDebug operator <<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)

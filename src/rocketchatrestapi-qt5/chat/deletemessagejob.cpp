@@ -131,11 +131,10 @@ QString DeleteMessageJob::jobName() const
     return QStringLiteral("Delete Message");
 }
 
-QString DeleteMessageJob::errorMessage(const QString &str)
+QString DeleteMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("Message deletion is not allowed.");
-    } else {
-        return RestApiAbstractJob::errorMessage(str);
     }
+    return RestApiAbstractJob::errorMessage(str, details);
 }

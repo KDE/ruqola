@@ -48,7 +48,7 @@ public:
     Q_REQUIRED_RESULT bool shouldReact() const;
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 Q_SIGNALS:
     void reactOnMessageDone();

@@ -226,7 +226,7 @@ QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
     const QString errorType = replyObject[QStringLiteral("errorType")].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
-        const QString trStr = errorMessage(errorType);
+        const QString trStr = errorMessage(errorType, replyObject[QStringLiteral("details")].toObject());
         if (!trStr.isEmpty()) {
             return trStr;
         } else {
@@ -248,7 +248,7 @@ QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const
     return i18n("%1:%2", jobName(), errorStr);
 }
 
-QString RestApiAbstractJob::errorMessage(const QString &str)
+QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("__action__ is not allowed");
@@ -256,10 +256,6 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
         return i18n("Application not found");
     } else if (str == QLatin1String("error-archived-duplicate-name")) {
         return i18n("There's an archived channel with name '__room_name__'");
-    } else if (str == QLatin1String("error-avatar-invalid-url")) {
-        return i18n("Invalid avatar URL: __url__");
-    } else if (str == QLatin1String("error-avatar-url-handling")) {
-        return i18n("Error while handling avatar setting from a URL (__url__) for __username__");
     } else if (str == QLatin1String("error-cant-invite-for-direct-room")) {
         return i18n("Can't invite user to direct rooms");
     } else if (str == QLatin1String("error-channels-setdefault-is-same")) {

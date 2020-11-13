@@ -22,6 +22,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -73,6 +75,20 @@ SetAvatarJob::SetAvatarInfo SetAvatarJob::avatarInfo() const
 void SetAvatarJob::setAvatarInfo(const SetAvatarInfo &avatarInfo)
 {
     mAvatarInfo = avatarInfo;
+}
+
+QString SetAvatarJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("error-avatar-invalid-url")) {
+        const QString url = details[QLatin1String("url")].toString();
+        return i18n("Invalid avatar URL: %1", url);
+    } else if (str == QLatin1String("error-avatar-url-handling")) {
+        const QString url = details[QLatin1String("url")].toString();
+        const QString username = details[QLatin1String("username")].toString();
+        return i18n("Error while handling avatar setting from a URL \"%1\" for %2", url, username);
+    }
+
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 bool SetAvatarJob::requireHttpAuthentication() const

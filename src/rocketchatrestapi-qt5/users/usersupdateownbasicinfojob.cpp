@@ -80,12 +80,12 @@ void UsersUpdateOwnBasicInfoJob::setUpdateOwnBasicInfo(const UpdateOwnBasicInfo 
     mUpdateOwnBasicInfo = updateOwnBasicInfo;
 }
 
-QString UsersUpdateOwnBasicInfoJob::errorMessage(const QString &str)
+QString UsersUpdateOwnBasicInfoJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("totp-required")) {
         return i18n("Two Authentication Password Required");
     }
-    return RestApiAbstractJob::errorMessage(str);
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 bool UsersUpdateOwnBasicInfoJob::requireHttpAuthentication() const

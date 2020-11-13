@@ -47,7 +47,7 @@ Q_SIGNALS:
 
 protected:
     Q_REQUIRED_RESULT QString jobName() const override;
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str) override;
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(DeleteMessageJob)

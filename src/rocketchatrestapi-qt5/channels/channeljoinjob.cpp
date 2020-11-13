@@ -123,10 +123,11 @@ QNetworkRequest ChannelJoinJob::request() const
     return request;
 }
 
-QString ChannelJoinJob::errorMessage(const QString &str)
+QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
+    //TODO use details
     if (str == QLatin1String("error-room-not-found")) {
         return i18n("The required \'%1\' param provided does not match any channel", channelInfo().channelInfoIdentifier);
     }
-    return ChannelBaseJob::errorMessage(str);
+    return ChannelBaseJob::errorMessage(str, detail);
 }

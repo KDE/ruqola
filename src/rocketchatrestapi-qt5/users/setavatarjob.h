@@ -50,6 +50,9 @@ public:
 Q_SIGNALS:
     void setAvatarDone();
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+
 private:
     Q_DISABLE_COPY(SetAvatarJob)
     void slotSetAvatar();

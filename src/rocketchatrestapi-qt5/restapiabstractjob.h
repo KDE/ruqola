@@ -108,7 +108,7 @@ protected:
     Q_REQUIRED_RESULT QJsonDocument convertToJsonDocument(QNetworkReply *reply);
     void emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply);
     void addAuthRawHeader(QNetworkRequest &request) const;
-    virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str);
+    virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail);
     virtual Q_REQUIRED_RESULT QString jobName() const;
     Q_REQUIRED_RESULT QNetworkReply *submitGetRequest();
     Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
