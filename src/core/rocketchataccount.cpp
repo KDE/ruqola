@@ -2344,3 +2344,11 @@ QStringList RocketChatAccount::highlightWords() const
 {
     return ownUser().ownUserPreferences().highlightWords();
 }
+
+void RocketChatAccount::resetAvatar()
+{
+    RocketChatRestApi::UserBaseJob::UserInfo info;
+    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+    info.userIdentifier = userId();
+    restApi()->resetAvatar(info);
+}

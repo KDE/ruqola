@@ -206,7 +206,7 @@ public:
     void createCustomUserStatus(const CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void deleteCustomUserStatus(const QString &customUserStatusId);
     void updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
-    void resetAvatar(const QString &userId);
+    void resetAvatar(const UserBaseJob::UserInfo &info);
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();

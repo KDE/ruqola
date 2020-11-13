@@ -19,6 +19,8 @@
 */
 
 #include "myaccountprofileconfigureavatarwidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
 #include <QMenu>
@@ -68,7 +70,7 @@ void AvatarImage::changeUrl()
 
 void AvatarImage::resetAvatar()
 {
-    qDebug() << "resetAvatar Not implemented yet";
+    Ruqola::self()->rocketChatAccount()->resetAvatar();
 }
 
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)

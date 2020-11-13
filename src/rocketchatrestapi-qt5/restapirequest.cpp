@@ -1943,10 +1943,10 @@ void RestApiRequest::updateCustomUserStatus(const CustomUserStatusUpdateJob::Sta
     }
 }
 
-void RestApiRequest::resetAvatar(const QString &userId)
+void RestApiRequest::resetAvatar(const UserBaseJob::UserInfo &info)
 {
-    //TODO use userId;
     auto *job = new ResetAvatarJob(this);
+    job->setUserInfo(info);
     initializeRestApiJob(job);
     connect(job, &ResetAvatarJob::resetAvatarDone, this, &RestApiRequest::resetAvatarDone);
     if (!job->start()) {
