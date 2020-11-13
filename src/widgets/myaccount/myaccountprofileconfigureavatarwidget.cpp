@@ -62,7 +62,7 @@ void AvatarImage::changeImage()
 
 void AvatarImage::changeUrl()
 {
-    const QString url = QInputDialog::getText(this, i18n("Change Url"), i18n("Define Avatar Url"));
+    const QString url = QInputDialog::getText(this, i18n("Change Url"), i18n("Define Avatar Url:"));
     if (!url.isEmpty()) {
     }
     qDebug() << " Not implemented yet";
@@ -77,7 +77,7 @@ void AvatarImage::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
     menu.addAction(i18n("Change Picture..."), this, &AvatarImage::changeImage);
-    menu.addAction(i18n("Change URL..."), this, &AvatarImage::changeUrl);
+    menu.addAction(i18n("Change URL for avatar..."), this, &AvatarImage::changeUrl);
     menu.addSeparator();
     menu.addAction(i18n("Reset Avatar"), this, &AvatarImage::resetAvatar);
     menu.exec(event->globalPos());
