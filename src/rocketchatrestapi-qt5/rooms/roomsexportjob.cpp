@@ -92,11 +92,14 @@ QJsonDocument RoomsExportJob::json() const
     jsonObj[QLatin1String("rid")] = mRoomExportInfo.roomId;
     switch (mRoomExportInfo.exportAs) {
     case RoomsExportInfo::ExportAs::Unknown:
+        //Nothing it's a bug here.
         break;
     case RoomsExportInfo::ExportAs::File:
+        createJsonForFile(jsonObj);
         //TODO
         break;
     case RoomsExportInfo::ExportAs::Email:
+        createJsonForEmail(jsonObj);
         //TODO
         break;
     }
@@ -106,6 +109,30 @@ QJsonDocument RoomsExportJob::json() const
     //qDebug() << " postData**************** " << postData;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
+{
+    switch (mRoomExportInfo.fileFormat) {
+    case RoomsExportInfo::FileFormat::Unknown:
+        //It's a bug
+        break;
+    case RoomsExportInfo::FileFormat::Html:
+        jsonObj[QLatin1String("rid")] = QStringLiteral("html");
+        break;
+    case RoomsExportInfo::FileFormat::Json:
+        jsonObj[QLatin1String("rid")] = QStringLiteral("json");
+        break;
+    }
+    //TODO dateFrom/dateTo
+}
+
+void RoomsExportJob::createJsonForEmail(QJsonObject &jsonObj) const
+{
+    jsonObj[QLatin1String("toUsers")] = QJsonArray::fromStringList(mRoomExportInfo.toUsers);
+    jsonObj[QLatin1String("toEmails")] = QJsonArray::fromStringList(mRoomExportInfo.toEmails);
+    jsonObj[QLatin1String("subject")] = mRoomExportInfo.subject;
+    jsonObj[QLatin1String("messages")] = mRoomExportInfo.messages;
 }
 
 RoomsExportJob::RoomsExportInfo RoomsExportJob::roomExportInfo() const
@@ -143,6 +170,7 @@ QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExpor
 
 bool RoomsExportJob::RoomsExportInfo::isValid() const
 {
+    //Check from exportas type
     return fileFormat != RoomsExportInfo::FileFormat::Unknown
             && exportAs != RoomsExportInfo::ExportAs::Unknown
             && !roomId.isEmpty();
