@@ -108,7 +108,9 @@ QNetworkRequest SetAvatarJob::request() const
 QJsonDocument SetAvatarJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
+    if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
+        jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
+    }
     generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
