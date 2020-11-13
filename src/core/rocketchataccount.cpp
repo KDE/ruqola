@@ -2351,4 +2351,5 @@ void RocketChatAccount::resetAvatar()
     info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
     info.userIdentifier = userId();
     restApi()->resetAvatar(info);
+    //TODO update avatar when we reset it.
 }
