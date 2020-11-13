@@ -303,7 +303,6 @@ void RocketChatAccountSettings::removeSettings()
     //Delete password
     auto deleteJob = new DeletePasswordJob(QStringLiteral("Ruqola"));
     deleteJob->setKey(mAccountName);
-    deleteJob->setAutoDelete(true);
     deleteJob->start();
     QFile f(mSetting->fileName());
     if (!f.remove()) {
