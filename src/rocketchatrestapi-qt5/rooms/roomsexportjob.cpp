@@ -96,16 +96,11 @@ QJsonDocument RoomsExportJob::json() const
         break;
     case RoomsExportInfo::ExportAs::File:
         createJsonForFile(jsonObj);
-        //TODO
         break;
     case RoomsExportInfo::ExportAs::Email:
         createJsonForEmail(jsonObj);
-        //TODO
         break;
     }
-
-    //postData[QLatin1String("type")] = mRoomExportInfo.ty;
-
     //qDebug() << " postData**************** " << postData;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

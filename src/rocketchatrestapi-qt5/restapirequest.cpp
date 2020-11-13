@@ -37,6 +37,7 @@
 #include "users/userspresencejob.h"
 #include "users/deleteownaccountjob.h"
 #include "users/removeothertokensjob.h"
+#include "users/resetavatarjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -1939,5 +1940,16 @@ void RestApiRequest::updateCustomUserStatus(const CustomUserStatusUpdateJob::Sta
     connect(job, &CustomUserStatusUpdateJob::customUserUpdateDone, this, &RestApiRequest::customUserUpdateDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusUpdateJob";
+    }
+}
+
+void RestApiRequest::resetAvatar(const QString &userId)
+{
+    //TODO use userId;
+    auto *job = new ResetAvatarJob(this);
+    initializeRestApiJob(job);
+    connect(job, &ResetAvatarJob::resetAvatarDone, this, &RestApiRequest::resetAvatarDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ResetAvatarJob";
     }
 }
