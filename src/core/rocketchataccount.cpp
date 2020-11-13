@@ -2353,3 +2353,13 @@ void RocketChatAccount::resetAvatar()
     restApi()->resetAvatar(info);
     //TODO update avatar when we reset it.
 }
+
+void RocketChatAccount::setAvatarUrl(const QString &url)
+{
+    RocketChatRestApi::UserBaseJob::UserInfo userInfo;
+    userInfo.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+    userInfo.userIdentifier = userId();
+    RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
+    avatarInfo.mAvatarUrl = url;
+    restApi()->setAvatar(userInfo, avatarInfo);
+}

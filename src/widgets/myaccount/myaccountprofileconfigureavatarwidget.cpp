@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
+#include <QFileDialog>
 #include <QMenu>
 #include <QVBoxLayout>
 #include <QDebug>
@@ -58,14 +59,15 @@ AvatarImage::~AvatarImage()
 void AvatarImage::changeImage()
 {
     qDebug() << " Not implemented yet";
+    //TODO use QFileDialog
 }
 
 void AvatarImage::changeUrl()
 {
     const QString url = QInputDialog::getText(this, i18n("Change Url"), i18n("Define Avatar Url:"));
     if (!url.isEmpty()) {
+        Ruqola::self()->rocketChatAccount()->setAvatarUrl(url);
     }
-    qDebug() << " Not implemented yet";
 }
 
 void AvatarImage::resetAvatar()
