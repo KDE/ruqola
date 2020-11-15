@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
     Q_OBJECT
 public:
     explicit PasswordConfirmWidget(QWidget *parent = nullptr);
-    ~PasswordConfirmWidget();
+    ~PasswordConfirmWidget() override;
     Q_REQUIRED_RESULT bool isNewPasswordConfirmed() const;
     Q_REQUIRED_RESULT QString password() const;
 private:

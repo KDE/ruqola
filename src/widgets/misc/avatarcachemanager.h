@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarCacheManager : public QObject
     Q_OBJECT
 public:
     explicit AvatarCacheManager(const Utils::AvatarType avatarType, QObject *parent = nullptr);
-    ~AvatarCacheManager();
+    ~AvatarCacheManager() override;
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 

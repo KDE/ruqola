@@ -33,7 +33,7 @@ class GoogleJob : public QObject
 
 public:
     explicit GoogleJob(QObject *parent = nullptr);
-    ~GoogleJob();
+    ~GoogleJob() override;
     void getDataFromJson();
 
 Q_SIGNALS:

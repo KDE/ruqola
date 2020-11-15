@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateWidget : publ
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsCreateWidget(QWidget *parent = nullptr);
-    ~AdministratorCustomSoundsCreateWidget();
+    ~AdministratorCustomSoundsCreateWidget() override;
 };
 
 #endif // ADMINISTRATORCUSTOMSOUNDSCREATEWIDGET_H

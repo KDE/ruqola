@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
     Q_OBJECT
 public:
     explicit AddUsersWidget(QWidget *parent = nullptr);
-    ~AddUsersWidget();
+    ~AddUsersWidget() override;
 
     Q_REQUIRED_RESULT QStringList userIds() const;
 

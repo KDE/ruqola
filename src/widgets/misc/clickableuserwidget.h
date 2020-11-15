@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_EXPORT ClickableLabel : public QLabel
     Q_OBJECT
 public:
     explicit ClickableLabel(QWidget *parent = nullptr);
-    ~ClickableLabel();
+    ~ClickableLabel() override;
 
 Q_SIGNALS:
     void clicked();
@@ -44,7 +44,7 @@ class LIBRUQOLAWIDGETS_EXPORT ClickableUserWidget : public QWidget
     Q_OBJECT
 public:
     explicit ClickableUserWidget(const QString &userName, QWidget *parent = nullptr);
-    ~ClickableUserWidget();
+    ~ClickableUserWidget() override;
 
     Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);

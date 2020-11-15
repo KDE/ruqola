@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarImage : public QPushButton
     Q_OBJECT
 public:
     explicit AvatarImage(QWidget *parent = nullptr);
-    ~AvatarImage();
+    ~AvatarImage() override;
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
@@ -45,7 +45,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : publ
     Q_OBJECT
 public:
     explicit MyAccountProfileConfigureAvatarWidget(QWidget *parent = nullptr);
-    ~MyAccountProfileConfigureAvatarWidget();
+    ~MyAccountProfileConfigureAvatarWidget() override;
 private:
     AvatarImage *mAvatarImage = nullptr;
 };

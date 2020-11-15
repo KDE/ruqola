@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordWidget : public 
     Q_OBJECT
 public:
     explicit AskTwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
-    ~AskTwoAuthenticationPasswordWidget();
+    ~AskTwoAuthenticationPasswordWidget() override;
     Q_REQUIRED_RESULT QString code() const;
 private:
     TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = nullptr;

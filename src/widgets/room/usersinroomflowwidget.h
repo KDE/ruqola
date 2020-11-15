@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomFlowWidget : public QWidget
     Q_OBJECT
 public:
     explicit UsersInRoomFlowWidget(QWidget *parent = nullptr);
-    ~UsersInRoomFlowWidget();
+    ~UsersInRoomFlowWidget() override;
     void setRoom(Room *room);
 
 protected:

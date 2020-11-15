@@ -31,7 +31,7 @@ class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesJob : public QObject
     Q_OBJECT
 public:
     explicit DownloadAppsLanguagesJob(QObject *parent = nullptr);
-    ~DownloadAppsLanguagesJob();
+    ~DownloadAppsLanguagesJob() override;
 
     Q_REQUIRED_RESULT bool canStart() const;
     void start();

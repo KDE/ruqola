@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesDialog : public QDialog
     Q_OBJECT
 public:
     explicit PruneMessagesDialog(QWidget *parent = nullptr);
-    ~PruneMessagesDialog();
+    ~PruneMessagesDialog() override;
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
 private:

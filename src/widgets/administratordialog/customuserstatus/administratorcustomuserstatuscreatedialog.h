@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateDialog : 
     Q_OBJECT
 public:
     explicit AdministratorCustomUserStatusCreateDialog(QWidget *parent = nullptr);
-    ~AdministratorCustomUserStatusCreateDialog();
+    ~AdministratorCustomUserStatusCreateDialog() override;
 
     Q_REQUIRED_RESULT AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);

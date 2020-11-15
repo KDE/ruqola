@@ -35,7 +35,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public QWidget
     Q_OBJECT
 public:
     explicit AdministratorRoomsWidget(QWidget *parent = nullptr);
-    ~AdministratorRoomsWidget();
+    ~AdministratorRoomsWidget() override;
 
 private:
     void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);

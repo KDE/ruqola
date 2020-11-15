@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureGeneralWidget : public QWidget
     Q_OBJECT
 public:
     explicit ConfigureGeneralWidget(QWidget *parent = nullptr);
-    ~ConfigureGeneralWidget();
+    ~ConfigureGeneralWidget() override;
 
     void save();
     void load();

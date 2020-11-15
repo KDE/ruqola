@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomCounterInfoWidget : public KMessageWidge
     Q_OBJECT
 public:
     explicit RoomCounterInfoWidget(QWidget *parent = nullptr);
-    ~RoomCounterInfoWidget();
+    ~RoomCounterInfoWidget() override;
 
     Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);

@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
     Q_OBJECT
 public:
     explicit PruneMessagesWidget(QWidget *parent = nullptr);
-    ~PruneMessagesWidget();
+    ~PruneMessagesWidget() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 

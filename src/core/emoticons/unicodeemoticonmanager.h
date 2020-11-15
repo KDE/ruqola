@@ -31,7 +31,7 @@ class LIBRUQOLACORE_EXPORT UnicodeEmoticonManager : public QObject
     Q_OBJECT
 public:
     explicit UnicodeEmoticonManager(QObject *parent = nullptr);
-    ~UnicodeEmoticonManager();
+    ~UnicodeEmoticonManager() override;
 
     static UnicodeEmoticonManager *self();
 

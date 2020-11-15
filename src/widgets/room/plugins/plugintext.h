@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_EXPORT PluginText : public QObject
     Q_OBJECT
 public:
     explicit PluginText(QObject *parent = nullptr);
-    ~PluginText();
+    ~PluginText() override;
 
     virtual PluginTextInterface *createInterface(QObject *parent) = 0;
 };

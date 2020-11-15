@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDialog : public QDialog
     Q_OBJECT
 public:
     explicit AdministratorDialog(QWidget *parent = nullptr);
-    ~AdministratorDialog();
+    ~AdministratorDialog() override;
 
 private:
     void readConfig();

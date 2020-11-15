@@ -50,7 +50,7 @@ public:
         Identifier,
     };
     explicit CustomUserStatusTreeWidget(QWidget *parent = nullptr);
-    ~CustomUserStatusTreeWidget();
+    ~CustomUserStatusTreeWidget() override;
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);

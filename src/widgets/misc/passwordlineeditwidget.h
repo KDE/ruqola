@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordLineEditWidget : public QWidget
     Q_OBJECT
 public:
     explicit PasswordLineEditWidget(QWidget *parent = nullptr);
-    ~PasswordLineEditWidget();
+    ~PasswordLineEditWidget() override;
     KPasswordLineEdit *passwordLineEdit() const;
 
 Q_SIGNALS:

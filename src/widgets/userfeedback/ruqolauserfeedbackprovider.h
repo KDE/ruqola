@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_EXPORT RuqolaUserFeedbackProvider : public KUserFeedback:
     Q_OBJECT
 public:
     explicit RuqolaUserFeedbackProvider(QObject *parent = nullptr);
-    ~RuqolaUserFeedbackProvider();
+    ~RuqolaUserFeedbackProvider() override;
 };
 
 #endif // RUQOLAUSERFEEDBACKPROVIDER_H

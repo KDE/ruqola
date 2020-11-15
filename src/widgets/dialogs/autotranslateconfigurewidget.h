@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureWidget : public QWidge
     Q_OBJECT
 public:
     explicit AutoTranslateConfigureWidget(QWidget *parent = nullptr);
-    ~AutoTranslateConfigureWidget();
+    ~AutoTranslateConfigureWidget() override;
 
     Room *room() const;
     void setRoom(Room *room);

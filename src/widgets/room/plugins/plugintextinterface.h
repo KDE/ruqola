@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_EXPORT PluginTextInterface : public QObject
     Q_OBJECT
 public:
     explicit PluginTextInterface(QObject *parent = nullptr);
-    ~PluginTextInterface();
+    ~PluginTextInterface() override;
 
     virtual void addAction(QMenu *menu) = 0;
 

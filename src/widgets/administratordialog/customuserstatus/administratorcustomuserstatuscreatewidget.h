@@ -41,7 +41,7 @@ public:
     };
 
     explicit AdministratorCustomUserStatusCreateWidget(QWidget *parent = nullptr);
-    ~AdministratorCustomUserStatusCreateWidget();
+    ~AdministratorCustomUserStatusCreateWidget() override;
 
     Q_REQUIRED_RESULT UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);

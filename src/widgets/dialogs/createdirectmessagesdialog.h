@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesDialog : public QDialog
     Q_OBJECT
 public:
     explicit CreateDirectMessagesDialog(QWidget *parent = nullptr);
-    ~CreateDirectMessagesDialog();
+    ~CreateDirectMessagesDialog() override;
 
     Q_REQUIRED_RESULT QStringList userNames() const;
 private:

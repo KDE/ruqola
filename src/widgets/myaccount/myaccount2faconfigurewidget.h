@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
     Q_OBJECT
 public:
     explicit MyAccount2FaConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccount2FaConfigureWidget();
+    ~MyAccount2FaConfigureWidget() override;
     void load();
     void save();
 private:

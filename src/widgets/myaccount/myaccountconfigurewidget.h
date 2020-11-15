@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
     Q_OBJECT
 public:
     explicit MyAccountConfigureWidget(QWidget *parent = nullptr);
-    ~MyAccountConfigureWidget();
+    ~MyAccountConfigureWidget() override;
     void save();
     void load();
 private:

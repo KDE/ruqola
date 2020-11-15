@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public QWi
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsWidget(QWidget *parent = nullptr);
-    ~AdministratorCustomSoundsWidget();
+    ~AdministratorCustomSoundsWidget() override;
 private:
     QTreeWidget *const mCustomUserStatusTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;

@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
     Q_OBJECT
 public:
     explicit InviteUsersWidget(QWidget *parent = nullptr);
-    ~InviteUsersWidget();
+    ~InviteUsersWidget() override;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);

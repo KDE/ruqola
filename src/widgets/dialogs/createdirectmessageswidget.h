@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesWidget : public QWidget
     Q_OBJECT
 public:
     explicit CreateDirectMessagesWidget(QWidget *parent = nullptr);
-    ~CreateDirectMessagesWidget();
+    ~CreateDirectMessagesWidget() override;
     Q_REQUIRED_RESULT QStringList userNames() const;
 Q_SIGNALS:
     void updateOkButton(bool state);

@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public
     Q_OBJECT
 public:
     explicit AdministratorCustomUserStatusWidget(QWidget *parent = nullptr);
-    ~AdministratorCustomUserStatusWidget();
+    ~AdministratorCustomUserStatusWidget() override;
 private:
     CustomUserStatusTreeWidget *const mCustomUserStatusTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;

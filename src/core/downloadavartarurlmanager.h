@@ -32,7 +32,7 @@ class LIBRUQOLACORE_EXPORT DownloadAvartarUrlManager : public QObject
     Q_OBJECT
 public:
     explicit DownloadAvartarUrlManager(QObject *parent = nullptr);
-    ~DownloadAvartarUrlManager();
+    ~DownloadAvartarUrlManager() override;
 
     Q_REQUIRED_RESULT bool canStart() const;
     void start();

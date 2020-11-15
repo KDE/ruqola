@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserDialog : public QDialog
     Q_OBJECT
 public:
     explicit RegisterUserDialog(QWidget *parent = nullptr);
-    ~RegisterUserDialog();
+    ~RegisterUserDialog() override;
     Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 private:
     RegisterUserWidget *mRegisterUserWidget = nullptr;

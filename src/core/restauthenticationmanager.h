@@ -30,7 +30,7 @@ class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
     Q_OBJECT
 public:
     explicit RESTAuthenticationManager(RocketChatRestApi::RestApiRequest *restApiRequest, QObject *parent = nullptr);
-    ~RESTAuthenticationManager();
+    ~RESTAuthenticationManager() override;
 
     void login();
     void login(const QString &user, const QString &password);

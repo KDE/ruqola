@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
     Q_OBJECT
 public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
-    ~CreateVideoMessageWidget();
+    ~CreateVideoMessageWidget() override;
 private:
     void stopCamera();
     void startCamera();

@@ -58,7 +58,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextPluginManager : public QObject
     Q_OBJECT
 public:
     explicit TextPluginManager(QObject *parent = nullptr);
-    ~TextPluginManager();
+    ~TextPluginManager() override;
     static TextPluginManager *self();
 
     Q_REQUIRED_RESULT QVector<PluginText *> pluginsList() const;

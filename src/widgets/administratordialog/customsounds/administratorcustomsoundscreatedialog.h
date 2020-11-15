@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateDialog : publ
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsCreateDialog(QWidget *parent = nullptr);
-    ~AdministratorCustomSoundsCreateDialog();
+    ~AdministratorCustomSoundsCreateDialog() override;
 
 private:
     void readConfig();

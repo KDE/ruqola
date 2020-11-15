@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CustomSoundsTreeWidget : public QTreeWidget
     Q_OBJECT
 public:
     explicit CustomSoundsTreeWidget(QWidget *parent = nullptr);
-    ~CustomSoundsTreeWidget();
+    ~CustomSoundsTreeWidget() override;
 
 private:
     void addClicked();

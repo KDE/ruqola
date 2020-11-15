@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
     Q_OBJECT
 public:
     explicit RegisterUserWidget(QWidget *parent = nullptr);
-    ~RegisterUserWidget();
+    ~RegisterUserWidget() override;
     Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 
 Q_SIGNALS:

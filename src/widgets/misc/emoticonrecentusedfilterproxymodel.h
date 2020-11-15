@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonRecentUsedFilterProxyModel : public 
     Q_OBJECT
 public:
     explicit EmoticonRecentUsedFilterProxyModel(QObject *parent = nullptr);
-    ~EmoticonRecentUsedFilterProxyModel();
+    ~EmoticonRecentUsedFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QStringList usedIdentifier() const;
     void setUsedIdentifier(const QStringList &usedIdentifier);

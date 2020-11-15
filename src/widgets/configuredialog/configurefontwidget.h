@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureFontWidget : public QWidget
     Q_OBJECT
 public:
     explicit ConfigureFontWidget(QWidget *parent = nullptr);
-    ~ConfigureFontWidget();
+    ~ConfigureFontWidget() override;
     void save();
     void load();
 private:

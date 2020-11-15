@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RecentUsedEmoticonView : public QListView
     Q_OBJECT
 public:
     explicit RecentUsedEmoticonView(QWidget *parent = nullptr);
-    ~RecentUsedEmoticonView();
+    ~RecentUsedEmoticonView() override;
 
 Q_SIGNALS:
     void clearAll();

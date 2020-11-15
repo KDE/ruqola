@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
     Q_OBJECT
 public:
     explicit AdministratorWidget(QWidget *parent = nullptr);
-    ~AdministratorWidget();
+    ~AdministratorWidget() override;
 private:
     QTabWidget *mTabWidget = nullptr;
     AdministratorRoomsWidget *const mAdministratorRoomsWidget;

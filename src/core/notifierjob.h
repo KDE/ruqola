@@ -30,7 +30,7 @@ class LIBRUQOLACORE_EXPORT NotifierJob : public QObject
     Q_OBJECT
 public:
     explicit NotifierJob(QObject *parent = nullptr);
-    ~NotifierJob();
+    ~NotifierJob() override;
 
     void start();
 

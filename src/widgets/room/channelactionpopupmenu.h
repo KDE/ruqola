@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelActionPopupMenu : public QObject
     Q_OBJECT
 public:
     explicit ChannelActionPopupMenu(QObject *parent = nullptr);
-    ~ChannelActionPopupMenu();
+    ~ChannelActionPopupMenu() override;
 
     QMenu *menu() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);

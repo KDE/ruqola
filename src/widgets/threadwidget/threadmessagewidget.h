@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
     Q_OBJECT
 public:
     explicit ThreadMessageWidget(QWidget *parent = nullptr);
-    ~ThreadMessageWidget();
+    ~ThreadMessageWidget() override;
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);

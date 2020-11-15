@@ -34,7 +34,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundWidget : public QWidget
     Q_OBJECT
 public:
     explicit PlaySoundWidget(QWidget *parent = nullptr);
-    ~PlaySoundWidget();
+    ~PlaySoundWidget() override;
     void setAudioUrl(const QUrl &url);
 private:
     void play();

@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundDialog : public QDialog
     Q_OBJECT
 public:
     explicit PlaySoundDialog(QWidget *parent = nullptr);
-    ~PlaySoundDialog();
+    ~PlaySoundDialog() override;
     void setAudioUrl(const QUrl &url);
 private:
     PlaySoundWidget *mSoundWidget = nullptr;

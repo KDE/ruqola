@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureDialog : public QDialo
     Q_OBJECT
 public:
     explicit AutoTranslateConfigureDialog(QWidget *parent = nullptr);
-    ~AutoTranslateConfigureDialog();
+    ~AutoTranslateConfigureDialog() override;
     void setRoom(Room *room);
 private:
     AutoTranslateConfigureWidget *mAutoTranslateConfigureWidget = nullptr;

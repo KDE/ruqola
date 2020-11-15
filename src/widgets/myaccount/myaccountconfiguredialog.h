@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureDialog : public QDialog
     Q_OBJECT
 public:
     explicit MyAccountConfigureDialog(QWidget *parent = nullptr);
-    ~MyAccountConfigureDialog();
+    ~MyAccountConfigureDialog() override;
 private:
     void load();
     void save();

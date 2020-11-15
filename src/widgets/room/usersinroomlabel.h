@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel
     Q_OBJECT
 public:
     explicit UserLabel(QWidget *parent = nullptr);
-    ~UserLabel();
+    ~UserLabel() override;
     void setRoom(Room *room);
     void setUserId(const QString &userId);
     void setUserName(const QString &userName);
@@ -57,7 +57,7 @@ public:
         QString userDisplayName;
     };
     explicit UsersInRoomLabel(QWidget *parent = nullptr);
-    ~UsersInRoomLabel();
+    ~UsersInRoomLabel() override;
 
     void setUserInfo(const UsersInRoomLabel::UserInfo &info);
     void setRoom(Room *room);

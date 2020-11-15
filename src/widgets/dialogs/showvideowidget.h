@@ -34,7 +34,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
     Q_OBJECT
 public:
     explicit ShowVideoWidget(QWidget *parent = nullptr);
-    ~ShowVideoWidget();
+    ~ShowVideoWidget() override;
     void setVideoUrl(const QUrl &videoPath);
 
 private:

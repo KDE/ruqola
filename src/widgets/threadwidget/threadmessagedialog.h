@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageDialog : public QDialog
     Q_OBJECT
 public:
     explicit ThreadMessageDialog(QWidget *parent = nullptr);
-    ~ThreadMessageDialog();
+    ~ThreadMessageDialog() override;
 
     void setThreadMessageId(const QString &threadMessageId);
     Q_REQUIRED_RESULT QString threadMessageId() const;

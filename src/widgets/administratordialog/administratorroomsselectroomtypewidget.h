@@ -32,7 +32,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsSelectRoomTypeWidget : pub
     Q_OBJECT
 public:
     explicit AdministratorRoomsSelectRoomTypeWidget(QWidget *parent = nullptr);
-    ~AdministratorRoomsSelectRoomTypeWidget();
+    ~AdministratorRoomsSelectRoomTypeWidget() override;
 
 Q_SIGNALS:
     void filterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
