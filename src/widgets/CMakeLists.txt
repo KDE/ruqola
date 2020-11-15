@@ -200,6 +200,10 @@ set(Ruqola_administrator_SRCS
     administratordialog/customsounds/customsoundstreewidget.cpp
     )
 
+set(Ruqola_export_messages_SRCS
+    exportmessages/exportmessagesdialog.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
@@ -222,6 +226,7 @@ add_library(libruqolawidgets
     ${Ruqola_myaccount_SRCS}
     ${Ruqola_prunemessages_SRCS}
     ${Ruqola_administrator_SRCS}
+    ${Ruqola_export_messages_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
