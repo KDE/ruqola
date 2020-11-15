@@ -31,7 +31,7 @@ class CustomUserStatusTreeWidgetItem : public QTreeWidgetItem
 {
 public:
     explicit CustomUserStatusTreeWidgetItem(QTreeWidget *parent = nullptr);
-    ~CustomUserStatusTreeWidgetItem();
+    ~CustomUserStatusTreeWidgetItem() override;
 
     Q_REQUIRED_RESULT CustomUserStatus userStatus() const;
     void setUserStatus(const CustomUserStatus &userStatus);

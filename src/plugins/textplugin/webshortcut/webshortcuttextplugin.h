@@ -30,7 +30,7 @@ class WebShortcutTextPlugin : public PluginText
     Q_OBJECT
 public:
     explicit WebShortcutTextPlugin(QObject *parent = nullptr, const QVariantList & = {});
-    ~WebShortcutTextPlugin();
+    ~WebShortcutTextPlugin() override;
 
     PluginTextInterface *createInterface(QObject *parent) override;
 };
