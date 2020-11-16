@@ -28,7 +28,7 @@ class ConfigureFontWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ConfigureFontWidgetTest(QObject *parent = nullptr);
-    ~ConfigureFontWidgetTest() = default;
+    ~ConfigureFontWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

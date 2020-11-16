@@ -28,7 +28,7 @@ class PruneMessagesWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit PruneMessagesWidgetTest(QObject *parent = nullptr);
-    ~PruneMessagesWidgetTest() = default;
+    ~PruneMessagesWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

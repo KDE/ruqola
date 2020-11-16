@@ -28,7 +28,7 @@ class RegisterUserWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit RegisterUserWidgetTest(QObject *parent = nullptr);
-    ~RegisterUserWidgetTest() = default;
+    ~RegisterUserWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

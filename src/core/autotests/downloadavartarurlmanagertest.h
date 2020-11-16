@@ -28,7 +28,7 @@ class DownloadAvartarUrlManagerTest : public QObject
     Q_OBJECT
 public:
     explicit DownloadAvartarUrlManagerTest(QObject *parent = nullptr);
-    ~DownloadAvartarUrlManagerTest() = default;
+    ~DownloadAvartarUrlManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

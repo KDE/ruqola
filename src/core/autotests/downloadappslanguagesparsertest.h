@@ -28,7 +28,7 @@ class DownloadAppsLanguagesParserTest : public QObject
     Q_OBJECT
 public:
     explicit DownloadAppsLanguagesParserTest(QObject *parent = nullptr);
-    ~DownloadAppsLanguagesParserTest() = default;
+    ~DownloadAppsLanguagesParserTest() override = default;
 private Q_SLOTS:
     void shouldParseFile_data();
     void shouldParseFile();

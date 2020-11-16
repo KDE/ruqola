@@ -28,7 +28,7 @@ class AdministratorCustomSoundsCreateWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsCreateWidgetTest(QObject *parent = nullptr);
-    ~AdministratorCustomSoundsCreateWidgetTest() = default;
+    ~AdministratorCustomSoundsCreateWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

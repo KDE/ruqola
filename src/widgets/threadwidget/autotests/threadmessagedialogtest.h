@@ -28,7 +28,7 @@ class ThreadMessageDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ThreadMessageDialogTest(QObject *parent = nullptr);
-    ~ThreadMessageDialogTest() = default;
+    ~ThreadMessageDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

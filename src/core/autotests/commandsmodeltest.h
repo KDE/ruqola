@@ -28,7 +28,7 @@ class CommandsModelTest : public QObject
     Q_OBJECT
 public:
     explicit CommandsModelTest(QObject *parent = nullptr);
-    ~CommandsModelTest() = default;
+    ~CommandsModelTest() override = default;
 };
 
 #endif // COMMANDSMODELTEST_H

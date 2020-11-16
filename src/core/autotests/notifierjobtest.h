@@ -28,7 +28,7 @@ class NotifierJobTest : public QObject
     Q_OBJECT
 public:
     explicit NotifierJobTest(QObject *parent = nullptr);
-    ~NotifierJobTest() = default;
+    ~NotifierJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

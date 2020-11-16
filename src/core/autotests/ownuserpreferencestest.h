@@ -28,7 +28,7 @@ class OwnUserPreferencesTest : public QObject
     Q_OBJECT
 public:
     explicit OwnUserPreferencesTest(QObject *parent = nullptr);
-    ~OwnUserPreferencesTest() = default;
+    ~OwnUserPreferencesTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -28,7 +28,7 @@ class ChannelCounterInfoTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelCounterInfoTest(QObject *parent = nullptr);
-    ~ChannelCounterInfoTest() = default;
+    ~ChannelCounterInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadChannelCounter_data();

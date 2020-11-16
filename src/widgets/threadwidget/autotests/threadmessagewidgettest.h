@@ -28,7 +28,7 @@ class ThreadMessageWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ThreadMessageWidgetTest(QObject *parent = nullptr);
-    ~ThreadMessageWidgetTest() = default;
+    ~ThreadMessageWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -27,7 +27,7 @@ class RESTAuthenticationManagerTest : public QObject
     Q_OBJECT
 public:
     explicit RESTAuthenticationManagerTest(QObject *parent = nullptr);
-    ~RESTAuthenticationManagerTest() = default;
+    ~RESTAuthenticationManagerTest() override = default;
 };
 
 #endif // RESTAUTHENTICATIONMANAGERTEST_H

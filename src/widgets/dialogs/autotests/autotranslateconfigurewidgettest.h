@@ -28,7 +28,7 @@ class AutoTranslateConfigureWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit AutoTranslateConfigureWidgetTest(QObject *parent = nullptr);
-    ~AutoTranslateConfigureWidgetTest() = default;
+    ~AutoTranslateConfigureWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

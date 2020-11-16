@@ -28,7 +28,7 @@ class AdministratorCustomSoundsCreateDialogTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsCreateDialogTest(QObject *parent = nullptr);
-    ~AdministratorCustomSoundsCreateDialogTest() = default;
+    ~AdministratorCustomSoundsCreateDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

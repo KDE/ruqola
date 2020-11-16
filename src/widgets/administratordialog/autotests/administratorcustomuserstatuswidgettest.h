@@ -28,7 +28,7 @@ class AdministratorCustomUserStatusWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorCustomUserStatusWidgetTest(QObject *parent = nullptr);
-    ~AdministratorCustomUserStatusWidgetTest() = default;
+    ~AdministratorCustomUserStatusWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

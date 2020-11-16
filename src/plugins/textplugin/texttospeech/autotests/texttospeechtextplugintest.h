@@ -28,7 +28,7 @@ class TextToSpeechTextPluginTest : public QObject
     Q_OBJECT
 public:
     explicit TextToSpeechTextPluginTest(QObject *parent = nullptr);
-    ~TextToSpeechTextPluginTest() = default;
+    ~TextToSpeechTextPluginTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

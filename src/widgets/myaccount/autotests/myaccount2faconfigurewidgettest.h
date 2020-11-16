@@ -28,7 +28,7 @@ class MyAccount2FaConfigureWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit MyAccount2FaConfigureWidgetTest(QObject *parent = nullptr);
-    ~MyAccount2FaConfigureWidgetTest() = default;
+    ~MyAccount2FaConfigureWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

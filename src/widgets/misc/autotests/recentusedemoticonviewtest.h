@@ -28,7 +28,7 @@ class RecentUsedEmoticonViewTest : public QObject
     Q_OBJECT
 public:
     explicit RecentUsedEmoticonViewTest(QObject *parent = nullptr);
-    ~RecentUsedEmoticonViewTest() = default;
+    ~RecentUsedEmoticonViewTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

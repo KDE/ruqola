@@ -28,7 +28,7 @@ class ShowAttachmentComboBoxTest : public QObject
     Q_OBJECT
 public:
     explicit ShowAttachmentComboBoxTest(QObject *parent = nullptr);
-    ~ShowAttachmentComboBoxTest() = default;
+    ~ShowAttachmentComboBoxTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

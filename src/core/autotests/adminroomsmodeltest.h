@@ -28,7 +28,7 @@ class AdminRoomsModelTest : public QObject
     Q_OBJECT
 public:
     explicit AdminRoomsModelTest(QObject *parent = nullptr);
-    ~AdminRoomsModelTest() = default;
+    ~AdminRoomsModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

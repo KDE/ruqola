@@ -28,7 +28,7 @@ class UsersInRoomLabelTest : public QObject
     Q_OBJECT
 public:
     explicit UsersInRoomLabelTest(QObject *parent = nullptr);
-    ~UsersInRoomLabelTest() = default;
+    ~UsersInRoomLabelTest() override = default;
 };
 
 #endif // USERSINROOMLABELTEST_H

@@ -28,7 +28,7 @@ class InviteUsersDialogTest : public QObject
     Q_OBJECT
 public:
     explicit InviteUsersDialogTest(QObject *parent = nullptr);
-    ~InviteUsersDialogTest() = default;
+    ~InviteUsersDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -28,7 +28,7 @@ class CustomUserStatusTreeWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit CustomUserStatusTreeWidgetTest(QObject *parent = nullptr);
-    ~CustomUserStatusTreeWidgetTest() = default;
+    ~CustomUserStatusTreeWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

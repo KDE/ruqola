@@ -28,7 +28,7 @@ class CreateVideoMessageWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit CreateVideoMessageWidgetTest(QObject *parent = nullptr);
-    ~CreateVideoMessageWidgetTest() = default;
+    ~CreateVideoMessageWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

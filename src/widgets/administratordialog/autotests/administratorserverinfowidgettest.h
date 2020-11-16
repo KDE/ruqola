@@ -28,7 +28,7 @@ class AdministratorServerInfoWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorServerInfoWidgetTest(QObject *parent = nullptr);
-    ~AdministratorServerInfoWidgetTest() = default;
+    ~AdministratorServerInfoWidgetTest() override = default;
 };
 
 #endif // ADMINISTRATORSERVERINFOWIDGETTEST_H

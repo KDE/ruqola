@@ -28,7 +28,7 @@ class TextPluginManagerTest : public QObject
     Q_OBJECT
 public:
     explicit TextPluginManagerTest(QObject *parent = nullptr);
-    ~TextPluginManagerTest() = default;
+    ~TextPluginManagerTest() override = default;
 };
 
 #endif // TEXTPLUGINMANAGERTEST_H

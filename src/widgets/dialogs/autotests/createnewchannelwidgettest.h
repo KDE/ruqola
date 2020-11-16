@@ -28,7 +28,7 @@ class CreateNewChannelWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit CreateNewChannelWidgetTest(QObject *parent = nullptr);
-    ~CreateNewChannelWidgetTest() = default;
+    ~CreateNewChannelWidgetTest() override = default;
 };
 
 #endif // CREATENEWCHANNELWIDGETTEST_H

@@ -28,7 +28,7 @@ class CreateDirectMessagesDialogTest : public QObject
     Q_OBJECT
 public:
     explicit CreateDirectMessagesDialogTest(QObject *parent = nullptr);
-    ~CreateDirectMessagesDialogTest() = default;
+    ~CreateDirectMessagesDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

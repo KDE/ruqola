@@ -27,7 +27,7 @@ class DownloadAppsLanguagesJobTest : public QObject
     Q_OBJECT
 public:
     explicit DownloadAppsLanguagesJobTest(QObject *parent = nullptr);
-    ~DownloadAppsLanguagesJobTest() = default;
+    ~DownloadAppsLanguagesJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

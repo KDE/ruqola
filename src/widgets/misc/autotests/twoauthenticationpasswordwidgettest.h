@@ -28,7 +28,7 @@ class TwoAuthenticationPasswordWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit TwoAuthenticationPasswordWidgetTest(QObject *parent = nullptr);
-    ~TwoAuthenticationPasswordWidgetTest() = default;
+    ~TwoAuthenticationPasswordWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

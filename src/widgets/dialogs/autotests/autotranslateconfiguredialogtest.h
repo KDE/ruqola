@@ -27,7 +27,7 @@ class AutoTranslateConfigureDialogTest : public QObject
     Q_OBJECT
 public:
     explicit AutoTranslateConfigureDialogTest(QObject *parent = nullptr);
-    ~AutoTranslateConfigureDialogTest() = default;
+    ~AutoTranslateConfigureDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

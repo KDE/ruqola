@@ -28,7 +28,7 @@ class PruneMessagesDialogTest : public QObject
     Q_OBJECT
 public:
     explicit PruneMessagesDialogTest(QObject *parent = nullptr);
-    ~PruneMessagesDialogTest() = default;
+    ~PruneMessagesDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

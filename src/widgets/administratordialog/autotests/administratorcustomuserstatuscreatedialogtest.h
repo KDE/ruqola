@@ -28,7 +28,7 @@ class AdministratorCustomUserStatusCreateDialogTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorCustomUserStatusCreateDialogTest(QObject *parent = nullptr);
-    ~AdministratorCustomUserStatusCreateDialogTest() = default;
+    ~AdministratorCustomUserStatusCreateDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

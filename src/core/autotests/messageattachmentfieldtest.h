@@ -28,7 +28,7 @@ class MessageAttachmentFieldTest : public QObject
     Q_OBJECT
 public:
     explicit MessageAttachmentFieldTest(QObject *parent = nullptr);
-    ~MessageAttachmentFieldTest() = default;
+    ~MessageAttachmentFieldTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

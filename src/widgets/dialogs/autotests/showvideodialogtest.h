@@ -28,7 +28,7 @@ class ShowVideoDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ShowVideoDialogTest(QObject *parent = nullptr);
-    ~ShowVideoDialogTest() = default;
+    ~ShowVideoDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

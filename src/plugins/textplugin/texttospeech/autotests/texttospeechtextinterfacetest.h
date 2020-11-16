@@ -28,7 +28,7 @@ class TextToSpeechTextInterfaceTest : public QObject
     Q_OBJECT
 public:
     explicit TextToSpeechTextInterfaceTest(QObject *parent = nullptr);
-    ~TextToSpeechTextInterfaceTest() = default;
+    ~TextToSpeechTextInterfaceTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

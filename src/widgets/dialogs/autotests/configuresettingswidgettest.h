@@ -28,7 +28,7 @@ class ConfigureSettingsWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ConfigureSettingsWidgetTest(QObject *parent = nullptr);
-    ~ConfigureSettingsWidgetTest() = default;
+    ~ConfigureSettingsWidgetTest() override = default;
 };
 
 #endif // CONFIGURESETTINGSWIDGETTEST_H

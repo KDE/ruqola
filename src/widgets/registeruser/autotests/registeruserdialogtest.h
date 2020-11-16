@@ -28,7 +28,7 @@ class RegisterUserDialogTest : public QObject
     Q_OBJECT
 public:
     explicit RegisterUserDialogTest(QObject *parent = nullptr);
-    ~RegisterUserDialogTest() = default;
+    ~RegisterUserDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

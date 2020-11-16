@@ -28,7 +28,7 @@ class EmoticonRecentUsedFilterProxyModelTest : public QObject
     Q_OBJECT
 public:
     explicit EmoticonRecentUsedFilterProxyModelTest(QObject *parent = nullptr);
-    ~EmoticonRecentUsedFilterProxyModelTest() = default;
+    ~EmoticonRecentUsedFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -28,7 +28,7 @@ class ClickableUserWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ClickableUserWidgetTest(QObject *parent = nullptr);
-    ~ClickableUserWidgetTest() = default;
+    ~ClickableUserWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -28,7 +28,7 @@ class GooglePluginAuthenticationTest : public QObject
     Q_OBJECT
 public:
     explicit GooglePluginAuthenticationTest(QObject *parent = nullptr);
-    ~GooglePluginAuthenticationTest() = default;
+    ~GooglePluginAuthenticationTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

@@ -28,7 +28,7 @@ class AdministratorRoomsSelectRoomTypeWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorRoomsSelectRoomTypeWidgetTest(QObject *parent = nullptr);
-    ~AdministratorRoomsSelectRoomTypeWidgetTest() = default;
+    ~AdministratorRoomsSelectRoomTypeWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

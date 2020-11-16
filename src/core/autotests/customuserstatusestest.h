@@ -28,7 +28,7 @@ class CustomUserStatusesTest : public QObject
     Q_OBJECT
 public:
     explicit CustomUserStatusesTest(QObject *parent = nullptr);
-    ~CustomUserStatusesTest() = default;
+    ~CustomUserStatusesTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadUserCustomStatuses_data();

@@ -28,7 +28,7 @@ class PasswordLineEditWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit PasswordLineEditWidgetTest(QObject *parent = nullptr);
-    ~PasswordLineEditWidgetTest() = default;
+    ~PasswordLineEditWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

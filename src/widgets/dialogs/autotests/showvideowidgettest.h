@@ -28,7 +28,7 @@ class ShowVideoWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ShowVideoWidgetTest(QObject *parent = nullptr);
-    ~ShowVideoWidgetTest() = default;
+    ~ShowVideoWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

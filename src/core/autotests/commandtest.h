@@ -28,7 +28,7 @@ class CommandTest : public QObject
     Q_OBJECT
 public:
     explicit CommandTest(QObject *parent = nullptr);
-    ~CommandTest() = default;
+    ~CommandTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

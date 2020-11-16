@@ -28,7 +28,7 @@ class ServicePasswordTest : public QObject
     Q_OBJECT
 public:
     explicit ServicePasswordTest(QObject *parent = nullptr);
-    ~ServicePasswordTest() = default;
+    ~ServicePasswordTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

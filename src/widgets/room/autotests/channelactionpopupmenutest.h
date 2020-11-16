@@ -28,7 +28,7 @@ class ChannelActionPopupMenuTest : public QObject
     Q_OBJECT
 public:
     explicit ChannelActionPopupMenuTest(QObject *parent = nullptr);
-    ~ChannelActionPopupMenuTest() = default;
+    ~ChannelActionPopupMenuTest() override = default;
 };
 
 #endif // CHANNELACTIONPOPUPMENUTEST_H

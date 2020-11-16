@@ -27,7 +27,7 @@ class PlaySoundDialogTest : public QObject
     Q_OBJECT
 public:
     explicit PlaySoundDialogTest(QObject *parent = nullptr);
-    ~PlaySoundDialogTest() = default;
+    ~PlaySoundDialogTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

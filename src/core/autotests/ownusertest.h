@@ -28,7 +28,7 @@ class OwnUserTest : public QObject
     Q_OBJECT
 public:
     explicit OwnUserTest(QObject *parent = nullptr);
-    ~OwnUserTest() = default;
+    ~OwnUserTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadOwnUser_data();

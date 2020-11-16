@@ -28,7 +28,7 @@ class PlaySoundWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit PlaySoundWidgetTest(QObject *parent = nullptr);
-    ~PlaySoundWidgetTest() = default;
+    ~PlaySoundWidgetTest() override = default;
 };
 
 #endif // PLAYSOUNDWIDGETTEST_H

@@ -28,7 +28,7 @@ class MyAccountProfileConfigureAvatarWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit MyAccountProfileConfigureAvatarWidgetTest(QObject *parent = nullptr);
-    ~MyAccountProfileConfigureAvatarWidgetTest() = default;
+    ~MyAccountProfileConfigureAvatarWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

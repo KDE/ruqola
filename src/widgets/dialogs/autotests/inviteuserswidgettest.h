@@ -28,7 +28,7 @@ class InviteUsersWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit InviteUsersWidgetTest(QObject *parent = nullptr);
-    ~InviteUsersWidgetTest() = default;
+    ~InviteUsersWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

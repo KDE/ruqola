@@ -28,7 +28,7 @@ class MyAccountProfileConfigureWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit MyAccountProfileConfigureWidgetTest(QObject *parent = nullptr);
-    ~MyAccountProfileConfigureWidgetTest() = default;
+    ~MyAccountProfileConfigureWidgetTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

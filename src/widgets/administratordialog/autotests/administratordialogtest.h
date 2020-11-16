@@ -28,7 +28,7 @@ class AdministratorDialogTest : public QObject
     Q_OBJECT
 public:
     explicit AdministratorDialogTest(QObject *parent = nullptr);
-    ~AdministratorDialogTest() = default;
+    ~AdministratorDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -28,7 +28,7 @@ class ExportMessagesWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit ExportMessagesWidgetTest(QObject *parent = nullptr);
-    ~ExportMessagesWidgetTest() = default;
+    ~ExportMessagesWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

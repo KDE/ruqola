@@ -28,7 +28,7 @@ class EmoticonMenuWidgetTest : public QObject
     Q_OBJECT
 public:
     explicit EmoticonMenuWidgetTest(QObject *parent = nullptr);
-    ~EmoticonMenuWidgetTest() = default;
+    ~EmoticonMenuWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

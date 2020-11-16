@@ -28,7 +28,7 @@ class MyAccountConfigureDialogTest : public QObject
     Q_OBJECT
 public:
     explicit MyAccountConfigureDialogTest(QObject *parent = nullptr);
-    ~MyAccountConfigureDialogTest() = default;
+    ~MyAccountConfigureDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

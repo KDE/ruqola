@@ -28,7 +28,7 @@ class GoogleAuthenticationInterfaceTest : public QObject
     Q_OBJECT
 public:
     explicit GoogleAuthenticationInterfaceTest(QObject *parent = nullptr);
-    ~GoogleAuthenticationInterfaceTest() = default;
+    ~GoogleAuthenticationInterfaceTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
