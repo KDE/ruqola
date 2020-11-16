@@ -20,14 +20,28 @@
 
 #include "exportmessageswidget.h"
 #include <KLocalizedString>
+#include <QComboBox>
+#include <QDateEdit>
 #include <QVBoxLayout>
 
 ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     : QWidget(parent)
+    , mFromDate(new QDateEdit(this))
+    , mToDate(new QDateEdit(this))
+    , mFormat(new QComboBox(this))
 {
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mFromDate->setObjectName(QStringLiteral("mFromDate"));
+    mainLayout->addWidget(mFromDate);
+
+    mToDate->setObjectName(QStringLiteral("mToDate"));
+    mainLayout->addWidget(mToDate);
+
+    mFormat->setObjectName(QStringLiteral("mFormat"));
+    mainLayout->addWidget(mFormat);
 }
 
 ExportMessagesWidget::~ExportMessagesWidget()

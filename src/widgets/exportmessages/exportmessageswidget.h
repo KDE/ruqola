@@ -24,13 +24,18 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QDateEdit;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ExportMessagesWidget(QWidget *parent = nullptr);
     ~ExportMessagesWidget() override;
+private:
+    QDateEdit *const mFromDate;
+    QDateEdit *const mToDate;
+    QComboBox *const mFormat;
 };
 
 #endif // EXPORTMESSAGESWIDGET_H
