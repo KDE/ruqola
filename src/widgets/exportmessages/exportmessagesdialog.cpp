@@ -19,6 +19,7 @@
 */
 
 #include "exportmessagesdialog.h"
+#include "exportmessageswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -29,14 +30,14 @@ const char myConfigGroupName[] = "ExportMessagesDialog";
 }
 ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     : QDialog(parent)
+    , mExportMessagesWidget(new ExportMessagesWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Prune Messages"));
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-//    mPruneMessageWidget = new PruneMessagesWidget(this);
-//    mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
-//    mainLayout->addWidget(mPruneMessageWidget);
+    mExportMessagesWidget->setObjectName(QStringLiteral("mExportMessagesWidget"));
+    mainLayout->addWidget(mExportMessagesWidget);
 
     auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));

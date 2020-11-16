@@ -8,3 +8,4 @@ macro(add_ruqola_exportmessages_test _source)
 endmacro()
 
 add_ruqola_exportmessages_test(exportmessagesdialogtest.cpp)
+add_ruqola_exportmessages_test(exportmessageswidgettest.cpp)

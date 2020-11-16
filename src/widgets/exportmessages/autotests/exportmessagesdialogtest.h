@@ -28,7 +28,7 @@ class ExportMessagesDialogTest : public QObject
     Q_OBJECT
 public:
     explicit ExportMessagesDialogTest(QObject *parent = nullptr);
-    ~ExportMessagesDialogTest() = default;
+    ~ExportMessagesDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

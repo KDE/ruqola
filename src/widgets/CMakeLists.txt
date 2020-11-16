@@ -202,6 +202,7 @@ set(Ruqola_administrator_SRCS
 
 set(Ruqola_export_messages_SRCS
     exportmessages/exportmessagesdialog.cpp
+    exportmessages/exportmessageswidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
@@ -278,6 +279,7 @@ if (BUILD_TESTING)
     add_subdirectory(myaccount/autotests)
     add_subdirectory(prunemessages/autotests)
     add_subdirectory(administratordialog/autotests)
+    add_subdirectory(exportmessages/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

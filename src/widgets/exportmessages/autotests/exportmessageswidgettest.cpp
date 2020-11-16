@@ -18,24 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EXPORTMESSAGESDIALOG_H
-#define EXPORTMESSAGESDIALOG_H
-
-#include <QDialog>
-
-#include "libruqolawidgets_private_export.h"
-class ExportMessagesWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportMessagesDialog : public QDialog
+#include "exportmessageswidgettest.h"
+#include "exportmessages/exportmessageswidget.h"
+#include <QTest>
+QTEST_MAIN(ExportMessagesWidgetTest)
+ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ExportMessagesDialog(QWidget *parent = nullptr);
-    ~ExportMessagesDialog() override;
 
-private:
-    void readConfig();
-    void writeConfig();
-    ExportMessagesWidget *const mExportMessagesWidget;
-};
+}
 
-#endif // EXPORTMESSAGESDIALOG_H
+void ExportMessagesWidgetTest::shouldHaveDefaultValues()
+{
+    ExportMessagesWidget w;
+    //TODO
+}
