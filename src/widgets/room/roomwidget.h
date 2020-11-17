@@ -24,7 +24,6 @@
 #include <QPointer>
 #include <QWidget>
 
-#include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
 #include "roomheaderwidget.h"
 
@@ -37,6 +36,7 @@ class RocketChatAccount;
 class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class Room;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
