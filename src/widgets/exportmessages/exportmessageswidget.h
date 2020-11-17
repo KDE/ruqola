@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+#include "rooms/roomsexportjob.h"
 class QDateEdit;
 class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportMessagesWidget : public QWidget
@@ -33,6 +34,8 @@ public:
     explicit ExportMessagesWidget(QWidget *parent = nullptr);
     ~ExportMessagesWidget() override;
 
+
+    Q_REQUIRED_RESULT RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

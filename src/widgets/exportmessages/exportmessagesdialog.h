@@ -22,7 +22,7 @@
 #define EXPORTMESSAGESDIALOG_H
 
 #include <QDialog>
-
+#include "rooms/roomsexportjob.h"
 #include "libruqolawidgets_private_export.h"
 class ExportMessagesWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportMessagesDialog : public QDialog
@@ -32,6 +32,7 @@ public:
     explicit ExportMessagesDialog(QWidget *parent = nullptr);
     ~ExportMessagesDialog() override;
 
+    Q_REQUIRED_RESULT RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
 private:
     void readConfig();
     void writeConfig();

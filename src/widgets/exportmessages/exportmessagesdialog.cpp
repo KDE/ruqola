@@ -57,6 +57,11 @@ ExportMessagesDialog::~ExportMessagesDialog()
     writeConfig();
 }
 
+RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExportInfo() const
+{
+    return mExportMessagesWidget->roomExportInfo();
+}
+
 void ExportMessagesDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

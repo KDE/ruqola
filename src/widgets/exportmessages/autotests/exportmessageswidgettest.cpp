@@ -45,4 +45,6 @@ void ExportMessagesWidgetTest::shouldHaveDefaultValues()
 
     auto *mFormat = w.findChild<QComboBox *>(QStringLiteral("mFormat"));
     QVERIFY(mFormat);
+
+    QVERIFY(!w.roomExportInfo().isValid());
 }

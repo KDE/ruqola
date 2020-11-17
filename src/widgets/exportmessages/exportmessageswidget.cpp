@@ -48,3 +48,9 @@ ExportMessagesWidget::~ExportMessagesWidget()
 {
 
 }
+
+RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesWidget::roomExportInfo() const
+{
+    //TODO
+    return {};
+}
