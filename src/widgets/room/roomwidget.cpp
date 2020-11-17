@@ -45,6 +45,7 @@
 #include "dialogs/inviteusersdialog.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "prunemessages/prunemessagesdialog.h"
+#include "exportmessages/exportmessagesdialog.h"
 
 #include "threadwidget/threadmessagedialog.h"
 #include "roomcounterinfowidget.h"
@@ -226,7 +227,11 @@ void RoomWidget::slotPruneMessages()
 
 void RoomWidget::slotExportMessages()
 {
-    //TODO
+    QPointer<ExportMessagesDialog> dlg = new ExportMessagesDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotVideoChat()
