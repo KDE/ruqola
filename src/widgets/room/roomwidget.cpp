@@ -205,6 +205,9 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::PruneMessages:
         slotPruneMessages();
         break;
+    case RoomHeaderWidget::ExportMessages:
+        slotExportMessages();
+        break;
     }
 }
 
@@ -219,6 +222,11 @@ void RoomWidget::slotPruneMessages()
         }
     }
     delete dlg;
+}
+
+void RoomWidget::slotExportMessages()
+{
+    //TODO
 }
 
 void RoomWidget::slotVideoChat()

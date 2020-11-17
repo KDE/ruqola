@@ -127,6 +127,13 @@ void ChannelActionPopupMenu::createMenu()
     connect(mStartVideoChat, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::VideoChat);
     });
+
+    mMenu->addSeparator();
+    mExportMessages = new QAction(i18n("Export Messages..."), this);
+    mMenu->addAction(mExportMessages);
+    connect(mExportMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::ExportMessages);
+    });
 }
 
 QAction *ChannelActionPopupMenu::createSeparator()
@@ -167,4 +174,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 
     mPruneMessages->setVisible(mCurrentRocketChatAccount->isAdministrator());
     mPruneMessagesSeparator->setVisible(mCurrentRocketChatAccount->isAdministrator());
+
+    //TODO disable it for the moment
+    mExportMessages->setVisible(false);
 }

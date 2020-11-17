@@ -47,6 +47,7 @@ public:
         AddUsersInRoom = 11,
         VideoChat = 12,
         PruneMessages = 13,
+        ExportMessages = 14,
     };
     Q_ENUM(ChannelActionType)
 
