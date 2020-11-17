@@ -32,6 +32,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportMessagesWidget : public QWidget
 public:
     explicit ExportMessagesWidget(QWidget *parent = nullptr);
     ~ExportMessagesWidget() override;
+
+Q_SIGNALS:
+    void updateOkButton(bool state);
+
 private:
     QDateEdit *const mFromDate;
     QDateEdit *const mToDate;
