@@ -103,7 +103,7 @@ void InputCompleterModel::clear()
 
 int InputCompleterModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mChannel.count();
 }
 

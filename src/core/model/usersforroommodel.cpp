@@ -67,7 +67,7 @@ void UsersForRoomModel::clear()
 
 int UsersForRoomModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mUsers.count();
 }
 

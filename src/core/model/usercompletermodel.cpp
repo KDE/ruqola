@@ -57,7 +57,7 @@ void UserCompleterModel::insertUsers(const QVector<User> &users)
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mUsers.count();
 }
 

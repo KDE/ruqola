@@ -33,7 +33,7 @@ NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceMode
 
 int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mNotificationDestktopSoundPreferenceList.count();
 }
 

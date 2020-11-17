@@ -98,7 +98,7 @@ void SearchChannelModel::clear()
 
 int SearchChannelModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mChannel.count();
 }
 

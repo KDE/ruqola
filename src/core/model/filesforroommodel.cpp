@@ -113,7 +113,7 @@ void FilesForRoomModel::setFiles(const QVector<File> &files)
 
 int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mFileAttachments->fileAttachments().count();
 }
 

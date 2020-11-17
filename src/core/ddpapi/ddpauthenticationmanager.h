@@ -122,8 +122,8 @@ private:
     // Authentication doesn't involve any subscriptions
     void processSubscriptionResultImpl(int subscriptionId, const QJsonObject &result) override
     {
-        Q_UNUSED(subscriptionId);
-        Q_UNUSED(result);
+        Q_UNUSED(subscriptionId)
+        Q_UNUSED(result)
     }
 
     void loginImpl(const QJsonArray &params);

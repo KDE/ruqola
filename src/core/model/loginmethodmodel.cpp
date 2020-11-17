@@ -33,7 +33,7 @@ LoginMethodModel::~LoginMethodModel()
 
 int LoginMethodModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mAuthentications.count();
 }
 

@@ -123,7 +123,7 @@ void RoomModel::reset()
 
 int RoomModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mRoomsList.size();
 }
 

@@ -32,7 +32,7 @@ NotificationPreferenceModel::~NotificationPreferenceModel()
 
 int NotificationPreferenceModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mNotificationPreferenceList.count();
 }
 

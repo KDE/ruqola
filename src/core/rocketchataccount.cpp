@@ -1543,7 +1543,7 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
 void RocketChatAccount::loadHistory(const QString &roomID, const QString &channelType, bool initial)
 {
     //TODO port to restapi
-    Q_UNUSED(channelType);
+    Q_UNUSED(channelType)
     MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
         //TODO add autotest for it !
@@ -1841,7 +1841,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
         //qDebug() << " load pixmap : "<< loaded;
         //qDebug() << " pix " << pix.isNull();
-        Q_UNUSED(loaded);
+        Q_UNUSED(loaded)
         info.pixmap = pix;
     }
     if (!info.isValid()) {

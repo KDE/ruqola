@@ -110,7 +110,7 @@ void Notification::updateUnityService(int unreadMessage)
 #ifdef UNITY_SUPPORT
     unityServiceManager()->setCount(unreadMessage);
 #else
-    Q_UNUSED(unreadMessage);
+    Q_UNUSED(unreadMessage)
 #endif
 }
 

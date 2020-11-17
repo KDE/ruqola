@@ -62,7 +62,7 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
 
 void RuqolaCentralWidget::slotSocketError(QAbstractSocket::SocketError error, const QString &errorString)
 {
-    Q_UNUSED(error);
+    Q_UNUSED(error)
     // ## let's hope this happens while the login widget is visible, but that's quite likely
     // Testcase: try to connect to a server that doesn't exist
     mRuqolaLoginWidget->showError(errorString);

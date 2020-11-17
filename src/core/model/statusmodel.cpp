@@ -101,7 +101,7 @@ int StatusModel::currentStatus() const
 
 int StatusModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mStatusList.count();
 }
 

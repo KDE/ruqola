@@ -68,7 +68,7 @@ void DiscussionsModel::setRoomId(const QString &roomId)
 
 int DiscussionsModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return mDiscussions->count();
 }
 

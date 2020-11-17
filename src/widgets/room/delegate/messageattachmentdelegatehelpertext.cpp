@@ -45,8 +45,8 @@ MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 
 void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index);
-    Q_UNUSED(option);
+    Q_UNUSED(index)
+    Q_UNUSED(option)
 
     //painter->drawRect(messageRect);
 
@@ -102,8 +102,8 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index);
-    Q_UNUSED(option);
+    Q_UNUSED(index)
+    Q_UNUSED(option)
     const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
     int height = layout.titleSize.height();
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
@@ -151,7 +151,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
 {
-    Q_UNUSED(attachmentsHeight);
+    Q_UNUSED(attachmentsHeight)
     TextLayout layout;
     layout.title = msgAttach.title();
     if (!layout.title.isEmpty()) {
