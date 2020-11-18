@@ -95,14 +95,16 @@ QJsonDocument RoomsExportJob::json() const
         //Nothing it's a bug here.
         break;
     case RoomsExportInfo::ExportAs::File:
+        jsonObj[QLatin1String("type")] = QStringLiteral("file");
         createJsonForFile(jsonObj);
         break;
     case RoomsExportInfo::ExportAs::Email:
+        jsonObj[QLatin1String("type")] = QStringLiteral("email");
         createJsonForEmail(jsonObj);
         break;
     }
-    //qDebug() << " postData**************** " << postData;
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    //qDebug() << " postData**************** " << postData;
     return postData;
 }
 
