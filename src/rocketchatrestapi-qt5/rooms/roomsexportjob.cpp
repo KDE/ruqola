@@ -119,8 +119,8 @@ void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
         jsonObj[QLatin1String("format")] = QStringLiteral("json");
         break;
     }
-    jsonObj[QLatin1String("dateTo")] = mRoomExportInfo.dateTo.toString();
-    jsonObj[QLatin1String("dateFrom")] = mRoomExportInfo.dateFrom.toString();
+    jsonObj[QLatin1String("dateTo")] = mRoomExportInfo.dateTo.toString(Qt::ISODateWithMs);
+    jsonObj[QLatin1String("dateFrom")] = mRoomExportInfo.dateFrom.toString(Qt::ISODateWithMs);
 }
 
 void RoomsExportJob::createJsonForEmail(QJsonObject &jsonObj) const

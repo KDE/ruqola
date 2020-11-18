@@ -64,12 +64,14 @@ void RoomsExportJobTest::shouldGenerateJson()
     RoomsExportJob job;
     RoomsExportJob::RoomsExportInfo info;
     //TODO
-//    const QString roomId = QStringLiteral("room1");
-//    info.roomId = roomId;
-//    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50)).toUTC();
-//    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50)).toUTC();
-//    job.setCleanHistoryInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    const QString roomId = QStringLiteral("room1");
+    info.roomId = roomId;
+    info.exportAs = RoomsExportJob::RoomsExportInfo::ExportAs::File;
+
+    info.dateFrom = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50)).toUTC();
+    info.dateTo = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50)).toUTC();
+    job.setRoomExportInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"dateFrom\":\"2020-12-03T04:07:50.000Z\",\"dateTo\":\"2020-03-03T04:07:50.000Z\",\"rid\":\"%1\"}").arg(roomId).toLatin1());
 //    info.inclusive = true;
 //    job.setCleanHistoryInfo(info);
 //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
@@ -100,10 +102,10 @@ void RoomsExportJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     RoomsExportJob::RoomsExportInfo info;
-//    const QString roomId = QStringLiteral("room1");
-//    info.roomId = roomId;
-//    job.setCleanHistoryInfo(info);
-//    QVERIFY(!job.canStart());
+    const QString roomId = QStringLiteral("room1");
+    info.roomId = roomId;
+    job.setRoomExportInfo(info);
+    QVERIFY(!job.canStart());
 
 //    info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50));
 //    info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
