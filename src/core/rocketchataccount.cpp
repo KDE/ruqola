@@ -70,6 +70,8 @@
 #include "listmessages.h"
 #include "channelcounterinfo.h"
 
+#include <KNotification>
+#include <KLocalizedString>
 #include <QDesktopServices>
 #include <QTimer>
 
@@ -468,6 +470,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -2367,4 +2370,12 @@ void RocketChatAccount::setAvatarUrl(const QString &url)
 void RocketChatAccount::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
 {
     restApi()->exportMessages(info);
+}
+
+void RocketChatAccount::slotRoomExportDone()
+{
+    KNotification *notification = new KNotification(QStringLiteral("export-message"), KNotification::CloseOnTimeout);
+    notification->setTitle(i18n("Export Messages"));
+    notification->setText(i18n("Your email has been queued for sending."));
+    notification->sendEvent();
 }

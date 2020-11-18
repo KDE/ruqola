@@ -45,6 +45,11 @@ Comment[sv]=Underrättelse
 Comment[uk]=Сповіщення
 Comment[x-test]=xxNotificationxx
 
+[Event/export-message]
+Name=Messages Exported
+Action=Popup
+Urgency=Normal
+
 [Event/new-notification]
 Name=A Notification Arrived
 Name[ca]=Ha arribat una notificació
