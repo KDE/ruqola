@@ -229,7 +229,9 @@ void RoomWidget::slotExportMessages()
 {
     QPointer<ExportMessagesDialog> dlg = new ExportMessagesDialog(this);
     if (dlg->exec()) {
-        //TODO
+        RocketChatRestApi::RoomsExportJob::RoomsExportInfo info = dlg->roomExportInfo();
+        info.roomId = mRoomId;
+        mCurrentRocketChatAccount->exportMessages(info);
     }
     delete dlg;
 }

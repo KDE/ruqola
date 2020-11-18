@@ -1953,3 +1953,15 @@ void RestApiRequest::resetAvatar(const UserBaseJob::UserInfo &info)
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ResetAvatarJob";
     }
 }
+
+void RestApiRequest::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
+{
+    auto *job = new RoomsExportJob(this);
+    job->setRoomExportInfo(info);
+    initializeRestApiJob(job);
+    connect(job, &RoomsExportJob::roomExportDone, this, &RestApiRequest::roomExportDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsExportJob";
+    }
+}
+

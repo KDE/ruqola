@@ -44,6 +44,7 @@
 #include "customuserstatuses.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "custom/customuserstatuscreatejob.h"
+#include "rooms/roomsexportjob.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -459,6 +460,7 @@ public:
     Q_REQUIRED_RESULT QStringList highlightWords() const;
     void resetAvatar();
     void setAvatarUrl(const QString &url);
+    void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

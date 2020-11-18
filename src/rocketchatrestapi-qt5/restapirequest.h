@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include "rooms/roomsexportjob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "users/setavatarjob.h"
@@ -207,6 +208,7 @@ public:
     void deleteCustomUserStatus(const QString &customUserStatusId);
     void updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void resetAvatar(const UserBaseJob::UserInfo &info);
+    void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
@@ -293,6 +295,7 @@ Q_SIGNALS:
     void customUserUpdateDone();
     void postMessageDone(const QJsonObject &replyObject);
     void resetAvatarDone();
+    void roomExportDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

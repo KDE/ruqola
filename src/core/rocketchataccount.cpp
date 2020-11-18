@@ -2363,3 +2363,8 @@ void RocketChatAccount::setAvatarUrl(const QString &url)
     avatarInfo.mAvatarUrl = url;
     restApi()->setAvatar(userInfo, avatarInfo);
 }
+
+void RocketChatAccount::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
+{
+    restApi()->exportMessages(info);
+}
