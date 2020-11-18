@@ -34,12 +34,13 @@ public:
     explicit ExportMessagesWidget(QWidget *parent = nullptr);
     ~ExportMessagesWidget() override;
 
-
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
+
 Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
+    void fillFormat();
     QDateEdit *const mFromDate;
     QDateEdit *const mToDate;
     QComboBox *const mFormat;

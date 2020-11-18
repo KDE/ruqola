@@ -42,6 +42,7 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
 
     mFormat->setObjectName(QStringLiteral("mFormat"));
     mainLayout->addWidget(mFormat);
+    fillFormat();
 }
 
 ExportMessagesWidget::~ExportMessagesWidget()
@@ -49,8 +50,20 @@ ExportMessagesWidget::~ExportMessagesWidget()
 
 }
 
+void ExportMessagesWidget::fillFormat()
+{
+    mFormat->addItem(i18n("Json"), QVariant::fromValue(RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat::Json));
+    mFormat->addItem(i18n("Html"), QVariant::fromValue(RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat::Html));
+}
+
 RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesWidget::roomExportInfo() const
 {
+    RocketChatRestApi::RoomsExportJob::RoomsExportInfo info;
+    info.exportAs = RocketChatRestApi::RoomsExportJob::RoomsExportInfo::ExportAs::File; //For the moment we can't choose Email
+
+    info.fileFormat = mFormat->currentData().value<RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat>();
+    info.dateFrom = mFromDate->dateTime();
+    info.dateTo = mToDate->dateTime();
     //TODO
-    return {};
+    return info;
 }
