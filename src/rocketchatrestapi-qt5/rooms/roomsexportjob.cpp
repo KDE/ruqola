@@ -113,13 +113,14 @@ void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
         //It's a bug
         break;
     case RoomsExportInfo::FileFormat::Html:
-        jsonObj[QLatin1String("rid")] = QStringLiteral("html");
+        jsonObj[QLatin1String("format")] = QStringLiteral("html");
         break;
     case RoomsExportInfo::FileFormat::Json:
-        jsonObj[QLatin1String("rid")] = QStringLiteral("json");
+        jsonObj[QLatin1String("format")] = QStringLiteral("json");
         break;
     }
-    //TODO dateFrom/dateTo
+    jsonObj[QLatin1String("dateTo")] = mRoomExportInfo.dateTo.toString();
+    jsonObj[QLatin1String("dateFrom")] = mRoomExportInfo.dateFrom.toString();
 }
 
 void RoomsExportJob::createJsonForEmail(QJsonObject &jsonObj) const

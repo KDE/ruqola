@@ -64,6 +64,5 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesWidget::roomExp
     info.fileFormat = mFormat->currentData().value<RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat>();
     info.dateFrom = mFromDate->dateTime();
     info.dateTo = mToDate->dateTime();
-    //TODO
     return info;
 }
