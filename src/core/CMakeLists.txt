@@ -206,6 +206,8 @@ set (Ruqola_core_srcs
     customuserstatus.cpp
 
     ownuserpreferences.cpp
+
+    permission.cpp
 )
 
 if (NOT WIN32)
