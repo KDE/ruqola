@@ -142,7 +142,7 @@ set (RocketChatRestApiQt_SRCS
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp
 
-    permissions/listpermissionsjob.cpp
+    permissions/permissionslistalljob.cpp
 
     commands/listcommandsjob.cpp
     commands/getcommandsjob.cpp

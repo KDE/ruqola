@@ -129,7 +129,7 @@
 #include "subscriptions/markroomasreadjob.h"
 #include "subscriptions/markroomasunreadjob.h"
 
-#include "permissions/listpermissionsjob.h"
+#include "permissions/permissionslistalljob.h"
 
 #include "commands/listcommandsjob.h"
 #include "commands/getcommandsjob.h"
@@ -1173,9 +1173,9 @@ void RestApiRequest::getUsernameSuggestion()
 
 void RestApiRequest::listPermissions()
 {
-    auto *job = new ListPermissionsJob(this);
+    auto *job = new PermissionsListAllJob(this);
     initializeRestApiJob(job);
-    connect(job, &ListPermissionsJob::listPermissionDone, this, &RestApiRequest::listPermissionDone);
+    connect(job, &PermissionsListAllJob::listPermissionDone, this, &RestApiRequest::listPermissionDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
     }

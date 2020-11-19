@@ -18,28 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "listpermissionsjob.h"
+#include "permissionslistalljob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-ListPermissionsJob::ListPermissionsJob(QObject *parent)
+PermissionsListAllJob::PermissionsListAllJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-ListPermissionsJob::~ListPermissionsJob()
+PermissionsListAllJob::~PermissionsListAllJob()
 {
 }
 
-bool ListPermissionsJob::requireHttpAuthentication() const
+bool PermissionsListAllJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ListPermissionsJob::start()
+bool PermissionsListAllJob::start()
 {
     if (!canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start owninfo job";
@@ -47,12 +47,12 @@ bool ListPermissionsJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &ListPermissionsJob::slotListPermissionFinished);
+    connect(reply, &QNetworkReply::finished, this, &PermissionsListAllJob::slotListPermissionFinished);
     addStartRestApiInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;
 }
 
-void ListPermissionsJob::slotListPermissionFinished()
+void PermissionsListAllJob::slotListPermissionFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -70,9 +70,9 @@ void ListPermissionsJob::slotListPermissionFinished()
     deleteLater();
 }
 
-QNetworkRequest ListPermissionsJob::request() const
+QNetworkRequest PermissionsListAllJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::PermissionsList);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::PermissionsListAll);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

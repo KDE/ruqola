@@ -194,7 +194,6 @@ enum class RestApiUrlType {
     RoomsExport,
 
     ForgotPassword,
-    PermissionsList,
     CommandsList,
     CommandsGet,
     CommandsRun,

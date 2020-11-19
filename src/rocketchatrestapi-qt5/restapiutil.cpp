@@ -348,8 +348,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     //
     case RestApiUtil::RestApiUrlType::ForgotPassword:
         return QStringLiteral("users.forgotPassword");
-    case RestApiUtil::RestApiUrlType::PermissionsList:
-        return QStringLiteral("permissions.list");
     case RestApiUtil::RestApiUrlType::CommandsList:
         return QStringLiteral("commands.list");
     case RestApiUtil::RestApiUrlType::CommandsGet:

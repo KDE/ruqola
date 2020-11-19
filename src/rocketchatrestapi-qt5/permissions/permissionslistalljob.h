@@ -18,30 +18,34 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "listpermissionsjobtest.h"
-#include "permissions/listpermissionsjob.h"
-#include "ruqola_restapi_helper.h"
-#include <QTest>
-#include <restapimethod.h>
-QTEST_GUILESS_MAIN(ListPermissionsJobTest)
-using namespace RocketChatRestApi;
-ListPermissionsJobTest::ListPermissionsJobTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#ifndef PERMISSIONSLISTALLJOB_H
+#define PERMISSIONSLISTALLJOB_H
 
-void ListPermissionsJobTest::shouldHaveDefaultValue()
-{
-    ListPermissionsJob job;
-    verifyDefaultValue(&job);
-    QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasQueryParameterSupport());
-}
+#include "restapiabstractjob.h"
+#include "librestapi_private_export.h"
 
-void ListPermissionsJobTest::shouldGenerateRequest()
+#include <QNetworkRequest>
+namespace RocketChatRestApi {
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT PermissionsListAllJob : public RestApiAbstractJob
 {
-    ListPermissionsJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.list")));
+    Q_OBJECT
+public:
+    //since 0.66
+    explicit PermissionsListAllJob(QObject *parent = nullptr);
+    ~PermissionsListAllJob() override;
+
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+
+    Q_REQUIRED_RESULT bool start() override;
+
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+Q_SIGNALS:
+    void listPermissionDone(const QJsonObject &obj);
+
+private:
+    Q_DISABLE_COPY(PermissionsListAllJob)
+    void slotListPermissionFinished();
+};
 }
+#endif // PERMISSIONSLISTALLJOB_H

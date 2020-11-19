@@ -18,20 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTPERMISSIONSJOBTEST_H
-#define LISTPERMISSIONSJOBTEST_H
-
-#include <QObject>
-
-class ListPermissionsJobTest : public QObject
+#include "permissionslistalljobtest.h"
+#include "permissions/permissionslistalljob.h"
+#include "ruqola_restapi_helper.h"
+#include <QTest>
+#include <restapimethod.h>
+QTEST_GUILESS_MAIN(PermissionsListAllJobTest)
+using namespace RocketChatRestApi;
+PermissionsListAllJobTest::PermissionsListAllJobTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ListPermissionsJobTest(QObject *parent = nullptr);
-    ~ListPermissionsJobTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-};
+}
 
-#endif // LISTPERMISSIONSJOBTEST_H
+void PermissionsListAllJobTest::shouldHaveDefaultValue()
+{
+    PermissionsListAllJob job;
+    verifyDefaultValue(&job);
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
+}
+
+void PermissionsListAllJobTest::shouldGenerateRequest()
+{
+    PermissionsListAllJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.listAll")));
+}
