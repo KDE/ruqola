@@ -230,7 +230,7 @@ Q_SIGNALS:
     void channelRolesDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
-    void listPermissionDone(const QJsonObject &obj);
+    void permissionListAllDone(const QJsonObject &obj);
     void listCommandsDone(const QJsonObject &obj);
     void getCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();

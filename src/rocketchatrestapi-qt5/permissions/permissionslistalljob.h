@@ -30,7 +30,6 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT PermissionsListAllJob : public RestA
 {
     Q_OBJECT
 public:
-    //since 0.66
     explicit PermissionsListAllJob(QObject *parent = nullptr);
     ~PermissionsListAllJob() override;
 
@@ -41,11 +40,11 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void listPermissionDone(const QJsonObject &obj);
+    void permissionListAllDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(PermissionsListAllJob)
-    void slotListPermissionFinished();
+    void slotPermissionListAllFinished();
 };
 }
 #endif // PERMISSIONSLISTALLJOB_H

@@ -1175,7 +1175,7 @@ void RestApiRequest::listPermissions()
 {
     auto *job = new PermissionsListAllJob(this);
     initializeRestApiJob(job);
-    connect(job, &PermissionsListAllJob::listPermissionDone, this, &RestApiRequest::listPermissionDone);
+    connect(job, &PermissionsListAllJob::permissionListAllDone, this, &RestApiRequest::permissionListAllDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
     }

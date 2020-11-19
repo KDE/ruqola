@@ -471,6 +471,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -2378,4 +2379,9 @@ void RocketChatAccount::slotRoomExportDone()
     notification->setTitle(i18n("Export Messages"));
     notification->setText(i18n("Your email has been queued for sending."));
     notification->sendEvent();
+}
+
+void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject)
+{
+    qDebug() << " replyObject " << replyObject;
 }

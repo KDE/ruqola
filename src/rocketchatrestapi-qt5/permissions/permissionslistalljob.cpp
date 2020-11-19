@@ -42,17 +42,17 @@ bool PermissionsListAllJob::requireHttpAuthentication() const
 bool PermissionsListAllJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PermissionsListAllJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &PermissionsListAllJob::slotListPermissionFinished);
+    connect(reply, &QNetworkReply::finished, this, &PermissionsListAllJob::slotPermissionListAllFinished);
     addStartRestApiInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;
 }
 
-void PermissionsListAllJob::slotListPermissionFinished()
+void PermissionsListAllJob::slotPermissionListAllFinished()
 {
     auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -60,7 +60,7 @@ void PermissionsListAllJob::slotListPermissionFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT listPermissionDone(replyObject);
+            Q_EMIT permissionListAllDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ListPermissionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

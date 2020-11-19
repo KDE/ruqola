@@ -224,6 +224,7 @@ void RocketChatBackend::slotLoginStatusChanged()
 
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
+        //restApi->listPermissions();
     }
 }
 
