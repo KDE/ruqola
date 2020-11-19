@@ -249,4 +249,8 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersDeleteOwnAccount), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.deleteOwnAccount")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetPreferences), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setPreferences")));
+
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsListAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.listAll")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.update")));
 }

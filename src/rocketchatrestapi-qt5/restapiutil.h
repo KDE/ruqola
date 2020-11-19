@@ -243,6 +243,10 @@ enum class RestApiUrlType {
     Users2FADisableEmail,
 
     UsersSetPreferences,
+
+    //Permission
+    PermissionsListAll,
+    PermissionsUpdate,
 };
 LIBROCKETCHATRESTAPI_QT5_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
