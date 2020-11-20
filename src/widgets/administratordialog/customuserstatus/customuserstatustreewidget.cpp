@@ -61,7 +61,7 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     setRootIsDecorated(false);
     connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
     initialize();
-    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::customUserChanged, this, &CustomUserStatusTreeWidget::initialize);
+    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::customUserStatusChanged, this, &CustomUserStatusTreeWidget::initialize);
 }
 
 CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()

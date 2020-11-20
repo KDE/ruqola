@@ -1445,16 +1445,14 @@ void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
 {
     qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
     mCustomUserStatuses.deleteCustomUserStatuses(replyArray);
-    Q_EMIT customUserChanged();
-    //TODO updateCombobox
+    Q_EMIT customUserStatusChanged();
 }
 
 void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
 {
     mCustomUserStatuses.updateCustomUserStatues(replyArray);
-    Q_EMIT customUserChanged();
+    Q_EMIT customUserStatusChanged();
     qDebug() << " void RocketChatAccount::updateCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
-    //TODO updateCombobox
 }
 
 void RocketChatAccount::setDisplayName(const QString &displayName)
@@ -2292,7 +2290,7 @@ void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
 {
     mCustomUserStatuses.parseCustomUserStatuses(customList);
     //qDebug() << "customList  " << mCustomUserStatuses;
-    //TODO update combobox
+    Q_EMIT customUserStatusChanged();
 }
 
 CustomUserStatuses RocketChatAccount::customUserStatuses() const
@@ -2383,5 +2381,5 @@ void RocketChatAccount::slotRoomExportDone()
 
 void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject)
 {
-    qDebug() << " replyObject " << replyObject;
+    qDebug() << accountName() << " replyObject " << replyObject;
 }
