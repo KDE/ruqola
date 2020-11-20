@@ -41,9 +41,14 @@ namespace QTest {
 template<typename T>
 inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected, const char *file, int line)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     return qCompare(QList<T>(t1.begin(), t1.end()),
                     QList<T>(t2.begin(), t2.end()),
                     actual, expected, file, line);
+#else
+    return qCompare(t1.toList(), t2.toList(),
+                    actual, expected, file, line);
+#endif
 }
 }
 
