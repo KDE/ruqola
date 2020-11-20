@@ -31,5 +31,6 @@ PermissionTest::PermissionTest(QObject *parent)
 void PermissionTest::shouldHaveDefaultValues()
 {
     Permission p;
-    //TODO
+    QVERIFY(p.roles().isEmpty());
+    QCOMPARE(p.updatedAt(), -1);
 }

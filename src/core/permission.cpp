@@ -20,6 +20,8 @@
 
 #include "permission.h"
 
+#include "utils.h"
+
 Permission::Permission()
 {
 
@@ -27,7 +29,12 @@ Permission::Permission()
 
 void Permission::parsePermission(const QJsonObject &replyObject)
 {
-    //TODO
+    mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
+    const QJsonArray roleArray = replyObject.value(QLatin1String("roles")).toArray();
+    mRoles.reserve(roleArray.count());
+    for (int i = 0; i < roleArray.count(); ++i) {
+        mRoles.append(roleArray.at(i).toString());
+    }
 }
 
 QStringList Permission::roles() const
@@ -40,8 +47,19 @@ void Permission::setRoles(const QStringList &newRoles)
     mRoles = newRoles;
 }
 
+qint64 Permission::updatedAt() const
+{
+    return mUpdatedAt;
+}
+
+void Permission::setUpdatedAt(qint64 newUpdatedAt)
+{
+    mUpdatedAt = newUpdatedAt;
+}
+
 QDebug operator <<(QDebug d, const Permission &t)
 {
-    //TODO
+    d << "roles : " << t.roles();
+    d << "mUpdatedAt " << t.updatedAt();
     return d;
 }

@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PERMISSION_H
-#define PERMISSION_H
+#ifndef PERMISSIONMANAGER_H
+#define PERMISSIONMANAGER_H
 
 
 #include "libruqola_private_export.h"
@@ -27,23 +27,13 @@
 #include <QDebug>
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT Permission
+class LIBRUQOLACORE_TESTS_EXPORT PermissionManager
 {
 public:
-    Permission();
+    PermissionManager();
+    ~PermissionManager();
 
-    void parsePermission(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT QStringList roles() const;
-    void setRoles(const QStringList &newRoles);
-
-    Q_REQUIRED_RESULT qint64 updatedAt() const;
-    void setUpdatedAt(qint64 newUpdatedAt);
-
-private:
-    qint64 mUpdatedAt = -1;
-    QStringList mRoles;
+    void parsePermissions(const QJsonObject &replyObject);
 };
-Q_DECLARE_METATYPE(Permission)
-Q_DECLARE_TYPEINFO(Permission, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Permission &t);
-#endif // PERMISSION_H
+
+#endif // PERMISSIONMANAGER_H

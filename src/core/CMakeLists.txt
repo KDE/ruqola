@@ -208,6 +208,7 @@ set (Ruqola_core_srcs
     ownuserpreferences.cpp
 
     permission.cpp
+    permissionmanager.cpp
 )
 
 if (NOT WIN32)
