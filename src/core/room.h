@@ -29,7 +29,7 @@
 #include "roles.h"
 
 #include "channelcounterinfo.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "utils.h"
 
 #include <memory>
@@ -38,7 +38,7 @@ class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
 class MessageModel;
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
+class LIBRUQOLACORE_EXPORT Room : public QObject
 {
     Q_OBJECT
 public:

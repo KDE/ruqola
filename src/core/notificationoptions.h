@@ -24,9 +24,9 @@
 #include <QString>
 #include <QDebug>
 #include <QJsonObject>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
+class LIBRUQOLACORE_EXPORT NotificationOptions
 {
     Q_GADGET
 public:

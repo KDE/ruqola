@@ -25,9 +25,9 @@
 #include <QJsonObject>
 #include <QVector>
 #include "customuserstatus.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT CustomUserStatuses
+class LIBRUQOLACORE_EXPORT CustomUserStatuses
 {
 public:
     CustomUserStatuses();
