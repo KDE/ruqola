@@ -64,12 +64,15 @@ public:
     Q_REQUIRED_RESULT QStringList users() const;
     void setUsers(const QStringList &users);
 
+    Q_REQUIRED_RESULT QString channelTypeStr() const;
+
 private:
     QStringList mUserNames;
     QStringList mUsers;
     QString mTopic;
     QString mIdentifier;
     QString mChannelType;
+    QString mChannelTypeStr;
     QString mName;
     int mMessageCount = -1;
     int mUsersCount = -1;

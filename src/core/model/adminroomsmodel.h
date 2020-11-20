@@ -34,6 +34,7 @@ public:
         Name,
         Topic,
         ChannelType,
+        ChannelTypeStr,
         MessagesCount,
         UsersCount,
         ReadOnly,

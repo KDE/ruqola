@@ -19,7 +19,8 @@
 */
 
 #include "adminroom.h"
-
+#include "ruqola_debug.h"
+#include <KLocalizedString>
 #include <QJsonArray>
 
 AdminRoom::AdminRoom()
@@ -100,9 +101,24 @@ QString AdminRoom::channelType() const
     return mChannelType;
 }
 
+static QString convertChannelType(const QString &str)
+{
+    if (str == QLatin1Char('p')) {
+        return i18n("Group");
+    } else if (str == QLatin1Char('c')) {
+        return i18n("Channel");
+    } else if (str == QLatin1Char('d')) {
+        return i18n("Direct");
+    } else {
+        qCWarning(RUQOLA_LOG) << " Unkwnon channel type " << str;
+        return str;
+    }
+}
+
 void AdminRoom::setChannelType(const QString &channelType)
 {
     mChannelType = channelType;
+    mChannelTypeStr = convertChannelType(channelType);
 }
 
 QString AdminRoom::identifier() const
@@ -163,6 +179,11 @@ QStringList AdminRoom::users() const
 void AdminRoom::setUsers(const QStringList &users)
 {
     mUsers = users;
+}
+
+QString AdminRoom::channelTypeStr() const
+{
+    return mChannelTypeStr;
 }
 
 bool AdminRoom::operator ==(const AdminRoom &other) const
