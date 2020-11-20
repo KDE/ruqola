@@ -28,7 +28,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QFile>
-#include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QTextStream>
 
