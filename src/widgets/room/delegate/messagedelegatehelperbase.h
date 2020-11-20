@@ -26,6 +26,7 @@
 #include <QSize>
 #include <QTextDocument>
 #include "lrucache.h"
+#include <memory>
 class QPainter;
 class QRect;
 class QModelIndex;
