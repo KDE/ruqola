@@ -23,7 +23,7 @@
 
 #include <QString>
 #include <QTextDocument>
-
+#include <memory>
 namespace MessageDelegateUtils {
 std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
 }
