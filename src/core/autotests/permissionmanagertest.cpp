@@ -18,26 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PERMISSIONMANAGER_H
-#define PERMISSIONMANAGER_H
-
-
-#include "libruqola_private_export.h"
-#include "permission.h"
-#include <QString>
-#include <QDebug>
-#include <QJsonObject>
-#include <QMap>
-
-class LIBRUQOLACORE_TESTS_EXPORT PermissionManager
+#include "permissionmanagertest.h"
+#include <QTest>
+QTEST_MAIN(PermissionManagerTest)
+PermissionManagerTest::PermissionManagerTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    PermissionManager();
-    ~PermissionManager();
 
-    void parsePermissions(const QJsonObject &replyObject);
-private:
-    QMap<QString, Permission> mMapPermissions;
-};
+}
 
-#endif // PERMISSIONMANAGER_H
+void PermissionManagerTest::shouldHaveDefaultValues()
+{
+
+}
