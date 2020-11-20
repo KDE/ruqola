@@ -47,6 +47,12 @@ Comment[x-test]=xxNotificationxx
 
 [Event/export-message]
 Name=Messages Exported
+Name[ca]=Missatges exportats
+Name[fr]=Messages exportés
+Name[nl]=Berichten geëxporteerd
+Name[sv]=Meddelanden exporterade
+Name[uk]=Експортовано повідомлення
+Name[x-test]=xxMessages Exportedxx
 Action=Popup
 Urgency=Normal
 
