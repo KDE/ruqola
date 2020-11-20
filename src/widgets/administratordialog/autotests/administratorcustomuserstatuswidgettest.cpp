@@ -36,7 +36,6 @@ void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
     AdministratorCustomUserStatusWidget w;
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
     auto *mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
     QVERIFY(mCustomUserStatusTreeWidget);
