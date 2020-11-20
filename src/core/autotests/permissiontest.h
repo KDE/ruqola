@@ -18,30 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "permission.h"
+#ifndef PERMISSIONTEST_H
+#define PERMISSIONTEST_H
 
-Permission::Permission()
+#include <QObject>
+
+class PermissionTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit PermissionTest(QObject *parent = nullptr);
+    ~PermissionTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
 
-}
-
-void Permission::parsePermission(const QJsonObject &replyObject)
-{
-    //TODO
-}
-
-QStringList Permission::roles() const
-{
-    return mRoles;
-}
-
-void Permission::setRoles(const QStringList &newRoles)
-{
-    mRoles = newRoles;
-}
-
-QDebug operator <<(QDebug d, const Permission &t)
-{
-    //TODO
-    return d;
-}
+#endif // PERMISSIONTEST_H

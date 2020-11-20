@@ -31,6 +31,14 @@ class LIBRUQOLACORE_TESTS_EXPORT Permission
 {
 public:
     Permission();
+
+    void parsePermission(const QJsonObject &replyObject);
+    Q_REQUIRED_RESULT QStringList roles() const;
+    void setRoles(const QStringList &newRoles);
+
+private:
+    //TODO _updatedAt
+    QStringList mRoles;
 };
 Q_DECLARE_METATYPE(Permission)
 Q_DECLARE_TYPEINFO(Permission, Q_MOVABLE_TYPE);

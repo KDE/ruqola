@@ -18,30 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "permissiontest.h"
 #include "permission.h"
-
-Permission::Permission()
+#include <QTest>
+QTEST_GUILESS_MAIN(PermissionTest)
+PermissionTest::PermissionTest(QObject *parent)
+    : QObject(parent)
 {
 
 }
 
-void Permission::parsePermission(const QJsonObject &replyObject)
+void PermissionTest::shouldHaveDefaultValues()
 {
+    Permission p;
     //TODO
-}
-
-QStringList Permission::roles() const
-{
-    return mRoles;
-}
-
-void Permission::setRoles(const QStringList &newRoles)
-{
-    mRoles = newRoles;
-}
-
-QDebug operator <<(QDebug d, const Permission &t)
-{
-    //TODO
-    return d;
 }
