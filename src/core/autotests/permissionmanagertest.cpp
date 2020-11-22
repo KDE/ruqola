@@ -31,4 +31,11 @@ PermissionManagerTest::PermissionManagerTest(QObject *parent)
 void PermissionManagerTest::shouldHaveDefaultValues()
 {
     PermissionManager w;
+    QCOMPARE(w.permissionCount(), 0);
+}
+
+void PermissionManagerTest::shouldHasRoles()
+{
+    PermissionManager w;
+    QVERIFY(w.roles(QStringLiteral("bla")).isEmpty());
 }

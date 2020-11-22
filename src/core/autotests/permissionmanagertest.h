@@ -31,6 +31,7 @@ public:
     ~PermissionManagerTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldHasRoles();
 
 };
 

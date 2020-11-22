@@ -43,6 +43,20 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
+QStringList PermissionManager::roles(const QString &permissionId)
+{
+    const Permission p = mMapPermissions.value(permissionId);
+    if (p.isValid()) {
+        return p.roles();
+    }
+    return {};
+}
+
+int PermissionManager::permissionCount() const
+{
+    return mMapPermissions.count();
+}
+
 void PermissionManager::parseRemovePermission(const QJsonArray &removeArray)
 {
     qDebug() << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet";
