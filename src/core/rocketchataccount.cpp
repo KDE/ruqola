@@ -2384,3 +2384,15 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
     //qDebug() << accountName() << " replyObject " << replyObject;
     mPermissionManager.parsePermissions(replyObject);
 }
+
+bool RocketChatAccount::hasPermission(const QString &permissionId)
+{
+    const QStringList ownUserRoles{mOwnUser.roles()};
+    const QStringList permissionRoles{mPermissionManager.roles(permissionId)};
+    for (const QString &role : permissionRoles) {
+        if (ownUserRoles.contains(role)) {
+            return true;
+        }
+    }
+    return false;
+}

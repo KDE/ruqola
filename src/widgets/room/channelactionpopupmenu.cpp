@@ -175,6 +175,5 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mPruneMessages->setVisible(mCurrentRocketChatAccount->isAdministrator());
     mPruneMessagesSeparator->setVisible(mCurrentRocketChatAccount->isAdministrator());
 
-    //TODO disable it for the moment
-    mExportMessages->setVisible(false);
+    mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
 }
