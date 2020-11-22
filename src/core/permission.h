@@ -39,6 +39,8 @@ public:
     Q_REQUIRED_RESULT qint64 updatedAt() const;
     void setUpdatedAt(qint64 newUpdatedAt);
 
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
     qint64 mUpdatedAt = -1;
     QStringList mRoles;

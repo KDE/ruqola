@@ -42,6 +42,7 @@
 #include "ruqolaserverconfig.h"
 #include "ownuser.h"
 #include "customuserstatuses.h"
+#include "permissionmanager.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "rooms/roomsexportjob.h"
@@ -604,6 +605,7 @@ private:
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
+    PermissionManager mPermissionManager;
 
     bool mEditingMode = false;
 };

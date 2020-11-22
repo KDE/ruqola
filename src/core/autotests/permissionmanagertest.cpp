@@ -19,6 +19,7 @@
 */
 
 #include "permissionmanagertest.h"
+#include "permissionmanager.h"
 #include <QTest>
 QTEST_MAIN(PermissionManagerTest)
 PermissionManagerTest::PermissionManagerTest(QObject *parent)
@@ -29,5 +30,5 @@ PermissionManagerTest::PermissionManagerTest(QObject *parent)
 
 void PermissionManagerTest::shouldHaveDefaultValues()
 {
-
+    PermissionManager w;
 }

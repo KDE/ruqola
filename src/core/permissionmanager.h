@@ -37,6 +37,8 @@ public:
 
     void parsePermissions(const QJsonObject &replyObject);
 private:
+    void parseRemovePermission(const QJsonArray &removeArray);
+    void parseUpdatePermission(const QJsonArray &removeArray);
     QMap<QString, Permission> mMapPermissions;
 };
 

@@ -2381,5 +2381,6 @@ void RocketChatAccount::slotRoomExportDone()
 
 void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject)
 {
-    qDebug() << accountName() << " replyObject " << replyObject;
+    //qDebug() << accountName() << " replyObject " << replyObject;
+    mPermissionManager.parsePermissions(replyObject);
 }

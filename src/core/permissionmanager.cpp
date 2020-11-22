@@ -19,7 +19,9 @@
 */
 
 #include "permissionmanager.h"
-
+#include "ruqola_debug.h"
+#include <QJsonArray>
+#include <QDebug>
 PermissionManager::PermissionManager()
 {
 
@@ -32,5 +34,31 @@ PermissionManager::~PermissionManager()
 
 void PermissionManager::parsePermissions(const QJsonObject &replyObject)
 {
+    //TODO implement remove/update
+    const QJsonArray removeArray = replyObject[QLatin1String("remove")].toArray();
+    parseRemovePermission(removeArray);
+    const QJsonArray updateArray = replyObject[QLatin1String("update")].toArray();
+    parseUpdatePermission(updateArray);
     //TODO
+    qDebug() << "mMapPermissions  " << mMapPermissions;
+}
+
+void PermissionManager::parseRemovePermission(const QJsonArray &removeArray)
+{
+    qDebug() << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet";
+}
+
+void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
+{
+    for (int i = 0; i < updateArray.count(); ++i) {
+        const QJsonObject obj =  updateArray.at(i).toObject();
+        const QString id = obj[QLatin1String("_id")].toString();
+        if (id == QLatin1String("mail-messages")) {
+            Permission p;
+            p.parsePermission(obj);
+            if (p.isValid()) {
+                mMapPermissions.insert(id, p);
+            }
+        }
+    }
 }
