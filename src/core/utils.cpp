@@ -92,7 +92,7 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
             HrefPos pos;
             pos.start = match.capturedStart(1);
             pos.end = match.capturedEnd(1);
-            lstPos.append(pos);
+            lstPos.append(std::move(pos));
         }
 
         for (const QString &word : highlightWords) {
