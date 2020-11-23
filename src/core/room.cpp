@@ -1016,6 +1016,18 @@ void Room::setRolesForRooms(const Roles &rolesForRooms)
 
 bool Room::allowToPinMessage() const
 {
+    //Create static method for it.
+    if (mRocketChatAccount) {
+        const QStringList permissionRoles = mRocketChatAccount->permissions(QStringLiteral("pin-message"));
+        for (const QString &role : permissionRoles) {
+            if (mRoles.contains(role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    qCWarning(RUQOLA_LOG) << " Pin-message permission is not defined";
+    //Fallback
     return mRoles.contains(QStringLiteral("owner"))
            || mRoles.contains(QStringLiteral("moderator"))
            || mRoles.contains(QStringLiteral("admin"));

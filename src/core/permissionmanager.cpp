@@ -43,7 +43,7 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
-QStringList PermissionManager::roles(const QString &permissionId)
+QStringList PermissionManager::roles(const QString &permissionId) const
 {
     const Permission p = mMapPermissions.value(permissionId);
     if (p.isValid()) {

@@ -2385,6 +2385,11 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
     mPermissionManager.parsePermissions(replyObject);
 }
 
+QStringList RocketChatAccount::permissions(const QString &permissionId) const
+{
+    return mPermissionManager.roles(permissionId);
+}
+
 bool RocketChatAccount::hasPermission(const QString &permissionId)
 {
     const QStringList ownUserRoles{mOwnUser.roles()};

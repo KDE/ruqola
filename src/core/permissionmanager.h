@@ -37,7 +37,7 @@ public:
 
     void parsePermissions(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT QStringList roles(const QString &permissionId);
+    Q_REQUIRED_RESULT QStringList roles(const QString &permissionId) const;
     Q_REQUIRED_RESULT int permissionCount() const;
 private:
     void parseRemovePermission(const QJsonArray &removeArray);
