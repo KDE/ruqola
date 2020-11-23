@@ -49,6 +49,7 @@ Comment[x-test]=xxNotificationxx
 Name=Messages Exported
 Name[ca]=Missatges exportats
 Name[en_GB]=Messages Exported
+Name[es]=Los mensajes han sido exportados
 Name[fr]=Messages exportés
 Name[nl]=Berichten geëxporteerd
 Name[pt]=Mensagens Exportadas
