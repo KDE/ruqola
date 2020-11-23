@@ -40,6 +40,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
 
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
     mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
+    mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
     mainLayout->addWidget(mHighlightWords);
     mainLayout->addStretch();
 }
