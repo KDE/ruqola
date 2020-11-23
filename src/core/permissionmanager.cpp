@@ -67,12 +67,17 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
     for (int i = 0; i < updateArray.count(); ++i) {
         const QJsonObject obj =  updateArray.at(i).toObject();
         const QString id = obj[QLatin1String("_id")].toString();
-        if (id == QLatin1String("mail-messages")) {
+        if (id == QLatin1String("mail-messages")
+                || id == QLatin1String("pin-message")
+                || id == QLatin1String("delete-own-message")
+                || id == QLatin1String("create-invite-links")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
                 mMapPermissions.insert(id, p);
             }
+        } else {
+            qDebug() << " id " << id;
         }
     }
 }
