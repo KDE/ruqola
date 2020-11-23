@@ -79,14 +79,46 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
     //qDebug() << " highlightWords " << highlightWords;
     const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
     const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
-    for (const QString &word : highlightWords) {
-        const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(word), QRegularExpression::CaseInsensitiveOption);
-        QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
-        while (userIterator.hasNext()) {
-            const QRegularExpressionMatch match = userIterator.next();
-            const QString word = match.captured(1);
-            newStr.replace(word, QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
-                           .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor));
+    if (!highlightWords.isEmpty()) {
+        struct HrefPos {
+            int start = 0;
+            int end = 0;
+        };
+        QList<HrefPos> lstPos;
+        static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\".*\">)"));
+        QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
+        while (userIteratorHref.hasNext()) {
+            const QRegularExpressionMatch match = userIteratorHref.next();
+            HrefPos pos;
+            pos.start = match.capturedStart(1);
+            pos.end = match.capturedEnd(1);
+            lstPos.append(pos);
+        }
+
+        for (const QString &word : highlightWords) {
+            const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(word), QRegularExpression::CaseInsensitiveOption);
+            QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
+            int offset = 0;
+            while (userIterator.hasNext()) {
+                const QRegularExpressionMatch match = userIterator.next();
+                const QString word = match.captured(1);
+                bool inAnUrl = false;
+                const int matchCapturedStart = match.capturedStart(1);
+                for (const HrefPos &hrefPos : lstPos) {
+                    if ((matchCapturedStart > hrefPos.start) && (matchCapturedStart < hrefPos.end)) {
+                        inAnUrl = true;
+                        break;
+                    }
+                }
+                if (inAnUrl) {
+                    continue;
+                }
+                const QString replaceStr = QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
+                        .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+                newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
+                //We added a new string => increase offset
+                offset += replaceStr.length() - word.length();
+            }
         }
     }
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));

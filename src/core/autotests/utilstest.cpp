@@ -166,6 +166,12 @@ void UtilsTest::shouldHighlightWords_data()
                                      << highlightWords
                                      << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> bla <a style=\"color:%1;background-color:%2;\">kde</a> <a style=\"color:%1;background-color:%2;\">KDE</a>.")
         .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
+
+    QTest::newRow("wordinurl") << QStringLiteral("https://www.kde.org/~/bla/bli.txt")
+                                     << QStringLiteral("bla")
+                                     << highlightWords
+                                     << QStringLiteral("<a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a style=\"color:%1;background-color:%2;\">kde</a>.org/~/bla/bli.txt</a>")
+        .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
 }
 
 void UtilsTest::shouldHighlightWords()
