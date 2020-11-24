@@ -239,6 +239,7 @@ public:
 
     Q_REQUIRED_RESULT QStringList highlightsWord() const;
     void setHighlightsWord(const QStringList &highlightsWord);
+    Q_REQUIRED_RESULT bool hasPermission(const QString &permission) const;
 
 Q_SIGNALS:
     void highlightsWordChanged();
@@ -290,7 +291,6 @@ private:
     Q_DISABLE_COPY(Room)
     void parseCommonData(const QJsonObject &json);
     void parseDisplaySystemMessage(const QJsonObject &json);
-    Q_REQUIRED_RESULT bool hasPermission(const QString &permission) const;
 
     //Room Object Fields
 
