@@ -135,7 +135,8 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                         };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << QLatin1String("<code>`") << chunk << QLatin1String("`</code>");
+        richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name()
+                       << QLatin1String("'>") << chunk << QLatin1String("</code>");
     };
 
     auto addTextChunk = [&](const QString &chunk) {
