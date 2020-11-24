@@ -32,6 +32,34 @@
 
 #include <KColorScheme>
 
+namespace
+{
+template<typename InRegionCallback, typename OutsideRegionCallback>
+void iterateOverRegions(const QString &str, const QString &regionMarker,
+                        InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
+{
+    int startFrom = 0;
+    const auto markerSize = regionMarker.size();
+    while (true) {
+        const int startIndex = str.indexOf(regionMarker, startFrom);
+        if (startIndex == -1) {
+            break;
+        }
+        const int endIndex = str.indexOf(regionMarker, startIndex + markerSize);
+        if (endIndex == -1) {
+            break;
+        }
+        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
+
+        outsideRegion(str.mid(startFrom, startIndex - startFrom));
+        startFrom = endIndex + markerSize;
+
+        inRegion(codeBlock);
+    }
+    outsideRegion(str.mid(startFrom));
+}
+}
+
 TextConverter::TextConverter(EmojiManager *emojiManager)
     : mEmojiManager(emojiManager)
 {
@@ -120,24 +148,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                                addHtmlChunk(htmlChunk);
                            };
 
-    int startFrom = 0;
-    while (true) {
-        const int startIndex = str.indexOf(QLatin1String("```"), startFrom);
-        if (startIndex == -1) {
-            break;
-        }
-        const int endIndex = str.indexOf(QLatin1String("```"), startIndex + 3);
-        if (endIndex == -1) {
-            break;
-        }
-        const auto codeBlock = str.mid(startIndex + 3, endIndex - startIndex - 3).trimmed();
-
-        addNonCodeChunk(str.mid(startFrom, startIndex - startFrom));
-        startFrom = endIndex + 3;
-
-        addCodeChunk(codeBlock);
-    }
-    addNonCodeChunk(str.mid(startFrom));
+    iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
     return QLatin1String("<qt>") + quotedMessage + richText + QLatin1String("</qt>");
 }
