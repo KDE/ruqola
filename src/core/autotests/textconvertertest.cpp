@@ -128,6 +128,11 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
         "<div><code>`auto [a, b] = "
         "std::minmax_element(~~~);`</code></div>")
                                             << QStringLiteral("www.kde.org");
+
+    QTest::newRow("inline-code-with-smiley")
+        << QStringLiteral(":) `:)` :)")
+        << QStringLiteral("<div>%1 <code>`:)`</code> %1</div>").arg(smileyText)
+        << QStringLiteral("www.kde.org");
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()

@@ -60,7 +60,7 @@ QString Utils::markdownToRichText(const QString &markDown)
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     QString str = markDown;
 
-    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
+    const KTextToHTML::Options convertFlags = KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
     str = KTextToHTML::convertToHtml(str, convertFlags);
 
     // substitute "[example.com](<a href="...">...</a>)" style urls

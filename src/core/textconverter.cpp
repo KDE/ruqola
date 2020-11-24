@@ -98,9 +98,6 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
 
     QString richText;
     QTextStream richTextStream(&richText);
-    auto addHtmlChunk = [&richTextStream](const QString &htmlChunk) {
-                            richTextStream << QLatin1String("<div>") << htmlChunk << QLatin1String("</div>");
-                        };
     KColorScheme scheme;
     const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color();
     const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
@@ -136,16 +133,28 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                                            << highlight(chunk)
                                            << QLatin1String("</td></tr></table>");
                         };
+
+    auto addInlineCodeChunk = [&](const QString &chunk) {
+        richTextStream << QLatin1String("<code>`") << chunk << QLatin1String("`</code>");
+    };
+
+    auto addTextChunk = [&](const QString &chunk) {
+        auto htmlChunk = Utils::generateRichText(chunk, userName, highlightWords);
+        if (mEmojiManager) {
+            mEmojiManager->replaceEmojis(&htmlChunk);
+        }
+        richTextStream << htmlChunk;
+    };
+
     auto addNonCodeChunk = [&](QString chunk) {
-                               chunk = chunk.trimmed();
-                               if (chunk.isEmpty()) {
-                                   return;
-                               }
-                               auto htmlChunk = Utils::generateRichText(chunk, userName, highlightWords);
-                               if (mEmojiManager) {
-                                   mEmojiManager->replaceEmojis(&htmlChunk);
-                               }
-                               addHtmlChunk(htmlChunk);
+                                chunk = chunk.trimmed();
+                                if (chunk.isEmpty()) {
+                                    return;
+                                }
+
+                                richTextStream << QLatin1String("<div>");
+                                iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
+                                richTextStream << QLatin1String("</div>");
                            };
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
