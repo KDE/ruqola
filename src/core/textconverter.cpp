@@ -96,41 +96,47 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                                addHtmlChunk(htmlChunk);
                            };
 
-    if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
-        QString highlighted;
-        QTextStream stream(&highlighted);
-        TextHighlighter highLighter(&stream);
-        highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
+    QString highlighted;
+    QTextStream stream(&highlighted);
+    TextHighlighter highlighter(&stream);
+    const auto useHighlighter = SyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
+
+    if (useHighlighter) {
+        highlighter.setDefinition(SyntaxHighlightingManager::self()->def());
         auto &repo = SyntaxHighlightingManager::self()->repo();
-        highLighter.setTheme(codeBackgroundColor.lightness() < 128
+        highlighter.setTheme(codeBackgroundColor.lightness() < 128
                                             ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                             : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
-
-        int startFrom = 0;
-        while (true) {
-            const int startIndex = str.indexOf(QLatin1String("```"), startFrom);
-            if (startIndex == -1) {
-                break;
-            }
-            const int endIndex = str.indexOf(QLatin1String("```"), startIndex + 3);
-            if (endIndex == -1) {
-                break;
-            }
-            const auto codeBlock = str.mid(startIndex + 3, endIndex - startIndex - 3).trimmed();
-
-            addNonCodeChunk(str.mid(startFrom, startIndex - startFrom));
-            startFrom = endIndex + 3;
-
-            stream.reset();
-            stream.seek(0);
-            highlighted.clear();
-            highLighter.highlight(codeBlock);
-            addCodeChunk(highlighted);
-        }
-        addNonCodeChunk(str.mid(startFrom));
-    } else {
-        addNonCodeChunk(str);
     }
+    auto highlight = [&](const QString &codeBlock) {
+        if (!useHighlighter) {
+            return codeBlock;
+        }
+        stream.reset();
+        stream.seek(0);
+        highlighted.clear();
+        highlighter.highlight(codeBlock);
+        return highlighted;
+    };
+
+    int startFrom = 0;
+    while (true) {
+        const int startIndex = str.indexOf(QLatin1String("```"), startFrom);
+        if (startIndex == -1) {
+            break;
+        }
+        const int endIndex = str.indexOf(QLatin1String("```"), startIndex + 3);
+        if (endIndex == -1) {
+            break;
+        }
+        const auto codeBlock = str.mid(startIndex + 3, endIndex - startIndex - 3).trimmed();
+
+        addNonCodeChunk(str.mid(startFrom, startIndex - startFrom));
+        startFrom = endIndex + 3;
+
+        addCodeChunk(highlight(codeBlock));
+    }
+    addNonCodeChunk(str.mid(startFrom));
 
     return QLatin1String("<qt>") + quotedMessage + richText + QLatin1String("</qt>");
 }
