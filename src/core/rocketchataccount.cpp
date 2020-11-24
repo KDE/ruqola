@@ -472,6 +472,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -2400,4 +2401,14 @@ bool RocketChatAccount::hasPermission(const QString &permissionId)
         }
     }
     return false;
+}
+
+void RocketChatAccount::setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info)
+{
+    restApi()->setUserPreferences(info);
+}
+
+void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)
+{
+    //TODO update values
 }

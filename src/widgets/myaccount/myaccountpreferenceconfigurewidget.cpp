@@ -51,6 +51,10 @@ MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 
 void MyAccountPreferenceConfigureWidget::save()
 {
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.highlights = mHighlightWords->text().split(QLatin1Char(','));
+    info.userId = Ruqola::self()->rocketChatAccount()->userId();
+    Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
 }
 
 void MyAccountPreferenceConfigureWidget::load()

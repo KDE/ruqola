@@ -46,6 +46,7 @@
 #include "custom/customuserstatusupdatejob.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "rooms/roomsexportjob.h"
+#include "users/userssetpreferencesjob.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -464,6 +465,7 @@ public:
     void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
     Q_REQUIRED_RESULT bool hasPermission(const QString &permissionId);
     Q_REQUIRED_RESULT QStringList permissions(const QString &permissionId) const;
+    void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
@@ -552,6 +554,8 @@ private:
     void slotPostMessageDone(const QJsonObject &replyObject);
     void slotRoomExportDone();
     void slotPermissionListAllDone(const QJsonObject &replyObject);
+    void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
+
 
     AccountRoomSettings *mAccountRoomSettings = nullptr;
 

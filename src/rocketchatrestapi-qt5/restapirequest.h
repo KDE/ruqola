@@ -288,7 +288,7 @@ Q_SIGNALS:
     void cleanHistoryDone();
     void channelGetCountersDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);
     void markAsReadDone(const QString &roomId);
-    void usersSetPreferencesDone();
+    void usersSetPreferencesDone(const QJsonObject &replyObject);
     void removeOtherTokensDone();
     void createUserStatusDone();
     void userStatusDeletedDone();
