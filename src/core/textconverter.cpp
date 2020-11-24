@@ -76,25 +76,6 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     KColorScheme scheme;
     const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color();
     const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
-    auto addCodeChunk = [&](const QString &htmlChunk) {
-                            // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-                            richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
-                                           << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
-                                           << QLatin1String("'>")
-                                           << htmlChunk
-                                           << QLatin1String("</td></tr></table>");
-                        };
-    auto addNonCodeChunk = [&](QString chunk) {
-                               chunk = chunk.trimmed();
-                               if (chunk.isEmpty()) {
-                                   return;
-                               }
-                               auto htmlChunk = Utils::generateRichText(chunk, userName, highlightWords);
-                               if (mEmojiManager) {
-                                   mEmojiManager->replaceEmojis(&htmlChunk);
-                               }
-                               addHtmlChunk(htmlChunk);
-                           };
 
     QString highlighted;
     QTextStream stream(&highlighted);
@@ -119,6 +100,26 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         return highlighted;
     };
 
+    auto addCodeChunk = [&](const QString &chunk) {
+                            // Qt's support for borders is limited to tables, so we have to jump through some hoops...
+                            richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
+                                           << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
+                                           << QLatin1String("'>")
+                                           << highlight(chunk)
+                                           << QLatin1String("</td></tr></table>");
+                        };
+    auto addNonCodeChunk = [&](QString chunk) {
+                               chunk = chunk.trimmed();
+                               if (chunk.isEmpty()) {
+                                   return;
+                               }
+                               auto htmlChunk = Utils::generateRichText(chunk, userName, highlightWords);
+                               if (mEmojiManager) {
+                                   mEmojiManager->replaceEmojis(&htmlChunk);
+                               }
+                               addHtmlChunk(htmlChunk);
+                           };
+
     int startFrom = 0;
     while (true) {
         const int startIndex = str.indexOf(QLatin1String("```"), startFrom);
@@ -134,7 +135,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         addNonCodeChunk(str.mid(startFrom, startIndex - startFrom));
         startFrom = endIndex + 3;
 
-        addCodeChunk(highlight(codeBlock));
+        addCodeChunk(codeBlock);
     }
     addNonCodeChunk(str.mid(startFrom));
 
