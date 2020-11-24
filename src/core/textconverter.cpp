@@ -74,11 +74,11 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                             richTextStream << QLatin1String("<div>") << htmlChunk << QLatin1String("</div>");
                         };
     KColorScheme scheme;
-    const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
+    const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color();
     const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
     auto addCodeChunk = [&](const QString &htmlChunk) {
                             // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-                            richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor
+                            richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
                                            << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
                                            << QLatin1String("'>")
                                            << htmlChunk
@@ -101,9 +101,10 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         QTextStream stream(&highlighted);
         TextHighlighter highLighter(&stream);
         highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
-        highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
-                                            ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                            : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
+        auto &repo = SyntaxHighlightingManager::self()->repo();
+        highLighter.setTheme(codeBackgroundColor.lightness() < 128
+                                            ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                            : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
 
         int startFrom = 0;
         while (true) {
