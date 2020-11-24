@@ -70,8 +70,8 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
 
     mResultTreeWidget->setModel(mAdminRoomsProxyModel);
     //Hide not useful columns
-    mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::ChannelType,true);
-    mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::Identifier,true);
+    mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::ChannelType, true);
+    mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::Identifier, true);
 
     initialize();
 }

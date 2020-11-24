@@ -1964,4 +1964,3 @@ void RestApiRequest::exportMessages(const RocketChatRestApi::RoomsExportJob::Roo
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsExportJob";
     }
 }
-

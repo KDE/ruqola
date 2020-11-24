@@ -32,7 +32,6 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldHasRoles();
-
 };
 
 #endif // PERMISSIONMANAGERTEST_H

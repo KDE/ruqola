@@ -37,7 +37,6 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-
     auto *highlightWordsLabel = w.findChild<QLabel *>(QStringLiteral("highlightWordsLabel"));
     QVERIFY(highlightWordsLabel);
     QCOMPARE(highlightWordsLabel->textFormat(), Qt::PlainText);

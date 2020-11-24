@@ -24,7 +24,6 @@
 
 Permission::Permission()
 {
-
 }
 
 void Permission::parsePermission(const QJsonObject &replyObject)

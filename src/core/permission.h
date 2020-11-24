@@ -21,7 +21,6 @@
 #ifndef PERMISSION_H
 #define PERMISSION_H
 
-
 #include "libruqola_private_export.h"
 #include <QString>
 #include <QDebug>

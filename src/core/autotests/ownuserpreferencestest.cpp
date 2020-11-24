@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(OwnUserPreferencesTest)
 OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void OwnUserPreferencesTest::shouldHaveDefaultValues()

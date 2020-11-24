@@ -114,7 +114,7 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
                     continue;
                 }
                 const QString replaceStr = QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
-                        .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+                                           .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
                 newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
                 //We added a new string => increase offset
                 offset += replaceStr.length() - word.length();

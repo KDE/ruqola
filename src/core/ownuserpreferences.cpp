@@ -24,7 +24,6 @@
 
 OwnUserPreferences::OwnUserPreferences()
 {
-
 }
 
 OwnUserPreferences::~OwnUserPreferences() = default;

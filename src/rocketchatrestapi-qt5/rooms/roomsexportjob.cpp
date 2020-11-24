@@ -169,6 +169,6 @@ bool RoomsExportJob::RoomsExportInfo::isValid() const
 {
     //Check from exportas type
     return fileFormat != RoomsExportInfo::FileFormat::Unknown
-            && exportAs != RoomsExportInfo::ExportAs::Unknown
-            && !roomId.isEmpty();
+           && exportAs != RoomsExportInfo::ExportAs::Unknown
+           && !roomId.isEmpty();
 }

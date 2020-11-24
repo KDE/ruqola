@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(PermissionTest)
 PermissionTest::PermissionTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PermissionTest::shouldHaveDefaultValues()

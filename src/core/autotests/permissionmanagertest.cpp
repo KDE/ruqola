@@ -25,7 +25,6 @@ QTEST_MAIN(PermissionManagerTest)
 PermissionManagerTest::PermissionManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PermissionManagerTest::shouldHaveDefaultValues()

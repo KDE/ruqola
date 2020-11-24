@@ -28,7 +28,6 @@ QTEST_MAIN(ExportMessagesWidgetTest)
 ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ExportMessagesWidgetTest::shouldHaveDefaultValues()

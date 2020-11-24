@@ -21,7 +21,6 @@
 #ifndef PERMISSIONMANAGER_H
 #define PERMISSIONMANAGER_H
 
-
 #include "libruqola_private_export.h"
 #include "permission.h"
 #include <QString>

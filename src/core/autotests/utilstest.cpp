@@ -151,26 +151,26 @@ void UtilsTest::shouldHighlightWords_data()
     const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
     const QStringList highlightWords{QStringLiteral("ruqola"), QStringLiteral("kde")};
     QTest::newRow("lowercase") << QStringLiteral("Ruqola")
-                                     << QStringLiteral("foo")
-                                     << highlightWords
-                                     << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a>")
+                               << QStringLiteral("foo")
+                               << highlightWords
+                               << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a>")
         .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
     QTest::newRow("two-word") << QStringLiteral("Ruqola kde")
-                                     << QStringLiteral("foo")
-                                     << highlightWords
-                                     << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> <a style=\"color:%1;background-color:%2;\">kde</a>")
+                              << QStringLiteral("foo")
+                              << highlightWords
+                              << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> <a style=\"color:%1;background-color:%2;\">kde</a>")
         .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
 
     QTest::newRow("words") << QStringLiteral("Ruqola bla kde KDE.")
-                                     << QStringLiteral("foo")
-                                     << highlightWords
-                                     << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> bla <a style=\"color:%1;background-color:%2;\">kde</a> <a style=\"color:%1;background-color:%2;\">KDE</a>.")
+                           << QStringLiteral("foo")
+                           << highlightWords
+                           << QStringLiteral("<a style=\"color:%1;background-color:%2;\">Ruqola</a> bla <a style=\"color:%1;background-color:%2;\">kde</a> <a style=\"color:%1;background-color:%2;\">KDE</a>.")
         .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
 
     QTest::newRow("wordinurl") << QStringLiteral("https://www.kde.org/~/bla/bli.txt")
-                                     << QStringLiteral("bla")
-                                     << highlightWords
-                                     << QStringLiteral("<a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a style=\"color:%1;background-color:%2;\">kde</a>.org/~/bla/bli.txt</a>")
+                               << QStringLiteral("bla")
+                               << highlightWords
+                               << QStringLiteral("<a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a style=\"color:%1;background-color:%2;\">kde</a>.org/~/bla/bli.txt</a>")
         .arg(userHighlightForegroundColor, userHighlightBackgroundColor);
 }
 
@@ -182,7 +182,6 @@ void UtilsTest::shouldHighlightWords()
     QFETCH(QString, output);
     QCOMPARE(Utils::generateRichText(input, username, highlightWords), output);
 }
-
 
 void UtilsTest::shouldHighlightText_data()
 {

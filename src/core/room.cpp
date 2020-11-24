@@ -302,7 +302,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     setHighlightsWord(lstHighlightsWord);
 
-
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
     const int ignoredArrayCount = ignoredArray.count();
