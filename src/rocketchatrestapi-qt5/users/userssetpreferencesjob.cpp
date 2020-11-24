@@ -26,6 +26,7 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 UsersSetPreferencesJob::UsersSetPreferencesJob(QObject *parent)
@@ -57,7 +58,7 @@ void UsersSetPreferencesJob::slotUsersSetPreferences()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("UsersSetPreferencesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT usersSetPreferencesDone();
+            Q_EMIT usersSetPreferencesDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("UsersSetPreferencesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -120,6 +121,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.mobileNotifications.isEmpty()) {
         dataObj[QLatin1String("mobileNotifications")] = mUsersSetPreferencesInfo.mobileNotifications;
     }
+    dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -133,6 +135,7 @@ QDebug operator <<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Us
     d << "desktopNotifications : " << t.desktopNotifications;
     d << "mobileNotifications : " << t.mobileNotifications;
     d << "userId : " << t.userId;
+    d << " highlights : " << t.highlights;
     return d;
 }
 

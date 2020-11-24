@@ -55,7 +55,7 @@ public:
     void setUsersSetPreferencesInfo(const UsersSetPreferencesInfo &usersSetPreferencesInfo);
 
 Q_SIGNALS:
-    void usersSetPreferencesDone();
+    void usersSetPreferencesDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(UsersSetPreferencesJob)
