@@ -116,6 +116,14 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                 << QStringLiteral(
        "<div>%1</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>:)</code></td></tr></table><div>%1</div>").arg(smileyText)
                                 << QStringLiteral("www.kde.org");
+   QTest::newRow("quotedcode8") << QStringLiteral("```javascript\ncode\n```")
+                                << QStringLiteral(
+       "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>code</code></td></tr></table>")
+                                << QStringLiteral("www.kde.org");
+   QTest::newRow("quotedcode9") << QStringLiteral("```blub\ncode\n```")
+                                << QStringLiteral(
+       "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub<br>code</code></td></tr></table>")
+                                << QStringLiteral("www.kde.org");
 
     QTest::newRow("inline-code-with-brackets") << QStringLiteral("`[[test]]` and `a[b` something")
                                                << QStringLiteral(

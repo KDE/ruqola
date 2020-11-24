@@ -35,7 +35,8 @@ public:
 
     Q_REQUIRED_RESULT bool syntaxHighlightingInitialized() const;
 
-    Q_REQUIRED_RESULT KSyntaxHighlighting::Definition def() const;
+    Q_REQUIRED_RESULT KSyntaxHighlighting::Definition def(const QString &name) const;
+    Q_REQUIRED_RESULT KSyntaxHighlighting::Definition defaultDef() const;
 
     KSyntaxHighlighting::Repository &repo() const;
 
@@ -43,7 +44,8 @@ private:
     Q_DISABLE_COPY(SyntaxHighlightingManager)
     void initialize();
     mutable KSyntaxHighlighting::Repository mRepo;
-    KSyntaxHighlighting::Definition mDef;
+    KSyntaxHighlighting::Definition mDefaultDef;
+    QVector<QString> mDefinitions;
     bool mSyntaxHighlightingInitialized = false;
 };
 

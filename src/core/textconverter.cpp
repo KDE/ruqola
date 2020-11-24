@@ -108,7 +108,6 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     const auto useHighlighter = SyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
 
     if (useHighlighter) {
-        highlighter.setDefinition(SyntaxHighlightingManager::self()->def());
         auto &repo = SyntaxHighlightingManager::self()->repo();
         highlighter.setTheme(codeBackgroundColor.lightness() < 128
                                             ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
@@ -125,7 +124,22 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         return highlighted;
     };
 
-    auto addCodeChunk = [&](const QString &chunk) {
+    auto addCodeChunk = [&](QString chunk) {
+                            const auto language = [&]() {
+                                const auto newline = chunk.indexOf(QLatin1Char('\n'));
+                                if (newline == -1)
+                                    return QString();
+                                return chunk.left(newline);
+                            }();
+
+                            auto definition = SyntaxHighlightingManager::self()->def(language);
+                            if (definition.isValid()) {
+                                chunk.remove(0, language.size() + 1);
+                            } else {
+                                definition = SyntaxHighlightingManager::self()->defaultDef();
+                            }
+
+                            highlighter.setDefinition(std::move(definition));
                             // Qt's support for borders is limited to tables, so we have to jump through some hoops...
                             richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
                                            << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor

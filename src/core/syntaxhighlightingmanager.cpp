@@ -20,6 +20,14 @@
 #include "syntaxhighlightingmanager.h"
 #include "ruqola_debug.h"
 
+namespace
+{
+bool sortCaseInsensitively(const QString &lhs, const QString &rhs)
+{
+    return lhs.compare(rhs, Qt::CaseInsensitive) < 0;
+}
+}
+
 SyntaxHighlightingManager::SyntaxHighlightingManager(QObject *parent)
     : QObject(parent)
 {
@@ -28,9 +36,15 @@ SyntaxHighlightingManager::SyntaxHighlightingManager(QObject *parent)
 
 void SyntaxHighlightingManager::initialize()
 {
-    mDef = mRepo.definitionForName(QStringLiteral("C++"));
-    if (mDef.isValid()) {
+    mDefaultDef = mRepo.definitionForName(QStringLiteral("C++"));
+    if (mDefaultDef.isValid()) {
         mSyntaxHighlightingInitialized = true;
+        const auto definitions = mRepo.definitions();
+        mDefinitions.reserve(definitions.size());
+        for (const auto &definition : definitions) {
+            mDefinitions.append(definition.name());
+        }
+        std::sort(mDefinitions.begin(), mDefinitions.end(), sortCaseInsensitively);
     } else {
         qCWarning(RUQOLA_LOG) << "Unable to find definition";
     }
@@ -41,9 +55,18 @@ KSyntaxHighlighting::Repository &SyntaxHighlightingManager::repo() const
     return mRepo;
 }
 
-KSyntaxHighlighting::Definition SyntaxHighlightingManager::def() const
+KSyntaxHighlighting::Definition SyntaxHighlightingManager::def(const QString &name) const
 {
-    return mDef;
+    auto it = std::lower_bound(mDefinitions.begin(), mDefinitions.end(), name, sortCaseInsensitively);
+    if (it != mDefinitions.end() && name.compare(*it, Qt::CaseInsensitive) == 0) {
+        return mRepo.definitionForName(*it);
+    }
+    return {};
+}
+
+KSyntaxHighlighting::Definition SyntaxHighlightingManager::defaultDef() const
+{
+    return mDefaultDef;
 }
 
 bool SyntaxHighlightingManager::syntaxHighlightingInitialized() const
