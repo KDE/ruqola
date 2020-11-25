@@ -43,6 +43,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
     mainLayout->addWidget(mHighlightWords);
     mainLayout->addStretch();
+    connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
@@ -51,13 +52,21 @@ MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 
 void MyAccountPreferenceConfigureWidget::save()
 {
-    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
-    info.highlights = mHighlightWords->text().split(QLatin1Char(','));
-    info.userId = Ruqola::self()->rocketChatAccount()->userId();
-    Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
+    if (mChanged) {
+        RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+        info.highlights = mHighlightWords->text().split(QLatin1Char(','));
+        info.userId = Ruqola::self()->rocketChatAccount()->userId();
+        Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
+    }
 }
 
 void MyAccountPreferenceConfigureWidget::load()
 {
     mHighlightWords->setText(Ruqola::self()->rocketChatAccount()->highlightWords().join(QLatin1Char(',')));
+    mChanged = false;
+}
+
+void MyAccountPreferenceConfigureWidget::setWasChanged()
+{
+    mChanged = true;
 }

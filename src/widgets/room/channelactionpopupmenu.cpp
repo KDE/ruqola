@@ -164,7 +164,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
     mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
-    //TODO fix me. We can't generate it if we are not owner
+
     bool hasInviteUserSupport = mCurrentRocketChatAccount->hasInviteUserSupport();
     bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
     mInviteUsersGenerateUrl->setVisible(hasInviteUserSupport && hasPermissionInviteUserSupport);
@@ -174,8 +174,9 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
     mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
 
-    mPruneMessages->setVisible(mCurrentRocketChatAccount->isAdministrator());
-    mPruneMessagesSeparator->setVisible(mCurrentRocketChatAccount->isAdministrator());
+    const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(QLatin1String("clean-channel-history"));
+    mPruneMessages->setVisible(showPruneMessage);
+    mPruneMessagesSeparator->setVisible(showPruneMessage);
 
     mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
 }

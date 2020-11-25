@@ -34,7 +34,9 @@ public:
     void save();
     void load();
 private:
+    void setWasChanged();
     QLineEdit *const mHighlightWords;
+    bool mChanged = false;
 };
 
 #endif // MYACCOUNTPREFERENCECONFIGUREWIDGET_H
