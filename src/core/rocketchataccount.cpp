@@ -1968,7 +1968,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             mCache->updateAvatar(info);
             Q_EMIT avatarWasChanged(info);
         } else {
-            qDebug() << "avatar changed ? " << contents;
+            qWarning() << "avatar changed but missing roomId or userId. It seems to be a regression in RC? " << contents;
         }
     }
 
