@@ -70,7 +70,8 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("delete-own-message")
             || id == QLatin1String("create-invite-links")
                 || id == QLatin1String("edit-message")
-                || id == QLatin1String("delete-message")) {
+                || id == QLatin1String("delete-message")
+                || id == QLatin1String("edit-room")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {

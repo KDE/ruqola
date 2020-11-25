@@ -470,7 +470,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->announcement());
         mRoomHeaderWidget->setRoomTopic(mRoom->topic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
-        mRoomHeaderWidget->setEncypted(mRoom->encrypted());
+        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         //TODO Description ?
 
