@@ -2410,8 +2410,10 @@ void RocketChatAccount::setUserPreferences(const RocketChatRestApi::UsersSetPref
 
 void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)
 {
-    //TODO verify userId
-    OwnUserPreferences ownUserPreferences;
-    ownUserPreferences.parsePreferences(replyObject.value(QLatin1String("user")).toObject().value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
-    mOwnUser.setOwnUserPreferences(ownUserPreferences);
+    const QJsonObject user = replyObject.value(QLatin1String("user")).toObject();
+    if (user.value(QLatin1String("_id")).toString() == userId()) {
+        OwnUserPreferences ownUserPreferences;
+        ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
+        mOwnUser.setOwnUserPreferences(ownUserPreferences);
+    }
 }
