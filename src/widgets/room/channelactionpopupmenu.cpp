@@ -134,6 +134,13 @@ void ChannelActionPopupMenu::createMenu()
     connect(mExportMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ExportMessages);
     });
+
+    mMenu->addSeparator();
+    mFollowMessage = new QAction(i18n("Follow Message..."), this);
+    mMenu->addAction(mFollowMessage);
+    connect(mFollowMessage, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::FollowMessages);
+    });
 }
 
 QAction *ChannelActionPopupMenu::createSeparator()
@@ -179,4 +186,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mPruneMessagesSeparator->setVisible(showPruneMessage);
 
     mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
+
+    //Disable for the moment
+    mFollowMessage->setVisible(false && mCurrentRocketChatAccount->threadsEnabled());
 }

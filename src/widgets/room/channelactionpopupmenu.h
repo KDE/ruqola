@@ -65,6 +65,7 @@ private:
     QAction *mPruneMessages = nullptr;
     QAction *mPruneMessagesSeparator = nullptr;
     QAction *mExportMessages = nullptr;
+    QAction *mFollowMessage = nullptr;
 
     Room *mRoom = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
