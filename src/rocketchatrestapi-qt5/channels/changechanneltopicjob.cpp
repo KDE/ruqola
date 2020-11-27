@@ -72,10 +72,6 @@ bool ChangeChannelTopicJob::requireHttpAuthentication() const
 
 bool ChangeChannelTopicJob::canStart() const
 {
-    if (mTopic.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeChannelTopicJob: Topic is empty";
-        return false;
-    }
     if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeChannelTopicJob: RoomId is empty";
         return false;

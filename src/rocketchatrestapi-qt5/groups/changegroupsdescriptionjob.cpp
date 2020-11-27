@@ -83,10 +83,6 @@ bool ChangeGroupsDescriptionJob::requireHttpAuthentication() const
 
 bool ChangeGroupsDescriptionJob::canStart() const
 {
-    if (mDescription.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsDescriptionJob: description is empty";
-        return false;
-    }
     if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsDescriptionJob: RoomId is empty";
         return false;
