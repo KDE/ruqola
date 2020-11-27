@@ -68,6 +68,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     mComment = new ChangeTextWidget(this);
     mComment->setObjectName(QStringLiteral("mComment"));
+    mComment->setAllowEmptyText(true);
     str = i18n("Comment:");
     mComment->setLabelText(str);
     layout->addRow(str, mComment);
@@ -77,7 +78,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     mAnnouncement = new ChangeTextWidget(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mAnnouncement->setAllowEmptyText(true);
     connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
+        qDebug() << " name " << name;
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Announcement, name, mRoom->channelType());
     });
     str = i18n("Announcement:");
@@ -86,6 +89,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     mDescription = new ChangeTextWidget(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setAllowEmptyText(true);
     connect(mDescription, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Description, name, mRoom->channelType());
     });
@@ -314,23 +318,39 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
     mChangeTextToolButton->setIcon(QIcon::fromTheme(QStringLiteral("document-edit")));
     mChangeTextToolButton->setObjectName(QStringLiteral("mChangeTextToolButton"));
     mainLayout->addWidget(mChangeTextToolButton);
-    connect(mChangeTextToolButton, &QToolButton::clicked, this, [this]() {
-        //Convert html to text. Otherwise we will have html tag
-        QString text = mLabel->text();
-        QTextDocument doc;
-        doc.setHtml(text);
-        text = doc.toPlainText();
-        const QString result = QInputDialog::getText(this, i18n("Change Text"), mLabelText, QLineEdit::Normal, text);
-        if (!result.trimmed().isEmpty()) {
-            if (result != text) {
-                Q_EMIT textChanged(result);
-            }
-        }
-    });
+    connect(mChangeTextToolButton, &QToolButton::clicked, this, &ChangeTextWidget::slotChangeText);
 }
 
 ChangeTextWidget::~ChangeTextWidget()
 {
+}
+
+void ChangeTextWidget::setAllowEmptyText(bool b)
+{
+    mAllowEmptyText = b;
+}
+
+void ChangeTextWidget::slotChangeText()
+{
+    //Convert html to text. Otherwise we will have html tag
+    QString text = mLabel->text();
+    QTextDocument doc;
+    doc.setHtml(text);
+    text = doc.toPlainText();
+    bool accepted = false;
+    const QString result = QInputDialog::getText(this, i18n("Change Text"), mLabelText, QLineEdit::Normal, text, &accepted);
+    if (accepted) {
+        if (!result.trimmed().isEmpty() || mAllowEmptyText) {
+            if (result != text) {
+                Q_EMIT textChanged(result);
+            }
+        }
+    }
+}
+
+bool ChangeTextWidget::allowEmptyText() const
+{
+    return mAllowEmptyText;
 }
 
 void ChangeTextWidget::setText(const QString &str)
