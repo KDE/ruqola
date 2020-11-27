@@ -106,6 +106,7 @@ void TextConverterTest::shouldConvertText_data()
 
     QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("<div>0.6.3</div>");
     QTest::newRow("`code`") << QStringLiteral("foo `bla` bar `asdf` test") << QStringLiteral("<div>foo <code style='background-color:$BGCOLOR$'>bla</code> bar <code style='background-color:$BGCOLOR$'>asdf</code> test</div>");
+    QTest::newRow("`code \\` escaped`") << QStringLiteral("foo `bla\\` bar \\`asdf` test") << QStringLiteral("<div>foo <code style='background-color:$BGCOLOR$'>bla\\` bar \\`asdf</code> test</div>");
     QTest::newRow("quote<") << QStringLiteral("`inside quotes: <<....` this is outside the quotes <<.") << QStringLiteral("<div><code>`inside quotes: <<....`</code> this is outside the quotes &lt;&lt;.</div>");
 }
 

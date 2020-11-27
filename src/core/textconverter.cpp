@@ -35,6 +35,33 @@
 
 namespace
 {
+/// check if the @p str contains an uneven number of backslashes before @p pos
+bool isEscaped(const QString &str, int pos)
+{
+    int backslashes = 0;
+    while (pos > 0 && str[pos - 1] == QLatin1Char('\\')) {
+        ++backslashes;
+        --pos;
+    }
+    // even number of escapes means the
+    return backslashes % 2 == 1;
+}
+
+int findNonEscaped(const QString &str, const QString &regionMarker, int startFrom)
+{
+    while (true) {
+        const int index = str.indexOf(regionMarker, startFrom);
+        if (index == -1) {
+            return -1;
+        } else if (isEscaped(str, index)) {
+            startFrom = index + regionMarker.size();
+            continue;
+        }
+        return index;
+    }
+    Q_UNREACHABLE();
+}
+
 template<typename InRegionCallback, typename OutsideRegionCallback>
 void iterateOverRegions(const QString &str, const QString &regionMarker,
                         InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
@@ -42,14 +69,16 @@ void iterateOverRegions(const QString &str, const QString &regionMarker,
     int startFrom = 0;
     const auto markerSize = regionMarker.size();
     while (true) {
-        const int startIndex = str.indexOf(regionMarker, startFrom);
+        const int startIndex = findNonEscaped(str, regionMarker, startFrom);
         if (startIndex == -1) {
             break;
         }
-        const int endIndex = str.indexOf(regionMarker, startIndex + markerSize);
+
+        const int endIndex = findNonEscaped(str, regionMarker, startIndex + markerSize);
         if (endIndex == -1) {
             break;
         }
+
         const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
 
         outsideRegion(str.mid(startFrom, startIndex - startFrom));
@@ -80,8 +109,6 @@ QString markdownToRichText(const QString &markDown)
 
 QString generateRichText(const QString &str, const QString &username, const QStringList &highlightWords)
 {
-    static const QRegularExpression regularExpressionCode(QStringLiteral("((?<!\\\\)`.*?(?<!\\\\)`)"));
-
     QString newStr = markdownToRichText(str);
     KColorScheme colorScheme;
     const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
@@ -153,19 +180,6 @@ QString generateRichText(const QString &str, const QString &username, const QStr
         newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
     }
 
-    /// match unescaped `...` regions, i.e. properly match `...\`...`
-    /// and make the inner region non-greedy, to have two code blocks for
-    /// lines like this: `foo` asdf `bar`
-    QRegularExpressionMatchIterator userIteratorHref = regularExpressionCode.globalMatch(newStr);
-    //Remove convert < to &lt; in quote text. but it seems that we don't use it for current code... Only fix autotest
-    int offsetCode = 0;
-    while (userIteratorHref.hasNext()) {
-        const QRegularExpressionMatch match = userIteratorHref.next();
-        QString word = match.captured(1);
-        const QString replaceWord = QStringLiteral("<code>%1</code>").arg(word.replace(QStringLiteral("&lt;"), QStringLiteral("<")));
-        newStr.replace(match.capturedStart(1) + offsetCode, match.capturedLength(1), replaceWord);
-        offsetCode += replaceWord.length() - word.length();
-    }
     return newStr;
 }
 }
