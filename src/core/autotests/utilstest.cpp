@@ -130,12 +130,14 @@ void UtilsTest::shouldExtractGenerateRichText_data()
 
     QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("0.6.3");
     QTest::newRow("`code`") << QStringLiteral("foo `bla` bar `asdf` test") << QStringLiteral("foo <code>`bla`</code> bar <code>`asdf`</code> test");
+    QTest::newRow("quote<") << QStringLiteral("`inside quotes: <<....` this is outside the quotes <<.") << QStringLiteral("<code>`inside quotes: <<....`</code> this is outside the quotes &lt;&lt;.");
 }
 
 void UtilsTest::shouldExtractGenerateRichText()
 {
     QFETCH(QString, input);
     QFETCH(QString, output);
+    QEXPECT_FAIL("quote<", "Rendering problem against <<", Continue);
     QCOMPARE(Utils::generateRichText(input, QString(), {}), output);
 }
 
