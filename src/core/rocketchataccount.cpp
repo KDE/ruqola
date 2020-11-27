@@ -1819,6 +1819,9 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     if (message.userId() != userId()) {
         return false;
     }
+    if (hasPermission(QStringLiteral("force-delete-message"))) {
+        return true;
+    }
     return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000)
            > QDateTime::currentMSecsSinceEpoch();
 }
@@ -2391,7 +2394,7 @@ QStringList RocketChatAccount::permissions(const QString &permissionId) const
     return mPermissionManager.roles(permissionId);
 }
 
-bool RocketChatAccount::hasPermission(const QString &permissionId)
+bool RocketChatAccount::hasPermission(const QString &permissionId) const
 {
     const QStringList ownUserRoles{mOwnUser.roles()};
     const QStringList permissionRoles{mPermissionManager.roles(permissionId)};
