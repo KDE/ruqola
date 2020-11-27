@@ -46,11 +46,6 @@ QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)
     return Utils::extractRoomUserFromUrl(url);
 }
 
-QString RuqolaUtils::markdownToRichText(const QString &markDown)
-{
-    return Utils::markdownToRichText(markDown);
-}
-
 void RuqolaUtils::openUrl(const QString &url)
 {
     const QUrl clickedUrl = QUrl::fromUserInput(url);

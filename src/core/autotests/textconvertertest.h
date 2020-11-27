@@ -32,6 +32,12 @@ private Q_SLOTS:
     void shouldConvertText_data();
     void shouldConvertText();
 
+    void shouldHighlightWords_data();
+    void shouldHighlightWords();
+
+    void shouldHighlightText_data();
+    void shouldHighlightText();
+
     void shouldConvertTextWithEmoji_data();
     void shouldConvertTextWithEmoji();
 };

@@ -34,7 +34,6 @@ class LIBRUQOLACORE_EXPORT RuqolaUtils : public QObject
 public:
     ~RuqolaUtils() override;
     static RuqolaUtils *self();
-    QString markdownToRichText(const QString &markDown);
     void openUrl(const QString &url);
 
     QString extractRoomUserFromUrl(const QString &url);

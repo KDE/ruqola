@@ -22,6 +22,7 @@
 
 #include "rocketchataccount.h"
 #include "room.h"
+#include "textconverter.h"
 #include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
@@ -499,7 +500,8 @@ void Room::setReadOnly(bool readOnly)
 
 QString Room::topic() const
 {
-    return Utils::markdownToRichText(mTopic);
+    TextConverter converter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
+    return converter.convertMessageText(mTopic, {}, {}, {});
 }
 
 void Room::setTopic(const QString &topic)
@@ -538,7 +540,8 @@ void Room::setChannelType(const QString &channelType)
 
 QString Room::markdownAnnouncement() const
 {
-    return Utils::markdownToRichText(mAnnouncement);
+    TextConverter converter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
+    return converter.convertMessageText(mAnnouncement, {}, {}, {});
 }
 
 QString Room::announcement() const

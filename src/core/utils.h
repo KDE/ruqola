@@ -48,10 +48,8 @@ struct NotificationInfo {
 };
 
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
-Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString presenceStatusToString(User::PresenceStatus status);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatusFromString(const QString &status);
-Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString generateRichText(const QString &markDown, const QString &username, const QStringList &highlightWords);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString formatQuotedRichText(const QString &richText);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
 LIBRUQOLACORE_TESTS_EXPORT NotificationInfo parseNotification(const QJsonArray &contents);

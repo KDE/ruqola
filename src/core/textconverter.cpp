@@ -30,6 +30,7 @@
 #include <KSyntaxHighlighting/Theme>
 #include <KSyntaxHighlighting/Definition>
 
+#include <KTextToHTML>
 #include <KColorScheme>
 
 namespace
@@ -57,6 +58,115 @@ void iterateOverRegions(const QString &str, const QString &regionMarker,
         inRegion(codeBlock);
     }
     outsideRegion(str.mid(startFrom));
+}
+
+QString markdownToRichText(const QString &markDown)
+{
+    if (markDown.isEmpty()) {
+        return QString();
+    }
+
+    //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
+    QString str = markDown;
+
+    const KTextToHTML::Options convertFlags = KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
+    str = KTextToHTML::convertToHtml(str, convertFlags);
+
+    // substitute "[example.com](<a href="...">...</a>)" style urls
+    str = Utils::convertTextWithUrl(str);
+
+    return str;
+}
+
+QString generateRichText(const QString &str, const QString &username, const QStringList &highlightWords)
+{
+    static const QRegularExpression regularExpressionCode(QStringLiteral("((?<!\\\\)`.*?(?<!\\\\)`)"));
+
+    QString newStr = markdownToRichText(str);
+    KColorScheme colorScheme;
+    const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
+    const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
+    if (!highlightWords.isEmpty()) {
+        struct HrefPos {
+            int start = 0;
+            int end = 0;
+        };
+        QList<HrefPos> lstPos;
+        static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\".*\">)"));
+        QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
+        while (userIteratorHref.hasNext()) {
+            const QRegularExpressionMatch match = userIteratorHref.next();
+            HrefPos pos;
+            pos.start = match.capturedStart(1);
+            pos.end = match.capturedEnd(1);
+            lstPos.append(std::move(pos));
+        }
+
+        for (const QString &word : highlightWords) {
+            const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(word), QRegularExpression::CaseInsensitiveOption);
+            QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
+            int offset = 0;
+            while (userIterator.hasNext()) {
+                const QRegularExpressionMatch match = userIterator.next();
+                const QString word = match.captured(1);
+                bool inAnUrl = false;
+                const int matchCapturedStart = match.capturedStart(1);
+                for (const HrefPos &hrefPos : lstPos) {
+                    if ((matchCapturedStart > hrefPos.start) && (matchCapturedStart < hrefPos.end)) {
+                        inAnUrl = true;
+                        break;
+                    }
+                }
+                if (inAnUrl) {
+                    continue;
+                }
+                const QString replaceStr = QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
+                                           .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+                newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
+                //We added a new string => increase offset
+                offset += replaceStr.length() - word.length();
+            }
+        }
+    }
+    static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
+    QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
+
+    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::ActiveText).color().name();
+    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::ActiveBackground).color().name();
+    while (userIterator.hasNext()) {
+        const QRegularExpressionMatch match = userIterator.next();
+        const QStringRef word = match.capturedRef(2);
+        //Highlight only if it's yours
+        if (word == username) {
+            newStr.replace(QLatin1Char('@') + word,
+                           QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;\">@%1</a>")
+                           .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor));
+        } else {
+            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
+        }
+    }
+    static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"));
+    QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
+    while (roomIterator.hasNext()) {
+        const QRegularExpressionMatch match = roomIterator.next();
+        const QStringRef word = match.capturedRef(2);
+        newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
+    }
+
+    /// match unescaped `...` regions, i.e. properly match `...\`...`
+    /// and make the inner region non-greedy, to have two code blocks for
+    /// lines like this: `foo` asdf `bar`
+    QRegularExpressionMatchIterator userIteratorHref = regularExpressionCode.globalMatch(newStr);
+    //Remove convert < to &lt; in quote text. but it seems that we don't use it for current code... Only fix autotest
+    int offsetCode = 0;
+    while (userIteratorHref.hasNext()) {
+        const QRegularExpressionMatch match = userIteratorHref.next();
+        QString word = match.captured(1);
+        const QString replaceWord = QStringLiteral("<code>%1</code>").arg(word.replace(QStringLiteral("&lt;"), QStringLiteral("<")));
+        newStr.replace(match.capturedStart(1) + offsetCode, match.capturedLength(1), replaceWord);
+        offsetCode += replaceWord.length() - word.length();
+    }
+    return newStr;
 }
 }
 
@@ -154,7 +264,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     };
 
     auto addTextChunk = [&](const QString &chunk) {
-        auto htmlChunk = Utils::generateRichText(chunk, userName, highlightWords);
+        auto htmlChunk = generateRichText(chunk, userName, highlightWords);
         if (mEmojiManager) {
             mEmojiManager->replaceEmojis(&htmlChunk);
         }

@@ -30,23 +30,11 @@ public:
     explicit UtilsTest(QObject *parent = nullptr);
     ~UtilsTest() override = default;
 private Q_SLOTS:
-    void shouldHighlightWords();
-    void shouldHighlightWords_data();
-
     void shouldGenerateServerUrl_data();
     void shouldGenerateServerUrl();
 
-    void shouldMarkdownToRichText_data();
-    void shouldMarkdownToRichText();
-
     void shouldExtractRoomUserFromUrl_data();
     void shouldExtractRoomUserFromUrl();
-
-    void shouldExtractGenerateRichText_data();
-    void shouldExtractGenerateRichText();
-
-    void shouldHighlightText_data();
-    void shouldHighlightText();
 
     void shouldParseNotification_data();
     void shouldParseNotification();
