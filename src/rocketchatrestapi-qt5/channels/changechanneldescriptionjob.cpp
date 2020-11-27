@@ -83,10 +83,6 @@ bool ChangeChannelDescriptionJob::requireHttpAuthentication() const
 
 bool ChangeChannelDescriptionJob::canStart() const
 {
-    if (mDescription.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeChannelDescriptionJob: description is empty";
-        return false;
-    }
     if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeChannelDescriptionJob: RoomId is empty";
         return false;

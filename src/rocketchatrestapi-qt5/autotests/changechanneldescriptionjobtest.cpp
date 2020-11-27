@@ -30,6 +30,28 @@ ChangeChannelDescriptionJobTest::ChangeChannelDescriptionJobTest(QObject *parent
 {
 }
 
+void ChangeChannelDescriptionJobTest::shouldNotStarting()
+{
+    ChangeChannelDescriptionJob job;
+
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    const QString roomId = QStringLiteral("foo1");
+    job.setRoomId(roomId);
+    QVERIFY(job.canStart());
+}
+
 void ChangeChannelDescriptionJobTest::shouldHaveDefaultValue()
 {
     ChangeChannelDescriptionJob job;

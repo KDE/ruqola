@@ -72,10 +72,6 @@ bool ChangeGroupsTopicJob::requireHttpAuthentication() const
 
 bool ChangeGroupsTopicJob::canStart() const
 {
-    if (mTopic.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsTopicJob: Topic is empty";
-        return false;
-    }
     if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsTopicJob: RoomId is empty";
         return false;

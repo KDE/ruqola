@@ -36,14 +36,19 @@ class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
 public:
     explicit ChangeTextWidget(QWidget *parent = nullptr);
     ~ChangeTextWidget() override;
+    void setAllowEmptyText(bool b);
     void setText(const QString &str);
 
     void setLabelText(const QString &str);
+    Q_REQUIRED_RESULT bool allowEmptyText() const;
+
 Q_SIGNALS:
     void textChanged(const QString &str);
 
 private:
+    void slotChangeText();
     QString mLabelText;
+    bool mAllowEmptyText = false;
     QLabel *mLabel = nullptr;
     QToolButton *mChangeTextToolButton = nullptr;
 };

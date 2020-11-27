@@ -73,10 +73,6 @@ bool ChangeGroupsAnnouncementJob::requireHttpAuthentication() const
 
 bool ChangeGroupsAnnouncementJob::canStart() const
 {
-    if (mAnnouncement.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsAnnouncementJob: announcement is empty";
-        return false;
-    }
     if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsAnnouncementJob: RoomId is empty";
         return false;

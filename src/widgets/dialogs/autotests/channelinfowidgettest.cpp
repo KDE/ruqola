@@ -54,12 +54,15 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
 
     auto *mComment = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mComment"));
     QVERIFY(mComment);
+    QVERIFY(mComment->allowEmptyText());
 
     auto *mAnnouncement = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mAnnouncement"));
     QVERIFY(mAnnouncement);
+    QVERIFY(mAnnouncement->allowEmptyText());
 
     auto *mDescription = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
+    QVERIFY(mDescription->allowEmptyText());
 
     auto *mPasswordLineEdit = mEditableChannel->findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
