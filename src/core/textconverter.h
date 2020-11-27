@@ -27,15 +27,9 @@
 class EmojiManager;
 class Message;
 
-class LIBRUQOLACORE_EXPORT TextConverter
+namespace TextConverter
 {
-public:
-    explicit TextConverter(EmojiManager *emojiManager = nullptr);
-    ~TextConverter() = default;
-
-    Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QString &userName, const QVector<Message> &allMessages, const QStringList &highlightWords) const;
-private:
-    EmojiManager *const mEmojiManager;
-};
+    LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QString &userName, const QVector<Message> &allMessages, const QStringList &highlightWords, EmojiManager *emojiManager);
+}
 
 #endif // TEXTCONVERTER_H

@@ -116,14 +116,12 @@ void TextConverterTest::shouldConvertText()
 
     output = prepareExpectedOutput(output);
 
-    TextConverter w;
-
     QEXPECT_FAIL("bold", "Bug in kf5", Continue);
     QEXPECT_FAIL("multi star", "Bug in kf5", Continue);
     QEXPECT_FAIL("Remove <br/>", "Bug in kf5", Continue);
     QEXPECT_FAIL("quote<", "Bug in code quote handling", Continue);
 
-    QCOMPARE(w.convertMessageText(input, QString(), {}, {}), output); //TODO add autotests for highlightwords
+    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, nullptr), output); //TODO add autotests for highlightwords
 }
 
 void TextConverterTest::shouldHighlightWords_data()
@@ -163,8 +161,7 @@ void TextConverterTest::shouldHighlightWords()
 
     output = prepareExpectedOutput(output);
 
-    TextConverter w;
-    QCOMPARE(w.convertMessageText(input, username, {}, highlightWords), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr), output);
 }
 
 void TextConverterTest::shouldHighlightText_data()
@@ -195,8 +192,7 @@ void TextConverterTest::shouldHighlightText()
 
     output = prepareExpectedOutput(output);
 
-    TextConverter w;
-    QCOMPARE(w.convertMessageText(input, username, {}, {}), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, {}, nullptr), output);
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -303,6 +299,5 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.loadCustomEmoji(obj);
     manager.setServerUrl(serverUrl);
 
-    TextConverter w(&manager);
-    QCOMPARE(w.convertMessageText(input, QString(), {}, {}), output); //TODO add autotest for highlightwords
+    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {},  &manager), output); //TODO add autotest for highlightwords
 }

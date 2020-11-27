@@ -48,7 +48,6 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
     , mRocketChatAccount(account)
     , mRoom(room)
 {
-    mTextConverter = new TextConverter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
     mLoadRecentHistoryManager = new LoadRecentHistoryManager;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
 #ifdef STORE_MESSAGE
@@ -113,7 +112,6 @@ MessageModel::~MessageModel()
         }
     }
 #endif
-    delete mTextConverter;
     delete mLoadRecentHistoryManager;
 }
 
@@ -463,7 +461,8 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
         }
     }
 
-    return mTextConverter->convertMessageText(messageStr, userName, mAllMessages, highlightWords);
+    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
+    return TextConverter::convertMessageText(messageStr, userName, mAllMessages, highlightWords, emojiManager);
 }
 
 void MessageModel::setRoomId(const QString &roomID)

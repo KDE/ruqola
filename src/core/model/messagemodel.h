@@ -30,7 +30,6 @@
 #include <QByteArray>
 
 class RocketChatAccount;
-class TextConverter;
 class LoadRecentHistoryManager;
 class Room;
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
@@ -159,7 +158,6 @@ private:
     QString mRoomId;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    TextConverter *mTextConverter = nullptr;
     Room *mRoom = nullptr;
     LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
 };

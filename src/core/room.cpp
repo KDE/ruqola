@@ -500,8 +500,8 @@ void Room::setReadOnly(bool readOnly)
 
 QString Room::topic() const
 {
-    TextConverter converter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
-    return converter.convertMessageText(mTopic, {}, {}, {});
+    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
+    return TextConverter::convertMessageText(mTopic, {}, {}, {}, emojiManager);
 }
 
 void Room::setTopic(const QString &topic)
@@ -540,8 +540,8 @@ void Room::setChannelType(const QString &channelType)
 
 QString Room::markdownAnnouncement() const
 {
-    TextConverter converter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
-    return converter.convertMessageText(mAnnouncement, {}, {}, {});
+    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
+    return TextConverter::convertMessageText(mAnnouncement, {}, {}, {}, emojiManager);
 }
 
 QString Room::announcement() const
