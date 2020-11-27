@@ -28,19 +28,19 @@
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
     mCamera = new QCamera(this);
     mCamera->setObjectName(QStringLiteral("mCamera"));
 
-    auto *viewfinder = new QCameraViewfinder(this);
+    auto viewfinder = new QCameraViewfinder(this);
     viewfinder->show();
 
     mCamera->setViewfinder(viewfinder);
 
-    auto *imageCapture = new QCameraImageCapture(mCamera, this);
+    auto imageCapture = new QCameraImageCapture(mCamera, this);
 
     mCamera->setCaptureMode(QCamera::CaptureStillImage);
     mCamera->start();

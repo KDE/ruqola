@@ -35,14 +35,14 @@ CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Add Account"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mNewAccountWidget = new CreateNewAccountWidget(this);
     mNewAccountWidget->setObjectName(QStringLiteral("mNewAccountWidget"));
     mainLayout->addWidget(mNewAccountWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewAccountDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);

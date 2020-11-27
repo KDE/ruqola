@@ -106,7 +106,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             info.iconStatus = iconStatus;
             info.userId = userId;
             info.userName = userName;
-            auto *userLabel = new UsersInRoomLabel(this);
+            auto userLabel = new UsersInRoomLabel(this);
             userLabel->setUserInfo(info);
             userLabel->setRoom(mRoom);
             mFlowLayout->addWidget(userLabel);

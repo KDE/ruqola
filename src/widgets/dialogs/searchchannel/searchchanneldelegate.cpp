@@ -68,7 +68,7 @@ bool SearchChannelDelegate::editorEvent(QEvent *event, QAbstractItemModel *model
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
-        auto *mev = static_cast<QMouseEvent *>(event);
+        auto mev = static_cast<QMouseEvent *>(event);
         const Layout layout = doLayout(option, index);
         if (layout.selectChannelRect.contains(mev->pos())) {
             Q_EMIT channelSelected(index);

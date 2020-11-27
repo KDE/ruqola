@@ -50,7 +50,7 @@ bool ChannelMembersJob::start()
 
 void ChannelMembersJob::slotChannelMembersFinished()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();

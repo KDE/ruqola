@@ -49,7 +49,7 @@ bool ReportMessageJob::start()
 
 void ReportMessageJob::slotReportMessage()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("ReportMessageJob: success: ") + data);

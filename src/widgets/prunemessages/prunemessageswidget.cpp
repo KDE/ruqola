@@ -31,11 +31,11 @@
 PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto *lastestLayout = new QHBoxLayout;
+    auto lastestLayout = new QHBoxLayout;
     lastestLayout->setObjectName(QStringLiteral("lastestLayout"));
     lastestLayout->setContentsMargins({});
     mainLayout->addLayout(lastestLayout);
@@ -49,7 +49,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     connect(mLastestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     lastestLayout->addWidget(mLastestDateTimeEdit);
 
-    auto *oldestLayout = new QHBoxLayout;
+    auto oldestLayout = new QHBoxLayout;
     oldestLayout->setObjectName(QStringLiteral("oldestLayout"));
     oldestLayout->setContentsMargins({});
     mainLayout->addLayout(oldestLayout);

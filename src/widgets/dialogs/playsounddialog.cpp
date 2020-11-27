@@ -28,14 +28,14 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Play Sound"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSoundWidget = new PlaySoundWidget(this);
     mSoundWidget->setObjectName(QStringLiteral("mSoundWidget"));
     mainLayout->addWidget(mSoundWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &PlaySoundDialog::reject);
     mainLayout->addWidget(buttonBox);

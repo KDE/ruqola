@@ -62,7 +62,7 @@ bool GetAvatarJob::start()
 
 void GetAvatarJob::slotGetAvatar()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QString userId = mUserInfo.userIdentifier;
         if (!reply->error()) {

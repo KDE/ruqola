@@ -32,11 +32,11 @@
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto *scrollArea = new QScrollArea(this);
+    auto scrollArea = new QScrollArea(this);
     scrollArea->setObjectName(QStringLiteral("scrollArea"));
     mainLayout->addWidget(scrollArea);
 
@@ -49,12 +49,12 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
 
     mZoomControls = new QWidget(this);
     mZoomControls->setObjectName(QStringLiteral("zoomControls"));
-    auto *zoomLayout = new QHBoxLayout;
+    auto zoomLayout = new QHBoxLayout;
     zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
     mZoomControls->setLayout(zoomLayout);
     mainLayout->addWidget(mZoomControls);
 
-    auto *zoomLabel = new QLabel(i18n("Zoom:"), this);
+    auto zoomLabel = new QLabel(i18n("Zoom:"), this);
     zoomLabel->setObjectName(QStringLiteral("zoomLabel"));
     zoomLayout->addWidget(zoomLabel);
 
@@ -114,7 +114,7 @@ void ShowImageWidget::setIsAnimatedPixmap(bool value)
 
 void ShowImageWidget::setImagePath(const QString &imagePath)
 {
-    auto *movie = new QMovie(this);
+    auto movie = new QMovie(this);
     movie->setFileName(imagePath);
     movie->start();
     const auto size = movie->currentPixmap().size();

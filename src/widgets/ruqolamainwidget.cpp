@@ -40,7 +40,7 @@ static const char myConfigGroupName[] = "RuqolaMainWidget";
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
     mSplitter = new QSplitter(this);

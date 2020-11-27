@@ -33,14 +33,14 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Add Users in Room"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mAddUsersInRoomWidget = new AddUsersInRoomWidget(this);
     mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
     mainLayout->addWidget(mAddUsersInRoomWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AddUsersInRoomDialog::reject);

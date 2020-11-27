@@ -68,7 +68,7 @@ bool GetThreadMessagesJob::start()
 
 void GetThreadMessagesJob::slotGetThreadMessagesFinished()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();

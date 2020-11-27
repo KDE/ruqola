@@ -37,11 +37,11 @@
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *topLayout = new QVBoxLayout(this);
+    auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
 
-    auto *mainLayout = new QFormLayout;
+    auto mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     topLayout->addLayout(mainLayout);
@@ -71,7 +71,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBox->setObjectName(QStringLiteral("desktopGroupBox"));
     topLayout->addWidget(desktopGroupBox);
 
-    auto *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
+    auto desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
     desktopGroupBoxLayout->setObjectName(QStringLiteral("desktopGroupBoxLayout"));
 
     mDesktopAlertCombobox = new QComboBox(this);
@@ -110,7 +110,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
     topLayout->addWidget(mobileGroupBox);
 
-    auto *mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
+    auto mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
     mobileGroupBoxLayout->setObjectName(QStringLiteral("mobileGroupBoxLayout"));
 
     mMobileAlertCombobox = new QComboBox(this);
@@ -125,7 +125,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     emailGroupBox->setObjectName(QStringLiteral("emailGroupBox"));
     topLayout->addWidget(emailGroupBox);
 
-    auto *emailGroupBoxLayout = new QFormLayout(emailGroupBox);
+    auto emailGroupBoxLayout = new QFormLayout(emailGroupBox);
     emailGroupBoxLayout->setObjectName(QStringLiteral("emailGroupBoxLayout"));
 
     mEmailAlertCombobox = new QComboBox(this);

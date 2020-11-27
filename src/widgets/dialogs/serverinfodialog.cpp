@@ -28,14 +28,14 @@ ServerInfoDialog::ServerInfoDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Server Info"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mServerInfoWidget = new ServerInfoWidget(this);
     mServerInfoWidget->setObjectName(QStringLiteral("mServerInfoWidget"));
     mainLayout->addWidget(mServerInfoWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ServerInfoDialog::close);

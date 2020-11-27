@@ -89,7 +89,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 
     slotAccountChanged();
 #if HAVE_KUSERFEEDBACK
-    auto *userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
+    auto userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
 }
@@ -442,7 +442,7 @@ void RuqolaMainWindow::createSystemTray()
     }
     if (!mNotification) {
         mNotification = new Notification(this);
-        auto *trayMenu = qobject_cast<QMenu *>(mNotification->contextMenu());
+        auto trayMenu = qobject_cast<QMenu *>(mNotification->contextMenu());
         trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
         trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
         // Create systray to show notifications on Desktop

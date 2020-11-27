@@ -100,7 +100,7 @@ void DirectChannelInfoWidget::setUserName(const QString &userName)
 void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto *userJob = new RocketChatRestApi::UserInfoJob(this);
+    auto userJob = new RocketChatRestApi::UserInfoJob(this);
     rcAccount->restApi()->initializeRestApiJob(userJob);
     RocketChatRestApi::UserInfoJob::UserInfo info;
     info.userIdentifier = userName;

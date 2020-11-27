@@ -32,13 +32,13 @@
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
     mMediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
-    auto *videoWidget = new QVideoWidget(this);
+    auto videoWidget = new QVideoWidget(this);
     videoWidget->setObjectName(QStringLiteral("videoWidget"));
 
     mainLayout->addWidget(videoWidget);

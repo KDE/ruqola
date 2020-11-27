@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
     aboutData.processCommandLine(&parser);
 #if HAVE_KUSERFEEDBACK
     if (parser.isSet(QStringLiteral("feedback"))) {
-        auto *userFeedback = new RuqolaUserFeedbackProvider(nullptr);
+        auto userFeedback = new RuqolaUserFeedbackProvider(nullptr);
         QTextStream(stdout) << userFeedback->describeDataSources() << '\n';
         delete userFeedback;
         return 0;
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
     }
 
-    auto *mw = new RuqolaMainWindow();
+    auto mw = new RuqolaMainWindow();
     mw->show();
     const int val = app.exec();
     return val;

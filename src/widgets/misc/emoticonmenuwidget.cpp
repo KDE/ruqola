@@ -38,7 +38,7 @@
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *layout = new QVBoxLayout(this);
+    auto layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
 
@@ -77,8 +77,8 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
     // "all" tab
-    auto *allEmojisView = new QListView(this);
-    auto *emoticonFilterProxyModel = new QSortFilterProxyModel(this);
+    auto allEmojisView = new QListView(this);
+    auto emoticonFilterProxyModel = new QSortFilterProxyModel(this);
     emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
     allEmojisView->setModel(emoticonFilterProxyModel);
     allEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
@@ -113,7 +113,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     EmojiManager *emojiManager = account->emojiManager();
     const QVector<EmoticonCategory> categories = emojiManager->categories();
     for (const EmoticonCategory &category : categories) {
-        auto *w = new EmoticonSelectorWidget(this);
+        auto w = new EmoticonSelectorWidget(this);
         mTabWidget->addTab(w, category.name());
         w->setEmoticons(emojiManager->emojisForCategory(category.category()));
         connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);

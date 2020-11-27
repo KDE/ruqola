@@ -31,13 +31,13 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     , mChannelInfoWidget(new ChannelInfoWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
     mainLayout->addWidget(mChannelInfoWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
     resize(600, 400);

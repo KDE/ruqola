@@ -29,7 +29,7 @@
 ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
@@ -41,7 +41,7 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     mMessagePreview->setFont(messagePreviewFont);
     mainLayout->addWidget(mMessagePreview);
 
-    auto *messageLayout = new QHBoxLayout;
+    auto messageLayout = new QHBoxLayout;
     messageLayout->setObjectName(QStringLiteral("messageLayout"));
     messageLayout->setContentsMargins({});
 

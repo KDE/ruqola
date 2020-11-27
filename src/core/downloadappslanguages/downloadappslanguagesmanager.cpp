@@ -60,7 +60,7 @@ void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
     if (QFileInfo::exists(storedFileName())) {
         parseLanguageFile();
     } else {
-        auto *job = new DownloadAppsLanguagesJob(this);
+        auto job = new DownloadAppsLanguagesJob(this);
         job->setServerUrl(serverUrl);
         connect(job, &DownloadAppsLanguagesJob::fileDownloaded, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
         job->start();

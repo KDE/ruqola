@@ -51,7 +51,7 @@ bool LoadEmojiCustomJob::start()
 
 void LoadEmojiCustomJob::slotloadEmojiCustomDone()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();

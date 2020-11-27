@@ -51,7 +51,7 @@ int AccountManager::accountNumber() const
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {
-        auto *job = new NotifierJob;
+        auto job = new NotifierJob;
         job->setInfo(info);
         job->setAccountName(account->accountName());
         connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
@@ -84,7 +84,7 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
-        auto *account = new RocketChatAccount(val);
+        auto account = new RocketChatAccount(val);
         connectToAccount(account);
         lstAccounts.append(account);
     }

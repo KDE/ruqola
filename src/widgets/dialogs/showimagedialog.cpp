@@ -29,14 +29,14 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowImageWidget = new ShowImageWidget(this);
     mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
     mainLayout->addWidget(mShowImageWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
     mainLayout->addWidget(buttonBox);

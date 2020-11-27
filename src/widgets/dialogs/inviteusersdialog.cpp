@@ -34,14 +34,14 @@ InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Invite Users"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mInviteUsersWidget = new InviteUsersWidget(this);
     mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
     mainLayout->addWidget(mInviteUsersWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &InviteUsersDialog::accept);

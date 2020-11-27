@@ -33,7 +33,7 @@
 AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
@@ -42,7 +42,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     mainLayout->addWidget(mAutoTranslate);
     connect(mAutoTranslate, &QCheckBox::clicked, this, &AutoTranslateConfigureWidget::slotChangeAutoTranslate);
 
-    auto *horizontalLayout = new QHBoxLayout;
+    auto horizontalLayout = new QHBoxLayout;
     horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
     horizontalLayout->setContentsMargins({});
     mainLayout->addLayout(horizontalLayout);

@@ -449,7 +449,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
-        auto *mev = static_cast<QMouseEvent *>(event);
+        auto mev = static_cast<QMouseEvent *>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
         const Layout layout = doLayout(option, index);
@@ -458,7 +458,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
         if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
-            auto *mEmoticonMenuWidget = new EmoticonMenuWidget(parentWidget);
+            auto mEmoticonMenuWidget = new EmoticonMenuWidget(parentWidget);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
             positionPopup(mev->globalPos(), parentWidget, mEmoticonMenuWidget);
@@ -506,7 +506,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             ++i;
         }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
-        auto *mev = static_cast<QMouseEvent *>(event);
+        auto mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
             const Layout layout = doLayout(option, index);
             if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {

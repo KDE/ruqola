@@ -71,7 +71,7 @@ bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
-        auto *mev = static_cast<QMouseEvent *>(event);
+        auto mev = static_cast<QMouseEvent *>(event);
         //TODO check if we muse open discussion
         qDebug() << " open discussion not implemented yet";
     }

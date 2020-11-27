@@ -74,7 +74,7 @@ void CustomUserStatusTreeWidget::initialize()
     const CustomUserStatuses statuses = Ruqola::self()->rocketChatAccount()->customUserStatuses();
     const QVector<CustomUserStatus> customUserses = statuses.customUserses();
     for (const CustomUserStatus &status : customUserses) {
-        auto *item = new CustomUserStatusTreeWidgetItem(this);
+        auto item = new CustomUserStatusTreeWidgetItem(this);
         item->setUserStatus(status);
         item->setText(CustomUserStatusTreeWidget::Name, status.name());
         item->setText(CustomUserStatusTreeWidget::Presence, Utils::presenceStatusToString(status.statusType()));
@@ -101,7 +101,7 @@ void CustomUserStatusTreeWidget::editClicked()
     }
 
     QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
-    auto *customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
+    auto customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
     const CustomUserStatus userStatus = customUserStatusItem->userStatus();
     AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusinfo;
     userStatusinfo.name = userStatus.name();
@@ -123,7 +123,7 @@ void CustomUserStatusTreeWidget::removeClicked()
     if (!currentItem()) {
         return;
     }
-    auto *customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
+    auto customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
     const CustomUserStatus userStatus = customUserStatusItem->userStatus();
     if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18n("Remove Custom User Status"))) {
         Ruqola::self()->rocketChatAccount()->removeCustomUserStatus(userStatus.identifier());

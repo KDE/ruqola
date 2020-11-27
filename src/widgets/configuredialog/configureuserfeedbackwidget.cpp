@@ -31,7 +31,7 @@
 ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *userFeedBackLayout = new QVBoxLayout(this);
+    auto userFeedBackLayout = new QVBoxLayout(this);
     userFeedBackLayout->setObjectName(QStringLiteral("userFeedBackLayout"));
     userFeedBackLayout->setContentsMargins({});
 #if HAVE_KUSERFEEDBACK

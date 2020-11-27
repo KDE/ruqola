@@ -26,7 +26,7 @@ ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *paren
     : QWidget(parent)
     , mUserName(userName)
 {
-    auto *mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

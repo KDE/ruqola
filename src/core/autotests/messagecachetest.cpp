@@ -42,7 +42,7 @@ public:
 protected:
     bool startJob(RocketChatRestApi::RestApiAbstractJob *job) override
     {
-        if (auto *getMsgJob = qobject_cast<RocketChatRestApi::GetMessageJob *>(job)) {
+        if (auto getMsgJob = qobject_cast<RocketChatRestApi::GetMessageJob *>(job)) {
             QTimer::singleShot(100, this, [getMsgJob]() {
                 const QByteArray content = "{ \"message\": "
                                            "{ \"msg\": \"message foo\","

@@ -30,11 +30,11 @@
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto *headerLayout = new QHBoxLayout;
+    auto headerLayout = new QHBoxLayout;
     headerLayout->setObjectName(QStringLiteral("headerLayout"));
     headerLayout->setContentsMargins({});
     mainLayout->addLayout(headerLayout);
@@ -64,7 +64,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mEncryptedButton, Qt::AlignTop);
     connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
 
-    auto *infoLayout = new QVBoxLayout;
+    auto infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
     infoLayout->setContentsMargins({});
     headerLayout->addLayout(infoLayout);
@@ -102,7 +102,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mDescription->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescription->setVisible(false);
 
-    auto *buttonLayout = new QHBoxLayout;
+    auto buttonLayout = new QHBoxLayout;
     buttonLayout->setObjectName(QStringLiteral("buttonLayout"));
     buttonLayout->setContentsMargins({});
     buttonLayout->setSpacing(0);

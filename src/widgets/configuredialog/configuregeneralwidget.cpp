@@ -31,7 +31,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mShowRoomAvatar(new QCheckBox(i18n("Show Room Avatar"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

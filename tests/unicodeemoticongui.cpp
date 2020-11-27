@@ -38,12 +38,12 @@
 UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
-    auto *hboxLayout = new QHBoxLayout;
+    auto mainLayout = new QVBoxLayout(this);
+    auto hboxLayout = new QHBoxLayout;
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
-    auto *mainComponentLayout = new QVBoxLayout;
+    auto mainComponentLayout = new QVBoxLayout;
     mainComponentLayout->setContentsMargins({});
 
     mSearchEmoticon = new KListWidgetSearchLine(this);
@@ -78,7 +78,7 @@ void UnicodeEmoticonGui::slotItemSelectionChanged()
 void UnicodeEmoticonGui::slotItemChanged(QListWidgetItem *item)
 {
     if (item) {
-        auto *itemResult = static_cast<UnicodeEmoticonListWidgetItem *>(item);
+        auto itemResult = static_cast<UnicodeEmoticonListWidgetItem *>(item);
         UnicodeEmoticon info = itemResult->info();
         mWidgetInfo->setInfo(info);
     }
@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
 UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QFormLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
     mIdentifier = new QLineEdit(this);
     mainLayout->addRow(QStringLiteral("identifier:"), mIdentifier);

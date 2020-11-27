@@ -31,14 +31,14 @@
 ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
     : QDialog(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowListMessage = new ShowListMessageBaseWidget(this);
     mShowListMessage->setObjectName(QStringLiteral("mShowListMessage"));
     mainLayout->addWidget(mShowListMessage);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowListMessageBaseDialog::reject);

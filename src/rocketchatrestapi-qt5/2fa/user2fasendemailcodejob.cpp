@@ -49,7 +49,7 @@ bool User2FASendEmailCodeJob::start()
 
 void User2FASendEmailCodeJob::slotSendEmailCode()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         qDebug() << "data " << data;

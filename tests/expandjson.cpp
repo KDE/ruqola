@@ -29,7 +29,7 @@
 ExpandJson::ExpandJson(QWidget *parent)
     : QWidget(parent)
 {
-    auto *layout = new QVBoxLayout(this);
+    auto layout = new QVBoxLayout(this);
     mInput = new QTextEdit(this);
     mInput->setAcceptRichText(false);
     layout->addWidget(mInput);

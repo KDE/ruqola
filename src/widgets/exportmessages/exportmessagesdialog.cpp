@@ -34,13 +34,13 @@ ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     , mExportMessagesWidget(new ExportMessagesWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Prune Messages"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mExportMessagesWidget->setObjectName(QStringLiteral("mExportMessagesWidget"));
     mainLayout->addWidget(mExportMessagesWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExportMessagesDialog::reject);

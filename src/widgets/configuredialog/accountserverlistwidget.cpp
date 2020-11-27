@@ -42,7 +42,7 @@ void AccountServerListWidget::load()
     RocketChatAccountModel *model = Ruqola::self()->accountManager()->rocketChatAccountModel();
     const int accountNumber = model->accountNumber();
     for (int i = 0; i < accountNumber; ++i) {
-        auto *item = new AccountServerListWidgetItem(this);
+        auto item = new AccountServerListWidgetItem(this);
         AccountManager::AccountManagerInfo info;
         info.displayName = model->account(i)->displayName();
         info.accountName = model->account(i)->accountName();
@@ -64,7 +64,7 @@ void AccountServerListWidget::save()
     //Add account or modify it
     for (int i = 0; i < count(); ++i) {
         QListWidgetItem *it = item(i);
-        auto *serverListItem = static_cast<AccountServerListWidgetItem *>(it);
+        auto serverListItem = static_cast<AccountServerListWidgetItem *>(it);
         AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
 
         info.enabled = serverListItem->checkState() == Qt::Checked;
@@ -83,7 +83,7 @@ void AccountServerListWidget::modifyAccountConfig()
         return;
     }
 
-    auto *serverListItem = static_cast<AccountServerListWidgetItem *>(item);
+    auto serverListItem = static_cast<AccountServerListWidgetItem *>(item);
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     dlg->setAccountInfo(serverListItem->accountInfo());
     if (dlg->exec()) {
@@ -120,7 +120,7 @@ void AccountServerListWidget::addAccountConfig()
             newAccountName = QStringLiteral("%1_%2").arg(newAccountName).arg(i);
         }
         info.accountName = newAccountName;
-        auto *accountServeritem = new AccountServerListWidgetItem(this);
+        auto accountServeritem = new AccountServerListWidgetItem(this);
         accountServeritem->setCheckState(Qt::Checked);
         accountServeritem->setAccountInfo(info);
         accountServeritem->setNewAccount(true);

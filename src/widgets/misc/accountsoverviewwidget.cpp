@@ -230,7 +230,7 @@ void AccountsOverviewWidget::updateButtons()
     for (int i = 0; i < count; ++i) {
         RocketChatAccount *account = model->account(i);
         if (i >= mAccounts.size()) {
-            auto *button = new AccountButton(this);
+            auto button = new AccountButton(this);
             mAccounts.append(button);
             layout()->addWidget(mAccounts.last());
         }

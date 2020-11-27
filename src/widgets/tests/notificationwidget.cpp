@@ -26,7 +26,7 @@
 NotificationWidget::NotificationWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mLineEdit = new QLineEdit(this);
     mainLayout->addWidget(mLineEdit);
 

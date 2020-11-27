@@ -89,7 +89,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
     const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
-    auto *markAsChannel = new QAction(actionMarkAsText, &menu);
+    auto markAsChannel = new QAction(actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [=]() {
         slotMarkAsChannel(index, isUnRead);
     });
@@ -104,7 +104,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(favoriteAction);
 
     if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { //Not direct channel
-        auto *separator = new QAction(&menu);
+        auto separator = new QAction(&menu);
         separator->setSeparator(true);
         menu.addAction(separator);
         QAction *quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);

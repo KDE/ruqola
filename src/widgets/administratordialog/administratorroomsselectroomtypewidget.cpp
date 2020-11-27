@@ -30,7 +30,7 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     , mPrivateRooms(new QCheckBox(i18n("Private"), this))
     , mDiscussionRooms(new QCheckBox(i18n("Discussion"), this))
 {
-    auto *mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

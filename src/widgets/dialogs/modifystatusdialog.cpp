@@ -28,14 +28,14 @@ ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Modify Status"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mModifyStatusWidget = new ModifyStatusWidget(this);
     mModifyStatusWidget->setObjectName(QStringLiteral("mModifyStatusWidget"));
     mainLayout->addWidget(mModifyStatusWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ModifyStatusDialog::accept);

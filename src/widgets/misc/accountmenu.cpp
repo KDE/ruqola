@@ -56,14 +56,14 @@ void AccountMenu::slotUpdateAccountMenu()
         menu()->addAction(action);
         action->setEnabled(false);
     } else {
-        auto *group = new QActionGroup(this);
+        auto group = new QActionGroup(this);
         group->setExclusive(true);
         for (int i = 0; i < accountNumber; ++i) {
             RocketChatAccount *account = model->account(i);
             if (account->accountEnabled()) {
                 const QString accountName = account->accountName();
                 const QString displayName = account->displayName();
-                auto *action = new QAction(displayName, this);
+                auto action = new QAction(displayName, this);
                 action->setCheckable(true);
                 group->addAction(action);
                 if (currentAccountName == accountName) {

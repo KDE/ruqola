@@ -63,7 +63,7 @@ bool UploadFileJob::start()
         return false;
     }
     const QString fileNameAsLocalFile = mUploadFileInfo.filenameUrl.toLocalFile();
-    auto *file = new QFile(fileNameAsLocalFile);
+    auto file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mUploadFileInfo.filenameUrl;
         delete file;
@@ -73,7 +73,7 @@ bool UploadFileJob::start()
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
 
-    auto *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+    auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     QHttpPart filePart;
     filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
@@ -121,7 +121,7 @@ QNetworkRequest UploadFileJob::request() const
 
 void UploadFileJob::slotUploadFinished()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();

@@ -31,11 +31,11 @@
 MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto *tabWidget = new QTabWidget(this);
+    auto tabWidget = new QTabWidget(this);
     tabWidget->setObjectName(QStringLiteral("tabWidget"));
     mainLayout->addWidget(tabWidget);
 

@@ -31,7 +31,7 @@ AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget
     , mCustomUserStatusTreeWidget(new CustomUserStatusTreeWidget(this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomUserStatusTreeWidget))
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));

@@ -34,7 +34,7 @@
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
@@ -50,7 +50,7 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchChannelFilterProxyModel());
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
-    auto *searchDeletegate = new SearchChannelDelegate(this);
+    auto searchDeletegate = new SearchChannelDelegate(this);
     mResultListWidget->setItemDelegate(searchDeletegate);
     connect(searchDeletegate, &SearchChannelDelegate::channelSelected, this, &SearchChannelWidget::slotOpenChannel);
     Ruqola::self()->rocketChatAccount()->channelAndPrivateAutocomplete(QString());

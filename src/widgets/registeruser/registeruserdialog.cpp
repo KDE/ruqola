@@ -35,14 +35,14 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Register User"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mRegisterUserWidget = new RegisterUserWidget(this);
     mRegisterUserWidget->setObjectName(QStringLiteral("mRegisterUserWidget"));
     mainLayout->addWidget(mRegisterUserWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &RegisterUserDialog::reject);

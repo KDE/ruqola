@@ -33,14 +33,14 @@ CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Create Channel"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mCreateNewChannelWidget = new CreateNewChannelWidget(this);
     mCreateNewChannelWidget->setObjectName(QStringLiteral("mCreateNewChannelWidget"));
     mainLayout->addWidget(mCreateNewChannelWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &CreateNewChannelDialog::accept);

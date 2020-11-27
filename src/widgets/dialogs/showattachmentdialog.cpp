@@ -37,14 +37,14 @@ ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Attachments"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowAttachmentWidget = new ShowAttachmentWidget(this);
     mShowAttachmentWidget->setObjectName(QStringLiteral("mShowAttachmentWidget"));
     mainLayout->addWidget(mShowAttachmentWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowAttachmentDialog::reject);

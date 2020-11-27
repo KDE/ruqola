@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.addHelpOption();
     parser.process(app);
-    auto *w = new NotificationWidget();
+    auto w = new NotificationWidget();
     w->resize(800, 600);
     w->show();
     return app.exec();

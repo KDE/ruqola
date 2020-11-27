@@ -29,14 +29,14 @@ ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Add Password"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mChannelPasswordWidget = new ChannelPasswordWidget(this);
     mChannelPasswordWidget->setObjectName(QStringLiteral("mChannelPasswordWidget"));
     mainLayout->addWidget(mChannelPasswordWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelPasswordDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelPasswordDialog::reject);

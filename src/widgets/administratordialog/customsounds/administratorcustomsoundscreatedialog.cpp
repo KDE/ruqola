@@ -36,13 +36,13 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
     , mCreateWidget(new AdministratorCustomSoundsCreateWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create New User Status"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
     mainLayout->addWidget(mCreateWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomSoundsCreateDialog::reject);

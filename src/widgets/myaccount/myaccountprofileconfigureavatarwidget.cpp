@@ -32,7 +32,7 @@
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mAvatarImage = new AvatarImage(this);
     mAvatarImage->setObjectName(QStringLiteral("mAvatarImage"));

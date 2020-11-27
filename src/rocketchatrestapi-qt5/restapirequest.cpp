@@ -278,7 +278,7 @@ QString RestApiRequest::userId() const
 
 void RestApiRequest::login()
 {
-    auto *job = new LoginJob(this);
+    auto job = new LoginJob(this);
     connect(job, &LoginJob::loginDone, this, &RestApiRequest::slotLogin);
     initializeRestApiJob(job);
     job->setPassword(mPassword);
@@ -314,7 +314,7 @@ void RestApiRequest::initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob 
 
 void RestApiRequest::logout()
 {
-    auto *job = new LogoutJob(this);
+    auto job = new LogoutJob(this);
     connect(job, &LogoutJob::logoutDone, this, &RestApiRequest::slotLogout);
     initializeRestApiJob(job);
     if (!job->start()) {
@@ -324,7 +324,7 @@ void RestApiRequest::logout()
 
 void RestApiRequest::channelList()
 {
-    auto *job = new ChannelListJob(this);
+    auto job = new ChannelListJob(this);
     connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::channelListDone);
     initializeRestApiJob(job);
     if (!job->start()) {
@@ -334,7 +334,7 @@ void RestApiRequest::channelList()
 
 void RestApiRequest::getAvatar(const UserBaseJob::UserInfo &info)
 {
-    auto *job = new GetAvatarJob(this);
+    auto job = new GetAvatarJob(this);
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
     connect(job, &GetAvatarJob::redownloadAvatar, this, &RestApiRequest::redownloadAvatar);
     initializeRestApiJob(job);
@@ -346,7 +346,7 @@ void RestApiRequest::getAvatar(const UserBaseJob::UserInfo &info)
 
 void RestApiRequest::getPrivateSettings()
 {
-    auto *job = new PrivateInfoJob(this);
+    auto job = new PrivateInfoJob(this);
     connect(job, &PrivateInfoJob::privateInfoDone, this, &RestApiRequest::privateInfoDone);
     initializeRestApiJob(job);
     if (!job->start()) {
@@ -356,7 +356,7 @@ void RestApiRequest::getPrivateSettings()
 
 void RestApiRequest::getOwnInfo()
 {
-    auto *job = new OwnInfoJob(this);
+    auto job = new OwnInfoJob(this);
     connect(job, &OwnInfoJob::ownInfoDone, this, &RestApiRequest::getOwnInfoDone);
     initializeRestApiJob(job);
     if (!job->start()) {
@@ -366,7 +366,7 @@ void RestApiRequest::getOwnInfo()
 
 void RestApiRequest::starMessage(const QString &messageId, bool starred)
 {
-    auto *job = new StarMessageJob(this);
+    auto job = new StarMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setStarMessage(starred);
@@ -377,7 +377,7 @@ void RestApiRequest::starMessage(const QString &messageId, bool starred)
 
 void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool storeInCache, const QUrl &localFileUrl)
 {
-    auto *job = new DownloadFileJob(this);
+    auto job = new DownloadFileJob(this);
     connect(job, &DownloadFileJob::downloadFileDone, this, &RestApiRequest::downloadFileDone);
     job->setUrl(url);
     job->setMimeType(mimeType);
@@ -391,7 +391,7 @@ void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool
 
 void RestApiRequest::serverInfo(bool useDeprecatedVersion)
 {
-    auto *job = new ServerInfoJob(this);
+    auto job = new ServerInfoJob(this);
     job->setUseDeprecatedVersion(useDeprecatedVersion);
     initializeRestApiJob(job);
     connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
@@ -403,7 +403,7 @@ void RestApiRequest::serverInfo(bool useDeprecatedVersion)
 
 void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename, const QString &threadMessageId)
 {
-    auto *job = new UploadFileJob(this);
+    auto job = new UploadFileJob(this);
     initializeRestApiJob(job);
     UploadFileJob::UploadFileInfo info;
     info.description = description;
@@ -419,7 +419,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
 
 void RestApiRequest::changeChannelTopic(const QString &roomId, const QString &topic)
 {
-    auto *job = new ChangeChannelTopicJob(this);
+    auto job = new ChangeChannelTopicJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setTopic(topic);
@@ -430,7 +430,7 @@ void RestApiRequest::changeChannelTopic(const QString &roomId, const QString &to
 
 void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &topic)
 {
-    auto *job = new ChangeGroupsTopicJob(this);
+    auto job = new ChangeGroupsTopicJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setTopic(topic);
@@ -441,7 +441,7 @@ void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &top
 
 void RestApiRequest::changeChannelReadOnly(const QString &roomId, bool b)
 {
-    auto *job = new ChangeChannelReadonlyJob(this);
+    auto job = new ChangeChannelReadonlyJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setReadOnly(b);
@@ -452,7 +452,7 @@ void RestApiRequest::changeChannelReadOnly(const QString &roomId, bool b)
 
 void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
 {
-    auto *job = new ChangeGroupsReadonlyJob(this);
+    auto job = new ChangeGroupsReadonlyJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setReadOnly(b);
@@ -463,7 +463,7 @@ void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
 
 void RestApiRequest::changeGroupsEncrypted(const QString &roomId, bool b)
 {
-    auto *job = new ChangeGroupsEncryptedJob(this);
+    auto job = new ChangeGroupsEncryptedJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setEncrypted(b);
@@ -474,7 +474,7 @@ void RestApiRequest::changeGroupsEncrypted(const QString &roomId, bool b)
 
 void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
 {
-    auto *job = new ChangeChannelAnnouncementJob(this);
+    auto job = new ChangeChannelAnnouncementJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
@@ -485,7 +485,7 @@ void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QStr
 
 void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QString &announcement)
 {
-    auto *job = new ChangeGroupsAnnouncementJob(this);
+    auto job = new ChangeGroupsAnnouncementJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
@@ -496,7 +496,7 @@ void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QStri
 
 void RestApiRequest::changeChannelDescription(const QString &roomId, const QString &description)
 {
-    auto *job = new ChangeChannelDescriptionJob(this);
+    auto job = new ChangeChannelDescriptionJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDescription(description);
@@ -507,7 +507,7 @@ void RestApiRequest::changeChannelDescription(const QString &roomId, const QStri
 
 void RestApiRequest::changeGroupsDescription(const QString &roomId, const QString &description)
 {
-    auto *job = new ChangeGroupsDescriptionJob(this);
+    auto job = new ChangeGroupsDescriptionJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDescription(description);
@@ -518,7 +518,7 @@ void RestApiRequest::changeGroupsDescription(const QString &roomId, const QStrin
 
 void RestApiRequest::postMessage(const QString &roomId, const QString &text)
 {
-    auto *job = new PostMessageJob(this);
+    auto job = new PostMessageJob(this);
     connect(job, &PostMessageJob::postMessageDone, this, &RestApiRequest::postMessageDone);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
@@ -530,7 +530,7 @@ void RestApiRequest::postMessage(const QString &roomId, const QString &text)
 
 void RestApiRequest::deleteMessage(const QString &roomId, const QString &messageId)
 {
-    auto *job = new DeleteMessageJob(this);
+    auto job = new DeleteMessageJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMessageId(messageId);
@@ -546,7 +546,7 @@ void RestApiRequest::slotAddJoinCodeToChannel(const QString &channelId, const QS
 
 void RestApiRequest::createChannels(const QString &channelName, bool readOnly, const QStringList &members, const QString &password)
 {
-    auto *job = new CreateChannelJob(this);
+    auto job = new CreateChannelJob(this);
     connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
     initializeRestApiJob(job);
     job->setChannelName(channelName);
@@ -560,7 +560,7 @@ void RestApiRequest::createChannels(const QString &channelName, bool readOnly, c
 
 void RestApiRequest::createGroups(const QString &channelName, bool readOnly, const QStringList &members)
 {
-    auto *job = new CreateGroupsJob(this);
+    auto job = new CreateGroupsJob(this);
     initializeRestApiJob(job);
     job->setChannelName(channelName);
     job->setReadOnly(readOnly);
@@ -572,7 +572,7 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
 
 void RestApiRequest::leaveChannel(const QString &roomId)
 {
-    auto *job = new LeaveChannelJob(this);
+    auto job = new LeaveChannelJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -585,7 +585,7 @@ void RestApiRequest::leaveChannel(const QString &roomId)
 
 void RestApiRequest::leaveGroups(const QString &roomId)
 {
-    auto *job = new LeaveGroupsJob(this);
+    auto job = new LeaveGroupsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     if (!job->start()) {
@@ -595,7 +595,7 @@ void RestApiRequest::leaveGroups(const QString &roomId)
 
 void RestApiRequest::archiveChannel(const QString &roomId, bool archive)
 {
-    auto *job = new ArchiveChannelJob(this);
+    auto job = new ArchiveChannelJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setArchive(archive);
@@ -606,7 +606,7 @@ void RestApiRequest::archiveChannel(const QString &roomId, bool archive)
 
 void RestApiRequest::archiveGroups(const QString &roomId, bool archive)
 {
-    auto *job = new ArchiveGroupsJob(this);
+    auto job = new ArchiveGroupsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setArchive(archive);
@@ -617,7 +617,7 @@ void RestApiRequest::archiveGroups(const QString &roomId, bool archive)
 
 void RestApiRequest::updateMessage(const QString &roomId, const QString &messageId, const QString &text)
 {
-    auto *job = new UpdateMessageJob(this);
+    auto job = new UpdateMessageJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMessageId(messageId);
@@ -629,7 +629,7 @@ void RestApiRequest::updateMessage(const QString &roomId, const QString &message
 
 void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
 {
-    auto *job = new ReactOnMessageJob(this);
+    auto job = new ReactOnMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     QString fixedEmoji = emoji;
@@ -649,7 +649,7 @@ void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emo
 
 void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
 {
-    auto *job = new ChannelCloseJob(this);
+    auto job = new ChannelCloseJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -669,7 +669,7 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
 
 void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
 {
-    auto *job = new ChannelHistoryJob(this);
+    auto job = new ChannelHistoryJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -695,7 +695,7 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
 
 void RestApiRequest::createDirectMessage(const QStringList &userNames)
 {
-    auto *job = new CreateDmJob(this);
+    auto job = new CreateDmJob(this);
     initializeRestApiJob(job);
     job->setUserNames(userNames);
     if (!job->start()) {
@@ -705,7 +705,7 @@ void RestApiRequest::createDirectMessage(const QStringList &userNames)
 
 void RestApiRequest::openDirectMessage(const QString &userId)
 {
-    auto *job = new OpenDmJob(this);
+    auto job = new OpenDmJob(this);
     initializeRestApiJob(job);
     job->setDirectUserId(userId);
     if (!job->start()) {
@@ -715,7 +715,7 @@ void RestApiRequest::openDirectMessage(const QString &userId)
 
 void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int offset, int count)
 {
-    auto *job = new ChannelFilesJob(this);
+    auto job = new ChannelFilesJob(this);
     connect(job, &ChannelFilesJob::channelFilesDone, this, &RestApiRequest::channelFilesDone);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
@@ -745,7 +745,7 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
 //FIXME
 void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, int offset, int count)
 {
-    auto *job = new ChannelMembersJob(this);
+    auto job = new ChannelMembersJob(this);
     QueryParameters parameters;
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -770,7 +770,7 @@ void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, i
 
 void RestApiRequest::addUserInChannel(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelInviteJob(this);
+    auto job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -784,7 +784,7 @@ void RestApiRequest::addUserInChannel(const QString &roomId, const QString &user
 
 void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupsInviteJob(this);
+    auto job = new GroupsInviteJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setUserId(userId);
@@ -795,7 +795,7 @@ void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId
 
 void RestApiRequest::listEmojiCustom()
 {
-    auto *job = new LoadEmojiCustomJob(this);
+    auto job = new LoadEmojiCustomJob(this);
     initializeRestApiJob(job);
     connect(job, &LoadEmojiCustomJob::loadEmojiCustomDone, this, &RestApiRequest::loadEmojiCustomDone);
     if (!job->start()) {
@@ -805,7 +805,7 @@ void RestApiRequest::listEmojiCustom()
 
 void RestApiRequest::searchRoomUser(const QString &pattern)
 {
-    auto *job = new SpotlightJob(this);
+    auto job = new SpotlightJob(this);
     job->setSearchPattern(pattern);
     initializeRestApiJob(job);
     connect(job, &SpotlightJob::spotlightDone, this, &RestApiRequest::spotlightDone);
@@ -816,7 +816,7 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
 
 void RestApiRequest::searchMessages(const QString &roomId, const QString &pattern, bool useRegularExpression)
 {
-    auto *job = new SearchMessageJob(this);
+    auto job = new SearchMessageJob(this);
     job->setRoomId(roomId);
     job->setSearchText(pattern);
     job->setUseRegularExpression(useRegularExpression);
@@ -829,7 +829,7 @@ void RestApiRequest::searchMessages(const QString &roomId, const QString &patter
 
 void RestApiRequest::markRoomAsRead(const QString &roomId)
 {
-    auto *job = new MarkRoomAsReadJob(this);
+    auto job = new MarkRoomAsReadJob(this);
     job->setRoomId(roomId);
     initializeRestApiJob(job);
     connect(job, &MarkRoomAsReadJob::markAsReadDone, this, &RestApiRequest::markAsReadDone);
@@ -840,7 +840,7 @@ void RestApiRequest::markRoomAsRead(const QString &roomId)
 
 void RestApiRequest::markRoomAsUnRead(const QString &roomId)
 {
-    auto *job = new MarkRoomAsUnReadJob(this);
+    auto job = new MarkRoomAsUnReadJob(this);
     job->setObjectId(roomId);
     job->setUnReadObject(MarkRoomAsUnReadJob::Room);
     initializeRestApiJob(job);
@@ -851,7 +851,7 @@ void RestApiRequest::markRoomAsUnRead(const QString &roomId)
 
 void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
 {
-    auto *job = new MarkRoomAsUnReadJob(this);
+    auto job = new MarkRoomAsUnReadJob(this);
     job->setObjectId(messageId);
     job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     initializeRestApiJob(job);
@@ -862,7 +862,7 @@ void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
 
 void RestApiRequest::getRooms()
 {
-    auto *job = new GetRoomsJob(this);
+    auto job = new GetRoomsJob(this);
     initializeRestApiJob(job);
     connect(job, &GetRoomsJob::getRoomsDone, this, &RestApiRequest::getRoomsDone);
     if (!job->start()) {
@@ -872,7 +872,7 @@ void RestApiRequest::getRooms()
 
 void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
 {
-    auto *job = new RoomFavoriteJob(this);
+    auto job = new RoomFavoriteJob(this);
     initializeRestApiJob(job);
     job->setFavorite(favorite);
     job->setRoomId(roomId);
@@ -883,7 +883,7 @@ void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
 
 void RestApiRequest::disableNotifications(const QString &roomId, bool value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDisableNotifications(value);
@@ -894,7 +894,7 @@ void RestApiRequest::disableNotifications(const QString &roomId, bool value)
 
 void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMuteGroupMentions(value);
@@ -905,7 +905,7 @@ void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
 
 void RestApiRequest::desktopDurationNotifications(const QString &roomId, int value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDesktopNotificationDuration(value);
@@ -916,7 +916,7 @@ void RestApiRequest::desktopDurationNotifications(const QString &roomId, int val
 
 void RestApiRequest::desktopSoundNotifications(const QString &roomId, const QString &value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAudioNotificationValue(value);
@@ -927,7 +927,7 @@ void RestApiRequest::desktopSoundNotifications(const QString &roomId, const QStr
 
 void RestApiRequest::changeGroupName(const QString &roomId, const QString &newName)
 {
-    auto *job = new ChangeGroupsNameJob(this);
+    auto job = new ChangeGroupsNameJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setName(newName);
@@ -938,7 +938,7 @@ void RestApiRequest::changeGroupName(const QString &roomId, const QString &newNa
 
 void RestApiRequest::changeChannelName(const QString &roomId, const QString &newName)
 {
-    auto *job = new ChangeChannelNameJob(this);
+    auto job = new ChangeChannelNameJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setName(newName);
@@ -949,7 +949,7 @@ void RestApiRequest::changeChannelName(const QString &roomId, const QString &new
 
 void RestApiRequest::channelInfo(const QString &roomId)
 {
-    auto *job = new ChannelInfoJob(this);
+    auto job = new ChannelInfoJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -962,7 +962,7 @@ void RestApiRequest::channelInfo(const QString &roomId)
 
 void RestApiRequest::groupInfo(const QString &roomId)
 {
-    auto *job = new GroupsInfoJob(this);
+    auto job = new GroupsInfoJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     if (!job->start()) {
@@ -972,7 +972,7 @@ void RestApiRequest::groupInfo(const QString &roomId)
 
 void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setHideUnreadStatus(value);
@@ -983,7 +983,7 @@ void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
 
 void RestApiRequest::audioNotifications(const QString &roomId, const QString &value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAudioNotifications(value);
@@ -994,7 +994,7 @@ void RestApiRequest::audioNotifications(const QString &roomId, const QString &va
 
 void RestApiRequest::desktopNotifications(const QString &roomId, const QString &value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDesktopNotifications(value);
@@ -1005,7 +1005,7 @@ void RestApiRequest::desktopNotifications(const QString &roomId, const QString &
 
 void RestApiRequest::emailNotifications(const QString &roomId, const QString &value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setEmailNotifications(value);
@@ -1016,7 +1016,7 @@ void RestApiRequest::emailNotifications(const QString &roomId, const QString &va
 
 void RestApiRequest::mobilePushNotifications(const QString &roomId, const QString &value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMobilePushNotifications(value);
@@ -1027,7 +1027,7 @@ void RestApiRequest::mobilePushNotifications(const QString &roomId, const QStrin
 
 void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
 {
-    auto *job = new SaveNotificationJob(this);
+    auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setUnreadAlert(value);
@@ -1038,7 +1038,7 @@ void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
 
 void RestApiRequest::setAvatar(const UserInfoJob::UserInfo &info, const SetAvatarJob::SetAvatarInfo &avatarInfo)
 {
-    auto *job = new SetAvatarJob(this);
+    auto job = new SetAvatarJob(this);
     initializeRestApiJob(job);
 
     job->setAvatarInfo(avatarInfo);
@@ -1050,7 +1050,7 @@ void RestApiRequest::setAvatar(const UserInfoJob::UserInfo &info, const SetAvata
 
 void RestApiRequest::forgotPassword(const QString &email)
 {
-    auto *job = new ForgotPasswordJob(this);
+    auto job = new ForgotPasswordJob(this);
     initializeRestApiJob(job);
     job->setEmail(email);
     if (!job->start()) {
@@ -1060,7 +1060,7 @@ void RestApiRequest::forgotPassword(const QString &email)
 
 void RestApiRequest::userInfo(const QString &identifier, bool userName)
 {
-    auto *job = new UserInfoJob(this);
+    auto job = new UserInfoJob(this);
     initializeRestApiJob(job);
     UserInfoJob::UserInfo info;
     info.userIdentifier = identifier;
@@ -1074,7 +1074,7 @@ void RestApiRequest::userInfo(const QString &identifier, bool userName)
 
 void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bool ignore)
 {
-    auto *job = new IgnoreUserJob(this);
+    auto job = new IgnoreUserJob(this);
     initializeRestApiJob(job);
     job->setIgnoreUserId(userId);
     job->setRoomId(roomId);
@@ -1087,7 +1087,7 @@ void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bo
 
 void RestApiRequest::userPresence(const QString &userId)
 {
-    auto *job = new GetPresenceJob(this);
+    auto job = new GetPresenceJob(this);
     initializeRestApiJob(job);
     UserInfoJob::UserInfo info;
     info.userIdentifier = userId;
@@ -1102,7 +1102,7 @@ void RestApiRequest::userPresence(const QString &userId)
 
 void RestApiRequest::reportMessage(const QString &messageId, const QString &message)
 {
-    auto *job = new ReportMessageJob(this);
+    auto job = new ReportMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setReportMessage(message);
@@ -1113,7 +1113,7 @@ void RestApiRequest::reportMessage(const QString &messageId, const QString &mess
 
 void RestApiRequest::setGroupType(const QString &roomId, bool isPrivate)
 {
-    auto *job = new SetGroupTypeJob(this);
+    auto job = new SetGroupTypeJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setType(isPrivate ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
@@ -1124,7 +1124,7 @@ void RestApiRequest::setGroupType(const QString &roomId, bool isPrivate)
 
 void RestApiRequest::setChannelType(const QString &roomId, bool isPrivate)
 {
-    auto *job = new SetChannelTypeJob(this);
+    auto job = new SetChannelTypeJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -1138,7 +1138,7 @@ void RestApiRequest::setChannelType(const QString &roomId, bool isPrivate)
 
 void RestApiRequest::getGroupRoles(const QString &roomId)
 {
-    auto *job = new GetGroupRolesJob(this);
+    auto job = new GetGroupRolesJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     connect(job, &GetGroupRolesJob::groupRolesDone, this, &RestApiRequest::groupRolesDone);
@@ -1149,7 +1149,7 @@ void RestApiRequest::getGroupRoles(const QString &roomId)
 
 void RestApiRequest::getChannelRoles(const QString &roomId)
 {
-    auto *job = new GetChannelRolesJob(this);
+    auto job = new GetChannelRolesJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -1163,7 +1163,7 @@ void RestApiRequest::getChannelRoles(const QString &roomId)
 
 void RestApiRequest::getUsernameSuggestion()
 {
-    auto *job = new GetUsernameSuggestionJob(this);
+    auto job = new GetUsernameSuggestionJob(this);
     initializeRestApiJob(job);
     connect(job, &GetUsernameSuggestionJob::getUsernameSuggestionDone, this, &RestApiRequest::getUsernameSuggestionDone);
     if (!job->start()) {
@@ -1173,7 +1173,7 @@ void RestApiRequest::getUsernameSuggestion()
 
 void RestApiRequest::listPermissions()
 {
-    auto *job = new PermissionsListAllJob(this);
+    auto job = new PermissionsListAllJob(this);
     initializeRestApiJob(job);
     connect(job, &PermissionsListAllJob::permissionListAllDone, this, &RestApiRequest::permissionListAllDone);
     if (!job->start()) {
@@ -1183,7 +1183,7 @@ void RestApiRequest::listPermissions()
 
 void RestApiRequest::listCommands()
 {
-    auto *job = new ListCommandsJob(this);
+    auto job = new ListCommandsJob(this);
     initializeRestApiJob(job);
     connect(job, &ListCommandsJob::listCommandsDone, this, &RestApiRequest::listCommandsDone);
     if (!job->start()) {
@@ -1193,7 +1193,7 @@ void RestApiRequest::listCommands()
 
 void RestApiRequest::getCommand(const QString &commandName)
 {
-    auto *job = new GetCommandsJob(this);
+    auto job = new GetCommandsJob(this);
     initializeRestApiJob(job);
     job->setCommandName(commandName);
     connect(job, &GetCommandsJob::getCommandsDone, this, &RestApiRequest::getCommandsDone);
@@ -1204,7 +1204,7 @@ void RestApiRequest::getCommand(const QString &commandName)
 
 void RestApiRequest::runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo)
 {
-    auto *job = new RunCommandJob(this);
+    auto job = new RunCommandJob(this);
     initializeRestApiJob(job);
     job->setRunCommandInfo(runCommandInfo);
     connect(job, &RunCommandJob::runCommandDone, this, &RestApiRequest::runCommandDone);
@@ -1215,7 +1215,7 @@ void RestApiRequest::runCommand(const RunCommandJob::RunCommandInfo &runCommandI
 
 void RestApiRequest::fetchMyKeys()
 {
-    auto *job = new FetchMyKeysJob(this);
+    auto job = new FetchMyKeysJob(this);
     initializeRestApiJob(job);
     connect(job, &FetchMyKeysJob::fetchMyKeysDone, this, &RestApiRequest::fetchMyKeysDone);
     if (!job->start()) {
@@ -1225,7 +1225,7 @@ void RestApiRequest::fetchMyKeys()
 
 void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &joinCode)
 {
-    auto *job = new SetJoinCodeChannelJob(this);
+    auto job = new SetJoinCodeChannelJob(this);
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
     ChannelBaseJob::ChannelInfo info;
@@ -1241,7 +1241,7 @@ void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &jo
 
 void RestApiRequest::updatejitsiTimeOut(const QString &roomId)
 {
-    auto *job = new VideoConfUpdateJitsiTimeOutJob(this);
+    auto job = new VideoConfUpdateJitsiTimeOutJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     connect(job, &VideoConfUpdateJitsiTimeOutJob::updateJitsiTimeOutDone, this, &RestApiRequest::updateJitsiTimeOutDone);
@@ -1252,7 +1252,7 @@ void RestApiRequest::updatejitsiTimeOut(const QString &roomId)
 
 void RestApiRequest::channelJoin(const ChannelBaseJob::ChannelInfo &channelInfo, const QString &joinCode)
 {
-    auto *job = new ChannelJoinJob(this);
+    auto job = new ChannelJoinJob(this);
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
     job->setChannelInfo(channelInfo);
@@ -1266,7 +1266,7 @@ void RestApiRequest::channelJoin(const ChannelBaseJob::ChannelInfo &channelInfo,
 
 void RestApiRequest::channelGetAllUserMentions(const QString &roomId, int offset, int count)
 {
-    auto *job = new ChannelGetAllUserMentionsJob(this);
+    auto job = new ChannelGetAllUserMentionsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
@@ -1285,7 +1285,7 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId, int offset
 
 void RestApiRequest::channelKick(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelKickJob(this);
+    auto job = new ChannelKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1300,7 +1300,7 @@ void RestApiRequest::channelKick(const QString &roomId, const QString &userId)
 
 void RestApiRequest::groupKick(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupsKickJob(this);
+    auto job = new GroupsKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
     job->setRoomId(roomId);
@@ -1312,7 +1312,7 @@ void RestApiRequest::groupKick(const QString &roomId, const QString &userId)
 
 void RestApiRequest::groupAddModerator(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupAddModeratorJob(this);
+    auto job = new GroupAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
     job->setRoomId(roomId);
@@ -1324,7 +1324,7 @@ void RestApiRequest::groupAddModerator(const QString &roomId, const QString &use
 
 void RestApiRequest::groupRemoveModerator(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupRemoveModeratorJob(this);
+    auto job = new GroupRemoveModeratorJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     job->setRoomId(roomId);
@@ -1336,7 +1336,7 @@ void RestApiRequest::groupRemoveModerator(const QString &roomId, const QString &
 
 void RestApiRequest::groupAddLeader(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupAddLeaderJob(this);
+    auto job = new GroupAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
     job->setRoomId(roomId);
@@ -1348,7 +1348,7 @@ void RestApiRequest::groupAddLeader(const QString &roomId, const QString &userId
 
 void RestApiRequest::groupRemoveLeader(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupRemoveLeaderJob(this);
+    auto job = new GroupRemoveLeaderJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     job->setRoomId(roomId);
@@ -1360,7 +1360,7 @@ void RestApiRequest::groupRemoveLeader(const QString &roomId, const QString &use
 
 void RestApiRequest::groupAddOwner(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupAddOwnerJob(this);
+    auto job = new GroupAddOwnerJob(this);
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
     job->setRoomId(roomId);
@@ -1372,7 +1372,7 @@ void RestApiRequest::groupAddOwner(const QString &roomId, const QString &userId)
 
 void RestApiRequest::groupRemoveOwner(const QString &roomId, const QString &userId)
 {
-    auto *job = new GroupRemoveOwnerJob(this);
+    auto job = new GroupRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     job->setRoomId(roomId);
@@ -1384,7 +1384,7 @@ void RestApiRequest::groupRemoveOwner(const QString &roomId, const QString &user
 
 void RestApiRequest::channelAddModerator(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelAddModeratorJob(this);
+    auto job = new ChannelAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1399,7 +1399,7 @@ void RestApiRequest::channelAddModerator(const QString &roomId, const QString &u
 
 void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelRemoveModeratorJob(this);
+    auto job = new ChannelRemoveModeratorJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1414,7 +1414,7 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
 
 void RestApiRequest::channelAddLeader(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelAddLeaderJob(this);
+    auto job = new ChannelAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1429,7 +1429,7 @@ void RestApiRequest::channelAddLeader(const QString &roomId, const QString &user
 
 void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelRemoveLeaderJob(this);
+    auto job = new ChannelRemoveLeaderJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1444,7 +1444,7 @@ void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &u
 
 void RestApiRequest::channelAddOwner(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelAddOwnerJob(this);
+    auto job = new ChannelAddOwnerJob(this);
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1459,7 +1459,7 @@ void RestApiRequest::channelAddOwner(const QString &roomId, const QString &userI
 
 void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &userId)
 {
-    auto *job = new ChannelRemoveOwnerJob(this);
+    auto job = new ChannelRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelBaseJob::ChannelInfo info;
@@ -1474,7 +1474,7 @@ void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &us
 
 void RestApiRequest::channelDelete(const QString &roomId)
 {
-    auto *job = new ChannelDeleteJob(this);
+    auto job = new ChannelDeleteJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -1488,7 +1488,7 @@ void RestApiRequest::channelDelete(const QString &roomId)
 
 void RestApiRequest::groupDelete(const QString &roomId)
 {
-    auto *job = new GroupsDeleteJob(this);
+    auto job = new GroupsDeleteJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &RestApiRequest::deleteGroupsDone);
@@ -1499,7 +1499,7 @@ void RestApiRequest::groupDelete(const QString &roomId)
 
 void RestApiRequest::pinMessage(const QString &messageId, bool pinned)
 {
-    auto *job = new PinMessageJob(this);
+    auto job = new PinMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setPinMessage(pinned);
@@ -1511,7 +1511,7 @@ void RestApiRequest::pinMessage(const QString &messageId, bool pinned)
 
 void RestApiRequest::followMessage(const QString &messageId)
 {
-    auto *job = new FollowMessageJob(this);
+    auto job = new FollowMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     connect(job, &FollowMessageJob::followMessageDone, this, &RestApiRequest::followMessageDone);
@@ -1522,7 +1522,7 @@ void RestApiRequest::followMessage(const QString &messageId)
 
 void RestApiRequest::unFollowMessage(const QString &messageId)
 {
-    auto *job = new UnFollowMessageJob(this);
+    auto job = new UnFollowMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     connect(job, &UnFollowMessageJob::unFollowMessageDone, this, &RestApiRequest::unFollowMessageDone);
@@ -1533,7 +1533,7 @@ void RestApiRequest::unFollowMessage(const QString &messageId)
 
 void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId, const QStringList &users)
 {
-    auto *job = new RoomStartDiscussionJob(this);
+    auto job = new RoomStartDiscussionJob(this);
     initializeRestApiJob(job);
     job->setParentRoomId(parentRoomId);
 
@@ -1549,7 +1549,7 @@ void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString
 
 void RestApiRequest::getDiscussions(const QString &roomId, int offset, int count)
 {
-    auto *job = new GetDiscussionsJob(this);
+    auto job = new GetDiscussionsJob(this);
     initializeRestApiJob(job);
     QueryParameters parameters;
     parameters.setCount(count);
@@ -1564,7 +1564,7 @@ void RestApiRequest::getDiscussions(const QString &roomId, int offset, int count
 
 void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count)
 {
-    auto *job = new GetThreadsJob(this);
+    auto job = new GetThreadsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
@@ -1582,7 +1582,7 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
 
 void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int count)
 {
-    auto *job = new GetPinnedMessagesJob(this);
+    auto job = new GetPinnedMessagesJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
@@ -1600,7 +1600,7 @@ void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int co
 
 void RestApiRequest::getStarredMessages(const QString &roomId, int offset, int count)
 {
-    auto *job = new GetStarredMessagesJob(this);
+    auto job = new GetStarredMessagesJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
@@ -1619,7 +1619,7 @@ void RestApiRequest::getStarredMessages(const QString &roomId, int offset, int c
 
 void RestApiRequest::getSnippetedMessages(const QString &roomId, int offset, int count)
 {
-    auto *job = new GetSnippetedMessagesJob(this);
+    auto job = new GetSnippetedMessagesJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
@@ -1637,7 +1637,7 @@ void RestApiRequest::getSnippetedMessages(const QString &roomId, int offset, int
 
 void RestApiRequest::getThreadMessages(const QString &threadMessageId)
 {
-    auto *job = new GetThreadMessagesJob(this);
+    auto job = new GetThreadMessagesJob(this);
     initializeRestApiJob(job);
     job->setThreadMessageId(threadMessageId);
     connect(job, &GetThreadMessagesJob::getThreadMessagesDone, this, &RestApiRequest::getThreadMessagesDone);
@@ -1648,7 +1648,7 @@ void RestApiRequest::getThreadMessages(const QString &threadMessageId)
 
 void RestApiRequest::syncThreadMessages(const QString &threadMessageId, const QString &timestamp)
 {
-    auto *job = new SyncThreadMessagesJob(this);
+    auto job = new SyncThreadMessagesJob(this);
     initializeRestApiJob(job);
     job->setThreadMessageId(threadMessageId);
     job->setTimeStamp(timestamp);
@@ -1660,7 +1660,7 @@ void RestApiRequest::syncThreadMessages(const QString &threadMessageId, const QS
 
 void RestApiRequest::sendMessage(const QString &roomId, const QString &text, const QString &messageId, const QString &threadMessageId)
 {
-    auto *job = new SendMessageJob(this);
+    auto job = new SendMessageJob(this);
     initializeRestApiJob(job);
     SendMessageJob::SendMessageArguments args;
     args.roomId = roomId;
@@ -1675,7 +1675,7 @@ void RestApiRequest::sendMessage(const QString &roomId, const QString &text, con
 
 void RestApiRequest::getSupportedLanguagesMessages()
 {
-    auto *job = new GetSupportedLanguagesJob(this);
+    auto job = new GetSupportedLanguagesJob(this);
     initializeRestApiJob(job);
     connect(job, &GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &RestApiRequest::getSupportedLanguagesDone);
     if (!job->start()) {
@@ -1685,7 +1685,7 @@ void RestApiRequest::getSupportedLanguagesMessages()
 
 void RestApiRequest::autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language)
 {
-    auto *job = new TranslateSaveSettingsJob(this);
+    auto job = new TranslateSaveSettingsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setType(TranslateSaveSettingsJob::LanguageSetting);
@@ -1698,7 +1698,7 @@ void RestApiRequest::autoTranslateSaveLanguageSettings(const QString &roomId, co
 
 void RestApiRequest::autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate)
 {
-    auto *job = new TranslateSaveSettingsJob(this);
+    auto job = new TranslateSaveSettingsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setType(TranslateSaveSettingsJob::AutoTranslateSetting);
@@ -1711,7 +1711,7 @@ void RestApiRequest::autoTranslateSaveAutoTranslateSettings(const QString &roomI
 
 void RestApiRequest::setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message)
 {
-    auto *job = new SetStatusJob(this);
+    auto job = new SetStatusJob(this);
     initializeRestApiJob(job);
     job->setStatusUserId(userId);
     job->setStatus(status);
@@ -1724,7 +1724,7 @@ void RestApiRequest::setUserStatus(const QString &userId, SetStatusJob::StatusTy
 
 void RestApiRequest::usersPresence()
 {
-    auto *job = new UsersPresenceJob(this);
+    auto job = new UsersPresenceJob(this);
     initializeRestApiJob(job);
     connect(job, &UsersPresenceJob::usersPresenceDone, this, &RestApiRequest::usersPresenceDone);
     if (!job->start()) {
@@ -1734,7 +1734,7 @@ void RestApiRequest::usersPresence()
 
 void RestApiRequest::customUserStatus()
 {
-    auto *job = new CustomUserStatusListJob(this);
+    auto job = new CustomUserStatusListJob(this);
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusListJob::customUserStatusDone, this, &RestApiRequest::customUserStatusDone);
     if (!job->start()) {
@@ -1744,7 +1744,7 @@ void RestApiRequest::customUserStatus()
 
 void RestApiRequest::customSounds()
 {
-    auto *job = new CustomSoundsListJob(this);
+    auto job = new CustomSoundsListJob(this);
     initializeRestApiJob(job);
     connect(job, &CustomSoundsListJob::customSoundsListDone, this, &RestApiRequest::customSoundsDone);
     if (!job->start()) {
@@ -1754,7 +1754,7 @@ void RestApiRequest::customSounds()
 
 void RestApiRequest::usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info)
 {
-    auto *job = new UsersAutocompleteJob(this);
+    auto job = new UsersAutocompleteJob(this);
     job->setUsersCompleterInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersAutocompleteJob::usersAutocompleteDone, this, &RestApiRequest::usersAutocompleteDone);
@@ -1765,7 +1765,7 @@ void RestApiRequest::usersAutocomplete(const UsersAutocompleteJob::UsersAutocomp
 
 void RestApiRequest::roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info)
 {
-    auto *job = new RoomsAutocompleteChannelAndPrivateJob(this);
+    auto job = new RoomsAutocompleteChannelAndPrivateJob(this);
     job->setRoomsCompleterInfo(info);
     initializeRestApiJob(job);
     connect(job, &RoomsAutocompleteChannelAndPrivateJob::roomsAutoCompleteChannelAndPrivateDone, this, &RestApiRequest::roomsAutoCompleteChannelAndPrivateDone);
@@ -1776,7 +1776,7 @@ void RestApiRequest::roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJ
 
 void RestApiRequest::findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays)
 {
-    auto *job = new FindOrCreateInviteJob(this);
+    auto job = new FindOrCreateInviteJob(this);
     job->setRoomId(roomId);
     job->setMaxUses(maxUses);
     job->setNumberOfDays(numberOfDays);
@@ -1789,7 +1789,7 @@ void RestApiRequest::findOrCreateInvite(const QString &roomId, int maxUses, int 
 
 void RestApiRequest::sendUserEmailCode(const QString &identifier)
 {
-    auto *job = new User2FASendEmailCodeJob(this);
+    auto job = new User2FASendEmailCodeJob(this);
     job->setUsernameOrEmail(identifier);
     initializeRestApiJob(job);
     connect(job, &User2FASendEmailCodeJob::sendEmailCodeDone, this, &RestApiRequest::sendEmailCodeDone);
@@ -1800,7 +1800,7 @@ void RestApiRequest::sendUserEmailCode(const QString &identifier)
 
 void RestApiRequest::deleteOwnAccount(const QString &password)
 {
-    auto *job = new DeleteOwnAccountJob(this);
+    auto job = new DeleteOwnAccountJob(this);
     job->setPassword(password);
     initializeRestApiJob(job);
     connect(job, &DeleteOwnAccountJob::deleteOwnAccountDone, this, &RestApiRequest::deleteOwnAccountDone);
@@ -1811,7 +1811,7 @@ void RestApiRequest::deleteOwnAccount(const QString &password)
 
 void RestApiRequest::registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo)
 {
-    auto *job = new RegisterUserJob(this);
+    auto job = new RegisterUserJob(this);
     job->setRegisterUserInfo(userInfo);
     initializeRestApiJob(job);
     connect(job, &RegisterUserJob::registerUserDone, this, &RestApiRequest::registerUserDone);
@@ -1823,14 +1823,14 @@ void RestApiRequest::registerNewUser(const RocketChatRestApi::RegisterUserJob::R
 void RestApiRequest::enable2FaEmailJob(bool enable)
 {
     if (enable) {
-        auto *job = new User2FAEnableEmailJob(this);
+        auto job = new User2FAEnableEmailJob(this);
         initializeRestApiJob(job);
         connect(job, &User2FAEnableEmailJob::enableEmailDone, this, &RestApiRequest::enableEmailDone);
         if (!job->start()) {
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FAEnableEmailJob";
         }
     } else {
-        auto *job = new User2FADisableEmailJob(this);
+        auto job = new User2FADisableEmailJob(this);
         initializeRestApiJob(job);
         connect(job, &User2FADisableEmailJob::disableEmailDone, this, &RestApiRequest::disableEmailDone);
         if (!job->start()) {
@@ -1841,7 +1841,7 @@ void RestApiRequest::enable2FaEmailJob(bool enable)
 
 void RestApiRequest::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info)
 {
-    auto *job = new UsersUpdateOwnBasicInfoJob(this);
+    auto job = new UsersUpdateOwnBasicInfoJob(this);
     job->setUpdateOwnBasicInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersUpdateOwnBasicInfoJob::updateOwnBasicInfoDone, this, &RestApiRequest::updateOwnBasicInfoDone);
@@ -1855,7 +1855,7 @@ void RestApiRequest::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnB
 
 void RestApiRequest::removeOtherTokens()
 {
-    auto *job = new RemoveOtherTokensJob(this);
+    auto job = new RemoveOtherTokensJob(this);
     initializeRestApiJob(job);
     connect(job, &RemoveOtherTokensJob::removeOtherTokensDone, this, &RestApiRequest::removeOtherTokensDone);
     if (!job->start()) {
@@ -1865,7 +1865,7 @@ void RestApiRequest::removeOtherTokens()
 
 void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info)
 {
-    auto *job = new RoomsCleanHistoryJob(this);
+    auto job = new RoomsCleanHistoryJob(this);
     job->setCleanHistoryInfo(info);
     initializeRestApiJob(job);
     connect(job, &RoomsCleanHistoryJob::cleanHistoryDone, this, &RestApiRequest::cleanHistoryDone);
@@ -1876,7 +1876,7 @@ void RestApiRequest::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHist
 
 void RestApiRequest::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo &info)
 {
-    auto *job = new AdminRoomsJob(this);
+    auto job = new AdminRoomsJob(this);
     job->setRoomsAdminInfo(info);
     initializeRestApiJob(job);
     connect(job, &AdminRoomsJob::adminRoomsDone, this, &RestApiRequest::roomsAdminDone);
@@ -1887,7 +1887,7 @@ void RestApiRequest::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::Admin
 
 void RestApiRequest::getChannelsCounter(const QString &roomId)
 {
-    auto *job = new ChannelGetCountersJob(this);
+    auto job = new ChannelGetCountersJob(this);
     initializeRestApiJob(job);
     ChannelBaseJob::ChannelInfo info;
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
@@ -1901,7 +1901,7 @@ void RestApiRequest::getChannelsCounter(const QString &roomId)
 
 void RestApiRequest::setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info)
 {
-    auto *job = new UsersSetPreferencesJob(this);
+    auto job = new UsersSetPreferencesJob(this);
     job->setUsersSetPreferencesInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersSetPreferencesJob::usersSetPreferencesDone, this, &RestApiRequest::usersSetPreferencesDone);
@@ -1912,7 +1912,7 @@ void RestApiRequest::setUserPreferences(const RocketChatRestApi::UsersSetPrefere
 
 void RestApiRequest::createCustomUserStatus(const CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo)
 {
-    auto *job = new CustomUserStatusCreateJob(this);
+    auto job = new CustomUserStatusCreateJob(this);
     job->setStatusCreateInfo(statusCreateInfo);
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusCreateJob::createUserStatusDone, this, &RestApiRequest::createUserStatusDone);
@@ -1923,7 +1923,7 @@ void RestApiRequest::createCustomUserStatus(const CustomUserStatusCreateJob::Sta
 
 void RestApiRequest::deleteCustomUserStatus(const QString &customUserStatusId)
 {
-    auto *job = new CustomUserStatusDeleteJob(this);
+    auto job = new CustomUserStatusDeleteJob(this);
     job->setCustomUserStatusId(customUserStatusId);
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusDeleteJob::userStatusDeletedDone, this, &RestApiRequest::userStatusDeletedDone);
@@ -1934,7 +1934,7 @@ void RestApiRequest::deleteCustomUserStatus(const QString &customUserStatusId)
 
 void RestApiRequest::updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo)
 {
-    auto *job = new CustomUserStatusUpdateJob(this);
+    auto job = new CustomUserStatusUpdateJob(this);
     job->setStatusUpdateInfo(statusUpdateInfo);
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusUpdateJob::customUserUpdateDone, this, &RestApiRequest::customUserUpdateDone);
@@ -1945,7 +1945,7 @@ void RestApiRequest::updateCustomUserStatus(const CustomUserStatusUpdateJob::Sta
 
 void RestApiRequest::resetAvatar(const UserBaseJob::UserInfo &info)
 {
-    auto *job = new ResetAvatarJob(this);
+    auto job = new ResetAvatarJob(this);
     job->setUserInfo(info);
     initializeRestApiJob(job);
     connect(job, &ResetAvatarJob::resetAvatarDone, this, &RestApiRequest::resetAvatarDone);
@@ -1956,7 +1956,7 @@ void RestApiRequest::resetAvatar(const UserBaseJob::UserInfo &info)
 
 void RestApiRequest::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
 {
-    auto *job = new RoomsExportJob(this);
+    auto job = new RoomsExportJob(this);
     job->setRoomExportInfo(info);
     initializeRestApiJob(job);
     connect(job, &RoomsExportJob::roomExportDone, this, &RestApiRequest::roomExportDone);

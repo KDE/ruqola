@@ -45,7 +45,7 @@ ThreadMessageModel *MessageCache::threadMessageModel(const QString &threadMessag
         return cachedModel;
     } else if (!mThreadMessageJobs.contains(threadMessageId)) {
         // Load the base msg of the thread
-        auto *job = new RocketChatRestApi::GetThreadMessagesJob(this);
+        auto job = new RocketChatRestApi::GetThreadMessagesJob(this);
         mThreadMessageJobs.insert(threadMessageId, job);
         job->setThreadMessageId(threadMessageId);
         connect(job, &RocketChatRestApi::GetThreadMessagesJob::getThreadMessagesDone,
@@ -63,7 +63,7 @@ Message *MessageCache::messageForId(const QString &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
-        auto *job = new RocketChatRestApi::GetMessageJob(this);
+        auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
         job->setMessageId(messageId);
         connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone,
@@ -93,7 +93,7 @@ void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QString &mes
 {
     const QJsonObject msgObject = obj[QStringLiteral("message")].toObject();
     Q_ASSERT(!msgObject.isEmpty());
-    auto *message = new Message;
+    auto message = new Message;
     message->parseMessage(msgObject, true);
     Q_ASSERT(messageId == message->messageId());
     mMessages.insert(message->messageId(), message);

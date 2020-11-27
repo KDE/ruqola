@@ -41,7 +41,7 @@
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins({});
 
@@ -60,7 +60,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
 
-    auto *statusComboBoxLayout = new QHBoxLayout;
+    auto statusComboBoxLayout = new QHBoxLayout;
     mainLayout->addLayout(statusComboBoxLayout);
     QLabel *label = new QLabel(i18n("Status:"), this);
     label->setObjectName(QStringLiteral("label"));
@@ -122,7 +122,7 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 {
     if (object == mSearchRoom && event->type() == QEvent::KeyPress) {
         const auto *model = mChannelView->model();
-        const auto *keyEvent = static_cast<QKeyEvent *>(event);
+        const auto keyEvent = static_cast<QKeyEvent *>(event);
         const int keyValue = keyEvent->key();
         if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
             const auto selectedIndex = mChannelView->selectionModel()->currentIndex();

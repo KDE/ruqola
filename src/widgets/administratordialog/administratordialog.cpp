@@ -35,14 +35,14 @@ AdministratorDialog::AdministratorDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Administrator"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mAdministratorWidget = new AdministratorWidget(this);
     mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
     mainLayout->addWidget(mAdministratorWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorDialog::reject);

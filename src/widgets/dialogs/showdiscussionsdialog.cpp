@@ -38,14 +38,14 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Discussions"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowDiscussionsWidget = new ShowDiscussionsWidget(this);
     mShowDiscussionsWidget->setObjectName(QStringLiteral("mShowDiscussionsWidget"));
     mainLayout->addWidget(mShowDiscussionsWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowDiscussionsDialog::reject);

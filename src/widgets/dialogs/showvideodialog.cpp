@@ -34,14 +34,14 @@ ShowVideoDialog::ShowVideoDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Video"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowVideoWidget = new ShowVideoWidget(this);
     mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
     mainLayout->addWidget(mShowVideoWidget);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowVideoDialog::reject);
     mainLayout->addWidget(buttonBox);

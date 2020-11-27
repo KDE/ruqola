@@ -74,7 +74,7 @@ void EmoticonSelectorWidget::slotEmoticonClicked(QListWidgetItem *item)
     if (!item) {
         return;
     }
-    auto *itemEmoticon = static_cast<EmoticonTextEditItem *>(item);
+    auto itemEmoticon = static_cast<EmoticonTextEditItem *>(item);
 
     Q_EMIT itemSelected(itemEmoticon->identifier());
 }

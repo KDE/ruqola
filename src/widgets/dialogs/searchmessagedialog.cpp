@@ -34,7 +34,7 @@ SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Search Messages"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchMessageWidget = new SearchMessageWidget(this);
@@ -42,7 +42,7 @@ SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     mainLayout->addWidget(mSearchMessageWidget);
     connect(mSearchMessageWidget, &SearchMessageWidget::goToMessageRequested, this, &SearchMessageDialog::goToMessageRequested);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &SearchMessageDialog::reject);

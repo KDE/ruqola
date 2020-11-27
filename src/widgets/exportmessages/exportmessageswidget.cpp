@@ -30,7 +30,7 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     , mToDate(new QDateEdit(this))
     , mFormat(new QComboBox(this))
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

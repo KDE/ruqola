@@ -159,7 +159,7 @@ void MessageDelegateHelperText::setClipboardSelection()
 
 void MessageDelegateHelperText::updateView(const QWidget *widget, const QModelIndex &index)
 {
-    auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(widget));
+    auto view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(widget));
     Q_ASSERT(view);
     view->update(index);
 }
@@ -346,11 +346,11 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
     if (index == mCurrentIndex && !mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection()) {
         const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mCurrentTextCursor.selectionStart() <= charPos && charPos <= mCurrentTextCursor.selectionEnd()) {
-            auto *mimeData = new QMimeData;
+            auto mimeData = new QMimeData;
             const QTextDocumentFragment fragment(mCurrentTextCursor);
             mimeData->setHtml(fragment.toHtml());
             mimeData->setText(fragment.toPlainText());
-            auto *drag = new QDrag(const_cast<QWidget *>(option.widget));
+            auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);
             return true;

@@ -62,7 +62,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                     auto &rai = mRunningAnimatedImages.back();
                     rai.movie->setFileName(layout.imagePath);
                     rai.movie->setScaledSize(layout.imageSize);
-                    auto *view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
+                    auto view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
                     const QPersistentModelIndex &idx = rai.index;
                     QObject::connect(rai.movie, &QMovie::frameChanged,
                                      view, [view, idx, this]() {

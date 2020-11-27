@@ -98,7 +98,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
-        auto *mev = static_cast<QMouseEvent *>(event);
+        auto mev = static_cast<QMouseEvent *>(event);
 
         const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
 

@@ -29,7 +29,7 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
     , mName(new QLineEdit(this))
     , mStatusCombobox(new StatusCombobox(false, this))
 {
-    auto *mainLayout = new QFormLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

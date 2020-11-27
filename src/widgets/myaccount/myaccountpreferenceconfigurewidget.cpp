@@ -30,10 +30,10 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     : QWidget(parent)
     , mHighlightWords(new QLineEdit(this))
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    auto *highlightWordsLabel = new QLabel(i18n("Highlight words:"), this);
+    auto highlightWordsLabel = new QLabel(i18n("Highlight words:"), this);
     highlightWordsLabel->setObjectName(QStringLiteral("highlightWordsLabel"));
     highlightWordsLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(highlightWordsLabel);

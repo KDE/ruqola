@@ -34,14 +34,14 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Configure my Account"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mMyAccountConfigWidget = new MyAccountConfigureWidget(this);
     mMyAccountConfigWidget->setObjectName(QStringLiteral("mMyAccountConfigWidget"));
     mainLayout->addWidget(mMyAccountConfigWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);

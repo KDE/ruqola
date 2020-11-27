@@ -26,7 +26,7 @@
 AddUsersWidget::AddUsersWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
@@ -51,7 +51,7 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
     if (mMap.contains(userName)) {
         return;
     }
-    auto *clickableUserWidget = new ClickableUserWidget(userName, this);
+    auto clickableUserWidget = new ClickableUserWidget(userName, this);
     clickableUserWidget->setUserId(info.userId);
     connect(clickableUserWidget, &ClickableUserWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);

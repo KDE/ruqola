@@ -83,7 +83,7 @@ bool GetGroupRolesJob::requireHttpAuthentication() const
 
 void GetGroupRolesJob::slotGetGroupRolesFinished()
 {
-    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();

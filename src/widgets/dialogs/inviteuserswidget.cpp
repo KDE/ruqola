@@ -39,11 +39,11 @@
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto *hlayout = new QHBoxLayout;
+    auto hlayout = new QHBoxLayout;
     hlayout->setObjectName(QStringLiteral("hlayout"));
     hlayout->setContentsMargins({});
     mainLayout->addLayout(hlayout);
@@ -59,21 +59,21 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     new LineEditCatchReturnKey(mInviteUserLineEdit, this);
     hlayout->addWidget(mInviteUserLineEdit);
 
-    auto *copyLinkButton = new QToolButton(this);
+    auto copyLinkButton = new QToolButton(this);
     copyLinkButton->setObjectName(QStringLiteral("copyLinkButton"));
     copyLinkButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     copyLinkButton->setToolTip(i18n("Copy link"));
     hlayout->addWidget(copyLinkButton);
     connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
 
-    auto *collapsibleGroupBox = new KCollapsibleGroupBox(this);
+    auto collapsibleGroupBox = new KCollapsibleGroupBox(this);
     collapsibleGroupBox->setObjectName(QStringLiteral("collapsibleGroupBox"));
     collapsibleGroupBox->setTitle(i18n("Options"));
     mainLayout->addWidget(collapsibleGroupBox);
 
     connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
 
-    auto *formLayout = new QFormLayout(collapsibleGroupBox);
+    auto formLayout = new QFormLayout(collapsibleGroupBox);
     formLayout->setObjectName(QStringLiteral("formLayout"));
     formLayout->setContentsMargins({});
 

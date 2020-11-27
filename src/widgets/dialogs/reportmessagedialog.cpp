@@ -34,7 +34,7 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Report Message"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mReportMessageWidget = new ReportMessageWidget(this);
@@ -42,7 +42,7 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     mainLayout->addWidget(mReportMessageWidget);
     mainLayout->addStretch(1);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ReportMessageDialog::accept);

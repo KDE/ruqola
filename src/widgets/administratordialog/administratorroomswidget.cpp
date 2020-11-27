@@ -38,7 +38,7 @@
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchLineEdit = new QLineEdit(this);
@@ -93,7 +93,7 @@ void AdministratorRoomsWidget::slotTextChanged(const QString &text)
 void AdministratorRoomsWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto *adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
+    auto adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
     rcAccount->restApi()->initializeRestApiJob(adminRoomsJob);
     connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone,
             this, &AdministratorRoomsWidget::slotAdminRoomDone);

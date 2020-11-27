@@ -34,14 +34,14 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Search Channel"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchChannelWidget = new SearchChannelWidget(this);
     mSearchChannelWidget->setObjectName(QStringLiteral("mSearchChannelWidget"));
     mainLayout->addWidget(mSearchChannelWidget);
 
-    auto *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
 

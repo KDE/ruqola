@@ -99,7 +99,7 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
 
 void MessageListView::goToMessage(const QString &messageId)
 {
-    auto *messageModel = qobject_cast<MessageModel *>(model());
+    auto messageModel = qobject_cast<MessageModel *>(model());
     Q_ASSERT(messageModel);
     const QModelIndex index = messageModel->indexForMessage(messageId);
     if (index.isValid()) {
@@ -111,7 +111,7 @@ void MessageListView::goToMessage(const QString &messageId)
 
 void MessageListView::setChannelSelected(Room *room)
 {
-    auto *oldModel = qobject_cast<MessageModel *>(model());
+    auto oldModel = qobject_cast<MessageModel *>(model());
     if (oldModel) {
         oldModel->deactivate();
     }
