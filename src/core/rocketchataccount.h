@@ -463,7 +463,7 @@ public:
     void resetAvatar();
     void setAvatarUrl(const QString &url);
     void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
-    Q_REQUIRED_RESULT bool hasPermission(const QString &permissionId);
+    Q_REQUIRED_RESULT bool hasPermission(const QString &permissionId) const;
     Q_REQUIRED_RESULT QStringList permissions(const QString &permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
 Q_SIGNALS:
