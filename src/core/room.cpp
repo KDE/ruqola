@@ -505,6 +505,9 @@ QString Room::topic() const
 
 QString Room::displayTopic() const
 {
+    if (mTopic.isEmpty()) {
+        return {};
+    }
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     return TextConverter::convertMessageText(mTopic, {}, {}, {}, emojiManager);
 }
