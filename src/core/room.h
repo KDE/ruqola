@@ -169,7 +169,6 @@ public:
     void setEncrypted(bool encrypted);
 
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
-    Q_REQUIRED_RESULT QString markdownAnnouncement() const;
     Q_REQUIRED_RESULT QString roomMessageInfo() const;
 
     Q_REQUIRED_RESULT QString e2EKey() const;

@@ -538,12 +538,6 @@ void Room::setChannelType(const QString &channelType)
     }
 }
 
-QString Room::markdownAnnouncement() const
-{
-    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
-    return TextConverter::convertMessageText(mAnnouncement, {}, {}, {}, emojiManager);
-}
-
 QString Room::announcement() const
 {
     return mAnnouncement;
