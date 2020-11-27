@@ -59,7 +59,7 @@ void CustomUserStatusUpdateTestJob::shouldGenerateJson()
     info.statusType = statusType;
     info.identifier = identifier;
     job.setStatusUpdateInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"_id\":\"%3\",\"name\":\"%1\",\"statusType\":\"%2\"}").arg(name, statusType, identifier).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"_id":"%3","name":"%1","statusType":"%2"})").arg(name, statusType, identifier).toLatin1());
 }
 
 void CustomUserStatusUpdateTestJob::shouldNotStarting()

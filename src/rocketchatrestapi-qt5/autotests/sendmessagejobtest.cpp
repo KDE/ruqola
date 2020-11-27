@@ -61,17 +61,17 @@ void SendMessageJobTest::shouldGenerateJson()
     args.roomId = roomId;
     args.message = text;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":{\"msg\":\"%2\",\"rid\":\"%1\"}}").arg(roomId, text).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":{"msg":"%2","rid":"%1"}})").arg(roomId, text).toLatin1());
 
     const QString threadId = QStringLiteral("threadid");
     args.threadMessageId = threadId;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":{\"msg\":\"%2\",\"rid\":\"%1\",\"tmid\":\"%3\"}}").arg(roomId, text, threadId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":{"msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId).toLatin1());
 
     const QString messageId = QStringLiteral("msgid");
     args.messageId = messageId;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":{\"_id\":\"%4\",\"msg\":\"%2\",\"rid\":\"%1\",\"tmid\":\"%3\"}}").arg(roomId, text, threadId, messageId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":{"_id":"%4","msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId, messageId).toLatin1());
 }
 
 void SendMessageJobTest::shouldNotStarting()

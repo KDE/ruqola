@@ -53,7 +53,7 @@ void RoomFavoriteJobTest::shouldGenerateJson()
     RoomFavoriteJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"favorite\":true,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"favorite":true,"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
 void RoomFavoriteJobTest::shouldNotStarting()

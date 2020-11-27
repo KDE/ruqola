@@ -74,14 +74,14 @@ void RoomsExportJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"dateFrom":"2020-12-03T04:07:50.000Z","dateTo":"2020-03-03T04:07:50.000Z","rid":"%1","type":"file"})").arg(roomId).toLatin1());
 //    info.inclusive = true;
 //    job.setCleanHistoryInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
 //    info.ignoreThreads = true;
 //    job.setCleanHistoryInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
 //    const QStringList users = {QStringLiteral("bla"), QStringLiteral("bli")};
 //    info.users = users;
 //    job.setCleanHistoryInfo(info);
-//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"ignoreThreads\":true,\"inclusive\":true,\"latest\":\"2020-12-03T04:07:50.000Z\",\"oldest\":\"2020-03-03T04:07:50.000Z\",\"roomId\":\"room1\",\"users\":[\"bla\",\"bli\"]}").arg(roomId).toLatin1());
+//    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})").arg(roomId).toLatin1());
 }
 
 void RoomsExportJobTest::shouldNotStarting()

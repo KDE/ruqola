@@ -54,12 +54,12 @@ void CreateDmJobTest::shouldGenerateJson()
     {
         const QString channelname = QStringLiteral("foo1");
         job.setUserNames({channelname});
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"username\":\"%1\"}").arg(channelname).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"username":"%1"})").arg(channelname).toLatin1());
     }
     {
         const QStringList userNames = {QStringLiteral("foo1"), QStringLiteral("bla"), QStringLiteral("bli")};
         job.setUserNames(userNames);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"usernames\":\"foo1,bla,bli\"}").toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"usernames":"foo1,bla,bli"})").toLatin1());
     }
 }
 

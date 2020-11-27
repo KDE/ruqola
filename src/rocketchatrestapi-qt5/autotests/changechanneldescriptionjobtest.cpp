@@ -77,5 +77,5 @@ void ChangeChannelDescriptionJobTest::shouldGenerateJson()
     const QString description = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setDescription(description);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"description\":\"%1\",\"roomId\":\"%2\"}").arg(description, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%1","roomId":"%2"})").arg(description, roomId).toLatin1());
 }

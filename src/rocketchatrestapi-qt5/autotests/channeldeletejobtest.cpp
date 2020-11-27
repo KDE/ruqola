@@ -55,7 +55,7 @@ void ChannelDeleteJobTest::shouldGenerateUserIdJson()
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
 void ChannelDeleteJobTest::shouldGenerateUserNameJson()
@@ -66,5 +66,5 @@ void ChannelDeleteJobTest::shouldGenerateUserNameJson()
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }

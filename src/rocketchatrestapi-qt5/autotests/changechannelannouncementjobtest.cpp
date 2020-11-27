@@ -77,5 +77,5 @@ void ChangeChannelAnnouncementJobTest::shouldGenerateJson()
     const QString announcement = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setAnnouncement(announcement);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"announcement\":\"%1\",\"roomId\":\"%2\"}").arg(announcement, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"announcement":"%1","roomId":"%2"})").arg(announcement, roomId).toLatin1());
 }

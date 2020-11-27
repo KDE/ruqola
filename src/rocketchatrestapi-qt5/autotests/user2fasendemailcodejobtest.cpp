@@ -52,7 +52,7 @@ void User2FASendEmailCodeJobTest::shouldGenerateJson()
     User2FASendEmailCodeJob job;
     const QString emails = QStringLiteral("emails");
     job.setUsernameOrEmail(emails);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"emailOrUsername\":\"%1\"}").arg(emails).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emailOrUsername":"%1"})").arg(emails).toLatin1());
 }
 
 void User2FASendEmailCodeJobTest::shouldNotStarting()

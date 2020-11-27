@@ -56,7 +56,7 @@ void GroupsInviteJobTest::shouldGenerateUsernameJson()
     const QString userId = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setInviteUserName(userId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userName\":\"%1\"}").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userId, roomId).toLatin1());
 }
 
 void GroupsInviteJobTest::shouldGenerateUserIdJson()
@@ -66,5 +66,5 @@ void GroupsInviteJobTest::shouldGenerateUserIdJson()
     const QString userId = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setInviteUserId(userId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
 }

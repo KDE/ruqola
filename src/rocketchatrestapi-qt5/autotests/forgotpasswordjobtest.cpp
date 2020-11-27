@@ -58,5 +58,5 @@ void ForgotPasswordJobTest::shouldGenerateJson()
     ForgotPasswordJob job;
     const QString email = QStringLiteral("foo");
     job.setEmail(email);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"email\":\"%1\"}").arg(email).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1"})").arg(email).toLatin1());
 }

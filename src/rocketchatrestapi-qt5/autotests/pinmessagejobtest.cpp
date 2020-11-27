@@ -85,7 +85,7 @@ void PinMessageJobTest::shouldGenerateJson()
     PinMessageJob job;
     const QString messageId = QStringLiteral("foo1");
     job.setMessageId(messageId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"messageId\":\"%1\"}").arg(messageId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(messageId).toLatin1());
     job.setPinMessage(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"messageId\":\"%1\"}").arg(messageId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(messageId).toLatin1());
 }

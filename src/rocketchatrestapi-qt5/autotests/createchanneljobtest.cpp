@@ -56,19 +56,19 @@ void CreateChannelJobTest::shouldGenerateJson()
     CreateChannelJob job;
     const QString channelname = QStringLiteral("foo1");
     job.setChannelName(channelname);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"name\":\"%1\"}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     bool readOnly = false;
     job.setReadOnly(readOnly);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"name\":\"%1\"}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     readOnly = true;
     job.setReadOnly(readOnly);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"name\":\"%1\",\"readOnly\":true}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
     job.setMembers(members);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"members\":[\"foo\",\"bla\"],\"name\":\"%1\",\"readOnly\":true}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 }
 
 void CreateChannelJobTest::shouldNotStarting()

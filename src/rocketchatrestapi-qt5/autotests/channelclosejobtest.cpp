@@ -69,7 +69,7 @@ void ChannelCloseJobTest::shouldGenerateJson()
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"roomId\":\"%1\"}")
+             QStringLiteral(R"({"roomId":"%1"})")
              .arg(roomId).toLatin1());
 }
 

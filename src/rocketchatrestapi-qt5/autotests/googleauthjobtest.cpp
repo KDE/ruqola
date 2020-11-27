@@ -64,7 +64,7 @@ void GoogleAuthJobTest::shouldGenerateJson()
 
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"expiresIn\":300,\"idToken\":\"%2\",\"serviceName\":\"google\"}")
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"idToken":"%2","serviceName":"google"})")
              .arg(accessToken, secret).toLatin1());
 }
 

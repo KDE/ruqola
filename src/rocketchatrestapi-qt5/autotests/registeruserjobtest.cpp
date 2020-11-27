@@ -62,7 +62,7 @@ void RegisterUserJobTest::shouldGenerateJson()
     info.name = name;
     info.password = password;
     job.setRegisterUserInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"email\":\"%1\",\"name\":\"%2\",\"pass\":\"%3\",\"username\":\"%4\"}")
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})")
              .arg(email, name, password, username).toLatin1());
 }
 

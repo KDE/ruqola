@@ -55,7 +55,7 @@ void DeleteUserJobTest::shouldGenerateJson()
     info.userIdentifier = QStringLiteral("foo1");
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"userId\":\"%1\"}").arg(info.userIdentifier).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(info.userIdentifier).toLatin1());
 }
 
 void DeleteUserJobTest::shouldNotStarting()

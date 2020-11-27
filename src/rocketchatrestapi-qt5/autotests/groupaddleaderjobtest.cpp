@@ -55,5 +55,5 @@ void GroupAddLeaderJobTest::shouldGenerateJson()
     const QString removeUserId = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setAddLeaderUserId(removeUserId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(removeUserId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(removeUserId, roomId).toLatin1());
 }

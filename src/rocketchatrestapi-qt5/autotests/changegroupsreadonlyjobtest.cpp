@@ -55,9 +55,9 @@ void ChangeGroupsReadonlyJobTest::shouldGenerateJson()
     bool readOnly = true;
     job.setRoomId(roomId);
     job.setReadOnly(readOnly);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"readOnly\":true,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"readOnly":true,"roomId":"%1"})").arg(roomId).toLatin1());
 
     readOnly = false;
     job.setReadOnly(readOnly);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"readOnly\":false,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"readOnly":false,"roomId":"%1"})").arg(roomId).toLatin1());
 }

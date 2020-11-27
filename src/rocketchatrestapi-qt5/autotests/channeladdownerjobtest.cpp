@@ -58,5 +58,5 @@ void ChannelAddOwnerJobTest::shouldGenerateJson()
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     job.setAddownerUserId(addUsedId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(addUsedId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(addUsedId, roomId).toLatin1());
 }

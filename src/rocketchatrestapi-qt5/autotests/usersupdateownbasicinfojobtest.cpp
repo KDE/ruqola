@@ -56,26 +56,26 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
     info.email = email;
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Email;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\"}}").arg(email).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1"}})").arg(email).toLatin1());
 
     const QString username = QStringLiteral("username");
     info.userName = username;
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::UserName;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"username\":\"%2\"}}").arg(email, username).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1","username":"%2"}})").arg(email, username).toLatin1());
 
     const QString nickname = QStringLiteral("nick");
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::NickName;
     info.nickName = nickname;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"nickname\":\"%3\",\"username\":\"%2\"}}")
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","username":"%2"}})")
              .arg(email, username, nickname).toLatin1());
 
     const QString statustext = QStringLiteral("tt");
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::StatusText;
     info.statusText = statustext;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"data\":{\"email\":\"%1\",\"nickname\":\"%3\",\"statusText\":\"%4\",\"username\":\"%2\"}}")
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","statusText":"%4","username":"%2"}})")
              .arg(email, username, nickname, statustext).toLatin1());
 }
 

@@ -59,7 +59,7 @@ void ChannelInviteJobTest::shouldGenerateUserIdJson()
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     job.setInviteUserId(userId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
 }
 
 void ChannelInviteJobTest::shouldGenerateUserNameJson()
@@ -72,5 +72,5 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     job.setInviteUserName(userName);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userName\":\"%1\"}").arg(userName, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userName, roomId).toLatin1());
 }

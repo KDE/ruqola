@@ -58,10 +58,10 @@ void SetChannelTypeJobTest::shouldGenerateJson()
     info.channelInfoIdentifier = channelname;
     job.setChannelInfo(info);
     job.setType(SetChannelTypeJob::Private);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"p\"}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","type":"p"})").arg(channelname).toLatin1());
 
     job.setType(SetChannelTypeJob::Public);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"c\"}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","type":"c"})").arg(channelname).toLatin1());
 }
 
 void SetChannelTypeJobTest::shouldNotStarting()

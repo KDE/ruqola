@@ -66,19 +66,19 @@ void SaveNotificationJobTest::shouldGenerateJson()
     SaveNotificationJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"notifications\":{},\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{},"roomId":"%1"})").arg(roomId).toLatin1());
 
     //Add settings
     const QString audioNotification = QStringLiteral("all");
     job.setAudioNotifications(audioNotification);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\"},\"roomId\":\"%1\"}")
+             QStringLiteral(R"({"notifications":{"audioNotifications":"%2"},"roomId":"%1"})")
              .arg(roomId, audioNotification).toLatin1());
 
     const bool hideUnread = true;
     job.setHideUnreadStatus(hideUnread);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\",\"hideUnreadStatus\":\"1\"},\"roomId\":\"%1\"}")
+             QStringLiteral(R"({"notifications":{"audioNotifications":"%2","hideUnreadStatus":"1"},"roomId":"%1"})")
              .arg(roomId, audioNotification).toLatin1());
     const QString mobilePushNotifications = QStringLiteral("all");
     job.setMobilePushNotifications(mobilePushNotifications);

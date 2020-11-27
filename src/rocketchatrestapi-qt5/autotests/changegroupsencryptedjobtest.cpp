@@ -55,9 +55,9 @@ void ChangeGroupsEncryptedJobTest::shouldGenerateJson()
     bool encrypted = true;
     job.setRoomId(roomId);
     job.setEncrypted(encrypted);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"encrypted\":true,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"encrypted":true,"roomId":"%1"})").arg(roomId).toLatin1());
 
     encrypted = false;
     job.setEncrypted(encrypted);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"encrypted\":false,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"encrypted":false,"roomId":"%1"})").arg(roomId).toLatin1());
 }
