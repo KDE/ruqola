@@ -500,6 +500,11 @@ void Room::setReadOnly(bool readOnly)
 
 QString Room::topic() const
 {
+    return mTopic;
+}
+
+QString Room::displayTopic() const
+{
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     return TextConverter::convertMessageText(mTopic, {}, {}, {}, emojiManager);
 }

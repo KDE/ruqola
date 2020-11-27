@@ -468,7 +468,7 @@ void RoomWidget::updateRoomHeader()
     if (mRoom) {
         mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->announcement());
-        mRoomHeaderWidget->setRoomTopic(mRoom->topic());
+        mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
         mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
@@ -526,7 +526,7 @@ void RoomWidget::connectRoom()
             mRoomHeaderWidget->setRoomAnnouncement(mRoom->announcement());
         });
         connect(mRoom, &Room::topicChanged, this, [this]() {
-            mRoomHeaderWidget->setRoomTopic(mRoom->topic());
+            mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         });
         connect(mRoom, &Room::nameChanged, this, [this]() {
             mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
