@@ -30,8 +30,7 @@
 
 QTEST_GUILESS_MAIN(TextConverterTest)
 
-namespace
-{
+namespace {
 QString prepareExpectedOutput(QString output)
 {
     KColorScheme scheme;
@@ -253,18 +252,18 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                  << QStringLiteral(
         "<div><b>*foo*</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div><b>*bar*</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table><div><b>*asdf*</b></div>")
                                  << QStringLiteral("www.kde.org");
-   QTest::newRow("quotedcode7") << QStringLiteral(":)\n```\n:)\n```\n:)")
-                                << QStringLiteral(
-       "<div>%1</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>:)</code></td></tr></table><div>%1</div>").arg(smileyText)
-                                << QStringLiteral("www.kde.org");
-   QTest::newRow("quotedcode8") << QStringLiteral("```javascript\ncode\n```")
-                                << QStringLiteral(
-       "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>code</code></td></tr></table>")
-                                << QStringLiteral("www.kde.org");
-   QTest::newRow("quotedcode9") << QStringLiteral("```blub\ncode\n```")
-                                << QStringLiteral(
-       "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub<br>code</code></td></tr></table>")
-                                << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode7") << QStringLiteral(":)\n```\n:)\n```\n:)")
+                                 << QStringLiteral(
+        "<div>%1</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>:)</code></td></tr></table><div>%1</div>").arg(smileyText)
+                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode8") << QStringLiteral("```javascript\ncode\n```")
+                                 << QStringLiteral(
+        "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>code</code></td></tr></table>")
+                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode9") << QStringLiteral("```blub\ncode\n```")
+                                 << QStringLiteral(
+        "<table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub<br>code</code></td></tr></table>")
+                                 << QStringLiteral("www.kde.org");
 
     QTest::newRow("inline-code-with-brackets") << QStringLiteral("`[[test]]` and `a[b` something")
                                                << QStringLiteral(
@@ -299,5 +298,5 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.loadCustomEmoji(obj);
     manager.setServerUrl(serverUrl);
 
-    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {},  &manager), output); //TODO add autotest for highlightwords
+    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, &manager), output);  //TODO add autotest for highlightwords
 }

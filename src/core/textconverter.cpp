@@ -33,8 +33,7 @@
 #include <KTextToHTML>
 #include <KColorScheme>
 
-namespace
-{
+namespace {
 /// check if the @p str contains an uneven number of backslashes before @p pos
 bool isEscaped(const QString &str, int pos)
 {
@@ -63,8 +62,7 @@ int findNonEscaped(const QString &str, const QString &regionMarker, int startFro
 }
 
 template<typename InRegionCallback, typename OutsideRegionCallback>
-void iterateOverRegions(const QString &str, const QString &regionMarker,
-                        InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
+void iterateOverRegions(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
 {
     int startFrom = 0;
     const auto markerSize = regionMarker.size();
@@ -228,27 +226,28 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     if (useHighlighter) {
         auto &repo = SyntaxHighlightingManager::self()->repo();
         highlighter.setTheme(codeBackgroundColor.lightness() < 128
-                                            ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                            : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+                             ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                             : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
     }
     auto highlight = [&](const QString &codeBlock) {
-        if (!useHighlighter) {
-            return codeBlock;
-        }
-        stream.reset();
-        stream.seek(0);
-        highlighted.clear();
-        highlighter.highlight(codeBlock);
-        return highlighted;
-    };
+                         if (!useHighlighter) {
+                             return codeBlock;
+                         }
+                         stream.reset();
+                         stream.seek(0);
+                         highlighted.clear();
+                         highlighter.highlight(codeBlock);
+                         return highlighted;
+                     };
 
     auto addCodeChunk = [&](QString chunk) {
                             const auto language = [&]() {
-                                const auto newline = chunk.indexOf(QLatin1Char('\n'));
-                                if (newline == -1)
-                                    return QString();
-                                return chunk.left(newline);
-                            }();
+                                                      const auto newline = chunk.indexOf(QLatin1Char('\n'));
+                                                      if (newline == -1) {
+                                                          return QString();
+                                                      }
+                                                      return chunk.left(newline);
+                                                  }();
 
                             auto definition = SyntaxHighlightingManager::self()->def(language);
                             if (definition.isValid()) {
@@ -267,27 +266,27 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                         };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name()
-                       << QLatin1String("'>") << chunk.toHtmlEscaped() << QLatin1String("</code>");
-    };
+                                  richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name()
+                                                 << QLatin1String("'>") << chunk.toHtmlEscaped() << QLatin1String("</code>");
+                              };
 
     auto addTextChunk = [&](const QString &chunk) {
-        auto htmlChunk = generateRichText(chunk, userName, highlightWords);
-        if (emojiManager) {
-            emojiManager->replaceEmojis(&htmlChunk);
-        }
-        richTextStream << htmlChunk;
-    };
+                            auto htmlChunk = generateRichText(chunk, userName, highlightWords);
+                            if (emojiManager) {
+                                emojiManager->replaceEmojis(&htmlChunk);
+                            }
+                            richTextStream << htmlChunk;
+                        };
 
     auto addNonCodeChunk = [&](QString chunk) {
-                                chunk = chunk.trimmed();
-                                if (chunk.isEmpty()) {
-                                    return;
-                                }
+                               chunk = chunk.trimmed();
+                               if (chunk.isEmpty()) {
+                                   return;
+                               }
 
-                                richTextStream << QLatin1String("<div>");
-                                iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
-                                richTextStream << QLatin1String("</div>");
+                               richTextStream << QLatin1String("<div>");
+                               iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
+                               richTextStream << QLatin1String("</div>");
                            };
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
