@@ -66,17 +66,15 @@ QString Utils::markdownToRichText(const QString &markDown)
     // substitute "[example.com](<a href="...">...</a>)" style urls
     str = Utils::convertTextWithUrl(str);
 
-    //Bug 391520 I don't remember why I removed <br /> need to investigate
-    //str.remove(QStringLiteral("<br />"));
-    //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
     return str;
 }
 
 QString Utils::generateRichText(const QString &str, const QString &username, const QStringList &highlightWords)
 {
+    static const QRegularExpression regularExpressionCode(QStringLiteral("((?<!\\\\)`.*?(?<!\\\\)`)"));
+
     QString newStr = Utils::markdownToRichText(str);
     KColorScheme colorScheme;
-    //qDebug() << " highlightWords " << highlightWords;
     const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
     const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
     if (!highlightWords.isEmpty()) {
@@ -138,7 +136,6 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
         }
     }
-
     static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"));
     QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
     while (roomIterator.hasNext()) {
@@ -150,9 +147,16 @@ QString Utils::generateRichText(const QString &str, const QString &username, con
     /// match unescaped `...` regions, i.e. properly match `...\`...`
     /// and make the inner region non-greedy, to have two code blocks for
     /// lines like this: `foo` asdf `bar`
-    static const QRegularExpression regularExpressionCode(QStringLiteral("((?<!\\\\)`.*?(?<!\\\\)`)"));
-    newStr.replace(regularExpressionCode, QStringLiteral("<code>\\1</code>"));
-
+    QRegularExpressionMatchIterator userIteratorHref = regularExpressionCode.globalMatch(newStr);
+    //Remove convert < to &lt; in quote text. but it seems that we don't use it for current code... Only fix autotest
+    int offsetCode = 0;
+    while (userIteratorHref.hasNext()) {
+        const QRegularExpressionMatch match = userIteratorHref.next();
+        QString word = match.captured(1);
+        const QString replaceWord = QStringLiteral("<code>%1</code>").arg(word.replace(QStringLiteral("&lt;"), QStringLiteral("<")));
+        newStr.replace(match.capturedStart(1) + offsetCode, match.capturedLength(1), replaceWord);
+        offsetCode += replaceWord.length() - word.length();
+    }
     return newStr;
 }
 

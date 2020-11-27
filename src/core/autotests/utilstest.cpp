@@ -137,7 +137,6 @@ void UtilsTest::shouldExtractGenerateRichText()
 {
     QFETCH(QString, input);
     QFETCH(QString, output);
-    QEXPECT_FAIL("quote<", "Rendering problem against <<", Continue);
     QCOMPARE(Utils::generateRichText(input, QString(), {}), output);
 }
 
