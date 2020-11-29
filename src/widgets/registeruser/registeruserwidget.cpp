@@ -77,6 +77,7 @@ void RegisterUserWidget::slotUpdateRegisterButton()
 
 void RegisterUserWidget::slotRegisterNewUser()
 {
+    mRegisterButton->setEnabled(false);
     Ruqola::self()->rocketChatAccount()->registerNewUser(registerUserInfo());
 }
 
