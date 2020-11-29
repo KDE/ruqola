@@ -1171,7 +1171,7 @@ void RestApiRequest::getUsernameSuggestion()
     }
 }
 
-void RestApiRequest::listPermissions()
+void RestApiRequest::listAllPermissions()
 {
     auto job = new PermissionsListAllJob(this);
     initializeRestApiJob(job);

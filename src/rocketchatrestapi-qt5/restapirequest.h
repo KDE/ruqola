@@ -132,7 +132,7 @@ public:
     void getGroupRoles(const QString &roomId);
     void getChannelRoles(const QString &roomId);
     void getUsernameSuggestion();
-    void listPermissions();
+    void listAllPermissions();
     void listCommands();
     void fetchMyKeys();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
