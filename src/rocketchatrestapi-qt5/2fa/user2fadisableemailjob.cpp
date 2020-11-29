@@ -21,6 +21,7 @@
 #include "user2fadisableemailjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -92,4 +93,12 @@ QJsonDocument User2FADisableEmailJob::json() const
     QJsonObject jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString User2FADisableEmailJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("totp-required")) {
+        return i18n("TOTP Required");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }

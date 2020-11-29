@@ -38,6 +38,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 Q_SIGNALS:
     void disableEmailDone();
 
