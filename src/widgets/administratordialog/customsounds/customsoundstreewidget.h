@@ -32,6 +32,7 @@ public:
     ~CustomSoundsTreeWidget() override;
 
 private:
+    void initialize();
     void addClicked();
     void editClicked();
     void removeClicked();

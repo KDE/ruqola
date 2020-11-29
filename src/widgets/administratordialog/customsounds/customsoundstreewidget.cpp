@@ -28,7 +28,7 @@ CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
 {
     setColumnCount(2);
-    //setHeaderLabels({i18n("Name"), i18n("Presence")});
+    setHeaderLabels({i18n("Name"), i18n("Sound File")});
     setAlternatingRowColors(true);
     header()->setSectionsMovable(false);
     header()->setSectionResizeMode(QHeaderView::ResizeToContents);
@@ -36,11 +36,17 @@ CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     setRootIsDecorated(false);
     connect(this, &CustomSoundsTreeWidget::customContextMenuRequested, this, &CustomSoundsTreeWidget::slotCustomContextMenuRequested);
-    //initialize();
+    initialize();
 }
 
 CustomSoundsTreeWidget::~CustomSoundsTreeWidget()
 {
+}
+
+void CustomSoundsTreeWidget::initialize()
+{
+    clear();
+    //TODO
 }
 
 void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
