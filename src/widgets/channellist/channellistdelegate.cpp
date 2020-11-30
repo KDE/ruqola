@@ -78,7 +78,6 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         if (avatarInfo.isValid()) {
             const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, avatarInfo, option.rect.height());
             painter->drawPixmap(margin, option.rect.top(), pix);
-            //qDebug() << "avatarUrl " << avatarUrl;
         }
     }
 
