@@ -176,6 +176,7 @@ void RocketChatCache::removeAvatar(const QString &avatarIdentifier)
 void RocketChatCache::updateAvatar(const Utils::AvatarInfo &info)
 {
     const QString avatarIdentifier = info.identifier;
+    //qDebug() << " updateAvatar" << info;
     removeAvatar(avatarIdentifier);
     mAvatarUrl.remove(avatarIdentifier);
     insertAvatarUrl(avatarIdentifier, QUrl());
@@ -195,6 +196,21 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
         return {};
     } else {
         const QUrl valueUrl = mAvatarUrl.value(avatarIdentifier);
+#if 0
+        const QUrlQuery query{valueUrl};
+        const QString etagValue = query.queryItemValue(QStringLiteral("etag"));
+        if (info.etag.isEmpty() && !etagValue.isEmpty()) {
+            insertAvatarUrl(avatarIdentifier, QUrl());
+            downloadAvatarFromServer(info);
+            return {};
+        } else if (!info.etag.isEmpty() && etagValue.isEmpty()) {
+            insertAvatarUrl(avatarIdentifier, QUrl());
+            qDebug() << " redownload " << info;
+            downloadAvatarFromServer(info);
+            return {};
+        }
+#endif
+
         if (!valueUrl.isEmpty() && fileInCache(valueUrl)) {
             const QString url = QUrl::fromLocalFile(fileCachePath(valueUrl)).toString();
             //qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
