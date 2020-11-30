@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class QTreeWidget;
+class CustomSoundsTreeWidget;
 class KTreeWidgetSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public QWidget
 {
@@ -32,7 +32,7 @@ public:
     explicit AdministratorCustomSoundsWidget(QWidget *parent = nullptr);
     ~AdministratorCustomSoundsWidget() override;
 private:
-    QTreeWidget *const mCustomUserStatusTreeWidget;
+    CustomSoundsTreeWidget *const mCustomSoundsTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
 };
 

@@ -19,6 +19,7 @@
 */
 
 #include "administratorcustomsoundswidget.h"
+#include "customsoundstreewidget.h"
 
 #include <QHBoxLayout>
 #include <QTreeWidget>
@@ -27,8 +28,8 @@
 
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent)
     : QWidget(parent)
-    , mCustomUserStatusTreeWidget(new QTreeWidget(this))
-    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomUserStatusTreeWidget))
+    , mCustomSoundsTreeWidget(new CustomSoundsTreeWidget(this))
+    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomSoundsTreeWidget))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -36,8 +37,8 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
 
-    mCustomUserStatusTreeWidget->setObjectName(QStringLiteral("mCustomUserStatusTreeWidget"));
-    mainLayout->addWidget(mCustomUserStatusTreeWidget);
+    mCustomSoundsTreeWidget->setObjectName(QStringLiteral("mCustomSoundsTreeWidget"));
+    mainLayout->addWidget(mCustomSoundsTreeWidget);
 }
 
 AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()

@@ -20,7 +20,10 @@
 
 #include "administratorcustomsoundswidgettest.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
+#include <KTreeWidgetSearchLineWidget>
 #include <QTest>
+#include <QTreeWidget>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorCustomSoundsWidgetTest)
 AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +33,12 @@ AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject
 void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomSoundsWidget w;
-    //TODO
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto *mCustomSoundsTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomSoundsTreeWidget"));
+    QVERIFY(mCustomSoundsTreeWidget);
+
+    auto *mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
 }
