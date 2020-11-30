@@ -33,7 +33,7 @@ ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     : QDialog(parent)
     , mExportMessagesWidget(new ExportMessagesWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Prune Messages"));
+    setWindowTitle(i18nc("@title:window", "Export Messages"));
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

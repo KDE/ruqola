@@ -42,6 +42,7 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
 
     mFormat->setObjectName(QStringLiteral("mFormat"));
     mainLayout->addWidget(mFormat);
+    mainLayout->addStretch();
     fillFormat();
 }
 
