@@ -54,6 +54,6 @@ void CommandsTest::shouldLoadCommands()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
-    r.parseCommands(obj);
+    r.parseCommands(obj, {}); //TODO add support for permissions
     QCOMPARE(r.commandsCount(), commandsCount);
 }

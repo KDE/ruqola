@@ -21,6 +21,7 @@
 #include "ruqola_debug.h"
 #include "commands.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
+#include "rocketchataccount.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -48,16 +49,16 @@ Command Commands::at(int index) const
     return mCommands.at(index);
 }
 
-void Commands::parseMoreCommands(const QJsonObject &fileAttachmentsObj)
+void Commands::parseMoreCommands(const QJsonObject &commandsObj, const QStringList &userPermissions)
 {
-    const int commandsCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
-    mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
-    mTotal = fileAttachmentsObj[QStringLiteral("total")].toInt();
-    parseListCommands(fileAttachmentsObj);
+    const int commandsCount = commandsObj[QStringLiteral("count")].toInt();
+    mOffset = commandsObj[QStringLiteral("offset")].toInt();
+    mTotal = commandsObj[QStringLiteral("total")].toInt();
+    parseListCommands(commandsObj, userPermissions);
     mCommandsCount += commandsCount;
 }
 
-void Commands::parseListCommands(const QJsonObject &commandsObj)
+void Commands::parseListCommands(const QJsonObject &commandsObj, const QStringList &userPermissions)
 {
     const QJsonArray commandsArray = commandsObj[QStringLiteral("commands")].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
@@ -77,7 +78,23 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
                     m.setParams(parameters);
                 }
             }
-            mCommands.append(m);
+            if (!userPermissions.isEmpty()) {
+#if 0
+                const QStringList permissionRoles{m.permissions()};
+                qDebug() << " userPermissions " << userPermissions;
+                qDebug() << " permissionRoles " << permissionRoles;
+                for (const QString &role : permissionRoles) {
+                    if (userPermissions.contains(role)) {
+                        mCommands.append(m);
+                        break;
+                    }
+                }
+#else
+                mCommands.append(m);
+#endif
+            } else {
+                mCommands.append(m);
+            }
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current;
         }
@@ -114,13 +131,13 @@ void Commands::setCommands(const QVector<Command> &commands)
     mCommands = commands;
 }
 
-void Commands::parseCommands(const QJsonObject &commandsObj)
+void Commands::parseCommands(const QJsonObject &commandsObj, const QStringList &userPermissions)
 {
     mCommandsCount = commandsObj[QStringLiteral("count")].toInt();
     mOffset = commandsObj[QStringLiteral("offset")].toInt();
     mTotal = commandsObj[QStringLiteral("total")].toInt();
     mCommands.clear();
-    parseListCommands(commandsObj);
+    parseListCommands(commandsObj, userPermissions);
 }
 
 int Commands::offset() const

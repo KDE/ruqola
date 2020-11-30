@@ -2123,8 +2123,8 @@ void RocketChatAccount::initializeAccount()
 
 void RocketChatAccount::slotFileLanguagedParsed()
 {
-    // We need mDownloadAppsLanguagesManager result for updating command
-    getListCommands();
+//    // We need mDownloadAppsLanguagesManager result for updating command
+//    getListCommands();
 }
 
 void RocketChatAccount::getListCommands()
@@ -2136,7 +2136,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
 {
     Commands commands;
     commands.setDownloadManager(mDownloadAppsLanguagesManager);
-    commands.parseCommands(obj);
+    commands.parseCommands(obj, ownUserPermission());
     if (!mCommandsModel->commands().isEmpty()) { //Don't show command listview if we already have command (for example when we logout/login)
         QSignalBlocker blockSignal(mCommandsModel);
         mCommandsModel->setCommands(commands);
@@ -2254,6 +2254,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
+    getListCommands();
     Q_EMIT ownInfoChanged();
 }
 
@@ -2392,6 +2393,11 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
 QStringList RocketChatAccount::permissions(const QString &permissionId) const
 {
     return mPermissionManager.roles(permissionId);
+}
+
+QStringList RocketChatAccount::ownUserPermission() const
+{
+    return mOwnUser.roles();
 }
 
 bool RocketChatAccount::hasPermission(const QString &permissionId) const

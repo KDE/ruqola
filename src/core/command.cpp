@@ -147,6 +147,7 @@ void Command::setClientOnly(bool clientOnly)
 
 void Command::parseCommand(const QJsonObject &obj)
 {
+    qDebug() << "Command::parseCommand " << obj;
     mProvidesPreview = obj.value(QStringLiteral("providesPreview")).toBool();
     mClientOnly = obj.value(QStringLiteral("clientOnly")).toBool();
     //Add "/" for completion.

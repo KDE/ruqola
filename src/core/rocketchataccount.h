@@ -466,6 +466,7 @@ public:
     Q_REQUIRED_RESULT bool hasPermission(const QString &permissionId) const;
     Q_REQUIRED_RESULT QStringList permissions(const QString &permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
+    Q_REQUIRED_RESULT QStringList ownUserPermission() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
