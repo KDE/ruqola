@@ -75,7 +75,8 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("clean-channel-history")
             || id == QLatin1String("auto-translate")
             || id == QLatin1String("snippet-message")
-            || id == QLatin1String("force-delete-message")) {
+            || id == QLatin1String("force-delete-message")
+            || id == QLatin1String("edit-room-avatar")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
