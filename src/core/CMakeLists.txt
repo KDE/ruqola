@@ -227,6 +227,7 @@ ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_unknown_collectio
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.typingnotification DESCRIPTION "ruqola typingnotification" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_completion_debug.h IDENTIFIER RUQOLA_COMPLETION_LOG CATEGORY_NAME org.kde.ruqola.completion DESCRIPTION "ruqola (completion)" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_notification_debug.h IDENTIFIER RUQOLA_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.notification DESCRIPTION "ruqola notification" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
 
 qt5_add_resources(libruqolacore_RSC ruqolacore.qrc)
 

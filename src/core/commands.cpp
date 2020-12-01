@@ -20,6 +20,7 @@
 
 #include "ruqola_debug.h"
 #include "commands.h"
+#include "ruqola_commands_debug.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "rocketchataccount.h"
 #include <QJsonArray>
@@ -80,7 +81,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
             }
             if (account) {
                 const QStringList permissionRoles{m.permissions()};
-                //qDebug() << " permissionRoles " << permissionRoles;
+                qCDebug(RUQOLA_COMMANDS_LOG) << " permissionRoles " << permissionRoles;
                 bool hasAllPermission = true;
                 for (const QString &role : permissionRoles) {
                     if (!account->hasPermission(role)) {
@@ -91,7 +92,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 if (hasAllPermission) {
                     mCommands.append(m);
                 } else {
-                    qDebug() << " command not added " << m;
+                    qCDebug(RUQOLA_COMMANDS_LOG) << " command not added " << m;
                 }
             } else {
                 mCommands.append(m);

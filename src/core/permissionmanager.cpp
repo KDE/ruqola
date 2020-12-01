@@ -98,4 +98,5 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             qCDebug(RUQOLA_LOG) << "Permission id not stored: " << id;
         }
     }
+    //qDebug() << "mMapPermissions " << mMapPermissions;
 }

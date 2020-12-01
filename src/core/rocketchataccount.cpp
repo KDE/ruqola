@@ -20,6 +20,7 @@
 
 #include "model/messagemodel.h"
 #include "ruqola_notification_debug.h"
+#include "ruqola_commands_debug.h"
 #include "rocketchataccount.h"
 #include "model/roommodel.h"
 #include "room.h"
@@ -2150,7 +2151,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
         mInputTextManager->setCommandModel(mCommandsModel);
         mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }
-    //qDebug() << "slotListCommandDone " << obj;
+    qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
 }
 
 bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId, const QString &tmid)
