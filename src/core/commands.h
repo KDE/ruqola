@@ -43,8 +43,8 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseCommands(const QJsonObject &commandsObj, const QStringList &userPermissions);
-    void parseMoreCommands(const QJsonObject &commandsObj, const QStringList &userPermissions);
+    void parseCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
+    void parseMoreCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
 
     Q_REQUIRED_RESULT QVector<Command> commands() const;
     void setCommands(const QVector<Command> &commands);
@@ -56,7 +56,7 @@ public:
     void setDownloadManager(DownloadAppsLanguagesManager *downloadManager);
 
 private:
-    void parseListCommands(const QJsonObject &commandsObj, const QStringList &userPermissions);
+    void parseListCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
     QVector<Command> mCommands;
     int mCommandsCount = 0;
     int mOffset = 0;

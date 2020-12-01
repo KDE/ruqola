@@ -49,16 +49,16 @@ Command Commands::at(int index) const
     return mCommands.at(index);
 }
 
-void Commands::parseMoreCommands(const QJsonObject &commandsObj, const QStringList &userPermissions)
+void Commands::parseMoreCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
 {
     const int commandsCount = commandsObj[QStringLiteral("count")].toInt();
     mOffset = commandsObj[QStringLiteral("offset")].toInt();
     mTotal = commandsObj[QStringLiteral("total")].toInt();
-    parseListCommands(commandsObj, userPermissions);
+    parseListCommands(commandsObj, account);
     mCommandsCount += commandsCount;
 }
 
-void Commands::parseListCommands(const QJsonObject &commandsObj, const QStringList &userPermissions)
+void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
 {
     const QJsonArray commandsArray = commandsObj[QStringLiteral("commands")].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
@@ -78,7 +78,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, const QStringLi
                     m.setParams(parameters);
                 }
             }
-            if (!userPermissions.isEmpty()) {
+            if (account) {
 #if 0
                 const QStringList permissionRoles{m.permissions()};
                 qDebug() << " userPermissions " << userPermissions;
@@ -131,13 +131,13 @@ void Commands::setCommands(const QVector<Command> &commands)
     mCommands = commands;
 }
 
-void Commands::parseCommands(const QJsonObject &commandsObj, const QStringList &userPermissions)
+void Commands::parseCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
 {
     mCommandsCount = commandsObj[QStringLiteral("count")].toInt();
     mOffset = commandsObj[QStringLiteral("offset")].toInt();
     mTotal = commandsObj[QStringLiteral("total")].toInt();
     mCommands.clear();
-    parseListCommands(commandsObj, userPermissions);
+    parseListCommands(commandsObj, account);
 }
 
 int Commands::offset() const
