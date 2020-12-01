@@ -38,7 +38,7 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     const QJsonArray updateArray = replyObject[QLatin1String("update")].toArray();
     parseUpdatePermission(updateArray);
     //TODO
-    qDebug() << "mMapPermissions  " << mMapPermissions;
+    //qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
 bool PermissionManager::contains(const QString &permissionId) const
@@ -86,9 +86,18 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
                 || id == QLatin1String("add-user-to-joined-room")
                 || id == QLatin1String("leave-c")
                 || id == QLatin1String("create-p")
+                || id == QLatin1String("create-d")
                 || id == QLatin1String("leave-p")
                 || id == QLatin1String("add-user-to-any-c-room")
-                || id == QLatin1String("add-user-to-any-p-room")) {
+                || id == QLatin1String("add-user-to-any-p-room")
+                || id == QLatin1String("view-logs")
+                || id == QLatin1String("unarchive-room")
+                || id == QLatin1String("archive-room")
+                || id == QLatin1String("mute-user")
+                || id == QLatin1String("remove-user")
+                || id == QLatin1String("view-c-room")
+
+                ) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {

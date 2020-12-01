@@ -2151,7 +2151,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
         mInputTextManager->setCommandModel(mCommandsModel);
         mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }
-    qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
+    //qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
 }
 
 bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId, const QString &tmid)
