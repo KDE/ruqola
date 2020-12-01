@@ -512,11 +512,15 @@ void RoomWidget::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
     mRoom = mCurrentRocketChatAccount->room(mRoomId);
-    connectRoom();
-    mMessageLineWidget->setRoomId(roomId);
-    mMessageListView->setChannelSelected(mRoom);
-    mUsersInRoomFlowWidget->setRoom(mRoom);
-    mRoomHeaderWidget->setRoom(mRoom);
+    if (mRoom) {
+        connectRoom();
+        mMessageLineWidget->setRoomId(roomId);
+        mMessageListView->setChannelSelected(mRoom);
+        mUsersInRoomFlowWidget->setRoom(mRoom);
+        mRoomHeaderWidget->setRoom(mRoom);
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << " Impossible to find room " << roomId;
+    }
 }
 
 void RoomWidget::connectRoom()
