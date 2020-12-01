@@ -20,6 +20,7 @@
 
 #include "command.h"
 #include "ruqola_debug.h"
+#include "ruqola_commands_debug.h"
 #include <QJsonArray>
 #include <KLocalizedString>
 
@@ -155,9 +156,18 @@ void Command::parseCommand(const QJsonObject &obj)
     setDescription(obj.value(QStringLiteral("description")).toString());
     setParams(obj.value(QStringLiteral("params")).toString());
 
-    const QJsonArray permissionArray = obj.value(QStringLiteral("permission")).toArray();
-    for (int i = 0, total = permissionArray.size(); i < total; ++i) {
-        mPermissions.append(permissionArray.at(i).toString());
+    const QJsonValue permissionValue = obj.value(QStringLiteral("permission"));
+    if (!permissionValue.isUndefined()) {
+        if (permissionValue.isString()) {
+            mPermissions.append(permissionValue.toString());
+        } else if (permissionValue.isArray()) {
+            const QJsonArray permissionArray = permissionValue.toArray();
+            for (int i = 0, total = permissionArray.size(); i < total; ++i) {
+                mPermissions.append(permissionArray.at(i).toString());
+            }
+        } else {
+            qCWarning(RUQOLA_COMMANDS_LOG) << " Invalid permission type " << obj;
+        }
     }
 }
 
