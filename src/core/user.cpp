@@ -175,7 +175,7 @@ void User::parseUserRestApi(const QJsonObject &object)
     }
 
     //TODO emails
-    qDebug() << " object "  << object;
+    //qDebug() << " object "  << object;
 }
 
 void User::parseUser(const QVariantList &list)
