@@ -56,8 +56,7 @@ RuqolaCentralWidget::~RuqolaCentralWidget()
 
 void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
 {
-    //TODO fix i18n
-    KMessageBox::error(this, messageError, i18n("Job Failed"));
+    KMessageBox::error(this, messageError, i18n("Error"));
 }
 
 void RuqolaCentralWidget::slotSocketError(QAbstractSocket::SocketError error, const QString &errorString)
