@@ -44,6 +44,7 @@ void CommandsTest::shouldLoadCommands_data()
 
     QTest::addRow("command1") << QStringLiteral("command1") << 0;
     QTest::addRow("command2") << QStringLiteral("command2") << 25;
+    QTest::addRow("command3") << QStringLiteral("command3") << 3;
 }
 
 void CommandsTest::shouldLoadCommands()
