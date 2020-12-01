@@ -79,19 +79,18 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 }
             }
             if (account) {
-#if 0
                 const QStringList permissionRoles{m.permissions()};
-                qDebug() << " userPermissions " << userPermissions;
-                qDebug() << " permissionRoles " << permissionRoles;
+                //qDebug() << " permissionRoles " << permissionRoles;
+                bool hasAllPermission = true;
                 for (const QString &role : permissionRoles) {
-                    if (userPermissions.contains(role)) {
-                        mCommands.append(m);
+                    if (!account->hasPermission(role)) {
+                        hasAllPermission = false;
                         break;
                     }
                 }
-#else
-                mCommands.append(m);
-#endif
+                if (hasAllPermission) {
+                    mCommands.append(m);
+                }
             } else {
                 mCommands.append(m);
             }

@@ -38,6 +38,7 @@ public:
 
     Q_REQUIRED_RESULT QStringList roles(const QString &permissionId) const;
     Q_REQUIRED_RESULT int permissionCount() const;
+    Q_REQUIRED_RESULT bool contains(const QString &permissionId) const;
 private:
     void parseRemovePermission(const QJsonArray &removeArray);
     void parseUpdatePermission(const QJsonArray &removeArray);

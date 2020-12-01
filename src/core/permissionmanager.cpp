@@ -41,6 +41,11 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
+bool PermissionManager::contains(const QString &permissionId) const
+{
+    return mMapPermissions.contains(permissionId);
+}
+
 QStringList PermissionManager::roles(const QString &permissionId) const
 {
     const Permission p = mMapPermissions.value(permissionId);
@@ -83,7 +88,7 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
                 mMapPermissions.insert(id, p);
             }
         } else {
-            qDebug() << " id " << id;
+            qCDebug(RUQOLA_LOG) << "Permission id not stored: " << id;
         }
     }
 }
