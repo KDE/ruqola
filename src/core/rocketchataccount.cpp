@@ -2114,17 +2114,21 @@ void RocketChatAccount::initializeAccount()
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
     customUsersStatus();
-    mDownloadAppsLanguagesManager->setServerVersion(mServerConfigInfo->serverVersionStr());
-    mDownloadAppsLanguagesManager->setAccountName(mSettings->accountName());
-    mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
 
     Q_EMIT accountInitialized();
 }
 
+void RocketChatAccount::downloadAppsLanguages()
+{
+    mDownloadAppsLanguagesManager->setServerVersion(mServerConfigInfo->serverVersionStr());
+    mDownloadAppsLanguagesManager->setAccountName(mSettings->accountName());
+    mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
+}
+
 void RocketChatAccount::slotFileLanguagedParsed()
 {
-//    // We need mDownloadAppsLanguagesManager result for updating command
-//    getListCommands();
+    // We need mDownloadAppsLanguagesManager result for updating command
+    getListCommands();
 }
 
 void RocketChatAccount::getListCommands()
@@ -2254,7 +2258,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
-    getListCommands();
+    downloadAppsLanguages();
     Q_EMIT ownInfoChanged();
 }
 

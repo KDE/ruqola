@@ -222,9 +222,9 @@ void RocketChatBackend::slotLoginStatusChanged()
         auto ddp = mRocketChatAccount->ddp();
         ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
 
+        restApi->listAllPermissions();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
-        restApi->listAllPermissions();
     }
 }
 
