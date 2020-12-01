@@ -90,6 +90,8 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 }
                 if (hasAllPermission) {
                     mCommands.append(m);
+                } else {
+                    qDebug() << " command not added " << m;
                 }
             } else {
                 mCommands.append(m);
