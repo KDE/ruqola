@@ -81,7 +81,14 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("auto-translate")
             || id == QLatin1String("snippet-message")
             || id == QLatin1String("force-delete-message")
-            || id == QLatin1String("edit-room-avatar")) {
+            || id == QLatin1String("edit-room-avatar")
+                || id == QLatin1String("create-c")
+                || id == QLatin1String("add-user-to-joined-room")
+                || id == QLatin1String("leave-c")
+                || id == QLatin1String("create-p")
+                || id == QLatin1String("leave-p")
+                || id == QLatin1String("add-user-to-any-c-room")
+                || id == QLatin1String("add-user-to-any-p-room")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
