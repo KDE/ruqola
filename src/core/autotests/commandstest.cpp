@@ -47,6 +47,46 @@ void CommandsTest::shouldLoadCommands_data()
     QTest::addRow("command3") << QStringLiteral("command3") << 3;
 }
 
+void CommandsTest::shouldLoadPermissions()
+{
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/commands/command3.json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    Commands r;
+    r.parseCommands(obj, nullptr); //TODO add support for permissions
+    QCOMPARE(r.commandsCount(), 3);
+
+    QVector<Command> result;
+    {
+        Command d;
+        d.setCommandName(QStringLiteral("/slackbridge-import"));
+        result.append(d);
+    }
+    {
+        Command d;
+        d.setCommandName(QStringLiteral("/archive"));
+        d.setDescription(QStringLiteral("Archive"));
+        d.setPermissions({QStringLiteral("archive-room")});
+        d.setParams(QStringLiteral("#channel"));
+        result.append(d);
+    }
+    {
+        Command d;
+        d.setCommandName(QStringLiteral("/leave"));
+        d.setDescription(QStringLiteral("Leave_the_current_channel"));
+        d.setPermissions({{QStringLiteral("leave-c")}, {QStringLiteral("leave-p")}});
+        result.append(d);
+    }
+
+    const bool equalResult = r.commands() == result;
+    if (!equalResult) {
+        qDebug() << " Expected " << result;
+        qDebug() << " result   " << r.commands();
+    }
+    QVERIFY(equalResult);
+
+}
+
 void CommandsTest::shouldLoadCommands()
 {
     QFETCH(QString, name);

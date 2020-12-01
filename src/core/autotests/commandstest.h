@@ -33,6 +33,7 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldLoadCommands();
     void shouldLoadCommands_data();
+    void shouldLoadPermissions();
 };
 
 #endif // COMMANDSTEST_H
