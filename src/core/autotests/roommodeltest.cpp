@@ -76,8 +76,8 @@ void RoomModelTest::shouldReturnRowCount()
     QCOMPARE(sampleModel.rowCount(), 1);
 
     //Fix it. We remove + readd after that ! it's not optimal
-    QCOMPARE(rowInsertedSpy.count(), 1);
-    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
 
