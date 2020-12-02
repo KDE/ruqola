@@ -290,13 +290,10 @@ void RoomModel::addRoom(Room *room)
     }
     roomCount = mRoomsList.count();
 
-    qDebug() << " BEFORE " << mRoomsList.count();
     beginInsertRows(QModelIndex(), roomCount, roomCount);
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" <<roomCount << " room name " << room->name();
     mRoomsList.append(room);
-    qDebug() << " room " << *room << " room " << room;
     endInsertRows();
-    qDebug() << " AFTER " << mRoomsList.count();
 }
 
 void RoomModel::removeRoom(const QString &roomId)
