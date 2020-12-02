@@ -32,12 +32,10 @@ PermissionManager::~PermissionManager()
 
 void PermissionManager::parsePermissions(const QJsonObject &replyObject)
 {
-    //TODO implement remove/update
     const QJsonArray removeArray = replyObject[QLatin1String("remove")].toArray();
     parseRemovePermission(removeArray);
     const QJsonArray updateArray = replyObject[QLatin1String("update")].toArray();
     parseUpdatePermission(updateArray);
-    //TODO
     //qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
