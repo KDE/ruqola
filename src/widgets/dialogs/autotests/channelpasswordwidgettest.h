@@ -31,6 +31,7 @@ public:
     ~ChannelPasswordWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitSignals();
 };
 
 #endif // CHANNELPASSWORDWIDGETTEST_H
