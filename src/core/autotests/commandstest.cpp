@@ -84,7 +84,6 @@ void CommandsTest::shouldLoadPermissions()
         qDebug() << " result   " << r.commands();
     }
     QVERIFY(equalResult);
-
 }
 
 void CommandsTest::shouldLoadCommands()
