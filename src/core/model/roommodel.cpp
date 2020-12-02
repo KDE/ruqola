@@ -283,8 +283,9 @@ void RoomModel::addRoom(Room *room)
     int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == room->roomId()) {
-            delete mRoomsList.takeAt(i);
-            break;
+            qCDebug(RUQOLA_ROOMS_LOG) << " room already exist " << room->roomId() << " A bug ? ";
+            delete room;
+            return;
         }
     }
     roomCount = mRoomsList.count();
