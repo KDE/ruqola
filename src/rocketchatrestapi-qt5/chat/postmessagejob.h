@@ -47,11 +47,14 @@ public:
 Q_SIGNALS:
     void postMessageDone(const QJsonObject &replyObject);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 private:
     Q_DISABLE_COPY(PostMessageJob)
     void slotPostMessageDone();
     QString mText;
     QString mRoomId;
+
 };
 }
 #endif // POSTMESSAGEJOB_H

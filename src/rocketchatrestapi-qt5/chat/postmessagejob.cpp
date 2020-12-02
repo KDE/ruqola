@@ -21,6 +21,7 @@
 #include "postmessagejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -124,4 +125,12 @@ QJsonDocument PostMessageJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("room_is_blocked")) {
+        return i18n("This room is blocked");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
