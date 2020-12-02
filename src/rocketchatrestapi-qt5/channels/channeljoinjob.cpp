@@ -128,6 +128,8 @@ QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &deta
     //TODO use details
     if (str == QLatin1String("error-room-not-found")) {
         return i18n("The required \'%1\' param provided does not match any channel", channelInfo().channelInfoIdentifier);
+    } else if (str == QLatin1String("error-code-invalid")) {
+        return i18n("The room required a password.");
     }
     return ChannelBaseJob::errorMessage(str, detail);
 }
