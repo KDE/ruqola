@@ -289,16 +289,26 @@ void RoomModel::addRoom(Room *room)
     }
     roomCount = mRoomsList.count();
 
+    qDebug() << " BEFORE " << mRoomsList.count();
     beginInsertRows(QModelIndex(), roomCount, roomCount);
-    qCDebug(RUQOLA_LOG) << "Inserting room at position" <<roomCount;
+    qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" <<roomCount << " room name " << room->name();
     mRoomsList.append(room);
+    qDebug() << " room " << *room << " room " << room;
     endInsertRows();
+    qDebug() << " AFTER " << mRoomsList.count();
 }
 
 void RoomModel::removeRoom(const QString &roomId)
 {
-    Q_UNUSED(roomId)
-    //TODO
+    const int roomCount = mRoomsList.count();
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
+            beginRemoveRows(QModelIndex(), i, i);
+            delete mRoomsList.takeAt(i);
+            endRemoveRows();
+            break;
+        }
+    }
 }
 
 void RoomModel::updateSubscription(const QJsonArray &array)
