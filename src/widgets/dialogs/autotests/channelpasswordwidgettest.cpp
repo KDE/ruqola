@@ -22,8 +22,10 @@
 #include "dialogs/channelpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
+#include <QSignalSpy>
 #include <QLabel>
 #include <QTest>
+#include <QList>
 QTEST_MAIN(ChannelPasswordWidgetTest)
 ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
     : QObject(parent)
@@ -45,4 +47,18 @@ void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPasswordLineEdit);
 
     QVERIFY(w.password().isEmpty());
+}
+
+void ChannelPasswordWidgetTest::shouldEmitSignals()
+{
+    ChannelPasswordWidget w;
+    auto *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QSignalSpy spy(&w, &ChannelPasswordWidget::updateOkButton);
+    mPasswordLineEdit->setPassword(QStringLiteral("bla"));
+    QVERIFY(spy.count() > 0);
+    QVERIFY(spy.at(0).at(0).toBool());
+    spy.clear();
+    mPasswordLineEdit->setPassword({});
+    QVERIFY(spy.count() > 0);
+    QVERIFY(!spy.at(0).at(0).toBool());
 }

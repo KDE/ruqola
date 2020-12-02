@@ -21,6 +21,7 @@
 #include "channelpasswordwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <QDebug>
 #include <QHBoxLayout>
 #include <KPasswordLineEdit>
 
@@ -39,6 +40,7 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addWidget(mPasswordLineEdit);
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &ChannelPasswordWidget::slotPasswordChanged);
 }
 
 ChannelPasswordWidget::~ChannelPasswordWidget()
@@ -48,4 +50,9 @@ ChannelPasswordWidget::~ChannelPasswordWidget()
 QString ChannelPasswordWidget::password() const
 {
     return mPasswordLineEdit->password();
+}
+
+void ChannelPasswordWidget::slotPasswordChanged(const QString &str)
+{
+    Q_EMIT updateOkButton(!str.isEmpty());
 }
