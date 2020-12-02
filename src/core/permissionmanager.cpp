@@ -62,7 +62,7 @@ int PermissionManager::permissionCount() const
 
 void PermissionManager::parseRemovePermission(const QJsonArray &removeArray)
 {
-    qDebug() << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet";
+    qDebug() << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet" << removeArray;
 }
 
 void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
