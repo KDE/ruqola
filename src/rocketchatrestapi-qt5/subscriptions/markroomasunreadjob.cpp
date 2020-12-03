@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -74,6 +75,14 @@ QString MarkRoomAsUnReadJob::objectId() const
 void MarkRoomAsUnReadJob::setObjectId(const QString &objectId)
 {
     mObjectId = objectId;
+}
+
+QString MarkRoomAsUnReadJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("error-action-not-allowed")) {
+        return i18n("Unread message not authorized.");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 MarkRoomAsUnReadJob::MarkAsUnReadObject MarkRoomAsUnReadJob::unReadObject() const

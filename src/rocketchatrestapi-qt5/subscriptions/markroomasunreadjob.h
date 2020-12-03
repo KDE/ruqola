@@ -54,11 +54,14 @@ public:
 Q_SIGNALS:
     void markAsUnReadDone();
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 private:
     Q_DISABLE_COPY(MarkRoomAsUnReadJob)
     void slotMarkAsUnRead();
     QString mObjectId;
     MarkAsUnReadObject mUnReadObject = Unknown;
+
 };
 }
 #endif // MARKROOMASUnREADJOB_H
