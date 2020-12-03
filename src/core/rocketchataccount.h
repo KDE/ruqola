@@ -468,6 +468,7 @@ public:
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     Q_REQUIRED_RESULT QStringList ownUserPermission() const;
     void downloadAppsLanguages();
+    Q_REQUIRED_RESULT bool hasAutotranslateSupport() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

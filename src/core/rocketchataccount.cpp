@@ -2437,3 +2437,8 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
     }
 }
+
+bool RocketChatAccount::hasAutotranslateSupport() const
+{
+    return autoTranslateEnabled() && hasPermission(QLatin1String("auto-translate"));
+}

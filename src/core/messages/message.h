@@ -194,6 +194,7 @@ public:
     void setPendingMessage(bool pendingMessage);
 
     Q_REQUIRED_RESULT bool isPinned() const;
+    Q_REQUIRED_RESULT bool isAutoTranslated() const;
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);

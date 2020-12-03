@@ -454,10 +454,12 @@ QStringList MessageModel::roomRoles(const QString &userId) const
 QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords) const
 {
     QString messageStr = message.text();
-    if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
-        const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
-        if (!messageTranslation.isEmpty()) {
-            messageStr = messageTranslation;
+    if (mRocketChatAccount && mRocketChatAccount->hasAutotranslateSupport()) {
+        if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+            const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+            if (!messageTranslation.isEmpty()) {
+                messageStr = messageTranslation;
+            }
         }
     }
 

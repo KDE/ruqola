@@ -63,6 +63,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
+    , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) //TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mHelperText(new MessageDelegateHelperText)
     , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
     , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
@@ -173,6 +174,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         textLeft += iconSize + margin;
     }
 
+    const int translatedIconX = textLeft;
+    // translated icon
+    if (message->isAutoTranslated()) {
+        textLeft += iconSize + margin;
+    }
+
     // Timestamp
     layout.timeStampText = index.data(MessageModel::Timestamp).toString();
     const QSize timeSize = timeStampSize(layout.timeStampText, option);
@@ -214,6 +221,10 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     if (message->isPinned()) {
         layout.pinIconRect = QRect(pinIconX, layout.senderRect.y(), iconSize, iconSize);
+    }
+
+    if (message->isAutoTranslated()) {
+        layout.translatedIconRect = QRect(translatedIconX, layout.senderRect.y(), iconSize, iconSize);
     }
 
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
@@ -384,6 +395,10 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     //Draw the pin icon
     if (message->isPinned()) {
         mPinIcon.paint(painter, layout.pinIconRect);
+    }
+    //Draw translated string
+    if (message->isAutoTranslated()) {
+        mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
     // Attachments
