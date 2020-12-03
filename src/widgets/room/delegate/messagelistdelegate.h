@@ -86,6 +86,9 @@ private:
         // Edited icon
         QRect editedIconRect;
 
+        //Favorite icon
+        QRect favoriteIconRect;
+
         // add-reaction button and timestamp
         QRect addReactionRect;
         QString timeStampText;
@@ -127,6 +130,7 @@ private:
     const QIcon mEditedIcon;
     const QIcon mRolesIcon;
     const QIcon mAddReactionIcon;
+    const QIcon mFavoriteIcon;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;

@@ -61,6 +61,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
+    , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mHelperText(new MessageDelegateHelperText)
     , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
     , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
@@ -159,6 +160,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         textLeft += iconSize + margin;
     }
 
+    const int favoriteIconX = textLeft;
+    // Favorite icon
+    if (message->starred()) {
+        textLeft += iconSize + margin;
+    }
+
     // Timestamp
     layout.timeStampText = index.data(MessageModel::Timestamp).toString();
     const QSize timeSize = timeStampSize(layout.timeStampText, option);
@@ -192,6 +199,10 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     }
     if (message->wasEdited()) {
         layout.editedIconRect = QRect(editIconX, layout.senderRect.y(), iconSize, iconSize);
+    }
+
+    if (message->starred()) {
+        layout.favoriteIconRect = QRect(favoriteIconX, layout.senderRect.y(), iconSize, iconSize);
     }
 
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
@@ -354,6 +365,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Draw the edited icon
     if (message->wasEdited()) {
         mEditedIcon.paint(painter, layout.editedIconRect);
+    }
+    if (message->starred()) {
+        mFavoriteIcon.paint(painter, layout.favoriteIconRect);
     }
 
     // Attachments
