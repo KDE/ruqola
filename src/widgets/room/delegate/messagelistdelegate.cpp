@@ -62,6 +62,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
+    , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mHelperText(new MessageDelegateHelperText)
     , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
     , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
@@ -166,6 +167,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         textLeft += iconSize + margin;
     }
 
+    const int pinIconX = textLeft;
+    // Pin icon
+    if (message->isPinned()) {
+        textLeft += iconSize + margin;
+    }
+
     // Timestamp
     layout.timeStampText = index.data(MessageModel::Timestamp).toString();
     const QSize timeSize = timeStampSize(layout.timeStampText, option);
@@ -203,6 +210,10 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     if (message->isStarred()) {
         layout.favoriteIconRect = QRect(favoriteIconX, layout.senderRect.y(), iconSize, iconSize);
+    }
+
+    if (message->isPinned()) {
+        layout.pinIconRect = QRect(pinIconX, layout.senderRect.y(), iconSize, iconSize);
     }
 
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
@@ -366,8 +377,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (message->wasEdited()) {
         mEditedIcon.paint(painter, layout.editedIconRect);
     }
+    //Draw the favorite icon
     if (message->isStarred()) {
         mFavoriteIcon.paint(painter, layout.favoriteIconRect);
+    }
+    //Draw the pin icon
+    if (message->isPinned()) {
+        mPinIcon.paint(painter, layout.pinIconRect);
     }
 
     // Attachments
