@@ -545,6 +545,7 @@ void RoomWidget::connectRoom()
         connect(mRoom, &Room::autoTranslateChanged, this, &RoomWidget::updateListView);
         connect(mRoom, &Room::ignoredUsersChanged, this, &RoomWidget::updateListView);
         connect(mRoom, &Room::channelCounterInfoChanged, this, &RoomWidget::slotUpdateRoomCounterInfoWidget);
+        connect(mRoom, &Room::highlightsWordChanged, this, &RoomWidget::updateListView);
     }
     slotUpdateRoomCounterInfoWidget();
     updateRoomHeader();
