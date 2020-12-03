@@ -131,8 +131,8 @@ public:
     Q_REQUIRED_RESULT QMap<QString, QString> mentions() const;
     void setMentions(const QMap<QString, QString> &mentions);
 
-    Q_REQUIRED_RESULT bool starred() const;
-    void setStarred(bool starred);
+    Q_REQUIRED_RESULT bool isStarred() const;
+    void setIsStarred(bool starred);
 
     Q_REQUIRED_RESULT Reactions reactions() const;
     void setReactions(const Reactions &reactions);
@@ -193,6 +193,7 @@ public:
     Q_REQUIRED_RESULT bool pendingMessage() const;
     void setPendingMessage(bool pendingMessage);
 
+    Q_REQUIRED_RESULT bool isPinned() const;
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);

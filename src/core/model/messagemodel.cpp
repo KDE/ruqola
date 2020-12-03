@@ -333,7 +333,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::CanDeleteMessage:
         return mRocketChatAccount->isMessageDeletable(message);
     case MessageModel::Starred:
-        return message.starred();
+        return message.isStarred();
     case MessageModel::UsernameUrl:
     {
         const QString username = message.username();

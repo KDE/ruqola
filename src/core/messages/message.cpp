@@ -320,12 +320,17 @@ void Message::setReactions(const Reactions &reactions)
     mReactions = reactions;
 }
 
-bool Message::starred() const
+bool Message::isPinned() const
+{
+    return mMessagePinned.pinned();
+}
+
+bool Message::isStarred() const
 {
     return mMessageStarred.isStarred();
 }
 
-void Message::setStarred(bool starred)
+void Message::setIsStarred(bool starred)
 {
     mMessageStarred.setIsStarred(starred);
 }

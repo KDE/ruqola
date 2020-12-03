@@ -56,7 +56,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setMessageType(Message::NormalText);
         firstMessageRef.setUpdatedAt(1504509615063);
         firstMessageRef.setEditedAt(-1);
-        firstMessageRef.setStarred(false);
+        firstMessageRef.setIsStarred(false);
         firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
         MessageAttachment att;
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
@@ -77,7 +77,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setMessageType(Message::NormalText);
         urlMessageRef.setUpdatedAt(1504596901803);
         urlMessageRef.setEditedAt(-1);
-        urlMessageRef.setStarred(false);
+        urlMessageRef.setIsStarred(false);
         urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
         urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
         MessageUrl url;
@@ -100,7 +100,7 @@ void MessageTest::shouldParseMessage_data()
         imageMessageRef.setMessageType(Message::NormalText);
         imageMessageRef.setUpdatedAt(1505399177846);
         imageMessageRef.setEditedAt(-1);
-        imageMessageRef.setStarred(false);
+        imageMessageRef.setIsStarred(false);
         imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
 
         MessageAttachment attImage;
@@ -129,7 +129,7 @@ void MessageTest::shouldParseMessage_data()
         videoMessageRef.setMessageType(Message::NormalText);
         videoMessageRef.setUpdatedAt(1515580853102);
         videoMessageRef.setEditedAt(-1);
-        videoMessageRef.setStarred(false);
+        videoMessageRef.setIsStarred(false);
         videoMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
 
         MessageAttachment attVideo;
@@ -155,7 +155,7 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setMessageType(Message::NormalText);
         audioMessageRef.setUpdatedAt(1515588347102);
         audioMessageRef.setEditedAt(-1);
-        audioMessageRef.setStarred(false);
+        audioMessageRef.setIsStarred(false);
         audioMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
 
         MessageAttachment attAudio;
@@ -184,7 +184,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRef.setEditedByUsername(QStringLiteral("laurent"));
         messageStarredRef.setEditedByUserId(QStringLiteral("uKK39zoewTkdacidH"));
         messageStarredRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
-        messageStarredRef.setStarred(true);
+        messageStarredRef.setIsStarred(true);
         messageStarredRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
 
         QTest::addRow("messagestarred") << QStringLiteral("messagestarred") << messageStarredRef;
@@ -202,7 +202,7 @@ void MessageTest::shouldParseMessage_data()
         messagePinnedRef.setMessageType(Message::NormalText);
         messagePinnedRef.setUpdatedAt(1550240994061);
         messagePinnedRef.setRoomId(QStringLiteral("zMHhMfsEPvKjgFuyE"));
-        messagePinnedRef.setStarred(false);
+        messagePinnedRef.setIsStarred(false);
         MessagePinned pinned;
         pinned.setPinned(true);
         pinned.setPinnedBy(QStringLiteral("laurent"));
@@ -228,7 +228,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRemovedRef.setEditedByUsername(QStringLiteral("laurent"));
         messageStarredRemovedRef.setEditedByUserId(QStringLiteral("uKK39zoewTkdacidH"));
         messageStarredRemovedRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
-        messageStarredRemovedRef.setStarred(false);
+        messageStarredRemovedRef.setIsStarred(false);
         messageStarredRemovedRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
 
         QTest::addRow("messageremovedstarred") << QStringLiteral("messageremovedstarred") << messageStarredRemovedRef;
@@ -247,7 +247,7 @@ void MessageTest::shouldParseMessage_data()
         messageAttachmentFileRef.setUpdatedAt(1520540888836);
         messageAttachmentFileRef.setEditedAt(-1);
         messageAttachmentFileRef.setRoomId(QStringLiteral("Pa6bu7xHrS5xz6"));
-        messageAttachmentFileRef.setStarred(false);
+        messageAttachmentFileRef.setIsStarred(false);
 
         MessageAttachment fileAttachment;
         fileAttachment.setTitle(QStringLiteral("webkit.txt"));
@@ -304,7 +304,7 @@ void MessageTest::shouldSerializeData()
     input.setRole(QStringLiteral("leader"));
     input.setMessageType(Message::MessageType::NormalText);
     //It will break as it's not supported yet
-    input.setStarred(true);
+    input.setIsStarred(true);
 
     QVector<MessageAttachment> lstAttachement;
     MessageAttachment attachment;

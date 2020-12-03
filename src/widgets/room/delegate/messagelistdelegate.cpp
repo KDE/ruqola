@@ -162,7 +162,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     const int favoriteIconX = textLeft;
     // Favorite icon
-    if (message->starred()) {
+    if (message->isStarred()) {
         textLeft += iconSize + margin;
     }
 
@@ -201,7 +201,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         layout.editedIconRect = QRect(editIconX, layout.senderRect.y(), iconSize, iconSize);
     }
 
-    if (message->starred()) {
+    if (message->isStarred()) {
         layout.favoriteIconRect = QRect(favoriteIconX, layout.senderRect.y(), iconSize, iconSize);
     }
 
@@ -366,7 +366,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (message->wasEdited()) {
         mEditedIcon.paint(painter, layout.editedIconRect);
     }
-    if (message->starred()) {
+    if (message->isStarred()) {
         mFavoriteIcon.paint(painter, layout.favoriteIconRect);
     }
 
