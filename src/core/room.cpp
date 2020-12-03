@@ -302,14 +302,16 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     setHighlightsWord(lstHighlightsWord);
 
-    const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
-    QStringList lstIgnored;
-    const int ignoredArrayCount = ignoredArray.count();
-    lstIgnored.reserve(ignoredArrayCount);
-    for (int i = 0; i < ignoredArrayCount; ++i) {
-        lstIgnored << ignoredArray.at(i).toString();
+    if (json.contains(QLatin1String("ignored"))) {
+        const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
+        QStringList lstIgnored;
+        const int ignoredArrayCount = ignoredArray.count();
+        lstIgnored.reserve(ignoredArrayCount);
+        for (int i = 0; i < ignoredArrayCount; ++i) {
+            lstIgnored << ignoredArray.at(i).toString();
+        }
+        setIgnoredUsers(lstIgnored);
     }
-    setIgnoredUsers(lstIgnored);
 
     //TODO muted ????
     //TODO E2EKey
