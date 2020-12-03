@@ -53,8 +53,17 @@ MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 void MyAccountPreferenceConfigureWidget::save()
 {
     if (mChanged) {
+        const QStringList highlightWords = mHighlightWords->text().split(QLatin1Char(','));
+        QStringList listWords;
+        for (QString word : highlightWords) {
+            word = word.trimmed();
+            if (!word.isEmpty()) {
+                listWords.append(word);
+            }
+        }
+
         RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
-        info.highlights = mHighlightWords->text().split(QLatin1Char(','));
+        info.highlights = listWords;
         info.userId = Ruqola::self()->rocketChatAccount()->userId();
         Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
     }
