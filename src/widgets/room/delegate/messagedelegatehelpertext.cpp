@@ -135,6 +135,11 @@ void MessageDelegateHelperText::selectAll(const QWidget *view, QRect messageRect
     setClipboardSelection();
 }
 
+void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
+{
+    mDocumentCache.remove(messageId);
+}
+
 QString MessageDelegateHelperText::selectedText() const
 {
     if (mCurrentTextCursor.isNull()) {

@@ -558,7 +558,12 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
         const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
         if (isIgnoredMessage) {
-            //TODO
+            if (layout.showIgnoredMessageIconRect.contains(mev->pos())) {
+                mHelperText->removeMessageCache(message->messageId());
+                auto *model = const_cast<QAbstractItemModel *>(index.model());
+                model->setData(index, !layout.showIgnoreMessage, MessageModel::ShowIgnoredMessage);
+                return true;
+            }
         }
         if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;

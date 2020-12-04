@@ -56,6 +56,7 @@ public:
     Q_REQUIRED_RESULT QString selectedText() const;
 
     void selectAll(const QWidget *view, QRect messageRect, const QModelIndex &index);
+    void removeMessageCache(const QString &messageId);
 
 private:
     Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;

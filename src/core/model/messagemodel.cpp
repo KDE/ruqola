@@ -404,7 +404,7 @@ QString MessageModel::convertedText(const Message &message) const
     } else {
         QStringList highlightWords;
         if (mRoom) {
-            if (mRoom->userIsIgnored(message.userId())) {
+            if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             highlightWords = mRoom->highlightsWord();
