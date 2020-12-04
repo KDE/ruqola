@@ -57,6 +57,7 @@ public:
 
     void selectAll(const QWidget *view, QRect messageRect, const QModelIndex &index);
     void removeMessageCache(const QString &messageId);
+    void clearTextDocumentCache();
 
 private:
     Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;

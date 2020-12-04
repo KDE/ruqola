@@ -67,6 +67,7 @@ public:
     Q_REQUIRED_RESULT QString selectedText() const;
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
+    void clearTextDocumentCache();
 private:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 

@@ -338,6 +338,11 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
     mHelperText->selectAll(option.widget, layout.textRect, index);
 }
 
+void MessageListDelegate::clearTextDocumentCache()
+{
+    mHelperText->clearTextDocumentCache();
+}
+
 QString MessageListDelegate::selectedText() const
 {
     return mHelperText->selectedText();

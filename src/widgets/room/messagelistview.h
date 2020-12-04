@@ -57,6 +57,8 @@ public:
 
     void copyMessageToClipboard(const QModelIndex &index = {});
 
+    void clearTextDocumentCache();
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;

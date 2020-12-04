@@ -518,6 +518,11 @@ void MessageListView::copyMessageToClipboard(const QModelIndex &index)
     clip->setText(message, QClipboard::Selection);
 }
 
+void MessageListView::clearTextDocumentCache()
+{
+    mMessageListDelegate->clearTextDocumentCache();
+}
+
 MessageListView::Mode MessageListView::mode() const
 {
     return mMode;

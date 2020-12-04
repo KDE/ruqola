@@ -140,6 +140,11 @@ void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
     mDocumentCache.remove(messageId);
 }
 
+void MessageDelegateHelperText::clearTextDocumentCache()
+{
+    //mDocumentCache.clear();
+}
+
 QString MessageDelegateHelperText::selectedText() const
 {
     if (mCurrentTextCursor.isNull()) {

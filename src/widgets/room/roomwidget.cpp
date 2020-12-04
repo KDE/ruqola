@@ -264,6 +264,8 @@ void RoomWidget::slotInviteUsers()
 
 void RoomWidget::updateListView()
 {
+    //TODO clear qtextdocument cache
+    mMessageListView->clearTextDocumentCache();
     mMessageListView->viewport()->update();
 }
 
