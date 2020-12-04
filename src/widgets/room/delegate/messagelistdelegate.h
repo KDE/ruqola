@@ -95,6 +95,9 @@ private:
         //Translated icon
         QRect translatedIconRect;
 
+        //Show Ignore Message icon
+        QRect showIgnoredMessageIconRect;
+
         // add-reaction button and timestamp
         QRect addReactionRect;
         QString timeStampText;
@@ -124,6 +127,9 @@ private:
 
         // Last See
         qreal displayLastSeenMessageY = 0;
+
+        // showIgnoreMessage
+        bool showIgnoreMessage = false;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;

@@ -180,6 +180,13 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         textLeft += iconSize + margin;
     }
 
+    const int showIgnoreMessageIconX = textLeft;
+    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
+    // showIgnoreMessage icon
+    if (isIgnoredMessage) {
+        textLeft += iconSize + margin;
+    }
+
     // Timestamp
     layout.timeStampText = index.data(MessageModel::Timestamp).toString();
     const QSize timeSize = timeStampSize(layout.timeStampText, option);
@@ -226,6 +233,12 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (message->isAutoTranslated()) {
         layout.translatedIconRect = QRect(translatedIconX, layout.senderRect.y(), iconSize, iconSize);
     }
+
+    if (isIgnoredMessage) {
+        layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.showIgnoreMessage = index.data(MessageModel::ShowIgnoredMessage).toBool();
+    }
+
 
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
@@ -401,6 +414,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
+    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
+    if (isIgnoredMessage) {
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        hideShowIcon.paint(painter, layout.showIgnoredMessageIconRect);
+    }
+
     // Attachments
     const auto attachements = message->attachements();
     int i = 0;
@@ -536,6 +555,10 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 mRocketChatAccount->joinDiscussion(message->discussionRoomId(), QString());
                 return true;
             }
+        }
+        const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
+        if (isIgnoredMessage) {
+            //TODO
         }
         if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;
