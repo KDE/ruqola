@@ -84,6 +84,7 @@ public:
         Emoji,
         AvatarInfo,
         PendingMessage,
+        ShowIgnoredMessage,
     };
     Q_ENUM(MessageRoles)
 

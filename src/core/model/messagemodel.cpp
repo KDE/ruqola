@@ -390,6 +390,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(message.avatarInfo());
     case MessageModel::PendingMessage:
         return message.pendingMessage();
+    case MessageModel::ShowIgnoredMessage:
+        return message.showIgnoredMessage();
     }
 
     return {};
@@ -442,6 +444,10 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     }
     case MessageModel::ShowTranslatedMessage:
         message.setShowTranslatedMessage(value.toBool());
+        Q_EMIT dataChanged(index, index);
+        return true;
+    case MessageModel::ShowIgnoredMessage:
+        message.setShowIgnoredMessage(value.toBool());
         Q_EMIT dataChanged(index, index);
         return true;
     }
