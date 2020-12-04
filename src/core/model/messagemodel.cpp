@@ -263,20 +263,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::OriginalMessage:
         return message.text();
     case MessageModel::MessageConvertedText:
-        if (message.messageType() == Message::System) {
-            return message.systemMessageText();
-        } else {
-            QStringList highlightWords;
-            if (mRoom) {
-                if (mRoom->userIsIgnored(message.userId())) {
-                    return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
-                }
-                highlightWords = mRoom->highlightsWord();
-            }
-            const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            return convertMessageText(message, userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords);
-        }
-
+        return convertedText(message);
     case MessageModel::Timestamp:
         return message.displayTime();
     case MessageModel::UserId:
@@ -406,6 +393,24 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
 
     return {};
+}
+
+QString MessageModel::convertedText(const Message &message) const
+{
+    if (message.messageType() == Message::System) {
+        return message.systemMessageText();
+    } else {
+        QStringList highlightWords;
+        if (mRoom) {
+            if (mRoom->userIsIgnored(message.userId())) {
+                return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+            }
+            highlightWords = mRoom->highlightsWord();
+        }
+        const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
+        return convertMessageText(message, userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords);
+    }
+
 }
 
 bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int role)

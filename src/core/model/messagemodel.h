@@ -154,6 +154,7 @@ private:
     Q_REQUIRED_RESULT QString threadMessagePreview(const QString &threadMessageId) const;
     Q_REQUIRED_RESULT QVector<Message>::iterator findMessage(const QString &messageId);
     Q_REQUIRED_RESULT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
+    Q_REQUIRED_RESULT QString convertedText(const Message &message) const;
 
     QString mRoomId;
     QVector<Message> mAllMessages;
