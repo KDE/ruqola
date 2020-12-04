@@ -35,6 +35,9 @@ void MessageTest::shouldHaveDefaultValues()
 {
     Message m;
     QVERIFY(!m.pendingMessage());
+    QVERIFY(!m.showIgnoredMessage());
+    QVERIFY(m.showTranslatedMessage());
+    QVERIFY(!m.unread());
 }
 
 //TODO add check for default value ???

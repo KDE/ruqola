@@ -195,6 +195,9 @@ public:
 
     Q_REQUIRED_RESULT bool isPinned() const;
     Q_REQUIRED_RESULT bool isAutoTranslated() const;
+    bool showIgnoredMessage() const;
+    void setShowIgnoredMessage(bool showIgnoredMessage);
+
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -296,6 +299,8 @@ private:
     bool mShowTranslatedMessage = true;
 
     bool mPendingMessage = false;
+
+    bool mShowIgnoredMessage = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };

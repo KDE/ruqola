@@ -104,6 +104,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+bool Message::showIgnoredMessage() const
+{
+    return mShowIgnoredMessage;
+}
+
+void Message::setShowIgnoredMessage(bool showIgnoredMessage)
+{
+    mShowIgnoredMessage = showIgnoredMessage;
+}
+
 bool Message::pendingMessage() const
 {
     return mPendingMessage;
@@ -403,7 +413,8 @@ bool Message::operator==(const Message &other) const
            && (mShowTranslatedMessage == other.showTranslatedMessage())
            && (mReplies == other.replies())
            && (mEmoji == other.emoji())
-           && (mPendingMessage == other.pendingMessage());
+           && (mPendingMessage == other.pendingMessage())
+            && (mShowIgnoredMessage == other.showIgnoredMessage());
 }
 
 bool Message::operator<(const Message &other) const
@@ -916,5 +927,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mReplies " << t.replies();
     d << "mEmoji " << t.emoji();
     d << "mPendingMessage " << t.pendingMessage();
+    d << "mShowIgnoredMessage " << t.showIgnoredMessage();
     return d;
 }
