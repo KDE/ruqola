@@ -32,6 +32,7 @@ public:
 
 private Q_SLOTS:
     void shouldCacheLastFiveEntries();
+    void shouldWorkWithUniquePtr();
 };
 
 #endif // LRUCACHETEST_H

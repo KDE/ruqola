@@ -119,4 +119,21 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
     QVERIFY(cache.remove(makeString("key", 3)));
     QVERIFY(expected.removeOne(value3));
     QCOMPARE(contents(), expected);
+
+    cache.clear();
+}
+
+void LRUCacheTest::shouldWorkWithUniquePtr()
+{
+    static int deletions = 0;
+    struct MyDocument
+    {
+        ~MyDocument() { ++deletions; }
+    };
+    LRUCache<int, std::unique_ptr<MyDocument>, 32> documentCache;
+    documentCache.insert(42, std::make_unique<MyDocument>());
+    QCOMPARE(documentCache.size(), 1);
+    documentCache.clear();
+    QCOMPARE(documentCache.size(), 0);
+    QCOMPARE(deletions, 1);
 }

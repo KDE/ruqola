@@ -111,7 +111,8 @@ public:
     void clear()
     {
         mNumEntries = 0;
-        mEntries.fill({});
+        Entries empty;
+        mEntries.swap(empty);
     }
 
 private:
