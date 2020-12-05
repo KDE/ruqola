@@ -142,7 +142,7 @@ void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
 
 void MessageDelegateHelperText::clearTextDocumentCache()
 {
-    //mDocumentCache.clear();
+    mDocumentCache.clear();
 }
 
 QString MessageDelegateHelperText::selectedText() const
