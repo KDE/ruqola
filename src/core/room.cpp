@@ -955,7 +955,7 @@ void Room::setAutoTranslateLanguage(const QString &autotranslateLanguage)
 
 QString Room::displayFName() const
 {
-    if (mFName.isEmpty()) {
+    if (mFName.isEmpty()) { //Fallback to name if fname is empty
         return mName;
     }
     return mFName;
