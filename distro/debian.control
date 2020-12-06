@@ -1,0 +1,14 @@
+Source: ruqola
+Section: Miscellaneous
+Priority: optional
+Maintainer: Allen Winter <allen.winter@kdab.com>
+Build-Depends: debhelper (>=9), cdbs, cmake
+Standards-Version: 3.9.6
+Homepage: https://invent.kde.org/network/ruqola
+
+Package: ruqola
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Ruqola is a Rocket.Chat client for the KDE desktop.
+ It supports multi-account, search in room, open close rooms, direct message, thread,
+ discussions. RC settings can be changed directly.
