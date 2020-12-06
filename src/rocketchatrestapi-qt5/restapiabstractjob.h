@@ -110,6 +110,7 @@ protected:
     void addAuthRawHeader(QNetworkRequest &request) const;
     virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail);
     virtual Q_REQUIRED_RESULT QString jobName() const;
+    virtual Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
     Q_REQUIRED_RESULT QNetworkReply *submitGetRequest();
     Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
 
@@ -123,7 +124,6 @@ private:
 
 private:
     Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
 };
 }
 #endif // RESTAPIABSTRACTJOB_H

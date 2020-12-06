@@ -134,3 +134,11 @@ QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &deta
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
+
+QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
+{
+    if (errorStr == QLatin1String("room_is_blocked")) {
+        return i18n("This room is blocked");
+    }
+    return RestApiAbstractJob::generateErrorMessage(errorStr);
+}

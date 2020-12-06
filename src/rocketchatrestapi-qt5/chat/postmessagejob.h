@@ -49,6 +49,7 @@ Q_SIGNALS:
 
 protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
 private:
     Q_DISABLE_COPY(PostMessageJob)
     void slotPostMessageDone();
