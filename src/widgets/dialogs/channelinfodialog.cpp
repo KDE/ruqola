@@ -51,7 +51,7 @@ ChannelInfoDialog::~ChannelInfoDialog()
 
 void ChannelInfoDialog::setRoom(Room *room)
 {
-    slotFnameChanged(room->fName());
+    slotFnameChanged(room->displayFName());
     mChannelInfoWidget->setRoom(room);
 }
 
