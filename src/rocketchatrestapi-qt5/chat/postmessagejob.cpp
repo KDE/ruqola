@@ -127,18 +127,12 @@ QJsonDocument PostMessageJob::json() const
     return postData;
 }
 
-QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &details)
-{
-    if (str == QLatin1String("room_is_blocked")) {
-        return i18n("This room is blocked");
-    }
-    return RestApiAbstractJob::errorMessage(str, details);
-}
-
 QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
 {
     if (errorStr == QLatin1String("room_is_blocked")) {
         return i18n("This room is blocked");
+    } else if (errorStr == QLatin1String("You_have_been_muted")) {
+        return i18n("You have been muted and cannot speak in this room");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
