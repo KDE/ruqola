@@ -66,6 +66,7 @@ public:
 
     Q_REQUIRED_RESULT QString channelTypeStr() const;
 
+    Q_REQUIRED_RESULT QString roomName() const;
 private:
     QStringList mUserNames;
     QStringList mUsers;
