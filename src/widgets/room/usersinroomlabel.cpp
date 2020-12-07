@@ -177,14 +177,6 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(removeFromRoom);
     }
     if (isNotMe) {
-        if (!menu.isEmpty()) {
-            menu.addSeparator();
-        }
-
-        const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
-        QAction *ignoreAction = new QAction(userIsIgnored ? i18n("Unignore") : i18n("Ignore"), &menu);
-        connect(ignoreAction, &QAction::triggered, this, &UserLabel::slotIgnoreUser);
-        menu.addAction(ignoreAction);
         if (isAdirectChannel) {
             if (!menu.isEmpty()) {
                 menu.addSeparator();
@@ -193,6 +185,15 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
             QAction *blockAction = new QAction(userIsBlocked ? i18n("Unblock User") : i18n("Block User"), &menu);
             connect(blockAction, &QAction::triggered, this, &UserLabel::slotBlockUser);
             menu.addAction(blockAction);
+        } else {
+            if (!menu.isEmpty()) {
+                menu.addSeparator();
+            }
+
+            const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
+            QAction *ignoreAction = new QAction(userIsIgnored ? i18n("Unignore") : i18n("Ignore"), &menu);
+            connect(ignoreAction, &QAction::triggered, this, &UserLabel::slotIgnoreUser);
+            menu.addAction(ignoreAction);
         }
     }
     menu.exec(mapToGlobal(pos));
