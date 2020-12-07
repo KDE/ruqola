@@ -28,7 +28,7 @@ class TextToSpeechTextInterface : public PluginTextInterface
     Q_OBJECT
 public:
     explicit TextToSpeechTextInterface(QObject *parent = nullptr);
-    ~TextToSpeechTextInterface();
+    ~TextToSpeechTextInterface() override;
 
     void addAction(QMenu *menu) override;
 

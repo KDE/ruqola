@@ -33,7 +33,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : publi
 {
 public:
     MessageAttachmentDelegateHelperImage() = default;
-    ~MessageAttachmentDelegateHelperImage() = default;
+    ~MessageAttachmentDelegateHelperImage() override = default;
     MessageAttachmentDelegateHelperImage(const MessageAttachmentDelegateHelperImage &) = delete;
     MessageAttachmentDelegateHelperImage &operator=(const MessageAttachmentDelegateHelperImage &) = delete;
     void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;

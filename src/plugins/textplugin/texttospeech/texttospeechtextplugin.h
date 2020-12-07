@@ -30,7 +30,7 @@ class TextToSpeechTextPlugin : public PluginText
     Q_OBJECT
 public:
     explicit TextToSpeechTextPlugin(QObject *parent = nullptr, const QVariantList & = {});
-    ~TextToSpeechTextPlugin();
+    ~TextToSpeechTextPlugin() override;
 
     PluginTextInterface *createInterface(QObject *parent) override;
 };
