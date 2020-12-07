@@ -48,6 +48,7 @@ Comment[x-test]=xxNotificationxx
 [Event/export-message]
 Name=Messages Exported
 Name[ca]=Missatges exportats
+Name[ca@valencia]=Missatges exportats
 Name[en_GB]=Messages Exported
 Name[es]=Los mensajes han sido exportados
 Name[fr]=Messages exportés
