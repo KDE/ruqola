@@ -84,7 +84,7 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
     const int col = index.column();
     switch (static_cast<AdminRoomsRoles>(col)) {
     case AdminRoomsRoles::Name:
-        return adminroom.name();
+        return adminroom.roomName();
     case AdminRoomsRoles::MessagesCount:
         return adminroom.messageCount();
     case AdminRoomsRoles::UsersCount:

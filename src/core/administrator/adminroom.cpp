@@ -33,7 +33,7 @@ AdminRoom::~AdminRoom()
 
 void AdminRoom::parseAdminRoom(const QJsonObject &object)
 {
-    //qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
+    // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("topic"))) {
         setTopic(object[QStringLiteral("topic")].toString());
     }
@@ -149,6 +149,14 @@ bool AdminRoom::readOnly() const
 void AdminRoom::setReadOnly(bool readOnly)
 {
     mReadOnly = readOnly;
+}
+
+QString AdminRoom::roomName() const
+{
+    if (mName.isEmpty()) {
+        return mUserNames.join(QStringLiteral(" x "));
+    }
+    return mName;
 }
 
 QString AdminRoom::name() const
