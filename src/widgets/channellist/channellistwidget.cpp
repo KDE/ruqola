@@ -73,7 +73,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     //BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Rooms"), this);
-    searchRoomAction->setShortcut(Qt::CTRL + Qt::Key_K);
+    searchRoomAction->setShortcut(Qt::CTRL | Qt::Key_K);
     connect(searchRoomAction, &QAction::triggered, this, [this]() {
         mSearchRoom->setFocus();
     });

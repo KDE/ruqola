@@ -250,7 +250,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
     mClearAlerts = new QAction(i18n("Mark all channels read"), this);
-    ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT + Qt::Key_Escape);
+    ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
 
