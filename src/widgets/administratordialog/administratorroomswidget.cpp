@@ -60,6 +60,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
     mResultTreeWidget->verticalHeader()->hide();
     mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
     mainLayout->addWidget(mResultTreeWidget);
 
     mAdminRoomsModel = new AdminRoomsModel(this);
