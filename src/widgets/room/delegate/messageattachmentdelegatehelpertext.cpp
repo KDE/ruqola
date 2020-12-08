@@ -181,7 +181,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
         return ret;
     }
 
-    QString text = msgAttach.text();
+    const QString text = msgAttach.text();
     if (text.isEmpty()) {
         const QString authorName = msgAttach.authorName();
         if (authorName.isEmpty()) {
