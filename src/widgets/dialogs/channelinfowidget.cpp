@@ -217,8 +217,8 @@ void ChannelInfoWidget::setRoom(Room *room)
 void ChannelInfoWidget::updateReadOnlyChannelInfo()
 {
     mNameReadOnly->setText(mRoom->displayFName());
-    mCommentReadOnly->setText(mRoom->topic());
-    mAnnouncementReadOnly->setText(mRoom->announcement());
+    mCommentReadOnly->setText(mRoom->displayTopic());
+    mAnnouncementReadOnly->setText(mRoom->displayAnnouncement());
     mDescriptionReadOnly->setText(mRoom->description());
 }
 
