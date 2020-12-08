@@ -553,6 +553,15 @@ QString Room::announcement() const
     return mAnnouncement;
 }
 
+QString Room::displayAnnouncement() const
+{
+    if (mAnnouncement.isEmpty()) {
+        return {};
+    }
+    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
+    return TextConverter::convertMessageText(mAnnouncement, {}, {}, {}, emojiManager);
+}
+
 void Room::setAnnouncement(const QString &announcement)
 {
     if (mAnnouncement != announcement) {

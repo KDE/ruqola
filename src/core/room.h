@@ -241,6 +241,7 @@ public:
     Q_REQUIRED_RESULT bool hasPermission(const QString &permission) const;
 
     Q_REQUIRED_RESULT QString displayTopic() const;
+    Q_REQUIRED_RESULT QString displayAnnouncement() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
