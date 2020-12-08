@@ -384,7 +384,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     auto it = mDocumentCache.find(messageId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
-        if (ret->textWidth() != width) {
+        if (!qFuzzyCompare(ret->textWidth(), width)) {
             ret->setTextWidth(width);
         }
         return ret;
