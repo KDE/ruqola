@@ -80,7 +80,6 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mAnnouncement->setAllowEmptyText(true);
     connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        qDebug() << " name " << name;
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Announcement, name, mRoom->channelType());
     });
     str = i18n("Announcement:");
