@@ -19,10 +19,16 @@
 */
 
 #include "administratorserverinfowidgettest.h"
-#include "administratordialog/administratorserverinfowidget.h"
+#include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <QTest>
 QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
+{
+    AdministratorServerInfoWidget w;
+    //TODO
 }
