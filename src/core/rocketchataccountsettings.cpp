@@ -59,10 +59,12 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
-    auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
-    connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
-    readJob->setKey(mAccountName);
-    readJob->start();
+    if (mAccountEnabled) {
+        auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
+        connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
+        readJob->setKey(mAccountName);
+        readJob->start();
+    }
 }
 
 void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
