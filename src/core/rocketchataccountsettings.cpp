@@ -74,7 +74,7 @@ void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
         qCDebug(RUQOLA_LOG) << "OK, we have the password now";
         Q_EMIT passwordChanged();
     } else {
-        qCWarning(RUQOLA_LOG) << "We have an error during reading password " << job->errorString();
+        qCWarning(RUQOLA_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccountName;
     }
 }
 
