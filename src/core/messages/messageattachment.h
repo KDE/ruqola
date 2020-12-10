@@ -111,6 +111,8 @@ public:
     Q_REQUIRED_RESULT QString authorIcon() const;
     void setAuthorIcon(const QString &authorIcon);
 
+    Q_REQUIRED_RESULT QString attachmentFieldsText() const;
+
 private:
     void generateAttachmentFieldsText();
     QVector<MessageAttachmentField> mAttachmentFields;
@@ -124,6 +126,7 @@ private:
     QString mText;
     QString mAttachmentId;
     QString mAuthorIcon;
+    QString mAttachmentFieldsText;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
