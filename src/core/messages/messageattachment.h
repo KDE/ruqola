@@ -112,6 +112,7 @@ public:
     void setAuthorIcon(const QString &authorIcon);
 
 private:
+    void generateAttachmentFieldsText();
     QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
     QString mColor;

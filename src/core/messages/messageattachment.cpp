@@ -297,6 +297,24 @@ QVector<MessageAttachmentField> MessageAttachment::attachmentFields() const
 void MessageAttachment::setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields)
 {
     mAttachmentFields = attachmentFields;
+    generateAttachmentFieldsText();
+    //TODO generate table from it.
+}
+
+void MessageAttachment::generateAttachmentFieldsText()
+{
+    QString result = QStringLiteral("<tr>");
+    QStringList values;
+    values.reserve(mAttachmentFields.count());
+    for (const MessageAttachmentField &field : qAsConst(mAttachmentFields)) {
+        result += QStringLiteral("<td><b>%1</b></td>").arg(field.title());
+        values << field.value();
+    }
+    for (const QString &res : values) {
+        result += QStringLiteral("<td>%1</td>").arg(res);
+    }
+    result += QStringLiteral("</tr>");
+    qDebug() << " result " << result;
 }
 
 bool MessageAttachment::collapsed() const
