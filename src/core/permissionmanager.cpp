@@ -33,7 +33,9 @@ PermissionManager::~PermissionManager()
 void PermissionManager::parsePermissions(const QJsonObject &replyObject)
 {
     const QJsonArray removeArray = replyObject[QLatin1String("remove")].toArray();
-    parseRemovePermission(removeArray);
+    if (!removeArray.isEmpty()) {
+        parseRemovePermission(removeArray);
+    }
     const QJsonArray updateArray = replyObject[QLatin1String("update")].toArray();
     parseUpdatePermission(updateArray);
     //qDebug() << "mMapPermissions  " << mMapPermissions;
@@ -60,7 +62,7 @@ int PermissionManager::permissionCount() const
 
 void PermissionManager::parseRemovePermission(const QJsonArray &removeArray)
 {
-    qDebug() << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet" << removeArray;
+    qCWarning(RUQOLA_LOG) << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet" << removeArray;
 }
 
 void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
