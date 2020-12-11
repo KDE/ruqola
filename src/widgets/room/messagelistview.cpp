@@ -197,6 +197,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
+    const bool canMarkAsUnread = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
+
     QMenu menu(this);
     QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
@@ -232,6 +234,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(selectAllAction, &QAction::triggered, this, [=]() {
         slotSelectAll(index);
     });
+
     QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
     connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
         slotMarkMessageAsUnread(index);
@@ -280,11 +283,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(selectAllAction);
 
         menu.addSeparator();
-        QAction *markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
-        connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
-            slotMarkMessageAsUnread(index);
-        });
-        menu.addAction(markMessageAsUnReadAction);
+        if (canMarkAsUnread) {
+            menu.addAction(markMessageAsUnReadAction);
+        }
 
         if (deleteAction) {
             menu.addSeparator();
@@ -325,8 +326,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(setAsFavoriteAction);
             menu.addSeparator();
         }
-        menu.addAction(markMessageAsUnReadAction);
-        menu.addSeparator();
+        if (canMarkAsUnread) {
+            menu.addAction(markMessageAsUnReadAction);
+            menu.addSeparator();
+        }
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
         menu.addSeparator();
