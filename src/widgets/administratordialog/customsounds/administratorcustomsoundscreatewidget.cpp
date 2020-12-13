@@ -27,6 +27,7 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    //TODO add widget for adding sounds
 }
 
 AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()
