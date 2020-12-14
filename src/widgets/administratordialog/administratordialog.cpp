@@ -28,7 +28,7 @@
 #include <QVBoxLayout>
 
 namespace {
-const char myConfigGroupName[] = "AdministratorDialog";
+const char myAdministratorDialogGroupName[] = "AdministratorDialog";
 }
 
 AdministratorDialog::AdministratorDialog(QWidget *parent)
@@ -58,7 +58,7 @@ AdministratorDialog::~AdministratorDialog()
 
 void AdministratorDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myAdministratorDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -67,6 +67,6 @@ void AdministratorDialog::readConfig()
 
 void AdministratorDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myAdministratorDialogGroupName);
     group.writeEntry("Size", size());
 }

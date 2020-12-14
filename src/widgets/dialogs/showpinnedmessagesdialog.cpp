@@ -25,7 +25,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowPinnedMessagesDialog";
+static const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDialog";
 }
 
 ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(QWidget *parent)
@@ -42,7 +42,7 @@ ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
 
 void ShowPinnedMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowPinnedMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -51,6 +51,6 @@ void ShowPinnedMessagesDialog::readConfig()
 
 void ShowPinnedMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowPinnedMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

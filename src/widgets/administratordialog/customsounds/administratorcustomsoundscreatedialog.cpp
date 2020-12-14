@@ -28,7 +28,7 @@
 #include <QDialogButtonBox>
 
 namespace {
-static const char myConfigGroupName[] = "AdministratorCustomSoundsCreateDialog";
+static const char myConfigAdministratorCustomSoundsCreateDialogGroupName[] = "AdministratorCustomSoundsCreateDialog";
 }
 
 AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWidget *parent)
@@ -57,7 +57,7 @@ AdministratorCustomSoundsCreateDialog::~AdministratorCustomSoundsCreateDialog()
 
 void AdministratorCustomSoundsCreateDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -66,6 +66,6 @@ void AdministratorCustomSoundsCreateDialog::readConfig()
 
 void AdministratorCustomSoundsCreateDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
     group.writeEntry("Size", size());
 }

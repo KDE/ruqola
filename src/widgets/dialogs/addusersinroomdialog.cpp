@@ -27,7 +27,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 namespace {
-static const char myConfigGroupName[] = "AddUsersInRoomDialog";
+static const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
 }
 AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     : QDialog(parent)
@@ -63,7 +63,7 @@ QStringList AddUsersInRoomDialog::users() const
 
 void AddUsersInRoomDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigAddUsersInRoomDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -72,6 +72,6 @@ void AddUsersInRoomDialog::readConfig()
 
 void AddUsersInRoomDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigAddUsersInRoomDialogGroupName);
     group.writeEntry("Size", size());
 }

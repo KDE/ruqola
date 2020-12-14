@@ -27,7 +27,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "CreateNewChannelDialog";
+static const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog";
 }
 CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     : QDialog(parent)
@@ -71,7 +71,7 @@ CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo() con
 
 void CreateNewChannelDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewChannelDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -80,7 +80,7 @@ void CreateNewChannelDialog::readConfig()
 
 void CreateNewChannelDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewChannelDialogGroupName);
     group.writeEntry("Size", size());
 }
 

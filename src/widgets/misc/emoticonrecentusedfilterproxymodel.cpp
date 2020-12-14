@@ -25,7 +25,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "EmoticonRecentUsed";
+static const char myEmoticonRecentUsedFilterProxyModelGroupName[] = "EmoticonRecentUsed";
 }
 EmoticonRecentUsedFilterProxyModel::EmoticonRecentUsedFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -40,14 +40,14 @@ EmoticonRecentUsedFilterProxyModel::~EmoticonRecentUsedFilterProxyModel()
 
 void EmoticonRecentUsedFilterProxyModel::loadRecentUsed()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myEmoticonRecentUsedFilterProxyModelGroupName);
     const QStringList recentUsed = group.readEntry("Recents", QStringList());
     setUsedIdentifier(recentUsed);
 }
 
 void EmoticonRecentUsedFilterProxyModel::writeRecentUsed()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myEmoticonRecentUsedFilterProxyModelGroupName);
     group.writeEntry("Recents", mUsedIdentifier);
     group.sync();
 }

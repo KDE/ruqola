@@ -24,7 +24,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowMentionsMessagesDialog";
+static const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessagesDialog";
 }
 
 ShowMentionsMessagesDialog::ShowMentionsMessagesDialog(QWidget *parent)
@@ -41,7 +41,7 @@ ShowMentionsMessagesDialog::~ShowMentionsMessagesDialog()
 
 void ShowMentionsMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowMentionsMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -50,6 +50,6 @@ void ShowMentionsMessagesDialog::readConfig()
 
 void ShowMentionsMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowMentionsMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

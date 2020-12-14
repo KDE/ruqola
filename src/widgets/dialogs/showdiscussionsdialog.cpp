@@ -32,7 +32,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowDiscussionsDialog";
+static const char myShowDiscussionsDialogGroupName[] = "ShowDiscussionsDialog";
 }
 ShowDiscussionsDialog::ShowDiscussionsDialog(QWidget *parent)
     : QDialog(parent)
@@ -60,7 +60,7 @@ ShowDiscussionsDialog::~ShowDiscussionsDialog()
 
 void ShowDiscussionsDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowDiscussionsDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -69,7 +69,7 @@ void ShowDiscussionsDialog::readConfig()
 
 void ShowDiscussionsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowDiscussionsDialogGroupName);
     group.writeEntry("Size", size());
 }
 

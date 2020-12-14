@@ -28,7 +28,7 @@
 #include <QDialogButtonBox>
 
 namespace {
-static const char myConfigGroupName[] = "SearchMessageDialog";
+static const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
 }
 SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     : QDialog(parent)
@@ -61,7 +61,7 @@ void SearchMessageDialog::setRoomId(const QString &roomId)
 
 void SearchMessageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), mySearchMessageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -70,7 +70,7 @@ void SearchMessageDialog::readConfig()
 
 void SearchMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), mySearchMessageDialogGroupName);
     group.writeEntry("Size", size());
 }
 

@@ -28,7 +28,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "CreateNewAccountDialog";
+static const char myConfigCreateNewAccountDialogGroupName[] = "CreateNewAccountDialog";
 }
 
 CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
@@ -79,7 +79,7 @@ void CreateNewAccountDialog::setExistingAccountName(const QStringList &lst)
 
 void CreateNewAccountDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateNewAccountDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -88,6 +88,6 @@ void CreateNewAccountDialog::readConfig()
 
 void CreateNewAccountDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateNewAccountDialogGroupName);
     group.writeEntry("Size", size());
 }

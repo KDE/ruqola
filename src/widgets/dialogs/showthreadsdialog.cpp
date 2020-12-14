@@ -28,7 +28,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowThreadsDialog";
+static const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
 }
 ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)
     : ShowListMessageBaseDialog(parent)
@@ -44,7 +44,7 @@ ShowThreadsDialog::~ShowThreadsDialog()
 
 void ShowThreadsDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowThreadsDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -53,6 +53,6 @@ void ShowThreadsDialog::readConfig()
 
 void ShowThreadsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowThreadsDialogGroupName);
     group.writeEntry("Size", size());
 }

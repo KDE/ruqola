@@ -24,7 +24,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowStarredMessagesDialog";
+static const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
 }
 
 ShowStarredMessagesDialog::ShowStarredMessagesDialog(QWidget *parent)
@@ -41,7 +41,7 @@ ShowStarredMessagesDialog::~ShowStarredMessagesDialog()
 
 void ShowStarredMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowStarredMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -50,6 +50,6 @@ void ShowStarredMessagesDialog::readConfig()
 
 void ShowStarredMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowStarredMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

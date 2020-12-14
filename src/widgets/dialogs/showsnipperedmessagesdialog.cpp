@@ -24,7 +24,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowSnipperedMessagesDialog";
+static const char myShowSnipperedMessagesDialogGroupName[] = "ShowSnipperedMessagesDialog";
 }
 
 ShowSnipperedMessagesDialog::ShowSnipperedMessagesDialog(QWidget *parent)
@@ -41,7 +41,7 @@ ShowSnipperedMessagesDialog::~ShowSnipperedMessagesDialog()
 
 void ShowSnipperedMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowSnipperedMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -50,6 +50,6 @@ void ShowSnipperedMessagesDialog::readConfig()
 
 void ShowSnipperedMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowSnipperedMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

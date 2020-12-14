@@ -28,7 +28,7 @@
 #include <QPushButton>
 
 namespace {
-static const char myConfigGroupName[] = "CreateNewDiscussionDialog";
+static const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
 }
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     : QDialog(parent)
@@ -62,7 +62,7 @@ CreateNewDiscussionDialog::~CreateNewDiscussionDialog()
 
 void CreateNewDiscussionDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewDiscussionDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -71,7 +71,7 @@ void CreateNewDiscussionDialog::readConfig()
 
 void CreateNewDiscussionDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewDiscussionDialogGroupName);
     group.writeEntry("Size", size());
 }
 

@@ -28,7 +28,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "InviteUsersDialog";
+static const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
 }
 InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     : QDialog(parent)
@@ -71,7 +71,7 @@ void InviteUsersDialog::generateLink()
 
 void InviteUsersDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myInviteUsersDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(300, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -80,6 +80,6 @@ void InviteUsersDialog::readConfig()
 
 void InviteUsersDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myInviteUsersDialogGroupName);
     group.writeEntry("Size", size());
 }

@@ -28,7 +28,7 @@
 #include <QPushButton>
 
 namespace {
-static const char myConfigGroupName[] = "SearchChannelDialog";
+static const char mySearchChannelDialogGroupName[] = "SearchChannelDialog";
 }
 SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     : QDialog(parent)
@@ -56,7 +56,7 @@ SearchChannelDialog::~SearchChannelDialog()
 
 void SearchChannelDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), mySearchChannelDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -65,6 +65,6 @@ void SearchChannelDialog::readConfig()
 
 void SearchChannelDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), mySearchChannelDialogGroupName);
     group.writeEntry("Size", size());
 }

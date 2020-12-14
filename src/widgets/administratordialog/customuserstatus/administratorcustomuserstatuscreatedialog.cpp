@@ -27,7 +27,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 namespace {
-static const char myConfigGroupName[] = "AdministratorCustomUserStatusCreateDialog";
+static const char myConfigAdministratorCustomUserStatusCreateDialogGroupName[] = "AdministratorCustomUserStatusCreateDialog";
 }
 AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDialog(QWidget *parent)
     : QDialog(parent)
@@ -58,7 +58,7 @@ AdministratorCustomUserStatusCreateDialog::~AdministratorCustomUserStatusCreateD
 
 void AdministratorCustomUserStatusCreateDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -67,7 +67,7 @@ void AdministratorCustomUserStatusCreateDialog::readConfig()
 
 void AdministratorCustomUserStatusCreateDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
     group.writeEntry("Size", size());
 }
 

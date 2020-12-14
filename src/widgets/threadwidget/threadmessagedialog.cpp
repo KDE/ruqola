@@ -27,7 +27,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ThreadMessageDialog";
+static const char myThreadMessageDialogGroupName[] = "ThreadMessageDialog";
 }
 
 ThreadMessageDialog::ThreadMessageDialog(QWidget *parent)
@@ -55,7 +55,7 @@ ThreadMessageDialog::~ThreadMessageDialog()
 
 void ThreadMessageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myThreadMessageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -64,7 +64,7 @@ void ThreadMessageDialog::readConfig()
 
 void ThreadMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myThreadMessageDialogGroupName);
     group.writeEntry("Size", size());
 }
 

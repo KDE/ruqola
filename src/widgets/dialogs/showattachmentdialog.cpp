@@ -30,7 +30,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 namespace {
-static const char myConfigGroupName[] = "ShowAttachmentDialog";
+static const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 }
 
 ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
@@ -80,7 +80,7 @@ QString ShowAttachmentDialog::roomId() const
 
 void ShowAttachmentDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowAttachmentDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -89,7 +89,7 @@ void ShowAttachmentDialog::readConfig()
 
 void ShowAttachmentDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowAttachmentDialogGroupName);
     group.writeEntry("Size", size());
 }
 

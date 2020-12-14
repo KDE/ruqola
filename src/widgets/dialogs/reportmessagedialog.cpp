@@ -28,7 +28,7 @@
 #include <KLocalizedString>
 #include <QPushButton>
 namespace {
-static const char myConfigGroupName[] = "ReportMessageDialog";
+static const char myReportMessageDialogGroupName[] = "ReportMessageDialog";
 }
 ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     : QDialog(parent)
@@ -61,7 +61,7 @@ ReportMessageDialog::~ReportMessageDialog()
 
 void ReportMessageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myReportMessageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -70,7 +70,7 @@ void ReportMessageDialog::readConfig()
 
 void ReportMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myReportMessageDialogGroupName);
     group.writeEntry("Size", size());
 }
 

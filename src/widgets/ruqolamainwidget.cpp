@@ -34,7 +34,7 @@
 #include <model/roommodel.h>
 
 namespace {
-static const char myConfigGroupName[] = "RuqolaMainWidget";
+static const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
 }
 
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
@@ -71,13 +71,13 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     connect(mChannelList, &ChannelListWidget::roomSelected, this, &RuqolaMainWidget::selectChannelRoom);
 
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());

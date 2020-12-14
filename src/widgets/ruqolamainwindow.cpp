@@ -64,7 +64,7 @@
 #endif
 
 namespace {
-static const char myConfigGroupName[] = "RuqolaMainWindow";
+static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 }
 
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
@@ -97,7 +97,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 RuqolaMainWindow::~RuqolaMainWindow()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group = config->group(myConfigGroupName);
+    KConfigGroup group = config->group(myRuqolaMainWindowGroupName);
     group.writeEntry("Size", size());
 
     delete mMainWidget; // before Ruqola::destroy()
@@ -183,7 +183,7 @@ void RuqolaMainWindow::updateActions()
 void RuqolaMainWindow::readConfig()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group = KConfigGroup(config, myConfigGroupName);
+    KConfigGroup group = KConfigGroup(config, myRuqolaMainWindowGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);

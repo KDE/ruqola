@@ -30,7 +30,7 @@
 #include <QPushButton>
 
 namespace {
-static const char myConfigGroupName[] = "CreateDirectMessagesDialog";
+static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectMessagesDialog";
 }
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
     : QDialog(parent)
@@ -68,7 +68,7 @@ QStringList CreateDirectMessagesDialog::userNames() const
 
 void CreateDirectMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateDirectMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -77,6 +77,6 @@ void CreateDirectMessagesDialog::readConfig()
 
 void CreateDirectMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateDirectMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

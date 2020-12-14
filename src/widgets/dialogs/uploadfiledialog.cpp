@@ -28,7 +28,7 @@
 #include <QVBoxLayout>
 
 namespace {
-static const char myConfigGroupName[] = "UploadFileDialog";
+static const char myUploadFileDialogGroupName[] = "UploadFileDialog";
 }
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
@@ -64,7 +64,7 @@ void UploadFileDialog::setFileUrl(const QUrl &url)
 
 void UploadFileDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myUploadFileDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -73,7 +73,7 @@ void UploadFileDialog::readConfig()
 
 void UploadFileDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myUploadFileDialogGroupName);
     group.writeEntry("Size", size());
 }
 

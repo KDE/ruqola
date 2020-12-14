@@ -27,7 +27,7 @@
 #include <KSharedConfig>
 
 namespace {
-static const char myConfigGroupName[] = "ShowVideoDialog";
+static const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
 }
 
 ShowVideoDialog::ShowVideoDialog(QWidget *parent)
@@ -61,7 +61,7 @@ void ShowVideoDialog::setVideoUrl(const QUrl &videoPath)
 
 void ShowVideoDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowVideoDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -70,6 +70,6 @@ void ShowVideoDialog::readConfig()
 
 void ShowVideoDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), myShowVideoDialogGroupName);
     group.writeEntry("Size", size());
 }
