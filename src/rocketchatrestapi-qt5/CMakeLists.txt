@@ -183,7 +183,9 @@ target_link_libraries(librocketchatrestapi-qt5
     Qt5::NetworkAuth
     KF5::I18n
 )
-
+if (COMPILE_WITH_CMAKE_SUPPORT)
+    set_target_properties(librocketchatrestapi-qt5 PROPERTIES UNITY_BUILD ON)
+endif()
 set_target_properties(librocketchatrestapi-qt5
     PROPERTIES OUTPUT_NAME rocketchatrestapi-qt5 VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )

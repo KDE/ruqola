@@ -45,6 +45,17 @@ if (OPTION_BUILD_PYTHON_BINDINGS)
 endif()   
 
 
+option(USE_UNIFY_CMAKE_SUPPORT "Use UNIFY cmake support (speedup compile time)" FALSE)
+
+set(COMPILE_WITH_CMAKE_SUPPORT false)
+if (USE_UNIFY_CMAKE_SUPPORT)
+    if(${CMAKE_VERSION} VERSION_LESS "3.16.0")
+        message(STATUS "CMAKE version is less than 3.16.0 . We can't use cmake unify build support")
+    else()
+        set(COMPILE_WITH_CMAKE_SUPPORT true)
+    endif()
+endif()
+
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 if (NOT WIN32)
     option(UNITY_SUPPORT "Build unity support" TRUE)

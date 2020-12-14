@@ -211,7 +211,6 @@ ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selecti
     DESCRIPTION "ruqola widgets (selection)" EXPORT RUQOLA)
 
 qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
-
 add_library(libruqolawidgets
     ${Ruqola_widget_register_user_SRCS}
     ${Ruqola_textplugin_SRCS}
@@ -230,6 +229,9 @@ add_library(libruqolawidgets
     ${Ruqola_export_messages_SRCS}
     )
 
+if (COMPILE_WITH_CMAKE_SUPPORT)
+    set_target_properties(libruqolawidgets PROPERTIES UNITY_BUILD ON)
+endif()
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
 set(ruqola_userfeedback_LIB)
