@@ -195,8 +195,11 @@ public:
 
     Q_REQUIRED_RESULT bool isPinned() const;
     Q_REQUIRED_RESULT bool isAutoTranslated() const;
-    bool showIgnoredMessage() const;
+    Q_REQUIRED_RESULT bool showIgnoredMessage() const;
     void setShowIgnoredMessage(bool showIgnoredMessage);
+
+    Q_REQUIRED_RESULT bool isEditingMode() const;
+    void setIsEditingMode(bool isEditingMode);
 
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
@@ -301,6 +304,8 @@ private:
     bool mPendingMessage = false;
 
     bool mShowIgnoredMessage = false;
+
+    bool mIsEditingMode = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };

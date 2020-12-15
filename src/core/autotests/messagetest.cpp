@@ -38,6 +38,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.showIgnoredMessage());
     QVERIFY(m.showTranslatedMessage());
     QVERIFY(!m.unread());
+    QVERIFY(!m.isEditingMode());
 }
 
 //TODO add check for default value ???

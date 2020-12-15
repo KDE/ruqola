@@ -104,6 +104,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+bool Message::isEditingMode() const
+{
+    return mIsEditingMode;
+}
+
+void Message::setIsEditingMode(bool isEditingMode)
+{
+    mIsEditingMode = isEditingMode;
+}
+
 bool Message::showIgnoredMessage() const
 {
     return mShowIgnoredMessage;
