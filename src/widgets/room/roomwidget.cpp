@@ -209,6 +209,9 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::ExportMessages:
         slotExportMessages();
         break;
+    case RoomHeaderWidget::FollowMessages:
+        slotFollowMessages();
+        break;
     }
 }
 
@@ -627,4 +630,9 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const Q
     dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
+}
+
+void RoomWidget::slotFollowMessages()
+{
+    qDebug() << " RoomWidget::slotFollowMessages() not implemented yet";
 }
