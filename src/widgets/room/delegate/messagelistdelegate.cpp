@@ -459,6 +459,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     //drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+    if (index.data(MessageModel::MessageInEditMode).toBool()) {
+        painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+    }
 
     painter->restore();
 }

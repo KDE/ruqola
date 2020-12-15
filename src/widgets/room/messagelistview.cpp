@@ -451,6 +451,9 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
 {
     const QString text = index.data(MessageModel::OriginalMessage).toString();
     const QString messageId = index.data(MessageModel::MessageId).toString();
+
+    //Change mode
+    model()->setData(index, true, MessageModel::MessageInEditMode);
     Q_EMIT editMessageRequested(messageId, text);
 }
 

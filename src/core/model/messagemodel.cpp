@@ -452,6 +452,10 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         message.setShowIgnoredMessage(value.toBool());
         Q_EMIT dataChanged(index, index);
         return true;
+    case MessageModel::MessageInEditMode:
+        message.setIsEditingMode(value.toBool());
+        Q_EMIT dataChanged(index, index);
+        return true;
     }
     return false;
 }
