@@ -232,7 +232,7 @@ ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_rooms_debug.h IDE
 
 qt5_add_resources(libruqolacore_RSC ruqolacore.qrc)
 add_library(libruqolacore ${Ruqola_core_srcs} ${libruqolacore_RSC})
-if (COMPILE_WITH_CMAKE_SUPPORT)
+if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolacore PROPERTIES UNITY_BUILD ON)
 endif()
 
