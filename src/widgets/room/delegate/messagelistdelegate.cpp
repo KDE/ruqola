@@ -73,6 +73,10 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
+    KColorScheme scheme;
+    mEditColorMode = scheme.background(KColorScheme::NeutralBackground).color();
+    mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
+    mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
 }
 
 MessageListDelegate::~MessageListDelegate()
@@ -361,11 +365,10 @@ void MessageListDelegate::setShowThreadContext(bool b)
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
-    KColorScheme scheme;
 
     drawBackground(painter, option, index);
     if (index.data(MessageModel::MessageInEditMode).toBool()) {
-        painter->fillRect(option.rect.adjusted(0, 0, -1, -1), scheme.background(KColorScheme::NeutralBackground).color());
+        painter->fillRect(option.rect.adjusted(0, 0, -1, -1), mEditColorMode);
     }
 
     const Layout layout = doLayout(option, index);
@@ -448,13 +451,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const int threadCount = message->threadCount();
     if (threadCount > 0) {
         const QString repliesText = i18np("1 reply", "%1 replies", threadCount);
-        painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
+        painter->setPen(mReplyThreadColorMode);
         painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
     }
     // Discussion
     if (!message->discussionRoomId().isEmpty()) {
         const QString discussionsText = (message->discussionCount() > 0) ? i18np("1 message", "%1 messages", message->discussionCount()) : i18n("No message yet");
-        painter->setPen(scheme.foreground(KColorScheme::LinkText).color());
+        painter->setPen(mOpenDiscussionColorMode);
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
     }

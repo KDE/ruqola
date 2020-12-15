@@ -146,6 +146,9 @@ private:
     const QIcon mFavoriteIcon;
     const QIcon mPinIcon;
     const QIcon mTranslatedIcon;
+    QColor mEditColorMode;
+    QColor mOpenDiscussionColorMode;
+    QColor mReplyThreadColorMode;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
