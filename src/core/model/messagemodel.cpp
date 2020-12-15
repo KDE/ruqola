@@ -392,6 +392,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.pendingMessage();
     case MessageModel::ShowIgnoredMessage:
         return message.showIgnoredMessage();
+    case MessageModel::MessageInEditMode:
+        return message.isEditingMode();
     }
 
     return {};

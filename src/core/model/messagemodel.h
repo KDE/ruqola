@@ -85,6 +85,7 @@ public:
         AvatarInfo,
         PendingMessage,
         ShowIgnoredMessage,
+        MessageInEditMode,
     };
     Q_ENUM(MessageRoles)
 
