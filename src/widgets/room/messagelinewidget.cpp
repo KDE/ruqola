@@ -122,7 +122,19 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 
 void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
 {
+    //Remove old mark as editing
+    MessageModel *model = messageModel();
+    const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
+    if (index.isValid()) {
+        model->setData(index, false, MessageModel::MessageInEditMode);
+    }
     mMessageIdBeingEdited = messageId;
+    if (!mMessageIdBeingEdited.isEmpty()) {
+        const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
+        if (index.isValid()) {
+            model->setData(index, true, MessageModel::MessageInEditMode);
+        }
+    }
     setMode(messageId.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
     setText(text);
     setFocus();
@@ -278,6 +290,9 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
 
 void MessageLineWidget::clearMessageIdBeingEdited()
 {
+    MessageModel *model = messageModel();
+    const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
+    model->setData(index, false, MessageModel::MessageInEditMode);
     mMessageIdBeingEdited.clear();
     setText(QString());
     setMode(MessageLineWidget::EditingMode::NewMessage);
