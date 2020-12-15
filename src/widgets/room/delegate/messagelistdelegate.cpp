@@ -361,8 +361,12 @@ void MessageListDelegate::setShowThreadContext(bool b)
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
+    KColorScheme scheme;
 
     drawBackground(painter, option, index);
+    if (index.data(MessageModel::MessageInEditMode).toBool()) {
+        painter->fillRect(option.rect.adjusted(0, 0, -1, -1), scheme.background(KColorScheme::NeutralBackground).color());
+    }
 
     const Layout layout = doLayout(option, index);
 
@@ -441,7 +445,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     mHelperReactions->draw(painter, reactionsRect, index, option);
 
     // Replies
-    KColorScheme scheme;
     const int threadCount = message->threadCount();
     if (threadCount > 0) {
         const QString repliesText = i18np("1 reply", "%1 replies", threadCount);
@@ -459,9 +462,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     //drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
-    if (index.data(MessageModel::MessageInEditMode).toBool()) {
-        painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
-    }
 
     painter->restore();
 }
