@@ -283,6 +283,13 @@ void MessageLineWidget::clearMessageIdBeingEdited()
     setMode(MessageLineWidget::EditingMode::NewMessage);
 }
 
+MessageModel *MessageLineWidget::messageModel() const
+{
+    MessageModel *model = mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
+    Q_ASSERT(model);
+    return model;
+}
+
 void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
@@ -299,8 +306,7 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
             ev->accept();
         }
     } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
-        MessageModel *model = mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
-        Q_ASSERT(model);
+        MessageModel *model = messageModel();
         auto isEditable = [this](const Message &msg) {
                               return mCurrentRocketChatAccount->isMessageEditable(msg);
                           };

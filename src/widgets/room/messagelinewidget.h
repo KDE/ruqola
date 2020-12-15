@@ -31,6 +31,7 @@ class QToolButton;
 class EmoticonMenuWidget;
 class RocketChatAccount;
 class QMimeData;
+class MessageModel;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
@@ -81,6 +82,7 @@ private:
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendFile();
     void keyPressedInLineEdit(QKeyEvent *ev);
+    MessageModel *messageModel() const;
 
     QString mRoomId;
     QString mThreadMessageId;
