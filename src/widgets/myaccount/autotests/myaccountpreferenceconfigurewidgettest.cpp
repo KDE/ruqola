@@ -24,6 +24,7 @@
 #include <QTest>
 #include <QLineEdit>
 #include <QVBoxLayout>
+#include <QComboBox>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
 MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(QObject *parent)
     : QObject(parent)
@@ -45,4 +46,27 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto *mHighlightWords = w.findChild<QLineEdit *>(QStringLiteral("mHighlightWords"));
     QVERIFY(mHighlightWords);
     QVERIFY(mHighlightWords->text().isEmpty());
+
+
+    auto mDesktopNotification = w.findChild<QComboBox *>(QStringLiteral("mDesktopNotification"));
+    QVERIFY(mDesktopNotification);
+    auto mEmailNotification = w.findChild<QComboBox *>(QStringLiteral("mEmailNotification"));
+    QVERIFY(mEmailNotification);
+    auto mMobileNotification = w.findChild<QComboBox *>(QStringLiteral("mMobileNotification"));
+    QVERIFY(mMobileNotification);
+
+    auto *desktopNotificationLabel = w.findChild<QLabel *>(QStringLiteral("desktopNotificationLabel"));
+    QVERIFY(desktopNotificationLabel);
+    QCOMPARE(desktopNotificationLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!desktopNotificationLabel->text().isEmpty());
+
+    auto *emailNotificationLabel = w.findChild<QLabel *>(QStringLiteral("emailNotificationLabel"));
+    QVERIFY(emailNotificationLabel);
+    QCOMPARE(emailNotificationLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!emailNotificationLabel->text().isEmpty());
+
+    auto *mobileNotificationLabel = w.findChild<QLabel *>(QStringLiteral("mobileNotificationLabel"));
+    QVERIFY(mobileNotificationLabel);
+    QCOMPARE(mobileNotificationLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!mobileNotificationLabel->text().isEmpty());
 }

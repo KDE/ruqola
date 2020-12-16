@@ -25,10 +25,14 @@
 #include <QLabel>
 #include <KLocalizedString>
 #include <QLineEdit>
+#include <QComboBox>
 
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *parent)
     : QWidget(parent)
     , mHighlightWords(new QLineEdit(this))
+    , mDesktopNotification(new QComboBox(this))
+    , mEmailNotification(new QComboBox(this))
+    , mMobileNotification(new QComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,9 +45,34 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
     mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
     mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
-    mainLayout->addWidget(mHighlightWords);
-    mainLayout->addStretch();
     connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mHighlightWords);
+
+    mDesktopNotification->setObjectName(QStringLiteral("mDesktopNotification"));
+    mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
+    mMobileNotification->setObjectName(QStringLiteral("mMobileNotification"));
+
+    auto desktopNotificationLabel = new QLabel(i18n("Desktop Notication:"), this);
+    desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
+    desktopNotificationLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(desktopNotificationLabel);
+
+    mainLayout->addWidget(mDesktopNotification);
+
+    auto emailNotificationLabel = new QLabel(i18n("Email Notification:"), this);
+    emailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
+    emailNotificationLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(emailNotificationLabel);
+
+    mainLayout->addWidget(mEmailNotification);
+
+    auto mobileNotificationLabel = new QLabel(i18n("Mobile Notification:"), this);
+    mobileNotificationLabel->setObjectName(QStringLiteral("mobileNotificationLabel"));
+    mobileNotificationLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(mobileNotificationLabel);
+
+    mainLayout->addWidget(mMobileNotification);
+    mainLayout->addStretch();
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()

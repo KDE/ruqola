@@ -25,6 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -36,6 +37,9 @@ public:
 private:
     void setWasChanged();
     QLineEdit *const mHighlightWords;
+    QComboBox *const mDesktopNotification;
+    QComboBox *const mEmailNotification;
+    QComboBox *const mMobileNotification;
     bool mChanged = false;
 };
 
