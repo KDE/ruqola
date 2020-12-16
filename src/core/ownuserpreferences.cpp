@@ -38,11 +38,17 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
         lstHighlightsWord << highlightsArray.at(i).toString();
     }
     setHighlightWords(lstHighlightsWord);
+    setEmailNotificationMode(replyObject.value(QLatin1String("emailNotificationMode")).toString());
+    setDesktopNotifications(replyObject.value(QLatin1String("desktopNotifications")).toString());
+    setMobileNotifications(replyObject.value(QLatin1String("mobileNotifications")).toString());
 }
 
 bool OwnUserPreferences::operator ==(const OwnUserPreferences &other) const
 {
-    return mHighlightWords == other.highlightWords();
+    return mHighlightWords == other.highlightWords()
+            && mEmailNotificationMode == other.emailNotificationMode()
+            && mDesktopNotifications == other.desktopNotifications()
+            && mMobileNotifications == other.mobileNotifications();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -55,8 +61,41 @@ void OwnUserPreferences::setHighlightWords(const QStringList &highlightWords)
     mHighlightWords = highlightWords;
 }
 
+QString OwnUserPreferences::emailNotificationMode() const
+{
+    return mEmailNotificationMode;
+}
+
+void OwnUserPreferences::setEmailNotificationMode(const QString &emailNotificationMode)
+{
+    mEmailNotificationMode = emailNotificationMode;
+}
+
+QString OwnUserPreferences::desktopNotifications() const
+{
+    return mDesktopNotifications;
+}
+
+void OwnUserPreferences::setDesktopNotifications(const QString &desktopNotifications)
+{
+    mDesktopNotifications = desktopNotifications;
+}
+
+QString OwnUserPreferences::mobileNotifications() const
+{
+    return mMobileNotifications;
+}
+
+void OwnUserPreferences::setMobileNotifications(const QString &mobileNotifications)
+{
+    mMobileNotifications = mobileNotifications;
+}
+
 QDebug operator <<(QDebug d, const OwnUserPreferences &t)
 {
     d << "mHighlightWords " << t.highlightWords();
+    d << "mEmailNotificationMode " << t.emailNotificationMode();
+    d << "mDesktopNotifications " << t.desktopNotifications();
+    d << "mMobileNotifications " << t.mobileNotifications();
     return d;
 }

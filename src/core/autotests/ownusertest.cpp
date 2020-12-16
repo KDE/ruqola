@@ -71,6 +71,13 @@ void OwnUserTest::shouldLoadOwnUser_data()
     pwd.setTotp(false);
     pwd.setPassword(QStringLiteral("$2BNmO77i"));
     result.setServicePassword(pwd);
+
+    OwnUserPreferences ownUser;
+    ownUser.setDesktopNotifications(QStringLiteral("all"));
+    ownUser.setMobileNotifications(QStringLiteral("all"));
+    ownUser.setEmailNotificationMode(QStringLiteral("mentions"));
+    result.setOwnUserPreferences(ownUser);
+
     QTest::addRow("example1") << QStringLiteral("example1") << result;
 }
 

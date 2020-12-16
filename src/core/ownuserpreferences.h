@@ -36,8 +36,20 @@ public:
     Q_REQUIRED_RESULT QStringList highlightWords() const;
     void setHighlightWords(const QStringList &highlightWords);
 
+    Q_REQUIRED_RESULT QString emailNotificationMode() const;
+    void setEmailNotificationMode(const QString &emailNotificationMode);
+
+    Q_REQUIRED_RESULT QString desktopNotifications() const;
+    void setDesktopNotifications(const QString &desktopNotifications);
+
+    Q_REQUIRED_RESULT QString mobileNotifications() const;
+    void setMobileNotifications(const QString &mobileNotifications);
+
 private:
     QStringList mHighlightWords;
+    QString mEmailNotificationMode;
+    QString mDesktopNotifications;
+    QString mMobileNotifications;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)
