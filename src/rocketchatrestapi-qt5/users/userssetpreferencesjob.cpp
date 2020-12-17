@@ -121,6 +121,10 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.mobileNotifications.isEmpty()) {
         dataObj[QLatin1String("mobileNotifications")] = mUsersSetPreferencesInfo.mobileNotifications;
     }
+    if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
+        dataObj[QLatin1String("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
+    }
+
     dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
@@ -134,6 +138,7 @@ QDebug operator <<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Us
     d << "newMessageNotification : " << t.newMessageNotification;
     d << "desktopNotifications : " << t.desktopNotifications;
     d << "mobileNotifications : " << t.mobileNotifications;
+    d << "emailNotificationMode: " << t.emailNotificationMode;
     d << "userId : " << t.userId;
     d << " highlights : " << t.highlights;
     return d;

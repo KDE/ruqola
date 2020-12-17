@@ -115,14 +115,17 @@ void MyAccountPreferenceConfigureWidget::save()
 
         RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
         info.highlights = listWords;
+        info.mobileNotifications = mMobileNotification->currentData().toString();
+        info.desktopNotifications = mDesktopNotification->currentData().toString();
+        info.emailNotificationMode = mEmailNotification->currentData().toString();
         info.userId = Ruqola::self()->rocketChatAccount()->userId();
-        //Load comboboxs
         Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
     }
 }
 
 void MyAccountPreferenceConfigureWidget::load()
 {
+    //TODO Load notifications.
     mHighlightWords->setText(Ruqola::self()->rocketChatAccount()->highlightWords().join(QLatin1Char(',')));
     mChanged = false;
 }
