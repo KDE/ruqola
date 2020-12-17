@@ -2352,6 +2352,11 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
     }
 }
 
+OwnUserPreferences RocketChatAccount::ownUserPreferences() const
+{
+    return ownUser().ownUserPreferences();
+}
+
 QStringList RocketChatAccount::highlightWords() const
 {
     return ownUser().ownUserPreferences().highlightWords();

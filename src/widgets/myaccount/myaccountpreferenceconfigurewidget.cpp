@@ -126,7 +126,11 @@ void MyAccountPreferenceConfigureWidget::save()
 void MyAccountPreferenceConfigureWidget::load()
 {
     //TODO Load notifications.
-    mHighlightWords->setText(Ruqola::self()->rocketChatAccount()->highlightWords().join(QLatin1Char(',')));
+    const OwnUserPreferences ownUserPreferences = Ruqola::self()->rocketChatAccount()->ownUserPreferences();
+    mHighlightWords->setText(ownUserPreferences.highlightWords().join(QLatin1Char(',')));
+    mMobileNotification->setCurrentIndex(mMobileNotification->findData(ownUserPreferences.mobileNotifications()));
+    mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));
+    mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));
     mChanged = false;
 }
 
