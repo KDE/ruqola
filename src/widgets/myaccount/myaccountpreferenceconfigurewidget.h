@@ -36,6 +36,7 @@ public:
     void load();
 private:
     void setWasChanged();
+    void initComboboxValues();
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;

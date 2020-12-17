@@ -73,10 +73,16 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
 
     mainLayout->addWidget(mMobileNotification);
     mainLayout->addStretch();
+    initComboboxValues();
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 {
+}
+
+void MyAccountPreferenceConfigureWidget::initComboboxValues()
+{
+    //TODO
 }
 
 void MyAccountPreferenceConfigureWidget::save()
