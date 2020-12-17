@@ -82,7 +82,23 @@ MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
 {
-    //TODO
+    //Default ?
+    mDesktopNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
+    mDesktopNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
+    mDesktopNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
+
+    //Default ?
+    mMobileNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
+    mMobileNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
+    mMobileNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
+
+    //Default ?
+    mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
+    mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
+
+    connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mMobileNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
@@ -100,6 +116,7 @@ void MyAccountPreferenceConfigureWidget::save()
         RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
         info.highlights = listWords;
         info.userId = Ruqola::self()->rocketChatAccount()->userId();
+        //Load comboboxs
         Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
     }
 }
