@@ -52,7 +52,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
     mMobileNotification->setObjectName(QStringLiteral("mMobileNotification"));
 
-    auto desktopNotificationLabel = new QLabel(i18n("Desktop Notication:"), this);
+    auto desktopNotificationLabel = new QLabel(i18n("Desktop Notification:"), this);
     desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
     desktopNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(desktopNotificationLabel);
