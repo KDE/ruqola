@@ -240,6 +240,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotMarkMessageAsUnread(index);
     });
 
+    //TODO add on menu
+    QAction *showFullThreadAction = new QAction(i18n("Show Full Thread"), &menu);
+    connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
+        slotShowFullThread(index);
+    });
+
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
         QAction *startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);
@@ -452,6 +458,13 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
     const QString text = index.data(MessageModel::OriginalMessage).toString();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     Q_EMIT editMessageRequested(messageId, text);
+}
+
+void MessageListView::slotShowFullThread(const QModelIndex &index)
+{
+    //TODO
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    //mCurrentRocketChatAccount->markMessageAsUnReadFrom(messageId);
 }
 
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)

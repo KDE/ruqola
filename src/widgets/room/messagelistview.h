@@ -96,6 +96,7 @@ private:
     void slotMarkMessageAsUnread(const QModelIndex &index);
     void slotSelectAll(const QModelIndex &index);
     void handleMouseEvent(QMouseEvent *event);
+    void slotShowFullThread(const QModelIndex &index);
 
 private:
     Room *mRoom = nullptr;
