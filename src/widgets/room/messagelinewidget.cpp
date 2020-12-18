@@ -114,7 +114,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             }
         } else {
             mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
-            mMessageIdBeingEdited.clear();
+            clearMessageIdBeingEdited();
         }
         setMode(MessageLineWidget::EditingMode::NewMessage);
     }
