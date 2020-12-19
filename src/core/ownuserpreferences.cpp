@@ -46,9 +46,9 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 bool OwnUserPreferences::operator ==(const OwnUserPreferences &other) const
 {
     return mHighlightWords == other.highlightWords()
-            && mEmailNotificationMode == other.emailNotificationMode()
-            && mDesktopNotifications == other.desktopNotifications()
-            && mMobileNotifications == other.mobileNotifications();
+           && mEmailNotificationMode == other.emailNotificationMode()
+           && mDesktopNotifications == other.desktopNotifications()
+           && mMobileNotifications == other.mobileNotifications();
 }
 
 QStringList OwnUserPreferences::highlightWords() const

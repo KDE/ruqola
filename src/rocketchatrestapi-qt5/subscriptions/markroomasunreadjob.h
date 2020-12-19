@@ -61,7 +61,6 @@ private:
     void slotMarkAsUnRead();
     QString mObjectId;
     MarkAsUnReadObject mUnReadObject = Unknown;
-
 };
 }
 #endif // MARKROOMASUnREADJOB_H

@@ -424,7 +424,7 @@ bool Message::operator==(const Message &other) const
            && (mReplies == other.replies())
            && (mEmoji == other.emoji())
            && (mPendingMessage == other.pendingMessage())
-            && (mShowIgnoredMessage == other.showIgnoredMessage());
+           && (mShowIgnoredMessage == other.showIgnoredMessage());
 }
 
 bool Message::operator<(const Message &other) const

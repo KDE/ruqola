@@ -414,7 +414,6 @@ QString MessageModel::convertedText(const Message &message) const
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
         return convertMessageText(message, userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords);
     }
-
 }
 
 bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int role)

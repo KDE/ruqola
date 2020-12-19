@@ -243,7 +243,6 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         layout.showIgnoreMessage = index.data(MessageModel::ShowIgnoredMessage).toBool();
     }
 
-
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);

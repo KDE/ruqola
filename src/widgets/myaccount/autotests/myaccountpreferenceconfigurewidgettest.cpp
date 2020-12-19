@@ -47,7 +47,6 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mHighlightWords);
     QVERIFY(mHighlightWords->text().isEmpty());
 
-
     auto mDesktopNotification = w.findChild<QComboBox *>(QStringLiteral("mDesktopNotification"));
     QVERIFY(mDesktopNotification);
     auto mEmailNotification = w.findChild<QComboBox *>(QStringLiteral("mEmailNotification"));

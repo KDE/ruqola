@@ -128,7 +128,10 @@ void LRUCacheTest::shouldWorkWithUniquePtr()
     static int deletions = 0;
     struct MyDocument
     {
-        ~MyDocument() { ++deletions; }
+        ~MyDocument()
+        {
+            ++deletions;
+        }
     };
     LRUCache<int, std::unique_ptr<MyDocument>, 32> documentCache;
     documentCache.insert(42, std::make_unique<MyDocument>());

@@ -55,7 +55,6 @@ private:
     void slotPostMessageDone();
     QString mText;
     QString mRoomId;
-
 };
 }
 #endif // POSTMESSAGEJOB_H
