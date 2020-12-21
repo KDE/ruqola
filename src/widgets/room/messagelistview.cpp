@@ -28,6 +28,7 @@
 #include "textpluginmanager.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"
+#include "threadwidget/threadmessagedialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -40,6 +41,7 @@
 #include <QApplication>
 
 #include <KIO/KUriFilterSearchProviderActions>
+
 
 MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
@@ -242,7 +244,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     //TODO add on menu
     QAction *showFullThreadAction = new QAction(i18n("Show Full Thread"), &menu);
-    connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
+    connect(showFullThreadAction, &QAction::triggered, this, [=]() {
         slotShowFullThread(index);
     });
 
@@ -288,6 +290,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
 
+        const QString threadMessageId = index.data(MessageModel::ThreadMessageId).toString();
+        if (!threadMessageId.isEmpty()) {
+            menu.addSeparator();
+            menu.addAction(showFullThreadAction);
+        }
         menu.addSeparator();
         if (canMarkAsUnread) {
             menu.addAction(markMessageAsUnReadAction);
@@ -462,9 +469,15 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
 
 void MessageListView::slotShowFullThread(const QModelIndex &index)
 {
-    //TODO
-    const QString messageId = index.data(MessageModel::MessageId).toString();
-    //mCurrentRocketChatAccount->markMessageAsUnReadFrom(messageId);
+    const QString threadMessageId = index.data(MessageModel::ThreadMessageId).toString();
+    const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
+    QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
+    dlg->setThreadMessageId(threadMessageId);
+    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg->setThreadPreview(threadMessagePreview);
+    dlg->setRoom(mRoom);
+    dlg->exec();
+    delete dlg;
 }
 
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
