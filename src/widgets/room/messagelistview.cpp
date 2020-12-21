@@ -242,7 +242,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotMarkMessageAsUnread(index);
     });
 
-    //TODO add on menu
     QAction *showFullThreadAction = new QAction(i18n("Show Full Thread"), &menu);
     connect(showFullThreadAction, &QAction::triggered, this, [=]() {
         slotShowFullThread(index);
@@ -268,6 +267,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 slotReplyInThread(index);
             });
             menu.addAction(replyInThreadAction);
+
+            const QString threadMessageId = index.data(MessageModel::ThreadMessageId).toString();
+            if (!threadMessageId.isEmpty()) {
+                menu.addSeparator();
+                menu.addAction(showFullThreadAction);
+            }
         }
         menu.addSeparator();
 
@@ -290,11 +295,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
 
-        const QString threadMessageId = index.data(MessageModel::ThreadMessageId).toString();
-        if (!threadMessageId.isEmpty()) {
-            menu.addSeparator();
-            menu.addAction(showFullThreadAction);
-        }
         menu.addSeparator();
         if (canMarkAsUnread) {
             menu.addAction(markMessageAsUnReadAction);
