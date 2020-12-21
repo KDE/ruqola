@@ -83,7 +83,7 @@ private:
     QString mRoomId;
     bool mHasFullList = false;
     bool mLoadMoreFilesInProgress = false;
-    FileAttachments *const mFileAttachments = nullptr;
+    FileAttachments *const mFileAttachments;
     RocketChatAccount *const mRochetChantAccount;
 };
 
