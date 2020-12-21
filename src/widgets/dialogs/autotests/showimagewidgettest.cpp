@@ -42,14 +42,14 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     auto pixmapSize = pixmap.size();
     w.setImage(pixmap);
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
+    auto scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
     QVERIFY(scrollArea);
 
-    auto *mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
+    auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
     QVERIFY(mLabel);
     QVERIFY(mLabel->text().isEmpty());
     QCOMPARE(mLabel->backgroundRole(), QPalette::Base);
@@ -59,19 +59,19 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLabel->pixmap().isNull());
 #endif
 
-    auto *zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
+    auto zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
     QVERIFY(zoomLayout);
 
-    auto *zoomLabel = w.findChild<QLabel *>(QStringLiteral("zoomLabel"));
+    auto zoomLabel = w.findChild<QLabel *>(QStringLiteral("zoomLabel"));
     QVERIFY(zoomLabel);
     QVERIFY(!zoomLabel->text().isEmpty());
 
-    auto *mZoomSpin = w.findChild<QDoubleSpinBox *>(QStringLiteral("mZoomSpin"));
+    auto mZoomSpin = w.findChild<QDoubleSpinBox *>(QStringLiteral("mZoomSpin"));
     QVERIFY(mZoomSpin);
     QCOMPARE(mZoomSpin->value(), 1.0);
     QCOMPARE(mZoomSpin->singleStep(), 0.1);
 
-    auto *mSlider = w.findChild<QSlider *>(QStringLiteral("mSlider"));
+    auto mSlider = w.findChild<QSlider *>(QStringLiteral("mSlider"));
     QVERIFY(mSlider);
     QCOMPARE(mSlider->orientation(), Qt::Horizontal);
     QCOMPARE(mSlider->value(), 100);

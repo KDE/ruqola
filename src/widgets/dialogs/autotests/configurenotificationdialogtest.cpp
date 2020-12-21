@@ -36,12 +36,12 @@ void ConfigureNotificationDialogTest::shouldHaveDefaultValues()
 {
     ConfigureNotificationDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mConfigureNoticationWidget = w.findChild<ConfigureNotificationWidget *>(QStringLiteral("mConfigureNoticationWidget"));
+    auto mConfigureNoticationWidget = w.findChild<ConfigureNotificationWidget *>(QStringLiteral("mConfigureNoticationWidget"));
     QVERIFY(mConfigureNoticationWidget);
 
-    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(buttonBox);
 }

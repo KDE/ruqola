@@ -37,12 +37,12 @@ void ShowVideoDialogTest::shouldHaveDefaultValues()
     ShowVideoDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mShowVideoWidget = w.findChild<ShowVideoWidget *>(QStringLiteral("mShowVideoWidget"));
+    auto mShowVideoWidget = w.findChild<ShowVideoWidget *>(QStringLiteral("mShowVideoWidget"));
     QVERIFY(mShowVideoWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

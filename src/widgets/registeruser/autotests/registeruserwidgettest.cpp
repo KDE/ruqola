@@ -34,26 +34,26 @@ RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
 void RegisterUserWidgetTest::shouldHaveDefaultValues()
 {
     RegisterUserWidget w;
-    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
 
-    auto *mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
     QVERIFY(mEmail);
     QVERIFY(mEmail->text().isEmpty());
 
-    auto *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
     QVERIFY(mPasswordLineEdit->password().isEmpty());
 
-    auto *mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
     QVERIFY(mConfirmPasswordLineEdit);
     QVERIFY(mConfirmPasswordLineEdit->password().isEmpty());
 
-    auto *mRegisterButton = w.findChild<QPushButton *>(QStringLiteral("mRegisterButton"));
+    auto mRegisterButton = w.findChild<QPushButton *>(QStringLiteral("mRegisterButton"));
     QVERIFY(mRegisterButton);
     QVERIFY(!mRegisterButton->isEnabled());
     QVERIFY(!mRegisterButton->text().isEmpty());

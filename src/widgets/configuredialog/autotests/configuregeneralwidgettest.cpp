@@ -38,26 +38,26 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     //Load otherwise we can't load default settings
     w.load();
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mSetOnlineForAllAccount = w.findChild<QCheckBox *>(QStringLiteral("mSetOnlineForAllAccount"));
+    auto mSetOnlineForAllAccount = w.findChild<QCheckBox *>(QStringLiteral("mSetOnlineForAllAccount"));
     QVERIFY(mSetOnlineForAllAccount);
     QVERIFY(mSetOnlineForAllAccount->isChecked());
     QVERIFY(!mSetOnlineForAllAccount->text().isEmpty());
 
-    auto *mShowImageByDefault = w.findChild<QCheckBox *>(QStringLiteral("mShowImageByDefault"));
+    auto mShowImageByDefault = w.findChild<QCheckBox *>(QStringLiteral("mShowImageByDefault"));
     QVERIFY(mShowImageByDefault);
     QVERIFY(mShowImageByDefault->isChecked());
     QVERIFY(!mShowImageByDefault->text().isEmpty());
 
-    auto *mShowRoomAvatar = w.findChild<QCheckBox *>(QStringLiteral("mShowRoomAvatar"));
+    auto mShowRoomAvatar = w.findChild<QCheckBox *>(QStringLiteral("mShowRoomAvatar"));
     QVERIFY(mShowRoomAvatar);
     QVERIFY(!mShowRoomAvatar->isChecked());
     QVERIFY(!mShowRoomAvatar->text().isEmpty());
 
-    auto *mEnableSystemTray = w.findChild<QCheckBox *>(QStringLiteral("mEnableSystemTray"));
+    auto mEnableSystemTray = w.findChild<QCheckBox *>(QStringLiteral("mEnableSystemTray"));
     QVERIFY(mEnableSystemTray);
     QVERIFY(mEnableSystemTray->isChecked());
     QVERIFY(!mEnableSystemTray->text().isEmpty());

@@ -33,20 +33,20 @@ ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
 void ReportMessageWidgetTest::shouldHaveDefaultValues()
 {
     ReportMessageWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *lab = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto lab = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(lab);
     QVERIFY(!lab->text().isEmpty());
 
-    auto *mMessagePreview = w.findChild<QLabel *>(QStringLiteral("mMessagePreview"));
+    auto mMessagePreview = w.findChild<QLabel *>(QStringLiteral("mMessagePreview"));
     QVERIFY(mMessagePreview);
     QVERIFY(mMessagePreview->wordWrap());
     QVERIFY(mMessagePreview->text().isEmpty());
 
-    auto *mMessageLineEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto mMessageLineEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
     QVERIFY(!mMessageLineEdit->placeholderText().isEmpty());
     QVERIFY(!mMessageLineEdit->acceptRichText());

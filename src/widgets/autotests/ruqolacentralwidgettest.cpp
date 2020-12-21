@@ -34,10 +34,10 @@ RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaCentralWidget w;
-    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
 
-    auto *mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
     //TODO
 }

@@ -34,9 +34,9 @@ RuqolaMainWindowTest::RuqolaMainWindowTest(QObject *parent)
 
 static void switchToMainWidget(RuqolaMainWindow &w)
 {
-    auto *mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
-    auto *mRuqolaMainWidget = mStackedWidget->findChild<QWidget *>(QStringLiteral("mRuqolaMainWidget"));
+    auto mRuqolaMainWidget = mStackedWidget->findChild<QWidget *>(QStringLiteral("mRuqolaMainWidget"));
     QVERIFY(mRuqolaMainWidget);
     mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mRuqolaMainWidget);
@@ -45,7 +45,7 @@ static void switchToMainWidget(RuqolaMainWindow &w)
 void RuqolaMainWindowTest::shouldHaveDefaultValues()
 {
     RuqolaMainWindow w;
-    auto *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+    auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
     QVERIFY(mSplitter);
     switchToMainWidget(w);
 }
@@ -60,7 +60,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
         w.resize(800, 800);
         w.show();
 
-        auto *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+        auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
         QVERIFY(mSplitter);
         mSplitter->setSizes({100, 400});
         actualSizes = mSplitter->sizes(); // not exactly {100, 400} but more something like {167, 308}
@@ -72,7 +72,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
         QCOMPARE(w.size(), QSize(800, 800));
         w.show();
 
-        auto *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+        auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
         QVERIFY(mSplitter);
         QCOMPARE(mSplitter->sizes(), actualSizes);
     }

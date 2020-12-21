@@ -32,9 +32,9 @@ void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountProfileConfigureAvatarWidget w;
 
-    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));
+    auto mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));
     QVERIFY(mAvatarImage);
 }

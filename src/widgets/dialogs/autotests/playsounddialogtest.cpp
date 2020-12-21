@@ -37,12 +37,12 @@ void PlaySoundDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mSoundWidget = w.findChild<PlaySoundWidget *>(QStringLiteral("mSoundWidget"));
+    auto mSoundWidget = w.findChild<PlaySoundWidget *>(QStringLiteral("mSoundWidget"));
     QVERIFY(mSoundWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

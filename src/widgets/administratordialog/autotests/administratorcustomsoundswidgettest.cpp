@@ -33,12 +33,12 @@ AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject
 void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomSoundsWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mCustomSoundsTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomSoundsTreeWidget"));
+    auto mCustomSoundsTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomSoundsTreeWidget"));
     QVERIFY(mCustomSoundsTreeWidget);
 
-    auto *mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
 }

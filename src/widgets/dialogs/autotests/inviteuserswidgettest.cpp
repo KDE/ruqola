@@ -39,42 +39,42 @@ InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)
 void InviteUsersWidgetTest::shouldHaveDefaultValues()
 {
     InviteUsersWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto *collapsibleGroupBox = w.findChild<KCollapsibleGroupBox *>(QStringLiteral("collapsibleGroupBox"));
+    auto collapsibleGroupBox = w.findChild<KCollapsibleGroupBox *>(QStringLiteral("collapsibleGroupBox"));
     QVERIFY(collapsibleGroupBox);
     QVERIFY(!collapsibleGroupBox->title().isEmpty());
 
-    auto *mInviteUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
+    auto mInviteUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mInviteUserLineEdit"));
     QVERIFY(mInviteUserLineEdit);
     QVERIFY(mInviteUserLineEdit->isReadOnly());
 
-    auto *copyLinkButton = w.findChild<QToolButton *>(QStringLiteral("copyLinkButton"));
+    auto copyLinkButton = w.findChild<QToolButton *>(QStringLiteral("copyLinkButton"));
     QVERIFY(copyLinkButton);
     QVERIFY(!copyLinkButton->icon().isNull());
     QVERIFY(!copyLinkButton->toolTip().isEmpty());
 
-    auto *mExpireDateLabel = w.findChild<QLabel *>(QStringLiteral("mExpireDateLabel"));
+    auto mExpireDateLabel = w.findChild<QLabel *>(QStringLiteral("mExpireDateLabel"));
     QVERIFY(mExpireDateLabel);
     QVERIFY(mExpireDateLabel->text().isEmpty());
 
-    auto *formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
+    auto formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
     QVERIFY(formLayout);
     QCOMPARE(formLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mExpirationDays = w.findChild<QComboBox *>(QStringLiteral("mExpirationDays"));
+    auto mExpirationDays = w.findChild<QComboBox *>(QStringLiteral("mExpirationDays"));
     QVERIFY(mExpirationDays);
 
-    auto *mMaxUses = w.findChild<QComboBox *>(QStringLiteral("mMaxUses"));
+    auto mMaxUses = w.findChild<QComboBox *>(QStringLiteral("mMaxUses"));
     QVERIFY(mMaxUses);
 
-    auto *generateNewLink = w.findChild<QPushButton *>(QStringLiteral("generateNewLink"));
+    auto generateNewLink = w.findChild<QPushButton *>(QStringLiteral("generateNewLink"));
     QVERIFY(generateNewLink);
     QVERIFY(!generateNewLink->text().isEmpty());
 }

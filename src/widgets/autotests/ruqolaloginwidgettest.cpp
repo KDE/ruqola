@@ -39,53 +39,53 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaLoginWidget w;
 
-    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
+    auto mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
 
-    auto *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
+    auto mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
     QVERIFY(mServerName);
     QVERIFY(mServerName->text().isEmpty());
 
-    auto *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
 
-    auto *mPasswordLineEditWidget = w.findChild<PasswordLineEditWidget *>(QStringLiteral("mPasswordLineEditWidget"));
+    auto mPasswordLineEditWidget = w.findChild<PasswordLineEditWidget *>(QStringLiteral("mPasswordLineEditWidget"));
     QVERIFY(mPasswordLineEditWidget);
 
-    auto *mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
+    auto mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);
     QVERIFY(!mLoginButton->text().isEmpty());
 
-    auto *mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
+    auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
     QVERIFY(mBusyIndicatorWidget);
 
-    auto *mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
+    auto mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
     QVERIFY(mFailedError);
     QVERIFY(mFailedError->text().isEmpty());
     QVERIFY(mFailedError->isHidden());
     QFont font = mFailedError->font();
     QVERIFY(font.bold());
 
-    auto *mAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("authenticationWidget"));
+    auto mAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("authenticationWidget"));
     QVERIFY(mAuthenticationWidget);
     QVERIFY(!mAuthenticationWidget->isVisible());
 
-    auto *twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
+    auto twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
     QVERIFY(twoFactorAuthenticationLayout);
 
-    auto *twoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("twoFactorAuthenticationLabel"));
+    auto twoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("twoFactorAuthenticationLabel"));
     QVERIFY(twoFactorAuthenticationLabel);
     QVERIFY(!twoFactorAuthenticationLabel->text().isEmpty());
 
-    auto *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 
-    auto *sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
+    auto sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }

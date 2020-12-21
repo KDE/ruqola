@@ -33,14 +33,14 @@ PasswordLineEditWidgetTest::PasswordLineEditWidgetTest(QObject *parent)
 void PasswordLineEditWidgetTest::shouldHaveDefaultValues()
 {
     PasswordLineEditWidget w;
-    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
 
-    auto *mResetPasswordButton = w.findChild<QPushButton *>(QStringLiteral("mResetPasswordButton"));
+    auto mResetPasswordButton = w.findChild<QPushButton *>(QStringLiteral("mResetPasswordButton"));
     QVERIFY(mResetPasswordButton);
     QVERIFY(!mResetPasswordButton->text().isEmpty());
 }

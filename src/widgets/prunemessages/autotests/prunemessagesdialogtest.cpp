@@ -38,12 +38,12 @@ void PruneMessagesDialogTest::shouldHaveDefaultValues()
     PruneMessagesDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto *mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mPruneMessageWidget = d.findChild<PruneMessagesWidget *>(QStringLiteral("mPruneMessageWidget"));
+    auto mPruneMessageWidget = d.findChild<PruneMessagesWidget *>(QStringLiteral("mPruneMessageWidget"));
     QVERIFY(mPruneMessageWidget);
 
-    auto *button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

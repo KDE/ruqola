@@ -38,13 +38,13 @@ void AdministratorCustomUserStatusCreateDialogTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusCreateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mCreateWidget = w.findChild<AdministratorCustomUserStatusCreateWidget *>(QStringLiteral("mCreateWidget"));
+    auto mCreateWidget = w.findChild<AdministratorCustomUserStatusCreateWidget *>(QStringLiteral("mCreateWidget"));
     QVERIFY(mCreateWidget);
 
-    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 
     QVERIFY(!w.userStatusInfo().isValid());

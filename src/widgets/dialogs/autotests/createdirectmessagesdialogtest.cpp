@@ -36,9 +36,9 @@ void CreateDirectMessagesDialogTest::shouldHaveDefaultValues()
     CreateDirectMessagesDialog w;
 
     QVERIFY(!w.windowTitle().isEmpty());
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mCreateDirectMessagesWidget = w.findChild<CreateDirectMessagesWidget *>(QStringLiteral("mCreateDirectMessagesWidget"));
+    auto mCreateDirectMessagesWidget = w.findChild<CreateDirectMessagesWidget *>(QStringLiteral("mCreateDirectMessagesWidget"));
     QVERIFY(mCreateDirectMessagesWidget);
 }

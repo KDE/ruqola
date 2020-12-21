@@ -37,12 +37,12 @@ void CreateNewDiscussionDialogTest::shouldHaveDefaultValues()
     CreateNewDiscussionDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mCreateNewDiscussionWidget = w.findChild<CreateNewDiscussionWidget *>(QStringLiteral("mCreateNewDiscussionWidget"));
+    auto mCreateNewDiscussionWidget = w.findChild<CreateNewDiscussionWidget *>(QStringLiteral("mCreateNewDiscussionWidget"));
     QVERIFY(mCreateNewDiscussionWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

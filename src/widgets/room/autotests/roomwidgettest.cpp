@@ -44,33 +44,33 @@ RoomWidgetTest::RoomWidgetTest(QObject *parent)
 void RoomWidgetTest::shouldHaveDefaultValues()
 {
     RoomWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
+    auto mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
     QVERIFY(mRoomHeaderWidget);
 
-    auto *mUsersInRoomFlowWidget = w.findChild<UsersInRoomFlowWidget *>(QStringLiteral("mUsersInRoomFlowWidget"));
+    auto mUsersInRoomFlowWidget = w.findChild<UsersInRoomFlowWidget *>(QStringLiteral("mUsersInRoomFlowWidget"));
     QVERIFY(mUsersInRoomFlowWidget);
 
-    auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    auto mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
 
-    auto *mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
     QCOMPARE(mStackedWidget->count(), 2);
 
-    auto *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
 
-    auto *mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
+    auto mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
     QVERIFY(mReadOnlyLineEditWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
 
     QVERIFY(w.roomId().isEmpty());
 
-    auto *mRoomCounterInfoWidget = w.findChild<RoomCounterInfoWidget *>(QStringLiteral("mRoomCounterInfoWidget"));
+    auto mRoomCounterInfoWidget = w.findChild<RoomCounterInfoWidget *>(QStringLiteral("mRoomCounterInfoWidget"));
     QVERIFY(mRoomCounterInfoWidget);
 }
 
@@ -106,7 +106,7 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     QCOMPARE(w.roomId(), roomId2);
 
     // WHEN typing text and switching rooms
-    auto *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
     mMessageLineWidget->setText(QStringLiteral("Text for room 2"));
 
@@ -135,10 +135,10 @@ void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
     QEventLoop loop;
     RoomWidget w;
 
-    auto *mMessageThreadWidget = w.findChild<QWidget *>(QStringLiteral("mMessageThreadWidget"));
+    auto mMessageThreadWidget = w.findChild<QWidget *>(QStringLiteral("mMessageThreadWidget"));
     QVERIFY(!mMessageThreadWidget->isVisible());
 
-    auto *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
 
     mMessageLineWidget->setThreadMessageId(QStringLiteral("placeholder"));

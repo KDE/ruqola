@@ -37,12 +37,12 @@ void ServerInfoDialogTest::shouldHaveDefaultValues()
     ServerInfoDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mServerInfoWidget = w.findChild<ServerInfoWidget *>(QStringLiteral("mServerInfoWidget"));
+    auto mServerInfoWidget = w.findChild<ServerInfoWidget *>(QStringLiteral("mServerInfoWidget"));
     QVERIFY(mServerInfoWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

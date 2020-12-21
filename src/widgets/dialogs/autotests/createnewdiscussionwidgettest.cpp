@@ -37,41 +37,41 @@ CreateNewDiscussionWidgetTest::CreateNewDiscussionWidgetTest(QObject *parent)
 void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
 {
     CreateNewDiscussionWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *channelLabel = w.findChild<QLabel *>(QStringLiteral("channelLabel"));
+    auto channelLabel = w.findChild<QLabel *>(QStringLiteral("channelLabel"));
     QVERIFY(channelLabel);
     QVERIFY(!channelLabel->text().isEmpty());
 
-    auto *mChannelNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mChannelNameLineEdit"));
+    auto mChannelNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mChannelNameLineEdit"));
     QVERIFY(mChannelNameLineEdit);
     QVERIFY(mChannelNameLineEdit->text().isEmpty());
     QVERIFY(mChannelNameLineEdit->isClearButtonEnabled());
 
-    auto *discussionName = w.findChild<QLabel *>(QStringLiteral("discussionName"));
+    auto discussionName = w.findChild<QLabel *>(QStringLiteral("discussionName"));
     QVERIFY(discussionName);
     QVERIFY(!discussionName->text().isEmpty());
 
-    auto *mDiscussionNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mDiscussionNameLineEdit"));
+    auto mDiscussionNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mDiscussionNameLineEdit"));
     QVERIFY(mDiscussionNameLineEdit);
     QVERIFY(mDiscussionNameLineEdit->text().isEmpty());
     QVERIFY(mDiscussionNameLineEdit->isClearButtonEnabled());
 
-    auto *usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));
+    auto usersLabel = w.findChild<QLabel *>(QStringLiteral("usersLabel"));
     QVERIFY(usersLabel);
     QVERIFY(!usersLabel->text().isEmpty());
 
-    auto *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
+    auto mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
     QVERIFY(mUsers);
     QVERIFY(mUsers->userIds().isEmpty());
 
-    auto *messageLabel = w.findChild<QLabel *>(QStringLiteral("messageLabel"));
+    auto messageLabel = w.findChild<QLabel *>(QStringLiteral("messageLabel"));
     QVERIFY(messageLabel);
     QVERIFY(!messageLabel->text().isEmpty());
 
-    auto *mMessageTextEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageTextEdit"));
+    auto mMessageTextEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageTextEdit"));
     QVERIFY(mMessageTextEdit);
     QVERIFY(mMessageTextEdit->toPlainText().isEmpty());
     QVERIFY(!mMessageTextEdit->acceptRichText());

@@ -34,19 +34,19 @@ AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
 void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorRoomsWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
-    auto *mResultTreeWidget = w.findChild<QTableView *>(QStringLiteral("mResultTreeWidget"));
+    auto mResultTreeWidget = w.findChild<QTableView *>(QStringLiteral("mResultTreeWidget"));
     QVERIFY(mResultTreeWidget);
     QVERIFY(!mResultTreeWidget->showGrid());
     QVERIFY(mResultTreeWidget->isSortingEnabled());
     QCOMPARE(mResultTreeWidget->selectionMode(), QAbstractItemView::SelectionMode::SingleSelection);
 
-    auto *mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
+    auto mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
     QVERIFY(mSelectRoomType);
 }

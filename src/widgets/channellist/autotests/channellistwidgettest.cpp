@@ -39,21 +39,21 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
 {
     ChannelListWidget w;
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
+    auto mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
     QVERIFY(mSearchRoom);
     QVERIFY(!mSearchRoom->placeholderText().isEmpty());
 
-    auto *mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
+    auto mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
     QVERIFY(mStatusComboBox);
 
-    auto *mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
+    auto mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
     QVERIFY(mChannelView);
 
-    auto *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }
@@ -63,7 +63,7 @@ void ChannelListWidgetTest::searchRooms()
     //LAurent: We don't have model by default now. We need to fix it.
 //    ChannelListWidget w;
 
-//    auto *mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
+//    auto mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
 //    QVERIFY(mSearchRoom);
 //    mSearchRoom->setText(QStringLiteral("all")); // triggers filtering of the channel list
 

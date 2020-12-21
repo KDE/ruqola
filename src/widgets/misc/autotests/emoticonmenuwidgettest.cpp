@@ -33,14 +33,14 @@ EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
 void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
 {
     EmoticonMenuWidget w;
-    auto *layout = w.findChild<QVBoxLayout *>(QStringLiteral("layout"));
+    auto layout = w.findChild<QVBoxLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);
 
-    auto *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());

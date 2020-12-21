@@ -37,12 +37,12 @@ void InviteUsersDialogTest::shouldHaveDefaultValues()
 {
     InviteUsersDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mInviteUsersWidget = w.findChild<InviteUsersWidget *>(QStringLiteral("mInviteUsersWidget"));
+    auto mInviteUsersWidget = w.findChild<InviteUsersWidget *>(QStringLiteral("mInviteUsersWidget"));
     QVERIFY(mInviteUsersWidget);
 
-    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 }

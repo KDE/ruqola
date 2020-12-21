@@ -36,59 +36,59 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureNotificationWidget w;
     QVERIFY(!w.room());
-    auto *topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
+    auto topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
     QVERIFY(topLayout);
     QCOMPARE(topLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mainLayout = topLayout->findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = topLayout->findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 #if 0 //Failed. Don't know why . FIXME
-    auto *mDisableNotification = mainLayout->findChild<QCheckBox *>(QStringLiteral("mDisableNotification"));
+    auto mDisableNotification = mainLayout->findChild<QCheckBox *>(QStringLiteral("mDisableNotification"));
     QVERIFY(mDisableNotification);
 
-    auto *mHideUnreadRoomStatus = topLayout->findChild<QCheckBox *>(QStringLiteral("mHideUnreadRoomStatus"));
+    auto mHideUnreadRoomStatus = topLayout->findChild<QCheckBox *>(QStringLiteral("mHideUnreadRoomStatus"));
     QVERIFY(mHideUnreadRoomStatus);
 
-    auto *mMuteGroupMentions = topLayout->findChild<QCheckBox *>(QStringLiteral("mMuteGroupMentions"));
+    auto mMuteGroupMentions = topLayout->findChild<QCheckBox *>(QStringLiteral("mMuteGroupMentions"));
     QVERIFY(mMuteGroupMentions);
-    auto *desktopGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("desktopGroupBox"));
+    auto desktopGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("desktopGroupBox"));
     QVERIFY(desktopGroupBox);
     QVERIFY(!desktopGroupBox->title().isEmpty());
 
-    auto *desktopGroupBoxLayout = desktopGroupBox->findChild<QFormLayout *>(QStringLiteral("desktopGroupBoxLayout"));
+    auto desktopGroupBoxLayout = desktopGroupBox->findChild<QFormLayout *>(QStringLiteral("desktopGroupBoxLayout"));
     QVERIFY(desktopGroupBoxLayout);
 
-    auto *mDesktopAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopAlertCombobox"));
+    auto mDesktopAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopAlertCombobox"));
     QVERIFY(mDesktopAlertCombobox);
 
-    auto *mDesktopAudioCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopAudioCombobox"));
+    auto mDesktopAudioCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopAudioCombobox"));
     QVERIFY(mDesktopAudioCombobox);
 
-    auto *mDesktopSoundCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopSoundCombobox"));
+    auto mDesktopSoundCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopSoundCombobox"));
     QVERIFY(mDesktopSoundCombobox);
 
-    auto *mDesktopDurationCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopDurationCombobox"));
+    auto mDesktopDurationCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopDurationCombobox"));
     QVERIFY(mDesktopDurationCombobox);
 
-    auto *mobileGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("mobileGroupBox"));
+    auto mobileGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("mobileGroupBox"));
     QVERIFY(mobileGroupBox);
     QVERIFY(!mobileGroupBox->title().isEmpty());
 
-    auto *mobileGroupBoxLayout = mobileGroupBox->findChild<QFormLayout *>(QStringLiteral("mobileGroupBoxLayout"));
+    auto mobileGroupBoxLayout = mobileGroupBox->findChild<QFormLayout *>(QStringLiteral("mobileGroupBoxLayout"));
     QVERIFY(mobileGroupBoxLayout);
 
-    auto *mMobileAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mMobileAlertCombobox"));
+    auto mMobileAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mMobileAlertCombobox"));
     QVERIFY(mMobileAlertCombobox);
 
-    auto *emailGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("emailGroupBox"));
+    auto emailGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("emailGroupBox"));
     QVERIFY(emailGroupBox);
     QVERIFY(!emailGroupBox->title().isEmpty());
 
-    auto *emailGroupBoxLayout = emailGroupBox->findChild<QFormLayout *>(QStringLiteral("emailGroupBoxLayout"));
+    auto emailGroupBoxLayout = emailGroupBox->findChild<QFormLayout *>(QStringLiteral("emailGroupBoxLayout"));
     QVERIFY(emailGroupBoxLayout);
 
-    auto *mEmailAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mEmailAlertCombobox"));
+    auto mEmailAlertCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mEmailAlertCombobox"));
     QVERIFY(mEmailAlertCombobox);
 #endif
 }

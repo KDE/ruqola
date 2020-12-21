@@ -34,15 +34,15 @@ void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
 {
     CreateDirectMessagesWidget w;
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    auto *mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
+    auto mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
     QVERIFY(mUsers);
     QVERIFY(!mUsers->placeHolderText().isEmpty());
 
-    auto *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
     QVERIFY(label->wordWrap());

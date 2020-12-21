@@ -38,12 +38,12 @@ void DirectChannelInfoDialogTest::shouldHaveDefaultValue()
     DirectChannelInfoDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mDirectChannelInfoWidget = w.findChild<DirectChannelInfoWidget *>(QStringLiteral("mDirectChannelInfoWidget"));
+    auto mDirectChannelInfoWidget = w.findChild<DirectChannelInfoWidget *>(QStringLiteral("mDirectChannelInfoWidget"));
     QVERIFY(mDirectChannelInfoWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(button);
 }

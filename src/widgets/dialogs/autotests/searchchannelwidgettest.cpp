@@ -34,15 +34,15 @@ void SearchChannelWidgetTest::shouldHaveDefaultValues()
 {
     SearchChannelWidget w;
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 
-    auto *mResultListWidget = w.findChild<QListView *>(QStringLiteral("mResultListWidget"));
+    auto mResultListWidget = w.findChild<QListView *>(QStringLiteral("mResultListWidget"));
     QVERIFY(mResultListWidget);
 }

@@ -37,13 +37,13 @@ void AddUsersInRoomDialogTest::shouldHaveDefaultValues()
 {
     AddUsersInRoomDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mAddUsersInRoomWidget = w.findChild<AddUsersInRoomWidget *>(QStringLiteral("mAddUsersInRoomWidget"));
+    auto mAddUsersInRoomWidget = w.findChild<AddUsersInRoomWidget *>(QStringLiteral("mAddUsersInRoomWidget"));
     QVERIFY(mAddUsersInRoomWidget);
 
-    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     QVERIFY(okButton);

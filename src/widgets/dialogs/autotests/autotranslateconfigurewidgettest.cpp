@@ -36,24 +36,24 @@ void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 {
     AutoTranslateConfigureWidget w;
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *mAutoTranslate = w.findChild<QCheckBox *>(QStringLiteral("mAutoTranslate"));
+    auto mAutoTranslate = w.findChild<QCheckBox *>(QStringLiteral("mAutoTranslate"));
     QVERIFY(mAutoTranslate);
     QVERIFY(!mAutoTranslate->text().isEmpty());
     mainLayout->addWidget(mAutoTranslate);
 
-    auto *horizontalLayout = w.findChild<QHBoxLayout *>(QStringLiteral("horizontalLayout"));
+    auto horizontalLayout = w.findChild<QHBoxLayout *>(QStringLiteral("horizontalLayout"));
     QVERIFY(horizontalLayout);
     QCOMPARE(horizontalLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto *mLanguage = w.findChild<QComboBox *>(QStringLiteral("mLanguage"));
+    auto mLanguage = w.findChild<QComboBox *>(QStringLiteral("mLanguage"));
     QVERIFY(mLanguage);
 
     QVERIFY(!w.room());

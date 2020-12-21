@@ -38,13 +38,13 @@ void ExportMessagesDialogTest::shouldHaveDefaultValues()
     ExportMessagesDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto *mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mExportMessagesWidget = d.findChild<ExportMessagesWidget *>(QStringLiteral("mExportMessagesWidget"));
+    auto mExportMessagesWidget = d.findChild<ExportMessagesWidget *>(QStringLiteral("mExportMessagesWidget"));
     QVERIFY(mExportMessagesWidget);
 
-    auto *button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
     QVERIFY(!d.roomExportInfo().isValid());

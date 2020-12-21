@@ -37,19 +37,19 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountConfigureWidget w;
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto *tabWidget = w.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
+    auto tabWidget = w.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
     QVERIFY(tabWidget);
 
-    auto *mMyAccount2ProfileConfigureWidget = w.findChild<MyAccountProfileConfigureWidget *>(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
+    auto mMyAccount2ProfileConfigureWidget = w.findChild<MyAccountProfileConfigureWidget *>(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
     QVERIFY(mMyAccount2ProfileConfigureWidget);
 
-    auto *mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    auto mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
     QVERIFY(mMyAccount2FaConfigureWidget);
 
-    auto *mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
     QVERIFY(mMyAccountPreferenceConfigureWidget);
 }

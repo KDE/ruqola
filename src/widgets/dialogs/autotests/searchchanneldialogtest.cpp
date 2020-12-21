@@ -37,12 +37,12 @@ void SearchChannelDialogTest::shouldHaveDefaultValues()
     SearchChannelDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mSearchChannelWidget = w.findChild<SearchChannelWidget *>(QStringLiteral("mSearchChannelWidget"));
+    auto mSearchChannelWidget = w.findChild<SearchChannelWidget *>(QStringLiteral("mSearchChannelWidget"));
     QVERIFY(mSearchChannelWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

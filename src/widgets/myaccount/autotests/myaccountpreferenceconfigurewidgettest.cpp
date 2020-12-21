@@ -35,15 +35,15 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountPreferenceConfigureWidget w;
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *highlightWordsLabel = w.findChild<QLabel *>(QStringLiteral("highlightWordsLabel"));
+    auto highlightWordsLabel = w.findChild<QLabel *>(QStringLiteral("highlightWordsLabel"));
     QVERIFY(highlightWordsLabel);
     QCOMPARE(highlightWordsLabel->textFormat(), Qt::PlainText);
     QVERIFY(!highlightWordsLabel->text().isEmpty());
 
-    auto *mHighlightWords = w.findChild<QLineEdit *>(QStringLiteral("mHighlightWords"));
+    auto mHighlightWords = w.findChild<QLineEdit *>(QStringLiteral("mHighlightWords"));
     QVERIFY(mHighlightWords);
     QVERIFY(mHighlightWords->text().isEmpty());
 
@@ -54,17 +54,17 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto mMobileNotification = w.findChild<QComboBox *>(QStringLiteral("mMobileNotification"));
     QVERIFY(mMobileNotification);
 
-    auto *desktopNotificationLabel = w.findChild<QLabel *>(QStringLiteral("desktopNotificationLabel"));
+    auto desktopNotificationLabel = w.findChild<QLabel *>(QStringLiteral("desktopNotificationLabel"));
     QVERIFY(desktopNotificationLabel);
     QCOMPARE(desktopNotificationLabel->textFormat(), Qt::PlainText);
     QVERIFY(!desktopNotificationLabel->text().isEmpty());
 
-    auto *emailNotificationLabel = w.findChild<QLabel *>(QStringLiteral("emailNotificationLabel"));
+    auto emailNotificationLabel = w.findChild<QLabel *>(QStringLiteral("emailNotificationLabel"));
     QVERIFY(emailNotificationLabel);
     QCOMPARE(emailNotificationLabel->textFormat(), Qt::PlainText);
     QVERIFY(!emailNotificationLabel->text().isEmpty());
 
-    auto *mobileNotificationLabel = w.findChild<QLabel *>(QStringLiteral("mobileNotificationLabel"));
+    auto mobileNotificationLabel = w.findChild<QLabel *>(QStringLiteral("mobileNotificationLabel"));
     QVERIFY(mobileNotificationLabel);
     QCOMPARE(mobileNotificationLabel->textFormat(), Qt::PlainText);
     QVERIFY(!mobileNotificationLabel->text().isEmpty());

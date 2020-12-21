@@ -37,25 +37,25 @@ RuqolaMainWidgetTest::RuqolaMainWidgetTest(QObject *parent)
 void RuqolaMainWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaMainWidget w;
-    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
 
-    auto *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+    auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
     QVERIFY(mSplitter);
     QVERIFY(!mSplitter->childrenCollapsible());
 
-    auto *mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
+    auto mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
     QVERIFY(mChannelList);
 
-    auto *mStackedRoomWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedRoomWidget"));
+    auto mStackedRoomWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedRoomWidget"));
     QVERIFY(mStackedRoomWidget);
 
-    auto *mRoomWidget = w.findChild<RoomWidget *>(QStringLiteral("mRoomWidget"));
+    auto mRoomWidget = w.findChild<RoomWidget *>(QStringLiteral("mRoomWidget"));
     QVERIFY(mRoomWidget);
     QVERIFY(mSplitter->indexOf(mChannelList) >= 0);
     QVERIFY(mSplitter->indexOf(mStackedRoomWidget) >= 0);
 
-    auto *mEmptyRoomWidget = w.findChild<QWidget *>(QStringLiteral("mEmptyRoomWidget"));
+    auto mEmptyRoomWidget = w.findChild<QWidget *>(QStringLiteral("mEmptyRoomWidget"));
     QVERIFY(mEmptyRoomWidget);
     QCOMPARE(mStackedRoomWidget->currentWidget(), mEmptyRoomWidget);
 }

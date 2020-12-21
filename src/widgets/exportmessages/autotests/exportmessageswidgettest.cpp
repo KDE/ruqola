@@ -33,16 +33,16 @@ ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
 void ExportMessagesWidgetTest::shouldHaveDefaultValues()
 {
     ExportMessagesWidget w;
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mFromDate = w.findChild<QDateEdit *>(QStringLiteral("mFromDate"));
+    auto mFromDate = w.findChild<QDateEdit *>(QStringLiteral("mFromDate"));
     QVERIFY(mFromDate);
 
-    auto *mToDate = w.findChild<QDateEdit *>(QStringLiteral("mToDate"));
+    auto mToDate = w.findChild<QDateEdit *>(QStringLiteral("mToDate"));
     QVERIFY(mToDate);
 
-    auto *mFormat = w.findChild<QComboBox *>(QStringLiteral("mFormat"));
+    auto mFormat = w.findChild<QComboBox *>(QStringLiteral("mFormat"));
     QVERIFY(mFormat);
 
     QVERIFY(!w.roomExportInfo().isValid());

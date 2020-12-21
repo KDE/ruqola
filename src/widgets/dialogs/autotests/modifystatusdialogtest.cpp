@@ -37,13 +37,13 @@ void ModifyStatusDialogTest::shouldHaveDefaultValues()
     ModifyStatusDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto *mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(QStringLiteral("mModifyStatusWidget"));
+    auto mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(QStringLiteral("mModifyStatusWidget"));
     QVERIFY(mModifyStatusWidget);
 
-    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
     QVERIFY(w.messageStatus().isEmpty());
