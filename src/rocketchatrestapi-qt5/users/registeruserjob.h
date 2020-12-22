@@ -53,6 +53,9 @@ public:
     Q_REQUIRED_RESULT RegisterUserInfo registerUserInfo() const;
     void setRegisterUserInfo(const RegisterUserInfo &registerUserInfo);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 Q_SIGNALS:
     void registerUserDone();
 
@@ -60,6 +63,7 @@ private:
     Q_DISABLE_COPY(RegisterUserJob)
     void slotRegisterUser();
     RegisterUserInfo mRegisterUserInfo;
+
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RegisterUserJob::RegisterUserInfo, Q_MOVABLE_TYPE);

@@ -21,6 +21,7 @@
 #include "registeruserjob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <KLocalizedString>
 #include <QNetworkReply>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -85,6 +86,15 @@ RegisterUserJob::RegisterUserInfo RegisterUserJob::registerUserInfo() const
 void RegisterUserJob::setRegisterUserInfo(const RegisterUserInfo &registerUserInfo)
 {
     mRegisterUserInfo = registerUserInfo;
+}
+
+QString RegisterUserJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QStringLiteral("error-invalid-email")) {
+        const QString email = detail.value(QLatin1String("email")).toString();
+        return i18n("Invalid Email \'%1\'.", email);
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 QNetworkRequest RegisterUserJob::request() const
