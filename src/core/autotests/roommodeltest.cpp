@@ -382,7 +382,7 @@ void RoomModelTest::shouldReturnDataDefault()
 
 void RoomModelTest::shouldReturnData()
 {
-    Room *input = new Room(nullptr);
+    Room input(nullptr);
     const QString Id = QStringLiteral("RA151100ECE");
     const QString name = QStringLiteral("myRoom");
     const bool selected = true;
@@ -398,24 +398,24 @@ void RoomModelTest::shouldReturnData()
     const bool favorite = true;
     const bool open = true;
 
-    input->setRoomId(Id);
-    input->setName(name);
-    input->setSelected(selected);
-    input->setChannelType(roomType);
-    input->setRoomCreatorUserId(userId);
-    input->setRoomCreatorUserName(userName);
-    input->setTopic(topic);
-    input->setMutedUsers(mutedUsers);
-    input->setJitsiTimeout(time);
-    input->setReadOnly(readOnly);
-    input->setAnnouncement(announcement);
-    input->setUnread(unread);
-    input->setFavorite(favorite);
-    input->setOpen(open);
+    input.setRoomId(Id);
+    input.setName(name);
+    input.setSelected(selected);
+    input.setChannelType(roomType);
+    input.setRoomCreatorUserId(userId);
+    input.setRoomCreatorUserName(userName);
+    input.setTopic(topic);
+    input.setMutedUsers(mutedUsers);
+    input.setJitsiTimeout(time);
+    input.setReadOnly(readOnly);
+    input.setAnnouncement(announcement);
+    input.setUnread(unread);
+    input.setFavorite(favorite);
+    input.setOpen(open);
 
     RoomModel sampleModel;
     QVariant output;
-    sampleModel.addRoom(input);//don't pass address. pass pointer variable
+    sampleModel.addRoom(&input);//don't pass address. pass pointer variable
 
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomName);
     QCOMPARE(output.toString(), name);
