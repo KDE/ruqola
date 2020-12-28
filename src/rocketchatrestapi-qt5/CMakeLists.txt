@@ -13,6 +13,7 @@ set (RocketChatRestApiQt_SRCS
 
     misc/owninfojob.cpp
     misc/settingsoauthjob.cpp
+    misc/statisticsjob.cpp
 
     users/userbasejob.cpp
     users/getavatarjob.cpp
