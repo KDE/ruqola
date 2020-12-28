@@ -19,7 +19,7 @@
 */
 
 #include "statisticsjobtest.h"
-#include "misc/settingsoauthjob.h"
+#include "misc/statisticsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <restapimethod.h>
@@ -32,7 +32,7 @@ StatisticsJobTest::StatisticsJobTest(QObject *parent)
 
 void StatisticsJobTest::shouldHaveDefaultValue()
 {
-    SettingsOauthJob job;
+    StatisticsJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -40,8 +40,8 @@ void StatisticsJobTest::shouldHaveDefaultValue()
 
 void StatisticsJobTest::shouldGenerateRequest()
 {
-    SettingsOauthJob job;
+    StatisticsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics")));
 }

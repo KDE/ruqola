@@ -47,12 +47,12 @@ bool StatisticsJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &StatisticsJob::slotSettingsOauthFinished);
+    connect(reply, &QNetworkReply::finished, this, &StatisticsJob::slotStatisticFinished);
     addStartRestApiInfo(QByteArrayLiteral("StatisticsJob: Ask settings oauth"));
     return true;
 }
 
-void StatisticsJob::slotSettingsOauthFinished()
+void StatisticsJob::slotStatisticFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -61,7 +61,7 @@ void StatisticsJob::slotSettingsOauthFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("StatisticsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT settingsOauthDone(replyObject);
+            Q_EMIT statisticDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("StatisticsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -69,6 +69,16 @@ void StatisticsJob::slotSettingsOauthFinished()
         reply->deleteLater();
     }
     deleteLater();
+}
+
+bool StatisticsJob::refresh() const
+{
+    return mRefresh;
+}
+
+void StatisticsJob::setRefresh(bool refresh)
+{
+    mRefresh = refresh;
 }
 
 QNetworkRequest StatisticsJob::request() const

@@ -39,12 +39,16 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    Q_REQUIRED_RESULT bool refresh() const;
+    void setRefresh(bool refresh);
+
 Q_SIGNALS:
-    void settingsOauthDone(const QJsonObject &obj);
+    void statisticDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(StatisticsJob)
-    void slotSettingsOauthFinished();
+    void slotStatisticFinished();
+    bool mRefresh = false;
 };
 }
 #endif // STATISTICSJOB_H
