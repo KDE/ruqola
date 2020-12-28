@@ -41,7 +41,7 @@ bool EmojiCustomCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteEmojiCustomJob::start");
+    addStartRestApiInfo("EmojiCustomCreateJob::start");
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
     return true;
@@ -55,11 +55,11 @@ void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("DeleteEmojiCustomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("EmojiCustomCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomCreateDone();
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("DeleteEmojiCustomJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("EmojiCustomCreateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }

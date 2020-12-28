@@ -49,7 +49,7 @@ bool StatisticsJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &StatisticsJob::slotStatisticFinished);
-    addStartRestApiInfo(QByteArrayLiteral("StatisticsJob: Ask settings oauth"));
+    addStartRestApiInfo(QByteArrayLiteral("StatisticsJob: Ask for server statistics"));
     return true;
 }
 
