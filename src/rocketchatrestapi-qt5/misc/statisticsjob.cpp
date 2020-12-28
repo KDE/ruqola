@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 StatisticsJob::StatisticsJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -83,7 +84,10 @@ void StatisticsJob::setRefresh(bool refresh)
 
 QNetworkRequest StatisticsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Statistics);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Statistics);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("refresh"), mRefresh ? QStringLiteral("true") : QStringLiteral("false"));
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

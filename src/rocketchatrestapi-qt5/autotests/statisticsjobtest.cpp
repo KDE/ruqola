@@ -36,12 +36,21 @@ void StatisticsJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.refresh());
 }
 
 void StatisticsJobTest::shouldGenerateRequest()
 {
     StatisticsJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics")));
+    {
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics?refresh=false")));
+    }
+    {
+        job.setRefresh(true);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics?refresh=true")));
+    }
 }
