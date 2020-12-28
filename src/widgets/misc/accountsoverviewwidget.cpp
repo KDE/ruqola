@@ -232,7 +232,7 @@ void AccountsOverviewWidget::updateButtons()
         if (i >= mAccounts.size()) {
             auto button = new AccountButton(this);
             mAccounts.append(button);
-            layout()->addWidget(mAccounts.last());
+            layout()->addWidget(mAccounts.constLast());
         }
         mAccounts[i]->setVisible(account->accountEnabled());
         mAccounts[i]->setAccount(model->account(i));

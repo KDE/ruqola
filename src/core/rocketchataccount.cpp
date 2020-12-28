@@ -2445,5 +2445,5 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
-    return autoTranslateEnabled() && hasPermission(QLatin1String("auto-translate"));
+    return autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
 }

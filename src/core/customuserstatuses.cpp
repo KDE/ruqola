@@ -114,7 +114,7 @@ void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
         if (!customStatusObj.isEmpty()) {
             if (customStatusObj.contains(QLatin1String("_id"))) {
                 const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
-                for (const CustomUserStatus &status : mCustomUserses) {
+                for (const CustomUserStatus &status : qAsConst(mCustomUserses)) {
                     if (status.identifier() == identifier) {
                         mCustomUserses.removeOne(status);
                         break;

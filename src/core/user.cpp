@@ -151,7 +151,9 @@ void User::parseUserRestApi(const QJsonObject &object)
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
     const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
     QStringList roles;
-    for (int i = 0, total = rolesArray.size(); i < total; ++i) {
+    const int total = rolesArray.size();
+    roles.reserve(total);
+    for (int i = 0; i < total; ++i) {
         roles.append(rolesArray.at(i).toString());
     }
     setRoles(roles);

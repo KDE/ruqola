@@ -94,7 +94,7 @@ struct AvatarInfo {
     AvatarType avatarType = AvatarType::Unknown;
 };
 
-Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, AvatarInfo avatarInfo);
+Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, const AvatarInfo &avatarInfo);
 }
 Q_DECLARE_TYPEINFO(Utils::NotificationInfo, Q_MOVABLE_TYPE);
 Q_DECLARE_METATYPE(Utils::AvatarInfo)

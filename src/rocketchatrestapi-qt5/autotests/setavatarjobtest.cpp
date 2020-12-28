@@ -65,7 +65,7 @@ void SetAvatarJobTest::shouldGenerateJson()
     job.setUserInfo(info);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"avatarUrl":"%1","userId":"%2"})")
-             .arg(avatarurl).arg(info.userIdentifier).toLatin1());
+             .arg(avatarurl, info.userIdentifier).toLatin1());
 }
 
 void SetAvatarJobTest::shouldNotStarting()

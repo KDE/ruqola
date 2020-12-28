@@ -442,7 +442,7 @@ void RuqolaMainWindow::createSystemTray()
     }
     if (!mNotification) {
         mNotification = new Notification(this);
-        auto trayMenu = qobject_cast<QMenu *>(mNotification->contextMenu());
+        auto trayMenu = mNotification->contextMenu();
         trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
         trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
         // Create systray to show notifications on Desktop

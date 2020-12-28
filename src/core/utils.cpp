@@ -296,7 +296,7 @@ QByteArray Utils::convertSha256Password(const QString &pwd)
     return sha256pw;
 }
 
-QUrl Utils::avatarUrl(const QString &serverRcUrl, AvatarInfo avatarInfo)
+QUrl Utils::avatarUrl(const QString &serverRcUrl, const AvatarInfo &avatarInfo)
 {
     if (serverRcUrl.isEmpty()) {
         return {};

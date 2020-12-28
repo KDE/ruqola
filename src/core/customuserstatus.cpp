@@ -64,7 +64,7 @@ qint64 CustomUserStatus::updatedAt() const
     return mUpdatedAt;
 }
 
-void CustomUserStatus::setUpdatedAt(const qint64 &updatedAt)
+void CustomUserStatus::setUpdatedAt(qint64 updatedAt)
 {
     mUpdatedAt = updatedAt;
 }

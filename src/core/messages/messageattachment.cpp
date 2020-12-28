@@ -310,7 +310,7 @@ void MessageAttachment::generateAttachmentFieldsText()
         values << field.value();
     }
     result += QStringLiteral("</tr><tr>");
-    for (const QString &res : values) {
+    for (const QString &res : qAsConst(values)) {
         result += QStringLiteral("<td>%1</td>").arg(res);
     }
     result += QStringLiteral("</tr></table></qt>");

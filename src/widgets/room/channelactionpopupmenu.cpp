@@ -181,7 +181,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
     mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
 
-    const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(QLatin1String("clean-channel-history"));
+    const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(QStringLiteral("clean-channel-history"));
     mPruneMessages->setVisible(showPruneMessage);
     mPruneMessagesSeparator->setVisible(showPruneMessage);
 

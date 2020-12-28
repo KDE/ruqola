@@ -37,7 +37,7 @@ public:
     void setName(const QString &value);
 
     Q_REQUIRED_RESULT qint64 updatedAt() const;
-    void setUpdatedAt(const qint64 &updatedAt);
+    void setUpdatedAt(qint64 updatedAt);
 
     Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);

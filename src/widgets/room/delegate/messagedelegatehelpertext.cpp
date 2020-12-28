@@ -191,7 +191,7 @@ MessageDelegateHelperText::~MessageDelegateHelperText()
 {
 }
 
-void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option)
+void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
     auto *doc = documentForIndex(index, rect.width(), option.widget);
     if (!doc) {
@@ -311,7 +311,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
     return false;
 }
 
-bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &messageRect, const QModelIndex &index)
+bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect messageRect, const QModelIndex &index)
 {
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;

@@ -78,7 +78,7 @@ RocketChatAccount *AvatarManager::account() const
     return mAccount;
 }
 
-void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo info, const QUrl &url)
+void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url)
 {
     const QString identifier = info.identifier;
     if (!url.isEmpty()) {
