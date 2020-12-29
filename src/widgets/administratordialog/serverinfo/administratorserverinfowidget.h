@@ -29,6 +29,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidg
 public:
     explicit AdministratorServerInfoWidget(QWidget *parent = nullptr);
     ~AdministratorServerInfoWidget() override;
+
+private:
+    void initialize();
 };
 
 #endif // ADMINISTRATORSERVERINFOWIDGET_H

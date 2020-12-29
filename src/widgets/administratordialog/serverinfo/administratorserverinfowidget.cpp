@@ -19,6 +19,10 @@
 */
 
 #include "administratorserverinfowidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "restapirequest.h"
+
 #include <QVBoxLayout>
 #include <KLocalizedString>
 
@@ -29,8 +33,14 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     //TODO add label ?
+    initialize();
 }
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
 {
+}
+
+void AdministratorServerInfoWidget::initialize()
+{
+
 }
