@@ -25,13 +25,19 @@
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QTreeWidget>
 
 AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     : QWidget(parent)
+    , mTreeWidget(new QTreeWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
+    mainLayout->addWidget(mTreeWidget);
+
     //TODO add label ?
     initialize();
 }

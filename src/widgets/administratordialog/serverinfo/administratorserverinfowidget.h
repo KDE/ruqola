@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QTreeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,7 @@ public:
 
 private:
     void initialize();
+    QTreeWidget *const mTreeWidget;
 };
 
 #endif // ADMINISTRATORSERVERINFOWIDGET_H

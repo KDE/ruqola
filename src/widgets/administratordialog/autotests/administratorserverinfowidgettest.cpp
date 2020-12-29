@@ -21,6 +21,8 @@
 #include "administratorserverinfowidgettest.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <QTest>
+#include <QTreeWidget>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +32,10 @@ AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *pa
 void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorServerInfoWidget w;
-    //TODO
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreeWidget"));
+    QVERIFY(mTreeWidget);
 }
