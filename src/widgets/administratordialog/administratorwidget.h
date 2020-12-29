@@ -28,6 +28,7 @@ class QTabWidget;
 class AdministratorRoomsWidget;
 class AdministratorCustomUserStatusWidget;
 class AdministratorCustomSoundsWidget;
+class AdministratorServerInfoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
@@ -39,6 +40,7 @@ private:
     AdministratorRoomsWidget *const mAdministratorRoomsWidget;
     AdministratorCustomUserStatusWidget *const mAdministratorCustomUserStatusWidget;
     AdministratorCustomSoundsWidget *const mAdministratorCustomSoundsWidget;
+    AdministratorServerInfoWidget *const mAdministratorServerInfoWidget;
 };
 
 #endif // ADMINISTRATORWIDGET_H

@@ -23,6 +23,7 @@
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "administratordialog/administratorroomswidget.h"
+#include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -52,4 +53,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
     QVERIFY(mAdministratorCustomSoundsWidget);
+
+    auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
+    QVERIFY(mAdministratorServerInfoWidget);
 }
