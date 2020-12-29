@@ -19,7 +19,7 @@
 */
 
 #include "administratorroomsselectroomtypewidgettest.h"
-#include "administratordialog/administratorroomsselectroomtypewidget.h"
+#include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
 #include <QHBoxLayout>
 #include <QTest>
 #include <QCheckBox>

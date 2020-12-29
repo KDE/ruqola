@@ -20,7 +20,7 @@
 
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
-#include "administratorroomswidget.h"
+#include "rooms/administratorroomswidget.h"
 #include "administratorwidget.h"
 #include "serverinfo/administratorserverinfowidget.h"
 #include <KLocalizedString>

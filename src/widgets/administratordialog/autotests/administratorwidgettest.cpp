@@ -22,7 +22,7 @@
 #include "administratordialog/administratorwidget.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
-#include "administratordialog/administratorroomswidget.h"
+#include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <QTabWidget>
 #include <QTest>

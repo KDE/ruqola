@@ -186,9 +186,9 @@ set(Ruqola_myaccount_SRCS
 set(Ruqola_administrator_SRCS
     administratordialog/administratordialog.cpp
     administratordialog/administratorwidget.cpp
-    administratordialog/administratorroomswidget.cpp
+    administratordialog/rooms/administratorroomswidget.cpp
     administratordialog/serverinfo/administratorserverinfowidget.cpp
-    administratordialog/administratorroomsselectroomtypewidget.cpp
+    administratordialog/rooms/administratorroomsselectroomtypewidget.cpp
     administratordialog/customuserstatus/administratorcustomuserstatuswidget.cpp
     administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp
     administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp

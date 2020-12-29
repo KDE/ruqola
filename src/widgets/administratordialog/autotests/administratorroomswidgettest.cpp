@@ -19,8 +19,8 @@
 */
 
 #include "administratorroomswidgettest.h"
-#include "administratordialog/administratorroomswidget.h"
-#include "administratordialog/administratorroomsselectroomtypewidget.h"
+#include "administratordialog/rooms/administratorroomswidget.h"
+#include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
 #include <QLineEdit>
 #include <QTableView>
 #include <QTest>
