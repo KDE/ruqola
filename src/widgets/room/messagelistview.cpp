@@ -247,6 +247,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotShowFullThread(index);
     });
 
+    QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
+    connect(editAction, &QAction::triggered, this, [=]() {
+        slotEditMessage(index);
+    });
+
+
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
         QAction *startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);
@@ -285,13 +291,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
 
         if (index.data(MessageModel::CanEditMessage).toBool()) {
-            QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
-            connect(editAction, &QAction::triggered, this, [=]() {
-                slotEditMessage(index);
-            });
             menu.addAction(editAction);
+            menu.addSeparator();
         }
-        menu.addSeparator();
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
 
@@ -324,9 +326,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
+        if (index.data(MessageModel::CanEditMessage).toBool()) {
+            menu.addSeparator();
+            menu.addAction(editAction);
+        }
 
         if (deleteAction) {
-            createSeparator(menu);
+            menu.addSeparator();
             menu.addAction(deleteAction);
         }
     } else {
