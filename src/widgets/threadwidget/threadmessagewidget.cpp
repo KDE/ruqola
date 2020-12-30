@@ -49,6 +49,7 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mMessageLineWidget = new MessageLineWidget(this);
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
     mainLayout->addWidget(mMessageLineWidget);
+    connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
