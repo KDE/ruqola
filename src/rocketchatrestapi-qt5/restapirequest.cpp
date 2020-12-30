@@ -149,6 +149,8 @@
 #include "2fa/user2faenableemailjob.h"
 #include "2fa/user2fadisableemailjob.h"
 
+#include "misc/statisticsjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkCookie>
@@ -1962,5 +1964,16 @@ void RestApiRequest::exportMessages(const RocketChatRestApi::RoomsExportJob::Roo
     connect(job, &RoomsExportJob::roomExportDone, this, &RestApiRequest::roomExportDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsExportJob";
+    }
+}
+
+void RestApiRequest::statistics(bool refresh)
+{
+    auto job = new StatisticsJob(this);
+    job->setRefresh(refresh);
+    initializeRestApiJob(job);
+    connect(job, &StatisticsJob::statisticDone, this, &RestApiRequest::statisticDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start StatisticsJob";
     }
 }
