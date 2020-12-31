@@ -64,4 +64,15 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
     qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
     //TODO
+    QTreeWidgetItem *serverInfoItem = new QTreeWidgetItem(mTreeWidget);
+    serverInfoItem->setText(0, i18n("Server Info"));
+
+    QTreeWidgetItem *usageInfoItem = new QTreeWidgetItem(mTreeWidget);
+    usageInfoItem->setText(0, i18n("Usage"));
+
+    QTreeWidgetItem *runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
+    runtimeInfoItem->setText(0, i18n("Runtime Environment"));
+
+    QTreeWidgetItem *commitItem = new QTreeWidgetItem(mTreeWidget);
+    commitItem->setText(0, i18n("Commit"));
 }
