@@ -34,7 +34,7 @@ void StatisticsJobTest::shouldHaveDefaultValue()
 {
     StatisticsJob job;
     verifyDefaultValue(&job);
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.refresh());
 }

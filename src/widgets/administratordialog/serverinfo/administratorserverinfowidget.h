@@ -21,6 +21,7 @@
 #ifndef ADMINISTRATORSERVERINFOWIDGET_H
 #define ADMINISTRATORSERVERINFOWIDGET_H
 
+#include <QJsonObject>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class QTreeWidget;
@@ -33,6 +34,7 @@ public:
 
 private:
     void initialize();
+    void slotStatisticDone(const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;
 };
 

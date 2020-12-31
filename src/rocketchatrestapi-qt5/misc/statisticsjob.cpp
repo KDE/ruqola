@@ -37,7 +37,7 @@ StatisticsJob::~StatisticsJob()
 
 bool StatisticsJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
 bool StatisticsJob::start()
