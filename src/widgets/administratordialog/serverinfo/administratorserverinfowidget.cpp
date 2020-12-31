@@ -60,19 +60,51 @@ void AdministratorServerInfoWidget::initialize()
     }
 }
 
+void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)
+{
+    //TODO
+}
+
+void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+{
+    //TODO
+}
+
+void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+{
+    //TODO
+}
+
+void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+{
+    //TODO
+}
+
+void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+{
+    //TODO
+}
+
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
     qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
-    //TODO
     QTreeWidgetItem *serverInfoItem = new QTreeWidgetItem(mTreeWidget);
     serverInfoItem->setText(0, i18n("Server Info"));
+    parseServerInfo(serverInfoItem, obj);
 
     QTreeWidgetItem *usageInfoItem = new QTreeWidgetItem(mTreeWidget);
     usageInfoItem->setText(0, i18n("Usage"));
+    parseUsageInfo(usageInfoItem, obj);
 
     QTreeWidgetItem *runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
     runtimeInfoItem->setText(0, i18n("Runtime Environment"));
+    parseRuntimeInfo(runtimeInfoItem, obj);
 
     QTreeWidgetItem *commitItem = new QTreeWidgetItem(mTreeWidget);
     commitItem->setText(0, i18n("Commit"));
+    parseCommitInfo(commitItem, obj);
+
+    QTreeWidgetItem *buildItem = new QTreeWidgetItem(mTreeWidget);
+    buildItem->setText(0, i18n("Build Environment"));
+    parseBuildInfo(buildItem, obj);
 }

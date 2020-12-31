@@ -25,6 +25,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class QTreeWidget;
+class QTreeWidgetItem;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -33,6 +34,11 @@ public:
     ~AdministratorServerInfoWidget() override;
 
 private:
+    void parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj);
+    void parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
+    void parseRuntimeInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
+    void parseCommitInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
+    void parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     void initialize();
     void slotStatisticDone(const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;
