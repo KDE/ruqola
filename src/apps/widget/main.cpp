@@ -1,6 +1,6 @@
 /*
 
- * Copyright (c) 2020 Laurent Montel <montel@kde.org>
+ * Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2020 Ruqola authors"));
+                         i18n("Copyright © 2020-2021 Ruqola authors"));
 
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
 
