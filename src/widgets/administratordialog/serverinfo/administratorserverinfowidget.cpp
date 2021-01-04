@@ -42,8 +42,10 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     mainLayout->addWidget(mTreeWidget);
     mTreeWidget->header()->hide();
     mTreeWidget->setColumnCount(2);
+    //TODO fix column size
 
     initialize();
+    mTreeWidget->expandAll();
 }
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
@@ -64,7 +66,13 @@ void AdministratorServerInfoWidget::initialize()
 
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)
 {
-    //TODO
+    const QJsonValue version = obj.value(QLatin1String("version"));
+    if (!version.isUndefined()) {
+        auto item = new QTreeWidgetItem(serverInfoItem);
+        item->setText(0, i18n("Version"));
+        item->setText(1, version.toString());
+        serverInfoItem->addChild(item);
+    }
 }
 
 void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
@@ -108,6 +116,20 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
     if (!totalPrivateGroups.isUndefined()) {
         auto item = new QTreeWidgetItem(usageInfoItem);
         item->setText(0, i18n("Total Private Groups"));
+        item->setText(1, QString::number(totalPrivateGroups.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalThreads = obj.value(QLatin1String("totalThreads"));
+    if (!totalThreads.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Threads"));
+        item->setText(1, QString::number(totalPrivateGroups.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalUsers = obj.value(QLatin1String("totalUsers"));
+    if (!totalUsers.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Users"));
         item->setText(1, QString::number(totalPrivateGroups.toInt()));
         usageInfoItem->addChild(item);
     }
