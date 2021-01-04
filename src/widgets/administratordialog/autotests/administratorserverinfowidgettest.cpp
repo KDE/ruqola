@@ -22,6 +22,7 @@
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <QTest>
 #include <QTreeWidget>
+#include <QHeaderView>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
@@ -38,4 +39,6 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreeWidget"));
     QVERIFY(mTreeWidget);
+    QVERIFY(!mTreeWidget->rootIsDecorated());
+    QVERIFY(mTreeWidget->header()->isHidden());
 }

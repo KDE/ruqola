@@ -28,6 +28,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QTreeWidget>
+#include <QHeaderView>
 
 AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -39,6 +40,8 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
 
     mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
     mainLayout->addWidget(mTreeWidget);
+    mTreeWidget->setRootIsDecorated(false);
+    mTreeWidget->header()->hide();
 
     //TODO add label ?
     initialize();
