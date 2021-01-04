@@ -40,8 +40,8 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
 
     mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
     mainLayout->addWidget(mTreeWidget);
-    mTreeWidget->setRootIsDecorated(false);
     mTreeWidget->header()->hide();
+    mTreeWidget->setColumnCount(2);
 
     initialize();
 }
@@ -69,7 +69,48 @@ void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoI
 
 void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
 {
-    //TODO
+    const QJsonValue activateUsers = obj.value(QLatin1String("activeUsers"));
+    if (!activateUsers.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Activated Users"));
+        item->setText(1, QString::number(activateUsers.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue activateGuests = obj.value(QLatin1String("activeGuests"));
+    if (!activateGuests.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Activated Guests"));
+        item->setText(1, QString::number(activateGuests.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue uploadsTotal = obj.value(QLatin1String("uploadsTotal"));
+    if (!uploadsTotal.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Uploads"));
+        item->setText(1, QString::number(uploadsTotal.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalChannels = obj.value(QLatin1String("totalChannels"));
+    if (!totalChannels.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Channels"));
+        item->setText(1, QString::number(totalChannels.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalRooms = obj.value(QLatin1String("totalRooms"));
+    if (!totalRooms.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Rooms"));
+        item->setText(1, QString::number(totalRooms.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalPrivateGroups = obj.value(QLatin1String("totalPrivateGroups"));
+    if (!totalPrivateGroups.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Private Groups"));
+        item->setText(1, QString::number(totalPrivateGroups.toInt()));
+        usageInfoItem->addChild(item);
+    }
 }
 
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)

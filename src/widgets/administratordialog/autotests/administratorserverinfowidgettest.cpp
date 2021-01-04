@@ -39,6 +39,6 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreeWidget"));
     QVERIFY(mTreeWidget);
-    QVERIFY(!mTreeWidget->rootIsDecorated());
+    QCOMPARE(mTreeWidget->columnCount(), 2);
     QVERIFY(mTreeWidget->header()->isHidden());
 }
