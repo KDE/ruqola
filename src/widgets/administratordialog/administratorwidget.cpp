@@ -23,6 +23,9 @@
 #include "rooms/administratorroomswidget.h"
 #include "administratorwidget.h"
 #include "serverinfo/administratorserverinfowidget.h"
+#include "permissionmanager.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -51,8 +54,10 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
     mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 
-    mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
-    mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
+    if (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
+        mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
+        mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
+    }
 }
 
 AdministratorWidget::~AdministratorWidget()
