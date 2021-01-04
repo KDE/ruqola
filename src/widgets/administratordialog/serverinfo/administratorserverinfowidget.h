@@ -36,7 +36,7 @@ public:
 private:
     void parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj);
     void parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
-    void parseRuntimeInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
+    void parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj);
     void parseCommitInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     void parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     void initialize();

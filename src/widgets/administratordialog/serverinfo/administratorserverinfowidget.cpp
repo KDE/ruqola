@@ -45,7 +45,6 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     //TODO fix column size
 
     initialize();
-    mTreeWidget->expandAll();
 }
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
@@ -133,10 +132,24 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
         item->setText(1, QString::number(totalPrivateGroups.toInt()));
         usageInfoItem->addChild(item);
     }
+    const QJsonValue appUsers = obj.value(QLatin1String("appUsers"));
+    if (!appUsers.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Rocket.Chat App Users"));
+        item->setText(1, QString::number(totalPrivateGroups.toInt()));
+        usageInfoItem->addChild(item);
+    }
 }
 
-void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
 {
+    const QJsonValue release = obj.value(QLatin1String("release"));
+    if (!release.isUndefined()) {
+        auto item = new QTreeWidgetItem(runtimeInfoItem);
+        item->setText(0, i18n("OS Release"));
+        item->setText(1, release.toString());
+        runtimeInfoItem->addChild(item);
+    }
     //TODO
 }
 
@@ -172,4 +185,7 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
     QTreeWidgetItem *buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
     parseBuildInfo(buildItem, obj);
+    mTreeWidget->resizeColumnToContents(1);
+    mTreeWidget->resizeColumnToContents(0);
+    mTreeWidget->expandAll();
 }
