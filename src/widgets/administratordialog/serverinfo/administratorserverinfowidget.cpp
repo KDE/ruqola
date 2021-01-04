@@ -43,7 +43,6 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     mTreeWidget->setRootIsDecorated(false);
     mTreeWidget->header()->hide();
 
-    //TODO add label ?
     initialize();
 }
 
