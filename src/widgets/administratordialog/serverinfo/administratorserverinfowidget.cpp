@@ -139,6 +139,34 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
         item->setText(1, QString::number(totalPrivateGroups.toInt()));
         usageInfoItem->addChild(item);
     }
+    const QJsonValue awayUsers = obj.value(QLatin1String("awayUsers"));
+    if (!awayUsers.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Away Users"));
+        item->setText(1, QString::number(awayUsers.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue uploadsTotalSize = obj.value(QLatin1String("uploadsTotalSize"));
+    if (!uploadsTotalSize.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Uploads Size"));
+        item->setText(1, QString::number(uploadsTotalSize.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue offlineUsers = obj.value(QLatin1String("offlineUsers"));
+    if (!offlineUsers.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Offline Users"));
+        item->setText(1, QString::number(offlineUsers.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue onlineUsers = obj.value(QLatin1String("onlineUsers"));
+    if (!onlineUsers.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Online Users"));
+        item->setText(1, QString::number(onlineUsers.toInt()));
+        usageInfoItem->addChild(item);
+    }
 }
 
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
