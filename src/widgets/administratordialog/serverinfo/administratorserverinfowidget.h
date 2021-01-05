@@ -39,6 +39,7 @@ private:
     void parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj);
     void parseCommitInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     void parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
+    void createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void initialize();
     void slotStatisticDone(const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;

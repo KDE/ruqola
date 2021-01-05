@@ -167,6 +167,39 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
         item->setText(1, QString::number(onlineUsers.toInt()));
         usageInfoItem->addChild(item);
     }
+    const QJsonValue totalMessages = obj.value(QLatin1String("totalMessages"));
+    if (!totalMessages.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Messages"));
+        item->setText(1, QString::number(totalMessages.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalChannelMessages = obj.value(QLatin1String("totalChannelMessages"));
+    if (!totalChannelMessages.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Messages in Channels"));
+        item->setText(1, QString::number(totalChannelMessages.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    const QJsonValue totalPrivateGroupMessages = obj.value(QLatin1String("totalPrivateGroupMessages"));
+    if (!totalPrivateGroupMessages.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, i18n("Total Messages in Private Groups"));
+        item->setText(1, QString::number(totalPrivateGroupMessages.toInt()));
+        usageInfoItem->addChild(item);
+    }
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Direct Messages"), QStringLiteral("totalDirectMessages"));
+}
+
+void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier)
+{
+    const QJsonValue totalDirectMessages = obj.value(identifier);
+    if (!totalDirectMessages.isUndefined()) {
+        auto item = new QTreeWidgetItem(usageInfoItem);
+        item->setText(0, label);
+        item->setText(1, QString::number(totalDirectMessages.toInt()));
+        usageInfoItem->addChild(item);
+    }
 }
 
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
