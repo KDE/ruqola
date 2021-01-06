@@ -252,6 +252,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotEditMessage(index);
     });
 
+    QAction *quoteAction = new QAction(i18n("Quote"), &menu); //TODO add menu
+    connect(quoteAction, &QAction::triggered, this, [=]() {
+        slotQuoteMessage(index);
+    });
+
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
@@ -464,6 +469,11 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 {
     mCurrentRocketChatAccount = currentRocketChatAccount;
     mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+}
+
+void MessageListView::slotQuoteMessage(const QModelIndex &index)
+{
+    //TODO
 }
 
 void MessageListView::slotEditMessage(const QModelIndex &index)

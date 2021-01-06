@@ -97,6 +97,7 @@ private:
     void slotSelectAll(const QModelIndex &index);
     void handleMouseEvent(QMouseEvent *event);
     void slotShowFullThread(const QModelIndex &index);
+    void slotQuoteMessage(const QModelIndex &index);
 
 private:
     Room *mRoom = nullptr;
