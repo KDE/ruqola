@@ -462,6 +462,7 @@ void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checke
 void MessageListView::slotDebugMessage(const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    //Show debug output.
     qDebug() << " message " << *message;
 }
 
