@@ -111,15 +111,27 @@ void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usag
     }
 }
 
+void AdministratorServerInfoWidget::createItemFromLongValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier)
+{
+    const QJsonValue objValue = obj.value(identifier);
+    if (!objValue.isUndefined()) {
+        auto item = new QTreeWidgetItem(parentItem);
+        item->setText(0, label);
+        item->setText(1, QString::number(objValue.toDouble()));
+        item->addChild(item);
+    }
+}
+
+
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
 {
-    const QJsonValue release = obj.value(QLatin1String("release"));
-    if (!release.isUndefined()) {
-        auto item = new QTreeWidgetItem(runtimeInfoItem);
-        item->setText(0, i18n("OS Release"));
-        item->setText(1, release.toString());
-        runtimeInfoItem->addChild(item);
-    }
+    const QJsonObject runtimeObj = obj.value(QLatin1String("os")).toObject();
+    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Release"), QStringLiteral("release"));
+    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Type"), QStringLiteral("type"));
+    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Platform"), QStringLiteral("platform"));
+    //TODO FIXME long
+    createItemFromLongValue(runtimeInfoItem, runtimeObj, i18n("OS Total Memory"), QStringLiteral("totalmem"));
+    createItemFromLongValue(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), QStringLiteral("freemem"));
     //TODO
 }
 
