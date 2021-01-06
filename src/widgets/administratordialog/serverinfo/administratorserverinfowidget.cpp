@@ -76,118 +76,22 @@ void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoI
 
 void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
 {
-    const QJsonValue activateUsers = obj.value(QLatin1String("activeUsers"));
-    if (!activateUsers.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Activated Users"));
-        item->setText(1, QString::number(activateUsers.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue activateGuests = obj.value(QLatin1String("activeGuests"));
-    if (!activateGuests.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Activated Guests"));
-        item->setText(1, QString::number(activateGuests.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue uploadsTotal = obj.value(QLatin1String("uploadsTotal"));
-    if (!uploadsTotal.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Uploads"));
-        item->setText(1, QString::number(uploadsTotal.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalChannels = obj.value(QLatin1String("totalChannels"));
-    if (!totalChannels.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Channels"));
-        item->setText(1, QString::number(totalChannels.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalRooms = obj.value(QLatin1String("totalRooms"));
-    if (!totalRooms.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Rooms"));
-        item->setText(1, QString::number(totalRooms.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalPrivateGroups = obj.value(QLatin1String("totalPrivateGroups"));
-    if (!totalPrivateGroups.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Private Groups"));
-        item->setText(1, QString::number(totalPrivateGroups.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalThreads = obj.value(QLatin1String("totalThreads"));
-    if (!totalThreads.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Threads"));
-        item->setText(1, QString::number(totalPrivateGroups.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalUsers = obj.value(QLatin1String("totalUsers"));
-    if (!totalUsers.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Users"));
-        item->setText(1, QString::number(totalPrivateGroups.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue appUsers = obj.value(QLatin1String("appUsers"));
-    if (!appUsers.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Rocket.Chat App Users"));
-        item->setText(1, QString::number(totalPrivateGroups.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue awayUsers = obj.value(QLatin1String("awayUsers"));
-    if (!awayUsers.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Away Users"));
-        item->setText(1, QString::number(awayUsers.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue uploadsTotalSize = obj.value(QLatin1String("uploadsTotalSize"));
-    if (!uploadsTotalSize.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Uploads Size"));
-        item->setText(1, QString::number(uploadsTotalSize.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue offlineUsers = obj.value(QLatin1String("offlineUsers"));
-    if (!offlineUsers.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Offline Users"));
-        item->setText(1, QString::number(offlineUsers.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue onlineUsers = obj.value(QLatin1String("onlineUsers"));
-    if (!onlineUsers.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Online Users"));
-        item->setText(1, QString::number(onlineUsers.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalMessages = obj.value(QLatin1String("totalMessages"));
-    if (!totalMessages.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Messages"));
-        item->setText(1, QString::number(totalMessages.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalChannelMessages = obj.value(QLatin1String("totalChannelMessages"));
-    if (!totalChannelMessages.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Messages in Channels"));
-        item->setText(1, QString::number(totalChannelMessages.toInt()));
-        usageInfoItem->addChild(item);
-    }
-    const QJsonValue totalPrivateGroupMessages = obj.value(QLatin1String("totalPrivateGroupMessages"));
-    if (!totalPrivateGroupMessages.isUndefined()) {
-        auto item = new QTreeWidgetItem(usageInfoItem);
-        item->setText(0, i18n("Total Messages in Private Groups"));
-        item->setText(1, QString::number(totalPrivateGroupMessages.toInt()));
-        usageInfoItem->addChild(item);
-    }
+    createItemFromIntValue(usageInfoItem, obj, i18n("Activated Users"), QStringLiteral("activeUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Activated Guests"), QStringLiteral("activeGuests"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads"), QStringLiteral("uploadsTotal"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Channels"), QStringLiteral("totalChannels"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Rooms"), QStringLiteral("totalRooms"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Private Groups"), QStringLiteral("totalPrivateGroups"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Threads"), QStringLiteral("totalThreads"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Users"), QStringLiteral("totalUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), QStringLiteral("appUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), QStringLiteral("awayUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads Size"), QStringLiteral("uploadsTotalSize"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), QStringLiteral("offlineUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), QStringLiteral("onlineUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages"), QStringLiteral("totalMessages"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Channels"), QStringLiteral("totalChannelMessages"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Private Groups"), QStringLiteral("totalPrivateGroupMessages"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Direct Messages"), QStringLiteral("totalDirectMessages"));
 }
 
