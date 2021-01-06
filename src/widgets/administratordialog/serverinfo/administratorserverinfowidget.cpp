@@ -66,6 +66,7 @@ void AdministratorServerInfoWidget::initialize()
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)
 {
     createItemFromStringValue(serverInfoItem, obj, i18n("Version"), QStringLiteral("version"));
+    createItemFromStringValue(serverInfoItem, obj, i18n("Deployment ID"), QStringLiteral("uniqueId"));
 }
 
 void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier)
