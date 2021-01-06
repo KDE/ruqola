@@ -170,7 +170,7 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
     QTreeWidgetItem *buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
     parseBuildInfo(buildItem, obj);
+    mTreeWidget->expandAll();
     mTreeWidget->resizeColumnToContents(1);
     mTreeWidget->resizeColumnToContents(0);
-    mTreeWidget->expandAll();
 }
