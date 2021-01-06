@@ -215,8 +215,8 @@ Q_SIGNALS:
     void redownloadAvatar();
     void loginDone(const QString &authToken, const QString &userId);
     void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
-    void getServerInfoDone(const QString &version);
-    void getServerInfoFailed(bool useDeprecatedVersion);
+    void serverInfoDone(const QString &version);
+    void serverInfoFailed(bool useDeprecatedVersion);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QJsonObject &data);
     void channelFilesDone(const QJsonObject &obj, const ChannelBaseJob::ChannelInfo &channelInfo);

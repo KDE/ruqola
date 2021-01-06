@@ -396,8 +396,8 @@ void RestApiRequest::serverInfo(bool useDeprecatedVersion)
     auto job = new ServerInfoJob(this);
     job->setUseDeprecatedVersion(useDeprecatedVersion);
     initializeRestApiJob(job);
-    connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
-    connect(job, &ServerInfoJob::serverInfoFailed, this, &RestApiRequest::getServerInfoFailed);
+    connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::serverInfoDone);
+    connect(job, &ServerInfoJob::serverInfoFailed, this, &RestApiRequest::serverInfoFailed);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ServerInfoJob job";
     }

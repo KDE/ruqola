@@ -152,9 +152,9 @@ void RocketChatBackend::slotConnectedChanged()
     auto ddp = mRocketChatAccount->ddp();
 
     restApi->serverInfo(false);
-    connect(restApi, &RocketChatRestApi::RestApiRequest::getServerInfoDone,
+    connect(restApi, &RocketChatRestApi::RestApiRequest::serverInfoDone,
             this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
-    connect(restApi, &RocketChatRestApi::RestApiRequest::getServerInfoFailed,
+    connect(restApi, &RocketChatRestApi::RestApiRequest::serverInfoFailed,
             this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
 
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
