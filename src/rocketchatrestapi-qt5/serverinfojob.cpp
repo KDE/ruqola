@@ -71,13 +71,13 @@ bool ServerInfoJob::useDeprecatedVersion() const
 
 void ServerInfoJob::slotServerInfoFinished()
 {
-    QString versionStr;
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         //TODO send replyObject too. Need by administrator server info.
         if (replyObject[QStringLiteral("success")].toBool()) {
+            QString versionStr;
             if (mUseDeprecatedVersion) {
                 const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
                 versionStr = version.value(QStringLiteral("version")).toString();
