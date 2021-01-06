@@ -65,12 +65,17 @@ void AdministratorServerInfoWidget::initialize()
 
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)
 {
-    const QJsonValue version = obj.value(QLatin1String("version"));
-    if (!version.isUndefined()) {
-        auto item = new QTreeWidgetItem(serverInfoItem);
-        item->setText(0, i18n("Version"));
-        item->setText(1, version.toString());
-        serverInfoItem->addChild(item);
+    createItemFromStringValue(serverInfoItem, obj, i18n("Version"), QStringLiteral("version"));
+}
+
+void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier)
+{
+    const QJsonValue objValue = obj.value(identifier);
+    if (!objValue.isUndefined()) {
+        auto item = new QTreeWidgetItem(parentItem);
+        item->setText(0, label);
+        item->setText(1, objValue.toString());
+        item->addChild(item);
     }
 }
 
