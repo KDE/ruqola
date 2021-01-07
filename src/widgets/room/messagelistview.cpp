@@ -21,6 +21,7 @@
 #include "messagelistview.h"
 #include "ruqola.h"
 #include "room.h"
+#include "roomutil.h"
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "delegate/messagelistdelegate.h"
@@ -265,7 +266,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotStartPrivateConversation(index);
         });
         menu.addAction(startPrivateConversation);
-        menu.addAction(quoteAction);
 
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
@@ -287,7 +287,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             }
         }
         menu.addSeparator();
-
+        menu.addAction(quoteAction);
+        menu.addSeparator();
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }
@@ -477,7 +478,9 @@ void MessageListView::slotQuoteMessage(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
     const QString text = index.data(MessageModel::OriginalMessage).toString();
-    Q_EMIT quoteMessageRequested(messageId, text);
+    const QString permalink = RoomUtil::generatePermalink(messageId, mRoom->roomId(), mRoom->channelType());
+    //Generate permalink
+    Q_EMIT quoteMessageRequested(permalink, text);
 }
 
 void MessageListView::slotEditMessage(const QModelIndex &index)

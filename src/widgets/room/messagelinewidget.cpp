@@ -133,6 +133,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 
 void MessageLineWidget::setQuoteMessage(const QString &messageId, const QString &text)
 {
+    //TODO use text too
     clearMessageIdBeingEdited();
     mQuoteMessageId = messageId;
 }

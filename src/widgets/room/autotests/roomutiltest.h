@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,14 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMUTIL_H
-#define ROOMUTIL_H
+#ifndef ROOMUTILTEST_H
+#define ROOMUTILTEST_H
 
-#include "libruqolawidgets_private_export.h"
-#include <QString>
-namespace RoomUtil {
-LIBRUQOLAWIDGETS_TESTS_EXPORT QString generateUserLink(const QString &userName);
-LIBRUQOLAWIDGETS_TESTS_EXPORT QString generatePermalink(const QString &messageId, const QString &roomId, const QString &channelType);
-}
+#include <QObject>
 
-#endif // ROOMUTIL_H
+class RoomUtilTest : public QObject
+{
+    Q_OBJECT
+public:
+    explicit RoomUtilTest(QObject *parent = nullptr);
+    ~RoomUtilTest() override = default;
+private Q_SLOTS:
+    void shouldGeneratePermalink();
+};
+
+#endif // ROOMUTILTEST_H

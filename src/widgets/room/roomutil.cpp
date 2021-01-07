@@ -19,8 +19,24 @@
 */
 
 #include "roomutil.h"
-
+#include "ruqolawidgets_debug.h"
 QString RoomUtil::generateUserLink(const QString &userName)
 {
     return QStringLiteral("ruqola:/user/") + userName;
+}
+
+QString RoomUtil::generatePermalink(const QString &messageId, const QString &roomId, const QString &channelType)
+{
+    QString prefix;
+    if (channelType == QLatin1Char('c')) {
+        prefix = QStringLiteral("channel/");
+    } else if (channelType == QLatin1Char('d')) {
+        prefix = QStringLiteral("channel/"); //Use roomName
+    } else if (channelType == QLatin1Char('p')) {
+        prefix = QStringLiteral("group/");
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << " channel type undefined " << channelType;
+    }
+    const QString result = QStringLiteral("%1%2?msg=%3").arg(prefix, roomId, messageId);
+    return result;
 }
