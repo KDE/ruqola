@@ -62,6 +62,7 @@ public:
     void setMessageIdBeingEdited(const QString &messageIdBeingEdited);
 
     void setEditMessage(const QString &messageId, const QString &text);
+    void setQuoteMessage(const QString &messageId, const QString &text);
 
     bool handleMimeData(const QMimeData *mimeData);
 
@@ -82,11 +83,13 @@ private:
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendFile();
     void keyPressedInLineEdit(QKeyEvent *ev);
-    MessageModel *messageModel() const;
+    Q_REQUIRED_RESULT MessageModel *messageModel() const;
+    void clearEditingMode();
 
     QString mRoomId;
     QString mThreadMessageId;
     QString mMessageIdBeingEdited;
+    QString mQuoteMessageId;
     EditingMode mMode = EditingMode::NewMessage;
     MessageTextEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;

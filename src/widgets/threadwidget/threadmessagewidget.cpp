@@ -50,6 +50,7 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
     mainLayout->addWidget(mMessageLineWidget);
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
+    connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()

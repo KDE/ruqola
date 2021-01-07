@@ -112,15 +112,32 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     setThreadMessageId({});
                 }
             }
-        } else {
+        } else if (!mMessageIdBeingEdited.isEmpty()) {
             mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+            clearMessageIdBeingEdited();
+        } else if (!mQuoteMessageId.isEmpty()) {
+            const QString newMessage = QStringLiteral("[ ](%1) %2").arg(QStringLiteral("ff"), msg);
+            if (mThreadMessageId.isEmpty()) {
+                mCurrentRocketChatAccount->sendMessage(mRoomId, newMessage);
+            } else {
+                mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, newMessage);
+                if (!mReplyInThreadDialogBox) {
+                    setThreadMessageId({});
+                }
+            }
             clearMessageIdBeingEdited();
         }
         setMode(MessageLineWidget::EditingMode::NewMessage);
     }
 }
 
-void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
+void MessageLineWidget::setQuoteMessage(const QString &messageId, const QString &text)
+{
+    clearMessageIdBeingEdited();
+    mQuoteMessageId = messageId;
+}
+
+void MessageLineWidget::clearEditingMode()
 {
     //Remove old mark as editing
     MessageModel *model = messageModel();
@@ -128,8 +145,30 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
     if (index.isValid()) {
         model->setData(index, false, MessageModel::MessageInEditMode);
     }
+}
+
+void MessageLineWidget::clearMessageIdBeingEdited()
+{
+    MessageModel *model = messageModel();
+    if (!mMessageIdBeingEdited.isEmpty()) {
+        const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
+        if (index.isValid()) {
+            model->setData(index, false, MessageModel::MessageInEditMode);
+        }
+        mMessageIdBeingEdited.clear();
+    }
+    mQuoteMessageId.clear();
+    setText(QString());
+    setMode(MessageLineWidget::EditingMode::NewMessage);
+}
+
+void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
+{
+    //Remove old mark as editing
+    clearEditingMode();
     mMessageIdBeingEdited = messageId;
     if (!mMessageIdBeingEdited.isEmpty()) {
+        MessageModel *model = messageModel();
         const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
         if (index.isValid()) {
             model->setData(index, true, MessageModel::MessageInEditMode);
@@ -288,16 +327,6 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
     return false;
 }
 
-void MessageLineWidget::clearMessageIdBeingEdited()
-{
-    MessageModel *model = messageModel();
-    const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
-    model->setData(index, false, MessageModel::MessageInEditMode);
-    mMessageIdBeingEdited.clear();
-    setText(QString());
-    setMode(MessageLineWidget::EditingMode::NewMessage);
-}
-
 MessageModel *MessageLineWidget::messageModel() const
 {
     MessageModel *model = mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
@@ -309,7 +338,7 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Escape) {
-        if (!mMessageIdBeingEdited.isEmpty()) {
+        if (!mMessageIdBeingEdited.isEmpty() || !mQuoteMessageId.isEmpty()) {
             clearMessageIdBeingEdited();
             ev->accept();
         } else {

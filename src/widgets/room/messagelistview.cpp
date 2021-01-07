@@ -265,6 +265,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotStartPrivateConversation(index);
         });
         menu.addAction(startPrivateConversation);
+        menu.addAction(quoteAction);
 
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
@@ -474,7 +475,9 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 
 void MessageListView::slotQuoteMessage(const QModelIndex &index)
 {
-    //TODO
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    const QString text = index.data(MessageModel::OriginalMessage).toString();
+    Q_EMIT quoteMessageRequested(messageId, text);
 }
 
 void MessageListView::slotEditMessage(const QModelIndex &index)

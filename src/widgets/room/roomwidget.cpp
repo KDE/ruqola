@@ -129,6 +129,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::channelInfoRequested, this, &RoomWidget::slotChannelInfoRequested);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
+    connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setQuoteMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidget::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidget::slotLoadHistory);
