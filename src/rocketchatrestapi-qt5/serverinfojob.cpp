@@ -54,6 +54,9 @@ QNetworkRequest ServerInfoJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo, QString(), mUseDeprecatedVersion);
     QNetworkRequest request(url);
+    if (mForceRequiresAuthentication) {
+        addAuthRawHeader(request);
+    }
     addRequestAttribute(request, false);
 
     return request;
@@ -61,7 +64,7 @@ QNetworkRequest ServerInfoJob::request() const
 
 bool ServerInfoJob::requireHttpAuthentication() const
 {
-    return false;
+    return mForceRequiresAuthentication;
 }
 
 bool ServerInfoJob::useDeprecatedVersion() const
@@ -76,7 +79,6 @@ void ServerInfoJob::slotServerInfoFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         //TODO send replyObject too. Need by administrator server info.
-        qDebug() << "replyObject " << replyObject;
         if (replyObject[QStringLiteral("success")].toBool()) {
             QString versionStr;
             if (mUseDeprecatedVersion) {
@@ -99,6 +101,16 @@ void ServerInfoJob::slotServerInfoFinished()
         reply->deleteLater();
     }
     deleteLater();
+}
+
+bool ServerInfoJob::forceRequiresAuthentication() const
+{
+    return mForceRequiresAuthentication;
+}
+
+void ServerInfoJob::setForceRequiresAuthentication(bool forceRequiresAuthentication)
+{
+    mForceRequiresAuthentication = forceRequiresAuthentication;
 }
 
 void ServerInfoJob::setUseDeprecatedVersion(bool useDeprecatedVersion)

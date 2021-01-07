@@ -42,6 +42,9 @@ public:
 
     void setUseDeprecatedVersion(bool useDeprecatedVersion);
 
+    Q_REQUIRED_RESULT bool forceRequiresAuthentication() const;
+    void setForceRequiresAuthentication(bool forceRequiresAuthentication);
+
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo, const QJsonObject &obj);
     void serverInfoFailed(bool useDeprectedVersion);
@@ -50,6 +53,7 @@ private:
     Q_DISABLE_COPY(ServerInfoJob)
     void slotServerInfoFinished();
     bool mUseDeprecatedVersion = true;
+    bool mForceRequiresAuthentication = false;
 };
 }
 #endif // SERVERINFOJOB_H

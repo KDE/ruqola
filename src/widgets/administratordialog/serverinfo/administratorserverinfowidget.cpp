@@ -56,6 +56,7 @@ void AdministratorServerInfoWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
+    serverInfoJob->setForceRequiresAuthentication(true);
     rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
     connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone,
             this, &AdministratorServerInfoWidget::slotServerInfoDone);
