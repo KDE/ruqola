@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "restapirequest.h"
 #include "misc/statisticsjob.h"
+#include "serverinfojob.h"
 #include "ruqolawidgets_debug.h"
 
 #include <QVBoxLayout>
@@ -54,6 +55,16 @@ AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
 void AdministratorServerInfoWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
+#if 0
+    auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
+    rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
+    connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone,
+            this, &AdministratorServerInfoWidget::slotStatisticDone);
+    if (!serverInfoJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
+    }
+#endif
+
     auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
     rcAccount->restApi()->initializeRestApiJob(statisticJob);
     connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone,
