@@ -43,7 +43,7 @@ public:
     void setUseDeprecatedVersion(bool useDeprecatedVersion);
 
 Q_SIGNALS:
-    void serverInfoDone(const QString &versionInfo);
+    void serverInfoDone(const QString &versionInfo, const QJsonObject &obj);
     void serverInfoFailed(bool useDeprectedVersion);
 
 private:

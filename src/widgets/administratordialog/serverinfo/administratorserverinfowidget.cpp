@@ -55,15 +55,13 @@ AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
 void AdministratorServerInfoWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-#if 0
     auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
     rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
     connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone,
-            this, &AdministratorServerInfoWidget::slotStatisticDone);
+            this, &AdministratorServerInfoWidget::slotServerInfoDone);
     if (!serverInfoJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
     }
-#endif
 
     auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
     rcAccount->restApi()->initializeRestApiJob(statisticJob);
@@ -72,6 +70,11 @@ void AdministratorServerInfoWidget::initialize()
     if (!statisticJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start StatisticsJob";
     }
+}
+
+void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
 }
 
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)

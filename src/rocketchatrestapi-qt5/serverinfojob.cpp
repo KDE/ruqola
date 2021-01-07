@@ -83,11 +83,11 @@ void ServerInfoJob::slotServerInfoFinished()
                 const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
                 versionStr = version.value(QStringLiteral("version")).toString();
                 addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-                Q_EMIT serverInfoDone(versionStr);
+                Q_EMIT serverInfoDone(versionStr, replyObject);
             } else {
                 versionStr = replyObject.value(QStringLiteral("version")).toString();
                 addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-                Q_EMIT serverInfoDone(versionStr);
+                Q_EMIT serverInfoDone(versionStr, replyObject);
             }
         } else {
             Q_EMIT serverInfoFailed(mUseDeprecatedVersion);

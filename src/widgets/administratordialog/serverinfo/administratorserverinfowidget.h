@@ -41,6 +41,7 @@ private:
     void parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     void createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
+    void slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj);
     void createItemFromLongValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void initialize();
     void slotStatisticDone(const QJsonObject &obj);
