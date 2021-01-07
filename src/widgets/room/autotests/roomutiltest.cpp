@@ -46,4 +46,6 @@ void RoomUtilTest::shouldGeneratePermalink_data()
     QTest::addColumn<QString>("generatePermalink");
 
     QTest::addRow("channels") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("c") << QStringLiteral("channel/roomId?msg=msId");
+    QTest::addRow("direct") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("d") << QStringLiteral("direct/roomId?msg=msId");
+    QTest::addRow("group") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("p") << QStringLiteral("group/roomId?msg=msId");
 }

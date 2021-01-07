@@ -31,7 +31,7 @@ QString RoomUtil::generatePermalink(const QString &messageId, const QString &roo
     if (channelType == QLatin1Char('c')) {
         prefix = QStringLiteral("channel/");
     } else if (channelType == QLatin1Char('d')) {
-        prefix = QStringLiteral("channel/"); //Use roomName
+        prefix = QStringLiteral("direct/");
     } else if (channelType == QLatin1Char('p')) {
         prefix = QStringLiteral("group/");
     } else {
