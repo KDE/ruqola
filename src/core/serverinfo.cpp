@@ -30,8 +30,79 @@ ServerInfo::~ServerInfo()
 
 }
 
+void ServerInfo::parseServerInfo(const QJsonObject &obj)
+{
+    const QJsonObject infoObj = obj[QLatin1String("info")].toObject();
+    mVersion = infoObj.value(QLatin1String("version")).toString();
+    const QJsonObject commitObj = infoObj[QLatin1String("commit")].toObject();
+    mCommitAuthor = commitObj.value(QLatin1String("author")).toString();
+
+    const QJsonObject buildObj = infoObj[QLatin1String("build")].toObject();
+    mArch = buildObj.value(QLatin1String("arch")).toString();
+    mNumberOfCpu = buildObj.value(QLatin1String("cpus")).toInt();
+    mPlatform = buildObj.value(QLatin1String("platform")).toString();
+#if 0
+    {"info":{"build":{"arch":"x64","cpus":2,"date":"2020-12-29T04:59:35.728Z","freeMemory":461508608,"nodeVersion":"v12.18.4","osRelease":"5.4.0-1032-azure","platform":"linux","totalMemory":7292207104},"commit":{"author":"Diego Sampaio","branch":"HEAD","date":"Tue Dec 29 01:43:25 2020 -0300","hash":"3a13cead22bfc1100c5b89069498919473c84195","subject":"Merge pull request #19982 from RocketChat/release-3.10.0","tag":"3.10.0"},"marketplaceApiVersion":"1.21.0-alpha.4235","version":"3.10.0"},"success":true}
+    //TODO
+#endif
+}
+
+QString ServerInfo::arch() const
+{
+    return mArch;
+}
+
+void ServerInfo::setArch(const QString &arch)
+{
+    mArch = arch;
+}
+
+int ServerInfo::numberOfCpu() const
+{
+    return mNumberOfCpu;
+}
+
+void ServerInfo::setNumberOfCpu(int numberOfCpu)
+{
+    mNumberOfCpu = numberOfCpu;
+}
+
+QString ServerInfo::platform() const
+{
+    return mPlatform;
+}
+
+void ServerInfo::setPlatform(const QString &platform)
+{
+    mPlatform = platform;
+}
+
+QString ServerInfo::version() const
+{
+    return mVersion;
+}
+
+void ServerInfo::setVersion(const QString &version)
+{
+    mVersion = version;
+}
+
+QString ServerInfo::commitAuthor() const
+{
+    return mCommitAuthor;
+}
+
+void ServerInfo::setCommitAuthor(const QString &commitAuthor)
+{
+    mCommitAuthor = commitAuthor;
+}
+
 QDebug operator <<(QDebug d, const ServerInfo &t)
 {
-    //TODO
+    d << "arch " << t.arch();
+    d << "platform " << t.platform();
+    d << "version " << t.version();
+    d << "cpu number " << t.numberOfCpu();
+    d << "commit author " << t.commitAuthor();
     return d;
 }

@@ -25,6 +25,7 @@
 #include "misc/statisticsjob.h"
 #include "serverinfojob.h"
 #include "ruqolawidgets_debug.h"
+#include "serverinfo.h"
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -75,7 +76,11 @@ void AdministratorServerInfoWidget::initialize()
 
 void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj)
 {
+    Q_UNUSED(versionInfo)
     qDebug() << " obj " << obj;
+    ServerInfo info;
+    info.parseServerInfo(obj);
+    qDebug() << " info " << info;
 }
 
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)

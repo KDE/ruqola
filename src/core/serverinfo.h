@@ -32,6 +32,29 @@ class LIBRUQOLACORE_EXPORT ServerInfo
 public:
     ServerInfo();
     ~ServerInfo();
+
+    void parseServerInfo(const QJsonObject &obj);
+    Q_REQUIRED_RESULT QString arch() const;
+    void setArch(const QString &arch);
+
+    Q_REQUIRED_RESULT int numberOfCpu() const;
+    void setNumberOfCpu(int numberOfCpu);
+
+    Q_REQUIRED_RESULT QString platform() const;
+    void setPlatform(const QString &platform);
+
+    Q_REQUIRED_RESULT QString version() const;
+    void setVersion(const QString &version);
+
+    Q_REQUIRED_RESULT QString commitAuthor() const;
+    void setCommitAuthor(const QString &commitAuthor);
+
+private:
+    QString mArch;
+    QString mPlatform;
+    QString mVersion;
+    QString mCommitAuthor;
+    int mNumberOfCpu = -1;
 };
 Q_DECLARE_METATYPE(ServerInfo)
 Q_DECLARE_TYPEINFO(ServerInfo, Q_MOVABLE_TYPE);
