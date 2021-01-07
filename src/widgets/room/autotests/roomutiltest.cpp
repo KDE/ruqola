@@ -31,5 +31,20 @@ RoomUtilTest::RoomUtilTest(QObject *parent)
 
 void RoomUtilTest::shouldGeneratePermalink()
 {
-    //TODO RoomUtil::generatePermalink
+    QFETCH(QString, messageId);
+    QFETCH(QString, roomId);
+    QFETCH(QString, channelType);
+    QFETCH(QString, generatePermalink);
+
+    QCOMPARE(RoomUtil::generatePermalink(messageId, roomId, channelType), generatePermalink);
+}
+
+void RoomUtilTest::shouldGeneratePermalink_data()
+{
+    QTest::addColumn<QString>("messageId");
+    QTest::addColumn<QString>("roomId");
+    QTest::addColumn<QString>("channelType");
+    QTest::addColumn<QString>("generatePermalink");
+
+    QTest::addRow("channels") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("c") << QStringLiteral("channel/roomId?msg=msId");
 }

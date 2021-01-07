@@ -31,6 +31,7 @@ public:
     ~RoomUtilTest() override = default;
 private Q_SLOTS:
     void shouldGeneratePermalink();
+    void shouldGeneratePermalink_data();
 };
 
 #endif // ROOMUTILTEST_H
