@@ -76,6 +76,7 @@ void ServerInfoJob::slotServerInfoFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         //TODO send replyObject too. Need by administrator server info.
+        qDebug() << "replyObject " << replyObject;
         if (replyObject[QStringLiteral("success")].toBool()) {
             QString versionStr;
             if (mUseDeprecatedVersion) {

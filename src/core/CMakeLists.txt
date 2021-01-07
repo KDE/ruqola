@@ -208,6 +208,8 @@ set (Ruqola_core_srcs
 
     permission.cpp
     permissionmanager.cpp
+
+    serverinfo.cpp
 )
 
 if (NOT WIN32)
