@@ -96,7 +96,7 @@ MessageLineWidget::~MessageLineWidget()
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
-        if (mMessageIdBeingEdited.isEmpty()) {
+        if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 //a command ?
                 if (mCurrentRocketChatAccount->runCommand(msg, mRoomId, mThreadMessageId)) {
@@ -115,8 +115,8 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
         } else if (!mMessageIdBeingEdited.isEmpty()) {
             mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
             clearMessageIdBeingEdited();
-        } else if (!mQuoteMessageId.isEmpty()) {
-            const QString newMessage = QStringLiteral("[ ](%1) %2").arg(QStringLiteral("ff"), msg);
+        } else if (!mQuotePermalink.isEmpty()) {
+            const QString newMessage = QStringLiteral("[ ](%1) %2").arg(mQuotePermalink, msg);
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(mRoomId, newMessage);
             } else {
@@ -131,11 +131,11 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
     }
 }
 
-void MessageLineWidget::setQuoteMessage(const QString &messageId, const QString &text)
+void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString &text)
 {
     //TODO use text too
     clearMessageIdBeingEdited();
-    mQuoteMessageId = messageId;
+    mQuotePermalink = permalink;
 }
 
 void MessageLineWidget::clearEditingMode()
@@ -158,7 +158,7 @@ void MessageLineWidget::clearMessageIdBeingEdited()
         }
         mMessageIdBeingEdited.clear();
     }
-    mQuoteMessageId.clear();
+    mQuotePermalink.clear();
     setText(QString());
     setMode(MessageLineWidget::EditingMode::NewMessage);
 }
@@ -339,7 +339,7 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Escape) {
-        if (!mMessageIdBeingEdited.isEmpty() || !mQuoteMessageId.isEmpty()) {
+        if (!mMessageIdBeingEdited.isEmpty() || !mQuotePermalink.isEmpty()) {
             clearMessageIdBeingEdited();
             ev->accept();
         } else {

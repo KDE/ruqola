@@ -89,7 +89,7 @@ private:
     QString mRoomId;
     QString mThreadMessageId;
     QString mMessageIdBeingEdited;
-    QString mQuoteMessageId;
+    QString mQuotePermalink;
     EditingMode mMode = EditingMode::NewMessage;
     MessageTextEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;

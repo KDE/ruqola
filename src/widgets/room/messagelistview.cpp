@@ -476,8 +476,8 @@ void MessageListView::slotQuoteMessage(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
     const QString text = index.data(MessageModel::OriginalMessage).toString();
-    const QString permalink = RoomUtil::generatePermalink(messageId, mRoom->roomId(), mRoom->channelType());
-    //Generate permalink
+    const QString permalink = mCurrentRocketChatAccount->serverUrl() + QLatin1Char('/') + RoomUtil::generatePermalink(messageId, mRoom->name(), mRoom->channelType());
+    //qDebug() << " permalink " << permalink;
     Q_EMIT quoteMessageRequested(permalink, text);
 }
 
