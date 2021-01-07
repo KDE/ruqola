@@ -26,7 +26,6 @@ QTEST_MAIN(ServerInfoTest)
 ServerInfoTest::ServerInfoTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ServerInfoTest::shouldHaveDefaultValues()

@@ -146,7 +146,6 @@ void AdministratorServerInfoWidget::createItemFromLongValue(QTreeWidgetItem *par
     }
 }
 
-
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
 {
     const QJsonObject runtimeObj = obj.value(QLatin1String("os")).toObject();

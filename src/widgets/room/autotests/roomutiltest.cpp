@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(RoomUtilTest)
 RoomUtilTest::RoomUtilTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomUtilTest::shouldGeneratePermalink()

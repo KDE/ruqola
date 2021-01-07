@@ -43,7 +43,6 @@
 
 #include <KIO/KUriFilterSearchProviderActions>
 
-
 MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
     , mMode(mode)
@@ -257,7 +256,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(quoteAction, &QAction::triggered, this, [=]() {
         slotQuoteMessage(index);
     });
-
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname

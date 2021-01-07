@@ -52,9 +52,9 @@ void diffFile(const QString &refFile, const QString &generatedFile)
 #else
     // compare to reference file
     const QStringList args = QStringList()
-            << QStringLiteral("-u")
-            << refFile
-            << generatedFile;
+                             << QStringLiteral("-u")
+                             << refFile
+                             << generatedFile;
 
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
     proc.start(QStringLiteral("diff"), args);

@@ -21,7 +21,6 @@
 #ifndef SERVERINFO_H
 #define SERVERINFO_H
 
-
 #include "libruqolacore_export.h"
 #include <QString>
 #include <QDebug>
