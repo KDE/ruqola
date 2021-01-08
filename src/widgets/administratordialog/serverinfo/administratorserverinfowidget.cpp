@@ -157,8 +157,38 @@ void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInf
     //TODO
 }
 
-void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoItem)
 {
+    {
+        auto item = new QTreeWidgetItem(commitInfoItem);
+        item->setText(0, i18n("Hash"));
+        item->setText(1, mServerInfo.commitHash());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(commitInfoItem);
+        item->setText(0, i18n("Branch"));
+        item->setText(1, mServerInfo.commitBranch());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(commitInfoItem);
+        item->setText(0, i18n("Tag"));
+        item->setText(1, mServerInfo.commitTag());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(commitInfoItem);
+        item->setText(0, i18n("Author"));
+        item->setText(1, mServerInfo.commitAuthor());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(commitInfoItem);
+        item->setText(0, i18n("Subject"));
+        item->setText(1, mServerInfo.commitSubject());
+        item->addChild(item);
+    }
     //TODO
 }
 
@@ -184,7 +214,7 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 
     QTreeWidgetItem *commitItem = new QTreeWidgetItem(mTreeWidget);
     commitItem->setText(0, i18n("Commit"));
-    parseCommitInfo(commitItem, obj);
+    parseCommitInfo(commitItem);
 
     QTreeWidgetItem *buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
