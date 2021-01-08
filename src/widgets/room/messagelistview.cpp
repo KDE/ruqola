@@ -328,6 +328,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
 
         menu.addSeparator();
+        menu.addAction(quoteAction);
+        menu.addSeparator();
         menu.addAction(copyAction);
         menu.addAction(selectAllAction);
         if (index.data(MessageModel::CanEditMessage).toBool()) {
