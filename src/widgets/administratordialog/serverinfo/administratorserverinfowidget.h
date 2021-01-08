@@ -23,6 +23,7 @@
 
 #include <QJsonObject>
 #include <QWidget>
+#include "serverinfo.h"
 #include "libruqolawidgets_private_export.h"
 class QTreeWidget;
 class QTreeWidgetItem;
@@ -46,6 +47,7 @@ private:
     void initialize();
     void slotStatisticDone(const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;
+    ServerInfo mServerInfo;
 };
 
 #endif // ADMINISTRATORSERVERINFOWIDGET_H

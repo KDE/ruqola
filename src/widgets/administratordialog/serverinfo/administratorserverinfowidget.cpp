@@ -25,7 +25,7 @@
 #include "misc/statisticsjob.h"
 #include "serverinfojob.h"
 #include "ruqolawidgets_debug.h"
-#include "serverinfo.h"
+
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -64,23 +64,22 @@ void AdministratorServerInfoWidget::initialize()
     if (!serverInfoJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
     }
-
-    auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
-    rcAccount->restApi()->initializeRestApiJob(statisticJob);
-    connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone,
-            this, &AdministratorServerInfoWidget::slotStatisticDone);
-    if (!statisticJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start StatisticsJob";
-    }
 }
 
 void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj)
 {
     Q_UNUSED(versionInfo)
     qDebug() << " obj " << obj;
-    ServerInfo info;
-    info.parseServerInfo(obj);
-    qDebug() << " info " << info;
+    mServerInfo.parseServerInfo(obj);
+    qDebug() << " info " << mServerInfo;
+    auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    rcAccount->restApi()->initializeRestApiJob(statisticJob);
+    connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone,
+            this, &AdministratorServerInfoWidget::slotStatisticDone);
+    if (!statisticJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start StatisticsJob";
+    }
 }
 
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)
