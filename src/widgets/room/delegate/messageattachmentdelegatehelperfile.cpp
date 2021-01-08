@@ -125,7 +125,7 @@ static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
     }
     msgBox.addButton(i18n("Open &With..."), QMessageBox::YesRole)
             ->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
-    msgBox.addButton(QMessageBox::Save)
+    msgBox.addButton(i18n("Save &As..."), QMessageBox::ActionRole)
             ->setProperty(prop, QVariant::fromValue(UserChoice::Save));
     msgBox.addButton(QMessageBox::Cancel)
             ->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
