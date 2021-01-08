@@ -252,7 +252,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotEditMessage(index);
     });
 
-    QAction *quoteAction = new QAction(i18n("Quote"), &menu); //TODO add menu
+    QAction *quoteAction = new QAction(QIcon::fromTheme(QStringLiteral("format-text-blockquote")), i18n("Quote"), &menu); //TODO add menu
     connect(quoteAction, &QAction::triggered, this, [=]() {
         slotQuoteMessage(index);
     });
