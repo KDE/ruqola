@@ -50,8 +50,19 @@ void ServerInfoTest::shouldLoadServerInfo_data()
 {
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<ServerInfo>("serverInfo");
-
-    //QTest::addRow("role2") << QStringLiteral("role2") << r2;
+    {
+        ServerInfo info;
+        info.setNumberOfCpu(2);
+        info.setArch(QStringLiteral("x64"));
+        info.setPlatform(QStringLiteral("linux"));
+        info.setVersion(QStringLiteral("3.10.0"));
+        info.setCommitAuthor(QStringLiteral("Diego Sampaio"));
+        info.setCommitBranch(QStringLiteral("HEAD"));
+        info.setCommitTag(QStringLiteral("3.10.0"));
+        info.setCommitSubject(QStringLiteral("Merge pull request #19982 from RocketChat/release-3.10.0"));
+        info.setCommitHash(QStringLiteral("3a13cead22bfc1100c5b89069498919473c84195"));
+        QTest::addRow("default") << QStringLiteral("serverinfo") << info;
+    }
 }
 
 void ServerInfoTest::shouldLoadServerInfo()
@@ -63,5 +74,10 @@ void ServerInfoTest::shouldLoadServerInfo()
 
     ServerInfo r;
     r.parseServerInfo(obj);
-    QCOMPARE(r, serverInfo);
+    const bool result = (r == serverInfo);
+    if (!result) {
+        qDebug() << "result " << r;
+        qDebug() << "expected " << serverInfo;
+    }
+    QVERIFY(result);
 }
