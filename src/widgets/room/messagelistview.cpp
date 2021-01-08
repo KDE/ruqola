@@ -207,7 +207,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(copyAction, &QAction::triggered, this, [=]() {
         copyMessageToClipboard(index);
     });
-    //TODO fix me we can't pinned message when we are not owner
     QAction *setPinnedMessage = nullptr;
     if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && mRoom->allowToPinMessage()) {
         const bool isPinned = index.data(MessageModel::Pinned).toBool();
