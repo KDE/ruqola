@@ -143,12 +143,10 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
 
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-
     const QUrl downloadUrl = rcAccount->urlForLink(link);
     auto *job = rcAccount->restApi()->downloadFile(downloadUrl, fileUrl, QStringLiteral("text/plain"));
     QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget,
-                     [=, tempDir = std::move(tempDir)](
-                     const QUrl &, const QUrl &localFileUrl) {
+                     [=](const QUrl &, const QUrl &localFileUrl) {
         auto *job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
         job->setUrls({localFileUrl});
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
