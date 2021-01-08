@@ -95,7 +95,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
         // Not in cache. We need to download it (e.g. file attachment).
         const QUrl downloadUrl = mAccount->urlForLink(url);
         const QUrl destUrl = storeInCache ? QUrl::fromLocalFile(fileCachePath(downloadUrl)) : localFile;
-        mAccount->restApi()->downloadFile(downloadUrl, QStringLiteral("text/plain"), localFile);
+        mAccount->restApi()->downloadFile(downloadUrl, localFile, QStringLiteral("text/plain"));
         // this will call slotDataDownloaded
     }
 }
@@ -121,7 +121,9 @@ void RocketChatCache::downloadFileFromServer(const QString &filename)
 {
     if (!mFileInDownload.contains(filename)) {
         mFileInDownload.insert(filename);
-        mAccount->restApi()->downloadFile(mAccount->urlForLink(filename));
+        const QUrl downloadUrl = mAccount->urlForLink(filename);
+        const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl));
+        mAccount->restApi()->downloadFile(mAccount->urlForLink(filename), destFileUrl);
         // this will call slotDataDownloaded
     }
 }
@@ -205,7 +207,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl 
 {
     mAvatarUrl.insert(userIdentifier, url);
     if (!url.isEmpty() && !fileInCache(url)) {
-        mAccount->restApi()->downloadFile(url);
+        mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), {});
         // this will call slotDataDownloaded
     }
 }

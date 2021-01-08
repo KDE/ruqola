@@ -377,7 +377,7 @@ void RestApiRequest::starMessage(const QString &messageId, bool starred)
     }
 }
 
-DownloadFileJob *RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, const QUrl &localFileUrl)
+DownloadFileJob *RestApiRequest::downloadFile(const QUrl &url, const QUrl &localFileUrl, const QString &mimeType)
 {
     auto job = new DownloadFileJob(this);
     connect(job, &DownloadFileJob::downloadFileDone, this, &RestApiRequest::downloadFileDone);
