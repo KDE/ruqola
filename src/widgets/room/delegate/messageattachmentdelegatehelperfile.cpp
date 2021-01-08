@@ -133,11 +133,6 @@ static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
     return msgBox.clickedButton()->property(prop).value<UserChoice>();
 }
 
-class DownloadAndRunApplication : public QObject
-{
-
-};
-
 static void runApplication(const KService::Ptr &offer, const QString &link, QWidget *widget)
 {
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + QLatin1String("/ruqola_attachment_XXXXXX")));
