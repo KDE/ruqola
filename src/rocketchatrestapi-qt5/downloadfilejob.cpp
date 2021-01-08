@@ -21,8 +21,12 @@
 #include "downloadfilejob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <QDir>
+#include <QFile>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
+
 DownloadFileJob::DownloadFileJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -43,8 +47,7 @@ bool DownloadFileJob::start()
     addStartRestApiInfo("ChannelListJob: url:"
                         +mUrl.toEncoded()
                         +" mimetype " + mMimeType.toLatin1()
-                        +" saveAs " + mLocalFileUrl.toEncoded()
-                        +" store in cache " + (mStoreInCache ? "true" : "false"));
+                        +" saveAs " + mLocalFileUrl.toEncoded());
     connect(reply, &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
@@ -57,7 +60,18 @@ void DownloadFileJob::slotDownloadDone()
         const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         if (status == 200) {
             addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
-            Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
+
+            //Split between image/video/audio
+            const QString newFilePath = mLocalFileUrl.toLocalFile();
+            QFileInfo(newFilePath).absoluteDir().mkpath(QStringLiteral("."));
+            QFile file(newFilePath);
+            if (file.open(QIODevice::ReadWrite)) {
+                file.write(data);
+                file.close();
+            } else {
+                qWarning() <<" Error !" <<  file.errorString();
+            }
+            Q_EMIT downloadFileDone(reply->url(), mLocalFileUrl);
         } else {
             //FIXME
             //emitFailedMessage(replyObject, reply);
@@ -80,16 +94,6 @@ QNetworkRequest DownloadFileJob::request() const
     req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
 #endif
     return req;
-}
-
-bool DownloadFileJob::storeInCache() const
-{
-    return mStoreInCache;
-}
-
-void DownloadFileJob::setStoreInCache(bool storeInCache)
-{
-    mStoreInCache = storeInCache;
 }
 
 QUrl DownloadFileJob::localFileUrl() const

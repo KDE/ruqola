@@ -32,7 +32,6 @@
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
-#include <QMessageBox>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPointer>

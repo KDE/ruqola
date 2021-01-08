@@ -66,21 +66,10 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
     return cachePath;
 }
 
-void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
+void RocketChatCache::slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl)
 {
     mFileInDownload.remove(url.path());
-    const QString newPath = storeInCache ? fileCachePath(url) : localFileUrl.toLocalFile();
-    //Split between image/video/audio
-    const QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
-    QDir().mkpath(urldir.toLocalFile());
-    QFile file(newPath);
-    if (file.open(QIODevice::ReadWrite)) {
-        file.write(data);
-        file.close();
-        Q_EMIT fileDownloaded(url.path(), QUrl::fromLocalFile(newPath));
-    } else {
-        qCWarning(RUQOLA_LOG) <<" Error !" <<  file.errorString();
-    }
+    Q_EMIT fileDownloaded(url.path(), localFileUrl);
 }
 
 void RocketChatCache::loadAvatarCache()
@@ -101,10 +90,12 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
         if (!f.copy(localFile.toLocalFile())) {
             qCWarning(RUQOLA_LOG) << "Impossible to copy" << f.fileName() << "to" << localFile;
         }
+        // emit fileDownloaded?
     } else {
         // Not in cache. We need to download it (e.g. file attachment).
-        const QUrl downloadUrl = urlForLink(url);
-        mAccount->restApi()->downloadFile(downloadUrl, QStringLiteral("text/plain"), storeInCache, localFile);
+        const QUrl downloadUrl = mAccount->urlForLink(url);
+        const QUrl destUrl = storeInCache ? QUrl::fromLocalFile(fileCachePath(downloadUrl)) : localFile;
+        mAccount->restApi()->downloadFile(downloadUrl, QStringLiteral("text/plain"), localFile);
         // this will call slotDataDownloaded
     }
 }
@@ -130,22 +121,9 @@ void RocketChatCache::downloadFileFromServer(const QString &filename)
 {
     if (!mFileInDownload.contains(filename)) {
         mFileInDownload.insert(filename);
-        mAccount->restApi()->downloadFile(urlForLink(filename));
+        mAccount->restApi()->downloadFile(mAccount->urlForLink(filename));
         // this will call slotDataDownloaded
     }
-}
-
-QUrl RocketChatCache::urlForLink(const QString &link) const
-{
-    if (link.startsWith(QLatin1String("https:")) || link.startsWith(QLatin1String("http:"))) {
-        return QUrl(link);
-    }
-    QString tmpUrl = mAccount->settings()->serverUrl();
-    if (!tmpUrl.startsWith(QLatin1String("https://"))) {
-        tmpUrl = QLatin1String("https://") + tmpUrl;
-    }
-    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + link);
-    return downloadFileUrl;
 }
 
 QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)

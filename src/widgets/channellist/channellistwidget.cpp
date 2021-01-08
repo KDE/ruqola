@@ -29,8 +29,6 @@
 #include "rocketchataccount.h"
 #include "ruqolautils.h"
 
-#include <KMessageBox>
-
 #include <QAction>
 #include <QHBoxLayout>
 #include <QLabel>

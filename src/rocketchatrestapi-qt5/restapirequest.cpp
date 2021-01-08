@@ -377,18 +377,18 @@ void RestApiRequest::starMessage(const QString &messageId, bool starred)
     }
 }
 
-void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool storeInCache, const QUrl &localFileUrl)
+DownloadFileJob *RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, const QUrl &localFileUrl)
 {
     auto job = new DownloadFileJob(this);
     connect(job, &DownloadFileJob::downloadFileDone, this, &RestApiRequest::downloadFileDone);
     job->setUrl(url);
     job->setMimeType(mimeType);
     job->setLocalFileUrl(localFileUrl);
-    job->setStoreInCache(storeInCache);
     initializeRestApiJob(job);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob job";
     }
+    return job;
 }
 
 void RestApiRequest::serverInfo(bool useDeprecatedVersion)

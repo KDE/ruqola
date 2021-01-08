@@ -25,7 +25,7 @@
 
 #include <QUrl>
 namespace RocketChatRestApi {
-class DownloadFileJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT DownloadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -44,14 +44,11 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool storeInCache() const;
-    void setStoreInCache(bool storeInCache);
-
     Q_REQUIRED_RESULT QUrl localFileUrl() const;
     void setLocalFileUrl(const QUrl &localFileUrl);
 
 Q_SIGNALS:
-    void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
+    void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
 
 private:
     Q_DISABLE_COPY(DownloadFileJob)
@@ -59,7 +56,6 @@ private:
     QUrl mUrl;
     QString mMimeType;
     QUrl mLocalFileUrl;
-    bool mStoreInCache = true;
 };
 }
 #endif // DOWNLOADFILEJOB_H

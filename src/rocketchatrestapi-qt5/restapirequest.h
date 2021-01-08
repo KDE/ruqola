@@ -48,6 +48,7 @@ class QNetworkReply;
 class QNetworkCookieJar;
 namespace RocketChatRestApi {
 class RestApiAbstractJob;
+class DownloadFileJob;
 class AbstractLogger;
 class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiRequest : public QObject
 {
@@ -82,7 +83,7 @@ public:
     void getOwnInfo();
     void starMessage(const QString &messageId, bool starred);
     void uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename, const QString &threadMessageId = QString());
-    void downloadFile(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"), bool storeInCache = true, const QUrl &localFileUrl = QUrl());
+    RocketChatRestApi::DownloadFileJob *downloadFile(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"), const QUrl &localFileUrl = QUrl());
     void changeChannelTopic(const QString &roomId, const QString &topic);
     void changeGroupsTopic(const QString &roomId, const QString &topic);
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
@@ -214,7 +215,7 @@ Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
     void loginDone(const QString &authToken, const QString &userId);
-    void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
+    void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
     void serverInfoDone(const QString &version);
     void serverInfoFailed(bool useDeprecatedVersion);
     void getOwnInfoDone(const QJsonObject &data);

@@ -45,7 +45,6 @@ public:
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile, bool storeInCache);
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
-    Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
 
     void updateAvatar(const Utils::AvatarInfo &info);
 Q_SIGNALS:
@@ -56,7 +55,7 @@ private:
     Q_REQUIRED_RESULT bool fileInCache(const QUrl &url);
     Q_REQUIRED_RESULT QString fileCachePath(const QUrl &url);
     void downloadAvatarFromServer(const Utils::AvatarInfo &info);
-    void slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl);
+    void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
     void removeAvatar(const QString &avatarIdentifier);
     void loadAvatarCache();
     QHash<QString, QUrl> mAvatarUrl;

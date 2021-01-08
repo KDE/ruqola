@@ -24,14 +24,25 @@
 #include "ruqolawidgets_debug.h"
 #include "common/delegateutil.h"
 #include "common/delegatepaintutil.h"
+#include "restapirequest.h"
+#include "downloadfilejob.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
 
+#include <KApplicationTrader>
+#include <KIO/ApplicationLauncherJob>
+#include <KIO/JobUiDelegate>
 #include <KLocalizedString>
+#include <KService>
 
+#include <QMessageBox>
+#include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QPushButton>
 #include <QStyleOptionViewItem>
+#include <QTemporaryDir>
+#include <QTemporaryFile>
 
 //  Name <download icon>
 //  Description
@@ -99,6 +110,86 @@ MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperF
     return layout;
 }
 
+enum class UserChoice { Save, Open, OpenWith, Cancel};
+Q_DECLARE_METATYPE(UserChoice)
+
+static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
+{
+    const QString title = i18nc("@title:window", "Open Attachment?");
+    const QString text = xi18nc("@info", "Open attachment <filename>%1</filename>?<nl/>", url.fileName());
+    QMessageBox msgBox(QMessageBox::Question, title, text, QMessageBox::NoButton, widget);
+    const char *prop = "_enumValue";
+    if (offer) {
+        auto *b = msgBox.addButton(i18n("&Open With '%1'", offer->name()), QMessageBox::YesRole);
+        b->setProperty(prop, QVariant::fromValue(UserChoice::Open));
+    }
+    msgBox.addButton(i18n("Open &With..."), QMessageBox::YesRole)
+            ->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
+    msgBox.addButton(QMessageBox::Save)
+            ->setProperty(prop, QVariant::fromValue(UserChoice::Save));
+    msgBox.addButton(QMessageBox::Cancel)
+            ->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
+    msgBox.exec();
+    return msgBox.clickedButton()->property(prop).value<UserChoice>();
+}
+
+class DownloadAndRunApplication : public QObject
+{
+
+};
+
+static void runApplication(const KService::Ptr &offer, const QString &link, QWidget *widget)
+{
+    std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + QLatin1String("/ruqola_attachment_XXXXXX")));
+    if (!tempDir->isValid())
+        return;
+    tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
+    const QString tempFile = tempDir->filePath(QUrl(link).fileName());
+    const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
+
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+
+    const QUrl downloadUrl = rcAccount->urlForLink(link);
+    auto *job = rcAccount->restApi()->downloadFile(downloadUrl, QStringLiteral("text/plain"), fileUrl);
+    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget,
+                     [=, tempDir = std::move(tempDir)](
+                     const QUrl &, const QUrl &localFileUrl) {
+        auto *job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
+        job->setUrls({localFileUrl});
+        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget));
+        job->start();
+    });
+}
+
+void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &link, QWidget *widget)
+{
+    const QUrl url(link);
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForUrl(url);
+    const bool valid = mimeType.isValid() && !mimeType.isDefault();
+    const KService::Ptr offer = valid ? KApplicationTrader::preferredService(mimeType.name()) : KService::Ptr{};
+    const UserChoice choice = askUser(url, offer, widget);
+    switch (choice) {
+    case UserChoice::Save: {
+        const QString file = DelegateUtil::querySaveFileName(widget, i18n("Save File"), url);
+        if (!file.isEmpty()) {
+            const QUrl fileUrl = QUrl::fromLocalFile(file);
+            Ruqola::self()->rocketChatAccount()->downloadFile(link, fileUrl);
+        }
+    }
+        break;
+    case UserChoice::Open:
+        runApplication(offer, link, widget);
+        break;
+    case UserChoice::OpenWith:
+        runApplication({}, link, widget);
+        break;
+    case UserChoice::Cancel:
+        break;
+    }
+}
+
 bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(index)
@@ -106,18 +197,9 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
         const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
         const QPoint pos = mouseEvent->pos();
 
-        auto download = [&](const FileLayout &layout) {
-                            const QString file = DelegateUtil::querySaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"), QUrl(layout.link));
-                            if (!file.isEmpty()) {
-                                const QUrl fileUrl = QUrl::fromLocalFile(file);
-                                Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
-                                return true;
-                            }
-                            return false;
-                        };
-
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            return download(layout);
+            handleDownloadClicked(layout.link, const_cast<QWidget *>(option.widget));
+            return true;
         }
         if (!layout.link.isEmpty()) {
             const int y = attachmentsRect.y() + layout.y;
@@ -125,11 +207,11 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
             const QRect linkRect(attachmentsRect.x(), y, linkSize.width(), linkSize.height());
             if (linkRect.contains(pos)) {
                 if (layout.downloadButtonRect.isValid()) {
-                    return download(layout);
+                    handleDownloadClicked(layout.link, const_cast<QWidget *>(option.widget));
                 } else {
                     RuqolaUtils::self()->openUrl(layout.link);
-                    return true;
                 }
+                return true;
             }
         }
     }

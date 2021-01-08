@@ -1063,11 +1063,6 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
     }
 }
 
-QUrl RocketChatAccount::urlForLink(const QString &link) const
-{
-    return mCache->urlForLink(link);
-}
-
 void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
     qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array << " account name " << accountName();
@@ -1522,6 +1517,19 @@ void RocketChatAccount::setServerUrl(const QString &serverURL)
     settings()->setServerUrl(serverURL);
     restApi()->setServerUrl(serverURL);
     mEmojiManager->setServerUrl(serverURL);
+}
+
+QUrl RocketChatAccount::urlForLink(const QString &link) const
+{
+    if (link.startsWith(QLatin1String("https:")) || link.startsWith(QLatin1String("http:"))) {
+        return QUrl(link);
+    }
+    QString tmpUrl = settings()->serverUrl();
+    if (!tmpUrl.startsWith(QLatin1String("https://"))) {
+        tmpUrl = QLatin1String("https://") + tmpUrl;
+    }
+    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + link);
+    return downloadFileUrl;
 }
 
 QString RocketChatAccount::recordingVideoPath() const
