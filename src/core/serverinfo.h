@@ -48,11 +48,27 @@ public:
     Q_REQUIRED_RESULT QString commitAuthor() const;
     void setCommitAuthor(const QString &commitAuthor);
 
+    Q_REQUIRED_RESULT QString commitBranch() const;
+    void setCommitBranch(const QString &commitBranch);
+
+    Q_REQUIRED_RESULT QString commitTag() const;
+    void setCommitTag(const QString &commitTag);
+
+    Q_REQUIRED_RESULT QString commitSubject() const;
+    void setCommitSubject(const QString &commitSubject);
+
+    Q_REQUIRED_RESULT QString commitHash() const;
+    void setCommitHash(const QString &commitHash);
+
 private:
     QString mArch;
     QString mPlatform;
     QString mVersion;
     QString mCommitAuthor;
+    QString mCommitBranch;
+    QString mCommitTag;
+    QString mCommitSubject;
+    QString mCommitHash;
     int mNumberOfCpu = -1;
 };
 Q_DECLARE_METATYPE(ServerInfo)

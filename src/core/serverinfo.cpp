@@ -34,6 +34,10 @@ void ServerInfo::parseServerInfo(const QJsonObject &obj)
     mVersion = infoObj.value(QLatin1String("version")).toString();
     const QJsonObject commitObj = infoObj[QLatin1String("commit")].toObject();
     mCommitAuthor = commitObj.value(QLatin1String("author")).toString();
+    mCommitBranch = commitObj.value(QLatin1String("branch")).toString();
+    mCommitTag = commitObj.value(QLatin1String("tag")).toString();
+    mCommitSubject = commitObj.value(QLatin1String("subject")).toString();
+    mCommitHash = commitObj.value(QLatin1String("hash")).toString();
 
     const QJsonObject buildObj = infoObj[QLatin1String("build")].toObject();
     mArch = buildObj.value(QLatin1String("arch")).toString();
@@ -99,6 +103,46 @@ void ServerInfo::setCommitAuthor(const QString &commitAuthor)
     mCommitAuthor = commitAuthor;
 }
 
+QString ServerInfo::commitBranch() const
+{
+    return mCommitBranch;
+}
+
+void ServerInfo::setCommitBranch(const QString &commitBranch)
+{
+    mCommitBranch = commitBranch;
+}
+
+QString ServerInfo::commitTag() const
+{
+    return mCommitTag;
+}
+
+void ServerInfo::setCommitTag(const QString &commitTag)
+{
+    mCommitTag = commitTag;
+}
+
+QString ServerInfo::commitSubject() const
+{
+    return mCommitSubject;
+}
+
+void ServerInfo::setCommitSubject(const QString &commitSubject)
+{
+    mCommitSubject = commitSubject;
+}
+
+QString ServerInfo::commitHash() const
+{
+    return mCommitHash;
+}
+
+void ServerInfo::setCommitHash(const QString &commitHash)
+{
+    mCommitHash = commitHash;
+}
+
 QDebug operator <<(QDebug d, const ServerInfo &t)
 {
     d << "arch " << t.arch();
@@ -106,5 +150,9 @@ QDebug operator <<(QDebug d, const ServerInfo &t)
     d << "version " << t.version();
     d << "cpu number " << t.numberOfCpu();
     d << "commit author " << t.commitAuthor();
+    d << "commit branch " << t.commitBranch();
+    d << "commit tag " << t.commitTag();
+    d << "commit subject " << t.commitSubject();
+    d << "commit hash " << t.commitHash();
     return d;
 }
