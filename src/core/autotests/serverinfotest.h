@@ -31,6 +31,8 @@ public:
     ~ServerInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadServerInfo();
+    void shouldLoadServerInfo_data();
 };
 
 #endif // SERVERINFOTEST_H

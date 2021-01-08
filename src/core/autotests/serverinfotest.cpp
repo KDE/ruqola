@@ -20,6 +20,7 @@
 
 #include "serverinfotest.h"
 #include "serverinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_MAIN(ServerInfoTest)
 
@@ -36,5 +37,31 @@ void ServerInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.platform().isEmpty());
     QVERIFY(w.version().isEmpty());
     QCOMPARE(w.numberOfCpu(), -1);
+
+    QVERIFY(w.commitAuthor().isEmpty());
+    QVERIFY(w.commitBranch().isEmpty());
+    QVERIFY(w.commitTag().isEmpty());
+    QVERIFY(w.commitSubject().isEmpty());
+    QVERIFY(w.commitHash().isEmpty());
     //TODO
+}
+
+void ServerInfoTest::shouldLoadServerInfo_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<ServerInfo>("serverInfo");
+
+    //QTest::addRow("role2") << QStringLiteral("role2") << r2;
+}
+
+void ServerInfoTest::shouldLoadServerInfo()
+{
+    QFETCH(QString, fileName);
+    QFETCH(ServerInfo, serverInfo);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/serverinfo/") + fileName + QLatin1String(".json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    ServerInfo r;
+    r.parseServerInfo(obj);
+    QCOMPARE(r, serverInfo);
 }

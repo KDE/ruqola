@@ -60,6 +60,8 @@ public:
     Q_REQUIRED_RESULT QString commitHash() const;
     void setCommitHash(const QString &commitHash);
 
+    Q_REQUIRED_RESULT bool operator ==(const ServerInfo &other) const;
+
 private:
     QString mArch;
     QString mPlatform;
