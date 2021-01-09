@@ -108,8 +108,8 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
         height += layout.textSize.height() + DelegatePaintUtil::margin();
     }
-    return QSize(qMax(layout.titleSize.width(), (qreal)maxWidth),
-                 height);
+    return {qMax(layout.titleSize.width(), (qreal)maxWidth),
+                 height};
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)

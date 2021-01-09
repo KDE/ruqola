@@ -84,8 +84,8 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     const Layout layout = doLayout(option, index);
 
     const int contentsHeight = layout.openDiscussionTextY  + option.fontMetrics.height() - option.rect.y();
-    return QSize(option.rect.width(),
-                 contentsHeight);
+    return {option.rect.width(),
+                 contentsHeight};
 }
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

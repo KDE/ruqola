@@ -70,8 +70,8 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return QSize(qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth),
-                 height);
+    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth),
+                 height};
 }
 
 bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)

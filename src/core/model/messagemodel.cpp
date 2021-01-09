@@ -159,7 +159,7 @@ QModelIndex MessageModel::indexForMessage(const QString &messageId) const
 {
     auto it = findMessage(messageId);
     if (it == mAllMessages.end()) {
-        return QModelIndex();
+        return {};
     }
     const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
     return idx;

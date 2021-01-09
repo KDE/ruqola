@@ -98,7 +98,7 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 {
     // This gives incorrect results (too small bounding rect), no idea why!
     //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
@@ -488,8 +488,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
     //qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
-    return QSize(option.rect.width(),
-                 qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight);
+    return {option.rect.width(),
+                 qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
 static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)

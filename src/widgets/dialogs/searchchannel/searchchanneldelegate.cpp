@@ -100,6 +100,6 @@ QSize SearchChannelDelegate::sizeHint(const QStyleOptionViewItem &option, const 
 {
     Q_UNUSED(index)
     const int contentsHeight = option.fontMetrics.height() + DelegatePaintUtil::margin() - option.rect.y();
-    return QSize(option.rect.width(),
-                 contentsHeight);
+    return {option.rect.width(),
+                 contentsHeight};
 }

@@ -87,8 +87,8 @@ QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msg
 {
     Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, maxWidth);
-    return QSize(maxWidth, // should be qMax of all sizes, but doesn't really matter
-                 layout.y + layout.height + DelegatePaintUtil::margin());
+    return {maxWidth, // should be qMax of all sizes, but doesn't really matter
+                 layout.y + layout.height + DelegatePaintUtil::margin()};
 }
 
 MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const

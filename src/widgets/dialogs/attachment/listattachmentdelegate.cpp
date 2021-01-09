@@ -133,8 +133,8 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
     const Layout layout = doLayout(option, index);
 
     const int contentsHeight = layout.timeStampY  + option.fontMetrics.height() - option.rect.y();
-    return QSize(option.rect.width(),
-                 contentsHeight);
+    return {option.rect.width(),
+                 contentsHeight};
 }
 
 ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

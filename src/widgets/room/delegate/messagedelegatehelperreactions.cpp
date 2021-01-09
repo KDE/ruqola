@@ -149,7 +149,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
         const QFontMetrics emojiFontMetrics(mEmojiFont);
         reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + DelegatePaintUtil::margin();
     }
-    return QSize(maxWidth, reactionsHeight);
+    return {maxWidth, reactionsHeight};
 }
 
 bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message)

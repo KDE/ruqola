@@ -232,7 +232,7 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
     Q_UNUSED(option)
     auto *doc = documentForIndex(index, maxWidth, option.widget);
     if (!doc) {
-        return QSize();
+        return {};
     }
     const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
 
