@@ -36,7 +36,7 @@ RecentUsedEmoticonView::~RecentUsedEmoticonView()
 void RecentUsedEmoticonView::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
-    QAction *clearRecent = new QAction(i18n("Clear Recents"), &menu);
+    auto *clearRecent = new QAction(i18n("Clear Recents"), &menu);
     connect(clearRecent, &QAction::triggered, this, &RecentUsedEmoticonView::clearAll);
     menu.addAction(clearRecent);
     menu.exec(event->globalPos());

@@ -40,7 +40,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     lastestLayout->setContentsMargins({});
     mainLayout->addLayout(lastestLayout);
 
-    QLabel *lastestLabel = new QLabel(i18n("Newer than:"), this);
+    auto *lastestLabel = new QLabel(i18n("Newer than:"), this);
     lastestLabel->setObjectName(QStringLiteral("lastestLabel"));
     lastestLayout->addWidget(lastestLabel);
 
@@ -54,7 +54,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     oldestLayout->setContentsMargins({});
     mainLayout->addLayout(oldestLayout);
 
-    QLabel *oldestLabel = new QLabel(i18n("Older than:"), this);
+    auto *oldestLabel = new QLabel(i18n("Older than:"), this);
     oldestLabel->setObjectName(QStringLiteral("oldestLabel"));
     oldestLayout->addWidget(oldestLabel);
 
@@ -63,7 +63,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     connect(mOldestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     oldestLayout->addWidget(mOldestDateTimeEdit);
 
-    QLabel *usersLabel = new QLabel(i18n("Only Prune content from these users (Keep empty to prune everyone's content)"), this);
+    auto *usersLabel = new QLabel(i18n("Only Prune content from these users (Keep empty to prune everyone's content)"), this);
     usersLabel->setObjectName(QStringLiteral("usersLabel"));
     usersLabel->setWordWrap(true);
     usersLabel->setTextFormat(Qt::PlainText);

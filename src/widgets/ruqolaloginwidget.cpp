@@ -91,7 +91,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     auto twoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
     twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));
 
-    QLabel *twoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
+    auto *twoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
     twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
     twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 

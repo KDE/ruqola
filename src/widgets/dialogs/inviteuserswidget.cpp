@@ -48,7 +48,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     hlayout->setContentsMargins({});
     mainLayout->addLayout(hlayout);
 
-    QLabel *label = new QLabel(i18n("Invite Link:"), this);
+    auto *label = new QLabel(i18n("Invite Link:"), this);
     label->setObjectName(QStringLiteral("label"));
     label->setTextFormat(Qt::PlainText);
     hlayout->addWidget(label);
@@ -85,7 +85,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     mMaxUses->setObjectName(QStringLiteral("mMaxUses"));
     formLayout->addRow(i18n("Max number of uses"), mMaxUses);
 
-    QPushButton *generateNewLink = new QPushButton(i18n("Generate New Link"), this);
+    auto *generateNewLink = new QPushButton(i18n("Generate New Link"), this);
     generateNewLink->setObjectName(QStringLiteral("generateNewLink"));
     connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
     mainLayout->addWidget(generateNewLink);

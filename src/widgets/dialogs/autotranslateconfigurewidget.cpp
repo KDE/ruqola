@@ -47,7 +47,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     horizontalLayout->setContentsMargins({});
     mainLayout->addLayout(horizontalLayout);
 
-    QLabel *label = new QLabel(i18n("Language:"), this);
+    auto *label = new QLabel(i18n("Language:"), this);
     label->setObjectName(QStringLiteral("label"));
     label->setTextFormat(Qt::PlainText);
     horizontalLayout->addWidget(label);

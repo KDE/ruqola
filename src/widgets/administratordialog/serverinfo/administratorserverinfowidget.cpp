@@ -200,23 +200,23 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *usageInfoIte
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
     qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
-    QTreeWidgetItem *serverInfoItem = new QTreeWidgetItem(mTreeWidget);
+    auto *serverInfoItem = new QTreeWidgetItem(mTreeWidget);
     serverInfoItem->setText(0, i18n("Server Info"));
     parseServerInfo(serverInfoItem, obj);
 
-    QTreeWidgetItem *usageInfoItem = new QTreeWidgetItem(mTreeWidget);
+    auto *usageInfoItem = new QTreeWidgetItem(mTreeWidget);
     usageInfoItem->setText(0, i18n("Usage"));
     parseUsageInfo(usageInfoItem, obj);
 
-    QTreeWidgetItem *runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
+    auto *runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
     runtimeInfoItem->setText(0, i18n("Runtime Environment"));
     parseRuntimeInfo(runtimeInfoItem, obj);
 
-    QTreeWidgetItem *commitItem = new QTreeWidgetItem(mTreeWidget);
+    auto *commitItem = new QTreeWidgetItem(mTreeWidget);
     commitItem->setText(0, i18n("Commit"));
     parseCommitInfo(commitItem);
 
-    QTreeWidgetItem *buildItem = new QTreeWidgetItem(mTreeWidget);
+    auto *buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
     parseBuildInfo(buildItem, obj);
     mTreeWidget->expandAll();

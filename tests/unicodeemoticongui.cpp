@@ -56,7 +56,7 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     mWidgetInfo = new UnicodeEmoticonInfo(this);
     hboxLayout->addWidget(mWidgetInfo);
 
-    QPushButton *save = new QPushButton(QStringLiteral("Save"), this);
+    auto *save = new QPushButton(QStringLiteral("Save"), this);
     mainLayout->addWidget(save);
     connect(save, &QPushButton::clicked, this, &UnicodeEmoticonGui::save);
 
@@ -97,7 +97,7 @@ void UnicodeEmoticonGui::load()
     const QJsonObject obj = doc.object();
     const QVector<UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
     for (const UnicodeEmoticon &emoticon : unicodeEmojiList) {
-        UnicodeEmoticonListWidgetItem *item = new UnicodeEmoticonListWidgetItem(emoticon.identifier(), mListWidget);
+        auto *item = new UnicodeEmoticonListWidgetItem(emoticon.identifier(), mListWidget);
         item->setInfo(emoticon);
     }
 }

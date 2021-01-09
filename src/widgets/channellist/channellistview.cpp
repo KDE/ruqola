@@ -81,7 +81,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     QMenu menu(this);
 
     const QString roomType = index.data(RoomModel::RoomType).toString();
-    QAction *hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
+    auto *hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
     connect(hideChannel, &QAction::triggered, this, [=]() {
         slotHideChannel(index, roomType);
     });
@@ -97,7 +97,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     const bool isFavorite = index.data(RoomModel::RoomFavorite).toBool();
     const QString actionFavoriteText = isFavorite ? i18n("Unset as Favorite") : i18n("Set as Favorite");
-    QAction *favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
+    auto *favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
     connect(favoriteAction, &QAction::triggered, this, [=]() {
         slotChangeFavorite(index, isFavorite);
     });
@@ -107,7 +107,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         auto separator = new QAction(&menu);
         separator->setSeparator(true);
         menu.addAction(separator);
-        QAction *quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
+        auto *quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [=]() {
             slotLeaveChannel(index, roomType);
         });
