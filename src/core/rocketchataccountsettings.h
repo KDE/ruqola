@@ -61,6 +61,9 @@ public:
     Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
+    void setUseLdap(bool ldap);
+    Q_REQUIRED_RESULT bool useLdap() const;
+
     void removeSettings();
 
     Q_REQUIRED_RESULT bool showUnreadOnTop() const;
@@ -86,6 +89,7 @@ Q_SIGNALS:
     void userIdChanged();
     void accountNameChanged();
     void passwordChanged();
+    void useLdapChanged();
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
     void displayNameChanged();
@@ -104,6 +108,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    bool mUseLdap = false;
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;

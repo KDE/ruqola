@@ -56,6 +56,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
+    mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
     mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
@@ -219,6 +220,23 @@ void RocketChatAccountSettings::setPassword(const QString &password)
     writeJob->start();
 
     Q_EMIT passwordChanged();
+}
+
+void RocketChatAccountSettings::setUseLdap(bool ldap)
+{
+    if (mUseLdap == ldap)
+        return;
+
+    mUseLdap = ldap;
+    mSetting->setValue(QStringLiteral("useLdap"), mUseLdap);
+    mSetting->sync();
+
+    Q_EMIT useLdapChanged();
+}
+
+Q_REQUIRED_RESULT bool RocketChatAccountSettings::useLdap() const
+{
+    return mUseLdap;
 }
 
 QString RocketChatAccountSettings::twoFactorAuthenticationCode() const

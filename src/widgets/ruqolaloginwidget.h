@@ -28,6 +28,7 @@
 class QLineEdit;
 class QPushButton;
 class QLabel;
+class QCheckBox;
 class KBusyIndicatorWidget;
 class AuthenticationComboBox;
 class PasswordLineEditWidget;
@@ -52,6 +53,7 @@ private:
     QLineEdit *mServerName = nullptr;
     QLineEdit *mUserName = nullptr;
     PasswordLineEditWidget *mPasswordLineEditWidget = nullptr;
+    QCheckBox *mLdapCheckBox = nullptr;
     QPushButton *mLoginButton = nullptr;
     KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
     QLabel *mFailedError = nullptr;

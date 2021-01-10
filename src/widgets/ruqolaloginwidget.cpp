@@ -33,6 +33,7 @@
 #include <QLabel>
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
+#include <QCheckBox>
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
@@ -77,6 +78,10 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     connect(mPasswordLineEditWidget->passwordLineEdit()->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
+
+    mLdapCheckBox = new QCheckBox(i18n("Use LDAP"), this);
+    mLdapCheckBox->setObjectName(QStringLiteral("mLdapCheckBox"));
+    mainLayout->addWidget(mLdapCheckBox);
 
     mLoginButton = new QPushButton(i18n("Login"), this);
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
@@ -131,6 +136,7 @@ void RuqolaLoginWidget::initialize()
     mAccountName->setText(rocketChatAccount->displayName());
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
+    mLdapCheckBox->setChecked(rocketChatAccount->useLdap());
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(rocketChatAccount->password());
     mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
 }
@@ -142,6 +148,7 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->setServerUrl(mServerName->text());
     rocketChatAccount->setUserName(mUserName->text());
     rocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
+    rocketChatAccount->setUseLdap(mLdapCheckBox->isChecked());
     if (!mAuthenticationWidget->isHidden()) {
         rocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
     } else {

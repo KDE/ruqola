@@ -27,8 +27,9 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QPushButton>
+#include <QCheckBox>
 #include <QTest>
+
 QTEST_MAIN(RuqolaLoginWidgetTest)
 RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
     : QObject(parent)
@@ -56,6 +57,10 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 
     auto mPasswordLineEditWidget = w.findChild<PasswordLineEditWidget *>(QStringLiteral("mPasswordLineEditWidget"));
     QVERIFY(mPasswordLineEditWidget);
+
+    auto mLdapCheckBox = w.findChild<QCheckBox*>(QStringLiteral("mLdapCheckBox"));
+    QVERIFY(mLdapCheckBox);
+    QVERIFY(!mLdapCheckBox->isChecked());
 
     auto mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);

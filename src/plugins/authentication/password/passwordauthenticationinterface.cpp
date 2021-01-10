@@ -38,11 +38,16 @@ void PasswordAuthenticationInterface::login()
     if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
         mAccount->ddp()->authenticationManager()->login();
-    } else {
-        if (mAccount->settings()->twoFactorAuthenticationCode().isEmpty()) {
-            mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
-        } else {
-            mAccount->ddp()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode());
-        }
+        return;
     }
+
+    if (!mAccount->settings()->twoFactorAuthenticationCode().isEmpty()) {
+        mAccount->ddp()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode());
+        return;
+    }
+
+    if (mAccount->settings()->useLdap())
+        mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
+    else
+        mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
 }
