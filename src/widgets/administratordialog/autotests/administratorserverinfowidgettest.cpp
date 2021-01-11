@@ -24,6 +24,7 @@
 #include <QTreeWidget>
 #include <QHeaderView>
 #include <QVBoxLayout>
+#include <KTreeWidgetSearchLineWidget>
 QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
     : QObject(parent)
@@ -41,4 +42,8 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTreeWidget);
     QCOMPARE(mTreeWidget->columnCount(), 2);
     QVERIFY(mTreeWidget->header()->isHidden());
+
+    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
+
 }

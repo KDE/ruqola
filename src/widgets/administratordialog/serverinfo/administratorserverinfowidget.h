@@ -27,6 +27,7 @@
 #include "libruqolawidgets_private_export.h"
 class QTreeWidget;
 class QTreeWidgetItem;
+class KTreeWidgetSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -47,6 +48,7 @@ private:
     void initialize();
     void slotStatisticDone(const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;
+    KTreeWidgetSearchLineWidget *const mSearchLineWidget;
     ServerInfo mServerInfo;
 };
 

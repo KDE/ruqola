@@ -31,21 +31,24 @@
 #include <KLocalizedString>
 #include <QTreeWidget>
 #include <QHeaderView>
+#include <KTreeWidgetSearchLineWidget>
 
 AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     : QWidget(parent)
     , mTreeWidget(new QTreeWidget(this))
+    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mTreeWidget))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mainLayout->addWidget(mSearchLineWidget);
+
     mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
     mainLayout->addWidget(mTreeWidget);
     mTreeWidget->header()->hide();
     mTreeWidget->setColumnCount(2);
-    //TODO fix column size
-
     initialize();
 }
 
