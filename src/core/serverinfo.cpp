@@ -43,6 +43,8 @@ void ServerInfo::parseServerInfo(const QJsonObject &obj)
     mArch = buildObj.value(QLatin1String("arch")).toString();
     mNumberOfCpu = buildObj.value(QLatin1String("cpus")).toInt();
     mPlatform = buildObj.value(QLatin1String("platform")).toString();
+    mOsRelease = buildObj.value(QLatin1String("osRelease")).toString();
+    mNodeVersion = buildObj.value(QLatin1String("nodeVersion")).toString();
 #if 0
     {
         "info" : {"build" : {"arch" : "x64", "cpus" : 2, "date" : "2020-12-29T04:59:35.728Z", "freeMemory" : 461508608, "nodeVersion" : "v12.18.4", "osRelease" : "5.4.0-1032-azure", "platform" : "linux", "totalMemory" : 7292207104},
@@ -153,7 +155,29 @@ bool ServerInfo::operator ==(const ServerInfo &other) const
             && mCommitTag == other.commitTag()
             && mCommitSubject == other.commitSubject()
             && mCommitHash == other.commitHash()
-            && mNumberOfCpu == other.numberOfCpu();
+            && mNumberOfCpu == other.numberOfCpu()
+            && mOsRelease == other.osRelease()
+            && mNodeVersion == other.nodeVersion();
+}
+
+QString ServerInfo::osRelease() const
+{
+    return mOsRelease;
+}
+
+void ServerInfo::setOsRelease(const QString &osRelease)
+{
+    mOsRelease = osRelease;
+}
+
+QString ServerInfo::nodeVersion() const
+{
+    return mNodeVersion;
+}
+
+void ServerInfo::setNodeVersion(const QString &nodeVersion)
+{
+    mNodeVersion = nodeVersion;
 }
 
 QDebug operator <<(QDebug d, const ServerInfo &t)
@@ -167,5 +191,7 @@ QDebug operator <<(QDebug d, const ServerInfo &t)
     d << "commit tag " << t.commitTag();
     d << "commit subject " << t.commitSubject();
     d << "commit hash " << t.commitHash();
+    d << "os release " << t.osRelease();
+    d << "node version " << t.nodeVersion();
     return d;
 }

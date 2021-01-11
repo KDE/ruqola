@@ -39,7 +39,7 @@ private:
     void parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     void parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj);
     void parseCommitInfo(QTreeWidgetItem *commitInfoItem);
-    void parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
+    void parseBuildInfo(QTreeWidgetItem *buildInfoItem);
     void createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj);

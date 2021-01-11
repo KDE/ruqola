@@ -192,8 +192,32 @@ void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoI
     //TODO
 }
 
-void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
+void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoItem)
 {
+    {
+        auto item = new QTreeWidgetItem(buildInfoItem);
+        item->setText(0, i18n("OS Release"));
+        item->setText(1, mServerInfo.osRelease());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(buildInfoItem);
+        item->setText(0, i18n("Node Version"));
+        item->setText(1, mServerInfo.nodeVersion());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(buildInfoItem);
+        item->setText(0, i18n("Arch"));
+        item->setText(1, mServerInfo.arch());
+        item->addChild(item);
+    }
+    {
+        auto item = new QTreeWidgetItem(buildInfoItem);
+        item->setText(0, i18n("OS Platform"));
+        item->setText(1, mServerInfo.platform());
+        item->addChild(item);
+    }
     //TODO
 }
 
@@ -218,7 +242,7 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 
     auto *buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
-    parseBuildInfo(buildItem, obj);
+    parseBuildInfo(buildItem);
     mTreeWidget->expandAll();
     mTreeWidget->resizeColumnToContents(1);
     mTreeWidget->resizeColumnToContents(0);

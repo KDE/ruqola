@@ -43,6 +43,9 @@ void ServerInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.commitTag().isEmpty());
     QVERIFY(w.commitSubject().isEmpty());
     QVERIFY(w.commitHash().isEmpty());
+
+    QVERIFY(w.osRelease().isEmpty());
+    QVERIFY(w.nodeVersion().isEmpty());
     //TODO
 }
 
@@ -61,6 +64,9 @@ void ServerInfoTest::shouldLoadServerInfo_data()
         info.setCommitTag(QStringLiteral("3.10.0"));
         info.setCommitSubject(QStringLiteral("Merge pull request #19982 from RocketChat/release-3.10.0"));
         info.setCommitHash(QStringLiteral("3a13cead22bfc1100c5b89069498919473c84195"));
+        info.setOsRelease(QStringLiteral("5.4.0-1032-azure"));
+        info.setNodeVersion(QStringLiteral("v12.18.4"));
+
         QTest::addRow("default") << QStringLiteral("serverinfo") << info;
     }
 }

@@ -62,6 +62,12 @@ public:
 
     Q_REQUIRED_RESULT bool operator ==(const ServerInfo &other) const;
 
+    Q_REQUIRED_RESULT QString osRelease() const;
+    void setOsRelease(const QString &osRelease);
+
+    Q_REQUIRED_RESULT QString nodeVersion() const;
+    void setNodeVersion(const QString &nodeVersion);
+
 private:
     QString mArch;
     QString mPlatform;
@@ -71,6 +77,9 @@ private:
     QString mCommitTag;
     QString mCommitSubject;
     QString mCommitHash;
+    QString mOsRelease;
+    QString mNodeVersion;
+    //TODO Build Date
     int mNumberOfCpu = -1;
 };
 Q_DECLARE_METATYPE(ServerInfo)
