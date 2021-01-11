@@ -36,7 +36,7 @@ class RocketChatAccount;
 class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class Room;
-class QPushButton;
+class RoomReplyThreadWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -103,9 +103,9 @@ private:
 
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
-    QWidget *mMessageThreadWidget = nullptr;
-    QLabel *mMessageThreadLabel = nullptr;
-    QPushButton *mMessageThreadButton = nullptr;
+
+    RoomReplyThreadWidget *mRoomReplyThreadWidget = nullptr;
+
     MessageLineWidget *mMessageLineWidget = nullptr;
     Room *mRoom = nullptr;
     QStackedWidget *mStackedWidget = nullptr;

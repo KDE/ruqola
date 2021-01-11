@@ -26,6 +26,7 @@
 #include "room/readonlylineeditwidget.h"
 #include "room/roomcounterinfowidget.h"
 #include "room/usersinroomflowwidget.h"
+#include "room/roomreplythreadwidget.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 
@@ -34,6 +35,7 @@
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
 
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
@@ -72,6 +74,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
 
     auto mRoomCounterInfoWidget = w.findChild<RoomCounterInfoWidget *>(QStringLiteral("mRoomCounterInfoWidget"));
     QVERIFY(mRoomCounterInfoWidget);
+
+    auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(QStringLiteral("mRoomReplyThreadWidget"));
+    QVERIFY(mRoomReplyThreadWidget);
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)
@@ -135,17 +140,17 @@ void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
     QEventLoop loop;
     RoomWidget w;
 
-    auto mMessageThreadWidget = w.findChild<QWidget *>(QStringLiteral("mMessageThreadWidget"));
-    QVERIFY(!mMessageThreadWidget->isVisible());
+    auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(QStringLiteral("mRoomReplyThreadWidget"));
+    QVERIFY(!mRoomReplyThreadWidget->isVisible());
 
     auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
 
     mMessageLineWidget->setThreadMessageId(QStringLiteral("placeholder"));
     loop.processEvents();
-    QVERIFY(!mMessageThreadWidget->isHidden());
+    QVERIFY(!mRoomReplyThreadWidget->isHidden());
 
     mMessageLineWidget->setThreadMessageId({});
     loop.processEvents();
-    QVERIFY(mMessageThreadWidget->isHidden());
+    QVERIFY(mRoomReplyThreadWidget->isHidden());
 }

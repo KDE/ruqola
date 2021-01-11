@@ -49,6 +49,7 @@
 
 #include "threadwidget/threadmessagedialog.h"
 #include "roomcounterinfowidget.h"
+#include "roomreplythreadwidget.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -86,22 +87,15 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);
 
-    mMessageThreadWidget = new QWidget(this);
-    mMessageThreadWidget->setObjectName(QStringLiteral("mMessageThreadWidget"));
-    mMessageThreadWidget->setVisible(false);
-    auto messageThreadLayout = new QHBoxLayout(mMessageThreadWidget);
-    mMessageThreadWidget->setLayout(messageThreadLayout);
-    mMessageThreadLabel = new QLabel(i18n("Replying in a thread"));
-    messageThreadLayout->addWidget(mMessageThreadLabel);
-    mMessageThreadButton = new QPushButton(mMessageThreadWidget);
-    mMessageThreadButton->setText(i18n("Cancel"));
-    mMessageThreadButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
-    connect(mMessageThreadButton, &QPushButton::clicked, this, [this] {
+    mRoomReplyThreadWidget = new RoomReplyThreadWidget(this);
+    mRoomReplyThreadWidget->setObjectName(QStringLiteral("mRoomReplyThreadWidget"));
+    mRoomReplyThreadWidget->setVisible(false);
+
+    connect(mRoomReplyThreadWidget, &RoomReplyThreadWidget::cancelReplyingInThread, this, [this] {
         mMessageLineWidget->setThreadMessageId({});
     });
-    messageThreadLayout->addWidget(mMessageThreadButton);
-    messageThreadLayout->addStretch();
-    mainLayout->addWidget(mMessageThreadWidget);
+
+    mainLayout->addWidget(mRoomReplyThreadWidget);
 
     mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
@@ -589,7 +583,7 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
 
 void RoomWidget::slotShowThreadMessage(const QString &threadMessageId)
 {
-    mMessageThreadWidget->setVisible(!threadMessageId.isEmpty());
+    mRoomReplyThreadWidget->setVisible(!threadMessageId.isEmpty());
 }
 
 QString RoomWidget::roomType() const
