@@ -20,6 +20,7 @@
 
 #include "roomreplythreadwidget.h"
 
+#include <KStandardGuiItem>
 #include <QHBoxLayout>
 #include <KLocalizedString>
 #include <QPushButton>
@@ -37,8 +38,7 @@ RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
 
     auto messageThreadButton = new QPushButton(this);
     messageThreadButton->setObjectName(QStringLiteral("messageThreadButton"));
-    messageThreadButton->setText(i18n("Cancel"));
-    messageThreadButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
+    KStandardGuiItem::assign(messageThreadButton, KStandardGuiItem::Cancel);
     connect(messageThreadButton, &QPushButton::clicked, this, &RoomReplyThreadWidget::cancelReplyingInThread);
     messageThreadLayout->addWidget(messageThreadButton);
     messageThreadLayout->addStretch();

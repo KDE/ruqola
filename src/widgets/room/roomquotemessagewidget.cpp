@@ -35,11 +35,11 @@ RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
     mLabelText->setObjectName(QStringLiteral("mLabelText"));
     mainLayout->addWidget(mLabelText);
 
-    auto messageThreadButton = new QPushButton(this);
-    messageThreadButton->setObjectName(QStringLiteral("messageThreadButton"));
-    KStandardGuiItem::assign(messageThreadButton, KStandardGuiItem::Cancel);
-    connect(messageThreadButton, &QPushButton::clicked, this, &RoomQuoteMessageWidget::cancelQuoteMessage);
-    mainLayout->addWidget(messageThreadButton);
+    auto messageQuoteButton = new QPushButton(this);
+    messageQuoteButton->setObjectName(QStringLiteral("messageQuoteButton"));
+    KStandardGuiItem::assign(messageQuoteButton, KStandardGuiItem::Cancel);
+    connect(messageQuoteButton, &QPushButton::clicked, this, &RoomQuoteMessageWidget::cancelQuoteMessage);
+    mainLayout->addWidget(messageQuoteButton);
     mainLayout->addStretch();
 }
 
