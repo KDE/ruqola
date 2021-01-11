@@ -31,7 +31,7 @@ RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
     auto messageThreadLayout = new QHBoxLayout(this);
     messageThreadLayout->setObjectName(QStringLiteral("messageThreadLayout"));
 
-    auto messageThreadLabel = new QLabel(i18n("Replying in a thread"));
+    auto messageThreadLabel = new QLabel(i18n("Replying in a thread"), this);
     messageThreadLabel->setObjectName(QStringLiteral("messageThreadLabel"));
     messageThreadLayout->addWidget(messageThreadLabel);
 
