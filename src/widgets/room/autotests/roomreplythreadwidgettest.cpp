@@ -20,6 +20,9 @@
 
 #include "roomreplythreadwidgettest.h"
 #include "room/roomreplythreadwidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 #include <QTest>
 QTEST_MAIN(RoomReplyThreadWidgetTest)
 
@@ -32,5 +35,15 @@ RoomReplyThreadWidgetTest::RoomReplyThreadWidgetTest(QObject *parent)
 void RoomReplyThreadWidgetTest::shouldHaveDefaultValues()
 {
     RoomReplyThreadWidget w;
-    //TODO
+
+    auto messageThreadLayout = w.findChild<QHBoxLayout *>(QStringLiteral("messageThreadLayout"));
+    QVERIFY(messageThreadLayout);
+
+    auto messageThreadLabel = w.findChild<QLabel *>(QStringLiteral("messageThreadLabel"));
+    QVERIFY(messageThreadLabel);
+    QVERIFY(!messageThreadLabel->text().isEmpty());
+
+    auto messageThreadButton = w.findChild<QPushButton *>(QStringLiteral("messageThreadButton"));
+    QVERIFY(messageThreadButton);
+    QVERIFY(!messageThreadButton->text().isEmpty());
 }
