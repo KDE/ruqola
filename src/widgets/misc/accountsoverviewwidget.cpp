@@ -95,7 +95,7 @@ public:
         const double height = fontMetrics().height();
         const double padding = singleAccount ? 0 : height * PAD;
         const QSize textSize = fontMetrics().size(Qt::TextSingleLine, currentText());
-        return {textSize.width() + padding * 2, height + padding * 2};
+        return {static_cast<int>(textSize.width() + padding * 2), static_cast<int>(height + padding * 2)};
     }
 
 protected:
