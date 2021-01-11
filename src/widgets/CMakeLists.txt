@@ -138,6 +138,7 @@ set(Ruqola_roomwidget_SRCS
     room/roomutil.cpp
     room/roomcounterinfowidget.cpp
     room/roomreplythreadwidget.cpp
+    room/roomquotemessagewidget.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
