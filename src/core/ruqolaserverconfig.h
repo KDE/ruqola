@@ -58,6 +58,7 @@ public:
         AllowUsernameChange = 0x200000,
         AllowUserProfileChange = 0x400000,
         AllowUserAvatarChange = 0x800000,
+        LdapEnabled = 0x1000000
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureType)

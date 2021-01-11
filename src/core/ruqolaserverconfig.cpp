@@ -437,6 +437,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::AllowUserAvatarChange;
             }
+        } else if (id == QLatin1String("LDAP_Enable")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::LdapEnabled;
+            }
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

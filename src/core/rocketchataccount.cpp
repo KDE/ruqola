@@ -1688,6 +1688,11 @@ bool RocketChatAccount::allowAvatarChanged() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserAvatarChange;
 }
 
+bool RocketChatAccount::ldapEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::LdapEnabled;
+}
+
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
 {
     return mServerConfigInfo;

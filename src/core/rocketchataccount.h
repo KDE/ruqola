@@ -473,6 +473,7 @@ public:
     void downloadAppsLanguages();
     Q_REQUIRED_RESULT bool hasAutotranslateSupport() const;
     Q_REQUIRED_RESULT OwnUserPreferences ownUserPreferences() const;
+    Q_REQUIRED_RESULT bool ldapEnabled() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
