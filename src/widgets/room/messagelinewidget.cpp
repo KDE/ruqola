@@ -125,6 +125,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     setThreadMessageId({});
                 }
             }
+            setQuoteMessage({}, {});
             clearMessageIdBeingEdited();
         }
         setMode(MessageLineWidget::EditingMode::NewMessage);
@@ -136,6 +137,7 @@ void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString 
     //TODO use text too
     clearMessageIdBeingEdited();
     mQuotePermalink = permalink;
+    Q_EMIT quoteMessageChanged(mQuotePermalink, text);
 }
 
 void MessageLineWidget::clearEditingMode()

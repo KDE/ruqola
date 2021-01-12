@@ -50,5 +50,5 @@ RoomQuoteMessageWidget::~RoomQuoteMessageWidget()
 
 void RoomQuoteMessageWidget::setMessageText(const QString &str)
 {
-    mLabelText->setText(str);
+    mLabelText->setText(i18n("Quote Message: \'%1\'", str));
 }

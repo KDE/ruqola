@@ -49,6 +49,7 @@
 
 #include "threadwidget/threadmessagedialog.h"
 #include "roomcounterinfowidget.h"
+#include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 
 #include <KLocalizedString>
@@ -95,7 +96,16 @@ RoomWidget::RoomWidget(QWidget *parent)
         mMessageLineWidget->setThreadMessageId({});
     });
 
+    mRoomQuoteMessageWidget = new RoomQuoteMessageWidget(this);
+    mRoomQuoteMessageWidget->setObjectName(QStringLiteral("mRoomQuoteMessageWidget"));
+    mRoomQuoteMessageWidget->setVisible(false);
+
+    connect(mRoomQuoteMessageWidget, &RoomQuoteMessageWidget::cancelQuoteMessage, this, [this] {
+        mMessageLineWidget->setQuoteMessage({}, QString());
+    });
+
     mainLayout->addWidget(mRoomReplyThreadWidget);
+    mainLayout->addWidget(mRoomQuoteMessageWidget);
 
     mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
@@ -113,6 +123,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
     connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidget::slotShowThreadMessage);
+    connect(mMessageLineWidget, &MessageLineWidget::quoteMessageChanged, this, &RoomWidget::slotShowQuoteMessage);
 
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
@@ -579,6 +590,12 @@ void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }
+}
+
+void RoomWidget::slotShowQuoteMessage(const QString &permalink, const QString &text)
+{
+    mRoomQuoteMessageWidget->setMessageText(text);
+    mRoomQuoteMessageWidget->setVisible(!permalink.isEmpty());
 }
 
 void RoomWidget::slotShowThreadMessage(const QString &threadMessageId)

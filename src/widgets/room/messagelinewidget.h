@@ -76,6 +76,7 @@ public:
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
     void threadMessageIdChanged(const QString &threadMessageId);
+    void quoteMessageChanged(const QString &permalink, const QString &text);
 
 private:
     void slotSendMessage(const QString &msg);

@@ -37,6 +37,7 @@ class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class Room;
 class RoomReplyThreadWidget;
+class RoomQuoteMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -97,6 +98,7 @@ private:
     void slotUpdateRoomCounterInfoWidget();
     void slotExportMessages();
     void slotFollowMessages();
+    void slotShowQuoteMessage(const QString &permalink, const QString &text);
 
     QString mRoomId;
     QString mRoomType;
@@ -105,6 +107,8 @@ private:
     MessageListView *mMessageListView = nullptr;
 
     RoomReplyThreadWidget *mRoomReplyThreadWidget = nullptr;
+
+    RoomQuoteMessageWidget *mRoomQuoteMessageWidget = nullptr;
 
     MessageLineWidget *mMessageLineWidget = nullptr;
     Room *mRoom = nullptr;
