@@ -48,6 +48,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.fileMaxFileSize(), -1);
     QVERIFY(config.logoUrl().isEmpty());
     QVERIFY(config.faviconUrl().isEmpty());
+    QCOMPARE(config.loginExpiration(), -1);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

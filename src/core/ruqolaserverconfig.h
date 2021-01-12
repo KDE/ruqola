@@ -131,6 +131,9 @@ public:
     Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void setServerConfigFeatureTypes(ServerConfigFeatureTypes serverConfigFeatureTypes);
 
+    Q_REQUIRED_RESULT int loginExpiration() const;
+    void setLoginExpiration(int loginExpiration);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -157,6 +160,7 @@ private:
 
     QString mLogoUrl;
     QString mFaviconUrl;
+    int mLoginExpiration = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

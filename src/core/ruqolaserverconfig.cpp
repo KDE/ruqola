@@ -178,6 +178,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+int RuqolaServerConfig::loginExpiration() const
+{
+    return mLoginExpiration;
+}
+
+void RuqolaServerConfig::setLoginExpiration(int loginExpiration)
+{
+    mLoginExpiration = loginExpiration;
+}
+
 RuqolaServerConfig::ServerConfigFeatureTypes RuqolaServerConfig::serverConfigFeatureTypes() const
 {
     return mServerConfigFeatureTypes;
@@ -195,6 +205,7 @@ void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFro
         mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
     }
 }
+
 
 qint64 RuqolaServerConfig::fileMaxFileSize() const
 {
@@ -306,6 +317,7 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
+    d << "mLoginExpiration " << t.loginExpiration();
     return d;
 }
 
@@ -441,10 +453,11 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::LdapEnabled;
             }
+        } else if (id == QLatin1String("Accounts_LoginExpiration")) {
+            setLoginExpiration(value.toInt());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
-        //TODO Accounts_LoginExpiration
     }
     //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
 }
