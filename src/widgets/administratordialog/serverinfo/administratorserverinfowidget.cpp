@@ -71,9 +71,9 @@ void AdministratorServerInfoWidget::initialize()
 void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj)
 {
     Q_UNUSED(versionInfo)
-    qDebug() << " obj " << obj;
+    //qDebug() << " obj " << obj;
     mServerInfo.parseServerInfo(obj);
-    qDebug() << " info " << mServerInfo;
+    //qDebug() << " info " << mServerInfo;
     auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     rcAccount->restApi()->initializeRestApiJob(statisticJob);
