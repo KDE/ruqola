@@ -18,25 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMDIALOG_H
-#define USERSINROOMDIALOG_H
+#include "usersinroomwidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
-#include <QDialog>
-#include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-class UsersInRoomWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomDialog : public QDialog
+UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit UsersInRoomDialog(QWidget *parent = nullptr);
-    ~UsersInRoomDialog() override;
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+}
 
-private:
-    void writeConfig();
-    void readConfig();
-    UsersInRoomWidget *const mUsersInRoomWidget;
-};
+UsersInRoomWidget::~UsersInRoomWidget()
+{
 
-#endif // USERSINROOMDIALOG_H
+}

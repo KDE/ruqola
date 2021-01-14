@@ -18,25 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMDIALOG_H
-#define USERSINROOMDIALOG_H
+#ifndef USERSINROOMWIDGETTEST_H
+#define USERSINROOMWIDGETTEST_H
 
-#include <QDialog>
-#include <QWidget>
+#include <QObject>
 
-#include "libruqolawidgets_private_export.h"
-class UsersInRoomWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomDialog : public QDialog
+class UsersInRoomWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit UsersInRoomDialog(QWidget *parent = nullptr);
-    ~UsersInRoomDialog() override;
-
-private:
-    void writeConfig();
-    void readConfig();
-    UsersInRoomWidget *const mUsersInRoomWidget;
+    explicit UsersInRoomWidgetTest(QObject *parent = nullptr);
+    ~UsersInRoomWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // USERSINROOMDIALOG_H
+#endif // USERSINROOMWIDGETTEST_H

@@ -19,6 +19,7 @@
 */
 
 #include "usersinroomdialog.h"
+#include "usersinroomwidget.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -32,12 +33,14 @@ static const char myUsersInRoomDialogGroupName[] = "UsersInRoomDialog";
 
 UsersInRoomDialog::UsersInRoomDialog(QWidget *parent)
     : QDialog(parent)
+    , mUsersInRoomWidget(new UsersInRoomWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Video"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //TODO
+    mUsersInRoomWidget->setObjectName(QStringLiteral("mUsersInRoomWidget"));
+    mainLayout->addWidget(mUsersInRoomWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
