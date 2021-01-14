@@ -78,9 +78,9 @@ void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     if (mTypeGroup.isEmpty()) {
-        return true;
+        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
-    return mTypeGroup == typegroup;
+    return (mTypeGroup == typegroup) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
