@@ -22,6 +22,7 @@
 #include "usersmodel.h"
 #include "ruqola_debug.h"
 
+#include <QIcon>
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -79,9 +80,9 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 
     const User &user = mUsers.at(index.row());
     switch (role) {
-    case Qt::DisplayRole:
     case DisplayName:
         return generateDisplayName(user);
+    case Qt::DisplayRole:
     case UserName:
         return user.userName();
     case IconStatus:
@@ -90,6 +91,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return user.userId();
     case Name:
         return user.name();
+    case Qt::DecorationRole:
+        return QIcon::fromTheme(user.iconFromStatus());
     }
 
     return {};
