@@ -22,27 +22,33 @@
 #ifndef USERSINROOMMENU_H
 #define USERSINROOMMENU_H
 
-#include <QMenu>
+#include <QObject>
 
 #include "libruqolawidgets_private_export.h"
 class Room;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomMenu : public QMenu
+class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomMenu : public QObject
 {
     Q_OBJECT
 public:
-    explicit UsersInRoomMenu(QWidget *parent = nullptr);
+    explicit UsersInRoomMenu(QObject *parent = nullptr);
     ~UsersInRoomMenu() override;
+
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void setRoom(Room *room);
+    void setUserName(const QString &userName);
+    void setUserId(const QString &userId);
+    void setParentWidget(QWidget *parentWidget);
 
 private:
     void slotOpenConversation();
     void slotBlockUser();
     void slotIgnoreUser();
     void slotRemoveFromRoom();
-    void slotCustomContextMenuRequested(const QPoint &pos);
     void slotUserInfo();
-    void initializeMenu();
     QString mUserId;
+    QString mUserName;
     Room *mRoom = nullptr;
+    QWidget *mParentWidget = nullptr;
 };
 
 #endif // USERSINROOMMENU_H

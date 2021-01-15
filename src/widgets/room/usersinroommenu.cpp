@@ -22,14 +22,15 @@
 #include "roomutil.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "dialogs/directchannelinfodialog.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QAction>
+#include <QMenu>
 
-UsersInRoomMenu::UsersInRoomMenu(QWidget *parent)
-    : QMenu(parent)
+UsersInRoomMenu::UsersInRoomMenu(QObject *parent)
+    : QObject(parent)
 {
-    initializeMenu();
 }
 
 UsersInRoomMenu::~UsersInRoomMenu()
@@ -45,7 +46,7 @@ void UsersInRoomMenu::slotBlockUser()
 {
     const bool userIsBlocked = mRoom->blocker();
     if (!userIsBlocked) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(this, i18n("Do you want to block this user?"), i18n("Block User"))) {
+        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to block this user?"), i18n("Block User"))) {
             return;
         }
     }
@@ -56,7 +57,7 @@ void UsersInRoomMenu::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
     if (!userIsIgnored) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(this, i18n("Do you want to ignore this user?"), i18n("Ignore User"))) {
+        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to ignore this user?"), i18n("Ignore User"))) {
             return;
         }
     }
@@ -68,13 +69,13 @@ void UsersInRoomMenu::slotRemoveFromRoom()
     Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
-void UsersInRoomMenu::initializeMenu()
+void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const bool canManageUsersInRoom = mRoom->canChangeRoles();
     const QString ownUserId = Ruqola::self()->rocketChatAccount()->userId();
     const bool isAdirectChannel = mRoom->channelType() == QStringLiteral("d");
     const bool isNotMe = mUserId != ownUserId;
-    QMenu menu(this);
+    QMenu menu(mParentWidget);
 
     if (isNotMe && !isAdirectChannel) {
         auto *conversationAction = new QAction(i18n("Start Conversation"), &menu);
@@ -148,4 +149,24 @@ void UsersInRoomMenu::slotUserInfo()
     DirectChannelInfoDialog dlg(this);
     dlg.setUserName(mUserName);
     dlg.exec();
+}
+
+void UsersInRoomMenu::setParentWidget(QWidget *parentWidget)
+{
+    mParentWidget = parentWidget;
+}
+
+void UsersInRoomMenu::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+void UsersInRoomMenu::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
+void UsersInRoomMenu::setRoom(Room *room)
+{
+    mRoom = room;
 }
