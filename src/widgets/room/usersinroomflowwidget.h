@@ -42,6 +42,7 @@ private:
     void loadMoreUsersAttachment();
     void generateListUsersWidget();
     void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
+    void loadExternalDialog();
     FlowLayout *mFlowLayout = nullptr;
     Room *mRoom = nullptr;
     // userId, UsersInRoomLabel

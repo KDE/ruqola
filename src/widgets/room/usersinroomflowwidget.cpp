@@ -20,6 +20,7 @@
 
 #include "usersinroomflowwidget.h"
 #include "usersinroomlabel.h"
+#include "usersinroomdialog.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "common/flowlayout.h"
@@ -28,7 +29,8 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QLabel>
-
+#include <QPointer>
+#define MAX_NUMBER_USER 120
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -95,8 +97,9 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
         const auto count = model->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         mListUsersWidget.clear();
-        for (int i = 0; i < count; ++i) {
-            const auto userModelIndex = model->index(i, 0);
+        int numberOfUsers = 0;
+        for (; numberOfUsers < count && numberOfUsers < MAX_NUMBER_USER; ++numberOfUsers) {
+            const auto userModelIndex = model->index(numberOfUsers, 0);
             const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
             const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
             const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
@@ -113,7 +116,15 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             mListUsersWidget.insert(userId, userLabel);
         }
         if (count > 0) {
-            if (!model->hasFullList()) {
+            if (numberOfUsers >= MAX_NUMBER_USER) {
+                //TODO
+                auto *openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog...)")), this);
+                openExternalDialogLabel->setTextFormat(Qt::RichText);
+                openExternalDialogLabel->setContextMenuPolicy(Qt::CustomContextMenu);
+                connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
+                mFlowLayout->addWidget(openExternalDialogLabel);
+
+            } else if (!model->hasFullList()) {
                 auto *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -122,6 +133,13 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             }
         }
     }
+}
+
+void UsersInRoomFlowWidget::loadExternalDialog()
+{
+    QPointer<UsersInRoomDialog> dlg = new UsersInRoomDialog(this);
+    dlg->exec();
+    delete dlg;
 }
 
 void UsersInRoomFlowWidget::loadMoreUsersAttachment()
