@@ -79,6 +79,7 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 
     const User &user = mUsers.at(index.row());
     switch (role) {
+    case Qt::DisplayRole:
     case DisplayName:
         return generateDisplayName(user);
     case UserName:

@@ -20,6 +20,9 @@
 
 #include "usersinroomwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -53,4 +56,19 @@ UsersInRoomWidget::~UsersInRoomWidget()
 void UsersInRoomWidget::slotTextChanged(const QString &str)
 {
     //TODO
+}
+
+void UsersInRoomWidget::setRoom(Room *room)
+{
+    mRoom = room;
+    if (mRoom) {
+        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
+        mListView->setModel(model);
+//        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+//        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+//        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
+//        connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+//        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+//        generateListUsersWidget();
+    }
 }

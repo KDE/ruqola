@@ -138,6 +138,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
 void UsersInRoomFlowWidget::loadExternalDialog()
 {
     QPointer<UsersInRoomDialog> dlg = new UsersInRoomDialog(this);
+    dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
 }

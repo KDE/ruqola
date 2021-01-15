@@ -54,6 +54,11 @@ UsersInRoomDialog::~UsersInRoomDialog()
     writeConfig();
 }
 
+void UsersInRoomDialog::setRoom(Room *room)
+{
+    mUsersInRoomWidget->setRoom(room);
+}
+
 void UsersInRoomDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myUsersInRoomDialogGroupName);

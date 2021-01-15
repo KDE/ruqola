@@ -26,16 +26,19 @@
 #include "libruqolawidgets_private_export.h"
 class QListView;
 class QLineEdit;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit UsersInRoomWidget(QWidget *parent = nullptr);
     ~UsersInRoomWidget() override;
+    void setRoom(Room *room);
 private:
     void slotTextChanged(const QString &str);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
+    Room *mRoom = nullptr;
 };
 
 #endif // USERSINROOMWIDGET_H
