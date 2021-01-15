@@ -476,12 +476,15 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 void MessageListView::slotQuoteMessage(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
-    const QString text = index.data(MessageModel::OriginalMessage).toString();
+    QString text = index.data(MessageModel::OriginalMessage).toString();
     QString permalink = mCurrentRocketChatAccount->serverUrl() + QLatin1Char('/') + RoomUtil::generatePermalink(messageId, mRoom->name(), mRoom->channelType());
     if (!permalink.startsWith(QStringLiteral("https://"))) {
         permalink.prepend(QStringLiteral("https://"));
     }
     //qDebug() << " permalink " << permalink;
+    if (text.length() > 80) {
+        text = text.left(80) + QStringLiteral("...");
+    }
     Q_EMIT quoteMessageRequested(permalink, text);
 }
 
