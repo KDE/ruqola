@@ -19,18 +19,38 @@
 */
 
 #include "usersinroomwidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
+#include <QLineEdit>
+#include <QListView>
 #include <QVBoxLayout>
 
 UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     : QWidget(parent)
+    , mListView(new QListView(this))
+    , mSearchLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Channel..."));
+    mSearchLineEdit->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
+    mainLayout->addWidget(mSearchLineEdit);
+
+    mListView->setObjectName(QStringLiteral("mListView"));
+    mainLayout->addWidget(mListView);
 }
 
 UsersInRoomWidget::~UsersInRoomWidget()
 {
 
+}
+
+void UsersInRoomWidget::slotTextChanged(const QString &str)
+{
+    //TODO
 }

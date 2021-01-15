@@ -21,6 +21,10 @@
 #include "usersinroomwidgettest.h"
 #include "room/usersinroomwidget.h"
 #include <QTest>
+#include <QVBoxLayout>
+#include <QListView>
+#include <QLineEdit>
+
 QTEST_MAIN(UsersInRoomWidgetTest)
 
 UsersInRoomWidgetTest::UsersInRoomWidgetTest(QObject *parent)
@@ -32,5 +36,15 @@ UsersInRoomWidgetTest::UsersInRoomWidgetTest(QObject *parent)
 void UsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
     UsersInRoomWidget w;
-    //TODO
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
+    QVERIFY(mListView);
+
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
+    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 }
