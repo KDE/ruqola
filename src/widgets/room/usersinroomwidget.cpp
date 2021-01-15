@@ -22,7 +22,9 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "usersinroommenu.h"
 #include "model/usersforroomfilterproxymodel.h"
+#include "model/usersforroommodel.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -46,6 +48,8 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);
+    mListView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
 }
 
 UsersInRoomWidget::~UsersInRoomWidget()
@@ -71,4 +75,21 @@ void UsersInRoomWidget::setRoom(Room *room)
 //        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
 //        generateListUsersWidget();
     }
+}
+
+void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    if (!mMenu) {
+        mMenu = new UsersInRoomMenu(this);
+    }
+    QModelIndex index = mListView->indexAt(pos);
+    if (index.isValid()) {
+        const QString userId = index.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
+        const QString userName = index.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+        mMenu->setUserId(userId);
+        mMenu->setUserName(userName);
+    }
+    mMenu->setParentWidget(this);
+    mMenu->setRoom(mRoom);
+    mMenu->slotCustomContextMenuRequested(pos);
 }

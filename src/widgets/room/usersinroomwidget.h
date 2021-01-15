@@ -27,6 +27,7 @@
 class QListView;
 class QLineEdit;
 class Room;
+class UsersInRoomMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomWidget : public QWidget
 {
     Q_OBJECT
@@ -36,9 +37,11 @@ public:
     void setRoom(Room *room);
 private:
     void slotTextChanged(const QString &str);
+    void slotCustomContextMenuRequested(const QPoint &pos);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     Room *mRoom = nullptr;
+    UsersInRoomMenu *mMenu = nullptr;
 };
 
 #endif // USERSINROOMWIDGET_H

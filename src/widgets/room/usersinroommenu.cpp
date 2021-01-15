@@ -141,12 +141,12 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addAction(ignoreAction);
         }
     }
-    menu.exec(mapToGlobal(pos));
+    menu.exec(mParentWidget->mapToGlobal(pos));
 }
 
 void UsersInRoomMenu::slotUserInfo()
 {
-    DirectChannelInfoDialog dlg(this);
+    DirectChannelInfoDialog dlg(mParentWidget);
     dlg.setUserName(mUserName);
     dlg.exec();
 }

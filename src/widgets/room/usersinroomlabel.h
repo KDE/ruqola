@@ -25,6 +25,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class Room;
+class UsersInRoomMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel
 {
     Q_OBJECT
@@ -37,13 +38,10 @@ public:
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotOpenConversation();
-    void slotIgnoreUser();
-    void slotRemoveFromRoom();
-    void slotUserInfo();
-    void slotBlockUser();
     QString mUserId;
     QString mUserName;
     Room *mRoom = nullptr;
+    UsersInRoomMenu *mMenu = nullptr;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomLabel : public QWidget

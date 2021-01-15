@@ -141,6 +141,7 @@ set(Ruqola_roomwidget_SRCS
     room/roomquotemessagewidget.cpp
     room/usersinroomdialog.cpp
     room/usersinroomwidget.cpp
+    room/usersinroommenu.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
