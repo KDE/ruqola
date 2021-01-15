@@ -29,6 +29,8 @@ class UsersInRoomDialogTest : public QObject
 public:
     explicit UsersInRoomDialogTest(QObject *parent = nullptr);
     ~UsersInRoomDialogTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // USERSINROOMDIALOGTEST_H

@@ -20,10 +20,28 @@
 
 #include "usersinroomdialogtest.h"
 #include "room/usersinroomdialog.h"
+#include "room/usersinroomwidget.h"
 #include <QTest>
+#include <QStandardPaths>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
 QTEST_MAIN(UsersInRoomDialogTest)
 UsersInRoomDialogTest::UsersInRoomDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
+}
 
+void UsersInRoomDialogTest::shouldHaveDefaultValues()
+{
+    UsersInRoomDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mUsersInRoomWidget = w.findChild<UsersInRoomWidget *>(QStringLiteral("mUsersInRoomWidget"));
+    QVERIFY(mUsersInRoomWidget);
+
+    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(buttonBox);
 }

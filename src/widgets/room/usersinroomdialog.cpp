@@ -35,7 +35,7 @@ UsersInRoomDialog::UsersInRoomDialog(QWidget *parent)
     : QDialog(parent)
     , mUsersInRoomWidget(new UsersInRoomWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Video"));
+    setWindowTitle(i18nc("@title:window", "Users"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
