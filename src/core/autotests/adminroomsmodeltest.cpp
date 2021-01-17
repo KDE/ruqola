@@ -21,7 +21,7 @@
 #include "adminroomsmodeltest.h"
 #include "model/adminroomsmodel.h"
 #include <QTest>
-QTEST_MAIN(AdminRoomsModelTest)
+QTEST_GUILESS_MAIN(AdminRoomsModelTest)
 
 AdminRoomsModelTest::AdminRoomsModelTest(QObject *parent)
     : QObject(parent)

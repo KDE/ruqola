@@ -22,7 +22,7 @@
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include <QTest>
 
-QTEST_MAIN(DownloadAppsLanguagesManagerTest)
+QTEST_GUILESS_MAIN(DownloadAppsLanguagesManagerTest)
 DownloadAppsLanguagesManagerTest::DownloadAppsLanguagesManagerTest(QObject *parent)
     : QObject(parent)
 {

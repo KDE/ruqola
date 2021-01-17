@@ -21,7 +21,7 @@
 #include "downloadavartarurlmanagertest.h"
 #include "downloadavartarurlmanager.h"
 #include <QTest>
-QTEST_MAIN(DownloadAvartarUrlManagerTest)
+QTEST_GUILESS_MAIN(DownloadAvartarUrlManagerTest)
 DownloadAvartarUrlManagerTest::DownloadAvartarUrlManagerTest(QObject *parent)
     : QObject(parent)
 {

@@ -22,7 +22,7 @@
 #include "model/searchmessagefilterproxymodel.h"
 #include "model/searchmessagemodel.h"
 #include <QTest>
-QTEST_MAIN(SearchMessageFilterProxyModelTest)
+QTEST_GUILESS_MAIN(SearchMessageFilterProxyModelTest)
 
 SearchMessageFilterProxyModelTest::SearchMessageFilterProxyModelTest(QObject *parent)
     : QObject(parent)

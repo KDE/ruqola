@@ -22,7 +22,7 @@
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include <QTest>
 
-QTEST_MAIN(NotificationDesktopDurationPreferenceModelTest)
+QTEST_GUILESS_MAIN(NotificationDesktopDurationPreferenceModelTest)
 
 NotificationDesktopDurationPreferenceModelTest::NotificationDesktopDurationPreferenceModelTest(QObject *parent)
     : QObject(parent)

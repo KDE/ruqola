@@ -21,7 +21,7 @@
 #include "notificationpreferencestest.h"
 #include "notificationpreferences.h"
 #include <QTest>
-QTEST_MAIN(NotificationPreferencesTest)
+QTEST_GUILESS_MAIN(NotificationPreferencesTest)
 
 NotificationPreferencesTest::NotificationPreferencesTest(QObject *parent)
     : QObject(parent)

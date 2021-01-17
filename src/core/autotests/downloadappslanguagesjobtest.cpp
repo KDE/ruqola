@@ -22,7 +22,7 @@
 #include "downloadappslanguages/downloadappslanguagesjob.h"
 #include <QTest>
 
-QTEST_MAIN(DownloadAppsLanguagesJobTest)
+QTEST_GUILESS_MAIN(DownloadAppsLanguagesJobTest)
 DownloadAppsLanguagesJobTest::DownloadAppsLanguagesJobTest(QObject *parent)
     : QObject(parent)
 {

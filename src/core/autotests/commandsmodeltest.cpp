@@ -21,7 +21,7 @@
 #include "commandsmodeltest.h"
 #include "model/commandsmodel.h"
 #include <QTest>
-QTEST_MAIN(CommandsModelTest)
+QTEST_GUILESS_MAIN(CommandsModelTest)
 
 CommandsModelTest::CommandsModelTest(QObject *parent)
     : QObject(parent)

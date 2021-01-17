@@ -23,7 +23,7 @@
 #include "model/rocketchataccountmodel.h"
 #include <QTest>
 
-QTEST_MAIN(RocketChatAccountFilterProxyModelTest)
+QTEST_GUILESS_MAIN(RocketChatAccountFilterProxyModelTest)
 
 RocketChatAccountFilterProxyModelTest::RocketChatAccountFilterProxyModelTest(QObject *parent)
     : QObject(parent)

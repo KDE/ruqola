@@ -24,7 +24,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-QTEST_MAIN(UserCompleterModelTest)
+QTEST_GUILESS_MAIN(UserCompleterModelTest)
 
 UserCompleterModelTest::UserCompleterModelTest(QObject *parent)
     : QObject(parent)

@@ -28,7 +28,7 @@
 #include <lrucache.h>
 #include <algorithm>
 
-QTEST_MAIN(LRUCacheTest)
+QTEST_GUILESS_MAIN(LRUCacheTest)
 
 LRUCacheTest::LRUCacheTest(QObject *parent)
     : QObject(parent)

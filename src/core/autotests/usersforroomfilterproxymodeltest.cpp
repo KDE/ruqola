@@ -23,7 +23,7 @@
 #include "model/usersforroommodel.h"
 #include <QTest>
 
-QTEST_MAIN(UsersForRoomFilterProxyModelTest)
+QTEST_GUILESS_MAIN(UsersForRoomFilterProxyModelTest)
 
 UsersForRoomFilterProxyModelTest::UsersForRoomFilterProxyModelTest(QObject *parent)
     : QObject(parent)

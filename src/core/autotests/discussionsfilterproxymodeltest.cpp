@@ -23,7 +23,7 @@
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include <QTest>
-QTEST_MAIN(DiscussionsFilterProxyModelTest)
+QTEST_GUILESS_MAIN(DiscussionsFilterProxyModelTest)
 DiscussionsFilterProxyModelTest::DiscussionsFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {

@@ -22,7 +22,7 @@
 #include "serverinfo.h"
 #include "ruqola_autotest_helper.h"
 #include <QTest>
-QTEST_MAIN(ServerInfoTest)
+QTEST_GUILESS_MAIN(ServerInfoTest)
 
 ServerInfoTest::ServerInfoTest(QObject *parent)
     : QObject(parent)

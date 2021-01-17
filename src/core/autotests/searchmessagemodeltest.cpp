@@ -23,7 +23,7 @@
 #include "test_model_helpers.h"
 #include <QTest>
 
-QTEST_MAIN(SearchMessageModelTest)
+QTEST_GUILESS_MAIN(SearchMessageModelTest)
 
 SearchMessageModelTest::SearchMessageModelTest(QObject *parent)
     : QObject(parent)

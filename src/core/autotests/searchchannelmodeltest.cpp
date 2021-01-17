@@ -26,7 +26,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-QTEST_MAIN(SearchChannelModelTest)
+QTEST_GUILESS_MAIN(SearchChannelModelTest)
 
 SearchChannelModelTest::SearchChannelModelTest(QObject *parent)
     : QObject(parent)

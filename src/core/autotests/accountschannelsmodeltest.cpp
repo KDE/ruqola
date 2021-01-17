@@ -30,7 +30,7 @@
 #include <QStandardPaths>
 #include <QTest>
 
-QTEST_MAIN(AccountsChannelsModelTest)
+QTEST_GUILESS_MAIN(AccountsChannelsModelTest)
 
 AccountsChannelsModelTest::AccountsChannelsModelTest(QObject *parent)
     : QObject(parent)

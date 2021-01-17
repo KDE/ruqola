@@ -26,7 +26,7 @@
 #include <QJsonObject>
 #include <QSignalSpy>
 
-QTEST_MAIN(InputCompleterModelTest)
+QTEST_GUILESS_MAIN(InputCompleterModelTest)
 
 InputCompleterModelTest::InputCompleterModelTest(QObject *parent)
     : QObject(parent)

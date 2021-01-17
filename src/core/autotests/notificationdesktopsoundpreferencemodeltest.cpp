@@ -22,7 +22,7 @@
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include <QTest>
 
-QTEST_MAIN(NotificationDesktopSoundPreferenceModelTest)
+QTEST_GUILESS_MAIN(NotificationDesktopSoundPreferenceModelTest)
 
 NotificationDesktopSoundPreferenceModelTest::NotificationDesktopSoundPreferenceModelTest(QObject *parent)
     : QObject(parent)

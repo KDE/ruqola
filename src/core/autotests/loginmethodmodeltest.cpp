@@ -24,7 +24,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-QTEST_MAIN(LoginMethodModelTest)
+QTEST_GUILESS_MAIN(LoginMethodModelTest)
 
 LoginMethodModelTest::LoginMethodModelTest(QObject *parent)
     : QObject(parent)

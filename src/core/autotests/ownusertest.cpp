@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
-QTEST_MAIN(OwnUserTest)
+QTEST_GUILESS_MAIN(OwnUserTest)
 
 OwnUserTest::OwnUserTest(QObject *parent)
     : QObject(parent)

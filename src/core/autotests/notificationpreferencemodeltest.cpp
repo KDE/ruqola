@@ -22,7 +22,7 @@
 #include "model/notificationpreferencemodel.h"
 #include <QTest>
 
-QTEST_MAIN(NotificationPreferenceModelTest)
+QTEST_GUILESS_MAIN(NotificationPreferenceModelTest)
 
 NotificationPreferenceModelTest::NotificationPreferenceModelTest(QObject *parent)
     : QObject(parent)

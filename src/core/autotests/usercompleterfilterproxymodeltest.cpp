@@ -22,7 +22,7 @@
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/usercompletermodel.h"
 #include <QTest>
-QTEST_MAIN(UserCompleterFilterProxyModelTest)
+QTEST_GUILESS_MAIN(UserCompleterFilterProxyModelTest)
 
 UserCompleterFilterProxyModelTest::UserCompleterFilterProxyModelTest(QObject *parent)
     : QObject(parent)

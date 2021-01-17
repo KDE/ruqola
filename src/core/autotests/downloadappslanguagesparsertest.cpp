@@ -20,7 +20,7 @@
 #include "downloadappslanguagesparsertest.h"
 #include "downloadappslanguages/downloadappslanguagesparser.h"
 #include <QTest>
-QTEST_MAIN(DownloadAppsLanguagesParserTest)
+QTEST_GUILESS_MAIN(DownloadAppsLanguagesParserTest)
 DownloadAppsLanguagesParserTest::DownloadAppsLanguagesParserTest(QObject *parent)
     : QObject(parent)
 {

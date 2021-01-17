@@ -27,7 +27,7 @@
 #include <QJsonObject>
 #include <QTest>
 
-QTEST_MAIN(SearchChannelFilterProxyModelTest)
+QTEST_GUILESS_MAIN(SearchChannelFilterProxyModelTest)
 
 SearchChannelFilterProxyModelTest::SearchChannelFilterProxyModelTest(QObject *parent)
     : QObject(parent)

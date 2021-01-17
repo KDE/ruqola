@@ -24,7 +24,7 @@
 #include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include <QTest>
-QTEST_MAIN(AccountManagerTest)
+QTEST_GUILESS_MAIN(AccountManagerTest)
 
 AccountManagerTest::AccountManagerTest(QObject *parent)
     : QObject(parent)

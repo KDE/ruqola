@@ -21,7 +21,7 @@
 #include "notifierjobtest.h"
 #include "notifierjob.h"
 #include <QTest>
-QTEST_MAIN(NotifierJobTest)
+QTEST_GUILESS_MAIN(NotifierJobTest)
 
 NotifierJobTest::NotifierJobTest(QObject *parent)
     : QObject(parent)
