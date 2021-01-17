@@ -26,6 +26,7 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include <KLocalizedString>
+#include <QLabel>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
@@ -34,6 +35,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
+    , mMessageListInfo(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -46,6 +48,15 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
 
+    mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
+    mMessageListInfo->setTextFormat(Qt::RichText);
+    mMessageListInfo->setContextMenuPolicy(Qt::NoContextMenu);
+    QFont labFont = mMessageListInfo->font();
+    labFont.setBold(true);
+    mMessageListInfo->setFont(labFont);
+    connect(mMessageListInfo, &QLabel::linkActivated, this, &UsersInRoomWidget::loadMoreElements);
+    mainLayout->addWidget(mMessageListInfo);
+
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -55,6 +66,11 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 UsersInRoomWidget::~UsersInRoomWidget()
 {
 
+}
+
+void UsersInRoomWidget::loadMoreElements()
+{
+    //TODO
 }
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)

@@ -24,6 +24,7 @@
 #include <QVBoxLayout>
 #include <QListView>
 #include <QLineEdit>
+#include <QLabel>
 
 QTEST_MAIN(UsersInRoomWidgetTest)
 
@@ -47,4 +48,9 @@ void UsersInRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
+
+    auto mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
+    QVERIFY(mMessageListInfo);
+    QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
+    QCOMPARE(mMessageListInfo->contextMenuPolicy(), Qt::NoContextMenu);
 }
