@@ -29,6 +29,7 @@ class QLineEdit;
 class Room;
 class UsersInRoomMenu;
 class QLabel;
+class UsersForRoomFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomWidget : public QWidget
 {
     Q_OBJECT
@@ -45,6 +46,7 @@ private:
     Room *mRoom = nullptr;
     UsersInRoomMenu *mMenu = nullptr;
     QLabel *const mMessageListInfo = nullptr;
+    UsersForRoomFilterProxyModel *mUsersForRoomFilterProxy = nullptr;
 };
 
 #endif // USERSINROOMWIDGET_H

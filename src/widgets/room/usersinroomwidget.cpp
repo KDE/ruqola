@@ -65,7 +65,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 
 UsersInRoomWidget::~UsersInRoomWidget()
 {
-
+    mUsersForRoomFilterProxy->setFilterString(QString());
 }
 
 void UsersInRoomWidget::loadMoreElements()
@@ -75,15 +75,17 @@ void UsersInRoomWidget::loadMoreElements()
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)
 {
-    //TODO
+    if (mUsersForRoomFilterProxy) {
+        mUsersForRoomFilterProxy->setFilterString(str);
+    }
 }
 
 void UsersInRoomWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom) {
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
-        mListView->setModel(model);
+        mUsersForRoomFilterProxy = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
+        mListView->setModel(mUsersForRoomFilterProxy);
 //        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
 //        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
 //        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
