@@ -34,8 +34,14 @@ public:
     void setFilterString(const QString &string);
 
     Q_REQUIRED_RESULT bool hasFullList() const;
+    Q_REQUIRED_RESULT bool loadMoreUsersInProgress() const;
+
+    Q_REQUIRED_RESULT int total() const;
+    Q_REQUIRED_RESULT int numberOfUsers() const;
+
 Q_SIGNALS:
     void hasFullListChanged();
+    void loadingInProgressChanged();
 
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;

@@ -59,3 +59,19 @@ bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
         return false;
     }
 }
+
+bool UsersForRoomFilterProxyModel::loadMoreUsersInProgress() const
+{
+    return static_cast<UsersForRoomModel *>(sourceModel())->loadMoreUsersInProgress();
+}
+
+int UsersForRoomFilterProxyModel::total() const
+{
+    return static_cast<UsersForRoomModel *>(sourceModel())->total();
+}
+
+int UsersForRoomFilterProxyModel::numberOfUsers() const
+{
+    return static_cast<UsersForRoomModel *>(sourceModel())->usersCount();
+}
+

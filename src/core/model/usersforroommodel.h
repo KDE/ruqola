@@ -62,9 +62,12 @@ public:
     void setHasFullList(bool hasFullList);
     Q_REQUIRED_RESULT int usersCount() const;
 
+    void setLoadMoreUsersInProgress(bool inProgress);
+    Q_REQUIRED_RESULT bool loadMoreUsersInProgress() const;
 Q_SIGNALS:
     void hasFullListChanged();
     void userStatusChanged(const QString &userId);
+    void loadingInProgressChanged();
 
 private:
     QString generateDisplayName(const User &user) const;
@@ -73,6 +76,7 @@ private:
     int mTotal = 0;
     int mOffset = 0;
     bool mHasFullList = false;
+    bool mLoadingInProgress = false;
 };
 
 #endif // USERSFORROOMMODEL_H

@@ -234,3 +234,16 @@ void UsersForRoomModel::setUserStatusChanged(const User &newuser)
         }
     }
 }
+
+void UsersForRoomModel::setLoadMoreUsersInProgress(bool inProgress)
+{
+    if (mLoadingInProgress != inProgress) {
+        mLoadingInProgress = inProgress;
+        Q_EMIT loadingInProgressChanged();
+    }
+}
+
+bool UsersForRoomModel::loadMoreUsersInProgress() const
+{
+    return mLoadingInProgress;
+}

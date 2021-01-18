@@ -780,6 +780,7 @@ void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketC
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
+        usersModelForRoom->setLoadMoreUsersInProgress(false);
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfoIdentifier;
     }
@@ -936,6 +937,7 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     const int offset = usersModelForRoom->usersCount();
     if (offset < usersModelForRoom->total()) {
+        usersModelForRoom->setLoadMoreUsersInProgress(true);
         restApi()->membersInRoom(roomId, channelType, offset, qMin(50, usersModelForRoom->total() - offset));
     }
 }

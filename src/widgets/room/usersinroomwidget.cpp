@@ -81,12 +81,9 @@ void UsersInRoomWidget::setRoom(Room *room)
     if (mRoom) {
         mUsersForRoomFilterProxy = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
         mListView->setModel(mUsersForRoomFilterProxy);
-//        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-//        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-//        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
-//        connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-//        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-//        generateListUsersWidget();
+        connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomWidget::updateLabel);
+        connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged, this, &UsersInRoomWidget::updateLabel);
+        updateLabel();
     }
 }
 
@@ -110,26 +107,20 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void UsersInRoomWidget::updateLabel()
 {
-#if 0
-    if (mUsersForRoomFilterProxy->loadMoreListMessagesInProgress()) {
+    if (mUsersForRoomFilterProxy->loadMoreUsersInProgress()) {
         mMessageListInfo->setText(i18n("Loading..."));
     } else {
-        mMessageListInfo->setText(mUsersForRoomFilterProxy->numberOfMessages() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+        mMessageListInfo->setText(mUsersForRoomFilterProxy->numberOfUsers() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
     }
-#endif
 }
 
 QString UsersInRoomWidget::displayShowMessageInRoom() const
 {
-#if 0
-    QString displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mUsersForRoomFilterProxy->numberOfMessages(), mUsersForRoomFilterProxy->total());
+    QString displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mUsersForRoomFilterProxy->numberOfUsers(), mUsersForRoomFilterProxy->total());
     if (!mUsersForRoomFilterProxy->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
-#else
-    return {};
-#endif
 }
 
 void UsersInRoomWidget::loadMoreUsers()

@@ -45,6 +45,7 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
 
     connect(mUsersModelForRoom, &UsersForRoomModel::hasFullListChanged, mUsersModelForRoomProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
+    connect(mUsersModelForRoom, &UsersForRoomModel::loadingInProgressChanged, mUsersModelForRoomProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
 
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 }
