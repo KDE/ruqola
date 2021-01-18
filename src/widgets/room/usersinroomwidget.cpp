@@ -54,7 +54,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     QFont labFont = mMessageListInfo->font();
     labFont.setBold(true);
     mMessageListInfo->setFont(labFont);
-    connect(mMessageListInfo, &QLabel::linkActivated, this, &UsersInRoomWidget::loadMoreElements);
+    connect(mMessageListInfo, &QLabel::linkActivated, this, &UsersInRoomWidget::loadMoreUsers);
     mainLayout->addWidget(mMessageListInfo);
 
     mListView->setObjectName(QStringLiteral("mListView"));
@@ -66,11 +66,6 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 UsersInRoomWidget::~UsersInRoomWidget()
 {
     mUsersForRoomFilterProxy->setFilterString(QString());
-}
-
-void UsersInRoomWidget::loadMoreElements()
-{
-    //TODO
 }
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)
@@ -110,4 +105,34 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
     mMenu->setParentWidget(this);
     mMenu->setRoom(mRoom);
     mMenu->slotCustomContextMenuRequested(pos);
+}
+
+
+void UsersInRoomWidget::updateLabel()
+{
+#if 0
+    if (mUsersForRoomFilterProxy->loadMoreListMessagesInProgress()) {
+        mMessageListInfo->setText(i18n("Loading..."));
+    } else {
+        mMessageListInfo->setText(mUsersForRoomFilterProxy->numberOfMessages() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+    }
+#endif
+}
+
+QString UsersInRoomWidget::displayShowMessageInRoom() const
+{
+#if 0
+    QString displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mUsersForRoomFilterProxy->numberOfMessages(), mUsersForRoomFilterProxy->total());
+    if (!mUsersForRoomFilterProxy->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
+#else
+    return {};
+#endif
+}
+
+void UsersInRoomWidget::loadMoreUsers()
+{
+    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
 }

@@ -38,9 +38,11 @@ public:
     ~UsersInRoomWidget() override;
     void setRoom(Room *room);
 private:
+    void updateLabel();
     void slotTextChanged(const QString &str);
     void slotCustomContextMenuRequested(const QPoint &pos);
-    void loadMoreElements();
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    void loadMoreUsers();
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     Room *mRoom = nullptr;
