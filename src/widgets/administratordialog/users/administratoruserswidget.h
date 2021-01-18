@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,31 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORWIDGET_H
-#define ADMINISTRATORWIDGET_H
+#ifndef ADMINISTRATORUSERSWIDGET_H
+#define ADMINISTRATORUSERSWIDGET_H
 
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QTabWidget;
-class AdministratorRoomsWidget;
-class AdministratorCustomUserStatusWidget;
-class AdministratorCustomSoundsWidget;
-class AdministratorServerInfoWidget;
-class AdministratorUsersWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
+class QLineEdit;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorWidget(QWidget *parent = nullptr);
-    ~AdministratorWidget() override;
+    explicit AdministratorUsersWidget(QWidget *parent = nullptr);
+    ~AdministratorUsersWidget() override;
 private:
-    QTabWidget *const mTabWidget;
-    AdministratorRoomsWidget *const mAdministratorRoomsWidget;
-    AdministratorCustomUserStatusWidget *const mAdministratorCustomUserStatusWidget;
-    AdministratorCustomSoundsWidget *const mAdministratorCustomSoundsWidget;
-    AdministratorServerInfoWidget *const mAdministratorServerInfoWidget;
-    AdministratorUsersWidget *const mAdministratorUsersWidget;
+    void slotTextChanged(const QString &str);
+    QLineEdit *const mSearchLineEdit;
 };
 
-#endif // ADMINISTRATORWIDGET_H
+#endif // ADMINISTRATORUSERSWIDGET_H

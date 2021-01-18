@@ -20,6 +20,7 @@
 
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
+#include "users/administratoruserswidget.h"
 #include "rooms/administratorroomswidget.h"
 #include "administratorwidget.h"
 #include "serverinfo/administratorserverinfowidget.h"
@@ -32,16 +33,17 @@
 
 AdministratorWidget::AdministratorWidget(QWidget *parent)
     : QWidget(parent)
+    , mTabWidget(new QTabWidget(this))
     , mAdministratorRoomsWidget(new AdministratorRoomsWidget(this))
     , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(this))
     , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(this))
     , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(this))
+    , mAdministratorUsersWidget(new AdministratorUsersWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mTabWidget = new QTabWidget(this);
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     mainLayout->addWidget(mTabWidget);
 
@@ -58,6 +60,8 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
         mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
         mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
     }
+    mAdministratorUsersWidget->setObjectName(QStringLiteral("mAdministratorUsersWidget"));
+    mTabWidget->addTab(mAdministratorUsersWidget, i18n("Users"));
 }
 
 AdministratorWidget::~AdministratorWidget()

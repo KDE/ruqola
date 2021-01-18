@@ -24,6 +24,7 @@
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
+#include "administratordialog/users/administratoruserswidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -57,4 +58,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
     //TODO we need to fix mRocketChatAccount::hasPermission in autotest.
     auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
     QVERIFY(mAdministratorServerInfoWidget);
+
+    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
+    QVERIFY(mAdministratorUsersWidget);
 }
