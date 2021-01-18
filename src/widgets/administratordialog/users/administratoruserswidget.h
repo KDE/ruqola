@@ -25,6 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
+class QTableView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -34,6 +35,7 @@ public:
 private:
     void slotTextChanged(const QString &str);
     QLineEdit *const mSearchLineEdit;
+    QTableView *const mResultTreeWidget;
 };
 
 #endif // ADMINISTRATORUSERSWIDGET_H

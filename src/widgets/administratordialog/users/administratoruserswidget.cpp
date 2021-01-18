@@ -22,11 +22,14 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <QLineEdit>
+#include <QTableView>
 #include <QVBoxLayout>
+#include <QHeaderView>
 
 AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new QLineEdit(this))
+    , mResultTreeWidget(new QTableView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,6 +40,14 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorUsersWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
+
+    mResultTreeWidget->setShowGrid(false);
+    mResultTreeWidget->setSortingEnabled(true);
+    mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
+    mResultTreeWidget->verticalHeader()->hide();
+    mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
+    mainLayout->addWidget(mResultTreeWidget);
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
