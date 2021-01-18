@@ -42,7 +42,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Channel..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
