@@ -61,6 +61,8 @@ set (Ruqola_model_core_srcs
 
     model/adminroomsmodel.cpp
     model/adminroomsfilterproxymodel.cpp
+
+    model/adminusersmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
