@@ -30,6 +30,14 @@ class LIBRUQOLACORE_EXPORT AdminUsersModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    //TODO
+    enum AdminUsersRoles {
+        Name,
+        Identifier,
+        LastColumn = Identifier
+    };
+    Q_ENUM(AdminUsersRoles)
+
     explicit AdminUsersModel(QObject *parent = nullptr);
     ~AdminUsersModel() override;
 
