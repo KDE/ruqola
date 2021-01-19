@@ -20,6 +20,9 @@
 
 #include "administratoruserswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "restapirequest.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QTableView>
