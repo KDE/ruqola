@@ -25,7 +25,6 @@
 #include "libruqolacore_export.h"
 #include "administrator/adminrooms.h"
 
-// Model showing all emojis
 class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
 {
     Q_OBJECT
