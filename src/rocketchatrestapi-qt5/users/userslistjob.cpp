@@ -49,7 +49,7 @@ bool UsersListJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &UsersListJob::slotUsersListFinished);
-    addStartRestApiInfo(QByteArrayLiteral("UsersListJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("UsersListJob: ask users list"));
     return true;
 }
 
