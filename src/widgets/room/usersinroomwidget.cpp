@@ -65,7 +65,9 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 
 UsersInRoomWidget::~UsersInRoomWidget()
 {
-    mUsersForRoomFilterProxy->setFilterString(QString());
+    if (mUsersForRoomFilterProxy) {
+        mUsersForRoomFilterProxy->setFilterString(QString());
+    }
 }
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)
