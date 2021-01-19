@@ -18,37 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINUSERSMODEL_H
-#define ADMINUSERSMODEL_H
+#include "adminusersmodeltest.h"
+#include "model/adminusersmodel.h"
+#include <QTest>
+QTEST_MAIN(AdminUsersModelTest)
 
-#include <QAbstractListModel>
-#include <QVector>
-
-#include "libruqolacore_export.h"
-#include "user.h"
-
-
-class LIBRUQOLACORE_EXPORT AdminUsersModel : public QAbstractListModel
+AdminUsersModelTest::AdminUsersModelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
+
+}
+
+void AdminUsersModelTest::shouldHaveDefaultValues()
+{
+    AdminUsersModel m;
     //TODO
-    enum AdminUsersRoles {
-        Name,
-        Identifier,
-        LastColumn = Identifier
-    };
-    Q_ENUM(AdminUsersRoles)
-
-    explicit AdminUsersModel(QObject *parent = nullptr);
-    ~AdminUsersModel() override;
-
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-private:
-    QVector<User> mUsers;
-};
-
-#endif // ADMINUSERSMODEL_H
+}

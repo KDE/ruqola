@@ -63,6 +63,7 @@ set (Ruqola_model_core_srcs
     model/adminroomsfilterproxymodel.cpp
 
     model/adminusersmodel.cpp
+    model/adminusersfilterproxymodel.cpp
     )
 
 set(Ruqola_plugins_srcs

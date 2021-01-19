@@ -19,6 +19,7 @@
 */
 
 #include "adminusersmodel.h"
+#include <KLocalizedString>
 
 AdminUsersModel::AdminUsersModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -36,8 +37,7 @@ int AdminUsersModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    //return mAdminRooms.count();
-    return 0;
+    return mUsers.count();
 }
 
 QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -72,23 +72,19 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
 int AdminUsersModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-#if 0
-    return static_cast<int>(AdminRoomsRoles::LastColumn) + 1;
-#else
-    return -1;
-#endif
+    return static_cast<int>(AdminUsersModel::LastColumn) + 1;
 }
 
 QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
 {
-#if 0
-    if (index.row() < 0 || index.row() >= mAdminRooms.count()) {
+    if (index.row() < 0 || index.row() >= mUsers.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
+#if 0
     const AdminRoom &adminroom = mAdminRooms.at(index.row());
     const int col = index.column();
     switch (static_cast<AdminRoomsRoles>(col)) {
