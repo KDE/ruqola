@@ -20,6 +20,8 @@
 
 #include "administratoruserswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/adminusersfilterproxymodel.h"
+#include "model/adminusersmodel.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "restapirequest.h"
@@ -51,6 +53,14 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
     mainLayout->addWidget(mResultTreeWidget);
+
+    mAdminUsersModel = new AdminUsersModel(this);
+    mAdminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
+
+    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mAdminUsersModel, this);
+    mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+
+    mResultTreeWidget->setModel(mAdminUsersProxyModel);
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
@@ -60,5 +70,5 @@ AdministratorUsersWidget::~AdministratorUsersWidget()
 
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {
-    //TODO
+    mAdminUsersProxyModel->setFilterString(str);
 }

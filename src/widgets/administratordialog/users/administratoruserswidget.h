@@ -26,6 +26,8 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QTableView;
+class AdminUsersModel;
+class AdminUsersFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -36,6 +38,8 @@ private:
     void slotTextChanged(const QString &str);
     QLineEdit *const mSearchLineEdit;
     QTableView *const mResultTreeWidget;
+    AdminUsersModel *mAdminUsersModel = nullptr;
+    AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
 
 #endif // ADMINISTRATORUSERSWIDGET_H
