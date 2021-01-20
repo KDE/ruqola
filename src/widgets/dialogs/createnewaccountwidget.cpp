@@ -69,6 +69,9 @@ AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
     }
     mAccountInfo.displayName = accountName;
     mAccountInfo.serverUrl = mServerName->text().trimmed();
+    if (mAccountInfo.serverUrl.endsWith(QLatin1Char('/'))) {
+        mAccountInfo.serverUrl.chop(1);
+    }
     mAccountInfo.userName = mUserName->text().trimmed();
     return mAccountInfo;
 }
