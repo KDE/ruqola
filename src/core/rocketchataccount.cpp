@@ -1489,7 +1489,7 @@ void RocketChatAccount::setUseLdap(bool ldap)
     settings()->setUseLdap(ldap);
 }
 
-Q_REQUIRED_RESULT bool RocketChatAccount::useLdap() const
+bool RocketChatAccount::useLdap() const
 {
     return settings()->useLdap();
 }
