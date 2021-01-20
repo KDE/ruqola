@@ -35,8 +35,11 @@ public:
     //TODO
     enum AdminUsersRoles {
         Name,
-        Identifier,
-        LastColumn = Identifier
+        UserName,
+        Email,
+        Roles,
+        Disabled,
+        LastColumn = Disabled
     };
     Q_ENUM(AdminUsersRoles)
 
