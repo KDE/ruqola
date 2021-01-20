@@ -2102,7 +2102,7 @@ void RocketChatAccount::slotDisconnectedByServer()
     // Let's try connecting in again
     // TODO: delay this more and more like RC+ ?
     QTimer::singleShot(100, this, [this]() {
-        qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us";
+        qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
         // Do the parts of logOut() that don't actually try talking to the server
         mRoomModel->clear();
         delete mDdp;
