@@ -36,6 +36,8 @@ public:
     void setIsAnimatedPixmap(bool value);
 
 private:
+    void readConfig();
+    void writeConfig();
     ShowImageWidget *mShowImageWidget = nullptr;
 };
 

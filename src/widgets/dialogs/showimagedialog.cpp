@@ -24,7 +24,12 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
+namespace {
+static const char myShowImageDialogGroupName[] = "ShowImageDialog";
+}
 ShowImageDialog::ShowImageDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -40,10 +45,12 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
     mainLayout->addWidget(buttonBox);
+    readConfig();
 }
 
 ShowImageDialog::~ShowImageDialog()
 {
+    writeConfig();
 }
 
 void ShowImageDialog::setImagePath(const QString &imagePath)
@@ -64,4 +71,19 @@ void ShowImageDialog::setIsAnimatedPixmap(bool value)
 void ShowImageDialog::setImage(const QPixmap &pix)
 {
     mShowImageWidget->setImage(pix);
+}
+
+void ShowImageDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myShowImageDialogGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void ShowImageDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myShowImageDialogGroupName);
+    group.writeEntry("Size", size());
 }
