@@ -24,6 +24,7 @@
 #include <QLineEdit>
 
 #include <KLocalizedString>
+#include <KPasswordLineEdit>
 
 CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     : QWidget(parent)
@@ -50,6 +51,10 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     new LineEditCatchReturnKey(mUserName, this);
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
+    mPasswordLineEdit = new KPasswordLineEdit(this);
+    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+
     connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
     connect(mServerName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
@@ -73,6 +78,7 @@ AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
         mAccountInfo.serverUrl.chop(1);
     }
     mAccountInfo.userName = mUserName->text().trimmed();
+    mAccountInfo.password = mPasswordLineEdit->password();
     return mAccountInfo;
 }
 
@@ -82,6 +88,7 @@ void CreateNewAccountWidget::setAccountInfo(const AccountManager::AccountManager
     mAccountName->setText(info.displayName.isEmpty() ? info.accountName : info.displayName);
     mUserName->setText(info.userName);
     mServerName->setText(info.serverUrl);
+    mPasswordLineEdit->setPassword(info.password);
 }
 
 void CreateNewAccountWidget::setExistingAccountName(const QStringList &lst)

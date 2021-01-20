@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "accountmanager.h"
 class QLineEdit;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget
 {
     Q_OBJECT
@@ -47,6 +48,7 @@ private:
     QLineEdit *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;
     QLineEdit *mUserName = nullptr;
+    KPasswordLineEdit *mPasswordLineEdit = nullptr;
     AccountManager::AccountManagerInfo mAccountInfo;
 };
 

@@ -133,6 +133,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     account->setUserName(info.userName);
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
+    account->setPassword(info.password);
     if (info.enabled) {
         connectToAccount(account);
     }

@@ -41,6 +41,7 @@ public:
         QString accountName;
         QString userName;
         QString serverUrl;
+        QString password;
         bool enabled = true;
     };
 

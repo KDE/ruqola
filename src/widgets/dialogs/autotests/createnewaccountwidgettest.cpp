@@ -20,6 +20,7 @@
 
 #include "createnewaccountwidgettest.h"
 #include "dialogs/createnewaccountwidget.h"
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
@@ -55,4 +56,7 @@ void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.accountInfo().userName.isEmpty());
     QVERIFY(w.accountInfo().serverUrl.isEmpty());
     QVERIFY(w.accountInfo().accountName.isEmpty());
+
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
 }
