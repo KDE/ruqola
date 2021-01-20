@@ -25,12 +25,11 @@
 
 #include "texthighlighter.h"
 #include "syntaxhighlightingmanager.h"
-
+#include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 #include <KSyntaxHighlighting/Definition>
 
-#include <KTextToHTML>
 #include <KColorScheme>
 
 namespace {
@@ -96,8 +95,8 @@ QString markdownToRichText(const QString &markDown)
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     QString str = markDown;
 
-    const KTextToHTML::Options convertFlags = KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
-    str = KTextToHTML::convertToHtml(str, convertFlags);
+    const RuqolaKTextToHTML::Options convertFlags = RuqolaKTextToHTML::HighlightText | RuqolaKTextToHTML::ConvertPhoneNumbers;
+    str = RuqolaKTextToHTML::convertToHtml(str, convertFlags);
 
     // substitute "[example.com](<a href="...">...</a>)" style urls
     str = Utils::convertTextWithUrl(str);

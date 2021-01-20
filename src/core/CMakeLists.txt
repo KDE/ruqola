@@ -5,6 +5,10 @@ set(Ruqola_ddpapi_SRCS
     ddpapi/ddpmanager.cpp
     )
 
+set(Ruqola_ktexttohtml_fork_srcs
+    ktexttohtmlfork/ruqolaktexttohtml.cpp
+   )
+
 set (Ruqola_model_core_srcs    
     model/messagemodel.cpp
     model/roommodel.cpp
@@ -123,6 +127,7 @@ set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
 kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
 
 set (Ruqola_core_srcs
+    ${Ruqola_ktexttohtml_fork_srcs}
     ${Ruqola_apps_admin_SRCS}
     ${Ruqola_kcfg_SRCS}
     ${Ruqola_command_SRCS}
