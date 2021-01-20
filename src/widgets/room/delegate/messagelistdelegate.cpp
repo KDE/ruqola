@@ -75,6 +75,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
 {
     KColorScheme scheme;
     mEditColorMode = scheme.background(KColorScheme::NeutralBackground).color();
+    mEditColorText = scheme.foreground(KColorScheme::NeutralText).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
 }
@@ -368,6 +369,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     drawBackground(painter, option, index);
     if (index.data(MessageModel::MessageInEditMode).toBool()) {
         painter->fillRect(option.rect.adjusted(0, 0, -1, -1), mEditColorMode);
+        painter->setPen(mEditColorText);
     }
 
     const Layout layout = doLayout(option, index);
