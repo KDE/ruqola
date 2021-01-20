@@ -110,6 +110,7 @@ void AccountServerListWidget::addAccountConfig()
     if (dlg->exec()) {
         AccountManager::AccountManagerInfo info = dlg->accountInfo();
         QStringList accountList;
+        accountList.reserve(count());
         for (int i = 0; i < count(); ++i) {
             QListWidgetItem *it = item(i);
             accountList << it->text();
