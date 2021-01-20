@@ -2101,12 +2101,13 @@ void RocketChatAccount::slotDisconnectedByServer()
     // (e.g. while stopped in gdb, or if network went down for a bit)
     // Let's try connecting in again
     // TODO: delay this more and more like RC+ ?
-    QTimer::singleShot(100, this, [this]() {
+    QTimer::singleShot(mDelayReconnect, this, [this]() {
         qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
         // Do the parts of logOut() that don't actually try talking to the server
         mRoomModel->clear();
         delete mDdp;
         mDdp = nullptr;
+        mDelayReconnect += 1000;
         tryLogin();
     });
 }
@@ -2214,8 +2215,10 @@ void RocketChatAccount::loginStatusChangedSlot()
     if (loginStatus() == DDPAuthenticationManager::LoggedOut) {
         Q_EMIT logoutDone(accountName());
         qCDebug(RUQOLA_LOG) << "Successfully logged out!";
+    } else if (loginStatus() == DDPAuthenticationManager::LoggedIn) {
+        //Reset it.
+        mDelayReconnect = 100;
     }
-
     Q_EMIT loginStatusChanged();
 }
 

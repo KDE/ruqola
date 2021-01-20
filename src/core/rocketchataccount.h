@@ -619,6 +619,7 @@ private:
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;
 
+    int mDelayReconnect = 100;
     bool mEditingMode = false;
 };
 
