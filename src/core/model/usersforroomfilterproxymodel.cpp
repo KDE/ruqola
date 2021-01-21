@@ -36,6 +36,12 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel()
 {
 }
 
+void UsersForRoomFilterProxyModel::clearFilter()
+{
+    setFilterFixedString({});
+    mStatusType.clear();
+}
+
 void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
@@ -60,6 +66,14 @@ bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
     }
 }
 
+void UsersForRoomFilterProxyModel::setStatusType(const QString &statusType)
+{
+    if (mStatusType != statusType) {
+        mStatusType = statusType;
+        invalidateFilter();
+    }
+}
+
 bool UsersForRoomFilterProxyModel::loadMoreUsersInProgress() const
 {
     return static_cast<UsersForRoomModel *>(sourceModel())->loadMoreUsersInProgress();
@@ -73,4 +87,14 @@ int UsersForRoomFilterProxyModel::total() const
 int UsersForRoomFilterProxyModel::numberOfUsers() const
 {
     return static_cast<UsersForRoomModel *>(sourceModel())->usersCount();
+}
+
+bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (mStatusType.isEmpty()) {
+        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    }
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QString statusType = sourceIndex.data(UsersForRoomModel::Status).toString();
+    return (mStatusType == statusType) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }

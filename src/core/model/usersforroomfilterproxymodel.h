@@ -39,12 +39,18 @@ public:
     Q_REQUIRED_RESULT int total() const;
     Q_REQUIRED_RESULT int numberOfUsers() const;
 
+    void setStatusType(const QString &statusType);
+
+    void clearFilter();
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();
 
 protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+private:
+    QString mStatusType;
 };
 
 #endif // USERSFORROOMFILTERPROXYMODEL_H

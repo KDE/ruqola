@@ -44,6 +44,7 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     void loadMoreUsers();
+    void slotChangeStatusType(int index);
     void slotShowUserInfo(const QModelIndex &index);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;

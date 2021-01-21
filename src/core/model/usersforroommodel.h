@@ -36,7 +36,8 @@ public:
         UserId,
         Name,
         IconStatus,
-        DisplayName
+        DisplayName,
+        Status,
     };
     Q_ENUM(UsersForRoomRoles)
 

@@ -91,6 +91,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return user.userId();
     case Name:
         return user.name();
+    case Status:
+        return user.status();
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
     }

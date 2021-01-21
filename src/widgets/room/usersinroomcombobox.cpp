@@ -34,5 +34,5 @@ UsersInRoomComboBox::~UsersInRoomComboBox()
 void UsersInRoomComboBox::fillCombobox()
 {
     addItem(i18n("All"), QString());
-    addItem(i18n("Connected"), QStringLiteral("connected"));
+    addItem(i18n("Connected"), QStringLiteral("online"));
 }

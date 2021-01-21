@@ -46,6 +46,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 
     auto hMainLayout = new QHBoxLayout;
     hMainLayout->setObjectName(QStringLiteral("hMainLayout"));
+    hMainLayout->setContentsMargins({});
     mainLayout->addLayout(hMainLayout);
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
@@ -56,6 +57,8 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     hMainLayout->addWidget(mSearchLineEdit);
     mUsersInRoomComboBox->setObjectName(QStringLiteral("mUsersInRoomComboBox"));
     hMainLayout->addWidget(mUsersInRoomComboBox);
+    connect(mUsersInRoomComboBox, qOverload<int>(&UsersInRoomComboBox::currentIndexChanged),
+            this, &UsersInRoomWidget::slotChangeStatusType);
 
 
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
@@ -77,8 +80,13 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
 UsersInRoomWidget::~UsersInRoomWidget()
 {
     if (mUsersForRoomFilterProxy) {
-        mUsersForRoomFilterProxy->setFilterString(QString());
+        mUsersForRoomFilterProxy->clearFilter();
     }
+}
+
+void UsersInRoomWidget::slotChangeStatusType(int index)
+{
+    mUsersForRoomFilterProxy->setStatusType(mUsersInRoomComboBox->itemData(index).toString());
 }
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)

@@ -20,6 +20,7 @@
 
 #include "usersinroomwidgettest.h"
 #include "room/usersinroomwidget.h"
+#include "room/usersinroomcombobox.h"
 #include <QTest>
 #include <QVBoxLayout>
 #include <QListView>
@@ -52,4 +53,11 @@ void UsersInRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessageListInfo);
     QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
     QCOMPARE(mMessageListInfo->contextMenuPolicy(), Qt::NoContextMenu);
+
+    auto mUsersInRoomComboBox = w.findChild<UsersInRoomComboBox *>(QStringLiteral("mUsersInRoomComboBox"));
+    QVERIFY(mUsersInRoomComboBox);
+
+    auto hMainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hMainLayout"));
+    QVERIFY(hMainLayout);
+    QCOMPARE(hMainLayout->contentsMargins(), {});
 }
