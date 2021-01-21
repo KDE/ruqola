@@ -46,8 +46,9 @@ void PasswordAuthenticationInterface::login()
         return;
     }
 
-    if (mAccount->settings()->useLdap())
+    if (mAccount->settings()->useLdap()) {
         mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
-    else
+    } else {
         mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+    }
 }

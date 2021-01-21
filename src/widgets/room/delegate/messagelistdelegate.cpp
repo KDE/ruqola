@@ -489,7 +489,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     //qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return {option.rect.width(),
-                 qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+            qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
 static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)

@@ -26,7 +26,6 @@
 #include "serverinfojob.h"
 #include "ruqolawidgets_debug.h"
 
-
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QTreeWidget>

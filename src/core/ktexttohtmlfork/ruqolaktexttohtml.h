@@ -13,9 +13,7 @@
 /**
  * @author Dave Corrie \<kde@davecorrie.com\>
  */
-namespace RuqolaKTextToHTML
-{
-
+namespace RuqolaKTextToHTML {
 /**
  * @see Options
  * @since 5.5.0
@@ -25,7 +23,7 @@ enum Option
     /**
      * Preserve white-space formatting of the text
      */
-    PreserveSpaces  = 1 << 1,
+    PreserveSpaces = 1 << 1,
 
     /**
      * Replace text emoticons smileys by emoticons images.
@@ -34,18 +32,18 @@ enum Option
      * This option works only when KEmoticons framework is available at runtime,
      * and requires QGuiApplication, otherwise the flag is simply ignored.
      */
-    ReplaceSmileys  = 1 << 2,
+    ReplaceSmileys = 1 << 2,
 
     /**
      * Don't parse and replace any URLs.
      */
-    IgnoreUrls      = 1 << 3,
+    IgnoreUrls = 1 << 3,
 
     /**
      * Interpret text highlighting markup, like *bold*, _underline_ and /italic/,
      * and wrap them in corresponding HTML entities.
      */
-    HighlightText   = 1 << 4,
+    HighlightText = 1 << 4,
 
     /**
      * Replace phone numbers with tel: links.
@@ -78,11 +76,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Options)
  *
  * @since 5.5.0
  */
-QString convertToHtml(const QString &plainText,
-                      const RuqolaKTextToHTML::Options &options,
-                      int maxUrlLen = 4096,
-                      int maxAddressLen = 255);
-
+QString convertToHtml(const QString &plainText, const RuqolaKTextToHTML::Options &options, int maxUrlLen = 4096, int maxAddressLen = 255);
 }
 
 #endif

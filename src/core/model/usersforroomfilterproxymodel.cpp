@@ -74,4 +74,3 @@ int UsersForRoomFilterProxyModel::numberOfUsers() const
 {
     return static_cast<UsersForRoomModel *>(sourceModel())->usersCount();
 }
-

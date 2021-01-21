@@ -27,7 +27,6 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 
-
 class LIBRUQOLACORE_EXPORT AdminUsersModel : public QAbstractListModel
 {
     Q_OBJECT

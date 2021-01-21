@@ -224,8 +224,9 @@ void RocketChatAccountSettings::setPassword(const QString &password)
 
 void RocketChatAccountSettings::setUseLdap(bool ldap)
 {
-    if (mUseLdap == ldap)
+    if (mUseLdap == ldap) {
         return;
+    }
 
     mUseLdap = ldap;
     mSetting->setValue(QStringLiteral("useLdap"), mUseLdap);

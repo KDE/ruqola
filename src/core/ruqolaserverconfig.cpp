@@ -206,7 +206,6 @@ void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFro
     }
 }
 
-
 qint64 RuqolaServerConfig::fileMaxFileSize() const
 {
     return mFileMaxFileSize;

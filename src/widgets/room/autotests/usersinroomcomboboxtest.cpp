@@ -25,7 +25,6 @@ QTEST_MAIN(UsersInRoomComboBoxTest)
 UsersInRoomComboBoxTest::UsersInRoomComboBoxTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UsersInRoomComboBoxTest::shouldHaveDefaultValues()

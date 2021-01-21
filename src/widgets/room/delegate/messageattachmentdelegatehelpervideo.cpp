@@ -71,7 +71,7 @@ QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &ms
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
     return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth),
-                 height};
+            height};
 }
 
 bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)

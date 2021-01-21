@@ -46,5 +46,4 @@ RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
 
 RoomReplyThreadWidget::~RoomReplyThreadWidget()
 {
-
 }

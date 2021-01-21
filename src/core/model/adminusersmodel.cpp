@@ -24,12 +24,10 @@
 AdminUsersModel::AdminUsersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 AdminUsersModel::~AdminUsersModel()
 {
-
 }
 
 int AdminUsersModel::rowCount(const QModelIndex &parent) const

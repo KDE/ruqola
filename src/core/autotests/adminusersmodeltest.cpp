@@ -26,7 +26,6 @@ QTEST_MAIN(AdminUsersModelTest)
 AdminUsersModelTest::AdminUsersModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AdminUsersModelTest::shouldHaveDefaultValues()

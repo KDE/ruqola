@@ -35,10 +35,10 @@ QString KTextToHTMLHelper::getEmailAddress()
 
         // determine the local part of the email address
         int start = mPos - 1;
-        while (start >= 0 && mText.at(start).unicode() < 128 &&
-                (mText.at(start).isLetterOrNumber() ||
-                 mText.at(start) == QLatin1Char('@') || // allow @ to find invalid email addresses
-                 allowedSpecialChars.indexOf(mText.at(start)) != -1)) {
+        while (start >= 0 && mText.at(start).unicode() < 128
+               && (mText.at(start).isLetterOrNumber()
+                   || mText.at(start) == QLatin1Char('@') // allow @ to find invalid email addresses
+                   || allowedSpecialChars.indexOf(mText.at(start)) != -1)) {
             if (mText.at(start) == QLatin1Char('@')) {
                 return QString(); // local part contains '@' -> no email address
             }
@@ -56,11 +56,11 @@ QString KTextToHTMLHelper::getEmailAddress()
         // determine the domain part of the email address
         int dotPos = INT_MAX;
         int end = mPos + 1;
-        while (end < mText.length() &&
-                (mText.at(end).isLetterOrNumber() ||
-                 mText.at(end) == QLatin1Char('@') || // allow @ to find invalid email addresses
-                 mText.at(end) == QLatin1Char('.') ||
-                 mText.at(end) == QLatin1Char('-'))) {
+        while (end < mText.length()
+               && (mText.at(end).isLetterOrNumber()
+                   || mText.at(end) == QLatin1Char('@') // allow @ to find invalid email addresses
+                   || mText.at(end) == QLatin1Char('.')
+                   || mText.at(end) == QLatin1Char('-'))) {
             if (mText.at(end) == QLatin1Char('@')) {
                 return QString(); // domain part contains '@' -> no email address
             }
@@ -107,7 +107,9 @@ QString KTextToHTMLHelper::getPhoneNumber()
     if (match.hasMatch()) {
         auto m = match.captured();
         // check for maximum number of digits (15), see https://en.wikipedia.org/wiki/Telephone_numbering_plan
-        if (std::count_if(m.begin(), m.end(), [](const QChar &c) { return c.isDigit(); }) > 15) {
+        if (std::count_if(m.begin(), m.end(), [](const QChar &c) {
+            return c.isDigit();
+        }) > 15) {
             return {};
         }
         // only one / is allowed, otherwise we trigger on dates
@@ -192,24 +194,24 @@ bool KTextToHTMLHelper::atUrl() const
 
 bool KTextToHTMLHelper::isEmptyUrl(const QString &url) const
 {
-    return url.isEmpty() ||
-           url == QLatin1String("http://") ||
-           url == QLatin1String("https://") ||
-           url == QLatin1String("fish://") ||
-           url == QLatin1String("ftp://") ||
-           url == QLatin1String("ftps://") ||
-           url == QLatin1String("sftp://") ||
-           url == QLatin1String("smb://") ||
-           url == QLatin1String("vnc://") ||
-           url == QLatin1String("mailto") ||
-           url == QLatin1String("mailto:") ||
-           url == QLatin1String("www") ||
-           url == QLatin1String("ftp") ||
-           url == QLatin1String("news:") ||
-           url == QLatin1String("news://") ||
-           url == QLatin1String("tel") ||
-           url == QLatin1String("tel:") ||
-           url == QLatin1String("xmpp:");
+    return url.isEmpty()
+           || url == QLatin1String("http://")
+           || url == QLatin1String("https://")
+           || url == QLatin1String("fish://")
+           || url == QLatin1String("ftp://")
+           || url == QLatin1String("ftps://")
+           || url == QLatin1String("sftp://")
+           || url == QLatin1String("smb://")
+           || url == QLatin1String("vnc://")
+           || url == QLatin1String("mailto")
+           || url == QLatin1String("mailto:")
+           || url == QLatin1String("www")
+           || url == QLatin1String("ftp")
+           || url == QLatin1String("news:")
+           || url == QLatin1String("news://")
+           || url == QLatin1String("tel")
+           || url == QLatin1String("tel:")
+           || url == QLatin1String("xmpp:");
 }
 
 QString KTextToHTMLHelper::getUrl(bool *badurl)
@@ -250,10 +252,10 @@ QString KTextToHTMLHelper::getUrl(bool *badurl)
         bool previousCharIsSpace = false;
         bool previousCharIsADoubleQuote = false;
         bool previousIsAnAnchor = false;
-        while ((mPos < mText.length()) &&
-                (mText.at(mPos).isPrint() || mText.at(mPos).isSpace()) &&
-                ((afterUrl.isNull() && !mText.at(mPos).isSpace()) ||
-                 (!afterUrl.isNull() && mText.at(mPos) != afterUrl))) {
+        while ((mPos < mText.length())
+               && (mText.at(mPos).isPrint() || mText.at(mPos).isSpace())
+               && ((afterUrl.isNull() && !mText.at(mPos).isSpace())
+                   || (!afterUrl.isNull() && mText.at(mPos) != afterUrl))) {
             if (!previousCharIsSpace && (mText.at(mPos) == QLatin1Char('<')) && ((mPos + 1) < mText.length())) {
                 // Fix Bug #346132: allow "http://www.foo.bar<http://foo.bar/>"
                 // < inside a URL is not allowed, however there is a test which
@@ -388,13 +390,12 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, const RuqolaK
     bool startOfLine = true;
 
     for (helper.mPos = 0, x = 0; helper.mPos < helper.mText.length();
-            ++helper.mPos, ++x) {
+         ++helper.mPos, ++x) {
         ch = helper.mText.at(helper.mPos);
         if (flags & PreserveSpaces) {
             if (ch == QLatin1Char(' ')) {
                 if (helper.mPos + 1 < helper.mText.length()) {
                     if (helper.mText.at(helper.mPos + 1) != QLatin1Char(' ')) {
-
                         // A single space, make it breaking if not at the start or end of the line
                         const bool endOfLine = helper.mText.at(helper.mPos + 1) == QLatin1Char('\n');
                         if (!startOfLine && !endOfLine) {
@@ -403,7 +404,6 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, const RuqolaK
                             result += QLatin1String("&nbsp;");
                         }
                     } else {
-
                         // Whitespace of more than one space, make it all non-breaking
                         while (helper.mPos < helper.mText.length() && helper.mText.at(helper.mPos) == QLatin1Char(' ')) {
                             result += QLatin1String("&nbsp;");
@@ -495,8 +495,8 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, const RuqolaK
 
                     // remove the local part from the result (as '&'s have been expanded to
                     // &amp; we have to take care of the 4 additional characters per '&')
-                    result.truncate(result.length() -
-                                    len - (localPart.count(QLatin1Char('&')) * 4));
+                    result.truncate(result.length()
+                                    -len - (localPart.count(QLatin1Char('&')) * 4));
                     x -= len;
 
                     result += QLatin1String("<a href=\"mailto:") + str + QLatin1String("\">") + str + QLatin1String("</a>");

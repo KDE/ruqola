@@ -88,7 +88,7 @@ QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msg
     Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, maxWidth);
     return {maxWidth, // should be qMax of all sizes, but doesn't really matter
-                 layout.y + layout.height + DelegatePaintUtil::margin()};
+            layout.y + layout.height + DelegatePaintUtil::margin()};
 }
 
 MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
@@ -110,7 +110,9 @@ MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperF
     return layout;
 }
 
-enum class UserChoice { Save, Open, OpenWith, Cancel};
+enum class UserChoice {
+    Save, Open, OpenWith, Cancel
+};
 Q_DECLARE_METATYPE(UserChoice)
 
 static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
@@ -124,11 +126,11 @@ static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
         b->setProperty(prop, QVariant::fromValue(UserChoice::Open));
     }
     msgBox.addButton(i18n("Open &With..."), QMessageBox::YesRole)
-            ->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
+    ->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
     msgBox.addButton(i18n("Save &As..."), QMessageBox::ActionRole)
-            ->setProperty(prop, QVariant::fromValue(UserChoice::Save));
+    ->setProperty(prop, QVariant::fromValue(UserChoice::Save));
     msgBox.addButton(QMessageBox::Cancel)
-            ->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
+    ->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
     msgBox.exec();
     return msgBox.clickedButton()->property(prop).value<UserChoice>();
 }
@@ -136,8 +138,9 @@ static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
 static void runApplication(const KService::Ptr &offer, const QString &link, QWidget *widget)
 {
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + QLatin1String("/ruqola_attachment_XXXXXX")));
-    if (!tempDir->isValid())
+    if (!tempDir->isValid()) {
         return;
+    }
     tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
     const QString tempFile = tempDir->filePath(QUrl(link).fileName());
     const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
@@ -164,14 +167,15 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     const KService::Ptr offer = valid ? KApplicationTrader::preferredService(mimeType.name()) : KService::Ptr{};
     const UserChoice choice = askUser(url, offer, widget);
     switch (choice) {
-    case UserChoice::Save: {
+    case UserChoice::Save:
+    {
         const QString file = DelegateUtil::querySaveFileName(widget, i18n("Save File"), url);
         if (!file.isEmpty()) {
             const QUrl fileUrl = QUrl::fromLocalFile(file);
             Ruqola::self()->rocketChatAccount()->downloadFile(link, fileUrl);
         }
-    }
         break;
+    }
     case UserChoice::Open:
         runApplication(offer, link, widget);
         break;

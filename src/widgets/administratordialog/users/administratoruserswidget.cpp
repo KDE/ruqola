@@ -65,7 +65,6 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
 {
-
 }
 
 void AdministratorUsersWidget::slotTextChanged(const QString &str)

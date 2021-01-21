@@ -148,16 +148,16 @@ void ServerInfo::setCommitHash(const QString &commitHash)
 bool ServerInfo::operator ==(const ServerInfo &other) const
 {
     return mArch == other.arch()
-            && mPlatform == other.platform()
-            && mVersion == other.version()
-            && mCommitAuthor == other.commitAuthor()
-            && mCommitBranch == other.commitBranch()
-            && mCommitTag == other.commitTag()
-            && mCommitSubject == other.commitSubject()
-            && mCommitHash == other.commitHash()
-            && mNumberOfCpu == other.numberOfCpu()
-            && mOsRelease == other.osRelease()
-            && mNodeVersion == other.nodeVersion();
+           && mPlatform == other.platform()
+           && mVersion == other.version()
+           && mCommitAuthor == other.commitAuthor()
+           && mCommitBranch == other.commitBranch()
+           && mCommitTag == other.commitTag()
+           && mCommitSubject == other.commitSubject()
+           && mCommitHash == other.commitHash()
+           && mNumberOfCpu == other.numberOfCpu()
+           && mOsRelease == other.osRelease()
+           && mNodeVersion == other.nodeVersion();
 }
 
 QString ServerInfo::osRelease() const

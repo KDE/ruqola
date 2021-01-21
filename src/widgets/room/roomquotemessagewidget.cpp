@@ -45,7 +45,6 @@ RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
 
 RoomQuoteMessageWidget::~RoomQuoteMessageWidget()
 {
-
 }
 
 void RoomQuoteMessageWidget::setMessageText(const QString &str)

@@ -123,7 +123,6 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
                 openExternalDialogLabel->setContextMenuPolicy(Qt::CustomContextMenu);
                 connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
                 mFlowLayout->addWidget(openExternalDialogLabel);
-
             } else if (!model->hasFullList()) {
                 auto *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);

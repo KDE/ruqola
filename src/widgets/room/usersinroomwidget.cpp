@@ -118,7 +118,6 @@ void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
     }
 }
 
-
 void UsersInRoomWidget::updateLabel()
 {
     if (mUsersForRoomFilterProxy->loadMoreUsersInProgress()) {

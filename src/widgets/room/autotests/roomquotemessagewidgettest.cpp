@@ -25,7 +25,6 @@ QTEST_MAIN(RoomQuoteMessageWidgetTest)
 RoomQuoteMessageWidgetTest::RoomQuoteMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomQuoteMessageWidgetTest::shouldHaveDefaultValues()

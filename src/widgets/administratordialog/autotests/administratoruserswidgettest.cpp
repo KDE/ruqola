@@ -25,7 +25,6 @@ QTEST_MAIN(AdministratorUsersWidgetTest)
 AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AdministratorUsersWidgetTest::shouldHaveDefaultValues()

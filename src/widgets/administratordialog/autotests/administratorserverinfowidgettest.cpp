@@ -44,5 +44,4 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
-
 }

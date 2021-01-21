@@ -29,7 +29,6 @@ QTEST_MAIN(RoomReplyThreadWidgetTest)
 RoomReplyThreadWidgetTest::RoomReplyThreadWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomReplyThreadWidgetTest::shouldHaveDefaultValues()

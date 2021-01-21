@@ -24,12 +24,10 @@
 UsersInRoomComboBox::UsersInRoomComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-
 }
 
 UsersInRoomComboBox::~UsersInRoomComboBox()
 {
-
 }
 
 void UsersInRoomComboBox::fillCombobox()
