@@ -30,5 +30,6 @@ UsersInRoomComboBoxTest::UsersInRoomComboBoxTest(QObject *parent)
 void UsersInRoomComboBoxTest::shouldHaveDefaultValues()
 {
     UsersInRoomComboBox w;
+    QVERIFY(w.count() > 0);
     //TODO
 }

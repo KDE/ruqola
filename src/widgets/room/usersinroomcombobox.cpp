@@ -24,6 +24,7 @@
 UsersInRoomComboBox::UsersInRoomComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    fillCombobox();
 }
 
 UsersInRoomComboBox::~UsersInRoomComboBox()

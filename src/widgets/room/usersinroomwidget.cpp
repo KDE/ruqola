@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "usersinroommenu.h"
+#include "usersinroomcombobox.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "dialogs/directchannelinfodialog.h"
@@ -37,17 +38,25 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
+    , mUsersInRoomComboBox(new UsersInRoomComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    auto hMainLayout = new QHBoxLayout;
+    hMainLayout->setObjectName(QStringLiteral("hMainLayout"));
+    mainLayout->addLayout(hMainLayout);
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
-    mainLayout->addWidget(mSearchLineEdit);
+    hMainLayout->addWidget(mSearchLineEdit);
+    mUsersInRoomComboBox->setObjectName(QStringLiteral("mUsersInRoomComboBox"));
+    hMainLayout->addWidget(mUsersInRoomComboBox);
+
 
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);
