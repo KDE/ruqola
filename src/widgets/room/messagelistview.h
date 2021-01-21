@@ -99,6 +99,8 @@ private:
     void handleMouseEvent(QMouseEvent *event);
     void slotShowFullThread(const QModelIndex &index);
     void slotQuoteMessage(const QModelIndex &index);
+    void slotCopyLink(const QModelIndex &index);
+    Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
 
 private:
     Room *mRoom = nullptr;

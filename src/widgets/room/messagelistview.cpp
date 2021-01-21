@@ -251,9 +251,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotEditMessage(index);
     });
 
-    auto *quoteAction = new QAction(QIcon::fromTheme(QStringLiteral("format-text-blockquote")), i18n("Quote"), &menu); //TODO add menu
+    auto *quoteAction = new QAction(QIcon::fromTheme(QStringLiteral("format-text-blockquote")), i18n("Quote"), &menu);
     connect(quoteAction, &QAction::triggered, this, [=]() {
         slotQuoteMessage(index);
+    });
+
+    auto *copyLinkAction = new QAction(i18n("Copy Link"), &menu); //TODO add icon
+    connect(copyLinkAction, &QAction::triggered, this, [=]() {
+        slotCopyLink(index);
     });
 
     if (mMode == Mode::Editing) {
@@ -299,6 +304,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
         }
         menu.addAction(copyAction);
+        menu.addAction(copyLinkAction);
+        menu.addSeparator();
         menu.addAction(selectAllAction);
 
         menu.addSeparator();
@@ -331,6 +338,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(quoteAction);
         menu.addSeparator();
         menu.addAction(copyAction);
+        menu.addAction(copyLinkAction);
+        menu.addSeparator();
         menu.addAction(selectAllAction);
         if (index.data(MessageModel::CanEditMessage).toBool()) {
             menu.addSeparator();
@@ -356,6 +365,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
         }
         menu.addAction(copyAction);
+        menu.addAction(copyLinkAction);
+        menu.addSeparator();
         menu.addAction(selectAllAction);
         menu.addSeparator();
         auto *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
@@ -473,14 +484,28 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
 }
 
-void MessageListView::slotQuoteMessage(const QModelIndex &index)
+void MessageListView::slotCopyLink(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
-    QString text = index.data(MessageModel::OriginalMessage).toString();
+    const QString permalink = generatePermalink(messageId);
+    QClipboard *clip = QApplication::clipboard();
+    clip->setText(permalink, QClipboard::Clipboard);
+}
+
+QString MessageListView::generatePermalink(const QString &messageId) const
+{
     QString permalink = mCurrentRocketChatAccount->serverUrl() + QLatin1Char('/') + RoomUtil::generatePermalink(messageId, mRoom->name(), mRoom->channelType());
     if (!permalink.startsWith(QStringLiteral("https://"))) {
         permalink.prepend(QStringLiteral("https://"));
     }
+    return permalink;
+}
+
+void MessageListView::slotQuoteMessage(const QModelIndex &index)
+{
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    QString text = index.data(MessageModel::OriginalMessage).toString();
+    const QString permalink = generatePermalink(messageId);
     //qDebug() << " permalink " << permalink;
     if (text.length() > 80) {
         text = text.left(80) + QStringLiteral("...");
