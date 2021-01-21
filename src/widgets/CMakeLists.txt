@@ -142,6 +142,7 @@ set(Ruqola_roomwidget_SRCS
     room/usersinroomdialog.cpp
     room/usersinroomwidget.cpp
     room/usersinroommenu.cpp
+    room/usersinroomcombobox.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
