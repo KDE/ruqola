@@ -25,6 +25,7 @@
 #include "usersinroommenu.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
+#include "dialogs/directchannelinfodialog.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -61,6 +62,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     mainLayout->addWidget(mListView);
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
+    connect(mListView, &QListView::doubleClicked, this, &UsersInRoomWidget::slotShowUserInfo);
 }
 
 UsersInRoomWidget::~UsersInRoomWidget()
@@ -104,6 +106,16 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
     mMenu->setParentWidget(this);
     mMenu->setRoom(mRoom);
     mMenu->slotCustomContextMenuRequested(pos);
+}
+
+void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        const QString userName = index.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+        DirectChannelInfoDialog dlg(this);
+        dlg.setUserName(userName);
+        dlg.exec();
+    }
 }
 
 
