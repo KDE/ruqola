@@ -89,8 +89,7 @@ void SearchMessageWidget::updateLabel()
 
 QString SearchMessageWidget::displayShowSearch() const
 {
-    QString displayMessageStr;
-    displayMessageStr = i18np("%1 Message in room", "%1 Messages in room", mModel->rowCount());
+    const QString displayMessageStr = i18np("%1 Message in room", "%1 Messages in room", mModel->rowCount());
     return displayMessageStr;
 }
 
