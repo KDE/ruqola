@@ -116,7 +116,6 @@ void TextConverterTest::shouldConvertText()
 
     output = prepareExpectedOutput(output);
 
-    QEXPECT_FAIL("bold", "Bug in kf5", Continue);
     QEXPECT_FAIL("multi star", "Bug in kf5", Continue);
     QEXPECT_FAIL("Remove <br/>", "Bug in kf5", Continue);
 
@@ -200,10 +199,10 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QTest::addColumn<QString>("output");
     QTest::addColumn<QString>("serverUrl");
     QTest::newRow("empty") << QString() << QString() << QStringLiteral("www.kde.org");
-    QTest::newRow("bold") << QStringLiteral("*foo*") << QStringLiteral("<div><b>*foo*</b></div>") << QStringLiteral("www.kde.org");
-    QTest::newRow("underline") << QStringLiteral("_foo_") << QStringLiteral("<div><u>_foo_</u></div>") << QStringLiteral("www.kde.org");
+    QTest::newRow("bold") << QStringLiteral("*foo*") << QStringLiteral("<div><b>foo</b></div>") << QStringLiteral("www.kde.org");
+    QTest::newRow("italic") << QStringLiteral("_foo_") << QStringLiteral("<div><i>foo</i></div>") << QStringLiteral("www.kde.org");
     //TODO error
-    QTest::newRow("underline2") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("<div><u>_personal: theming related tasks_</u></div>") << QStringLiteral("www.kde.org");
+    QTest::newRow("italic2") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("<div><i>personal: theming related tasks</i></div>") << QStringLiteral("www.kde.org");
     QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<div>foo</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("customemojiwithmanager") << QStringLiteral(":foo:") << QStringLiteral("<div>:foo:</div>") << QStringLiteral("www.kde.org");
 
@@ -250,7 +249,7 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                  << QStringLiteral("<div>bla</div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div>ff</div>") << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode6") << QStringLiteral("*foo*\n```\nfoo\n```\n*bar*\n```blub```\n*asdf*")
                                  << QStringLiteral(
-        "<div><b>*foo*</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div><b>*bar*</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table><div><b>*asdf*</b></div>")
+        "<div><b>foo</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>foo</code></td></tr></table><div><b>bar</b></div><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table><div><b>asdf</b></div>")
                                  << QStringLiteral("www.kde.org");
     QTest::newRow("quotedcode7") << QStringLiteral(":)\n```\n:)\n```\n:)")
                                  << QStringLiteral(
