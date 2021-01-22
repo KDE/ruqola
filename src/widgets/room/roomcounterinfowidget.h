@@ -35,8 +35,12 @@ public:
     Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
 
+Q_SIGNALS:
+    void markAsRead();
+
 private:
     void updateInfo();
+    void slotLinkActivated(const QString &contents);
     ChannelCounterInfo mChannelCounterInfo;
 };
 
