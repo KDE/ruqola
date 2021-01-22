@@ -100,8 +100,6 @@ public:
 
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
-    UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
-
     MessageModel *messageModel(const QString &roomId) const;
 
     Q_REQUIRED_RESULT QString inputMessage(const QString &roomId) const;

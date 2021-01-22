@@ -38,6 +38,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
+    , mUsersForRoomFilterProxy(new UsersForRoomFilterProxyModel(this))
     , mUsersInRoomComboBox(new UsersInRoomComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -75,13 +76,14 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
     connect(mListView, &QListView::doubleClicked, this, &UsersInRoomWidget::slotShowUserInfo);
+    mListView->setModel(mUsersForRoomFilterProxy);
+    connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomWidget::updateLabel);
+    connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged, this, &UsersInRoomWidget::updateLabel);
 }
 
 UsersInRoomWidget::~UsersInRoomWidget()
 {
-    if (mUsersForRoomFilterProxy) {
-        mUsersForRoomFilterProxy->clearFilter();
-    }
+    mUsersForRoomFilterProxy->clearFilter();
 }
 
 void UsersInRoomWidget::slotChangeStatusType(int index)
@@ -91,19 +93,24 @@ void UsersInRoomWidget::slotChangeStatusType(int index)
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)
 {
-    if (mUsersForRoomFilterProxy) {
-        mUsersForRoomFilterProxy->setFilterString(str);
-    }
+    mUsersForRoomFilterProxy->setFilterString(str);
 }
 
 void UsersInRoomWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom) {
-        mUsersForRoomFilterProxy = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
-        mListView->setModel(mUsersForRoomFilterProxy);
-        connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomWidget::updateLabel);
-        connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged, this, &UsersInRoomWidget::updateLabel);
+        auto model = Ruqola::self()->rocketChatAccount()->usersModelForRoom(mRoom->roomId());
+        auto sourceModel = mUsersForRoomFilterProxy->sourceModel();
+        if (sourceModel) {
+            UsersForRoomModel *usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxy->sourceModel());
+            disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
+            disconnect(usersForRoomModel, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+        }
+
+        connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
+        connect(model, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+        mUsersForRoomFilterProxy->setSourceModel(model);
         updateLabel();
     }
 }

@@ -311,9 +311,9 @@ RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
     return mRoomFilterProxyModel;
 }
 
-UsersForRoomFilterProxyModel *RocketChatAccount::usersForRoomFilterProxyModel(const QString &roomId) const
+UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) const
 {
-    return mRoomModel->usersForRoomFilterProxyModel(roomId);
+    return mRoomModel->usersModelForRoom(roomId);
 }
 
 FilesForRoomFilterProxyModel *RocketChatAccount::filesForRoomFilterProxyModel() const

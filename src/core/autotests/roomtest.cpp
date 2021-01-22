@@ -43,9 +43,6 @@ void RoomTest::shouldHaveDefaultValue()
 {
     Room input(nullptr);
     QVERIFY(input.usersModelForRoom());
-    QVERIFY(input.usersModelForRoomProxyModel());
-
-    QCOMPARE(input.usersModelForRoomProxyModel()->sourceModel(), input.usersModelForRoom());
 
     QVERIFY(input.messageModel());
     QVERIFY(input.inputMessage().isEmpty());

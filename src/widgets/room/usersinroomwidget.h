@@ -51,7 +51,7 @@ private:
     Room *mRoom = nullptr;
     UsersInRoomMenu *mMenu = nullptr;
     QLabel *const mMessageListInfo = nullptr;
-    UsersForRoomFilterProxyModel *mUsersForRoomFilterProxy = nullptr;
+    UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;
     UsersInRoomComboBox *const mUsersInRoomComboBox;
 };
 

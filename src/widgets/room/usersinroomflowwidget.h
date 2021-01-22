@@ -27,6 +27,7 @@
 class FlowLayout;
 class Room;
 class UsersInRoomLabel;
+class UsersForRoomFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomFlowWidget : public QWidget
 {
     Q_OBJECT
@@ -47,6 +48,7 @@ private:
     Room *mRoom = nullptr;
     // userId, UsersInRoomLabel
     QMap<QString, UsersInRoomLabel *> mListUsersWidget;
+    UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxyModel;
 };
 
 #endif // USERSINROOMFLOWWIDGET_H

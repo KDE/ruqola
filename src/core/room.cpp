@@ -25,7 +25,6 @@
 #include "textconverter.h"
 #include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
-#include "model/usersforroomfilterproxymodel.h"
 #include "model/messagemodel.h"
 
 #include <KLocalizedString>
@@ -40,13 +39,6 @@ Room::Room(RocketChatAccount *account, QObject *parent)
 {
     mUsersModelForRoom = new UsersForRoomModel(this);
     mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
-    mUsersModelForRoomProxyModel = new UsersForRoomFilterProxyModel(this);
-    mUsersModelForRoomProxyModel->setObjectName(QStringLiteral("usersforroommodelproxymodel"));
-    mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
-
-    connect(mUsersModelForRoom, &UsersForRoomModel::hasFullListChanged, mUsersModelForRoomProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
-    connect(mUsersModelForRoom, &UsersForRoomModel::loadingInProgressChanged, mUsersModelForRoomProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
-
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 }
 
@@ -1338,11 +1330,6 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 UsersForRoomModel *Room::usersModelForRoom() const
 {
     return mUsersModelForRoom;
-}
-
-UsersForRoomFilterProxyModel *Room::usersModelForRoomProxyModel() const
-{
-    return mUsersModelForRoomProxyModel;
 }
 
 MessageModel *Room::messageModel() const

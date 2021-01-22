@@ -389,18 +389,6 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
     return nullptr;
 }
 
-UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QString &roomId) const
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            return room->usersModelForRoomProxyModel();
-        }
-    }
-    return {};
-}
-
 MessageModel *RoomModel::messageModel(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();

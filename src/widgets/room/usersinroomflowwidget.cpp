@@ -33,11 +33,17 @@
 #define MAX_NUMBER_USER 120
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
+    , mUsersForRoomFilterProxyModel(new UsersForRoomFilterProxyModel(this))
 {
     mFlowLayout = new FlowLayout(this);
     mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
     mFlowLayout->setSpacing(0);
     mFlowLayout->setContentsMargins({});
+    connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+    connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+    connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
+    connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::generateListUsersWidget);
+    connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
 }
 
 UsersInRoomFlowWidget::~UsersInRoomFlowWidget()
@@ -48,13 +54,18 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom) {
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
-        connect(model, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-        connect(model, &UsersForRoomFilterProxyModel::rowsRemoved, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-        connect(model, &UsersForRoomFilterProxyModel::dataChanged, this, &UsersInRoomFlowWidget::updateListUsersWidget);
-        connect(model, &UsersForRoomFilterProxyModel::modelReset, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-        connect(model, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
-        generateListUsersWidget();
+        auto sourceModel = mUsersForRoomFilterProxyModel->sourceModel();
+        if (sourceModel) {
+            UsersForRoomModel *usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxyModel->sourceModel());
+            disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
+            disconnect(usersForRoomModel, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+        }
+        UsersForRoomModel *model = Ruqola::self()->rocketChatAccount()->usersModelForRoom(mRoom->roomId());
+        mUsersForRoomFilterProxyModel->setSourceModel(model);
+
+        connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
+        connect(model, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+        //generateListUsersWidget();
     } else {
         mFlowLayout->clearAndDeleteWidgets();
     }
@@ -93,13 +104,12 @@ void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, co
 void UsersInRoomFlowWidget::generateListUsersWidget()
 {
     if (isVisible()) {
-        const auto model = Ruqola::self()->rocketChatAccount()->usersForRoomFilterProxyModel(mRoom->roomId());
-        const auto count = model->rowCount();
+        const auto count = mUsersForRoomFilterProxyModel->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         mListUsersWidget.clear();
         int numberOfUsers = 0;
         for (; numberOfUsers < count && numberOfUsers < MAX_NUMBER_USER; ++numberOfUsers) {
-            const auto userModelIndex = model->index(numberOfUsers, 0);
+            const auto userModelIndex = mUsersForRoomFilterProxyModel->index(numberOfUsers, 0);
             const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
             const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
             const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
@@ -123,7 +133,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
                 openExternalDialogLabel->setContextMenuPolicy(Qt::CustomContextMenu);
                 connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
                 mFlowLayout->addWidget(openExternalDialogLabel);
-            } else if (!model->hasFullList()) {
+            } else if (!mUsersForRoomFilterProxyModel->hasFullList()) {
                 auto *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::CustomContextMenu);

@@ -86,6 +86,7 @@ class ListMessagesModelFilterProxyModel;
 class AutotranslateLanguagesModel;
 class CommandsModel;
 class DownloadAppsLanguagesManager;
+class UsersForRoomModel;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -261,7 +262,6 @@ public:
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
-    UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     MessageModel *messageModelForRoom(const QString &roomID);
     void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
@@ -474,6 +474,8 @@ public:
     Q_REQUIRED_RESULT bool hasAutotranslateSupport() const;
     Q_REQUIRED_RESULT OwnUserPreferences ownUserPreferences() const;
     Q_REQUIRED_RESULT bool ldapEnabled() const;
+    UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

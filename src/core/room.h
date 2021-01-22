@@ -35,7 +35,6 @@
 #include <memory>
 
 class UsersForRoomModel;
-class UsersForRoomFilterProxyModel;
 class MessageModel;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT Room : public QObject
@@ -126,7 +125,6 @@ public:
     static QByteArray serialize(Room *r, bool toBinary = true);
 
     UsersForRoomModel *usersModelForRoom() const;
-    UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
 
     MessageModel *messageModel() const;
 
@@ -384,7 +382,6 @@ private:
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
-    UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     MessageModel *mMessageModel = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
