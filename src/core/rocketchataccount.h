@@ -566,7 +566,7 @@ private:
     void slotPermissionListAllDone(const QJsonObject &replyObject);
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
 
-    AccountRoomSettings *mAccountRoomSettings = nullptr;
+    AccountRoomSettings *const mAccountRoomSettings;
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

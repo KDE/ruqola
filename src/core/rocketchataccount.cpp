@@ -86,8 +86,8 @@
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
+    , mAccountRoomSettings(new AccountRoomSettings)
 {
-    mAccountRoomSettings = new AccountRoomSettings;
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"<<accountFileName;
     //create an unique file for each account
     loadSettings(accountFileName);
