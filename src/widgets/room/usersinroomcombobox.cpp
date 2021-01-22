@@ -35,4 +35,7 @@ void UsersInRoomComboBox::fillCombobox()
 {
     addItem(i18n("All"), QString());
     addItem(i18n("Connected"), QStringLiteral("online"));
+    addItem(i18n("Disconnected"), QStringLiteral("offline"));
+    addItem(i18n("Away"), QStringLiteral("away"));
+    addItem(i18n("Busy"), QStringLiteral("busy"));
 }
