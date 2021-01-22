@@ -36,8 +36,8 @@
 Room::Room(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)
+    , mUsersModelForRoom(new UsersForRoomModel(this))
 {
-    mUsersModelForRoom = new UsersForRoomModel(this);
     mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 }

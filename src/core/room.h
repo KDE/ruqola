@@ -381,7 +381,7 @@ private:
     ChannelCounterInfo mChannelCounterInfo;
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
-    UsersForRoomModel *mUsersModelForRoom = nullptr;
+    UsersForRoomModel *const mUsersModelForRoom;
     MessageModel *mMessageModel = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
