@@ -97,7 +97,7 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("remove-user")
             || id == QLatin1String("view-c-room")
             || id == QLatin1String("view-statistics")
-
+            || id == QLatin1String("post-readonly")
             ) {
             Permission p;
             p.parsePermission(obj);
