@@ -53,8 +53,10 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mAdministratorCustomUserStatusWidget->setObjectName(QStringLiteral("mAdministratorCustomUserStatusWidget"));
     mTabWidget->addTab(mAdministratorCustomUserStatusWidget, i18n("Custom User Status"));
 
-    mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
-    mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
+    if (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("manage-sounds"))) {
+        mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
+        mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
+    }
 
     if (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
         mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
