@@ -79,7 +79,8 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("add-user-to-any-c-room") || id == QLatin1String("add-user-to-any-p-room") || id == QLatin1String("view-logs")
             || id == QLatin1String("unarchive-room") || id == QLatin1String("archive-room") || id == QLatin1String("mute-user")
             || id == QLatin1String("remove-user") || id == QLatin1String("view-c-room") || id == QLatin1String("view-statistics")
-            || id == QLatin1String("post-readonly") || id == QLatin1String("manage-sounds")) {
+            || id == QLatin1String("post-readonly") || id == QLatin1String("manage-sounds") || id == QLatin1String("set-moderator")
+            || id == QLatin1String("set-leader") || id == QLatin1String("set-owner") || id == QLatin1String("delete-user")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
