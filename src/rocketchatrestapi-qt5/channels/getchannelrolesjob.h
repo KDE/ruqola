@@ -21,10 +21,11 @@
 #ifndef GETCHANNELROLESJOB_H
 #define GETCHANNELROLESJOB_H
 
-#include "librestapi_private_export.h"
 #include "channelbasejob.h"
+#include "librestapi_private_export.h"
 class QNetworkRequest;
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetChannelRolesJob : public ChannelBaseJob
 {
     Q_OBJECT
@@ -39,6 +40,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+
 protected:
     QString jobName() const override;
 

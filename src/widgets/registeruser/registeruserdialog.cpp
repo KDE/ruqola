@@ -20,14 +20,15 @@
 
 #include "registeruserdialog.h"
 #include "registeruserwidget.h"
-#include <QVBoxLayout>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <KLocalizedString>
-#include <KConfigGroup>
-#include <KSharedConfig>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 const char myConfigGroupName[] = "RegisterUserDialog";
 }
 

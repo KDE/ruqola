@@ -20,18 +20,18 @@
  *
  */
 
-#include "ruqola.h"
-#include "ddpapi/ddpclient.h"
-#include "ddpapi/ddpauthenticationmanager.h"
-#include "ruqola_debug.h"
 #include "messagequeue.h"
+#include "ddpapi/ddpauthenticationmanager.h"
+#include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqola_debug.h"
 
+#include <QCborValue>
+#include <QDataStream>
+#include <QDir>
 #include <QJsonArray>
 #include <QPair>
-#include <QDir>
-#include <QDataStream>
-#include <QCborValue>
 
 MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -64,8 +64,7 @@ MessageQueue::~MessageQueue()
 
 void MessageQueue::loadCache()
 {
-    connect(mRocketChatAccount->ddp()->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged,
-            this, &MessageQueue::onLoginStatusChanged);
+    connect(mRocketChatAccount->ddp()->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
 #if 0
     QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
     // load unsent messages cache
@@ -119,14 +118,14 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 
 void MessageQueue::onLoginStatusChanged()
 {
-    //retry sending messages
+    // retry sending messages
     // TODO: check login status?
     processQueue();
 }
 
 void MessageQueue::processQueue()
 {
-    //can be optimized using single shot timer
+    // can be optimized using single shot timer
     while (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
         const QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
         const QString method = pair.first;

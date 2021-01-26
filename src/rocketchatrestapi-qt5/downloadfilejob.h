@@ -24,7 +24,8 @@
 #include "restapiabstractjob.h"
 
 #include <QUrl>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT DownloadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT

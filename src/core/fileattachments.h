@@ -23,8 +23,8 @@
 
 #include "file.h"
 #include "libruqola_private_export.h"
-#include <QVector>
 #include <QDebug>
+#include <QVector>
 
 class LIBRUQOLACORE_TESTS_EXPORT FileAttachments
 {
@@ -50,6 +50,7 @@ public:
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
     void parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
+
 private:
     void parseFiles(const QJsonObject &fileAttachmentsObj);
     QVector<File> mFileAttachments;
@@ -59,6 +60,6 @@ private:
 };
 
 Q_DECLARE_METATYPE(FileAttachments)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const FileAttachments &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FileAttachments &t);
 
 #endif // FILEATTACHMENTS_H

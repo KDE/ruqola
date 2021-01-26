@@ -21,9 +21,10 @@
 #ifndef CHANGECHANNELANNOUNCEMENTJOB_H
 #define CHANGECHANNELANNOUNCEMENTJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChangeChannelAnnouncementJob : public RestApiAbstractJob
 {
     Q_OBJECT

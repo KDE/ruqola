@@ -19,12 +19,12 @@
 */
 
 #include "getpresencejob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
-#include <QNetworkReply>
-#include <QUrlQuery>
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 GetPresenceJob::GetPresenceJob(QObject *parent)
     : UserBaseJob(parent)

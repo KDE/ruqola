@@ -19,8 +19,8 @@
 */
 
 #include "roomsinfojobtest.h"
-#include "rooms/roomsinfojob.h"
 #include "restapimethod.h"
+#include "rooms/roomsinfojob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomsInfoJobTest)
 using namespace RocketChatRestApi;

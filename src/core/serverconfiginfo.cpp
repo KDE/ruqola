@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "rocketchataccount.h"
 #include "serverconfiginfo.h"
+#include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 
 ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)

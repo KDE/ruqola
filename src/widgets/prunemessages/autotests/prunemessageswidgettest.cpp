@@ -19,8 +19,8 @@
 */
 
 #include "prunemessageswidgettest.h"
-#include "prunemessages/prunemessageswidget.h"
 #include "misc/adduserswidget.h"
+#include "prunemessages/prunemessageswidget.h"
 #include <QCheckBox>
 #include <QDateTimeEdit>
 #include <QLabel>

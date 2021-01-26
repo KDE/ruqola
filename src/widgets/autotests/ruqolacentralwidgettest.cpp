@@ -39,5 +39,5 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
-    //TODO
+    // TODO
 }

@@ -21,9 +21,9 @@
 #ifndef PLUGINAUTHENTICATION_H
 #define PLUGINAUTHENTICATION_H
 
-#include <QObject>
-#include "libruqolacore_export.h"
 #include "authenticationmanager.h"
+#include "libruqolacore_export.h"
+#include <QObject>
 
 class PluginAuthenticationInterface;
 

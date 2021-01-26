@@ -19,12 +19,12 @@
 */
 
 #include "expandjson.h"
-#include <QTextEdit>
-#include <QPushButton>
-#include <QVBoxLayout>
 #include <QApplication>
-#include <QJsonDocument>
 #include <QDebug>
+#include <QJsonDocument>
+#include <QPushButton>
+#include <QTextEdit>
+#include <QVBoxLayout>
 
 ExpandJson::ExpandJson(QWidget *parent)
     : QWidget(parent)

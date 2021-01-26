@@ -21,8 +21,8 @@
 #include "runcommandjobtest.h"
 #include "commands/runcommandjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RunCommandJobTest)
 using namespace RocketChatRestApi;
 RunCommandJobTest::RunCommandJobTest(QObject *parent)
@@ -56,7 +56,8 @@ void RunCommandJobTest::shouldGenerateJson()
     info.roomId = QStringLiteral("room1");
     info.threadMessageId = QStringLiteral("threadId");
     job.setRunCommandInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"command":"%1","roomId":"%2","tmid":"%3"})").arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"command":"%1","roomId":"%2","tmid":"%3"})").arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
 }
 
 void RunCommandJobTest::shouldNotStarting()

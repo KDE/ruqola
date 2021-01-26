@@ -89,7 +89,7 @@ void CustomUserStatus::setStatusType(User::PresenceStatus statusType)
     mStatusType = statusType;
 }
 
-QDebug operator <<(QDebug d, const CustomUserStatus &t)
+QDebug operator<<(QDebug d, const CustomUserStatus &t)
 {
     d << "name " << t.name() << '\n';
     d << "identifier " << t.identifier() << '\n';
@@ -98,10 +98,7 @@ QDebug operator <<(QDebug d, const CustomUserStatus &t)
     return d;
 }
 
-bool CustomUserStatus::operator ==(const CustomUserStatus &other) const
+bool CustomUserStatus::operator==(const CustomUserStatus &other) const
 {
-    return mIdentifier == other.identifier()
-           && mName == other.name()
-           && mStatusType == other.statusType()
-           && mUpdatedAt == other.updatedAt();
+    return mIdentifier == other.identifier() && mName == other.name() && mStatusType == other.statusType() && mUpdatedAt == other.updatedAt();
 }

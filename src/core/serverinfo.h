@@ -22,9 +22,9 @@
 #define SERVERINFO_H
 
 #include "libruqolacore_export.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT ServerInfo
 {
@@ -60,7 +60,7 @@ public:
     Q_REQUIRED_RESULT QString commitHash() const;
     void setCommitHash(const QString &commitHash);
 
-    Q_REQUIRED_RESULT bool operator ==(const ServerInfo &other) const;
+    Q_REQUIRED_RESULT bool operator==(const ServerInfo &other) const;
 
     Q_REQUIRED_RESULT QString osRelease() const;
     void setOsRelease(const QString &osRelease);
@@ -79,11 +79,11 @@ private:
     QString mCommitHash;
     QString mOsRelease;
     QString mNodeVersion;
-    //TODO Build Date
+    // TODO Build Date
     int mNumberOfCpu = -1;
 };
 Q_DECLARE_METATYPE(ServerInfo)
 Q_DECLARE_TYPEINFO(ServerInfo, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ServerInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerInfo &t);
 
 #endif // SERVERINFO_H

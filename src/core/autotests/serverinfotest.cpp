@@ -19,8 +19,8 @@
 */
 
 #include "serverinfotest.h"
-#include "serverinfo.h"
 #include "ruqola_autotest_helper.h"
+#include "serverinfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ServerInfoTest)
 
@@ -46,7 +46,7 @@ void ServerInfoTest::shouldHaveDefaultValues()
 
     QVERIFY(w.osRelease().isEmpty());
     QVERIFY(w.nodeVersion().isEmpty());
-    //TODO
+    // TODO
 }
 
 void ServerInfoTest::shouldLoadServerInfo_data()

@@ -22,12 +22,13 @@
 #include "administratorcustomsoundscreatewidget.h"
 
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
-#include <QVBoxLayout>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myConfigAdministratorCustomSoundsCreateDialogGroupName[] = "AdministratorCustomSoundsCreateDialog";
 }
 

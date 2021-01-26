@@ -71,14 +71,11 @@ void CompletionListView::keyPressEvent(QKeyEvent *event)
         hide();
         event->accept();
         return;
-    } else if (key == Qt::Key_Return
-               || key == Qt::Key_Enter) {
+    } else if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         Q_EMIT complete(currentIndex());
         event->accept();
         return;
-    } else if (key != Qt::Key_Down && key != Qt::Key_Up
-               && key != Qt::Key_PageDown && key != Qt::Key_PageUp
-               && key != Qt::Key_Home && key != Qt::Key_End
+    } else if (key != Qt::Key_Down && key != Qt::Key_Up && key != Qt::Key_PageDown && key != Qt::Key_PageUp && key != Qt::Key_Home && key != Qt::Key_End
                && key != Qt::Key_Left && key != Qt::Key_Right) {
         // send keypresses to the linedit
         qApp->sendEvent(mTextWidget, event);
@@ -137,7 +134,7 @@ void CompletionListView::slotCompletionAvailable()
         }
     }
 
-    //qDebug() << "showing at" << pos << "size" << w << "x" << h;
+    // qDebug() << "showing at" << pos << "size" << w << "x" << h;
     setGeometry(pos.x(), pos.y(), w, h);
 
     if (!isVisible()) {

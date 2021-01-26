@@ -21,9 +21,9 @@
 #ifndef ACCOUNTROOMSETTINGS_H
 #define ACCOUNTROOMSETTINGS_H
 
+#include "libruqolacore_export.h"
 #include <QMap>
 #include <QString>
-#include "libruqolacore_export.h"
 
 class LIBRUQOLACORE_EXPORT AccountRoomSettings
 {

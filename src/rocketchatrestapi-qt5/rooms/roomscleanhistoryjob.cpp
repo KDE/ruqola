@@ -20,8 +20,8 @@
 
 #include "roomscleanhistoryjob.h"
 
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -119,7 +119,7 @@ QJsonDocument RoomsCleanHistoryJob::json() const
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    //qDebug() << " postData**************** " << postData;
+    // qDebug() << " postData**************** " << postData;
     return postData;
 }
 
@@ -137,7 +137,7 @@ bool RoomsCleanHistoryJob::CleanHistoryInfo::isValid() const
     return latest.isValid() && oldest.isValid() && !roomId.isEmpty();
 }
 
-QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t)
 {
     d << "latest " << t.latest;
     d << "oldest " << t.oldest;

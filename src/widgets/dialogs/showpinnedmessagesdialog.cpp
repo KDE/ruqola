@@ -24,7 +24,8 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
-namespace {
+namespace
+{
 static const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDialog";
 }
 

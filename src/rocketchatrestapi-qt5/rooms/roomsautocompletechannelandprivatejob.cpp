@@ -75,7 +75,7 @@ QNetworkRequest RoomsAutocompleteChannelAndPrivateJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate);
     QUrlQuery queryUrl;
-    //TODO add support for exception.
+    // TODO add support for exception.
     const QString val = QStringLiteral("{\"name\": \"%1\"}").arg(mRoomsAutocompleteInfo.name);
     queryUrl.addQueryItem(QStringLiteral("selector"), val);
     url.setQuery(queryUrl);
@@ -90,13 +90,14 @@ RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo Ro
     return mRoomsAutocompleteInfo;
 }
 
-void RoomsAutocompleteChannelAndPrivateJob::setRoomsCompleterInfo(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo)
+void RoomsAutocompleteChannelAndPrivateJob::setRoomsCompleterInfo(
+    const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo)
 {
     mRoomsAutocompleteInfo = roomCompleterInfo;
 }
 
 bool RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo::isValid() const
 {
-    //FIXME
+    // FIXME
     return !name.isEmpty();
 }

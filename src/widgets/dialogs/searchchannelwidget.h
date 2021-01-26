@@ -21,8 +21,8 @@
 #ifndef SEARCHCHANNELWIDGET_H
 #define SEARCHCHANNELWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLineEdit;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
 public:
     explicit SearchChannelWidget(QWidget *parent = nullptr);
     ~SearchChannelWidget() override;
+
 private:
     void slotOpenChannel(const QModelIndex &index);
     void slotTextChanged(const QString &str);

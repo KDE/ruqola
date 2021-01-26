@@ -22,12 +22,13 @@
 #include "administratorwidget.h"
 
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-namespace {
+namespace
+{
 const char myAdministratorDialogGroupName[] = "AdministratorDialog";
 }
 

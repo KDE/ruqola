@@ -20,9 +20,9 @@
 
 #include "accountmanagertest.h"
 #include "accountmanager.h"
-#include "rocketchataccount.h"
-#include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
+#include "model/rocketchataccountmodel.h"
+#include "rocketchataccount.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AccountManagerTest)
 
@@ -48,6 +48,6 @@ void AccountManagerTest::shouldAddAccount()
         auto *c = new RocketChatAccount();
         w.addAccount(c);
     }
-    //We have a default account when we load account
+    // We have a default account when we load account
     QCOMPARE(w.rocketChatAccountModel()->rowCount(), 11);
 }

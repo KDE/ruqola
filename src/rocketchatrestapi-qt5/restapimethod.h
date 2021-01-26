@@ -25,7 +25,8 @@
 #include "restapiutil.h"
 #include <QString>
 #include <QUrl>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiMethod
 {
 public:
@@ -35,6 +36,7 @@ public:
     void setServerUrl(const QString &serverUrl);
 
     Q_REQUIRED_RESULT QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString(), bool useV1Extension = true);
+
 private:
     QString mServerUrl;
 };

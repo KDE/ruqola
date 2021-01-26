@@ -22,10 +22,10 @@
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewchannelwidget.h"
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QPushButton>
 
 QTEST_MAIN(CreateNewChannelDialogTest)
 CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)

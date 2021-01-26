@@ -24,9 +24,9 @@
 
 #include <KLocalizedString>
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonArray>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 UsersSetPreferencesJob::UsersSetPreferencesJob(QObject *parent)
@@ -131,7 +131,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
     return postData;
 }
 
-QDebug operator <<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t)
 {
     d << "userId : " << t.userId;
     d << "newRoomNotification : " << t.newRoomNotification;

@@ -33,6 +33,7 @@ public:
     ~ConfigureAccountWidget() override;
     void save();
     void load();
+
 private:
     ConfigureAccountServerWidget *mConfigureAccountServerWidget = nullptr;
 };

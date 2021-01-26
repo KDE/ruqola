@@ -19,19 +19,14 @@
 */
 
 #include "roomwidget.h"
-#include "messagelistview.h"
-#include "messagelinewidget.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "room.h"
-#include "readonlylineeditwidget.h"
-#include "messagetextedit.h"
-#include "roomutil.h"
-#include "ruqolawidgets_debug.h"
-#include "usersinroomflowwidget.h"
-#include "dialogs/createnewdiscussiondialog.h"
-#include "dialogs/searchmessagedialog.h"
+#include "dialogs/addusersinroomdialog.h"
+#include "dialogs/autotranslateconfiguredialog.h"
+#include "dialogs/channelinfodialog.h"
 #include "dialogs/configurenotificationdialog.h"
+#include "dialogs/createnewdiscussiondialog.h"
+#include "dialogs/directchannelinfodialog.h"
+#include "dialogs/inviteusersdialog.h"
+#include "dialogs/searchmessagedialog.h"
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showdiscussionsdialog.h"
 #include "dialogs/showmentionsmessagesdialog.h"
@@ -39,30 +34,35 @@
 #include "dialogs/showsnipperedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
-#include "dialogs/autotranslateconfiguredialog.h"
-#include "dialogs/channelinfodialog.h"
-#include "dialogs/directchannelinfodialog.h"
-#include "dialogs/inviteusersdialog.h"
-#include "dialogs/addusersinroomdialog.h"
-#include "prunemessages/prunemessagesdialog.h"
 #include "exportmessages/exportmessagesdialog.h"
+#include "messagelinewidget.h"
+#include "messagelistview.h"
+#include "messagetextedit.h"
+#include "prunemessages/prunemessagesdialog.h"
+#include "readonlylineeditwidget.h"
+#include "rocketchataccount.h"
+#include "room.h"
+#include "roomutil.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "usersinroomflowwidget.h"
 
-#include "threadwidget/threadmessagedialog.h"
 #include "roomcounterinfowidget.h"
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
+#include "threadwidget/threadmessagedialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QKeyEvent>
-#include <QStackedWidget>
-#include <QMimeData>
-#include <QScrollBar>
 #include <QLabel>
+#include <QMimeData>
 #include <QPushButton>
+#include <QScrollBar>
+#include <QStackedWidget>
+#include <QVBoxLayout>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -274,7 +274,7 @@ void RoomWidget::slotInviteUsers()
 
 void RoomWidget::updateListView()
 {
-    //TODO clear qtextdocument cache
+    // TODO clear qtextdocument cache
     mMessageListView->clearTextDocumentCache();
     mMessageListView->viewport()->update();
 }
@@ -463,7 +463,8 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
     } else {
         mMessageLineWidget->setText(QString());
     }
-    mMessageLineWidget->setMode(mMessageLineWidget->messageIdBeingEdited().isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
+    mMessageLineWidget->setMode(mMessageLineWidget->messageIdBeingEdited().isEmpty() ? MessageLineWidget::EditingMode::NewMessage
+                                                                                     : MessageLineWidget::EditingMode::EditMessage);
 
     mMessageLineWidget->setFocus();
 }
@@ -484,7 +485,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
         mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
-        //TODO Description ?
+        // TODO Description ?
 
         if (mRoom->roomMessageInfo().isEmpty()) {
             mStackedWidget->setCurrentWidget(mMessageLineWidget);
@@ -571,7 +572,7 @@ void RoomWidget::slotClearNotification()
 void RoomWidget::slotEncryptedChanged(bool b)
 {
     qCWarning(RUQOLAWIDGETS_LOG) << "change encrypted not supported yet";
-    //TODO mCurrentRocketChatAccount->slot
+    // TODO mCurrentRocketChatAccount->slot
 }
 
 void RoomWidget::slotChangeFavorite(bool b)
@@ -612,21 +613,17 @@ QString RoomWidget::roomType() const
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
-                   this, &RoomWidget::slotOpenThreadRequested);
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged,
-                   mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     }
 
     mCurrentRocketChatAccount = account;
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested,
-            this, &RoomWidget::slotOpenThreadRequested);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged,
-            mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
-    mRoomId.clear(); //Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
+    mRoomId.clear(); // Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
 }
 
 void RoomWidget::slotGoBackToRoom()

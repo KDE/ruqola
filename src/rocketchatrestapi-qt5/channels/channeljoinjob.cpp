@@ -20,12 +20,12 @@
 
 #include "channeljoinjob.h"
 
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-#include <KLocalizedString>
 
 using namespace RocketChatRestApi;
 ChannelJoinJob::ChannelJoinJob(QObject *parent)
@@ -62,7 +62,7 @@ void ChannelJoinJob::slotChannelJoinFinished()
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            //Invalid password
+            // Invalid password
             const QString errorType = replyObject[QStringLiteral("errorType")].toString();
             if (errorType == QLatin1String("error-code-invalid")) {
                 Q_EMIT missingChannelPassword(channelInfo());
@@ -125,7 +125,7 @@ QNetworkRequest ChannelJoinJob::request() const
 
 QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    //TODO use details
+    // TODO use details
     if (str == QLatin1String("error-room-not-found")) {
         return i18n("The required \'%1\' param provided does not match any channel", channelInfo().channelInfoIdentifier);
     } else if (str == QLatin1String("error-code-invalid")) {

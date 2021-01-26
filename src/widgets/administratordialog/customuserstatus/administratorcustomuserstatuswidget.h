@@ -21,8 +21,8 @@
 #ifndef ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H
 #define ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class CustomUserStatusTreeWidget;
 class KTreeWidgetSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public QWidget
@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public
 public:
     explicit AdministratorCustomUserStatusWidget(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusWidget() override;
+
 private:
     CustomUserStatusTreeWidget *const mCustomUserStatusTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;

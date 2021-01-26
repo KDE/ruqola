@@ -36,7 +36,7 @@ void FileAttachmentsTest::shouldHaveDefaultValues()
     QCOMPARE(w.filesCount(), 0);
 }
 
-//TODO implement it
+// TODO implement it
 #if 0
 void FileAttachmentsTest::shouldLoadThreads_data()
 {

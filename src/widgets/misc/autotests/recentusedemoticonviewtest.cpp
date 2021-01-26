@@ -29,5 +29,5 @@ RecentUsedEmoticonViewTest::RecentUsedEmoticonViewTest(QObject *parent)
 void RecentUsedEmoticonViewTest::shouldHaveDefaultValues()
 {
     RecentUsedEmoticonView w;
-    //TODO
+    // TODO
 }

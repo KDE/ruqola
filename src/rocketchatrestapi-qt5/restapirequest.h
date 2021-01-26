@@ -21,32 +21,33 @@
 #ifndef RESTAPIREQUEST_H
 #define RESTAPIREQUEST_H
 
+#include "channels/channelbasejob.h"
+#include "commands/runcommandjob.h"
+#include "custom/customuserstatuscreatejob.h"
+#include "custom/customuserstatusupdatejob.h"
+#include "invite/findorcreateinvitejob.h"
+#include "librocketchatrestapi-qt5_export.h"
+#include "restapiutil.h"
+#include "rooms/adminroomsjob.h"
+#include "rooms/roomsautocompletechannelandprivatejob.h"
+#include "rooms/roomscleanhistoryjob.h"
+#include "rooms/roomsexportjob.h"
+#include "users/registeruserjob.h"
+#include "users/setavatarjob.h"
+#include "users/setstatusjob.h"
+#include "users/userbasejob.h"
+#include "users/usersautocompletejob.h"
+#include "users/userssetpreferencesjob.h"
+#include "users/usersupdateownbasicinfojob.h"
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
-#include "rooms/roomsexportjob.h"
-#include "custom/customuserstatusupdatejob.h"
-#include "custom/customuserstatuscreatejob.h"
-#include "users/setavatarjob.h"
-#include "users/userbasejob.h"
-#include "users/userssetpreferencesjob.h"
-#include "rooms/adminroomsjob.h"
-#include "rooms/roomscleanhistoryjob.h"
-#include "users/usersupdateownbasicinfojob.h"
-#include "commands/runcommandjob.h"
-#include "invite/findorcreateinvitejob.h"
-#include "channels/channelbasejob.h"
-#include "rooms/roomsautocompletechannelandprivatejob.h"
-#include "restapiutil.h"
-#include "users/setstatusjob.h"
-#include "users/usersautocompletejob.h"
-#include "users/registeruserjob.h"
-#include "librocketchatrestapi-qt5_export.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class RestApiAbstractJob;
 class DownloadFileJob;
 class AbstractLogger;
@@ -64,7 +65,7 @@ public:
     void setUserId(const QString &userId);
     void setAuthToken(const QString &authToken);
 
-    //Assign/get server url
+    // Assign/get server url
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
@@ -174,7 +175,11 @@ public:
     void desktopSoundNotifications(const QString &roomId, const QString &value);
     void followMessage(const QString &messageId);
     void unFollowMessage(const QString &messageId);
-    void createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId, const QStringList &users);
+    void createDiscussion(const QString &parentRoomId,
+                          const QString &discussionName,
+                          const QString &replyMessage,
+                          const QString &parentMessageId,
+                          const QStringList &users);
     void getDiscussions(const QString &roomId, int offset = 0, int count = 50);
     void getThreadsList(const QString &roomId, int offset = 0, int count = 50);
     void getThreadMessages(const QString &threadMessageId);
@@ -270,8 +275,8 @@ Q_SIGNALS:
     void translateSavesettingsDone();
     void setStatusDone();
     void usersPresenceDone(const QJsonObject &obj);
-    void customUserStatusDone(const QJsonObject &); //TODO QByteArray or QJson ?
-    void customSoundsDone(const QByteArray &); //TODO QByteArray or QJson ?
+    void customUserStatusDone(const QJsonObject &); // TODO QByteArray or QJson ?
+    void customSoundsDone(const QByteArray &); // TODO QByteArray or QJson ?
 
     void usersAutocompleteDone(const QJsonObject &obj);
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);

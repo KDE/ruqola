@@ -20,9 +20,10 @@
 
 #ifndef UNFOLLOWMESSAGEJOB_H
 #define UNFOLLOWMESSAGEJOB_H
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UnFollowMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT

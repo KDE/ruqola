@@ -21,9 +21,9 @@
 #ifndef MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
 #define MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
 
+#include "libruqolawidgets_private_export.h"
 #include <QPushButton>
 #include <QWidget>
-#include "libruqolawidgets_private_export.h"
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarImage : public QPushButton
 {
@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarImage : public QPushButton
 public:
     explicit AvatarImage(QWidget *parent = nullptr);
     ~AvatarImage() override;
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
@@ -46,6 +47,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : publ
 public:
     explicit MyAccountProfileConfigureAvatarWidget(QWidget *parent = nullptr);
     ~MyAccountProfileConfigureAvatarWidget() override;
+
 private:
     AvatarImage *mAvatarImage = nullptr;
 };

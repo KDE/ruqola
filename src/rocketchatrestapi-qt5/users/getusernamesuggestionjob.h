@@ -25,12 +25,13 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetUsernameSuggestionJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //Since 0.65
+    // Since 0.65
     explicit GetUsernameSuggestionJob(QObject *parent = nullptr);
     ~GetUsernameSuggestionJob() override;
 

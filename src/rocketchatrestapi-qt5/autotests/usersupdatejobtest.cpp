@@ -19,10 +19,10 @@
 */
 
 #include "usersupdatejobtest.h"
-#include "users/usersupdatejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/usersupdatejob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersUpdateJobTest)
 using namespace RocketChatRestApi;
 UsersUpdateJobTest::UsersUpdateJobTest(QObject *parent)
@@ -50,7 +50,7 @@ void UsersUpdateJobTest::shouldGenerateRequest()
 void UsersUpdateJobTest::shouldGenerateJson()
 {
     UsersUpdateJob job;
-    //TODO
+    // TODO
 }
 
 void UsersUpdateJobTest::shouldNotStarting()

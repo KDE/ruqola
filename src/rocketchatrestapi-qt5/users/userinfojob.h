@@ -25,7 +25,8 @@
 #include "userbasejob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UserInfoJob : public UserBaseJob
 {
     Q_OBJECT

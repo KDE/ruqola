@@ -21,10 +21,11 @@
 #ifndef SERVERINFOJOB_H
 #define SERVERINFOJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 class QNetworkRequest;
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT ServerInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT

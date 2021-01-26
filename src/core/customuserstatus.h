@@ -21,10 +21,10 @@
 #ifndef CUSTOMUSERSTATUS_H
 #define CUSTOMUSERSTATUS_H
 
-#include <QDebug>
-#include <QJsonObject>
 #include "libruqolacore_export.h"
 #include "user.h"
+#include <QDebug>
+#include <QJsonObject>
 class LIBRUQOLACORE_EXPORT CustomUserStatus
 {
 public:
@@ -47,7 +47,8 @@ public:
 
     void parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi = true);
 
-    Q_REQUIRED_RESULT bool operator ==(const CustomUserStatus &other) const;
+    Q_REQUIRED_RESULT bool operator==(const CustomUserStatus &other) const;
+
 private:
     QString mIdentifier;
     QString mName;
@@ -56,6 +57,6 @@ private:
 };
 Q_DECLARE_METATYPE(CustomUserStatus)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const CustomUserStatus &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatus &t);
 
 #endif // CUSTOMUSERSTATUS_H

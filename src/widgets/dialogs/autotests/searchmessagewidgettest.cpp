@@ -21,8 +21,8 @@
 #include "searchmessagewidgettest.h"
 #include "dialogs/searchmessagewidget.h"
 #include "room/messagelistview.h"
-#include <QLineEdit>
 #include <QLabel>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(SearchMessageWidgetTest)
 

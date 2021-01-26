@@ -20,11 +20,11 @@
 
 #include "createnewchannelwidget.h"
 #include "misc/adduserswidget.h"
+#include <KLocalizedString>
+#include <KPasswordLineEdit>
+#include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
-#include <KLocalizedString>
-#include <QCheckBox>
-#include <KPasswordLineEdit>
 
 CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     : QWidget(parent)

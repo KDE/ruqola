@@ -21,8 +21,8 @@
 #ifndef PLAYSOUNDWIDGET_H
 #define PLAYSOUNDWIDGET_H
 
-#include <QWidget>
 #include <QMediaPlayer>
+#include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
 class QMediaPlayer;
@@ -36,6 +36,7 @@ public:
     explicit PlaySoundWidget(QWidget *parent = nullptr);
     ~PlaySoundWidget() override;
     void setAudioUrl(const QUrl &url);
+
 private:
     void play();
     void muteChanged(bool state);

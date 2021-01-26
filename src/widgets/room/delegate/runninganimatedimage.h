@@ -26,8 +26,7 @@
 #include <QPersistentModelIndex>
 class QMovie;
 
-struct LIBRUQOLAWIDGETS_TESTS_EXPORT RunningAnimatedImage
-{
+struct LIBRUQOLAWIDGETS_TESTS_EXPORT RunningAnimatedImage {
     explicit RunningAnimatedImage(const QModelIndex &idx);
     ~RunningAnimatedImage();
     RunningAnimatedImage(const RunningAnimatedImage &) = delete;

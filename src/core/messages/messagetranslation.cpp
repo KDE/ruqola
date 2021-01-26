@@ -24,7 +24,7 @@ MessageTranslation::MessageTranslation()
 {
 }
 
-QDebug operator <<(QDebug d, const MessageTranslation &t)
+QDebug operator<<(QDebug d, const MessageTranslation &t)
 {
     d << " translate string " << t.translatedString();
     return d;
@@ -38,7 +38,7 @@ void MessageTranslation::parse(const QJsonObject &obj)
     for (const QString &lang : keys) {
         mTranslatedString.insert(lang, languageObject.value(lang).toString());
     }
-    //qDebug() << " void MessageTranslation::parse(const QJsonObject &obj)"<<mTranslatedString;
+    // qDebug() << " void MessageTranslation::parse(const QJsonObject &obj)"<<mTranslatedString;
 }
 
 bool MessageTranslation::operator==(const MessageTranslation &other) const

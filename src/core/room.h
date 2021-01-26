@@ -23,10 +23,10 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include <QJsonObject>
-#include <QObject>
 #include "notificationoptions.h"
 #include "roles.h"
+#include <QJsonObject>
+#include <QObject>
 
 #include "channelcounterinfo.h"
 #include "libruqolacore_export.h"
@@ -47,7 +47,7 @@ public:
     // To be used in ID find: message ID
     Q_REQUIRED_RESULT bool operator==(const Room &other) const;
 
-    //we can't use operator== as it tests only id. We need it for autotest
+    // we can't use operator== as it tests only id. We need it for autotest
     Q_REQUIRED_RESULT bool isEqual(const Room &other) const;
 
     Q_REQUIRED_RESULT QString roomOwnerUserName() const;
@@ -69,10 +69,10 @@ public:
     void setSelected(bool selected);
 
     /**
-    * @brief Return room name
-    *
-    * @return QString, The name of the room
-    */
+     * @brief Return room name
+     *
+     * @return QString, The name of the room
+     */
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
@@ -109,19 +109,19 @@ public:
     void parseUpdateRoom(const QJsonObject &json);
 
     /**
-    * @brief Constructs Room object from QJsonObject (cache)
-    *
-    * @param source The Json containing room attributes
-    * @return Room object, The room constructed from Json
-    */
+     * @brief Constructs Room object from QJsonObject (cache)
+     *
+     * @param source The Json containing room attributes
+     * @return Room object, The room constructed from Json
+     */
     static std::unique_ptr<Room> fromJSon(const QJsonObject &source);
 
     /**
-    * @brief Constructs QBytearray from Room object
-    *
-    * @param message The Room object
-    * @return QByteArray, The Json containing room attributes
-    */
+     * @brief Constructs QBytearray from Room object
+     *
+     * @param message The Room object
+     * @return QByteArray, The Json containing room attributes
+     */
     static QByteArray serialize(Room *r, bool toBinary = true);
 
     UsersForRoomModel *usersModelForRoom() const;
@@ -256,9 +256,9 @@ Q_SIGNALS:
     void encryptionKeyIdChanged();
     void needAttention();
 
-    //Blocker we blocked the channel
+    // Blocker we blocked the channel
     void blockerChanged();
-    //Blocked the channel was blocked
+    // Blocked the channel was blocked
     void blockedChanged();
 
     void archivedChanged();
@@ -291,7 +291,7 @@ private:
     void parseCommonData(const QJsonObject &json);
     void parseDisplaySystemMessage(const QJsonObject &json);
 
-    //Room Object Fields
+    // Room Object Fields
 
     NotificationOptions mNotificationOptions;
     // muted - collection of muted users by its usernames
@@ -301,7 +301,7 @@ private:
 
     QStringList mHighlightsWord;
 
-    //Roles
+    // Roles
     QStringList mRoles;
 
     QStringList mUids;
@@ -340,20 +340,20 @@ private:
     qint64 mUpdatedAt = -1;
     qint64 mLastSeenAt = -1;
 
-    //Encryption Key
+    // Encryption Key
     QString mE2EKey;
     QString mE2eKeyId;
 
-    //Autotranslate
+    // Autotranslate
     QString mAutotranslateLanguage;
 
-    //AvatarEtag
+    // AvatarEtag
     QString mAvatarETag;
 
-    //Roles In Room
+    // Roles In Room
     Roles mRolesForRooms;
 
-    //quint64 ?
+    // quint64 ?
     int mUnread = 0;
     int mUserMentions = 0;
 
@@ -363,7 +363,7 @@ private:
     bool mReadOnly = false;
     bool mSelected = false;
     bool mFavorite = false;
-    //We can hide it or not.
+    // We can hide it or not.
     bool mOpen = false;
     bool mAlert = false;
     bool mBlocker = false;
@@ -386,5 +386,5 @@ private:
     RocketChatAccount *const mRocketChatAccount;
 };
 
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Room &t);
 #endif // ROOM_H

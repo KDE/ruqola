@@ -30,6 +30,7 @@ class LoadRoomCache : public QWidget
 public:
     explicit LoadRoomCache(QWidget *parent = nullptr);
     ~LoadRoomCache() = default;
+
 private:
     void slotOpenFile();
     QTextEdit *mCacheTextEdit;

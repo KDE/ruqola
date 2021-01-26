@@ -20,11 +20,11 @@
 
 #include "administratorserverinfowidgettest.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
+#include <KTreeWidgetSearchLineWidget>
+#include <QHeaderView>
 #include <QTest>
 #include <QTreeWidget>
-#include <QHeaderView>
 #include <QVBoxLayout>
-#include <KTreeWidgetSearchLineWidget>
 QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
     : QObject(parent)

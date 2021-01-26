@@ -19,8 +19,8 @@
 */
 
 #include "loginmethodmodeltest.h"
-#include "test_model_helpers.h"
 #include "model/loginmethodmodel.h"
+#include "test_model_helpers.h"
 #include <QSignalSpy>
 #include <QTest>
 
@@ -105,7 +105,7 @@ void LoginMethodModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
 
-    //add Empty list
+    // add Empty list
     lst.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -122,7 +122,7 @@ void LoginMethodModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,9"));
 
-    //Add same element
+    // Add same element
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
@@ -140,7 +140,7 @@ void LoginMethodModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 
-    //Test add same number of element.
+    // Test add same number of element.
     lst.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();

@@ -21,10 +21,10 @@
 #include "administratorcustomuserstatuscreatedialogtest.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
-#include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(AdministratorCustomUserStatusCreateDialogTest)
 

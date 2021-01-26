@@ -21,10 +21,10 @@
 #ifndef INPUTCOMPLETERMODEL_H
 #define INPUTCOMPLETERMODEL_H
 
-#include "libruqola_private_export.h"
 #include "channel.h"
-#include <QJsonObject>
+#include "libruqola_private_export.h"
 #include <QAbstractListModel>
+#include <QJsonObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
 {
@@ -51,6 +51,7 @@ public:
     void clear();
 
     void setDefaultUserCompletion();
+
 private:
     Q_DISABLE_COPY(InputCompleterModel)
     Q_REQUIRED_RESULT QIcon channelIconName(const Channel &channel) const;

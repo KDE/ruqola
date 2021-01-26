@@ -19,8 +19,8 @@
 */
 
 #include "uploadfilejob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QFile>
 #include <QHttpMultiPart>
 #include <QJsonDocument>
@@ -104,7 +104,7 @@ bool UploadFileJob::start()
     connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::uploadProgress);
     connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
     multiPart->setParent(reply); // delete the multiPart with the reply
-    //TODO signal error ?
+    // TODO signal error ?
     addStartRestApiInfo("UploadFileJob::start");
     return true;
 }

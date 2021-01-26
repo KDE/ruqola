@@ -21,11 +21,11 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 
-#include <QJsonDocument>
-#include <QDateTime>
-#include <QRegularExpression>
-#include <QCryptographicHash>
 #include <KColorScheme>
+#include <QCryptographicHash>
+#include <QDateTime>
+#include <QJsonDocument>
+#include <QRegularExpression>
 
 QUrl Utils::generateServerUrl(const QString &url)
 {
@@ -57,8 +57,7 @@ QString Utils::formatQuotedRichText(const QString &richText)
     const auto backgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = scheme.foreground(KColorScheme::LinkText).color().name();
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
-           + richText
-           + QStringLiteral("</td></tr></table>");
+        + richText + QStringLiteral("</td></tr></table>");
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)
@@ -113,7 +112,7 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 
 Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
 {
-    //qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
+    // qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
     Utils::NotificationInfo info;
     const QJsonObject obj = contents.at(0).toObject();
     info.title = obj[QStringLiteral("title")].toString();
@@ -136,7 +135,7 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
         } else {
             info.message = messageObj[QStringLiteral("msg")].toString();
             if (info.message.isEmpty()) {
-                //Fallback to text
+                // Fallback to text
                 info.message = obj[QStringLiteral("text")].toString();
             }
         }
@@ -175,7 +174,7 @@ QString Utils::convertTextWithUrl(const QString &str)
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
-//    bool isHasNewRef = false;
+    //    bool isHasNewRef = false;
     QString url;
     QString references;
     for (int i = 0; i < str.count(); ++i) {
@@ -194,23 +193,23 @@ QString Utils::convertTextWithUrl(const QString &str)
                 newStr += QLatin1Char('[') + references + QLatin1Char(']');
                 references.clear();
             }
-//        } else if (ref == QLatin1Char('|')) {
-//            isUrl = false;
-//            isRef = true;
-//            isHasNewRef = true;
-//        } else if (ref == QLatin1Char('<')) {
-//            isUrl = true;
-//        } else if (ref == QLatin1Char('>') && isHasNewRef) {
-//            isUrl = false;
-//            isRef = false;
-//            isHasNewRef = false;
-//            if (url.startsWith(QLatin1Char('<'))) {
-//                newStr += url.replace(regularExpressionAHref, QStringLiteral("<a href=\"\\1\">%1</a>").arg(references));
-//            } else {
-//                newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
-//            }
-//            references.clear();
-//            url.clear();
+            //        } else if (ref == QLatin1Char('|')) {
+            //            isUrl = false;
+            //            isRef = true;
+            //            isHasNewRef = true;
+            //        } else if (ref == QLatin1Char('<')) {
+            //            isUrl = true;
+            //        } else if (ref == QLatin1Char('>') && isHasNewRef) {
+            //            isUrl = false;
+            //            isRef = false;
+            //            isHasNewRef = false;
+            //            if (url.startsWith(QLatin1Char('<'))) {
+            //                newStr += url.replace(regularExpressionAHref, QStringLiteral("<a href=\"\\1\">%1</a>").arg(references));
+            //            } else {
+            //                newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+            //            }
+            //            references.clear();
+            //            url.clear();
         } else if (ref == QLatin1Char('(') && !references.isEmpty()) {
             isUrl = true;
         } else if (isUrl && ref == QLatin1Char(')') && !references.isEmpty()) {
@@ -241,7 +240,7 @@ QString Utils::convertTextWithUrl(const QString &str)
     return newStr;
 }
 
-QDebug operator <<(QDebug d, const Utils::NotificationInfo &t)
+QDebug operator<<(QDebug d, const Utils::NotificationInfo &t)
 {
     d << " message " << t.message;
     d << " title " << t.title;
@@ -323,7 +322,7 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, const AvatarInfo &avatarInfo)
     return QUrl(serverUrl + QStringLiteral("/avatar") + subFolder);
 }
 
-QDebug operator <<(QDebug d, const Utils::AvatarInfo &t)
+QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
 {
     d << "etag " << t.etag;
     d << "identifier " << t.identifier;

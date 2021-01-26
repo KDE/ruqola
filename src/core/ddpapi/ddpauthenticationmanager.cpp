@@ -24,8 +24,8 @@
 
 #include "ddpapi/ddpclient.h"
 
-#include "ruqola_ddpapi_debug.h"
 #include "ruqola_ddpapi_command_debug.h"
+#include "ruqola_ddpapi_debug.h"
 
 #include "utils.h"
 
@@ -42,10 +42,8 @@ QString DDPAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent)
     : DDPManager(ddpClient, parent)
 {
-    connect(ddpClient, &DDPClient::connectedChanged,
-            this, &DDPAuthenticationManager::clientConnectedChangedSlot);
-    connect(ddpClient, &DDPClient::connecting,
-            this, [this](){
+    connect(ddpClient, &DDPClient::connectedChanged, this, &DDPAuthenticationManager::clientConnectedChangedSlot);
+    connect(ddpClient, &DDPClient::connecting, this, [this]() {
         setLoginStatus(LoginStatus::Connecting);
     });
 }
@@ -71,7 +69,8 @@ void DDPAuthenticationManager::login()
     {
         "resume": "%1"
     }
-])").arg(mAuthToken);
+])")
+                               .arg(mAuthToken);
 
     loginImpl(Utils::strToJsonArray(params));
 }
@@ -81,7 +80,7 @@ void DDPAuthenticationManager::login(const QString &user, const QString &passwor
     // TODO: need to support login with email too ("email": "address" instead of "username": "user")
     const QByteArray sha256pw = Utils::convertSha256Password(password);
     const QString params = sl(
-        R"(
+                               R"(
                               [
                               {
                               "user": {
@@ -92,7 +91,8 @@ void DDPAuthenticationManager::login(const QString &user, const QString &passwor
                               "algorithm": "sha-256"
                               }
                               }
-                              ])").arg(user, QString::fromLatin1(sha256pw));
+                              ])")
+                               .arg(user, QString::fromLatin1(sha256pw));
     loginImpl(Utils::strToJsonArray(params));
 }
 
@@ -106,7 +106,8 @@ void DDPAuthenticationManager::loginLDAP(const QString &user, const QString &pas
         "ldapPass": "%2",
         "ldapOptions": {}
     }
-])").arg(user, password);
+])")
+                               .arg(user, password);
 
     loginImpl(Utils::strToJsonArray(params));
 }
@@ -121,7 +122,8 @@ void DDPAuthenticationManager::loginOAuth(const QString &credentialToken, const 
             "credentialSecret": "%2"
         }
     }
-])").arg(credentialToken, credentialSecret);
+])")
+                               .arg(credentialToken, credentialSecret);
 
     loginImpl(Utils::strToJsonArray(params));
 }
@@ -145,11 +147,7 @@ void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
     // TODO: sanity checks on params
 
     mLastLoginPayload = params[0].toObject();
-    ddpClient()->invokeMethodAndRegister(
-        METHOD_LOGIN,
-        params,
-        this,
-        static_cast<int>(Method::Login));
+    ddpClient()->invokeMethodAndRegister(METHOD_LOGIN, params, this, static_cast<int>(Method::Login));
     setLoginStatus(LoginStatus::LoginOngoing);
 }
 
@@ -160,15 +158,12 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
     }
 
     if (mLoginStatus == LoginStatus::LoginOtpAuthOngoing) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
-                                     << "Another OTP authentication is going on.";
+        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another OTP authentication is going on.";
         return;
     }
 
-    if ((mLoginStatus != LoginStatus::LoginOtpRequired)
-        && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
-                                     << "Trying to send OTP but none was requested by the server.";
+    if ((mLoginStatus != LoginStatus::LoginOtpRequired) && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
         return;
     }
 
@@ -180,13 +175,10 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
             "code": "%2"
         }
     }
-])").arg(QLatin1String(QJsonDocument(mLastLoginPayload).toJson().constData()), otpCode);
+])")
+                               .arg(QLatin1String(QJsonDocument(mLastLoginPayload).toJson().constData()), otpCode);
 
-    ddpClient()->invokeMethodAndRegister(
-        METHOD_SEND_OTP,
-        Utils::strToJsonArray(params),
-        this,
-        static_cast<int>(Method::SendOtp));
+    ddpClient()->invokeMethodAndRegister(METHOD_SEND_OTP, Utils::strToJsonArray(params), this, static_cast<int>(Method::SendOtp));
     setLoginStatus(LoginStatus::LoginOtpAuthOngoing);
 }
 
@@ -208,11 +200,7 @@ void DDPAuthenticationManager::logout()
 
     const QString params = sl("[]");
 
-    ddpClient()->invokeMethodAndRegister(
-        METHOD_LOGOUT,
-        Utils::strToJsonArray(params),
-        this,
-        static_cast<int>(Method::SendOtp));
+    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::SendOtp));
     setLoginStatus(LoginStatus::LogoutOngoing);
 }
 
@@ -240,8 +228,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
         }
 
         if (response.contains(sl("error"))) {
-            const QJsonValue errorCode = response[sl("error")].toObject()
-                                         [sl("error")];
+            const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
 
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
@@ -273,8 +260,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
         // Printing any error message that may come up just in case, and preventing any other
         // operations by switching to GenericError state.
         if (response.contains(sl("error"))) {
-            qCWarning(RUQOLA_DDPAPI_LOG) << "Error while logging out. Server response:"
-                                         << response;
+            qCWarning(RUQOLA_DDPAPI_LOG) << "Error while logging out. Server response:" << response;
             setLoginStatus(GenericError);
             return;
         }
@@ -285,10 +271,8 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
     case Method::LogoutCleanUp:
         // Maybe the clean up request payload is corrupted
         if (response.contains(sl("error"))) {
-            const QJsonValue errorCode = response[sl("error")].toObject()
-                                         [sl("error")];
-            qCWarning(RUQOLA_DDPAPI_LOG) << "Couldn't clean up on logout. Server response:"
-                                         << response << " error code " << errorCode;
+            const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
+            qCWarning(RUQOLA_DDPAPI_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
             // If we get here we're likely getting something wrong from the UI.
             // Need to prevent any further operation from now on.
             setLoginStatus(GenericError);
@@ -312,9 +296,8 @@ bool DDPAuthenticationManager::isLoggedIn() const
 
 bool DDPAuthenticationManager::isLoggedOut() const
 {
-    return mLoginStatus == DDPAuthenticationManager::LoggedOut
-           || mLoginStatus == DDPAuthenticationManager::LogoutCleanUpOngoing
-           || mLoginStatus == DDPAuthenticationManager::LoggedOutAndCleanedUp;
+    return mLoginStatus == DDPAuthenticationManager::LoggedOut || mLoginStatus == DDPAuthenticationManager::LogoutCleanUpOngoing
+        || mLoginStatus == DDPAuthenticationManager::LoggedOutAndCleanedUp;
 }
 
 void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
@@ -347,8 +330,7 @@ void DDPAuthenticationManager::clientConnectedChangedSlot()
 bool DDPAuthenticationManager::checkGenericError() const
 {
     if (mLoginStatus == LoginStatus::GenericError) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO
-                                     << "The authentication manager is in an irreversible error state and can't perform any operation.";
+        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
     }
 
     return mLoginStatus == LoginStatus::GenericError;

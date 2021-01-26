@@ -19,9 +19,9 @@
 */
 
 #include "googleauthenticationinterface.h"
+#include "ddpapi/ddpclient.h"
 #include "googleauthenticationplugin_debug.h"
 #include "googlejob.h"
-#include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 
 GoogleAuthenticationInterface::GoogleAuthenticationInterface(QObject *parent)
@@ -38,8 +38,8 @@ void GoogleAuthenticationInterface::login()
     GoogleJob *api = new GoogleJob(this);
     api->doOAuth(O2::GrantFlowAuthorizationCode);
 
-    //When this signal is emitted from google.cpp it means it has called the login 'method'
-    //by sending credentialToken and credentialSecret
+    // When this signal is emitted from google.cpp it means it has called the login 'method'
+    // by sending credentialToken and credentialSecret
     connect(api, &GoogleJob::loginMethodCalled, this, &GoogleAuthenticationInterface::slotLoginProvider);
     connect(api, &GoogleJob::linkingFailed, this, &GoogleAuthenticationInterface::loginFailed);
 }

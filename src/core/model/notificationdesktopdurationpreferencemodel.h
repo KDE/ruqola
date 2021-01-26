@@ -21,8 +21,8 @@
 #ifndef NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
 #define NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
 
-#include <QAbstractListModel>
 #include "libruqolacore_export.h"
+#include <QAbstractListModel>
 
 struct NotificationDesktopDurationPreferenceInfo {
     QString displayText;
@@ -33,10 +33,7 @@ class LIBRUQOLACORE_EXPORT NotificationDesktopDurationPreferenceModel : public Q
 {
     Q_OBJECT
 public:
-    enum NotificationPreferenceRoles {
-        NotificationPreferenceI18n = Qt::UserRole + 1,
-        NotificationPreference
-    };
+    enum NotificationPreferenceRoles { NotificationPreferenceI18n = Qt::UserRole + 1, NotificationPreference };
     Q_ENUM(NotificationPreferenceRoles)
 
     explicit NotificationDesktopDurationPreferenceModel(QObject *parent = nullptr);

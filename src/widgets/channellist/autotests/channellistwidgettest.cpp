@@ -19,9 +19,9 @@
 */
 
 #include "channellistwidgettest.h"
+#include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
 #include "misc/statuscombobox.h"
-#include "channellist/channellistview.h"
 #include "model/roomfilterproxymodel.h"
 
 #include <QLabel>
@@ -60,14 +60,14 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
 
 void ChannelListWidgetTest::searchRooms()
 {
-    //LAurent: We don't have model by default now. We need to fix it.
-//    ChannelListWidget w;
+    // LAurent: We don't have model by default now. We need to fix it.
+    //    ChannelListWidget w;
 
-//    auto mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
-//    QVERIFY(mSearchRoom);
-//    mSearchRoom->setText(QStringLiteral("all")); // triggers filtering of the channel list
+    //    auto mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
+    //    QVERIFY(mSearchRoom);
+    //    mSearchRoom->setText(QStringLiteral("all")); // triggers filtering of the channel list
 
-//    QVERIFY(w.channelListView());
-//    QVERIFY(w.channelListView()->model());
-//    QCOMPARE(w.channelListView()->model()->filterRegExp().pattern(), QStringLiteral("all"));
+    //    QVERIFY(w.channelListView());
+    //    QVERIFY(w.channelListView()->model());
+    //    QCOMPARE(w.channelListView()->model()->filterRegExp().pattern(), QStringLiteral("all"));
 }

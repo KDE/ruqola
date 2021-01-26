@@ -21,13 +21,13 @@
  */
 
 #include "ruqola.h"
-#include "typingnotification.h"
-#include "messagequeue.h"
-#include "ruqola_debug.h"
-#include "rocketchataccount.h"
 #include "accountmanager.h"
 #include "managerdatapaths.h"
+#include "messagequeue.h"
 #include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola_debug.h"
+#include "typingnotification.h"
 
 static Ruqola *s_self = nullptr;
 
@@ -52,7 +52,7 @@ void Ruqola::destroy()
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 {
-    //Initialize paths
+    // Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
 }

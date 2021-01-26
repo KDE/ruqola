@@ -22,8 +22,8 @@
 #define EMOTICONCATEGORY_H
 
 #include "libruqolacore_export.h"
-#include <QString>
 #include <QDebug>
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT EmoticonCategory
 {
@@ -41,6 +41,6 @@ private:
 };
 Q_DECLARE_METATYPE(EmoticonCategory)
 Q_DECLARE_TYPEINFO(EmoticonCategory, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const EmoticonCategory &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const EmoticonCategory &t);
 
 #endif // EMOTICONCATEGORY_H

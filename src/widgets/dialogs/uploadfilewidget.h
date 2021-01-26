@@ -21,8 +21,8 @@
 #ifndef UPLOADFILEWIDGET_H
 #define UPLOADFILEWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLineEdit;
 class KUrlRequester;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget

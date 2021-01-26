@@ -21,8 +21,8 @@
 #include "ruqolalogger.h"
 #include "ruqola_debug.h"
 #include <QCoreApplication>
-#include <QFileInfo>
 #include <QDateTime>
+#include <QFileInfo>
 
 RuqolaLogger::RuqolaLogger(const QString &accountName)
     : RocketChatRestApi::AbstractLogger()
@@ -30,12 +30,8 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
 
-    const QString filename = QLatin1String(qgetenv("RUQOLA_LOGFILE"))
-                             + QLatin1Char('-') + accountName
-                             + QLatin1Char('.')
-                             + QString::number(QCoreApplication::applicationPid())
-                             + QLatin1Char('.')
-                             + QString::number(mIdentifier);
+    const QString filename = QLatin1String(qgetenv("RUQOLA_LOGFILE")) + QLatin1Char('-') + accountName + QLatin1Char('.')
+        + QString::number(QCoreApplication::applicationPid()) + QLatin1Char('.') + QString::number(mIdentifier);
 
     mLoggerFile.setFileName(filename);
     if (!mLoggerFile.open(QFile::WriteOnly)) {
@@ -47,7 +43,7 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
         qCWarning(RUQOLA_LOG) << "Could not open log file for restapi:" << mRestApiLogFile.fileName();
     }
 
-    //No convert to qCDebug as we want to see this info.
+    // No convert to qCDebug as we want to see this info.
     qDebug() << "Log in file: " << QFileInfo(mLoggerFile.fileName()).absoluteFilePath();
     qDebug() << "Log send RESTAPI in file: " << QFileInfo(mRestApiLogFile.fileName()).absoluteFilePath();
 }

@@ -43,8 +43,7 @@ private:
     void mapModelToIndex(QAbstractItemModel *model, const std::function<QModelIndex()> &root);
     void unproxyModel(QAbstractItemModel *model);
 
-    struct ProxyIndex
-    {
+    struct ProxyIndex {
         QAbstractItemModel *model;
         std::function<QModelIndex()> root;
     };

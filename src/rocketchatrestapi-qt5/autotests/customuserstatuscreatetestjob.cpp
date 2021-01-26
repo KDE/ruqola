@@ -21,8 +21,8 @@
 #include "customuserstatuscreatetestjob.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(CustomUserStatusCreateTestJob)
 using namespace RocketChatRestApi;
 CustomUserStatusCreateTestJob::CustomUserStatusCreateTestJob(QObject *parent)

@@ -21,13 +21,14 @@
 #include "createnewdiscussiondialog.h"
 #include "createnewdiscussionwidget.h"
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
 #include <QPushButton>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
 }
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
@@ -41,7 +42,7 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     mCreateNewDiscussionWidget->setObjectName(QStringLiteral("mCreateNewDiscussionWidget"));
     mainLayout->addWidget(mCreateNewDiscussionWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewDiscussionDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewDiscussionDialog::reject);

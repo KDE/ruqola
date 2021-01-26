@@ -43,14 +43,7 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
 public:
     MessageAttachment();
 
-    enum AttachmentType {
-        Unknown,
-        NormalText,
-        File,
-        Video,
-        Audio,
-        Image
-    };
+    enum AttachmentType { Unknown, NormalText, File, Video, Audio, Image };
     Q_ENUM(AttachmentType)
     void parseAttachment(const QJsonObject &o);
 
@@ -134,6 +127,6 @@ private:
     bool mShowAttachment = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachment &t);
 
 #endif // MESSAGEATTACHMENT_H

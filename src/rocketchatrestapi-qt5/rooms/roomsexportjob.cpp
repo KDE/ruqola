@@ -20,8 +20,8 @@
 
 #include "roomsexportjob.h"
 
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -91,7 +91,7 @@ QJsonDocument RoomsExportJob::json() const
     jsonObj[QLatin1String("rid")] = mRoomExportInfo.roomId;
     switch (mRoomExportInfo.exportAs) {
     case RoomsExportInfo::ExportAs::Unknown:
-        //Nothing it's a bug here.
+        // Nothing it's a bug here.
         break;
     case RoomsExportInfo::ExportAs::File:
         jsonObj[QLatin1String("type")] = QStringLiteral("file");
@@ -103,7 +103,7 @@ QJsonDocument RoomsExportJob::json() const
         break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    //qDebug() << " postData**************** " << postData;
+    // qDebug() << " postData**************** " << postData;
     return postData;
 }
 
@@ -111,7 +111,7 @@ void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
 {
     switch (mRoomExportInfo.fileFormat) {
     case RoomsExportInfo::FileFormat::Unknown:
-        //It's a bug
+        // It's a bug
         break;
     case RoomsExportInfo::FileFormat::Html:
         jsonObj[QLatin1String("format")] = QStringLiteral("html");
@@ -151,7 +151,7 @@ QNetworkRequest RoomsExportJob::request() const
     return request;
 }
 
-QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t)
 {
     d << "roomId " << t.roomId;
     d << "toUsers " << t.toUsers;
@@ -167,8 +167,6 @@ QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExpor
 
 bool RoomsExportJob::RoomsExportInfo::isValid() const
 {
-    //Check from exportas type
-    return fileFormat != RoomsExportInfo::FileFormat::Unknown
-           && exportAs != RoomsExportInfo::ExportAs::Unknown
-           && !roomId.isEmpty();
+    // Check from exportas type
+    return fileFormat != RoomsExportInfo::FileFormat::Unknown && exportAs != RoomsExportInfo::ExportAs::Unknown && !roomId.isEmpty();
 }

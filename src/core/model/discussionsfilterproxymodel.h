@@ -20,8 +20,8 @@
 #ifndef DISCUSSIONSFILTERPROXYMODEL_H
 #define DISCUSSIONSFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 class DiscussionsModel;
 class LIBRUQOLACORE_EXPORT DiscussionsFilterProxyModel : public QSortFilterProxyModel
 {
@@ -40,6 +40,7 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();
+
 private:
     DiscussionsModel *const mDiscussionsModel;
 };

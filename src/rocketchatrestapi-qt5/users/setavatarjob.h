@@ -21,15 +21,16 @@
 #ifndef SetAvatarJob_H
 #define SetAvatarJob_H
 
-#include "userbasejob.h"
 #include "librocketchatrestapi-qt5_export.h"
-namespace RocketChatRestApi {
+#include "userbasejob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT SetAvatarJob : public UserBaseJob
 {
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT SetAvatarInfo {
-        //TODO addimage directly
+        // TODO addimage directly
         QString mAvatarUrl;
         Q_REQUIRED_RESULT bool isValid() const;
     };

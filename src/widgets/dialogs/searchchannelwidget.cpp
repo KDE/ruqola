@@ -19,17 +19,17 @@
 */
 
 #include "searchchannelwidget.h"
-#include "searchchannel/searchchanneldelegate.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
-#include "misc/lineeditcatchreturnkey.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "searchchannel/searchchanneldelegate.h"
 #include <KLocalizedString>
-#include <QVBoxLayout>
 #include <QLineEdit>
 #include <QListWidget>
+#include <QVBoxLayout>
 
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
@@ -75,7 +75,7 @@ void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
         } else if (channelType == Channel::ChannelType::PrivateChannel) {
             Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
         } else {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Unknown open channel type : "  << channelType << " channelid : "  << channelId;
+            qCWarning(RUQOLAWIDGETS_LOG) << "Unknown open channel type : " << channelType << " channelid : " << channelId;
         }
     }
 }

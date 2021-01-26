@@ -22,26 +22,27 @@
  */
 
 #include "ddpclient.h"
-#include "restapirequest.h"
-#include "utils.h"
-#include "ruqola_ddpapi_debug.h"
-#include "ruqola_ddpapi_command_debug.h"
-#include "ruqolawebsocket.h"
-#include "rocketchataccount.h"
 #include "messagequeue.h"
-#include "ruqolalogger.h"
-#include "rocketchatbackend.h"
 #include "plugins/pluginauthenticationinterface.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "rocketchatbackend.h"
+#include "ruqola_ddpapi_command_debug.h"
+#include "ruqola_ddpapi_debug.h"
+#include "ruqolalogger.h"
+#include "ruqolawebsocket.h"
+#include "utils.h"
 
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpmanager.h"
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonArray>
 #include <QStandardPaths>
 
-namespace RuqolaTestWebSocket {
+namespace RuqolaTestWebSocket
+{
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
@@ -81,7 +82,7 @@ void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatA
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    //qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1String("messages")).toArray().size();
+    // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1String("messages")).toArray().size();
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true);
 }
 
@@ -132,7 +133,7 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Empty call back :") + QJsonDocument(obj).toJson());
     } else {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "empty_callback "<< obj;
+        qCWarning(RUQOLA_DDPAPI_LOG) << "empty_callback " << obj;
     }
 }
 
@@ -149,7 +150,7 @@ DDPClient::~DDPClient()
 {
     disconnect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
     mWebSocket->close();
-    //Don't delete socket when we use specific socket.
+    // Don't delete socket when we use specific socket.
     if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
         delete mWebSocket;
         mWebSocket = nullptr;
@@ -231,7 +232,7 @@ QString DDPClient::cachePath() const
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 }
 
-QQueue<QPair<QString, QJsonDocument> > DDPClient::messageQueue() const
+QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const
 {
     return m_messageQueue;
 }
@@ -248,20 +249,11 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
     params.append(QJsonValue(roomId));
     subscribe(QStringLiteral("stream-room-messages"), params);
 
-    const QJsonArray params2{
-        QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessage"))),
-        true
-    };
+    const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessage"))), true};
     subscribe(QStringLiteral("stream-notify-room"), params2);
-    const QJsonArray params3{
-        QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessageBulk"))),
-        true
-    };
+    const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessageBulk"))), true};
     subscribe(QStringLiteral("stream-notify-room"), params3);
-    const QJsonArray params4{
-        QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing"))),
-        true
-    };
+    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing"))), true};
     subscribe(QStringLiteral("stream-notify-room"), params4);
 }
 
@@ -275,14 +267,14 @@ quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &filei
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, m_uid);
 
-    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId, channelType ](const QJsonObject &root, RocketChatAccount *account) {
-                                                                         if (account->ruqolaLogger()) {
-                                                                             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Attachment File:") + QJsonDocument(root).toJson());
-                                                                         } else {
-                                                                             qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
-                                                                         }
-                                                                         account->roomFiles(roomId, channelType);
-                                                                     };
+    std::function<void(QJsonObject, RocketChatAccount *)> callback = [roomId, channelType](const QJsonObject &root, RocketChatAccount *account) {
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Attachment File:") + QJsonDocument(root).toJson());
+        } else {
+            qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
+        }
+        account->roomFiles(roomId, channelType);
+    };
 
     return method(result, callback, DDPClient::Persistent);
 }
@@ -304,28 +296,24 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
     const quint64 subscribeId = m_uid;
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, subscribeId);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
-                                                                         if (account->ruqolaLogger()) {
-                                                                             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
-                                                                         } else {
-                                                                             qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
-                                                                         }
-                                                                         account->insertCompleterUsers();
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
+        } else {
+            qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
+        }
+        account->insertCompleterUsers();
 
-                                                                         const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
-                                                                         std::function<void(QJsonObject,
-                                                                                            RocketChatAccount *)> callbackUnsubscribeAutoComplete
-                                                                             = [=](const QJsonObject &root, RocketChatAccount *account) {
-                                                                                   if (account->ruqolaLogger()) {
-                                                                                       account->ruqolaLogger()->
-                                                                                       dataReceived(QByteArrayLiteral(
-                                                                                                        "Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
-                                                                                   } else {
-                                                                                       qDebug() << " Unsubscribe AutoComplete" << root;
-                                                                                       qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe AutoComplete" << root;
-                                                                                   }
-                                                                               };
-                                                                         method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
-                                                                     };
+        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
+        std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [=](const QJsonObject &root, RocketChatAccount *account) {
+            if (account->ruqolaLogger()) {
+                account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
+            } else {
+                qDebug() << " Unsubscribe AutoComplete" << root;
+                qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe AutoComplete" << root;
+            }
+        };
+        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
+    };
 
     return method(result, callback, DDPClient::Persistent);
 }
@@ -383,7 +371,9 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     return value;
 }
 
-quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, const std::function<void(QJsonObject, RocketChatAccount *)> &callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result,
+                          const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                          DDPClient::MessageType messageType)
 {
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
@@ -410,7 +400,10 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
     return method(m, params, empty_callback, messageType);
 }
 
-quint64 DDPClient::method(const QString &method, const QJsonDocument &params, const std::function<void(QJsonObject, RocketChatAccount *)> &callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &method,
+                          const QJsonDocument &params,
+                          const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
+                          DDPClient::MessageType messageType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
@@ -464,7 +457,7 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 
 void DDPClient::registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
 {
-    const QPair<QString, QString> &key {collection, event};
+    const QPair<QString, QString> &key{collection, event};
 
     if (mEventSubscriptionHash.contains(key)) {
         qCCritical(RUQOLA_DDPAPI_LOG) << "ERROR! Another manager is subscribed to this event, registration failed.";
@@ -480,27 +473,26 @@ void DDPClient::registerSubscriber(const QString &collection, const QString &eve
         "useCollection": false,
         "args": []
     }
-])").arg(event);
+])")
+                               .arg(event);
 
     subscribe(collection, Utils::strToJsonArray(params));
 }
 
 void DDPClient::deregisterSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)
 {
-    const QPair<QString, QString> key {collection, event};
+    const QPair<QString, QString> key{collection, event};
 
     if (!mEventSubscriptionHash.contains(key)) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "No DDPManager is subscribed to this event"
-                                     << key;
+        qCWarning(RUQOLA_DDPAPI_LOG) << "No DDPManager is subscribed to this event" << key;
         return;
     }
 
     const QPair<DDPManager *, int> subscriptionParams = mEventSubscriptionHash.value(key);
-    const auto unsubscriptionParams = QPair<DDPManager *, int> {ddpManager, subscriptionId};
+    const auto unsubscriptionParams = QPair<DDPManager *, int>{ddpManager, subscriptionId};
     if (subscriptionParams != unsubscriptionParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Unsubscription parameters don't match subscription parameters.";
-        qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Subscription parameters: " << subscriptionParams
-                                               << ", unsubscription parameters: " << unsubscriptionParams;
+        qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Subscription parameters: " << subscriptionParams << ", unsubscription parameters: " << unsubscriptionParams;
         return;
     }
 
@@ -523,7 +515,7 @@ void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpMa
     }
 
     const auto registerParams = mMethodResponseHash[methodId];
-    const QPair<DDPManager *, int> deregisterParams {ddpManager, operationId};
+    const QPair<DDPManager *, int> deregisterParams{ddpManager, operationId};
     if (registerParams != deregisterParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Registration parameters for this method don't match the ones in the unregister request.";
         qCWarning(RUQOLA_DDPAPI_LOG).nospace() << "Method ID: " << methodId << ", registration parameters: " << registerParams
@@ -544,8 +536,8 @@ void DDPClient::onTextMessageReceived(const QString &message)
         const QString messageType = root.value(QLatin1String("msg")).toString();
 
         if (messageType == QLatin1String("updated")) {
-            //nothing to do.
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << " message updated ! not implemented yet" << response;
+            // nothing to do.
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " message updated ! not implemented yet" << response;
         } else if (messageType == QLatin1String("result")) {
             quint64 id = root.value(QLatin1String("id")).toString().toULongLong();
 
@@ -568,42 +560,42 @@ void DDPClient::onTextMessageReceived(const QString &message)
             m_connected = true;
             Q_EMIT connectedChanged();
         } else if (messageType == QLatin1String("error")) {
-            qWarning() << mRocketChatAccount->accountName()  << " ERROR!!" << message;
+            qWarning() << mRocketChatAccount->accountName() << " ERROR!!" << message;
         } else if (messageType == QLatin1String("ping")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Ping - Pong";
             pong();
         } else if (messageType == QLatin1String("added")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "ADDING element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "ADDING element" << response;
             Q_EMIT added(root);
         } else if (messageType == QLatin1String("changed")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Changed element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Changed element" << response;
             Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "READY element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "READY element" << response;
             executeSubsCallBack(root);
         } else if (messageType == QLatin1String("removed")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "REMOVED element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "REMOVED element" << response;
             Q_EMIT removed(root);
         } else if (messageType == QLatin1String("nosub")) {
             const QString id = root.value(QStringLiteral("id")).toString();
-            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Unsubscribe element" <<message << id;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
             const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
             if (!errorObj.isEmpty()) {
-                qWarning() << mRocketChatAccount->accountName()  << "Error unsubscribing from" << id;
-                qWarning() << mRocketChatAccount->accountName()  << "ERROR: " << errorObj[QStringLiteral("error")].toString();
-                qWarning() << mRocketChatAccount->accountName()  << "Message: " << errorObj[QStringLiteral("message")].toString();
-                qWarning() << mRocketChatAccount->accountName()  << "Reason: " << errorObj[QStringLiteral("reason")].toString();
-                qWarning() << mRocketChatAccount->accountName()  << "-- Error found END --";
+                qWarning() << mRocketChatAccount->accountName() << "Error unsubscribing from" << id;
+                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj[QStringLiteral("error")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj[QStringLiteral("message")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj[QStringLiteral("reason")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "-- Error found END --";
             }
         } else {
             // The very first message we receive is {"server_id":"0"}, can't find it in the spec, just ignore it.
             if (messageType.isEmpty() && !root.value(QStringLiteral("server_id")).isUndefined()) {
                 return;
             }
-            qWarning() << mRocketChatAccount->accountName()  << "received something unhandled:" << messageType << message;
+            qWarning() << mRocketChatAccount->accountName() << "received something unhandled:" << messageType << message;
         }
     } else {
-        qWarning() << mRocketChatAccount->accountName()  << "received something unhandled unknown " << message;
+        qWarning() << mRocketChatAccount->accountName() << "received something unhandled unknown " << message;
     }
 }
 
@@ -668,7 +660,8 @@ void DDPClient::onWSclosed()
 {
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (!normalClose) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error() << " close code : " <<mWebSocket->closeCode();
+        qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
+                                     << " close code : " << mWebSocket->closeCode();
     }
 
     if (normalClose) {

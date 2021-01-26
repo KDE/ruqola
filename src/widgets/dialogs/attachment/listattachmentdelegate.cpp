@@ -18,17 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 #include "listattachmentdelegate.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "common/delegatepaintutil.h"
-#include "model/filesforroommodel.h"
 #include "common/delegateutil.h"
+#include "model/filesforroommodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
-#include <KLocalizedString>
-#include <KMessageBox>
 
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -78,8 +78,10 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->setFont(oldFont);
 
     // Draw the timestamp (below the sender)
-    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText,
-                                     QPoint(DelegatePaintUtil::margin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));
+    DelegatePaintUtil::drawTimestamp(
+        painter,
+        layout.timeStampText,
+        QPoint(DelegatePaintUtil::margin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));
 
     // Draw delete icon (for our own messages)
     if (file->userId() == Ruqola::self()->rocketChatAccount()->userId()) {
@@ -118,8 +120,8 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             if (KMessageBox::Yes == KMessageBox::questionYesNo(parentWidget, i18n("Do you want to Delete this File?"), i18n("Delete File"))) {
                 const QString fileId = file->fileId();
                 Q_EMIT deleteAttachment(fileId);
-                //TODO
-                //appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileId, appid.selectedRoom.channelType)
+                // TODO
+                // appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileId, appid.selectedRoom.channelType)
             }
             return true;
         }
@@ -132,9 +134,8 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
-    const int contentsHeight = layout.timeStampY  + option.fontMetrics.height() - option.rect.y();
-    return {option.rect.width(),
-            contentsHeight};
+    const int contentsHeight = layout.timeStampY + option.fontMetrics.height() - option.rect.y();
+    return {option.rect.width(), contentsHeight};
 }
 
 ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

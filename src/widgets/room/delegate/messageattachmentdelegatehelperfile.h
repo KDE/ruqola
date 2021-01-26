@@ -23,22 +23,29 @@
 
 #include "messagedelegatehelperbase.h"
 
+#include <QIcon>
 #include <QRect>
 #include <QString>
-#include <QIcon>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
     MessageAttachmentDelegateHelperFile();
     ~MessageAttachmentDelegateHelperFile() override;
-    void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    void draw(const MessageAttachment &msgAttach,
+              QPainter *painter,
+              QRect attachmentsRect,
+              const QModelIndex &index,
+              const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    bool handleMouseEvent(const MessageAttachment &msgAttach,
+                          QMouseEvent *mouseEvent,
+                          QRect attachmentsRect,
+                          const QStyleOptionViewItem &option,
+                          const QModelIndex &index) override;
 
 private:
-    struct FileLayout
-    {
+    struct FileLayout {
         QString title;
         QString description;
         QSize titleSize;

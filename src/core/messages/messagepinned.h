@@ -36,9 +36,10 @@ public:
 
     Q_REQUIRED_RESULT bool operator==(const MessagePinned &other) const;
     void parse(const QJsonObject &o);
+
 private:
     QString mPinnedBy;
     bool mPinned = false;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessagePinned &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessagePinned &t);
 #endif // MESSAGEPINNED_H

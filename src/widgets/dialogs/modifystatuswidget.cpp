@@ -19,8 +19,8 @@
 */
 
 #include "modifystatuswidget.h"
-#include "misc/statuscombobox.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/statuscombobox.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>

@@ -67,8 +67,8 @@ void ConfigureAccountServerWidget::slotDeleteServer()
     if (!item) {
         return;
     }
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove this account \'%1\'?", item->text()),
-                                                       i18nc("@title:window", "Remove Account"))) {
+    if (KMessageBox::Yes
+        == KMessageBox::questionYesNo(this, i18n("Do you want to remove this account \'%1\'?", item->text()), i18nc("@title:window", "Remove Account"))) {
         ui->accountServerListwidget->deleteAccountConfig(item);
         delete item;
         slotItemSelectionChanged();

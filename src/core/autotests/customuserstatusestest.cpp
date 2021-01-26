@@ -19,8 +19,8 @@
 */
 
 #include "customuserstatusestest.h"
-#include "customuserstatuses.h"
 #include "customuserstatus.h"
+#include "customuserstatuses.h"
 #include "ruqola_autotest_helper.h"
 #include "utils.h"
 #include <QJsonDocument>
@@ -47,7 +47,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("customStatusesCount");
-    QTest::addColumn< QVector<CustomUserStatus> >("customUserStatus");
+    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatus");
 
     {
         QVector<CustomUserStatus> result;
@@ -94,8 +94,8 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
 {
     QTest::addColumn<QString>("filename");
     QTest::addColumn<QString>("updatefilename");
-    QTest::addColumn< QVector<CustomUserStatus> >("customUserStatusInit");
-    QTest::addColumn< QVector<CustomUserStatus> >("customUserStatusAfterUpdating");
+    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusInit");
+    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusAfterUpdating");
 
     {
         QVector<CustomUserStatus> result;
@@ -134,10 +134,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             updating << f;
         }
 
-        QTest::addRow("customuser2") << QStringLiteral("customuser2")
-                                     << QStringLiteral("customuser2-updating")
-                                     << result
-                                     << updating;
+        QTest::addRow("customuser2") << QStringLiteral("customuser2") << QStringLiteral("customuser2-updating") << result << updating;
     }
 
     {
@@ -184,10 +181,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             f.setUpdatedAt(1603108134976);
             adding << f;
         }
-        QTest::addRow("customuser2-adding") << QStringLiteral("customuser2")
-                                            << QStringLiteral("customuser2-adding")
-                                            << result
-                                            << adding;
+        QTest::addRow("customuser2-adding") << QStringLiteral("customuser2") << QStringLiteral("customuser2-adding") << result << adding;
     }
 }
 
@@ -200,7 +194,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + filename + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
-    //Compare init
+    // Compare init
     CustomUserStatuses r;
     r.parseCustomUserStatuses(obj);
     bool compareCustom = r.customUserses() == customUserStatusInit;
@@ -210,7 +204,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     }
     QVERIFY(compareCustom);
 
-    //Compare after updating
+    // Compare after updating
     const QString updatingJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + updatefilename + QLatin1String(".json");
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updatingJsonFile);
 
@@ -227,8 +221,8 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
 {
     QTest::addColumn<QString>("filename");
     QTest::addColumn<QString>("updatefilename");
-    QTest::addColumn< QVector<CustomUserStatus> >("customUserStatusInit");
-    QTest::addColumn< QVector<CustomUserStatus> >("customUserStatusAfterDeleting");
+    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusInit");
+    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusAfterDeleting");
 
     {
         QVector<CustomUserStatus> result;
@@ -258,10 +252,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
             f.setUpdatedAt(1588199612532);
             updating << f;
         }
-        QTest::addRow("customuser2") << QStringLiteral("customuser2")
-                                     << QStringLiteral("customuser2-deleting")
-                                     << result
-                                     << updating;
+        QTest::addRow("customuser2") << QStringLiteral("customuser2") << QStringLiteral("customuser2-deleting") << result << updating;
     }
 }
 
@@ -274,7 +265,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + filename + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
-    //Compare init
+    // Compare init
     CustomUserStatuses r;
     r.parseCustomUserStatuses(obj);
     bool compareCustom = r.customUserses() == customUserStatusInit;
@@ -284,7 +275,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     }
     QVERIFY(compareCustom);
 
-    //Compare after updating
+    // Compare after updating
     const QString updatingJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + updatefilename + QLatin1String(".json");
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updatingJsonFile);
 

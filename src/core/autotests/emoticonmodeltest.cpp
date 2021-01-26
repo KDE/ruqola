@@ -46,7 +46,7 @@ void EmoticonModelTest::shouldListEmojis()
     icon1.setIdentifier(QStringLiteral("id1"));
     icon1.setCategory(QStringLiteral("cat1"));
     icon1.setAliases({QStringLiteral("id2"), QStringLiteral("id3")});
-    QVector<UnicodeEmoticon> list{ icon1 };
+    QVector<UnicodeEmoticon> list{icon1};
 
     // WHEN
     model.setEmoticons(list);
@@ -79,7 +79,7 @@ void EmoticonModelTest::shouldFilterCategory()
     UnicodeEmoticon icon1;
     icon1.setIdentifier(QStringLiteral("id1"));
     icon1.setCategory(QStringLiteral("cat1"));
-    QVector<UnicodeEmoticon> list{ icon1 };
+    QVector<UnicodeEmoticon> list{icon1};
     model.setEmoticons(list);
 
     // WHEN
@@ -99,4 +99,4 @@ void EmoticonModelTest::shouldFilterCategory()
     QCOMPARE(filterModel.rowCount(), 0);
 }
 
-//TODO add more check
+// TODO add more check

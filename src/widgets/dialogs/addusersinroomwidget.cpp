@@ -18,12 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "adduserscompletionlineedit.h"
 #include "addusersinroomwidget.h"
+#include "adduserscompletionlineedit.h"
 #include "misc/adduserswidget.h"
 
-#include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QVBoxLayout>
 
 AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     : QWidget(parent)

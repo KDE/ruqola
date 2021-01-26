@@ -22,14 +22,14 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminusersfilterproxymodel.h"
 #include "model/adminusersmodel.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QTableView>
 #include <QVBoxLayout>
-#include <QHeaderView>
 
 AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     : QWidget(parent)

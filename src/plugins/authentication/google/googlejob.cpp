@@ -22,16 +22,16 @@
  */
 
 #include "googlejob.h"
-#include "ruqola_debug.h"
 #include "googleauthenticationplugin_debug.h"
+#include "ruqola_debug.h"
 
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
 #include <QDesktopServices>
-#include <QJsonObject>
-#include <QJsonDocument>
 #include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
 
 #include <o2/o0globals.h>
 #include <o2/o0settingsstore.h>
@@ -46,8 +46,8 @@ GoogleJob::GoogleJob(QObject *parent)
 
     mO2Google->setClientId(m_clientID);
     mO2Google->setClientSecret(m_clientSecret);
-    mO2Google->setLocalPort(8888); //it is from redirect url(http://127.0.0.1:8888/)
-    mO2Google->setRequestUrl(m_authUri);  // Use the desktop login UI
+    mO2Google->setLocalPort(8888); // it is from redirect url(http://127.0.0.1:8888/)
+    mO2Google->setRequestUrl(m_authUri); // Use the desktop login UI
     mO2Google->setScope(QStringLiteral("email"));
 
     // Create a store object for writing the received tokens
@@ -78,15 +78,15 @@ void GoogleJob::getDataFromJson()
         val = QString::fromLatin1(f.readAll());
     } else {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Impossible to read client_secret.json";
-        //TODO exit ?
+        // TODO exit ?
         return;
     }
 
     //******github*******
-    //38a607244195a0d7af8 > clientID
-    //bb617841568d7c1e0c0888f292cf69b7b11d327e3 > clientSecret
-    //https://github.com/login/oauth/authorize
-    //https://github.com/login/oauth/access_token
+    // 38a607244195a0d7af8 > clientID
+    // bb617841568d7c1e0c0888f292cf69b7b11d327e3 > clientSecret
+    // https://github.com/login/oauth/authorize
+    // https://github.com/login/oauth/access_token
     const QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
     const QJsonObject object = document.object();
     const auto settingsObject = object[QStringLiteral("web")].toObject();
@@ -106,7 +106,7 @@ void GoogleJob::doOAuth(O2::GrantFlow grantFlowType)
     mO2Google->setGrantFlow(grantFlowType);
     mO2Google->unlink();
 
-    //TODO: refresh the token if it is expired(not valid)
+    // TODO: refresh the token if it is expired(not valid)
     validateToken();
     if (m_isValidToken) {
         OAuthLoginMethodParameter();
@@ -115,7 +115,7 @@ void GoogleJob::doOAuth(O2::GrantFlow grantFlowType)
     }
 }
 
-//currently not used
+// currently not used
 void GoogleJob::validateToken()
 {
     if (!mO2Google->linked()) {
@@ -140,7 +140,7 @@ void GoogleJob::onOpenBrowser(const QUrl &url)
 
 void GoogleJob::onCloseBrowser()
 {
-    //TODO: close the browser
+    // TODO: close the browser
 }
 
 void GoogleJob::onLinkedChanged()
@@ -160,13 +160,13 @@ void GoogleJob::onLinkingSucceeded()
         Q_EMIT extraTokensReady(extraTokens);
         qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Extra tokens in response:");
         foreach (const QString &key, extraTokens.keys()) {
-            qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << key << QStringLiteral(":")
-                                                            << (extraTokens.value(key).toString().left(3) + QStringLiteral("..."));
+            qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG)
+                << key << QStringLiteral(":") << (extraTokens.value(key).toString().left(3) + QStringLiteral("..."));
         }
     }
 }
 
-//currently not used
+// currently not used
 void GoogleJob::onFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
@@ -192,7 +192,7 @@ void GoogleJob::onFinished()
         m_isValidToken = true;
     } else {
         qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Token is invalid");
-        //TODO
+        // TODO
         Q_EMIT linkingFailed(QString());
     }
 }

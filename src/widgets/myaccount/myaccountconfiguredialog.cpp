@@ -26,7 +26,8 @@
 #include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-namespace {
+namespace
+{
 const char myConfigGroupName[] = "RegisterUserDialog";
 }
 

@@ -21,8 +21,8 @@
 #ifndef CHANNELINFOWIDGET_H
 #define CHANNELINFOWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_export.h"
+#include <QWidget>
 class KPasswordLineEdit;
 class QCheckBox;
 class QPushButton;

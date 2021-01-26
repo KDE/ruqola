@@ -21,8 +21,8 @@
 #include "channelclosejobtest.h"
 #include "channels/channelclosejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelCloseJobTest)
 using namespace RocketChatRestApi;
 ChannelCloseJobTest::ChannelCloseJobTest(QObject *parent)
@@ -68,9 +68,7 @@ void ChannelCloseJobTest::shouldGenerateJson()
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomId":"%1"})")
-             .arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
 void ChannelCloseJobTest::shouldNotStarting()

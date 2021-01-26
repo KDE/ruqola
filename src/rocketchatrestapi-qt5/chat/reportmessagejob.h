@@ -21,14 +21,15 @@
 #ifndef REPORTMESSAGEJOB_H
 #define REPORTMESSAGEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ReportMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //since 0.64
+    // since 0.64
     explicit ReportMessageJob(QObject *parent = nullptr);
     ~ReportMessageJob() override;
 

@@ -18,16 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "showattachmentcombobox.h"
 #include "showattachmentwidget.h"
 #include "attachment/listattachmentdelegate.h"
-#include "model/filesforroomfilterproxymodel.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include <QLineEdit>
-#include <QVBoxLayout>
+#include "model/filesforroomfilterproxymodel.h"
+#include "showattachmentcombobox.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <QLineEdit>
 #include <QListView>
+#include <QVBoxLayout>
 
 ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     : QWidget(parent)

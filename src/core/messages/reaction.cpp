@@ -92,12 +92,12 @@ int Reaction::count() const
     return mUserNames.count();
 }
 
-bool Reaction::operator ==(const Reaction &other) const
+bool Reaction::operator==(const Reaction &other) const
 {
     return (mUserNames == other.userNames()) && (mReactionName == other.reactionName());
 }
 
-QDebug operator <<(QDebug d, const Reaction &t)
+QDebug operator<<(QDebug d, const Reaction &t)
 {
     d << "ReactionName " << t.reactionName();
     d << "UserNames " << t.userNames();

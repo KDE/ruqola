@@ -21,8 +21,8 @@
 #ifndef STATUSMODEL_H
 #define STATUSMODEL_H
 
-#include "user.h"
 #include "libruqolacore_export.h"
+#include "user.h"
 
 #include <QAbstractListModel>
 #include <QIcon>
@@ -38,11 +38,7 @@ class LIBRUQOLACORE_EXPORT StatusModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(int currentStatus READ currentStatus NOTIFY currentStatusChanged)
 public:
-    enum StatusRoles {
-        StatusI18n = Qt::UserRole + 1,
-        Status,
-        Icon
-    };
+    enum StatusRoles { StatusI18n = Qt::UserRole + 1, Status, Icon };
     Q_ENUM(StatusRoles)
 
     explicit StatusModel(QObject *parent = nullptr);

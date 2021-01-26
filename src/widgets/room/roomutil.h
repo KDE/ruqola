@@ -23,7 +23,8 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QString>
-namespace RoomUtil {
+namespace RoomUtil
+{
 LIBRUQOLAWIDGETS_TESTS_EXPORT QString generateUserLink(const QString &userName);
 LIBRUQOLAWIDGETS_TESTS_EXPORT QString generatePermalink(const QString &messageId, const QString &roomId, const QString &channelType);
 }

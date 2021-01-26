@@ -26,7 +26,8 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CustomUserStatusListJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -39,6 +40,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
     void customUserStatusDone(const QJsonObject &data);
+
 private:
     Q_DISABLE_COPY(CustomUserStatusListJob)
     void slotCustomUserStatusDone();

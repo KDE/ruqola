@@ -20,8 +20,8 @@
 
 #include "passwordpluginauthentication.h"
 #include "passwordauthenticationinterface.h"
-#include <KPluginFactory>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(PasswordPluginAuthentication, "ruqola_passwordauthenticationplugin.json")
 
@@ -51,7 +51,7 @@ QString PasswordPluginAuthentication::name() const
 
 QString PasswordPluginAuthentication::iconName() const
 {
-    //TODO
+    // TODO
     return {};
 }
 

@@ -19,8 +19,8 @@
 */
 
 #include "customsoundslistjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -57,7 +57,7 @@ void CustomSoundsListJob::slotCustomSoundsDone()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("CustomSoundsJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT customSoundsListDone({}); //TODO fix return value!
+            Q_EMIT customSoundsListDone({}); // TODO fix return value!
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("CustomSoundsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -44,6 +44,7 @@ public:
 
 Q_SIGNALS:
     void alert();
+
 private:
     Q_DISABLE_COPY(Notification)
     struct TrayInfo {
@@ -62,8 +63,8 @@ private:
         bool hasAlert = false;
     };
     /**
-    * @brief Creates tray icon consisting of actions
-    */
+     * @brief Creates tray icon consisting of actions
+     */
     void createTrayIcon();
     void createToolTip();
     void updateUnityService(int unreadMessage);

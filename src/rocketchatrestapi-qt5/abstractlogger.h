@@ -23,7 +23,8 @@
 #include "librocketchatrestapi-qt5_export.h"
 class QByteArray;
 
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT AbstractLogger
 {
 public:

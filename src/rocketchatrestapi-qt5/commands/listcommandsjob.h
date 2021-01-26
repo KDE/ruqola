@@ -21,16 +21,17 @@
 #ifndef LISTCOMMANDSJOB_H
 #define LISTCOMMANDSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ListCommandsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //since 0.60.2
+    // since 0.60.2
     explicit ListCommandsJob(QObject *parent = nullptr);
     ~ListCommandsJob() override;
 

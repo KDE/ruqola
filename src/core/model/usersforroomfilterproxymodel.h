@@ -21,8 +21,8 @@
 #ifndef USERSFORROOMFILTERPROXYMODEL_H
 #define USERSFORROOMFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 
 class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
 {
@@ -49,6 +49,7 @@ Q_SIGNALS:
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+
 private:
     QString mStatusType;
 };

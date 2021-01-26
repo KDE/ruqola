@@ -19,8 +19,8 @@
 */
 
 #include "user.h"
-#include "utils.h"
 #include "ruqola_debug.h"
+#include "utils.h"
 
 #include <KLocalizedString>
 
@@ -65,22 +65,16 @@ void User::setStatus(const QString &status)
     mStatus = status;
 }
 
-bool User::operator ==(const User &other) const
+bool User::operator==(const User &other) const
 {
-    return (mName == other.name())
-           && (mUserId == other.userId())
-           && (mStatus == other.status())
-           && (mUserName == other.userName())
-           && (mUtcOffset == other.utcOffset())
-           && (mStatusText == other.statusText())
-           && (mRoles == other.roles())
-           && (mCreatedAt == other.createdAt())
-           && (mLastLogin == other.lastLogin());
+    return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
+        && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
+        && (mLastLogin == other.lastLogin());
 }
 
-bool User::operator !=(const User &other) const
+bool User::operator!=(const User &other) const
 {
-    return !operator ==(other);
+    return !operator==(other);
 }
 
 QString User::userName() const
@@ -118,14 +112,14 @@ void User::setStatusText(const QString &statusText)
     mStatusText = statusText;
 }
 
-QDebug operator <<(QDebug d, const User::UserEmailsInfo &t)
+QDebug operator<<(QDebug d, const User::UserEmailsInfo &t)
 {
     d << "email " << t.email;
     d << "verified " << t.verified;
     return d;
 }
 
-QDebug operator <<(QDebug d, const User &t)
+QDebug operator<<(QDebug d, const User &t)
 {
     d << "Name " << t.name();
     d << "UserId " << t.userId();
@@ -140,7 +134,7 @@ QDebug operator <<(QDebug d, const User &t)
     return d;
 }
 
-//FIXME Add autotest for it!
+// FIXME Add autotest for it!
 void User::parseUserRestApi(const QJsonObject &object)
 {
     setUserId(object.value(QLatin1String("_id")).toString());
@@ -176,8 +170,8 @@ void User::parseUserRestApi(const QJsonObject &object)
         }
     }
 
-    //TODO emails
-    //qDebug() << " object "  << object;
+    // TODO emails
+    // qDebug() << " object "  << object;
 }
 
 void User::parseUser(const QVariantList &list)

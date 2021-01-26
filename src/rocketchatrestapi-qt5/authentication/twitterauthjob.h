@@ -24,7 +24,8 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT TwitterAuthJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -66,7 +67,7 @@ private:
     QString mAppSecret;
     QString mAppId;
     int mExpireTokenInSeconds = -1;
-    //TODO identity ???? it's optional
+    // TODO identity ???? it's optional
 };
 }
 #endif // TWITTERAUTHJOB_H

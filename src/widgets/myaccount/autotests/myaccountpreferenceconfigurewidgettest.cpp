@@ -20,11 +20,11 @@
 
 #include "myaccountpreferenceconfigurewidgettest.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
-#include <QLabel>
-#include <QTest>
-#include <QLineEdit>
-#include <QVBoxLayout>
 #include <QComboBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
 MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(QObject *parent)
     : QObject(parent)

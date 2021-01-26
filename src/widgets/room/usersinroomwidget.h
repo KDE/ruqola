@@ -38,6 +38,7 @@ public:
     explicit UsersInRoomWidget(QWidget *parent = nullptr);
     ~UsersInRoomWidget() override;
     void setRoom(Room *room);
+
 private:
     void updateLabel();
     void slotTextChanged(const QString &str);

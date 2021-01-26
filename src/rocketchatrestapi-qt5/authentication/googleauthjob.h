@@ -24,7 +24,8 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GoogleAuthJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -58,7 +59,7 @@ private:
     QString mAccessToken;
     QString mIdToken;
     int mExpireTokenInSeconds = -1;
-    //TODO identity ???? it's optional
+    // TODO identity ???? it's optional
 };
 }
 #endif // GOOGLEAUTHJOB_H

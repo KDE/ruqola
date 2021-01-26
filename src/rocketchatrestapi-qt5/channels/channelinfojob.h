@@ -20,10 +20,11 @@
 
 #ifndef CHANNELINFOJOB_H
 #define CHANNELINFOJOB_H
-#include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
 #include "channelbasejob.h"
-namespace RocketChatRestApi {
+#include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelInfoJob : public ChannelBaseJob
 {
     Q_OBJECT

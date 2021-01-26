@@ -68,7 +68,7 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
     }
 }
 
-QDebug operator <<(QDebug d, const AutotranslateLanguages &t)
+QDebug operator<<(QDebug d, const AutotranslateLanguages &t)
 {
     const QVector<AutotranslateLanguage> autotranslateLanguages = t.autotranslateLanguage();
     for (const AutotranslateLanguage &lang : autotranslateLanguages) {

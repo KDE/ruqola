@@ -21,11 +21,11 @@
 #include "roomheaderwidgettest.h"
 #include "room/roomheaderwidget.h"
 #include <QLabel>
-#include <qtestmouse.h>
+#include <QSignalSpy>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
-#include <QSignalSpy>
+#include <qtestmouse.h>
 QTEST_MAIN(RoomHeaderWidgetTest)
 RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
     : QObject(parent)

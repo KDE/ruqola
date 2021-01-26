@@ -21,8 +21,8 @@
 #ifndef MYACCOUNT2FACONFIGUREWIDGET_H
 #define MYACCOUNT2FACONFIGUREWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
@@ -32,6 +32,7 @@ public:
     ~MyAccount2FaConfigureWidget() override;
     void load();
     void save();
+
 private:
     QCheckBox *mActivate2FAViaEmailCheckbox = nullptr;
 };

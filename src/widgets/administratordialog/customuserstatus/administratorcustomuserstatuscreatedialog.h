@@ -21,9 +21,9 @@
 #ifndef ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
 #define ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
 
-#include <QDialog>
 #include "administratorcustomuserstatuscreatewidget.h"
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateDialog : public QDialog
 {
     Q_OBJECT
@@ -33,6 +33,7 @@ public:
 
     Q_REQUIRED_RESULT AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
+
 private:
     void readConfig();
     void writeConfig();

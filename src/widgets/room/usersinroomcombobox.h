@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomComboBox : public QComboBox
 public:
     explicit UsersInRoomComboBox(QWidget *parent = nullptr);
     ~UsersInRoomComboBox() override;
+
 private:
     void fillCombobox();
 };

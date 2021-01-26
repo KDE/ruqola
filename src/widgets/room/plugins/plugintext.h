@@ -21,8 +21,8 @@
 #ifndef PLUGINTEXT_H
 #define PLUGINTEXT_H
 
-#include <QObject>
 #include "libruqolawidgets_export.h"
+#include <QObject>
 class PluginTextInterface;
 class LIBRUQOLAWIDGETS_EXPORT PluginText : public QObject
 {

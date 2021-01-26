@@ -19,9 +19,9 @@
 */
 
 #include "uploadfilejobtest.h"
-#include "uploadfilejob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
+#include "uploadfilejob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UploadFileJobTest)
 using namespace RocketChatRestApi;

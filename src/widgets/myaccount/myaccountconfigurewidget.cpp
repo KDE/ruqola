@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "myaccount2faconfigurewidget.h"
 #include "myaccountconfigurewidget.h"
+#include "myaccount2faconfigurewidget.h"
 #include "myaccountpreferenceconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
 #include "rocketchataccount.h"

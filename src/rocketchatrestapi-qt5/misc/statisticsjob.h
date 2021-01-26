@@ -21,11 +21,12 @@
 #ifndef STATISTICSJOB_H
 #define STATISTICSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT StatisticsJob : public RestApiAbstractJob
 {
     Q_OBJECT

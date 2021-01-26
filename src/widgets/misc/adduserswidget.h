@@ -21,10 +21,10 @@
 #ifndef ADDUSERSWIDGET_H
 #define ADDUSERSWIDGET_H
 
-#include <QWidget>
-#include <QMap>
 #include "dialogs/adduserscompletionlineedit.h"
 #include "libruqolawidgets_private_export.h"
+#include <QMap>
+#include <QWidget>
 class FlowLayout;
 class ClickableUserWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget

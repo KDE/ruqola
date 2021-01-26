@@ -21,22 +21,17 @@
 #ifndef SETSTATUSJOB_H
 #define SETSTATUSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetStatusJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
     explicit SetStatusJob(QObject *parent = nullptr);
     ~SetStatusJob() override;
-    enum StatusType {
-        OnLine,
-        Away,
-        Offline,
-        Busy,
-        Unknown
-    };
+    enum StatusType { OnLine, Away, Offline, Busy, Unknown };
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;

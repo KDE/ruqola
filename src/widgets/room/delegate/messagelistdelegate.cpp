@@ -19,33 +19,33 @@
 */
 
 #include "messagelistdelegate.h"
-#include "messagedelegatehelperbase.h"
-#include "messagedelegatehelpertext.h"
-#include "messageattachmentdelegatehelperimage.h"
+#include "common/delegatepaintutil.h"
+#include "emoticons/emojimanager.h"
 #include "messageattachmentdelegatehelperfile.h"
-#include "messagedelegatehelperreactions.h"
-#include "messageattachmentdelegatehelpervideo.h"
+#include "messageattachmentdelegatehelperimage.h"
 #include "messageattachmentdelegatehelpersound.h"
 #include "messageattachmentdelegatehelpertext.h"
+#include "messageattachmentdelegatehelpervideo.h"
+#include "messagedelegatehelperbase.h"
+#include "messagedelegatehelperreactions.h"
+#include "messagedelegatehelpertext.h"
+#include "misc/avatarcachemanager.h"
+#include "misc/emoticonmenuwidget.h"
 #include "model/messagemodel.h"
-#include "emoticons/emojimanager.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "rocketchataccount.h"
-#include "misc/emoticonmenuwidget.h"
-#include "misc/avatarcachemanager.h"
-#include "common/delegatepaintutil.h"
 
-#include <QApplication>
 #include <QAbstractItemView>
+#include <QApplication>
 #include <QDesktopWidget>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScreen>
 #include <QToolTip>
 
-#include <KLocalizedString>
 #include <KColorScheme>
+#include <KLocalizedString>
 
 static QSizeF dprAwareSize(const QPixmap &pixmap)
 {
@@ -63,7 +63,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
-    , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) //TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
+    , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mHelperText(new MessageDelegateHelperText)
     , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
     , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
@@ -97,7 +97,7 @@ static qreal basicMargin()
 static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
 {
     // This gives incorrect results (too small bounding rect), no idea why!
-    //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
+    // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
     return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
 }
 
@@ -110,8 +110,8 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
     } else {
         const QString avatarUrl = index.data(MessageModel::Avatar).toString();
         if (!avatarUrl.isEmpty()) {
-            //TODO
-            //qDebug() << " avatarUrl is not empty " << avatarUrl;
+            // TODO
+            // qDebug() << " avatarUrl is not empty " << avatarUrl;
             return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
         } else {
             return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
@@ -203,8 +203,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     int attachmentsY;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin,
-                                maxWidth, textSize.height() + textVMargin);
+        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
         layout.baseLine += layout.textRect.top(); // make it absolute
     } else {
@@ -214,8 +213,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.usableRect.setLeft(textLeft);
 
     // Align top of sender rect so it matches the baseline of the richtext
-    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent,
-                               senderTextSize.width(), senderTextSize.height());
+    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
     // Same for the roles and edit icon
@@ -253,7 +251,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         const auto attachements = message->attachements();
         QSize attachmentsSize;
         int topAttachment = attachmentsY;
-        //TODO add spacing between attachment
+        // TODO add spacing between attachment
         for (const MessageAttachment &msgAttach : attachements) {
             const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
@@ -412,15 +410,15 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (message->wasEdited()) {
         mEditedIcon.paint(painter, layout.editedIconRect);
     }
-    //Draw the favorite icon
+    // Draw the favorite icon
     if (message->isStarred()) {
         mFavoriteIcon.paint(painter, layout.favoriteIconRect);
     }
-    //Draw the pin icon
+    // Draw the pin icon
     if (message->isPinned()) {
         mPinIcon.paint(painter, layout.pinIconRect);
     }
-    //Draw translated string
+    // Draw translated string
     if (message->isAutoTranslated()) {
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
@@ -455,13 +453,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     // Discussion
     if (!message->discussionRoomId().isEmpty()) {
-        const QString discussionsText = (message->discussionCount() > 0) ? i18np("1 message", "%1 messages", message->discussionCount()) : i18n("No message yet");
+        const QString discussionsText =
+            (message->discussionCount() > 0) ? i18np("1 message", "%1 messages", message->discussionCount()) : i18n("No message yet");
         painter->setPen(mOpenDiscussionColorMode);
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
     }
 
-    //drawFocus(painter, option, messageRect);
+    // drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
 
@@ -484,12 +483,11 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
-    //qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
+    // qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
     //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
-    //qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
+    // qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
-    return {option.rect.width(),
-            qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
 static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
@@ -553,7 +551,9 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
                 const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
-                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(), threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString() : threadMessagePreview);
+                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
+                                                               threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString()
+                                                                                              : threadMessagePreview);
                 return true;
             }
         }

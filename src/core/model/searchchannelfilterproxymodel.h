@@ -21,8 +21,8 @@
 #ifndef SEARCHCHANNELFILTERPROXYMODEL_H
 #define SEARCHCHANNELFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
+#include <QSortFilterProxyModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchChannelFilterProxyModel : public QSortFilterProxyModel
 {
@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchChannelFilterProxyModel : public QSortFil
 public:
     explicit SearchChannelFilterProxyModel(QObject *parent = nullptr);
     ~SearchChannelFilterProxyModel() override;
+
 protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

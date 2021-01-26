@@ -24,7 +24,8 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-namespace {
+namespace
+{
 static const char myEmoticonRecentUsedFilterProxyModelGroupName[] = "EmoticonRecentUsed";
 }
 EmoticonRecentUsedFilterProxyModel::EmoticonRecentUsedFilterProxyModel(QObject *parent)

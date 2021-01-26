@@ -21,12 +21,13 @@
 #ifndef CHANNELBASEJOB_H
 #define CHANNELBASEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QJsonObject>
 #include <QUrlQuery>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelBaseJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -53,9 +54,10 @@ public:
 protected:
     void generateJson(QJsonObject &obj) const;
     void addQueryItem(QUrl &url) const;
+
 private:
     ChannelInfo mChannelInfo;
 };
 }
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
 #endif // CHANNELBASEJOB_H

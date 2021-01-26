@@ -20,8 +20,8 @@
 #ifndef AUTOTRANSLATELANGUAGES_H
 #define AUTOTRANSLATELANGUAGES_H
 
-#include "libruqola_private_export.h"
 #include "autotranslatelanguage.h"
+#include "libruqola_private_export.h"
 #include <QDebug>
 #include <QVector>
 
@@ -45,5 +45,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutotranslateLanguages)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AutotranslateLanguages &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguages &t);
 #endif // AUTOTRANSLATELANGUAGES_H

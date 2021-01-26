@@ -19,10 +19,10 @@
 */
 
 #include "userssetpreferencesjobtest.h"
-#include "users/userssetpreferencesjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/userssetpreferencesjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersSetPreferencesJobTest)
 using namespace RocketChatRestApi;
 UsersSetPreferencesJobTest::UsersSetPreferencesJobTest(QObject *parent)
@@ -60,7 +60,8 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
     const QString userId = QStringLiteral("foo");
     info.userId = userId;
     job.setUsersSetPreferencesInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"desktopNotifications":"%2","highlights":[]},"userId":"%1"})").arg(userId, desktopNotifications).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"data":{"desktopNotifications":"%2","highlights":[]},"userId":"%1"})").arg(userId, desktopNotifications).toLatin1());
 }
 
 void UsersSetPreferencesJobTest::shouldNotStarting()

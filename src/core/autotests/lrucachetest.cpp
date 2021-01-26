@@ -25,8 +25,8 @@
 #include <QTest>
 #include <QVector>
 
-#include <lrucache.h>
 #include <algorithm>
+#include <lrucache.h>
 
 QTEST_GUILESS_MAIN(LRUCacheTest)
 
@@ -36,38 +36,34 @@ LRUCacheTest::LRUCacheTest(QObject *parent)
     QStandardPaths::setTestModeEnabled(true);
 }
 
-namespace QTest {
+namespace QTest
+{
 // Why does qtest.h have QList but not QVector support? Oh well, Qt6 unifies that.
-template<typename T>
-inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected, const char *file, int line)
+template<typename T> inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected, const char *file, int line)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    return qCompare(QList<T>(t1.begin(), t1.end()),
-                    QList<T>(t2.begin(), t2.end()),
-                    actual, expected, file, line);
+    return qCompare(QList<T>(t1.begin(), t1.end()), QList<T>(t2.begin(), t2.end()), actual, expected, file, line);
 #else
-    return qCompare(t1.toList(), t2.toList(),
-                    actual, expected, file, line);
+    return qCompare(t1.toList(), t2.toList(), actual, expected, file, line);
 #endif
 }
 }
 
 void LRUCacheTest::shouldCacheLastFiveEntries()
 {
-    auto makeString = [](const char *prefix, int i) -> QString
-                      {
-                          return QLatin1String(prefix) + QString::number(i);
-                      };
+    auto makeString = [](const char *prefix, int i) -> QString {
+        return QLatin1String(prefix) + QString::number(i);
+    };
 
     using Cache = LRUCache<QString, QString, 5>;
     Cache cache;
     auto contents = [&cache]() -> QVector<QString> {
-                        QVector<QString> ret(cache.size());
-                        std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
+        QVector<QString> ret(cache.size());
+        std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
             return entry.value;
         });
-                        return ret;
-                    };
+        return ret;
+    };
 
     QCOMPARE(cache.size(), 0);
     QCOMPARE(cache.begin(), cache.end());
@@ -126,8 +122,7 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
 void LRUCacheTest::shouldWorkWithUniquePtr()
 {
     static int deletions = 0;
-    struct MyDocument
-    {
+    struct MyDocument {
         ~MyDocument()
         {
             ++deletions;

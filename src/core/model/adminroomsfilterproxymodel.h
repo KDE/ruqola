@@ -20,8 +20,8 @@
 #ifndef ADMINROOMSFILTERPROXYMODEL_H
 #define ADMINROOMSFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 class AdminRoomsModel;
 class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public QSortFilterProxyModel
 {
@@ -49,8 +49,10 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 private:
     AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::All;
     AdminRoomsModel *const mAdminRoomsModel;

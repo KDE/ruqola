@@ -19,18 +19,18 @@
 */
 
 #include "roomtest.h"
-#include "room.h"
-#include "ruqola_autotest_helper.h"
-#include "model/usersforroommodel.h"
-#include "model/usersforroomfilterproxymodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
+#include "model/usersforroomfilterproxymodel.h"
+#include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
-#include <QJsonDocument>
-#include <QTest>
-#include <QSignalSpy>
-#include <QCborValue>
+#include "room.h"
+#include "ruqola_autotest_helper.h"
 #include <QCborMap>
+#include <QCborValue>
+#include <QJsonDocument>
+#include <QSignalSpy>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(RoomTest)
 
@@ -50,7 +50,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.description().isEmpty());
     QVERIFY(input.announcement().isEmpty());
     QVERIFY(!input.readOnly());
-    //Add more
+    // Add more
     QCOMPARE(input.userMentions(), 0);
     QCOMPARE(input.unread(), 0);
     QCOMPARE(input.blocked(), false);
@@ -78,7 +78,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.highlightsWord().isEmpty());
 }
 
-//TODO add notification, userMentions too
+// TODO add notification, userMentions too
 void RoomTest::shouldSerialized()
 {
     Room input(nullptr);
@@ -89,7 +89,7 @@ void RoomTest::shouldSerialized()
     input.setRoomCreatorUserName(QStringLiteral("pp"));
     input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringList {QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
     input.setUnread(66);
@@ -109,10 +109,10 @@ void RoomTest::shouldSerialized()
     input.setAutoTranslate(true);
     input.setLastSeenAt(253);
     const QByteArray ba = Room::serialize(&input);
-    //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
-    //Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
+    // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     auto output = Room::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
-    //qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
+    // qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
     QVERIFY(input.isEqual(*output));
 }
 
@@ -148,7 +148,7 @@ void RoomTest::shouldEmitSignals()
     input.setRoomCreatorUserName(QStringLiteral("pp"));
     input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringList {QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
     input.setUnread(66);
@@ -211,7 +211,7 @@ void RoomTest::shouldChangeInputMessage()
 void RoomTest::shouldParseRoom_data()
 {
     QTest::addColumn<QString>("fileName");
-    //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
+    // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
     QTest::newRow("notification-room") << QStringLiteral("notification-room");
 
     QTest::newRow("unread-usermentions-room") << QStringLiteral("unread-usermentions-room");
@@ -230,10 +230,10 @@ void RoomTest::shouldParseRoom()
 
     Room r;
     r.parseSubscriptionRoom(fields);
-    //qDebug() << " fields"<<fields;
+    // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Room::serialize(&r, false);
-    //qDebug() << " ba " << ba;
+    // qDebug() << " ba " << ba;
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
@@ -247,14 +247,16 @@ void RoomTest::shouldParseRoomAndUpdate_data()
 {
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("fileNameupdate");
-    //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
-    QTest::newRow("room-update") << QStringLiteral("room-update") << (QStringList() <<QStringLiteral("room-update1"));
-    QTest::newRow("room-without-owner") << QStringLiteral("room-without-owner") << (QStringList() <<QStringLiteral("room-without-owner1"));
-    QTest::newRow("room-mute-unmute") << QStringLiteral("room-mute-unmute") << (QStringList() <<QStringLiteral("muted-users") << QStringLiteral("unmuted-users"));
-    QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() <<QStringLiteral("userignored-room-update"));
-    QTest::newRow("room-requiredjoincode-owner") << QStringLiteral("room-requiredjoincode-owner") << (QStringList() <<QStringLiteral("room-requiredjoincode-update"));
-    QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() <<QStringLiteral("autotranslatelanguage-update"));
+    // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
+    QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() << QStringLiteral("notification-roomupdate1"));
+    QTest::newRow("room-update") << QStringLiteral("room-update") << (QStringList() << QStringLiteral("room-update1"));
+    QTest::newRow("room-without-owner") << QStringLiteral("room-without-owner") << (QStringList() << QStringLiteral("room-without-owner1"));
+    QTest::newRow("room-mute-unmute") << QStringLiteral("room-mute-unmute")
+                                      << (QStringList() << QStringLiteral("muted-users") << QStringLiteral("unmuted-users"));
+    QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() << QStringLiteral("userignored-room-update"));
+    QTest::newRow("room-requiredjoincode-owner") << QStringLiteral("room-requiredjoincode-owner")
+                                                 << (QStringList() << QStringLiteral("room-requiredjoincode-update"));
+    QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() << QStringLiteral("autotranslatelanguage-update"));
     QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));
 }
 
@@ -283,10 +285,10 @@ void RoomTest::shouldParseRoomAndUpdate()
         r.parseUpdateRoom(fields);
     }
 
-    //qDebug() << " fields"<<fields;
+    // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Room::serialize(&r, false);
-    //qDebug() << " ba " << ba;
+    // qDebug() << " ba " << ba;
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
@@ -301,26 +303,15 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("UpdateRoomfileNames");
     QTest::addColumn<QStringList>("UpdateSubscriptionFileNames");
-    //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate")
-        << QStringLiteral("notification-room")
-        << (QStringList() << QStringLiteral("notification-roomupdate1"))
-        << (QStringList() << QStringLiteral("notification-roomsubscription1"));
+    // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
+    QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() << QStringLiteral("notification-roomupdate1"))
+                                             << (QStringList() << QStringLiteral("notification-roomsubscription1"));
 
-    QTest::newRow("room-blocked")
-        << QStringLiteral("room-blocked")
-        << (QStringList() << QStringLiteral("room-blockedupdate1"))
-        << QStringList();
+    QTest::newRow("room-blocked") << QStringLiteral("room-blocked") << (QStringList() << QStringLiteral("room-blockedupdate1")) << QStringList();
 
-    QTest::newRow("room-encryption")
-        << QStringLiteral("room-encryption")
-        << (QStringList() << QStringLiteral("room-encryptionupdate1"))
-        << QStringList();
+    QTest::newRow("room-encryption") << QStringLiteral("room-encryption") << (QStringList() << QStringLiteral("room-encryptionupdate1")) << QStringList();
 
-    QTest::newRow("room-broadcasted")
-        << QStringLiteral("room-broadcasted")
-        << (QStringList() << QStringLiteral("room-broadcastedupdate1"))
-        << QStringList();
+    QTest::newRow("room-broadcasted") << QStringLiteral("room-broadcasted") << (QStringList() << QStringLiteral("room-broadcastedupdate1")) << QStringList();
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()
@@ -341,7 +332,8 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
     r.parseSubscriptionRoom(fields);
 
     for (const QString &updateFile : UpdateRoomfileNames) {
-        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-update-subscription/") + updateFile + QLatin1String(".json");
+        const QString originalUpdateJsonFile =
+            QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-update-subscription/") + updateFile + QLatin1String(".json");
         QFile f(originalUpdateJsonFile);
         QVERIFY(f.open(QIODevice::ReadOnly));
         const QByteArray content = f.readAll();
@@ -353,16 +345,17 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
     }
 
     for (const QString &updateFile : UpdateSubscriptionFileNames) {
-        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-update-subscription/") + updateFile + QLatin1String(".json");
+        const QString originalUpdateJsonFile =
+            QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-update-subscription/") + updateFile + QLatin1String(".json");
         const QJsonObject fields = AutoTestHelper::loadJsonObject(originalUpdateJsonFile);
 
         r.updateSubscriptionRoom(fields);
     }
 
-    //qDebug() << " fields"<<fields;
+    // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Room::serialize(&r, false);
-    //qDebug() << " ba " << ba;
+    // qDebug() << " ba " << ba;
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
@@ -372,4 +365,4 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
     QCOMPARE(r, *m);
 }
 
-//TODO add more autotests signal and co.
+// TODO add more autotests signal and co.

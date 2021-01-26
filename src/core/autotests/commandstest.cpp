@@ -19,8 +19,8 @@
 */
 
 #include "commandstest.h"
-#include "ruqola_autotest_helper.h"
 #include "commands.h"
+#include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(CommandsTest)
@@ -53,7 +53,7 @@ void CommandsTest::shouldLoadPermissions()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
-    r.parseCommands(obj, nullptr); //TODO add support for permissions
+    r.parseCommands(obj, nullptr); // TODO add support for permissions
     QCOMPARE(r.commandsCount(), 3);
 
     QVector<Command> result;
@@ -94,6 +94,6 @@ void CommandsTest::shouldLoadCommands()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
-    r.parseCommands(obj, nullptr); //TODO add support for permissions
+    r.parseCommands(obj, nullptr); // TODO add support for permissions
     QCOMPARE(r.commandsCount(), commandsCount);
 }

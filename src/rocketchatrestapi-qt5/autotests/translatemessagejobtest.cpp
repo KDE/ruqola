@@ -21,8 +21,8 @@
 #include "translatemessagejobtest.h"
 #include "autotranslate/translatemessagejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(TranslateMessageJobTest)
 using namespace RocketChatRestApi;
 TranslateMessageJobTest::TranslateMessageJobTest(QObject *parent)
@@ -56,7 +56,8 @@ void TranslateMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageId);
     const QString targetLanguage = QStringLiteral("bla");
     job.setTargetLanguage(targetLanguage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1","targetLanguage":"%2"})").arg(messageId, targetLanguage).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"messageId":"%1","targetLanguage":"%2"})").arg(messageId, targetLanguage).toLatin1());
 }
 
 void TranslateMessageJobTest::shouldNotStarting()

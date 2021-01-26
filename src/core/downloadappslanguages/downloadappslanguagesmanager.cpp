@@ -49,12 +49,12 @@ void DownloadAppsLanguagesManager::parse(const QString &serverUrl)
     }
     if (mAccountName.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "account name is empty. It's a bug";
-        Q_EMIT fileLanguagesParseFailed(); //Need to load commandlist
+        Q_EMIT fileLanguagesParseFailed(); // Need to load commandlist
         return;
     }
     if (mServerVersion.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "serverVersion is empty. It's a bug";
-        Q_EMIT fileLanguagesParseFailed(); //Need to load commandlist
+        Q_EMIT fileLanguagesParseFailed(); // Need to load commandlist
         return;
     }
     if (QFileInfo::exists(storedFileName())) {
@@ -126,7 +126,7 @@ QString DownloadAppsLanguagesManager::translatedString(const QString &language, 
     while (i != mLanguageMap.constEnd()) {
         if (id.contains(i.key())) {
             const DownloadAppsLanguagesInfo info = i.value();
-            const QMap<QString, QMap<QString, QString> > mapLangId = info.languageMap();
+            const QMap<QString, QMap<QString, QString>> mapLangId = info.languageMap();
             QMap<QString, QString> mapId = mapLangId.value(language);
             if (mapId.isEmpty()) {
                 mapId = mapLangId.value(QStringLiteral("en"));

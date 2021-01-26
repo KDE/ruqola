@@ -21,8 +21,8 @@
 #ifndef SHOWVIDEODIALOG_H
 #define SHOWVIDEODIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ShowVideoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoDialog : public QDialog
 {

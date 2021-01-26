@@ -18,18 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <QCommandLineParser>
-#include <QApplication>
-#include <QUrl>
 #include "dialogs/showvideodialog.h"
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QUrl>
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("+[file]"),
-                                        QStringLiteral("Video file")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("+[file]"), QStringLiteral("Video file")));
 
     parser.process(app);
     QString filename;

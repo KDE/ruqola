@@ -21,8 +21,8 @@
 #ifndef SEARCHMESSAGEFILTERPROXYMODEL_H
 #define SEARCHMESSAGEFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 class SearchMessageModel;
 class LIBRUQOLACORE_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
 {
@@ -37,6 +37,7 @@ public:
 Q_SIGNALS:
     void stringNotFoundChanged();
     void loadingInProgressChanged();
+
 private:
     SearchMessageModel *const mSearchMessageModel;
 };

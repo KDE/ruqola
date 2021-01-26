@@ -20,8 +20,8 @@
 
 #include "createchanneljob.h"
 
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -142,7 +142,7 @@ QJsonDocument CreateChannelJob::json() const
     }
     jsonObj[QLatin1String("name")] = channelName();
     if (mReadOnly) {
-        //Default is false
+        // Default is false
         jsonObj[QLatin1String("readOnly")] = true;
     }
 

@@ -21,9 +21,9 @@
 #ifndef UNICODEEMOTICON_H
 #define UNICODEEMOTICON_H
 
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QString>
-#include "libruqolacore_export.h"
 
 class LIBRUQOLACORE_EXPORT UnicodeEmoticon
 {
@@ -66,6 +66,6 @@ private:
 };
 Q_DECLARE_METATYPE(UnicodeEmoticon)
 Q_DECLARE_TYPEINFO(UnicodeEmoticon, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const UnicodeEmoticon &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const UnicodeEmoticon &t);
 
 #endif // UNICODEEMOTICON_H

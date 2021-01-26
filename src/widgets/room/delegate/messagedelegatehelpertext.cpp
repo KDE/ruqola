@@ -19,28 +19,28 @@
 */
 
 #include "messagedelegatehelpertext.h"
-#include <model/messagemodel.h>
+#include "messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"
-#include "messagedelegateutils.h"
+#include <model/messagemodel.h>
 
 #include <KStringHandler>
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
 #include <QClipboard>
+#include <QDrag>
 #include <QGuiApplication>
+#include <QMimeData>
 #include <QPainter>
 #include <QStyleOptionViewItem>
 #include <QTextDocumentFragment>
-#include <QToolTip>
-#include <QTextStream>
 #include <QTextFrame>
-#include <QDrag>
-#include <QMimeData>
+#include <QTextStream>
+#include <QToolTip>
 
 #include <model/threadmessagemodel.h>
 
@@ -60,9 +60,8 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 auto *that = const_cast<MessageDelegateHelperText *>(this);
                 // Find the previous message in the same thread, to use it as context
                 auto hasSameThread = [&](const Message &msg) {
-                                         return msg.threadMessageId() == threadMessageId
-                                                || msg.messageId() == threadMessageId;
-                                     };
+                    return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
+                };
                 Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
                 if (contextMessage.messageId().isEmpty()) {
                     ThreadMessageModel *cachedModel = mMessageCache.threadMessageModel(threadMessageId);
@@ -74,27 +73,26 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                                 contextMessage = *msg;
                             } else {
                                 QPersistentModelIndex persistentIndex(index);
-                                connect(&mMessageCache, &MessageCache::messageLoaded,
-                                        this, [=](const QString &msgId){
+                                connect(&mMessageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                                     if (msgId == threadMessageId) {
                                         that->updateView(widget, persistentIndex);
                                     }
                                 });
                             }
                         } else {
-                            //qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
+                            // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                         }
                     } else {
                         QPersistentModelIndex persistentIndex(index);
-                        connect(&mMessageCache, &MessageCache::modelLoaded,
-                                this, [=](){
+                        connect(&mMessageCache, &MessageCache::modelLoaded, this, [=]() {
                             that->updateView(widget, persistentIndex);
                         });
                     }
                 }
                 // Use TextConverter in case it starts with a [](URL) reply marker
                 const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
-                const QString contextString = TextConverter::convertMessageText(contextText, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager());
+                const QString contextString =
+                    TextConverter::convertMessageText(contextText, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager());
                 text.prepend(Utils::formatQuotedRichText(contextString));
             }
         }
@@ -177,8 +175,8 @@ void MessageDelegateHelperText::updateView(const QWidget *widget, const QModelIn
 static bool useItalicsForMessage(const QModelIndex &index)
 {
     const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage = messageType == Message::System
-                                 && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
+    const bool isSystemMessage =
+        messageType == Message::System && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
     return isSystemMessage;
 }
 
@@ -209,7 +207,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
         QTextCursor cursor(doc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
-        format.setForeground(Qt::gray); //TODO use color from theme.
+        format.setForeground(Qt::gray); // TODO use color from theme.
         cursor.mergeCharFormat(format);
     }
     painter->save();
@@ -257,9 +255,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
             if (charPos == -1) {
                 return false;
             }
-            if (mCurrentTextCursor.hasSelection()
-                && mCurrentTextCursor.selectionStart() <= charPos
-                && charPos <= mCurrentTextCursor.selectionEnd()
+            if (mCurrentTextCursor.hasSelection() && mCurrentTextCursor.selectionStart() <= charPos && charPos <= mCurrentTextCursor.selectionEnd()
                 && mCurrentDocument->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
                 mMightStartDrag = true;
                 return true;
@@ -333,10 +329,10 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
     QString formattedTooltip;
     QTextStream stream(&formattedTooltip);
     auto addLine = [&](const QString &line) {
-                       if (!line.isEmpty()) {
-                           stream << QLatin1String("<p>") << line << QLatin1String("</p>");
-                       }
-                   };
+        if (!line.isEmpty()) {
+            stream << QLatin1String("<p>") << line << QLatin1String("</p>");
+        }
+    };
 
     stream << QLatin1String("<qt>");
     addLine(tooltip);

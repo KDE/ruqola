@@ -18,22 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "room.h"
 #include "roommodeltest.h"
-#include "test_model_helpers.h"
 #include "model/roommodel.h"
+#include "room.h"
 #include "ruqola_autotest_helper.h"
+#include "test_model_helpers.h"
 
-#include <qglobal.h>
-#include <QJsonObject>
 #include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QSignalSpy>
 #include <QTest>
-#include <QJsonDocument>
+#include <qglobal.h>
 
 QTEST_GUILESS_MAIN(RoomModelTest)
 
-//TEST signal/slot
+// TEST signal/slot
 
 RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)
@@ -75,7 +75,7 @@ void RoomModelTest::shouldReturnRowCount()
     sampleModel.addRoom(QStringLiteral("myRoomID1"), QStringLiteral("bla bla"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    //Fix it. We remove + readd after that ! it's not optimal
+    // Fix it. We remove + readd after that ! it's not optimal
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);
@@ -127,7 +127,7 @@ void RoomModelTest::shouldAddRoom()
 
 void RoomModelTest::shouldUpdateRoom()
 {
-    //FIXME!!
+    // FIXME!!
     /*
     RoomModel sampleModel;
     RoomWrapper *sampleWrapper = nullptr;
@@ -227,10 +227,10 @@ void RoomModelTest::shouldUpdateSubcriptionActionInserted()
 
 void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
 {
-    //TODO rename autotests as it's not updatesubscrition but updateroom
-    //Update subscription doesn't update topic and co
+    // TODO rename autotests as it's not updatesubscrition but updateroom
+    // Update subscription doesn't update topic and co
     RoomModel sampleModel;
-    //QJsonArray input;
+    // QJsonArray input;
     QJsonObject roomData;
     Room *room = nullptr;
 
@@ -243,8 +243,8 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     roomData.insert(QStringLiteral("name"), QJsonValue(name));
     roomData.insert(QStringLiteral("announcement"), announcement);
     roomData.insert(QStringLiteral("topic"), topic);
-//    input.append(QJsonValue(QLatin1String("updated")));
-//    input.append(roomData);
+    //    input.append(QJsonValue(QLatin1String("updated")));
+    //    input.append(roomData);
 
     QCOMPARE(sampleModel.rowCount(), 1);
     QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
@@ -318,20 +318,20 @@ void RoomModelTest::shouldClear()
 void RoomModelTest::shouldReset()
 {
     RoomModel sampleModel;
-    //RoomWrapper *sampleWrapper;
+    // RoomWrapper *sampleWrapper;
 
     const QString Id = QStringLiteral("RA151100ECE");
     const QString name = QStringLiteral("myRoom");
     QCOMPARE(sampleModel.rowCount(), 0);
     sampleModel.addRoom(Id, name);
     QCOMPARE(sampleModel.rowCount(), 1);
-    //TODO: should uncomment this after enabling cache in roomModel
-/*
-    sampleModel.reset();
-    QCOMPARE(1, sampleModel.rowCount());
-    sampleWrapper = sampleModel.findRoomWrapper(Id);
-    QCOMPARE(name, sampleWrapper->name());
-    */
+    // TODO: should uncomment this after enabling cache in roomModel
+    /*
+        sampleModel.reset();
+        QCOMPARE(1, sampleModel.rowCount());
+        sampleWrapper = sampleModel.findRoomWrapper(Id);
+        QCOMPARE(name, sampleWrapper->name());
+        */
 }
 
 void RoomModelTest::shouldReturnDataDefault()
@@ -348,7 +348,7 @@ void RoomModelTest::shouldReturnDataDefault()
     QCOMPARE(output.toString(), Id);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSelected);
     QCOMPARE(output.toBool(), false);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); //channel type
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); // channel type
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
     QVERIFY(output.toString().isEmpty());
@@ -365,7 +365,7 @@ void RoomModelTest::shouldReturnDataDefault()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnouncement);
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomUnread);
-    QCOMPARE(output, QVariant(int(0))); //quint64 not used in room.cpp???
+    QCOMPARE(output, QVariant(int(0))); // quint64 not used in room.cpp???
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomFavorite);
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOpen);
@@ -374,7 +374,7 @@ void RoomModelTest::shouldReturnDataDefault()
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
 
-    //Verify it.
+    // Verify it.
     QCOMPARE(output, QVariant(int(15))); // not favorite (10) + no channel selected or 'p' (3) = total order(6) => undefined here.
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon()));
@@ -415,7 +415,7 @@ void RoomModelTest::shouldReturnData()
 
     RoomModel sampleModel;
     QVariant output;
-    sampleModel.addRoom(&input);//don't pass address. pass pointer variable
+    sampleModel.addRoom(&input); // don't pass address. pass pointer variable
 
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomName);
     QCOMPARE(output.toString(), name);
@@ -423,7 +423,7 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output.toString(), Id);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSelected);
     QCOMPARE(output.toBool(), selected);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); //channel type
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); // channel type
     QCOMPARE(output.toString(), roomType);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
     QCOMPARE(output.toString(), userId);
@@ -440,13 +440,13 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnouncement);
     QCOMPARE(output.toString(), announcement);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomUnread);
-    QCOMPARE(output, QVariant(unread)); //quint64 not used in room.cpp???
+    QCOMPARE(output, QVariant(unread)); // quint64 not used in room.cpp???
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomFavorite);
     QCOMPARE(output.toBool(), favorite);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOpen);
     QCOMPARE(output.toBool(), open);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
-    QCOMPARE(output.toString(), QStringLiteral("Favorites")); //first priority for favorites and then to channels
+    QCOMPARE(output.toString(), QStringLiteral("Favorites")); // first priority for favorites and then to channels
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
     QCOMPARE(output, QVariant(int(1))); // Private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
@@ -476,10 +476,10 @@ void RoomModelTest::shouldInsertRoom()
     Room *r = sampleModel.findRoom(generatedRoomId);
     QVERIFY(r);
 
-    //qDebug() << " fields"<<fields;
+    // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Room::serialize(r, false);
-    //qDebug() << " ba " << ba;
+    // qDebug() << " ba " << ba;
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
@@ -489,4 +489,4 @@ void RoomModelTest::shouldInsertRoom()
     QCOMPARE(*r, *m);
 }
 
-//TODO add autotest for notification update.
+// TODO add autotest for notification update.

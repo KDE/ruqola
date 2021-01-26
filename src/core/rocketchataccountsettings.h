@@ -21,11 +21,12 @@
 #ifndef ROCKETCHATACCOUNTSETTINGS_H
 #define ROCKETCHATACCOUNTSETTINGS_H
 
-#include <QString>
-#include <QObject>
 #include "libruqolacore_export.h"
+#include <QObject>
+#include <QString>
 
-namespace QKeychain {
+namespace QKeychain
+{
 class Job;
 }
 
@@ -42,7 +43,7 @@ public:
     Q_REQUIRED_RESULT QString authToken() const;
     void setAuthToken(const QString &authToken);
 
-    //account info
+    // account info
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 

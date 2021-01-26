@@ -21,8 +21,8 @@
 #include "savenotificationjobtest.h"
 #include "rooms/savenotificationjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SaveNotificationJobTest)
 using namespace RocketChatRestApi;
 SaveNotificationJobTest::SaveNotificationJobTest(QObject *parent)
@@ -68,25 +68,24 @@ void SaveNotificationJobTest::shouldGenerateJson()
     job.setRoomId(roomId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{},"roomId":"%1"})").arg(roomId).toLatin1());
 
-    //Add settings
+    // Add settings
     const QString audioNotification = QStringLiteral("all");
     job.setAudioNotifications(audioNotification);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"notifications":{"audioNotifications":"%2"},"roomId":"%1"})")
-             .arg(roomId, audioNotification).toLatin1());
+             QStringLiteral(R"({"notifications":{"audioNotifications":"%2"},"roomId":"%1"})").arg(roomId, audioNotification).toLatin1());
 
     const bool hideUnread = true;
     job.setHideUnreadStatus(hideUnread);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"notifications":{"audioNotifications":"%2","hideUnreadStatus":"1"},"roomId":"%1"})")
-             .arg(roomId, audioNotification).toLatin1());
+             QStringLiteral(R"({"notifications":{"audioNotifications":"%2","hideUnreadStatus":"1"},"roomId":"%1"})").arg(roomId, audioNotification).toLatin1());
     const QString mobilePushNotifications = QStringLiteral("all");
     job.setMobilePushNotifications(mobilePushNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-             .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
+                 .arg(roomId, audioNotification, mobilePushNotifications)
+                 .toLatin1());
 
     const bool disableNotifications = true;
     job.setDisableNotifications(disableNotifications);
@@ -95,7 +94,8 @@ void SaveNotificationJobTest::shouldGenerateJson()
                             "\"disableNotifications\":\"1\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-             .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
+                 .arg(roomId, audioNotification, mobilePushNotifications)
+                 .toLatin1());
 
     const bool muteMentionGroups = true;
     job.setMuteGroupMentions(muteMentionGroups);
@@ -105,9 +105,10 @@ void SaveNotificationJobTest::shouldGenerateJson()
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\","
                             "\"muteGroupMentions\":\"1\"},\"roomId\":\"%1\"}")
-             .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
+                 .arg(roomId, audioNotification, mobilePushNotifications)
+                 .toLatin1());
 
-    //TODO add more settings
+    // TODO add more settings
 }
 
 void SaveNotificationJobTest::shouldNotStarting()
@@ -131,7 +132,7 @@ void SaveNotificationJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
 
-    //We need to change a settings
+    // We need to change a settings
     job.setAudioNotificationValue(QStringLiteral("foo"));
     QVERIFY(job.canStart());
 }

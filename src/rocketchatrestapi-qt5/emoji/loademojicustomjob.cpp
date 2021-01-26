@@ -19,8 +19,8 @@
 */
 
 #include "loademojicustomjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -75,7 +75,7 @@ bool LoadEmojiCustomJob::requireHttpAuthentication() const
 
 bool LoadEmojiCustomJob::hasQueryParameterSupport() const
 {
-    //Since 0.71
+    // Since 0.71
     return true;
 }
 

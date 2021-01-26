@@ -21,8 +21,8 @@
 #ifndef CHANNELINFODIALOG_H
 #define CHANNELINFODIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ChannelInfoWidget;
 class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
@@ -32,6 +32,7 @@ public:
     explicit ChannelInfoDialog(QWidget *parent = nullptr);
     ~ChannelInfoDialog() override;
     void setRoom(Room *room);
+
 private:
     void slotFnameChanged(const QString &fname);
     ChannelInfoWidget *const mChannelInfoWidget;

@@ -21,11 +21,11 @@
 #ifndef CUSTOMUSERSTATUSES_H
 #define CUSTOMUSERSTATUSES_H
 
+#include "customuserstatus.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
 #include <QVector>
-#include "customuserstatus.h"
-#include "libruqolacore_export.h"
 
 class LIBRUQOLACORE_EXPORT CustomUserStatuses
 {
@@ -50,6 +50,7 @@ public:
     void parseCustomUserStatuses(const QJsonObject &customStatusObj);
     void deleteCustomUserStatuses(const QJsonArray &replyArray);
     void updateCustomUserStatues(const QJsonArray &replyArray);
+
 private:
     void parseListCustomUserStatuses(const QJsonObject &commandsObj);
     QVector<CustomUserStatus> mCustomUserses;
@@ -57,6 +58,6 @@ private:
     int mOffset = 0;
     int mTotal = 0;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const CustomUserStatuses &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatuses &t);
 
 #endif // CUSTOMUSERSTATUSES_H

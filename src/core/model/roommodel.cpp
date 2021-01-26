@@ -21,14 +21,14 @@
  */
 
 #include "roommodel.h"
-#include "ruqola_rooms_debug.h"
 #include "rocketchataccount.h"
+#include "ruqola_rooms_debug.h"
 #include "usersforroommodel.h"
 #include <KLocalizedString>
 
-#include <QIcon>
 #include <QDir>
 #include <QFile>
+#include <QIcon>
 #include <QJsonArray>
 
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
@@ -63,7 +63,7 @@ RoomModel::~RoomModel()
         }
     }
 #endif
-    //VERIFY qDeleteAll(mRoomsList);
+    // VERIFY qDeleteAll(mRoomsList);
 }
 
 void RoomModel::clear()
@@ -98,27 +98,27 @@ void RoomModel::reset()
         return;
     }
 
-    //Laurent disable cache for the moment
-/*
-    QDir cacheDir(Ruqola::self()->cacheBasePath());
-    // load cache
-    if (cacheDir.exists(cacheDir.path())) {
-        QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
-        if (f.open(QIODevice::ReadOnly)) {
-            QDataStream in(&f);
-            while (!f.atEnd()) {
-                char *byteArray;
-                quint32 length;
-                in.readBytes(byteArray, length);
-                QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                Room m = Room::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                qDebug() <<" Load from cache room name: " << m.name;
-                addRoom(m.id, m.name, m.selected);
+    // Laurent disable cache for the moment
+    /*
+        QDir cacheDir(Ruqola::self()->cacheBasePath());
+        // load cache
+        if (cacheDir.exists(cacheDir.path())) {
+            QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
+            if (f.open(QIODevice::ReadOnly)) {
+                QDataStream in(&f);
+                while (!f.atEnd()) {
+                    char *byteArray;
+                    quint32 length;
+                    in.readBytes(byteArray, length);
+                    QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                    Room m = Room::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                    qDebug() <<" Load from cache room name: " << m.name;
+                    addRoom(m.id, m.name, m.selected);
+                }
             }
+            qCDebug(RUQOLA_ROOMS_LOG) << "Cache Loaded";
         }
-        qCDebug(RUQOLA_ROOMS_LOG) << "Cache Loaded";
-    }
-    */
+        */
 }
 
 int RoomModel::rowCount(const QModelIndex &parent) const
@@ -180,7 +180,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
         return icon(r);
     case RoomModel::RoomOtr:
-        //TODO implement it.
+        // TODO implement it.
         return {};
     case RoomModel::RoomUserMentions:
         return r->userMentions();
@@ -235,8 +235,8 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
 
 void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
 {
-    //TODO fix me!
-    //Use "_id"
+    // TODO fix me!
+    // Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
     if (rId.isEmpty()) {
         rId = roomData.value(QLatin1String("_id")).toString();
@@ -254,8 +254,8 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
             }
         }
     } else {
-        qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
-        //qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
+        qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject " << roomData;
+        // qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
     }
 }
 
@@ -279,7 +279,7 @@ Room *RoomModel::addRoom(const QJsonObject &room)
 
 void RoomModel::addRoom(Room *room)
 {
-    qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::addRoom(const Room &room)"<<room->name();
+    qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::addRoom(const Room &room)" << room->name();
     int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == room->roomId()) {
@@ -291,7 +291,7 @@ void RoomModel::addRoom(Room *room)
     roomCount = mRoomsList.count();
 
     beginInsertRows(QModelIndex(), roomCount, roomCount);
-    qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" <<roomCount << " room name " << room->name();
+    qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" << roomCount << " room name " << room->name();
     mRoomsList.append(room);
     endInsertRows();
 }
@@ -314,21 +314,25 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     const QString actionName = array[0].toString();
     const QJsonObject roomData = array[1].toObject();
     if (actionName == QLatin1String("removed")) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name " << " rid " << roomData.value(QLatin1String("rid"));
+        qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name "
+                                  << " rid " << roomData.value(QLatin1String("rid"));
         const QString id = roomData.value(QLatin1String("rid")).toString();
         removeRoom(id);
     } else if (actionName == QLatin1String("inserted")) {
         qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value(QLatin1String("name")) << " rid " << roomData.value(QLatin1String("rid"));
-        //TODO fix me!
+        // TODO fix me!
         addRoom(roomData);
 
-        //addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
+        // addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
     } else if (actionName == QLatin1String("updated")) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
+        qCDebug(RUQOLA_ROOMS_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid"))
+                                  << " roomData " << roomData;
         updateSubscriptionRoom(roomData);
     } else if (actionName == QLatin1String("changed")) {
-        //qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
-        qCDebug(RUQOLA_ROOMS_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
+        // qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData
+        // " << roomData;
+        qCDebug(RUQOLA_ROOMS_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid"))
+                                  << " roomData " << roomData;
         qCDebug(RUQOLA_ROOMS_LOG) << "RoomModel::updateSubscription Not implementer changed room yet" << array;
         updateRoom(roomData);
     } else {
@@ -339,8 +343,8 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 void RoomModel::updateRoom(const QJsonObject &roomData)
 {
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonObject &roomData)" << roomData;
-    //TODO fix me!
-    //Use "_id"
+    // TODO fix me!
+    // Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
     if (rId.isEmpty()) {
         rId = roomData.value(QLatin1String("_id")).toString();
@@ -358,8 +362,8 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
             }
         }
     } else {
-        qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
-        //qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
+        qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject " << roomData;
+        // qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
     }
 }
 
@@ -510,7 +514,7 @@ QIcon RoomModel::icon(Room *r) const
         if (r->parentRid().isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("lock"));
         } else {
-            //TODO use a specific icon for discussion
+            // TODO use a specific icon for discussion
         }
     }
     return {};

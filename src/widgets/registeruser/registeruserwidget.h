@@ -21,9 +21,9 @@
 #ifndef REGISTERUSERWIDGET_H
 #define REGISTERUSERWIDGET_H
 
-#include <QWidget>
-#include "users/registeruserjob.h"
 #include "libruqolawidgets_private_export.h"
+#include "users/registeruserjob.h"
+#include <QWidget>
 class QLineEdit;
 class KPasswordLineEdit;
 class QPushButton;

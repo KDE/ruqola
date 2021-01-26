@@ -22,10 +22,10 @@
 #include "dialogs/channelpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
-#include <QSignalSpy>
 #include <QLabel>
-#include <QTest>
 #include <QList>
+#include <QSignalSpy>
+#include <QTest>
 QTEST_MAIN(ChannelPasswordWidgetTest)
 ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
     : QObject(parent)
@@ -35,7 +35,7 @@ ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
 void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ChannelPasswordWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout * >(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 

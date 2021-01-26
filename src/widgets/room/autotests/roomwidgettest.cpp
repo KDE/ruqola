@@ -19,16 +19,16 @@
 */
 
 #include "roomwidgettest.h"
-#include "room/roomwidget.h"
+#include "model/roommodel.h"
+#include "rocketchataccount.h"
 #include "room/messagelinewidget.h"
-#include "room/roomheaderwidget.h"
 #include "room/messagelistview.h"
 #include "room/readonlylineeditwidget.h"
 #include "room/roomcounterinfowidget.h"
-#include "room/usersinroomflowwidget.h"
+#include "room/roomheaderwidget.h"
 #include "room/roomreplythreadwidget.h"
-#include "model/roommodel.h"
-#include "rocketchataccount.h"
+#include "room/roomwidget.h"
+#include "room/usersinroomflowwidget.h"
 
 #include <ruqola.h>
 
@@ -84,7 +84,7 @@ static Room *createRoom(const QString &roomId, const QString &roomName)
     Room *r = new Room(rcAccount);
     r->setRoomId(roomId);
     r->setName(roomName);
-    const QString roomType = QStringLiteral("c");  // should be an enum...
+    const QString roomType = QStringLiteral("c"); // should be an enum...
     r->setChannelType(roomType);
     r->setArchived(true); // workaround to skip RestApiRequest::membersInRoom
     return r;

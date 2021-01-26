@@ -19,8 +19,8 @@
 */
 
 #include "userspresencejobtest.h"
-#include "users/userspresencejob.h"
 #include "ruqola_restapi_helper.h"
+#include "users/userspresencejob.h"
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(UsersPresenceJobTest)

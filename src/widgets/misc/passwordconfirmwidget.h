@@ -21,8 +21,8 @@
 #ifndef PASSWORDCONFIRMWIDGET_H
 #define PASSWORDCONFIRMWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordConfirmWidget : public QWidget
 {
@@ -32,6 +32,7 @@ public:
     ~PasswordConfirmWidget() override;
     Q_REQUIRED_RESULT bool isNewPasswordConfirmed() const;
     Q_REQUIRED_RESULT QString password() const;
+
 private:
     KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
     KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;

@@ -35,7 +35,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 {
     const QString roomId = o.value(QLatin1String("rid")).toString();
 
-    //t ? I can't find it.
+    // t ? I can't find it.
     const QString type = o.value(QLatin1String("t")).toString();
 
     mMessageId = o.value(QLatin1String("_id")).toString();
@@ -51,9 +51,9 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
         setTimeStamp(Utils::parseDate(QStringLiteral("ts"), o));
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
         mEditedAt = Utils::parseDate(QStringLiteral("editedAt"), o);
-        //Verify if a day we will use not restapi for it.
+        // Verify if a day we will use not restapi for it.
         mThreadLastMessage = Utils::parseDate(QStringLiteral("tlm"), o);
-        //Verify if a day we will use not restapi for it.
+        // Verify if a day we will use not restapi for it.
         mDiscussionLastMessage = Utils::parseDate(QStringLiteral("dlm"), o);
     }
 
@@ -72,7 +72,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mEditedByUserId = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("_id")).toString();
     mAlias = o.value(QLatin1String("alias")).toString();
     mAvatar = o.value(QLatin1String("avatar")).toString();
-    mGroupable = o.value(QLatin1String("groupable")).toBool(/*true*/ false); //Laurent, disable for the moment groupable
+    mGroupable = o.value(QLatin1String("groupable")).toBool(/*true*/ false); // Laurent, disable for the moment groupable
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
     mThreadCount = o.value(QLatin1String("tcount")).toInt();
@@ -94,7 +94,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseAttachment(o.value(QLatin1String("attachments")).toArray());
     parseUrls(o.value(QLatin1String("urls")).toArray());
     parseReactions(o.value(QLatin1String("reactions")).toObject());
-    //TODO unread element
+    // TODO unread element
 }
 
 void Message::parseReactions(const QJsonObject &reacts)
@@ -307,7 +307,7 @@ void Message::parseUrls(const QJsonArray &urls)
 {
     mUrls.clear();
     if (!urls.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachements)"<<urls;
+        qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachements)" << urls;
         for (int i = 0; i < urls.size(); i++) {
             const QJsonObject url = urls.at(i).toObject();
             MessageUrl messageUrl;
@@ -326,7 +326,7 @@ void Message::parseUrls(const QJsonArray &urls)
                     messageUrl.setDescription(descriptionStr.toString());
                 }
             }
-            //TODO add more
+            // TODO add more
 
             if (!messageUrl.isEmpty()) {
                 mUrls.append(messageUrl);
@@ -374,7 +374,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
 {
     mAttachements.clear();
     if (!attachments.isEmpty()) {
-        //qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+        // qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
         for (int i = 0; i < attachments.size(); i++) {
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
@@ -389,42 +389,17 @@ void Message::parseAttachment(const QJsonArray &attachments)
 
 bool Message::operator==(const Message &other) const
 {
-    return (mMessageId == other.messageId())
-           && (mRoomId == other.roomId())
-           && (mText == other.text())
-           && (mTimeStamp == other.timeStamp())
-           && (mUsername == other.username())
-           && (mName == other.name())
-           && (mUserId == other.userId())
-           && (mUpdatedAt == other.updatedAt())
-           && (mEditedAt == other.editedAt())
-           && (mEditedByUsername == other.editedByUsername())
-           && (mEditedByUserId == other.editedByUserId())
-           && (mAlias == other.alias())
-           && (mAvatar == other.avatar())
-           && (mSystemMessageType == other.systemMessageType())
-           && (mGroupable == other.groupable())
-           && (mParseUrls == other.parseUrls())
-           && (mUrls == other.urls())
-           && (mAttachements == other.attachements())
-           && (mMentions == other.mentions())
-           && (mRole == other.role())
-           && (mReactions == other.reactions())
-           && (mUnread == other.unread())
-           && (mMessagePinned == other.messagePinned())
-           && (mMessageStarred == other.messageStarred())
-           && (mThreadCount == other.threadCount())
-           && (mThreadLastMessage == other.threadLastMessage())
-           && (mDiscussionCount == other.discussionCount())
-           && (mDiscussionLastMessage == other.discussionLastMessage())
-           && (mDiscussionRoomId == other.discussionRoomId())
-           && (mThreadMessageId == other.threadMessageId())
-           && (mMessageTranslation == other.messageTranslation())
-           && (mShowTranslatedMessage == other.showTranslatedMessage())
-           && (mReplies == other.replies())
-           && (mEmoji == other.emoji())
-           && (mPendingMessage == other.pendingMessage())
-           && (mShowIgnoredMessage == other.showIgnoredMessage());
+    return (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
+        && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
+        && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
+        && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (mGroupable == other.groupable())
+        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachements == other.attachements()) && (mMentions == other.mentions())
+        && (mRole == other.role()) && (mReactions == other.reactions()) && (mUnread == other.unread()) && (mMessagePinned == other.messagePinned())
+        && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
+        && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
+        && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
+        && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
+        && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage());
 }
 
 bool Message::operator<(const Message &other) const
@@ -482,24 +457,24 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("jitsi_call_started")) {
         return QStringLiteral("<a href=\"ruqola:/jitsicall/\">") + i18n("Click to join to video") + QStringLiteral("</a>");
     } else if (mSystemMessageType == QLatin1String("rm")) {
-        //TODO encrypted message
+        // TODO encrypted message
         return i18n("Message Deleted");
     } else if (mSystemMessageType == QLatin1String("message_pinned")) {
         return i18n("Message Pinned");
     } else if (mSystemMessageType == QLatin1String("otr")) {
         return i18n("Encrypted Message");
     } else if (mSystemMessageType == QLatin1String("user-unmuted")) {
-        //TODO improve it
+        // TODO improve it
         return i18n("%1 was unmuted", mUsername);
     } else if (mSystemMessageType == QLatin1String("user-muted")) {
-        //TODO improve it
+        // TODO improve it
         return i18n("%1 was muted", mUsername);
     } else if (mSystemMessageType == QLatin1String("subscription-role-added")) {
         return i18n("Role \'%3\' was added to %1 by %2", mUsername, mText, mRole);
     } else if (mSystemMessageType == QLatin1String("subscription-role-removed")) {
         return i18n("Role \'%3\' was removed to %1 by %2", mUsername, mText, mRole);
     } else if (mSystemMessageType == QLatin1String("e2e")) {
-        //TODO need to unencrypt it
+        // TODO need to unencrypt it
         return i18n("Encrypted message: %1", mText);
     } else if (mSystemMessageType == QLatin1String("discussion-created")) {
         return i18n("Discussion created about \"%1\"", mText);
@@ -513,7 +488,7 @@ QString Message::systemMessageText() const
         qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
     } else if (mSystemMessageType == QLatin1String("wm")) {
-        //TODO verify
+        // TODO verify
         qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
         return i18n("Welcome %1!", mUsername);
     } else if (mSystemMessageType == QLatin1String("room_changed_avatar")) {
@@ -704,7 +679,7 @@ QString Message::generateAttachmentId(const QString &messageId, int index)
 
 Utils::AvatarInfo Message::avatarInfo() const
 {
-    Utils::AvatarInfo info; //Optimize ???
+    Utils::AvatarInfo info; // Optimize ???
     info.avatarType = Utils::AvatarType::User;
     info.identifier = mUsername;
     return info;
@@ -782,13 +757,13 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
     for (int i = 0; i < mentionsArray.count(); ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
-        qCDebug(RUQOLA_LOG) << " mention"<<mention;
-//        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
-//        if (!att.isEmpty()) {
-//            message.mAttachements.append(att);
-//        }
+        qCDebug(RUQOLA_LOG) << " mention" << mention;
+        //        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
+        //        if (!att.isEmpty()) {
+        //            message.mAttachements.append(att);
+        //        }
     }
-    //TODO add message translation !
+    // TODO add message translation !
 
     return message;
 }
@@ -836,8 +811,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
-    //TODO add mentions
-    //Attachments
+    // TODO add mentions
+    // Attachments
     if (!message.mAttachements.isEmpty()) {
         QJsonArray array;
         const int nbAttachment = message.mAttachements.count();
@@ -846,14 +821,14 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QStringLiteral("attachments")] = array;
     }
-    //FIXME save mentions
+    // FIXME save mentions
     QMapIterator<QString, QString> i(message.mentions());
     while (i.hasNext()) {
         i.next();
         qWarning() << " mentions not implemented";
-        //TODO
+        // TODO
     }
-    //Urls
+    // Urls
     if (!message.mUrls.isEmpty()) {
         QJsonArray array;
         const int nbUrls = message.mUrls.count();
@@ -889,13 +864,13 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
-    //TODO add message translation
+    // TODO add message translation
 
     d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
 }
 
-QDebug operator <<(QDebug d, const Message &t)
+QDebug operator<<(QDebug d, const Message &t)
 {
     d << "mMessageId : " << t.messageId();
     d << "mText: " << t.text();

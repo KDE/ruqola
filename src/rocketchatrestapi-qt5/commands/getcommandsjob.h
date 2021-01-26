@@ -21,16 +21,17 @@
 #ifndef GETCOMMANDSJOB_H
 #define GETCOMMANDSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetCommandsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //since 0.60.2
+    // since 0.60.2
     explicit GetCommandsJob(QObject *parent = nullptr);
     ~GetCommandsJob() override;
 

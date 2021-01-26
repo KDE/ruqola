@@ -20,10 +20,10 @@
 #ifndef OTRMANAGER_H
 #define OTRMANAGER_H
 
-#include <QJsonArray>
-#include <QObject>
 #include "libruqola_private_export.h"
 #include "otr.h"
+#include <QJsonArray>
+#include <QObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT OtrManager : public QObject
 {
@@ -32,6 +32,7 @@ public:
     explicit OtrManager(QObject *parent = nullptr);
     ~OtrManager() override;
     Q_REQUIRED_RESULT Otr parseOtr(const QJsonArray &contents);
+
 private:
     Q_DISABLE_COPY(OtrManager)
 };

@@ -20,8 +20,8 @@
 
 #include "flowlayout.h"
 
-#include <QWidget>
 #include <QStyle>
+#include <QWidget>
 
 static int smartSpacing(QObject *parent, QStyle::PixelMetric pm)
 {

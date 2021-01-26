@@ -26,7 +26,8 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-namespace {
+namespace
+{
 static const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
 }
 AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)

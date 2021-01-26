@@ -21,8 +21,8 @@
 #ifndef ADMINISTRATORCUSTOMSOUNDSWIDGET_H
 #define ADMINISTRATORCUSTOMSOUNDSWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class CustomSoundsTreeWidget;
 class KTreeWidgetSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public QWidget
@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public QWi
 public:
     explicit AdministratorCustomSoundsWidget(QWidget *parent = nullptr);
     ~AdministratorCustomSoundsWidget() override;
+
 private:
     CustomSoundsTreeWidget *const mCustomSoundsTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;

@@ -39,10 +39,10 @@ Q_SIGNALS:
 
 private:
     struct Layout {
-        //Icon mimetype
+        // Icon mimetype
         qreal mimetypeHeight = 0;
 
-        //Attachment name
+        // Attachment name
         QString attachmentName;
         qreal attachmentNameY = 0;
 
@@ -51,16 +51,16 @@ private:
         QFont senderFont;
         qreal senderY = 0;
 
-        //TimeStamp
+        // TimeStamp
         QString timeStampText;
         qreal timeStampY = 0;
         //
         QRect usableRect;
 
-        //Download Attachment Rect
+        // Download Attachment Rect
         QRect downloadAttachmentRect;
 
-        //Delete Attachment Rect
+        // Delete Attachment Rect
         QRect deleteAttachmentRect;
     };
     Q_REQUIRED_RESULT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;

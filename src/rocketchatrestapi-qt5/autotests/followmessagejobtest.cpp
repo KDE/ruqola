@@ -21,8 +21,8 @@
 #include "followmessagejobtest.h"
 #include "chat/followmessagejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(FollowMessageJobTest)
 using namespace RocketChatRestApi;
 FollowMessageJobTest::FollowMessageJobTest(QObject *parent)

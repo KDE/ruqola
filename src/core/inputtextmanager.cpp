@@ -19,10 +19,10 @@
 */
 
 #include "inputtextmanager.h"
-#include "ruqola_debug.h"
-#include "ruqola_completion_debug.h"
-#include "model/inputcompletermodel.h"
 #include "model/commandsmodel.h"
+#include "model/inputcompletermodel.h"
+#include "ruqola_completion_debug.h"
+#include "ruqola_debug.h"
 #include <QSortFilterProxyModel>
 
 InputTextManager::InputTextManager(QObject *parent)
@@ -63,7 +63,7 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
         return text;
     }
     int position = *pPosition;
-    //Cursor position can be at the end of word => text.length
+    // Cursor position can be at the end of word => text.length
     if ((position > text.length()) || (position < 0)) {
         qCDebug(RUQOLA_COMPLETION_LOG) << "Invalid position" << position;
         return text;
@@ -76,7 +76,7 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
             break;
         }
         if (text.at(i).isSpace()) {
-            //Don't replace # or @
+            // Don't replace # or @
             start = i + 2;
             break;
         }
@@ -104,7 +104,7 @@ QString InputTextManager::searchWord(const QString &text, int position, int &sta
     }
     start = 0;
     for (int i = position; i > 0; i--) {
-        if (text.at(i-1).isSpace()) {
+        if (text.at(i - 1).isSpace()) {
             start = i;
             break;
         }
@@ -118,10 +118,10 @@ QString InputTextManager::searchWord(const QString &text, int position, int &sta
     }
 
     QString word = text.mid(start, end - start + 1);
-    if (!word.isEmpty() && word.at(word.length() -1).isSpace()) {
+    if (!word.isEmpty() && word.at(word.length() - 1).isSpace()) {
         word.chop(1);
     }
-    //qDebug() << "position" << position << " word " << word << " text " << text << " start " << start << " end " << end;
+    // qDebug() << "position" << position << " word " << word << " text " << text << " start " << start << " end " << end;
     return word;
 }
 

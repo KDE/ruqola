@@ -25,10 +25,11 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QUrl>
 #include <QPixmap>
+#include <QUrl>
 
-namespace Utils {
+namespace Utils
+{
 struct NotificationInfo {
     QString message;
     QString title;
@@ -38,12 +39,10 @@ struct NotificationInfo {
     QString roomName;
     QString channelType;
     QPixmap pixmap;
-    //Pixmap can be null.
+    // Pixmap can be null.
     Q_REQUIRED_RESULT bool isValid() const
     {
-        return !senderId.isEmpty()
-               && !message.isEmpty()
-               && !channelType.isEmpty();
+        return !senderId.isEmpty() && !message.isEmpty() && !channelType.isEmpty();
     }
 };
 
@@ -99,6 +98,6 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, 
 Q_DECLARE_TYPEINFO(Utils::NotificationInfo, Q_MOVABLE_TYPE);
 Q_DECLARE_METATYPE(Utils::AvatarInfo)
 Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Utils::NotificationInfo &t);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Utils::AvatarInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::NotificationInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::AvatarInfo &t);
 #endif // UTILS_H

@@ -19,10 +19,10 @@
 */
 
 #include "deleteownaccountjobtest.h"
-#include "users/deleteownaccountjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/deleteownaccountjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(DeleteOwnAccountJobTest)
 using namespace RocketChatRestApi;
 DeleteOwnAccountJobTest::DeleteOwnAccountJobTest(QObject *parent)
@@ -53,7 +53,8 @@ void DeleteOwnAccountJobTest::shouldGenerateJson()
     DeleteOwnAccountJob job;
     const QString password = QStringLiteral("foo1");
     job.setPassword(password);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})").toLatin1());
 }
 
 void DeleteOwnAccountJobTest::shouldNotStarting()

@@ -19,11 +19,11 @@
 */
 
 #include "messagetextedit.h"
-#include "rocketchataccount.h"
-#include "model/inputcompletermodel.h"
-#include "common/completionlistview.h"
 #include "common/commandcompletiondelegate.h"
+#include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
+#include "model/inputcompletermodel.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
 
 #include <QAbstractTextDocumentLayout>
@@ -34,8 +34,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 {
     setAcceptRichText(false);
 
-    connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged,
-            this, &QWidget::updateGeometry);
+    connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged, this, &QWidget::updateGeometry);
 
     mUserAndChannelCompletionListView = new CompletionListView;
     mUserAndChannelCompletionListView->setTextWidget(this);
@@ -62,16 +61,14 @@ MessageTextEdit::~MessageTextEdit()
 void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
 {
     if (mCurrentInputTextManager) {
-        disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged,
-                   this, &MessageTextEdit::slotCompletionTypeChanged);
+        disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
     }
     mCurrentRocketChatAccount = account;
     mCurrentInputTextManager = threadMessageDialog ? mCurrentRocketChatAccount->inputThreadMessageTextManager() : mCurrentRocketChatAccount->inputTextManager();
     mUserAndChannelCompletionListView->setModel(mCurrentInputTextManager->inputCompleterModel());
     mEmojiCompletionListView->setModel(mCurrentInputTextManager->emojiCompleterModel());
     mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());
-    connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged,
-            this, &MessageTextEdit::slotCompletionTypeChanged);
+    connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
 }
 
 void MessageTextEdit::insertEmoji(const QString &text)
@@ -116,7 +113,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
     if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {
             Q_EMIT sendMessage(text());
-            //We send text => we will clear => we will send textEditing is empty => clear notification
+            // We send text => we will clear => we will send textEditing is empty => clear notification
             Q_EMIT textEditing(true);
             clear();
         } else {
@@ -140,11 +137,11 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
     if (e->isAccepted()) {
         return;
     }
-    //Assign key to KTextEdit first otherwise text() doesn't return correct text
+    // Assign key to KTextEdit first otherwise text() doesn't return correct text
     KTextEdit::keyPressEvent(e);
     if (key == Qt::Key_Delete || key == Qt::Key_Backspace) {
         if (textCursor().hasSelection() && textCursor().selectedText() == text()) {
-            //We will clear all text => we will send textEditing is empty => clear notification
+            // We will clear all text => we will send textEditing is empty => clear notification
             Q_EMIT textEditing(true);
         } else {
             mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());

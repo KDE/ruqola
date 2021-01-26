@@ -20,26 +20,26 @@
  *
  */
 
+#include <QDataStream>
 #include <QFile>
 #include <QJsonDocument>
-#include <QDataStream>
 #include <QModelIndex>
 
+#include "loadrecenthistorymanager.h"
 #include "messagemodel.h"
-#include "ruqolaserverconfig.h"
+#include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_debug.h"
-#include "utils.h"
-#include "rocketchataccount.h"
-#include "texthighlighter.h"
+#include "ruqolaserverconfig.h"
 #include "textconverter.h"
-#include "loadrecenthistorymanager.h"
+#include "texthighlighter.h"
+#include "utils.h"
 
 #include <KLocalizedString>
 
 #include <emoticons/emojimanager.h>
 
-//TODO reactivate when we will able to load message between cache and official server.
+// TODO reactivate when we will able to load message between cache and official server.
 //#define STORE_MESSAGE 1
 
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
@@ -174,7 +174,7 @@ void MessageModel::refresh()
 qint64 MessageModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
-        //qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
+        // qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
         return mAllMessages.first().timeStamp();
     } else {
         return 0;
@@ -197,11 +197,11 @@ void MessageModel::addMessage(const Message &message)
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
     auto emitChanged = [this](int rowNumber) {
-                           const QModelIndex index = createIndex(rowNumber, 0);
-                           Q_EMIT dataChanged(index, index);
-                       };
+        const QModelIndex index = createIndex(rowNumber, 0);
+        Q_EMIT dataChanged(index, index);
+    };
 
-    //When we have 1 element.
+    // When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_LOG) << "Update first message";
@@ -209,11 +209,11 @@ void MessageModel::addMessage(const Message &message)
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_LOG) << "Update message";
         if (message.pendingMessage()) {
-            //If we already have a message and we must add pending message it's that server
-            //send quickly new message => replace not it by a pending message
+            // If we already have a message and we must add pending message it's that server
+            // send quickly new message => replace not it by a pending message
             return;
         }
-        (*(it-1)) = message;
+        (*(it - 1)) = message;
         emitChanged(std::distance(mAllMessages.begin(), it - 1));
     } else {
         const int pos = it - mAllMessages.begin();
@@ -282,8 +282,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.editedAt();
     case MessageModel::EditedByUserName:
         return message.editedByUsername();
-    case MessageModel::Attachments:
-    {
+    case MessageModel::Attachments: {
         QVariantList lst;
         lst.reserve(message.attachements().count());
         const auto attachs = message.attachements();
@@ -292,8 +291,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Urls:
-    {
+    case MessageModel::Urls: {
         QVariantList lst;
         lst.reserve(message.urls().count());
         const auto urls = message.urls();
@@ -302,8 +300,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Date:
-    {
+    case MessageModel::Date: {
         const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
         return currentDate.date().toString();
     }
@@ -321,26 +318,23 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mRocketChatAccount->isMessageDeletable(message);
     case MessageModel::Starred:
         return message.isStarred();
-    case MessageModel::UsernameUrl:
-    {
+    case MessageModel::UsernameUrl: {
         const QString username = message.username();
         if (username.isEmpty()) {
             return {};
         }
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
     }
-    case MessageModel::Roles:
-    {
+    case MessageModel::Roles: {
         const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
         return str;
     }
-    case MessageModel::Reactions:
-    {
+    case MessageModel::Reactions: {
         QVariantList lst;
         const auto reactions = message.reactions().reactions();
         lst.reserve(reactions.count());
         for (const Reaction &react : reactions) {
-            //Convert reactions
+            // Convert reactions
             lst.append(QVariant::fromValue(react));
         }
         return lst;
@@ -368,13 +362,13 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::ShowTranslatedMessage:
         return message.showTranslatedMessage();
     case MessageModel::DisplayAttachment:
-        return {}; //Unused.
+        return {}; // Unused.
     case MessageModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
                 const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
                 const QDateTime lastSeenDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt());
-                //qDebug() << " lastSeeDate" << lastSeeDate;
+                // qDebug() << " lastSeeDate" << lastSeeDate;
                 if (currentDate > lastSeenDate) {
                     const Message &previousMessage = mAllMessages.at(idx - 1);
                     const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp());
@@ -426,8 +420,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     Message &message = mAllMessages[idx];
 
     switch (role) {
-    case MessageModel::DisplayAttachment:
-    {
+    case MessageModel::DisplayAttachment: {
         const AttachmentVisibility visibility = value.value<AttachmentVisibility>();
         auto attachments = message.attachements();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
@@ -507,7 +500,7 @@ void MessageModel::changeShowOriginalMessage(const QString &messageId, bool show
     Q_UNUSED(showOriginal)
     auto it = findMessage(messageId);
     if (it != mAllMessages.end()) {
-        //TODO implement it
+        // TODO implement it
     }
 }
 
@@ -515,11 +508,14 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
 {
     Q_UNUSED(cacheImageUrl)
     auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
-                               return std::find_if(msgAttachments.begin(), msgAttachments.end(), [&](const MessageAttachment &attach) {
-            // Transform link() the way RocketChatCache::downloadFile does it
-            return mRocketChatAccount->urlForLink(attach.link()).path() == filePath;
-        }) != msgAttachments.end();
-                           };
+        return std::find_if(msgAttachments.begin(),
+                            msgAttachments.end(),
+                            [&](const MessageAttachment &attach) {
+                                // Transform link() the way RocketChatCache::downloadFile does it
+                                return mRocketChatAccount->urlForLink(attach.link()).path() == filePath;
+                            })
+            != msgAttachments.end();
+    };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         if (!msg.attachements().isEmpty()) {
             return matchesFilePath(msg.attachements());

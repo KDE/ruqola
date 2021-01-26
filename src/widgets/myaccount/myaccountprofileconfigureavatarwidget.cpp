@@ -19,15 +19,15 @@
 */
 
 #include "myaccountprofileconfigureavatarwidget.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
+#include <QDebug>
 #include <QFileDialog>
+#include <QInputDialog>
 #include <QMenu>
 #include <QVBoxLayout>
-#include <QDebug>
-#include <QInputDialog>
 
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
     : QWidget(parent)
@@ -59,7 +59,7 @@ AvatarImage::~AvatarImage()
 void AvatarImage::changeImage()
 {
     qDebug() << " Not implemented yet";
-    //TODO use QFileDialog
+    // TODO use QFileDialog
 }
 
 void AvatarImage::changeUrl()

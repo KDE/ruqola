@@ -21,12 +21,12 @@
 #include "showimagewidgettest.h"
 #include "dialogs/showimagewidget.h"
 
+#include <QDoubleSpinBox>
 #include <QLabel>
 #include <QScrollArea>
 #include <QSlider>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QDoubleSpinBox>
 
 QTEST_MAIN(ShowImageWidgetTest)
 

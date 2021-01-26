@@ -19,13 +19,13 @@
 
 #include "unityservicemanager.h"
 #include "ruqola_debug.h"
+#include <QApplication>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusMessage>
-#include <QDBusServiceWatcher>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
-#include <QDBusConnectionInterface>
-#include <QApplication>
+#include <QDBusServiceWatcher>
 
 UnityServiceManager::UnityServiceManager(QObject *parent)
     : QObject(parent)
@@ -43,10 +43,7 @@ void UnityServiceManager::updateCount()
     if (mUnityServiceAvailable) {
         const QString launcherId = qApp->desktopFileName() + QLatin1String(".desktop");
 
-        const QVariantMap properties{
-            {QStringLiteral("count-visible"), mCount > 0},
-            {QStringLiteral("count"), mCount}
-        };
+        const QVariantMap properties{{QStringLiteral("count-visible"), mCount > 0}, {QStringLiteral("count"), mCount}};
 
         QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/ruqola/UnityLauncher"),
                                                           QStringLiteral("com.canonical.Unity.LauncherEntry"),
@@ -88,7 +85,7 @@ void UnityServiceManager::initUnity()
         watcher->deleteLater();
 
         if (reply.isError()) {
-            qCWarning(RUQOLA_LOG) << " reply"<<reply.error().message();
+            qCWarning(RUQOLA_LOG) << " reply" << reply.error().message();
         }
 
         const QStringList &services = reply.value();

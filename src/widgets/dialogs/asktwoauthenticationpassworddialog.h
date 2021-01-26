@@ -21,8 +21,8 @@
 #ifndef ASKTWOAUTHENTICATIONPASSWORDDIALOG_H
 #define ASKTWOAUTHENTICATIONPASSWORDDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class AskTwoAuthenticationPasswordWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordDialog : public QDialog
 {
@@ -31,6 +31,7 @@ public:
     explicit AskTwoAuthenticationPasswordDialog(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordDialog() override;
     Q_REQUIRED_RESULT QString code() const;
+
 private:
     AskTwoAuthenticationPasswordWidget *mAskTwoAuthicationPasswordWidget = nullptr;
 };

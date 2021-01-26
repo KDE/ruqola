@@ -147,7 +147,7 @@ bool RunCommandJob::RunCommandInfo::isValid() const
     return !commandName.isEmpty() && !roomId.isEmpty();
 }
 
-QDebug operator <<(QDebug d, const RunCommandJob::RunCommandInfo &t)
+QDebug operator<<(QDebug d, const RunCommandJob::RunCommandInfo &t)
 {
     d << " commandName " << t.commandName;
     d << " roomId " << t.roomId;

@@ -20,15 +20,15 @@
 
 #include "autotranslateconfigurewidget.h"
 #include "model/autotranslatelanguagesmodel.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include <QVBoxLayout>
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QVBoxLayout>
 
 AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     : QWidget(parent)
@@ -55,8 +55,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     mLanguage = new QComboBox(this);
     mLanguage->setObjectName(QStringLiteral("mLanguage"));
     mLanguage->setModel(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel());
-    connect(mLanguage, QOverload<int>::of(&QComboBox::activated),
-            this, &AutoTranslateConfigureWidget::slotLanguageChanged);
+    connect(mLanguage, QOverload<int>::of(&QComboBox::activated), this, &AutoTranslateConfigureWidget::slotLanguageChanged);
 
     horizontalLayout->addWidget(mLanguage);
 
@@ -74,7 +73,9 @@ Room *AutoTranslateConfigureWidget::room() const
 
 void AutoTranslateConfigureWidget::slotLanguageChanged(int index)
 {
-    Ruqola::self()->rocketChatAccount()->autoTranslateSaveLanguageSettings(mRoom->roomId(), Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->selectedLanguage(index));
+    Ruqola::self()->rocketChatAccount()->autoTranslateSaveLanguageSettings(
+        mRoom->roomId(),
+        Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->selectedLanguage(index));
 }
 
 void AutoTranslateConfigureWidget::slotChangeAutoTranslate(bool status)

@@ -21,14 +21,15 @@
 #ifndef SETUSERPUBLICANDPRIVATEKEYSJOB_H
 #define SETUSERPUBLICANDPRIVATEKEYSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetUserPublicAndPrivateKeysJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
-    //Since rocketchat 0.70
+    // Since rocketchat 0.70
 public:
     explicit SetUserPublicAndPrivateKeysJob(QObject *parent = nullptr);
     ~SetUserPublicAndPrivateKeysJob() override;

@@ -21,8 +21,8 @@
 #ifndef THREADMESSAGEDIALOG_H
 #define THREADMESSAGEDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ThreadMessageWidget;
 class RocketChatAccount;
 class Room;
@@ -39,6 +39,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setThreadPreview(const QString &preview);
     void setRoom(Room *room);
+
 private:
     void writeConfig();
     void readConfig();

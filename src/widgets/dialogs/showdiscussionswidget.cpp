@@ -20,13 +20,13 @@
 
 #include "showdiscussionswidget.h"
 #include "discussion/listdiscussiondelegate.h"
-#include "model/discussionsfilterproxymodel.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include <QVBoxLayout>
+#include "model/discussionsfilterproxymodel.h"
 #include <KLocalizedString>
-#include <QLineEdit>
 #include <QLabel>
+#include <QLineEdit>
 #include <QListView>
+#include <QVBoxLayout>
 
 ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     : QWidget(parent)
@@ -88,7 +88,8 @@ void ShowDiscussionsWidget::updateLabel()
 
 QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
 {
-    QString displayMessageStr = i18np("%1 Discussion in room (Total: %2)", "%1 Discussions in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
+    QString displayMessageStr =
+        i18np("%1 Discussion in room (Total: %2)", "%1 Discussions in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
     if (!mDiscussionModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }

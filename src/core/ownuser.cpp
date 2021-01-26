@@ -32,7 +32,7 @@ OwnUser::~OwnUser()
 
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
-    //qDebug() << "replyObject "<<replyObject;
+    // qDebug() << "replyObject "<<replyObject;
     mUserId = replyObject.value(QLatin1String("_id")).toString();
     mUserName = replyObject.value(QLatin1String("username")).toString();
     mStatus = replyObject.value(QLatin1String("status")).toString();
@@ -108,7 +108,7 @@ void OwnUser::setStatus(const QString &status)
     mStatus = status;
 }
 
-QDebug operator <<(QDebug d, const OwnUser &t)
+QDebug operator<<(QDebug d, const OwnUser &t)
 {
     d << "UserId " << t.userId();
     d << "Status " << t.status();
@@ -126,21 +126,12 @@ QDebug operator <<(QDebug d, const OwnUser &t)
     return d;
 }
 
-bool OwnUser::operator ==(const OwnUser &other) const
+bool OwnUser::operator==(const OwnUser &other) const
 {
-    return (mUserId == other.userId())
-           && (mStatus == other.status())
-           && (mUserName == other.userName())
-           && (mEmail == other.email())
-           && (mStatusText == other.statusText())
-           && (mName == other.name())
-           && (mAvatarUrl == other.avatarUrl())
-           && (mUtcOffset == other.utcOffset())
-           && (mStatusDefault == other.statusDefault())
-           && (mNickName == other.nickName())
-           && (mRoles == other.roles())
-           && (mServicePassword == other.servicePassword())
-           && (mOwnUserPreferences == other.ownUserPreferences());
+    return (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName()) && (mEmail == other.email())
+        && (mStatusText == other.statusText()) && (mName == other.name()) && (mAvatarUrl == other.avatarUrl()) && (mUtcOffset == other.utcOffset())
+        && (mStatusDefault == other.statusDefault()) && (mNickName == other.nickName()) && (mRoles == other.roles())
+        && (mServicePassword == other.servicePassword()) && (mOwnUserPreferences == other.ownUserPreferences());
 }
 
 QString OwnUser::email() const

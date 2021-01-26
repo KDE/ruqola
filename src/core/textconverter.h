@@ -20,15 +20,20 @@
 #ifndef TEXTCONVERTER_H
 #define TEXTCONVERTER_H
 
+#include "libruqolacore_export.h"
 #include <QString>
 #include <QVector>
-#include "libruqolacore_export.h"
 
 class EmojiManager;
 class Message;
 
-namespace TextConverter {
-LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QString &userName, const QVector<Message> &allMessages, const QStringList &highlightWords, EmojiManager *emojiManager);
+namespace TextConverter
+{
+LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString &str,
+                                                                  const QString &userName,
+                                                                  const QVector<Message> &allMessages,
+                                                                  const QStringList &highlightWords,
+                                                                  EmojiManager *emojiManager);
 }
 
 #endif // TEXTCONVERTER_H

@@ -21,9 +21,10 @@
 #ifndef CHANNELREMOVELEADERJOB_H
 #define CHANNELREMOVELEADERJOB_H
 
-#include "librestapi_private_export.h"
 #include "channelbasejob.h"
-namespace RocketChatRestApi {
+#include "librestapi_private_export.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelRemoveLeaderJob : public ChannelBaseJob
 {
     Q_OBJECT

@@ -21,8 +21,8 @@
 #include "facebookauthjobtest.h"
 #include "authentication/facebookauthjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(FacebookAuthJobTest)
 using namespace RocketChatRestApi;
 FacebookAuthJobTest::FacebookAuthJobTest(QObject *parent)
@@ -64,8 +64,8 @@ void FacebookAuthJobTest::shouldGenerateJson()
 
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"secret":"%2","serviceName":"facebook"})")
-             .arg(accessToken, secret).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"secret":"%2","serviceName":"facebook"})").arg(accessToken, secret).toLatin1());
 }
 
 void FacebookAuthJobTest::shouldNotStarting()

@@ -23,10 +23,10 @@
 
 #include "libruqola_private_export.h"
 #include "permission.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
 #include <QMap>
+#include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT PermissionManager
 {
@@ -39,6 +39,7 @@ public:
     Q_REQUIRED_RESULT QStringList roles(const QString &permissionId) const;
     Q_REQUIRED_RESULT int permissionCount() const;
     Q_REQUIRED_RESULT bool contains(const QString &permissionId) const;
+
 private:
     void parseRemovePermission(const QJsonArray &removeArray);
     void parseUpdatePermission(const QJsonArray &removeArray);

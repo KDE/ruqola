@@ -22,11 +22,11 @@
 #include "misc/adduserswidget.h"
 
 #include <KLocalizedString>
-#include <QVBoxLayout>
 #include <QCheckBox>
-#include <QPushButton>
 #include <QDateTimeEdit>
 #include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     : QWidget(parent)
@@ -102,8 +102,8 @@ PruneMessagesWidget::~PruneMessagesWidget()
 
 void PruneMessagesWidget::slotCheckDateTime()
 {
-    const bool valid = (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime())
-                       && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
+    const bool valid =
+        (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime()) && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
     Q_EMIT updateOkButton(valid);
 }
 
@@ -117,6 +117,6 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::c
     info.ignoreThreads = mDoNotPruneThreads->isChecked();
     info.filesOnly = mOnlyRemoveAttachedFiles->isChecked();
     info.excludePinned = mDoNotPrunePinnedMessage->isChecked();
-    //qDebug() << " info " << info;
+    // qDebug() << " info " << info;
     return info;
 }

@@ -21,8 +21,8 @@
 #include "googleauthjobtest.h"
 #include "authentication/googleauthjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(GoogleAuthJobTest)
 using namespace RocketChatRestApi;
 GoogleAuthJobTest::GoogleAuthJobTest(QObject *parent)
@@ -64,8 +64,8 @@ void GoogleAuthJobTest::shouldGenerateJson()
 
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"idToken":"%2","serviceName":"google"})")
-             .arg(accessToken, secret).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"idToken":"%2","serviceName":"google"})").arg(accessToken, secret).toLatin1());
 }
 
 void GoogleAuthJobTest::shouldNotStarting()

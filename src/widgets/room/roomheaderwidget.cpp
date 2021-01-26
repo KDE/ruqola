@@ -19,13 +19,13 @@
 */
 
 #include "roomheaderwidget.h"
-#include "ruqolawidgets_debug.h"
 #include "channelactionpopupmenu.h"
 #include "room.h"
-#include <QVBoxLayout>
+#include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <QLabel>
 #include <QToolButton>
-#include <KLocalizedString>
+#include <QVBoxLayout>
 
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)

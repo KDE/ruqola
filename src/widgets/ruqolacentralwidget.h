@@ -21,10 +21,10 @@
 #ifndef RUQOLACENTRALWIDGET_H
 #define RUQOLACENTRALWIDGET_H
 
+#include "libruqolawidgets_private_export.h"
 #include <QAbstractSocket>
 #include <QPointer>
 #include <QWidget>
-#include "libruqolawidgets_private_export.h"
 class QStackedWidget;
 class RuqolaMainWidget;
 class RuqolaLoginWidget;
@@ -45,6 +45,7 @@ public:
 Q_SIGNALS:
     void channelSelected();
     void loginPageActivated(bool showLoginPage);
+
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);

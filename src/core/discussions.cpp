@@ -125,7 +125,7 @@ void Discussions::setTotal(int total)
     mTotal = total;
 }
 
-QDebug operator <<(QDebug d, const Discussions &t)
+QDebug operator<<(QDebug d, const Discussions &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

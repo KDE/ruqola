@@ -20,11 +20,11 @@
 
 #include "utilstest.h"
 #include "utils.h"
+#include <KColorScheme>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
-#include <KColorScheme>
 
 QTEST_GUILESS_MAIN(UtilsTest)
 
@@ -79,31 +79,15 @@ void UtilsTest::shouldParseNotification_data()
     QTest::addColumn<QString>("channelType");
     QTest::addColumn<QString>("senderName");
     QTest::addColumn<QString>("senderUserName");
-    QTest::newRow("notification1") << QStringLiteral("notification")
-                                   << QStringLiteral("title")
-                                   << QStringLiteral("pong")
-                                   << QStringLiteral("tgrk5CZKgYGiSSqXp")
-                                   << QString()
-                                   << QStringLiteral("d")
-                                   << QStringLiteral("Laurent")
-                                   << QStringLiteral("laurent");
-    //TODO
-    QTest::newRow("notificationencrypted") << QStringLiteral("notificationencrypted")
-                                           << QStringLiteral("title")
-                                           << QStringLiteral("pong")
-                                           << QStringLiteral("tgrk5CZKgYGiSSqXp")
-                                           << QString()
-                                           << QStringLiteral("d")
-                                           << QStringLiteral("foo")
+    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp")
+                                   << QString() << QStringLiteral("d") << QStringLiteral("Laurent") << QStringLiteral("laurent");
+    // TODO
+    QTest::newRow("notificationencrypted") << QStringLiteral("notificationencrypted") << QStringLiteral("title") << QStringLiteral("pong")
+                                           << QStringLiteral("tgrk5CZKgYGiSSqXp") << QString() << QStringLiteral("d") << QStringLiteral("foo")
                                            << QStringLiteral("bla");
 
-    QTest::newRow("notification2") << QStringLiteral("notification1")
-                                   << QStringLiteral("my title")
-                                   << QStringLiteral("@here")
-                                   << QStringLiteral("Gsvg6BGoBfmPLoFie")
-                                   << QStringLiteral("roomname example")
-                                   << QStringLiteral("c")
-                                   << QStringLiteral("foo")
+    QTest::newRow("notification2") << QStringLiteral("notification1") << QStringLiteral("my title") << QStringLiteral("@here")
+                                   << QStringLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c") << QStringLiteral("foo")
                                    << QStringLiteral("foo.bla");
 }
 
@@ -148,13 +132,15 @@ void UtilsTest::shouldConvertTextWithUrl_data()
     QTest::newRow("test1") << QStringLiteral("[blo](http://www.kde.org)") << QStringLiteral("<a href='http://www.kde.org'>blo</a>");
     QTest::newRow("test2") << QStringLiteral("[](http://www.kde.org)") << QStringLiteral("(http://www.kde.org)");
     QTest::newRow("test3") << QStringLiteral("bla bla [blo](http://www.kde.org)") << QStringLiteral("bla bla <a href='http://www.kde.org'>blo</a>");
-    QTest::newRow("test4") << QStringLiteral("bla bla [blo](http://www.kde.org) bli [blu](http://www.kdi.org)") << QStringLiteral("bla bla <a href='http://www.kde.org'>blo</a> bli <a href='http://www.kdi.org'>blu</a>");
+    QTest::newRow("test4") << QStringLiteral("bla bla [blo](http://www.kde.org) bli [blu](http://www.kdi.org)")
+                           << QStringLiteral("bla bla <a href='http://www.kde.org'>blo</a> bli <a href='http://www.kdi.org'>blu</a>");
     QTest::newRow("test5") << QStringLiteral("bla bla [blo]") << QStringLiteral("bla bla [blo]");
     QTest::newRow("test6") << QStringLiteral("bla bla [blo] bli") << QStringLiteral("bla bla [blo] bli");
 
-    //Test <https://www.kde.org|bla>
-    //QTest::newRow("https://www.kde.org|bla") << QStringLiteral("<https://www.kde.org|bla>") << QStringLiteral("<a href='https://www.kde.org'>bla</a>");
-    //QTest::newRow("https://www.kde.org|bla 2 ") << QStringLiteral("bli <https://www.kde.org|bla> blu") << QStringLiteral("bli <a href='https://www.kde.org'>bla</a> blu");
+    // Test <https://www.kde.org|bla>
+    // QTest::newRow("https://www.kde.org|bla") << QStringLiteral("<https://www.kde.org|bla>") << QStringLiteral("<a href='https://www.kde.org'>bla</a>");
+    // QTest::newRow("https://www.kde.org|bla 2 ") << QStringLiteral("bli <https://www.kde.org|bla> blu") << QStringLiteral("bli <a
+    // href='https://www.kde.org'>bla</a> blu");
 }
 
 void UtilsTest::shouldConvertTextWithUrl()
@@ -177,8 +163,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         Utils::AvatarInfo avatarInfo;
         avatarInfo.identifier = QStringLiteral("user1");
         avatarInfo.avatarType = Utils::AvatarType::User;
-        QTest::newRow("user1") << QStringLiteral("http://www.kde.org")
-                               << avatarInfo
+        QTest::newRow("user1") << QStringLiteral("http://www.kde.org") << avatarInfo
                                << QUrl(QStringLiteral("http://www.kde.org/avatar/%1?format=png&size=22").arg(avatarInfo.identifier));
     }
     {
@@ -186,16 +171,15 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         avatarInfo.identifier = QStringLiteral("user1");
         avatarInfo.avatarType = Utils::AvatarType::User;
         avatarInfo.etag = QStringLiteral("etag-user-identifier");
-        QTest::newRow("user1-etag") << QStringLiteral("http://www.kde.org")
-                                    << avatarInfo
-                                    << QUrl(QStringLiteral("http://www.kde.org/avatar/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
+        QTest::newRow("user1-etag")
+            << QStringLiteral("http://www.kde.org") << avatarInfo
+            << QUrl(QStringLiteral("http://www.kde.org/avatar/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
     {
         Utils::AvatarInfo avatarInfo;
         avatarInfo.identifier = QStringLiteral("room1");
         avatarInfo.avatarType = Utils::AvatarType::Room;
-        QTest::newRow("room1") << QStringLiteral("http://www.kde.org")
-                               << avatarInfo
+        QTest::newRow("room1") << QStringLiteral("http://www.kde.org") << avatarInfo
                                << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?format=png&size=22").arg(avatarInfo.identifier));
     }
     {
@@ -203,18 +187,18 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         avatarInfo.identifier = QStringLiteral("room1");
         avatarInfo.avatarType = Utils::AvatarType::Room;
         avatarInfo.etag = QStringLiteral("etagIdentifier");
-        QTest::newRow("room1-etag") << QStringLiteral("http://www.kde.org")
-                                    << avatarInfo
-                                    << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
+        QTest::newRow("room1-etag")
+            << QStringLiteral("http://www.kde.org") << avatarInfo
+            << QUrl(QStringLiteral("http://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
     {
         Utils::AvatarInfo avatarInfo;
         avatarInfo.identifier = QStringLiteral("room1");
         avatarInfo.avatarType = Utils::AvatarType::Room;
         avatarInfo.etag = QStringLiteral("etagIdentifier");
-        QTest::newRow("room1-etag-without-protocol") << QStringLiteral("www.kde.org")
-                                                     << avatarInfo
-                                                     << QUrl(QStringLiteral("https://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
+        QTest::newRow("room1-etag-without-protocol")
+            << QStringLiteral("www.kde.org") << avatarInfo
+            << QUrl(QStringLiteral("https://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
 }
 

@@ -36,15 +36,15 @@ private Q_SLOTS:
 
     void shouldChangeInputMessage();
 
-    //Rooms subscriptions only
+    // Rooms subscriptions only
     void shouldParseRoom_data();
     void shouldParseRoom();
 
-    //Rooms subscriptions + update room
+    // Rooms subscriptions + update room
     void shouldParseRoomAndUpdate_data();
     void shouldParseRoomAndUpdate();
 
-    //Rooms subscriptions + update room + update subscription
+    // Rooms subscriptions + update room + update subscription
     void shouldParseRoomAndUpdateSubscription_data();
     void shouldParseRoomAndUpdateSubscription();
 };

@@ -21,10 +21,11 @@
 #ifndef CHANNELGETCOUNTERSJOB_H
 #define CHANNELGETCOUNTERSJOB_H
 
-#include "restapiabstractjob.h"
 #include "channelbasejob.h"
+#include "restapiabstractjob.h"
 class QNetworkRequest;
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelGetCountersJob : public ChannelBaseJob
 {
     Q_OBJECT

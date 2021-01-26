@@ -25,16 +25,17 @@
 #include "restapiabstractjob.h"
 #include <QDateTime>
 #include <QDebug>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsCleanHistoryJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT CleanHistoryInfo {
         Q_REQUIRED_RESULT bool isValid() const;
-        QDateTime latest; //required
-        QDateTime oldest; //required
-        QString roomId; //required
+        QDateTime latest; // required
+        QDateTime oldest; // required
+        QString roomId; // required
         QStringList users;
         bool inclusive = false;
         bool excludePinned = false;
@@ -65,5 +66,5 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t);
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t);
 #endif // ROOMSCLEANHISTORYJOB_H

@@ -21,9 +21,10 @@
 #ifndef TRANSLATEMESSAGEJOB_H
 #define TRANSLATEMESSAGEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT TranslateMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT

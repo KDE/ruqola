@@ -21,10 +21,10 @@
 #ifndef RUQOLAMAINWIDGET_H
 #define RUQOLAMAINWIDGET_H
 
+#include "libruqolawidgets_private_export.h"
 #include <QPointer>
 #include <QStackedWidget>
 #include <QWidget>
-#include "libruqolawidgets_private_export.h"
 class ChannelListWidget;
 class RoomWidget;
 class QSplitter;
@@ -44,6 +44,7 @@ public:
     void selectChannelRoom(const QString &roomId, const QString &roomType);
 Q_SIGNALS:
     void channelSelected();
+
 private:
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;

@@ -18,15 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "customuserstatus/administratorcustomuserstatuswidget.h"
-#include "customsounds/administratorcustomsoundswidget.h"
-#include "users/administratoruserswidget.h"
-#include "rooms/administratorroomswidget.h"
 #include "administratorwidget.h"
-#include "serverinfo/administratorserverinfowidget.h"
+#include "customsounds/administratorcustomsoundswidget.h"
+#include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "permissionmanager.h"
 #include "rocketchataccount.h"
+#include "rooms/administratorroomswidget.h"
 #include "ruqola.h"
+#include "serverinfo/administratorserverinfowidget.h"
+#include "users/administratoruserswidget.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>

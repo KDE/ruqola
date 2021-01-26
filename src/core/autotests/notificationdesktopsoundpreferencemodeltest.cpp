@@ -34,7 +34,7 @@ void NotificationDesktopSoundPreferenceModelTest::shouldHaveDefaultValue()
     NotificationDesktopSoundPreferenceModel w;
     QCOMPARE(w.rowCount(), 8);
 
-    //FIXME QCOMPARE(w.currentPreference(), 0);
+    // FIXME QCOMPARE(w.currentPreference(), 0);
 }
 
-//TODO add autotest about currentStatus changed !
+// TODO add autotest about currentStatus changed !

@@ -21,8 +21,8 @@
 #ifndef INVITEUSERSDIALOG_H
 #define INVITEUSERSDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class InviteUsersWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersDialog : public QDialog
 {
@@ -33,6 +33,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
     void generateLink();
+
 private:
     InviteUsersWidget *mInviteUsersWidget = nullptr;
     void readConfig();

@@ -34,6 +34,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
 public:
     explicit AdministratorUsersWidget(QWidget *parent = nullptr);
     ~AdministratorUsersWidget() override;
+
 private:
     void slotTextChanged(const QString &str);
     QLineEdit *const mSearchLineEdit;

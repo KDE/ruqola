@@ -19,19 +19,19 @@
 */
 
 #include "emoticonmenuwidget.h"
-#include "emoticonselectorwidget.h"
 #include "emoticonrecentusedfilterproxymodel.h"
-#include "ruqola.h"
 #include "emoticons/emojimanager.h"
+#include "emoticonselectorwidget.h"
 #include "model/emoticonmodel.h"
 #include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 
-#include <QTabWidget>
-#include <QVBoxLayout>
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
+#include <QTabWidget>
+#include <QVBoxLayout>
 
 #include <common/emojicompletiondelegate.h>
 

@@ -20,8 +20,8 @@
 
 #include "permissionmanager.h"
 #include "ruqola_debug.h"
-#include <QJsonArray>
 #include <QDebug>
+#include <QJsonArray>
 PermissionManager::PermissionManager()
 {
 }
@@ -38,7 +38,7 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     }
     const QJsonArray updateArray = replyObject[QLatin1String("update")].toArray();
     parseUpdatePermission(updateArray);
-    //qDebug() << "mMapPermissions  " << mMapPermissions;
+    // qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
 bool PermissionManager::contains(const QString &permissionId) const
@@ -70,36 +70,16 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
     for (int i = 0; i < updateArray.count(); ++i) {
         const QJsonObject obj = updateArray.at(i).toObject();
         const QString id = obj[QLatin1String("_id")].toString();
-        if (id == QLatin1String("mail-messages")
-            || id == QLatin1String("pin-message")
-            || id == QLatin1String("delete-own-message")
-            || id == QLatin1String("create-invite-links")
-            || id == QLatin1String("edit-message")
-            || id == QLatin1String("delete-message")
-            || id == QLatin1String("edit-room")
-            || id == QLatin1String("clean-channel-history")
-            || id == QLatin1String("auto-translate")
-            || id == QLatin1String("snippet-message")
-            || id == QLatin1String("force-delete-message")
-            || id == QLatin1String("edit-room-avatar")
-            || id == QLatin1String("create-c")
-            || id == QLatin1String("add-user-to-joined-room")
-            || id == QLatin1String("leave-c")
-            || id == QLatin1String("create-p")
-            || id == QLatin1String("create-d")
-            || id == QLatin1String("leave-p")
-            || id == QLatin1String("add-user-to-any-c-room")
-            || id == QLatin1String("add-user-to-any-p-room")
-            || id == QLatin1String("view-logs")
-            || id == QLatin1String("unarchive-room")
-            || id == QLatin1String("archive-room")
-            || id == QLatin1String("mute-user")
-            || id == QLatin1String("remove-user")
-            || id == QLatin1String("view-c-room")
-            || id == QLatin1String("view-statistics")
-            || id == QLatin1String("post-readonly")
-            || id == QLatin1String("manage-sounds")
-            ) {
+        if (id == QLatin1String("mail-messages") || id == QLatin1String("pin-message") || id == QLatin1String("delete-own-message")
+            || id == QLatin1String("create-invite-links") || id == QLatin1String("edit-message") || id == QLatin1String("delete-message")
+            || id == QLatin1String("edit-room") || id == QLatin1String("clean-channel-history") || id == QLatin1String("auto-translate")
+            || id == QLatin1String("snippet-message") || id == QLatin1String("force-delete-message") || id == QLatin1String("edit-room-avatar")
+            || id == QLatin1String("create-c") || id == QLatin1String("add-user-to-joined-room") || id == QLatin1String("leave-c")
+            || id == QLatin1String("create-p") || id == QLatin1String("create-d") || id == QLatin1String("leave-p")
+            || id == QLatin1String("add-user-to-any-c-room") || id == QLatin1String("add-user-to-any-p-room") || id == QLatin1String("view-logs")
+            || id == QLatin1String("unarchive-room") || id == QLatin1String("archive-room") || id == QLatin1String("mute-user")
+            || id == QLatin1String("remove-user") || id == QLatin1String("view-c-room") || id == QLatin1String("view-statistics")
+            || id == QLatin1String("post-readonly") || id == QLatin1String("manage-sounds")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
@@ -109,5 +89,5 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             qCDebug(RUQOLA_LOG) << "Permission id not stored: " << id;
         }
     }
-    //qDebug() << "mMapPermissions " << mMapPermissions;
+    // qDebug() << "mMapPermissions " << mMapPermissions;
 }

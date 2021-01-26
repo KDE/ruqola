@@ -22,9 +22,9 @@
 
 #include <KLocalizedString>
 
-#include <QMenu>
 #include <QAction>
 #include <QIcon>
+#include <QMenu>
 
 #include <QTextToSpeech>
 

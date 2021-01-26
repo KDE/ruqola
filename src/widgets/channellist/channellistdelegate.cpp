@@ -20,13 +20,13 @@
 
 #include "channellistdelegate.h"
 #include "common/delegatepaintutil.h"
+#include "misc/avatarcachemanager.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
-#include "misc/avatarcachemanager.h"
 #include "ruqolaglobalconfig.h"
 
-#include <QPainter>
 #include <KColorScheme>
+#include <QPainter>
 
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -55,15 +55,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y(), iconSize, option.rect.height());
     const QString text = index.data(Qt::DisplayRole).toString();
-    //const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
+    // const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
     const QString unreadText = makeUnreadText(index);
     const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
     const int xText = offsetAvatarRoom + option.rect.x() + iconSize + 2 * margin;
-    const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText - unreadSize.width() - margin,
-                            option.rect.height());
-    const QRect unreadRect(option.rect.width() - unreadSize.width() - margin,
-                           option.rect.y(), unreadSize.width(), option.rect.height());
+    const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText - unreadSize.width() - margin, option.rect.height());
+    const QRect unreadRect(option.rect.width() - unreadSize.width() - margin, option.rect.y(), unreadSize.width(), option.rect.height());
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;

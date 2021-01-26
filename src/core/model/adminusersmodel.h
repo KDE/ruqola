@@ -31,15 +31,8 @@ class LIBRUQOLACORE_EXPORT AdminUsersModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    //TODO
-    enum AdminUsersRoles {
-        Name,
-        UserName,
-        Email,
-        Roles,
-        Disabled,
-        LastColumn = Disabled
-    };
+    // TODO
+    enum AdminUsersRoles { Name, UserName, Email, Roles, Disabled, LastColumn = Disabled };
     Q_ENUM(AdminUsersRoles)
 
     explicit AdminUsersModel(QObject *parent = nullptr);
@@ -49,6 +42,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+
 private:
     QVector<User> mUsers;
 };

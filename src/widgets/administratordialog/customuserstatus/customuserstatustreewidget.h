@@ -21,8 +21,8 @@
 #ifndef CUSTOMUSERSTATUSTREEWIDGET_H
 #define CUSTOMUSERSTATUSTREEWIDGET_H
 
-#include <QTreeWidget>
 #include "customuserstatus.h"
+#include <QTreeWidget>
 
 #include "libruqolawidgets_private_export.h"
 class QTreeWidget;

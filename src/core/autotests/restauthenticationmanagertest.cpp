@@ -18,8 +18,8 @@
 */
 
 #include "restauthenticationmanagertest.h"
-#include <QTest>
 #include "restauthenticationmanager.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(RESTAuthenticationManagerTest)
 RESTAuthenticationManagerTest::RESTAuthenticationManagerTest(QObject *parent)
     : QObject(parent)

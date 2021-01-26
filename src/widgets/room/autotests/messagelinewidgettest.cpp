@@ -62,4 +62,4 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.messageIdBeingEdited().isEmpty());
 }
 
-//TODO test signal/slot
+// TODO test signal/slot

@@ -20,8 +20,8 @@
 
 #include "messagecache.h"
 #include "restapirequest.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqola_debug.h"
 
 #include <chat/getmessagejob.h>
@@ -48,8 +48,7 @@ ThreadMessageModel *MessageCache::threadMessageModel(const QString &threadMessag
         auto job = new RocketChatRestApi::GetThreadMessagesJob(this);
         mThreadMessageJobs.insert(threadMessageId, job);
         job->setThreadMessageId(threadMessageId);
-        connect(job, &RocketChatRestApi::GetThreadMessagesJob::getThreadMessagesDone,
-                this, &MessageCache::slotGetThreadMessagesDone);
+        connect(job, &RocketChatRestApi::GetThreadMessagesJob::getThreadMessagesDone, this, &MessageCache::slotGetThreadMessagesDone);
         if (!startJob(job)) {
             qCDebug(RUQOLA_LOG) << "Impossible to start GetThreadMessagesJob";
         }
@@ -66,8 +65,7 @@ Message *MessageCache::messageForId(const QString &messageId)
         auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
         job->setMessageId(messageId);
-        connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone,
-                this, &MessageCache::slotGetMessageDone);
+        connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone, this, &MessageCache::slotGetMessageDone);
         if (!startJob(job)) {
             qCDebug(RUQOLA_LOG) << "Impossible to start GetMessageJob";
         }

@@ -19,22 +19,22 @@
 */
 
 #include "inviteuserswidget.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "restapirequest.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 
-#include <QVBoxLayout>
+#include <KCollapsibleGroupBox>
 #include <KLocalizedString>
-#include <QLabel>
-#include <QLineEdit>
-#include <QToolButton>
-#include <QClipboard>
 #include <QApplication>
+#include <QClipboard>
 #include <QComboBox>
 #include <QFormLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
-#include <KCollapsibleGroupBox>
+#include <QToolButton>
+#include <QVBoxLayout>
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
@@ -71,7 +71,10 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     collapsibleGroupBox->setTitle(i18n("Options"));
     mainLayout->addWidget(collapsibleGroupBox);
 
-    connect(Ruqola::self()->rocketChatAccount()->restApi(), &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
+    connect(Ruqola::self()->rocketChatAccount()->restApi(),
+            &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone,
+            this,
+            &InviteUsersWidget::slotFindOrCreateInvite);
 
     auto formLayout = new QFormLayout(collapsibleGroupBox);
     formLayout->setObjectName(QStringLiteral("formLayout"));
@@ -123,7 +126,10 @@ void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCr
 {
     mInviteUserLineEdit->setText(info.url.toString());
     if (info.maxUses > 0) {
-        mExpireDateLabel->setText(i18np("Your invite link will expire on %2 or after %1 use.", "Your invite link will expire on %2 or after %1 uses.", info.maxUses, info.expireDateTime));
+        mExpireDateLabel->setText(i18np("Your invite link will expire on %2 or after %1 use.",
+                                        "Your invite link will expire on %2 or after %1 uses.",
+                                        info.maxUses,
+                                        info.expireDateTime));
     } else {
         mExpireDateLabel->setText(i18n("Your invite link will expire on %1.", info.expireDateTime));
     }

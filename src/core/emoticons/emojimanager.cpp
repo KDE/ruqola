@@ -20,14 +20,14 @@
 
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
-#include "ruqola_debug.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqola_debug.h"
 
-#include <QJsonObject>
+#include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
-#include <QFile>
+#include <QJsonObject>
 #include <QRegularExpressionMatch>
 #include <QTextStream>
 
@@ -60,7 +60,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
     mCustomEmojiList.clear();
     const QJsonObject result = obj.value(QLatin1String("emojis")).toObject();
     const QJsonArray array = result.value(QLatin1String("update")).toArray();
-    //TODO add support for remove when we store it in local
+    // TODO add support for remove when we store it in local
     for (int i = 0, total = array.size(); i < total; ++i) {
         const QJsonObject emojiJson = array.at(i).toObject();
         CustomEmoji emoji;
@@ -118,7 +118,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
             if (emoji.hasEmoji(emojiIdentifier)) {
                 QString cachedHtml = emoji.cachedHtml();
                 if (cachedHtml.isEmpty()) {
-                    //For the moment we can't support animated image as emoticon in text. Only as Reaction.
+                    // For the moment we can't support animated image as emoticon in text. Only as Reaction.
                     if (emoji.isAnimatedImage() && isReaction) {
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
                     } else {
@@ -175,21 +175,21 @@ void EmojiManager::replaceEmojis(QString *str)
         stream << commonPattern;
 
         auto addEmoji = [&](const QString &string) {
-                            if (common.match(string).hasMatch()) {
-                                return;
-                            }
-                            stream << '|';
-                            stream << QRegularExpression::escape(string);
-                        };
+            if (common.match(string).hasMatch()) {
+                return;
+            }
+            stream << '|';
+            stream << QRegularExpression::escape(string);
+        };
         auto addEmojis = [&](const auto &emojis) {
-                             for (const auto &emoji : emojis) {
-                                 addEmoji(emoji.identifier());
-                                 const auto aliases = emoji.aliases();
-                                 for (const auto &alias : aliases) {
-                                     addEmoji(alias);
-                                 }
-                             }
-                         };
+            for (const auto &emoji : emojis) {
+                addEmoji(emoji.identifier());
+                const auto aliases = emoji.aliases();
+                for (const auto &alias : aliases) {
+                    addEmoji(alias);
+                }
+            }
+        };
 
         addEmojis(mCustomEmojiList);
         addEmojis(unicodeEmojiList());

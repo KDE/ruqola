@@ -21,10 +21,11 @@
 #ifndef USERBASEJOB_H
 #define USERBASEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UserBaseJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -48,6 +49,7 @@ public:
     Q_REQUIRED_RESULT bool hasUserIdentifier() const;
 
     Q_REQUIRED_RESULT QString identifier() const;
+
 protected:
     void addQueryUrl(QUrl &url) const;
     void generateJson(QJsonObject &jsonObj) const;

@@ -21,12 +21,12 @@
 #ifndef EMOJIMANAGER_H
 #define EMOJIMANAGER_H
 
+#include "customemoji.h"
+#include "emoticoncategory.h"
+#include "libruqolacore_export.h"
+#include "unicodeemoticon.h"
 #include <QObject>
 #include <QRegularExpression>
-#include "emoticoncategory.h"
-#include "customemoji.h"
-#include "unicodeemoticon.h"
-#include "libruqolacore_export.h"
 
 class LIBRUQOLACORE_EXPORT EmojiManager : public QObject
 {
@@ -57,7 +57,7 @@ public:
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();
-    //Use identifier in a QMap ???
+    // Use identifier in a QMap ???
     QVector<CustomEmoji> mCustomEmojiList;
     QString mServerUrl;
     QRegularExpression mReplacePattern;

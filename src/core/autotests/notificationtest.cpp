@@ -37,10 +37,10 @@ void NotificationTest::shouldHaveDefaultValue()
 void NotificationTest::shouldChangeStatus()
 {
     Notification w;
-    //Notification
+    // Notification
     w.updateNotification(true, 3, QStringLiteral("foo"));
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    //Clear it.
+    // Clear it.
     w.updateNotification(false, 0, QStringLiteral("foo"));
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
 

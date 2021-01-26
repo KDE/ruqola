@@ -21,10 +21,11 @@
 #ifndef TEST_MODEL_HELPERS_H
 #define TEST_MODEL_HELPERS_H
 
-#include <QString>
 #include <QSignalSpy>
+#include <QString>
 
-namespace TestModelHelpers {
+namespace TestModelHelpers
+{
 inline QString rowSpyToText(const QSignalSpy &spy)
 {
     if (!spy.isValid()) {

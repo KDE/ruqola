@@ -27,11 +27,11 @@ QString RestApiUtil::adaptUrl(const QString &url)
     if (url.isEmpty()) {
         return url;
     }
-    //Avoid to add more https:// :)
+    // Avoid to add more https:// :)
     if (url.startsWith(QLatin1String("https://")) || url.startsWith(QLatin1String("http://"))) {
         return url;
     } else {
-        //Default to https
+        // Default to https
         return QStringLiteral("https://") + url;
     }
 }
@@ -330,17 +330,17 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("rooms.favorite");
     case RestApiUtil::RestApiUrlType::RoomsCleanHistory:
         return QStringLiteral("rooms.cleanHistory");
-    //since 1.0.0
+    // since 1.0.0
     case RestApiUtil::RestApiUrlType::RoomsCreateDiscussion:
         return QStringLiteral("rooms.createDiscussion");
     case RestApiUtil::RestApiUrlType::RoomsGetDiscussions:
         return QStringLiteral("rooms.getDiscussions");
 
-    //since 3.8.0
+    // since 3.8.0
     case RestApiUtil::RestApiUrlType::RoomsExport:
         return QStringLiteral("rooms.export");
 
-    //since 0.72 ? Need to implement it
+    // since 0.72 ? Need to implement it
     case RestApiUtil::RestApiUrlType::RoomsInfo:
         return QStringLiteral("rooms.info");
     case RestApiUtil::RestApiUrlType::RoomsLeave:

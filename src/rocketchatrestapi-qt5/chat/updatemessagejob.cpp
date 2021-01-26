@@ -19,8 +19,8 @@
 */
 
 #include "updatemessagejob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -90,7 +90,7 @@ bool UpdateMessageJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UpdateMessageJob: messageId is empty";
         return false;
     }
-    //Updated text I think can be empty.
+    // Updated text I think can be empty.
 
     if (!RestApiAbstractJob::canStart()) {
         return false;

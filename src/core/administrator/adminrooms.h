@@ -23,8 +23,8 @@
 
 #include "administrator/adminroom.h"
 #include "libruqola_private_export.h"
-#include <QVector>
 #include <QDebug>
+#include <QVector>
 class LIBRUQOLACORE_EXPORT AdminRooms
 {
 public:
@@ -59,6 +59,6 @@ private:
 };
 
 Q_DECLARE_METATYPE(AdminRooms)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AdminRooms &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AdminRooms &t);
 
 #endif // ADMINROOMS_H

@@ -19,10 +19,10 @@
 */
 
 #include "registeruserjobtest.h"
-#include "users/registeruserjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/registeruserjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RegisterUserJobTest)
 using namespace RocketChatRestApi;
 RegisterUserJobTest::RegisterUserJobTest(QObject *parent)
@@ -62,8 +62,8 @@ void RegisterUserJobTest::shouldGenerateJson()
     info.name = name;
     info.password = password;
     job.setRegisterUserInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})")
-             .arg(email, name, password, username).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})").arg(email, name, password, username).toLatin1());
 }
 
 void RegisterUserJobTest::shouldNotStarting()

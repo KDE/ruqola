@@ -21,8 +21,8 @@
 #ifndef AUTHENTICATIONINFO_H
 #define AUTHENTICATIONINFO_H
 
-#include "libruqolacore_export.h"
 #include "authenticationmanager.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 class LIBRUQOLACORE_EXPORT AuthenticationInfo
 {
@@ -48,6 +48,6 @@ private:
     AuthenticationManager::OauthType mOauthType = AuthenticationManager::OauthType::Unknown;
 };
 Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AuthenticationInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AuthenticationInfo &t);
 
 #endif // AUTHENTICATIONINFO_H

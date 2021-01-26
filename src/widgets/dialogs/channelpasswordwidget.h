@@ -21,8 +21,8 @@
 #ifndef CHANNELPASSWORDWIDGET_H
 #define CHANNELPASSWORDWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelPasswordWidget : public QWidget
 {
@@ -34,6 +34,7 @@ public:
     Q_REQUIRED_RESULT QString password() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
+
 private:
     void slotPasswordChanged(const QString &str);
     KPasswordLineEdit *mPasswordLineEdit = nullptr;

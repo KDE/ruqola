@@ -19,13 +19,13 @@
 */
 #include "searchchanneldelegate.h"
 #include "common/delegatepaintutil.h"
+#include "model/searchchannelmodel.h"
 #include <KLocalizedString>
+#include <QApplication>
 #include <QEvent>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QApplication>
 #include <QStyle>
-#include "model/searchchannelmodel.h"
 
 SearchChannelDelegate::SearchChannelDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -40,7 +40,7 @@ SearchChannelDelegate::~SearchChannelDelegate()
 void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <icon> [M] <name> [M] <add channel icon> [M]   ([M] = margin)
-    //TODO add channel type icon too
+    // TODO add channel type icon too
     painter->save();
     const Layout layout = doLayout(option, index);
     QStyleOptionViewItem optionCopy = option;
@@ -100,6 +100,5 @@ QSize SearchChannelDelegate::sizeHint(const QStyleOptionViewItem &option, const 
 {
     Q_UNUSED(index)
     const int contentsHeight = option.fontMetrics.height() + DelegatePaintUtil::margin() - option.rect.y();
-    return {option.rect.width(),
-            contentsHeight};
+    return {option.rect.width(), contentsHeight};
 }

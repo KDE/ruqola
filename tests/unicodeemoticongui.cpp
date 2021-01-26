@@ -20,18 +20,18 @@
 
 #include "unicodeemoticongui.h"
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
+#include <KListWidgetSearchLine>
 #include <QApplication>
-#include <QStandardPaths>
-#include <QPushButton>
 #include <QFile>
+#include <QFormLayout>
+#include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QListWidget>
-#include <QFormLayout>
 #include <QLineEdit>
-#include <KListWidgetSearchLine>
+#include <QListWidget>
+#include <QPushButton>
+#include <QStandardPaths>
+#include <QVBoxLayout>
 
 #include <emoticons/unicodeemoticonparser.h>
 
@@ -107,7 +107,7 @@ void UnicodeEmoticonGui::save()
     QJsonDocument doc;
     QJsonObject o;
     doc.setObject(o);
-    //TODO
+    // TODO
 }
 
 int main(int argc, char *argv[])

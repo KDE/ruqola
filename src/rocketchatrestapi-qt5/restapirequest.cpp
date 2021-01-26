@@ -18,110 +18,110 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "restapimethod.h"
 #include "restapirequest.h"
+#include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include "serverinfojob.h"
-#include "uploadfilejob.h"
-#include "settings/privateinfojob.h"
 #include "channellistjob.h"
 #include "downloadfilejob.h"
+#include "serverinfojob.h"
+#include "settings/privateinfojob.h"
 #include "spotlightjob.h"
+#include "uploadfilejob.h"
 
-#include "users/getavatarjob.h"
+#include "users/deleteownaccountjob.h"
 #include "users/forgotpasswordjob.h"
-#include "users/userinfojob.h"
+#include "users/getavatarjob.h"
 #include "users/getpresencejob.h"
 #include "users/getusernamesuggestionjob.h"
-#include "users/userspresencejob.h"
-#include "users/deleteownaccountjob.h"
 #include "users/removeothertokensjob.h"
 #include "users/resetavatarjob.h"
+#include "users/userinfojob.h"
+#include "users/userspresencejob.h"
 
 #include "misc/owninfojob.h"
 
 #include "emoji/loademojicustomjob.h"
 
-#include "authentication/logoutjob.h"
 #include "authentication/loginjob.h"
+#include "authentication/logoutjob.h"
 
-#include "chat/starmessagejob.h"
-#include "chat/syncthreadmessagesjob.h"
-#include "chat/postmessagejob.h"
 #include "chat/deletemessagejob.h"
-#include "chat/updatemessagejob.h"
-#include "chat/reactonmessagejob.h"
-#include "chat/searchmessagejob.h"
-#include "chat/ignoreuserjob.h"
-#include "chat/reportmessagejob.h"
-#include "chat/pinmessagejob.h"
 #include "chat/followmessagejob.h"
-#include "chat/unfollowmessagejob.h"
-#include "chat/getthreadsjob.h"
-#include "chat/getthreadmessagesjob.h"
-#include "chat/sendmessagejob.h"
+#include "chat/getmessagejob.h"
 #include "chat/getpinnedmessagesjob.h"
 #include "chat/getsnippetedmessagesjob.h"
 #include "chat/getstarredmessagesjob.h"
-#include "chat/getmessagejob.h"
+#include "chat/getthreadmessagesjob.h"
+#include "chat/getthreadsjob.h"
+#include "chat/ignoreuserjob.h"
+#include "chat/pinmessagejob.h"
+#include "chat/postmessagejob.h"
+#include "chat/reactonmessagejob.h"
+#include "chat/reportmessagejob.h"
+#include "chat/searchmessagejob.h"
+#include "chat/sendmessagejob.h"
+#include "chat/starmessagejob.h"
+#include "chat/syncthreadmessagesjob.h"
+#include "chat/unfollowmessagejob.h"
+#include "chat/updatemessagejob.h"
 
-#include "channels/changechanneltopicjob.h"
-#include "channels/changechannelannouncementjob.h"
-#include "channels/createchanneljob.h"
-#include "channels/leavechanneljob.h"
-#include "channels/channelclosejob.h"
-#include "channels/channelhistoryjob.h"
-#include "channels/changechanneldescriptionjob.h"
 #include "channels/archivechanneljob.h"
-#include "channels/channelfilesjob.h"
-#include "channels/channelinvitejob.h"
-#include "channels/setchanneltypejob.h"
-#include "channels/getchannelrolesjob.h"
-#include "channels/setjoincodechanneljob.h"
-#include "channels/channeljoinjob.h"
-#include "channels/channelinfojob.h"
+#include "channels/changechannelannouncementjob.h"
+#include "channels/changechanneldescriptionjob.h"
 #include "channels/changechannelnamejob.h"
-#include "channels/channelgetallusermentionsjob.h"
-#include "channels/channelkickjob.h"
-#include "channels/channeladdownerjob.h"
-#include "channels/channelremoveownerjob.h"
-#include "channels/channeladdmoderatorjob.h"
-#include "channels/channelremovemoderatorjob.h"
-#include "channels/channeldeletejob.h"
-#include "channels/channelmembersjob.h"
 #include "channels/changechannelreadonlyjob.h"
+#include "channels/changechanneltopicjob.h"
 #include "channels/channeladdleaderjob.h"
-#include "channels/channelremoveleaderjob.h"
+#include "channels/channeladdmoderatorjob.h"
+#include "channels/channeladdownerjob.h"
+#include "channels/channelclosejob.h"
+#include "channels/channeldeletejob.h"
+#include "channels/channelfilesjob.h"
+#include "channels/channelgetallusermentionsjob.h"
 #include "channels/channelgetcountersjob.h"
+#include "channels/channelhistoryjob.h"
+#include "channels/channelinfojob.h"
+#include "channels/channelinvitejob.h"
+#include "channels/channeljoinjob.h"
+#include "channels/channelkickjob.h"
+#include "channels/channelmembersjob.h"
+#include "channels/channelremoveleaderjob.h"
+#include "channels/channelremovemoderatorjob.h"
+#include "channels/channelremoveownerjob.h"
+#include "channels/createchanneljob.h"
+#include "channels/getchannelrolesjob.h"
+#include "channels/leavechanneljob.h"
+#include "channels/setchanneltypejob.h"
+#include "channels/setjoincodechanneljob.h"
 
+#include "groups/archivegroupsjob.h"
 #include "groups/changegroupsannouncementjob.h"
+#include "groups/changegroupsdescriptionjob.h"
+#include "groups/changegroupsencryptedjob.h"
+#include "groups/changegroupsnamejob.h"
+#include "groups/changegroupsreadonlyjob.h"
 #include "groups/changegroupstopicjob.h"
 #include "groups/creategroupsjob.h"
-#include "groups/leavegroupsjob.h"
-#include "groups/changegroupsdescriptionjob.h"
-#include "groups/archivegroupsjob.h"
-#include "groups/groupsinvitejob.h"
-#include "groups/setgrouptypejob.h"
 #include "groups/getgrouprolesjob.h"
-#include "groups/changegroupsnamejob.h"
-#include "groups/groupsinfojob.h"
-#include "groups/groupskickjob.h"
 #include "groups/groupaddleaderjob.h"
-#include "groups/groupremoveleaderjob.h"
-#include "groups/groupaddownerjob.h"
-#include "groups/groupremoveownerjob.h"
 #include "groups/groupaddmoderatorjob.h"
+#include "groups/groupaddownerjob.h"
+#include "groups/groupremoveleaderjob.h"
 #include "groups/groupremovemoderatorjob.h"
+#include "groups/groupremoveownerjob.h"
 #include "groups/groupsdeletejob.h"
-#include "groups/changegroupsreadonlyjob.h"
-#include "groups/changegroupsencryptedjob.h"
+#include "groups/groupsinfojob.h"
+#include "groups/groupsinvitejob.h"
+#include "groups/groupskickjob.h"
+#include "groups/leavegroupsjob.h"
+#include "groups/setgrouptypejob.h"
 
+#include "rooms/getdiscussionsjob.h"
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
-#include "rooms/savenotificationjob.h"
 #include "rooms/roomstartdiscussionjob.h"
-#include "rooms/getdiscussionsjob.h"
+#include "rooms/savenotificationjob.h"
 
 #include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
@@ -131,8 +131,8 @@
 
 #include "permissions/permissionslistalljob.h"
 
-#include "commands/listcommandsjob.h"
 #include "commands/getcommandsjob.h"
+#include "commands/listcommandsjob.h"
 
 #include "e2e/fetchmykeysjob.h"
 
@@ -142,19 +142,19 @@
 #include "autotranslate/translatesavesettingsjob.h"
 
 #include "custom/customsoundslistjob.h"
-#include "custom/customuserstatuslistjob.h"
 #include "custom/customuserstatusdeletejob.h"
+#include "custom/customuserstatuslistjob.h"
 
-#include "2fa/user2fasendemailcodejob.h"
-#include "2fa/user2faenableemailjob.h"
 #include "2fa/user2fadisableemailjob.h"
+#include "2fa/user2faenableemailjob.h"
+#include "2fa/user2fasendemailcodejob.h"
 
 #include "misc/statisticsjob.h"
 
 #include <QNetworkAccessManager>
-#include <QNetworkReply>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
+#include <QNetworkReply>
 using namespace RocketChatRestApi;
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -744,7 +744,7 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     }
 }
 
-//FIXME
+// FIXME
 void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, int offset, int count)
 {
     auto job = new ChannelMembersJob(this);
@@ -1533,7 +1533,11 @@ void RestApiRequest::unFollowMessage(const QString &messageId)
     }
 }
 
-void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId, const QStringList &users)
+void RestApiRequest::createDiscussion(const QString &parentRoomId,
+                                      const QString &discussionName,
+                                      const QString &replyMessage,
+                                      const QString &parentMessageId,
+                                      const QStringList &users)
 {
     auto job = new RoomStartDiscussionJob(this);
     initializeRestApiJob(job);
@@ -1847,7 +1851,7 @@ void RestApiRequest::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnB
     job->setUpdateOwnBasicInfo(info);
     initializeRestApiJob(job);
     connect(job, &UsersUpdateOwnBasicInfoJob::updateOwnBasicInfoDone, this, &RestApiRequest::updateOwnBasicInfoDone);
-    //Clear all other tokens when password was changed
+    // Clear all other tokens when password was changed
     connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &RestApiRequest::removeOtherTokens);
 
     if (!job->start()) {

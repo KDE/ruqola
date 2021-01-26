@@ -21,9 +21,9 @@
 #ifndef PluginAuthenticationInterface_H
 #define PluginAuthenticationInterface_H
 
-#include <QObject>
-#include "libruqolacore_export.h"
 #include "ddpapi/ddpclient.h"
+#include "libruqolacore_export.h"
+#include <QObject>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT PluginAuthenticationInterface : public QObject
 {

@@ -51,7 +51,7 @@ private:
     QString mPageTitle;
     QString mDescription;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageUrl &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);
 
 #endif // MESSAGEURL_H

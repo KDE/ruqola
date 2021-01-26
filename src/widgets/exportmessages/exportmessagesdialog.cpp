@@ -26,7 +26,8 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-namespace {
+namespace
+{
 const char myConfigGroupName[] = "ExportMessagesDialog";
 }
 ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
@@ -46,9 +47,9 @@ ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::rejected, this, &ExportMessagesDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ExportMessagesDialog::accept);
 
-//    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
-//    okButton->setEnabled(false);
-//    connect(mExportMessagesWidget, &ExportMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    //    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    //    okButton->setEnabled(false);
+    //    connect(mExportMessagesWidget, &ExportMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
     readConfig();
 }
 

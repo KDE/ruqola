@@ -21,10 +21,10 @@
 #include "myaccountconfiguredialogtest.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "myaccount/myaccountconfigurewidget.h"
-#include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(MyAccountConfigureDialogTest)
 MyAccountConfigureDialogTest::MyAccountConfigureDialogTest(QObject *parent)

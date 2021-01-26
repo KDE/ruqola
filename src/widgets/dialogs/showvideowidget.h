@@ -21,9 +21,9 @@
 #ifndef SHOWVIDEOWIDGET_H
 #define SHOWVIDEOWIDGET_H
 
-#include <QWidget>
-#include <QMediaPlayer>
 #include "libruqolawidgets_private_export.h"
+#include <QMediaPlayer>
+#include <QWidget>
 class QMediaPlayer;
 class QPushButton;
 class QSlider;

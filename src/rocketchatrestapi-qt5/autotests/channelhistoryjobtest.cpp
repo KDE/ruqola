@@ -21,8 +21,8 @@
 #include "channelhistoryjobtest.h"
 #include "channels/channelhistoryjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelHistoryJobTest)
 using namespace RocketChatRestApi;
 ChannelHistoryJobTest::ChannelHistoryJobTest(QObject *parent)
@@ -79,9 +79,7 @@ void ChannelHistoryJobTest::shouldGenerateJson()
     info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomId":"%1"})")
-             .arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
 void ChannelHistoryJobTest::shouldNotStarting()

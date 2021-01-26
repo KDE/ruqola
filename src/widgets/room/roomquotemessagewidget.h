@@ -36,6 +36,7 @@ public:
 
 Q_SIGNALS:
     void cancelQuoteMessage();
+
 private:
     QLabel *mLabelText = nullptr;
 };

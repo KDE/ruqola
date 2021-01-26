@@ -21,8 +21,8 @@
 #ifndef SHOWLISTMESSAGEBASEDIALOG_H
 #define SHOWLISTMESSAGEBASEDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_export.h"
+#include <QDialog>
 
 class ShowListMessageBaseWidget;
 class ListMessagesModelFilterProxyModel;

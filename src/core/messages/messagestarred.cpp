@@ -19,8 +19,8 @@
 */
 
 #include "messagestarred.h"
-#include <QJsonObject>
 #include <QJsonArray>
+#include <QJsonObject>
 MessageStarred::MessageStarred()
 {
 }
@@ -49,7 +49,7 @@ bool MessageStarred::operator==(MessageStarred other) const
     return mIsStarred == other.isStarred();
 }
 
-QDebug operator <<(QDebug d, MessageStarred t)
+QDebug operator<<(QDebug d, MessageStarred t)
 {
     d << "isStarred " << t.isStarred();
     return d;

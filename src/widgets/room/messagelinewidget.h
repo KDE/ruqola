@@ -21,10 +21,10 @@
 #ifndef MESSAGELINEWIDGET_H
 #define MESSAGELINEWIDGET_H
 
-#include <QPointer>
-#include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
+#include <QPointer>
+#include <QWidget>
 
 class MessageTextEdit;
 class QToolButton;

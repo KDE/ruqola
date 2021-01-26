@@ -25,7 +25,8 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT FetchMyKeysJob : public RestApiAbstractJob
 {
     Q_OBJECT

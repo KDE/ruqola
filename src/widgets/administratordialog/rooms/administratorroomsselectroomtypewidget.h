@@ -43,7 +43,7 @@ private:
     QCheckBox *const mPublicRooms;
     QCheckBox *const mPrivateRooms;
     QCheckBox *const mDiscussionRooms;
-    //Omnichannel ?? what is it?
+    // Omnichannel ?? what is it?
 };
 
 #endif // ADMINISTRATORROOMSSELECTROOMTYPEWIDGET_H

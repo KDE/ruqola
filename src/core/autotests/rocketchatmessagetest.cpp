@@ -81,14 +81,14 @@ void RocketChatMessageTest::shouldUserAutoComplete()
     compareFile(r.result, QStringLiteral("userAutocomplete-exceptions"));
 }
 
-//TODO fix me
+// TODO fix me
 void RocketChatMessageTest::shouldSendFileMessage()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    //FIXME
-    //RocketChatMessage::RocketChatMessageResult r = m.sendFileMessage(43);
-    //compareFile(r.result, QStringLiteral("sendFileMessage"));
+    // FIXME
+    // RocketChatMessage::RocketChatMessageResult r = m.sendFileMessage(43);
+    // compareFile(r.result, QStringLiteral("sendFileMessage"));
 }
 
 void RocketChatMessageTest::shouldSplotlightWithoutUsers()

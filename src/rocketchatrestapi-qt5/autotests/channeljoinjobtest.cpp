@@ -21,8 +21,8 @@
 #include "channeljoinjobtest.h"
 #include "channels/channeljoinjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelJoinJobTest)
 using namespace RocketChatRestApi;
 ChannelJoinJobTest::ChannelJoinJobTest(QObject *parent)
@@ -85,7 +85,7 @@ void ChannelJoinJobTest::shouldNotStarting()
     job.setChannelInfo(info);
     QVERIFY(job.canStart());
 
-    //Join code is optional
+    // Join code is optional
     const QString joinCode = QStringLiteral("fd1");
     job.setJoinCode(joinCode);
     QVERIFY(job.canStart());

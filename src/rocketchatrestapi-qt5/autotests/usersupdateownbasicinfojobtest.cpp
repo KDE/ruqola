@@ -19,10 +19,10 @@
 */
 
 #include "usersupdateownbasicinfojobtest.h"
-#include "users/usersupdateownbasicinfojob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/usersupdateownbasicinfojob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersUpdateOwnBasicInfoJobTest)
 using namespace RocketChatRestApi;
 UsersUpdateOwnBasicInfoJobTest::UsersUpdateOwnBasicInfoJobTest(QObject *parent)
@@ -68,15 +68,16 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::NickName;
     info.nickName = nickname;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","username":"%2"}})")
-             .arg(email, username, nickname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","username":"%2"}})").arg(email, username, nickname).toLatin1());
 
     const QString statustext = QStringLiteral("tt");
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::StatusText;
     info.statusText = statustext;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","statusText":"%4","username":"%2"}})")
-             .arg(email, username, nickname, statustext).toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","statusText":"%4","username":"%2"}})").arg(email, username, nickname, statustext).toLatin1());
 }
 
 void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
@@ -102,6 +103,6 @@ void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
     info.type = UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Email;
     job.setUpdateOwnBasicInfo(info);
 
-    //TODO
+    // TODO
     QVERIFY(job.canStart());
 }

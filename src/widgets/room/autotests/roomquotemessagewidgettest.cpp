@@ -30,5 +30,5 @@ RoomQuoteMessageWidgetTest::RoomQuoteMessageWidgetTest(QObject *parent)
 void RoomQuoteMessageWidgetTest::shouldHaveDefaultValues()
 {
     RoomQuoteMessageWidget w;
-    //TODO
+    // TODO
 }

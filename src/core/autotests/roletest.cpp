@@ -113,4 +113,4 @@ void RoleTest::shouldVerifyHasRoles()
     QVERIFY(!r.hasARole());
 }
 
-//Create autotest for updateRoless
+// Create autotest for updateRoless

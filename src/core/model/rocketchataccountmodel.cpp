@@ -20,8 +20,8 @@
 
 #include "rocketchataccountmodel.h"
 #include "rocketchataccount.h"
-#include "ruqolaserverconfig.h"
 #include "ruqola_debug.h"
+#include "ruqolaserverconfig.h"
 
 RocketChatAccountModel::RocketChatAccountModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -121,13 +121,13 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     case UserName:
         return account->userName();
     }
-    //Add icon ???
+    // Add icon ???
     return {};
 }
 
 void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 {
-    //Verify that we have it ?
+    // Verify that we have it ?
     const int accountCount = mRocketChatAccount.count();
     beginInsertRows(QModelIndex(), accountCount, accountCount);
     mRocketChatAccount.append(account);
@@ -137,8 +137,8 @@ void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 
 void RocketChatAccountModel::removeAccount(const QString &name)
 {
-    //qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
-    //Search account.
+    // qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
+    // Search account.
     for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
         if (mRocketChatAccount.at(i)->accountName() == name) {
             beginRemoveRows(QModelIndex(), i, i);

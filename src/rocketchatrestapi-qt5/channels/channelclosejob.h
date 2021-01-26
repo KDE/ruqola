@@ -21,19 +21,15 @@
 #ifndef CHANNELCLOSEJOB_H
 #define CHANNELCLOSEJOB_H
 
-#include "librestapi_private_export.h"
 #include "channelbasejob.h"
-namespace RocketChatRestApi {
+#include "librestapi_private_export.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelCloseJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
-    enum ChannelType {
-        Channel = 0,
-        Groups,
-        Direct,
-        Unknown
-    };
+    enum ChannelType { Channel = 0, Groups, Direct, Unknown };
     Q_ENUM(ChannelType)
     explicit ChannelCloseJob(QObject *parent = nullptr);
     ~ChannelCloseJob() override;

@@ -58,7 +58,7 @@ QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index,
 void NotificationDesktopSoundPreferenceModel::fillModel()
 {
     mNotificationDestktopSoundPreferenceList.reserve(8);
-    //This one must be first one.
+    // This one must be first one.
     {
         NotificationDesktopSoundPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");

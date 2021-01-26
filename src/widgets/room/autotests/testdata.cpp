@@ -20,8 +20,8 @@
 
 #include "testdata.h"
 #include "managerdatapaths.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 
 #include <QFile>
 #include <QPixmap>

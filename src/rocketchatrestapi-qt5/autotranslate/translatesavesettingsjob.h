@@ -21,9 +21,10 @@
 #ifndef TRANSLATESAVESETTINGSJOB_H
 #define TRANSLATESAVESETTINGSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT TranslateSaveSettingsJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -31,11 +32,7 @@ public:
     explicit TranslateSaveSettingsJob(QObject *parent = nullptr);
     ~TranslateSaveSettingsJob() override;
 
-    enum SettingType {
-        AutoTranslateSetting,
-        LanguageSetting,
-        Underfined
-    };
+    enum SettingType { AutoTranslateSetting, LanguageSetting, Underfined };
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;

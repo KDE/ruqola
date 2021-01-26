@@ -20,8 +20,8 @@
 #ifndef RUQOLAUSERFEEDBACKPROVIDER_H
 #define RUQOLAUSERFEEDBACKPROVIDER_H
 
-#include <KUserFeedback/Provider>
 #include "libruqolawidgets_export.h"
+#include <KUserFeedback/Provider>
 
 class LIBRUQOLAWIDGETS_EXPORT RuqolaUserFeedbackProvider : public KUserFeedback::Provider
 {

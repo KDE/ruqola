@@ -20,8 +20,8 @@
 
 #ifndef ADDUSERSINROOMDIALOG_H
 #define ADDUSERSINROOMDIALOG_H
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class AddUsersInRoomWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomDialog : public QDialog
 {
@@ -30,6 +30,7 @@ public:
     explicit AddUsersInRoomDialog(QWidget *parent = nullptr);
     ~AddUsersInRoomDialog() override;
     Q_REQUIRED_RESULT QStringList users() const;
+
 private:
     void readConfig();
     void writeConfig();

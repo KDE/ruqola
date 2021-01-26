@@ -21,11 +21,10 @@
 #include "downloadappslanguagesparser.h"
 #include "ruqola_debug.h"
 
-#include <QJsonObject>
-#include <QJsonArray>
 #include <QFileInfo>
-#include <QJsonDocument>
 #include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 DownloadAppsLanguagesParser::DownloadAppsLanguagesParser()
 {

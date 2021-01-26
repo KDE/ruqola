@@ -21,9 +21,10 @@
 #ifndef EMOJICUSTOMCREATEJOB_H
 #define EMOJICUSTOMCREATEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT EmojiCustomCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT

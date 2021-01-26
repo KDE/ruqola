@@ -21,13 +21,13 @@
 #include "showvideowidget.h"
 #include <KLocalizedString>
 
-#include <QVBoxLayout>
-#include <QVideoWidget>
+#include <QLabel>
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>
-#include <QLabel>
 #include <QToolButton>
+#include <QVBoxLayout>
+#include <QVideoWidget>
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
@@ -54,28 +54,24 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
 
     controlLayout->addWidget(mPlayButton);
-    connect(mPlayButton, &QAbstractButton::clicked,
-            this, &ShowVideoWidget::play);
+    connect(mPlayButton, &QAbstractButton::clicked, this, &ShowVideoWidget::play);
 
     mPositionSlider = new QSlider(Qt::Horizontal, this);
     mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
     mPositionSlider->setRange(0, 0);
     controlLayout->addWidget(mPositionSlider);
 
-    connect(mPositionSlider, &QAbstractSlider::sliderMoved,
-            this, &ShowVideoWidget::setPosition);
+    connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
 
     mErrorLabel = new QLabel(this);
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
     mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     mainLayout->addWidget(mErrorLabel);
     mMediaPlayer->setVideoOutput(videoWidget);
-    connect(mMediaPlayer, &QMediaPlayer::stateChanged,
-            this, &ShowVideoWidget::mediaStateChanged);
+    connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::positionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
-    connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error),
-            this, &ShowVideoWidget::handleError);
+    connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
 
     mSoundButton = new QToolButton(this);
     mSoundButton->setCheckable(true);
@@ -89,8 +85,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(100);
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
-    connect(mSoundSlider, &QAbstractSlider::valueChanged,
-            mMediaPlayer, &QMediaPlayer::setVolume);
+    connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
 
     controlLayout->addWidget(mSoundSlider);
 }
@@ -155,7 +150,7 @@ void ShowVideoWidget::handleError()
 {
     mPlayButton->setEnabled(false);
     const QString errorString = mMediaPlayer->errorString();
-    QString message = i18n("Error: "); //i18n ?
+    QString message = i18n("Error: "); // i18n ?
     if (errorString.isEmpty()) {
         message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
     } else {

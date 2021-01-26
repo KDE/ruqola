@@ -21,8 +21,8 @@
 #include "leavechanneljobtest.h"
 #include "channels/leavechanneljob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(LeaveChannelJobTest)
 using namespace RocketChatRestApi;
 LeaveChannelJobTest::LeaveChannelJobTest(QObject *parent)

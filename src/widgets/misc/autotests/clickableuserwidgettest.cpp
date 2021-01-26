@@ -30,5 +30,5 @@ ClickableUserWidgetTest::ClickableUserWidgetTest(QObject *parent)
 void ClickableUserWidgetTest::shouldHaveDefaultValues()
 {
     ClickableUserWidget w(QStringLiteral("foo"));
-    //TODO
+    // TODO
 }

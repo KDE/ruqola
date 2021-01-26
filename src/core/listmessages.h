@@ -51,5 +51,5 @@ private:
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(ListMessages)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ListMessages &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ListMessages &t);
 #endif // LISTMESSAGES_H

@@ -24,11 +24,11 @@
 
 /* Classes which are exported only for unit tests */
 #ifdef BUILD_TESTING
-# ifndef LIBRUQOLACORE_TESTS_EXPORT
-#  define LIBRUQOLACORE_TESTS_EXPORT LIBRUQOLACORE_EXPORT
-# endif
+#ifndef LIBRUQOLACORE_TESTS_EXPORT
+#define LIBRUQOLACORE_TESTS_EXPORT LIBRUQOLACORE_EXPORT
+#endif
 #else /* not compiling tests */
-# define LIBRUQOLACORE_TESTS_EXPORT
+#define LIBRUQOLACORE_TESTS_EXPORT
 #endif
 
 #endif

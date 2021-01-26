@@ -23,9 +23,9 @@
 #include "registeruser/registeruserwidget.h"
 
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QStandardPaths>
 
 QTEST_MAIN(RegisterUserDialogTest)
 

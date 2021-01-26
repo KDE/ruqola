@@ -21,14 +21,15 @@
 #ifndef SHOWATTACHMENTCOMBOBOX_H
 #define SHOWATTACHMENTCOMBOBOX_H
 
-#include <QComboBox>
 #include "libruqolawidgets_private_export.h"
+#include <QComboBox>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentComboBox : public QComboBox
 {
     Q_OBJECT
 public:
     explicit ShowAttachmentComboBox(QWidget *parent = nullptr);
     ~ShowAttachmentComboBox() override;
+
 private:
     void fillCombobox();
 };

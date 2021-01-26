@@ -21,12 +21,12 @@
 #include "reportmessagedialogtest.h"
 #include "dialogs/reportmessagedialog.h"
 #include "dialogs/reportmessagewidget.h"
-#include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
+#include <KTextEdit>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <KTextEdit>
+#include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(ReportMessageDialogTest)
 

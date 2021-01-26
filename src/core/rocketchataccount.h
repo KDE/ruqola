@@ -21,32 +21,32 @@
 #ifndef ROCKETCHATACCOUNT_H
 #define ROCKETCHATACCOUNT_H
 
+#include "accountroomsettings.h"
+#include "authenticationinfo.h"
+#include "channels/channelbasejob.h"
+#include "commands/runcommandjob.h"
+#include "custom/customuserstatuscreatejob.h"
+#include "custom/customuserstatusupdatejob.h"
+#include "customuserstatuses.h"
+#include "ddpapi/ddpauthenticationmanager.h"
+#include "file.h"
+#include "inputtextmanager.h"
+#include "libruqolacore_export.h"
+#include "messages/message.h"
+#include "model/listmessagesmodel.h"
+#include "ownuser.h"
+#include "permissionmanager.h"
+#include "rocketchataccountsettings.h"
+#include "rooms/roomscleanhistoryjob.h"
+#include "rooms/roomsexportjob.h"
+#include "ruqolaserverconfig.h"
+#include "users/registeruserjob.h"
+#include "users/userssetpreferencesjob.h"
+#include "users/usersupdateownbasicinfojob.h"
+#include "utils.h"
 #include <QObject>
 #include <QUrl>
-#include "channels/channelbasejob.h"
-#include "rooms/roomscleanhistoryjob.h"
-#include "commands/runcommandjob.h"
-#include "users/usersupdateownbasicinfojob.h"
 #include <ddpapi/ddpclient.h>
-#include "users/registeruserjob.h"
-#include "ddpapi/ddpauthenticationmanager.h"
-#include "model/listmessagesmodel.h"
-#include "messages/message.h"
-#include "rocketchataccountsettings.h"
-#include "libruqolacore_export.h"
-#include "authenticationinfo.h"
-#include "file.h"
-#include "utils.h"
-#include "inputtextmanager.h"
-#include "accountroomsettings.h"
-#include "ruqolaserverconfig.h"
-#include "ownuser.h"
-#include "customuserstatuses.h"
-#include "permissionmanager.h"
-#include "custom/customuserstatusupdatejob.h"
-#include "custom/customuserstatuscreatejob.h"
-#include "rooms/roomsexportjob.h"
-#include "users/userssetpreferencesjob.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -88,7 +88,8 @@ class CommandsModel;
 class DownloadAppsLanguagesManager;
 class UsersForRoomModel;
 
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class RestApiRequest;
 }
 
@@ -100,7 +101,8 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
     Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
-    Q_PROPERTY(QString twoFactorAuthenticationCode READ twoFactorAuthenticationCode WRITE setTwoFactorAuthenticationCode NOTIFY twoFactorAuthenticationCodeChanged)
+    Q_PROPERTY(
+        QString twoFactorAuthenticationCode READ twoFactorAuthenticationCode WRITE setTwoFactorAuthenticationCode NOTIFY twoFactorAuthenticationCodeChanged)
     Q_PROPERTY(DDPAuthenticationManager::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     Q_PROPERTY(bool editingMode READ editingMode NOTIFY editingModeChanged)
     Q_PROPERTY(bool sortUnreadOnTop READ sortUnreadOnTop NOTIFY sortUnreadOnTopChanged)
@@ -119,25 +121,25 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool allowEditingMessages READ allowEditingMessages CONSTANT)
     Q_PROPERTY(bool otrEnabled READ otrEnabled CONSTANT)
     Q_PROPERTY(bool hasInviteUserSupport READ hasInviteUserSupport CONSTANT)
-    Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
-    Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
+    Q_PROPERTY(ServerConfigInfo *serverConfigInfo READ serverConfigInfo CONSTANT)
+    Q_PROPERTY(AutotranslateLanguagesModel *autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
     Q_PROPERTY(QString recordingVideoPath READ recordingVideoPath CONSTANT)
     Q_PROPERTY(QString recordingImagePath READ recordingImagePath CONSTANT)
-    Q_PROPERTY(LoginMethodModel* loginMethodModel READ loginMethodModel CONSTANT)
-    Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
-    Q_PROPERTY(DiscussionsFilterProxyModel* discussionsFilterProxyModel READ discussionsFilterProxyModel CONSTANT)
-    Q_PROPERTY(SearchChannelFilterProxyModel* searchChannelFilterProxyModel READ searchChannelFilterProxyModel CONSTANT)
-    Q_PROPERTY(InputTextManager* inputTextManager READ inputTextManager CONSTANT)
-    Q_PROPERTY(InputTextManager* inputThreadMessageTextManager READ inputThreadMessageTextManager CONSTANT)
-    Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
-    Q_PROPERTY(EmoticonFilterModel* emoticonFilterModel READ emoticonFilterModel CONSTANT)
-    Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
-    Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
-    Q_PROPERTY(ListMessagesModelFilterProxyModel* listMessagesFilterProxyModel READ listMessagesFilterProxyModel CONSTANT)
-    Q_PROPERTY(RoomFilterProxyModel* roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
-    Q_PROPERTY(UsersModel* usersModel READ usersModel CONSTANT)
-    Q_PROPERTY(ReceiveTypingNotificationManager* receiveTypingNotificationManager READ receiveTypingNotificationManager CONSTANT)
-    Q_PROPERTY(UserCompleterFilterProxyModel* userCompleterFilterModelProxy READ userCompleterFilterModelProxy CONSTANT)
+    Q_PROPERTY(LoginMethodModel *loginMethodModel READ loginMethodModel CONSTANT)
+    Q_PROPERTY(StatusModel *statusModel READ statusModel CONSTANT)
+    Q_PROPERTY(DiscussionsFilterProxyModel *discussionsFilterProxyModel READ discussionsFilterProxyModel CONSTANT)
+    Q_PROPERTY(SearchChannelFilterProxyModel *searchChannelFilterProxyModel READ searchChannelFilterProxyModel CONSTANT)
+    Q_PROPERTY(InputTextManager *inputTextManager READ inputTextManager CONSTANT)
+    Q_PROPERTY(InputTextManager *inputThreadMessageTextManager READ inputThreadMessageTextManager CONSTANT)
+    Q_PROPERTY(MessageModel *threadMessageModel READ threadMessageModel CONSTANT)
+    Q_PROPERTY(EmoticonFilterModel *emoticonFilterModel READ emoticonFilterModel CONSTANT)
+    Q_PROPERTY(FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
+    Q_PROPERTY(SearchMessageFilterProxyModel *searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
+    Q_PROPERTY(ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel READ listMessagesFilterProxyModel CONSTANT)
+    Q_PROPERTY(RoomFilterProxyModel *roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
+    Q_PROPERTY(UsersModel *usersModel READ usersModel CONSTANT)
+    Q_PROPERTY(ReceiveTypingNotificationManager *receiveTypingNotificationManager READ receiveTypingNotificationManager CONSTANT)
+    Q_PROPERTY(UserCompleterFilterProxyModel *userCompleterFilterModelProxy READ userCompleterFilterModelProxy CONSTANT)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount() override;
@@ -148,17 +150,7 @@ public:
     };
     Q_ENUM(ChannelTypeInfo)
 
-    enum RoomInfoType {
-        Announcement,
-        Description,
-        Name,
-        Topic,
-        ReadOnly,
-        Archive,
-        RoomType,
-        Encrypted,
-        Password
-    };
+    enum RoomInfoType { Announcement, Description, Name, Topic, ReadOnly, Archive, RoomType, Encrypted, Password };
     Q_ENUM(RoomInfoType)
 
     enum NotificationOptionsType {
@@ -176,14 +168,7 @@ public:
 
     Q_ENUM(NotificationOptionsType)
 
-    enum RoleType {
-        AddOwner,
-        AddLeader,
-        AddModerator,
-        RemoveOwner,
-        RemoveLeader,
-        RemoveModerator
-    };
+    enum RoleType { AddOwner, AddLeader, AddModerator, RemoveOwner, RemoveLeader, RemoveModerator };
     Q_ENUM(RoleType)
 
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
@@ -201,21 +186,29 @@ public:
     void replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message);
     void openChannel(const QString &url, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QString &roomId);
-    void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast);
+    void createNewChannel(const QString &name,
+                          bool readOnly,
+                          bool privateRoom,
+                          const QString &userNames,
+                          bool encryptedRoom,
+                          const QString &password,
+                          bool broadcast);
     void joinRoom(const QString &roomId, const QString &joinCode = QString());
     void openDirectChannel(const QString &username);
-    void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); //Move to private no ?
+    void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?
     void changeDefaultStatus(int index, const QString &messageStatus);
     void createJitsiConfCall(const QString &roomId);
     void deleteMessage(const QString &messageId, const QString &roomId);
     void userAutocomplete(const QString &searchText, const QString &exception);
     void eraseRoom(const QString &roomId, const QString &channelType);
-    void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType = QString());
+    void
+    changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType = QString());
     void changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     void starMessage(const QString &messageId, bool starred);
     void pinMessage(const QString &messageId, bool pinned);
-    void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
+    void
+    uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
@@ -245,7 +238,11 @@ public:
     void switchingToRoom(const QString &roomID);
     void reportMessage(const QString &messageId, const QString &message);
     void getThreadMessages(const QString &threadMessageId);
-    void createDiscussion(const QString &parentRoomName, const QString &discussionName, const QString &replyMessage, const QString &messageId, const QStringList &users = QStringList());
+    void createDiscussion(const QString &parentRoomName,
+                          const QString &discussionName,
+                          const QString &replyMessage,
+                          const QString &messageId,
+                          const QStringList &users = QStringList());
     void threadsInRoom(const QString &roomId);
     void discussionsInRoom(const QString &roomId);
     void followMessage(const QString &messageId, bool follow);
@@ -300,7 +297,7 @@ public:
 
     Room *room(const QString &roomId);
 
-    //Make it private in future
+    // Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
 
     MessageQueue *messageQueue() const;

@@ -18,14 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 #include "listdiscussiondelegate.h"
-#include <QPainter>
-#include <QMouseEvent>
-#include <QDebug>
 #include <KColorScheme>
 #include <KLocalizedString>
+#include <QDebug>
+#include <QMouseEvent>
+#include <QPainter>
 
-#include "model/discussionsmodel.h"
 #include "common/delegatepaintutil.h"
+#include "model/discussionsmodel.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -48,12 +48,11 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const Layout layout = doLayout(option, index);
 
     // Draw the sender (below the filename)
-    painter->drawText(DelegatePaintUtil::margin() + option.rect.x(),
-                      layout.textY + painter->fontMetrics().ascent(),
-                      layout.text);
+    painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.textY + painter->fontMetrics().ascent(), layout.text);
 
     // Draw the timestamp (below the sender)
-    DelegatePaintUtil::drawTimestamp(painter, layout.lastMessageTimeText,
+    DelegatePaintUtil::drawTimestamp(painter,
+                                     layout.lastMessageTimeText,
                                      QPoint(DelegatePaintUtil::margin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     KColorScheme scheme;
@@ -62,7 +61,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
     // Note: pen still blue, currently relying on restore()
 
-    //TODO add open discussion text.
+    // TODO add open discussion text.
 
     painter->restore();
 }
@@ -72,7 +71,7 @@ bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto mev = static_cast<QMouseEvent *>(event);
-        //TODO check if we muse open discussion
+        // TODO check if we muse open discussion
         qDebug() << " open discussion not implemented yet";
     }
     return QItemDelegate::editorEvent(event, model, option, index);
@@ -83,9 +82,8 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
-    const int contentsHeight = layout.openDiscussionTextY  + option.fontMetrics.height() - option.rect.y();
-    return {option.rect.width(),
-            contentsHeight};
+    const int contentsHeight = layout.openDiscussionTextY + option.fontMetrics.height() - option.rect.y();
+    return {option.rect.width(), contentsHeight};
 }
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

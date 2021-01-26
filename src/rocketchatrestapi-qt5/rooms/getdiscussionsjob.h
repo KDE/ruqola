@@ -21,11 +21,12 @@
 #ifndef GETDISCUSSIONSJOB_H
 #define GETDISCUSSIONSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetDiscussionsJob : public RestApiAbstractJob
 {
     Q_OBJECT

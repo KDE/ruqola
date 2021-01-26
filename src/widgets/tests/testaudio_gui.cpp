@@ -18,18 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <QCommandLineParser>
-#include <QApplication>
-#include <QUrl>
 #include "dialogs/playsounddialog.h"
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QUrl>
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("+[file]"),
-                                        QStringLiteral("Sound file")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("+[file]"), QStringLiteral("Sound file")));
 
     parser.process(app);
     QString filename;

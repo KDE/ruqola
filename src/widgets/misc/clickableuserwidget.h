@@ -21,9 +21,9 @@
 #ifndef CLICKABLEUSERWIDGET_H
 #define CLICKABLEUSERWIDGET_H
 
+#include "libruqolawidgets_export.h"
 #include <QLabel>
 #include <QWidget>
-#include "libruqolawidgets_export.h"
 
 class LIBRUQOLAWIDGETS_EXPORT ClickableLabel : public QLabel
 {

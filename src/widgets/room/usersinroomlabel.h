@@ -21,9 +21,9 @@
 #ifndef USERSINROOMLABEL_H
 #define USERSINROOMLABEL_H
 
+#include "libruqolawidgets_private_export.h"
 #include <QLabel>
 #include <QWidget>
-#include "libruqolawidgets_private_export.h"
 class Room;
 class UsersInRoomMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserLabel : public QLabel
@@ -35,6 +35,7 @@ public:
     void setRoom(Room *room);
     void setUserId(const QString &userId);
     void setUserName(const QString &userName);
+
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotOpenConversation();
@@ -59,6 +60,7 @@ public:
 
     void setUserInfo(const UsersInRoomLabel::UserInfo &info);
     void setRoom(Room *room);
+
 private:
     UsersInRoomLabel::UserInfo mInfo;
     QLabel *mIconLabel = nullptr;

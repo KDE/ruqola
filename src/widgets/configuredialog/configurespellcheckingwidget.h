@@ -24,7 +24,8 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-namespace Sonnet {
+namespace Sonnet
+{
 class ConfigWidget;
 }
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSpellCheckingWidget : public QWidget
@@ -35,6 +36,7 @@ public:
     ~ConfigureSpellCheckingWidget() override;
     void save();
     void load();
+
 private:
     Sonnet::ConfigWidget *mConfigWidget = nullptr;
 };

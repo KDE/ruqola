@@ -19,8 +19,8 @@
 */
 
 #include "serverinfojob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -49,7 +49,7 @@ bool ServerInfoJob::start()
     return true;
 }
 
-//Since 2.0.0 we don't use v1 path. Need to exclude it.
+// Since 2.0.0 we don't use v1 path. Need to exclude it.
 QNetworkRequest ServerInfoJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo, QString(), mUseDeprecatedVersion);
@@ -78,7 +78,7 @@ void ServerInfoJob::slotServerInfoFinished()
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
-        //TODO send replyObject too. Need by administrator server info.
+        // TODO send replyObject too. Need by administrator server info.
         if (replyObject[QStringLiteral("success")].toBool()) {
             QString versionStr;
             if (mUseDeprecatedVersion) {

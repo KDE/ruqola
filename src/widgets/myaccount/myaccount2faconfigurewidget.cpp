@@ -19,11 +19,11 @@
 */
 
 #include "myaccount2faconfigurewidget.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
-#include <QVBoxLayout>
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QVBoxLayout>
 
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
     : QWidget(parent)
@@ -49,6 +49,6 @@ void MyAccount2FaConfigureWidget::load()
 
 void MyAccount2FaConfigureWidget::save()
 {
-    //TODO verify it
+    // TODO verify it
     Ruqola::self()->rocketChatAccount()->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
 }

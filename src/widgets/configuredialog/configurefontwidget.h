@@ -21,8 +21,8 @@
 #ifndef CONFIGUREFONTWIDGET_H
 #define CONFIGUREFONTWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QCheckBox;
 class KFontChooser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureFontWidget : public QWidget
@@ -33,6 +33,7 @@ public:
     ~ConfigureFontWidget() override;
     void save();
     void load();
+
 private:
     QCheckBox *mCustomFontCheck = nullptr;
     KFontChooser *mFontChooser = nullptr;

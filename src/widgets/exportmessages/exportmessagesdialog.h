@@ -21,9 +21,9 @@
 #ifndef EXPORTMESSAGESDIALOG_H
 #define EXPORTMESSAGESDIALOG_H
 
-#include <QDialog>
-#include "rooms/roomsexportjob.h"
 #include "libruqolawidgets_private_export.h"
+#include "rooms/roomsexportjob.h"
+#include <QDialog>
 class ExportMessagesWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportMessagesDialog : public QDialog
 {
@@ -33,6 +33,7 @@ public:
     ~ExportMessagesDialog() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
+
 private:
     void readConfig();
     void writeConfig();

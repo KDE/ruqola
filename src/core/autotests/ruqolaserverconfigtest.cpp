@@ -119,7 +119,7 @@ void RuqolaServerConfigTest::shouldEnabledRc60()
     QFETCH(bool, needRc60);
     RuqolaServerConfig config;
     config.setServerVersion(serverVersion);
-    //qDebug() << " config " << config;
+    // qDebug() << " config " << config;
     QCOMPARE(config.needAdaptNewSubscriptionRC60(), needRc60);
 }
 
@@ -130,7 +130,7 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
 
     {
         QStringList lst;
-        //By default ruqola has password support
+        // By default ruqola has password support
         AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
         types |= AuthenticationManager::OauthType::Unknown;
         QTest::newRow("empty") << lst << types;

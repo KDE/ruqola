@@ -29,11 +29,9 @@ ServicePassword::~ServicePassword()
 {
 }
 
-bool ServicePassword::operator ==(const ServicePassword &other) const
+bool ServicePassword::operator==(const ServicePassword &other) const
 {
-    return mEmail2faEnabled == other.email2faEnabled()
-           && mPassword == other.password()
-           && mTotp == other.totp();
+    return mEmail2faEnabled == other.email2faEnabled() && mPassword == other.password() && mTotp == other.totp();
 }
 
 void ServicePassword::parseService(const QJsonObject &replyObject)
@@ -82,7 +80,7 @@ void ServicePassword::setTotp(bool totp)
     mTotp = totp;
 }
 
-QDebug operator <<(QDebug d, const ServicePassword &t)
+QDebug operator<<(QDebug d, const ServicePassword &t)
 {
     d << "mEmail2faEnabled " << t.email2faEnabled();
     d << "mPassword " << t.password();

@@ -21,11 +21,11 @@
 #ifndef AVATARCACHEMANAGER_H
 #define AVATARCACHEMANAGER_H
 
-#include <QObject>
-#include "utils.h"
 #include "libruqolawidgets_private_export.h"
 #include "pixmapcache.h"
+#include "utils.h"
 #include <QFont>
+#include <QObject>
 
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarCacheManager : public QObject
@@ -43,7 +43,6 @@ public Q_SLOTS:
     void slotAvatarChanged(const Utils::AvatarInfo &info);
 
 private:
-
     Q_REQUIRED_RESULT qreal checkIfNeededToClearCache(const QWidget *widget) const;
 
     // DPR-dependent cache of avatars

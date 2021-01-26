@@ -21,10 +21,10 @@
 #ifndef RUQOLALOGINWIDGET_H
 #define RUQOLALOGINWIDGET_H
 
-#include <QWidget>
-#include <ddpapi/ddpclient.h>
-#include <ddpapi/ddpauthenticationmanager.h>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
+#include <ddpapi/ddpauthenticationmanager.h>
+#include <ddpapi/ddpclient.h>
 class QLineEdit;
 class QPushButton;
 class QLabel;

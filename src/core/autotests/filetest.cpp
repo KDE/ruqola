@@ -127,7 +127,7 @@ void FileTest::shouldParseFile_data()
         QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
     }
     {
-        //RestAPI
+        // RestAPI
         File expected;
         expected.setFileName(QStringLiteral("Clipboard - February 7, 2018 8:59 AM"));
         expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));

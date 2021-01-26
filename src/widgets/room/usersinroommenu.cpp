@@ -19,10 +19,10 @@
 */
 
 #include "usersinroommenu.h"
+#include "dialogs/directchannelinfodialog.h"
+#include "rocketchataccount.h"
 #include "roomutil.h"
 #include "ruqola.h"
-#include "rocketchataccount.h"
-#include "dialogs/directchannelinfodialog.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QAction>
@@ -98,7 +98,10 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
         auto *removeAsUser = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
         connect(removeAsUser, &QAction::triggered, this, [this, hasOwnerRole]() {
-            Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(), mUserId, mRoom->channelType(), hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
+            Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(),
+                                                             mUserId,
+                                                             mRoom->channelType(),
+                                                             hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
         });
 
         menu.addAction(removeAsUser);
@@ -106,14 +109,20 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
         auto *removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
         connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole]() {
-            Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(), mUserId, mRoom->channelType(), hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
+            Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(),
+                                                             mUserId,
+                                                             mRoom->channelType(),
+                                                             hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
         });
         menu.addAction(removeAsLeader);
 
         const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
         auto *removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
         connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole]() {
-            Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(), mUserId, mRoom->channelType(), hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
+            Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(),
+                                                             mUserId,
+                                                             mRoom->channelType(),
+                                                             hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
         });
         menu.addAction(removeAsModerator);
 

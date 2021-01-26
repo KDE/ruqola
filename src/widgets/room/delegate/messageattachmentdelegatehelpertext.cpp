@@ -19,13 +19,13 @@
 */
 
 #include "messageattachmentdelegatehelpertext.h"
-#include "messagedelegateutils.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "dialogs/showvideodialog.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
+#include "dialogs/showvideodialog.h"
+#include "messagedelegateutils.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "textconverter.h"
 
 #include <KLocalizedString>
@@ -35,19 +35,23 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPointer>
-#include <QTextBlock>
 #include <QStyleOptionViewItem>
+#include <QTextBlock>
 
 MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 {
 }
 
-void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach,
+                                               QPainter *painter,
+                                               QRect messageRect,
+                                               const QModelIndex &index,
+                                               const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     Q_UNUSED(option)
 
-    //painter->drawRect(messageRect);
+    // painter->drawRect(messageRect);
 
     const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
     int nextY = messageRect.y();
@@ -65,7 +69,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         if (!doc) {
             return;
         }
-    #if 0
+#if 0
         QVector<QAbstractTextDocumentLayout::Selection> selections;
         if (index == mCurrentIndex) {
             QTextCharFormat selectionFormat;
@@ -80,7 +84,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
             format.setForeground(Qt::gray); //TODO use color from theme.
             cursor.mergeCharFormat(format);
         }
-    #endif
+#endif
 
         painter->save();
         painter->translate(messageRect.left(), nextY);
@@ -88,18 +92,21 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 
         // Same as pDoc->drawContents(painter, clip) but we also set selections
         QAbstractTextDocumentLayout::PaintContext ctx;
-        //FIXME ctx.selections = selections;
+        // FIXME ctx.selections = selections;
         if (clip.isValid()) {
             painter->setClipRect(clip);
             ctx.clip = clip;
         }
         doc->documentLayout()->draw(painter, ctx);
         painter->restore();
-        //TODO add fields
+        // TODO add fields
     }
 }
 
-QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach,
+                                                    const QModelIndex &index,
+                                                    int maxWidth,
+                                                    const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     Q_UNUSED(option)
@@ -108,16 +115,18 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
         height += layout.textSize.height() + DelegatePaintUtil::margin();
     }
-    return {static_cast<int>(qMax(layout.titleSize.width(), (qreal)maxWidth)),
-            height};
+    return {static_cast<int>(qMax(layout.titleSize.width(), (qreal)maxWidth)), height};
 }
 
-bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                           QMouseEvent *mouseEvent,
+                                                           QRect attachmentsRect,
+                                                           const QStyleOptionViewItem &option,
+                                                           const QModelIndex &index)
 {
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
-    case QEvent::MouseButtonRelease:
-    {
+    case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
@@ -148,7 +157,10 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     return false;
 }
 
-MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach,
+                                                                                                const QStyleOptionViewItem &option,
+                                                                                                int attachmentsWidth,
+                                                                                                int attachmentsHeight) const
 {
     Q_UNUSED(attachmentsHeight)
     TextLayout layout;
@@ -194,7 +206,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
                 return ret;
             }
         } else {
-            //Add support for icon_author too
+            // Add support for icon_author too
             const QString contextString = QStringLiteral("<a href=\"%1\">%2</a>").arg(msgAttach.link(), authorName) + msgAttach.attachmentFieldsText();
             auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
             auto ret = doc.get();
@@ -204,7 +216,8 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     } else {
         // Use TextConverter in case it starts with a [](URL) reply marker
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        const QString contextString = TextConverter::convertMessageText(text, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager()) + msgAttach.attachmentFieldsText();
+        const QString contextString = TextConverter::convertMessageText(text, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager())
+            + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();
         mDocumentCache.insert(attachmentId, std::move(doc));

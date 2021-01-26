@@ -21,8 +21,8 @@
 #ifndef TYPINGNOTIFICATION_H
 #define TYPINGNOTIFICATION_H
 
-#include <QObject>
 #include "libruqola_private_export.h"
+#include <QObject>
 class QTimer;
 class LIBRUQOLACORE_TESTS_EXPORT TypingNotification : public QObject
 {

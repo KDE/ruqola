@@ -21,8 +21,8 @@
 #ifndef ADMINISTRATORDIALOG_H
 #define ADMINISTRATORDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class AdministratorWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDialog : public QDialog
 {

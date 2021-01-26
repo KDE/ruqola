@@ -21,9 +21,9 @@
 #ifndef NOTIFIERJOB_H
 #define NOTIFIERJOB_H
 
-#include <QObject>
 #include "libruqolacore_export.h"
 #include "utils.h"
+#include <QObject>
 
 class LIBRUQOLACORE_EXPORT NotifierJob : public QObject
 {

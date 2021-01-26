@@ -21,11 +21,12 @@
 #ifndef SETTINGSOAUTHJOB_H
 #define SETTINGSOAUTHJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SettingsOauthJob : public RestApiAbstractJob
 {
     Q_OBJECT

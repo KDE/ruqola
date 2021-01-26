@@ -44,7 +44,7 @@ void EmoticonCategory::setCategory(const QString &category)
     mCategory = category;
 }
 
-QDebug operator <<(QDebug d, const EmoticonCategory &t)
+QDebug operator<<(QDebug d, const EmoticonCategory &t)
 {
     d << "Name " << t.name();
     d << "Category " << t.category();

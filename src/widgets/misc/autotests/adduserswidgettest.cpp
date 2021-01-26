@@ -19,9 +19,9 @@
 */
 
 #include "adduserswidgettest.h"
-#include "misc/adduserswidget.h"
 #include "common/flowlayout.h"
 #include "dialogs/adduserscompletionlineedit.h"
+#include "misc/adduserswidget.h"
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AddUsersWidgetTest)
@@ -42,7 +42,7 @@ void AddUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchUserLineEdit);
     QVERIFY(mSearchUserLineEdit->placeholderText().isEmpty());
 
-    auto mFlowLayout = w.findChild<FlowLayout * >(QStringLiteral("mFlowLayout"));
+    auto mFlowLayout = w.findChild<FlowLayout *>(QStringLiteral("mFlowLayout"));
     QVERIFY(mFlowLayout);
 
     QVERIFY(w.userIds().isEmpty());

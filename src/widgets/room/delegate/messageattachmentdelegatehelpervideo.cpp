@@ -19,12 +19,12 @@
 */
 
 #include "messageattachmentdelegatehelpervideo.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "dialogs/showvideodialog.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
+#include "dialogs/showvideodialog.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -45,7 +45,11 @@ MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo()
 {
 }
 
-void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAttach,
+                                                QPainter *painter,
+                                                QRect messageRect,
+                                                const QModelIndex &index,
+                                                const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const VideoLayout layout = layoutVideo(msgAttach, option, messageRect.width());
@@ -60,7 +64,10 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
     drawDescription(msgAttach, messageRect, painter, nextY);
 }
 
-QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &msgAttach,
+                                                     const QModelIndex &index,
+                                                     int maxWidth,
+                                                     const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const VideoLayout layout = layoutVideo(msgAttach, option, maxWidth);
@@ -70,11 +77,14 @@ QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &ms
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth),
-            height};
+    return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
 }
 
-bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                            QMouseEvent *mouseEvent,
+                                                            QRect attachmentsRect,
+                                                            const QStyleOptionViewItem &option,
+                                                            const QModelIndex &index)
 {
     Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
@@ -104,11 +114,12 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
     return false;
 }
 
-MessageAttachmentDelegateHelperVideo::VideoLayout MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
+MessageAttachmentDelegateHelperVideo::VideoLayout
+MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     VideoLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
-    //or we could do layout.attachment = msgAttach; if we need many fields from it
+    // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);

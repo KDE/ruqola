@@ -19,8 +19,8 @@
 */
 #include "customuserstatustreewidgettest.h"
 #include "administratordialog/customuserstatus/customuserstatustreewidget.h"
-#include <QTest>
 #include <QHeaderView>
+#include <QTest>
 QTEST_MAIN(CustomUserStatusTreeWidgetTest)
 
 CustomUserStatusTreeWidgetTest::CustomUserStatusTreeWidgetTest(QObject *parent)

@@ -19,10 +19,10 @@
 */
 
 #include "messagedelegatehelperbase.h"
-#include "textconverter.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "messagedelegateutils.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "textconverter.h"
 
 #include <QAbstractTextDocumentLayout>
 #include <QPainter>
@@ -32,7 +32,11 @@ MessageDelegateHelperBase::~MessageDelegateHelperBase()
 {
 }
 
-bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                 QMouseEvent *mouseEvent,
+                                                 QRect attachmentsRect,
+                                                 const QStyleOptionViewItem &option,
+                                                 const QModelIndex &index)
 {
     Q_UNUSED(msgAttach)
     Q_UNUSED(mouseEvent)
@@ -55,7 +59,7 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
 
     // Same as pDoc->drawContents(painter, clip) but we also set selections
     QAbstractTextDocumentLayout::PaintContext ctx;
-    //FIXME ctx.selections = selections;
+    // FIXME ctx.selections = selections;
     if (clip.isValid()) {
         painter->setClipRect(clip);
         ctx.clip = clip;
@@ -89,7 +93,8 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString contextString = TextConverter::convertMessageText(description, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager());
+    const QString contextString =
+        TextConverter::convertMessageText(description, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager());
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));

@@ -21,8 +21,8 @@
 #ifndef TWOAUTHENTICATIONPASSWORDWIDGET_H
 #define TWOAUTHENTICATIONPASSWORDWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TwoAuthenticationPasswordWidget : public QWidget
 {
@@ -33,6 +33,7 @@ public:
     Q_REQUIRED_RESULT QString code() const;
 
     void clear();
+
 private:
     void slotSendNewEmailCode();
     KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = nullptr;

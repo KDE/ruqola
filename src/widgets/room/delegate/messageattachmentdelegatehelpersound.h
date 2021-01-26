@@ -23,18 +23,23 @@
 
 #include "messagedelegatehelperbase.h"
 
+#include <QIcon>
 #include <QModelIndex>
 #include <QPixmap>
-#include <QIcon>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : public MessageDelegateHelperBase
 {
 public:
     MessageAttachmentDelegateHelperSound();
     ~MessageAttachmentDelegateHelperSound() override;
-    void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    void
+    draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    bool handleMouseEvent(const MessageAttachment &msgAttach,
+                          QMouseEvent *mouseEvent,
+                          QRect attachmentsRect,
+                          const QStyleOptionViewItem &option,
+                          const QModelIndex &index) override;
 
 private:
     struct SoundLayout {

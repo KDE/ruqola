@@ -21,11 +21,12 @@
 #ifndef USERSSETPREFERENCESJOB_H
 #define USERSSETPREFERENCESJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 #include <QDebug>
 
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -39,7 +40,7 @@ public:
         QString mobileNotifications;
         QString emailNotificationMode;
         QStringList highlights;
-        //Add more
+        // Add more
     };
 
     explicit UsersSetPreferencesJob(QObject *parent = nullptr);
@@ -65,6 +66,6 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t);
 
 #endif // USERSSETPREFERENCESJOB_H

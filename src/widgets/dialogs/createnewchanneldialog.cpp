@@ -19,14 +19,15 @@
 */
 
 #include "createnewchanneldialog.h"
-#include <QVBoxLayout>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <KLocalizedString>
-#include <KConfigGroup>
-#include <KSharedConfig>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog";
 }
 CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)

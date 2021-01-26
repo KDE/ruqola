@@ -20,8 +20,8 @@
 
 #ifndef SHOWDISCUSSIONSDIALOG_H
 #define SHOWDISCUSSIONSDIALOG_H
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ShowDiscussionsWidget;
 class DiscussionsFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsDialog : public QDialog

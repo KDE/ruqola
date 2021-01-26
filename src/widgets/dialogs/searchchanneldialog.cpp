@@ -20,14 +20,15 @@
 
 #include "searchchanneldialog.h"
 #include "searchchannelwidget.h"
-#include <QDialogButtonBox>
-#include <KLocalizedString>
-#include <QVBoxLayout>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
+#include <QDialogButtonBox>
 #include <QPushButton>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char mySearchChannelDialogGroupName[] = "SearchChannelDialog";
 }
 SearchChannelDialog::SearchChannelDialog(QWidget *parent)

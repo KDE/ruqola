@@ -19,8 +19,8 @@
 */
 
 #include "getavatarjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 
 #include <QNetworkReply>

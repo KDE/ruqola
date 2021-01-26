@@ -23,7 +23,8 @@
 #include <QString>
 class QWidget;
 class QUrl;
-namespace DelegateUtil {
+namespace DelegateUtil
+{
 Q_REQUIRED_RESULT QString querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave);
 }
 

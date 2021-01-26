@@ -19,8 +19,8 @@
 */
 
 #include "usersinroomflowwidgettest.h"
-#include "room/usersinroomflowwidget.h"
 #include "common/flowlayout.h"
+#include "room/usersinroomflowwidget.h"
 #include <QTest>
 QTEST_MAIN(UsersInRoomFlowWidgetTest)
 

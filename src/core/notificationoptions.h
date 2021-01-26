@@ -21,10 +21,10 @@
 #ifndef NOTIFICATIONOPTIONS_H
 #define NOTIFICATIONOPTIONS_H
 
-#include <QString>
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
-#include "libruqolacore_export.h"
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT NotificationOptions
 {
@@ -32,12 +32,7 @@ class LIBRUQOLACORE_EXPORT NotificationOptions
 public:
     NotificationOptions();
 
-    enum NotificationType {
-        Default = 0,
-        AllMessages,
-        Mentions,
-        Nothing
-    };
+    enum NotificationType { Default = 0, AllMessages, Mentions, Nothing };
     Q_ENUM(NotificationType)
 
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
@@ -73,7 +68,7 @@ public:
     void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);
 
-    NotificationOptions &operator =(const NotificationOptions &other) = default;
+    NotificationOptions &operator=(const NotificationOptions &other) = default;
     Q_REQUIRED_RESULT bool operator==(const NotificationOptions &other) const;
     Q_REQUIRED_RESULT bool operator!=(const NotificationOptions &other) const;
 
@@ -81,18 +76,18 @@ public:
     void setMuteGroupMentions(bool muteGroupMentions);
 
 private:
-    //TODO use enums ????
+    // TODO use enums ????
     QString mAudioNotifications;
     QString mDesktopNotifications;
     QString mMobilePushNotification;
     QString mEmailNotifications;
     QString mUnreadTrayIconAlert;
-    QString mAudioNotificationValue; //Type
-    int mDesktopNotificationDuration = 0; //seconds
+    QString mAudioNotificationValue; // Type
+    int mDesktopNotificationDuration = 0; // seconds
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
     bool mMuteGroupMentions = false;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const NotificationOptions &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
 
 #endif // NOTIFICATIONOPTIONS_H

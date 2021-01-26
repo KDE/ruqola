@@ -19,15 +19,15 @@
 */
 
 #include "threadmessagewidget.h"
-#include "ruqola.h"
-#include "room.h"
 #include "rocketchataccount.h"
-#include "room/messagelistview.h"
+#include "room.h"
 #include "room/messagelinewidget.h"
+#include "room/messagelistview.h"
 #include "room/messagetextedit.h"
+#include "ruqola.h"
+#include <QLabel>
 #include <QMimeData>
 #include <QVBoxLayout>
-#include <QLabel>
 
 ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     : QWidget(parent)

@@ -19,8 +19,8 @@
 */
 
 #include "readonlylineeditwidget.h"
-#include <QVBoxLayout>
 #include <QLabel>
+#include <QVBoxLayout>
 ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     : QWidget(parent)
 {

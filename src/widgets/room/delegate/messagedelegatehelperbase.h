@@ -22,10 +22,10 @@
 #define MESSAGEDELEGATEHELPERBASE_H
 
 #include "libruqolawidgets_private_export.h"
+#include "lrucache.h"
 #include "messages/messageattachment.h"
 #include <QSize>
 #include <QTextDocument>
-#include "lrucache.h"
 #include <memory>
 class QPainter;
 class QRect;
@@ -40,9 +40,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
 public:
     virtual ~MessageDelegateHelperBase();
 
-    virtual void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
+    virtual void
+    draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
     virtual QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
-    virtual bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    virtual bool handleMouseEvent(const MessageAttachment &msgAttach,
+                                  QMouseEvent *mouseEvent,
+                                  QRect attachmentsRect,
+                                  const QStyleOptionViewItem &option,
+                                  const QModelIndex &index);
+
 protected:
     Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
     Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;

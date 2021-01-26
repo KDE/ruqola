@@ -161,7 +161,7 @@ QString FindOrCreateInviteJob::errorMessage(const QString &str, const QJsonObjec
     return RestApiAbstractJob::errorMessage(str, details);
 }
 
-QDebug operator <<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
+QDebug operator<<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
 {
     d << " url: " << t.url;
     d << " roomId: " << t.roomId;
@@ -173,9 +173,5 @@ QDebug operator <<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
 
 bool FindOrCreateInviteJob::InviteUsersInfo::operator==(const FindOrCreateInviteJob::InviteUsersInfo &other) const
 {
-    return other.url == url
-           && other.roomId == roomId
-           && other.userId == userId
-           && other.expireDateTime == expireDateTime
-           && other.maxUses == maxUses;
+    return other.url == url && other.roomId == roomId && other.userId == userId && other.expireDateTime == expireDateTime && other.maxUses == maxUses;
 }

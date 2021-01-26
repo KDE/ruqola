@@ -46,7 +46,7 @@ CustomSoundsTreeWidget::~CustomSoundsTreeWidget()
 void CustomSoundsTreeWidget::initialize()
 {
     clear();
-    //TODO
+    // TODO
 }
 
 void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -64,7 +64,7 @@ void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void CustomSoundsTreeWidget::addClicked()
 {
-    //TODO
+    // TODO
 }
 
 void CustomSoundsTreeWidget::editClicked()
@@ -72,7 +72,7 @@ void CustomSoundsTreeWidget::editClicked()
     if (!currentItem()) {
         return;
     }
-    //TODO
+    // TODO
 }
 
 void CustomSoundsTreeWidget::removeClicked()
@@ -80,5 +80,5 @@ void CustomSoundsTreeWidget::removeClicked()
     if (!currentItem()) {
         return;
     }
-    //TODO
+    // TODO
 }

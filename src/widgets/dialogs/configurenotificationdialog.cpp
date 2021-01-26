@@ -20,9 +20,9 @@
 
 #include "configurenotificationdialog.h"
 #include "configurenotificationwidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
     : QDialog(parent)

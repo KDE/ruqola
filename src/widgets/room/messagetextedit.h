@@ -21,8 +21,8 @@
 #ifndef MESSAGETEXTEDIT_H
 #define MESSAGETEXTEDIT_H
 
-#include <KTextEdit>
 #include "inputtextmanager.h"
+#include <KTextEdit>
 
 #include "libruqolawidgets_private_export.h"
 #include <QPointer>

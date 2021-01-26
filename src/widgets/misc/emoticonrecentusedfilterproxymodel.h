@@ -21,8 +21,8 @@
 #ifndef EMOTICONRECENTUSEDFILTERPROXYMODEL_H
 #define EMOTICONRECENTUSEDFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolawidgets_private_export.h"
+#include <QSortFilterProxyModel>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonRecentUsedFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -36,6 +36,7 @@ public:
     void addIdentifier(const QString &identifier);
 
     void loadRecentUsed();
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 

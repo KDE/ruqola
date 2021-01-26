@@ -31,6 +31,7 @@ class ExpandJson : public QWidget
 public:
     explicit ExpandJson(QWidget *parent = nullptr);
     ~ExpandJson() override = default;
+
 private:
     void slotExpandJson();
     QTextEdit *mInput = nullptr;

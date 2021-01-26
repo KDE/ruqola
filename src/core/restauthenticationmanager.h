@@ -20,9 +20,10 @@
 #ifndef RESTAUTHENTICATIONMANAGER_H
 #define RESTAUTHENTICATIONMANAGER_H
 
-#include <QObject>
 #include "libruqolacore_export.h"
-namespace RocketChatRestApi {
+#include <QObject>
+namespace RocketChatRestApi
+{
 class RestApiRequest;
 }
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
@@ -40,6 +41,7 @@ public:
     void logout();
 
     void setAuthToken(const QString &authToken);
+
 private:
     QString mAuthToken;
     RocketChatRestApi::RestApiRequest *const mRestApiResquest;

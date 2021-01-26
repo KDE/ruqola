@@ -22,12 +22,13 @@
 #include "reportmessagewidget.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
-#include <KLocalizedString>
 #include <QPushButton>
-namespace {
+#include <QVBoxLayout>
+namespace
+{
 static const char myReportMessageDialogGroupName[] = "ReportMessageDialog";
 }
 ReportMessageDialog::ReportMessageDialog(QWidget *parent)

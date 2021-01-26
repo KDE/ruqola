@@ -21,22 +21,19 @@
 #ifndef MARKROOMASUNREADJOB_H
 #define MARKROOMASUNREADJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT MarkRoomAsUnReadJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //Since 0.65
+    // Since 0.65
     explicit MarkRoomAsUnReadJob(QObject *parent = nullptr);
     ~MarkRoomAsUnReadJob() override;
 
-    enum MarkAsUnReadObject {
-        Unknown = 0,
-        FromMessage,
-        Room
-    };
+    enum MarkAsUnReadObject { Unknown = 0, FromMessage, Room };
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -56,6 +53,7 @@ Q_SIGNALS:
 
 protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 private:
     Q_DISABLE_COPY(MarkRoomAsUnReadJob)
     void slotMarkAsUnRead();

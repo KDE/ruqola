@@ -23,8 +23,8 @@
 
 #include "command.h"
 #include "libruqola_private_export.h"
-#include <QVector>
 #include <QDebug>
+#include <QVector>
 class RocketChatAccount;
 class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT Commands
@@ -65,6 +65,6 @@ private:
 };
 
 Q_DECLARE_METATYPE(Commands)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Commands &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Commands &t);
 
 #endif // COMMANDS_H

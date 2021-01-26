@@ -43,7 +43,7 @@ public:
 
     Q_REQUIRED_RESULT int count() const;
 
-    Q_REQUIRED_RESULT bool operator ==(const Reaction &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Reaction &other) const;
 
     Q_REQUIRED_RESULT QString convertedReactionName() const;
     Q_REQUIRED_RESULT QString convertedUsersNameAtToolTip() const;
@@ -59,5 +59,5 @@ private:
 };
 Q_DECLARE_METATYPE(Reaction)
 Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Reaction &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reaction &t);
 #endif // REACTION_H

@@ -18,9 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <QCommandLineParser>
-#include <QApplication>
 #include "dialogs/showimagedialog.h"
+#include <QApplication>
+#include <QCommandLineParser>
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);

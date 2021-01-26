@@ -21,10 +21,10 @@
 #ifndef DOWNLOADAVARTARURLMANAGER_H
 #define DOWNLOADAVARTARURLMANAGER_H
 
-#include <QObject>
-#include <QMap>
-#include <QSslError>
 #include "libruqolacore_export.h"
+#include <QMap>
+#include <QObject>
+#include <QSslError>
 class QNetworkAccessManager;
 class QNetworkReply;
 class LIBRUQOLACORE_EXPORT DownloadAvartarUrlManager : public QObject
@@ -41,6 +41,7 @@ public:
     void setAvatarUrl(const QString &avatarUrl);
 Q_SIGNALS:
     void avatarDownloaded(const QByteArray &data, const QString &avatarUrl);
+
 private:
     void slotFileDownloaded(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);

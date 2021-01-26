@@ -21,8 +21,8 @@
 #ifndef ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
 #define ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class TwoAuthenticationPasswordWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordWidget : public QWidget
 {
@@ -31,6 +31,7 @@ public:
     explicit AskTwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordWidget() override;
     Q_REQUIRED_RESULT QString code() const;
+
 private:
     TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
 };

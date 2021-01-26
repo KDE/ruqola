@@ -20,14 +20,14 @@
  *
  */
 
+#include "config-ruqola.h"
+#include "managerdatapaths.h"
+#include "ruqola.h"
+#include "ruqolaglobalconfig.h"
+#include <KCrash>
+#include <KLocalizedString>
 #include <QApplication>
 #include <QCommandLineParser>
-#include <KLocalizedString>
-#include <KCrash>
-#include "config-ruqola.h"
-#include "ruqola.h"
-#include "managerdatapaths.h"
-#include "ruqolaglobalconfig.h"
 
 #include "ruqolamainwindow.h"
 
@@ -38,9 +38,9 @@
 #include <iostream>
 
 #include <KAboutData>
-#include <QIcon>
-#include <QDirIterator>
 #include <KDBusService>
+#include <QDirIterator>
+#include <QIcon>
 
 int main(int argc, char *argv[])
 {
@@ -77,8 +77,8 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
-    parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
-    parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("account"), i18n("Start with specific account"), QStringLiteral("accountname")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("account"), i18n("Start with specific account"), QStringLiteral("accountname")));
 
 #if HAVE_KUSERFEEDBACK
     parser.addOption(QCommandLineOption(QStringLiteral("feedback"), i18n("Lists the available options for user feedback")));
@@ -98,8 +98,10 @@ int main(int argc, char *argv[])
 
     if (parser.isSet(QStringLiteral("list-accounts"))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
-        QDirIterator it(configPath, QStringList() << QStringLiteral(
-                            "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+        QDirIterator it(configPath,
+                        QStringList() << QStringLiteral("ruqola.conf"),
+                        QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
+                        QDirIterator::Subdirectories);
         std::cout << qPrintable(i18n("The following accounts are available:")) << std::endl;
         while (it.hasNext()) {
             QString result = it.next();

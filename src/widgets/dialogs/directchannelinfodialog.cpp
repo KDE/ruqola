@@ -21,8 +21,8 @@
 #include "directchannelinfodialog.h"
 #include "directchannelinfowidget.h"
 #include <KLocalizedString>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     : QDialog(parent)

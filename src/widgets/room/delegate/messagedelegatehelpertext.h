@@ -22,12 +22,12 @@
 #define MESSAGEDELEGATEHELPERTEXT_H
 
 #include <QModelIndex>
+#include <QPointer>
 #include <QSize>
 #include <QTextCursor>
 #include <QTextDocument>
-#include <QPointer>
-#include <messagecache.h>
 #include <lrucache.h>
+#include <messagecache.h>
 
 #include <memory>
 

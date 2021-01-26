@@ -20,8 +20,8 @@
 
 #include "starmessagejobtest.h"
 #include "chat/starmessagejob.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(StarMessageJobTest)
 using namespace RocketChatRestApi;

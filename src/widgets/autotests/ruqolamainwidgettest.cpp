@@ -19,9 +19,9 @@
 */
 
 #include "ruqolamainwidgettest.h"
-#include "ruqolamainwidget.h"
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
+#include "ruqolamainwidget.h"
 
 #include <QHBoxLayout>
 #include <QSplitter>

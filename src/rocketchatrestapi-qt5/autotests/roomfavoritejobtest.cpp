@@ -21,8 +21,8 @@
 #include "roomfavoritejobtest.h"
 #include "rooms/roomfavoritejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RoomFavoriteJobTest)
 using namespace RocketChatRestApi;
 RoomFavoriteJobTest::RoomFavoriteJobTest(QObject *parent)

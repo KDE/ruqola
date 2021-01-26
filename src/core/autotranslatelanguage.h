@@ -37,7 +37,7 @@ private:
     QString mLanguage;
     QString mDisplayLanguage;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AutotranslateLanguage &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguage &t);
 Q_DECLARE_METATYPE(AutotranslateLanguage)
 Q_DECLARE_TYPEINFO(AutotranslateLanguage, Q_MOVABLE_TYPE);
 #endif // AUTOTRANSLATELANGUAGE_H

@@ -13,13 +13,13 @@
 /**
  * @author Dave Corrie \<kde@davecorrie.com\>
  */
-namespace RuqolaKTextToHTML {
+namespace RuqolaKTextToHTML
+{
 /**
  * @see Options
  * @since 5.5.0
  */
-enum Option
-{
+enum Option {
     /**
      * Preserve white-space formatting of the text
      */

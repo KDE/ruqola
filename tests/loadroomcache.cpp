@@ -20,13 +20,13 @@
 
 #include "loadroomcache.h"
 
-#include <QApplication>
-#include <QTextEdit>
-#include <QVBoxLayout>
-#include <QLabel>
 #include <KUrlRequester>
+#include <QApplication>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLabel>
+#include <QTextEdit>
+#include <QVBoxLayout>
 
 LoadRoomCache::LoadRoomCache(QWidget *parent)
     : QWidget(parent)

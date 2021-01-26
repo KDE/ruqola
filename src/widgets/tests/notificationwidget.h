@@ -29,6 +29,7 @@ class NotificationWidget : public QWidget
 public:
     explicit NotificationWidget(QWidget *parent = nullptr);
     ~NotificationWidget() override;
+
 private:
     void slotSendNotification();
     QLineEdit *mLineEdit = nullptr;

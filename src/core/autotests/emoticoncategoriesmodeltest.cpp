@@ -30,5 +30,5 @@ EmoticonCategoriesModelTest::EmoticonCategoriesModelTest(QObject *parent)
 void EmoticonCategoriesModelTest::shouldHaveDefaultValues()
 {
     EmoticonCategoriesModel w;
-    //TODO
+    // TODO
 }

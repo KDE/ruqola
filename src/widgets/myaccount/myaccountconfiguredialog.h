@@ -21,8 +21,8 @@
 #ifndef MYACCOUNTCONFIGUREDIALOG_H
 #define MYACCOUNTCONFIGUREDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class MyAccountConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureDialog : public QDialog
 {
@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureDialog : public QDialog
 public:
     explicit MyAccountConfigureDialog(QWidget *parent = nullptr);
     ~MyAccountConfigureDialog() override;
+
 private:
     void load();
     void save();

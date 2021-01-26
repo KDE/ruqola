@@ -26,7 +26,8 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT PrivateInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -39,6 +40,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
     void privateInfoDone(const QJsonObject &data);
+
 private:
     Q_DISABLE_COPY(PrivateInfoJob)
     void slotPrivateInfoDone();

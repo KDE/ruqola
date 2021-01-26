@@ -21,9 +21,9 @@
 #ifndef COMMANDSMODEL_H
 #define COMMANDSMODEL_H
 
-#include <QAbstractListModel>
-#include "libruqolacore_export.h"
 #include "commands.h"
+#include "libruqolacore_export.h"
+#include <QAbstractListModel>
 
 // Model showing all emojis
 class LIBRUQOLACORE_EXPORT CommandsModel : public QAbstractListModel

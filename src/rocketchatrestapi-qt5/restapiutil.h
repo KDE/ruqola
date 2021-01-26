@@ -21,10 +21,11 @@
 #ifndef RESTAPIUTIL_H
 #define RESTAPIUTIL_H
 
-#include <QString>
 #include "librestapi_private_export.h"
+#include <QString>
 
-namespace RestApiUtil {
+namespace RestApiUtil
+{
 enum class RestApiUrlType {
     Login,
     Logout,
@@ -66,7 +67,7 @@ enum class RestApiUrlType {
     ChatUpdate,
     ChatIgnoreUser,
     ChatReportMessage,
-    //Since 1.0.0
+    // Since 1.0.0
     ChatFollowMessage,
     ChatUnFollowMessage,
     ChatGetThreadsList,
@@ -76,10 +77,10 @@ enum class RestApiUrlType {
     ChatGetDeletedMessage,
     ChatSendMessage,
     ChatMessageReadReceipts,
-    //Since 2.0.0
+    // Since 2.0.0
     ChatGetPinnedMessages,
 
-    //Since 2.2.x
+    // Since 2.2.x
     ChatGetStarredMessages,
     ChatGetSnippetedMessages,
 
@@ -118,13 +119,13 @@ enum class RestApiUrlType {
     ChannelsMembers,
     ChannelsJoin,
     ChannelsOnline,
-    //since 0.70
+    // since 0.70
     ChannelsModerators,
-    //Since 0.71
+    // Since 0.71
     ChannelsDelete,
-    //since 0.65
+    // since 0.65
     ChannelsRoles,
-    //since 0.63
+    // since 0.63
     ChannelsGetAllUserMentionsByChannel,
     GroupsAddAll,
     GroupsAddModerator,
@@ -133,7 +134,7 @@ enum class RestApiUrlType {
     GroupsArchive,
     GroupsClose,
     GroupsCreate,
-    //since 0.70
+    // since 0.70
     GroupsDelete,
     GroupsGetIntegrations,
     GroupsHistory,
@@ -157,7 +158,7 @@ enum class RestApiUrlType {
     GroupsFiles,
     GroupsListAll,
     GroupsMembers,
-    //Since 0.65
+    // Since 0.65
     GroupsRoles,
     GroupsCounters,
     GroupsSetEncrypted,
@@ -178,7 +179,7 @@ enum class RestApiUrlType {
     ImFiles,
     ImOpen,
     ImMessages,
-    //Since 0.59
+    // Since 0.59
     ImMembers,
     ImSetTopic,
     SubscriptionsRead,
@@ -198,7 +199,7 @@ enum class RestApiUrlType {
     CommandsGet,
     CommandsRun,
     CommandsPreview,
-    //since 0.70
+    // since 0.70
     E2ESetRoomKeyID,
     E2EfetchMyKeys,
     E2EupdateGroupKey,
@@ -211,39 +212,39 @@ enum class RestApiUrlType {
     RolesSync,
     RolesAddUserToRole,
     RolesGetUsersInRole,
-    //since 0.74
+    // since 0.74
     VideoConfJitsi,
 
-    //Autotranslate @since 2.0
+    // Autotranslate @since 2.0
     AutoTranslateGetSupportedLanguages,
     AutoTranslateSaveSettings,
     AutoTranslateTranslateMessage,
 
-    //Since 2.4
+    // Since 2.4
     CustomUserStatusList,
     CustomUserStatusCreate,
     CustomUserStatusDelete,
     CustomUserStatusUpdate,
     CustomSoundsList,
 
-    //Invite since 2.5 ?
+    // Invite since 2.5 ?
     FindOrCreateInvite,
     ListInvites,
     RemoveInvite,
     UseInviteToken,
     ValidateInviteToken,
 
-    //Since 2.4.0
+    // Since 2.4.0
     RoomsAutocompleteChannelAndPrivate,
 
-    //two factor authentication
+    // two factor authentication
     Users2FASendEmailCode,
     Users2FAEnableEmail,
     Users2FADisableEmail,
 
     UsersSetPreferences,
 
-    //Permission
+    // Permission
     PermissionsListAll,
     PermissionsUpdate,
 

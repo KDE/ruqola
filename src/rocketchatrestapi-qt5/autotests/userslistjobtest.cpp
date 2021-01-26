@@ -19,8 +19,8 @@
 */
 
 #include "userslistjobtest.h"
-#include "users/userslistjob.h"
 #include "ruqola_restapi_helper.h"
+#include "users/userslistjob.h"
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(UsersListJobTest)

@@ -19,11 +19,11 @@
 */
 
 #include "messageattachmentdelegatehelperfiletest.h"
-#include "room/delegate/messageattachmentdelegatehelperfile.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "messages/message.h"
 #include "messages/messageattachment.h"
+#include "rocketchataccount.h"
+#include "room/delegate/messageattachmentdelegatehelperfile.h"
+#include "ruqola.h"
 
 #include <QStyleOptionViewItem>
 #include <QTest>
@@ -37,7 +37,7 @@ MessageDelegateHelperFileTest::MessageDelegateHelperFileTest(QObject *parent)
 
 void MessageDelegateHelperFileTest::shouldLayoutMultipleFiles()
 {
-#if 0 //PORT IT
+#if 0 // PORT IT
     // GIVEN a helper and a message with two attachments
     MessageAttachmentDelegateHelperFile helper;
     QStyleOptionViewItem option;

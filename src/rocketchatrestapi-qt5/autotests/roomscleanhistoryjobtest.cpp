@@ -21,8 +21,8 @@
 #include "roomscleanhistoryjobtest.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RoomsCleanHistoryJobTest)
 using namespace RocketChatRestApi;
 RoomsCleanHistoryJobTest::RoomsCleanHistoryJobTest(QObject *parent)
@@ -57,17 +57,28 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
     info.latest = QDateTime(QDate(2020, 12, 3), QTime(5, 7, 50)).toUTC();
     info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50)).toUTC();
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
     info.inclusive = true;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(R"({"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
     info.ignoreThreads = true;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1"})")
+                 .arg(roomId)
+                 .toLatin1());
     const QStringList users = {QStringLiteral("bla"), QStringLiteral("bli")};
     info.users = users;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})").arg(roomId).toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(
+            R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})")
+            .arg(roomId)
+            .toLatin1());
 }
 
 void RoomsCleanHistoryJobTest::shouldNotStarting()

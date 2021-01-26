@@ -21,22 +21,23 @@
 #ifndef USERSUPDATEJOB_H
 #define USERSUPDATEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersUpdateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UpdateInfo {
-        //TODO add enum ?
+        // TODO add enum ?
         QString mUserId;
         QString mEmail;
         QString mName;
         QString mUserName;
         QString mPassword;
         Q_REQUIRED_RESULT bool isValid() const;
-        //TODO add more
+        // TODO add more
     };
     explicit UsersUpdateJob(QObject *parent = nullptr);
     ~UsersUpdateJob() override;

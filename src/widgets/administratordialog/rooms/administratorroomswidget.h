@@ -21,10 +21,10 @@
 #ifndef ADMINISTRATORROOMSWIDGET_H
 #define ADMINISTRATORROOMSWIDGET_H
 
-#include <QWidget>
 #include "administratorroomsselectroomtypewidget.h"
-#include "model/adminroomsfilterproxymodel.h"
 #include "libruqolawidgets_private_export.h"
+#include "model/adminroomsfilterproxymodel.h"
+#include <QWidget>
 class QLineEdit;
 class QTableView;
 class AdminRoomsModel;

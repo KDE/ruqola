@@ -19,10 +19,10 @@
 */
 
 #include "markroomasunreadjobtest.h"
-#include "subscriptions/markroomasunreadjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "subscriptions/markroomasunreadjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(MarkRoomAsUnReadJobTest)
 using namespace RocketChatRestApi;
 MarkRoomAsUnReadJobTest::MarkRoomAsUnReadJobTest(QObject *parent)

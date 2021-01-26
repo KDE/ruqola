@@ -40,6 +40,7 @@ public:
     void loadRecentUsed();
 Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
+
 private:
     void slotInsertEmoticons(const QString &identifier);
     void initializeTab(RocketChatAccount *account);

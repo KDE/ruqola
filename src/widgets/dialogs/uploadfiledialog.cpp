@@ -20,14 +20,15 @@
 
 #include "uploadfiledialog.h"
 #include "uploadfilewidget.h"
-#include <KLocalizedString>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myUploadFileDialogGroupName[] = "UploadFileDialog";
 }
 UploadFileDialog::UploadFileDialog(QWidget *parent)
@@ -41,7 +42,7 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     mUploadFileWidget->setObjectName(QStringLiteral("mUploadFileWidget"));
     mainLayout->addWidget(mUploadFileWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);

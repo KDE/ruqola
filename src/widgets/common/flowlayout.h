@@ -19,9 +19,9 @@
 */
 #ifndef FLOWLAYOUT_H
 #define FLOWLAYOUT_H
+#include "libruqolawidgets_export.h"
 #include <QLayout>
 #include <QVector>
-#include "libruqolawidgets_export.h"
 
 class LIBRUQOLAWIDGETS_EXPORT FlowLayout : public QLayout
 {

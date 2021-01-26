@@ -19,12 +19,12 @@
 */
 
 #include "channelgetallusermentionsjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
-#include <QUrlQuery>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelGetAllUserMentionsJob::ChannelGetAllUserMentionsJob(QObject *parent)
     : RestApiAbstractJob(parent)

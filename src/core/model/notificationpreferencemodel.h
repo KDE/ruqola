@@ -34,10 +34,7 @@ class LIBRUQOLACORE_EXPORT NotificationPreferenceModel : public QAbstractListMod
 {
     Q_OBJECT
 public:
-    enum NotificationPreferenceRoles {
-        NotificationPreferenceI18n = Qt::UserRole + 1,
-        NotificationPreference
-    };
+    enum NotificationPreferenceRoles { NotificationPreferenceI18n = Qt::UserRole + 1, NotificationPreference };
     Q_ENUM(NotificationPreferenceRoles)
 
     explicit NotificationPreferenceModel(QObject *parent = nullptr);

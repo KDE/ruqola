@@ -21,9 +21,9 @@
 #define FILE_H
 
 #include "libruqolacore_export.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT File
 {
@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
-    Q_REQUIRED_RESULT bool operator ==(const File &other) const;
+    Q_REQUIRED_RESULT bool operator==(const File &other) const;
 
     File &operator=(const File &other) = default;
 
@@ -88,6 +88,6 @@ private:
 };
 Q_DECLARE_METATYPE(File)
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const File &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);
 
 #endif // FILES_H

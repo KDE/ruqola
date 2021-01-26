@@ -21,10 +21,11 @@
 #ifndef CONFIGUREACCOUNTSERVERWIDGET_H
 #define CONFIGUREACCOUNTSERVERWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class ConfigureAccountServerWidget;
 }
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccountServerWidget : public QWidget

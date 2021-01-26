@@ -37,6 +37,7 @@ public:
     void setPreviewMessage(const QString &msg);
 Q_SIGNALS:
     void updateOkButton(bool enabled);
+
 private:
     KTextEdit *mMessageLineEdit = nullptr;
     QLabel *mMessagePreview = nullptr;

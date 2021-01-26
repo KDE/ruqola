@@ -21,9 +21,9 @@
 #ifndef MANAGERDATAPATHS_H
 #define MANAGERDATAPATHS_H
 
+#include "libruqola_private_export.h"
 #include <QHash>
 #include <QString>
-#include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_EXPORT ManagerDataPaths
 {
@@ -41,6 +41,7 @@ public:
 
     Q_REQUIRED_RESULT QString accountConfigFileName(const QString &accountName) const;
     Q_REQUIRED_RESULT QString accountAvatarConfigPath(const QString &accountName) const;
+
 private:
     void initializePaths();
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;

@@ -21,8 +21,8 @@
 #ifndef CONFIGURESETTINGSDIALOG_H
 #define CONFIGURESETTINGSDIALOG_H
 
-#include <KPageDialog>
 #include "libruqolawidgets_private_export.h"
+#include <KPageDialog>
 
 #include "config-ruqola.h"
 
@@ -39,6 +39,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 public:
     explicit ConfigureSettingsDialog(QWidget *parent = nullptr);
     ~ConfigureSettingsDialog() override;
+
 private:
     void readConfig();
     void writeConfig();

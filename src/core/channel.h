@@ -23,16 +23,12 @@
 
 #include "libruqolacore_export.h"
 #include <QDebug>
-//TODO rename it
+// TODO rename it
 class LIBRUQOLACORE_EXPORT Channel
 {
     Q_GADGET
 public:
-    enum ChannelType {
-        Room,
-        PrivateChannel,
-        Unknown
-    };
+    enum ChannelType { Room, PrivateChannel, Unknown };
     Q_ENUM(ChannelType)
 
     Channel();
@@ -68,12 +64,13 @@ public:
     void setUserName(const QString &userName);
 
     Q_REQUIRED_RESULT QString iconFromStatus() const;
+
 private:
     QString mRoomId;
     QString mRoomName;
     QString mRoomType;
 
-    //Private Channel
+    // Private Channel
     QString mUserId;
     QString mName;
     QString mStatus;
@@ -82,6 +79,6 @@ private:
 };
 Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Channel &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channel &t);
 
 #endif // CHANNEL_H

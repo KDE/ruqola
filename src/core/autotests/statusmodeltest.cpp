@@ -37,4 +37,4 @@ void StatusModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.currentStatus(), 0);
 }
 
-//TODO add autotest about currentStatus changed !
+// TODO add autotest about currentStatus changed !

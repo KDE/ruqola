@@ -28,7 +28,8 @@
 #include "config-ruqola.h"
 
 #if HAVE_KUSERFEEDBACK
-namespace KUserFeedback {
+namespace KUserFeedback
+{
 class FeedbackConfigWidget;
 }
 #endif

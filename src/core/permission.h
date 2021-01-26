@@ -22,9 +22,9 @@
 #define PERMISSION_H
 
 #include "libruqola_private_export.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT Permission
 {
@@ -46,5 +46,5 @@ private:
 };
 Q_DECLARE_METATYPE(Permission)
 Q_DECLARE_TYPEINFO(Permission, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Permission &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Permission &t);
 #endif // PERMISSION_H

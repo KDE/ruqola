@@ -22,8 +22,8 @@
 #define CREATENEWACCOUNTDIALOG_H
 #include <QDialog>
 
-#include "libruqolawidgets_private_export.h"
 #include "accountmanager.h"
+#include "libruqolawidgets_private_export.h"
 class CreateNewAccountWidget;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountDialog : public QDialog
@@ -35,6 +35,7 @@ public:
     Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     void setExistingAccountName(const QStringList &lst);
+
 private:
     void readConfig();
     void writeConfig();

@@ -20,8 +20,8 @@
 
 #include "downloadappslanguagesinfo.h"
 
-#include <QJsonArray>
 #include <QDebug>
+#include <QJsonArray>
 
 DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
 {
@@ -47,7 +47,7 @@ bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString
     return true;
 }
 
-QMap<QString, QMap<QString, QString> > DownloadAppsLanguagesInfo::languageMap() const
+QMap<QString, QMap<QString, QString>> DownloadAppsLanguagesInfo::languageMap() const
 {
     return mLanguageMap;
 }

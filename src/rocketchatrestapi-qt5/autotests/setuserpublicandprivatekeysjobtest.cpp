@@ -21,8 +21,8 @@
 #include "setuserpublicandprivatekeysjobtest.h"
 #include "e2e/setuserpublicandprivatekeysjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SetUserPublicAndPrivateKeysJobTest)
 using namespace RocketChatRestApi;
 SetUserPublicAndPrivateKeysJobTest::SetUserPublicAndPrivateKeysJobTest(QObject *parent)

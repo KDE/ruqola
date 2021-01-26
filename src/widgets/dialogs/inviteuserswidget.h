@@ -21,9 +21,9 @@
 #ifndef INVITEUSERSWIDGET_H
 #define INVITEUSERSWIDGET_H
 
-#include <QWidget>
 #include "invite/findorcreateinvitejob.h"
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLineEdit;
 class QLabel;
 class QComboBox;

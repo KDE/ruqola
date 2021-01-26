@@ -23,7 +23,8 @@
 
 #include "librestapi_private_export.h"
 #include "userbasejob.h"
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT DeleteUserJob : public UserBaseJob
 {
     Q_OBJECT

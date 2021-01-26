@@ -21,11 +21,11 @@
 #include "createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QLineEdit>
 #include <KLocalizedString>
 #include <KTextEdit>
+#include <QLabel>
+#include <QLineEdit>
+#include <QVBoxLayout>
 
 CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     : QWidget(parent)

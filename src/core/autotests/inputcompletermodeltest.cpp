@@ -20,11 +20,11 @@
 
 #include "inputcompletermodeltest.h"
 #include "model/inputcompletermodel.h"
-#include <QTest>
 #include "test_model_helpers.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(InputCompleterModelTest)
 
@@ -64,7 +64,7 @@ void InputCompleterModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
 
-    //add Empty list
+    // add Empty list
     channelList.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -81,7 +81,7 @@ void InputCompleterModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,9"));
 
-    //Add same element
+    // Add same element
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
@@ -99,7 +99,7 @@ void InputCompleterModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 
-    //Test add same number of element.
+    // Test add same number of element.
     channelList.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -177,18 +177,18 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
 
-    //Test room
+    // Test room
     QCOMPARE(w.data(w.index(2), InputCompleterModel::CompleterName).toString(), QStringLiteral("bal3"));
     QCOMPARE(w.data(w.index(2), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::Room);
     QCOMPARE(w.data(w.index(2), InputCompleterModel::DisplayName).toString(), QStringLiteral("bal3"));
 
-    //Test user
+    // Test user
     QCOMPARE(w.data(w.index(6), InputCompleterModel::CompleterName).toString(), QStringLiteral("bla.foo4"));
     QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::PrivateChannel);
-    //We use for user a channelid == channel name as we use it for opening direct channel
+    // We use for user a channelid == channel name as we use it for opening direct channel
     QCOMPARE(w.data(w.index(6), InputCompleterModel::DisplayName).toString(), QStringLiteral("bla.foo4 (foo4)"));
 
-    //Test without name/username !
+    // Test without name/username !
 
     obj = loadFile(QStringLiteral("channelparentempty.json"));
     w.parseChannels(obj);

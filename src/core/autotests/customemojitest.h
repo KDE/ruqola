@@ -33,13 +33,13 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();
     void shouldCopyValue();
-    //void shouldClearCachedHtml();
+    // void shouldClearCachedHtml();
 
     void shouldParseEmoji_data();
     void shouldParseEmoji();
 
-//    void shouldGenerateHtml_data();
-//    void shouldGenerateHtml();
+    //    void shouldGenerateHtml_data();
+    //    void shouldGenerateHtml();
 };
 
 #endif // EMOJITEST_H

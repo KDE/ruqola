@@ -21,9 +21,9 @@
 #include "createvideomessagedialog.h"
 #include "createvideomessagewidget.h"
 
+#include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <KLocalizedString>
 
 CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     : QDialog(parent)

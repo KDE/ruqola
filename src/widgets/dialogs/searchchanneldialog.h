@@ -21,8 +21,8 @@
 #ifndef SEARCHCHANNELDIALOG_H
 #define SEARCHCHANNELDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class SearchChannelWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDialog : public QDialog
 {
@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDialog : public QDialog
 public:
     explicit SearchChannelDialog(QWidget *parent = nullptr);
     ~SearchChannelDialog() override;
+
 private:
     void readConfig();
     void writeConfig();

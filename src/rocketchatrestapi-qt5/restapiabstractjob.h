@@ -21,25 +21,22 @@
 #ifndef RESTAPIABSTRACTJOB_H
 #define RESTAPIABSTRACTJOB_H
 
-#include <QObject>
-#include <QNetworkRequest>
 #include "librestapi_private_export.h"
+#include <QNetworkRequest>
+#include <QObject>
 
 class QNetworkAccessManager;
 class QNetworkReply;
 
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class RestApiMethod;
 class AbstractLogger;
 
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QueryParameters
 {
 public:
-    enum class SortOrder {
-        Ascendant,
-        Descendant,
-        NoSorting
-    };
+    enum class SortOrder { Ascendant, Descendant, NoSorting };
     QueryParameters();
 
     Q_REQUIRED_RESULT int offset() const;
@@ -115,6 +112,7 @@ protected:
     Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
 
     RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
+
 private:
     QueryParameters mQueryParameters;
     QString mAuthToken;

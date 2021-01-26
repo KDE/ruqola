@@ -21,11 +21,11 @@
 #ifndef ABSTRACTWEBSOCKET_H
 #define ABSTRACTWEBSOCKET_H
 
-#include <QObject>
-#include <QAbstractSocket>
-#include <QWebSocketProtocol>
-#include <QSslError>
 #include "libruqola_private_export.h"
+#include <QAbstractSocket>
+#include <QObject>
+#include <QSslError>
+#include <QWebSocketProtocol>
 class LIBRUQOLACORE_TESTS_EXPORT AbstractWebSocket : public QObject
 {
     Q_OBJECT

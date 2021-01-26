@@ -21,41 +21,41 @@
 #include "ruqolamainwindow.h"
 #include "ruqolaglobalconfig.h"
 
-#include "config-ruqola.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "accountmanager.h"
-#include "room.h"
-#include "ruqolaserverconfig.h"
-#include "receivetypingnotificationmanager.h"
-#include "ruqolacentralwidget.h"
-#include "misc/accountmenu.h"
-#include "misc/accountsoverviewwidget.h"
-#include "dialogs/serverinfodialog.h"
-#include "dialogs/searchchanneldialog.h"
-#include "dialogs/createnewchanneldialog.h"
-#include "dialogs/createnewaccountdialog.h"
+#include "administratordialog/administratordialog.h"
+#include "config-ruqola.h"
+#include "configuredialog/configuresettingsdialog.h"
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/createdirectmessagesdialog.h"
-#include "registeruser/registeruserdialog.h"
+#include "dialogs/createnewaccountdialog.h"
+#include "dialogs/createnewchanneldialog.h"
+#include "dialogs/searchchanneldialog.h"
+#include "dialogs/serverinfodialog.h"
+#include "misc/accountmenu.h"
+#include "misc/accountsoverviewwidget.h"
 #include "myaccount/myaccountconfiguredialog.h"
-#include "configuredialog/configuresettingsdialog.h"
-#include "administratordialog/administratordialog.h"
 #include "notification.h"
+#include "receivetypingnotificationmanager.h"
+#include "registeruser/registeruserdialog.h"
+#include "rocketchataccount.h"
+#include "room.h"
+#include "ruqola.h"
+#include "ruqolacentralwidget.h"
+#include "ruqolaserverconfig.h"
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
-#include <KStandardAction>
-#include <KNotifyConfigWidget>
-#include <QIcon>
-#include <QStatusBar>
-#include <QLabel>
-#include <QGuiApplication>
-#include <QFontDatabase>
-#include <QApplication>
 #include <KMessageBox>
+#include <KNotifyConfigWidget>
+#include <KSharedConfig>
+#include <KStandardAction>
+#include <QApplication>
+#include <QFontDatabase>
+#include <QGuiApplication>
+#include <QIcon>
+#include <QLabel>
 #include <QMenu>
+#include <QStatusBar>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
@@ -63,7 +63,8 @@
 #include <KUserFeedback/Provider>
 #endif
 
-namespace {
+namespace
+{
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 }
 
@@ -146,8 +147,14 @@ void RuqolaMainWindow::slotAccountChanged()
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
-    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
-    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
+    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
+            &ReceiveTypingNotificationManager::notificationChanged,
+            this,
+            &RuqolaMainWindow::slotTypingNotificationChanged);
+    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
+            &ReceiveTypingNotificationManager::clearNotification,
+            this,
+            &RuqolaMainWindow::slotClearNotification);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
@@ -156,8 +163,8 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
 
     updateActions();
-    changeActionStatus(false); //Disable actions when switching.
-    slotClearNotification(); //Clear notification when we switch too.
+    changeActionStatus(false); // Disable actions when switching.
+    slotClearNotification(); // Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 }
 
@@ -170,7 +177,7 @@ void RuqolaMainWindow::slotRaiseWindow()
 
 void RuqolaMainWindow::changeActionStatus(bool enabled)
 {
-    //Laurent disable for the moment mSaveAs->setEnabled(enabled);
+    // Laurent disable for the moment mSaveAs->setEnabled(enabled);
 }
 
 void RuqolaMainWindow::updateActions()
@@ -217,7 +224,7 @@ void RuqolaMainWindow::setupActions()
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
     ac->addAction(QStringLiteral("add_account"), act);
 
-    //Move in specific server widget
+    // Move in specific server widget
     mServerInfo = new QAction(i18n("Server Info..."), this);
     connect(mServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotServerInfo);
     ac->addAction(QStringLiteral("server_info"), mServerInfo);
@@ -297,8 +304,14 @@ void RuqolaMainWindow::slotCreateNewChannel()
     dlg->setFeatures(flags);
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
-        //TODO adapt createNewChannel api for using QStringList
-        mCurrentRocketChatAccount->createNewChannel(info.channelName, info.readOnly, info.privateChannel, info.usersName.join(QLatin1Char(',')), info.encryptedRoom, info.password, info.broadCast);
+        // TODO adapt createNewChannel api for using QStringList
+        mCurrentRocketChatAccount->createNewChannel(info.channelName,
+                                                    info.readOnly,
+                                                    info.privateChannel,
+                                                    info.usersName.join(QLatin1Char(',')),
+                                                    info.encryptedRoom,
+                                                    info.password,
+                                                    info.broadCast);
     }
     delete dlg;
 }
@@ -359,9 +372,9 @@ void RuqolaMainWindow::slotUnreadOnTop(bool checked)
 void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
     QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
-    //TODO add channel name!
+    // TODO add channel name!
     if (dlg->exec()) {
-        //FIXME channelinfo
+        // FIXME channelinfo
         mCurrentRocketChatAccount->joinRoom(channelInfo.channelInfoIdentifier, dlg->password());
     }
     delete dlg;
@@ -377,8 +390,8 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mSearchChannel->setEnabled(!loginPageActivated);
     mCreateNewChannel->setEnabled(!loginPageActivated);
     mCreateDirectMessages->setEnabled(!loginPageActivated);
-    //mSaveAs->setEnabled(!loginPageActivated);
-    mSaveAs->setEnabled(false); //Reactivate it when we will implement save as
+    // mSaveAs->setEnabled(!loginPageActivated);
+    mSaveAs->setEnabled(false); // Reactivate it when we will implement save as
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
@@ -398,14 +411,17 @@ void RuqolaMainWindow::slotRegisterNewUser()
 
 void RuqolaMainWindow::slotRegisterUserSuccessed()
 {
-    KMessageBox::information(this, i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."), i18n("Register New User"));
+    KMessageBox::information(
+        this,
+        i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."),
+        i18n("Register New User"));
 }
 
 void RuqolaMainWindow::slotConfigureMyAccount()
 {
     QPointer<MyAccountConfigureDialog> dlg = new MyAccountConfigureDialog(this);
     if (dlg->exec()) {
-        //TODO ???
+        // TODO ???
     }
     delete dlg;
 }

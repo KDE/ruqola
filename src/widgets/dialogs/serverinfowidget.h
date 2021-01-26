@@ -21,8 +21,8 @@
 #ifndef SERVERINFOWIDGET_H
 #define SERVERINFOWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_export.h"
+#include <QWidget>
 class QLabel;
 class ServerConfigInfo;
 class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
@@ -32,6 +32,7 @@ public:
     explicit ServerInfoWidget(QWidget *parent = nullptr);
     ~ServerInfoWidget() override;
     void setServerConfigInfo(ServerConfigInfo *info);
+
 private:
     QLabel *mAccountName = nullptr;
     QLabel *mUserName = nullptr;

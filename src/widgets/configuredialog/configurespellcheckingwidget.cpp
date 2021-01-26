@@ -19,8 +19,8 @@
 */
 
 #include "configurespellcheckingwidget.h"
-#include <Sonnet/ConfigWidget>
 #include <QVBoxLayout>
+#include <Sonnet/ConfigWidget>
 
 ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
     : QWidget(parent)
@@ -44,5 +44,5 @@ void ConfigureSpellCheckingWidget::save()
 
 void ConfigureSpellCheckingWidget::load()
 {
-    //Nothing
+    // Nothing
 }

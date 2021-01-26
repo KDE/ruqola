@@ -20,8 +20,8 @@
 #ifndef ADMINUSERSFILTERPROXYMODEL_H
 #define ADMINUSERSFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 class AdminUsersModel;
 class LIBRUQOLACORE_EXPORT AdminUsersFilterProxyModel : public QSortFilterProxyModel
 {
@@ -35,8 +35,10 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 private:
     AdminUsersModel *const mAdminUsersModel;
 };

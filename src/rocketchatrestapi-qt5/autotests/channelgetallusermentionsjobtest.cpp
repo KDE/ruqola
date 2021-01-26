@@ -78,7 +78,8 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
     job.setQueryParameters(parameters);
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22foo%22:-1%7D"));
+    QCOMPARE(request.url().toString(),
+             QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22foo%22:-1%7D"));
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParameters()
@@ -101,7 +102,9 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParam
     job.setQueryParameters(parameters);
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22bla%22:1,%22foo%22:-1%7D"));
+    QCOMPARE(
+        request.url().toString(),
+        QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22bla%22:1,%22foo%22:-1%7D"));
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()

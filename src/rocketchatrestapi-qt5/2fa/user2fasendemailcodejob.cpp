@@ -53,18 +53,18 @@ void User2FASendEmailCodeJob::slotSendEmailCode()
     if (reply) {
         const QByteArray data = reply->readAll();
         qDebug() << "data " << data;
-        //TODO it reports only email.
+        // TODO it reports only email.
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         addLoggerInfo(QByteArrayLiteral("User2FASendEmailCodeJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendEmailCodeDone();
 
-//        const QJsonObject replyObject = replyJson.object();
-//        qDebug() << "replyObject  "<< replyObject;
-//        if (replyObject[QStringLiteral("success")].toBool()) {
-//        } else {
-//            emitFailedMessage(replyObject, reply);
-//            addLoggerWarning(QByteArrayLiteral("User2FASendEmailCodeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-//        }
+        //        const QJsonObject replyObject = replyJson.object();
+        //        qDebug() << "replyObject  "<< replyObject;
+        //        if (replyObject[QStringLiteral("success")].toBool()) {
+        //        } else {
+        //            emitFailedMessage(replyObject, reply);
+        //            addLoggerWarning(QByteArrayLiteral("User2FASendEmailCodeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        //        }
         reply->deleteLater();
     }
     deleteLater();

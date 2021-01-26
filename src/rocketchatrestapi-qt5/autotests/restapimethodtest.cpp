@@ -45,7 +45,7 @@ void RestApiMethodTest::shouldAssignDefaultValue()
 void RestApiMethodTest::shouldGenerateUrl()
 {
     RestApiMethod rest;
-    //If server url is empty return null url
+    // If server url is empty return null url
     QVERIFY(!rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsList).isValid());
     rest.setServerUrl(QStringLiteral("http://www.kde.org"));
     QVERIFY(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsList).isValid());
@@ -64,11 +64,16 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersResetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.update")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getUsernameSuggestion")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removePersonalAccessToken")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.generatePersonalAccessToken")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.updateOwnBasicInfo")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.regeneratePersonalAccessToken")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getUsernameSuggestion")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removePersonalAccessToken")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.generatePersonalAccessToken")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.updateOwnBasicInfo")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.regeneratePersonalAccessToken")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setStatus")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getStatus")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersPresence), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
@@ -95,10 +100,12 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSyncThreadsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadsList")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetDeletedMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getDeletedMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSendMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.sendMessage")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatMessageReadReceipts), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessageReadReceipts")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatMessageReadReceipts),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessageReadReceipts")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetPinnedMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getPinnedMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetStarredMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getStarredMessages")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getSnippetedMessages")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getSnippetedMessages")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addLeader")));
@@ -109,7 +116,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsModerators), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.moderators")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsClose), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.close")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.create")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetIntegrations), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getIntegrations")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetIntegrations),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getIntegrations")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsHistory), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.history")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.info")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsInvite), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.invite")));
@@ -119,7 +127,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsListJoined), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.list.joined")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsOpen), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.open")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsJoin), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.join")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveModerator), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeModerator")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveModerator),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeModerator")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeOwner")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRename), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.rename")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetDescription), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setDescription")));
@@ -130,12 +139,14 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetTopic), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setTopic")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetType), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setType")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsUnarchive), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.unarchive")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setAnnouncement")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setAnnouncement")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsFiles), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.files")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsMembers), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.members")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsCounters), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.counters")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.delete")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsOnline), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.online")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addAll")));
@@ -199,7 +210,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsLeave), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.leave")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsCreateDiscussion), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.createDiscussion")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsGetDiscussions), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.channelAndPrivate")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.channelAndPrivate")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsExport), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.export")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ForgotPassword), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
@@ -213,8 +225,10 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EupdateGroupKey), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.updateGroupKey")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ESetRoomKeyID), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setRoomKeyID")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setUserPublicAndPrivateKeys")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ERequestSubscriptionKeys), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.requestSubscriptionKeys")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setUserPublicAndPrivateKeys")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ERequestSubscriptionKeys),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.requestSubscriptionKeys")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesList), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesSync), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.sync")));
@@ -222,16 +236,23 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.create")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesAddUserToRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.addUserToRole")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference/jitsi.update-timeout")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference/jitsi.update-timeout")));
 
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.getSupportedLanguages")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.saveSettings")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.translateMessage")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.getSupportedLanguages")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.saveSettings")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.translateMessage")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.list")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.create")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.delete")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.update")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusCreate),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.create")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusDelete),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.delete")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusUpdate),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.update")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-sounds.list")));
 

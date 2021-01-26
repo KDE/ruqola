@@ -19,13 +19,13 @@
 */
 
 #include "accountmenu.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "model/rocketchataccountmodel.h"
 #include "accountmanager.h"
-#include <QMenu>
-#include <KLocalizedString>
+#include "model/rocketchataccountmodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KActionCollection>
+#include <KLocalizedString>
+#include <QMenu>
 
 AccountMenu::AccountMenu(QWidget *parent)
     : KActionMenu(parent)
@@ -50,7 +50,7 @@ void AccountMenu::slotUpdateAccountMenu()
     const QString currentAccountName = Ruqola::self()->accountManager()->currentAccount();
     const int accountNumber = model->accountNumber();
     if (accountNumber == 0) {
-        //Nothing
+        // Nothing
     } else if (accountNumber == 1) {
         auto *action = new QAction(model->account(0)->accountName(), this);
         menu()->addAction(action);
@@ -73,7 +73,7 @@ void AccountMenu::slotUpdateAccountMenu()
                 if (mActionCollection) {
                     mActionCollection->setDefaultShortcut(action, QKeySequence(QStringLiteral("CTRL+%1").arg(i)));
                 }
-                connect(action, &QAction::triggered, this, [accountName](){
+                connect(action, &QAction::triggered, this, [accountName]() {
                     Ruqola::self()->accountManager()->setCurrentAccount(accountName);
                 });
             }

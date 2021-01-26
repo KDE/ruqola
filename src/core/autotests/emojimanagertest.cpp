@@ -19,8 +19,8 @@
 */
 
 #include "emojimanagertest.h"
-#include "emoticons/emojimanager.h"
 #include "emoticons/customemoji.h"
+#include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
@@ -60,12 +60,12 @@ void EmojiManagerTest::shouldParseEmoji()
 
 void EmojiManagerTest::shouldSupportUnicodeEmojis()
 {
-    //Load list of unicode emoticon
+    // Load list of unicode emoticon
     UnicodeEmoticonManager::self();
     EmojiManager manager;
     QString grinning;
-    grinning += QChar(0xd800+61);
-    grinning += QChar(0xDC00+512);
+    grinning += QChar(0xd800 + 61);
+    grinning += QChar(0xDC00 + 512);
     // A basic emoji that was already there in the initial emoji.json from fairchat
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":grinning:")).unicode(), grinning);
     // The one that made me use https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json instead
@@ -94,15 +94,15 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
 {
-    //Load list of unicode emoticon
+    // Load list of unicode emoticon
     UnicodeEmoticonManager::self();
     EmojiManager manager;
     const QVector<UnicodeEmoticon> list = manager.unicodeEmojiList();
     auto hasCategory = [](const QString &category) {
-                           return [category](const UnicodeEmoticon &emo) {
-                                      return emo.category() == category;
-                           };
-                       };
+        return [category](const UnicodeEmoticon &emo) {
+            return emo.category() == category;
+        };
+    };
     // Check what's the first emoji in the category "symbols"
     auto it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("symbols")));
     QVERIFY(it != list.end());
@@ -129,7 +129,7 @@ void EmojiManagerTest::shouldGenerateHtml()
     const QJsonObject obj = doc.object();
     EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
-    //No serverUrl set.
+    // No serverUrl set.
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
 
     const QString serverUrl = QStringLiteral("www.kde.org");
@@ -139,34 +139,38 @@ void EmojiManagerTest::shouldGenerateHtml()
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
     QCOMPARE(manager.customEmojiFileName(QStringLiteral(":foo:")), QString());
 
-//    // Existing emoji
-//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
-//    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")), QStringLiteral("/emoji-custom/vader.png"));
+    //    // Existing emoji
+    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22'
+    //    src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>")); QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")),
+    //    QStringLiteral("/emoji-custom/vader.png"));
 
-//    // Alias
-//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>"));
-//    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")), QStringLiteral("/emoji-custom/vader.png"));
+    //    // Alias
+    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22'
+    //    src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>")); QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")),
+    //    QStringLiteral("/emoji-custom/vader.png"));
 }
 
 void EmojiManagerTest::shouldChangeServerUrl()
 {
-//    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
-//    QFile f(originalJsonFile);
-//    QVERIFY(f.open(QIODevice::ReadOnly));
-//    const QByteArray content = f.readAll();
-//    f.close();
-//    const QJsonDocument doc = QJsonDocument::fromJson(content);
-//    const QJsonObject obj = doc.object();
-//    EmojiManager manager(nullptr);
-//    manager.loadCustomEmoji(obj);
-//    QString serverUrl = QStringLiteral("www.kde.org");
-//    manager.setServerUrl(serverUrl);
+    //    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
+    //    QFile f(originalJsonFile);
+    //    QVERIFY(f.open(QIODevice::ReadOnly));
+    //    const QByteArray content = f.readAll();
+    //    f.close();
+    //    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    //    const QJsonObject obj = doc.object();
+    //    EmojiManager manager(nullptr);
+    //    manager.loadCustomEmoji(obj);
+    //    QString serverUrl = QStringLiteral("www.kde.org");
+    //    manager.setServerUrl(serverUrl);
 
-//    //It exists
-//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
+    //    //It exists
+    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
+    //    title=':vader:'/>").arg(serverUrl));
 
-//    //Change server url => clear cache
-//    serverUrl = QStringLiteral("www.bla.org");
-//    manager.setServerUrl(serverUrl);
-//    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png' title=':vader:'/>").arg(serverUrl));
+    //    //Change server url => clear cache
+    //    serverUrl = QStringLiteral("www.bla.org");
+    //    manager.setServerUrl(serverUrl);
+    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
+    //    title=':vader:'/>").arg(serverUrl));
 }

@@ -21,20 +21,17 @@
 #ifndef EMOTICONCATEGORIESMODEL_H
 #define EMOTICONCATEGORIESMODEL_H
 
-#include <QAbstractListModel>
-#include <QVector>
+#include "emoticoncategory.h"
 #include "emoticons/unicodeemoticon.h"
 #include "libruqola_private_export.h"
-#include "emoticoncategory.h"
+#include <QAbstractListModel>
+#include <QVector>
 
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategoriesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum EmoticonCategoryRoles {
-        Name = Qt::UserRole + 1,
-        Category
-    };
+    enum EmoticonCategoryRoles { Name = Qt::UserRole + 1, Category };
     Q_ENUM(EmoticonCategoryRoles)
 
     explicit EmoticonCategoriesModel(QObject *parent = nullptr);

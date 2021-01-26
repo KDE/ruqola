@@ -22,19 +22,13 @@
 #define USERSMODEL_H
 
 #include "libruqola_private_export.h"
-#include <QAbstractListModel>
 #include "user.h"
+#include <QAbstractListModel>
 class LIBRUQOLACORE_TESTS_EXPORT UsersModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum UserRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        UserStatus,
-        UserIcon,
-        UserStatusText
-    };
+    enum UserRoles { UserName = Qt::UserRole + 1, UserId, UserStatus, UserIcon, UserStatusText };
     Q_ENUM(UserRoles)
 
     explicit UsersModel(QObject *parent = nullptr);

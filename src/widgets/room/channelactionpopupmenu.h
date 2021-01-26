@@ -21,10 +21,10 @@
 #ifndef CHANNELACTIONPOPUPMENU_H
 #define CHANNELACTIONPOPUPMENU_H
 
-#include <QObject>
-#include <QPointer>
 #include "libruqolawidgets_private_export.h"
 #include "roomheaderwidget.h"
+#include <QObject>
+#include <QPointer>
 class QMenu;
 class QAction;
 class Room;

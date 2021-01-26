@@ -21,7 +21,8 @@
 #define USERFEEDBACKMANAGER_H
 
 #include <QObject>
-namespace KUserFeedback {
+namespace KUserFeedback
+{
 class Provider;
 }
 class UserFeedBackManager : public QObject

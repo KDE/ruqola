@@ -21,8 +21,8 @@
 #include "sendmessagejobtest.h"
 #include "chat/sendmessagejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SendMessageJobTest)
 using namespace RocketChatRestApi;
 SendMessageJobTest::SendMessageJobTest(QObject *parent)
@@ -66,12 +66,14 @@ void SendMessageJobTest::shouldGenerateJson()
     const QString threadId = QStringLiteral("threadid");
     args.threadMessageId = threadId;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":{"msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"message":{"msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId).toLatin1());
 
     const QString messageId = QStringLiteral("msgid");
     args.messageId = messageId;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":{"_id":"%4","msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId, messageId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"message":{"_id":"%4","msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId, messageId).toLatin1());
 }
 
 void SendMessageJobTest::shouldNotStarting()

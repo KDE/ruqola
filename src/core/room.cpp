@@ -20,12 +20,12 @@
  *
  */
 
-#include "rocketchataccount.h"
 #include "room.h"
-#include "textconverter.h"
-#include "ruqola_debug.h"
-#include "model/usersforroommodel.h"
 #include "model/messagemodel.h"
+#include "model/usersforroommodel.h"
+#include "rocketchataccount.h"
+#include "ruqola_debug.h"
+#include "textconverter.h"
 
 #include <KLocalizedString>
 
@@ -48,51 +48,24 @@ Room::~Room()
 
 bool Room::operator==(const Room &other) const
 {
-    //qDebug() << " other.id"<<other.id << " id " << id;
+    // qDebug() << " other.id"<<other.id << " id " << id;
     return other.mRoomId == roomId();
 }
 
 bool Room::isEqual(const Room &other) const
 {
-    return (mRoomId == other.roomId())
-           && (mChannelType == other.channelType())
-           && (mName == other.name())
-           && (mAnnouncement == other.announcement())
-           && (mRoomCreatorUserName == other.roomOwnerUserName())
-           && (mRoomCreateUserId == other.roomCreatorUserId())
-           && (mTopic == other.topic())
-           && (mMutedUsers == other.mutedUsers())
-           && (mJitsiTimeout == other.jitsiTimeout())
-           && (mReadOnly == other.readOnly())
-           && (mUnread == other.unread())
-           && (mSelected == other.selected())
-           && (mFavorite == other.favorite())
-           && (mOpen == other.open())
-           && (mBlocker == other.blocker())
-           && (mArchived == other.archived())
-           && (mDescription == other.description())
-           && (mUserMentions == other.userMentions())
-           && (mNotificationOptions == other.notificationOptions())
-           && (mUpdatedAt == other.updatedAt())
-           && (mLastSeenAt == other.lastSeenAt())
-           && (mBlocked == other.blocked())
-           && (mRoles == other.roles())
-           && (mIgnoredUsers == other.ignoredUsers())
-           && (mEncrypted == other.encrypted())
-           && (mE2EKey == other.e2EKey())
-           && (mE2eKeyId == other.e2eKeyId())
-           && (mJoinCodeRequired == other.joinCodeRequired())
-           && (mBroadcast == other.broadcast())
-           && (mParentRid == other.parentRid())
-           && (mFName == other.fName())
-           && (mAutoTranslate == other.autoTranslate())
-           && (mAutotranslateLanguage == other.autoTranslateLanguage())
-           && (mDirectChannelUserId == other.directChannelUserId())
-           && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
-           && (mAvatarETag == other.avatarETag())
-           && (mUids == other.uids())
-           && (mUserNames == other.userNames())
-           && (mHighlightsWord == other.highlightsWord());
+    return (mRoomId == other.roomId()) && (mChannelType == other.channelType()) && (mName == other.name()) && (mAnnouncement == other.announcement())
+        && (mRoomCreatorUserName == other.roomOwnerUserName()) && (mRoomCreateUserId == other.roomCreatorUserId()) && (mTopic == other.topic())
+        && (mMutedUsers == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mReadOnly == other.readOnly()) && (mUnread == other.unread())
+        && (mSelected == other.selected()) && (mFavorite == other.favorite()) && (mOpen == other.open()) && (mBlocker == other.blocker())
+        && (mArchived == other.archived()) && (mDescription == other.description()) && (mUserMentions == other.userMentions())
+        && (mNotificationOptions == other.notificationOptions()) && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt())
+        && (mBlocked == other.blocked()) && (mRoles == other.roles()) && (mIgnoredUsers == other.ignoredUsers()) && (mEncrypted == other.encrypted())
+        && (mE2EKey == other.e2EKey()) && (mE2eKeyId == other.e2eKeyId()) && (mJoinCodeRequired == other.joinCodeRequired())
+        && (mBroadcast == other.broadcast()) && (mParentRid == other.parentRid()) && (mFName == other.fName()) && (mAutoTranslate == other.autoTranslate())
+        && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
+        && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
+        && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord());
 }
 
 QString Room::displayRoomName() const
@@ -110,7 +83,7 @@ QString Room::name() const
     return mName;
 }
 
-QDebug operator <<(QDebug d, const Room &t)
+QDebug operator<<(QDebug d, const Room &t)
 {
     d << "id :" << t.roomId();
     d << "type :" << t.channelType();
@@ -183,7 +156,7 @@ int Room::userMentions() const
 void Room::setUserMentions(int userMentions)
 {
     mUserMentions = userMentions;
-    //Send needAttention only if we have alert.
+    // Send needAttention only if we have alert.
     if (mUserMentions > 0) {
         Q_EMIT needAttention();
     }
@@ -206,7 +179,7 @@ void Room::setUpdatedAt(qint64 updatedAt)
 
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
-    qCDebug(RUQOLA_LOG) << "void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
+    qCDebug(RUQOLA_LOG) << "void Room::parseUpdateRoom(const QJsonObject &json)" << json;
     if (json.contains(QLatin1String("rid"))) {
         setRoomId(json.value(QLatin1String("rid")).toString());
     }
@@ -275,7 +248,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     } else {
         setEncrypted(false);
     }
-    //TODO verify it. add autotest
+    // TODO verify it. add autotest
     if (json.contains(QLatin1String("broadcast"))) {
         setBroadcast(json[QStringLiteral("broadcast")].toBool());
     } else {
@@ -307,8 +280,8 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setIgnoredUsers(lstIgnored);
     }
 
-    //TODO muted ????
-    //TODO E2EKey
+    // TODO muted ????
+    // TODO E2EKey
     setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
@@ -317,8 +290,8 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
         setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
     } else {
-        //When room is initialized we are the owner. When we update room we have the real
-        //owner and if it's empty => we need to clear it.
+        // When room is initialized we are the owner. When we update room we have the real
+        // owner and if it's empty => we need to clear it.
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
@@ -360,7 +333,7 @@ void Room::setSelected(bool selected)
 {
     if (mSelected != selected) {
         mSelected = selected;
-        //Add signal otherwise it's not necessary to check value
+        // Add signal otherwise it's not necessary to check value
     }
 }
 
@@ -375,7 +348,7 @@ void Room::setUnread(int unread)
         mUnread = unread;
         Q_EMIT unreadChanged();
     }
-    if (channelType() != QLatin1Char('c')) { //TODO verify it
+    if (channelType() != QLatin1Char('c')) { // TODO verify it
         if (mUnread > 0) {
             Q_EMIT needAttention();
         }
@@ -580,7 +553,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setAutoTranslate(json[QStringLiteral("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
-    //topic/announcement/description is not part of update subscription
+    // topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
@@ -609,7 +582,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setBlocker(false);
     }
 
-    //setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
+    // setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
     setE2EKey(json[QStringLiteral("E2EKey")].toString());
 
     if (json.contains(QLatin1String("encrypted"))) {
@@ -618,7 +591,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setEncrypted(false);
     }
 
-    //Blocked ???
+    // Blocked ???
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
         setArchived(archivedValue.toBool());
@@ -635,12 +608,12 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
         setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
     } else {
-        //When room is initialized we are the owner. When we update room we have the real
-        //owner and if it's empty => we need to clear it.
+        // When room is initialized we are the owner. When we update room we have the real
+        // owner and if it's empty => we need to clear it.
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
-    //qDebug() << " *thus" << *this;
+    // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 }
 
@@ -708,7 +681,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setAutoTranslate(json[QStringLiteral("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
-    //topic/announcement/description is not part of update subscription
+    // topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
@@ -730,8 +703,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
-    //TODO e2ekey
-    //TODO blocked ?
+    // TODO e2ekey
+    // TODO blocked ?
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
         setArchived(archivedValue.toBool());
@@ -741,21 +714,21 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 
     parseCommonData(json);
     parseDisplaySystemMessage(json);
-//    const QJsonValue ownerValue = json.value(QLatin1String("u"));
-//    if (!ownerValue.isUndefined()) {
-//        const QJsonObject objOwner = ownerValue.toObject();
-//        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-//        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
-//    } else {
-//        //When room is initialized we are the owner. When we update room we have the real
-//        //owner and if it's empty => we need to clear it.
-//        setRoomCreatorUserId(QString());
-//        setRoomCreatorUserName(QString());
-//    }
-    //qDebug() << " *thus" << *this;
+    //    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    //    if (!ownerValue.isUndefined()) {
+    //        const QJsonObject objOwner = ownerValue.toObject();
+    //        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+    //        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    //    } else {
+    //        //When room is initialized we are the owner. When we update room we have the real
+    //        //owner and if it's empty => we need to clear it.
+    //        setRoomCreatorUserId(QString());
+    //        setRoomCreatorUserName(QString());
+    //    }
+    // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 
-    //TODO add muted
+    // TODO add muted
 }
 
 void Room::parseDisplaySystemMessage(const QJsonObject &json)
@@ -814,10 +787,10 @@ Utils::AvatarInfo Room::avatarInfo() const
     if (mCurrentAvatarInfo.isValid()) {
         return mCurrentAvatarInfo;
     }
-    //TODO direct channel or group channel
+    // TODO direct channel or group channel
     Utils::AvatarInfo info;
     info.etag = mAvatarETag;
-    //Group => uids >= 3
+    // Group => uids >= 3
     if (mUids.count() > 2) {
         QString identifier;
         for (const QString &username : mUserNames) {
@@ -879,7 +852,7 @@ void Room::newMessageAdded()
             const auto unreadMessageCount = mChannelCounterInfo.unreadMessages() + 1;
             mChannelCounterInfo.setUnreadMessages(unreadMessageCount);
             Q_EMIT channelCounterInfoChanged();
-            //qDebug() << " mChannelCounterInfo " << mChannelCounterInfo;
+            // qDebug() << " mChannelCounterInfo " << mChannelCounterInfo;
         }
     }
 }
@@ -910,7 +883,7 @@ void Room::parseCommonData(const QJsonObject &json)
     }
     setRoles(lstRoles);
 
-    //FIXME.
+    // FIXME.
     const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
     QStringList lstHighlightsWord;
     const int highlightsWordArrayCount = highlightsWordArray.count();
@@ -962,7 +935,7 @@ void Room::setAutoTranslateLanguage(const QString &autotranslateLanguage)
 
 QString Room::displayFName() const
 {
-    if (mFName.isEmpty()) { //Fallback to name if fname is empty
+    if (mFName.isEmpty()) { // Fallback to name if fname is empty
         return mName;
     }
     return mFName;
@@ -1122,7 +1095,7 @@ void Room::setEncrypted(bool encrypted)
 
 std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
 {
-    //FIXME
+    // FIXME
     auto r = std::make_unique<Room>(nullptr);
 
     r->setRoomId(o[QStringLiteral("rid")].toString());
@@ -1175,7 +1148,7 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     const int ignoredArrayCount = ignoredArray.count();
     lstIgnored.reserve(ignoredArrayCount);
     for (int i = 0; i < ignoredArrayCount; ++i) {
-        lstIgnored <<ignoredArray.at(i).toString();
+        lstIgnored << ignoredArray.at(i).toString();
     }
     r->setIgnoredUsers(lstIgnored);
 
@@ -1192,7 +1165,7 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     QStringList lstRoles;
     lstRoles.reserve(rolesArray.count());
     for (int i = 0; i < rolesArray.count(); ++i) {
-        lstRoles <<rolesArray.at(i).toString();
+        lstRoles << rolesArray.at(i).toString();
     }
     r->setRoles(lstRoles);
 
@@ -1212,7 +1185,7 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     }
     r->setUids(lstUids);
 
-    //TODO add parent RID
+    // TODO add parent RID
 
     return r;
 }
@@ -1222,7 +1195,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     QJsonDocument d;
     QJsonObject o;
 
-    //todo add timestamp
+    // todo add timestamp
 
     o[QStringLiteral("rid")] = r->roomId();
     o[QStringLiteral("t")] = r->channelType();

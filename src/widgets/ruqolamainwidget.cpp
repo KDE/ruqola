@@ -19,21 +19,22 @@
 */
 
 #include "ruqolamainwidget.h"
-#include "channellist/channellistwidget.h"
-#include "room/roomwidget.h"
 #include "channellist/channellistview.h"
+#include "channellist/channellistwidget.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
+#include "room/roomwidget.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <QSplitter>
 #include <QHBoxLayout>
+#include <QSplitter>
 
 #include <model/roomfilterproxymodel.h>
 #include <model/roommodel.h>
 
-namespace {
+namespace
+{
 static const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
 }
 
@@ -108,7 +109,7 @@ QString RuqolaMainWidget::roomType() const
 
 void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    //Before switching rocketchataccount otherwise
+    // Before switching rocketchataccount otherwise
     mRoomWidget->storeRoomSettings();
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());

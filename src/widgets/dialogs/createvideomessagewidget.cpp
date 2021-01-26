@@ -19,11 +19,11 @@
 */
 
 #include "createvideomessagewidget.h"
-#include <QVBoxLayout>
-#include <QLabel>
 #include <QCamera>
-#include <QCameraViewfinder>
 #include <QCameraImageCapture>
+#include <QCameraViewfinder>
+#include <QLabel>
+#include <QVBoxLayout>
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)

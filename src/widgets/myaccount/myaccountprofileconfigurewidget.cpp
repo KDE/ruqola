@@ -19,12 +19,12 @@
 */
 
 #include "myaccountprofileconfigurewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "dialogs/asktwoauthenticationpassworddialog.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "myaccountprofileconfigureavatarwidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "misc/passwordconfirmwidget.h"
+#include "myaccountprofileconfigureavatarwidget.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordDialog>
@@ -156,7 +156,7 @@ void MyAccountProfileConfigureWidget::save()
     }
     if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
         updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Password;
-        updateInfo.newPassword = mPasswordConfirmWidget->password(); //Not encrypt it ???!
+        updateInfo.newPassword = mPasswordConfirmWidget->password(); // Not encrypt it ???!
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
@@ -167,7 +167,7 @@ void MyAccountProfileConfigureWidget::save()
         }
         delete dlg;
     }
-    if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { //TODO verify it
+    if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { // TODO verify it
         QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);
         QString code;
         if (dlg->exec()) {
@@ -175,7 +175,7 @@ void MyAccountProfileConfigureWidget::save()
         }
     }
 
-    //TODO add more.
+    // TODO add more.
     if (updateInfo.isValid()) {
         Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);
     }

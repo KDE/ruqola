@@ -28,8 +28,8 @@
 
 #include <KLocalizedString>
 
-#include <QHBoxLayout>
 #include <QAbstractButton>
+#include <QHBoxLayout>
 #include <QPainter>
 #include <QPointer>
 #include <QStyle>
@@ -39,8 +39,7 @@ constexpr const double PAD = 0.2;
 
 class AccountButton : public QAbstractButton
 {
-    struct UnreadAlert
-    {
+    struct UnreadAlert {
         int unread;
         bool alert;
     };
@@ -50,8 +49,7 @@ public:
         : QAbstractButton(parent)
         , mAccount(nullptr)
     {
-        connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged,
-                this, QOverload<>::of(&AccountButton::update));
+        connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, QOverload<>::of(&AccountButton::update));
 
         setMouseTracking(true);
         setFocusPolicy(Qt::NoFocus);
@@ -70,11 +68,11 @@ public:
 
         if (mAccount) {
             auto updateFont = [this] {
-                                  QFont f = font();
-                                  f.setBold(currentUnreadAlert().alert);
-                                  setFont(f);
-                                  updateGeometry();
-                              };
+                QFont f = font();
+                f.setBold(currentUnreadAlert().alert);
+                setFont(f);
+                updateGeometry();
+            };
             connect(acct, &RocketChatAccount::accountNameChanged, this, &AccountButton::updateGeometry);
             connect(acct, &RocketChatAccount::loginStatusChanged, this, &AccountButton::updateGeometry);
             connect(acct, &RocketChatAccount::loginStatusChanged, this, &AccountButton::updateTooltip);

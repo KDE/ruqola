@@ -19,8 +19,8 @@
 */
 
 #include "restapiabstractjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "abstractlogger.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -142,7 +142,7 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
             urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(mQueryParameters.offset()));
         }
         if (!mQueryParameters.sorting().isEmpty()) {
-            //example    sort={"name" : -1,"status" : 1}
+            // example    sort={"name" : -1,"status" : 1}
             QMapIterator<QString, QueryParameters::SortOrder> i(mQueryParameters.sorting());
             QString str;
             while (i.hasNext()) {
@@ -165,11 +165,11 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
             }
             str = QStringLiteral("{%1}").arg(str);
 
-            //It's ok for getAllMentions....
+            // It's ok for getAllMentions....
             urlQuery.addQueryItem(QStringLiteral("sort"), str);
         }
     }
-    //qDebug() << " urlQuery " << urlQuery.toString();
+    // qDebug() << " urlQuery " << urlQuery.toString();
 }
 
 RocketChatRestApi::AbstractLogger *RestApiAbstractJob::restApiLogger() const
@@ -399,7 +399,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1String("error-password-policy-not-met-oneUppercase")) {
         return i18n("Password does not meet the server's policy of at least one uppercase character");
     } else if (str == QLatin1String("error-password-policy-not-met-repeatingCharacters")) {
-        return i18n("Password does not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)");
+        return i18n(
+            "Password does not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)");
     } else if (str == QLatin1String("error-push-disabled")) {
         return i18n("Push is disabled");
     } else if (str == QLatin1String("error-remove-last-owner")) {

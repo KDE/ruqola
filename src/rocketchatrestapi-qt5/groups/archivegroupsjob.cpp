@@ -20,8 +20,8 @@
 
 #include "archivegroupsjob.h"
 
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -60,7 +60,7 @@ void ArchiveGroupsJob::slotArchiveGroupsFinished()
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            //FIXME report error
+            // FIXME report error
             Q_EMIT archiveGroupsError(QString());
         }
         reply->deleteLater();

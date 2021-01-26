@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqola_debug.h"
 #include "fileattachments.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -121,7 +121,7 @@ void FileAttachments::setFileAttachments(const QVector<File> &fileAttachments)
     mFileAttachments = fileAttachments;
 }
 
-QDebug operator <<(QDebug d, const FileAttachments &t)
+QDebug operator<<(QDebug d, const FileAttachments &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

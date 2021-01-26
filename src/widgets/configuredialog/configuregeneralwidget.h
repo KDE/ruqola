@@ -21,8 +21,8 @@
 #ifndef CONFIGUREGENERALWIDGET_H
 #define CONFIGUREGENERALWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureGeneralWidget : public QWidget
 {
@@ -33,6 +33,7 @@ public:
 
     void save();
     void load();
+
 private:
     QCheckBox *const mSetOnlineForAllAccount;
     QCheckBox *const mShowImageByDefault;

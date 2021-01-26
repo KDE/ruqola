@@ -19,10 +19,10 @@
 */
 
 #include "reportmessagejobtest.h"
-#include "ruqola_restapi_helper.h"
 #include "chat/reportmessagejob.h"
-#include <QTest>
+#include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 #include <restapimethod.h>
 
 QTEST_GUILESS_MAIN(ReportMessageJobTest)

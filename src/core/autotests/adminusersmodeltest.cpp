@@ -31,5 +31,5 @@ AdminUsersModelTest::AdminUsersModelTest(QObject *parent)
 void AdminUsersModelTest::shouldHaveDefaultValues()
 {
     AdminUsersModel m;
-    //TODO
+    // TODO
 }

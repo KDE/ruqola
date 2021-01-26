@@ -21,9 +21,10 @@
 #ifndef OPENDMJOB_H
 #define OPENDMJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT OpenDmJob : public RestApiAbstractJob
 {
     Q_OBJECT

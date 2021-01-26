@@ -21,11 +21,12 @@
 #ifndef GETTHREADMESSAGESJOB_H
 #define GETTHREADMESSAGESJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT GetThreadMessagesJob : public RestApiAbstractJob
 {
     Q_OBJECT

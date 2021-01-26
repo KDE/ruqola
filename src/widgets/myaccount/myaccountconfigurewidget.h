@@ -35,6 +35,7 @@ public:
     ~MyAccountConfigureWidget() override;
     void save();
     void load();
+
 private:
     MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = nullptr;
     MyAccountProfileConfigureWidget *mMyAccount2ProfileConfigureWidget = nullptr;

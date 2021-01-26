@@ -21,10 +21,10 @@
 #ifndef DOWNLOADAPPSLANGUAGESMANAGER_H
 #define DOWNLOADAPPSLANGUAGESMANAGER_H
 
-#include <QObject>
 #include "downloadappslanguagesinfo.h"
 #include "libruqolacore_export.h"
 #include <QMap>
+#include <QObject>
 
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesManager : public QObject
 {

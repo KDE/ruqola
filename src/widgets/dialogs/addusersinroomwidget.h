@@ -21,8 +21,8 @@
 #ifndef ADDUSERSINROOMWIDGET_H
 #define ADDUSERSINROOMWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class AddUsersWidget;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomWidget : public QWidget

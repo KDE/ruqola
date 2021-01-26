@@ -21,19 +21,15 @@
 #ifndef USERCOMPLETERMODEL_H
 #define USERCOMPLETERMODEL_H
 
-#include "user.h"
 #include "libruqola_private_export.h"
+#include "user.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum UserRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        UserIconStatus
-    };
+    enum UserRoles { UserName = Qt::UserRole + 1, UserId, UserIconStatus };
     Q_ENUM(UserRoles)
 
     explicit UserCompleterModel(QObject *parent = nullptr);

@@ -21,9 +21,10 @@
 #ifndef USER2FASENDEMAILCODEJOB_H
 #define USER2FASENDEMAILCODEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT User2FASendEmailCodeJob : public RestApiAbstractJob
 {
     Q_OBJECT

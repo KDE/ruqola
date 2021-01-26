@@ -21,8 +21,8 @@
 #ifndef READONLYLINEEDITWIDGET_H
 #define READONLYLINEEDITWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ReadOnlyLineEditWidget : public QWidget
 {
@@ -31,6 +31,7 @@ public:
     explicit ReadOnlyLineEditWidget(QWidget *parent = nullptr);
     ~ReadOnlyLineEditWidget() override;
     void setMessage(const QString &str);
+
 private:
     QLabel *mLabel = nullptr;
 };

@@ -62,8 +62,8 @@ bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &s
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
 
     auto match = [&](int role) {
-                     return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
-                 };
+        return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+    };
     if (!match(RoomModel::RoomName) && !match(RoomModel::RoomFName)) {
         return false;
     }

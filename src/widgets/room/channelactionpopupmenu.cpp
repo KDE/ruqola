@@ -19,8 +19,8 @@
 */
 
 #include "channelactionpopupmenu.h"
-#include "room.h"
 #include "rocketchataccount.h"
+#include "room.h"
 #include <KLocalizedString>
 #include <QMenu>
 
@@ -165,8 +165,7 @@ void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *acco
 
 void ChannelActionPopupMenu::slotUpdateMenu()
 {
-    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport()
-                                    && mCurrentRocketChatAccount->allowMessagePinningEnabled());
+    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
@@ -187,6 +186,6 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 
     mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
 
-    //Disable for the moment
+    // Disable for the moment
     mFollowMessage->setVisible(false && mCurrentRocketChatAccount->threadsEnabled());
 }

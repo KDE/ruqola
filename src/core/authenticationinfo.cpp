@@ -63,7 +63,7 @@ bool AuthenticationInfo::isValid() const
     return (mOauthType != AuthenticationManager::Unknown) && !mName.isEmpty();
 }
 
-QDebug operator <<(QDebug d, const AuthenticationInfo &t)
+QDebug operator<<(QDebug d, const AuthenticationInfo &t)
 {
     d << "Iconname: " << t.iconName();
     d << "Name: " << t.name();

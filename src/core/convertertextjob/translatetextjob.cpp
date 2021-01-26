@@ -31,5 +31,5 @@ TranslateTextJob::~TranslateTextJob()
 
 void TranslateTextJob::start()
 {
-    //TODO
+    // TODO
 }

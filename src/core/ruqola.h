@@ -24,11 +24,11 @@
 #ifndef RUQOLA_H
 #define RUQOLA_H
 
-#include <QObject>
-#include "libruqolacore_export.h"
 #include "ddpapi/ddpclient.h"
-#include "model/roommodel.h"
+#include "libruqolacore_export.h"
 #include "model/messagemodel.h"
+#include "model/roommodel.h"
+#include <QObject>
 
 class RocketChatAccount;
 class AccountManager;
@@ -38,10 +38,10 @@ class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 public:
     ~Ruqola() override;
     /**
-    * @brief Singleton provider
-    *
-    * @return Returns the singleton object
-    */
+     * @brief Singleton provider
+     *
+     * @return Returns the singleton object
+     */
     static Ruqola *self();
 
     static void destroy();
@@ -52,6 +52,7 @@ public:
     explicit Ruqola(QObject *parent = nullptr);
 
     void setCurrentAccount(const QString &accountName);
+
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;

@@ -20,7 +20,8 @@
 #include "syntaxhighlightingmanager.h"
 #include "ruqola_debug.h"
 
-namespace {
+namespace
+{
 bool sortCaseInsensitively(const QString &lhs, const QString &rhs)
 {
     return lhs.compare(rhs, Qt::CaseInsensitive) < 0;

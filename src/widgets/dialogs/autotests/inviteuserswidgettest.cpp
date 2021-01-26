@@ -20,15 +20,15 @@
 
 #include "inviteuserswidgettest.h"
 #include "dialogs/inviteuserswidget.h"
-#include <QLineEdit>
+#include <KCollapsibleGroupBox>
 #include <QComboBox>
 #include <QFormLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
-#include <KCollapsibleGroupBox>
 QTEST_MAIN(InviteUsersWidgetTest)
 
 InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)

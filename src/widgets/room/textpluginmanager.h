@@ -21,10 +21,10 @@
 #ifndef TEXTPLUGINMANAGER_H
 #define TEXTPLUGINMANAGER_H
 
+#include "libruqolawidgets_private_export.h"
 #include <KPluginMetaData>
 #include <QObject>
 #include <QVector>
-#include "libruqolawidgets_private_export.h"
 
 class PluginText;
 

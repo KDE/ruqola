@@ -43,7 +43,7 @@ public:
     Q_REQUIRED_RESULT QString status() const;
     void setStatus(const QString &status);
 
-    Q_REQUIRED_RESULT bool operator ==(const OwnUser &other) const;
+    Q_REQUIRED_RESULT bool operator==(const OwnUser &other) const;
 
     Q_REQUIRED_RESULT QString email() const;
     void setEmail(const QString &email);
@@ -96,5 +96,5 @@ private:
 };
 Q_DECLARE_METATYPE(OwnUser)
 Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const OwnUser &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUser &t);
 #endif // OWNUSER_H

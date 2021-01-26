@@ -21,11 +21,12 @@
 #ifndef GETPINNEDMESSAGESJOB_H
 #define GETPINNEDMESSAGESJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetPinnedMessagesJob : public RestApiAbstractJob
 {
     Q_OBJECT

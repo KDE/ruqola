@@ -19,12 +19,12 @@
 */
 
 #include "messagemodeltest.h"
-#include "test_model_helpers.h"
 #include "model/messagemodel.h"
+#include "test_model_helpers.h"
+#include <QStandardPaths>
+#include <QTest>
 #include <rocketchataccount.h>
 #include <ruqola.h>
-#include <QTest>
-#include <QStandardPaths>
 
 QTEST_GUILESS_MAIN(MessageModelTest)
 
@@ -75,11 +75,11 @@ void MessageModelTest::shouldAddMessage()
     w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
-    //Don't create duplicates
+    // Don't create duplicates
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 1);
 
-    //Add other messageId
+    // Add other messageId
     input.setMessageId(QStringLiteral("ff2"));
     input.setTimeStamp(43);
     w.addMessages({input});
@@ -117,7 +117,7 @@ void MessageModelTest::shouldRemoveMessage()
     w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
-    //Remove existing message
+    // Remove existing message
 
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
@@ -166,7 +166,7 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     w.addMessages({input});
 
     QCOMPARE(w.rowCount(), 1);
-    //Remove non-existing message
+    // Remove non-existing message
     w.deleteMessage(QStringLiteral("Bla"));
     QCOMPARE(w.rowCount(), 1);
 
@@ -178,7 +178,7 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     w.addMessages({input});
     QCOMPARE(w.rowCount(), 3);
 
-    //Remove 3th element
+    // Remove 3th element
     w.deleteMessage(QStringLiteral("ff3"));
     QCOMPARE(w.rowCount(), 2);
 }
@@ -225,17 +225,21 @@ void MessageModelTest::shouldAddMessages()
     fillTestMessage(input);
     QVector<Message> messages;
     auto makeMessage = [&](const char *id, qint64 timestamp) {
-                           input.setMessageId(QString::fromLatin1(id));
-                           input.setTimeStamp(timestamp);
-                           return input;
-                       };
+        input.setMessageId(QString::fromLatin1(id));
+        input.setTimeStamp(timestamp);
+        return input;
+    };
     messages << makeMessage("msgA", 8);
     messages << makeMessage("msgB", 4);
     messages << makeMessage("msgC", 6);
     messages << makeMessage("msgD", 2);
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 4);
-    QCOMPARE(extractMessageIds(model), QByteArrayList() << "msgD" << "msgB" << "msgC" << "msgA");
+    QCOMPARE(extractMessageIds(model),
+             QByteArrayList() << "msgD"
+                              << "msgB"
+                              << "msgC"
+                              << "msgA");
 
     messages.clear();
     messages << makeMessage("msgE", 1);
@@ -246,7 +250,15 @@ void MessageModelTest::shouldAddMessages()
     messages << makeMessage("msgA", 8); // update
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 8);
-    QCOMPARE(extractMessageIds(model), QByteArrayList() << "msgE" << "msgD" << "msgF" << "msgB" << "msgH" << "msgC" << "msgA" << "msgG");
+    QCOMPARE(extractMessageIds(model),
+             QByteArrayList() << "msgE"
+                              << "msgD"
+                              << "msgF"
+                              << "msgB"
+                              << "msgH"
+                              << "msgC"
+                              << "msgA"
+                              << "msgG");
     QCOMPARE(model.index(6, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }
 
@@ -255,10 +267,10 @@ void MessageModelTest::shouldUpdateFirstMessage()
     MessageModel model;
     Message input;
     fillTestMessage(input);
-    model.addMessages({ input });
+    model.addMessages({input});
     QCOMPARE(model.rowCount(), 1);
     input.setText(QStringLiteral("modified"));
-    model.addMessages({ input });
+    model.addMessages({input});
     QCOMPARE(model.index(0, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }
 
@@ -272,7 +284,7 @@ void MessageModelTest::shouldAllowEditing()
     Ruqola::self()->rocketChatAccount()->ruqolaServerConfig()->setServerConfigFeatureTypes(settings);
     Message input;
     fillTestMessage(input);
-    model.addMessages({ input });
+    model.addMessages({input});
     QCOMPARE(model.rowCount(), 1);
 
     // THEN
@@ -295,8 +307,8 @@ void MessageModelTest::shouldFindPrevNextMessage()
     MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
 
     auto isByMe = [](const Message &msg) {
-                      return msg.userId() == QLatin1String("userid1");
-                  };
+        return msg.userId() == QLatin1String("userid1");
+    };
 
     // THEN there is no prev/next message
     QCOMPARE(model.findNextMessageAfter(QString(), isByMe).messageId(), QString());
@@ -309,12 +321,12 @@ void MessageModelTest::shouldFindPrevNextMessage()
     fillTestMessage(input);
     QVector<Message> messages;
     auto makeMessage = [&](const char *id, const char *userId) {
-                           input.setMessageId(QString::fromLatin1(id));
-                           input.setUserId(QString::fromLatin1(userId));
-                           static int timestamp = 1;
-                           input.setTimeStamp(timestamp);
-                           return input;
-                       };
+        input.setMessageId(QString::fromLatin1(id));
+        input.setUserId(QString::fromLatin1(userId));
+        static int timestamp = 1;
+        input.setTimeStamp(timestamp);
+        return input;
+    };
     messages << makeMessage("msgA", "userid1");
     messages << makeMessage("msgB", "userid2");
     messages << makeMessage("msgC", "userid1");

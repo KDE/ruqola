@@ -19,9 +19,9 @@
 */
 
 #include "notificationpreferences.h"
-#include "model/notificationpreferencemodel.h"
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
+#include "model/notificationpreferencemodel.h"
 
 NotificationPreferences::NotificationPreferences(QObject *parent)
     : QObject(parent)

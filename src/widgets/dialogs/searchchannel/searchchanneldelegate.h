@@ -44,7 +44,7 @@ private:
 
         QString channelName;
 
-        //Select Channel Rect
+        // Select Channel Rect
         QRect selectChannelRect;
     };
     Q_REQUIRED_RESULT SearchChannelDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;

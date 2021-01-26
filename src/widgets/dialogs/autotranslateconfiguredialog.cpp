@@ -20,9 +20,9 @@
 
 #include "autotranslateconfiguredialog.h"
 #include "autotranslateconfigurewidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(QWidget *parent)
     : QDialog(parent)

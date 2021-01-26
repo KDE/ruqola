@@ -21,13 +21,14 @@
 #include "showimagedialog.h"
 #include "showimagewidget.h"
 
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <KLocalizedString>
-#include <KConfigGroup>
-#include <KSharedConfig>
 
-namespace {
+namespace
+{
 static const char myShowImageDialogGroupName[] = "ShowImageDialog";
 }
 ShowImageDialog::ShowImageDialog(QWidget *parent)

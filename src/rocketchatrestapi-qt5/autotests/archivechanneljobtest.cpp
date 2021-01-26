@@ -21,8 +21,8 @@
 #include "archivechanneljobtest.h"
 #include "channels/archivechanneljob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ArchiveChannelJobTest)
 using namespace RocketChatRestApi;
 ArchiveChannelJobTest::ArchiveChannelJobTest(QObject *parent)

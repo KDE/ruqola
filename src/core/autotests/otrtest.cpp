@@ -65,5 +65,5 @@ void OtrTest::shouldParseOtr()
     otr.parseOtr(contents);
     QVERIFY(otr.isValid());
     QCOMPARE(otr.type(), otrtype);
-    //TODO
+    // TODO
 }

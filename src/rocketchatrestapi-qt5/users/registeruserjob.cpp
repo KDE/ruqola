@@ -19,12 +19,12 @@
 */
 
 #include "registeruserjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
-#include <QNetworkReply>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkReply>
 using namespace RocketChatRestApi;
 RegisterUserJob::RegisterUserJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -38,7 +38,7 @@ RegisterUserJob::~RegisterUserJob()
 bool RegisterUserJob::canStart() const
 {
     if (!mRegisterUserInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mRegisterUserInfo is empty"; //TODO improve it.
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mRegisterUserInfo is empty"; // TODO improve it.
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -116,7 +116,7 @@ QJsonDocument RegisterUserJob::json() const
     jsonObj[QLatin1String("username")] = mRegisterUserInfo.username;
     jsonObj[QLatin1String("email")] = mRegisterUserInfo.email;
     jsonObj[QLatin1String("name")] = mRegisterUserInfo.name;
-    jsonObj[QLatin1String("pass")] = mRegisterUserInfo.password; //TODO ??
+    jsonObj[QLatin1String("pass")] = mRegisterUserInfo.password; // TODO ??
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -124,8 +124,5 @@ QJsonDocument RegisterUserJob::json() const
 
 bool RegisterUserJob::RegisterUserInfo::isValid() const
 {
-    return !username.trimmed().isEmpty()
-           && !name.trimmed().isEmpty()
-           && !email.trimmed().isEmpty()
-           && !password.trimmed().isEmpty();
+    return !username.trimmed().isEmpty() && !name.trimmed().isEmpty() && !email.trimmed().isEmpty() && !password.trimmed().isEmpty();
 }

@@ -19,11 +19,11 @@
 */
 
 #include "forgotpasswordjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
-#include <QNetworkReply>
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkReply>
 using namespace RocketChatRestApi;
 ForgotPasswordJob::ForgotPasswordJob(QObject *parent)
     : RestApiAbstractJob(parent)

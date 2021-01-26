@@ -37,7 +37,7 @@ public:
         QUrl fileUrl;
         Q_REQUIRED_RESULT bool isValid() const
         {
-            return fileUrl.isValid(); //TODO verify local ?
+            return fileUrl.isValid(); // TODO verify local ?
         }
     };
 
@@ -47,6 +47,7 @@ public:
     void setFileUrl(const QUrl &url);
 
     Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
+
 private:
     void readConfig();
     void writeConfig();

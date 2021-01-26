@@ -20,9 +20,9 @@
 
 #include "modifystatusdialog.h"
 #include "modifystatuswidget.h"
-#include <QVBoxLayout>
-#include <QDialogButtonBox>
 #include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     : QDialog(parent)

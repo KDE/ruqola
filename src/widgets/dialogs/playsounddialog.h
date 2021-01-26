@@ -21,8 +21,8 @@
 #ifndef PLAYSOUNDDIALOG_H
 #define PLAYSOUNDDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 
 class PlaySoundWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundDialog : public QDialog
@@ -32,6 +32,7 @@ public:
     explicit PlaySoundDialog(QWidget *parent = nullptr);
     ~PlaySoundDialog() override;
     void setAudioUrl(const QUrl &url);
+
 private:
     PlaySoundWidget *mSoundWidget = nullptr;
 };

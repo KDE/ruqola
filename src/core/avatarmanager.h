@@ -21,10 +21,10 @@
 #ifndef AVATARMANAGER_H
 #define AVATARMANAGER_H
 
-#include <QObject>
-#include "users/userbasejob.h"
 #include "libruqola_private_export.h"
+#include "users/userbasejob.h"
 #include "utils.h"
+#include <QObject>
 class QTimer;
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT AvatarManager : public QObject

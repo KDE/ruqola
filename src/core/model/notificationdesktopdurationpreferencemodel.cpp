@@ -59,7 +59,7 @@ void NotificationDesktopDurationPreferenceModel::fillModel()
 {
     mNotificationDestktopDurationPreferenceList.reserve(6);
     {
-        //Default ???? Verify it. Perhaps 0 ? Don't know
+        // Default ???? Verify it. Perhaps 0 ? Don't know
         NotificationDesktopDurationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
         preferenceInfo.preference = QStringLiteral("default");

@@ -19,8 +19,8 @@
 */
 
 #include "messagecachetest.h"
-#include "messagecache.h"
 #include "chat/getmessagejob.h"
+#include "messagecache.h"
 #include "messages/message.h"
 
 #include <QJsonDocument>
@@ -44,9 +44,10 @@ protected:
     {
         if (auto getMsgJob = qobject_cast<RocketChatRestApi::GetMessageJob *>(job)) {
             QTimer::singleShot(100, this, [getMsgJob]() {
-                const QByteArray content = "{ \"message\": "
-                                           "{ \"msg\": \"message foo\","
-                                           "  \"_id\": \"Co6LnNbu5TYcXPuMG\" } }";
+                const QByteArray content =
+                    "{ \"message\": "
+                    "{ \"msg\": \"message foo\","
+                    "  \"_id\": \"Co6LnNbu5TYcXPuMG\" } }";
                 const QJsonDocument doc = QJsonDocument::fromJson(content);
                 Q_EMIT getMsgJob->getMessageDone(doc.object(), getMsgJob->messageId());
             });

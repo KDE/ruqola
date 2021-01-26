@@ -21,8 +21,8 @@
 #ifndef ROOMFILTERPROXYMODEL_H
 #define ROOMFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 
 /**
  * This proxy model sits on top of RoomModel and implements
@@ -37,6 +37,7 @@ public:
     ~RoomFilterProxyModel() override;
 
     void setFilterString(const QString &string);
+
 protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
     Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;

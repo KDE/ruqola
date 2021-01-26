@@ -19,9 +19,9 @@
 */
 
 #include "administratorroomsselectroomtypewidget.h"
-#include <QHBoxLayout>
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QHBoxLayout>
 
 AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(QWidget *parent)
     : QWidget(parent)

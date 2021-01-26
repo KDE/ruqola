@@ -19,14 +19,14 @@
 */
 
 #include "usersinroomflowwidget.h"
-#include "usersinroomlabel.h"
-#include "usersinroomdialog.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "common/flowlayout.h"
-#include "room.h"
-#include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
+#include "model/usersforroommodel.h"
+#include "rocketchataccount.h"
+#include "room.h"
+#include "ruqola.h"
+#include "usersinroomdialog.h"
+#include "usersinroomlabel.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QPointer>
@@ -57,15 +57,21 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
         auto sourceModel = mUsersForRoomFilterProxyModel->sourceModel();
         if (sourceModel) {
             auto *usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxyModel->sourceModel());
-            disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
-            disconnect(usersForRoomModel, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+            disconnect(usersForRoomModel,
+                       &UsersForRoomModel::hasFullListChanged,
+                       mUsersForRoomFilterProxyModel,
+                       &UsersForRoomFilterProxyModel::hasFullListChanged);
+            disconnect(usersForRoomModel,
+                       &UsersForRoomModel::loadingInProgressChanged,
+                       mUsersForRoomFilterProxyModel,
+                       &UsersForRoomFilterProxyModel::loadingInProgressChanged);
         }
         UsersForRoomModel *model = Ruqola::self()->rocketChatAccount()->usersModelForRoom(mRoom->roomId());
         mUsersForRoomFilterProxyModel->setSourceModel(model);
 
         connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
         connect(model, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
-        //generateListUsersWidget();
+        // generateListUsersWidget();
     } else {
         mFlowLayout->clearAndDeleteWidgets();
     }
@@ -89,7 +95,7 @@ void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, co
                 const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
                 const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
                 const QString userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
-                //qDebug() << " updating userdId " << userId << " userName " << userName << "  info.iconStatus " << iconStatus;
+                // qDebug() << " updating userdId " << userId << " userName " << userName << "  info.iconStatus " << iconStatus;
                 UsersInRoomLabel::UserInfo info;
                 info.userDisplayName = userDisplayName;
                 info.iconStatus = iconStatus;
@@ -127,8 +133,9 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
         }
         if (count > 0) {
             if (numberOfUsers >= MAX_NUMBER_USER) {
-                //TODO
-                auto *openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog...)")), this);
+                // TODO
+                auto *openExternalDialogLabel =
+                    new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog...)")), this);
                 openExternalDialogLabel->setTextFormat(Qt::RichText);
                 openExternalDialogLabel->setContextMenuPolicy(Qt::CustomContextMenu);
                 connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);

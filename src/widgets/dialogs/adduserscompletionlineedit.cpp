@@ -19,11 +19,11 @@
 */
 
 #include "adduserscompletionlineedit.h"
-#include "model/usercompleterfilterproxymodel.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "model/usercompletermodel.h"
 #include "common/completionlistview.h"
+#include "model/usercompleterfilterproxymodel.h"
+#include "model/usercompletermodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
@@ -40,8 +40,8 @@ AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit()
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    //TODO add exception!
-    //Add current user + list of users already added.
+    // TODO add exception!
+    // Add current user + list of users already added.
     rcAccount->userAutocomplete(text, QString());
 }
 

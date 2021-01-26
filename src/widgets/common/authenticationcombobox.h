@@ -21,8 +21,8 @@
 #ifndef AUTHENTICATIONCOMBOBOX_H
 #define AUTHENTICATIONCOMBOBOX_H
 
-#include <QComboBox>
 #include "libruqolawidgets_private_export.h"
+#include <QComboBox>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationComboBox : public QComboBox
 {
@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationComboBox : public QComboBox
 public:
     explicit AuthenticationComboBox(QWidget *parent = nullptr);
     ~AuthenticationComboBox() override;
+
 private:
     void initialize();
 };

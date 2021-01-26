@@ -21,8 +21,8 @@
 #ifndef CREATEDIRECTMESSAGESDIALOG_H
 #define CREATEDIRECTMESSAGESDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class CreateDirectMessagesWidget;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesDialog : public QDialog
@@ -33,6 +33,7 @@ public:
     ~CreateDirectMessagesDialog() override;
 
     Q_REQUIRED_RESULT QStringList userNames() const;
+
 private:
     void readConfig();
     void writeConfig();

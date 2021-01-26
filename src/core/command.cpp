@@ -19,10 +19,10 @@
 */
 
 #include "command.h"
-#include "ruqola_debug.h"
 #include "ruqola_commands_debug.h"
-#include <QJsonArray>
+#include "ruqola_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 
 Command::Command()
 {
@@ -148,10 +148,10 @@ void Command::setClientOnly(bool clientOnly)
 
 void Command::parseCommand(const QJsonObject &obj)
 {
-    //qDebug() << "Command::parseCommand " << obj;
+    // qDebug() << "Command::parseCommand " << obj;
     mProvidesPreview = obj.value(QStringLiteral("providesPreview")).toBool();
     mClientOnly = obj.value(QStringLiteral("clientOnly")).toBool();
-    //Add "/" for completion.
+    // Add "/" for completion.
     mCommandName = QLatin1Char('/') + obj.value(QStringLiteral("command")).toString();
     setDescription(obj.value(QStringLiteral("description")).toString());
     setParams(obj.value(QStringLiteral("params")).toString());
@@ -171,14 +171,10 @@ void Command::parseCommand(const QJsonObject &obj)
     }
 }
 
-bool Command::operator ==(const Command &other) const
+bool Command::operator==(const Command &other) const
 {
-    return mParams == other.params()
-           && mCommandName == other.commandName()
-           && mDescription == other.description()
-           && mClientOnly == other.clientOnly()
-           && mProvidesPreview == other.providesPreview()
-           && mPermissions == other.permissions();
+    return mParams == other.params() && mCommandName == other.commandName() && mDescription == other.description() && mClientOnly == other.clientOnly()
+        && mProvidesPreview == other.providesPreview() && mPermissions == other.permissions();
 }
 
 bool Command::isValid() const
@@ -211,7 +207,7 @@ QString Command::translatedDescription() const
     return mTranslatedDescription;
 }
 
-QDebug operator <<(QDebug d, const Command &t)
+QDebug operator<<(QDebug d, const Command &t)
 {
     d << " mParams : " << t.params();
     d << " mCommandName : " << t.commandName();

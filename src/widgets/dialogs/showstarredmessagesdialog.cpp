@@ -23,7 +23,8 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
-namespace {
+namespace
+{
 static const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
 }
 

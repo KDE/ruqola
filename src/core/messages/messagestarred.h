@@ -32,8 +32,9 @@ public:
 
     Q_REQUIRED_RESULT bool operator==(MessageStarred other) const;
     void parse(const QJsonObject &o);
+
 private:
     bool mIsStarred = false;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, MessageStarred t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, MessageStarred t);
 #endif // MESSAGESTARRED_H

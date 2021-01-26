@@ -24,8 +24,7 @@
 #include <QDebug>
 #include <QJsonArray>
 
-struct CryptoSettings
-{
+struct CryptoSettings {
     QString mCrypt;
 };
 
@@ -36,13 +35,7 @@ public:
     Otr();
     ~Otr();
 
-    enum OtrType {
-        Unknown = 0,
-        End,
-        Handshake,
-        Deny,
-        AcknowLedge
-    };
+    enum OtrType { Unknown = 0, End, Handshake, Deny, AcknowLedge };
     Q_ENUM(OtrType)
 
     void parseOtr(const QJsonArray &contents);
@@ -59,14 +52,14 @@ public:
 
 private:
     void parseCryptoSettings(const QString &publicKey);
-    //TODO add crypto support
+    // TODO add crypto support
     QString mRoomId;
     QString mUserId;
     OtrType mType = OtrType::Unknown;
     CryptoSettings mCrypto;
 };
 Q_DECLARE_METATYPE(Otr)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Otr &t);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const CryptoSettings &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Otr &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CryptoSettings &t);
 
 #endif // OTR_H

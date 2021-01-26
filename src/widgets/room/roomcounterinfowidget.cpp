@@ -48,7 +48,9 @@ void RoomCounterInfoWidget::setChannelCounterInfo(const ChannelCounterInfo &chan
 void RoomCounterInfoWidget::updateInfo()
 {
     if (mChannelCounterInfo.isValid() && mChannelCounterInfo.unreadMessages() > 0) {
-        setText(i18np("%1 new message since %2. %3", "%1 new messages since %2. %3", mChannelCounterInfo.unreadMessages(),
+        setText(i18np("%1 new message since %2. %3",
+                      "%1 new messages since %2. %3",
+                      mChannelCounterInfo.unreadMessages(),
                       mChannelCounterInfo.unreadFrom().toString(),
                       QStringLiteral(" <a href=\"markAsRead\">%1</a>").arg(i18n("(Mark As Read)"))));
         animatedShow();

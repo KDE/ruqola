@@ -22,7 +22,6 @@
 #include "dialogs/channelinfowidget.h"
 #include <KPasswordLineEdit>
 #include <QCheckBox>
-#include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QPushButton>
@@ -44,7 +43,7 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
 
-    //Editable channel
+    // Editable channel
     auto mEditableChannel = w.findChild<QWidget *>(QStringLiteral("mEditableChannel"));
     QVERIFY(mEditableChannel);
 
@@ -91,7 +90,7 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDeleteChannel);
     QVERIFY(!mDeleteChannel->text().isEmpty());
 
-    //ReadOnly Channel
+    // ReadOnly Channel
     auto mReadOnlyChannel = w.findChild<QWidget *>(QStringLiteral("mReadOnlyChannel"));
     QVERIFY(mReadOnlyChannel);
 

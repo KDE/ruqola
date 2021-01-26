@@ -20,9 +20,9 @@
 
 #include "messagedelegateutils.h"
 
+#include <QApplication>
 #include <QTextFrame>
 #include <QTextFrameFormat>
-#include <QApplication>
 
 std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool useItalic, const QString &text, int width)
 {

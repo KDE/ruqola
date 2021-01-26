@@ -47,7 +47,6 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-
     QWidget *mTextWidget = nullptr;
 };
 

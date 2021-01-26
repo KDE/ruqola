@@ -22,9 +22,9 @@
 #include "channelinfowidget.h"
 #include "room.h"
 
+#include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <KLocalizedString>
 
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     : QDialog(parent)

@@ -19,10 +19,10 @@
 */
 
 #include "userscreatejobtest.h"
-#include "users/userscreatejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/userscreatejob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersCreateJobTest)
 using namespace RocketChatRestApi;
 UsersCreateJobTest::UsersCreateJobTest(QObject *parent)
@@ -50,7 +50,7 @@ void UsersCreateJobTest::shouldGenerateRequest()
 void UsersCreateJobTest::shouldGenerateJson()
 {
     UsersCreateJob job;
-    //TODO
+    // TODO
 }
 
 void UsersCreateJobTest::shouldNotStarting()

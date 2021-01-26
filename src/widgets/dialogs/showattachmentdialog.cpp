@@ -19,17 +19,18 @@
 */
 
 #include "showattachmentdialog.h"
-#include "showattachmentwidget.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "showattachmentwidget.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <KLocalizedString>
-namespace {
+namespace
+{
 static const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 }
 

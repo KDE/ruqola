@@ -21,8 +21,8 @@
 #include "setgrouptypejobtest.h"
 #include "groups/setgrouptypejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SetGroupTypeJobTest)
 using namespace RocketChatRestApi;
 SetGroupTypeJobTest::SetGroupTypeJobTest(QObject *parent)

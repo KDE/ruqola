@@ -47,9 +47,7 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     const QString text = index.data(Qt::DisplayRole).toString();
     const int xText = option.rect.x() + margin + emojiWidth;
-    const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText,
-                            option.rect.height());
+    const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText, option.rect.height());
 
     drawDisplay(painter, option, displayRect, text);
 }

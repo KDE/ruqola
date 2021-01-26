@@ -52,11 +52,11 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     } else if (attachment.contains(QLatin1String("author_link"))) {
         setLink(attachment.value(QLatin1String("author_link")).toString());
         attType = AttachmentType::NormalText;
-    } else if (attachment.contains(QLatin1String("title_link"))) { //Last as an image_url can have a title_link
+    } else if (attachment.contains(QLatin1String("title_link"))) { // Last as an image_url can have a title_link
         setLink(attachment.value(QLatin1String("title_link")).toString());
         attType = AttachmentType::File;
     }
-    //Add image dimension
+    // Add image dimension
     if (attType == AttachmentType::Image) {
         const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
         if (!imageDimensions.isUndefined()) {
@@ -64,9 +64,9 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 
             setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
             setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
-            //TODO validate image size
+            // TODO validate image size
         } else {
-            //Use default value
+            // Use default value
             setImageHeight(120);
             setImageWidth(120);
         }
@@ -74,19 +74,19 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 
     setAuthorName(attachment.value(QLatin1String("author_name")).toString());
     setAuthorIcon(attachment.value(QLatin1String("author_icon")).toString());
-    //Color
+    // Color
     const QJsonValue color = attachment.value(QLatin1String("color"));
     if (!color.isUndefined()) {
         setColor(color.toString());
     }
-    //MimeType
+    // MimeType
     setMimeType(attachment.value(QLatin1String("image_type")).toString());
 
-    //Text
+    // Text
     const QJsonValue text = attachment.value(QLatin1String("text"));
     if (!text.isUndefined()) {
         const QJsonValue messagelink = attachment.value(QLatin1String("message_link"));
-        if (messagelink.isUndefined()) { //Don't show attachment if we have message_link. We already implement message preview
+        if (messagelink.isUndefined()) { // Don't show attachment if we have message_link. We already implement message preview
             attType = AttachmentType::NormalText;
             setText(text.toString());
         }
@@ -235,7 +235,7 @@ bool MessageAttachment::isValid() const
 
 bool MessageAttachment::canDownloadAttachment() const
 {
-    //Improve it !
+    // Improve it !
     if (mLink.startsWith(QLatin1String("http://")) || mLink.startsWith(QLatin1String("https://"))) {
         return false;
     }
@@ -284,7 +284,7 @@ void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
 {
     mAttachmentType = attachmentType;
     if (mAttachmentType == Image) {
-        //By default use false for showing it or using settings for image
+        // By default use false for showing it or using settings for image
         mShowAttachment = RuqolaGlobalConfig::self()->showImage();
     }
 }
@@ -405,21 +405,13 @@ void MessageAttachment::setLink(const QString &link)
 
 bool MessageAttachment::operator==(const MessageAttachment &other) const
 {
-    return (mDescription == other.description())
-           && (mTitle == other.title())
-           && (mLink == other.link())
-           && (mColor == other.color())
-           && (mImageHeight == other.imageHeight())
-           && (mImageWidth == other.imageWidth())
-           && (mAuthorName == other.authorName())
-           && (mMimeType == other.mimeType())
-           && (mText == other.text())
-           && (mAttachmentFields == other.attachmentFields())
-           && (mCollapsed == other.collapsed())
-           && (mAuthorIcon == other.authorIcon());
+    return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link()) && (mColor == other.color())
+        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
+        && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
+        && (mAuthorIcon == other.authorIcon());
 }
 
-QDebug operator <<(QDebug d, const MessageAttachment &t)
+QDebug operator<<(QDebug d, const MessageAttachment &t)
 {
     d << "Title : " << t.title();
     d << "Description: " << t.description();

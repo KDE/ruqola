@@ -20,9 +20,9 @@
 #ifndef AUTOTRANSLATELANGUAGESMODEL_H
 #define AUTOTRANSLATELANGUAGESMODEL_H
 
-#include <QAbstractListModel>
-#include "libruqolacore_export.h"
 #include "autotranslatelanguages.h"
+#include "libruqolacore_export.h"
+#include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT AutotranslateLanguagesModel : public QAbstractListModel
 {

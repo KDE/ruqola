@@ -21,10 +21,11 @@
 #ifndef STARMESSAGEJOB_H
 #define STARMESSAGEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 class QNetworkRequest;
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT StarMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT

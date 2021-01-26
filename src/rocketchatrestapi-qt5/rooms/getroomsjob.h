@@ -21,11 +21,12 @@
 #ifndef GETROOMSJOB_H
 #define GETROOMSJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -45,7 +46,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GetRoomsJob)
     void slotGetRoomsFinished();
-    //TODO add updatedSince
+    // TODO add updatedSince
 };
 }
 #endif // GETROOMSJOB_H

@@ -34,7 +34,7 @@ public:
 
     void parseReactions(const QJsonObject &array, EmojiManager *emojiManager = nullptr);
 
-    Q_REQUIRED_RESULT bool operator ==(const Reactions &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Reactions &other) const;
 
     Q_REQUIRED_RESULT static QJsonObject serialize(const Reactions &reactions);
     Q_REQUIRED_RESULT static Reactions fromJSon(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
@@ -45,6 +45,6 @@ private:
     QVector<Reaction> mReactions;
 };
 Q_DECLARE_METATYPE(Reactions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Reactions &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reactions &t);
 
 #endif // REACTIONS_H

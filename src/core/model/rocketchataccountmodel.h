@@ -21,8 +21,8 @@
 #ifndef ROCKETCHATACCOUNTMODEL_H
 #define ROCKETCHATACCOUNTMODEL_H
 
-#include <QAbstractListModel>
 #include "libruqolacore_export.h"
+#include <QAbstractListModel>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatAccountModel : public QAbstractListModel
 {

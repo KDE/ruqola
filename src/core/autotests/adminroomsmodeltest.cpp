@@ -34,4 +34,4 @@ void AdminRoomsModelTest::shouldHaveDefaultValues()
     QVERIFY(m.adminRooms().isEmpty());
 }
 
-//TODO
+// TODO

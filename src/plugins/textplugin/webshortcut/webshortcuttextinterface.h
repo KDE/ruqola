@@ -22,7 +22,8 @@
 #define WEBSHORTCUTTEXTINTERFACE_H
 
 #include "room/plugins/plugintextinterface.h"
-namespace KIO {
+namespace KIO
+{
 class KUriFilterSearchProviderActions;
 }
 class WebShortcutTextInterface : public PluginTextInterface

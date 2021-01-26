@@ -23,8 +23,8 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QUrlQuery>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 UsersListJob::UsersListJob(QObject *parent)
     : UserBaseJob(parent)

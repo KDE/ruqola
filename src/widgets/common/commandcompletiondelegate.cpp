@@ -20,8 +20,8 @@
 
 #include "commandcompletiondelegate.h"
 
-#include "model/commandsmodel.h"
 #include "common/delegatepaintutil.h"
+#include "model/commandsmodel.h"
 
 #include <QPainter>
 

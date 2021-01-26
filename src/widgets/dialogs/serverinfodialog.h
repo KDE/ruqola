@@ -21,8 +21,8 @@
 #ifndef SERVERINFODIALOG_H
 #define SERVERINFODIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ServerInfoWidget;
 class ServerConfigInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfoDialog : public QDialog
@@ -32,6 +32,7 @@ public:
     explicit ServerInfoDialog(QWidget *parent = nullptr);
     ~ServerInfoDialog() override;
     void setServerConfigInfo(ServerConfigInfo *info);
+
 private:
     ServerInfoWidget *mServerInfoWidget = nullptr;
 };

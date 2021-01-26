@@ -28,7 +28,10 @@ class LIBRUQOLACORE_TESTS_EXPORT ThreadMessageModel : public MessageModel
 {
     Q_OBJECT
 public:
-    explicit ThreadMessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
+    explicit ThreadMessageModel(const QString &roomID = QStringLiteral("no_room"),
+                                RocketChatAccount *account = nullptr,
+                                Room *room = nullptr,
+                                QObject *parent = nullptr);
     ~ThreadMessageModel() override;
 
     Q_REQUIRED_RESULT QString threadMessageId() const;

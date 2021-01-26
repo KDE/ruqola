@@ -21,9 +21,9 @@
 #ifndef DOWNLOADAPPSLANGUAGESJOB_H
 #define DOWNLOADAPPSLANGUAGESJOB_H
 
+#include "libruqolacore_export.h"
 #include <QObject>
 #include <QSslError>
-#include "libruqolacore_export.h"
 class QNetworkAccessManager;
 class QNetworkReply;
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesJob : public QObject

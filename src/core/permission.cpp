@@ -61,7 +61,7 @@ bool Permission::isValid() const
     return mUpdatedAt != -1;
 }
 
-QDebug operator <<(QDebug d, const Permission &t)
+QDebug operator<<(QDebug d, const Permission &t)
 {
     d << "roles : " << t.roles();
     d << "mUpdatedAt " << t.updatedAt();

@@ -19,10 +19,10 @@
 */
 
 #include "ruqolaserverconfig.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QRegularExpression>
 #include <QStringList>
-#include "ruqola_debug.h"
 
 RuqolaServerConfig::RuqolaServerConfig()
 {
@@ -90,9 +90,11 @@ bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
 
 bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) const
 {
-//    qDebug() << " major " << major << " mServerVersionMajor " << mServerVersionMajor << " (major <= mServerVersionMajor) " << (major <= mServerVersionMajor) <<
-//                " minor " << minor << " mServerVersionMinor  " << mServerVersionMinor << " (minor <= mServerVersionMinor) " << (minor <= mServerVersionMinor) <<
-//                " patch " << patch << " mServerVersionPatch " << mServerVersionPatch << " (patch <= mServerVersionPatch) " << (patch <= mServerVersionPatch);
+    //    qDebug() << " major " << major << " mServerVersionMajor " << mServerVersionMajor << " (major <= mServerVersionMajor) " << (major <=
+    //    mServerVersionMajor) <<
+    //                " minor " << minor << " mServerVersionMinor  " << mServerVersionMinor << " (minor <= mServerVersionMinor) " << (minor <=
+    //                mServerVersionMinor) << " patch " << patch << " mServerVersionPatch " << mServerVersionPatch << " (patch <= mServerVersionPatch) " <<
+    //                (patch <= mServerVersionPatch);
     if (mServerVersionMajor > major) {
         return true;
     }
@@ -103,7 +105,7 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
 {
     mServerVersionStr = version;
     const QStringList lst = version.split(QLatin1Char('.'));
-    //0.70.0-rc.1 has 4 "."
+    // 0.70.0-rc.1 has 4 "."
     if (lst.count() >= 3) {
         bool ok;
         int value = lst.at(0).toInt(&ok);
@@ -117,7 +119,7 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
         value = lst.at(2).toInt(&ok);
         if (ok) {
             mServerVersionPatch = value;
-        } else { //Perhaps it has "rc"/"beta" etc.
+        } else { // Perhaps it has "rc"/"beta" etc.
             mServerVersionPatch = 0;
         }
     }
@@ -162,15 +164,15 @@ void RuqolaServerConfig::addOauthService(const QString &service)
     } else if (serviceLower.endsWith(QLatin1String("wordpress"))) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Wordpress;
     } else if (serviceLower.endsWith(QLatin1String("_oauth_proxy_host"))) {
-        //Hide warning as it's not a service
+        // Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";
     } else if (serviceLower.endsWith(QLatin1String("_oauth_meteor"))) {
         qCDebug(RUQOLA_LOG) << "Accounts_OAuth_Meteor found ";
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
-    //Add Accounts_TwoFactorAuthentication_Enabled
-    //Add Accounts_TwoFactorAuthentication_By_Email_Enabled
+    // Add Accounts_TwoFactorAuthentication_Enabled
+    // Add Accounts_TwoFactorAuthentication_By_Email_Enabled
 }
 
 void RuqolaServerConfig::adaptToServerVersion()
@@ -200,7 +202,7 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
 
 void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
 {
-    //TODO using enum here ?
+    // TODO using enum here ?
     if (registrationFromValue != QStringLiteral("Disabled")) {
         mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
     }
@@ -301,7 +303,7 @@ void RuqolaServerConfig::setFaviconUrl(const QString &url)
     mFaviconUrl = url;
 }
 
-QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
+QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
 {
     d << "mUniqueId  " << t.uniqueId();
     d << "mJitsiMeetUrl " << t.jitsiMeetUrl();
@@ -313,7 +315,8 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
     d << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
     d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
-    d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
+    d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch "
+      << t.serverVersionPatch();
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
     d << "mLoginExpiration " << t.loginExpiration();
@@ -322,7 +325,7 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
 
 void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
 {
-    //qDebug() << " void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)" << obj;
+    // qDebug() << " void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)" << obj;
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
     mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     for (QJsonValueRef currentConfig : configs) {
@@ -458,5 +461,5 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
     }
-    //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
+    // TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
 }

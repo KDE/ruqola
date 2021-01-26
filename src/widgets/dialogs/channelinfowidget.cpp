@@ -19,23 +19,23 @@
 */
 
 #include "channelinfowidget.h"
+#include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola.h"
-#include "rocketchataccount.h"
 
-#include <QLineEdit>
 #include <KLocalizedString>
-#include <KPasswordLineEdit>
 #include <KMessageBox>
+#include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QHBoxLayout>
+#include <QInputDialog>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QStackedWidget>
-#include <QToolButton>
-#include <QInputDialog>
 #include <QTextDocument>
-#include <QHBoxLayout>
+#include <QToolButton>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -48,7 +48,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
 
-    //Editable channel
+    // Editable channel
     mEditableChannel = new QWidget(this);
     mEditableChannel->setObjectName(QStringLiteral("mEditableChannel"));
     mStackedWidget->addWidget(mEditableChannel);
@@ -97,13 +97,13 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     layout->addRow(str, mDescription);
 
-    //Show it if room is not private
+    // Show it if room is not private
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [](const QString &password) {
         qWarning() << "change password not implemented yet ";
-        //Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Password, password, mRoom->channelType());
+        // Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Password, password, mRoom->channelType());
     });
 
     mReadOnly = new QCheckBox(this);
@@ -116,7 +116,8 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mArchive = new QCheckBox(this);
     mArchive->setObjectName(QStringLiteral("mArchive"));
     layout->addRow(i18n("Archive:"), mArchive);
-    const bool canArchiveOrUnarchive = (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("archive-room")) || Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("unarchive-room")));
+    const bool canArchiveOrUnarchive = (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("archive-room"))
+                                        || Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("unarchive-room")));
     mArchive->setEnabled(canArchiveOrUnarchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
@@ -153,7 +154,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
         }
     });
 
-    //ReadOnly Channel
+    // ReadOnly Channel
     mReadOnlyChannel = new QWidget(this);
     mReadOnlyChannel->setObjectName(QStringLiteral("mReadOnlyChannel"));
     mStackedWidget->addWidget(mReadOnlyChannel);
@@ -287,12 +288,15 @@ void ChannelInfoWidget::connectEditableWidget()
     connect(mRoom, &Room::channelTypeChanged, this, [this]() {
         mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
     });
-    //TODO react when we change settings
+    // TODO react when we change settings
     connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
     });
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
-        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"), i18n("Archive room"))) {
+        if (KMessageBox::Yes
+            == KMessageBox::questionYesNo(this,
+                                          checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"),
+                                          i18n("Archive room"))) {
             Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
@@ -333,7 +337,7 @@ void ChangeTextWidget::setAllowEmptyText(bool b)
 
 void ChangeTextWidget::slotChangeText()
 {
-    //Convert html to text. Otherwise we will have html tag
+    // Convert html to text. Otherwise we will have html tag
     QString text = mLabel->text();
     QTextDocument doc;
     doc.setHtml(text);

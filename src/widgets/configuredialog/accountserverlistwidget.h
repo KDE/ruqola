@@ -21,10 +21,10 @@
 #ifndef ACCOUNTSERVERLISTWIDGET_H
 #define ACCOUNTSERVERLISTWIDGET_H
 
-#include <QListWidget>
+#include "dialogs/createnewaccountdialog.h"
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
-#include "dialogs/createnewaccountdialog.h"
+#include <QListWidget>
 class AccountServerListWidgetItem : public QListWidgetItem
 {
 public:
@@ -54,6 +54,7 @@ public:
     void deleteAccountConfig(QListWidgetItem *item);
 
     void modifyAccountConfig();
+
 private:
     QStringList mListRemovedAccount;
 };

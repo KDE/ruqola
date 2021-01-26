@@ -30,5 +30,5 @@ AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)
 void AdministratorUsersWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorUsersWidget w;
-    //TODO
+    // TODO
 }

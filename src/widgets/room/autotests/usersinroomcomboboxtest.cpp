@@ -31,5 +31,5 @@ void UsersInRoomComboBoxTest::shouldHaveDefaultValues()
 {
     UsersInRoomComboBox w;
     QVERIFY(w.count() > 0);
-    //TODO
+    // TODO
 }

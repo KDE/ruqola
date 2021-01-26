@@ -21,8 +21,8 @@
 #ifndef CREATEVIDEOMESSAGEWIDGET_H
 #define CREATEVIDEOMESSAGEWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLabel;
 class QCamera;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
     ~CreateVideoMessageWidget() override;
+
 private:
     void stopCamera();
     void startCamera();

@@ -32,8 +32,7 @@ class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager
 {
     Q_OBJECT
 
-    enum class Method
-    {
+    enum class Method {
         Login,
         SendOtp,
         Logout,

@@ -19,12 +19,12 @@
 */
 
 #include "messagelistdelegatetest.h"
-#include "room/delegate/messagelistdelegate.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "messageattachmentdelegatehelperimagetest.h"
 #include "messages/message.h"
 #include "messages/messageattachment.h"
+#include "rocketchataccount.h"
+#include "room/delegate/messagelistdelegate.h"
+#include "ruqola.h"
 #include "testdata.h"
 
 #include <QStandardItemModel>
@@ -145,7 +145,7 @@ void MessageListDelegateTest::layoutChecks()
     // Avatar
     QCOMPARE(qRound(layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF()), layout.senderRect.height());
     QCOMPARE(layout.avatarPixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
-    //qDebug() << layout.avatarPos.y() << "+" << layout.avatarPixmap.height() << "must be <=" << bottom;
+    // qDebug() << layout.avatarPos.y() << "+" << layout.avatarPixmap.height() << "must be <=" << bottom;
     QVERIFY(layout.avatarPos.y() + layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF() <= bottom);
 
     // Reactions

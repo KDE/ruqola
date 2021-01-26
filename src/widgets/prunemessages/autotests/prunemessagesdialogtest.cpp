@@ -21,10 +21,10 @@
 #include "prunemessagesdialogtest.h"
 #include "prunemessages/prunemessagesdialog.h"
 #include "prunemessages/prunemessageswidget.h"
-#include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(PruneMessagesDialogTest)
 
 PruneMessagesDialogTest::PruneMessagesDialogTest(QObject *parent)

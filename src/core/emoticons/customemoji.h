@@ -21,9 +21,9 @@
 #ifndef EMOJI_H
 #define EMOJI_H
 
-#include <QString>
-#include <QDebug>
 #include "libruqola_private_export.h"
+#include <QDebug>
+#include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
 {
@@ -70,6 +70,7 @@ public:
 
     Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
     Q_REQUIRED_RESULT QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
+
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;
@@ -80,6 +81,6 @@ private:
     qint64 mUpdatedAt = 0;
 };
 Q_DECLARE_METATYPE(CustomEmoji)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const CustomEmoji &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmoji &t);
 
 #endif // EMOJI_H

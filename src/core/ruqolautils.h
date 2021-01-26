@@ -37,6 +37,7 @@ public:
     void openUrl(const QString &url);
 
     QString extractRoomUserFromUrl(const QString &url);
+
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);
     Q_DISABLE_COPY(RuqolaUtils)

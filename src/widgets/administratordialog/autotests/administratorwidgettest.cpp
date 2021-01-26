@@ -20,8 +20,8 @@
 
 #include "administratorwidgettest.h"
 #include "administratordialog/administratorwidget.h"
-#include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
+#include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include "administratordialog/users/administratoruserswidget.h"
@@ -55,7 +55,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
     auto mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
     QVERIFY(mAdministratorCustomSoundsWidget);
 
-    //TODO we need to fix mRocketChatAccount::hasPermission in autotest.
+    // TODO we need to fix mRocketChatAccount::hasPermission in autotest.
     auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
     QVERIFY(mAdministratorServerInfoWidget);
 

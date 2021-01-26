@@ -49,26 +49,26 @@ void TypingNotification::textNotificationChanged(const QString &roomId, bool emp
     if (mTypingInprogress) {
         if (emptyString) {
             mTypingInprogress = false;
-            //1) Send info about typing.
+            // 1) Send info about typing.
             Q_EMIT informTypingStatus(roomId, false);
         } else {
             if (mRoomId != roomId) {
-                //We changed room.
-                //1) stop typing in old room
+                // We changed room.
+                // 1) stop typing in old room
                 Q_EMIT informTypingStatus(roomId, false);
 
-                //2) start info about typing in new room.
+                // 2) start info about typing in new room.
                 Q_EMIT informTypingStatus(mRoomId, true);
             }
 
-            //3) restart timer.
+            // 3) restart timer.
             mTimer->start();
         }
     } else {
         mTypingInprogress = true;
         Q_EMIT informTypingStatus(roomId, true);
-        //Send info about typing.
-        //Restart timer.
+        // Send info about typing.
+        // Restart timer.
         mTimer->start();
     }
     mRoomId = roomId;
@@ -77,6 +77,6 @@ void TypingNotification::textNotificationChanged(const QString &roomId, bool emp
 void TypingNotification::slotTimeout()
 {
     mTypingInprogress = false;
-    //Send info about stopping typing.
+    // Send info about stopping typing.
     Q_EMIT informTypingStatus(mRoomId, false);
 }

@@ -21,9 +21,9 @@
 #include "findorcreateinvitejobtest.h"
 #include "invite/findorcreateinvitejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QTest>
 QTEST_GUILESS_MAIN(FindOrCreateInviteJobTest)
 using namespace RocketChatRestApi;
 FindOrCreateInviteJobTest::FindOrCreateInviteJobTest(QObject *parent)
@@ -111,8 +111,8 @@ void FindOrCreateInviteJobTest::shouldParseResult()
     const FindOrCreateInviteJob::InviteUsersInfo result = job.parseResult(obj);
     const bool messageIsEqual = (result == inviteUsersInfo);
     if (!messageIsEqual) {
-        qDebug() << "originalMessage "<<result;
-        qDebug() << "ExpectedMessage "<<inviteUsersInfo;
+        qDebug() << "originalMessage " << result;
+        qDebug() << "ExpectedMessage " << inviteUsersInfo;
     }
     QVERIFY(messageIsEqual);
 }

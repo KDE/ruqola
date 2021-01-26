@@ -22,16 +22,16 @@
 #define ROOMADMIN_H
 
 #include "libruqolacore_export.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT AdminRoom
 {
 public:
     AdminRoom();
     ~AdminRoom();
-    Q_REQUIRED_RESULT bool operator ==(const AdminRoom &other) const;
+    Q_REQUIRED_RESULT bool operator==(const AdminRoom &other) const;
     void parseAdminRoom(const QJsonObject &object);
 
     Q_REQUIRED_RESULT bool defaultRoom() const;
@@ -67,6 +67,7 @@ public:
     Q_REQUIRED_RESULT QString channelTypeStr() const;
 
     Q_REQUIRED_RESULT QString roomName() const;
+
 private:
     QStringList mUserNames;
     QStringList mUsers;
@@ -82,6 +83,6 @@ private:
 };
 Q_DECLARE_METATYPE(AdminRoom)
 Q_DECLARE_TYPEINFO(AdminRoom, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AdminRoom &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AdminRoom &t);
 
 #endif // ROOMADMIN_H

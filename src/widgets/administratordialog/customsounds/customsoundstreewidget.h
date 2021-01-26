@@ -21,8 +21,8 @@
 #ifndef CUSTOMSOUNDSTREEWIDGET_H
 #define CUSTOMSOUNDSTREEWIDGET_H
 
-#include <QTreeWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QTreeWidget>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CustomSoundsTreeWidget : public QTreeWidget
 {

@@ -19,8 +19,8 @@
 */
 
 #include "getusernamesuggestionjobtest.h"
-#include "users/getusernamesuggestionjob.h"
 #include "restapimethod.h"
+#include "users/getusernamesuggestionjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetUsernameSuggestionJobTest)
 using namespace RocketChatRestApi;

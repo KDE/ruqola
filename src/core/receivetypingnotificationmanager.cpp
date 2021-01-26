@@ -48,7 +48,7 @@ void ReceiveTypingNotificationManager::insertTypingNotification(const QString &r
             const int removedUserCount = lst.removeAll(userName);
             if (removedUserCount > 0) {
                 if (lst.isEmpty()) {
-                    //remove roomId
+                    // remove roomId
                     mMapTypingNotifications.remove(roomId);
                 } else {
                     mMapTypingNotifications[roomId] = lst;

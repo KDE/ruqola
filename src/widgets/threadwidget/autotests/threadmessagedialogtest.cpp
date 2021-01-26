@@ -21,10 +21,10 @@
 #include "threadmessagedialogtest.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "threadwidget/threadmessagewidget.h"
-#include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(ThreadMessageDialogTest)
 ThreadMessageDialogTest::ThreadMessageDialogTest(QObject *parent)

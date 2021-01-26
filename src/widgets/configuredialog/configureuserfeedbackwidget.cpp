@@ -23,9 +23,9 @@
 #include <QHBoxLayout>
 
 #if HAVE_KUSERFEEDBACK
-#include <KUserFeedback/Provider>
-#include <KUserFeedback/FeedbackConfigWidget>
 #include "userfeedback/userfeedbackmanager.h"
+#include <KUserFeedback/FeedbackConfigWidget>
+#include <KUserFeedback/Provider>
 #endif
 
 ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)

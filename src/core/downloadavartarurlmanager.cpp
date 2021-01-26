@@ -20,9 +20,9 @@
 
 #include "downloadavartarurlmanager.h"
 
+#include "ruqola_debug.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include "ruqola_debug.h"
 
 DownloadAvartarUrlManager::DownloadAvartarUrlManager(QObject *parent)
     : QObject(parent)

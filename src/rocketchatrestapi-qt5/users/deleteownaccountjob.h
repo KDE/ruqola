@@ -21,9 +21,10 @@
 #ifndef DELETEOWNACCOUNTJOB_H
 #define DELETEOWNACCOUNTJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT DeleteOwnAccountJob : public RestApiAbstractJob
 {
     Q_OBJECT

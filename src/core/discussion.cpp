@@ -19,9 +19,9 @@
 
 #include "discussion.h"
 #include "utils.h"
+#include <KLocalizedString>
 #include <QDateTime>
 #include <QJsonObject>
-#include <KLocalizedString>
 
 Discussion::Discussion()
 {
@@ -101,7 +101,7 @@ void Discussion::setTimeStamp(qint64 timeStamp)
     mTimeStampDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mTimeStamp), QLocale::LongFormat);
 }
 
-QDebug operator <<(QDebug d, const Discussion &t)
+QDebug operator<<(QDebug d, const Discussion &t)
 {
     d << "Parent Id " << t.parentRoomId();
     d << "Last Message " << t.lastMessage();
@@ -113,15 +113,11 @@ QDebug operator <<(QDebug d, const Discussion &t)
     return d;
 }
 
-bool Discussion::operator ==(const Discussion &other) const
+bool Discussion::operator==(const Discussion &other) const
 {
-    return (description() == other.description())
-           && (parentRoomId() == other.parentRoomId())
-           && (numberMessages() == other.numberMessages())
-           && (lastMessage() == other.lastMessage())
-           && (discussionRoomId() == other.discussionRoomId())
-           && (timeStamp() == other.timeStamp())
-           && (fname() == other.fname());
+    return (description() == other.description()) && (parentRoomId() == other.parentRoomId()) && (numberMessages() == other.numberMessages())
+        && (lastMessage() == other.lastMessage()) && (discussionRoomId() == other.discussionRoomId()) && (timeStamp() == other.timeStamp())
+        && (fname() == other.fname());
 }
 
 void Discussion::parseDiscussion(const QJsonObject &o)
@@ -133,7 +129,7 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    //TODO autotranslate ??
+    // TODO autotranslate ??
 }
 
 QString Discussion::discussionRoomId() const

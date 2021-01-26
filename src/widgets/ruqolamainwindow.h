@@ -21,10 +21,10 @@
 #ifndef RUQOLAMAINWINDOW_H
 #define RUQOLAMAINWINDOW_H
 
-#include <KXmlGuiWindow>
-#include <QPointer>
 #include "channels/channelbasejob.h"
 #include "libruqolawidgets_export.h"
+#include <KXmlGuiWindow>
+#include <QPointer>
 class RuqolaCentralWidget;
 class QAction;
 class AccountMenu;

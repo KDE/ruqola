@@ -19,10 +19,10 @@
 */
 
 #include "forgotpasswordjobtest.h"
-#include "users/forgotpasswordjob.h"
 #include "restapimethod.h"
-#include <QTest>
+#include "users/forgotpasswordjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ForgotPasswordJobTest)
 using namespace RocketChatRestApi;
 ForgotPasswordJobTest::ForgotPasswordJobTest(QObject *parent)

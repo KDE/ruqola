@@ -20,9 +20,9 @@
 
 #include "administratorroomsselectroomtypewidgettest.h"
 #include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
+#include <QCheckBox>
 #include <QHBoxLayout>
 #include <QTest>
-#include <QCheckBox>
 QTEST_MAIN(AdministratorRoomsSelectRoomTypeWidgetTest)
 
 AdministratorRoomsSelectRoomTypeWidgetTest::AdministratorRoomsSelectRoomTypeWidgetTest(QObject *parent)

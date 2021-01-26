@@ -19,8 +19,8 @@
 */
 
 #include "spotlightjobtest.h"
-#include "spotlightjob.h"
 #include "restapimethod.h"
+#include "spotlightjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SpotlightJobTest)
 using namespace RocketChatRestApi;

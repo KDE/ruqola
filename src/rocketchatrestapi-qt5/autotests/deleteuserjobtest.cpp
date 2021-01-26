@@ -19,10 +19,10 @@
 */
 
 #include "deleteuserjobtest.h"
-#include "users/deleteuserjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/deleteuserjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(DeleteUserJobTest)
 using namespace RocketChatRestApi;
 DeleteUserJobTest::DeleteUserJobTest(QObject *parent)

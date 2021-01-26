@@ -21,8 +21,8 @@
 #include "roomleavejobtest.h"
 #include "rooms/roomleavejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RoomLeaveJobTest)
 using namespace RocketChatRestApi;
 RoomLeaveJobTest::RoomLeaveJobTest(QObject *parent)

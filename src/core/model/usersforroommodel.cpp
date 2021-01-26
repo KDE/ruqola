@@ -19,8 +19,8 @@
 */
 
 #include "usersforroommodel.h"
-#include "usersmodel.h"
 #include "ruqola_debug.h"
+#include "usersmodel.h"
 
 #include <QIcon>
 #include <QJsonArray>
@@ -187,7 +187,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         if (!result.isEmpty()) {
             const QJsonArray records = result[QStringLiteral("records")].toArray();
             mTotal = result[QLatin1String("total")].toInt();
-            mOffset = root[QLatin1String("offset")].toInt(); //TODO verify if a day we use no rest api
+            mOffset = root[QLatin1String("offset")].toInt(); // TODO verify if a day we use no rest api
 
             QVector<User> users;
             users.reserve(records.count());
@@ -204,7 +204,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                     if (model) {
                         user.setStatus(model->status(id));
                     }
-                    //Add status!
+                    // Add status!
                     if (user.isValid()) {
                         users.append(user);
                     } else {

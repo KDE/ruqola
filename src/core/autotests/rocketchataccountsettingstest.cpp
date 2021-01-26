@@ -20,9 +20,9 @@
 
 #include "rocketchataccountsettingstest.h"
 #include "rocketchataccountsettings.h"
-#include <QTest>
 #include <QSignalSpy>
 #include <QStandardPaths>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(RocketChatAccountSettingsTest)
 
@@ -53,11 +53,11 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenSetServerURLChanged()
     SampleChatAccount.setServerUrl(serverUrlDefault);
     QCOMPARE(SpyURL.count(), 1);
 
-    //Test same url
+    // Test same url
     SampleChatAccount.setServerUrl(serverUrlDefault);
     QCOMPARE(SpyURL.count(), 1);
 
-    //Test Empty url
+    // Test Empty url
     const QString emptyString;
     SampleChatAccount.setServerUrl(emptyString);
     QCOMPARE(SpyURL.count(), 2);
@@ -87,11 +87,11 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserNameChanged()
     SampleChat.setUserName(userNameDefault);
     QCOMPARE(SpyName.count(), 1);
 
-    //Test same name
+    // Test same name
     SampleChat.setUserName(userNameDefault);
     QCOMPARE(SpyName.count(), 1);
 
-    //Test empty string
+    // Test empty string
     const QString emptyString;
     SampleChat.setUserName(emptyString);
     QCOMPARE(SpyName.count(), 2);
@@ -113,7 +113,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenLoginStatusChanged()
 {
-    //TODO
+    // TODO
 }
 
 void RocketChatAccountSettingsTest::shouldLogout()
@@ -123,7 +123,7 @@ void RocketChatAccountSettingsTest::shouldLogout()
     SampleChat.setAuthToken(QStringLiteral("Token305"));
     SampleChat.setUserId(QStringLiteral("ECE305"));
     SampleChat.setPassword(QStringLiteral("masterPassword"));
-    //Make sure that values are not null
+    // Make sure that values are not null
     QVERIFY(!SampleChat.authToken().isEmpty());
     QVERIFY(!SampleChat.userId().isEmpty());
     QVERIFY(!SampleChat.password().isEmpty());

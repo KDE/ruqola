@@ -68,6 +68,7 @@ public:
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
     void clearTextDocumentCache();
+
 private:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
@@ -87,16 +88,16 @@ private:
         // Edited icon
         QRect editedIconRect;
 
-        //Favorite icon
+        // Favorite icon
         QRect favoriteIconRect;
 
-        //Pinned icon
+        // Pinned icon
         QRect pinIconRect;
 
-        //Translated icon
+        // Translated icon
         QRect translatedIconRect;
 
-        //Show Ignore Message icon
+        // Show Ignore Message icon
         QRect showIgnoredMessageIconRect;
 
         // add-reaction button and timestamp

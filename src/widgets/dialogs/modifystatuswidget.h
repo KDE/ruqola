@@ -39,6 +39,7 @@ public:
 
     void setStatus(User::PresenceStatus status);
     void setMessageStatus(const QString &statusStr);
+
 private:
     StatusCombobox *mStatusCombobox = nullptr;
     QLineEdit *mStatusLineEdit = nullptr;

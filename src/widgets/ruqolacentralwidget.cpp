@@ -19,14 +19,14 @@
 */
 
 #include "ruqolacentralwidget.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include <QStackedWidget>
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHBoxLayout>
+#include <QStackedWidget>
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
@@ -92,7 +92,7 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
     connect(mCurrentRocketChatAccount, &RocketChatAccount::socketError, this, &RuqolaCentralWidget::slotSocketError);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
     mRuqolaMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    //Check if account is connected or not.
+    // Check if account is connected or not.
     slotLoginStatusChanged();
 }
 

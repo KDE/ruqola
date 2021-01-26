@@ -22,13 +22,14 @@
 #define MESSAGECACHE_H
 
 #include "libruqolacore_export.h"
+#include "model/threadmessagemodel.h"
 #include <QCache>
 #include <QMap>
 #include <QObject>
-#include "model/threadmessagemodel.h"
 
 class Message;
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class RestApiAbstractJob;
 class GetThreadMessagesJob;
 class GetMessageJob;

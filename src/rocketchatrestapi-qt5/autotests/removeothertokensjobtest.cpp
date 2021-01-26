@@ -19,10 +19,10 @@
 */
 
 #include "removeothertokensjobtest.h"
-#include "users/removeothertokensjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/removeothertokensjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RemoveOtherTokensJobTest)
 using namespace RocketChatRestApi;
 RemoveOtherTokensJobTest::RemoveOtherTokensJobTest(QObject *parent)

@@ -19,14 +19,14 @@
 */
 
 #include "showlistmessagebasewidget.h"
-#include "room/messagelistview.h"
-#include "model/listmessagesmodelfilterproxymodel.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/listmessagesmodelfilterproxymodel.h"
+#include "room/messagelistview.h"
 
-#include <QVBoxLayout>
 #include <KLocalizedString>
-#include <QLineEdit>
 #include <QLabel>
+#include <QLineEdit>
+#include <QVBoxLayout>
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     : QWidget(parent)

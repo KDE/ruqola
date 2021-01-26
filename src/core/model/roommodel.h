@@ -34,7 +34,6 @@ class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-
     enum RoomRoles {
         RoomName = Qt::UserRole + 1,
         RoomFName,
@@ -42,7 +41,7 @@ public:
         RoomId,
         RoomUnread,
         RoomType,
-        RoomOwnerUserName, //created by UserName
+        RoomOwnerUserName, // created by UserName
         RoomOwnerUserId,
         RoomTopic,
         RoomMutedUsers,
@@ -72,15 +71,15 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
-    * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
-    *
-    * @param roomID The unique room ID
-    * @param roomName The name of the room
-    * @param selected True if room if @param roomID is selected, else false
-    */
+     * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
+     *
+     * @param roomID The unique room ID
+     * @param roomName The name of the room
+     * @param selected True if room if @param roomID is selected, else false
+     */
     void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
-    //Clear data and refill it with data in the cache, if there is
+    // Clear data and refill it with data in the cache, if there is
     void reset();
     void clear();
 
@@ -88,10 +87,10 @@ public:
     void updateRoom(const QJsonObject &array);
     Room *addRoom(const QJsonObject &room);
     /**
-    * @brief Adds a room to mRoomsList with @param room
-    *
-    * @param room The room to be added
-    */
+     * @brief Adds a room to mRoomsList with @param room
+     *
+     * @param room The room to be added
+     */
     void addRoom(Room *room);
     void removeRoom(const QString &roomId);
 

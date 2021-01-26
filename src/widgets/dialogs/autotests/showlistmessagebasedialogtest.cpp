@@ -32,6 +32,6 @@ ShowListMessageBaseDialogTest::ShowListMessageBaseDialogTest(QObject *parent)
 
 void ShowListMessageBaseDialogTest::shouldHaveDefaultValues()
 {
-    //TODO
+    // TODO
     ShowListMessageBaseDialog w;
 }

@@ -20,10 +20,10 @@
 
 #include "channelpasswordwidget.h"
 #include <KLocalizedString>
-#include <QLabel>
+#include <KPasswordLineEdit>
 #include <QDebug>
 #include <QHBoxLayout>
-#include <KPasswordLineEdit>
+#include <QLabel>
 
 ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     : QWidget(parent)

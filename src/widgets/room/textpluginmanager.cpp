@@ -21,9 +21,9 @@
 #include "textpluginmanager.h"
 #include "plugins/plugintext.h"
 
+#include <KPluginFactory>
 #include <KPluginLoader>
 #include <KPluginMetaData>
-#include <KPluginFactory>
 #include <QFileInfo>
 #include <QSet>
 
@@ -54,9 +54,9 @@ bool TextPluginManager::initializePluginList()
         TextPluginManagerInfo info;
         const KPluginMetaData data = i.previous();
 
-        //1) get plugin data => name/description etc.
+        // 1) get plugin data => name/description etc.
         info.pluginData = createPluginMetaData(data);
-        //2) look at if plugin is activated
+        // 2) look at if plugin is activated
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
         // only load plugins once, even if found multiple times!

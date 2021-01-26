@@ -20,8 +20,8 @@
 #ifndef LINEEDITCATCHRETURNKEY_H
 #define LINEEDITCATCHRETURNKEY_H
 
-#include <QObject>
 #include "libruqolawidgets_private_export.h"
+#include <QObject>
 class QLineEdit;
 /**
  * @brief The LineEditCatchReturnKey class

@@ -69,19 +69,11 @@ void File::setDescription(const QString &description)
     mDescription = description;
 }
 
-bool File::operator ==(const File &other) const
+bool File::operator==(const File &other) const
 {
-    return (description() == other.description())
-           && (fileName() == other.fileName())
-           && (url() == other.url())
-           && (userId() == other.userId())
-           && (mimeType() == other.mimeType())
-           && (uploadedAt() == other.uploadedAt())
-           && (fileId() == other.fileId())
-           && (rid() == other.rid())
-           && (userName() == other.userName())
-           && (complete() == other.complete())
-           && (typeGroup() == other.typeGroup());
+    return (description() == other.description()) && (fileName() == other.fileName()) && (url() == other.url()) && (userId() == other.userId())
+        && (mimeType() == other.mimeType()) && (uploadedAt() == other.uploadedAt()) && (fileId() == other.fileId()) && (rid() == other.rid())
+        && (userName() == other.userName()) && (complete() == other.complete()) && (typeGroup() == other.typeGroup());
 }
 
 QString File::userId() const
@@ -181,13 +173,13 @@ void File::setTypeGroup(const QString &typeGroup)
     mTypeGroup = typeGroup;
 }
 
-QDebug operator <<(QDebug d, const File &t)
+QDebug operator<<(QDebug d, const File &t)
 {
     d << "Name : " << t.fileName();
     d << "Description: " << t.description();
     d << "Url :" << t.url();
     d << "UserId: " << t.userId();
-    d << "Mimetype : "<< t.mimeType();
+    d << "Mimetype : " << t.mimeType();
     d << "Uploaded time: " << t.uploadedAt();
     d << "File Id: " << t.fileId();
     d << "Rid: " << t.rid();

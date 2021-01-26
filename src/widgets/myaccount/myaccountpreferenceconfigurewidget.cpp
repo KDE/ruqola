@@ -19,13 +19,13 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
-#include <QVBoxLayout>
-#include <QLabel>
+#include "ruqola.h"
 #include <KLocalizedString>
-#include <QLineEdit>
 #include <QComboBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QVBoxLayout>
 
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *parent)
     : QWidget(parent)
@@ -82,17 +82,17 @@ MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
 
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
 {
-    //Default ?
+    // Default ?
     mDesktopNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
     mDesktopNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
     mDesktopNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
 
-    //Default ?
+    // Default ?
     mMobileNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
     mMobileNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
     mMobileNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
 
-    //Default ?
+    // Default ?
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
 
@@ -125,7 +125,7 @@ void MyAccountPreferenceConfigureWidget::save()
 
 void MyAccountPreferenceConfigureWidget::load()
 {
-    //TODO Load notifications.
+    // TODO Load notifications.
     const OwnUserPreferences ownUserPreferences = Ruqola::self()->rocketChatAccount()->ownUserPreferences();
     mHighlightWords->setText(ownUserPreferences.highlightWords().join(QLatin1Char(',')));
     mMobileNotification->setCurrentIndex(mMobileNotification->findData(ownUserPreferences.mobileNotifications()));

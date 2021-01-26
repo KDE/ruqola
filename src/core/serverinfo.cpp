@@ -145,19 +145,11 @@ void ServerInfo::setCommitHash(const QString &commitHash)
     mCommitHash = commitHash;
 }
 
-bool ServerInfo::operator ==(const ServerInfo &other) const
+bool ServerInfo::operator==(const ServerInfo &other) const
 {
-    return mArch == other.arch()
-           && mPlatform == other.platform()
-           && mVersion == other.version()
-           && mCommitAuthor == other.commitAuthor()
-           && mCommitBranch == other.commitBranch()
-           && mCommitTag == other.commitTag()
-           && mCommitSubject == other.commitSubject()
-           && mCommitHash == other.commitHash()
-           && mNumberOfCpu == other.numberOfCpu()
-           && mOsRelease == other.osRelease()
-           && mNodeVersion == other.nodeVersion();
+    return mArch == other.arch() && mPlatform == other.platform() && mVersion == other.version() && mCommitAuthor == other.commitAuthor()
+        && mCommitBranch == other.commitBranch() && mCommitTag == other.commitTag() && mCommitSubject == other.commitSubject()
+        && mCommitHash == other.commitHash() && mNumberOfCpu == other.numberOfCpu() && mOsRelease == other.osRelease() && mNodeVersion == other.nodeVersion();
 }
 
 QString ServerInfo::osRelease() const
@@ -180,7 +172,7 @@ void ServerInfo::setNodeVersion(const QString &nodeVersion)
     mNodeVersion = nodeVersion;
 }
 
-QDebug operator <<(QDebug d, const ServerInfo &t)
+QDebug operator<<(QDebug d, const ServerInfo &t)
 {
     d << "arch " << t.arch();
     d << "platform " << t.platform();

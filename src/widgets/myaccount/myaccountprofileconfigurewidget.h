@@ -21,9 +21,9 @@
 #ifndef MYACCOUNTPROFILECONFIGUREWIDGET_H
 #define MYACCOUNTPROFILECONFIGUREWIDGET_H
 
-#include <QWidget>
-#include "ownuser.h"
 #include "libruqolawidgets_private_export.h"
+#include "ownuser.h"
+#include <QWidget>
 class QLineEdit;
 class QPushButton;
 class PasswordConfirmWidget;
@@ -36,6 +36,7 @@ public:
     ~MyAccountProfileConfigureWidget() override;
     void load();
     void save();
+
 private:
     void slotLogoutFromOtherLocation();
     void slotDeleteMyAccount();

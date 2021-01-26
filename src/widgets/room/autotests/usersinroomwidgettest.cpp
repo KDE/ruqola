@@ -19,13 +19,13 @@
 */
 
 #include "usersinroomwidgettest.h"
-#include "room/usersinroomwidget.h"
 #include "room/usersinroomcombobox.h"
+#include "room/usersinroomwidget.h"
+#include <QLabel>
+#include <QLineEdit>
+#include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QListView>
-#include <QLineEdit>
-#include <QLabel>
 
 QTEST_MAIN(UsersInRoomWidgetTest)
 

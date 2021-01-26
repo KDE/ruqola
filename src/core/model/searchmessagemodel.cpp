@@ -19,8 +19,8 @@
 */
 
 #include "searchmessagemodel.h"
-#include "ruqola_debug.h"
 #include "rocketchataccount.h"
+#include "ruqola_debug.h"
 #include "textconverter.h"
 
 #include "listmessages.h"

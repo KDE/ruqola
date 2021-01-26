@@ -70,5 +70,5 @@ void SearchChannelFilterProxyModelTest::shouldLoadChannelJSon()
     sourceModel.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
 
-    //TODO improve
+    // TODO improve
 }

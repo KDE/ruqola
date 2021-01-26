@@ -22,13 +22,14 @@
 #include "prunemessageswidget.h"
 
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
-#include <QVBoxLayout>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 const char myConfigGroupName[] = "PruneMessagesDialog";
 }
 

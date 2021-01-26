@@ -55,7 +55,7 @@ void MessagePinned::parse(const QJsonObject &o)
     mPinnedBy = o.value(QLatin1String("pinnedBy")).toObject().value(QLatin1String("username")).toString();
 }
 
-QDebug operator <<(QDebug d, const MessagePinned &t)
+QDebug operator<<(QDebug d, const MessagePinned &t)
 {
     d << "isPinned " << t.pinned();
     d << "pinnedby " << t.pinnedBy();

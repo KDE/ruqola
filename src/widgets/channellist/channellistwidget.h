@@ -21,10 +21,10 @@
 #ifndef CHANNELLISTWIDGET_H
 #define CHANNELLISTWIDGET_H
 
-#include <QPointer>
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
+#include <QPointer>
+#include <QWidget>
 class StatusCombobox;
 class ChannelListView;
 class QLineEdit;

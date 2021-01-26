@@ -21,8 +21,8 @@
 #ifndef PASSWORDLINEEDITWIDGET_H
 #define PASSWORDLINEEDITWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class KPasswordLineEdit;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordLineEditWidget : public QWidget

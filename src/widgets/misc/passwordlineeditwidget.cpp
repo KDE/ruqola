@@ -19,11 +19,11 @@
 */
 
 #include "passwordlineeditwidget.h"
-#include <QHBoxLayout>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
-#include <QPushButton>
+#include <QHBoxLayout>
 #include <QInputDialog>
+#include <QPushButton>
 
 PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     : QWidget(parent)
@@ -56,7 +56,7 @@ void PasswordLineEditWidget::slotResetPasswordButton()
 {
     const QString email = QInputDialog::getText(this, i18n("Reset Password"), i18n("Email:"));
     if (!email.trimmed().isEmpty()) {
-        //Validate email ?
+        // Validate email ?
         Q_EMIT resetPasswordRequested(email);
     }
 }

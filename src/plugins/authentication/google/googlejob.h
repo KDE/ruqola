@@ -23,9 +23,9 @@
 #ifndef GOOGLE_JOB_H
 #define GOOGLE_JOB_H
 
-#include <QObject>
-#include "o2/o2google.h"
 #include "o2/o0baseauth.h"
+#include "o2/o2google.h"
+#include <QObject>
 
 class GoogleJob : public QObject
 {

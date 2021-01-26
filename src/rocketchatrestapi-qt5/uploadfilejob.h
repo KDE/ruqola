@@ -21,12 +21,13 @@
 #ifndef UPLOADFILEJOB_H
 #define UPLOADFILEJOB_H
 
+#include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 #include <QNetworkRequest>
 #include <QObject>
 #include <QUrl>
-#include "librocketchatrestapi-qt5_export.h"
-#include "restapiabstractjob.h"
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UploadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT

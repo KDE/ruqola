@@ -43,7 +43,7 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = topLayout->findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
-#if 0 //Failed. Don't know why . FIXME
+#if 0 // Failed. Don't know why . FIXME
     auto mDisableNotification = mainLayout->findChild<QCheckBox *>(QStringLiteral("mDisableNotification"));
     QVERIFY(mDisableNotification);
 

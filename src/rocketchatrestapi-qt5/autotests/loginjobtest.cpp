@@ -108,7 +108,8 @@ void LoginJobTest::shouldGenerateJson()
         QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"password":"%1","user":"%2"})").arg(password, username).toLatin1());
         const QString code(QStringLiteral("1213"));
         job.setCode(code);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"code":"%3","password":"%1","user":"%2"})").arg(password, username, code).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 QStringLiteral(R"({"code":"%3","password":"%1","user":"%2"})").arg(password, username, code).toLatin1());
     }
     {
         LoginJob job;

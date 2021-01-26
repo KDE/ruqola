@@ -21,8 +21,8 @@
 #include "unfollowmessagejobtest.h"
 #include "chat/unfollowmessagejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UnFollowMessageJobTest)
 using namespace RocketChatRestApi;
 UnFollowMessageJobTest::UnFollowMessageJobTest(QObject *parent)

@@ -23,8 +23,8 @@
 
 #include "libruqolacore_export.h"
 #include "user.h"
-#include <QVector>
 #include <QAbstractListModel>
+#include <QVector>
 class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {

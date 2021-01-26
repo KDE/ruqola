@@ -20,13 +20,13 @@
 
 #include "configuresettingsdialog.h"
 #include "configureaccountwidget.h"
-#include "configurespellcheckingwidget.h"
-#include "configuregeneralwidget.h"
 #include "configurefontwidget.h"
-#include <KLocalizedString>
-#include <QDialogButtonBox>
+#include "configuregeneralwidget.h"
+#include "configurespellcheckingwidget.h"
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
+#include <QDialogButtonBox>
 #include <QIcon>
 #include <QPushButton>
 
@@ -34,7 +34,8 @@
 #include "configureuserfeedbackwidget.h"
 #endif
 
-namespace {
+namespace
+{
 const char myConfigGroupName[] = "ConfigureSettingsDialog";
 }
 ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
@@ -43,7 +44,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
 
-    buttonBox()->setStandardButtons(QDialogButtonBox::Ok| QDialogButtonBox::Cancel);
+    buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
     const QString generalPageName = i18nc("@title Preferences page name", "General");
     mConfigureGeneralWidget = new ConfigureGeneralWidget(this);
@@ -77,10 +78,8 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
 
-    connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
-            this, &ConfigureSettingsDialog::slotAccepted);
-    connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked,
-            this, &ConfigureSettingsDialog::reject);
+    connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &ConfigureSettingsDialog::slotAccepted);
+    connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &ConfigureSettingsDialog::reject);
     readConfig();
     load();
 }

@@ -23,8 +23,8 @@
 #include <KLocalizedString>
 #include <KUrlRequester>
 
-#include <QFormLayout>
 #include <KLineEdit>
+#include <QFormLayout>
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)

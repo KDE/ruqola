@@ -21,28 +21,21 @@
 #ifndef USER_H
 #define USER_H
 
-#include <QString>
-#include <QDebug>
-#include <QDateTime>
 #include "libruqolacore_export.h"
+#include <QDateTime>
+#include <QDebug>
+#include <QString>
 class LIBRUQOLACORE_EXPORT User
 {
     Q_GADGET
 public:
-
-    enum class PresenceStatus {
-        PresenceOnline,
-        PresenceBusy,
-        PresenceAway,
-        PresenceOffline,
-        Unknown
-    };
+    enum class PresenceStatus { PresenceOnline, PresenceBusy, PresenceAway, PresenceOffline, Unknown };
     Q_ENUM(PresenceStatus)
 
     struct LIBRUQOLACORE_EXPORT UserEmailsInfo {
         QString email;
         bool verified = false;
-        Q_REQUIRED_RESULT bool operator ==(const UserEmailsInfo &other) const
+        Q_REQUIRED_RESULT bool operator==(const UserEmailsInfo &other) const
         {
             return (email == other.email) && (verified == other.verified);
         }
@@ -68,8 +61,8 @@ public:
     void parseUser(const QJsonObject &json);
     Q_REQUIRED_RESULT QString iconFromStatus() const;
 
-    Q_REQUIRED_RESULT bool operator ==(const User &other) const;
-    Q_REQUIRED_RESULT bool operator !=(const User &other) const;
+    Q_REQUIRED_RESULT bool operator==(const User &other) const;
+    Q_REQUIRED_RESULT bool operator!=(const User &other) const;
 
     Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);
@@ -117,7 +110,7 @@ private:
 };
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User &t);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User::UserEmailsInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User::UserEmailsInfo &t);
 
 #endif // USER_H

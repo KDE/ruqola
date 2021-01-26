@@ -19,10 +19,10 @@
 */
 
 #include "videoconfupdatejitsitimeoutjobtest.h"
-#include "video-conference/videoconfupdatejitsitimeoutjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "video-conference/videoconfupdatejitsitimeoutjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(VideoConfUpdateJitsiTimeOutJobTest)
 using namespace RocketChatRestApi;
 VideoConfUpdateJitsiTimeOutJobTest::VideoConfUpdateJitsiTimeOutJobTest(QObject *parent)

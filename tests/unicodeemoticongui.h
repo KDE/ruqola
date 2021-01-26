@@ -66,6 +66,7 @@ class UnicodeEmoticonGui : public QWidget
 public:
     explicit UnicodeEmoticonGui(QWidget *parent = nullptr);
     ~UnicodeEmoticonGui() override;
+
 private:
     void save();
     void load();

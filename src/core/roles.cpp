@@ -48,7 +48,7 @@ void Roles::updateRoles(const QJsonObject &obj)
     const QString id = obj[QLatin1String("_id")].toString();
     const QString userId = obj[QLatin1String("u")].toObject().value(QLatin1String("_id")).toString();
     bool foundUser = false;
-    //qDebug() << " type " << type << " id " << id << " userId" << userId;
+    // qDebug() << " type " << type << " id " << id << " userId" << userId;
     if (type == QLatin1String("added")) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {

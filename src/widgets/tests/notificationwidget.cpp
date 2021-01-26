@@ -18,10 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 #include "notificationwidget.h"
+#include <KNotification>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
-#include <KNotification>
 
 NotificationWidget::NotificationWidget(QWidget *parent)
     : QWidget(parent)
@@ -44,7 +44,6 @@ void NotificationWidget::slotSendNotification()
 {
     const QString str = mLineEdit->text();
     if (!str.isEmpty()) {
-        KNotification::event(KNotification::Notification, QStringLiteral("title:") + str,
-                             QStringLiteral("message:") + str.toHtmlEscaped(), QPixmap());
+        KNotification::event(KNotification::Notification, QStringLiteral("title:") + str, QStringLiteral("message:") + str.toHtmlEscaped(), QPixmap());
     }
 }

@@ -21,8 +21,8 @@
 #include "createdirectmessagesdialogtest.h"
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createdirectmessageswidget.h"
-#include <QTest>
 #include <QStandardPaths>
+#include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(CreateDirectMessagesDialogTest)
 CreateDirectMessagesDialogTest::CreateDirectMessagesDialogTest(QObject *parent)

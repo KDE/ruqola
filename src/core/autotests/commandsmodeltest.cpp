@@ -28,4 +28,4 @@ CommandsModelTest::CommandsModelTest(QObject *parent)
 {
 }
 
-//TODO
+// TODO

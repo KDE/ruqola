@@ -21,9 +21,9 @@
 #ifndef MESSAGELISTVIEW_H
 #define MESSAGELISTVIEW_H
 
+#include "libruqolawidgets_private_export.h"
 #include <QListView>
 #include <QPointer>
-#include "libruqolawidgets_private_export.h"
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;

@@ -19,15 +19,15 @@
 */
 
 #include "ruqolaloginwidgettest.h"
-#include "ruqolaloginwidget.h"
 #include "misc/passwordlineeditwidget.h"
+#include "ruqolaloginwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KPasswordLineEdit>
+#include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QCheckBox>
 #include <QTest>
 
 QTEST_MAIN(RuqolaLoginWidgetTest)

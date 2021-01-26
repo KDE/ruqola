@@ -21,8 +21,8 @@
 #include "emoticons/customemoji.h"
 #include "utils.h"
 
-#include <QJsonObject>
 #include <QJsonArray>
+#include <QJsonObject>
 
 CustomEmoji::CustomEmoji()
 {
@@ -71,7 +71,7 @@ void CustomEmoji::parseEmoji(const QJsonObject &emoji)
 
 bool CustomEmoji::isValid() const
 {
-    //Add more check ?
+    // Add more check ?
     return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
@@ -94,9 +94,9 @@ QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl
 {
     if (mCachedHtml.isEmpty()) {
         const QString url = emojiUrl(serverUrl);
-        //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
-        //http://yourhost.com/emoji-custom/Emoji%20Name.png
-        //TODO customize size.
+        // https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
+        // http://yourhost.com/emoji-custom/Emoji%20Name.png
+        // TODO customize size.
         mCachedHtml = url;
     }
     return mCachedHtml;
@@ -172,15 +172,11 @@ QString CustomEmoji::name() const
 
 bool CustomEmoji::operator==(const CustomEmoji &other) const
 {
-    return (mName == other.name())
-           && (mExtension == other.extension())
-           && (mIdentifier == other.identifier())
-           && (mAliases == other.aliases())
-           && (mEmojiIdentifier == other.emojiIdentifier())
-           && (mUpdatedAt == other.updatedAt());
+    return (mName == other.name()) && (mExtension == other.extension()) && (mIdentifier == other.identifier()) && (mAliases == other.aliases())
+        && (mEmojiIdentifier == other.emojiIdentifier()) && (mUpdatedAt == other.updatedAt());
 }
 
-QDebug operator <<(QDebug d, const CustomEmoji &t)
+QDebug operator<<(QDebug d, const CustomEmoji &t)
 {
     d << "Name: " << t.name() << " ";
     d << "Identifier: " << t.identifier() << " ";

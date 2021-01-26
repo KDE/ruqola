@@ -19,15 +19,15 @@
 */
 
 #include "messageattachmentdelegatehelperfile.h"
-#include "model/messagemodel.h"
-#include "rocketchataccount.h"
-#include "ruqolawidgets_debug.h"
-#include "common/delegateutil.h"
 #include "common/delegatepaintutil.h"
-#include "restapirequest.h"
+#include "common/delegateutil.h"
 #include "downloadfilejob.h"
+#include "model/messagemodel.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
@@ -56,7 +56,11 @@ MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
 {
 }
 
-void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach,
+                                               QPainter *painter,
+                                               QRect attachmentsRect,
+                                               const QModelIndex &index,
+                                               const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
@@ -83,7 +87,10 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
     drawDescription(msgAttach, attachmentsRect, painter, descriptionY);
 }
 
-QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach,
+                                                    const QModelIndex &index,
+                                                    int maxWidth,
+                                                    const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, maxWidth);
@@ -91,7 +98,8 @@ QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msg
             layout.y + layout.height + DelegatePaintUtil::margin()};
 }
 
-MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
+MessageAttachmentDelegateHelperFile::FileLayout
+MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     const int buttonMargin = DelegatePaintUtil::margin();
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -110,9 +118,7 @@ MessageAttachmentDelegateHelperFile::FileLayout MessageAttachmentDelegateHelperF
     return layout;
 }
 
-enum class UserChoice {
-    Save, Open, OpenWith, Cancel
-};
+enum class UserChoice { Save, Open, OpenWith, Cancel };
 Q_DECLARE_METATYPE(UserChoice)
 
 static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
@@ -125,12 +131,9 @@ static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
         auto *b = msgBox.addButton(i18n("&Open With '%1'", offer->name()), QMessageBox::YesRole);
         b->setProperty(prop, QVariant::fromValue(UserChoice::Open));
     }
-    msgBox.addButton(i18n("Open &With..."), QMessageBox::YesRole)
-    ->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
-    msgBox.addButton(i18n("Save &As..."), QMessageBox::ActionRole)
-    ->setProperty(prop, QVariant::fromValue(UserChoice::Save));
-    msgBox.addButton(QMessageBox::Cancel)
-    ->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
+    msgBox.addButton(i18n("Open &With..."), QMessageBox::YesRole)->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
+    msgBox.addButton(i18n("Save &As..."), QMessageBox::ActionRole)->setProperty(prop, QVariant::fromValue(UserChoice::Save));
+    msgBox.addButton(QMessageBox::Cancel)->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
     msgBox.exec();
     return msgBox.clickedButton()->property(prop).value<UserChoice>();
 }
@@ -148,8 +151,7 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QUrl downloadUrl = rcAccount->urlForLink(link);
     auto *job = rcAccount->restApi()->downloadFile(downloadUrl, fileUrl, QStringLiteral("text/plain"));
-    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget,
-                     [=](const QUrl &, const QUrl &localFileUrl) {
+    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget, [=](const QUrl &, const QUrl &localFileUrl) {
         auto *job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
         job->setUrls({localFileUrl});
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
@@ -167,8 +169,7 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     const KService::Ptr offer = valid ? KApplicationTrader::preferredService(mimeType.name()) : KService::Ptr{};
     const UserChoice choice = askUser(url, offer, widget);
     switch (choice) {
-    case UserChoice::Save:
-    {
+    case UserChoice::Save: {
         const QString file = DelegateUtil::querySaveFileName(widget, i18n("Save File"), url);
         if (!file.isEmpty()) {
             const QUrl fileUrl = QUrl::fromLocalFile(file);
@@ -187,7 +188,11 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     }
 }
 
-bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                           QMouseEvent *mouseEvent,
+                                                           QRect attachmentsRect,
+                                                           const QStyleOptionViewItem &option,
+                                                           const QModelIndex &index)
 {
     Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {

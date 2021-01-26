@@ -21,9 +21,10 @@
 #ifndef SETCHANNELTYPEJOB_H
 #define SETCHANNELTYPEJOB_H
 
-#include "librestapi_private_export.h"
 #include "channelbasejob.h"
-namespace RocketChatRestApi {
+#include "librestapi_private_export.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetChannelTypeJob : public ChannelBaseJob
 {
     Q_OBJECT

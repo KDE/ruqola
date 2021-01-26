@@ -59,7 +59,7 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     connect(mServerName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
 
-    //TODO add support for two factor ?
+    // TODO add support for two factor ?
 }
 
 CreateNewAccountWidget::~CreateNewAccountWidget()
@@ -99,7 +99,6 @@ void CreateNewAccountWidget::setExistingAccountName(const QStringList &lst)
 void CreateNewAccountWidget::slotChangeOkButtonEnabled()
 {
     const QString accountName = mAccountName->text().trimmed();
-    Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName)
-                          && !mServerName->text().trimmed().isEmpty()
+    Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerName->text().trimmed().isEmpty()
                           && !mUserName->text().trimmed().isEmpty());
 }

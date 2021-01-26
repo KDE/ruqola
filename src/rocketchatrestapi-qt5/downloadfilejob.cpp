@@ -19,8 +19,8 @@
 */
 
 #include "downloadfilejob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QDir>
 #include <QFile>
 #include <QNetworkReply>
@@ -44,10 +44,7 @@ bool DownloadFileJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addStartRestApiInfo("ChannelListJob: url:"
-                        +mUrl.toEncoded()
-                        +" mimetype " + mMimeType.toLatin1()
-                        +" saveAs " + mLocalFileUrl.toEncoded());
+    addStartRestApiInfo("ChannelListJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType.toLatin1() + " saveAs " + mLocalFileUrl.toEncoded());
     connect(reply, &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
@@ -61,7 +58,7 @@ void DownloadFileJob::slotDownloadDone()
         if (status == 200) {
             addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
 
-            //Split between image/video/audio
+            // Split between image/video/audio
             const QString newFilePath = mLocalFileUrl.toLocalFile();
             QFileInfo(newFilePath).absoluteDir().mkpath(QStringLiteral("."));
             QFile file(newFilePath);
@@ -69,12 +66,12 @@ void DownloadFileJob::slotDownloadDone()
                 file.write(data);
                 file.close();
             } else {
-                qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Error !" <<  file.errorString();
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Error !" << file.errorString();
             }
             Q_EMIT downloadFileDone(reply->url(), mLocalFileUrl);
         } else {
-            //FIXME
-            //emitFailedMessage(replyObject, reply);
+            // FIXME
+            // emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem data: [") + data + "] :END");
         }
         reply->deleteLater();

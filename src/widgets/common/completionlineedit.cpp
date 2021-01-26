@@ -20,8 +20,8 @@
 
 #include "completionlineedit.h"
 #include "completionlistview.h"
-#include "rocketchataccount.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
 
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)

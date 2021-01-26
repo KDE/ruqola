@@ -25,12 +25,13 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ForgotPasswordJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //since 0.64
+    // since 0.64
     explicit ForgotPasswordJob(QObject *parent = nullptr);
     ~ForgotPasswordJob() override;
 

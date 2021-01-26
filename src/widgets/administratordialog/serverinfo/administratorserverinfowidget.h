@@ -21,10 +21,10 @@
 #ifndef ADMINISTRATORSERVERINFOWIDGET_H
 #define ADMINISTRATORSERVERINFOWIDGET_H
 
+#include "libruqolawidgets_private_export.h"
+#include "serverinfo.h"
 #include <QJsonObject>
 #include <QWidget>
-#include "serverinfo.h"
-#include "libruqolawidgets_private_export.h"
 class QTreeWidget;
 class QTreeWidgetItem;
 class KTreeWidgetSearchLineWidget;

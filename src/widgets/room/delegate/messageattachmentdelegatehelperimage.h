@@ -36,9 +36,14 @@ public:
     ~MessageAttachmentDelegateHelperImage() override = default;
     MessageAttachmentDelegateHelperImage(const MessageAttachmentDelegateHelperImage &) = delete;
     MessageAttachmentDelegateHelperImage &operator=(const MessageAttachmentDelegateHelperImage &) = delete;
-    void draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    void
+    draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    bool handleMouseEvent(const MessageAttachment &msgAttach,
+                          QMouseEvent *mouseEvent,
+                          QRect attachmentsRect,
+                          const QStyleOptionViewItem &option,
+                          const QModelIndex &index) override;
 
 private:
     friend class MessageDelegateHelperImageTest;
@@ -56,7 +61,10 @@ private:
         bool isShown = true;
         bool isAnimatedImage = false;
     };
-    Q_REQUIRED_RESULT ImageLayout layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
+    Q_REQUIRED_RESULT ImageLayout layoutImage(const MessageAttachment &msgAttach,
+                                              const QStyleOptionViewItem &option,
+                                              int attachmentsWidth,
+                                              int attachmentsHeight) const;
 
     std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;

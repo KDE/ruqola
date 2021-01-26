@@ -30,5 +30,5 @@ ListMessagesModelFilterProxyModelTest::ListMessagesModelFilterProxyModelTest(QOb
 void ListMessagesModelFilterProxyModelTest::shouldHaveDefaultValues()
 {
     ListMessagesModelFilterProxyModel w;
-    //TODO
+    // TODO
 }

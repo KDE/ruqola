@@ -21,8 +21,8 @@
 #ifndef CONVERTERTEXTABSTRACTJOB_H
 #define CONVERTERTEXTABSTRACTJOB_H
 
-#include <QObject>
 #include "libruqola_private_export.h"
+#include <QObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT ConverterTextAbstractJob : public QObject
 {

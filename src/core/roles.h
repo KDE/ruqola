@@ -22,8 +22,8 @@
 #define ROLES_H
 #include "libruqola_private_export.h"
 #include "role.h"
-#include <QVector>
 #include <QJsonObject>
+#include <QVector>
 
 class LIBRUQOLACORE_TESTS_EXPORT Roles
 {
@@ -37,6 +37,7 @@ public:
     Role findRoleByUserId(const QString &userId) const;
     Q_REQUIRED_RESULT bool isEmpty() const;
     void updateRoles(const QJsonObject &obj);
+
 private:
     QVector<Role> mRoles;
 };

@@ -22,9 +22,9 @@
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "test_model_helpers.h"
-#include <QTest>
 #include <QSignalSpy>
 #include <QStandardPaths>
+#include <QTest>
 QTEST_GUILESS_MAIN(RocketChatAccountModelTest)
 
 RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
@@ -36,7 +36,7 @@ RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
 void RocketChatAccountModelTest::shouldHaveDefaultValue()
 {
     RocketChatAccountModel w;
-    //TODO
+    // TODO
 }
 
 void RocketChatAccountModelTest::shouldAddAccountValue()

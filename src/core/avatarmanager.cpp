@@ -29,7 +29,7 @@ AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
 {
     mTimer = new QTimer(this);
     mTimer->setSingleShot(true);
-    //increase interval otherwise we can have some error
+    // increase interval otherwise we can have some error
     mTimer->setInterval(2000);
     connect(mTimer, &QTimer::timeout, this, &AvatarManager::slotLoadNextAvatar);
 }
@@ -42,7 +42,7 @@ void AvatarManager::slotLoadNextAvatar()
 {
     const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
     const QUrl url = Utils::avatarUrl(mAccount->serverUrl(), info);
-    //qDebug() << " url " << url;
+    // qDebug() << " url " << url;
     if (url.isEmpty()) {
         return;
     }
@@ -51,7 +51,7 @@ void AvatarManager::slotLoadNextAvatar()
 
 void AvatarManager::slotRescheduleDownload()
 {
-    //if problem we need to reschedule after several seconds
+    // if problem we need to reschedule after several seconds
     QTimer::singleShot(20000, this, &AvatarManager::slotLoadNextAvatar);
 }
 
@@ -83,10 +83,10 @@ void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUr
     const QString identifier = info.identifier;
     if (!url.isEmpty()) {
         Q_EMIT insertAvatarUrl(identifier, url);
-    } //Else error for downloading => don't redownload it + continue.
+    } // Else error for downloading => don't redownload it + continue.
 
     mAvatarDownloadIdentifer.removeAll(info);
-    //qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
+    // qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
     if (!mAvatarDownloadIdentifer.isEmpty()) {
         mTimer->start();
     }

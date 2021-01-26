@@ -21,10 +21,10 @@
 #ifndef RUQOLASERVERCONFIG_H
 #define RUQOLASERVERCONFIG_H
 
-#include "libruqolacore_export.h"
 #include "authenticationmanager.h"
-#include <QString>
+#include "libruqolacore_export.h"
 #include <QObject>
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT RuqolaServerConfig
 {
@@ -36,7 +36,7 @@ public:
         None = 0,
         AllowEditingMessage = 1,
         OtrEnabled = 2,
-        //NeedAdaptNewSubscriptionRC60 = 4,
+        // NeedAdaptNewSubscriptionRC60 = 4,
         EncryptionEnabled = 8,
         AllowMessagePinning = 0x10,
         AllowMessageSnippeting = 0x20,
@@ -162,5 +162,5 @@ private:
     QString mFaviconUrl;
     int mLoginExpiration = -1;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

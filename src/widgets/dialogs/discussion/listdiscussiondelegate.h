@@ -36,15 +36,15 @@ public:
 
 private:
     struct Layout {
-        //Attachment name
+        // Attachment name
         QString text;
         qreal textY = 0;
 
-        //TimeStamp
+        // TimeStamp
         QString lastMessageTimeText;
         qreal lastMessageTimeY = 0;
 
-        //OpenDiscussionText
+        // OpenDiscussionText
         QString openDiscussionText;
         qreal openDiscussionTextY = 0;
         //

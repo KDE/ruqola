@@ -37,7 +37,7 @@ InputCompleterModel::~InputCompleterModel()
 
 void InputCompleterModel::setDefaultUserCompletion()
 {
-    //Show here/all when we only use "@"
+    // Show here/all when we only use "@"
     QVector<Channel> customCompletion;
 
     Channel here;
@@ -78,7 +78,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonObject o = rooms.at(i).toObject();
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
-        //Verify that it's valid
+        // Verify that it's valid
         channelList.append(channel);
     }
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
@@ -86,7 +86,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonObject o = users.at(i).toObject();
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::PrivateChannel);
-        //Verify that it's valid
+        // Verify that it's valid
         channelList.append(channel);
     }
     setChannels(channelList);
@@ -130,8 +130,8 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
 
 QString InputCompleterModel::completerName(const Channel &channel) const
 {
-    //Specific channelId for opening room
-    //For private channel we need to use username for channel we need roomId
+    // Specific channelId for opening room
+    // For private channel we need to use username for channel we need roomId
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
         return channel.userName();
@@ -148,8 +148,7 @@ QString InputCompleterModel::completerName(const Channel &channel) const
 QString InputCompleterModel::channelName(const Channel &channel) const
 {
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel:
-    {
+    case Channel::ChannelType::PrivateChannel: {
         QString text = channel.userName();
         const QString name = channel.name();
         if (!name.isEmpty()) {

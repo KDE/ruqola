@@ -21,9 +21,9 @@
 #ifndef STATUSCOMBOBOX_H
 #define STATUSCOMBOBOX_H
 
-#include <QComboBox>
-#include "user.h"
 #include "libruqolawidgets_private_export.h"
+#include "user.h"
+#include <QComboBox>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT StatusCombobox : public QComboBox
 {
@@ -33,6 +33,7 @@ public:
     ~StatusCombobox() override;
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);
+
 private:
     void init(bool showModifyStatus);
 };

@@ -19,10 +19,10 @@
 */
 
 #include "setavatarjobtest.h"
-#include "users/setavatarjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/setavatarjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SetAvatarJobTest)
 using namespace RocketChatRestApi;
 SetAvatarJobTest::SetAvatarJobTest(QObject *parent)
@@ -64,8 +64,7 @@ void SetAvatarJobTest::shouldGenerateJson()
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"avatarUrl":"%1","userId":"%2"})")
-             .arg(avatarurl, info.userIdentifier).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"avatarUrl":"%1","userId":"%2"})").arg(avatarurl, info.userIdentifier).toLatin1());
 }
 
 void SetAvatarJobTest::shouldNotStarting()

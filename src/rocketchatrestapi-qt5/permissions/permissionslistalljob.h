@@ -21,11 +21,12 @@
 #ifndef PERMISSIONSLISTALLJOB_H
 #define PERMISSIONSLISTALLJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT PermissionsListAllJob : public RestApiAbstractJob
 {
     Q_OBJECT

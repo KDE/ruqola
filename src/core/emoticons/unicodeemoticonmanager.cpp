@@ -19,8 +19,8 @@
 */
 
 #include "unicodeemoticonmanager.h"
-#include "unicodeemoticonparser.h"
 #include "ruqola_debug.h"
+#include "unicodeemoticonparser.h"
 
 #include <QFile>
 #include <QJsonDocument>
@@ -93,10 +93,9 @@ QVector<UnicodeEmoticon> UnicodeEmoticonManager::emojisForCategory(const QString
     QVector<UnicodeEmoticon> result;
 
     auto hasRequestedCategory = [category](const UnicodeEmoticon &emo) {
-                                    return emo.category() == category;
-                                };
-    std::copy_if(mUnicodeEmojiList.begin(), mUnicodeEmojiList.end(),
-                 std::back_inserter(result), hasRequestedCategory);
+        return emo.category() == category;
+    };
+    std::copy_if(mUnicodeEmojiList.begin(), mUnicodeEmojiList.end(), std::back_inserter(result), hasRequestedCategory);
     return result;
 }
 

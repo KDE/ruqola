@@ -26,10 +26,10 @@
 
 #include "file.h"
 #include "libruqolacore_export.h"
-#include <QObject>
-#include <QJsonObject>
-#include "user.h"
 #include "model/roommodel.h"
+#include "user.h"
+#include <QJsonObject>
+#include <QObject>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {
@@ -39,10 +39,10 @@ public:
     ~RocketChatBackend() override;
 
     /**
-    * @brief Adds incoming message from server to appropriate room
-    *
-    * @param messages The Json containing the message
-    */
+     * @brief Adds incoming message from server to appropriate room
+     *
+     * @param messages The Json containing the message
+     */
     void processIncomingMessages(const QJsonArray &messages, bool loadHistory);
 
     void clearUsersList();

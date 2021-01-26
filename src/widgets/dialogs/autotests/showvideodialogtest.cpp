@@ -22,8 +22,8 @@
 #include "dialogs/showvideodialog.h"
 #include "dialogs/showvideowidget.h"
 #include <QDialogButtonBox>
-#include <QTest>
 #include <QStandardPaths>
+#include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowVideoDialogTest)
 ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)

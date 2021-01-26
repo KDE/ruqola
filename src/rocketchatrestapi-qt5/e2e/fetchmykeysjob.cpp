@@ -19,11 +19,11 @@
 */
 
 #include "fetchmykeysjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
-#include <QNetworkReply>
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkReply>
 using namespace RocketChatRestApi;
 FetchMyKeysJob::FetchMyKeysJob(QObject *parent)
     : RestApiAbstractJob(parent)

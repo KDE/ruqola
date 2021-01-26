@@ -31,7 +31,7 @@ class LIBRUQOLACORE_EXPORT ServicePassword
 public:
     ServicePassword();
     ~ServicePassword();
-    Q_REQUIRED_RESULT bool operator ==(const ServicePassword &other) const;
+    Q_REQUIRED_RESULT bool operator==(const ServicePassword &other) const;
     void parseService(const QJsonObject &replyObject);
 
     Q_REQUIRED_RESULT bool email2faEnabled() const;
@@ -51,6 +51,6 @@ private:
 
 Q_DECLARE_METATYPE(ServicePassword)
 Q_DECLARE_TYPEINFO(ServicePassword, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ServicePassword &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServicePassword &t);
 
 #endif // SERVICEPASSWORD_H

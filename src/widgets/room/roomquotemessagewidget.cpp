@@ -19,11 +19,11 @@
 */
 
 #include "roomquotemessagewidget.h"
-#include <QHBoxLayout>
-#include <QPushButton>
-#include <KStandardGuiItem>
 #include <KLocalizedString>
+#include <KStandardGuiItem>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QPushButton>
 
 RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
     : QWidget(parent)

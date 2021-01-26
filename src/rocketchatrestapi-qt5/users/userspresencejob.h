@@ -21,16 +21,17 @@
 #ifndef USERSPRESENCEJOB_H
 #define USERSPRESENCEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersPresenceJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //TODO userId or Username
+    // TODO userId or Username
     explicit UsersPresenceJob(QObject *parent = nullptr);
     ~UsersPresenceJob() override;
 

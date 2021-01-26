@@ -19,15 +19,15 @@
 */
 
 #include "getchannelrolesjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <KLocalizedString>
 
 #include <QJsonDocument>
-#include <QUrlQuery>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 using namespace RocketChatRestApi;
 GetChannelRolesJob::GetChannelRolesJob(QObject *parent)

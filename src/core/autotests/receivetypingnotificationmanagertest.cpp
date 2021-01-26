@@ -19,8 +19,8 @@
 
 #include "receivetypingnotificationmanagertest.h"
 #include "receivetypingnotificationmanager.h"
-#include <QTest>
 #include <QSignalSpy>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(ReceiveTypingNotificationManagerTest)
 
@@ -53,7 +53,7 @@ void ReceiveTypingNotificationManagerTest::shouldAddNotifications()
     QCOMPARE(spy.count(), 1);
 
     spy.clear();
-    //Add different user.
+    // Add different user.
     manager.insertTypingNotification(QStringLiteral("room2"), QStringLiteral("user2"), true);
     QCOMPARE(manager.typingNotification(QStringLiteral("room2")), QStringLiteral("<strong>user2</strong> is typing..."));
     QCOMPARE(spy.count(), 1);
@@ -66,7 +66,7 @@ void ReceiveTypingNotificationManagerTest::shouldAddNotifications()
     QCOMPARE(manager.typingNotification(QStringLiteral("room2")), QStringLiteral("<strong>user2, user3 and user1</strong> are typing..."));
     QCOMPARE(spy.count(), 3);
 
-    //Remove typing
+    // Remove typing
     manager.insertTypingNotification(QStringLiteral("room2"), QStringLiteral("user3"), false);
     QCOMPARE(manager.typingNotification(QStringLiteral("room2")), QStringLiteral("<strong>user2 and user1</strong> are typing..."));
     QCOMPARE(spy.count(), 4);
@@ -83,7 +83,7 @@ void ReceiveTypingNotificationManagerTest::shouldAddNotifications()
     QVERIFY(manager.typingNotification(QStringLiteral("room2")).isEmpty());
     QCOMPARE(spy.count(), 6);
 
-    //No user/roomId
+    // No user/roomId
     manager.insertTypingNotification(QStringLiteral("room2"), QStringLiteral("user2"), false);
     QVERIFY(manager.typingNotification(QStringLiteral("room2")).isEmpty());
     QCOMPARE(spy.count(), 6);

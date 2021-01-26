@@ -19,21 +19,21 @@
 */
 
 #include "ruqolaloginwidget.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "common/authenticationcombobox.h"
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
-#include <QVBoxLayout>
-#include <KLocalizedString>
-#include <KPasswordLineEdit>
-#include <QFormLayout>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QLabel>
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
+#include <KLocalizedString>
+#include <KPasswordLineEdit>
 #include <QCheckBox>
+#include <QFormLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
@@ -96,7 +96,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     auto twoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
     twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));
 
-    auto *twoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
+    auto *twoFactorAuthenticationLabel =
+        new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
     twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
     twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 
@@ -108,13 +109,13 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     mainLayout->addWidget(mBusyIndicatorWidget);
-    //Hide by default
+    // Hide by default
     mBusyIndicatorWidget->hide();
 
     mFailedError = new QLabel(this);
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
     QPalette pal = mFailedError->palette();
-    const KColorScheme colorScheme {QPalette::Active};
+    const KColorScheme colorScheme{QPalette::Active};
     pal.setColor(foregroundRole(), colorScheme.foreground(KColorScheme::NegativeText).color());
     mFailedError->setPalette(pal);
     QFont font = mFailedError->font();
@@ -122,7 +123,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mFailedError->setFont(font);
 
     mainLayout->addWidget(mFailedError);
-    //Hide by default
+    // Hide by default
     mFailedError->hide();
 }
 
@@ -212,7 +213,7 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
     case DDPAuthenticationManager::LogoutOngoing:
     case DDPAuthenticationManager::LogoutCleanUpOngoing:
     case DDPAuthenticationManager::LoggedOutAndCleanedUp:
-        //TODO
+        // TODO
         mAuthenticationWidget->setVisible(false);
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);

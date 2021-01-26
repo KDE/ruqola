@@ -21,10 +21,10 @@
 #include "createnewdiscussionwidgettest.h"
 #include "dialogs/createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"
-#include <QLineEdit>
-#include <QLabel>
-#include <QTest>
 #include <KTextEdit>
+#include <QLabel>
+#include <QLineEdit>
+#include <QTest>
 #include <QVBoxLayout>
 
 QTEST_MAIN(CreateNewDiscussionWidgetTest)

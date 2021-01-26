@@ -64,7 +64,7 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
 
-    //add Empty list
+    // add Empty list
     channelList.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -81,7 +81,7 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,9"));
 
-    //Add same element
+    // Add same element
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
@@ -99,7 +99,7 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 
-    //Test add same number of element.
+    // Test add same number of element.
     channelList.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -177,15 +177,15 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
 
-    //Test room
+    // Test room
     QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelName).toString(), QStringLiteral("bal3"));
     QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::Room);
     QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelId).toString(), QStringLiteral("nPzLgDcWxe7KeqGz"));
 
-    //Test user
+    // Test user
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelName).toString(), QStringLiteral("bla.foo4"));
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::PrivateChannel);
-    //We use for user a channelid == channel name as we use it for opening direct channel
+    // We use for user a channelid == channel name as we use it for opening direct channel
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelId).toString(), QStringLiteral("bla.foo4"));
 
     obj = loadFile(QStringLiteral("channelparentempty.json"));

@@ -21,8 +21,8 @@
 #include "twitterauthjobtest.h"
 #include "authentication/twitterauthjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(TwitterAuthJobTest)
 using namespace RocketChatRestApi;
 TwitterAuthJobTest::TwitterAuthJobTest(QObject *parent)
@@ -72,7 +72,8 @@ void TwitterAuthJobTest::shouldGenerateJson()
     job.setExpireTokenInSeconds(expireToken);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"accessToken":"%1","accessTokenSecret":"%2","appId":"%3","appSecret":"%4","expiresIn":300,"serviceName":"twitter"})")
-             .arg(accessToken, secret, appId, appSecret).toLatin1());
+                 .arg(accessToken, secret, appId, appSecret)
+                 .toLatin1());
 }
 
 void TwitterAuthJobTest::shouldNotStarting()

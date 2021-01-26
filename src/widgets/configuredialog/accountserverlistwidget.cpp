@@ -19,10 +19,10 @@
 */
 
 #include "accountserverlistwidget.h"
-#include "ruqola.h"
 #include "accountmanager.h"
-#include "rocketchataccount.h"
 #include "model/rocketchataccountmodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 
 #include <QListWidgetItem>
 #include <QPointer>
@@ -57,12 +57,12 @@ void AccountServerListWidget::load()
 
 void AccountServerListWidget::save()
 {
-    //First remove account
+    // First remove account
     for (const QString &accountName : qAsConst(mListRemovedAccount)) {
         Ruqola::self()->accountManager()->removeAccount(accountName);
     }
 
-    //Add account or modify it
+    // Add account or modify it
     for (int i = 0; i < count(); ++i) {
         QListWidgetItem *it = item(i);
         auto serverListItem = static_cast<AccountServerListWidgetItem *>(it);

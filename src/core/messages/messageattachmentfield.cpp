@@ -30,8 +30,7 @@ MessageAttachmentField::~MessageAttachmentField()
 
 bool MessageAttachmentField::operator==(const MessageAttachmentField &other) const
 {
-    return mTitle == other.title()
-           && mValue == other.value();
+    return mTitle == other.title() && mValue == other.value();
 }
 
 QString MessageAttachmentField::title() const
@@ -70,7 +69,7 @@ MessageAttachmentField MessageAttachmentField::fromJson(const QJsonObject &o)
     return att;
 }
 
-QDebug operator <<(QDebug d, const MessageAttachmentField &t)
+QDebug operator<<(QDebug d, const MessageAttachmentField &t)
 {
     d << " title " << t.title();
     d << " value " << t.value();

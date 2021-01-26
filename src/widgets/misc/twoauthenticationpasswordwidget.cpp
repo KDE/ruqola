@@ -19,8 +19,8 @@
 */
 
 #include "twoauthenticationpasswordwidget.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 

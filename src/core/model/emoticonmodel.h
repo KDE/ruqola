@@ -21,9 +21,9 @@
 #ifndef EMOTICONMODEL_H
 #define EMOTICONMODEL_H
 
-#include <QAbstractListModel>
-#include "libruqolacore_export.h"
 #include "emoticons/unicodeemoticon.h"
+#include "libruqolacore_export.h"
+#include <QAbstractListModel>
 
 // Model showing all emojis
 class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
@@ -53,7 +53,7 @@ private:
     QVector<UnicodeEmoticon> mEmoticons;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list
-    QVector<QPair<int, int> > mRows;
+    QVector<QPair<int, int>> mRows;
 };
 
 #endif // EMOTICONMODEL_H

@@ -21,8 +21,8 @@
 #ifndef ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H
 #define ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H
 
-#include <QWidget>
 #include "user.h"
+#include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;

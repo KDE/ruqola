@@ -69,7 +69,7 @@ QString UsersModel::userStatusIconFileName(const QString &name) const
         }
     }
 
-    //qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
+    // qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
     return QStringLiteral("user-offline");
 }
 
@@ -82,7 +82,7 @@ QString UsersModel::status(const QString &userId) const
             return mUsers.at(i).status();
         }
     }
-    //Return offline as default;
+    // Return offline as default;
     return QStringLiteral("offline");
 }
 
@@ -106,7 +106,7 @@ void UsersModel::removeUser(const QString &userId)
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == userId) {
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
-            //Send info as it's disconnected. But don't remove it from list
+            // Send info as it's disconnected. But don't remove it from list
             User &user = mUsers[i];
             user.setStatus(QStringLiteral("offline"));
             const QModelIndex idx = createIndex(i, 0);
@@ -119,7 +119,7 @@ void UsersModel::removeUser(const QString &userId)
 
 void UsersModel::addUser(const User &newuser)
 {
-    //It can be duplicate as we don't remove user from list when user is disconnected. Otherwise it will not sync with
+    // It can be duplicate as we don't remove user from list when user is disconnected. Otherwise it will not sync with
     // user for room list
     qCDebug(RUQOLA_LOG) << " User added " << newuser;
     const int userCount = mUsers.count();

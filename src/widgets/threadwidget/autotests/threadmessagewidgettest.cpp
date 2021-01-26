@@ -19,9 +19,9 @@
 */
 
 #include "threadmessagewidgettest.h"
-#include "threadwidget/threadmessagewidget.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
+#include "threadwidget/threadmessagewidget.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>

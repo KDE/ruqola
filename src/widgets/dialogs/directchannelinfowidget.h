@@ -35,6 +35,7 @@ public:
     ~DirectChannelInfoWidget() override;
 
     void setUserName(const QString &userName);
+
 private:
     void slotUserInfoDone(const QJsonObject &obj);
     void fetchUserInfo(const QString &userName);

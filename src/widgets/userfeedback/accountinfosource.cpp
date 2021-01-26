@@ -18,8 +18,8 @@
 */
 
 #include "accountinfosource.h"
-#include "ruqola.h"
 #include "accountmanager.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QVariant>
 

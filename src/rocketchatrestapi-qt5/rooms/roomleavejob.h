@@ -21,14 +21,15 @@
 #ifndef ROOMLEAVEJOB_H
 #define ROOMLEAVEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomLeaveJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
-    //Since rocketchat 0.64
+    // Since rocketchat 0.64
 public:
     explicit RoomLeaveJob(QObject *parent = nullptr);
     ~RoomLeaveJob() override;

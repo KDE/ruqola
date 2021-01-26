@@ -19,21 +19,21 @@
 */
 
 #include "administratorroomswidget.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "restapirequest.h"
-#include "rooms/adminroomsjob.h"
-#include "ruqolawidgets_debug.h"
 #include "administrator/adminrooms.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminroomsmodel.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "rooms/adminroomsjob.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
-#include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QHeaderView>
 #include <QJsonObject>
 #include <QLineEdit>
 #include <QTableView>
-#include <QHeaderView>
+#include <QVBoxLayout>
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
@@ -70,7 +70,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminRoomsProxyModel"));
 
     mResultTreeWidget->setModel(mAdminRoomsProxyModel);
-    //Hide not useful columns
+    // Hide not useful columns
     mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::ChannelType, true);
     mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::Identifier, true);
 
@@ -96,8 +96,7 @@ void AdministratorRoomsWidget::initialize()
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
     rcAccount->restApi()->initializeRestApiJob(adminRoomsJob);
-    connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone,
-            this, &AdministratorRoomsWidget::slotAdminRoomDone);
+    connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotAdminRoomDone);
     if (!adminRoomsJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
     }
@@ -109,5 +108,5 @@ void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
     rooms.parseAdminRooms(obj);
     mAdminRoomsModel->setAdminRooms(rooms);
     mResultTreeWidget->resizeColumnsToContents();
-    //qDebug() << " rooms " << rooms;
+    // qDebug() << " rooms " << rooms;
 }

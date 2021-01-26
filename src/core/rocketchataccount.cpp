@@ -18,61 +18,61 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "model/messagemodel.h"
-#include "ruqola_notification_debug.h"
-#include "ruqola_commands_debug.h"
 #include "rocketchataccount.h"
-#include "model/roommodel.h"
-#include "room.h"
-#include "typingnotification.h"
-#include "model/usersmodel.h"
-#include "ruqola_debug.h"
-#include "ruqola.h"
-#include "messagequeue.h"
-#include "rocketchatbackend.h"
-#include "model/roomfilterproxymodel.h"
-#include "ruqolalogger.h"
-#include "model/usercompletermodel.h"
-#include "model/usercompleterfilterproxymodel.h"
-#include "model/statusmodel.h"
-#include "ruqolaglobalconfig.h"
-#include "ruqola_typing_notification_debug.h"
-#include "rocketchatcache.h"
-#include "fileattachments.h"
-#include "emoticons/emojimanager.h"
-#include "emoticons/unicodeemoticonmanager.h"
-#include "model/emoticonfiltermodel.h"
-#include "otrmanager.h"
-#include "model/usersforroommodel.h"
-#include "model/filesforroommodel.h"
-#include "model/searchchannelfilterproxymodel.h"
-#include "model/searchchannelmodel.h"
-#include "model/loginmethodmodel.h"
-#include "model/inputcompletermodel.h"
-#include "model/searchmessagemodel.h"
-#include "model/searchmessagefilterproxymodel.h"
-#include "model/discussionsmodel.h"
-#include "model/filesforroomfilterproxymodel.h"
-#include "model/discussionsfilterproxymodel.h"
-#include "model/threadmessagemodel.h"
-#include "model/listmessagesmodelfilterproxymodel.h"
-#include "model/autotranslatelanguagesmodel.h"
-#include "model/commandsmodel.h"
-#include "model/emoticonmodel.h"
-#include "managerdatapaths.h"
 #include "authenticationmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
+#include "emoticons/emojimanager.h"
+#include "emoticons/unicodeemoticonmanager.h"
+#include "fileattachments.h"
+#include "managerdatapaths.h"
+#include "messagequeue.h"
+#include "model/autotranslatelanguagesmodel.h"
+#include "model/commandsmodel.h"
+#include "model/discussionsfilterproxymodel.h"
+#include "model/discussionsmodel.h"
+#include "model/emoticonfiltermodel.h"
+#include "model/emoticonmodel.h"
+#include "model/filesforroomfilterproxymodel.h"
+#include "model/filesforroommodel.h"
+#include "model/inputcompletermodel.h"
+#include "model/listmessagesmodelfilterproxymodel.h"
+#include "model/loginmethodmodel.h"
+#include "model/messagemodel.h"
+#include "model/roomfilterproxymodel.h"
+#include "model/roommodel.h"
+#include "model/searchchannelfilterproxymodel.h"
+#include "model/searchchannelmodel.h"
+#include "model/searchmessagefilterproxymodel.h"
+#include "model/searchmessagemodel.h"
+#include "model/statusmodel.h"
+#include "model/threadmessagemodel.h"
+#include "model/usercompleterfilterproxymodel.h"
+#include "model/usercompletermodel.h"
+#include "model/usersforroommodel.h"
+#include "model/usersmodel.h"
+#include "otrmanager.h"
+#include "rocketchatbackend.h"
+#include "rocketchatcache.h"
+#include "room.h"
+#include "ruqola.h"
+#include "ruqola_commands_debug.h"
+#include "ruqola_debug.h"
+#include "ruqola_notification_debug.h"
+#include "ruqola_typing_notification_debug.h"
+#include "ruqolaglobalconfig.h"
+#include "ruqolalogger.h"
+#include "typingnotification.h"
 
+#include "channelcounterinfo.h"
 #include "ddpapi/ddpclient.h"
 #include "discussions.h"
+#include "listmessages.h"
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
-#include "listmessages.h"
-#include "channelcounterinfo.h"
 
-#include <KNotification>
 #include <KLocalizedString>
+#include <KNotification>
 #include <QDesktopServices>
 #include <QTimer>
 
@@ -88,30 +88,34 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
 {
-    qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"<<accountFileName;
-    //create an unique file for each account
+    qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
+    // create an unique file for each account
     loadSettings(accountFileName);
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
 
     mServerConfigInfo = new ServerConfigInfo(this, this);
-    //Create it before loading settings
+    // Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
 
     mInputTextManager = new InputTextManager(this);
     mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
-    connect(mInputTextManager, &InputTextManager::completionRequested, this,
+    connect(mInputTextManager,
+            &InputTextManager::completionRequested,
+            this,
             [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
-        inputAutocomplete(pattern, exceptions, type, false);
-    });
+                inputAutocomplete(pattern, exceptions, type, false);
+            });
 
     mInputThreadMessageTextManager = new InputTextManager(this);
     mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
-    connect(mInputThreadMessageTextManager, &InputTextManager::completionRequested, this,
+    connect(mInputThreadMessageTextManager,
+            &InputTextManager::completionRequested,
+            this,
             [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
-        inputAutocomplete(pattern, exceptions, type, true);
-    });
+                inputAutocomplete(pattern, exceptions, type, true);
+            });
 
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
@@ -120,10 +124,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
-    //Load list of unicode emoticon
+    // Load list of unicode emoticon
     UnicodeEmoticonManager::self();
 
-    //After loadSettings
+    // After loadSettings
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
 
@@ -182,7 +186,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
-    mMessageQueue = new MessageQueue(this, this); //TODO fix mem leak !
+    mMessageQueue = new MessageQueue(this, this); // TODO fix mem leak !
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
 
@@ -229,7 +233,8 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
 
 void RocketChatAccount::slotRoomNeedAttention()
 {
-    qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert" << " account name: " << accountName();
+    qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert"
+                                     << " account name: " << accountName();
     Q_EMIT roomNeedAttention();
 }
 
@@ -257,7 +262,7 @@ void RocketChatAccount::clearModels()
     mRoomModel->reset();
 
     mMessageQueue->loadCache();
-    //Try to send queue message
+    // Try to send queue message
     mMessageQueue->processQueue();
 }
 
@@ -466,7 +471,10 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone, this, &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
+        connect(mRestApi,
+                &RocketChatRestApi::RestApiRequest::roomsAutoCompleteChannelAndPrivateDone,
+                this,
+                &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
@@ -500,8 +508,7 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
-        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged,
-                this, &RocketChatAccount::loginStatusChangedSlot);
+        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::loginStatusChangedSlot);
         connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
@@ -591,7 +598,7 @@ void RocketChatAccount::openChannel(const QString &url, ChannelTypeInfo typeInfo
 void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
     ddp()->subscribeRoomMessage(channelInfo.channelInfoIdentifier);
-    //FIXME room is not added yet...
+    // FIXME room is not added yet...
     switch (channelInfo.channelInfoType) {
     case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown:
         qCWarning(RUQOLA_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
@@ -607,12 +614,12 @@ void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJ
 
 void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    //TODO
+    // TODO
 }
 
 void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 {
-    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)"<<roomId;
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)" << roomId;
     const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
 #if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
     const QString scheme = QStringLiteral("org.jitsi.meet://");
@@ -637,20 +644,26 @@ void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelT
 
 void RocketChatAccount::openDirectChannel(const QString &username)
 {
-    //Laurent for the moment I didn't find a restapi method for it
-    //TODO verify username vs userId
-//#ifdef USE_REASTAPI_JOB
-//    restApi()->openDirectMessage(username);
-//#else
+    // Laurent for the moment I didn't find a restapi method for it
+    // TODO verify username vs userId
+    //#ifdef USE_REASTAPI_JOB
+    //    restApi()->openDirectMessage(username);
+    //#else
     qDebug() << "Open direct conversation channel with" << username;
     ddp()->openDirectChannel(username);
-//#endif
+    //#endif
 }
 
-void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast)
+void RocketChatAccount::createNewChannel(const QString &name,
+                                         bool readOnly,
+                                         bool privateRoom,
+                                         const QString &userNames,
+                                         bool encryptedRoom,
+                                         const QString &password,
+                                         bool broadcast)
 {
-    //TODO use encrypted room
-    //TODO use broadcast
+    // TODO use encrypted room
+    // TODO use broadcast
     if (!name.trimmed().isEmpty()) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
@@ -658,7 +671,7 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
         const QStringList lstUsers = userNames.split(QLatin1Char(','), Qt::SkipEmptyParts);
 #endif
         if (privateRoom) {
-            //TODO add password ???
+            // TODO add password ???
             restApi()->createGroups(name, readOnly, lstUsers);
         } else {
             restApi()->createChannels(name, readOnly, lstUsers, password);
@@ -686,8 +699,8 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
-        //Use restapi
-        //Avoid to show own user
+        // Use restapi
+        // Avoid to show own user
         restApi()->searchRoomUser(pattern);
     }
 }
@@ -753,10 +766,10 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
             restApi()->usersAutocomplete(info);
         }
     } else {
-        //Clear before to create new search
+        // Clear before to create new search
         rocketChatBackend()->clearUsersList();
         if (!searchText.isEmpty()) {
-            //Avoid to show own user
+            // Avoid to show own user
             QString addUserNameToException;
             if (exception.isEmpty()) {
                 addUserNameToException = userName();
@@ -775,7 +788,7 @@ void RocketChatAccount::membersInRoom(const QString &roomId, const QString &room
 
 void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    //FIXME channelInfo
+    // FIXME channelInfo
     const QString channelInfoIdentifier = channelInfo.channelInfoIdentifier;
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
@@ -884,7 +897,7 @@ void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)
 {
-    //TODO
+    // TODO
 }
 
 User::PresenceStatus RocketChatAccount::presenceStatus() const
@@ -909,21 +922,21 @@ ListMessagesModel *RocketChatAccount::listMessageModel() const
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 {
-    //qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
-    //If empty ! show empty list
+    // qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
+    // If empty ! show empty list
     loadAutoCompleteChannel(obj);
 }
 
 void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)
 {
-    //qDebug() << " void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)" << obj;
+    // qDebug() << " void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)" << obj;
     mSearchChannelModel->parseAllChannels(obj);
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
 {
-    //TODO fixme channelinfo
-    //qDebug() << " slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)" << roomId << " obj " << obj;
+    // TODO fixme channelinfo
+    // qDebug() << " slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)" << roomId << " obj " << obj;
     if (mFilesModelForRoom->roomId() != channelInfo.channelInfoIdentifier) {
         mFilesModelForRoom->parseFileAttachments(obj, channelInfo.channelInfoIdentifier);
     } else {
@@ -1069,7 +1082,7 @@ void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
     qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array << " account name " << accountName();
 
-    //TODO
+    // TODO
 }
 
 void RocketChatAccount::setOwnStatus(const User &user)
@@ -1079,7 +1092,7 @@ void RocketChatAccount::setOwnStatus(const User &user)
 
 void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
 {
-    //qDebug() << "Account Name : " << accountName() << " status changed: " << array << " array " << array.count() << " array" << array.toVariantList();
+    // qDebug() << "Account Name : " << accountName() << " status changed: " << array << " array " << array.count() << " array" << array.toVariantList();
     const auto list = array.toVariantList();
     for (const auto &var : list) {
         const auto userListArguments = var.toJsonArray().toVariantList();
@@ -1087,7 +1100,7 @@ void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
         user.parseUser(userListArguments);
         if (user.isValid()) {
             userStatusChanged(user);
-            //qDebug() << " user status changed " << user;
+            // qDebug() << " user status changed " << user;
         }
     }
 }
@@ -1133,7 +1146,7 @@ void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
-    //TODO use restapi
+    // TODO use restapi
     ddp()->createJitsiConfCall(roomId);
     joinJitsiConfCall(roomId);
 }
@@ -1188,12 +1201,19 @@ void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
     restApi()->pinMessage(messageId, pinned);
 }
 
-void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId)
+void RocketChatAccount::uploadFile(const QString &roomId,
+                                   const QString &description,
+                                   const QString &messageText,
+                                   const QUrl &fileUrl,
+                                   const QString &threadMessageId)
 {
     restApi()->uploadFile(roomId, description, messageText, fileUrl, threadMessageId);
 }
 
-void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType)
+void RocketChatAccount::changeChannelSettings(const QString &roomId,
+                                              RocketChatAccount::RoomInfoType infoType,
+                                              const QVariant &newValue,
+                                              const QString &channelType)
 {
     switch (infoType) {
     case Announcement:
@@ -1229,7 +1249,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupsTopic(roomId, newValue.toString());
         } else {
-            //TODO : change topic in direct channel
+            // TODO : change topic in direct channel
             qCWarning(RUQOLA_LOG) << " unsupport change topic for type " << channelType;
         }
         break;
@@ -1270,8 +1290,8 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         }
         break;
     case Password:
-        //FIXME channel type ???
-        //restApi()->setJoinCodeChannel(roomId, newValue.toString());
+        // FIXME channel type ???
+        // restApi()->setJoinCodeChannel(roomId, newValue.toString());
         break;
     }
 }
@@ -1287,7 +1307,9 @@ void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
     restApi()->getThreadMessages(threadMessageId);
 }
 
-void RocketChatAccount::changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue)
+void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
+                                                    RocketChatAccount::NotificationOptionsType notificationsType,
+                                                    const QVariant &newValue)
 {
     switch (notificationsType) {
     case DisableNotifications:
@@ -1368,12 +1390,12 @@ SearchMessageModel *RocketChatAccount::searchMessageModel() const
 
 void RocketChatAccount::initializeAuthenticationPlugins()
 {
-    //TODO change it when we change server
-    //Clean up at the end.
+    // TODO change it when we change server
+    // Clean up at the end.
     const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
-    qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
-        qCWarning(RUQOLA_LOG) <<" No plugins loaded. Please verify your installation.";
+        qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
         ddp()->authenticationManager()->setLoginStatus(DDPAuthenticationManager::FailedToLoginPluginProblem);
         return;
     }
@@ -1393,13 +1415,13 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         interface->setAccount(this);
         mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
         mLstPluginAuthenticationInterface.insert(abstractPlugin->type(), interface);
-        //For the moment initialize default interface
+        // For the moment initialize default interface
         if (abstractPlugin->type() == AuthenticationManager::OauthType::Password) {
             mDefaultAuthenticationInterface = interface;
         }
         qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->type();
     }
-    //TODO fill ??? or store QVector<AuthenticationInfo>
+    // TODO fill ??? or store QVector<AuthenticationInfo>
 }
 
 PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
@@ -1424,8 +1446,8 @@ QString RocketChatAccount::userName() const
 
 void RocketChatAccount::setAccountName(const QString &accountname)
 {
-    //Initialize new account room
-    //qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
+    // Initialize new account room
+    // qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
     loadSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
     settings()->setAccountName(accountname);
 }
@@ -1566,11 +1588,11 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
 
 void RocketChatAccount::loadHistory(const QString &roomID, const QString &channelType, bool initial)
 {
-    //TODO port to restapi
+    // TODO port to restapi
     Q_UNUSED(channelType)
     MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
-        //TODO add autotest for it !
+        // TODO add autotest for it !
         QJsonArray params;
         params.append(QJsonValue(roomID));
         // Load history
@@ -1579,7 +1601,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, const QString &channe
             params.append(QJsonValue(QJsonValue::Null));
             params.append(QJsonValue(50)); // Max number of messages to load;
             QJsonObject dateObject;
-            //qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+            // qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
             dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
             params.append(dateObject);
         } else {
@@ -1587,13 +1609,14 @@ void RocketChatAccount::loadHistory(const QString &roomID, const QString &channe
             QJsonObject dateObjectEnd;
             dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
 
-            //qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
+            // qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime) << "
+            // ROOMID" << roomID;
             params.append(dateObjectEnd);
 
             params.append(QJsonValue(50)); // Max number of messages to load;
 
             QJsonObject dateObjectStart;
-            //qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+            // qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
             dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
             params.append(dateObjectStart);
         }
@@ -1749,7 +1772,7 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channe
     } else if (channelType == QLatin1Char('p')) {
         restApi()->getGroupRoles(roomId);
     } else if (channelType == QLatin1Char('d')) {
-        //No a problem here.
+        // No a problem here.
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
     }
@@ -1833,8 +1856,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (message.userId() != userId()) {
         return false;
     }
-    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000)
-           > QDateTime::currentMSecsSinceEpoch();
+    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
 }
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
@@ -1848,16 +1870,15 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     if (hasPermission(QStringLiteral("force-delete-message"))) {
         return true;
     }
-    return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000)
-           > QDateTime::currentMSecsSinceEpoch();
+    return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
 }
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
     qCWarning(RUQOLA_LOG) << " NOT IMPLEMENTED YET";
-    //const Otr t = mOtrManager->parseOtr(contents);
-    //qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
-    //TODO add notification ?
+    // const Otr t = mOtrManager->parseOtr(contents);
+    // qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
+    // TODO add notification ?
 }
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
@@ -1865,14 +1886,14 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     Utils::NotificationInfo info = Utils::parseNotification(contents);
 
     const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderId);
-    //qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
+    // qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
     QPixmap pix;
     if (!iconFileName.isEmpty()) {
         const QUrl url = QUrl::fromLocalFile(iconFileName);
-        //qDebug() << "url.toLocalFile()"<<url.toLocalFile();
+        // qDebug() << "url.toLocalFile()"<<url.toLocalFile();
         const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
-        //qDebug() << " load pixmap : "<< loaded;
-        //qDebug() << " pix " << pix.isNull();
+        // qDebug() << " load pixmap : "<< loaded;
+        // qDebug() << " pix " << pix.isNull();
         Q_UNUSED(loaded)
         info.pixmap = pix;
     }
@@ -1884,7 +1905,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 
 void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog)
 {
-    //TODO look at for restapi support.
+    // TODO look at for restapi support.
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
         ddp()->inputChannelAutocomplete(pattern, exceptions, threadDialog);
@@ -1912,7 +1933,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
     if (user.userId() == userId()) {
         mPresenceStatus = Utils::presenceStatusFromString(user.status());
         statusModel()->setCurrentPresenceStatus(mPresenceStatus);
-        //TODO customText!
+        // TODO customText!
         Q_EMIT userStatusUpdated(mPresenceStatus, accountName());
     }
     if (!hasOldSubscriptionSupport()) {
@@ -1928,11 +1949,11 @@ void RocketChatAccount::ignoreUser(const QString &rid, const QString &userId, bo
 
 void RocketChatAccount::blockUser(const QString &rid, bool block)
 {
-    //TODO use restapi
+    // TODO use restapi
     if (rid.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY rid ! block " << block;
     } else {
-        //qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
+        // qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
 
         const QString userIdFromDirectChannel = Utils::userIdFromDirectChannel(rid, userId());
         if (block) {
@@ -1964,7 +1985,7 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
     } else if (!r) {
         qWarning() << " Room " << roomId << " was no found! Need to open it";
-        //openDirectChannel(roomId);
+        // openDirectChannel(roomId);
     }
     QMetaObject::invokeMethod(this, &RocketChatAccount::switchedRooms, Qt::QueuedConnection);
 }
@@ -1976,7 +1997,7 @@ void RocketChatAccount::openDocumentation()
 
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
-    //qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
+    // qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
         if (obj.contains(QLatin1String("username"))) {
@@ -1992,8 +2013,8 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             qDebug() << "need to update room avatar ";
             Utils::AvatarInfo info;
             info.avatarType = Utils::AvatarType::Room;
-            info.etag = etag; //Etag
-            info.identifier = roomId; //roomId
+            info.etag = etag; // Etag
+            info.identifier = roomId; // roomId
             mCache->updateAvatar(info);
             Q_EMIT avatarWasChanged(info);
         } else {
@@ -2001,7 +2022,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
         }
     }
 
-    //TODO parse "QJsonObject({"args":[{"username":"foo"}],"eventName":"updateAvatar"})"
+    // TODO parse "QJsonObject({"args":[{"username":"foo"}],"eventName":"updateAvatar"})"
 }
 
 void RocketChatAccount::rolesChanged(const QJsonArray &contents)
@@ -2016,7 +2037,11 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
     }
 }
 
-void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &messageId, const QStringList &users)
+void RocketChatAccount::createDiscussion(const QString &parentRoomId,
+                                         const QString &discussionName,
+                                         const QString &replyMessage,
+                                         const QString &messageId,
+                                         const QStringList &users)
 {
     restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId, users);
 }
@@ -2083,7 +2108,7 @@ void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &ro
 
 void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 {
-    //qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
+    // qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
     const auto lst = obj.value(QStringLiteral("users")).toArray();
     for (const auto &var : lst) {
         const QJsonObject userJson = var.toObject();
@@ -2130,13 +2155,13 @@ void RocketChatAccount::initializeAccount()
 {
     listEmojiCustom();
 
-    //load when necessary
+    // load when necessary
     usersPresence();
     if (autoTranslateEnabled()) {
         getSupportedLanguages();
     }
-    //Force set online.
-    //TODO don't reset message status !
+    // Force set online.
+    // TODO don't reset message status !
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
@@ -2168,16 +2193,16 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     Commands commands;
     commands.setDownloadManager(mDownloadAppsLanguagesManager);
     commands.parseCommands(obj, this);
-    if (!mCommandsModel->commands().isEmpty()) { //Don't show command listview if we already have command (for example when we logout/login)
+    if (!mCommandsModel->commands().isEmpty()) { // Don't show command listview if we already have command (for example when we logout/login)
         QSignalBlocker blockSignal(mCommandsModel);
         mCommandsModel->setCommands(commands);
     } else {
-        //Initialize it after loading otherwise we will see listview at startup
+        // Initialize it after loading otherwise we will see listview at startup
         mCommandsModel->setCommands(commands);
         mInputTextManager->setCommandModel(mCommandsModel);
         mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }
-    //qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
+    // qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
 }
 
 bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId, const QString &tmid)
@@ -2216,7 +2241,7 @@ void RocketChatAccount::loginStatusChangedSlot()
         Q_EMIT logoutDone(accountName());
         qCDebug(RUQOLA_LOG) << "Successfully logged out!";
     } else if (loginStatus() == DDPAuthenticationManager::LoggedIn) {
-        //Reset it.
+        // Reset it.
         mDelayReconnect = 100;
     }
     Q_EMIT loginStatusChanged();
@@ -2274,14 +2299,14 @@ RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeat
 
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
-    //qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
+    // qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
     mOwnUser.parseOwnUserInfo(replyObject);
     const User user = mOwnUser.user();
-    //qDebug() << " USER  " << user;
+    // qDebug() << " USER  " << user;
     if (user.isValid()) {
         usersModel()->addUser(user);
         if (!RuqolaGlobalConfig::self()->setOnlineAccounts()) {
-            //Need to update own status.
+            // Need to update own status.
             setOwnStatus(user);
         }
     } else {
@@ -2327,7 +2352,7 @@ void RocketChatAccount::createDirectMessages(const QStringList &usernames)
 void RocketChatAccount::slotCustomUserStatusDone(const QJsonObject &customList)
 {
     mCustomUserStatuses.parseCustomUserStatuses(customList);
-    //qDebug() << "customList  " << mCustomUserStatuses;
+    // qDebug() << "customList  " << mCustomUserStatuses;
     Q_EMIT customUserStatusChanged();
 }
 
@@ -2353,7 +2378,7 @@ void RocketChatAccount::createCustomUserStatus(const RocketChatRestApi::CustomUs
 
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 {
-    //qDebug() << "replyObject " << replyObject;
+    // qDebug() << "replyObject " << replyObject;
     const QJsonObject roomInfo = replyObject[QLatin1String("message")].toObject();
     addMessage(roomInfo, true, true);
 }
@@ -2368,13 +2393,14 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
         m.setMessageType(Message::MessageType::Information);
         m.setPendingMessage(temporaryMessage);
         if (!m.threadMessageId().isEmpty()) {
-            //qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
+            // qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
             updateThreadMessageList(m);
         }
-        //m.setMessageType(Message::System);
-        //TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})
+        // m.setMessageType(Message::System);
+        // TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this
+        // room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})
         messageModel->addMessages({m});
-        //qDebug() << " m " << m;
+        // qDebug() << " m " << m;
     } else {
         qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
     }
@@ -2396,7 +2422,7 @@ void RocketChatAccount::resetAvatar()
     info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
     info.userIdentifier = userId();
     restApi()->resetAvatar(info);
-    //TODO update avatar when we reset it.
+    // TODO update avatar when we reset it.
 }
 
 void RocketChatAccount::setAvatarUrl(const QString &url)
@@ -2424,7 +2450,7 @@ void RocketChatAccount::slotRoomExportDone()
 
 void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject)
 {
-    //qDebug() << accountName() << " replyObject " << replyObject;
+    // qDebug() << accountName() << " replyObject " << replyObject;
     mPermissionManager.parsePermissions(replyObject);
 }
 
@@ -2442,7 +2468,7 @@ bool RocketChatAccount::hasPermission(const QString &permissionId) const
 {
     const QStringList ownUserRoles{mOwnUser.roles()};
     const QStringList permissionRoles{mPermissionManager.roles(permissionId)};
-    if (permissionRoles.isEmpty()) { //Check if we don't have stored permissionId in permission manager
+    if (permissionRoles.isEmpty()) { // Check if we don't have stored permissionId in permission manager
         if (!mPermissionManager.contains(permissionId)) {
             qCWarning(RUQOLA_LOG) << "permissionId not loaded during setup:" << permissionId;
             qWarning() << "permissionId not loaded during setup:" << permissionId;

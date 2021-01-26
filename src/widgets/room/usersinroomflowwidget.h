@@ -21,9 +21,9 @@
 #ifndef USERSINROOMFLOWWIDGET_H
 #define USERSINROOMFLOWWIDGET_H
 
-#include <QWidget>
-#include <QMap>
 #include "libruqolawidgets_private_export.h"
+#include <QMap>
+#include <QWidget>
 class FlowLayout;
 class Room;
 class UsersInRoomLabel;

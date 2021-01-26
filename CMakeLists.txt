@@ -37,6 +37,9 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
+if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
+    include(KDEGitCommitHooks)
+endif()
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings" OFF)
 
@@ -137,5 +140,8 @@ ecm_qt_install_logging_categories(
         FILE ruqola.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
+if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
+    kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

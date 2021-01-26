@@ -20,9 +20,9 @@
 
 #include "serverinfodialog.h"
 #include "serverinfowidget.h"
-#include <QVBoxLayout>
-#include <QDialogButtonBox>
 #include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 ServerInfoDialog::ServerInfoDialog(QWidget *parent)
     : QDialog(parent)

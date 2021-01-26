@@ -21,9 +21,9 @@
 #ifndef PRUNEMESSAGESWIDGET_H
 #define PRUNEMESSAGESWIDGET_H
 
-#include <QWidget>
-#include "rooms/roomscleanhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
+#include "rooms/roomscleanhistoryjob.h"
+#include <QWidget>
 class QCheckBox;
 class QDateTimeEdit;
 class AddUsersWidget;

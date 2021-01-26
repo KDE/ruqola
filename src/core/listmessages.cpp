@@ -102,7 +102,7 @@ QVector<Message> ListMessages::listMessages() const
     return mListMessages;
 }
 
-QDebug operator <<(QDebug d, const ListMessages &t)
+QDebug operator<<(QDebug d, const ListMessages &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

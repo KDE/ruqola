@@ -21,8 +21,8 @@
 #ifndef MESSAGEDOWNLOADMANAGER_H
 #define MESSAGEDOWNLOADMANAGER_H
 
-#include <QObject>
 #include "libruqola_private_export.h"
+#include <QObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT MessageDownloadManager : public QObject
 {

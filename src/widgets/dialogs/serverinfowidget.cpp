@@ -20,8 +20,8 @@
 
 #include "serverinfowidget.h"
 #include "serverconfiginfo.h"
-#include <QFormLayout>
 #include <KLocalizedString>
+#include <QFormLayout>
 #include <QLabel>
 
 ServerInfoWidget::ServerInfoWidget(QWidget *parent)

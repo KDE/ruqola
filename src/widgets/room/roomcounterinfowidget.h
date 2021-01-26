@@ -21,9 +21,9 @@
 #ifndef ROOMCOUNTERINFOWIDGET_H
 #define ROOMCOUNTERINFOWIDGET_H
 
-#include <KMessageWidget>
 #include "channelcounterinfo.h"
 #include "libruqolawidgets_private_export.h"
+#include <KMessageWidget>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomCounterInfoWidget : public KMessageWidget
 {

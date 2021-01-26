@@ -21,15 +21,13 @@
 #ifndef LRUCACHE_H
 #define LRUCACHE_H
 
-#include <array>
 #include <algorithm>
+#include <array>
 
-template<typename Key, typename Value, size_t N>
-class LRUCache
+template<typename Key, typename Value, size_t N> class LRUCache
 {
 public:
-    struct Entry
-    {
+    struct Entry {
         Key key;
         Value value;
         bool operator==(const Key &rhs) const
@@ -86,9 +84,7 @@ public:
         }
 
         // right shift to make space at the front
-        std::rotate(mEntries.begin(),
-                    std::next(mEntries.begin(), mNumEntries - 1),
-                    std::next(mEntries.begin(), mNumEntries));
+        std::rotate(mEntries.begin(), std::next(mEntries.begin(), mNumEntries - 1), std::next(mEntries.begin(), mNumEntries));
 
         // insert up front
         mEntries.front() = {std::move(key), std::move(value)};

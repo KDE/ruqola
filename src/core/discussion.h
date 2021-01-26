@@ -40,8 +40,8 @@ public:
     Q_REQUIRED_RESULT qint64 lastMessage() const;
     void setLastMessage(qint64 lastMessage);
 
-    Q_REQUIRED_RESULT bool operator ==(const Discussion &other) const;
-    Discussion &operator =(const Discussion &other) = default;
+    Q_REQUIRED_RESULT bool operator==(const Discussion &other) const;
+    Discussion &operator=(const Discussion &other) = default;
 
     void parseDiscussion(const QJsonObject &o);
 
@@ -69,7 +69,7 @@ private:
     qint64 mLastMessage = -1;
     qint64 mTimeStamp = -1;
 };
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussion &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
 Q_DECLARE_METATYPE(Discussion)
 Q_DECLARE_TYPEINFO(Discussion, Q_MOVABLE_TYPE);
 #endif // DISCUSSION_H

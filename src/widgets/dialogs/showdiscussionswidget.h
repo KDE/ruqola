@@ -21,8 +21,8 @@
 #ifndef SHOWDISCUSSIONSWIDGET_H
 #define SHOWDISCUSSIONSWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLineEdit;
 class QLabel;
 class QListView;

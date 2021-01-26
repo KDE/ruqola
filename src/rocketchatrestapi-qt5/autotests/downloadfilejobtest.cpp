@@ -30,6 +30,6 @@ DownloadFileJobTest::DownloadFileJobTest(QObject *parent)
 
 void DownloadFileJobTest::shouldHaveDefaultValue()
 {
-    //TODO
-    //QVERIFY(!job.hasQueryParameterSupport());
+    // TODO
+    // QVERIFY(!job.hasQueryParameterSupport());
 }

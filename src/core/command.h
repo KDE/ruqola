@@ -22,9 +22,9 @@
 #define COMMAND_H
 
 #include "libruqola_private_export.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT Command
 {
@@ -45,7 +45,7 @@ public:
 
     void parseCommand(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT bool operator ==(const Command &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Command &other) const;
 
     Q_REQUIRED_RESULT bool isValid() const;
 
@@ -72,6 +72,6 @@ private:
 };
 Q_DECLARE_METATYPE(Command)
 Q_DECLARE_TYPEINFO(Command, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Command &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Command &t);
 
 #endif // COMMAND_H

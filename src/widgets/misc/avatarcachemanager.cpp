@@ -19,9 +19,9 @@
 */
 
 #include "avatarcachemanager.h"
+#include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
-#include "emoticons/emojimanager.h"
 
 #include <QPainter>
 #include <QWidget>
@@ -56,7 +56,7 @@ void AvatarCacheManager::slotAvatarChanged(const Utils::AvatarInfo &info)
         }
         auto &cache = mAvatarCache.cache;
         auto downScaled = cache.findCachedPixmap(iconUrlStr);
-        //Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
+        // Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
         if (!downScaled.isNull()) {
             mAvatarCache.cache.remove(iconUrlStr);
         }
@@ -86,8 +86,8 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
             const QFontMetrics fm(mEmojiFont);
             const QSize size = fm.boundingRect(emoticon.unicode()).size();
 
-            //qDebug() << " size " << size << "emojiStr "<< emojiStr << " emoticon.unicode() " <<emoticon.unicode() << fm.horizontalAdvance(emoticon.unicode());
-            //boundingRect can return a width == 0 for existing character as :warning: emoji.
+            // qDebug() << " size " << size << "emojiStr "<< emojiStr << " emoticon.unicode() " <<emoticon.unicode() <<
+            // fm.horizontalAdvance(emoticon.unicode()); boundingRect can return a width == 0 for existing character as :warning: emoji.
             QPixmap fullScale(fm.horizontalAdvance(emoticon.unicode()), size.height());
 
             fullScale.fill(Qt::white);

@@ -21,9 +21,9 @@
 #include "customemojitest.h"
 #include "emoticons/customemoji.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
-#include <QJsonDocument>
 
 QTEST_GUILESS_MAIN(CustomEmojiTest)
 
@@ -91,7 +91,7 @@ void CustomEmojiTest::shouldCopyValue()
     QCOMPARE(copy, j);
 }
 
-//void CustomEmojiTest::shouldClearCachedHtml()
+// void CustomEmojiTest::shouldClearCachedHtml()
 //{
 //    CustomEmoji emojiRef;
 //    emojiRef.setExtension(QStringLiteral("gif"));
@@ -142,7 +142,7 @@ void CustomEmojiTest::shouldParseEmoji()
     QVERIFY(emojiIsEqual);
 }
 
-//void CustomEmojiTest::shouldGenerateHtml_data()
+// void CustomEmojiTest::shouldGenerateHtml_data()
 //{
 //    QTest::addColumn<CustomEmoji>("emoji");
 //    QTest::addColumn<QString>("serverUrl");
@@ -165,7 +165,7 @@ void CustomEmojiTest::shouldParseEmoji()
 //    }
 //}
 
-//void CustomEmojiTest::shouldGenerateHtml()
+// void CustomEmojiTest::shouldGenerateHtml()
 //{
 //    QFETCH(CustomEmoji, emoji);
 //    QFETCH(QString, serverUrl);

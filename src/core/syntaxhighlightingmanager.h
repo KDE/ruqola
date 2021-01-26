@@ -20,9 +20,9 @@
 #ifndef SYNTAXHIGHLIGHTINGMANAGER_H
 #define SYNTAXHIGHLIGHTINGMANAGER_H
 
-#include <QObject>
-#include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Definition>
+#include <KSyntaxHighlighting/Repository>
+#include <QObject>
 
 class SyntaxHighlightingManager : public QObject
 {

@@ -21,9 +21,10 @@
 #ifndef EMOJICUSTOMDELETEJOB_H
 #define EMOJICUSTOMDELETEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT EmojiCustomDeleteJob : public RestApiAbstractJob
 {
     Q_OBJECT

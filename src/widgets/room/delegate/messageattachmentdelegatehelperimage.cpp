@@ -19,12 +19,12 @@
 */
 
 #include "messageattachmentdelegatehelperimage.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "dialogs/showimagedialog.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
+#include "dialogs/showimagedialog.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -38,7 +38,11 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach,
+                                                QPainter *painter,
+                                                QRect messageRect,
+                                                const QModelIndex &index,
+                                                const QStyleOptionViewItem &option) const
 {
     const ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
@@ -64,14 +68,18 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                     rai.movie->setScaledSize(layout.imageSize);
                     auto view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
                     const QPersistentModelIndex &idx = rai.index;
-                    QObject::connect(rai.movie, &QMovie::frameChanged,
-                                     view, [view, idx, this]() {
-                        if (view->viewport()->rect().contains(view->visualRect(idx))) {
-                            view->update(idx);
-                        } else {
-                            removeRunningAnimatedImage(idx);
-                        }
-                    }, Qt::QueuedConnection);
+                    QObject::connect(
+                        rai.movie,
+                        &QMovie::frameChanged,
+                        view,
+                        [view, idx, this]() {
+                            if (view->viewport()->rect().contains(view->visualRect(idx))) {
+                                view->update(idx);
+                            } else {
+                                removeRunningAnimatedImage(idx);
+                            }
+                        },
+                        Qt::QueuedConnection);
                     rai.movie->start();
                     scaledPixmap = rai.movie->currentPixmap();
                 }
@@ -87,7 +95,10 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
     drawDescription(msgAttach, messageRect, painter, nextY);
 }
 
-QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach,
+                                                     const QModelIndex &index,
+                                                     int maxWidth,
+                                                     const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const ImageLayout layout = layoutImage(msgAttach, option, maxWidth, -1);
@@ -102,11 +113,14 @@ QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &ms
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth),
-            height};
+    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
 }
 
-bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                            QMouseEvent *mouseEvent,
+                                                            QRect attachmentsRect,
+                                                            const QStyleOptionViewItem &option,
+                                                            const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
@@ -153,7 +167,10 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     return false;
 }
 
-MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const
+MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach,
+                                                                                                    const QStyleOptionViewItem &option,
+                                                                                                    int attachmentsWidth,
+                                                                                                    int attachmentsHeight) const
 {
     ImageLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
@@ -167,7 +184,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
         layout.imagePath = url.toLocalFile();
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
-        //or we could do layout.attachment = msgAttach; if we need many fields from it
+        // or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.isShown = msgAttach.showAttachment();
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -175,7 +192,8 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
         layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
 
         if (attachmentsHeight > 0) {
-            // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description | DelegatePaintUtil::margin()]
+            // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description |
+            // DelegatePaintUtil::margin()]
             int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - DelegatePaintUtil::margin() * 2;
             if (!layout.description.isEmpty()) {
                 imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
@@ -190,8 +208,8 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
 std::vector<RunningAnimatedImage>::iterator MessageAttachmentDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
 {
     auto matchesIndex = [&](const RunningAnimatedImage &rai) {
-                            return rai.index == index;
-                        };
+        return rai.index == index;
+    };
     return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
 }
 

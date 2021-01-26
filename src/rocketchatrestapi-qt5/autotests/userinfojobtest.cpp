@@ -19,8 +19,8 @@
 */
 
 #include "userinfojobtest.h"
-#include "users/userinfojob.h"
 #include "ruqola_restapi_helper.h"
+#include "users/userinfojob.h"
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(UserInfoJobTest)

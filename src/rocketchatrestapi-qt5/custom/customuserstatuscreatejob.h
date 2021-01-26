@@ -21,9 +21,10 @@
 #ifndef CUSTOMUSERSTATUSCREATEJOB_H
 #define CUSTOMUSERSTATUSCREATEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT CustomUserStatusCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT

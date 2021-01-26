@@ -19,33 +19,34 @@
 */
 
 #include "messagedelegatehelperreactions.h"
-#include <model/messagemodel.h>
-#include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqolautils.h"
 #include "common/delegatepaintutil.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticon.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolautils.h"
+#include <model/messagemodel.h>
 
-#include <QPainter>
 #include <QAbstractTextDocumentLayout>
+#include <QPainter>
 #include <QStyleOptionViewItem>
-#include <ruqola.h>
 #include <QToolTip>
+#include <ruqola.h>
 
 MessageDelegateHelperReactions::MessageDelegateHelperReactions()
     : mEmojiFont(QStringLiteral("NotoColorEmoji"))
 {
 }
 
-QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const
+QVector<MessageDelegateHelperReactions::ReactionLayout>
+MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const
 {
     QVector<ReactionLayout> layouts;
     layouts.reserve(reactions.count());
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto *emojiManager = rcAccount->emojiManager();
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
-    const qreal smallMargin = DelegatePaintUtil::margin()/2.0;
+    const qreal smallMargin = DelegatePaintUtil::margin() / 2.0;
     qreal x = reactionsRect.x();
 
     for (const Reaction &reaction : reactions) {
@@ -78,8 +79,7 @@ QVector<MessageDelegateHelperReactions::ReactionLayout> MessageDelegateHelperRea
         layout.countStr = QString::number(reaction.count());
         const int countWidth = option.fontMetrics.horizontalAdvance(layout.countStr) + smallMargin;
         // [reactionRect] = [emojiOffset (margin)] [emojiWidth] [countWidth] [margin/2]
-        layout.reactionRect = QRectF(x, reactionsRect.y(),
-                                     emojiWidth + countWidth + DelegatePaintUtil::margin(), reactionsRect.height());
+        layout.reactionRect = QRectF(x, reactionsRect.y(), emojiWidth + countWidth + DelegatePaintUtil::margin(), reactionsRect.height());
         layout.emojiOffset = smallMargin + 1;
         layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
         layout.reaction = reaction;
@@ -129,8 +129,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
         } else {
             const QPixmap pixmap = mPixmapCache.pixmapForLocalFile(reactionLayout.emojiImagePath);
             const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-            const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize,
-                                                       Qt::KeepAspectRatio, Qt::SmoothTransformation);
+            const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
             painter->drawPixmap(r.x(), r.y(), scaledPixmap);
         }
 
@@ -170,7 +169,11 @@ bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, Q
     return false;
 }
 
-bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message)
+bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent,
+                                                     QWidget *view,
+                                                     QRect reactionsRect,
+                                                     const QStyleOptionViewItem &option,
+                                                     const Message *message)
 {
     const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
     for (const ReactionLayout &reactionLayout : reactions) {

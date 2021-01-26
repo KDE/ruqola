@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "configureaccountserverwidget.h"
 #include "configureaccountwidget.h"
+#include "configureaccountserverwidget.h"
 #include <QVBoxLayout>
 
 ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)

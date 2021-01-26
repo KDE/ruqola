@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqola_debug.h"
 #include "adminrooms.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -121,7 +121,7 @@ void AdminRooms::setTotal(int total)
     mTotal = total;
 }
 
-QDebug operator <<(QDebug d, const AdminRooms &t)
+QDebug operator<<(QDebug d, const AdminRooms &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

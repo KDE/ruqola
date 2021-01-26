@@ -20,10 +20,10 @@
 #ifndef DISCUSSIONS_H
 #define DISCUSSIONS_H
 
-#include "libruqola_private_export.h"
 #include "discussion.h"
-#include <QVector>
+#include "libruqola_private_export.h"
 #include <QDebug>
+#include <QVector>
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussions
 {
@@ -60,6 +60,6 @@ private:
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussions &t);
 
 #endif // DISCUSSIONS_H

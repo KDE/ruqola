@@ -19,8 +19,8 @@
 
 #include "autotranslatelanguagesmodeltest.h"
 #include "model/autotranslatelanguagesmodel.h"
-#include <QTest>
 #include "test_model_helpers.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(AutotranslateLanguagesModelTest)
 
 AutotranslateLanguagesModelTest::AutotranslateLanguagesModelTest(QObject *parent)
@@ -31,5 +31,5 @@ AutotranslateLanguagesModelTest::AutotranslateLanguagesModelTest(QObject *parent
 void AutotranslateLanguagesModelTest::shouldHaveDefaultValues()
 {
     AutotranslateLanguagesModel model;
-    //TODO
+    // TODO
 }

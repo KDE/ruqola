@@ -29,4 +29,4 @@ UnicodeEmoticonParserTest::UnicodeEmoticonParserTest(QObject *parent)
 {
 }
 
-//TODO add test parser
+// TODO add test parser

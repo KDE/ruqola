@@ -23,8 +23,8 @@
 
 #include <QWidget>
 
-#include "libruqolawidgets_private_export.h"
 #include "accountmanager.h"
+#include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget

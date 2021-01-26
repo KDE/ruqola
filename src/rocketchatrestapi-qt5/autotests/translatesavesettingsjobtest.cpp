@@ -21,8 +21,8 @@
 #include "translatesavesettingsjobtest.h"
 #include "autotranslate/translatesavesettingsjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(TranslateSaveSettingsJobTest)
 using namespace RocketChatRestApi;
 TranslateSaveSettingsJobTest::TranslateSaveSettingsJobTest(QObject *parent)
@@ -63,10 +63,14 @@ void TranslateSaveSettingsJobTest::shouldGenerateJson()
     bool autoTranslate = true;
     job.setAutoTranslate(autoTranslate);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":true}").arg(QStringLiteral("autoTranslate"), roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":true}").arg(QStringLiteral("autoTranslate"), roomId).toLatin1());
     type = TranslateSaveSettingsJob::LanguageSetting;
     job.setType(type);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":\"%3\"}").arg(QStringLiteral("autoTranslateLanguage"), roomId, targetLanguage).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":\"%3\"}")
+                 .arg(QStringLiteral("autoTranslateLanguage"), roomId, targetLanguage)
+                 .toLatin1());
 }
 
 void TranslateSaveSettingsJobTest::shouldNotStarting()

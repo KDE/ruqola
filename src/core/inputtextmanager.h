@@ -33,15 +33,9 @@ class QSortFilterProxyModel;
 class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(InputCompleterModel* inputCompleterModel READ inputCompleterModel CONSTANT)
+    Q_PROPERTY(InputCompleterModel *inputCompleterModel READ inputCompleterModel CONSTANT)
 public:
-    enum CompletionForType {
-        Channel = 0,
-        User,
-        Emoji,
-        Command,
-        None
-    };
+    enum CompletionForType { Channel = 0, User, Emoji, Command, None };
     explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager() override;
 
@@ -58,7 +52,7 @@ public:
 
     void clearCompleter();
 
-    //Only for autotests
+    // Only for autotests
     Q_REQUIRED_RESULT QString searchWord(const QString &text, int position, int &start);
 
     void setCommandModel(QAbstractItemModel *model);

@@ -43,7 +43,7 @@ void AutotranslateLanguage::setDisplayLanguage(const QString &displayLanguage)
     mDisplayLanguage = displayLanguage;
 }
 
-QDebug operator <<(QDebug d, const AutotranslateLanguage &t)
+QDebug operator<<(QDebug d, const AutotranslateLanguage &t)
 {
     d << "language name " << t.language() << "\n";
     d << "Display language name " << t.displayLanguage() << "\n";

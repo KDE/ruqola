@@ -21,8 +21,8 @@
 #include "updatemessagejobtest.h"
 #include "chat/updatemessagejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UpdateMessageJobTest)
 using namespace RocketChatRestApi;
 UpdateMessageJobTest::UpdateMessageJobTest(QObject *parent)
@@ -60,8 +60,7 @@ void UpdateMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageId);
     job.setUpdatedText(updatedText);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"msgId":"%2","roomId":"%1","text":"%3"})")
-             .arg(roomId, messageId, updatedText).toLatin1());
+             QStringLiteral(R"({"msgId":"%2","roomId":"%1","text":"%3"})").arg(roomId, messageId, updatedText).toLatin1());
 }
 
 void UpdateMessageJobTest::shouldNotStarting()

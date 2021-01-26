@@ -20,20 +20,21 @@
 
 #include "threadmessagedialog.h"
 #include "threadmessagewidget.h"
-#include <KLocalizedString>
-#include <QVBoxLayout>
-#include <QDialogButtonBox>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myThreadMessageDialogGroupName[] = "ThreadMessageDialog";
 }
 
 ThreadMessageDialog::ThreadMessageDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Threads")); //TODO fixme name
+    setWindowTitle(i18nc("@title:window", "Threads")); // TODO fixme name
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

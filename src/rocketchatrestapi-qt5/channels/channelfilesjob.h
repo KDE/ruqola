@@ -21,20 +21,16 @@
 #ifndef CHANNELFILESJOB_H
 #define CHANNELFILESJOB_H
 
-#include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
 #include "channelbasejob.h"
-namespace RocketChatRestApi {
+#include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelFilesJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
-    enum ChannelType {
-        Channel = 0,
-        Groups,
-        Direct,
-        Unknown
-    };
+    enum ChannelType { Channel = 0, Groups, Direct, Unknown };
     Q_ENUM(ChannelType)
     explicit ChannelFilesJob(QObject *parent = nullptr);
     ~ChannelFilesJob() override;

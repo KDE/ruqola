@@ -21,14 +21,15 @@
 #ifndef ROOMSTARTDISCUSSIONJOB_H
 #define ROOMSTARTDISCUSSIONJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomStartDiscussionJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
-    //Since rocketchat 1.0.0
+    // Since rocketchat 1.0.0
 public:
     explicit RoomStartDiscussionJob(QObject *parent = nullptr);
     ~RoomStartDiscussionJob() override;

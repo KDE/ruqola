@@ -21,8 +21,8 @@
 #ifndef FILESFORROOMFILTERPROXYMODEL_H
 #define FILESFORROOMFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 class FilesForRoomModel;
 class LIBRUQOLACORE_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 {
@@ -41,6 +41,7 @@ public:
 
     void setTypeGroup(const QString &typeGroup);
     void resetTypeGroup();
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
@@ -48,6 +49,7 @@ Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
     void loadingInProgressChanged();
+
 private:
     QString mTypeGroup;
     FilesForRoomModel *const mFilesForRoomModel;

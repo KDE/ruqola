@@ -21,10 +21,10 @@
 #include "usersinroomdialogtest.h"
 #include "room/usersinroomdialog.h"
 #include "room/usersinroomwidget.h"
-#include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(UsersInRoomDialogTest)
 UsersInRoomDialogTest::UsersInRoomDialogTest(QObject *parent)
     : QObject(parent)

@@ -21,9 +21,9 @@
 #ifndef LOADRECENTHISTORYMANAGER_H
 #define LOADRECENTHISTORYMANAGER_H
 
-#include <qglobal.h>
-#include <QDateTime>
 #include "libruqola_private_export.h"
+#include <QDateTime>
+#include <qglobal.h>
 
 class LIBRUQOLACORE_TESTS_EXPORT LoadRecentHistoryManager
 {

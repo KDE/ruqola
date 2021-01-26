@@ -20,9 +20,9 @@
 
 #include "googlepluginauthentication.h"
 #include "googleauthenticationinterface.h"
-#include <KPluginFactory>
-#include <KLocalizedString>
 #include "plugins/kcoreaddons_ruqola_compat.h"
+#include <KLocalizedString>
+#include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(GooglePluginAuthentication, "ruqola_googleauthenticationplugin.json")
 
@@ -52,7 +52,7 @@ QString GooglePluginAuthentication::name() const
 
 QString GooglePluginAuthentication::iconName() const
 {
-    //TODO
+    // TODO
     return {};
 }
 

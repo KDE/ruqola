@@ -21,9 +21,9 @@
 #ifndef EMOTICONSELECTORWIDGET_H
 #define EMOTICONSELECTORWIDGET_H
 
-#include <QListWidget>
 #include "emoticons/unicodeemoticon.h"
 #include "libruqolawidgets_private_export.h"
+#include <QListWidget>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonTextEditItem : public QListWidgetItem
 {
@@ -49,6 +49,7 @@ public:
 
 Q_SIGNALS:
     void itemSelected(const QString &str);
+
 private:
     void slotMouseOverItem(QListWidgetItem *item);
     void slotEmoticonClicked(QListWidgetItem *item);

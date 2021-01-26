@@ -21,10 +21,10 @@
 #include "messagetest.h"
 #include "messages/message.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
-#include <QJsonDocument>
-#include <QCborValue>
 #include <QCborMap>
+#include <QCborValue>
+#include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
@@ -41,7 +41,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.isEditingMode());
 }
 
-//TODO add check for default value ???
+// TODO add check for default value ???
 
 void MessageTest::shouldParseMessage_data()
 {
@@ -92,7 +92,7 @@ void MessageTest::shouldParseMessage_data()
         QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
     }
     {
-        //Image
+        // Image
         Message imageMessageRef;
         imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
         imageMessageRef.setAlias(QStringLiteral("aliasname"));
@@ -117,11 +117,11 @@ void MessageTest::shouldParseMessage_data()
         imageMessageRef.setAttachements({attImage});
 
         QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
-        //TODO add Mentions
+        // TODO add Mentions
     }
 
     {
-        //Video
+        // Video
         Message videoMessageRef;
         videoMessageRef.setMessageId(QStringLiteral("KCy2KiFYmS5NuakPm"));
         videoMessageRef.setAlias(QStringLiteral("Laurent Montel"));
@@ -141,13 +141,13 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setLink(QStringLiteral("/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"));
         attVideo.setDescription(QStringLiteral("test"));
         attVideo.setAttachmentType(MessageAttachment::Video);
-        //Add video size/video type etc.
+        // Add video size/video type etc.
         videoMessageRef.setAttachements({attVideo});
 
         QTest::addRow("video") << QStringLiteral("video") << videoMessageRef;
     }
     {
-        //Audio
+        // Audio
         Message audioMessageRef;
         audioMessageRef.setMessageId(QStringLiteral("AwDsjWKJaW2wCP2ht"));
         audioMessageRef.setAlias(QStringLiteral("Laurent Montel"));
@@ -167,13 +167,13 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setLink(QStringLiteral("/file-upload/9E8YBGgq3H6GbASf3/joint.wav"));
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
         attAudio.setAttachmentType(MessageAttachment::Audio);
-        //Add video size/video type etc.
+        // Add video size/video type etc.
         audioMessageRef.setAttachements({attAudio});
 
         QTest::addRow("audio") << QStringLiteral("audio") << audioMessageRef;
     }
     {
-        //Message Starred
+        // Message Starred
         Message messageStarredRef;
         messageStarredRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
         messageStarredRef.setAlias(QStringLiteral("Laurent"));
@@ -194,7 +194,7 @@ void MessageTest::shouldParseMessage_data()
         QTest::addRow("messagestarred") << QStringLiteral("messagestarred") << messageStarredRef;
     }
     {
-        //Message Starred
+        // Message Starred
         Message messagePinnedRef;
         messagePinnedRef.setMessageId(QStringLiteral("4eawfwyFnt7L8wTwE"));
         messagePinnedRef.setAlias(QStringLiteral("Laurent"));
@@ -217,7 +217,7 @@ void MessageTest::shouldParseMessage_data()
     }
 
     {
-        //Message Remove Starred status
+        // Message Remove Starred status
         Message messageStarredRemovedRef;
         messageStarredRemovedRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
         messageStarredRemovedRef.setAlias(QStringLiteral("Laurent"));
@@ -238,7 +238,7 @@ void MessageTest::shouldParseMessage_data()
         QTest::addRow("messageremovedstarred") << QStringLiteral("messageremovedstarred") << messageStarredRemovedRef;
     }
     {
-        //messageattachmentfile
+        // messageattachmentfile
         Message messageAttachmentFileRef;
         messageAttachmentFileRef.setMessageId(QStringLiteral("messageid"));
         messageAttachmentFileRef.setAlias(QStringLiteral("Laurent"));
@@ -258,7 +258,7 @@ void MessageTest::shouldParseMessage_data()
         fileAttachment.setLink(QStringLiteral("/file-upload/tmqfdJTCmJ3oqG/webkit.txt"));
         fileAttachment.setDescription(QStringLiteral("description"));
         fileAttachment.setAttachmentType(MessageAttachment::File);
-        //Add video size/video type etc.
+        // Add video size/video type etc.
         messageAttachmentFileRef.setAttachements({fileAttachment});
 
         QTest::addRow("messageattachmentfile") << QStringLiteral("messageattachmentfile") << messageAttachmentFileRef;
@@ -280,8 +280,8 @@ void MessageTest::shouldParseMessage()
     originalMessage.parseMessage(obj);
     const bool messageIsEqual = (originalMessage == expectedMessage);
     if (!messageIsEqual) {
-        qDebug() << "originalMessage "<<originalMessage;
-        qDebug() << "ExpectedMessage "<<expectedMessage;
+        qDebug() << "originalMessage " << originalMessage;
+        qDebug() << "ExpectedMessage " << expectedMessage;
     }
     QVERIFY(messageIsEqual);
 }
@@ -307,7 +307,7 @@ void MessageTest::shouldSerializeData()
     input.setParseUrls(true);
     input.setRole(QStringLiteral("leader"));
     input.setMessageType(Message::MessageType::NormalText);
-    //It will break as it's not supported yet
+    // It will break as it's not supported yet
     input.setIsStarred(true);
 
     QVector<MessageAttachment> lstAttachement;
@@ -335,10 +335,10 @@ void MessageTest::shouldSerializeData()
     input.setUrls(lstUrls);
 
     const QByteArray ba = Message::serialize(input);
-    //Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     Message output = Message::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
     QCOMPARE(input, output);
-    //TODO add Mentions
+    // TODO add Mentions
 
     QVERIFY(output.wasEdited());
 }
@@ -373,10 +373,10 @@ void MessageTest::shouldParseJsonMessage()
 
     Message r;
     r.parseMessage(fields);
-    //qDebug() << " fields"<<fields;
+    // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Message::serialize(r, false);
-    //qDebug() << " ba " << ba;
+    // qDebug() << " ba " << ba;
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
@@ -399,9 +399,10 @@ void MessageTest::shouldUpdateJsonMessage_data()
     QTest::newRow("standardmessage") << QStringLiteral("standardmessage") << QStringList();
     QTest::newRow("message1-init") << QStringLiteral("message1-init") << QStringList();
     QTest::newRow("message1") << QStringLiteral("message1") << (QStringList() << QStringLiteral("message1-updated"));
-    QTest::newRow("message2") << QStringLiteral("message2") << (QStringList() << QStringLiteral("message2-updated") << QStringLiteral("message2-updated-stared"));
+    QTest::newRow("message2") << QStringLiteral("message2")
+                              << (QStringList() << QStringLiteral("message2-updated") << QStringLiteral("message2-updated-stared"));
     QTest::newRow("message3") << QStringLiteral("message3") << (QStringList() << QStringLiteral("message3-updated"));
-    //TODO add more !
+    // TODO add more !
 }
 
 void MessageTest::shouldUpdateJsonMessage()
@@ -432,9 +433,9 @@ void MessageTest::shouldUpdateJsonMessage()
         r.parseMessage(fields);
     }
 
-    //qDebug() << " fields"<<fields;
+    // qDebug() << " fields"<<fields;
     const QByteArray ba = Message::serialize(r, false);
-    //qDebug() << " ba " << ba;
+    // qDebug() << " ba " << ba;
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);

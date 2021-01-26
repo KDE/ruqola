@@ -21,8 +21,8 @@
 #ifndef SERVERCONFIGINFO_H
 #define SERVERCONFIGINFO_H
 
-#include <QObject>
 #include "libruqolacore_export.h"
+#include <QObject>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT ServerConfigInfo : public QObject
 {

@@ -24,20 +24,20 @@
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 
+#include <KFormat>
 #include <QClipboard>
+#include <QDir>
 #include <QGuiApplication>
 #include <QHBoxLayout>
-#include <QToolButton>
-#include <QMenu>
-#include <QWidgetAction>
-#include <QMimeData>
-#include <QDir>
 #include <QImageWriter>
+#include <QMenu>
+#include <QMimeData>
 #include <QTemporaryFile>
-#include <KFormat>
+#include <QToolButton>
+#include <QWidgetAction>
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
@@ -98,7 +98,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
-                //a command ?
+                // a command ?
                 if (mCurrentRocketChatAccount->runCommand(msg, mRoomId, mThreadMessageId)) {
                     setMode(MessageLineWidget::EditingMode::NewMessage);
                     return;
@@ -134,7 +134,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 
 void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString &text)
 {
-    //TODO use text too
+    // TODO use text too
     clearMessageIdBeingEdited();
     mQuotePermalink = permalink;
     Q_EMIT quoteMessageChanged(mQuotePermalink, text);
@@ -142,7 +142,7 @@ void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString 
 
 void MessageLineWidget::clearEditingMode()
 {
-    //Remove old mark as editing
+    // Remove old mark as editing
     MessageModel *model = messageModel();
     const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
     if (index.isValid()) {
@@ -167,7 +167,7 @@ void MessageLineWidget::clearMessageIdBeingEdited()
 
 void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
 {
-    //Remove old mark as editing
+    // Remove old mark as editing
     clearEditingMode();
     mMessageIdBeingEdited = messageId;
     if (!mMessageIdBeingEdited.isEmpty()) {
@@ -299,13 +299,13 @@ void MessageLineWidget::setRoomId(const QString &roomId)
 bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
 {
     auto uploadFile = [this](const QUrl &url) {
-                          QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
-                          dlg->setFileUrl(url);
-                          if (dlg->exec()) {
-                              const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
-                              sendFile(uploadFileInfo);
-                          }
-                      };
+        QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+        dlg->setFileUrl(url);
+        if (dlg->exec()) {
+            const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
+            sendFile(uploadFileInfo);
+        }
+    };
     if (mimeData->hasUrls()) {
         const QList<QUrl> urls = mimeData->urls();
         for (const QUrl &url : urls) {
@@ -332,7 +332,8 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
 
 MessageModel *MessageLineWidget::messageModel() const
 {
-    MessageModel *model = mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
+    MessageModel *model =
+        mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
     Q_ASSERT(model);
     return model;
 }
@@ -355,8 +356,8 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
         MessageModel *model = messageModel();
         auto isEditable = [this](const Message &msg) {
-                              return mCurrentRocketChatAccount->isMessageEditable(msg); //TODO room has permission(edit-message)
-                          };
+            return mCurrentRocketChatAccount->isMessageEditable(msg); // TODO room has permission(edit-message)
+        };
         if (key == Qt::Key_Up) {
             const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
             setEditMessage(msg.messageId(), msg.text());

@@ -21,8 +21,8 @@
 #ifndef AUTOTRANSLATECONFIGUREDIALOG_H
 #define AUTOTRANSLATECONFIGUREDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class AutoTranslateConfigureWidget;
 class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureDialog : public QDialog
@@ -32,6 +32,7 @@ public:
     explicit AutoTranslateConfigureDialog(QWidget *parent = nullptr);
     ~AutoTranslateConfigureDialog() override;
     void setRoom(Room *room);
+
 private:
     AutoTranslateConfigureWidget *mAutoTranslateConfigureWidget = nullptr;
 };

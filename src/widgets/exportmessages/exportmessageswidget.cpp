@@ -59,7 +59,7 @@ void ExportMessagesWidget::fillFormat()
 RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesWidget::roomExportInfo() const
 {
     RocketChatRestApi::RoomsExportJob::RoomsExportInfo info;
-    info.exportAs = RocketChatRestApi::RoomsExportJob::RoomsExportInfo::ExportAs::File; //For the moment we can't choose Email
+    info.exportAs = RocketChatRestApi::RoomsExportJob::RoomsExportInfo::ExportAs::File; // For the moment we can't choose Email
 
     info.fileFormat = mFormat->currentData().value<RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat>();
     info.dateFrom = mFromDate->dateTime();

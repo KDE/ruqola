@@ -48,7 +48,7 @@ void RuqolaWebSocket::openUrl(const QUrl &url)
 
 qint64 RuqolaWebSocket::sendTextMessage(const QString &message)
 {
-    qCDebug(RUQOLA_LOG) << " qint64 RuqolaWebSocket::sendTextMessage(const QString &message)"<<message;
+    qCDebug(RUQOLA_LOG) << " qint64 RuqolaWebSocket::sendTextMessage(const QString &message)" << message;
     if (mLogger) {
         mLogger->dataSent(message.toUtf8());
     }

@@ -21,9 +21,9 @@
 #ifndef MODIFYSTATUSDIALOG_H
 #define MODIFYSTATUSDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
+#include <QDialog>
 class ModifyStatusWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusDialog : public QDialog
 {

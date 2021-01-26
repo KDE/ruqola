@@ -21,12 +21,13 @@
 #include "administratorcustomuserstatuscreatedialog.h"
 
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
 #include <QPushButton>
-namespace {
+#include <QVBoxLayout>
+namespace
+{
 static const char myConfigAdministratorCustomUserStatusCreateDialogGroupName[] = "AdministratorCustomUserStatusCreateDialog";
 }
 AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDialog(QWidget *parent)

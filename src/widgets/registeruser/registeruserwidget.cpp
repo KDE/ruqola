@@ -19,8 +19,8 @@
 */
 
 #include "registeruserwidget.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -67,11 +67,8 @@ RegisterUserWidget::~RegisterUserWidget()
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
-    const bool enableRegisterButton
-        = !mUserName->text().trimmed().isEmpty()
-          && !mEmail->text().trimmed().isEmpty()
-          && !mPasswordLineEdit->password().isEmpty()
-          && (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
+    const bool enableRegisterButton = !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && !mPasswordLineEdit->password().isEmpty()
+        && (mPasswordLineEdit->password() == mConfirmPasswordLineEdit->password());
     mRegisterButton->setEnabled(enableRegisterButton);
 }
 

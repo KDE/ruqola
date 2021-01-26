@@ -24,10 +24,10 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/pixmapcache.h"
 
+#include "messages/reaction.h"
+#include <QFont>
 #include <QRectF>
 #include <QSize>
-#include <QFont>
-#include "messages/reaction.h"
 
 class QHelpEvent;
 class QPainter;
@@ -50,7 +50,7 @@ private:
     struct ReactionLayout {
         QRectF reactionRect;
         QRectF countRect;
-        QString emojiString;    // for unicode emojis
+        QString emojiString; // for unicode emojis
         QString emojiImagePath; // for custom emojis (pixmaps)
         QString countStr;
         qreal emojiOffset;

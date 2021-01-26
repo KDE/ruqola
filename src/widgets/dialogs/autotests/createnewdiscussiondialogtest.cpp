@@ -19,12 +19,12 @@
 */
 
 #include "createnewdiscussiondialogtest.h"
-#include "dialogs/createnewdiscussionwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
-#include <QVBoxLayout>
-#include <QTest>
+#include "dialogs/createnewdiscussionwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
+#include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(CreateNewDiscussionDialogTest)
 CreateNewDiscussionDialogTest::CreateNewDiscussionDialogTest(QObject *parent)
     : QObject(parent)

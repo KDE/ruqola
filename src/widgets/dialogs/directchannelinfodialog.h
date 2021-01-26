@@ -32,6 +32,7 @@ public:
     explicit DirectChannelInfoDialog(QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
     void setUserName(const QString &userName);
+
 private:
     DirectChannelInfoWidget *mDirectChannelInfoWidget = nullptr;
 };

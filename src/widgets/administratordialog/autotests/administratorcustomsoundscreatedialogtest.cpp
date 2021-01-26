@@ -22,9 +22,9 @@
 #include "administratordialog/customsounds/administratorcustomsoundscreatedialog.h"
 #include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QStandardPaths>
 
 QTEST_MAIN(AdministratorCustomSoundsCreateDialogTest)
 AdministratorCustomSoundsCreateDialogTest::AdministratorCustomSoundsCreateDialogTest(QObject *parent)

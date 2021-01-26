@@ -23,8 +23,8 @@
 
 #include "libruqolacore_export.h"
 
-#include <QJsonObject>
 #include <QDebug>
+#include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
@@ -32,7 +32,7 @@ public:
     OwnUserPreferences();
     ~OwnUserPreferences();
     void parsePreferences(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT bool operator ==(const OwnUserPreferences &other) const;
+    Q_REQUIRED_RESULT bool operator==(const OwnUserPreferences &other) const;
     Q_REQUIRED_RESULT QStringList highlightWords() const;
     void setHighlightWords(const QStringList &highlightWords);
 
@@ -54,6 +54,6 @@ private:
 
 Q_DECLARE_METATYPE(OwnUserPreferences)
 Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const OwnUserPreferences &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);
 
 #endif // OWNUSERPREFERENCES_H

@@ -19,10 +19,10 @@
 */
 
 #include "myaccountconfigurewidgettest.h"
-#include "myaccount/myaccountconfigurewidget.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
-#include "myaccount/myaccountprofileconfigurewidget.h"
+#include "myaccount/myaccountconfigurewidget.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
+#include "myaccount/myaccountprofileconfigurewidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>

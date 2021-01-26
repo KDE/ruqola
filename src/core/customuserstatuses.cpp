@@ -120,7 +120,7 @@ void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
                         break;
                     }
                 }
-                //TODO fix total ???
+                // TODO fix total ???
             } else {
                 qCWarning(RUQOLA_LOG) << "deleteCustomUser invalid QJsonObject" << customStatusObj;
             }
@@ -130,14 +130,14 @@ void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
 
 void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
 {
-    //TODO fix total
+    // TODO fix total
     for (int i = 0; i < replyArray.count(); ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
         const QJsonObject customStatusObj = obj.value(QLatin1String("userStatusData")).toObject();
         if (!customStatusObj.isEmpty()) {
             if (customStatusObj.contains(QLatin1String("_id"))) {
-                //previousStatusType
-                //previousName
+                // previousStatusType
+                // previousName
                 //=> update otherwise add
                 bool found = false;
                 const QString identifier = customStatusObj.value(QLatin1String("_id")).toString();
@@ -149,7 +149,7 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                     }
                 }
                 if (!found) {
-                    //Parse
+                    // Parse
                     CustomUserStatus newStatus;
                     newStatus.parseCustomStatus(customStatusObj, false);
                     if (newStatus.isValid()) {
@@ -163,7 +163,7 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
     }
 }
 
-QDebug operator <<(QDebug d, const CustomUserStatuses &t)
+QDebug operator<<(QDebug d, const CustomUserStatuses &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

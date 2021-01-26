@@ -67,12 +67,9 @@ void Role::setIsOwner(bool isOwner)
     mIsOwner = isOwner;
 }
 
-bool Role::operator ==(const Role &other) const
+bool Role::operator==(const Role &other) const
 {
-    return (mIsOwner == other.isOwner())
-           && (mIsModerator == other.isModerator())
-           && (mIsLeader == other.isLeader())
-           && (mUserId == other.userId());
+    return (mIsOwner == other.isOwner()) && (mIsModerator == other.isModerator()) && (mIsLeader == other.isLeader()) && (mUserId == other.userId());
 }
 
 bool Role::isValid() const
@@ -108,7 +105,7 @@ void Role::parseRole(const QJsonObject &obj)
     }
 }
 
-QDebug operator <<(QDebug d, const Role &t)
+QDebug operator<<(QDebug d, const Role &t)
 {
     d << "UserId: " << t.userId();
     d << "IsLeader: " << t.isLeader();

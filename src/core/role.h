@@ -21,9 +21,9 @@
 #ifndef ROLE_H
 #define ROLE_H
 #include "libruqola_private_export.h"
-#include <QString>
 #include <QDebug>
 #include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT Role
 {
@@ -44,11 +44,12 @@ public:
 
     void parseRole(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT bool operator ==(const Role &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Role &other) const;
 
     Q_REQUIRED_RESULT bool isValid() const;
     void updateRole(const QString &str, bool b);
     Q_REQUIRED_RESULT bool hasARole() const;
+
 private:
     QString mUserId;
     bool mIsModerator = false;
@@ -57,5 +58,5 @@ private:
 };
 Q_DECLARE_METATYPE(Role)
 Q_DECLARE_TYPEINFO(Role, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Role &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Role &t);
 #endif // ROLE_H

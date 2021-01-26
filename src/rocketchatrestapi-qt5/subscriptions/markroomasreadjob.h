@@ -21,9 +21,10 @@
 #ifndef MARKROOMASREADJOB_H
 #define MARKROOMASREADJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT MarkRoomAsReadJob : public RestApiAbstractJob
 {
     Q_OBJECT

@@ -19,16 +19,16 @@
 */
 
 #include "accountmanager.h"
-#include "rocketchataccount.h"
 #include "managerdatapaths.h"
-#include "ruqola_debug.h"
 #include "notifierjob.h"
+#include "rocketchataccount.h"
+#include "ruqola_debug.h"
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
 
-#include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
+#include "model/rocketchataccountmodel.h"
 
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
@@ -77,9 +77,11 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
 
 void AccountManager::loadAccount()
 {
-    qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()"<<ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
-    QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()), QStringList() << QStringLiteral(
-                        "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()" << ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
+    QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
+                    QStringList() << QStringLiteral("ruqola.conf"),
+                    QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
+                    QDirIterator::Subdirectories);
     QVector<RocketChatAccount *> lstAccounts;
     while (it.hasNext()) {
         const QString val = it.next();
@@ -89,7 +91,7 @@ void AccountManager::loadAccount()
         lstAccounts.append(account);
     }
 
-    //New account => empty list.
+    // New account => empty list.
     if (lstAccounts.isEmpty()) {
         qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccount";
         auto *account = new RocketChatAccount();
@@ -104,12 +106,12 @@ void AccountManager::loadAccount()
     QSettings settings;
     const QString previousAccount = settings.value(QStringLiteral("currentAccount"), QString()).toString();
     if (previousAccount.isEmpty()) {
-        //Use first one
+        // Use first one
         mCurrentAccount = mRocketChatAccountModel->account(0);
     } else {
         selectAccount(previousAccount);
         if (!mCurrentAccount) {
-            //Use first one
+            // Use first one
             mCurrentAccount = mRocketChatAccountModel->account(0);
         }
     }
@@ -127,7 +129,7 @@ RocketChatAccount *AccountManager::account() const
 
 void AccountManager::addAccount(const AccountManagerInfo &info)
 {
-    //TODO verify if account exist or not ?
+    // TODO verify if account exist or not ?
     auto *account = new RocketChatAccount();
     account->setAccountName(info.accountName);
     account->setUserName(info.userName);
@@ -149,8 +151,8 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
         if (!info.enabled) {
-            //TODO fixme
-            //disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+            // TODO fixme
+            // disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
             disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
             disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
         }
@@ -204,7 +206,7 @@ void AccountManager::removeAccount(const QString &accountName)
     if (mRocketChatAccountModel->accountNumber() > 0) {
         mCurrentAccount = mRocketChatAccountModel->account(0);
     } else {
-        //TODO create new dummy account !
+        // TODO create new dummy account !
     }
     Q_EMIT currentAccountChanged();
 }

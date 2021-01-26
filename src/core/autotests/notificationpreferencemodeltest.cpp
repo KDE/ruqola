@@ -34,7 +34,7 @@ void NotificationPreferenceModelTest::shouldHaveDefaultValue()
     NotificationPreferenceModel w;
     QCOMPARE(w.rowCount(), 4);
 
-    //FIXME QCOMPARE(w.currentPreference(), 0);
+    // FIXME QCOMPARE(w.currentPreference(), 0);
 }
 
-//TODO add autotest about currentStatus changed !
+// TODO add autotest about currentStatus changed !

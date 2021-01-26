@@ -20,9 +20,9 @@
 
 #include "customuserstatustreewidget.h"
 #include "administratorcustomuserstatuscreatedialog.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
 #include "utils.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QHeaderView>

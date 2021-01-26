@@ -19,14 +19,14 @@
 */
 
 #include "usersinroomwidget.h"
+#include "dialogs/directchannelinfodialog.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "usersinroommenu.h"
-#include "usersinroomcombobox.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
-#include "dialogs/directchannelinfodialog.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "usersinroomcombobox.h"
+#include "usersinroommenu.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -58,9 +58,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     hMainLayout->addWidget(mSearchLineEdit);
     mUsersInRoomComboBox->setObjectName(QStringLiteral("mUsersInRoomComboBox"));
     hMainLayout->addWidget(mUsersInRoomComboBox);
-    connect(mUsersInRoomComboBox, qOverload<int>(&UsersInRoomComboBox::currentIndexChanged),
-            this, &UsersInRoomWidget::slotChangeStatusType);
-
+    connect(mUsersInRoomComboBox, qOverload<int>(&UsersInRoomComboBox::currentIndexChanged), this, &UsersInRoomWidget::slotChangeStatusType);
 
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);
@@ -105,7 +103,10 @@ void UsersInRoomWidget::setRoom(Room *room)
         if (sourceModel) {
             auto *usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxy->sourceModel());
             disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
-            disconnect(usersForRoomModel, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+            disconnect(usersForRoomModel,
+                       &UsersForRoomModel::loadingInProgressChanged,
+                       mUsersForRoomFilterProxy,
+                       &UsersForRoomFilterProxyModel::loadingInProgressChanged);
         }
 
         connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
@@ -153,7 +154,10 @@ void UsersInRoomWidget::updateLabel()
 
 QString UsersInRoomWidget::displayShowMessageInRoom() const
 {
-    QString displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mUsersForRoomFilterProxy->numberOfUsers(), mUsersForRoomFilterProxy->total());
+    QString displayMessageStr = i18np("%1 Message in room (Total: %2)",
+                                      "%1 Messages in room (Total: %2)",
+                                      mUsersForRoomFilterProxy->numberOfUsers(),
+                                      mUsersForRoomFilterProxy->total());
     if (!mUsersForRoomFilterProxy->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }

@@ -88,7 +88,7 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 NotificationOptions NotificationOptions::fromJSon(const QJsonObject &o)
 {
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
-    //TODO
+    // TODO
     return {};
 }
 
@@ -164,16 +164,11 @@ void NotificationOptions::setAudioNotifications(const QString &audioNotification
 
 bool NotificationOptions::operator==(const NotificationOptions &other) const
 {
-    return (mAudioNotifications == other.audioNotifications())
-           && (mDesktopNotifications == other.desktopNotifications())
-           && (mMobilePushNotification == other.mobilePushNotification())
-           && (mEmailNotifications == other.emailNotifications())
-           && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
-           && (mDisableNotifications == other.disableNotifications())
-           && (mHideUnreadStatus == other.hideUnreadStatus())
-           && (mAudioNotificationValue == other.audioNotificationValue())
-           && (mDesktopNotificationDuration == other.desktopNotificationDuration())
-           && (mMuteGroupMentions == other.muteGroupMentions());
+    return (mAudioNotifications == other.audioNotifications()) && (mDesktopNotifications == other.desktopNotifications())
+        && (mMobilePushNotification == other.mobilePushNotification()) && (mEmailNotifications == other.emailNotifications())
+        && (mUnreadTrayIconAlert == other.unreadTrayIconAlert()) && (mDisableNotifications == other.disableNotifications())
+        && (mHideUnreadStatus == other.hideUnreadStatus()) && (mAudioNotificationValue == other.audioNotificationValue())
+        && (mDesktopNotificationDuration == other.desktopNotificationDuration()) && (mMuteGroupMentions == other.muteGroupMentions());
 }
 
 bool NotificationOptions::operator!=(const NotificationOptions &other) const
@@ -191,7 +186,7 @@ void NotificationOptions::setMuteGroupMentions(bool muteGroupMentions)
     mMuteGroupMentions = muteGroupMentions;
 }
 
-QDebug operator <<(QDebug d, const NotificationOptions &t)
+QDebug operator<<(QDebug d, const NotificationOptions &t)
 {
     d << "mAudioNotifications: " << t.audioNotifications();
     d << "mAudioNotificationValue: " << t.audioNotificationValue();

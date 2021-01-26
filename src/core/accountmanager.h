@@ -21,9 +21,9 @@
 #ifndef ACCOUNTMANAGER_H
 #define ACCOUNTMANAGER_H
 
-#include <QObject>
 #include "libruqolacore_export.h"
 #include "utils.h"
+#include <QObject>
 class RocketChatAccountModel;
 class RocketChatAccount;
 class RocketChatAccountFilterProxyModel;

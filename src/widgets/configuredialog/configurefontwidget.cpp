@@ -39,7 +39,7 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
 
     mFontChooser = new KFontChooser(this, KFontChooser::DisplayFrame, QStringList(), 4);
     mFontChooser->setObjectName(QStringLiteral("mFontChooser"));
-    mFontChooser->setEnabled(false);   // since !mCustomFontCheck->isChecked()
+    mFontChooser->setEnabled(false); // since !mCustomFontCheck->isChecked()
     mainLayout->addWidget(mFontChooser);
     connect(mCustomFontCheck, &QCheckBox::toggled, mFontChooser, &KFontChooser::setEnabled);
 }

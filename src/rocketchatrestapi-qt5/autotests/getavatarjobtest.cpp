@@ -19,8 +19,8 @@
 */
 
 #include "getavatarjobtest.h"
-#include "users/getavatarjob.h"
 #include "restapimethod.h"
+#include "users/getavatarjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetAvatarJobTest)
 using namespace RocketChatRestApi;

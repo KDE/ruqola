@@ -48,7 +48,7 @@ void IgnoreUserJobTest::shouldGenerateRequest()
     job.setRoomId(QStringLiteral("foo"));
     job.setIgnoreUserId(QStringLiteral("bla"));
     verifyAuthentication(&job, request);
-    //TODO verify
-    //TODO add ignore == false
+    // TODO verify
+    // TODO add ignore == false
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.ignoreUser?rid=foo&userId=bla&ignore=true")));
 }

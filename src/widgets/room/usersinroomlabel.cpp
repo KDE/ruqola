@@ -19,18 +19,18 @@
 */
 
 #include "usersinroomlabel.h"
-#include "usersinroommenu.h"
-#include "room.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "roomutil.h"
 #include "dialogs/directchannelinfodialog.h"
+#include "rocketchataccount.h"
+#include "room.h"
+#include "roomutil.h"
+#include "ruqola.h"
+#include "usersinroommenu.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QMenu>
 #include <QPointer>
-#include <KMessageBox>
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)

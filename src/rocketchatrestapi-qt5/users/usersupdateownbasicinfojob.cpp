@@ -145,7 +145,7 @@ bool UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::isValid() const
     return static_cast<int>(type) != static_cast<int>(UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Unknown);
 }
 
-QDebug operator <<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t)
 {
     d << " type " << t.type;
     d << " email " << t.email;

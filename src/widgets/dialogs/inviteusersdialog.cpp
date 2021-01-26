@@ -21,13 +21,14 @@
 #include "inviteusersdialog.h"
 #include "inviteuserswidget.h"
 
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <KLocalizedString>
-#include <KConfigGroup>
-#include <KSharedConfig>
 
-namespace {
+namespace
+{
 static const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
 }
 InviteUsersDialog::InviteUsersDialog(QWidget *parent)

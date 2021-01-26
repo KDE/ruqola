@@ -19,8 +19,8 @@
 */
 
 #include "roomsautocompletechannelandprivatejobtest.h"
-#include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "restapimethod.h"
+#include "rooms/roomsautocompletechannelandprivatejob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomsAutocompleteChannelAndPrivateJobTest)
 using namespace RocketChatRestApi;

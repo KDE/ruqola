@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageDialog : public QDialog
 public:
     explicit CreateVideoMessageDialog(QWidget *parent = nullptr);
     ~CreateVideoMessageDialog() override;
+
 private:
     CreateVideoMessageWidget *mCreateVideoMessageWidget = nullptr;
 };

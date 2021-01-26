@@ -21,9 +21,10 @@
 #ifndef GROUPSKICKJOB_H
 #define GROUPSKICKJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GroupsKickJob : public RestApiAbstractJob
 {
     Q_OBJECT

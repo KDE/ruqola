@@ -21,8 +21,8 @@
 #ifndef RECENTUSEDEMOTICONVIEW_H
 #define RECENTUSEDEMOTICONVIEW_H
 
-#include <QListView>
 #include "libruqolawidgets_private_export.h"
+#include <QListView>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RecentUsedEmoticonView : public QListView
 {
     Q_OBJECT

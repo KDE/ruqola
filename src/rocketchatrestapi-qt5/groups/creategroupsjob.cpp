@@ -20,8 +20,8 @@
 
 #include "creategroupsjob.h"
 
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -123,7 +123,7 @@ QJsonDocument CreateGroupsJob::json() const
     jsonObj[QLatin1String("name")] = channelName();
     if (mReadOnly) {
         jsonObj[QLatin1String("readOnly")] = true;
-    } //Default is false
+    } // Default is false
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

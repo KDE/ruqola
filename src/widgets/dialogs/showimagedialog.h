@@ -20,8 +20,8 @@
 
 #ifndef SHOWIMAGEDIALOG_H
 #define SHOWIMAGEDIALOG_H
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ShowImageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
 {

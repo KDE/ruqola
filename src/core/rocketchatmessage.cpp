@@ -22,10 +22,10 @@
 #include "ruqola_debug.h"
 #include "utils.h"
 
+#include <QCryptographicHash>
+#include <QDateTime>
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QDateTime>
-#include <QCryptographicHash>
 
 RocketChatMessage::RocketChatMessage()
 {
@@ -38,9 +38,7 @@ void RocketChatMessage::setJsonFormat(QJsonDocument::JsonFormat jsonFormat)
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(const QString &username, quint64 id)
 {
-    const QJsonArray params{
-        QJsonValue(username)
-    };
+    const QJsonArray params{QJsonValue(username)};
     return generateMethod(QStringLiteral("createDirectMessage"), QJsonDocument(params), id);
 }
 
@@ -52,16 +50,10 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(c
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{
-        {
-            QStringLiteral("rid"), rid
-        },
-        {
-            QStringLiteral("blocked"), userId
-        },
+        {QStringLiteral("rid"), rid},
+        {QStringLiteral("blocked"), userId},
     };
-    const QJsonArray params{{
-        obj
-    }};
+    const QJsonArray params{{obj}};
 
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
@@ -69,61 +61,37 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{
-        {
-            QStringLiteral("rid"), rid
-        },
-        {
-            QStringLiteral("blocked"), userId
-        },
+        {QStringLiteral("rid"), rid},
+        {QStringLiteral("blocked"), userId},
     };
-    const QJsonArray params{{
-        obj
-    }};
+    const QJsonArray params{{obj}};
 
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
 {
-    const QJsonArray params{{
-        roomId
-    }, {
-            key
-        }, {
-            value
-        }};
+    const QJsonArray params{{roomId}, {key}, {value}};
     return generateMethod(QStringLiteral("saveRoomSettings"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QString &roomId, const QString &accessCode, quint64 id)
 {
-    const QJsonArray params{{
-        roomId
-    }, {
-            accessCode
-        }};
+    const QJsonArray params{{roomId}, {accessCode}};
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
 
-//Verify
+// Verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(const QString &fileId, quint64 id)
 {
-    const QJsonArray params{{
-        fileId
-    }};
+    const QJsonArray params{{fileId}};
     return generateMethod(QStringLiteral("deleteFileMessage"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
     const QString eventName = roomId + QStringLiteral("/typing");
-    const QJsonArray params{{
-        eventName
-    }, {
-            userId
-        }, {
-            typingStatus
-        }};
+    const QJsonArray params{{eventName}, {userId}, {typingStatus}};
     return generateMethod(QStringLiteral("stream-notify-room"), QJsonDocument(params), id);
 }
 
@@ -133,25 +101,19 @@ QJsonValue RocketChatMessage::toJsonDateTime(const QDateTime &dateTime)
         return {};
     }
 
-    return QJsonObject{{
-        QStringLiteral("$date"), dateTime.toMSecsSinceEpoch()
-    }};
+    return QJsonObject{{QStringLiteral("$date"), dateTime.toMSecsSinceEpoch()}};
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(User::PresenceStatus status, quint64 id)
 {
     const QString strPresence = Utils::presenceStatusToString(status);
-    const QJsonArray params{{
-        strPresence
-    }};
+    const QJsonArray params{{strPresence}};
     return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QString &roomId, quint64 id)
 {
-    const QJsonArray params{{
-        QJsonValue(roomId)
-    }};
+    const QJsonArray params{{QJsonValue(roomId)}};
     return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
 }
 
@@ -163,7 +125,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
 
     const QStringList users = exception.split(QLatin1Char(','));
     QJsonArray exceptionEntries;
-    for (const QString &entry: users) {
+    for (const QString &entry : users) {
         exceptionEntries.append(entry);
     }
     firstParam[QStringLiteral("exceptions")] = exceptionEntries;
@@ -182,7 +144,8 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputUserAutocompl
     return searchRoomUsers(pattern, exceptions, true, false, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
 {
     QJsonArray params;
     params.append(pattern);
@@ -197,7 +160,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(co
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 
-//Verify
+// Verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint64 id)
 {
     QJsonObject json;
@@ -211,7 +174,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint6
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
 {
-    //TODO fixme.
+    // TODO fixme.
     QJsonObject json;
     json[QStringLiteral("msg")] = QStringLiteral("sub");
     json[QStringLiteral("id")] = QString::number(id);

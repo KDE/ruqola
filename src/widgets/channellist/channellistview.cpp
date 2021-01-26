@@ -19,11 +19,11 @@
 */
 
 #include "channellistview.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
-#include "rocketchataccount.h"
 #include "channellistdelegate.h"
 #include "model/roomfilterproxymodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -103,7 +103,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(favoriteAction);
 
-    if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { //Not direct channel
+    if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { // Not direct channel
         auto separator = new QAction(&menu);
         separator->setSeparator(true);
         menu.addAction(separator);

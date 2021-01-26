@@ -52,7 +52,7 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter_data()
     t.setTime(QTime(13, 36, 30, 262));
     result.setUnreadFrom(t);
 
-    //TODO
+    // TODO
     QTest::addRow("test1") << QStringLiteral("test1") << result;
 }
 

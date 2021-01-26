@@ -19,12 +19,12 @@
 */
 
 #include "messageattachmentdelegatehelpersound.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -45,7 +45,11 @@ MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
 {
 }
 
-void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAttach,
+                                                QPainter *painter,
+                                                QRect messageRect,
+                                                const QModelIndex &index,
+                                                const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const SoundLayout layout = layoutSound(msgAttach, option, messageRect.width());
@@ -58,7 +62,10 @@ void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAtta
     drawDescription(msgAttach, messageRect, painter, nextY);
 }
 
-QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach,
+                                                     const QModelIndex &index,
+                                                     int maxWidth,
+                                                     const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
     Q_UNUSED(index)
@@ -70,11 +77,14 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth),
-            height};
+    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
 }
 
-bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                            QMouseEvent *mouseEvent,
+                                                            QRect attachmentsRect,
+                                                            const QStyleOptionViewItem &option,
+                                                            const QModelIndex &index)
 {
     Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
@@ -104,11 +114,12 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
     return false;
 }
 
-MessageAttachmentDelegateHelperSound::SoundLayout MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
+MessageAttachmentDelegateHelperSound::SoundLayout
+MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     SoundLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
-    //or we could do layout.attachment = msgAttach; if we need many fields from it
+    // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);

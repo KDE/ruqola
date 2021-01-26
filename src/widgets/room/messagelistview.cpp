@@ -19,27 +19,27 @@
 */
 
 #include "messagelistview.h"
-#include "ruqola.h"
-#include "room.h"
-#include "roomutil.h"
-#include "ruqolawidgets_debug.h"
-#include "rocketchataccount.h"
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
-#include "textpluginmanager.h"
+#include "rocketchataccount.h"
+#include "room.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"
+#include "roomutil.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "textpluginmanager.h"
 #include "threadwidget/threadmessagedialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
 
+#include <QApplication>
+#include <QClipboard>
+#include <QIcon>
 #include <QKeyEvent>
 #include <QMenu>
 #include <QScrollBar>
-#include <QIcon>
-#include <QClipboard>
-#include <QApplication>
 
 #include <KIO/KUriFilterSearchProviderActions>
 
@@ -94,8 +94,8 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
 {
     if (value == 0) {
         Q_EMIT loadHistoryRequested();
-        //Perhaps finding a better method.
-        verticalScrollBar()->setValue(1); //If we are at 0 we can't continue to load history
+        // Perhaps finding a better method.
+        verticalScrollBar()->setValue(1); // If we are at 0 we can't continue to load history
     }
 }
 
@@ -194,7 +194,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System)
-                                 || (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
+        || (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
     if (isSystemMessage) {
         return;
     }
@@ -218,7 +218,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     QAction *setAsFavoriteAction = nullptr;
     if (mCurrentRocketChatAccount->allowMessageStarringEnabled()) {
         const bool isStarred = index.data(MessageModel::Starred).toBool();
-        setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
+        setAsFavoriteAction =
+            new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
         connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
             slotSetAsFavorite(index, isStarred);
         });
@@ -256,7 +257,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotQuoteMessage(index);
     });
 
-    auto *copyLinkAction = new QAction(i18n("Copy Link"), &menu); //TODO add icon
+    auto *copyLinkAction = new QAction(i18n("Copy Link"), &menu); // TODO add icon
     connect(copyLinkAction, &QAction::triggered, this, [=]() {
         slotCopyLink(index);
     });
@@ -369,7 +370,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(selectAllAction);
         menu.addSeparator();
-        auto *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
+        auto *goToMessageAction = new QAction(i18n("Go to Message"), &menu); // Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
             const QString messageId = index.data(MessageModel::MessageId).toString();
             Q_EMIT goToMessageRequested(messageId);
@@ -474,7 +475,7 @@ void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checke
 void MessageListView::slotDebugMessage(const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    //Show debug output.
+    // Show debug output.
     qDebug() << " message " << *message;
 }
 
@@ -506,7 +507,7 @@ void MessageListView::slotQuoteMessage(const QModelIndex &index)
     const QString messageId = index.data(MessageModel::MessageId).toString();
     QString text = index.data(MessageModel::OriginalMessage).toString();
     const QString permalink = generatePermalink(messageId);
-    //qDebug() << " permalink " << permalink;
+    // qDebug() << " permalink " << permalink;
     if (text.length() > 80) {
         text = text.left(80) + QStringLiteral("...");
     }

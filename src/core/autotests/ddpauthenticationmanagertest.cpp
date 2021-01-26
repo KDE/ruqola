@@ -53,7 +53,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
-                                                                     R"(
+                                              R"(
         {
             "msg": "result",
             "id": "0",
@@ -86,7 +86,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
-                                                                     R"(
+                                              R"(
         {
             "msg": "result",
             "id": "0",
@@ -119,7 +119,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
-                                                                     R"(
+                                              R"(
         {
             "msg": "result",
             "id": "0",
@@ -152,7 +152,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
-                                                                     R"(
+                                              R"(
         {
             "msg": "result",
             "id": "0",
@@ -185,7 +185,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
-                                                                     R"(
+                                              R"(
         {
             "msg": "result",
             "id": "0",
@@ -219,7 +219,7 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
 
     authManager.processMethodResponse(0,
                                       Utils::strToJsonObject(QStringLiteral(
-                                                                 R"(
+                                          R"(
     {
         "msg": "result",
         "id": "0",
@@ -249,7 +249,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
 
     authManager.processMethodResponse(0,
                                       Utils::strToJsonObject(QStringLiteral(
-                                                                 R"(
+                                          R"(
     {
         "msg": "result",
         "id": "0",
@@ -278,7 +278,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
 
     authManager.processMethodResponse(1,
                                       Utils::strToJsonObject(QStringLiteral(
-                                                                 R"(
+                                          R"(
     {
         "msg": "result",
         "id": "1",
@@ -311,7 +311,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
 
     authManager.processMethodResponse(0,
                                       Utils::strToJsonObject(QStringLiteral(
-                                                                 R"(
+                                          R"(
     {
         "msg": "result",
         "id": "0",
@@ -340,7 +340,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
 
     authManager.processMethodResponse(1,
                                       Utils::strToJsonObject(QStringLiteral(
-                                                                 R"(
+                                          R"(
     {
         "msg": "result",
         "id": "1",

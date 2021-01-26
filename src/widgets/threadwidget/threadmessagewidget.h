@@ -21,8 +21,8 @@
 #ifndef THREADMESSAGEWIDGET_H
 #define THREADMESSAGEWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class MessageListView;
 class MessageLineWidget;
 class RocketChatAccount;
@@ -43,6 +43,7 @@ public:
     void setThreadPreview(const QString &preview);
 
     void setRoom(Room *room);
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;

@@ -21,14 +21,15 @@
 #ifndef SAVENOTIFICATIONJOB_H
 #define SAVENOTIFICATIONJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SaveNotificationJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    //Since 0.63
+    // Since 0.63
     explicit SaveNotificationJob(QObject *parent = nullptr);
     ~SaveNotificationJob() override;
 
@@ -79,8 +80,7 @@ private:
     Q_DISABLE_COPY(SaveNotificationJob)
     void slotChangeNotificationFinished();
 
-    enum SettingChanged
-    {
+    enum SettingChanged {
         Unknown = 0,
         EmailNotifications = 1,
         AudioNotifications = 2,

@@ -105,7 +105,7 @@ bool PostMessageJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //It can be optional!
+    // It can be optional!
     if (mText.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Text is empty";
         return false;

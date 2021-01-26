@@ -26,8 +26,8 @@
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include <QAbstractListModel>
-#include <QObject>
 #include <QByteArray>
+#include <QObject>
 
 class RocketChatAccount;
 class LoadRecentHistoryManager;
@@ -89,32 +89,35 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
+    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"),
+                          RocketChatAccount *account = nullptr,
+                          Room *room = nullptr,
+                          QObject *parent = nullptr);
     ~MessageModel() override;
 
     /**
-    * @brief Adds a number of messages to the model
-    *
-    * @param messages The messages to be added
-    */
+     * @brief Adds a number of messages to the model
+     *
+     * @param messages The messages to be added
+     */
     void addMessages(const QVector<Message> &messages, bool insertListMessages = false);
 
     /**
-    * @brief returns number of messages in the model
-    *
-    * @param parent, it is void
-    * @return int, The number of messages in QVector mAllMessages
-    */
+     * @brief returns number of messages in the model
+     *
+     * @param parent, it is void
+     * @return int, The number of messages in QVector mAllMessages
+     */
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
     /**
-    * @brief Returns last timestamp of last message in QVector mAllMessages
-    *
-    * @return qint64 The last timestamp
-    */
+     * @brief Returns last timestamp of last message in QVector mAllMessages
+     *
+     * @return qint64 The last timestamp
+     */
     Q_REQUIRED_RESULT qint64 lastTimestamp() const;
 
     void deleteMessage(const QString &messageId);
@@ -144,10 +147,10 @@ private Q_SLOTS:
 private:
     Q_DISABLE_COPY(MessageModel)
     /**
-    * @brief Adds a message to the model
-    *
-    * @param message The message to be added
-    */
+     * @brief Adds a message to the model
+     *
+     * @param message The message to be added
+     */
     void addMessage(const Message &message);
 
     void refresh();

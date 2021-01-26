@@ -23,11 +23,11 @@
 
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
-#include "messageurl.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
-#include "reactions.h"
 #include "messagetranslation.h"
+#include "messageurl.h"
+#include "reactions.h"
 #include "utils.h"
 #include <QJsonObject>
 #include <QString>
@@ -60,19 +60,19 @@ public:
     void setAvatar(const QString &avatar);
 
     /**
-    * @brief Constructs Message object from QJsonObject
-    *
-    * @param source The Json containing message attributes
-    * @return Message object, The message constructed from Json
-    */
+     * @brief Constructs Message object from QJsonObject
+     *
+     * @param source The Json containing message attributes
+     * @return Message object, The message constructed from Json
+     */
     Q_REQUIRED_RESULT static Message fromJSon(const QJsonObject &source, EmojiManager *emojiManager = nullptr);
 
     /**
-    * @brief Constructs QBytearray from Message object
-    *
-    * @param message The Message object
-    * @return QByteArray, The Json containing message attributes
-    */
+     * @brief Constructs QBytearray from Message object
+     *
+     * @param message The Message object
+     * @return QByteArray, The Json containing message attributes
+     */
     Q_REQUIRED_RESULT static QByteArray serialize(const Message &message, bool toBinary = true);
 
     void parseMessage(const QJsonObject &o, bool restApi = false);
@@ -208,31 +208,31 @@ private:
     void parseUrls(const QJsonArray &urls);
     void parseReactions(const QJsonObject &mentions);
 
-    //Message Pinned
+    // Message Pinned
     MessagePinned mMessagePinned;
 
-    //Message Starred
+    // Message Starred
     MessageStarred mMessageStarred;
 
-    //Message Translation
+    // Message Translation
     MessageTranslation mMessageTranslation;
 
-    //Message Object Fields
+    // Message Object Fields
     QVector<MessageAttachment> mAttachements;
 
-    //Message urls object
+    // Message urls object
     QVector<MessageUrl> mUrls;
 
-    //Reactions
+    // Reactions
     Reactions mReactions;
 
-    //Mentions
+    // Mentions
     QMap<QString, QString> mMentions;
 
-    //Users which replies to thread
+    // Users which replies to thread
     QStringList mReplies;
 
-    //role used when we add/remove role. It will displaying in messagesystem
+    // role used when we add/remove role. It will displaying in messagesystem
     QString mRole;
 
     // _id
@@ -264,10 +264,10 @@ private:
     // emoji
     QString mEmoji;
 
-    //drid discussion room id
+    // drid discussion room id
     QString mDiscussionRoomId;
 
-    //tmid
+    // tmid
     QString mThreadMessageId;
 
     // ts
@@ -279,14 +279,14 @@ private:
     // editedAt
     qint64 mEditedAt = -1;
 
-    //Thread last message
+    // Thread last message
     qint64 mThreadLastMessage = -1;
-    //Thread count
+    // Thread count
     int mThreadCount = 0;
 
-    //Thread last message
+    // Thread last message
     qint64 mDiscussionLastMessage = -1;
-    //Thread count
+    // Thread count
     int mDiscussionCount = 0;
 
     MessageType mMessageType = MessageType::NormalText;
@@ -296,7 +296,7 @@ private:
     // parseUrls
     bool mParseUrls = false;
 
-    //Unread Message
+    // Unread Message
     bool mUnread = false;
 
     bool mShowTranslatedMessage = true;
@@ -310,5 +310,5 @@ private:
     EmojiManager *mEmojiManager = nullptr;
 };
 Q_DECLARE_METATYPE(Message)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);
 #endif // MESSAGE_H

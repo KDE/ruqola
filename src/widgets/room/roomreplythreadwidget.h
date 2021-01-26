@@ -21,8 +21,8 @@
 #ifndef ROOMREPLYTHREADWIDGET_H
 #define ROOMREPLYTHREADWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomReplyThreadWidget : public QWidget
 {
     Q_OBJECT

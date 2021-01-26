@@ -21,25 +21,18 @@
 #ifndef USERSUPDATEOWNBASICINFO_H
 #define USERSUPDATEOWNBASICINFO_H
 
-#include "restapiabstractjob.h"
 #include "librocketchatrestapi-qt5_export.h"
+#include "restapiabstractjob.h"
 #include <QDebug>
 
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateOwnBasicInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateOwnBasicInfo {
-        enum class BasicInfoType {
-            Unknown = 0,
-            Email = 1,
-            Name = 2,
-            UserName = 4,
-            NickName = 8,
-            StatusText = 16,
-            Password = 32
-        };
+        enum class BasicInfoType { Unknown = 0, Email = 1, Name = 2, UserName = 4, NickName = 8, StatusText = 16, Password = 32 };
         Q_DECLARE_FLAGS(BasicInfoTypes, BasicInfoType)
 
         BasicInfoTypes type = {};
@@ -51,7 +44,7 @@ public:
         QByteArray currentPassword;
         QString newPassword;
         Q_REQUIRED_RESULT bool isValid() const;
-        //Add custom field ?
+        // Add custom field ?
     };
 
     explicit UsersUpdateOwnBasicInfoJob(QObject *parent = nullptr);
@@ -81,5 +74,5 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator <<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t);
 #endif // UsersUpdateOwnBasicInfo_H

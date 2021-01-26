@@ -19,10 +19,10 @@
 */
 
 #include "resetavatarjobtest.h"
-#include "users/resetavatarjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
+#include "users/resetavatarjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ResetAvatarJobTest)
 using namespace RocketChatRestApi;
 ResetAvatarJobTest::ResetAvatarJobTest(QObject *parent)

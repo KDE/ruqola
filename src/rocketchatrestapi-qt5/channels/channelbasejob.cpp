@@ -78,7 +78,7 @@ void ChannelBaseJob::setChannelInfo(const ChannelInfo &channelInfo)
     mChannelInfo = channelInfo;
 }
 
-QDebug operator <<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t)
 {
     d << "channelInfoIdentifier " << t.channelInfoIdentifier;
     d << "channelInfoType " << t.channelInfoType;

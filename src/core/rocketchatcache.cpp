@@ -18,12 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "rocketchataccount.h"
 #include "rocketchatcache.h"
-#include "ruqola_debug.h"
+#include "avatarmanager.h"
 #include "managerdatapaths.h"
 #include "restapirequest.h"
-#include "avatarmanager.h"
+#include "rocketchataccount.h"
+#include "ruqola_debug.h"
 #include <QDateTime>
 #include <QDir>
 #include <QSettings>
@@ -133,7 +133,7 @@ QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
     const QUrl avatarUrl = mAvatarUrl.value(userId);
     if (!avatarUrl.isEmpty() && fileInCache(avatarUrl)) {
         const QString url = QUrl::fromLocalFile(fileCachePath(avatarUrl)).toString();
-        qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mAvatarUrl.value(userId);
+        qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) " << mAvatarUrl.value(userId);
         return url;
     }
     return {};
@@ -156,7 +156,7 @@ void RocketChatCache::removeAvatar(const QString &avatarIdentifier)
 void RocketChatCache::updateAvatar(const Utils::AvatarInfo &info)
 {
     const QString avatarIdentifier = info.identifier;
-    //qDebug() << " updateAvatar" << info;
+    // qDebug() << " updateAvatar" << info;
     removeAvatar(avatarIdentifier);
     mAvatarUrl.remove(avatarIdentifier);
     insertAvatarUrl(avatarIdentifier, QUrl());
@@ -169,7 +169,7 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
         return {};
     }
     const QString avatarIdentifier = info.identifier;
-    //avoid to call this method several time.
+    // avoid to call this method several time.
     if (!mAvatarUrl.contains(avatarIdentifier)) {
         insertAvatarUrl(avatarIdentifier, QUrl());
         downloadAvatarFromServer(info);
@@ -193,7 +193,7 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
 
         if (!valueUrl.isEmpty() && fileInCache(valueUrl)) {
             const QString url = QUrl::fromLocalFile(fileCachePath(valueUrl)).toString();
-            //qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+            // qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
 
             return url;
         } else {

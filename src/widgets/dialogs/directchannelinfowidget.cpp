@@ -19,17 +19,17 @@
 */
 
 #include "directchannelinfowidget.h"
-#include "user.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "restapirequest.h"
 #include "ruqolawidgets_debug.h"
+#include "user.h"
 #include "users/userinfojob.h"
 
-#include <QFormLayout>
 #include <KLocalizedString>
-#include <QLabel>
+#include <QFormLayout>
 #include <QIcon>
+#include <QLabel>
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -106,8 +106,7 @@ void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
     info.userIdentifier = userName;
     info.userInfoType = RocketChatRestApi::UserInfoJob::UserInfoType::UserName;
     userJob->setUserInfo(info);
-    connect(userJob, &RocketChatRestApi::UserInfoJob::userInfoDone,
-            this, &DirectChannelInfoWidget::slotUserInfoDone);
+    connect(userJob, &RocketChatRestApi::UserInfoJob::userInfoDone, this, &DirectChannelInfoWidget::slotUserInfoDone);
     if (!userJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start UserInfoJob";
     }
@@ -137,13 +136,13 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
     mStatus->setText(user.status());
     mTimeZone->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
-    //Download avatar ?
+    // Download avatar ?
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
-    mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); //TODO hardcoded ?
-    //TODO use i18n ?
+    mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); // TODO hardcoded ?
+    // TODO use i18n ?
     if (user.i18nRoles().isEmpty()) {
         hideWidget(mRoles);
     } else {

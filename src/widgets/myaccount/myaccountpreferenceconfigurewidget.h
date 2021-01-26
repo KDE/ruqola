@@ -34,6 +34,7 @@ public:
     ~MyAccountPreferenceConfigureWidget() override;
     void save();
     void load();
+
 private:
     void setWasChanged();
     void initComboboxValues();

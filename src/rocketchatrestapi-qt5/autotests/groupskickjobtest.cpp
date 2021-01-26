@@ -21,8 +21,8 @@
 #include "groupskickjobtest.h"
 #include "groups/groupskickjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(GroupsKickJobTest)
 using namespace RocketChatRestApi;
 GroupsKickJobTest::GroupsKickJobTest(QObject *parent)

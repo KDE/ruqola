@@ -43,12 +43,10 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setMobileNotifications(replyObject.value(QLatin1String("mobileNotifications")).toString());
 }
 
-bool OwnUserPreferences::operator ==(const OwnUserPreferences &other) const
+bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
-    return mHighlightWords == other.highlightWords()
-           && mEmailNotificationMode == other.emailNotificationMode()
-           && mDesktopNotifications == other.desktopNotifications()
-           && mMobileNotifications == other.mobileNotifications();
+    return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
+        && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -91,7 +89,7 @@ void OwnUserPreferences::setMobileNotifications(const QString &mobileNotificatio
     mMobileNotifications = mobileNotifications;
 }
 
-QDebug operator <<(QDebug d, const OwnUserPreferences &t)
+QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
     d << "mHighlightWords " << t.highlightWords();
     d << "mEmailNotificationMode " << t.emailNotificationMode();

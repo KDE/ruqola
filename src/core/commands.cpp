@@ -18,11 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqola_debug.h"
 #include "commands.h"
-#include "ruqola_commands_debug.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "rocketchataccount.h"
+#include "ruqola_commands_debug.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -81,7 +81,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
             }
             if (account) {
                 const QStringList permissionRoles{m.permissions()};
-                //qCDebug(RUQOLA_COMMANDS_LOG) << " permissionRoles " << permissionRoles;
+                // qCDebug(RUQOLA_COMMANDS_LOG) << " permissionRoles " << permissionRoles;
                 bool hasAllPermission = true;
                 for (const QString &role : permissionRoles) {
                     if (!account->hasPermission(role)) {
@@ -92,7 +92,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 if (hasAllPermission) {
                     mCommands.append(m);
                 } else {
-                    //qCDebug(RUQOLA_COMMANDS_LOG) << " command not added " << m;
+                    // qCDebug(RUQOLA_COMMANDS_LOG) << " command not added " << m;
                 }
             } else {
                 mCommands.append(m);
@@ -162,7 +162,7 @@ void Commands::setTotal(int total)
     mTotal = total;
 }
 
-QDebug operator <<(QDebug d, const Commands &t)
+QDebug operator<<(QDebug d, const Commands &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

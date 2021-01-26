@@ -48,7 +48,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
 {
     delete mSetting;
     mSetting = new QSettings(accountFileName, QSettings::IniFormat);
-    qCDebug(RUQOLA_LOG) << "accountFileName "<<accountFileName;
+    qCDebug(RUQOLA_LOG) << "accountFileName " << accountFileName;
 
     mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
     mUserName = mSetting->value(QStringLiteral("username")).toString();
@@ -173,7 +173,7 @@ QString RocketChatAccountSettings::userId() const
 
 void RocketChatAccountSettings::setUserId(const QString &userId)
 {
-    //Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
+    // Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
     mUserId = userId;
     mSetting->setValue(QStringLiteral("userID"), userId);
     mSetting->sync();
@@ -321,7 +321,7 @@ QString RocketChatAccountSettings::cacheBasePath()
 
 void RocketChatAccountSettings::removeSettings()
 {
-    //Delete password
+    // Delete password
     auto deleteJob = new DeletePasswordJob(QStringLiteral("Ruqola"));
     deleteJob->setKey(mAccountName);
     deleteJob->start();

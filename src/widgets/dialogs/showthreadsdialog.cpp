@@ -19,15 +19,16 @@
 */
 
 #include "showthreadsdialog.h"
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
-#include <KLocalizedString>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 
-namespace {
+namespace
+{
 static const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
 }
 ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)

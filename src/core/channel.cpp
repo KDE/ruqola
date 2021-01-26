@@ -19,8 +19,8 @@
 */
 
 #include "channel.h"
-#include "utils.h"
 #include "ruqola_debug.h"
+#include "utils.h"
 
 #include <QJsonObject>
 
@@ -59,14 +59,8 @@ void Channel::setType(ChannelType type)
 
 bool Channel::operator==(const Channel &other) const
 {
-    return (mType == other.type())
-           && (mRoomId == other.roomId())
-           && (mRoomType == other.roomType())
-           && (mRoomName == other.roomName())
-           && (mUserId == other.userId())
-           && (mName == other.name())
-           && (mStatus == other.status())
-           && (mUserName == other.userName());
+    return (mType == other.type()) && (mRoomId == other.roomId()) && (mRoomType == other.roomType()) && (mRoomName == other.roomName())
+        && (mUserId == other.userId()) && (mName == other.name()) && (mStatus == other.status()) && (mUserName == other.userName());
 }
 
 QString Channel::roomId() const
@@ -144,7 +138,7 @@ QString Channel::iconFromStatus() const
     return Utils::iconFromStatus(mStatus);
 }
 
-QDebug operator <<(QDebug d, const Channel &t)
+QDebug operator<<(QDebug d, const Channel &t)
 {
     d << "type: " << t.type();
     d << "roomName: " << t.roomName();

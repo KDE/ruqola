@@ -21,11 +21,12 @@
 #ifndef SYNCTHREADMESSAGESJOB_H
 #define SYNCTHREADMESSAGESJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-namespace RocketChatRestApi {
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SyncThreadMessagesJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -44,7 +45,7 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
-    //TODO use QTime ?
+    // TODO use QTime ?
     Q_REQUIRED_RESULT QString timeStamp() const;
     void setTimeStamp(const QString &timeStamp);
 

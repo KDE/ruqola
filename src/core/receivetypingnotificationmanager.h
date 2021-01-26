@@ -20,9 +20,9 @@
 #ifndef RECEIVETYPINGNOTIFICATIONMANAGER_H
 #define RECEIVETYPINGNOTIFICATIONMANAGER_H
 
-#include <QObject>
 #include "libruqolacore_export.h"
 #include <QMap>
+#include <QObject>
 class LIBRUQOLACORE_EXPORT ReceiveTypingNotificationManager : public QObject
 {
     Q_OBJECT

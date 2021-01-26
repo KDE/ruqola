@@ -21,40 +21,35 @@
 #ifndef RUQOLA_AUTOTEST_HELPER_H
 #define RUQOLA_AUTOTEST_HELPER_H
 
+#include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QProcess>
 #include <QString>
 #include <QTest>
-#include <QDebug>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
 
-namespace AutoTestHelper {
+namespace AutoTestHelper
+{
 void diffFile(const QString &refFile, const QString &generatedFile)
 {
     QProcess proc;
 #ifdef _WIN32
-    QStringList args = QStringList()
-                       << QStringLiteral("Compare-Object")
-                       << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
-                       << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
+    QStringList args = QStringList() << QStringLiteral("Compare-Object") << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
+                                     << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
 
     proc.start(QStringLiteral("powershell"), args);
     QVERIFY(proc.waitForFinished());
 
     auto pStdOut = proc.readAllStandardOutput();
     if (pStdOut.size()) {
-        qDebug() << "Files are different, diff output message:\n"
-                 << pStdOut.toStdString().c_str();
+        qDebug() << "Files are different, diff output message:\n" << pStdOut.toStdString().c_str();
     }
 
     QCOMPARE(pStdOut.size(), 0);
 #else
     // compare to reference file
-    const QStringList args = QStringList()
-                             << QStringLiteral("-u")
-                             << refFile
-                             << generatedFile;
+    const QStringList args = QStringList() << QStringLiteral("-u") << refFile << generatedFile;
 
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
     proc.start(QStringLiteral("diff"), args);
@@ -68,7 +63,7 @@ void compareFile(const QString &repo, const QByteArray &data, const QString &nam
     const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
     const QString generatedFile = QLatin1String(RUQOLA_BINARY_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
     QDir().mkpath(QLatin1String(RUQOLA_BINARY_DATA_DIR) + repo + name);
-    //Create generated file
+    // Create generated file
     QFile f(generatedFile);
     QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
     f.write(data);

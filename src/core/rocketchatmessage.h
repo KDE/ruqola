@@ -23,8 +23,8 @@
 
 #include "libruqola_private_export.h"
 #include "user.h"
-#include <QString>
 #include <QJsonDocument>
+#include <QString>
 class QDateTime;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
@@ -33,8 +33,7 @@ public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
 
-    struct RocketChatMessageResult
-    {
+    struct RocketChatMessageResult {
         QString method;
         QString result;
         QJsonDocument jsonDocument;
@@ -45,7 +44,8 @@ public:
     Q_REQUIRED_RESULT RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult openDirectChannel(const QString &username, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);
@@ -54,16 +54,19 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult blockUser(const QString &rid, const QString &userId, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
 
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
 };
 

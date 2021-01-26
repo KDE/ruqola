@@ -20,13 +20,14 @@
 
 #include "showvideodialog.h"
 #include "showvideowidget.h"
-#include <QVBoxLayout>
-#include <KLocalizedString>
-#include <QDialogButtonBox>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
 }
 

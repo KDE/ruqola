@@ -31,7 +31,6 @@ class LIBRUQOLACORE_EXPORT ListMessagesModel : public MessageModel
     Q_PROPERTY(ListMessagesModel::ListMessageType listMessageType READ listMessageType WRITE setListMessageType NOTIFY listMessageTypeChanged)
     Q_PROPERTY(int total READ total WRITE setTotal NOTIFY totalChanged)
 public:
-
     enum ListMessageType {
         Unknown = 0,
         StarredMessages,
@@ -42,7 +41,10 @@ public:
     };
     Q_ENUM(ListMessageType)
 
-    explicit ListMessagesModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
+    explicit ListMessagesModel(const QString &roomID = QStringLiteral("no_room"),
+                               RocketChatAccount *account = nullptr,
+                               Room *room = nullptr,
+                               QObject *parent = nullptr);
     ~ListMessagesModel() override;
 
     void parseListMessages(const QJsonObject &obj);

@@ -19,15 +19,15 @@
 */
 
 #include "showimagewidget.h"
-#include <QVBoxLayout>
 #include <KLocalizedString>
-#include <QScrollArea>
-#include <QLabel>
-#include <QSlider>
-#include <QWheelEvent>
-#include <QMovie>
 #include <QDoubleSpinBox>
+#include <QLabel>
+#include <QMovie>
 #include <QScopedValueRollback>
+#include <QScrollArea>
+#include <QSlider>
+#include <QVBoxLayout>
+#include <QWheelEvent>
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
@@ -73,8 +73,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mSlider->setRange(mZoomSpin->minimum() * 100, mZoomSpin->maximum() * 100);
     mSlider->setValue(mZoomSpin->value() * 100);
 
-    connect(mZoomSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
-            this, &ShowImageWidget::setZoom);
+    connect(mZoomSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ShowImageWidget::setZoom);
     connect(mSlider, &QSlider::valueChanged, this, [this](int value) {
         setZoom(static_cast<double>(value) / 100);
     });
@@ -88,8 +87,7 @@ void ShowImageWidget::setZoom(double scale)
 {
     if (!mIsAnimatedPixmap && !mIsUpdatingZoom) {
         QScopedValueRollback<bool> guard(mIsUpdatingZoom, true);
-        auto pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale,
-                                 Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        auto pm = mPixmap.scaled(mPixmap.width() * scale, mPixmap.height() * scale, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         mLabel->setPixmap(pm);
         mLabel->resize(pm.size());
         mSlider->setValue(static_cast<int>(scale * 100));

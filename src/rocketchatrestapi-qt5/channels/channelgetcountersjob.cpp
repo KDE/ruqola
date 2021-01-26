@@ -19,12 +19,12 @@
 */
 
 #include "channelgetcountersjob.h"
-#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
-#include <QUrlQuery>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelGetCountersJob::ChannelGetCountersJob(QObject *parent)
     : ChannelBaseJob(parent)

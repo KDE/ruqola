@@ -18,21 +18,22 @@
 */
 
 #include "textconverter.h"
-#include "utils.h"
-#include "ruqola_debug.h"
 #include "emoticons/emojimanager.h"
 #include "messages/message.h"
+#include "ruqola_debug.h"
+#include "utils.h"
 
-#include "texthighlighter.h"
-#include "syntaxhighlightingmanager.h"
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
+#include "syntaxhighlightingmanager.h"
+#include "texthighlighter.h"
+#include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
-#include <KSyntaxHighlighting/Definition>
 
 #include <KColorScheme>
 
-namespace {
+namespace
+{
 /// check if the @p str contains an uneven number of backslashes before @p pos
 bool isEscaped(const QString &str, int pos)
 {
@@ -92,7 +93,7 @@ QString markdownToRichText(const QString &markDown)
         return QString();
     }
 
-    //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
+    // qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     QString str = markDown;
 
     const RuqolaKTextToHTML::Options convertFlags = RuqolaKTextToHTML::HighlightText | RuqolaKTextToHTML::ConvertPhoneNumbers;
@@ -144,10 +145,10 @@ QString generateRichText(const QString &str, const QString &username, const QStr
                 if (inAnUrl) {
                     continue;
                 }
-                const QString replaceStr = QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>")
-                                           .arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+                const QString replaceStr =
+                    QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>").arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
                 newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
-                //We added a new string => increase offset
+                // We added a new string => increase offset
                 offset += replaceStr.length() - word.length();
             }
         }
@@ -160,11 +161,11 @@ QString generateRichText(const QString &str, const QString &username, const QStr
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
         const QStringRef word = match.capturedRef(2);
-        //Highlight only if it's yours
+        // Highlight only if it's yours
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word,
                            QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;\">@%1</a>")
-                           .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor));
+                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor));
         } else {
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
         }
@@ -181,7 +182,11 @@ QString generateRichText(const QString &str, const QString &username, const QStr
 }
 }
 
-QString TextConverter::convertMessageText(const QString &_str, const QString &userName, const QVector<Message> &allMessages, const QStringList &highlightWords, EmojiManager *emojiManager)
+QString TextConverter::convertMessageText(const QString &_str,
+                                          const QString &userName,
+                                          const QVector<Message> &allMessages,
+                                          const QStringList &highlightWords,
+                                          EmojiManager *emojiManager)
 {
     if (!emojiManager) {
         qCWarning(RUQOLA_LOG) << "Emojimanager is null";
@@ -190,7 +195,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     QString quotedMessage;
 
     QString str = _str;
-    //TODO we need to look at room name too as we can have it when we use "direct reply"
+    // TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
         const int endPos = str.indexOf(QLatin1Char(')'));
@@ -198,7 +203,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
         // Note that this code ignores the channel name, it's always the current one...
         const QString messageId = url.mid(url.indexOf(QLatin1String("msg=")) + 4);
-        //qCDebug(RUQOLA_LOG) << "Extracted messageId" << messageId;
+        // qCDebug(RUQOLA_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;
         });
@@ -224,69 +229,66 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
 
     if (useHighlighter) {
         auto &repo = SyntaxHighlightingManager::self()->repo();
-        highlighter.setTheme(codeBackgroundColor.lightness() < 128
-                             ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                             : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+        highlighter.setTheme(codeBackgroundColor.lightness() < 128 ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                   : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
     }
     auto highlight = [&](const QString &codeBlock) {
-                         if (!useHighlighter) {
-                             return codeBlock;
-                         }
-                         stream.reset();
-                         stream.seek(0);
-                         highlighted.clear();
-                         highlighter.highlight(codeBlock);
-                         return highlighted;
-                     };
+        if (!useHighlighter) {
+            return codeBlock;
+        }
+        stream.reset();
+        stream.seek(0);
+        highlighted.clear();
+        highlighter.highlight(codeBlock);
+        return highlighted;
+    };
 
     auto addCodeChunk = [&](QString chunk) {
-                            const auto language = [&]() {
-                                                      const auto newline = chunk.indexOf(QLatin1Char('\n'));
-                                                      if (newline == -1) {
-                                                          return QString();
-                                                      }
-                                                      return chunk.left(newline);
-                                                  }();
+        const auto language = [&]() {
+            const auto newline = chunk.indexOf(QLatin1Char('\n'));
+            if (newline == -1) {
+                return QString();
+            }
+            return chunk.left(newline);
+        }();
 
-                            auto definition = SyntaxHighlightingManager::self()->def(language);
-                            if (definition.isValid()) {
-                                chunk.remove(0, language.size() + 1);
-                            } else {
-                                definition = SyntaxHighlightingManager::self()->defaultDef();
-                            }
+        auto definition = SyntaxHighlightingManager::self()->def(language);
+        if (definition.isValid()) {
+            chunk.remove(0, language.size() + 1);
+        } else {
+            definition = SyntaxHighlightingManager::self()->defaultDef();
+        }
 
-                            highlighter.setDefinition(std::move(definition));
-                            // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-                            richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
-                                           << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor
-                                           << QLatin1String("'>")
-                                           << highlight(chunk)
-                                           << QLatin1String("</td></tr></table>");
-                        };
+        highlighter.setDefinition(std::move(definition));
+        // Qt's support for borders is limited to tables, so we have to jump through some hoops...
+        richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
+                       << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor << QLatin1String("'>") << highlight(chunk)
+                       << QLatin1String("</td></tr></table>");
+    };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-                                  richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name()
-                                                 << QLatin1String("'>") << chunk.toHtmlEscaped() << QLatin1String("</code>");
-                              };
+        richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name() << QLatin1String("'>") << chunk.toHtmlEscaped()
+                       << QLatin1String("</code>");
+    };
 
     auto addTextChunk = [&](const QString &chunk) {
-                            auto htmlChunk = generateRichText(chunk, userName, highlightWords);
-                            if (emojiManager) {
-                                emojiManager->replaceEmojis(&htmlChunk);
-                            }
-                            richTextStream << htmlChunk;
-                        };
+        auto htmlChunk = generateRichText(chunk, userName, highlightWords);
+        if (emojiManager) {
+            emojiManager->replaceEmojis(&htmlChunk);
+        }
+        richTextStream << htmlChunk;
+    };
 
     auto addNonCodeChunk = [&](QString chunk) {
-                               chunk = chunk.trimmed();
-                               if (chunk.isEmpty()) {
-                                   return;
-                               }
+        chunk = chunk.trimmed();
+        if (chunk.isEmpty()) {
+            return;
+        }
 
-                               richTextStream << QLatin1String("<div>");
-                               iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
-                               richTextStream << QLatin1String("</div>");
-                           };
+        richTextStream << QLatin1String("<div>");
+        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
+        richTextStream << QLatin1String("</div>");
+    };
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 

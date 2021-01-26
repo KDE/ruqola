@@ -18,15 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqola.h"
-#include "rocketchataccount.h"
 #include "searchmessagewidget.h"
-#include "room/messagelistview.h"
-#include "model/searchmessagefilterproxymodel.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include <QLineEdit>
+#include "model/searchmessagefilterproxymodel.h"
+#include "rocketchataccount.h"
+#include "room/messagelistview.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <QLineEdit>
 #include <QVBoxLayout>
 
 SearchMessageWidget::SearchMessageWidget(QWidget *parent)
@@ -54,8 +54,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
-    connect(mResultListWidget, &MessageListView::goToMessageRequested,
-            this, &SearchMessageWidget::goToMessageRequested);
+    connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
 }
 
 SearchMessageWidget::~SearchMessageWidget()

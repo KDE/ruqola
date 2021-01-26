@@ -22,9 +22,9 @@
 #include "configuredialog/configurefontwidget.h"
 #include <KFontChooser>
 #include <QCheckBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QStandardPaths>
 QTEST_MAIN(ConfigureFontWidgetTest)
 
 ConfigureFontWidgetTest::ConfigureFontWidgetTest(QObject *parent)

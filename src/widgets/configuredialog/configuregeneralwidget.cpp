@@ -19,10 +19,10 @@
 */
 
 #include "configuregeneralwidget.h"
-#include <QVBoxLayout>
+#include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
 #include <QCheckBox>
-#include "ruqolaglobalconfig.h"
+#include <QVBoxLayout>
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)

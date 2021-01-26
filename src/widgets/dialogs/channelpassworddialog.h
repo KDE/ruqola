@@ -21,8 +21,8 @@
 #ifndef CHANNELPASSWORDDIALOG_H
 #define CHANNELPASSWORDDIALOG_H
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class ChannelPasswordWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelPasswordDialog : public QDialog
 {

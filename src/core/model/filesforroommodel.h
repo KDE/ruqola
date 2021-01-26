@@ -21,10 +21,10 @@
 #ifndef FILESFORROOMMODEL_H
 #define FILESFORROOMMODEL_H
 
-#include <QAbstractListModel>
 #include "file.h"
 #include "fileattachments.h"
 #include "libruqolacore_export.h"
+#include <QAbstractListModel>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT FilesForRoomModel : public QAbstractListModel
 {

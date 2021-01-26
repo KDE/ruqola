@@ -19,18 +19,18 @@
 */
 
 #include "administratorserverinfowidget.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "restapirequest.h"
 #include "misc/statisticsjob.h"
-#include "serverinfojob.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "serverinfojob.h"
 
-#include <QVBoxLayout>
 #include <KLocalizedString>
-#include <QTreeWidget>
-#include <QHeaderView>
 #include <KTreeWidgetSearchLineWidget>
+#include <QHeaderView>
+#include <QTreeWidget>
+#include <QVBoxLayout>
 
 AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -60,8 +60,7 @@ void AdministratorServerInfoWidget::initialize()
     auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
     serverInfoJob->setForceRequiresAuthentication(true);
     rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
-    connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone,
-            this, &AdministratorServerInfoWidget::slotServerInfoDone);
+    connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone, this, &AdministratorServerInfoWidget::slotServerInfoDone);
     if (!serverInfoJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
     }
@@ -70,14 +69,13 @@ void AdministratorServerInfoWidget::initialize()
 void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj)
 {
     Q_UNUSED(versionInfo)
-    //qDebug() << " obj " << obj;
+    // qDebug() << " obj " << obj;
     mServerInfo.parseServerInfo(obj);
-    //qDebug() << " info " << mServerInfo;
+    // qDebug() << " info " << mServerInfo;
     auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     rcAccount->restApi()->initializeRestApiJob(statisticJob);
-    connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone,
-            this, &AdministratorServerInfoWidget::slotStatisticDone);
+    connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone, this, &AdministratorServerInfoWidget::slotStatisticDone);
     if (!statisticJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start StatisticsJob";
     }
@@ -89,7 +87,10 @@ void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoI
     createItemFromStringValue(serverInfoItem, obj, i18n("Deployment ID"), QStringLiteral("uniqueId"));
 }
 
-void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier)
+void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *parentItem,
+                                                              const QJsonObject &obj,
+                                                              const QString &label,
+                                                              const QString &identifier)
 {
     const QJsonValue objValue = obj.value(identifier);
     if (!objValue.isUndefined()) {
@@ -124,7 +125,10 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
     createItemFromIntValue(usageInfoItem, obj, i18n("Deactivated Users"), QStringLiteral("nonActiveUsers"));
 }
 
-void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier)
+void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usageInfoItem,
+                                                           const QJsonObject &obj,
+                                                           const QString &label,
+                                                           const QString &identifier)
 {
     const QJsonValue totalDirectMessages = obj.value(identifier);
     if (!totalDirectMessages.isUndefined()) {
@@ -135,7 +139,10 @@ void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usag
     }
 }
 
-void AdministratorServerInfoWidget::createItemFromLongValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier)
+void AdministratorServerInfoWidget::createItemFromLongValue(QTreeWidgetItem *parentItem,
+                                                            const QJsonObject &obj,
+                                                            const QString &label,
+                                                            const QString &identifier)
 {
     const QJsonValue objValue = obj.value(identifier);
     if (!objValue.isUndefined()) {
@@ -152,10 +159,10 @@ void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInf
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Release"), QStringLiteral("release"));
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Type"), QStringLiteral("type"));
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Platform"), QStringLiteral("platform"));
-    //TODO FIXME long
+    // TODO FIXME long
     createItemFromLongValue(runtimeInfoItem, runtimeObj, i18n("OS Total Memory"), QStringLiteral("totalmem"));
     createItemFromLongValue(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), QStringLiteral("freemem"));
-    //TODO
+    // TODO
 }
 
 void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoItem)
@@ -190,7 +197,7 @@ void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoI
         item->setText(1, mServerInfo.commitSubject());
         item->addChild(item);
     }
-    //TODO
+    // TODO
 }
 
 void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoItem)
@@ -219,7 +226,7 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoIte
         item->setText(1, mServerInfo.platform());
         item->addChild(item);
     }
-    //TODO
+    // TODO
 }
 
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)

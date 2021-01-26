@@ -26,10 +26,11 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
 #include <QPushButton>
+#include <QVBoxLayout>
 
-namespace {
+namespace
+{
 static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectMessagesDialog";
 }
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
@@ -43,7 +44,7 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
     mCreateDirectMessagesWidget->setObjectName(QStringLiteral("mCreateDirectMessagesWidget"));
     mainLayout->addWidget(mCreateDirectMessagesWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateDirectMessagesDialog::reject);

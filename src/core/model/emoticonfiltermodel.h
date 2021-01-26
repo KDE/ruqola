@@ -21,10 +21,10 @@
 #ifndef EMOTICONFILTERMODEL_H
 #define EMOTICONFILTERMODEL_H
 
-#include <QSortFilterProxyModel>
-#include "libruqolacore_export.h"
-#include "emoticons/unicodeemoticon.h"
 #include "emoticoncategoriesmodel.h"
+#include "emoticons/unicodeemoticon.h"
+#include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
 
 // Model showing emojis from a single category
 class LIBRUQOLACORE_EXPORT EmoticonFilterModel : public QSortFilterProxyModel

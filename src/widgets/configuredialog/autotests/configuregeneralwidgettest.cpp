@@ -21,9 +21,9 @@
 #include "configuregeneralwidgettest.h"
 #include "configuredialog/configuregeneralwidget.h"
 #include <QCheckBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QStandardPaths>
 QTEST_MAIN(ConfigureGeneralWidgetTest)
 
 ConfigureGeneralWidgetTest::ConfigureGeneralWidgetTest(QObject *parent)
@@ -35,7 +35,7 @@ ConfigureGeneralWidgetTest::ConfigureGeneralWidgetTest(QObject *parent)
 void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureGeneralWidget w;
-    //Load otherwise we can't load default settings
+    // Load otherwise we can't load default settings
     w.load();
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

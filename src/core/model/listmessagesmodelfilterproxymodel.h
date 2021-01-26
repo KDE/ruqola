@@ -21,9 +21,9 @@
 #ifndef PINNEDMESSAGEMODELFILTERPROXYMODEL_H
 #define PINNEDMESSAGEMODELFILTERPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
-#include "listmessagesmodel.h"
 #include "libruqolacore_export.h"
+#include "listmessagesmodel.h"
+#include <QSortFilterProxyModel>
 class LIBRUQOLACORE_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -33,7 +33,7 @@ class LIBRUQOLACORE_EXPORT ListMessagesModelFilterProxyModel : public QSortFilte
     Q_PROPERTY(QString title READ title CONSTANT)
     Q_PROPERTY(ListMessagesModel *listMessageModel READ listMessageModel CONSTANT)
 public:
-    //Fix me
+    // Fix me
     explicit ListMessagesModelFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~ListMessagesModelFilterProxyModel() override;
     void setFilterString(const QString &string);

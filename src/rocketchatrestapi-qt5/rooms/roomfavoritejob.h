@@ -21,14 +21,15 @@
 #ifndef ROOMFAVORITEJOB_H
 #define ROOMFAVORITEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-namespace RocketChatRestApi {
+#include "restapiabstractjob.h"
+namespace RocketChatRestApi
+{
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomFavoriteJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
-    //Since rocketchat 0.64
+    // Since rocketchat 0.64
 public:
     explicit RoomFavoriteJob(QObject *parent = nullptr);
     ~RoomFavoriteJob() override;

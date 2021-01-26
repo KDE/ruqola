@@ -21,8 +21,8 @@
 #ifndef SHOWATTACHMENTWIDGET_H
 #define SHOWATTACHMENTWIDGET_H
 
-#include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include <QWidget>
 class QLineEdit;
 class QLabel;
 class QListView;

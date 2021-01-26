@@ -34,6 +34,7 @@ public:
     Q_REQUIRED_RESULT QStringList userNames() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
+
 private:
     AddUsersWidget *mUsers = nullptr;
 };

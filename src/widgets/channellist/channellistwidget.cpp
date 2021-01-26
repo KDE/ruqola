@@ -18,23 +18,23 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channellistview.h"
 #include "channellistwidget.h"
-#include "misc/statuscombobox.h"
+#include "channellistview.h"
 #include "dialogs/modifystatusdialog.h"
-#include "model/statusmodel.h"
+#include "misc/statuscombobox.h"
 #include "model/roomfilterproxymodel.h"
+#include "model/statusmodel.h"
 
-#include "ruqola.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqolautils.h"
 
+#include <KLocalizedString>
 #include <QAction>
 #include <QHBoxLayout>
-#include <QLabel>
-#include <KLocalizedString>
-#include <QLineEdit>
 #include <QKeyEvent>
+#include <QLabel>
+#include <QLineEdit>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
@@ -69,14 +69,14 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     statusComboBoxLayout->addWidget(mStatusComboBox);
     connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
 
-    //BEGIN: Actions
+    // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Rooms"), this);
     searchRoomAction->setShortcut(Qt::CTRL | Qt::Key_K);
     connect(searchRoomAction, &QAction::triggered, this, [this]() {
         mSearchRoom->setFocus();
     });
     addAction(searchRoomAction); // TODO: Add to MainWindow's action collection instead?
-    //END: Actions
+    // END: Actions
 }
 
 ChannelListWidget::~ChannelListWidget()
@@ -134,13 +134,13 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
             if (keyValue == Qt::Key_Up) {
                 if (!currentIndex.isValid()) {
                     selectRow = model->rowCount() - 1;
-                } else if (currentIndex.row()-1 >= 0) {
+                } else if (currentIndex.row() - 1 >= 0) {
                     selectRow = currentIndex.row() - 1;
                 }
             } else { // Qt::Key_Down
                 if (!currentIndex.isValid()) {
                     selectRow = 0;
-                } else if (currentIndex.row()+1 < model->rowCount()) {
+                } else if (currentIndex.row() + 1 < model->rowCount()) {
                     selectRow = currentIndex.row() + 1;
                 }
             }
