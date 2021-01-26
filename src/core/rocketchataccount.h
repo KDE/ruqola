@@ -473,6 +473,7 @@ public:
     Q_REQUIRED_RESULT bool ldapEnabled() const;
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
+    void deleteUser(const QJsonArray &replyArray);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

@@ -1469,6 +1469,13 @@ void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
     Q_EMIT customUserStatusChanged();
 }
 
+void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
+{
+    // mCustomUserStatuses.updateCustomUserStatues(replyArray);
+    // Q_EMIT customUserStatusChanged();
+    qDebug() << " void RocketChatAccount::deleteUser(const QJsonObject &replyObject)" << replyArray;
+}
+
 void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
 {
     mCustomUserStatuses.updateCustomUserStatues(replyArray);
