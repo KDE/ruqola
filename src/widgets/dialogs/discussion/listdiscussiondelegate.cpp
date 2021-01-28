@@ -50,9 +50,10 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // Draw the sender (below the filename)
     painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.textY + painter->fontMetrics().ascent(), layout.text);
 
-    // Draw the timestamp (below the sender)
+    // Draw the number of message + timestamp (below the sender)
+    const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + QLatin1Char(' ') + layout.lastMessageTimeText;
     DelegatePaintUtil::drawLighterText(painter,
-                                       layout.lastMessageTimeText,
+                                       messageStr,
                                        QPoint(DelegatePaintUtil::margin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     KColorScheme scheme;
