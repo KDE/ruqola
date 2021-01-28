@@ -33,7 +33,7 @@ public:
     Q_REQUIRED_RESULT QString code() const;
 
 private:
-    TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
+    TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;
 };
 
 #endif // ASKTWOAUTHENTICATIONPASSWORDWIDGET_H

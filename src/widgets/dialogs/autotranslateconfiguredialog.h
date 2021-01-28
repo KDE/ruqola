@@ -34,7 +34,7 @@ public:
     void setRoom(Room *room);
 
 private:
-    AutoTranslateConfigureWidget *mAutoTranslateConfigureWidget = nullptr;
+    AutoTranslateConfigureWidget *const mAutoTranslateConfigureWidget;
 };
 
 #endif // AUTOTRANSLATECONFIGUREDIALOG_H

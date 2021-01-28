@@ -26,12 +26,12 @@
 
 AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *parent)
     : QDialog(parent)
+    , mAskTwoAuthicationPasswordWidget(new AskTwoAuthenticationPasswordWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mAskTwoAuthicationPasswordWidget = new AskTwoAuthenticationPasswordWidget(this);
     mAskTwoAuthicationPasswordWidget->setObjectName(QStringLiteral("mAskTwoAuthicationPasswordWidget"));
     mainLayout->addWidget(mAskTwoAuthicationPasswordWidget);
 

@@ -27,6 +27,7 @@
 
 ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     : QWidget(parent)
+    , mPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,7 +38,6 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(label);
 
-    mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addWidget(mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &ChannelPasswordWidget::slotPasswordChanged);

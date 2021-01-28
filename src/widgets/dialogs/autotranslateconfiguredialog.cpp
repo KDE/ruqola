@@ -26,12 +26,12 @@
 
 AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(QWidget *parent)
     : QDialog(parent)
+    , mAutoTranslateConfigureWidget(new AutoTranslateConfigureWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Auto-Translate"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mAutoTranslateConfigureWidget = new AutoTranslateConfigureWidget(this);
     mAutoTranslateConfigureWidget->setObjectName(QStringLiteral("mAutoTranslateConfigureWidget"));
     mainLayout->addWidget(mAutoTranslateConfigureWidget);
 

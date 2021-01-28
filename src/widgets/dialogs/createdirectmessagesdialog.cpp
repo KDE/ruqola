@@ -35,12 +35,12 @@ static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectM
 }
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create Direct Messages"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mCreateDirectMessagesWidget = new CreateDirectMessagesWidget(this);
     mCreateDirectMessagesWidget->setObjectName(QStringLiteral("mCreateDirectMessagesWidget"));
     mainLayout->addWidget(mCreateDirectMessagesWidget);
 

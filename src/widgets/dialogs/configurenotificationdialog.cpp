@@ -26,12 +26,12 @@
 
 ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
     : QDialog(parent)
+    , mConfigureNoticationWidget(new ConfigureNotificationWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Notification"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mConfigureNoticationWidget = new ConfigureNotificationWidget(this);
     mConfigureNoticationWidget->setObjectName(QStringLiteral("mConfigureNoticationWidget"));
     mainLayout->addWidget(mConfigureNoticationWidget);
 

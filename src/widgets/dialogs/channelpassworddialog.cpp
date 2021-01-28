@@ -27,12 +27,12 @@
 
 ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
     : QDialog(parent)
+    , mChannelPasswordWidget(new ChannelPasswordWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Add Password"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mChannelPasswordWidget = new ChannelPasswordWidget(this);
     mChannelPasswordWidget->setObjectName(QStringLiteral("mChannelPasswordWidget"));
     mainLayout->addWidget(mChannelPasswordWidget);
 

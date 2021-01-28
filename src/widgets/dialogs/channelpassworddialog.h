@@ -34,7 +34,7 @@ public:
     Q_REQUIRED_RESULT QString password() const;
 
 private:
-    ChannelPasswordWidget *mChannelPasswordWidget = nullptr;
+    ChannelPasswordWidget *const mChannelPasswordWidget;
 };
 
 #endif // CHANNELPASSWORDDIALOG_H

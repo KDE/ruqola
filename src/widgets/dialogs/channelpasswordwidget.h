@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     void slotPasswordChanged(const QString &str);
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
+    KPasswordLineEdit *const mPasswordLineEdit;
 };
 
 #endif // CHANNELPASSWORDWIDGET_H

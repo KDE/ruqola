@@ -38,7 +38,7 @@ private:
     void readConfig();
     void writeConfig();
 
-    CreateDirectMessagesWidget *mCreateDirectMessagesWidget = nullptr;
+    CreateDirectMessagesWidget *const mCreateDirectMessagesWidget;
     QPushButton *mOkButton = nullptr;
 };
 

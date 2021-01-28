@@ -36,7 +36,7 @@ public:
     void setRoom(Room *room);
 
 private:
-    ConfigureNotificationWidget *mConfigureNoticationWidget = nullptr;
+    ConfigureNotificationWidget *const mConfigureNoticationWidget;
 };
 
 #endif // CONFIGURENOTIFICATIONDIALOG_H

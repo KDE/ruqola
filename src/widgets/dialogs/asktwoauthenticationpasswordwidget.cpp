@@ -25,11 +25,11 @@
 
 AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *parent)
     : QWidget(parent)
+    , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    mTwoFactorAuthenticationPasswordLineEdit = new TwoAuthenticationPasswordWidget(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mainLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 }

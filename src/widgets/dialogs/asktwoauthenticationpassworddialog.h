@@ -33,7 +33,7 @@ public:
     Q_REQUIRED_RESULT QString code() const;
 
 private:
-    AskTwoAuthenticationPasswordWidget *mAskTwoAuthicationPasswordWidget = nullptr;
+    AskTwoAuthenticationPasswordWidget *const mAskTwoAuthicationPasswordWidget;
 };
 
 #endif // ASKTWOAUTHENTICATIONPASSWORDDIALOG_H
