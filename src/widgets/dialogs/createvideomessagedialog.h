@@ -32,7 +32,7 @@ public:
     ~CreateVideoMessageDialog() override;
 
 private:
-    CreateVideoMessageWidget *mCreateVideoMessageWidget = nullptr;
+    CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
 
 #endif // CREATEVIDEOMESSAGEDIALOG_H

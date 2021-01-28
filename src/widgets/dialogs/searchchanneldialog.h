@@ -34,7 +34,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    SearchChannelWidget *mSearchChannelWidget = nullptr;
+    SearchChannelWidget *const mSearchChannelWidget;
 };
 
 #endif // SEARCHCHANNELDIALOG_H

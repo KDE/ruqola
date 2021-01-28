@@ -34,7 +34,7 @@ public:
     void setUserName(const QString &userName);
 
 private:
-    DirectChannelInfoWidget *mDirectChannelInfoWidget = nullptr;
+    DirectChannelInfoWidget *const mDirectChannelInfoWidget;
 };
 
 #endif // DIRECTCHANNELINFODIALOG_H

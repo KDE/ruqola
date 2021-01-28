@@ -39,7 +39,7 @@ private:
     void writeConfig();
     void slotLoadMoreDiscussions();
     QString mRoomId;
-    ShowDiscussionsWidget *mShowDiscussionsWidget = nullptr;
+    ShowDiscussionsWidget *const mShowDiscussionsWidget;
 };
 
 #endif // SHOWDISCUSSIONSDIALOG_H

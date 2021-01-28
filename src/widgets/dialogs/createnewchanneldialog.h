@@ -48,7 +48,7 @@ public:
 private:
     void writeConfig();
     void readConfig();
-    CreateNewChannelWidget *mCreateNewChannelWidget = nullptr;
+    CreateNewChannelWidget *const mCreateNewChannelWidget;
     QPushButton *mOkButton = nullptr;
 };
 

@@ -51,7 +51,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    UploadFileWidget *mUploadFileWidget = nullptr;
+    UploadFileWidget *const mUploadFileWidget;
     QPushButton *mOkButton = nullptr;
 };
 

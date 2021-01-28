@@ -47,7 +47,7 @@ private:
     void readConfig();
     void writeConfig();
 
-    SearchMessageWidget *mSearchMessageWidget = nullptr;
+    SearchMessageWidget *const mSearchMessageWidget;
 };
 
 #endif // SEARCHMESSAGEDIALOG_H

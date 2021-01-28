@@ -33,12 +33,12 @@ static const char myUploadFileDialogGroupName[] = "UploadFileDialog";
 }
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
+    , mUploadFileWidget(new UploadFileWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Upload File"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mUploadFileWidget = new UploadFileWidget(this);
     mUploadFileWidget->setObjectName(QStringLiteral("mUploadFileWidget"));
     mainLayout->addWidget(mUploadFileWidget);
 

@@ -33,12 +33,12 @@ static const char myReportMessageDialogGroupName[] = "ReportMessageDialog";
 }
 ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     : QDialog(parent)
+    , mReportMessageWidget(new ReportMessageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Report Message"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mReportMessageWidget = new ReportMessageWidget(this);
     mReportMessageWidget->setObjectName(QStringLiteral("mReportMessageWidget"));
     mainLayout->addWidget(mReportMessageWidget);
     mainLayout->addStretch(1);

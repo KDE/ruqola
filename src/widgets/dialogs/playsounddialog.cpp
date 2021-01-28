@@ -26,12 +26,12 @@
 
 PlaySoundDialog::PlaySoundDialog(QWidget *parent)
     : QDialog(parent)
+    , mSoundWidget(new PlaySoundWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Play Sound"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mSoundWidget = new PlaySoundWidget(this);
     mSoundWidget->setObjectName(QStringLiteral("mSoundWidget"));
     mainLayout->addWidget(mSoundWidget);
 

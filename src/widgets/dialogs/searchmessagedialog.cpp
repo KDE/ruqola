@@ -33,12 +33,12 @@ static const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
 }
 SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     : QDialog(parent)
+    , mSearchMessageWidget(new SearchMessageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Search Messages"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mSearchMessageWidget = new SearchMessageWidget(this);
     mSearchMessageWidget->setObjectName(QStringLiteral("mSearchMessageWidget"));
     mainLayout->addWidget(mSearchMessageWidget);
     connect(mSearchMessageWidget, &SearchMessageWidget::goToMessageRequested, this, &SearchMessageDialog::goToMessageRequested);

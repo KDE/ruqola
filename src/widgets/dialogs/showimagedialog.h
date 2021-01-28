@@ -38,7 +38,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    ShowImageWidget *mShowImageWidget = nullptr;
+    ShowImageWidget *const mShowImageWidget;
 };
 
 #endif // SHOWIMAGEDIALOG_H

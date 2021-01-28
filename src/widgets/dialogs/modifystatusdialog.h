@@ -39,7 +39,7 @@ public:
     void setMessageStatus(const QString &statusStr);
 
 private:
-    ModifyStatusWidget *mModifyStatusWidget = nullptr;
+    ModifyStatusWidget *const mModifyStatusWidget;
 };
 
 #endif // MODIFYSTATUSDIALOG_H

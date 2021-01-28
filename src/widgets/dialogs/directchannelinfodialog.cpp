@@ -26,12 +26,12 @@
 
 DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
+    , mDirectChannelInfoWidget(new DirectChannelInfoWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Users Info"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mDirectChannelInfoWidget = new DirectChannelInfoWidget(this);
     mDirectChannelInfoWidget->setObjectName(QStringLiteral("mDirectChannelInfoWidget"));
     mainLayout->addWidget(mDirectChannelInfoWidget);
 

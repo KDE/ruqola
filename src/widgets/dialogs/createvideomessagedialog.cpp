@@ -27,12 +27,12 @@
 
 CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateVideoMessageWidget(new CreateVideoMessageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create Video Message"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mCreateVideoMessageWidget = new CreateVideoMessageWidget(this);
     mCreateVideoMessageWidget->setObjectName(QStringLiteral("mCreateVideoMessageWidget"));
     mainLayout->addWidget(mCreateVideoMessageWidget);
 

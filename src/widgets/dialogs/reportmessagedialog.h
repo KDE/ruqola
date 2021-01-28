@@ -37,7 +37,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    ReportMessageWidget *mReportMessageWidget = nullptr;
+    ReportMessageWidget *const mReportMessageWidget;
 };
 
 #endif // REPORTMESSAGEDIALOG_H

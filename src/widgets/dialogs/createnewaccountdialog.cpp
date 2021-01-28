@@ -34,12 +34,12 @@ static const char myConfigCreateNewAccountDialogGroupName[] = "CreateNewAccountD
 
 CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     : QDialog(parent)
+    , mNewAccountWidget(new CreateNewAccountWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Add Account"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mNewAccountWidget = new CreateNewAccountWidget(this);
     mNewAccountWidget->setObjectName(QStringLiteral("mNewAccountWidget"));
     mainLayout->addWidget(mNewAccountWidget);
 

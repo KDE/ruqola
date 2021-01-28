@@ -34,7 +34,7 @@ public:
     void setServerConfigInfo(ServerConfigInfo *info);
 
 private:
-    ServerInfoWidget *mServerInfoWidget = nullptr;
+    ServerInfoWidget *const mServerInfoWidget;
 };
 
 #endif // SERVERINFODIALOG_H

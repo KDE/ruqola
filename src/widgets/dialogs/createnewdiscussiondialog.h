@@ -46,7 +46,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    CreateNewDiscussionWidget *mCreateNewDiscussionWidget = nullptr;
+    CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
 };
 
 #endif // CREATENEWDISCUSSIONDIALOG_H

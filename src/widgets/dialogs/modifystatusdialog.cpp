@@ -26,12 +26,12 @@
 
 ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     : QDialog(parent)
+    , mModifyStatusWidget(new ModifyStatusWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Modify Status"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mModifyStatusWidget = new ModifyStatusWidget(this);
     mModifyStatusWidget->setObjectName(QStringLiteral("mModifyStatusWidget"));
     mainLayout->addWidget(mModifyStatusWidget);
 

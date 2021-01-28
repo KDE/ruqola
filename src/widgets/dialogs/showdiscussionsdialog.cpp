@@ -37,12 +37,12 @@ static const char myShowDiscussionsDialogGroupName[] = "ShowDiscussionsDialog";
 }
 ShowDiscussionsDialog::ShowDiscussionsDialog(QWidget *parent)
     : QDialog(parent)
+    , mShowDiscussionsWidget(new ShowDiscussionsWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Show Discussions"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mShowDiscussionsWidget = new ShowDiscussionsWidget(this);
     mShowDiscussionsWidget->setObjectName(QStringLiteral("mShowDiscussionsWidget"));
     mainLayout->addWidget(mShowDiscussionsWidget);
 

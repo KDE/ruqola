@@ -32,12 +32,12 @@ static const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog"
 }
 CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateNewChannelWidget(new CreateNewChannelWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create Channel"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mCreateNewChannelWidget = new CreateNewChannelWidget(this);
     mCreateNewChannelWidget->setObjectName(QStringLiteral("mCreateNewChannelWidget"));
     mainLayout->addWidget(mCreateNewChannelWidget);
 

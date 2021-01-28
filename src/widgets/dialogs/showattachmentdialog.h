@@ -48,7 +48,7 @@ private:
     void slotDeleteAttachment(const QString &fileId);
     QString mRoomId;
     QString mRoomType;
-    ShowAttachmentWidget *mShowAttachmentWidget = nullptr;
+    ShowAttachmentWidget *const mShowAttachmentWidget;
 };
 
 #endif // SHOWATTACHMENTDIALOG_H

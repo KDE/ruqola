@@ -34,7 +34,7 @@ public:
     void setAudioUrl(const QUrl &url);
 
 private:
-    PlaySoundWidget *mSoundWidget = nullptr;
+    PlaySoundWidget *const mSoundWidget;
 };
 
 #endif // PLAYSOUNDDIALOG_H

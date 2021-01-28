@@ -36,7 +36,7 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    AddUsersWidget *mUsers = nullptr;
+    AddUsersWidget *const mUsers;
 };
 
 #endif // CREATEDIRECTMESSAGESWIDGET_H

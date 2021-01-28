@@ -26,12 +26,12 @@
 
 ServerInfoDialog::ServerInfoDialog(QWidget *parent)
     : QDialog(parent)
+    , mServerInfoWidget(new ServerInfoWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Server Info"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mServerInfoWidget = new ServerInfoWidget(this);
     mServerInfoWidget->setObjectName(QStringLiteral("mServerInfoWidget"));
     mainLayout->addWidget(mServerInfoWidget);
 

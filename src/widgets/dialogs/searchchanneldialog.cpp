@@ -33,12 +33,12 @@ static const char mySearchChannelDialogGroupName[] = "SearchChannelDialog";
 }
 SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     : QDialog(parent)
+    , mSearchChannelWidget(new SearchChannelWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Search Channel"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mSearchChannelWidget = new SearchChannelWidget(this);
     mSearchChannelWidget->setObjectName(QStringLiteral("mSearchChannelWidget"));
     mainLayout->addWidget(mSearchChannelWidget);
 

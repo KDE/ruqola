@@ -39,7 +39,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    CreateNewAccountWidget *mNewAccountWidget = nullptr;
+    CreateNewAccountWidget *const mNewAccountWidget;
     QPushButton *mOkButton = nullptr;
 };
 

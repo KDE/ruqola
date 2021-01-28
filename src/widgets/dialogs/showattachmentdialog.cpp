@@ -36,12 +36,12 @@ static const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 
 ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
     : QDialog(parent)
+    , mShowAttachmentWidget(new ShowAttachmentWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Show Attachments"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mShowAttachmentWidget = new ShowAttachmentWidget(this);
     mShowAttachmentWidget->setObjectName(QStringLiteral("mShowAttachmentWidget"));
     mainLayout->addWidget(mShowAttachmentWidget);
 

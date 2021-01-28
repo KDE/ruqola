@@ -33,12 +33,12 @@ static const char myShowImageDialogGroupName[] = "ShowImageDialog";
 }
 ShowImageDialog::ShowImageDialog(QWidget *parent)
     : QDialog(parent)
+    , mShowImageWidget(new ShowImageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mShowImageWidget = new ShowImageWidget(this);
     mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
     mainLayout->addWidget(mShowImageWidget);
 

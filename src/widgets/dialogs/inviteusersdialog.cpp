@@ -33,12 +33,12 @@ static const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
 }
 InviteUsersDialog::InviteUsersDialog(QWidget *parent)
     : QDialog(parent)
+    , mInviteUsersWidget(new InviteUsersWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Invite Users"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mInviteUsersWidget = new InviteUsersWidget(this);
     mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
     mainLayout->addWidget(mInviteUsersWidget);
 

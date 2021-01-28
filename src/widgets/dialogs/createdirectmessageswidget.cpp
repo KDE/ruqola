@@ -26,6 +26,7 @@
 
 CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     : QWidget(parent)
+    , mUsers(new AddUsersWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -38,7 +39,6 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     label->setWordWrap(true);
     mainLayout->addWidget(label);
 
-    mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Select Users..."));
     mainLayout->addWidget(mUsers);

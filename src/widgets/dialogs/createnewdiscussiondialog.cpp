@@ -33,12 +33,12 @@ static const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionD
 }
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create Discussion"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mCreateNewDiscussionWidget = new CreateNewDiscussionWidget(this);
     mCreateNewDiscussionWidget->setObjectName(QStringLiteral("mCreateNewDiscussionWidget"));
     mainLayout->addWidget(mCreateNewDiscussionWidget);
 
