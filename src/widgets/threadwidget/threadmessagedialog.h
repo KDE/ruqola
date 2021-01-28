@@ -43,7 +43,7 @@ public:
 private:
     void writeConfig();
     void readConfig();
-    ThreadMessageWidget *mThreadMessageWidget = nullptr;
+    ThreadMessageWidget *const mThreadMessageWidget;
 };
 
 #endif // THREADMESSAGEDIALOG_H

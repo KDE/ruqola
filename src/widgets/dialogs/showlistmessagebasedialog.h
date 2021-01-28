@@ -48,7 +48,7 @@ Q_SIGNALS:
 private:
     void slotLoadMoreMessages();
     QString mRoomId;
-    ShowListMessageBaseWidget *mShowListMessage = nullptr;
+    ShowListMessageBaseWidget *const mShowListMessage;
 };
 
 #endif // SHOWLISTMESSAGEBASEDIALOG_H

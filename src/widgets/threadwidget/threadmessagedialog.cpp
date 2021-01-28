@@ -33,12 +33,12 @@ static const char myThreadMessageDialogGroupName[] = "ThreadMessageDialog";
 
 ThreadMessageDialog::ThreadMessageDialog(QWidget *parent)
     : QDialog(parent)
+    , mThreadMessageWidget(new ThreadMessageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Threads")); // TODO fixme name
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mThreadMessageWidget = new ThreadMessageWidget(this);
     mThreadMessageWidget->setObjectName(QStringLiteral("mThreadMessageWidget"));
     mainLayout->addWidget(mThreadMessageWidget);
 

@@ -30,11 +30,11 @@
 
 ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
     : QDialog(parent)
+    , mShowListMessage(new ShowListMessageBaseWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mShowListMessage = new ShowListMessageBaseWidget(this);
     mShowListMessage->setObjectName(QStringLiteral("mShowListMessage"));
     mainLayout->addWidget(mShowListMessage);
 
