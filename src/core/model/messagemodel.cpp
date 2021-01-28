@@ -313,7 +313,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return true; // show date at the top
     case MessageModel::CanEditMessage:
-        return mRocketChatAccount->isMessageEditable(message) && mRoom && mRoom->hasPermission(QStringLiteral("edit-message"));
+        return mRocketChatAccount->isMessageEditable(message); // && mRoom && mRoom->hasPermission(QStringLiteral("edit-message"));
     case MessageModel::CanDeleteMessage:
         return mRocketChatAccount->isMessageDeletable(message);
     case MessageModel::Starred:
