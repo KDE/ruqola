@@ -44,6 +44,9 @@ private:
         QString lastMessageTimeText;
         qreal lastMessageTimeY = 0;
 
+        // Number of message
+        int numberOfMessages = 0;
+
         // OpenDiscussionText
         QString openDiscussionText;
         qreal openDiscussionTextY = 0;

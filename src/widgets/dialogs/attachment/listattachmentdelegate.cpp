@@ -78,7 +78,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->setFont(oldFont);
 
     // Draw the timestamp (below the sender)
-    DelegatePaintUtil::drawTimestamp(
+    DelegatePaintUtil::drawLighterText(
         painter,
         layout.timeStampText,
         QPoint(DelegatePaintUtil::margin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));

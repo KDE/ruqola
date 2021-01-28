@@ -380,7 +380,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     // Timestamp
-    DelegatePaintUtil::drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
+    DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
     const Message::MessageType messageType = message->messageType();
     const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
     if (!isSystemMessage) {
