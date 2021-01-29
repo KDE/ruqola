@@ -35,14 +35,8 @@ void RoomReplyThreadWidgetTest::shouldHaveDefaultValues()
 {
     RoomReplyThreadWidget w;
 
-    auto messageThreadLayout = w.findChild<QHBoxLayout *>(QStringLiteral("messageThreadLayout"));
-    QVERIFY(messageThreadLayout);
-
-    auto messageThreadLabel = w.findChild<QLabel *>(QStringLiteral("messageThreadLabel"));
-    QVERIFY(messageThreadLabel);
-    QVERIFY(!messageThreadLabel->text().isEmpty());
-
-    auto messageThreadButton = w.findChild<QPushButton *>(QStringLiteral("messageThreadButton"));
-    QVERIFY(messageThreadButton);
-    QVERIFY(!messageThreadButton->text().isEmpty());
+    QVERIFY(!w.isCloseButtonVisible());
+    QCOMPARE(w.messageType(), KMessageWidget::Information);
+    QVERIFY(w.wordWrap());
+    QVERIFY(!w.isVisible());
 }

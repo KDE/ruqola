@@ -22,26 +22,22 @@
 
 #include <KLocalizedString>
 #include <KStandardGuiItem>
+#include <QAction>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 
 RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
-    : QWidget(parent)
+    : KMessageWidget(parent)
 {
-    auto messageThreadLayout = new QHBoxLayout(this);
-    messageThreadLayout->setObjectName(QStringLiteral("messageThreadLayout"));
-
-    auto messageThreadLabel = new QLabel(i18n("Replying in a thread"), this);
-    messageThreadLabel->setObjectName(QStringLiteral("messageThreadLabel"));
-    messageThreadLayout->addWidget(messageThreadLabel);
-
-    auto messageThreadButton = new QPushButton(this);
-    messageThreadButton->setObjectName(QStringLiteral("messageThreadButton"));
-    KStandardGuiItem::assign(messageThreadButton, KStandardGuiItem::Cancel);
-    connect(messageThreadButton, &QPushButton::clicked, this, &RoomReplyThreadWidget::cancelReplyingInThread);
-    messageThreadLayout->addWidget(messageThreadButton);
-    messageThreadLayout->addStretch();
+    setCloseButtonVisible(false);
+    setMessageType(Information);
+    setWordWrap(true);
+    setText(i18n("Replying in a thread"));
+    setVisible(false);
+    auto cancelReplyingInThreadAction = new QAction(i18n("Cancel"), this);
+    connect(cancelReplyingInThreadAction, &QAction::triggered, this, &RoomReplyThreadWidget::cancelReplyingInThread);
+    addAction(cancelReplyingInThreadAction);
 }
 
 RoomReplyThreadWidget::~RoomReplyThreadWidget()
