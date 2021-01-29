@@ -25,6 +25,8 @@
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "users/userslistjob.h"
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QLineEdit>
@@ -61,6 +63,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
 
     mResultTreeWidget->setModel(mAdminUsersProxyModel);
+    initialize();
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
@@ -70,4 +73,24 @@ AdministratorUsersWidget::~AdministratorUsersWidget()
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {
     mAdminUsersProxyModel->setFilterString(str);
+}
+
+void AdministratorUsersWidget::initialize()
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto adminUsersJob = new RocketChatRestApi::UsersListJob(this);
+    rcAccount->restApi()->initializeRestApiJob(adminUsersJob);
+    connect(adminUsersJob, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotAdminUserDone);
+    if (!adminUsersJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
+    }
+}
+
+void AdministratorUsersWidget::slotAdminUserDone(const QJsonObject &obj)
+{
+    //    AdminRooms rooms;
+    //    rooms.parseAdminRooms(obj);
+    //    mAdminRoomsModel->setAdminRooms(rooms);
+    //    mResultTreeWidget->resizeColumnsToContents();
+    qDebug() << " users " << obj;
 }

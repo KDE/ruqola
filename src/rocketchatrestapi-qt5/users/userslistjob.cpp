@@ -85,10 +85,6 @@ QNetworkRequest UsersListJob::request() const
 
 bool UsersListJob::canStart() const
 {
-    if (!hasUserIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersInfoJob: identifier is empty";
-        return false;
-    }
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
