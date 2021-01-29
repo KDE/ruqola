@@ -83,11 +83,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mLdapCheckBox->setObjectName(QStringLiteral("mLdapCheckBox"));
     mainLayout->addWidget(mLdapCheckBox);
 
-    mLoginButton = new QPushButton(i18n("Login"), this);
-    mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
-    mainLayout->addWidget(mLoginButton);
-    connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
-
     // Two Factor authentication
     mAuthenticationWidget = new QWidget(this);
     mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
@@ -106,6 +101,12 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     mainLayout->addWidget(mAuthenticationWidget);
+
+    mLoginButton = new QPushButton(i18n("Login"), this);
+    mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
+    mainLayout->addWidget(mLoginButton);
+    connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
+
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     mainLayout->addWidget(mBusyIndicatorWidget);
