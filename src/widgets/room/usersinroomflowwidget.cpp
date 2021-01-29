@@ -56,7 +56,7 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
     if (mRoom) {
         auto sourceModel = mUsersForRoomFilterProxyModel->sourceModel();
         if (sourceModel) {
-            auto *usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxyModel->sourceModel());
+            auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxyModel->sourceModel());
             disconnect(usersForRoomModel,
                        &UsersForRoomModel::hasFullListChanged,
                        mUsersForRoomFilterProxyModel,
@@ -141,7 +141,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
                 connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
                 mFlowLayout->addWidget(openExternalDialogLabel);
             } else if (!mUsersForRoomFilterProxyModel->hasFullList()) {
-                auto *loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
+                auto loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::CustomContextMenu);
                 connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsersAttachment);

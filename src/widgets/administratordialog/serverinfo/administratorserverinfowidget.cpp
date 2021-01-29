@@ -232,23 +232,23 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoIte
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
     qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
-    auto *serverInfoItem = new QTreeWidgetItem(mTreeWidget);
+    auto serverInfoItem = new QTreeWidgetItem(mTreeWidget);
     serverInfoItem->setText(0, i18n("Server Info"));
     parseServerInfo(serverInfoItem, obj);
 
-    auto *usageInfoItem = new QTreeWidgetItem(mTreeWidget);
+    auto usageInfoItem = new QTreeWidgetItem(mTreeWidget);
     usageInfoItem->setText(0, i18n("Usage"));
     parseUsageInfo(usageInfoItem, obj);
 
-    auto *runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
+    auto runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
     runtimeInfoItem->setText(0, i18n("Runtime Environment"));
     parseRuntimeInfo(runtimeInfoItem, obj);
 
-    auto *commitItem = new QTreeWidgetItem(mTreeWidget);
+    auto commitItem = new QTreeWidgetItem(mTreeWidget);
     commitItem->setText(0, i18n("Commit"));
     parseCommitInfo(commitItem);
 
-    auto *buildItem = new QTreeWidgetItem(mTreeWidget);
+    auto buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
     parseBuildInfo(buildItem);
     mTreeWidget->expandAll();

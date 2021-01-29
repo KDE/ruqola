@@ -45,7 +45,7 @@ void AccountManagerTest::shouldAddAccount()
 {
     AccountManager w;
     for (int i = 0; i < 10; ++i) {
-        auto *c = new RocketChatAccount();
+        auto c = new RocketChatAccount();
         w.addAccount(c);
     }
     // We have a default account when we load account

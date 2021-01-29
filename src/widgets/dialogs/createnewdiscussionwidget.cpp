@@ -34,7 +34,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto *channelLabel = new QLabel(i18n("Channel or Group parent"), this);
+    auto channelLabel = new QLabel(i18n("Channel or Group parent"), this);
     channelLabel->setObjectName(QStringLiteral("channelLabel"));
     mainLayout->addWidget(channelLabel);
 
@@ -47,7 +47,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     });
     mainLayout->addWidget(mChannelNameLineEdit);
 
-    auto *discussionName = new QLabel(i18n("Discussion Name"), this);
+    auto discussionName = new QLabel(i18n("Discussion Name"), this);
     discussionName->setObjectName(QStringLiteral("discussionName"));
     discussionName->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(discussionName);
@@ -58,7 +58,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 
-    auto *usersLabel = new QLabel(i18n("Invite Users"), this);
+    auto usersLabel = new QLabel(i18n("Invite Users"), this);
     usersLabel->setObjectName(QStringLiteral("usersLabel"));
     mainLayout->addWidget(usersLabel);
 
@@ -67,7 +67,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mUsers->setPlaceholderText(i18n("Invite Users..."));
     mainLayout->addWidget(mUsers);
 
-    auto *messageLabel = new QLabel(i18n("Message"), this);
+    auto messageLabel = new QLabel(i18n("Message"), this);
     messageLabel->setObjectName(QStringLiteral("messageLabel"));
     mainLayout->addWidget(messageLabel);
 

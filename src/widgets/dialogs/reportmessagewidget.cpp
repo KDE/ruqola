@@ -47,7 +47,7 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
 
     mainLayout->addLayout(messageLayout);
 
-    auto *lab = new QLabel(i18n("Message:"), this);
+    auto lab = new QLabel(i18n("Message:"), this);
     lab->setObjectName(QStringLiteral("label"));
     messageLayout->addWidget(lab);
 

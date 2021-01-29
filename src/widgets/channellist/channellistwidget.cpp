@@ -60,7 +60,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     auto statusComboBoxLayout = new QHBoxLayout;
     mainLayout->addLayout(statusComboBoxLayout);
-    auto *label = new QLabel(i18n("Status:"), this);
+    auto label = new QLabel(i18n("Status:"), this);
     label->setObjectName(QStringLiteral("label"));
     statusComboBoxLayout->addWidget(label);
 

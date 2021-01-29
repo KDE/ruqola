@@ -52,7 +52,7 @@ void AccountMenu::slotUpdateAccountMenu()
     if (accountNumber == 0) {
         // Nothing
     } else if (accountNumber == 1) {
-        auto *action = new QAction(model->account(0)->accountName(), this);
+        auto action = new QAction(model->account(0)->accountName(), this);
         menu()->addAction(action);
         action->setEnabled(false);
     } else {

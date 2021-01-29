@@ -94,7 +94,7 @@ void AccountManager::loadAccount()
     // New account => empty list.
     if (lstAccounts.isEmpty()) {
         qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccount";
-        auto *account = new RocketChatAccount();
+        auto account = new RocketChatAccount();
         if (account->accountEnabled()) {
             connectToAccount(account);
         }
@@ -130,7 +130,7 @@ RocketChatAccount *AccountManager::account() const
 void AccountManager::addAccount(const AccountManagerInfo &info)
 {
     // TODO verify if account exist or not ?
-    auto *account = new RocketChatAccount();
+    auto account = new RocketChatAccount();
     account->setAccountName(info.accountName);
     account->setUserName(info.userName);
     account->setServerUrl(info.serverUrl);

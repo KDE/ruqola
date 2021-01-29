@@ -2449,7 +2449,7 @@ void RocketChatAccount::exportMessages(const RocketChatRestApi::RoomsExportJob::
 
 void RocketChatAccount::slotRoomExportDone()
 {
-    auto *notification = new KNotification(QStringLiteral("export-message"), KNotification::CloseOnTimeout);
+    auto notification = new KNotification(QStringLiteral("export-message"), KNotification::CloseOnTimeout);
     notification->setTitle(i18n("Export Messages"));
     notification->setText(i18n("Your email has been queued for sending."));
     notification->sendEvent();

@@ -45,7 +45,7 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
     QVector<RocketChatAccount *> accounts;
     accounts.reserve(10);
     for (int i = 0; i < 10; ++i) {
-        auto *f = new RocketChatAccount();
+        auto f = new RocketChatAccount();
         accounts.append(f);
     }
     QSignalSpy rowInsertedSpy(&w, &RocketChatAccountModel::rowsInserted);
@@ -69,7 +69,7 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
     accounts.clear();
     accounts.reserve(3);
     for (int i = 0; i < 3; ++i) {
-        auto *f = new RocketChatAccount();
+        auto f = new RocketChatAccount();
         accounts.append(f);
     }
 
@@ -89,7 +89,7 @@ void RocketChatAccountModelTest::shouldClearAccounts()
     QVector<RocketChatAccount *> accounts;
     accounts.reserve(10);
     for (int i = 0; i < 10; ++i) {
-        auto *f = new RocketChatAccount();
+        auto f = new RocketChatAccount();
         accounts.append(f);
     }
     QSignalSpy rowInsertedSpy(&w, &RocketChatAccountModel::rowsInserted);
@@ -118,7 +118,7 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     RocketChatAccountModel w;
     QVector<RocketChatAccount *> accounts;
     for (int i = 0; i < 10; ++i) {
-        auto *f = new RocketChatAccount();
+        auto f = new RocketChatAccount();
         f->setAccountName(QStringLiteral("foo%1").arg(i));
         accounts.append(f);
     }

@@ -220,7 +220,7 @@ void RuqolaMainWindow::setupActions()
     mSaveAs = KStandardAction::saveAs(this, &RuqolaMainWindow::slotSaveAs, ac);
     mSaveAs->setText(i18n("Save As Text..."));
 
-    auto *act = new QAction(i18n("Add Account..."), this);
+    auto act = new QAction(i18n("Add Account..."), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
     ac->addAction(QStringLiteral("add_account"), act);
 

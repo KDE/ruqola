@@ -78,7 +78,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(mParentWidget);
 
     if (isNotMe && !isAdirectChannel) {
-        auto *conversationAction = new QAction(i18n("Start Conversation"), &menu);
+        auto conversationAction = new QAction(i18n("Start Conversation"), &menu);
         connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
         menu.addAction(conversationAction);
     }
@@ -86,7 +86,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
-        auto *userInfoAction = new QAction(i18n("User Info"), &menu);
+        auto userInfoAction = new QAction(i18n("User Info"), &menu);
         userInfoAction->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
         connect(userInfoAction, &QAction::triggered, this, &UsersInRoomMenu::slotUserInfo);
         menu.addAction(userInfoAction);
@@ -96,7 +96,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addSeparator();
         }
         const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
-        auto *removeAsUser = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
+        auto removeAsUser = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
         connect(removeAsUser, &QAction::triggered, this, [this, hasOwnerRole]() {
             Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(),
                                                              mUserId,
@@ -107,7 +107,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(removeAsUser);
 
         const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
-        auto *removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
+        auto removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
         connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole]() {
             Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(),
                                                              mUserId,
@@ -117,7 +117,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(removeAsLeader);
 
         const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
-        auto *removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
+        auto removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
         connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole]() {
             Ruqola::self()->rocketChatAccount()->changeRoles(mRoom->roomId(),
                                                              mUserId,
@@ -126,7 +126,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         });
         menu.addAction(removeAsModerator);
 
-        auto *removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
+        auto removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
         connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
         menu.addAction(removeFromRoom);
     }
@@ -136,7 +136,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
                 menu.addSeparator();
             }
             const bool userIsBlocked = mRoom->blocker();
-            auto *blockAction = new QAction(userIsBlocked ? i18n("Unblock User") : i18n("Block User"), &menu);
+            auto blockAction = new QAction(userIsBlocked ? i18n("Unblock User") : i18n("Block User"), &menu);
             connect(blockAction, &QAction::triggered, this, &UsersInRoomMenu::slotBlockUser);
             menu.addAction(blockAction);
         } else {
@@ -145,7 +145,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             }
 
             const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
-            auto *ignoreAction = new QAction(userIsIgnored ? i18n("Unignore") : i18n("Ignore"), &menu);
+            auto ignoreAction = new QAction(userIsIgnored ? i18n("Unignore") : i18n("Ignore"), &menu);
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
         }

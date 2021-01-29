@@ -30,7 +30,7 @@ NotificationWidget::NotificationWidget(QWidget *parent)
     mLineEdit = new QLineEdit(this);
     mainLayout->addWidget(mLineEdit);
 
-    auto *sendNotification = new QPushButton(QStringLiteral("Send"), this);
+    auto sendNotification = new QPushButton(QStringLiteral("Send"), this);
     mainLayout->addWidget(sendNotification);
 
     connect(sendNotification, &QPushButton::clicked, this, &NotificationWidget::slotSendNotification);

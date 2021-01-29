@@ -101,7 +101,7 @@ void UsersInRoomWidget::setRoom(Room *room)
         auto model = Ruqola::self()->rocketChatAccount()->usersModelForRoom(mRoom->roomId());
         auto sourceModel = mUsersForRoomFilterProxy->sourceModel();
         if (sourceModel) {
-            auto *usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxy->sourceModel());
+            auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxy->sourceModel());
             disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
             disconnect(usersForRoomModel,
                        &UsersForRoomModel::loadingInProgressChanged,

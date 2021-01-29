@@ -66,7 +66,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
     });
 
-    auto *desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
+    auto desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
     desktopGroupBox->setObjectName(QStringLiteral("desktopGroupBox"));
     topLayout->addWidget(desktopGroupBox);
 
@@ -116,7 +116,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
             NotificationPreferences::self()->desktopDurationNotificationModel()->currentPreference(index));
     });
 
-    auto *mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
+    auto mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
     topLayout->addWidget(mobileGroupBox);
 
@@ -133,7 +133,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
                                                                          NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
     });
 
-    auto *emailGroupBox = new QGroupBox(i18n("Email"), this);
+    auto emailGroupBox = new QGroupBox(i18n("Email"), this);
     emailGroupBox->setObjectName(QStringLiteral("emailGroupBox"));
     topLayout->addWidget(emailGroupBox);
 

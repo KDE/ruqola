@@ -39,7 +39,7 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
-    auto *sendNewEmailCode = new QPushButton(i18n("Send new code"), this);
+    auto sendNewEmailCode = new QPushButton(i18n("Send new code"), this);
     sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
     twoFactorLayout->addWidget(sendNewEmailCode);
     connect(sendNewEmailCode, &QPushButton::clicked, this, &TwoAuthenticationPasswordWidget::slotSendNewEmailCode);

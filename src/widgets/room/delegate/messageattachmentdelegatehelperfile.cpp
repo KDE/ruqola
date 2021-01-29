@@ -152,7 +152,7 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     const QUrl downloadUrl = rcAccount->urlForLink(link);
     auto *job = rcAccount->restApi()->downloadFile(downloadUrl, fileUrl, QStringLiteral("text/plain"));
     QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget, [=](const QUrl &, const QUrl &localFileUrl) {
-        auto *job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
+        auto job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
         job->setUrls({localFileUrl});
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget));
