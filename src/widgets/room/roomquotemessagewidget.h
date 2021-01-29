@@ -21,11 +21,10 @@
 #ifndef ROOMQUOTEMESSAGEWIDGET_H
 #define ROOMQUOTEMESSAGEWIDGET_H
 
-#include <QWidget>
+#include <KMessageWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLabel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomQuoteMessageWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomQuoteMessageWidget : public KMessageWidget
 {
     Q_OBJECT
 public:
@@ -36,9 +35,6 @@ public:
 
 Q_SIGNALS:
     void cancelQuoteMessage();
-
-private:
-    QLabel *mLabelText = nullptr;
 };
 
 #endif // ROOMQUOTEMESSAGEWIDGET_H

@@ -30,5 +30,8 @@ RoomQuoteMessageWidgetTest::RoomQuoteMessageWidgetTest(QObject *parent)
 void RoomQuoteMessageWidgetTest::shouldHaveDefaultValues()
 {
     RoomQuoteMessageWidget w;
-    // TODO
+    QVERIFY(!w.isCloseButtonVisible());
+    QCOMPARE(w.messageType(), KMessageWidget::Information);
+    QVERIFY(w.wordWrap());
+    QVERIFY(!w.isVisible());
 }

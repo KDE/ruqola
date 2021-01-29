@@ -21,26 +21,21 @@
 #include "roomquotemessagewidget.h"
 #include <KLocalizedString>
 #include <KStandardGuiItem>
+#include <QAction>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 
 RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
-    : QWidget(parent)
+    : KMessageWidget(parent)
 {
-    auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mLabelText = new QLabel(this);
-    mLabelText->setObjectName(QStringLiteral("mLabelText"));
-    mainLayout->addWidget(mLabelText);
-
-    auto messageQuoteButton = new QPushButton(this);
-    messageQuoteButton->setObjectName(QStringLiteral("messageQuoteButton"));
-    KStandardGuiItem::assign(messageQuoteButton, KStandardGuiItem::Cancel);
-    connect(messageQuoteButton, &QPushButton::clicked, this, &RoomQuoteMessageWidget::cancelQuoteMessage);
-    mainLayout->addWidget(messageQuoteButton);
-    mainLayout->addStretch();
+    setCloseButtonVisible(false);
+    setMessageType(Information);
+    setWordWrap(true);
+    setVisible(false);
+    auto cancelReplyingInThreadAction = new QAction(i18n("Cancel"), this);
+    connect(cancelReplyingInThreadAction, &QAction::triggered, this, &RoomQuoteMessageWidget::cancelQuoteMessage);
+    addAction(cancelReplyingInThreadAction);
 }
 
 RoomQuoteMessageWidget::~RoomQuoteMessageWidget()
@@ -49,5 +44,5 @@ RoomQuoteMessageWidget::~RoomQuoteMessageWidget()
 
 void RoomQuoteMessageWidget::setMessageText(const QString &str)
 {
-    mLabelText->setText(i18n("Quote Message: \'%1\'", str));
+    setText(i18n("Quote Message: \'%1\'", str));
 }
