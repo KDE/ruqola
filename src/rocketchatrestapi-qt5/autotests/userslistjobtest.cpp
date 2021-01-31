@@ -36,7 +36,7 @@ void UsersListJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasUserIdentifier());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void UsersListJobTest::shouldGenerateRequest()

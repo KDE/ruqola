@@ -83,6 +83,11 @@ QNetworkRequest UsersListJob::request() const
     return request;
 }
 
+bool UsersListJob::hasQueryParameterSupport() const
+{
+    return true;
+}
+
 bool UsersListJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
