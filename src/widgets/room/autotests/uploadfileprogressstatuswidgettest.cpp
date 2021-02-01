@@ -21,6 +21,7 @@
 #include "uploadfileprogressstatuswidgettest.h"
 #include "room/uploadfileprogressstatuswidget.h"
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QProgressBar>
 #include <QTest>
 QTEST_MAIN(UploadFileProgressStatusWidgetTest)
@@ -39,4 +40,8 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 
     auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
     QVERIFY(mProgressBar);
+
+    auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
+    QVERIFY(mFileName);
+    QVERIFY(mFileName->text().isEmpty());
 }

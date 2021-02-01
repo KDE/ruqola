@@ -21,20 +21,36 @@
 #include "uploadfileprogressstatuswidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QProgressBar>
 
 UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     : QWidget(parent)
+    , mFileName(new QLabel(this))
     , mProgressBar(new QProgressBar(this))
 {
     auto hboxLayout = new QHBoxLayout(this);
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
     hboxLayout->setContentsMargins({});
 
+    mFileName->setObjectName(QStringLiteral("mFileName"));
+    hboxLayout->addWidget(mFileName);
+
     mProgressBar->setObjectName(QStringLiteral("mProgressBar"));
+    mProgressBar->setRange(0, 100);
     hboxLayout->addWidget(mProgressBar);
 }
 
 UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget()
 {
+}
+
+void UploadFileProgressStatusWidget::setFileName(const QString &str)
+{
+    mFileName->setText(str);
+}
+
+void UploadFileProgressStatusWidget::setValue(int value)
+{
+    mProgressBar->setValue(value);
 }

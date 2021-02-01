@@ -24,6 +24,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QProgressBar;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileProgressStatusWidget : public QWidget
 {
     Q_OBJECT
@@ -31,7 +32,11 @@ public:
     explicit UploadFileProgressStatusWidget(QWidget *parent = nullptr);
     ~UploadFileProgressStatusWidget() override;
 
+    void setValue(int value);
+    void setFileName(const QString &str);
+
 private:
+    QLabel *const mFileName;
     QProgressBar *const mProgressBar;
 };
 

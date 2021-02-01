@@ -618,7 +618,13 @@ QString RoomWidget::roomType() const
 
 void RoomWidget::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
 {
-    qDebug() << " bytesSent " << info.bytesSent << " bytesTotal " << info.bytesTotal;
+    if (info.bytesSent > 0 && info.bytesTotal > 0) {
+        mUploadFileProgressStatusWidget->setVisible(true);
+        mUploadFileProgressStatusWidget->setFileName(info.fileName);
+        mUploadFileProgressStatusWidget->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
+    } else {
+        mUploadFileProgressStatusWidget->setVisible(false);
+    }
 }
 
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
