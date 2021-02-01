@@ -482,6 +482,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::uploadProgress, this, &RocketChatAccount::slotUploadProgress);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -2507,4 +2508,9 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
     return autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
+}
+
+void RocketChatAccount::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+{
+    Q_EMIT uploadProgress(bytesSent, bytesTotal);
 }

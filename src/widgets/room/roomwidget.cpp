@@ -610,16 +610,23 @@ QString RoomWidget::roomType() const
     return mRoomType;
 }
 
+void RoomWidget::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+{
+    qDebug() << " bytesSent " << bytesSent << " bytesTotal " << bytesTotal;
+}
+
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidget::slotUploadProgress);
     }
 
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidget::slotUploadProgress);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);

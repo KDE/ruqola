@@ -414,6 +414,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     info.roomId = roomId;
     info.threadMessageId = threadMessageId;
     job->setUploadFileInfo(info);
+    connect(job, &UploadFileJob::uploadProgress, this, &RestApiRequest::uploadProgress);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UploadFileJob job";
     }

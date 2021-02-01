@@ -99,6 +99,7 @@ private:
     void slotExportMessages();
     void slotFollowMessages();
     void slotShowQuoteMessage(const QString &permalink, const QString &text);
+    void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
 
     QString mRoomId;
     QString mRoomType;

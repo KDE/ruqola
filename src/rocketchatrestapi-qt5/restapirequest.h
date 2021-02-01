@@ -304,6 +304,7 @@ Q_SIGNALS:
     void resetAvatarDone();
     void roomExportDone();
     void statisticDone(const QJsonObject &replyObject);
+    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

@@ -510,6 +510,7 @@ Q_SIGNALS:
     void roomNeedAttention();
     void ownInfoChanged();
     void customUserStatusChanged();
+    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -563,6 +564,7 @@ private:
     void slotRoomExportDone();
     void slotPermissionListAllDone(const QJsonObject &replyObject);
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
+    void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
 
     AccountRoomSettings *const mAccountRoomSettings;
 
