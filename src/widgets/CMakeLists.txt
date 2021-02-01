@@ -143,6 +143,7 @@ set(Ruqola_roomwidget_SRCS
     room/usersinroomwidget.cpp
     room/usersinroommenu.cpp
     room/usersinroomcombobox.cpp
+    room/uploadfileprogressstatuswidget.cpp
     )
 
 set(Ruqola_misc_widget_SRCS
