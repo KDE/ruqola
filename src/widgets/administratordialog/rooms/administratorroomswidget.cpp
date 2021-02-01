@@ -32,6 +32,7 @@
 #include <QHeaderView>
 #include <QJsonObject>
 #include <QLineEdit>
+#include <QMenu>
 #include <QTableView>
 #include <QVBoxLayout>
 
@@ -61,6 +62,8 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mResultTreeWidget->verticalHeader()->hide();
     mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
+    mResultTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mResultTreeWidget, &QTableView::customContextMenuRequested, this, &AdministratorRoomsWidget::slotCustomContextMenuRequested);
     mainLayout->addWidget(mResultTreeWidget);
 
     mAdminRoomsModel = new AdminRoomsModel(this);
@@ -79,6 +82,21 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()
 {
+}
+
+void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+#if 0
+    QMenu menu(this);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &CustomUserStatusTreeWidget::addClicked);
+    QTreeWidgetItem *item = itemAt(pos);
+    if (item) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &CustomUserStatusTreeWidget::editClicked);
+        menu.addSeparator();
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
+    }
+    menu.exec(viewport()->mapToGlobal(pos));
+#endif
 }
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)

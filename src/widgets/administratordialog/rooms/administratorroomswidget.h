@@ -42,6 +42,7 @@ private:
     void slotAdminRoomDone(const QJsonObject &obj);
     void slotTextChanged(const QString &text);
     void initialize();
+    void slotCustomContextMenuRequested(const QPoint &pos);
     QLineEdit *mSearchLineEdit = nullptr;
     QTableView *mResultTreeWidget = nullptr;
     AdminRoomsModel *mAdminRoomsModel = nullptr;
