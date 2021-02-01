@@ -219,8 +219,8 @@ ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
     DESCRIPTION "ruqola widgets (selection)" EXPORT RUQOLA)
 
-qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
 add_library(libruqolawidgets
+    ruqolawidget.qrc
     ${Ruqola_widget_register_user_SRCS}
     ${Ruqola_textplugin_SRCS}
     ${ruqola_userfeedback_SRCS}

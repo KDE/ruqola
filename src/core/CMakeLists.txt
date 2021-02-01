@@ -239,8 +239,7 @@ ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_notification_debu
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_rooms_debug.h IDENTIFIER RUQOLA_ROOMS_LOG CATEGORY_NAME org.kde.ruqola.rooms DESCRIPTION "ruqola rooms" EXPORT RUQOLA)
 
-qt5_add_resources(libruqolacore_RSC ruqolacore.qrc)
-add_library(libruqolacore ${Ruqola_core_srcs} ${libruqolacore_RSC})
+add_library(libruqolacore ${Ruqola_core_srcs} ${libruqolacore_RSC} ruqolacore.qrc)
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolacore PROPERTIES UNITY_BUILD ON)
 endif()
