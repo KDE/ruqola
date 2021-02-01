@@ -23,13 +23,16 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QProgressBar;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileProgressStatusWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit UploadFileProgressStatusWidget(QWidget *parent = nullptr);
     ~UploadFileProgressStatusWidget() override;
+
+private:
+    QProgressBar *const mProgressBar;
 };
 
 #endif // UPLOADFILEPROGRESSSTATUSWIDGET_H

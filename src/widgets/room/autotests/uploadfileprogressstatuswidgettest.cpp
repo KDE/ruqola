@@ -20,6 +20,8 @@
 
 #include "uploadfileprogressstatuswidgettest.h"
 #include "room/uploadfileprogressstatuswidget.h"
+#include <QHBoxLayout>
+#include <QProgressBar>
 #include <QTest>
 QTEST_MAIN(UploadFileProgressStatusWidgetTest)
 UploadFileProgressStatusWidgetTest::UploadFileProgressStatusWidgetTest(QObject *parent)
@@ -30,5 +32,11 @@ UploadFileProgressStatusWidgetTest::UploadFileProgressStatusWidgetTest(QObject *
 void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 {
     UploadFileProgressStatusWidget w;
-    // TODO
+
+    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    QVERIFY(hboxLayout);
+    QCOMPARE(hboxLayout->contentsMargins(), {});
+
+    auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
+    QVERIFY(mProgressBar);
 }

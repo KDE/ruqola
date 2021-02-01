@@ -51,6 +51,7 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "threadwidget/threadmessagedialog.h"
+#include "uploadfileprogressstatuswidget.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -84,6 +85,11 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
     mainLayout->addWidget(mRoomCounterInfoWidget);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
+
+    mUploadFileProgressStatusWidget = new UploadFileProgressStatusWidget(this);
+    mUploadFileProgressStatusWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusWidget"));
+    mUploadFileProgressStatusWidget->setVisible(false);
+    mainLayout->addWidget(mUploadFileProgressStatusWidget);
 
     mMessageListView = new MessageListView(MessageListView::Mode::Editing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));

@@ -26,8 +26,10 @@
 #include "room/readonlylineeditwidget.h"
 #include "room/roomcounterinfowidget.h"
 #include "room/roomheaderwidget.h"
+#include "room/roomquotemessagewidget.h"
 #include "room/roomreplythreadwidget.h"
 #include "room/roomwidget.h"
+#include "room/uploadfileprogressstatuswidget.h"
 #include "room/usersinroomflowwidget.h"
 
 #include <ruqola.h>
@@ -76,6 +78,15 @@ void RoomWidgetTest::shouldHaveDefaultValues()
 
     auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(QStringLiteral("mRoomReplyThreadWidget"));
     QVERIFY(mRoomReplyThreadWidget);
+    QVERIFY(!mRoomReplyThreadWidget->isVisible());
+
+    auto mRoomQuoteMessageWidget = w.findChild<RoomQuoteMessageWidget *>(QStringLiteral("mRoomQuoteMessageWidget"));
+    QVERIFY(mRoomQuoteMessageWidget);
+    QVERIFY(!mRoomQuoteMessageWidget->isVisible());
+
+    auto mUploadFileProgressStatusWidget = w.findChild<UploadFileProgressStatusWidget *>(QStringLiteral("mUploadFileProgressStatusWidget"));
+    QVERIFY(mUploadFileProgressStatusWidget);
+    QVERIFY(!mUploadFileProgressStatusWidget->isVisible());
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)

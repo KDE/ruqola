@@ -39,6 +39,7 @@ class RoomCounterInfoWidget;
 class Room;
 class RoomReplyThreadWidget;
 class RoomQuoteMessageWidget;
+class UploadFileProgressStatusWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -118,6 +119,7 @@ private:
     ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
     UsersInRoomFlowWidget *mUsersInRoomFlowWidget = nullptr;
     RoomCounterInfoWidget *mRoomCounterInfoWidget = nullptr;
+    UploadFileProgressStatusWidget *mUploadFileProgressStatusWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

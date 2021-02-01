@@ -25,10 +25,14 @@
 
 UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     : QWidget(parent)
+    , mProgressBar(new QProgressBar(this))
 {
     auto hboxLayout = new QHBoxLayout(this);
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
     hboxLayout->setContentsMargins({});
+
+    mProgressBar->setObjectName(QStringLiteral("mProgressBar"));
+    hboxLayout->addWidget(mProgressBar);
 }
 
 UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget()
