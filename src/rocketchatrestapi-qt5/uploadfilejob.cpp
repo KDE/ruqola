@@ -101,12 +101,21 @@ bool UploadFileJob::start()
     descriptionPart.setBody(mUploadFileInfo.description.toUtf8());
     multiPart->append(descriptionPart);
     QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
-    connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::uploadProgress);
+    connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
     connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
     multiPart->setParent(reply); // delete the multiPart with the reply
     // TODO signal error ?
     addStartRestApiInfo("UploadFileJob::start");
     return true;
+}
+
+void UploadFileJob::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+{
+    UploadFileJob::UploadStatusInfo info;
+    info.bytesSent = bytesSent;
+    info.bytesTotal = bytesTotal;
+    info.fileName = mUploadFileInfo.filenameUrl.fileName();
+    Q_EMIT uploadProgress(info);
 }
 
 QNetworkRequest UploadFileJob::request() const

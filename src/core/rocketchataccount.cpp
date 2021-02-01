@@ -2510,7 +2510,7 @@ bool RocketChatAccount::hasAutotranslateSupport() const
     return autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
 }
 
-void RocketChatAccount::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+void RocketChatAccount::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
 {
-    Q_EMIT uploadProgress(bytesSent, bytesTotal);
+    Q_EMIT uploadProgress(info);
 }

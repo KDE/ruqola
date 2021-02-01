@@ -610,9 +610,9 @@ QString RoomWidget::roomType() const
     return mRoomType;
 }
 
-void RoomWidget::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+void RoomWidget::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
 {
-    qDebug() << " bytesSent " << bytesSent << " bytesTotal " << bytesTotal;
+    qDebug() << " bytesSent " << info.bytesSent << " bytesTotal " << info.bytesTotal;
 }
 
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)

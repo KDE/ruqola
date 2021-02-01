@@ -32,6 +32,7 @@
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
+#include "uploadfilejob.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
 #include "users/setstatusjob.h"
@@ -304,7 +305,7 @@ Q_SIGNALS:
     void resetAvatarDone();
     void roomExportDone();
     void statisticDone(const QJsonObject &replyObject);
-    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

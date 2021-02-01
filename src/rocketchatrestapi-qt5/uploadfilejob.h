@@ -40,6 +40,12 @@ public:
         QUrl filenameUrl;
         Q_REQUIRED_RESULT bool isValid() const;
     };
+
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UploadStatusInfo {
+        qint64 bytesSent = 0;
+        qint64 bytesTotal = 0;
+        QString fileName;
+    };
     explicit UploadFileJob(QObject *parent = nullptr);
     ~UploadFileJob() override;
 
@@ -54,14 +60,17 @@ public:
     void setUploadFileInfo(const UploadFileInfo &uploadFileInfo);
 
 Q_SIGNALS:
-    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 
 private:
     Q_DISABLE_COPY(UploadFileJob)
+    void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
     void slotUploadFinished();
     UploadFileInfo mUploadFileInfo;
 };
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadFileInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadStatusInfo)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadStatusInfo, Q_MOVABLE_TYPE);
 #endif // UPLOADFILEJOB_H

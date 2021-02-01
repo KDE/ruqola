@@ -40,6 +40,7 @@
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
 #include "ruqolaserverconfig.h"
+#include "uploadfilejob.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
 #include "users/usersupdateownbasicinfojob.h"
@@ -510,7 +511,7 @@ Q_SIGNALS:
     void roomNeedAttention();
     void ownInfoChanged();
     void customUserStatusChanged();
-    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -564,7 +565,7 @@ private:
     void slotRoomExportDone();
     void slotPermissionListAllDone(const QJsonObject &replyObject);
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
-    void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
+    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

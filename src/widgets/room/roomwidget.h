@@ -21,6 +21,7 @@
 #ifndef ROOMWIDGET_H
 #define ROOMWIDGET_H
 
+#include "uploadfilejob.h"
 #include <QPointer>
 #include <QWidget>
 
@@ -99,7 +100,7 @@ private:
     void slotExportMessages();
     void slotFollowMessages();
     void slotShowQuoteMessage(const QString &permalink, const QString &text);
-    void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
+    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 
     QString mRoomId;
     QString mRoomType;
