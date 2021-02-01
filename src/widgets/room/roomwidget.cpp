@@ -633,6 +633,8 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidget::slotUploadProgress);
+        // hide it when we switch account.
+        mUploadFileProgressStatusWidget->setVisible(false);
     }
 
     mCurrentRocketChatAccount = account;
