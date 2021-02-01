@@ -168,7 +168,7 @@ bool KTextToHTMLHelper::atUrl() const
     // any other character allowed in a dot-atom (RFC 2822).
     if (mPos > 0) {
         const auto chBefore = mText.at(mPos - 1);
-        if (chBefore.isLetterOrNumber() || QLatin1String(s_allowedSpecialChars).contains(chBefore)) {
+        if (chBefore.isLetterOrNumber() || QString::fromLatin1(s_allowedSpecialChars).contains(chBefore)) {
             return false;
         }
     }
