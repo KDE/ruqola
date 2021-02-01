@@ -40,6 +40,8 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 
     auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
     QVERIFY(mProgressBar);
+    QCOMPARE(mProgressBar->minimum(), 0);
+    QCOMPARE(mProgressBar->maximum(), 100);
 
     auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
     QVERIFY(mFileName);
