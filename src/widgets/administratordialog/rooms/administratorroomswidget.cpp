@@ -29,6 +29,7 @@
 #include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHeaderView>
 #include <QJsonObject>
 #include <QLineEdit>
@@ -109,6 +110,11 @@ void AdministratorRoomsWidget::slotModifyRoom()
 
 void AdministratorRoomsWidget::slotRemoveRoom()
 {
+#if 0
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18n("Remove Custom User Status"))) {
+
+    }
+#endif
     // TODO
 }
 
