@@ -43,6 +43,9 @@ private:
     void slotTextChanged(const QString &text);
     void initialize();
     void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotAddRoom();
+    void slotModifyRoom();
+    void slotRemoveRoom();
     QLineEdit *mSearchLineEdit = nullptr;
     QTableView *mResultTreeWidget = nullptr;
     AdminRoomsModel *mAdminRoomsModel = nullptr;

@@ -86,17 +86,30 @@ AdministratorRoomsWidget::~AdministratorRoomsWidget()
 
 void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-#if 0
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &CustomUserStatusTreeWidget::addClicked);
-    QTreeWidgetItem *item = itemAt(pos);
-    if (item) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &CustomUserStatusTreeWidget::editClicked);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRoomsWidget::slotAddRoom);
+    const QModelIndex item = mResultTreeWidget->indexAt(pos);
+    if (item.isValid()) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &AdministratorRoomsWidget::slotModifyRoom);
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &AdministratorRoomsWidget::slotRemoveRoom);
     }
-    menu.exec(viewport()->mapToGlobal(pos));
-#endif
+    menu.exec(mResultTreeWidget->viewport()->mapToGlobal(pos));
+}
+
+void AdministratorRoomsWidget::slotAddRoom()
+{
+    // TODO
+}
+
+void AdministratorRoomsWidget::slotModifyRoom()
+{
+    // TODO
+}
+
+void AdministratorRoomsWidget::slotRemoveRoom()
+{
+    // TODO
 }
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)
