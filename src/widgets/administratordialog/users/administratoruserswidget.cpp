@@ -30,6 +30,7 @@
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QLineEdit>
+#include <QMenu>
 #include <QTableView>
 #include <QVBoxLayout>
 
@@ -54,6 +55,9 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mResultTreeWidget->verticalHeader()->hide();
     mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
+    mResultTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mResultTreeWidget, &QTableView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
+
     mainLayout->addWidget(mResultTreeWidget);
 
     mAdminUsersModel = new AdminUsersModel(this);
@@ -93,4 +97,29 @@ void AdministratorUsersWidget::slotAdminUserDone(const QJsonObject &obj)
     //    mAdminRoomsModel->setAdminRooms(rooms);
     //    mResultTreeWidget->resizeColumnsToContents();
     qDebug() << " users " << obj;
+}
+
+void AdministratorUsersWidget::slotAddUser()
+{
+}
+
+void AdministratorUsersWidget::slotModifyUser()
+{
+}
+
+void AdministratorUsersWidget::slotRemoveUser()
+{
+}
+
+void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
+    const QModelIndex item = mResultTreeWidget->indexAt(pos);
+    if (item.isValid()) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &AdministratorUsersWidget::slotModifyUser);
+        menu.addSeparator();
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &AdministratorUsersWidget::slotRemoveUser);
+    }
+    menu.exec(mResultTreeWidget->viewport()->mapToGlobal(pos));
 }

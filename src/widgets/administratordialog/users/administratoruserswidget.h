@@ -39,6 +39,10 @@ private:
     void slotTextChanged(const QString &str);
     void initialize();
     void slotAdminUserDone(const QJsonObject &obj);
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotAddUser();
+    void slotModifyUser();
+    void slotRemoveUser();
     QLineEdit *const mSearchLineEdit;
     QTableView *const mResultTreeWidget;
     AdminUsersModel *mAdminUsersModel = nullptr;
