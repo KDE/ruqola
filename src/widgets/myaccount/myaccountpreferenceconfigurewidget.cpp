@@ -96,9 +96,9 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
 
-    connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mMobileNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mDesktopNotification, QOverload<int>::of(&QComboBox::activated), this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mMobileNotification, QOverload<int>::of(&QComboBox::activated), this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mEmailNotification, QOverload<int>::of(&QComboBox::activated), this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
