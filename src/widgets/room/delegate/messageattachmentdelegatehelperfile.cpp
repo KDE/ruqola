@@ -28,10 +28,15 @@
 #include "ruqola.h"
 #include "ruqolautils.h"
 #include "ruqolawidgets_debug.h"
-
+#include <kio_version.h>
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 69, 0)
 #include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
+#else
+#include <KMimeTypeTrader>
+#include <KRun>
+#endif
 #include <KLocalizedString>
 #include <KService>
 
@@ -152,11 +157,15 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     const QUrl downloadUrl = rcAccount->urlForLink(link);
     auto *job = rcAccount->restApi()->downloadFile(downloadUrl, fileUrl, QStringLiteral("text/plain"));
     QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget, [=](const QUrl &, const QUrl &localFileUrl) {
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 69, 0)
         auto job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
         job->setUrls({localFileUrl});
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget));
         job->start();
+#else
+            KRun::runService(*offer, {localFileUrl}, widget, true);
+#endif
     });
 }
 
@@ -166,7 +175,15 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForUrl(url);
     const bool valid = mimeType.isValid() && !mimeType.isDefault();
-    const KService::Ptr offer = valid ? KApplicationTrader::preferredService(mimeType.name()) : KService::Ptr{};
+    const KService::Ptr offer = valid ?
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 69, 0)
+                                      KApplicationTrader::preferredService(mimeType.name())
+                                      :
+#else
+                                      KMimeTypeTrader::self()->preferredService(mimeType.name())
+                                      :
+#endif
+                                      KService::Ptr{};
     const UserChoice choice = askUser(url, offer, widget);
     switch (choice) {
     case UserChoice::Save: {
