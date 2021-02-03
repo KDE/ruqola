@@ -45,7 +45,7 @@ UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget()
 {
 }
 
-void UploadFileProgressStatusWidget::setFileName(const QString &str)
+void UploadFileProgressStatusWidget::setUploadFileName(const QString &str)
 {
     mFileName->setText(str);
 }

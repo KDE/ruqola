@@ -33,7 +33,10 @@ public:
     ~UploadFileProgressStatusWidget() override;
 
     void setValue(int value);
-    void setFileName(const QString &str);
+    void setUploadFileName(const QString &str);
+
+Q_SIGNALS:
+    void cancelUpload();
 
 private:
     QLabel *const mFileName;

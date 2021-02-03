@@ -620,7 +620,7 @@ void RoomWidget::slotUploadProgress(const RocketChatRestApi::UploadFileJob::Uplo
 {
     if (info.bytesSent > 0 && info.bytesTotal > 0) {
         mUploadFileProgressStatusWidget->setVisible(true);
-        mUploadFileProgressStatusWidget->setFileName(info.fileName);
+        mUploadFileProgressStatusWidget->setUploadFileName(info.fileName);
         mUploadFileProgressStatusWidget->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
     } else {
         mUploadFileProgressStatusWidget->setVisible(false);
