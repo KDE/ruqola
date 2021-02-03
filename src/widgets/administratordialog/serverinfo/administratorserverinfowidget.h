@@ -55,6 +55,9 @@ private:
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
     QPushButton *const mRefreshButton;
     ServerInfo mServerInfo;
+    QTreeWidgetItem *mServerInfoItem = nullptr;
+    QTreeWidgetItem *mUsageInfoItem = nullptr;
+    QTreeWidgetItem *mRuntimeInfoItem = nullptr;
 };
 
 #endif // ADMINISTRATORSERVERINFOWIDGET_H

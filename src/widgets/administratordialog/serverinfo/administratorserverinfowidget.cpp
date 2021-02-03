@@ -65,7 +65,7 @@ AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
 
 void AdministratorServerInfoWidget::slotRefreshInfo()
 {
-    loadStatisticInfo(true); // TODO
+    loadStatisticInfo(true);
 }
 
 void AdministratorServerInfoWidget::initialize()
@@ -87,6 +87,7 @@ void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInf
     mServerInfo.parseServerInfo(obj);
     // qDebug() << " info " << mServerInfo;
     loadStatisticInfo(false);
+    loadServerInfo();
 }
 
 void AdministratorServerInfoWidget::loadStatisticInfo(bool refresh)
@@ -249,19 +250,24 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoIte
 
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
-    qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
-    auto serverInfoItem = new QTreeWidgetItem(mTreeWidget);
-    serverInfoItem->setText(0, i18n("Server Info"));
-    parseServerInfo(serverInfoItem, obj);
+    // qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
+    delete mServerInfoItem;
+    mServerInfoItem = new QTreeWidgetItem(mTreeWidget);
+    mServerInfoItem->setText(0, i18n("Server Info"));
+    parseServerInfo(mServerInfoItem, obj);
 
-    auto usageInfoItem = new QTreeWidgetItem(mTreeWidget);
-    usageInfoItem->setText(0, i18n("Usage"));
-    parseUsageInfo(usageInfoItem, obj);
+    delete mUsageInfoItem;
+    mUsageInfoItem = new QTreeWidgetItem(mTreeWidget);
+    mUsageInfoItem->setText(0, i18n("Usage"));
+    parseUsageInfo(mUsageInfoItem, obj);
 
-    auto runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
-    runtimeInfoItem->setText(0, i18n("Runtime Environment"));
-    parseRuntimeInfo(runtimeInfoItem, obj);
-    loadServerInfo();
+    delete mRuntimeInfoItem;
+    mRuntimeInfoItem = new QTreeWidgetItem(mTreeWidget);
+    mRuntimeInfoItem->setText(0, i18n("Runtime Environment"));
+    parseRuntimeInfo(mRuntimeInfoItem, obj);
+    mTreeWidget->expandAll();
+    mTreeWidget->resizeColumnToContents(1);
+    mTreeWidget->resizeColumnToContents(0);
 }
 
 void AdministratorServerInfoWidget::loadServerInfo()
@@ -273,7 +279,4 @@ void AdministratorServerInfoWidget::loadServerInfo()
     auto buildItem = new QTreeWidgetItem(mTreeWidget);
     buildItem->setText(0, i18n("Build Environment"));
     parseBuildInfo(buildItem);
-    mTreeWidget->expandAll();
-    mTreeWidget->resizeColumnToContents(1);
-    mTreeWidget->resizeColumnToContents(0);
 }
