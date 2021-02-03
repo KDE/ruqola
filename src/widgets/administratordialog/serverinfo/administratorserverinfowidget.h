@@ -28,6 +28,7 @@
 class QTreeWidget;
 class QTreeWidgetItem;
 class KTreeWidgetSearchLineWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -47,8 +48,12 @@ private:
     void createItemFromLongValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void initialize();
     void slotStatisticDone(const QJsonObject &obj);
+    void slotRefreshInfo();
+    void loadStatisticInfo(bool refresh);
+    void loadServerInfo();
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
+    QPushButton *const mRefreshButton;
     ServerInfo mServerInfo;
 };
 

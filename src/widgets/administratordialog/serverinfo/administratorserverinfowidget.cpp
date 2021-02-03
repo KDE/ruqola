@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
+#include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
@@ -36,12 +37,20 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     : QWidget(parent)
     , mTreeWidget(new QTreeWidget(this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mTreeWidget))
+    , mRefreshButton(new QPushButton(i18n("Refresh"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setContentsMargins({});
+    mainLayout->addLayout(hboxLayout);
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mainLayout->addWidget(mSearchLineWidget);
+    hboxLayout->addWidget(mSearchLineWidget);
+    mRefreshButton->setObjectName(QStringLiteral("mRefreshButton"));
+    hboxLayout->addWidget(mRefreshButton);
+    connect(mRefreshButton, &QPushButton::clicked, this, &AdministratorServerInfoWidget::slotRefreshInfo);
 
     mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
     mainLayout->addWidget(mTreeWidget);
@@ -52,6 +61,11 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
 {
+}
+
+void AdministratorServerInfoWidget::slotRefreshInfo()
+{
+    loadStatisticInfo(true); // TODO
 }
 
 void AdministratorServerInfoWidget::initialize()
@@ -72,7 +86,13 @@ void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInf
     // qDebug() << " obj " << obj;
     mServerInfo.parseServerInfo(obj);
     // qDebug() << " info " << mServerInfo;
+    loadStatisticInfo(false);
+}
+
+void AdministratorServerInfoWidget::loadStatisticInfo(bool refresh)
+{
     auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
+    statisticJob->setRefresh(refresh);
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     rcAccount->restApi()->initializeRestApiJob(statisticJob);
     connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone, this, &AdministratorServerInfoWidget::slotStatisticDone);
@@ -103,6 +123,11 @@ void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *p
 
 void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
 {
+    createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), QStringLiteral("appUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), QStringLiteral("awayUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads Size"), QStringLiteral("uploadsTotalSize"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), QStringLiteral("offlineUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), QStringLiteral("onlineUsers"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Activated Users"), QStringLiteral("activeUsers"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Activated Guests"), QStringLiteral("activeGuests"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads"), QStringLiteral("uploadsTotal"));
@@ -111,11 +136,6 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Private Groups"), QStringLiteral("totalPrivateGroups"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Threads"), QStringLiteral("totalThreads"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Users"), QStringLiteral("totalUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), QStringLiteral("appUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), QStringLiteral("awayUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads Size"), QStringLiteral("uploadsTotalSize"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), QStringLiteral("offlineUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), QStringLiteral("onlineUsers"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages"), QStringLiteral("totalMessages"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Channels"), QStringLiteral("totalChannelMessages"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Private Groups"), QStringLiteral("totalPrivateGroupMessages"));
@@ -197,7 +217,6 @@ void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoI
         item->setText(1, mServerInfo.commitSubject());
         item->addChild(item);
     }
-    // TODO
 }
 
 void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoItem)
@@ -226,7 +245,6 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoIte
         item->setText(1, mServerInfo.platform());
         item->addChild(item);
     }
-    // TODO
 }
 
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
@@ -243,7 +261,11 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
     auto runtimeInfoItem = new QTreeWidgetItem(mTreeWidget);
     runtimeInfoItem->setText(0, i18n("Runtime Environment"));
     parseRuntimeInfo(runtimeInfoItem, obj);
+    loadServerInfo();
+}
 
+void AdministratorServerInfoWidget::loadServerInfo()
+{
     auto commitItem = new QTreeWidgetItem(mTreeWidget);
     commitItem->setText(0, i18n("Commit"));
     parseCommitInfo(commitItem);

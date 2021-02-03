@@ -22,6 +22,7 @@
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
+#include <QPushButton>
 #include <QTest>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -44,4 +45,12 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
+
+    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    QVERIFY(hboxLayout);
+    QCOMPARE(hboxLayout->contentsMargins(), {});
+
+    auto mRefreshButton = w.findChild<QPushButton *>(QStringLiteral("mRefreshButton"));
+    QVERIFY(mRefreshButton);
+    QVERIFY(!mRefreshButton->text().isEmpty());
 }
