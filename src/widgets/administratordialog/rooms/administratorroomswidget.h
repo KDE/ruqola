@@ -44,8 +44,8 @@ private:
     void initialize();
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotAddRoom();
-    void slotModifyRoom();
-    void slotRemoveRoom();
+    void slotModifyRoom(const QModelIndex &index);
+    void slotRemoveRoom(const QModelIndex &index);
     QLineEdit *mSearchLineEdit = nullptr;
     QTableView *mResultTreeWidget = nullptr;
     AdminRoomsModel *mAdminRoomsModel = nullptr;

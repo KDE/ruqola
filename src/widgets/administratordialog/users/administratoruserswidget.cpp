@@ -104,11 +104,11 @@ void AdministratorUsersWidget::slotAddUser()
 {
 }
 
-void AdministratorUsersWidget::slotModifyUser()
+void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 {
 }
 
-void AdministratorUsersWidget::slotRemoveUser()
+void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
 }
 
@@ -116,11 +116,15 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
-    const QModelIndex item = mResultTreeWidget->indexAt(pos);
-    if (item.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &AdministratorUsersWidget::slotModifyUser);
+    const QModelIndex index = mResultTreeWidget->indexAt(pos);
+    if (index.isValid()) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+            slotModifyUser(index);
+        });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &AdministratorUsersWidget::slotRemoveUser);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+            slotRemoveUser(index);
+        });
     }
     menu.exec(mResultTreeWidget->viewport()->mapToGlobal(pos));
 }
