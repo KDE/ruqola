@@ -203,7 +203,6 @@ QString TextConverter::convertMessageText(const QString &_str,
         const int endPos = str.indexOf(QLatin1Char(')'));
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
-        // Note that this code ignores the channel name, it's always the current one...
         const QString messageId = url.mid(url.indexOf(QLatin1String("msg=")) + 4);
         // qCDebug(RUQOLA_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [messageId](const Message &msg) {
@@ -214,7 +213,17 @@ QString TextConverter::convertMessageText(const QString &_str,
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.mid(endPos + 1);
         } else {
-            qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
+            if (messageCache) {
+                // TODO allow to reload index when we loaded message
+                Message *msg = messageCache->messageForId(messageId);
+                if (msg) {
+                    const QString text = convertMessageText(msg->text(), userName, allMessages, highlightWords, emojiManager, messageCache);
+                    quotedMessage = Utils::formatQuotedRichText(text);
+                    str = str.mid(endPos + 1);
+                } else {
+                    qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
+                }
+            }
         }
     }
 
