@@ -26,6 +26,7 @@
 
 class EmojiManager;
 class Message;
+class MessageCache;
 
 namespace TextConverter
 {
@@ -33,7 +34,8 @@ LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString 
                                                                   const QString &userName,
                                                                   const QVector<Message> &allMessages,
                                                                   const QStringList &highlightWords,
-                                                                  EmojiManager *emojiManager);
+                                                                  EmojiManager *emojiManager,
+                                                                  MessageCache *messageCache);
 }
 
 #endif // TEXTCONVERTER_H

@@ -126,7 +126,7 @@ void TextConverterTest::shouldConvertText()
     QEXPECT_FAIL("multi star", "Bug in kf5", Continue);
     QEXPECT_FAIL("Remove <br/>", "Bug in kf5", Continue);
 
-    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, nullptr), output); // TODO add autotests for highlightwords
+    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, nullptr, nullptr), output); // TODO add autotests for highlightwords
 }
 
 void TextConverterTest::shouldHighlightWords_data()
@@ -165,7 +165,7 @@ void TextConverterTest::shouldHighlightWords()
 
     output = prepareExpectedOutput(output);
 
-    QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr, nullptr), output);
 }
 
 void TextConverterTest::shouldHighlightText_data()
@@ -194,7 +194,7 @@ void TextConverterTest::shouldHighlightText()
 
     output = prepareExpectedOutput(output);
 
-    QCOMPARE(TextConverter::convertMessageText(input, username, {}, {}, nullptr), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, {}, nullptr, nullptr), output);
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -330,5 +330,5 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.loadCustomEmoji(obj);
     manager.setServerUrl(serverUrl);
 
-    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, &manager), output); // TODO add autotest for highlightwords
+    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, &manager, nullptr), output); // TODO add autotest for highlightwords
 }

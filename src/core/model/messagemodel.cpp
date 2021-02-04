@@ -406,7 +406,8 @@ QString MessageModel::convertedText(const Message &message) const
             highlightWords = mRoom->highlightsWord();
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-        return convertMessageText(message, userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords);
+        const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
+        return convertMessageText(message, userName, highlightWordsLst);
     }
 }
 
@@ -473,7 +474,8 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     }
 
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
-    return TextConverter::convertMessageText(messageStr, userName, mAllMessages, highlightWords, emojiManager);
+    auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
+    return TextConverter::convertMessageText(messageStr, userName, mAllMessages, highlightWords, emojiManager, messageCache);
 }
 
 void MessageModel::setRoomId(const QString &roomID)

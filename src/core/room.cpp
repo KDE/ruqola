@@ -477,7 +477,8 @@ QString Room::displayTopic() const
         return {};
     }
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
-    return TextConverter::convertMessageText(mTopic, {}, {}, {}, emojiManager);
+    auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
+    return TextConverter::convertMessageText(mTopic, {}, {}, {}, emojiManager, messageCache);
 }
 
 void Room::setTopic(const QString &topic)
@@ -525,7 +526,8 @@ QString Room::displayAnnouncement() const
         return {};
     }
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
-    return TextConverter::convertMessageText(mAnnouncement, {}, {}, {}, emojiManager);
+    auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
+    return TextConverter::convertMessageText(mAnnouncement, {}, {}, {}, emojiManager, messageCache);
 }
 
 void Room::setAnnouncement(const QString &announcement)

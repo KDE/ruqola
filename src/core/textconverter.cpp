@@ -19,6 +19,7 @@
 
 #include "textconverter.h"
 #include "emoticons/emojimanager.h"
+#include "messagecache.h"
 #include "messages/message.h"
 #include "ruqola_debug.h"
 #include "utils.h"
@@ -186,7 +187,8 @@ QString TextConverter::convertMessageText(const QString &_str,
                                           const QString &userName,
                                           const QVector<Message> &allMessages,
                                           const QStringList &highlightWords,
-                                          EmojiManager *emojiManager)
+                                          EmojiManager *emojiManager,
+                                          MessageCache *messageCache)
 {
     if (!emojiManager) {
         qCWarning(RUQOLA_LOG) << "Emojimanager is null";
@@ -208,7 +210,7 @@ QString TextConverter::convertMessageText(const QString &_str,
             return msg.messageId() == messageId;
         });
         if (it != allMessages.cend()) {
-            const QString text = convertMessageText((*it).text(), userName, allMessages, highlightWords, emojiManager);
+            const QString text = convertMessageText((*it).text(), userName, allMessages, highlightWords, emojiManager, messageCache);
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.mid(endPos + 1);
         } else {
