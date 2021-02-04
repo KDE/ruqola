@@ -199,7 +199,7 @@ QString TextConverter::convertMessageText(const QString &_str,
 
     QString str = _str;
     // TODO we need to look at room name too as we can have it when we use "direct reply"
-    if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
+    if (str.contains(QLatin1String("[ ](http"))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
         const int endPos = str.indexOf(QLatin1Char(')'));
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
@@ -212,7 +212,7 @@ QString TextConverter::convertMessageText(const QString &_str,
         if (it != allMessages.cend()) {
             const QString text = convertMessageText((*it).text(), userName, allMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
             quotedMessage = Utils::formatQuotedRichText(text);
-            str = str.mid(endPos + 1);
+            str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
             if (messageCache) {
                 // TODO allow to reload index when we loaded message
@@ -221,7 +221,7 @@ QString TextConverter::convertMessageText(const QString &_str,
                     const QString text =
                         convertMessageText(msg->text(), userName, allMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
                     quotedMessage = Utils::formatQuotedRichText(text);
-                    str = str.mid(endPos + 1);
+                    str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
                     qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
                     needUpdateMessageId = messageId;
