@@ -65,16 +65,17 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 };
                 Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
                 if (contextMessage.messageId().isEmpty()) {
-                    ThreadMessageModel *cachedModel = rcAccount->messageCache()->threadMessageModel(threadMessageId);
+                    auto messageCache = rcAccount->messageCache();
+                    ThreadMessageModel *cachedModel = messageCache->threadMessageModel(threadMessageId);
                     if (cachedModel) {
                         contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
                         if (contextMessage.messageId().isEmpty()) {
-                            Message *msg = rcAccount->messageCache()->messageForId(threadMessageId);
+                            Message *msg = messageCache->messageForId(threadMessageId);
                             if (msg) {
                                 contextMessage = *msg;
                             } else {
                                 QPersistentModelIndex persistentIndex(index);
-                                connect(rcAccount->messageCache(), &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                                connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                                     if (msgId == threadMessageId) {
                                         that->updateView(widget, persistentIndex);
                                     }
@@ -85,7 +86,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                         }
                     } else {
                         QPersistentModelIndex persistentIndex(index);
-                        connect(rcAccount->messageCache(), &MessageCache::modelLoaded, this, [=]() {
+                        connect(messageCache, &MessageCache::modelLoaded, this, [=]() {
                             that->updateView(widget, persistentIndex);
                         });
                     }
