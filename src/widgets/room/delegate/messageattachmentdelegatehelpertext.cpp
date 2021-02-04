@@ -99,7 +99,6 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         }
         doc->documentLayout()->draw(painter, ctx);
         painter->restore();
-        // TODO add fields
     }
 }
 
