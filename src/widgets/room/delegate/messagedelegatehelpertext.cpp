@@ -150,7 +150,7 @@ QString MessageDelegateHelperText::selectedText() const
     }
     const QTextDocumentFragment fragment(mCurrentTextCursor);
     const QString text = fragment.toPlainText();
-    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << text;
+    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "selected text : " << text;
     return text;
 }
 
