@@ -52,6 +52,10 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     } else if (attachment.contains(QLatin1String("author_link"))) {
         setLink(attachment.value(QLatin1String("author_link")).toString());
         attType = AttachmentType::NormalText;
+        // TODO implement it.
+        //    } else if (attachment.contains(QLatin1String("message_link"))) {
+        //        setLink(attachment.value(QLatin1String("message_link")).toString());
+        //        attType = AttachmentType::NormalText;
     } else if (attachment.contains(QLatin1String("title_link"))) { // Last as an image_url can have a title_link
         setLink(attachment.value(QLatin1String("title_link")).toString());
         attType = AttachmentType::File;
