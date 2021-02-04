@@ -64,8 +64,8 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                     return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
                 };
                 Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
+                auto messageCache = rcAccount->messageCache();
                 if (contextMessage.messageId().isEmpty()) {
-                    auto messageCache = rcAccount->messageCache();
                     ThreadMessageModel *cachedModel = messageCache->threadMessageModel(threadMessageId);
                     if (cachedModel) {
                         contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
@@ -93,12 +93,22 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 }
                 // Use TextConverter in case it starts with a [](URL) reply marker
                 const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
+                QString needUpdateMessageId;
                 const QString contextString = TextConverter::convertMessageText(contextText,
                                                                                 rcAccount->userName(),
                                                                                 {},
                                                                                 rcAccount->highlightWords(),
                                                                                 rcAccount->emojiManager(),
-                                                                                rcAccount->messageCache());
+                                                                                rcAccount->messageCache(),
+                                                                                needUpdateMessageId);
+                if (!needUpdateMessageId.isEmpty()) {
+                    QPersistentModelIndex persistentIndex(index);
+                    connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                        if (msgId == needUpdateMessageId) {
+                            that->updateView(widget, persistentIndex);
+                        }
+                    });
+                }
                 text.prepend(Utils::formatQuotedRichText(contextString));
             }
         }

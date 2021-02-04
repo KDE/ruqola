@@ -475,7 +475,8 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
 
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
-    return TextConverter::convertMessageText(messageStr, userName, mAllMessages, highlightWords, emojiManager, messageCache);
+    QString needUpdateMessageId;
+    return TextConverter::convertMessageText(messageStr, userName, mAllMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
 }
 
 void MessageModel::setRoomId(const QString &roomID)

@@ -93,12 +93,14 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QString needUpdateMessageId; // TODO use it ?
     const QString contextString = TextConverter::convertMessageText(description,
                                                                     rcAccount->userName(),
                                                                     {},
                                                                     rcAccount->highlightWords(),
                                                                     rcAccount->emojiManager(),
-                                                                    rcAccount->messageCache());
+                                                                    rcAccount->messageCache(),
+                                                                    needUpdateMessageId);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));

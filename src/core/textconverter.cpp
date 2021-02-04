@@ -188,7 +188,8 @@ QString TextConverter::convertMessageText(const QString &_str,
                                           const QVector<Message> &allMessages,
                                           const QStringList &highlightWords,
                                           EmojiManager *emojiManager,
-                                          MessageCache *messageCache)
+                                          MessageCache *messageCache,
+                                          QString &needUpdateMessageId)
 {
     if (!emojiManager) {
         qCWarning(RUQOLA_LOG) << "Emojimanager is null";
@@ -209,7 +210,7 @@ QString TextConverter::convertMessageText(const QString &_str,
             return msg.messageId() == messageId;
         });
         if (it != allMessages.cend()) {
-            const QString text = convertMessageText((*it).text(), userName, allMessages, highlightWords, emojiManager, messageCache);
+            const QString text = convertMessageText((*it).text(), userName, allMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.mid(endPos + 1);
         } else {
@@ -217,11 +218,13 @@ QString TextConverter::convertMessageText(const QString &_str,
                 // TODO allow to reload index when we loaded message
                 Message *msg = messageCache->messageForId(messageId);
                 if (msg) {
-                    const QString text = convertMessageText(msg->text(), userName, allMessages, highlightWords, emojiManager, messageCache);
+                    const QString text =
+                        convertMessageText(msg->text(), userName, allMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
                     quotedMessage = Utils::formatQuotedRichText(text);
                     str = str.mid(endPos + 1);
                 } else {
                     qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
+                    needUpdateMessageId = messageId;
                 }
             }
         }

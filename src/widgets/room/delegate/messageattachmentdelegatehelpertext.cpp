@@ -215,12 +215,15 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     } else {
         // Use TextConverter in case it starts with a [](URL) reply marker
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        QString needUpdateMessageId;
+        // TODO use needUpdateIndex ?
         const QString contextString = TextConverter::convertMessageText(text,
                                                                         rcAccount->userName(),
                                                                         {},
                                                                         rcAccount->highlightWords(),
                                                                         rcAccount->emojiManager(),
-                                                                        rcAccount->messageCache())
+                                                                        rcAccount->messageCache(),
+                                                                        needUpdateMessageId)
             + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();

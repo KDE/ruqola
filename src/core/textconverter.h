@@ -35,7 +35,8 @@ LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString 
                                                                   const QVector<Message> &allMessages,
                                                                   const QStringList &highlightWords,
                                                                   EmojiManager *emojiManager,
-                                                                  MessageCache *messageCache);
+                                                                  MessageCache *messageCache,
+                                                                  QString &needUpdateMessageId);
 }
 
 #endif // TEXTCONVERTER_H
