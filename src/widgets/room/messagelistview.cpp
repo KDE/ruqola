@@ -71,10 +71,15 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     // as Qt would otherwise overwrite it internally. We apparently need a queued connection too to ensure our value is set
     connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListView::updateVerticalPageStep, Qt::QueuedConnection);
     updateVerticalPageStep();
+    const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
+    for (PluginText *plugin : plugins) {
+        mPluginTextInterface.append(plugin->createInterface(this));
+    }
 }
 
 MessageListView::~MessageListView()
 {
+    qDeleteAll(mPluginTextInterface);
 }
 
 void MessageListView::slotUpdateLastSeen()
@@ -379,10 +384,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     if (mMessageListDelegate->hasSelection()) {
-        const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
         const QString selectedText = mMessageListDelegate->selectedText();
-        for (PluginText *plugin : plugins) {
-            PluginTextInterface *interface = plugin->createInterface(&menu);
+        for (PluginTextInterface *interface : qAsConst(mPluginTextInterface)) {
             interface->setSelectedText(selectedText);
             interface->addAction(&menu);
         }

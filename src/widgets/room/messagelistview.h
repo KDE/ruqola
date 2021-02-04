@@ -24,9 +24,11 @@
 #include "libruqolawidgets_private_export.h"
 #include <QListView>
 #include <QPointer>
+#include <QVector>
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;
+class PluginTextInterface;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
 {
     Q_OBJECT
@@ -107,6 +109,7 @@ private:
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *mMessageListDelegate = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QVector<PluginTextInterface *> mPluginTextInterface;
     QPoint mPressedPosition;
     bool mAtBottom = true;
     bool mDebug = false;
