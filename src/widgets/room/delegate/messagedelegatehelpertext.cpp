@@ -41,6 +41,7 @@
 #include <QTextFrame>
 #include <QTextStream>
 #include <QToolTip>
+#include <messagecache.h>
 
 #include <model/threadmessagemodel.h>
 
@@ -64,16 +65,16 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                 };
                 Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
                 if (contextMessage.messageId().isEmpty()) {
-                    ThreadMessageModel *cachedModel = mMessageCache.threadMessageModel(threadMessageId);
+                    ThreadMessageModel *cachedModel = rcAccount->messageCache()->threadMessageModel(threadMessageId);
                     if (cachedModel) {
                         contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
                         if (contextMessage.messageId().isEmpty()) {
-                            Message *msg = mMessageCache.messageForId(threadMessageId);
+                            Message *msg = rcAccount->messageCache()->messageForId(threadMessageId);
                             if (msg) {
                                 contextMessage = *msg;
                             } else {
                                 QPersistentModelIndex persistentIndex(index);
-                                connect(&mMessageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                                connect(rcAccount->messageCache(), &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                                     if (msgId == threadMessageId) {
                                         that->updateView(widget, persistentIndex);
                                     }
@@ -84,7 +85,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                         }
                     } else {
                         QPersistentModelIndex persistentIndex(index);
-                        connect(&mMessageCache, &MessageCache::modelLoaded, this, [=]() {
+                        connect(rcAccount->messageCache(), &MessageCache::modelLoaded, this, [=]() {
                             that->updateView(widget, persistentIndex);
                         });
                     }

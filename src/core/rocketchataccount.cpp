@@ -67,6 +67,7 @@
 #include "ddpapi/ddpclient.h"
 #include "discussions.h"
 #include "listmessages.h"
+#include "messagecache.h"
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
@@ -95,6 +96,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
 
+    mMessageCache = new MessageCache(this);
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
@@ -2513,4 +2515,9 @@ bool RocketChatAccount::hasAutotranslateSupport() const
 void RocketChatAccount::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
 {
     Q_EMIT uploadProgress(info);
+}
+
+MessageCache *RocketChatAccount::messageCache() const
+{
+    return mMessageCache;
 }

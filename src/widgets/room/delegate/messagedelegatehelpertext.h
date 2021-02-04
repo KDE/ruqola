@@ -27,7 +27,6 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include <lrucache.h>
-#include <messagecache.h>
 
 #include <memory>
 
@@ -71,7 +70,6 @@ private:
     QPersistentModelIndex mCurrentIndex; // during selection
     QPointer<QTextDocument> mCurrentDocument = nullptr; // during selection
     QTextCursor mCurrentTextCursor; // during selection
-    mutable MessageCache mMessageCache;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 

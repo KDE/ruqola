@@ -88,6 +88,7 @@ class AutotranslateLanguagesModel;
 class CommandsModel;
 class DownloadAppsLanguagesManager;
 class UsersForRoomModel;
+class MessageCache;
 
 namespace RocketChatRestApi
 {
@@ -475,6 +476,8 @@ public:
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
     void deleteUser(const QJsonArray &replyArray);
+    MessageCache *messageCache() const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
@@ -618,6 +621,7 @@ private:
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
+    MessageCache *mMessageCache = nullptr;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;
