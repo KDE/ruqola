@@ -215,9 +215,12 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
     } else {
         // Use TextConverter in case it starts with a [](URL) reply marker
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        auto messageCache = rcAccount->messageCache();
-        const QString contextString =
-            TextConverter::convertMessageText(text, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager(), messageCache)
+        const QString contextString = TextConverter::convertMessageText(text,
+                                                                        rcAccount->userName(),
+                                                                        {},
+                                                                        rcAccount->highlightWords(),
+                                                                        rcAccount->emojiManager(),
+                                                                        rcAccount->messageCache())
             + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();

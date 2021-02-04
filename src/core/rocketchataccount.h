@@ -621,7 +621,7 @@ private:
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
-    MessageCache *mMessageCache = nullptr;
+    MessageCache *const mMessageCache;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;

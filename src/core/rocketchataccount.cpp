@@ -88,6 +88,7 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
+    , mMessageCache(new MessageCache(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -96,7 +97,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
 
-    mMessageCache = new MessageCache(this);
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
