@@ -38,7 +38,7 @@ public:
     void setSelectedText(const QString &str) override;
 
 private:
-    KIO::KUriFilterSearchProviderActions *mWebShortcutMenuManager = nullptr;
+    KIO::KUriFilterSearchProviderActions *const mWebShortcutMenuManager;
 };
 
 #endif // WEBSHORTCUTTEXTINTERFACE_H

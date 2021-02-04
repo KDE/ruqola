@@ -30,12 +30,12 @@
 
 TextToSpeechTextInterface::TextToSpeechTextInterface(QObject *parent)
     : PluginTextInterface(parent)
+    , mTextToSpeech(new QTextToSpeech(this))
 {
 }
 
 TextToSpeechTextInterface::~TextToSpeechTextInterface()
 {
-    delete mTextToSpeech;
 }
 
 void TextToSpeechTextInterface::addAction(QMenu *menu)
@@ -53,8 +53,5 @@ void TextToSpeechTextInterface::setSelectedText(const QString &str)
 
 void TextToSpeechTextInterface::slotSpeakText()
 {
-    if (!mTextToSpeech) {
-        mTextToSpeech = new QTextToSpeech(this);
-    }
     mTextToSpeech->say(mSelectedText);
 }

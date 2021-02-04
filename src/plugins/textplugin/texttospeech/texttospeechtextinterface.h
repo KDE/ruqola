@@ -37,7 +37,7 @@ public:
 private:
     void slotSpeakText();
     QString mSelectedText;
-    QTextToSpeech *mTextToSpeech = nullptr;
+    QTextToSpeech *const mTextToSpeech;
 };
 
 #endif // TEXTTOSPEECHTEXTINTERFACE_H

@@ -22,10 +22,12 @@
 
 #include <KIO/KUriFilterSearchProviderActions>
 
+#include <QDebug>
 #include <QMenu>
 
 WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
     : PluginTextInterface(parent)
+    , mWebShortcutMenuManager(new KIO::KUriFilterSearchProviderActions(this))
 {
 }
 
@@ -41,6 +43,5 @@ void WebShortcutTextInterface::addAction(QMenu *menu)
 
 void WebShortcutTextInterface::setSelectedText(const QString &str)
 {
-    mWebShortcutMenuManager = new KIO::KUriFilterSearchProviderActions(this);
     mWebShortcutMenuManager->setSelectedText(str);
 }
