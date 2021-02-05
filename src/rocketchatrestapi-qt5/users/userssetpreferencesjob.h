@@ -40,6 +40,8 @@ public:
         QString mobileNotifications;
         QString emailNotificationMode;
         QStringList highlights;
+        bool useEmoji = true;
+        bool convertAsciiToEmoji = true;
         // Add more
     };
 

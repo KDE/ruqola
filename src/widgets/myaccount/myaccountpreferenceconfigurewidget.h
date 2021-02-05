@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QComboBox;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -42,6 +43,8 @@ private:
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;
     QComboBox *const mMobileNotification;
+    QCheckBox *const mUseEmoji;
+    QCheckBox *const mConvertAsciiEmoji;
     bool mChanged = false;
 };
 

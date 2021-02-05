@@ -22,6 +22,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <KLocalizedString>
+#include <QCheckBox>
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
@@ -33,6 +34,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     , mDesktopNotification(new QComboBox(this))
     , mEmailNotification(new QComboBox(this))
     , mMobileNotification(new QComboBox(this))
+    , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
+    , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -72,6 +75,10 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     mainLayout->addWidget(mobileNotificationLabel);
 
     mainLayout->addWidget(mMobileNotification);
+    mainLayout->addWidget(mUseEmoji);
+    connect(mUseEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mConvertAsciiEmoji);
+    connect(mConvertAsciiEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addStretch();
     initComboboxValues();
 }
@@ -119,18 +126,21 @@ void MyAccountPreferenceConfigureWidget::save()
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
         info.userId = Ruqola::self()->rocketChatAccount()->userId();
+        info.useEmoji = mUseEmoji->isChecked();
+        info.convertAsciiToEmoji = mConvertAsciiEmoji->isChecked();
         Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
     }
 }
 
 void MyAccountPreferenceConfigureWidget::load()
 {
-    // TODO Load notifications.
     const OwnUserPreferences ownUserPreferences = Ruqola::self()->rocketChatAccount()->ownUserPreferences();
     mHighlightWords->setText(ownUserPreferences.highlightWords().join(QLatin1Char(',')));
     mMobileNotification->setCurrentIndex(mMobileNotification->findData(ownUserPreferences.mobileNotifications()));
     mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));
     mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));
+    mUseEmoji->setChecked(ownUserPreferences.useEmojis());
+    mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
     mChanged = false;
 }
 
