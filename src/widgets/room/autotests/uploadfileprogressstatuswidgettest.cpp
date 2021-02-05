@@ -47,3 +47,14 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFileName);
     QVERIFY(mFileName->text().isEmpty());
 }
+
+void UploadFileProgressStatusWidgetTest::shouldChangeText()
+{
+    UploadFileProgressStatusWidget w;
+    const QString text = QStringLiteral("bla");
+    auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
+    QVERIFY(mFileName->text().isEmpty());
+
+    w.setUploadFileName(text);
+    QCOMPARE(mFileName->text(), text);
+}

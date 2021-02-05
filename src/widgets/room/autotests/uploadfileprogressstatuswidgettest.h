@@ -31,6 +31,7 @@ public:
     ~UploadFileProgressStatusWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldChangeText();
 };
 
 #endif // UPLOADFILEPROGRESSSTATUSWIDGETTEST_H
