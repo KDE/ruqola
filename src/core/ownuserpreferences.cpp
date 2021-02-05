@@ -41,8 +41,8 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setEmailNotificationMode(replyObject.value(QLatin1String("emailNotificationMode")).toString());
     setDesktopNotifications(replyObject.value(QLatin1String("desktopNotifications")).toString());
     setMobileNotifications(replyObject.value(QLatin1String("mobileNotifications")).toString());
-    setConvertAsciiEmoji(replyObject.value(QLatin1String("convertAsciiEmoji")).toBool());
-    setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool());
+    setConvertAsciiEmoji(replyObject.value(QLatin1String("convertAsciiEmoji")).toBool(true));
+    setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool(true));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const

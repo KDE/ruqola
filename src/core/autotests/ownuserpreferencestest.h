@@ -31,6 +31,8 @@ public:
     ~OwnUserPreferencesTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadOwnUserPreferencesInfo_data();
+    void shouldLoadOwnUserPreferencesInfo();
 };
 
 #endif // OWNUSERPREFERENCESTEST_H
