@@ -45,8 +45,16 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
     QTest::addColumn<OwnUserPreferences>("ownUserPreferences");
     {
         OwnUserPreferences preferences;
-
         QTest::addRow("empty") << QStringLiteral("empty") << preferences;
+    }
+    {
+        OwnUserPreferences preferences;
+        preferences.setEmailNotificationMode(QStringLiteral("mentions"));
+        preferences.setMobileNotifications(QStringLiteral("nothing"));
+        preferences.setDesktopNotifications(QStringLiteral("mentions"));
+        preferences.setConvertAsciiEmoji(false);
+        preferences.setUseEmojis(false);
+        QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }
 
