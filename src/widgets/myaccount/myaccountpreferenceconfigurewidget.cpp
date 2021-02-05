@@ -37,6 +37,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
 {
+    mUseEmoji->setObjectName(QStringLiteral("mUseEmoji"));
+    mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

@@ -20,6 +20,7 @@
 
 #include "myaccountpreferenceconfigurewidgettest.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
+#include <QCheckBox>
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
@@ -68,4 +69,14 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mobileNotificationLabel);
     QCOMPARE(mobileNotificationLabel->textFormat(), Qt::PlainText);
     QVERIFY(!mobileNotificationLabel->text().isEmpty());
+
+    auto mUseEmoji = w.findChild<QCheckBox *>(QStringLiteral("mUseEmoji"));
+    QVERIFY(mUseEmoji);
+    QVERIFY(!mUseEmoji->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mUseEmoji->text().isEmpty());
+
+    auto mConvertAsciiEmoji = w.findChild<QCheckBox *>(QStringLiteral("mConvertAsciiEmoji"));
+    QVERIFY(mConvertAsciiEmoji);
+    QVERIFY(!mConvertAsciiEmoji->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mConvertAsciiEmoji->text().isEmpty());
 }
