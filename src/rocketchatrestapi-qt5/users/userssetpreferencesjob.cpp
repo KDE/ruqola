@@ -125,6 +125,8 @@ QJsonDocument UsersSetPreferencesJob::json() const
         dataObj[QLatin1String("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
     }
 
+    dataObj[QLatin1String("useEmojis")] = mUsersSetPreferencesInfo.useEmoji;
+    dataObj[QLatin1String("convertAsciiEmoji")] = mUsersSetPreferencesInfo.convertAsciiToEmoji;
     dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
