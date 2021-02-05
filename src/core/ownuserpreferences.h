@@ -45,11 +45,19 @@ public:
     Q_REQUIRED_RESULT QString mobileNotifications() const;
     void setMobileNotifications(const QString &mobileNotifications);
 
+    Q_REQUIRED_RESULT bool convertAsciiEmoji() const;
+    void setConvertAsciiEmoji(bool convertAsciiEmoji);
+
+    Q_REQUIRED_RESULT bool useEmojis() const;
+    void setUseEmojis(bool useEmojis);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
     QString mDesktopNotifications;
     QString mMobileNotifications;
+    bool mConvertAsciiEmoji = true;
+    bool mUseEmojis = true;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

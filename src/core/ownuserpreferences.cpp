@@ -41,12 +41,15 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setEmailNotificationMode(replyObject.value(QLatin1String("emailNotificationMode")).toString());
     setDesktopNotifications(replyObject.value(QLatin1String("desktopNotifications")).toString());
     setMobileNotifications(replyObject.value(QLatin1String("mobileNotifications")).toString());
+    setConvertAsciiEmoji(replyObject.value(QLatin1String("convertAsciiEmoji")).toBool());
+    setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool());
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
-        && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications();
+        && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications() && mUseEmojis == other.useEmojis()
+        && mConvertAsciiEmoji == other.convertAsciiEmoji();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -89,11 +92,33 @@ void OwnUserPreferences::setMobileNotifications(const QString &mobileNotificatio
     mMobileNotifications = mobileNotifications;
 }
 
+bool OwnUserPreferences::convertAsciiEmoji() const
+{
+    return mConvertAsciiEmoji;
+}
+
+void OwnUserPreferences::setConvertAsciiEmoji(bool convertAsciiEmoji)
+{
+    mConvertAsciiEmoji = convertAsciiEmoji;
+}
+
+bool OwnUserPreferences::useEmojis() const
+{
+    return mUseEmojis;
+}
+
+void OwnUserPreferences::setUseEmojis(bool useEmojis)
+{
+    mUseEmojis = useEmojis;
+}
+
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
     d << "mHighlightWords " << t.highlightWords();
     d << "mEmailNotificationMode " << t.emailNotificationMode();
     d << "mDesktopNotifications " << t.desktopNotifications();
     d << "mMobileNotifications " << t.mobileNotifications();
+    d << "mUseEmojis " << t.useEmojis();
+    d << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
     return d;
 }

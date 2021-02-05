@@ -31,4 +31,9 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
 {
     OwnUserPreferences p;
     QVERIFY(p.highlightWords().isEmpty());
+    QVERIFY(p.emailNotificationMode().isEmpty());
+    QVERIFY(p.desktopNotifications().isEmpty());
+    QVERIFY(p.mobileNotifications().isEmpty());
+    QVERIFY(p.convertAsciiEmoji());
+    QVERIFY(p.useEmojis());
 }
