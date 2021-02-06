@@ -165,7 +165,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
             setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
-            if (mAccount->ownUserPreferences().useEmojis()) {
+            if (mAccount && mAccount->ownUserPreferences().useEmojis()) {
                 mEmoticonFilterProxyModel->setFilterFixedString(word);
                 setCompletionType(InputTextManager::CompletionForType::Emoji);
             }
