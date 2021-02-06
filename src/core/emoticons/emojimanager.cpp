@@ -113,6 +113,10 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         qCWarning(RUQOLA_LOG) << "Server Url not defined";
         return emojiIdentifier;
     }
+    auto rocketChatAccount = Ruqola::self()->rocketChatAccount();
+    if (!rocketChatAccount->ownUserPreferences().convertAsciiEmoji()) {
+        return emojiIdentifier;
+    }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (const CustomEmoji &emoji : qAsConst(mCustomEmojiList)) {
             if (emoji.hasEmoji(emojiIdentifier)) {
@@ -124,7 +128,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                     } else {
                         const QString fileName = customEmojiFileName(emojiIdentifier);
                         if (!fileName.isEmpty()) {
-                            const QUrl emojiUrl = Ruqola::self()->rocketChatAccount()->attachmentUrl(fileName);
+                            const QUrl emojiUrl = rocketChatAccount->attachmentUrl(fileName);
                             if (emojiUrl.isEmpty()) {
                                 // The download is happening, this will all be updated again later
                             } else {
