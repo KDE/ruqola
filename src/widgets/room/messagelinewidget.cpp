@@ -21,6 +21,7 @@
 #include "messagelinewidget.h"
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
+#include "ownuserpreferences.h"
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 
@@ -185,6 +186,11 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
 void MessageLineWidget::slotPublicSettingChanged()
 {
     mSendFile->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
+}
+
+void MessageLineWidget::slotOwnUserPreferencesChanged()
+{
+    mEmoticonButton->setVisible(mCurrentRocketChatAccount->ownUserPreferences().useEmojis());
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)

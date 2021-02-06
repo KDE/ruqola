@@ -632,6 +632,10 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidget::slotUploadProgress);
+        disconnect(mCurrentRocketChatAccount,
+                   &RocketChatAccount::ownUserPreferencesChanged,
+                   mMessageLineWidget,
+                   &MessageLineWidget::slotOwnUserPreferencesChanged);
         // hide it when we switch account.
         mUploadFileProgressStatusWidget->setVisible(false);
     }
@@ -640,9 +644,13 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidget::slotUploadProgress);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
+    // When we switch we need to update it.
+    mMessageLineWidget->slotPublicSettingChanged();
+    mMessageLineWidget->slotOwnUserPreferencesChanged();
     mRoomId.clear(); // Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
 }
 

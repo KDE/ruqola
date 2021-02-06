@@ -2504,6 +2504,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
+        Q_EMIT ownUserPreferencesChanged();
     }
 }
 

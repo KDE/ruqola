@@ -515,6 +515,7 @@ Q_SIGNALS:
     void ownInfoChanged();
     void customUserStatusChanged();
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+    void ownUserPreferencesChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

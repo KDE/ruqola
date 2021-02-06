@@ -72,6 +72,7 @@ public:
     void setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox = false);
 
     void slotPublicSettingChanged();
+    void slotOwnUserPreferencesChanged();
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
