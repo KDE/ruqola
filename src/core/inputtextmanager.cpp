@@ -21,15 +21,18 @@
 #include "inputtextmanager.h"
 #include "model/commandsmodel.h"
 #include "model/inputcompletermodel.h"
+#include "ownuserpreferences.h"
+#include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"
 #include "ruqola_debug.h"
 #include <QSortFilterProxyModel>
 
-InputTextManager::InputTextManager(QObject *parent)
+InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mInputCompleterModel(new InputCompleterModel(this))
     , mEmoticonFilterProxyModel(new QSortFilterProxyModel(this))
     , mCommandFilterProxyModel(new QSortFilterProxyModel(this))
+    , mAccount(account)
 {
 }
 
@@ -162,8 +165,10 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
             setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
-            mEmoticonFilterProxyModel->setFilterFixedString(word);
-            setCompletionType(InputTextManager::CompletionForType::Emoji);
+            if (mAccount->ownUserPreferences().useEmojis()) {
+                mEmoticonFilterProxyModel->setFilterFixedString(word);
+                setCompletionType(InputTextManager::CompletionForType::Emoji);
+            }
         } else if (word.startsWith(QLatin1Char('/')) && position == word.length()) { // "/" must be at beginning of text
             mCommandFilterProxyModel->setFilterFixedString(word);
             setCompletionType(InputTextManager::CompletionForType::Command);

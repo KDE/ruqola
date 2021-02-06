@@ -32,7 +32,7 @@ InputTextManagerTest::InputTextManagerTest(QObject *parent)
 
 void InputTextManagerTest::shouldHaveDefaultValue()
 {
-    InputTextManager manager(nullptr);
+    InputTextManager manager(nullptr, nullptr);
     QVERIFY(manager.inputCompleterModel());
     QCOMPARE(manager.inputCompleterModel()->rowCount(), 0);
     // TODO
@@ -61,7 +61,7 @@ void InputTextManagerTest::shouldReplaceWord()
     QFETCH(int, expectedPosition);
     QFETCH(QString, result);
 
-    InputTextManager manager(nullptr);
+    InputTextManager manager(nullptr, nullptr);
 
     // Widgets
     QCOMPARE(manager.applyCompletion(newword, text, &position), result);
@@ -87,14 +87,14 @@ void InputTextManagerTest::shouldSearchWord()
     QFETCH(int, position);
     QFETCH(QString, result);
 
-    InputTextManager manager(nullptr);
+    InputTextManager manager(nullptr, nullptr);
     int start; // TODO test the output value
     QCOMPARE(manager.searchWord(text, position, start), result);
 }
 
 void InputTextManagerTest::shouldEmitCompletionRequestSignals()
 {
-    InputTextManager manager(nullptr);
+    InputTextManager manager(nullptr, nullptr);
     QSignalSpy typeChangedSpy(&manager, &InputTextManager::completionTypeChanged);
     QSignalSpy requestSpy(&manager, &InputTextManager::completionRequested);
 

@@ -29,14 +29,14 @@
 class InputCompleterModel;
 class QAbstractItemModel;
 class QSortFilterProxyModel;
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(InputCompleterModel *inputCompleterModel READ inputCompleterModel CONSTANT)
 public:
     enum CompletionForType { Channel = 0, User, Emoji, Command, None };
-    explicit InputTextManager(QObject *parent = nullptr);
+    explicit InputTextManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputTextManager() override;
 
     void setEmoticonModel(QAbstractItemModel *model);
@@ -72,6 +72,7 @@ private:
     InputCompleterModel *const mInputCompleterModel;
     QSortFilterProxyModel *const mEmoticonFilterProxyModel;
     QSortFilterProxyModel *const mCommandFilterProxyModel;
+    RocketChatAccount *const mAccount;
     CompletionForType mCurrentCompletionType = None;
     QString mCurrentCompletionPattern;
 };

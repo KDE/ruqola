@@ -101,7 +101,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     // Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
 
-    mInputTextManager = new InputTextManager(this);
+    mInputTextManager = new InputTextManager(this, this);
     mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
     connect(mInputTextManager,
             &InputTextManager::completionRequested,
