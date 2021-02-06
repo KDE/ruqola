@@ -21,6 +21,7 @@
 #include "inputtextmanagertest.h"
 #include "inputtextmanager.h"
 #include "model/inputcompletermodel.h"
+#include "rocketchataccount.h"
 #include <QSignalSpy>
 #include <QTest>
 QTEST_GUILESS_MAIN(InputTextManagerTest)
@@ -94,7 +95,8 @@ void InputTextManagerTest::shouldSearchWord()
 
 void InputTextManagerTest::shouldEmitCompletionRequestSignals()
 {
-    InputTextManager manager(nullptr, nullptr);
+    RocketChatAccount account;
+    InputTextManager manager(&account, nullptr);
     QSignalSpy typeChangedSpy(&manager, &InputTextManager::completionTypeChanged);
     QSignalSpy requestSpy(&manager, &InputTextManager::completionRequested);
 
