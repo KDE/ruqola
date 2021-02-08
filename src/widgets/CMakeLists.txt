@@ -162,6 +162,7 @@ set(Ruqola_misc_widget_SRCS
     misc/passwordconfirmwidget.cpp
     misc/twoauthenticationpasswordwidget.cpp
     misc/statuscombobox.cpp
+    misc/systemmessagescombobox.cpp
     )
 
 set(Ruqola_common_SRCS
