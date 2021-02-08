@@ -35,7 +35,7 @@ SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     : QDialog(parent)
     , mSearchMessageWidget(new SearchMessageWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Search Messages"));
+    setWindowTitle(i18nc("@title:window", "Search Messages")); // TODO update name from room name
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
