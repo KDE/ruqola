@@ -24,9 +24,10 @@
 #include <QJsonObject>
 #include <QObject>
 
+#include "model/inputcompletermodel.h"
+
 #include "libruqolacore_export.h"
 
-class InputCompleterModel;
 class QAbstractItemModel;
 class QSortFilterProxyModel;
 class RocketChatAccount;

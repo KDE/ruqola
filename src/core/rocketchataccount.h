@@ -40,6 +40,7 @@
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
 #include "ruqolaserverconfig.h"
+#include "serverconfiginfo.h"
 #include "uploadfilejob.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
@@ -75,7 +76,6 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
-class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonFilterModel;
 class EmoticonModel;

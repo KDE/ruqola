@@ -22,11 +22,12 @@
 #define ACCOUNTMANAGER_H
 
 #include "libruqolacore_export.h"
+#include "model/rocketchataccountfilterproxymodel.h"
+#include "model/rocketchataccountmodel.h"
+#include "rocketchataccount.h"
 #include "utils.h"
+
 #include <QObject>
-class RocketChatAccountModel;
-class RocketChatAccount;
-class RocketChatAccountFilterProxyModel;
 
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
