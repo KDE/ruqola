@@ -114,12 +114,8 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 {
-#if 0
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18n("Remove Custom User Status"))) {
-
-    }
-#endif
-    // TODO
+    const QString roomName = index.data(AdminRoomsModel::Name).toString();
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", roomName), i18n("Remove Room"))) { }
 }
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)
