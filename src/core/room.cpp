@@ -739,8 +739,9 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
 {
     const QJsonArray sysMessArray = json.value(QLatin1String("sysMes")).toArray();
     QStringList lst;
-    lst.reserve(sysMessArray.count());
-    for (int i = 0; i < sysMessArray.count(); ++i) {
+    const int sysMessArrayCount{sysMessArray.count()};
+    lst.reserve(sysMessArrayCount);
+    for (int i = 0; i < sysMessArrayCount; ++i) {
         lst << sysMessArray.at(i).toString();
     }
     setDisplaySystemMessageTypes(lst);
