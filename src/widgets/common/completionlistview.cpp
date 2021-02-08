@@ -21,7 +21,6 @@
 #include "completionlistview.h"
 
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QKeyEvent>
 #include <QScreen>
 #include <QScrollBar>

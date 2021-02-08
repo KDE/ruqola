@@ -23,7 +23,9 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+
 #include <QDialogButtonBox>
+#include <QUrl>
 #include <QVBoxLayout>
 
 namespace

@@ -30,6 +30,7 @@
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
+#include <QFile>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QMovie>

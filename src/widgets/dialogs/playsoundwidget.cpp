@@ -24,6 +24,7 @@
 #include <QSlider>
 #include <QStyle>
 #include <QToolButton>
+#include <QUrl>
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     : QWidget(parent)

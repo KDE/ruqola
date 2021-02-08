@@ -38,7 +38,6 @@
 
 #include <QAbstractItemView>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScreen>

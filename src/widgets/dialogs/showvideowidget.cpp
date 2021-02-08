@@ -26,6 +26,7 @@
 #include <QSlider>
 #include <QStyle>
 #include <QToolButton>
+#include <QUrl>
 #include <QVBoxLayout>
 #include <QVideoWidget>
 

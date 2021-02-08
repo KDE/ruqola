@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
+#include <QFile>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QPainter>
