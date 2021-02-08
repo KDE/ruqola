@@ -65,7 +65,7 @@ public:
 
 private:
     Q_DISABLE_COPY(TextPluginManager)
-    bool initializePluginList();
+    void initializePluginList();
     void loadPlugin(TextPluginManagerInfo *item);
     PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QVector<TextPluginManagerInfo> mPluginList;

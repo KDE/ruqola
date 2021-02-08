@@ -43,7 +43,7 @@ TextPluginManager *TextPluginManager::self()
     return &s_self;
 }
 
-bool TextPluginManager::initializePluginList()
+void TextPluginManager::initializePluginList()
 {
     const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
 
@@ -71,7 +71,6 @@ bool TextPluginManager::initializePluginList()
     for (QVector<TextPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
         loadPlugin(&(*it));
     }
-    return true;
 }
 
 void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
