@@ -44,10 +44,10 @@ class MessageDelegateHelperText : public QObject
 public:
     ~MessageDelegateHelperText() override;
     void draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option);
-    QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
-    bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect messageRect, const QModelIndex &index);
-    bool maybeStartDrag(QMouseEvent *event, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    Q_REQUIRED_RESULT QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
+    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    Q_REQUIRED_RESULT bool handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect messageRect, const QModelIndex &index);
+    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     void setShowThreadContext(bool b);
 
@@ -62,7 +62,7 @@ private:
     Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, const QWidget *widget) const;
     void setClipboardSelection();
     void updateView(const QWidget *widget, const QModelIndex &index);
-    QTextDocument *documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const;
     void setCurrentIndex(const QModelIndex &index, const QWidget *view, QRect messageRect);
 
     bool mShowThreadContext = true;

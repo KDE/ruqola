@@ -23,12 +23,12 @@
 #include <QVBoxLayout>
 ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     : QWidget(parent)
+    , mLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("label"));
     mainLayout->addWidget(mLabel);
     QFont font = mLabel->font();
