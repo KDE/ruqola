@@ -19,6 +19,7 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <KLocalizedString>
@@ -48,6 +49,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     mainLayout->addWidget(highlightWordsLabel);
 
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
+    new LineEditCatchReturnKey(mHighlightWords, this);
     mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
     mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
     connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
