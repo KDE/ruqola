@@ -55,10 +55,9 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
     auto mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
     QVERIFY(mAdministratorCustomSoundsWidget);
 
-    // TODO we need to fix mRocketChatAccount::hasPermission in autotest.
     auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
     QVERIFY(mAdministratorServerInfoWidget);
 
-    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
+    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersWidget *>(QStringLiteral("mAdministratorUsersWidget"));
     QVERIFY(mAdministratorUsersWidget);
 }
