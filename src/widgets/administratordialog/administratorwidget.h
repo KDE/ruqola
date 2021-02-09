@@ -37,6 +37,8 @@ public:
     explicit AdministratorWidget(QWidget *parent = nullptr);
     ~AdministratorWidget() override;
 
+    void updateUiFromPermission();
+
 private:
     QTabWidget *const mTabWidget;
     AdministratorRoomsWidget *const mAdministratorRoomsWidget;
@@ -44,6 +46,8 @@ private:
     AdministratorCustomSoundsWidget *const mAdministratorCustomSoundsWidget;
     AdministratorServerInfoWidget *const mAdministratorServerInfoWidget;
     AdministratorUsersWidget *const mAdministratorUsersWidget;
+    int mCustomSoundsTabIndex = -1;
+    int mServerInfoTabIndex = -1;
 };
 
 #endif // ADMINISTRATORWIDGET_H

@@ -53,19 +53,27 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mAdministratorCustomUserStatusWidget->setObjectName(QStringLiteral("mAdministratorCustomUserStatusWidget"));
     mTabWidget->addTab(mAdministratorCustomUserStatusWidget, i18n("Custom User Status"));
 
-    if (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("manage-sounds"))) {
-        mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
-        mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
-    }
+    mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
+    mCustomSoundsTabIndex = mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 
-    if (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
-        mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
-        mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
-    }
+    mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
+    mServerInfoTabIndex = mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
+
     mAdministratorUsersWidget->setObjectName(QStringLiteral("mAdministratorUsersWidget"));
     mTabWidget->addTab(mAdministratorUsersWidget, i18n("Users"));
 }
 
 AdministratorWidget::~AdministratorWidget()
 {
+}
+
+void AdministratorWidget::updateUiFromPermission()
+{
+    if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("manage-sounds"))) {
+        mTabWidget->setTabVisible(mCustomSoundsTabIndex, false);
+    }
+
+    if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
+        mTabWidget->setTabVisible(mServerInfoTabIndex, false);
+    }
 }
