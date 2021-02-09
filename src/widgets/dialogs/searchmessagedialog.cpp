@@ -19,6 +19,7 @@
 */
 
 #include "searchmessagedialog.h"
+#include "room.h"
 #include "searchmessagewidget.h"
 
 #include <KConfigGroup>
@@ -35,7 +36,7 @@ SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     : QDialog(parent)
     , mSearchMessageWidget(new SearchMessageWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Search Messages")); // TODO update name from room name
+    setWindowTitle(i18nc("@title:window", "Search Messages"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -88,4 +89,5 @@ void SearchMessageDialog::setCurrentRocketChatAccount(RocketChatAccount *current
 void SearchMessageDialog::setRoom(Room *room)
 {
     mSearchMessageWidget->setRoom(room);
+    setWindowTitle(i18nc("@title:window", "Search Messages in '%1'", room->displayRoomName()));
 }
