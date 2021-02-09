@@ -24,6 +24,7 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "room/roomwidget.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -32,6 +33,8 @@
 
 #include <model/roomfilterproxymodel.h>
 #include <model/roommodel.h>
+
+#include <algorithm>
 
 namespace
 {
@@ -123,4 +126,46 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // This is for switching between already-loaded accounts
     // On startup it's too early
     mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+}
+
+void RuqolaMainWidget::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+
+    // HACK: beautify the GUI by aligning a couple of items
+    auto searchRoom = mChannelList->findChild<QWidget*>(QStringLiteral("mSearchRoom"));
+    if (!searchRoom) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mSearchRoom" << searchRoom;
+        return;
+    }
+
+    auto roomHeader = mRoomWidget->findChild<QWidget*>(QStringLiteral("mRoomHeaderWidget"));
+    if (!roomHeader) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mRoomHeaderWidget" << roomHeader;
+        return;
+    }
+
+    auto statusCombo = mChannelList->findChild<QWidget*>(QStringLiteral("mStatusComboBox"));
+    if (!statusCombo) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mStatusComboBox" << statusCombo;
+        return;
+    }
+
+    auto messageLine = mRoomWidget->findChild<QWidget*>(QStringLiteral("mMessageLineWidget"));
+    if (!messageLine) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mMessageLineWidget" << messageLine;
+        return;
+    }
+
+    auto align = [](QWidget *left, QWidget *right)
+    {
+        // the widgets on the right can be much taller, but usually are
+        // just a few pixels shorter than the corresponding row on the left
+        // so we just want to grow the right widget to the minimum height
+        // of the left widget
+        const auto minHeight = std::max(left->minimumSizeHint().height(), right->minimumSizeHint().height());
+        right->setMinimumHeight(minHeight);
+    };
+    align(searchRoom, roomHeader);
+    align(statusCombo, messageLine);
 }

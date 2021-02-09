@@ -46,6 +46,8 @@ Q_SIGNALS:
     void channelSelected();
 
 private:
+    void showEvent(QShowEvent *event) override;
+
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;
     QSplitter *mSplitter = nullptr;
