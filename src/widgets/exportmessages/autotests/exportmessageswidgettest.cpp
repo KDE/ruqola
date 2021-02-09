@@ -22,8 +22,8 @@
 #include "exportmessages/exportmessageswidget.h"
 #include <QComboBox>
 #include <QDateEdit>
+#include <QFormLayout>
 #include <QTest>
-#include <QVBoxLayout>
 QTEST_MAIN(ExportMessagesWidgetTest)
 ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
     : QObject(parent)
@@ -33,7 +33,7 @@ ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
 void ExportMessagesWidgetTest::shouldHaveDefaultValues()
 {
     ExportMessagesWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
     auto mFromDate = w.findChild<QDateEdit *>(QStringLiteral("mFromDate"));

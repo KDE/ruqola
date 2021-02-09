@@ -22,7 +22,7 @@
 #include <KLocalizedString>
 #include <QComboBox>
 #include <QDateEdit>
-#include <QVBoxLayout>
+#include <QFormLayout>
 
 ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     : QWidget(parent)
@@ -30,19 +30,18 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     , mToDate(new QDateEdit(this))
     , mFormat(new QComboBox(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mFromDate->setObjectName(QStringLiteral("mFromDate"));
-    mainLayout->addWidget(mFromDate);
+    mainLayout->addRow(i18n("From:"), mFromDate);
 
     mToDate->setObjectName(QStringLiteral("mToDate"));
-    mainLayout->addWidget(mToDate);
+    mainLayout->addRow(i18n("To:"), mToDate);
 
     mFormat->setObjectName(QStringLiteral("mFormat"));
-    mainLayout->addWidget(mFormat);
-    mainLayout->addStretch();
+    mainLayout->addRow(i18n("Format"), mFormat);
     fillFormat();
 }
 
