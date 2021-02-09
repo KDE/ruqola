@@ -40,6 +40,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mainLayout->addLayout(headerLayout);
 
     mFavoriteButton = new QToolButton(this);
+    mFavoriteButton->setAutoRaise(true);
     mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
     mFavoriteButton->setCheckable(true);
@@ -48,6 +49,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
     mDiscussionBackButton = new QToolButton(this);
+    mDiscussionBackButton->setAutoRaise(true);
     mDiscussionBackButton->setObjectName(QStringLiteral("mDiscussionBackButton"));
     mDiscussionBackButton->setIcon(QIcon::fromTheme(QStringLiteral("draw-arrow-back")));
     mDiscussionBackButton->setCheckable(false);
@@ -56,6 +58,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mDiscussionBackButton->setVisible(false);
 
     mEncryptedButton = new QToolButton(this);
+    mEncryptedButton->setAutoRaise(true);
     mEncryptedButton->setObjectName(QStringLiteral("mEncryptedButton"));
     mEncryptedButton->setIcon(QIcon::fromTheme(QStringLiteral("encrypted")));
     mEncryptedButton->setToolTip(i18n("E2E Enabled"));
@@ -109,6 +112,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addLayout(buttonLayout);
 
     mChannelInfoButton = new QToolButton(this);
+    mChannelInfoButton->setAutoRaise(true);
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
     mChannelInfoButton->setToolTip(i18n("Channel Info"));
@@ -116,6 +120,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
     mListOfUsersButton = new QToolButton(this);
+    mListOfUsersButton->setAutoRaise(true);
     mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
     mListOfUsersButton->setCheckable(true);
@@ -124,6 +129,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 
     mSearchMessageButton = new QToolButton(this);
+    mSearchMessageButton->setAutoRaise(true);
     mSearchMessageButton->setObjectName(QStringLiteral("mSearchMessageButton"));
     mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
     mSearchMessageButton->setCheckable(false);
@@ -132,6 +138,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
 
     mChannelAction = new QToolButton(this);
+    mChannelAction->setAutoRaise(true);
     mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
     mChannelAction->setPopupMode(QToolButton::InstantPopup);
     mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down-double")));

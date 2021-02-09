@@ -72,22 +72,26 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     auto mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
     QVERIFY(mFavoriteButton);
     QVERIFY(mFavoriteButton->isCheckable());
+    QVERIFY(mFavoriteButton->autoRaise());
 
     auto mEncryptedButton = w.findChild<QToolButton *>(QStringLiteral("mEncryptedButton"));
     QVERIFY(mEncryptedButton);
     QVERIFY(mEncryptedButton->isCheckable());
     QVERIFY(!mEncryptedButton->isVisible());
+    QVERIFY(mEncryptedButton->autoRaise());
 
     auto mDiscussionBackButton = w.findChild<QToolButton *>(QStringLiteral("mDiscussionBackButton"));
     QVERIFY(mDiscussionBackButton);
     QVERIFY(!mDiscussionBackButton->isCheckable());
     QVERIFY(!mDiscussionBackButton->isVisible());
+    QVERIFY(mDiscussionBackButton->autoRaise());
 
     auto mChannelInfoButton = w.findChild<QToolButton *>(QStringLiteral("mChannelInfoButton"));
     QVERIFY(mChannelInfoButton);
     QVERIFY(!mChannelInfoButton->isCheckable());
     QVERIFY(!mChannelInfoButton->toolTip().isEmpty());
     QVERIFY(!mChannelInfoButton->icon().isNull());
+    QVERIFY(mChannelInfoButton->autoRaise());
 
     auto mListOfUsersButton = w.findChild<QToolButton *>(QStringLiteral("mListOfUsersButton"));
     QVERIFY(mListOfUsersButton);
@@ -95,17 +99,20 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mListOfUsersButton->isChecked());
     QVERIFY(!mListOfUsersButton->toolTip().isEmpty());
     QVERIFY(!mListOfUsersButton->icon().isNull());
+    QVERIFY(mListOfUsersButton->autoRaise());
 
     auto mSearchMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSearchMessageButton"));
     QVERIFY(mSearchMessageButton);
     QVERIFY(!mSearchMessageButton->isCheckable());
     QVERIFY(!mSearchMessageButton->toolTip().isEmpty());
     QVERIFY(!mSearchMessageButton->icon().isNull());
+    QVERIFY(mSearchMessageButton->autoRaise());
 
     auto mChannelAction = w.findChild<QToolButton *>(QStringLiteral("mChannelAction"));
     QVERIFY(mChannelAction);
     QCOMPARE(mChannelAction->popupMode(), QToolButton::InstantPopup);
     QVERIFY(!mChannelAction->icon().isNull());
+    QVERIFY(mChannelAction->autoRaise());
 }
 
 void RoomHeaderWidgetTest::shouldShowHideIcon()
