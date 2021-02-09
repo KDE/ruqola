@@ -32,6 +32,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
 {
     auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
     mStackedWidget = new QStackedWidget(this);

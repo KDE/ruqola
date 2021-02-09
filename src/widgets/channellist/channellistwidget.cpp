@@ -59,6 +59,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
 
     auto statusComboBoxLayout = new QHBoxLayout;
+    statusComboBoxLayout->setContentsMargins(6, 0, 0, 0);
     mainLayout->addLayout(statusComboBoxLayout);
     auto label = new QLabel(i18n("Status:"), this);
     label->setObjectName(QStringLiteral("label"));
