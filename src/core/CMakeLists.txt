@@ -68,6 +68,8 @@ set (Ruqola_model_core_srcs
 
     model/adminusersmodel.cpp
     model/adminusersfilterproxymodel.cpp
+
+    model/systemmessagesmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
