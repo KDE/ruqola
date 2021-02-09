@@ -41,6 +41,7 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
     auto mTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreeWidget"));
     QVERIFY(mTreeWidget);
     QCOMPARE(mTreeWidget->columnCount(), 2);
+    QCOMPARE(mTreeWidget->contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(mTreeWidget->header()->isHidden());
 
     auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));

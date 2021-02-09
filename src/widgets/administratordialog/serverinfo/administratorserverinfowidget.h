@@ -51,6 +51,7 @@ private:
     void slotRefreshInfo();
     void loadStatisticInfo(bool refresh);
     void loadServerInfo();
+    void slotContextMenu(const QPoint &pos);
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
     QPushButton *const mRefreshButton;

@@ -28,7 +28,10 @@
 
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLineWidget>
+#include <QApplication>
+#include <QClipboard>
 #include <QHeaderView>
+#include <QMenu>
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -53,6 +56,11 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     connect(mRefreshButton, &QPushButton::clicked, this, &AdministratorServerInfoWidget::slotRefreshInfo);
 
     mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
+    mTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mTreeWidget, &QTreeWidget::customContextMenuRequested, this, [this](const QPoint &pos) {
+        slotContextMenu(pos);
+    });
+
     mainLayout->addWidget(mTreeWidget);
     mTreeWidget->header()->hide();
     mTreeWidget->setColumnCount(2);
@@ -61,6 +69,19 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
 {
+}
+
+void AdministratorServerInfoWidget::slotContextMenu(const QPoint &pos)
+{
+    QMenu menu(this);
+    const QModelIndex index = mTreeWidget->indexAt(pos);
+    menu.addAction(i18n("Copy"), this, [index]() {
+        const QString currentValue = index.data().toString();
+        QClipboard *clip = QApplication::clipboard();
+        clip->setText(currentValue, QClipboard::Clipboard);
+        clip->setText(currentValue, QClipboard::Selection);
+    });
+    menu.exec(mTreeWidget->viewport()->mapToGlobal(pos));
 }
 
 void AdministratorServerInfoWidget::slotRefreshInfo()
