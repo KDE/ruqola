@@ -48,15 +48,18 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     auto mSendFile = w.findChild<QToolButton *>(QStringLiteral("mSendFile"));
     QVERIFY(mSendFile);
     QVERIFY(!mSendFile->icon().isNull());
+    QVERIFY(mSendFile->autoRaise());
 
     auto mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
     QVERIFY(mEmoticonButton);
     QVERIFY(!mEmoticonButton->icon().isNull());
     QCOMPARE(mEmoticonButton->popupMode(), QToolButton::InstantPopup);
+    QVERIFY(mEmoticonButton->autoRaise());
 
     auto mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
     QVERIFY(mSendMessageButton);
     QVERIFY(!mSendMessageButton->icon().isNull());
+    QVERIFY(mSendMessageButton->autoRaise());
 
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.messageIdBeingEdited().isEmpty());

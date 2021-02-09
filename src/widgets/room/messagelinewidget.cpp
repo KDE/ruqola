@@ -49,6 +49,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->setSpacing(0);
 
     mSendFile = new QToolButton(this);
+    mSendFile->setAutoRaise(true);
     mSendFile->setObjectName(QStringLiteral("mSendFile"));
     mainLayout->addWidget(mSendFile);
     mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
@@ -62,6 +63,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
 
     mEmoticonButton = new QToolButton(this);
+    mEmoticonButton->setAutoRaise(true);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
     mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))));
@@ -69,6 +71,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mEmoticonButton);
 
     mSendMessageButton = new QToolButton(this);
+    mSendMessageButton->setAutoRaise(true);
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
     mainLayout->addWidget(mSendMessageButton);
