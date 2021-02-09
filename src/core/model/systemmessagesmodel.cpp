@@ -44,6 +44,7 @@ QVariant SystemMessagesModel::data(const QModelIndex &index, int role) const
     }
     const SystemMessagesInfo systemMessagesInfo = mSystemMessagesList.at(index.row());
     switch (role) {
+    case Qt::DisplayRole:
     case SystemMessagesI18n:
         return systemMessagesInfo.displayText;
     case SystemMessages:

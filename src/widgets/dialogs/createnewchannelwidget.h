@@ -29,6 +29,7 @@ class QCheckBox;
 class KPasswordLineEdit;
 class AddUsersWidget;
 class QFormLayout;
+class SystemMessagesComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -65,7 +66,8 @@ private:
     QCheckBox *mPrivate = nullptr;
     QCheckBox *mEncryptedRoom = nullptr;
     KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    QFormLayout *mainLayout = nullptr;
+    QFormLayout *mMainLayout = nullptr;
+    SystemMessagesComboBox *const mSystemMessageCombox;
 };
 
 #endif // CREATENEWCHANNELWIDGET_H

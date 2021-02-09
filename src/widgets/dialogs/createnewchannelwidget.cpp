@@ -20,6 +20,7 @@
 
 #include "createnewchannelwidget.h"
 #include "misc/adduserswidget.h"
+#include "misc/systemmessagescombobox.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
@@ -28,45 +29,49 @@
 
 CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     : QWidget(parent)
+    , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
-    mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(this);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mChannelName = new QLineEdit(this);
     mChannelName->setObjectName(QStringLiteral("mChannelName"));
-    mainLayout->addRow(i18n("Name:"), mChannelName);
+    mMainLayout->addRow(i18n("Name:"), mChannelName);
 
     mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Invite Users..."));
-    mainLayout->addRow(i18n("Users:"), mUsers);
+    mMainLayout->addRow(i18n("Users:"), mUsers);
 
     mReadOnly = new QCheckBox(this);
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     mReadOnly->setChecked(false);
-    mainLayout->addRow(i18n("Read-Only:"), mReadOnly);
+    mMainLayout->addRow(i18n("Read-Only:"), mReadOnly);
 
     mBroadcast = new QCheckBox(this);
     mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
     mBroadcast->setChecked(false);
-    mainLayout->addRow(i18n("Broadcast:"), mBroadcast);
+    mMainLayout->addRow(i18n("Broadcast:"), mBroadcast);
 
     mPrivate = new QCheckBox(this);
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     mPrivate->setChecked(false);
-    mainLayout->addRow(i18n("Private Room:"), mPrivate);
+    mMainLayout->addRow(i18n("Private Room:"), mPrivate);
 
     mEncryptedRoom = new QCheckBox(this);
     mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
     mEncryptedRoom->setChecked(false);
-    mainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
+    mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
 
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+    mMainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     connect(mChannelName, &QLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
+
+    mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
+    mMainLayout->addRow(i18n("System Message:"), mSystemMessageCombox);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget()
@@ -118,10 +123,10 @@ void CreateNewChannelWidget::setFeatures(CreateNewChannelWidget::Features featur
     bool visible = features & CreateNewChannelWidget::Feature::BroadCast;
 
     mBroadcast->setVisible(visible);
-    mainLayout->labelForField(mBroadcast)->setVisible(visible);
+    mMainLayout->labelForField(mBroadcast)->setVisible(visible);
 
     visible = features & CreateNewChannelWidget::Feature::Encrypted;
 
     mEncryptedRoom->setVisible(visible);
-    mainLayout->labelForField(mEncryptedRoom)->setVisible(visible);
+    mMainLayout->labelForField(mEncryptedRoom)->setVisible(visible);
 }

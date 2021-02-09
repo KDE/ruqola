@@ -24,8 +24,7 @@
 SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    // TODO create model
-    // setModel(new SystemMessagesModel(this));
+    setModel(new SystemMessagesModel(this));
 }
 
 SystemMessagesComboBox::~SystemMessagesComboBox()
