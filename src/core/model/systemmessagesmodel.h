@@ -28,11 +28,21 @@ class LIBRUQOLACORE_EXPORT SystemMessagesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    struct SystemMessagesInfo {
+        QString displayText;
+        QString messagesText;
+    };
+    enum SystemMessagesRoles { SystemMessagesI18n = Qt::UserRole + 1, SystemMessages };
+    Q_ENUM(SystemMessagesRoles)
     explicit SystemMessagesModel(QObject *parent = nullptr);
     ~SystemMessagesModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+private:
+    void fillModel();
+    QVector<SystemMessagesInfo> mSystemMessagesList;
 };
 
 #endif // SYSTEMMESSAGESMODEL_H

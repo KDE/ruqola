@@ -19,10 +19,12 @@
 */
 
 #include "systemmessagesmodel.h"
+#include <KLocalizedString>
 
 SystemMessagesModel::SystemMessagesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    fillModel();
 }
 
 SystemMessagesModel::~SystemMessagesModel()
@@ -31,12 +33,23 @@ SystemMessagesModel::~SystemMessagesModel()
 
 int SystemMessagesModel::rowCount(const QModelIndex &parent) const
 {
-    // TODO
-    return -1;
+    Q_UNUSED(parent)
+    return mSystemMessagesList.count();
 }
 
 QVariant SystemMessagesModel::data(const QModelIndex &index, int role) const
 {
     // TODO
     return {};
+}
+
+void SystemMessagesModel::fillModel()
+{
+    {
+        SystemMessagesInfo info;
+        info.displayText = QString();
+        info.messagesText = QString();
+        mSystemMessagesList.append(info);
+    }
+    // TODO
 }
