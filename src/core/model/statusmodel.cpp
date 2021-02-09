@@ -110,7 +110,7 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mStatusList.count()) {
         return {};
     }
-    StatusInfo statusInfo = mStatusList.at(index.row());
+    const StatusInfo statusInfo = mStatusList.at(index.row());
     switch (role) {
     case StatusI18n:
         return statusInfo.displayText;

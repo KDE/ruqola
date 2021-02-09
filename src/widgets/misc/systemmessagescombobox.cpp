@@ -19,11 +19,13 @@
 */
 
 #include "systemmessagescombobox.h"
+#include "model/systemmessagesmodel.h"
 
 SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     : QComboBox(parent)
 {
     // TODO create model
+    // setModel(new SystemMessagesModel(this));
 }
 
 SystemMessagesComboBox::~SystemMessagesComboBox()
