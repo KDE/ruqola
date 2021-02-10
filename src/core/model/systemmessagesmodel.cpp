@@ -22,7 +22,7 @@
 #include <KLocalizedString>
 
 SystemMessagesModel::SystemMessagesModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QStandardItemModel(parent)
 {
     fillModel();
 }
@@ -31,131 +31,57 @@ SystemMessagesModel::~SystemMessagesModel()
 {
 }
 
-int SystemMessagesModel::rowCount(const QModelIndex &parent) const
+void SystemMessagesModel::createItem(const QString &displayStr, const QString &systemStr)
 {
-    Q_UNUSED(parent)
-    return mSystemMessagesList.count();
-}
-
-QVariant SystemMessagesModel::data(const QModelIndex &index, int role) const
-{
-    if (index.row() < 0 || index.row() >= mSystemMessagesList.count()) {
-        return {};
-    }
-    const SystemMessagesInfo systemMessagesInfo = mSystemMessagesList.at(index.row());
-    switch (role) {
-    case Qt::DisplayRole:
-    case SystemMessagesI18n:
-        return systemMessagesInfo.displayText;
-    case SystemMessages:
-        return systemMessagesInfo.messagesText;
-    }
-
-    return {};
+    auto item = new QStandardItem(displayStr);
+    item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+    item->setData(systemStr, SystemMessages);
+    item->setToolTip(displayStr);
+    appendRow(item);
 }
 
 void SystemMessagesModel::fillModel()
 {
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"User Added\" messages");
-        info.messagesText = QStringLiteral("au");
-        mSystemMessagesList.append(info);
+    auto item = new QStandardItem(i18n("System Messages"));
+    item->setSelectable(false);
+    appendRow(item);
+    createItem(i18n("Hide \"User Added\" messages"), QStringLiteral("au"));
+    createItem(i18n("Hide \"Welcome\" messages"), QStringLiteral("wm"));
+    createItem(i18n("Hide \"User Joined Conversation\" messages"), QStringLiteral("ut"));
+    createItem(i18n("Hide \"User Leave\" messages"), QStringLiteral("ul"));
+    createItem(i18n("Hide \"User Join\" messages"), QStringLiteral("uj"));
+    createItem(i18n("Hide \"Role No Longer Defined\" messages"), QStringLiteral("role_removed"));
+    createItem(i18n("Hide \"Was Set Role\" messages"), QStringLiteral("role_added"));
+    createItem(i18n("Hide \"User Removed\" messages"), QStringLiteral("ru"));
+    createItem(i18n("Hide \"Room Unarchived\" messages"), QStringLiteral("room_unarchived"));
+    createItem(i18n("Hide \"Room encryption disabled\" messages"), QStringLiteral("room_disabled_encryption"));
+    createItem(i18n("Hide \"Room encryption enabled\" messages"), QStringLiteral("enabled_encryption"));
+    createItem(i18n("Hide \"Room type changed\" messages"), QStringLiteral("room_changed_privacy"));
+    createItem(i18n("Hide \"Room avatar changed\" messages"), QStringLiteral("room_changed_avatar"));
+    createItem(i18n("Hide \"User Muted / Unmuted\" messages"), QStringLiteral("mute_unmute"));
+    createItem(i18n("Hide \"Room Name Changed\" messages"), QStringLiteral("r"));
+    createItem(i18n("Hide \"Message Removed\" messages"), QStringLiteral("rm"));
+    createItem(i18n("Hide \"Room Archived\" messages"), QStringLiteral("room_archived"));
+}
+
+void SystemMessagesModel::setMessagesSystem(const QStringList &lst)
+{
+    // item->setData(Qt::Checked, Qt::CheckStateRole);
+    // TODO
+}
+
+QStringList SystemMessagesModel::systemMessagesSelected() const
+{
+    QStringList lst;
+    const int rowCountNb = rowCount();
+    // First one is not a message type
+    for (int i = 1; i < rowCountNb; i++) {
+        QStandardItem *itemModel = item(i);
+        if (itemModel) {
+            if (itemModel->isCheckable() && itemModel->checkState() == Qt::Checked) {
+                lst.append(itemModel->data(SystemMessages).toString());
+            }
+        }
     }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Welcome\" messages");
-        info.messagesText = QStringLiteral("wm");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"User Joined Conversation\" messages");
-        info.messagesText = QStringLiteral("ut");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"User Leave\" messages");
-        info.messagesText = QStringLiteral("ul");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"User Join\" messages");
-        info.messagesText = QStringLiteral("uj");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Role No Longer Defined\" messages");
-        info.messagesText = QStringLiteral("role_removed");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Was Set Role\" messages");
-        info.messagesText = QStringLiteral("role_added");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"User Removed\" messages");
-        info.messagesText = QStringLiteral("ru");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room Unarchived\" messages");
-        info.messagesText = QStringLiteral("room_unarchived");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room encryption disabled\" messages");
-        info.messagesText = QStringLiteral("room_disabled_encryption");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room encryption enabled\" messages");
-        info.messagesText = QStringLiteral("enabled_encryption");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room type changed\" messages");
-        info.messagesText = QStringLiteral("room_changed_privacy");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room avatar changed\" messages");
-        info.messagesText = QStringLiteral("room_changed_avatar");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"User Muted / Unmuted\" messages");
-        info.messagesText = QStringLiteral("mute_unmute");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room Name Changed\" messages");
-        info.messagesText = QStringLiteral("r");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Message Removed\" messages");
-        info.messagesText = QStringLiteral("rm");
-        mSystemMessagesList.append(info);
-    }
-    {
-        SystemMessagesInfo info;
-        info.displayText = i18n("Hide \"Room Archived\" messages");
-        info.messagesText = QStringLiteral("room_archived");
-        mSystemMessagesList.append(info);
-    }
+    return lst;
 }

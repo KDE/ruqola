@@ -22,27 +22,22 @@
 #define SYSTEMMESSAGESMODEL_H
 #include "libruqolacore_export.h"
 
-#include <QAbstractListModel>
+#include <QStandardItemModel>
 
-class LIBRUQOLACORE_EXPORT SystemMessagesModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT SystemMessagesModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
-    struct SystemMessagesInfo {
-        QString displayText;
-        QString messagesText;
-    };
     enum SystemMessagesRoles { SystemMessagesI18n = Qt::UserRole + 1, SystemMessages };
     Q_ENUM(SystemMessagesRoles)
     explicit SystemMessagesModel(QObject *parent = nullptr);
     ~SystemMessagesModel() override;
-
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT QStringList systemMessagesSelected() const;
+    void setMessagesSystem(const QStringList &lst);
 
 private:
     void fillModel();
-    QVector<SystemMessagesInfo> mSystemMessagesList;
+    void createItem(const QString &displayStr, const QString &systemStr);
 };
 
 #endif // SYSTEMMESSAGESMODEL_H
