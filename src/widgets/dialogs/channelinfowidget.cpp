@@ -19,6 +19,7 @@
 */
 
 #include "channelinfowidget.h"
+#include "misc/systemmessagescombobox.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola.h"
@@ -39,6 +40,7 @@
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
+    , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -144,6 +146,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     });
     mEncryptedLabel = layout->labelForField(mEncrypted);
 
+    mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
+    layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
+
     mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
@@ -201,6 +206,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
 ChannelInfoWidget::~ChannelInfoWidget()
 {
+    qDebug() << " mSystemMessageCombox " << mSystemMessageCombox->systemMessagesSelected();
 }
 
 void ChannelInfoWidget::setRoom(Room *room)

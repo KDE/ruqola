@@ -30,6 +30,7 @@ class QStackedWidget;
 class QLabel;
 class Room;
 class QToolButton;
+class SystemMessagesComboBox;
 class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
 {
     Q_OBJECT
@@ -92,6 +93,7 @@ private:
     QLabel *mAnnouncementReadOnly = nullptr;
     QLabel *mDescriptionReadOnly = nullptr;
     Room *mRoom = nullptr;
+    SystemMessagesComboBox *const mSystemMessageCombox;
 };
 
 #endif // CHANNELINFOWIDGET_H

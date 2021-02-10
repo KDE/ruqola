@@ -31,5 +31,6 @@ SystemMessagesComboBoxTest::SystemMessagesComboBoxTest(QObject *parent)
 void SystemMessagesComboBoxTest::shouldHaveDefaultValue()
 {
     SystemMessagesComboBox w;
+    QVERIFY(w.count() > 0);
     // TODO
 }

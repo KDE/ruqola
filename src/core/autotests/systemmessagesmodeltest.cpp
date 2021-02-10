@@ -30,5 +30,6 @@ SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
 void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
     SystemMessagesModel w;
+    QCOMPARE(w.rowCount(), 18);
     // TODO
 }

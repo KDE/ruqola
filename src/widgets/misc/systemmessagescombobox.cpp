@@ -25,10 +25,21 @@
 
 SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     : QComboBox(parent)
+    , mSystemMessagesModel(new SystemMessagesModel(this))
 {
-    setModel(new SystemMessagesModel(this));
+    setModel(mSystemMessagesModel);
 }
 
 SystemMessagesComboBox::~SystemMessagesComboBox()
 {
+}
+
+void SystemMessagesComboBox::setMessagesSystem(const QStringList &lst)
+{
+    mSystemMessagesModel->setMessagesSystem(lst);
+}
+
+QStringList SystemMessagesComboBox::systemMessagesSelected() const
+{
+    return mSystemMessagesModel->systemMessagesSelected();
 }

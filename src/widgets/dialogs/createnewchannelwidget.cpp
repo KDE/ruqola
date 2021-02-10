@@ -20,7 +20,6 @@
 
 #include "createnewchannelwidget.h"
 #include "misc/adduserswidget.h"
-#include "misc/systemmessagescombobox.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
@@ -29,7 +28,6 @@
 
 CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     : QWidget(parent)
-    , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
     mMainLayout = new QFormLayout(this);
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -69,9 +67,6 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mMainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     connect(mChannelName, &QLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
-
-    mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
-    mMainLayout->addRow(i18n("System Message:"), mSystemMessageCombox);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget()

@@ -36,6 +36,7 @@ void SystemMessagesModel::createItem(const QString &displayStr, const QString &s
     auto item = new QStandardItem(displayStr);
     item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
     item->setData(systemStr, SystemMessages);
+    item->setData(Qt::Unchecked, Qt::CheckStateRole);
     item->setToolTip(displayStr);
     appendRow(item);
 }
