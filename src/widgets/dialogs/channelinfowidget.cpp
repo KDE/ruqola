@@ -206,7 +206,6 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
 ChannelInfoWidget::~ChannelInfoWidget()
 {
-    qDebug() << " mSystemMessageCombox " << mSystemMessageCombox->systemMessagesSelected();
 }
 
 void ChannelInfoWidget::setRoom(Room *room)
