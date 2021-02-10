@@ -20,6 +20,7 @@
 
 #include "channelinfowidgettest.h"
 #include "dialogs/channelinfowidget.h"
+#include "misc/systemmessagescombobox.h"
 #include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -27,6 +28,7 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QTest>
+
 QTEST_MAIN(ChannelInfoWidgetTest)
 ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)
     : QObject(parent)
@@ -89,6 +91,9 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     auto mDeleteChannel = mEditableChannel->findChild<QPushButton *>(QStringLiteral("mDeleteChannel"));
     QVERIFY(mDeleteChannel);
     QVERIFY(!mDeleteChannel->text().isEmpty());
+
+    auto mSystemMessageCombox = mEditableChannel->findChild<SystemMessagesComboBox *>(QStringLiteral("mSystemMessageCombox"));
+    QVERIFY(mSystemMessageCombox);
 
     // ReadOnly Channel
     auto mReadOnlyChannel = w.findChild<QWidget *>(QStringLiteral("mReadOnlyChannel"));
