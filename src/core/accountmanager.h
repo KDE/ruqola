@@ -32,10 +32,6 @@
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString currentAccount READ currentAccount WRITE setCurrentAccount NOTIFY currentAccountChanged)
-    Q_PROPERTY(RocketChatAccount *account READ account NOTIFY currentAccountChanged)
-    Q_PROPERTY(RocketChatAccountModel *rocketChatAccountModel READ rocketChatAccountModel CONSTANT)
-    Q_PROPERTY(RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel READ rocketChatAccountProxyModel CONSTANT)
 public:
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
         QString displayName;

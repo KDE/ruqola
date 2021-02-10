@@ -27,7 +27,6 @@ class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatAccountModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int accountNumber READ accountNumber NOTIFY accountNumberChanged)
 public:
     enum AccountRoles {
         Name = Qt::UserRole + 1,

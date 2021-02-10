@@ -30,12 +30,6 @@ class NotificationDesktopSoundPreferenceModel;
 class LIBRUQOLACORE_EXPORT NotificationPreferences : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(NotificationPreferenceModel *emailNotificationModel READ emailNotificationModel CONSTANT)
-    Q_PROPERTY(NotificationPreferenceModel *mobileNotificationModel READ mobileNotificationModel CONSTANT)
-    Q_PROPERTY(NotificationPreferenceModel *desktopNotificationModel READ desktopNotificationModel CONSTANT)
-    Q_PROPERTY(NotificationPreferenceModel *desktopAudioNotificationModel READ desktopAudioNotificationModel CONSTANT)
-    Q_PROPERTY(NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel READ desktopDurationNotificationModel CONSTANT)
-    Q_PROPERTY(NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel READ desktopSoundNotificationModel CONSTANT)
 public:
     explicit NotificationPreferences(QObject *parent = nullptr);
     ~NotificationPreferences() override;

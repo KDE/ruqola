@@ -27,7 +27,6 @@ class SearchMessageModel;
 class LIBRUQOLACORE_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool stringNotFound READ stringNotFound NOTIFY stringNotFoundChanged)
 public:
     explicit SearchMessageFilterProxyModel(SearchMessageModel *model = nullptr, QObject *parent = nullptr);
     ~SearchMessageFilterProxyModel() override;

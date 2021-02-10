@@ -26,7 +26,6 @@ class DiscussionsModel;
 class LIBRUQOLACORE_EXPORT DiscussionsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
     explicit DiscussionsFilterProxyModel(DiscussionsModel *model = nullptr, QObject *parent = nullptr);
     ~DiscussionsFilterProxyModel() override;

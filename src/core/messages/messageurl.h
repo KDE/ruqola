@@ -26,9 +26,6 @@
 class LIBRUQOLACORE_TESTS_EXPORT MessageUrl
 {
     Q_GADGET
-    Q_PROPERTY(QString url READ url WRITE setUrl FINAL)
-    Q_PROPERTY(QString pageTitle READ pageTitle WRITE setPageTitle FINAL)
-    Q_PROPERTY(QString description READ description WRITE setDescription FINAL)
 public:
     MessageUrl();
     Q_REQUIRED_RESULT bool operator==(const MessageUrl &other) const;

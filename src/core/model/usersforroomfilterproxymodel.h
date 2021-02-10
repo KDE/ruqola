@@ -27,7 +27,6 @@
 class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
     explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
     ~UsersForRoomFilterProxyModel() override;

@@ -29,7 +29,6 @@ class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     enum UsersForRoomRoles {
         UserName = Qt::UserRole + 1,

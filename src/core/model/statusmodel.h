@@ -36,7 +36,6 @@ struct StatusInfo {
 class LIBRUQOLACORE_EXPORT StatusModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int currentStatus READ currentStatus NOTIFY currentStatusChanged)
 public:
     enum StatusRoles { StatusI18n = Qt::UserRole + 1, Status, Icon };
     Q_ENUM(StatusRoles)

@@ -26,12 +26,6 @@ class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reaction
 {
     Q_GADGET
-    Q_PROPERTY(int count READ count CONSTANT)
-    Q_PROPERTY(QString reactionName READ reactionName CONSTANT)
-    Q_PROPERTY(QString convertedReactionName READ convertedReactionName CONSTANT)
-    Q_PROPERTY(QString convertedUsersNameAtToolTip READ convertedUsersNameAtToolTip CONSTANT)
-    Q_PROPERTY(QStringList userNames READ userNames CONSTANT)
-    Q_PROPERTY(bool isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     Reaction();
 

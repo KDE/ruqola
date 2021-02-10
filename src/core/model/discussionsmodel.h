@@ -26,8 +26,6 @@ class Discussions;
 class LIBRUQOLACORE_EXPORT DiscussionsModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
-    // TODO add totalChanged properties
 public:
     enum DiscussionRoles { ParentId = Qt::UserRole + 1, Description, NumberOfMessages, LastMessage, DiscussionRoomId, TimeStamp, SortByTimeStamp };
     Q_ENUM(DiscussionRoles)

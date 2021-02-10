@@ -29,7 +29,6 @@ class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT FilesForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     enum UserRoles {
         FileName = Qt::UserRole + 1,

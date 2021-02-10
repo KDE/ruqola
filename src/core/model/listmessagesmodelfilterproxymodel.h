@@ -27,13 +27,7 @@
 class LIBRUQOLACORE_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
-    Q_PROPERTY(ListMessagesModel::ListMessageType listMessageType READ listMessageType NOTIFY listMessageTypeChanged)
-    Q_PROPERTY(int total READ total NOTIFY totalChanged)
-    Q_PROPERTY(QString title READ title CONSTANT)
-    Q_PROPERTY(ListMessagesModel *listMessageModel READ listMessageModel CONSTANT)
 public:
-    // Fix me
     explicit ListMessagesModelFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~ListMessagesModelFilterProxyModel() override;
     void setFilterString(const QString &string);

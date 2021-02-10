@@ -27,7 +27,6 @@ class FilesForRoomModel;
 class LIBRUQOLACORE_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
     explicit FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel = nullptr, QObject *parent = nullptr);
     ~FilesForRoomFilterProxyModel() override;

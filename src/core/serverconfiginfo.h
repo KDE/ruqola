@@ -27,11 +27,6 @@ class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT ServerConfigInfo : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString serverVersionStr READ serverVersionStr CONSTANT)
-    Q_PROPERTY(QString serverName READ serverName CONSTANT)
-    Q_PROPERTY(QString userName READ userName CONSTANT)
-    Q_PROPERTY(QString serverUrl READ serverUrl CONSTANT)
-
 public:
     explicit ServerConfigInfo(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~ServerConfigInfo() override;

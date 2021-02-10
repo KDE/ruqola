@@ -28,7 +28,6 @@
 class LIBRUQOLACORE_EXPORT LoginMethodModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int currentLoginMethod READ currentLoginMethod NOTIFY currentLoginMethodChanged)
 public:
     enum LoginRoles {
         Name = Qt::UserRole + 1,
