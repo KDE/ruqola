@@ -24,6 +24,7 @@
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "ruqola.h"
+#include "searchmessagelineedit.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -36,11 +37,9 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit = new QLineEdit(this);
+    mSearchLineEdit = new SearchMessageLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
-    mSearchLineEdit->setPlaceholderText(i18n("Search Word..."));
     mainLayout->addWidget(mSearchLineEdit);
 
     mSearchLabel = new QLabel(this);
