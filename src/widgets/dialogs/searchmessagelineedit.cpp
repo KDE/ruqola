@@ -20,14 +20,36 @@
 
 #include "searchmessagelineedit.h"
 #include <KLocalizedString>
+#include <QTimer>
 
 SearchMessageLineEdit::SearchMessageLineEdit(QWidget *parent)
     : QLineEdit(parent)
+    , mSearchTimer(new QTimer(this))
 {
     setClearButtonEnabled(true);
     setPlaceholderText(i18n("Search Word..."));
+    connect(mSearchTimer, &QTimer::timeout, this, &SearchMessageLineEdit::slotSearchTimerFired);
+    connect(this, &SearchMessageLineEdit::textChanged, this, &SearchMessageLineEdit::slotSearchTextEdited);
 }
 
 SearchMessageLineEdit::~SearchMessageLineEdit()
 {
+}
+
+void SearchMessageLineEdit::slotSearchTimerFired()
+{
+    mSearchTimer->stop();
+    if (!text().trimmed().isEmpty()) {
+        Q_EMIT searchMessage(text());
+    }
+}
+
+void SearchMessageLineEdit::slotSearchTextEdited()
+{
+    if (mSearchTimer->isActive()) {
+        mSearchTimer->stop(); // eventually
+    }
+
+    mSearchTimer->setSingleShot(true);
+    mSearchTimer->start(1000);
 }

@@ -47,8 +47,9 @@ Q_SIGNALS:
     void goToMessageRequested(const QString &messageId);
 
 private:
-    void slotSearchMessages();
+    void slotSearchLineMessagesEnterPressed();
     void updateLabel();
+    void slotSearchMessages(const QString &str);
     Q_REQUIRED_RESULT QString displayShowSearch() const;
     QString mRoomId;
     QLabel *mSearchLabel = nullptr;

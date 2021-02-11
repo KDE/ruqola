@@ -41,6 +41,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
+    connect(mSearchLineEdit, &SearchMessageLineEdit::searchMessage, this, &SearchMessageWidget::slotSearchMessages);
 
     mSearchLabel = new QLabel(this);
     mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
@@ -52,7 +53,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mResultListWidget = new MessageListView(MessageListView::Mode::Viewing, this);
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
-    connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
+    connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
 }
 
@@ -61,9 +62,14 @@ SearchMessageWidget::~SearchMessageWidget()
     Ruqola::self()->rocketChatAccount()->clearSearchModel();
 }
 
-void SearchMessageWidget::slotSearchMessages()
+void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
-    Ruqola::self()->rocketChatAccount()->messageSearch(mSearchLineEdit->text(), mRoomId, true);
+    Ruqola::self()->rocketChatAccount()->messageSearch(str, mRoomId, true);
+}
+
+void SearchMessageWidget::slotSearchLineMessagesEnterPressed()
+{
+    slotSearchMessages(mSearchLineEdit->text());
 }
 
 QString SearchMessageWidget::roomId() const

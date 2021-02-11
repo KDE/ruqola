@@ -24,12 +24,21 @@
 #include <QLineEdit>
 
 #include "libruqolawidgets_private_export.h"
+class QTimer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
     explicit SearchMessageLineEdit(QWidget *parent = nullptr);
     ~SearchMessageLineEdit() override;
+
+Q_SIGNALS:
+    void searchMessage(const QString &str);
+
+private:
+    void slotSearchTimerFired();
+    void slotSearchTextEdited();
+    QTimer *const mSearchTimer;
 };
 
 #endif // SEARCHMESSAGELINEEDIT_H
