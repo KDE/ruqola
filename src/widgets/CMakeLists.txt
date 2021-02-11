@@ -238,7 +238,7 @@ add_library(libruqolawidgets
     ${Ruqola_administrator_SRCS}
     ${Ruqola_export_messages_SRCS}
     )
-
+ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolawidgets PROPERTIES UNITY_BUILD ON)
 endif()
