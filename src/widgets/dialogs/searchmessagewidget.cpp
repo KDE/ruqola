@@ -81,6 +81,8 @@ void SearchMessageWidget::updateLabel()
 {
     if (mModel->loadSearchMessageInProgress()) {
         mSearchLabel->setText(i18n("Loading..."));
+    } else if (mSearchLineEdit->text().isEmpty() && mModel->rowCount() == 0) {
+        mSearchLabel->clear();
     } else {
         mSearchLabel->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowSearch());
     }
