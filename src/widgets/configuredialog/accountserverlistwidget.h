@@ -21,7 +21,7 @@
 #ifndef ACCOUNTSERVERLISTWIDGET_H
 #define ACCOUNTSERVERLISTWIDGET_H
 
-#include "dialogs/createnewaccountdialog.h"
+#include "dialogs/createnewserverdialog.h"
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
 #include <QListWidget>

@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWACCOUNTDIALOG_H
-#define CREATENEWACCOUNTDIALOG_H
+#ifndef CREATENEWSERVERDIALOG_H
+#define CREATENEWSERVERDIALOG_H
 #include <QDialog>
 
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
-class CreateNewAccountWidget;
+class CreateNewServerWidget;
 class QPushButton;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit CreateNewAccountDialog(QWidget *parent = nullptr);
-    ~CreateNewAccountDialog() override;
+    explicit CreateNewServerDialog(QWidget *parent = nullptr);
+    ~CreateNewServerDialog() override;
     Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     void setExistingAccountName(const QStringList &lst);
@@ -39,8 +39,8 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    CreateNewAccountWidget *const mNewAccountWidget;
+    CreateNewServerWidget *const mNewAccountWidget;
     QPushButton *mOkButton = nullptr;
 };
 
-#endif // CREATENEWACCOUNTDIALOG_H
+#endif // CREATENEWSERVERDIALOG_H

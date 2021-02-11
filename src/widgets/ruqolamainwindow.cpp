@@ -27,12 +27,12 @@
 #include "configuredialog/configuresettingsdialog.h"
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/createdirectmessagesdialog.h"
-#include "dialogs/createnewaccountdialog.h"
 #include "dialogs/createnewchanneldialog.h"
+#include "dialogs/createnewserverdialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/serverinfodialog.h"
-#include "misc/accountmenu.h"
 #include "misc/accountsoverviewwidget.h"
+#include "misc/servermenu.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notification.h"
 #include "receivetypingnotificationmanager.h"
@@ -220,9 +220,9 @@ void RuqolaMainWindow::setupActions()
     mSaveAs = KStandardAction::saveAs(this, &RuqolaMainWindow::slotSaveAs, ac);
     mSaveAs->setText(i18n("Save As Text..."));
 
-    auto act = new QAction(i18n("Add Account..."), this);
-    connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
-    ac->addAction(QStringLiteral("add_account"), act);
+    auto act = new QAction(i18n("Add Server..."), this);
+    connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
+    ac->addAction(QStringLiteral("add_server"), act);
 
     // Move in specific server widget
     mServerInfo = new QAction(i18n("Server Info..."), this);
@@ -247,9 +247,9 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
     ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
 
-    mAccountMenu = new AccountMenu(this);
-    mAccountMenu->setActionCollection(ac);
-    ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
+    mServerMenu = new ServerMenu(this);
+    mServerMenu->setActionCollection(ac);
+    ac->addAction(QStringLiteral("server_menu"), mServerMenu);
 
     mUnreadOnTop = new QAction(i18n("Unread on Top"), this);
     mUnreadOnTop->setCheckable(true);
@@ -332,9 +332,9 @@ void RuqolaMainWindow::slotConfigure()
     delete dlg;
 }
 
-void RuqolaMainWindow::slotAddAccount()
+void RuqolaMainWindow::slotAddServer()
 {
-    QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     const QStringList lst = Ruqola::self()->accountManager()->accountsName();
     dlg->setExistingAccountName(lst);
     if (dlg->exec()) {

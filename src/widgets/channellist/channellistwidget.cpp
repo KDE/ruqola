@@ -47,7 +47,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     // dummy action just for getting the icon)
     mSearchRoom->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
     mSearchRoom->setObjectName(QStringLiteral("mSearchRoom"));
-    mSearchRoom->setPlaceholderText(i18n("Search Rooms (CTRL + K)"));
+    mSearchRoom->setPlaceholderText(i18n("Search Channels (CTRL + K)"));
     mSearchRoom->setClearButtonEnabled(true);
     mSearchRoom->installEventFilter(this);
     mainLayout->addWidget(mSearchRoom);
@@ -70,7 +70,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
 
     // BEGIN: Actions
-    auto searchRoomAction = new QAction(i18n("Search Rooms"), this);
+    auto searchRoomAction = new QAction(i18n("Search Channels"), this);
     searchRoomAction->setShortcut(Qt::CTRL | Qt::Key_K);
     connect(searchRoomAction, &QAction::triggered, this, [this]() {
         mSearchRoom->setFocus();

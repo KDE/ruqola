@@ -35,8 +35,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/createnewchannelwidget.cpp
     dialogs/showlistmessagebasedialog.cpp
     dialogs/showlistmessagebasewidget.cpp
-    dialogs/createnewaccountdialog.cpp
-    dialogs/createnewaccountwidget.cpp
+    dialogs/createnewserverdialog.cpp
+    dialogs/createnewserverwidget.cpp
     dialogs/showpinnedmessagesdialog.cpp
     dialogs/showstarredmessagesdialog.cpp
     dialogs/showmentionsmessagesdialog.cpp
@@ -149,7 +149,7 @@ set(Ruqola_roomwidget_SRCS
 set(Ruqola_misc_widget_SRCS
     misc/pixmapcache.cpp
     misc/avatarcachemanager.cpp
-    misc/accountmenu.cpp
+    misc/servermenu.cpp
     misc/accountsoverviewwidget.cpp
     misc/emoticonmenuwidget.cpp
     misc/emoticonselectorwidget.cpp

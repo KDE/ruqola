@@ -85,7 +85,7 @@ void AccountServerListWidget::modifyAccountConfig()
     }
 
     auto serverListItem = static_cast<AccountServerListWidgetItem *>(item);
-    QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     dlg->setAccountInfo(serverListItem->accountInfo());
     if (dlg->exec()) {
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
@@ -101,7 +101,7 @@ void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
 
 void AccountServerListWidget::addAccountConfig()
 {
-    QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     QStringList listAccounts;
     for (int i = 0; i < count(); ++i) {
         QListWidgetItem *it = item(i);

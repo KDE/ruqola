@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWACCOUNTWIDGET_H
-#define CREATENEWACCOUNTWIDGET_H
+#ifndef CREATENEWSERVERWIDGET_H
+#define CREATENEWSERVERWIDGET_H
 
 #include <QWidget>
 
@@ -27,12 +27,12 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class KPasswordLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CreateNewAccountWidget(QWidget *parent = nullptr);
-    ~CreateNewAccountWidget() override;
+    explicit CreateNewServerWidget(QWidget *parent = nullptr);
+    ~CreateNewServerWidget() override;
 
     Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo();
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
@@ -52,4 +52,4 @@ private:
     AccountManager::AccountManagerInfo mAccountInfo;
 };
 
-#endif // CREATENEWACCOUNTWIDGET_H
+#endif // CREATENEWSERVERWIDGET_H

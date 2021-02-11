@@ -18,19 +18,24 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWACCOUNTDIALOGTEST_H
-#define CREATENEWACCOUNTDIALOGTEST_H
+#ifndef SERVERMENU_H
+#define SERVERMENU_H
+#include <KActionMenu>
 
-#include <QObject>
-
-class CreateNewAccountDialogTest : public QObject
+#include "libruqolawidgets_private_export.h"
+class KActionCollection;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerMenu : public KActionMenu
 {
     Q_OBJECT
 public:
-    explicit CreateNewAccountDialogTest(QObject *parent = nullptr);
-    ~CreateNewAccountDialogTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit ServerMenu(QWidget *parent = nullptr);
+    ~ServerMenu() override;
+
+    void setActionCollection(KActionCollection *ac);
+
+private:
+    void slotUpdateAccountMenu();
+    KActionCollection *mActionCollection = nullptr;
 };
 
-#endif // CREATENEWACCOUNTDIALOGTEST_H
+#endif // SERVERMENU_H

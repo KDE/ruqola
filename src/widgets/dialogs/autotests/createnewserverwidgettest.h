@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWACCOUNTWIDGETTEST_H
-#define CREATENEWACCOUNTWIDGETTEST_H
+#ifndef CREATENEWSERVERWIDGETTEST_H
+#define CREATENEWSERVERWIDGETTEST_H
 
 #include <QObject>
 
-class CreateNewAccountWidgetTest : public QObject
+class CreateNewServerWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit CreateNewAccountWidgetTest(QObject *parent = nullptr);
-    ~CreateNewAccountWidgetTest() override = default;
+    explicit CreateNewServerWidgetTest(QObject *parent = nullptr);
+    ~CreateNewServerWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // CREATENEWACCOUNTWIDGETTEST_H
+#endif // CREATENEWSERVERWIDGETTEST_H

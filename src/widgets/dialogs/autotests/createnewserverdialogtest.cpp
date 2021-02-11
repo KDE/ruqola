@@ -18,28 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "createnewaccountdialogtest.h"
-#include "dialogs/createnewaccountdialog.h"
-#include "dialogs/createnewaccountwidget.h"
+#include "createnewserverdialogtest.h"
+#include "dialogs/createnewserverdialog.h"
+#include "dialogs/createnewserverwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
-QTEST_MAIN(CreateNewAccountDialogTest)
-CreateNewAccountDialogTest::CreateNewAccountDialogTest(QObject *parent)
+QTEST_MAIN(CreateNewServerDialogTest)
+CreateNewServerDialogTest::CreateNewServerDialogTest(QObject *parent)
     : QObject(parent)
 {
     QStandardPaths::setTestModeEnabled(true);
 }
 
-void CreateNewAccountDialogTest::shouldHaveDefaultValues()
+void CreateNewServerDialogTest::shouldHaveDefaultValues()
 {
-    CreateNewAccountDialog w;
+    CreateNewServerDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mNewAccountWidget = w.findChild<CreateNewAccountWidget *>(QStringLiteral("mNewAccountWidget"));
+    auto mNewAccountWidget = w.findChild<CreateNewServerWidget *>(QStringLiteral("mNewAccountWidget"));
     QVERIFY(mNewAccountWidget);
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));

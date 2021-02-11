@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "accountmenu.h"
+#include "servermenu.h"
 #include "accountmanager.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
@@ -27,23 +27,23 @@
 #include <KLocalizedString>
 #include <QMenu>
 
-AccountMenu::AccountMenu(QWidget *parent)
+ServerMenu::ServerMenu(QWidget *parent)
     : KActionMenu(parent)
 {
     setText(i18n("Account"));
-    connect(menu(), &QMenu::aboutToShow, this, &AccountMenu::slotUpdateAccountMenu);
+    connect(menu(), &QMenu::aboutToShow, this, &ServerMenu::slotUpdateAccountMenu);
 }
 
-AccountMenu::~AccountMenu()
+ServerMenu::~ServerMenu()
 {
 }
 
-void AccountMenu::setActionCollection(KActionCollection *ac)
+void ServerMenu::setActionCollection(KActionCollection *ac)
 {
     mActionCollection = ac;
 }
 
-void AccountMenu::slotUpdateAccountMenu()
+void ServerMenu::slotUpdateAccountMenu()
 {
     menu()->clear();
     RocketChatAccountModel *model = Ruqola::self()->accountManager()->rocketChatAccountModel();

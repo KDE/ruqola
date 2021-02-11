@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "createnewaccountwidgettest.h"
-#include "dialogs/createnewaccountwidget.h"
+#include "createnewserverwidgettest.h"
+#include "dialogs/createnewserverwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
-QTEST_MAIN(CreateNewAccountWidgetTest)
-CreateNewAccountWidgetTest::CreateNewAccountWidgetTest(QObject *parent)
+QTEST_MAIN(CreateNewServerWidgetTest)
+CreateNewServerWidgetTest::CreateNewServerWidgetTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
+void CreateNewServerWidgetTest::shouldHaveDefaultValues()
 {
-    CreateNewAccountWidget w;
+    CreateNewServerWidget w;
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

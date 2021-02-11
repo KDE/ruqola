@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "createnewaccountdialog.h"
-#include "createnewaccountwidget.h"
+#include "createnewserverdialog.h"
+#include "createnewserverwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -32,11 +32,11 @@ namespace
 static const char myConfigCreateNewAccountDialogGroupName[] = "CreateNewAccountDialog";
 }
 
-CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
+CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     : QDialog(parent)
-    , mNewAccountWidget(new CreateNewAccountWidget(this))
+    , mNewAccountWidget(new CreateNewServerWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Add Account"));
+    setWindowTitle(i18nc("@title:window", "Add Server"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -45,40 +45,40 @@ CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewAccountDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewServerDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewServerDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setEnabled(false);
-    connect(mNewAccountWidget, &CreateNewAccountWidget::updateOkButton, this, [this](bool state) {
+    connect(mNewAccountWidget, &CreateNewServerWidget::updateOkButton, this, [this](bool state) {
         mOkButton->setEnabled(state);
     });
 }
 
-CreateNewAccountDialog::~CreateNewAccountDialog()
+CreateNewServerDialog::~CreateNewServerDialog()
 {
     writeConfig();
 }
 
-AccountManager::AccountManagerInfo CreateNewAccountDialog::accountInfo() const
+AccountManager::AccountManagerInfo CreateNewServerDialog::accountInfo() const
 {
     const AccountManager::AccountManagerInfo info = mNewAccountWidget->accountInfo();
     return info;
 }
 
-void CreateNewAccountDialog::setAccountInfo(const AccountManager::AccountManagerInfo &info)
+void CreateNewServerDialog::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     setWindowTitle(i18nc("@title:window", "Modify Account"));
     mNewAccountWidget->setAccountInfo(info);
 }
 
-void CreateNewAccountDialog::setExistingAccountName(const QStringList &lst)
+void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 {
     mNewAccountWidget->setExistingAccountName(lst);
 }
 
-void CreateNewAccountDialog::readConfig()
+void CreateNewServerDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateNewAccountDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
@@ -87,7 +87,7 @@ void CreateNewAccountDialog::readConfig()
     }
 }
 
-void CreateNewAccountDialog::writeConfig()
+void CreateNewServerDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateNewAccountDialogGroupName);
     group.writeEntry("Size", size());

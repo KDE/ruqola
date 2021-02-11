@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "createnewaccountwidget.h"
+#include "createnewserverwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
 #include <QLineEdit>
@@ -26,7 +26,7 @@
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 
-CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
+CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     : QWidget(parent)
 {
     auto mainLayout = new QFormLayout(this);
@@ -55,18 +55,18 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
-    connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
-    connect(mServerName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
-    connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mUserName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
+    connect(mServerName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
+    connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
 
     // TODO add support for two factor ?
 }
 
-CreateNewAccountWidget::~CreateNewAccountWidget()
+CreateNewServerWidget::~CreateNewServerWidget()
 {
 }
 
-AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
+AccountManager::AccountManagerInfo CreateNewServerWidget::accountInfo()
 {
     const QString accountName = mAccountName->text().trimmed();
     if (mAccountInfo.accountName.isEmpty()) {
@@ -82,7 +82,7 @@ AccountManager::AccountManagerInfo CreateNewAccountWidget::accountInfo()
     return mAccountInfo;
 }
 
-void CreateNewAccountWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
+void CreateNewServerWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mAccountInfo = info;
     mAccountName->setText(info.displayName.isEmpty() ? info.accountName : info.displayName);
@@ -91,12 +91,12 @@ void CreateNewAccountWidget::setAccountInfo(const AccountManager::AccountManager
     mPasswordLineEdit->setPassword(info.password);
 }
 
-void CreateNewAccountWidget::setExistingAccountName(const QStringList &lst)
+void CreateNewServerWidget::setExistingAccountName(const QStringList &lst)
 {
     mNames = lst;
 }
 
-void CreateNewAccountWidget::slotChangeOkButtonEnabled()
+void CreateNewServerWidget::slotChangeOkButtonEnabled()
 {
     const QString accountName = mAccountName->text().trimmed();
     Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerName->text().trimmed().isEmpty()

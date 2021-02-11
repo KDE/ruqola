@@ -27,7 +27,7 @@
 #include <QPointer>
 class RuqolaCentralWidget;
 class QAction;
-class AccountMenu;
+class ServerMenu;
 class RocketChatAccount;
 class QLabel;
 class AccountsOverviewWidget;
@@ -48,7 +48,7 @@ private:
     void setupActions();
     void readConfig();
     void setupStatusBar();
-    void slotAddAccount();
+    void slotAddServer();
     void slotServerInfo();
     void slotConfigure();
     void slotLogout();
@@ -88,7 +88,7 @@ private:
     QAction *mRegisterNewUser = nullptr;
     QAction *mMyAccount = nullptr;
     QAction *mAdministrator = nullptr;
-    AccountMenu *mAccountMenu = nullptr;
+    ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
