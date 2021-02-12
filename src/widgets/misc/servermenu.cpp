@@ -30,7 +30,7 @@
 ServerMenu::ServerMenu(QWidget *parent)
     : KActionMenu(parent)
 {
-    setText(i18n("Account"));
+    setText(i18n("Server"));
     connect(menu(), &QMenu::aboutToShow, this, &ServerMenu::slotUpdateAccountMenu);
 }
 
