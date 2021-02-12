@@ -24,3 +24,4 @@ CMakeLists.txt.user*
 .cmake/
 RESTAPI_log_*
 log_ruqola_file-*
+compile_commands.json
