@@ -105,9 +105,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
 {
     const QString emojiStr = index.data(MessageModel::Emoji).toString();
     const Utils::AvatarInfo info = index.data(MessageModel::AvatarInfo).value<Utils::AvatarInfo>();
-    if (!emojiStr.isEmpty()) {
-        return mAvatarCacheManager->makeAvatarEmojiPixmap(emojiStr, widget, info, maxHeight);
-    } else {
+    if (emojiStr.isEmpty()) {
         const QString avatarUrl = index.data(MessageModel::Avatar).toString();
         if (!avatarUrl.isEmpty()) {
             // TODO
@@ -116,6 +114,8 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
         } else {
             return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
         }
+    } else {
+        return mAvatarCacheManager->makeAvatarEmojiPixmap(emojiStr, widget, info, maxHeight);
     }
 }
 
