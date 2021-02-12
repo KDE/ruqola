@@ -119,9 +119,9 @@ QMenu *MessageTextEdit::mousePopupMenu()
     QMenu *formatMenu = new QMenu(menu);
     formatMenu->setTitle(i18n("Change Text Format"));
     menu->addMenu(formatMenu);
-    formatMenu->addAction(i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
-    formatMenu->addAction(i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
-    formatMenu->addAction(i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
+    formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-bold")), i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
+    formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-italic")), i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
+    formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-strikethrough")), i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
     return menu;
 }
 
