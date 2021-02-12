@@ -49,6 +49,8 @@ public:
 
     void changeText(const QString &str, int cursorPosition);
 
+    QMenu *mousePopupMenu() override;
+
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);
@@ -61,6 +63,10 @@ private:
     void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
     void slotCompletionAvailable();
     void slotComplete(const QModelIndex &index);
+    void slotSetAsBold();
+    void slotSetAsItalic();
+    void slotSetAsStrikeOut();
+    void insertFormat(QChar formatChar);
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;

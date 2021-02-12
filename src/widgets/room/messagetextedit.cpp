@@ -26,8 +26,13 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
+#include <KLocalizedString>
+
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
+#include <QMenu>
+#include <QTextCursor>
+#include <QTextDocument>
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
@@ -105,6 +110,46 @@ void MessageTextEdit::changeText(const QString &newText, int cursorPosition)
     setTextCursor(cursor);
 
     mCurrentInputTextManager->setInputTextChanged(text(), cursorPosition);
+}
+
+QMenu *MessageTextEdit::mousePopupMenu()
+{
+    QMenu *menu = KTextEdit::mousePopupMenu();
+    menu->addSeparator();
+    QMenu *formatMenu = new QMenu(menu);
+    formatMenu->setTitle(i18n("Change Text Format"));
+    menu->addMenu(formatMenu);
+    formatMenu->addAction(i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
+    formatMenu->addAction(i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
+    formatMenu->addAction(i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
+    return menu;
+}
+
+void MessageTextEdit::slotSetAsStrikeOut()
+{
+    insertFormat(QLatin1Char('~'));
+}
+
+void MessageTextEdit::slotSetAsBold()
+{
+    insertFormat(QLatin1Char('*'));
+}
+
+void MessageTextEdit::slotSetAsItalic()
+{
+    insertFormat(QLatin1Char('_'));
+}
+
+void MessageTextEdit::insertFormat(QChar formatChar)
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.hasSelection()) {
+        const QString text = formatChar + cursor.selectedText() + formatChar;
+        cursor.insertText(text);
+    } else {
+        cursor.insertText(QString(formatChar + formatChar));
+    }
+    setTextCursor(cursor);
 }
 
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
