@@ -322,6 +322,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     setUserNames(lstUserNames);
 
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
+    parseDisplaySystemMessage(json);
 }
 
 bool Room::selected() const
