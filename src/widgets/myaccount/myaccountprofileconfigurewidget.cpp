@@ -53,6 +53,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mName->setObjectName(QStringLiteral("mName"));
     new LineEditCatchReturnKey(mName, this);
     mainLayout->addRow(i18n("Name:"), mName);
+    mName->setClearButtonEnabled(true);
 
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
@@ -68,11 +69,13 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mNickName->setObjectName(QStringLiteral("mNickName"));
     new LineEditCatchReturnKey(mNickName, this);
     mainLayout->addRow(i18n("Nickname:"), mNickName);
+    mNickName->setClearButtonEnabled(true);
 
     mStatusText = new QLineEdit(this);
     new LineEditCatchReturnKey(mStatusText, this);
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
+    mStatusText->setClearButtonEnabled(true);
 
     mPasswordConfirmWidget = new PasswordConfirmWidget(this);
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));

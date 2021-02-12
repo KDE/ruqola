@@ -53,12 +53,15 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
+    QVERIFY(mName->isClearButtonEnabled());
 
     auto mNickName = w.findChild<QLineEdit *>(QStringLiteral("mNickName"));
     QVERIFY(mNickName);
+    QVERIFY(mNickName->isClearButtonEnabled());
 
     auto mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
     QVERIFY(mStatusText);
+    QVERIFY(mStatusText->isClearButtonEnabled());
 
     auto mDeleteMyAccount = w.findChild<QPushButton *>(QStringLiteral("mDeleteMyAccount"));
     QVERIFY(mDeleteMyAccount);
