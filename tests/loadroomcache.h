@@ -29,7 +29,7 @@ class LoadRoomCache : public QWidget
     Q_OBJECT
 public:
     explicit LoadRoomCache(QWidget *parent = nullptr);
-    ~LoadRoomCache() = default;
+    ~LoadRoomCache() override = default;
 
 private:
     void slotOpenFile();

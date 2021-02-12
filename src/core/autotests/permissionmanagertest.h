@@ -28,7 +28,7 @@ class PermissionManagerTest : public QObject
     Q_OBJECT
 public:
     explicit PermissionManagerTest(QObject *parent = nullptr);
-    ~PermissionManagerTest() = default;
+    ~PermissionManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldHasRoles();

@@ -28,7 +28,7 @@ class PermissionTest : public QObject
     Q_OBJECT
 public:
     explicit PermissionTest(QObject *parent = nullptr);
-    ~PermissionTest() = default;
+    ~PermissionTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
