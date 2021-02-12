@@ -242,6 +242,7 @@ void ChannelInfoWidget::updateEditableChannelInfo()
     mEncrypted->setVisible(mRoom->encryptedEnabled());
     mEncrypted->setChecked(mRoom->encrypted());
     mEncryptedLabel->setVisible(mRoom->encryptedEnabled());
+    mSystemMessageCombox->setMessagesSystem(mRoom->displaySystemMessageTypes());
     joinCodeChanged();
 }
 

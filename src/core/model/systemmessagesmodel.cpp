@@ -67,8 +67,19 @@ void SystemMessagesModel::fillModel()
 
 void SystemMessagesModel::setMessagesSystem(const QStringList &lst)
 {
-    // item->setData(Qt::Checked, Qt::CheckStateRole);
-    // TODO
+    const int rowCountNb = rowCount();
+    // First one is not a message type
+    for (int i = 1; i < rowCountNb; i++) {
+        QStandardItem *itemModel = item(i);
+        if (itemModel) {
+            for (const QString &s : lst) {
+                if (itemModel->data(SystemMessages).toString() == s) {
+                    itemModel->setCheckState(Qt::Checked);
+                    break;
+                }
+            }
+        }
+    }
 }
 
 QStringList SystemMessagesModel::systemMessagesSelected() const
