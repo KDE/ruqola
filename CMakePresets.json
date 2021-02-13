@@ -48,6 +48,17 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
-	}
+	},
+	{
+            "name": "coverage",
+            "displayName": "coverage",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-coverage",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "USE_UNITY_CMAKE_SUPPORT": "ON",
+                "BUILD_COVERAGE": "ON" 
+            }
+        }
     ]
 }
