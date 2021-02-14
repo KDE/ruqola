@@ -20,6 +20,7 @@
 
 #include "searchchannelwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
 #include "rocketchataccount.h"
@@ -33,20 +34,21 @@
 
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchLineEdit(new SearchWithDelayLineEdit(this))
+    , mResultListWidget(new QListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Channel..."));
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &SearchChannelWidget::slotTextChanged);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchChannelWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
 
-    mResultListWidget = new QListView(this);
     mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchChannelFilterProxyModel());
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);

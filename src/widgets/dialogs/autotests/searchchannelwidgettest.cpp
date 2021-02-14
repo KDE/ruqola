@@ -20,7 +20,7 @@
 
 #include "searchchannelwidgettest.h"
 #include "dialogs/searchchannelwidget.h"
-#include <QLineEdit>
+#include "misc/searchwithdelaylineedit.h"
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
@@ -38,7 +38,7 @@ void SearchChannelWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());

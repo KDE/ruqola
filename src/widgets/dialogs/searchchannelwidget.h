@@ -23,7 +23,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class QLineEdit;
+class SearchWithDelayLineEdit;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
 {
@@ -35,8 +35,8 @@ public:
 private:
     void slotOpenChannel(const QModelIndex &index);
     void slotTextChanged(const QString &str);
-    QLineEdit *mSearchLineEdit = nullptr;
-    QListView *mResultListWidget = nullptr;
+    SearchWithDelayLineEdit *const mSearchLineEdit;
+    QListView *const mResultListWidget;
 };
 
 #endif // SEARCHCHANNELWIDGET_H
