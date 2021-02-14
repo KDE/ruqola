@@ -41,14 +41,14 @@ Q_SIGNALS:
 
 private:
     void slotCheckDateTime();
-    QCheckBox *mInclusive = nullptr;
-    QCheckBox *mDoNotPrunePinnedMessage = nullptr;
-    QCheckBox *mDoNotPruneDiscussionMessage = nullptr;
-    QCheckBox *mDoNotPruneThreads = nullptr;
-    QCheckBox *mOnlyRemoveAttachedFiles = nullptr;
-    QDateTimeEdit *mLastestDateTimeEdit = nullptr;
-    QDateTimeEdit *mOldestDateTimeEdit = nullptr;
-    AddUsersWidget *mUsers = nullptr;
+    QCheckBox *const mInclusive;
+    QCheckBox *const mDoNotPrunePinnedMessage;
+    QCheckBox *const mDoNotPruneDiscussionMessage;
+    QCheckBox *const mDoNotPruneThreads;
+    QCheckBox *const mOnlyRemoveAttachedFiles;
+    QDateTimeEdit *const mLastestDateTimeEdit;
+    QDateTimeEdit *const mOldestDateTimeEdit;
+    AddUsersWidget *const mUsers;
 };
 
 #endif // PRUNEMESSAGESWIDGET_H

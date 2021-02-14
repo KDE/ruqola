@@ -30,6 +30,14 @@
 
 PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     : QWidget(parent)
+    , mInclusive(new QCheckBox(i18n("Inclusive"), this))
+    , mDoNotPrunePinnedMessage(new QCheckBox(i18n("Do not Prune Pinned Messages"), this))
+    , mDoNotPruneDiscussionMessage(new QCheckBox(i18n("Do not Prune Discussion Messages"), this))
+    , mDoNotPruneThreads(new QCheckBox(i18n("Do not Prune Threads"), this))
+    , mOnlyRemoveAttachedFiles(new QCheckBox(i18n("Only Remove Attached Files. Keep messages"), this))
+    , mLastestDateTimeEdit(new QDateTimeEdit(this))
+    , mOldestDateTimeEdit(new QDateTimeEdit(this))
+    , mUsers(new AddUsersWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -44,7 +52,6 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     lastestLabel->setObjectName(QStringLiteral("lastestLabel"));
     lastestLayout->addWidget(lastestLabel);
 
-    mLastestDateTimeEdit = new QDateTimeEdit(this);
     mLastestDateTimeEdit->setObjectName(QStringLiteral("mLastestDateTimeEdit"));
     connect(mLastestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     lastestLayout->addWidget(mLastestDateTimeEdit);
@@ -58,7 +65,6 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     oldestLabel->setObjectName(QStringLiteral("oldestLabel"));
     oldestLayout->addWidget(oldestLabel);
 
-    mOldestDateTimeEdit = new QDateTimeEdit(this);
     mOldestDateTimeEdit->setObjectName(QStringLiteral("mOldestDateTimeEdit"));
     connect(mOldestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     oldestLayout->addWidget(mOldestDateTimeEdit);
@@ -69,28 +75,22 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     usersLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(usersLabel);
 
-    mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Select Users..."));
     mainLayout->addWidget(mUsers);
 
-    mInclusive = new QCheckBox(i18n("Inclusive"), this);
     mInclusive->setObjectName(QStringLiteral("mInclusive"));
     mainLayout->addWidget(mInclusive);
 
-    mDoNotPrunePinnedMessage = new QCheckBox(i18n("Do not Prune Pinned Messages"), this);
     mDoNotPrunePinnedMessage->setObjectName(QStringLiteral("mDoNotPrunePinnedMessage"));
     mainLayout->addWidget(mDoNotPrunePinnedMessage);
 
-    mDoNotPruneDiscussionMessage = new QCheckBox(i18n("Do not Prune Discussion Messages"), this);
     mDoNotPruneDiscussionMessage->setObjectName(QStringLiteral("mDoNotPruneDiscussionMessage"));
     mainLayout->addWidget(mDoNotPruneDiscussionMessage);
 
-    mDoNotPruneThreads = new QCheckBox(i18n("Do not Prune Threads"), this);
     mDoNotPruneThreads->setObjectName(QStringLiteral("mDoNotPruneThreads"));
     mainLayout->addWidget(mDoNotPruneThreads);
 
-    mOnlyRemoveAttachedFiles = new QCheckBox(i18n("Only Remove Attached Files. Keep messages"), this);
     mOnlyRemoveAttachedFiles->setObjectName(QStringLiteral("mOnlyRemoveAttachedFiles"));
     mainLayout->addWidget(mOnlyRemoveAttachedFiles);
     mainLayout->addStretch(1);
