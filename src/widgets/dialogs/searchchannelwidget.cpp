@@ -45,7 +45,9 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     mSearchLineEdit->setPlaceholderText(i18n("Search Channel..."));
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
-    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &SearchChannelWidget::slotTextChanged);
+    connect(mSearchLineEdit, &QLineEdit::returnPressed, this, [this]() {
+        slotTextChanged(mSearchLineEdit->text());
+    });
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchChannelWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
 
