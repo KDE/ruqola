@@ -18,27 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGELINEEDIT_H
-#define SEARCHMESSAGELINEEDIT_H
+#include "searchwithdelaylineedit.h"
+#include <KLocalizedString>
+#include <QTimer>
 
-#include <QLineEdit>
-
-#include "libruqolawidgets_private_export.h"
-class QTimer;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageLineEdit : public QLineEdit
+SearchWithDelayLineEdit::SearchWithDelayLineEdit(QWidget *parent)
+    : QLineEdit(parent)
+    , mSearchTimer(new QTimer(this))
 {
-    Q_OBJECT
-public:
-    explicit SearchMessageLineEdit(QWidget *parent = nullptr);
-    ~SearchMessageLineEdit() override;
+    setClearButtonEnabled(true);
+    setPlaceholderText(i18n("Search Word..."));
+    connect(mSearchTimer, &QTimer::timeout, this, &SearchWithDelayLineEdit::slotSearchTimerFired);
+    connect(this, &SearchWithDelayLineEdit::textChanged, this, &SearchWithDelayLineEdit::slotSearchTextEdited);
+}
 
-Q_SIGNALS:
-    void searchMessage(const QString &str);
+SearchWithDelayLineEdit::~SearchWithDelayLineEdit()
+{
+}
 
-private:
-    void slotSearchTimerFired();
-    void slotSearchTextEdited();
-    QTimer *const mSearchTimer;
-};
+void SearchWithDelayLineEdit::slotSearchTimerFired()
+{
+    mSearchTimer->stop();
+    if (!text().trimmed().isEmpty()) {
+        Q_EMIT searchRequired(text());
+    }
+}
 
-#endif // SEARCHMESSAGELINEEDIT_H
+void SearchWithDelayLineEdit::slotSearchTextEdited()
+{
+    if (mSearchTimer->isActive()) {
+        mSearchTimer->stop(); // eventually
+    }
+
+    mSearchTimer->setSingleShot(true);
+    mSearchTimer->start(1000);
+}

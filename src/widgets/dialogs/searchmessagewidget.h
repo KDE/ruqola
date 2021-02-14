@@ -24,7 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class SearchMessageLineEdit;
+class SearchWithDelayLineEdit;
 class MessageListView;
 class QLabel;
 class SearchMessageFilterProxyModel;
@@ -53,7 +53,7 @@ private:
     Q_REQUIRED_RESULT QString displayShowSearch() const;
     QString mRoomId;
     QLabel *mSearchLabel = nullptr;
-    SearchMessageLineEdit *mSearchLineEdit = nullptr;
+    SearchWithDelayLineEdit *mSearchLineEdit = nullptr;
     MessageListView *mResultListWidget = nullptr;
     SearchMessageFilterProxyModel *mModel = nullptr;
 };

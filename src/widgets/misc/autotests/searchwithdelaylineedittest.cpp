@@ -18,38 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchmessagelineedit.h"
-#include <KLocalizedString>
-#include <QTimer>
-
-SearchMessageLineEdit::SearchMessageLineEdit(QWidget *parent)
-    : QLineEdit(parent)
-    , mSearchTimer(new QTimer(this))
-{
-    setClearButtonEnabled(true);
-    setPlaceholderText(i18n("Search Word..."));
-    connect(mSearchTimer, &QTimer::timeout, this, &SearchMessageLineEdit::slotSearchTimerFired);
-    connect(this, &SearchMessageLineEdit::textChanged, this, &SearchMessageLineEdit::slotSearchTextEdited);
-}
-
-SearchMessageLineEdit::~SearchMessageLineEdit()
+#include "searchwithdelaylineedittest.h"
+#include "misc/searchwithdelaylineedit.h"
+#include <QTest>
+QTEST_MAIN(SearchWithDelayLineEditTest)
+SearchWithDelayLineEditTest::SearchWithDelayLineEditTest(QObject *parent)
+    : QObject(parent)
 {
 }
 
-void SearchMessageLineEdit::slotSearchTimerFired()
+void SearchWithDelayLineEditTest::shouldHaveDefaultValues()
 {
-    mSearchTimer->stop();
-    if (!text().trimmed().isEmpty()) {
-        Q_EMIT searchMessage(text());
-    }
-}
-
-void SearchMessageLineEdit::slotSearchTextEdited()
-{
-    if (mSearchTimer->isActive()) {
-        mSearchTimer->stop(); // eventually
-    }
-
-    mSearchTimer->setSingleShot(true);
-    mSearchTimer->start(1000);
+    SearchWithDelayLineEdit w;
+    QVERIFY(w.isClearButtonEnabled());
+    QVERIFY(!w.placeholderText().isEmpty());
 }

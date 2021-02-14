@@ -19,8 +19,8 @@
 */
 
 #include "searchmessagewidgettest.h"
-#include "dialogs/searchmessagelineedit.h"
 #include "dialogs/searchmessagewidget.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "room/messagelistview.h"
 #include <QLabel>
 #include <QLineEdit>
@@ -36,7 +36,7 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
 {
     SearchMessageWidget w;
 
-    auto mSearchLineEdit = w.findChild<SearchMessageLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());

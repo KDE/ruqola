@@ -18,19 +18,27 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGELINEEDITTEST_H
-#define SEARCHMESSAGELINEEDITTEST_H
+#ifndef SEARCHWITHDELAYLINEEDIT_H
+#define SEARCHWITHDELAYLINEEDIT_H
 
-#include <QObject>
+#include <QLineEdit>
 
-class SearchMessageLineEditTest : public QObject
+#include "libruqolawidgets_private_export.h"
+class QTimer;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchWithDelayLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit SearchMessageLineEditTest(QObject *parent = nullptr);
-    ~SearchMessageLineEditTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit SearchWithDelayLineEdit(QWidget *parent = nullptr);
+    ~SearchWithDelayLineEdit() override;
+
+Q_SIGNALS:
+    void searchRequired(const QString &str);
+
+private:
+    void slotSearchTimerFired();
+    void slotSearchTextEdited();
+    QTimer *const mSearchTimer;
 };
 
-#endif // SEARCHMESSAGELINEEDITTEST_H
+#endif // SEARCHWITHDELAYLINEEDIT_H

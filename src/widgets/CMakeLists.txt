@@ -81,7 +81,6 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/asktwoauthenticationpasswordwidget.cpp
     dialogs/createdirectmessagesdialog.cpp
     dialogs/createdirectmessageswidget.cpp
-    dialogs/searchmessagelineedit.cpp
     )
 
 set(Ruqola_configure_SRCS
@@ -164,6 +163,7 @@ set(Ruqola_misc_widget_SRCS
     misc/twoauthenticationpasswordwidget.cpp
     misc/statuscombobox.cpp
     misc/systemmessagescombobox.cpp
+    misc/searchwithdelaylineedit.cpp
     )
 
 set(Ruqola_common_SRCS

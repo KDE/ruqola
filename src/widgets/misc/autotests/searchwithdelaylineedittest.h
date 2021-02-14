@@ -18,18 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchmessagelineedittest.h"
-#include "dialogs/searchmessagelineedit.h"
-#include <QTest>
-QTEST_MAIN(SearchMessageLineEditTest)
-SearchMessageLineEditTest::SearchMessageLineEditTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#ifndef SEARCHWITHDELAYLINEEDITTEST_H
+#define SEARCHWITHDELAYLINEEDITTEST_H
 
-void SearchMessageLineEditTest::shouldHaveDefaultValues()
+#include <QObject>
+
+class SearchWithDelayLineEditTest : public QObject
 {
-    SearchMessageLineEdit w;
-    QVERIFY(w.isClearButtonEnabled());
-    QVERIFY(!w.placeholderText().isEmpty());
-}
+    Q_OBJECT
+public:
+    explicit SearchWithDelayLineEditTest(QObject *parent = nullptr);
+    ~SearchWithDelayLineEditTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
+
+#endif // SEARCHWITHDELAYLINEEDITTEST_H
