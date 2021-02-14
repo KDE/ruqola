@@ -32,26 +32,26 @@
 
 SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchLabel(new QLabel(this))
+    , mSearchLineEdit(new SearchWithDelayLineEdit(this))
+    , mResultListWidget(new MessageListView(MessageListView::Mode::Viewing, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit = new SearchWithDelayLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Channel"));
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchMessageWidget::slotSearchMessages);
 
-    mSearchLabel = new QLabel(this);
     mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
     QFont labFont = mSearchLabel->font();
     labFont.setBold(true);
     mSearchLabel->setFont(labFont);
     mainLayout->addWidget(mSearchLabel);
 
-    mResultListWidget = new MessageListView(MessageListView::Mode::Viewing, this);
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);

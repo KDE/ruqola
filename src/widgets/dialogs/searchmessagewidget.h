@@ -52,9 +52,9 @@ private:
     void slotSearchMessages(const QString &str);
     Q_REQUIRED_RESULT QString displayShowSearch() const;
     QString mRoomId;
-    QLabel *mSearchLabel = nullptr;
-    SearchWithDelayLineEdit *mSearchLineEdit = nullptr;
-    MessageListView *mResultListWidget = nullptr;
+    QLabel *const mSearchLabel;
+    SearchWithDelayLineEdit *const mSearchLineEdit;
+    MessageListView *const mResultListWidget;
     SearchMessageFilterProxyModel *mModel = nullptr;
 };
 
