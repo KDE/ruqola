@@ -20,13 +20,18 @@
 
 #include "roomwidgetbase.h"
 #include "messagelinewidget.h"
+#include "messagetextedit.h"
 #include "readonlylineeditwidget.h"
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "uploadfileprogressstatuswidget.h"
 
+#include <QKeyEvent>
+#include <QPointer>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+
+#include <dialogs/createnewdiscussiondialog.h>
 
 RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     : QWidget(parent)
@@ -77,14 +82,14 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
-    //    connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidgetBase::keyPressedInLineEdit);
+    connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidgetBase::keyPressedInLineEdit);
     //    connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidgetBase::slotShowThreadMessage);
-    //    connect(mMessageLineWidget, &MessageLineWidget::quoteMessageChanged, this, &RoomWidgetBase::slotShowQuoteMessage);
+    connect(mMessageLineWidget, &MessageLineWidget::quoteMessageChanged, this, &RoomWidgetBase::slotShowQuoteMessage);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setQuoteMessage);
-    //    connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::slotCreateNewDiscussion);
-    //    connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidgetBase::slotCreatePrivateDiscussion);
+    connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::slotCreateNewDiscussion);
+    connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidgetBase::slotCreatePrivateDiscussion);
     //    connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::slotLoadHistory);
     connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId) {
         mMessageLineWidget->setThreadMessageId(messageId);
@@ -105,4 +110,45 @@ MessageListView *RoomWidgetBase::messageListView() const
 MessageLineWidget *RoomWidgetBase::messageLineWidget() const
 {
     return mMessageLineWidget;
+}
+
+void RoomWidgetBase::slotShowQuoteMessage(const QString &permalink, const QString &text)
+{
+    mRoomQuoteMessageWidget->setMessageText(text);
+    mRoomQuoteMessageWidget->setVisible(!permalink.isEmpty());
+}
+
+void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+{
+#if 0
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    dlg->setDiscussionName(originalMessage);
+    dlg->setChannelName(mRoomHeaderWidget->roomName());
+    if (dlg->exec()) {
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+    }
+    delete dlg;
+#endif
+}
+
+void RoomWidgetBase::slotCreatePrivateDiscussion(const QString &userName)
+{
+#if 0
+    Q_EMIT mCurrentRocketChatAccount->openLinkRequested(RoomUtil::generateUserLink(userName));
+#endif
+}
+
+void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
+{
+    const int key = ev->key();
+    if (key == Qt::Key_Escape) {
+        Q_EMIT cleanNotification();
+        ev->accept();
+    } else if (ev->matches(QKeySequence::Copy) && mMessageLineWidget->messageTextEdit()->textCursor().selectedText().isEmpty()) {
+        mMessageListView->copyMessageToClipboard();
+        ev->accept();
+    } else {
+        mMessageListView->handleKeyPressEvent(ev);
+    }
 }

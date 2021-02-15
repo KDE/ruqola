@@ -42,7 +42,14 @@ public:
 
     Q_REQUIRED_RESULT MessageLineWidget *messageLineWidget() const;
 
+Q_SIGNALS:
+    void cleanNotification();
+
 private:
+    void slotShowQuoteMessage(const QString &permalink, const QString &text);
+    void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
+    void slotCreatePrivateDiscussion(const QString &userName);
+    void keyPressedInLineEdit(QKeyEvent *ev);
     UploadFileProgressStatusWidget *const mUploadFileProgressStatusWidget;
     MessageListView *const mMessageListView;
     RoomReplyThreadWidget *const mRoomReplyThreadWidget;
