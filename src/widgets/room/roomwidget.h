@@ -40,6 +40,7 @@ class Room;
 class RoomReplyThreadWidget;
 class RoomQuoteMessageWidget;
 class UploadFileProgressStatusWidget;
+class RoomWidgetBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -71,8 +72,6 @@ private:
     void updateRoomHeader();
     void connectRoom();
     void slotChangeFavorite(bool b);
-    void keyPressedInLineEdit(QKeyEvent *ev);
-    void slotShowThreadMessage(const QString &threadMessageId);
     void setRoomType(const QString &roomType);
     void slotEncryptedChanged(bool b);
     void slotGoBackToRoom();
@@ -100,26 +99,16 @@ private:
     void slotUpdateRoomCounterInfoWidget();
     void slotExportMessages();
     void slotFollowMessages();
-    void slotShowQuoteMessage(const QString &permalink, const QString &text);
-    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 
     QString mRoomId;
     QString mRoomType;
 
+    RoomWidgetBase *const mRoomWidgetBase;
+
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
-    MessageListView *mMessageListView = nullptr;
-
-    RoomReplyThreadWidget *mRoomReplyThreadWidget = nullptr;
-
-    RoomQuoteMessageWidget *mRoomQuoteMessageWidget = nullptr;
-
-    MessageLineWidget *mMessageLineWidget = nullptr;
     Room *mRoom = nullptr;
-    QStackedWidget *mStackedWidget = nullptr;
-    ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
     UsersInRoomFlowWidget *mUsersInRoomFlowWidget = nullptr;
     RoomCounterInfoWidget *mRoomCounterInfoWidget = nullptr;
-    UploadFileProgressStatusWidget *mUploadFileProgressStatusWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

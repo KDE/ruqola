@@ -34,6 +34,7 @@ class QStackedWidget;
 class MessageLineWidget;
 class ReadOnlyLineEditWidget;
 class RocketChatAccount;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidgetBase : public QWidget
 {
     Q_OBJECT
@@ -49,6 +50,9 @@ public:
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
+
+    void updateListView();
+    void updateRoomReadOnly(Room *room);
 
 private:
     void slotClearNotification();

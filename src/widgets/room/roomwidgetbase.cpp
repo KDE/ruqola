@@ -24,6 +24,7 @@
 #include "messagetextedit.h"
 #include "readonlylineeditwidget.h"
 #include "rocketchataccount.h"
+#include "room.h"
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomutil.h"
@@ -223,4 +224,20 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
 void RoomWidgetBase::slotClearNotification()
 {
     mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
+}
+
+void RoomWidgetBase::updateListView()
+{
+    mMessageListView->clearTextDocumentCache();
+    mMessageListView->viewport()->update();
+}
+
+void RoomWidgetBase::updateRoomReadOnly(Room *room)
+{
+    if (room->roomMessageInfo().isEmpty()) {
+        mStackedWidget->setCurrentWidget(mMessageLineWidget);
+    } else {
+        mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
+        mReadOnlyLineEditWidget->setMessage(room->roomMessageInfo());
+    }
 }
