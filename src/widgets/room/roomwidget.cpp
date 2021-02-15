@@ -104,7 +104,7 @@ RoomWidget::~RoomWidget()
 
 void RoomWidget::slotLoadHistory()
 {
-    mCurrentRocketChatAccount->loadHistory(mRoomId, mRoomType);
+    mCurrentRocketChatAccount->loadHistory(mRoomWidgetBase->roomId(), mRoomType);
 }
 
 void RoomWidget::slotChannelInfoRequested()
@@ -178,7 +178,7 @@ void RoomWidget::slotPruneMessages()
     QPointer<PruneMessagesDialog> dlg = new PruneMessagesDialog(this);
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
-        info.roomId = mRoomId;
+        info.roomId = mRoomWidgetBase->roomId();
         if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Do you want really remove history?"), i18n("Remove History"))) {
             mCurrentRocketChatAccount->cleanChannelHistory(info);
         }
@@ -191,7 +191,7 @@ void RoomWidget::slotExportMessages()
     QPointer<ExportMessagesDialog> dlg = new ExportMessagesDialog(this);
     if (dlg->exec()) {
         RocketChatRestApi::RoomsExportJob::RoomsExportInfo info = dlg->roomExportInfo();
-        info.roomId = mRoomId;
+        info.roomId = mRoomWidgetBase->roomId();
         mCurrentRocketChatAccount->exportMessages(info);
     }
     delete dlg;
@@ -199,7 +199,7 @@ void RoomWidget::slotExportMessages()
 
 void RoomWidget::slotVideoChat()
 {
-    mCurrentRocketChatAccount->createJitsiConfCall(mRoomId);
+    mCurrentRocketChatAccount->createJitsiConfCall(mRoomWidgetBase->roomId());
 }
 
 void RoomWidget::slotAddUsersInRoom()
@@ -208,7 +208,7 @@ void RoomWidget::slotAddUsersInRoom()
     if (dlg->exec()) {
         const QStringList users = dlg->users();
         for (const QString &user : users) {
-            mCurrentRocketChatAccount->addUserToRoom(user, mRoomId, mRoomType);
+            mCurrentRocketChatAccount->addUserToRoom(user, mRoomWidgetBase->roomId(), mRoomType);
         }
     }
     delete dlg;
@@ -217,7 +217,7 @@ void RoomWidget::slotAddUsersInRoom()
 void RoomWidget::slotInviteUsers()
 {
     QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(this);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->generateLink();
     dlg->exec();
     delete dlg;
@@ -247,11 +247,11 @@ void RoomWidget::slotConfigureNotification()
 void RoomWidget::slotStarredMessages()
 {
     QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
-    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::StarredMessages);
+    mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::StarredMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
@@ -260,11 +260,11 @@ void RoomWidget::slotStarredMessages()
 void RoomWidget::slotPinnedMessages()
 {
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::PinnedMessages);
+    mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::PinnedMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
@@ -273,11 +273,11 @@ void RoomWidget::slotPinnedMessages()
 void RoomWidget::slotShowMentions()
 {
     QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
-    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::MentionsMessages);
+    mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::MentionsMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
@@ -286,11 +286,11 @@ void RoomWidget::slotShowMentions()
 void RoomWidget::slotSnipperedMessages()
 {
     QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
-    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::SnipperedMessages);
+    mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::SnipperedMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
@@ -301,9 +301,9 @@ void RoomWidget::slotShowThreads()
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setRoom(mRoom);
-    mCurrentRocketChatAccount->getListMessages(mRoomId, ListMessagesModel::ThreadsMessages);
+    mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::ThreadsMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
     dlg->exec();
     delete dlg;
@@ -313,8 +313,8 @@ void RoomWidget::slotShowDiscussions()
 {
     QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
     dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
-    dlg->setRoomId(mRoomId);
-    mCurrentRocketChatAccount->discussionsInRoom(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
+    mCurrentRocketChatAccount->discussionsInRoom(mRoomWidgetBase->roomId());
     dlg->exec();
     delete dlg;
 }
@@ -322,9 +322,9 @@ void RoomWidget::slotShowDiscussions()
 void RoomWidget::slotShowFileAttachments()
 {
     QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
-    mCurrentRocketChatAccount->roomFiles(mRoomId, mRoomType);
+    mCurrentRocketChatAccount->roomFiles(mRoomWidgetBase->roomId(), mRoomType);
     dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setRoomType(mRoomType);
     dlg->exec();
     delete dlg;
@@ -334,7 +334,7 @@ void RoomWidget::slotSearchMessages()
 {
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setRoomId(mRoomId);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
     connect(dlg, &SearchMessageDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
@@ -349,7 +349,7 @@ void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString
     dlg->setChannelName(mRoomHeaderWidget->roomName());
     if (dlg->exec()) {
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+        mCurrentRocketChatAccount->createDiscussion(mRoomWidgetBase->roomId(), info.discussionName, info.message, messageId, info.users);
     }
     delete dlg;
 }
@@ -383,16 +383,16 @@ void RoomWidget::storeRoomSettings()
             if (vbar->value() != vbar->maximum()) {
                 AccountRoomSettings::PendingTypedInfo info;
                 info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
-                mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
+                mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
             } else {
-                mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomId);
+                mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomWidgetBase->roomId());
             }
         } else {
             AccountRoomSettings::PendingTypedInfo info;
             info.text = mRoomWidgetBase->messageLineWidget()->text();
             info.messageIdBeingEdited = mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited();
             info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
-            mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomId, info);
+            mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
         }
     }
 }
@@ -448,7 +448,7 @@ void RoomWidget::updateRoomHeader()
 
 QString RoomWidget::roomId() const
 {
-    return mRoomId;
+    return mRoomWidgetBase->roomId();
 }
 
 void RoomWidget::setRoomType(const QString &roomType)
@@ -468,8 +468,8 @@ void RoomWidget::slotShowListOfUsersInRoom(bool checked)
 
 void RoomWidget::setRoomId(const QString &roomId)
 {
-    mRoomId = roomId;
-    mRoom = mCurrentRocketChatAccount->room(mRoomId);
+    mRoomWidgetBase->setRoomId(roomId);
+    mRoom = mCurrentRocketChatAccount->room(mRoomWidgetBase->roomId());
     if (mRoom) {
         connectRoom();
         mRoomWidgetBase->messageLineWidget()->setRoomId(roomId);
@@ -511,7 +511,7 @@ void RoomWidget::connectRoom()
 
 void RoomWidget::slotClearNotification()
 {
-    mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
+    mCurrentRocketChatAccount->markRoomAsRead(mRoomWidgetBase->roomId());
 }
 
 void RoomWidget::slotEncryptedChanged(bool b)
@@ -522,7 +522,7 @@ void RoomWidget::slotEncryptedChanged(bool b)
 
 void RoomWidget::slotChangeFavorite(bool b)
 {
-    mCurrentRocketChatAccount->changeFavorite(mRoomId, b);
+    mCurrentRocketChatAccount->changeFavorite(mRoomWidgetBase->roomId(), b);
 }
 
 QString RoomWidget::roomType() const
@@ -540,7 +540,6 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
-    mRoomId.clear(); // Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
 }
 
 void RoomWidget::slotGoBackToRoom()
