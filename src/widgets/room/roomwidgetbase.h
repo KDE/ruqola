@@ -23,6 +23,8 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "messagelistview.h"
+#include "uploadfilejob.h"
+#include <QPointer>
 #include <QWidget>
 
 class UploadFileProgressStatusWidget;
@@ -31,6 +33,7 @@ class RoomQuoteMessageWidget;
 class QStackedWidget;
 class MessageLineWidget;
 class ReadOnlyLineEditWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidgetBase : public QWidget
 {
     Q_OBJECT
@@ -42,14 +45,22 @@ public:
 
     Q_REQUIRED_RESULT MessageLineWidget *messageLineWidget() const;
 
-Q_SIGNALS:
-    void cleanNotification();
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
+
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
 
 private:
+    void slotClearNotification();
     void slotShowQuoteMessage(const QString &permalink, const QString &text);
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     void slotCreatePrivateDiscussion(const QString &userName);
     void keyPressedInLineEdit(QKeyEvent *ev);
+    void slotShowThreadMessage(const QString &threadMessageId);
+    void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview);
+    void slotLoadHistory();
+    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+    QString mRoomId;
     UploadFileProgressStatusWidget *const mUploadFileProgressStatusWidget;
     MessageListView *const mMessageListView;
     RoomReplyThreadWidget *const mRoomReplyThreadWidget;
@@ -57,6 +68,7 @@ private:
     QStackedWidget *const mStackedWidget;
     MessageLineWidget *const mMessageLineWidget;
     ReadOnlyLineEditWidget *const mReadOnlyLineEditWidget;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
 #endif // ROOMWIDGETBASE_H

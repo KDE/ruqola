@@ -19,19 +19,21 @@
 */
 
 #include "roomwidgetbase.h"
+#include "dialogs/createnewdiscussiondialog.h"
 #include "messagelinewidget.h"
 #include "messagetextedit.h"
 #include "readonlylineeditwidget.h"
+#include "rocketchataccount.h"
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
+#include "roomutil.h"
+#include "threadwidget/threadmessagedialog.h"
 #include "uploadfileprogressstatuswidget.h"
 
 #include <QKeyEvent>
 #include <QPointer>
 #include <QStackedWidget>
 #include <QVBoxLayout>
-
-#include <dialogs/createnewdiscussiondialog.h>
 
 RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     : QWidget(parent)
@@ -83,14 +85,14 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
     connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidgetBase::keyPressedInLineEdit);
-    //    connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidgetBase::slotShowThreadMessage);
+    connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidgetBase::slotShowThreadMessage);
     connect(mMessageLineWidget, &MessageLineWidget::quoteMessageChanged, this, &RoomWidgetBase::slotShowQuoteMessage);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setQuoteMessage);
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::slotCreateNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidgetBase::slotCreatePrivateDiscussion);
-    //    connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::slotLoadHistory);
+    connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::slotLoadHistory);
     connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId) {
         mMessageLineWidget->setThreadMessageId(messageId);
     });
@@ -100,6 +102,16 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
 RoomWidgetBase::~RoomWidgetBase()
 {
+}
+
+void RoomWidgetBase::slotLoadHistory()
+{
+    // mCurrentRocketChatAccount->loadHistory(mRoomId, mRoomType);
+}
+
+void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId)
+{
+    mRoomReplyThreadWidget->setVisible(!threadMessageId.isEmpty());
 }
 
 MessageListView *RoomWidgetBase::messageListView() const
@@ -120,30 +132,26 @@ void RoomWidgetBase::slotShowQuoteMessage(const QString &permalink, const QStrin
 
 void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {
-#if 0
-    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
-    dlg->setDiscussionName(originalMessage);
-    dlg->setChannelName(mRoomHeaderWidget->roomName());
-    if (dlg->exec()) {
-        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
-    }
-    delete dlg;
-#endif
+    //    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    //    dlg->setDiscussionName(originalMessage);
+    //    dlg->setChannelName(mRoomHeaderWidget->roomName());
+    //    if (dlg->exec()) {
+    //        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+    //        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+    //    }
+    //    delete dlg;
 }
 
 void RoomWidgetBase::slotCreatePrivateDiscussion(const QString &userName)
 {
-#if 0
     Q_EMIT mCurrentRocketChatAccount->openLinkRequested(RoomUtil::generateUserLink(userName));
-#endif
 }
 
 void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Escape) {
-        Q_EMIT cleanNotification();
+        slotClearNotification();
         ev->accept();
     } else if (ev->matches(QKeySequence::Copy) && mMessageLineWidget->messageTextEdit()->textCursor().selectedText().isEmpty()) {
         mMessageListView->copyMessageToClipboard();
@@ -151,4 +159,68 @@ void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
     } else {
         mMessageListView->handleKeyPressEvent(ev);
     }
+}
+
+void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
+{
+    if (info.bytesSent > 0 && info.bytesTotal > 0) {
+        mUploadFileProgressStatusWidget->setVisible(true);
+        mUploadFileProgressStatusWidget->setUploadFileName(info.fileName);
+        mUploadFileProgressStatusWidget->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
+    } else {
+        mUploadFileProgressStatusWidget->setVisible(false);
+    }
+}
+
+QString RoomWidgetBase::roomId() const
+{
+    return mRoomId;
+}
+
+void RoomWidgetBase::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+void RoomWidgetBase::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
+{
+    //    QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
+    //    dlg->setThreadMessageId(threadMessageId);
+    //    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    //    dlg->setThreadPreview(threadMessagePreview);
+    //    dlg->setRoom(mRoom);
+    //    dlg->exec();
+    //    delete dlg;
+}
+
+void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidgetBase::slotOpenThreadRequested);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
+        disconnect(mCurrentRocketChatAccount,
+                   &RocketChatAccount::ownUserPreferencesChanged,
+                   mMessageLineWidget,
+                   &MessageLineWidget::slotOwnUserPreferencesChanged);
+        // hide it when we switch account.
+        mUploadFileProgressStatusWidget->setVisible(false);
+    }
+
+    mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidgetBase::slotOpenThreadRequested);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
+    mMessageListView->setCurrentRocketChatAccount(account);
+    mMessageLineWidget->setCurrentRocketChatAccount(account, false);
+    // When we switch we need to update it.
+    mMessageLineWidget->slotPublicSettingChanged();
+    mMessageLineWidget->slotOwnUserPreferencesChanged();
+    mRoomId.clear(); // Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
+}
+
+void RoomWidgetBase::slotClearNotification()
+{
+    mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
 }
