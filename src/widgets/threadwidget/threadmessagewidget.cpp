@@ -76,6 +76,9 @@ void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account
 {
     mMessageLineWidget->setCurrentRocketChatAccount(account, true);
     mMessageListView->setCurrentRocketChatAccount(account);
+    // When we switch we need to update it.
+    mMessageLineWidget->slotPublicSettingChanged();
+    mMessageLineWidget->slotOwnUserPreferencesChanged();
 }
 
 void ThreadMessageWidget::setRoom(Room *room)
