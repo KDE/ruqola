@@ -48,19 +48,19 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mSendFile = new QToolButton(this);
-    mSendFile->setAutoRaise(true);
-    mSendFile->setObjectName(QStringLiteral("mSendFile"));
-    mainLayout->addWidget(mSendFile);
-    mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
-    connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
-
     mMessageTextEdit = new MessageTextEdit(this);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
     connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
+
+    mSendFile = new QToolButton(this);
+    mSendFile->setAutoRaise(true);
+    mSendFile->setObjectName(QStringLiteral("mSendFile"));
+    mainLayout->addWidget(mSendFile);
+    mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
+    connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setAutoRaise(true);
