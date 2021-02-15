@@ -35,7 +35,6 @@
  </MenuBar>
  <ToolBar noMerge="1" name="mainToolBar" fullWidth="true" ><text>Main Toolbar</text>
   <Action name="create_new_channel" />
-  <Action name="channel_info" />
  </ToolBar>
 </gui>
 
