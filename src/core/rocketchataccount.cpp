@@ -2020,7 +2020,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
         } else if (obj.contains(QLatin1String("rid"))) {
             const QString roomId = obj[QLatin1String("rid")].toString();
             const QString etag = obj[QLatin1String("etag")].toString();
-            qDebug() << "need to update room avatar ";
+            qDebug() << "need to update room avatar " << accountName() << "room" << roomId;
             Utils::AvatarInfo info;
             info.avatarType = Utils::AvatarType::Room;
             info.etag = etag; // Etag
