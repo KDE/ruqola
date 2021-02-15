@@ -24,6 +24,7 @@
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
 #include "room/messagetextedit.h"
+#include "room/roomwidgetbase.h"
 #include "ruqola.h"
 #include <QLabel>
 #include <QMimeData>
@@ -31,26 +32,20 @@
 
 ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     : QWidget(parent)
+    , mThreadPreview(new QLabel(this))
+    , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::ThreadEditing, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mThreadPreview = new QLabel(this);
     mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
     mThreadPreview->setContextMenuPolicy(Qt::CustomContextMenu);
     mThreadPreview->setWordWrap(true);
     mainLayout->addWidget(mThreadPreview);
 
-    mMessageListView = new MessageListView(MessageListView::Mode::ThreadEditing, this);
-    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-    mainLayout->addWidget(mMessageListView, 1);
-
-    mMessageLineWidget = new MessageLineWidget(this);
-    mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
-    mainLayout->addWidget(mMessageLineWidget);
-    connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
-    connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setQuoteMessage);
+    mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
+    mainLayout->addWidget(mRoomWidgetBase);
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
@@ -67,24 +62,24 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
     if (mThreadMessageId != threadMessageId) {
         mThreadMessageId = threadMessageId;
         Ruqola::self()->rocketChatAccount()->getThreadMessages(mThreadMessageId);
-        mMessageListView->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
-        mMessageLineWidget->setThreadMessageId(mThreadMessageId, true);
+        mRoomWidgetBase->messageListView()->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
+        mRoomWidgetBase->messageLineWidget()->setThreadMessageId(mThreadMessageId, true);
     }
 }
 
 void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    mMessageLineWidget->setCurrentRocketChatAccount(account, true);
-    mMessageListView->setCurrentRocketChatAccount(account);
+    mRoomWidgetBase->messageLineWidget()->setCurrentRocketChatAccount(account, true);
+    mRoomWidgetBase->messageListView()->setCurrentRocketChatAccount(account);
     // When we switch we need to update it.
-    mMessageLineWidget->slotPublicSettingChanged();
-    mMessageLineWidget->slotOwnUserPreferencesChanged();
+    mRoomWidgetBase->messageLineWidget()->slotPublicSettingChanged();
+    mRoomWidgetBase->messageLineWidget()->slotOwnUserPreferencesChanged();
 }
 
 void ThreadMessageWidget::setRoom(Room *room)
 {
-    mMessageLineWidget->setRoomId(room->roomId());
-    mMessageListView->setRoom(room);
+    mRoomWidgetBase->messageLineWidget()->setRoomId(room->roomId());
+    mRoomWidgetBase->messageListView()->setRoom(room);
 }
 
 void ThreadMessageWidget::setThreadPreview(const QString &preview)
@@ -104,6 +99,6 @@ void ThreadMessageWidget::dropEvent(QDropEvent *event)
 {
     const QMimeData *mimeData = event->mimeData();
     if (mimeData->hasUrls()) {
-        mMessageLineWidget->handleMimeData(mimeData);
+        mRoomWidgetBase->messageLineWidget()->handleMimeData(mimeData);
     }
 }

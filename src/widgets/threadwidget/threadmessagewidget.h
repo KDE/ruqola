@@ -23,11 +23,10 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class MessageListView;
-class MessageLineWidget;
 class RocketChatAccount;
 class Room;
 class QLabel;
+class RoomWidgetBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -50,9 +49,8 @@ protected:
 
 private:
     QString mThreadMessageId;
-    QLabel *mThreadPreview = nullptr;
-    MessageListView *mMessageListView = nullptr;
-    MessageLineWidget *mMessageLineWidget = nullptr;
+    QLabel *const mThreadPreview;
+    RoomWidgetBase *const mRoomWidgetBase;
 };
 
 #endif // THREADMESSAGEWIDGET_H
