@@ -28,194 +28,96 @@
 
 #include <KLocalizedString>
 
-#include <QAbstractButton>
 #include <QHBoxLayout>
-#include <QPainter>
-#include <QPointer>
-#include <QStyle>
-#include <QStyleOption>
+#include <QIcon>
+#include <QTabBar>
 
-constexpr const double PAD = 0.2;
-
-class AccountButton : public QAbstractButton
+namespace
 {
-    struct UnreadAlert {
-        int unread;
-        bool alert;
-    };
-
-public:
-    explicit AccountButton(QWidget *parent = nullptr)
-        : QAbstractButton(parent)
-        , mAccount(nullptr)
-    {
-        connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, QOverload<>::of(&AccountButton::update));
-
-        setMouseTracking(true);
-        setFocusPolicy(Qt::NoFocus);
-        setAttribute(Qt::WA_Hover);
-    }
-
-    void setAccount(RocketChatAccount *acct)
-    {
-        if (mAccount) {
-            mAccount->disconnect(this);
-            mAccount->roomModel()->disconnect(this);
-            this->disconnect(acct);
-        }
-
-        mAccount = acct;
-
-        if (mAccount) {
-            auto updateFont = [this] {
-                QFont f = font();
-                f.setBold(currentUnreadAlert().alert);
-                setFont(f);
-                updateGeometry();
-            };
-            connect(acct, &RocketChatAccount::accountNameChanged, this, &AccountButton::updateGeometry);
-            connect(acct, &RocketChatAccount::loginStatusChanged, this, &AccountButton::updateGeometry);
-            connect(acct, &RocketChatAccount::loginStatusChanged, this, &AccountButton::updateTooltip);
-            connect(acct->roomModel(), &RoomModel::needToUpdateNotification, this, updateFont);
-            connect(this, &AccountButton::clicked, acct, [acct] {
-                Ruqola::self()->accountManager()->setCurrentAccount(acct->accountName());
-            });
-
-            updateFont();
-        }
-        update();
-    }
-
-    QSize sizeHint() const override
-    {
-        const auto mngr = Ruqola::self()->accountManager();
-        const bool singleAccount = mngr->rocketChatAccountModel()->rowCount() == 1;
-        const double height = fontMetrics().height();
-        const double padding = singleAccount ? 0 : height * PAD;
-        const QSize textSize = fontMetrics().size(Qt::TextSingleLine, currentText());
-        return {static_cast<int>(textSize.width() + padding * 2), static_cast<int>(height + padding * 2)};
-    }
-
-protected:
-    void enterEvent(QEvent *event) override
-    {
-        if (isEnabled()) {
-            update();
-        }
-        QAbstractButton::enterEvent(event);
-    }
-
-    void leaveEvent(QEvent *event) override
-    {
-        if (isEnabled()) {
-            update();
-        }
-        QAbstractButton::leaveEvent(event);
-    }
-
-    void paintEvent(QPaintEvent *) override
-    {
-        if (!mAccount) {
-            return;
-        }
-
-        QPainter p(this);
-
-        const auto mngr = Ruqola::self()->accountManager();
-        if (mngr->rocketChatAccountModel()->rowCount() > 1) {
-            const bool isCurrent = mngr->currentAccount() == mAccount->accountName();
-
-            QStyleOption opt;
-            opt.init(this);
-            if (isDown() || isCurrent) {
-                opt.state |= QStyle::State_Sunken;
-            }
-            style()->drawPrimitive(QStyle::PE_PanelButtonTool, &opt, &p, this);
-        }
-
-        p.setPen(palette().color(QPalette::WindowText));
-        p.setFont(font());
-        p.drawText(rect(), Qt::AlignCenter, currentText());
-    }
-
-private:
-    Q_REQUIRED_RESULT QString currentText() const
-    {
-        QString text = mAccount ? mAccount->displayName() : QString();
-        if (text.isEmpty()) {
-            text = i18n("(Unnamed)");
-        }
-
-        if (mAccount) {
-            if (mAccount->loginStatus() != DDPAuthenticationManager::LoggedIn) {
-                text += QStringLiteral(": %1").arg(currentLoginStatusText());
-            } else if (int unread = currentUnreadAlert().unread) {
-                text += QStringLiteral(" (%1)").arg(unread);
-            }
-        }
-
-        return text;
-    }
-
-    Q_REQUIRED_RESULT UnreadAlert currentUnreadAlert() const
-    {
-        UnreadAlert ua = {0, false};
-        mAccount->roomModel()->getUnreadAlertFromAccount(ua.alert, ua.unread);
-        return ua;
-    }
-
-    Q_REQUIRED_RESULT QString currentLoginStatusText() const
-    {
-        if (mAccount) {
-            if (!mAccount->ddp()->isConnected()) {
-                return i18n("Not connected");
-            }
-            switch (mAccount->loginStatus()) {
-            case DDPAuthenticationManager::Connecting:
-                return i18n("Connecting");
-            case DDPAuthenticationManager::LoginOtpAuthOngoing:
-                return i18n("Login OTP code required");
-            case DDPAuthenticationManager::LoginFailedInvalidUserOrPassword:
-                return i18n("Login failed: invalid username or password");
-            case DDPAuthenticationManager::LoginOngoing:
-                return i18n("Logging in");
-            case DDPAuthenticationManager::LoggedIn:
-                return i18n("Logged in");
-            case DDPAuthenticationManager::LoggedOut:
-                return i18n("Logged out");
-            case DDPAuthenticationManager::FailedToLoginPluginProblem:
-                return i18n("Failed to login due to plugin problem");
-            case DDPAuthenticationManager::GenericError:
-                return i18n("Login failed: generic error");
-            case DDPAuthenticationManager::LoginOtpRequired:
-                return i18n("A one-time password is required to complete the login procedure.");
-            case DDPAuthenticationManager::LoginFailedInvalidOtp:
-                return i18n("Login failed: Invalid OTP code.");
-            case DDPAuthenticationManager::LogoutOngoing:
-            case DDPAuthenticationManager::LogoutCleanUpOngoing:
-            case DDPAuthenticationManager::LoggedOutAndCleanedUp:
-                break;
-            }
-        }
-        return i18n("Unknown state");
-    }
-
-    void updateTooltip()
-    {
-        setToolTip(currentLoginStatusText());
-    }
-
-    QPointer<RocketChatAccount> mAccount;
+struct UnreadAlert {
+    int unread = 0;
+    bool alert = false;
 };
+
+Q_REQUIRED_RESULT QString currentLoginStatusText(RocketChatAccount *account)
+{
+    if (!account->ddp()->isConnected()) {
+        return i18n("Not connected");
+    }
+    switch (account->loginStatus()) {
+    case DDPAuthenticationManager::Connecting:
+        return i18n("Connecting");
+    case DDPAuthenticationManager::LoginOtpAuthOngoing:
+        return i18n("Login OTP code required");
+    case DDPAuthenticationManager::LoginFailedInvalidUserOrPassword:
+        return i18n("Login failed: invalid username or password");
+    case DDPAuthenticationManager::LoginOngoing:
+        return i18n("Logging in");
+    case DDPAuthenticationManager::LoggedIn:
+        return i18n("Logged in");
+    case DDPAuthenticationManager::LoggedOut:
+        return i18n("Logged out");
+    case DDPAuthenticationManager::FailedToLoginPluginProblem:
+        return i18n("Failed to login due to plugin problem");
+    case DDPAuthenticationManager::GenericError:
+        return i18n("Login failed: generic error");
+    case DDPAuthenticationManager::LoginOtpRequired:
+        return i18n("A one-time password is required to complete the login procedure.");
+    case DDPAuthenticationManager::LoginFailedInvalidOtp:
+        return i18n("Login failed: Invalid OTP code.");
+    case DDPAuthenticationManager::LogoutOngoing:
+    case DDPAuthenticationManager::LogoutCleanUpOngoing:
+    case DDPAuthenticationManager::LoggedOutAndCleanedUp:
+        break;
+    }
+    return i18n("Unknown state");
+}
+
+Q_REQUIRED_RESULT UnreadAlert currentUnreadAlert(RocketChatAccount *account)
+{
+    UnreadAlert ua;
+    account->roomModel()->getUnreadAlertFromAccount(ua.alert, ua.unread);
+    return ua;
+}
+
+Q_REQUIRED_RESULT QString currentText(RocketChatAccount *account)
+{
+    QString text = account->displayName();
+    if (text.isEmpty()) {
+        text = i18n("(Unnamed)");
+    }
+
+    if (account->loginStatus() != DDPAuthenticationManager::LoggedIn) {
+        text += QStringLiteral(": %1").arg(currentLoginStatusText(account));
+    } else if (int unread = currentUnreadAlert(account).unread) {
+        text += QStringLiteral(" (%1)").arg(unread);
+    }
+
+    return text;
+}
+}
 
 AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     : QWidget(parent)
+    , mTabBar(new QTabBar(this))
 {
+    mTabBar->setShape(QTabBar::RoundedSouth);
+
     setLayout(new QHBoxLayout);
     layout()->setContentsMargins(0, 0, 0, 0);
-    const auto model = Ruqola::self()->accountManager()->rocketChatAccountModel();
+    layout()->addWidget(mTabBar);
+
+    auto accountManager = Ruqola::self()->accountManager();
+    const auto model = accountManager->rocketChatAccountModel();
     connect(model, &RocketChatAccountModel::accountNumberChanged, this, &AccountsOverviewWidget::updateButtons);
     updateButtons();
+
+    connect(accountManager, &AccountManager::currentAccountChanged, this, &AccountsOverviewWidget::updateCurrentTab);
+
+    connect(mTabBar, &QTabBar::currentChanged, this, [this](int i) {
+        auto account = mTabBar->tabData(i).value<RocketChatAccount *>();
+        Ruqola::self()->accountManager()->setCurrentAccount(account ? account->accountName() : QString());
+    });
 }
 
 AccountsOverviewWidget::~AccountsOverviewWidget()
@@ -226,18 +128,59 @@ void AccountsOverviewWidget::updateButtons()
 {
     const auto model = Ruqola::self()->accountManager()->rocketChatAccountModel();
     const auto count = model->rowCount();
+
     for (int i = 0; i < count; ++i) {
-        RocketChatAccount *account = model->account(i);
-        if (i >= mAccounts.size()) {
-            auto button = new AccountButton(this);
-            mAccounts.append(button);
-            layout()->addWidget(mAccounts.constLast());
+        if (i == mTabBar->count()) {
+            mTabBar->addTab({});
         }
-        mAccounts[i]->setVisible(account->accountEnabled());
-        mAccounts[i]->setAccount(model->account(i));
+
+        auto account = model->account(i);
+        disconnect(account, nullptr, this, nullptr);
+
+        mTabBar->setTabData(i, QVariant::fromValue(account));
+        mTabBar->setTabVisible(i, account->accountEnabled());
+
+        auto updateTabText = [this, i, account]() {
+            mTabBar->setTabText(i, currentText(account));
+        };
+        auto updateTabToolTip = [this, i, account]() {
+            mTabBar->setTabToolTip(i, currentLoginStatusText(account));
+        };
+        auto updateTabIcon = [this, i, account]() {
+            mTabBar->setTabIcon(i, currentUnreadAlert(account).alert ? QIcon::fromTheme(QStringLiteral("message-new")) : QIcon());
+        };
+        connect(account, &RocketChatAccount::accountNameChanged, this, updateTabText);
+        connect(account, &RocketChatAccount::loginStatusChanged, this, [=]() {
+            updateTabText();
+            updateTabToolTip();
+        });
+        connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [=]() {
+            updateTabText();
+            updateTabIcon();
+        });
+
+        updateTabText();
+        updateTabToolTip();
+        updateTabIcon();
     }
-    for (int i = count, total = mAccounts.size(); i < total; ++i) {
-        mAccounts[i]->deleteLater();
+
+    while (mTabBar->count() > count) {
+        mTabBar->removeTab(count);
     }
-    mAccounts.resize(count);
+
+    updateCurrentTab();
+}
+
+void AccountsOverviewWidget::updateCurrentTab()
+{
+    auto account = Ruqola::self()->accountManager()->account();
+    auto tabIndex = [this, account]() {
+        for (int i = 0, c = mTabBar->count(); i < c; ++i) {
+            if (mTabBar->tabData(i).value<RocketChatAccount *>() == account) {
+                return i;
+            }
+        }
+        return -1;
+    };
+    mTabBar->setCurrentIndex(tabIndex());
 }

@@ -21,10 +21,9 @@
 
 #pragma once
 
-#include <QVector>
 #include <QWidget>
 
-class AccountButton;
+class QTabBar;
 
 class AccountsOverviewWidget : public QWidget
 {
@@ -35,5 +34,7 @@ public:
     void updateButtons();
 
 private:
-    QVector<AccountButton *> mAccounts;
+    void updateCurrentTab();
+
+    QTabBar *const mTabBar = nullptr;
 };
