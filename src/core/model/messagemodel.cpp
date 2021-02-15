@@ -282,6 +282,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.editedAt();
     case MessageModel::EditedByUserName:
         return message.editedByUsername();
+    case MessageModel::EditedToolTip:
+        return i18n("Edited at %1 by %2", message.editedDisplayTime(), message.editedByUsername());
     case MessageModel::Attachments: {
         QVariantList lst;
         lst.reserve(message.attachements().count());

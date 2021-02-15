@@ -631,6 +631,11 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
+        if (layout.editedIconRect.contains(helpEvent->pos())) {
+            const QString tooltip = index.data(MessageModel::EditedToolTip).toString();
+            QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+            return true;
+        }
         if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, view, layout.textRect, index)) {
             return true;
         }

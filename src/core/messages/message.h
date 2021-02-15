@@ -201,6 +201,8 @@ public:
     Q_REQUIRED_RESULT bool isEditingMode() const;
     void setIsEditingMode(bool isEditingMode);
 
+    Q_REQUIRED_RESULT QString editedDisplayTime() const;
+
 private:
     static Q_REQUIRED_RESULT QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -277,6 +279,7 @@ private:
     qint64 mUpdatedAt = -1;
 
     // editedAt
+    QString mEditedDisplayTime;
     qint64 mEditedAt = -1;
 
     // Thread last message

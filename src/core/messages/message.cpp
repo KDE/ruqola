@@ -43,14 +43,14 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mText = o.value(QLatin1String("msg")).toString();
     if (restApi) {
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
-        mEditedAt = Utils::parseIsoDate(QStringLiteral("editedAt"), o);
+        setEditedAt(Utils::parseIsoDate(QStringLiteral("editedAt"), o));
         setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
         mThreadLastMessage = Utils::parseIsoDate(QStringLiteral("tlm"), o);
         mDiscussionLastMessage = Utils::parseIsoDate(QStringLiteral("dlm"), o);
     } else {
         setTimeStamp(Utils::parseDate(QStringLiteral("ts"), o));
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
-        mEditedAt = Utils::parseDate(QStringLiteral("editedAt"), o);
+        setEditedAt(Utils::parseDate(QStringLiteral("editedAt"), o));
         // Verify if a day we will use not restapi for it.
         mThreadLastMessage = Utils::parseDate(QStringLiteral("tlm"), o);
         // Verify if a day we will use not restapi for it.
@@ -102,6 +102,11 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+QString Message::editedDisplayTime() const
+{
+    return mEditedDisplayTime;
 }
 
 bool Message::isEditingMode() const
@@ -566,7 +571,10 @@ qint64 Message::editedAt() const
 
 void Message::setEditedAt(qint64 editedAt)
 {
-    mEditedAt = editedAt;
+    if (mEditedAt != editedAt) {
+        mEditedAt = editedAt;
+        mEditedDisplayTime = QDateTime::fromMSecsSinceEpoch(mEditedAt).time().toString(QStringLiteral("hh:mm"));
+    }
 }
 
 qint64 Message::updatedAt() const
@@ -708,7 +716,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     message.mName = o[QStringLiteral("name")].toString();
     message.mUserId = o[QStringLiteral("userID")].toString();
     message.mUpdatedAt = static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble());
-    message.mEditedAt = static_cast<qint64>(o[QStringLiteral("editedAt")].toDouble());
+    message.setEditedAt(static_cast<qint64>(o[QStringLiteral("editedAt")].toDouble()));
     message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
     message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
     message.mAlias = o[QStringLiteral("alias")].toString();

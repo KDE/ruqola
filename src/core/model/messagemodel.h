@@ -54,6 +54,7 @@ public:
         EditedAt,
         EditedByUserName,
         EditedByUserId,
+        EditedToolTip,
         Alias,
         Avatar,
         Groupable,
