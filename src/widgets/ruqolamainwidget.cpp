@@ -139,18 +139,6 @@ void RuqolaMainWidget::showEvent(QShowEvent *event)
         return;
     }
 
-    auto roomHeader = mRoomWidget->findChild<QWidget*>(QStringLiteral("mRoomHeaderWidget"));
-    if (!roomHeader) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mRoomHeaderWidget" << roomHeader;
-        return;
-    }
-
-    auto statusCombo = mChannelList->findChild<QWidget*>(QStringLiteral("mStatusComboBox"));
-    if (!statusCombo) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mStatusComboBox" << statusCombo;
-        return;
-    }
-
     auto messageLine = mRoomWidget->findChild<QWidget*>(QStringLiteral("mMessageLineWidget"));
     if (!messageLine) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mMessageLineWidget" << messageLine;
@@ -166,6 +154,5 @@ void RuqolaMainWidget::showEvent(QShowEvent *event)
         const auto minHeight = std::max(left->minimumSizeHint().height(), right->minimumSizeHint().height());
         right->setMinimumHeight(minHeight);
     };
-    align(searchRoom, roomHeader);
-    align(statusCombo, messageLine);
+    align(searchRoom, messageLine);
 }

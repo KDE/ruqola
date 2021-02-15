@@ -21,10 +21,8 @@
 #include "channellistwidgettest.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
-#include "misc/statuscombobox.h"
 #include "model/roomfilterproxymodel.h"
 
-#include <QLabel>
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
@@ -47,15 +45,8 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchRoom);
     QVERIFY(!mSearchRoom->placeholderText().isEmpty());
 
-    auto mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
-    QVERIFY(mStatusComboBox);
-
     auto mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
     QVERIFY(mChannelView);
-
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
-    QVERIFY(label);
-    QVERIFY(!label->text().isEmpty());
 }
 
 void ChannelListWidgetTest::searchRooms()

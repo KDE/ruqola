@@ -20,10 +20,7 @@
 
 #include "channellistwidget.h"
 #include "channellistview.h"
-#include "dialogs/modifystatusdialog.h"
-#include "misc/statuscombobox.h"
 #include "model/roomfilterproxymodel.h"
-#include "model/statusmodel.h"
 
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -43,6 +40,11 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins({});
 
+    mChannelView = new ChannelListView(this);
+    mChannelView->setObjectName(QStringLiteral("mChannelView"));
+    mainLayout->addWidget(mChannelView);
+    connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
+
     mSearchRoom = new QLineEdit(this);
     // dummy action just for getting the icon)
     mSearchRoom->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
@@ -52,23 +54,6 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoom->installEventFilter(this);
     mainLayout->addWidget(mSearchRoom);
     connect(mSearchRoom, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
-
-    mChannelView = new ChannelListView(this);
-    mChannelView->setObjectName(QStringLiteral("mChannelView"));
-    mainLayout->addWidget(mChannelView);
-    connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
-
-    auto statusComboBoxLayout = new QHBoxLayout;
-    statusComboBoxLayout->setContentsMargins(6, 0, 0, 0);
-    mainLayout->addLayout(statusComboBoxLayout);
-    auto label = new QLabel(i18n("Status:"), this);
-    label->setObjectName(QStringLiteral("label"));
-    statusComboBoxLayout->addWidget(label);
-
-    mStatusComboBox = new StatusCombobox(true, this);
-    mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
-    statusComboBoxLayout->addWidget(mStatusComboBox);
-    connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
 
     // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Channels"), this);
@@ -100,16 +85,12 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::accountInitialized, this, &ChannelListWidget::slotAccountInitialized);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::userStatusUpdated, this, &ChannelListWidget::setUserStatusUpdated);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openLinkRequested, this, &ChannelListWidget::slotOpenLinkRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
 
     mChannelView->setCurrentRocketChatAccount(account);
     mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
-    mStatusComboBox->blockSignals(true);
-    mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
-    mStatusComboBox->blockSignals(false);
 }
 
 ChannelListView *ChannelListWidget::channelListView() const
@@ -159,34 +140,6 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 void ChannelListWidget::slotAccountInitialized()
 {
     mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
-}
-
-void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status, const QString &accountName)
-{
-    if (mCurrentRocketChatAccount->accountName() == accountName) {
-        mStatusComboBox->setStatus(status);
-    }
-}
-
-void ChannelListWidget::slotStatusChanged()
-{
-    User::PresenceStatus status = mStatusComboBox->status();
-    QString messageStatus;
-    if (status == User::PresenceStatus::Unknown) {
-        QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
-        dlg->setMessageStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().displayText);
-        dlg->setStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().status);
-        if (dlg->exec()) {
-            messageStatus = dlg->messageStatus();
-            status = dlg->status();
-            delete dlg;
-        } else {
-            mStatusComboBox->setStatus(mCurrentRocketChatAccount->statusModel()->currentUserStatus());
-            delete dlg;
-            return;
-        }
-    }
-    mCurrentRocketChatAccount->setDefaultStatus(status, messageStatus);
 }
 
 void ChannelListWidget::slotSearchRoomTextChanged()

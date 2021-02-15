@@ -35,6 +35,8 @@
  </MenuBar>
  <ToolBar noMerge="1" name="mainToolBar" fullWidth="true" ><text>Main Toolbar</text>
   <Action name="create_new_channel" />
+  <Spacer/>
+  <Action name="status" />
  </ToolBar>
 </gui>
 

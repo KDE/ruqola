@@ -29,10 +29,13 @@
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewserverdialog.h"
+#include "dialogs/modifystatusdialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/serverinfodialog.h"
 #include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
+#include "misc/statuscombobox.h"
+#include "model/statusmodel.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notification.h"
 #include "receivetypingnotificationmanager.h"
@@ -52,10 +55,12 @@
 #include <QApplication>
 #include <QFontDatabase>
 #include <QGuiApplication>
+#include <QHBoxLayout>
 #include <QIcon>
 #include <QLabel>
 #include <QMenu>
 #include <QStatusBar>
+#include <QWidgetAction>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
@@ -161,11 +166,20 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::userStatusUpdated, this, [this](User::PresenceStatus status, const QString &accountName) {
+        if (mCurrentRocketChatAccount->accountName() == accountName) {
+            mStatusComboBox->setStatus(status);
+        }
+    });
 
     updateActions();
     changeActionStatus(false); // Disable actions when switching.
     slotClearNotification(); // Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+
+    mStatusComboBox->blockSignals(true);
+    mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
+    mStatusComboBox->blockSignals(false);
 }
 
 void RuqolaMainWindow::slotRaiseWindow()
@@ -272,6 +286,29 @@ void RuqolaMainWindow::setupActions()
     mAdministrator = new QAction(i18n("Administrator..."), this);
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
     ac->addAction(QStringLiteral("administrator"), mAdministrator);
+
+    {
+        auto action = new QWidgetAction(this);
+        action->setText(i18n("Status"));
+        auto container = new QWidget(this);
+        // use the same font as other toolbar buttons
+        container->setFont(qApp->font("QToolButton"));
+        action->setDefaultWidget(container);
+        auto layout = new QHBoxLayout(container);
+        layout->setContentsMargins(0, 0, 0, 0);
+        auto label = new QLabel(i18n("Status:"), container);
+        label->setObjectName(QStringLiteral("label"));
+        layout->addWidget(label);
+
+        mStatusComboBox = new StatusCombobox(true, container);
+        mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
+        layout->addWidget(mStatusComboBox);
+        connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &RuqolaMainWindow::slotStatusChanged);
+
+        mStatus = action;
+        connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);
+        ac->addAction(QStringLiteral("status"), mStatus);
+    }
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()
@@ -395,6 +432,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
+    mStatus->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
@@ -467,4 +505,25 @@ void RuqolaMainWindow::createSystemTray()
         });
     }
 #endif
+}
+
+void RuqolaMainWindow::slotStatusChanged()
+{
+    User::PresenceStatus status = mStatusComboBox->status();
+    QString messageStatus;
+    if (status == User::PresenceStatus::Unknown) {
+        QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
+        dlg->setMessageStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().displayText);
+        dlg->setStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().status);
+        if (dlg->exec()) {
+            messageStatus = dlg->messageStatus();
+            status = dlg->status();
+            delete dlg;
+        } else {
+            mStatusComboBox->setStatus(mCurrentRocketChatAccount->statusModel()->currentUserStatus());
+            delete dlg;
+            return;
+        }
+    }
+    mCurrentRocketChatAccount->setDefaultStatus(status, messageStatus);
 }

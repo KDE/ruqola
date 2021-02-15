@@ -22,10 +22,8 @@
 #define CHANNELLISTWIDGET_H
 
 #include "libruqolawidgets_private_export.h"
-#include "user.h"
 #include <QPointer>
 #include <QWidget>
-class StatusCombobox;
 class ChannelListView;
 class QLineEdit;
 class RocketChatAccount;
@@ -48,13 +46,10 @@ protected:
 
 private:
     void slotAccountInitialized();
-    void setUserStatusUpdated(User::PresenceStatus status, const QString &accountName);
-    void slotStatusChanged();
     void slotSearchRoomTextChanged();
     void clearFilterChannel();
     void slotOpenLinkRequested(const QString &link);
 
-    StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;
     QLineEdit *mSearchRoom = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

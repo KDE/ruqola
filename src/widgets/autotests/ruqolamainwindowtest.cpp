@@ -19,11 +19,14 @@
 */
 
 #include "ruqolamainwindowtest.h"
+#include "misc/statuscombobox.h"
 #include "ruqolamainwindow.h"
 
+#include <QLabel>
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTest>
+#include <QWidgetAction>
 
 QTEST_MAIN(RuqolaMainWindowTest)
 
@@ -48,6 +51,21 @@ void RuqolaMainWindowTest::shouldHaveDefaultValues()
     auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
     QVERIFY(mSplitter);
     switchToMainWidget(w);
+
+    auto statusAction = qobject_cast<QWidgetAction *>(w.action("status"));
+    QVERIFY(statusAction);
+    QVERIFY(!statusAction->text().isEmpty());
+
+    auto status = statusAction->defaultWidget();
+    QVERIFY(status);
+    QVERIFY(status->layout());
+
+    auto mStatusComboBox = status->findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
+    QVERIFY(mStatusComboBox);
+
+    auto label = status->findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }
 
 void RuqolaMainWindowTest::shouldRestoreSizes()

@@ -25,8 +25,10 @@
 #include "libruqolawidgets_export.h"
 #include <KXmlGuiWindow>
 #include <QPointer>
+class StatusCombobox;
 class RuqolaCentralWidget;
 class QAction;
+class QWidgetAction;
 class ServerMenu;
 class RocketChatAccount;
 class QLabel;
@@ -73,6 +75,7 @@ private:
     void slotRoomNeedAttention();
     void slotCreateDirectMessages();
     void slotClose();
+    void slotStatusChanged();
     void createSystemTray();
     bool mReallyClose{false};
 
@@ -88,11 +91,13 @@ private:
     QAction *mRegisterNewUser = nullptr;
     QAction *mMyAccount = nullptr;
     QAction *mAdministrator = nullptr;
+    QWidgetAction *mStatus = nullptr;
     ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
     Notification *mNotification = nullptr;
+    StatusCombobox *mStatusComboBox = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H
