@@ -21,6 +21,7 @@
 #include "threadmessagewidgettest.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
+#include "room/roomwidgetbase.h"
 #include "threadwidget/threadmessagewidget.h"
 #include <QLabel>
 #include <QTest>
@@ -40,16 +41,13 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
-    QVERIFY(mMessageListView);
-    QCOMPARE(mMessageListView->mode(), MessageListView::Mode::ThreadEditing);
-
-    auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
-    QVERIFY(mMessageLineWidget);
 
     auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
     QVERIFY(mThreadPreview);
     QVERIFY(mThreadPreview->wordWrap());
     QCOMPARE(mThreadPreview->contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(mThreadPreview->text().isEmpty());
+
+    auto mRoomWidgetBase = w.findChild<RoomWidgetBase *>(QStringLiteral("mRoomWidgetBase"));
+    QVERIFY(mRoomWidgetBase);
 }
