@@ -75,7 +75,9 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
 ShowAttachmentWidget::~ShowAttachmentWidget()
 {
     // Reset it
-    mModel->setFilterString(QString());
+    if (mModel) {
+        mModel->setFilterString(QString());
+    }
 }
 
 void ShowAttachmentWidget::slotChangeAttachmentType(int index)
