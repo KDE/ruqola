@@ -542,7 +542,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         if (!message->reactions().isEmpty()) {
-            const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
+            const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
             if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
                 return true;
             }
