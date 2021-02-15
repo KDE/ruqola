@@ -573,7 +573,8 @@ void Message::setEditedAt(qint64 editedAt)
 {
     if (mEditedAt != editedAt) {
         mEditedAt = editedAt;
-        mEditedDisplayTime = QDateTime::fromMSecsSinceEpoch(mEditedAt).time().toString(QStringLiteral("hh:mm"));
+        QLocale l;
+        mEditedDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(mEditedAt), QLocale::LongFormat);
     }
 }
 
