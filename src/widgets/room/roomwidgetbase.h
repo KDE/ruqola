@@ -53,15 +53,17 @@ public:
 
     void updateListView();
     void updateRoomReadOnly(Room *room);
+    void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage, const QString &channelName);
+Q_SIGNALS:
+    void loadHistory();
+    void createNewDiscussion(const QString &messageId, const QString &originalMessage);
 
 private:
     void slotClearNotification();
     void slotShowQuoteMessage(const QString &permalink, const QString &text);
-    void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     void slotCreatePrivateDiscussion(const QString &userName);
     void keyPressedInLineEdit(QKeyEvent *ev);
     void slotShowThreadMessage(const QString &threadMessageId);
-    void slotLoadHistory();
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     QString mRoomId;
     UploadFileProgressStatusWidget *const mUploadFileProgressStatusWidget;

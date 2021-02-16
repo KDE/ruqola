@@ -46,10 +46,16 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
 
     mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
     mainLayout->addWidget(mRoomWidgetBase);
+    connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
 {
+}
+
+void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+{
+    mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, QString());
 }
 
 QString ThreadMessageWidget::threadMessageId() const

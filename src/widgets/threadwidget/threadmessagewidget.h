@@ -48,6 +48,7 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
+    void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     QString mThreadMessageId;
     QLabel *const mThreadPreview;
     RoomWidgetBase *const mRoomWidgetBase;

@@ -91,9 +91,9 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setQuoteMessage);
-    connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::slotCreateNewDiscussion);
+    connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::createNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidgetBase::slotCreatePrivateDiscussion);
-    connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::slotLoadHistory);
+    connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::loadHistory);
     connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId) {
         mMessageLineWidget->setThreadMessageId(messageId);
     });
@@ -103,11 +103,6 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
 RoomWidgetBase::~RoomWidgetBase()
 {
-}
-
-void RoomWidgetBase::slotLoadHistory()
-{
-    // mCurrentRocketChatAccount->loadHistory(mRoomId, mRoomType);
 }
 
 void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId)
@@ -131,17 +126,29 @@ void RoomWidgetBase::slotShowQuoteMessage(const QString &permalink, const QStrin
     mRoomQuoteMessageWidget->setVisible(!permalink.isEmpty());
 }
 
-void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage, const QString &channelName)
 {
-    //    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
-    //    dlg->setDiscussionName(originalMessage);
-    //    dlg->setChannelName(mRoomHeaderWidget->roomName());
-    //    if (dlg->exec()) {
-    //        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-    //        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
-    //    }
-    //    delete dlg;
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    dlg->setDiscussionName(originalMessage);
+    dlg->setChannelName(channelName);
+    if (dlg->exec()) {
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+    }
+    delete dlg;
 }
+
+// void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+//{
+//    //    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+//    //    dlg->setDiscussionName(originalMessage);
+//    //    dlg->setChannelName(mRoomHeaderWidget->roomName());
+//    //    if (dlg->exec()) {
+//    //        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+//    //        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+//    //    }
+//    //    delete dlg;
+//}
 
 void RoomWidgetBase::slotCreatePrivateDiscussion(const QString &userName)
 {

@@ -95,6 +95,8 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::searchMessageRequested, this, &RoomWidget::slotSearchMessages);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::actionRequested, this, &RoomWidget::slotActionRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::channelInfoRequested, this, &RoomWidget::slotChannelInfoRequested);
+    connect(mRoomWidgetBase, &RoomWidgetBase::loadHistory, this, &RoomWidget::slotLoadHistory);
+    connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
 }
 
 RoomWidget::~RoomWidget()
@@ -344,14 +346,7 @@ void RoomWidget::slotSearchMessages()
 
 void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {
-    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
-    dlg->setDiscussionName(originalMessage);
-    dlg->setChannelName(mRoomHeaderWidget->roomName());
-    if (dlg->exec()) {
-        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(mRoomWidgetBase->roomId(), info.discussionName, info.message, messageId, info.users);
-    }
-    delete dlg;
+    mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, mRoomHeaderWidget->roomName());
 }
 
 void RoomWidget::slotCreatePrivateDiscussion(const QString &userName)
