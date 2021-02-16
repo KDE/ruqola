@@ -479,7 +479,7 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     // Show debug output.
-    qDebug() << " message " << *message;
+    qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessageModel::MessageConvertedText).toString();
 }
 
 void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
