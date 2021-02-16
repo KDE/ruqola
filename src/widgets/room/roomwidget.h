@@ -29,17 +29,10 @@
 #include "roomheaderwidget.h"
 
 class RoomHeaderWidget;
-class MessageListView;
-class MessageLineWidget;
-class ReadOnlyLineEditWidget;
-class QStackedWidget;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class Room;
-class RoomReplyThreadWidget;
-class RoomQuoteMessageWidget;
-class UploadFileProgressStatusWidget;
 class RoomWidgetBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {

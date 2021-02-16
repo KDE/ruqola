@@ -65,7 +65,6 @@ class StatusModel;
 class RocketChatCache;
 class EmojiManager;
 class OtrManager;
-class UsersForRoomFilterProxyModel;
 class FilesForRoomFilterProxyModel;
 class FilesForRoomModel;
 class SearchChannelModel;
