@@ -118,7 +118,7 @@ void PruneMessagesWidget::updateLabelInfo()
 void PruneMessagesWidget::slotCheckDateTime()
 {
     const bool valid =
-        (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime()) && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
+        (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime()) && (mLastestDateTimeEdit->dateTime() < mOldestDateTimeEdit->dateTime());
     updateLabelInfo();
     Q_EMIT updateOkButton(valid);
 }
