@@ -38,6 +38,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     , mLastestDateTimeEdit(new QDateTimeEdit(this))
     , mOldestDateTimeEdit(new QDateTimeEdit(this))
     , mUsers(new AddUsersWidget(this))
+    , mInfoLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -93,6 +94,11 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
 
     mOnlyRemoveAttachedFiles->setObjectName(QStringLiteral("mOnlyRemoveAttachedFiles"));
     mainLayout->addWidget(mOnlyRemoveAttachedFiles);
+
+    mInfoLabel->setObjectName(QStringLiteral("mInfoLabel"));
+    mInfoLabel->setWordWrap(true);
+    mainLayout->addWidget(mInfoLabel);
+
     mainLayout->addStretch(1);
 }
 
@@ -100,10 +106,20 @@ PruneMessagesWidget::~PruneMessagesWidget()
 {
 }
 
+void PruneMessagesWidget::updateLabelInfo()
+{
+    const QString message = i18n("This will delete all messages in %3 between %1 and %2.",
+                                 mLastestDateTimeEdit->dateTime().toString(),
+                                 mOldestDateTimeEdit->dateTime().toString(),
+                                 mRoomName);
+    mInfoLabel->setText(message);
+}
+
 void PruneMessagesWidget::slotCheckDateTime()
 {
     const bool valid =
         (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime()) && (mLastestDateTimeEdit->dateTime() > mOldestDateTimeEdit->dateTime());
+    updateLabelInfo();
     Q_EMIT updateOkButton(valid);
 }
 
@@ -119,4 +135,9 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::c
     info.excludePinned = mDoNotPrunePinnedMessage->isChecked();
     // qDebug() << " info " << info;
     return info;
+}
+
+void PruneMessagesWidget::setRoomName(const QString &roomName)
+{
+    mRoomName = roomName;
 }

@@ -66,6 +66,11 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesDialog::c
     return mPruneMessageWidget->cleanHistoryInfo();
 }
 
+void PruneMessagesDialog::setRoomName(const QString &roomName)
+{
+    mPruneMessageWidget->setRoomName(roomName);
+}
+
 void PruneMessagesDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

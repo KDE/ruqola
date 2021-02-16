@@ -35,6 +35,8 @@ public:
     ~PruneMessagesDialog() override;
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
+    void setRoomName(const QString &roomName);
+
 private:
     void readConfig();
     void writeConfig();

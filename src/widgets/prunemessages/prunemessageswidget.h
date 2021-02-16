@@ -27,6 +27,7 @@
 class QCheckBox;
 class QDateTimeEdit;
 class AddUsersWidget;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
 {
     Q_OBJECT
@@ -36,11 +37,14 @@ public:
 
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
+    void setRoomName(const QString &roomName);
 Q_SIGNALS:
     void updateOkButton(bool b);
 
 private:
+    void updateLabelInfo();
     void slotCheckDateTime();
+    QString mRoomName;
     QCheckBox *const mInclusive;
     QCheckBox *const mDoNotPrunePinnedMessage;
     QCheckBox *const mDoNotPruneDiscussionMessage;
@@ -49,6 +53,7 @@ private:
     QDateTimeEdit *const mLastestDateTimeEdit;
     QDateTimeEdit *const mOldestDateTimeEdit;
     AddUsersWidget *const mUsers;
+    QLabel *const mInfoLabel;
 };
 
 #endif // PRUNEMESSAGESWIDGET_H

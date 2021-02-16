@@ -97,4 +97,9 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mOnlyRemoveAttachedFiles);
     QVERIFY(!mOnlyRemoveAttachedFiles->text().isEmpty());
     QVERIFY(!mOnlyRemoveAttachedFiles->isChecked());
+
+    auto mInfoLabel = w.findChild<QLabel *>(QStringLiteral("mInfoLabel"));
+    QVERIFY(mInfoLabel);
+    QVERIFY(mInfoLabel->text().isEmpty());
+    QVERIFY(mInfoLabel->wordWrap());
 }
