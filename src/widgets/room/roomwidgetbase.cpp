@@ -86,7 +86,9 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mStackedWidget->setCurrentWidget(mMessageLineWidget);
 
     connect(mMessageLineWidget, &MessageLineWidget::keyPressed, this, &RoomWidgetBase::keyPressedInLineEdit);
-    connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidgetBase::slotShowThreadMessage);
+    if (mode == MessageListView::Mode::Editing) {
+        connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidgetBase::slotShowThreadMessage);
+    }
     connect(mMessageLineWidget, &MessageLineWidget::quoteMessageChanged, this, &RoomWidgetBase::slotShowQuoteMessage);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
@@ -137,18 +139,6 @@ void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QSt
     }
     delete dlg;
 }
-
-// void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
-//{
-//    //    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
-//    //    dlg->setDiscussionName(originalMessage);
-//    //    dlg->setChannelName(mRoomHeaderWidget->roomName());
-//    //    if (dlg->exec()) {
-//    //        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-//    //        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
-//    //    }
-//    //    delete dlg;
-//}
 
 void RoomWidgetBase::slotCreatePrivateDiscussion(const QString &userName)
 {

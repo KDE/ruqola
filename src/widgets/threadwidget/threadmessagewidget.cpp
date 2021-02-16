@@ -75,6 +75,7 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
 
 void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    mRoomWidgetBase->setCurrentRocketChatAccount(account);
     mRoomWidgetBase->messageLineWidget()->setCurrentRocketChatAccount(account, true);
     mRoomWidgetBase->messageListView()->setCurrentRocketChatAccount(account);
     // When we switch we need to update it.
