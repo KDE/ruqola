@@ -79,6 +79,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
 void MessageTextEdit::insertEmoji(const QString &text)
 {
     textCursor().insertText(text + QLatin1Char(' '));
+    Q_EMIT textEditing(false);
 }
 
 QString MessageTextEdit::text() const
@@ -193,7 +194,8 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             Q_EMIT textEditing(document()->isEmpty());
         }
     } else {
-        if (!e->modifiers() || e->matches(QKeySequence::Paste) || key == Qt::Key_Slash || key == '@' || key == '#') {
+        if (!e->modifiers() || e->matches(QKeySequence::Paste) || e->matches(QKeySequence::Redo) || e->matches(QKeySequence::Undo) || key == Qt::Key_Slash
+            || key == '@' || key == '#') {
             mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
