@@ -47,6 +47,7 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
     mainLayout->addWidget(mRoomWidgetBase);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
+    setAcceptDrops(true);
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
