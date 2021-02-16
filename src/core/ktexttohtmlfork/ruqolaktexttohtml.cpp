@@ -457,6 +457,9 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, const RuqolaK
                     } else {
                         hyperlink = str;
                     }
+                    if (hyperlink.endsWith(QLatin1Char('"'))) {
+                        hyperlink.chop(1);
+                    }
                     if (str.endsWith(QLatin1Char('"'))) {
                         str.chop(1);
                     }
