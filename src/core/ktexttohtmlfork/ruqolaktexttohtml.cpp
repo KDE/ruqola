@@ -457,6 +457,9 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, const RuqolaK
                     } else {
                         hyperlink = str;
                     }
+                    if (str.endsWith(QLatin1Char('"'))) {
+                        str.chop(1);
+                    }
                     result += QLatin1String("<a href=\"") + hyperlink + QLatin1String("\">") + str.toHtmlEscaped() + QLatin1String("</a>");
                     x += helper.mPos - start;
                     continue;
