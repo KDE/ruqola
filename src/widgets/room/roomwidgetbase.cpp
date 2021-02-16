@@ -183,21 +183,9 @@ void RoomWidgetBase::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void RoomWidgetBase::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
-{
-    //    QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
-    //    dlg->setThreadMessageId(threadMessageId);
-    //    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    //    dlg->setThreadPreview(threadMessagePreview);
-    //    dlg->setRoom(mRoom);
-    //    dlg->exec();
-    //    delete dlg;
-}
-
 void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidgetBase::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
         disconnect(mCurrentRocketChatAccount,
@@ -209,7 +197,6 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
     }
 
     mCurrentRocketChatAccount = account;
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidgetBase::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);

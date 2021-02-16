@@ -61,7 +61,6 @@ private:
     void slotCreatePrivateDiscussion(const QString &userName);
     void keyPressedInLineEdit(QKeyEvent *ev);
     void slotShowThreadMessage(const QString &threadMessageId);
-    void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview);
     void slotLoadHistory();
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     QString mRoomId;

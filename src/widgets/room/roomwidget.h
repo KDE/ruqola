@@ -100,7 +100,6 @@ private:
     void slotExportMessages();
     void slotFollowMessages();
 
-    QString mRoomId;
     QString mRoomType;
 
     RoomWidgetBase *const mRoomWidgetBase;
