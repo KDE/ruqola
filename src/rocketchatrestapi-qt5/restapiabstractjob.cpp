@@ -250,6 +250,7 @@ QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const
 
 QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &details)
 {
+    Q_UNUSED(details)
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("__action__ is not allowed");
     } else if (str == QLatin1String("error-application-not-found")) {
