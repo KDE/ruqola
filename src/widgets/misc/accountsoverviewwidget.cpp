@@ -102,10 +102,12 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     , mTabBar(new QTabBar(this))
 {
     mTabBar->setShape(QTabBar::RoundedSouth);
+    mTabBar->setObjectName(QStringLiteral("mTabBar"));
 
-    setLayout(new QHBoxLayout);
-    layout()->setContentsMargins(0, 0, 0, 0);
-    layout()->addWidget(mTabBar);
+    auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+    mainLayout->addWidget(mTabBar);
 
     auto accountManager = Ruqola::self()->accountManager();
     const auto model = accountManager->rocketChatAccountModel();

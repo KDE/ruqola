@@ -25,7 +25,8 @@
 
 class QTabBar;
 
-class AccountsOverviewWidget : public QWidget
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountsOverviewWidget : public QWidget
 {
     Q_OBJECT
 public:
