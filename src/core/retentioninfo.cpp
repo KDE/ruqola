@@ -30,11 +30,69 @@ RetentionInfo::~RetentionInfo()
 
 void RetentionInfo::parseRetentionInfo(const QJsonObject &replyObject)
 {
-    // TODO
+    mEnabled = replyObject.value(QLatin1String("enabled")).toBool(false);
+    mExcludePinned = replyObject.value(QLatin1String("excludePinned")).toBool(false);
+    mFilesOnly = replyObject.value(QLatin1String("filesOnly")).toBool(false);
+    mOverrideGlobal = replyObject.value(QLatin1String("overrideGlobal")).toBool(false);
+    mMaxAge = replyObject.value(QLatin1String("maxAge")).toInt(-1);
+}
+
+bool RetentionInfo::enabled() const
+{
+    return mEnabled;
+}
+
+void RetentionInfo::setEnabled(bool enabled)
+{
+    mEnabled = enabled;
+}
+
+bool RetentionInfo::overrideGlobal() const
+{
+    return mOverrideGlobal;
+}
+
+void RetentionInfo::setOverrideGlobal(bool overrideGlobal)
+{
+    mOverrideGlobal = overrideGlobal;
+}
+
+bool RetentionInfo::excludePinned() const
+{
+    return mExcludePinned;
+}
+
+void RetentionInfo::setExcludePinned(bool excludePinned)
+{
+    mExcludePinned = excludePinned;
+}
+
+bool RetentionInfo::filesOnly() const
+{
+    return mFilesOnly;
+}
+
+void RetentionInfo::setFilesOnly(bool filesOnly)
+{
+    mFilesOnly = filesOnly;
+}
+
+int RetentionInfo::maxAge() const
+{
+    return mMaxAge;
+}
+
+void RetentionInfo::setMaxAge(int maxAge)
+{
+    mMaxAge = maxAge;
 }
 
 QDebug operator<<(QDebug d, const RetentionInfo &t)
 {
-    // TODO
+    d << "Enabled " << t.enabled();
+    d << "overrideGlobal " << t.overrideGlobal();
+    d << "excludePinned " << t.excludePinned();
+    d << "filesOnly " << t.filesOnly();
+    d << "maxAge " << t.maxAge();
     return d;
 }

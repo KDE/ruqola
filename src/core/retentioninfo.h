@@ -31,6 +31,28 @@ public:
     RetentionInfo();
     ~RetentionInfo();
     void parseRetentionInfo(const QJsonObject &replyObject);
+
+    Q_REQUIRED_RESULT bool enabled() const;
+    void setEnabled(bool enabled);
+
+    Q_REQUIRED_RESULT bool overrideGlobal() const;
+    void setOverrideGlobal(bool overrideGlobal);
+
+    Q_REQUIRED_RESULT bool excludePinned() const;
+    void setExcludePinned(bool excludePinned);
+
+    Q_REQUIRED_RESULT bool filesOnly() const;
+    void setFilesOnly(bool filesOnly);
+
+    Q_REQUIRED_RESULT int maxAge() const;
+    void setMaxAge(int maxAge);
+
+private:
+    int mMaxAge = -1;
+    bool mEnabled = false;
+    bool mOverrideGlobal = false;
+    bool mExcludePinned = false;
+    bool mFilesOnly = false;
 };
 Q_DECLARE_METATYPE(RetentionInfo)
 Q_DECLARE_TYPEINFO(RetentionInfo, Q_MOVABLE_TYPE);
