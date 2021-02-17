@@ -87,6 +87,17 @@ void RetentionInfo::setMaxAge(int maxAge)
     mMaxAge = maxAge;
 }
 
+bool RetentionInfo::operator==(const RetentionInfo &other) const
+{
+    return mMaxAge == other.maxAge() && mEnabled == other.enabled() && mOverrideGlobal == other.overrideGlobal() && mExcludePinned == other.excludePinned()
+        && mFilesOnly == other.filesOnly();
+}
+
+bool RetentionInfo::operator!=(const RetentionInfo &other) const
+{
+    return !RetentionInfo::operator==(other);
+}
+
 QDebug operator<<(QDebug d, const RetentionInfo &t)
 {
     d << "Enabled " << t.enabled();

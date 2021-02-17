@@ -46,6 +46,8 @@ public:
 
     Q_REQUIRED_RESULT int maxAge() const;
     void setMaxAge(int maxAge);
+    Q_REQUIRED_RESULT bool operator==(const RetentionInfo &other) const;
+    Q_REQUIRED_RESULT bool operator!=(const RetentionInfo &other) const;
 
 private:
     int mMaxAge = -1;
