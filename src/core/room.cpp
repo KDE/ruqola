@@ -65,7 +65,7 @@ bool Room::isEqual(const Room &other) const
         && (mBroadcast == other.broadcast()) && (mParentRid == other.parentRid()) && (mFName == other.fName()) && (mAutoTranslate == other.autoTranslate())
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
-        && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord());
+        && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo());
 }
 
 QString Room::displayRoomName() const
@@ -124,6 +124,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "uids " << t.uids();
     d << "usernames " << t.userNames();
     d << "highlightsWord " << t.highlightsWord();
+    d << "RetentionInfo " << t.retentionInfo();
     return d;
 }
 
@@ -323,6 +324,10 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
     parseDisplaySystemMessage(json);
+    const QJsonValue retentionValue = json.value(QLatin1String("retention"));
+    if (!retentionValue.isUndefined()) {
+        mRetentionInfo.parseRetentionInfo(retentionValue.toObject());
+    }
 }
 
 bool Room::selected() const
@@ -552,6 +557,7 @@ void Room::setName(const QString &name)
 void Room::parseInsertRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QLatin1String("_id")).toString();
+    qDebug() << " json " << json;
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
@@ -719,6 +725,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 
     parseCommonData(json);
     parseDisplaySystemMessage(json);
+
     //    const QJsonValue ownerValue = json.value(QLatin1String("u"));
     //    if (!ownerValue.isUndefined()) {
     //        const QJsonObject objOwner = ownerValue.toObject();
@@ -1205,6 +1212,7 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     r->setUids(lstUids);
 
     // TODO add parent RID
+    // TODO retention
 
     return r;
 }
@@ -1316,6 +1324,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         return QCborValue::fromJsonValue(o).toCbor();
     }
     d.setObject(o);
+    // TODO retention
     return d.toJson(QJsonDocument::Indented);
 }
 

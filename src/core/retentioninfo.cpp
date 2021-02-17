@@ -30,6 +30,7 @@ RetentionInfo::~RetentionInfo()
 
 void RetentionInfo::parseRetentionInfo(const QJsonObject &replyObject)
 {
+    qDebug() << " void RetentionInfo::parseRetentionInfo(const QJsonObject &replyObject)" << replyObject;
     mEnabled = replyObject.value(QLatin1String("enabled")).toBool(false);
     mExcludePinned = replyObject.value(QLatin1String("excludePinned")).toBool(false);
     mFilesOnly = replyObject.value(QLatin1String("filesOnly")).toBool(false);

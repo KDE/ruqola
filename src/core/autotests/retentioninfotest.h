@@ -30,6 +30,8 @@ public:
     ~RetentionInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadRetention_data();
+    void shouldLoadRetention();
 };
 
 #endif // RETENTIONINFOTEST_H
