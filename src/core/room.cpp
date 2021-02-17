@@ -748,6 +748,19 @@ void Room::parseDisplaySystemMessage(const QJsonObject &json)
     setDisplaySystemMessageTypes(lst);
 }
 
+RetentionInfo Room::retentionInfo() const
+{
+    return mRetentionInfo;
+}
+
+void Room::setRetentionInfo(const RetentionInfo &retentionInfo)
+{
+    if (mRetentionInfo != retentionInfo) {
+        mRetentionInfo = retentionInfo;
+        Q_EMIT retentionInfoChanged();
+    }
+}
+
 QStringList Room::highlightsWord() const
 {
     return mHighlightsWord;
