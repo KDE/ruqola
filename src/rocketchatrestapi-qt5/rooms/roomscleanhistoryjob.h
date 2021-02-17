@@ -41,6 +41,7 @@ public:
         bool excludePinned = false;
         bool filesOnly = false;
         bool ignoreThreads = false;
+        bool ignoreDiscussion = false;
     };
     explicit RoomsCleanHistoryJob(QObject *parent = nullptr);
     ~RoomsCleanHistoryJob() override;

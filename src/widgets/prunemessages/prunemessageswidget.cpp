@@ -133,6 +133,7 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::c
     info.ignoreThreads = mDoNotPruneThreads->isChecked();
     info.filesOnly = mOnlyRemoveAttachedFiles->isChecked();
     info.excludePinned = mDoNotPrunePinnedMessage->isChecked();
+    info.ignoreDiscussion = mDoNotPruneDiscussionMessage->isChecked();
     // qDebug() << " info " << info;
     return info;
 }

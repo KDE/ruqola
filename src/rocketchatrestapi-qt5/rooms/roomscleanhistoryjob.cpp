@@ -111,6 +111,9 @@ QJsonDocument RoomsCleanHistoryJob::json() const
     if (mCleanHistoryInfo.excludePinned) {
         jsonObj[QLatin1String("excludePinned")] = true;
     }
+    if (mCleanHistoryInfo.ignoreDiscussion) {
+        jsonObj[QLatin1String("ignoreDiscussion")] = true;
+    }
 
     jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.latest.toString(Qt::ISODateWithMs);
     jsonObj[QLatin1String("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODateWithMs);

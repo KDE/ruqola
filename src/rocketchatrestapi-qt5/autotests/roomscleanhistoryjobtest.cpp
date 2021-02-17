@@ -37,6 +37,22 @@ void RoomsCleanHistoryJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+
+    RoomsCleanHistoryJob::CleanHistoryInfo info;
+    QDateTime latest; // required
+    QDateTime oldest; // required
+    QString roomId; // required
+    QStringList users;
+    QVERIFY(!info.isValid());
+    QVERIFY(!info.inclusive);
+    QVERIFY(!info.excludePinned);
+    QVERIFY(!info.filesOnly);
+    QVERIFY(!info.ignoreThreads);
+    QVERIFY(!info.ignoreDiscussion);
+    QVERIFY(info.users.isEmpty());
+    QVERIFY(info.roomId.isEmpty());
+    QVERIFY(!info.oldest.isValid());
+    QVERIFY(!info.latest.isValid());
 }
 
 void RoomsCleanHistoryJobTest::shouldGenerateRequest()
@@ -77,6 +93,14 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
             R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})")
+            .arg(roomId)
+            .toLatin1());
+    info.ignoreDiscussion = true;
+    job.setCleanHistoryInfo(info);
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(
+            R"({"ignoreDiscussion":true,"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})")
             .arg(roomId)
             .toLatin1());
 }
