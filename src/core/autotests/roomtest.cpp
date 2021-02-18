@@ -113,6 +113,8 @@ void RoomTest::shouldSerialized()
     // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     auto output = Room::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
     // qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
+    // qDebug() << "input  " << input;
+    // qDebug() << "output  " << *output;
     QVERIFY(input.isEqual(*output));
 }
 

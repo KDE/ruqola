@@ -1210,9 +1210,11 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
         lstUids << uidsArray.at(i).toString();
     }
     r->setUids(lstUids);
+    const QJsonObject retentionObj = o.value(QLatin1String("retention")).toObject();
+    const RetentionInfo retention = RetentionInfo::fromJSon(retentionObj);
+    r->setRetentionInfo(retention);
 
     // TODO add parent RID
-    // TODO retention
 
     return r;
 }
@@ -1318,6 +1320,10 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     if (!r->uids().isEmpty()) {
         o[QStringLiteral("uids")] = QJsonArray::fromStringList(r->uids());
+    }
+
+    if (r->retentionInfo().isNotDefault()) {
+        o[QStringLiteral("retention")] = RetentionInfo::serialize(r->retentionInfo());
     }
 
     if (toBinary) {

@@ -28,6 +28,11 @@ RetentionInfo::~RetentionInfo()
 {
 }
 
+bool RetentionInfo::isNotDefault() const
+{
+    return mEnabled || mExcludePinned || mFilesOnly || mOverrideGlobal || (mMaxAge != -1);
+}
+
 void RetentionInfo::parseRetentionInfo(const QJsonObject &replyObject)
 {
     qDebug() << " void RetentionInfo::parseRetentionInfo(const QJsonObject &replyObject)" << replyObject;
@@ -97,6 +102,29 @@ bool RetentionInfo::operator==(const RetentionInfo &other) const
 bool RetentionInfo::operator!=(const RetentionInfo &other) const
 {
     return !RetentionInfo::operator==(other);
+}
+
+QJsonObject RetentionInfo::serialize(const RetentionInfo &retention)
+{
+    QJsonObject obj;
+    obj[QStringLiteral("enabled")] = retention.enabled();
+    obj[QStringLiteral("overrideGlobal")] = retention.overrideGlobal();
+    obj[QStringLiteral("excludePinned")] = retention.excludePinned();
+    obj[QStringLiteral("filesOnly")] = retention.filesOnly();
+    obj[QStringLiteral("maxAge")] = retention.maxAge();
+    return obj;
+}
+
+RetentionInfo RetentionInfo::fromJSon(const QJsonObject &obj)
+{
+    RetentionInfo info;
+    info.setEnabled(obj[QStringLiteral("enabled")].toBool());
+    info.setOverrideGlobal(obj[QStringLiteral("overrideGlobal")].toBool());
+    info.setExcludePinned(obj[QStringLiteral("excludePinned")].toBool());
+    info.setFilesOnly(obj[QStringLiteral("filesOnly")].toBool());
+    info.setMaxAge(obj[QStringLiteral("maxAge")].toInt(-1));
+
+    return info;
 }
 
 QDebug operator<<(QDebug d, const RetentionInfo &t)
