@@ -123,6 +123,7 @@ QMenu *MessageTextEdit::mousePopupMenu()
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-bold")), i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-italic")), i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-strikethrough")), i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
+    formatMenu->addSeparator();
     formatMenu->addAction(i18n("Block Code"), this, &MessageTextEdit::slotInsertBlockCode);
     return menu;
 }
