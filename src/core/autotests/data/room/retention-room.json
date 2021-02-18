@@ -1,0 +1,16 @@
+{
+    "_id": "GENERAL",
+    "_updatedAt": {
+        "$date": 1613401653650
+    },
+    "default": true,
+    "lm": {
+        "$date": 1612253150737
+    },
+    "name": "general",
+    "retention": {
+        "overrideGlobal": true
+    },
+    "t": "c",
+    "usersCount": 104
+}

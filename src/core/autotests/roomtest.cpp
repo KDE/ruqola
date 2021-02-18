@@ -219,6 +219,7 @@ void RoomTest::shouldParseRoom_data()
     QTest::newRow("userignored-room") << QStringLiteral("userignored-room");
     QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage");
     QTest::newRow("direct-room") << QStringLiteral("direct-room");
+    QTest::newRow("retention-room") << QStringLiteral("retention-room");
 }
 
 void RoomTest::shouldParseRoom()
