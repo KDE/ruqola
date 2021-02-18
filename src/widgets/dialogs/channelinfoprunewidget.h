@@ -23,10 +23,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoPruneWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ChannelInfoPruneWidget(QWidget *parent = nullptr);
     ~ChannelInfoPruneWidget() override;
+
+private:
+    QCheckBox *const mExcludePinnedMessages;
+    QCheckBox *const mPruneFileOnlyKeepMessages;
+    QCheckBox *const mAutomaticPruneOldMessages;
+    QCheckBox *const mOverrideGlobalRetentionPolicy;
 };

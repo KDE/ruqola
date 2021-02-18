@@ -20,13 +20,28 @@
 
 #include "channelinfoprunewidget.h"
 #include <KLocalizedString>
+#include <QCheckBox>
 #include <QVBoxLayout>
 
 ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     : QWidget(parent)
+    , mExcludePinnedMessages(new QCheckBox(i18n("Exclude pinned messages"), this))
+    , mPruneFileOnlyKeepMessages(new QCheckBox(i18n("Prune files only, keep messages"), this))
+    , mAutomaticPruneOldMessages(new QCheckBox(i18n("Automatically prune old messages"), this))
+    , mOverrideGlobalRetentionPolicy(new QCheckBox(i18n("Override global retention policy"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mAutomaticPruneOldMessages->setObjectName(QStringLiteral("mAutomaticPruneOldMessages"));
+    mainLayout->addWidget(mAutomaticPruneOldMessages);
+    mOverrideGlobalRetentionPolicy->setObjectName(QStringLiteral("mOverrideGlobalRetentionPolicy"));
+    mainLayout->addWidget(mOverrideGlobalRetentionPolicy);
+    mExcludePinnedMessages->setObjectName(QStringLiteral("mExcludePinnedMessages"));
+    mainLayout->addWidget(mExcludePinnedMessages);
+    mPruneFileOnlyKeepMessages->setObjectName(QStringLiteral("mPruneFileOnlyKeepMessages"));
+    mainLayout->addWidget(mPruneFileOnlyKeepMessages);
 }
 
 ChannelInfoPruneWidget::~ChannelInfoPruneWidget()

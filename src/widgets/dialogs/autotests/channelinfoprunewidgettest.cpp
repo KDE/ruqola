@@ -18,10 +18,37 @@
    Boston, MA 02110-1301, USA.
 */
 #include "channelinfoprunewidgettest.h"
+#include "dialogs/channelinfoprunewidget.h"
+#include <QCheckBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ChannelInfoPruneWidgetTest)
 
 ChannelInfoPruneWidgetTest::ChannelInfoPruneWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
+{
+    ChannelInfoPruneWidget w;
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mAutomaticPruneOldMessages = w.findChild<QCheckBox *>(QStringLiteral("mAutomaticPruneOldMessages"));
+    QVERIFY(mAutomaticPruneOldMessages);
+    QVERIFY(!mAutomaticPruneOldMessages->text().isEmpty());
+
+    auto mOverrideGlobalRetentionPolicy = w.findChild<QCheckBox *>(QStringLiteral("mOverrideGlobalRetentionPolicy"));
+    QVERIFY(mOverrideGlobalRetentionPolicy);
+    QVERIFY(!mOverrideGlobalRetentionPolicy->text().isEmpty());
+
+    auto mExcludePinnedMessages = w.findChild<QCheckBox *>(QStringLiteral("mExcludePinnedMessages"));
+    QVERIFY(mExcludePinnedMessages);
+    QVERIFY(!mExcludePinnedMessages->text().isEmpty());
+
+    auto mPruneFileOnlyKeepMessages = w.findChild<QCheckBox *>(QStringLiteral("mPruneFileOnlyKeepMessages"));
+    QVERIFY(mPruneFileOnlyKeepMessages);
+    QVERIFY(!mPruneFileOnlyKeepMessages->text().isEmpty());
 }

@@ -28,4 +28,6 @@ class ChannelInfoPruneWidgetTest : public QObject
 public:
     explicit ChannelInfoPruneWidgetTest(QObject *parent = nullptr);
     ~ChannelInfoPruneWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
