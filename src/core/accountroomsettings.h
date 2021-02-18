@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QDebug>
 #include <QMap>
 #include <QString>
 
@@ -47,4 +48,4 @@ public:
 private:
     QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
 };
-
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t);
