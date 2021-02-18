@@ -91,6 +91,7 @@ private:
     void slotUpdateRoomCounterInfoWidget();
     void slotExportMessages();
     void slotFollowMessages();
+    void clearBeforeSwitching();
 
     QString mRoomType;
 

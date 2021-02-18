@@ -35,6 +35,7 @@ void AccountRoomSettingsTest::shouldHaveDefaultValues()
     AccountRoomSettings::PendingTypedInfo info;
     QVERIFY(info.text.isEmpty());
     QVERIFY(info.messageIdBeingEdited.isEmpty());
+    QVERIFY(info.threadMessageId.isEmpty());
     QCOMPARE(info.scrollbarPosition, -1);
     QVERIFY(!info.isValid());
 }

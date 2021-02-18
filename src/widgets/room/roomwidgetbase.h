@@ -53,6 +53,7 @@ public:
     void updateListView();
     void updateRoomReadOnly(Room *room);
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage, const QString &channelName);
+    void closeQuoteAndThreadInfo();
 Q_SIGNALS:
     void loadHistory();
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
