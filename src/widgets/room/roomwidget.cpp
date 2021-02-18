@@ -390,6 +390,8 @@ void RoomWidget::storeRoomSettings()
             info.messageIdBeingEdited = mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited();
             info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
             info.threadMessageId = mRoomWidgetBase->messageLineWidget()->threadMessageId();
+            info.quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink();
+            info.quoteText = mRoomWidgetBase->messageLineWidget()->quoteText();
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
         }
     }
@@ -409,6 +411,7 @@ void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomTy
     clearBeforeSwitching();
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     if (currentPendingInfo.isValid()) {
+        mRoomWidgetBase->messageLineWidget()->setQuoteMessage(currentPendingInfo.quotePermalink, currentPendingInfo.quoteText);
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId);
         mRoomWidgetBase->messageLineWidget()->setText(currentPendingInfo.text);
         mRoomWidgetBase->messageLineWidget()->setMessageIdBeingEdited(currentPendingInfo.messageIdBeingEdited);

@@ -141,6 +141,7 @@ void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString 
     // TODO use text too
     clearMessageIdBeingEdited();
     mQuotePermalink = permalink;
+    mQuoteText = text;
     Q_EMIT quoteMessageChanged(mQuotePermalink, text);
 }
 
@@ -154,6 +155,16 @@ void MessageLineWidget::clearEditingMode()
     }
 }
 
+QString MessageLineWidget::quoteText() const
+{
+    return mQuoteText;
+}
+
+QString MessageLineWidget::quotePermalink() const
+{
+    return mQuotePermalink;
+}
+
 void MessageLineWidget::clearMessageIdBeingEdited()
 {
     MessageModel *model = messageModel();
@@ -165,6 +176,7 @@ void MessageLineWidget::clearMessageIdBeingEdited()
         mMessageIdBeingEdited.clear();
     }
     mQuotePermalink.clear();
+    mQuoteText.clear();
     setText(QString());
     setMode(MessageLineWidget::EditingMode::NewMessage);
 }

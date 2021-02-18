@@ -61,7 +61,7 @@ public:
     void setMessageIdBeingEdited(const QString &messageIdBeingEdited);
 
     void setEditMessage(const QString &messageId, const QString &text);
-    void setQuoteMessage(const QString &messageId, const QString &text);
+    void setQuoteMessage(const QString &permalink, const QString &text);
 
     bool handleMimeData(const QMimeData *mimeData);
 
@@ -72,6 +72,10 @@ public:
 
     void slotPublicSettingChanged();
     void slotOwnUserPreferencesChanged();
+
+    Q_REQUIRED_RESULT QString quotePermalink() const;
+
+    Q_REQUIRED_RESULT QString quoteText() const;
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
@@ -91,6 +95,7 @@ private:
     QString mThreadMessageId;
     QString mMessageIdBeingEdited;
     QString mQuotePermalink;
+    QString mQuoteText;
     EditingMode mMode = EditingMode::NewMessage;
     MessageTextEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;
