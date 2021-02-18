@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMFILTERPROXYMODEL_H
-#define USERSFORROOMFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
@@ -53,4 +52,3 @@ private:
     QString mStatusType;
 };
 
-#endif // USERSFORROOMFILTERPROXYMODEL_H

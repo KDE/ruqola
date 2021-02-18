@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DELETEPAINTUTIL_H
-#define DELETEPAINTUTIL_H
+#pragma once
 
 #include <QString>
 class QPainter;
@@ -31,4 +30,3 @@ void drawLighterText(QPainter *painter, const QString &text, QPoint pos);
 Q_REQUIRED_RESULT int margin();
 }
 
-#endif // DELETEPAINTUTIL_H

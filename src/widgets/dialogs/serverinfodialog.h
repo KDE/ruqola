@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFODIALOG_H
-#define SERVERINFODIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -37,4 +36,3 @@ private:
     ServerInfoWidget *const mServerInfoWidget;
 };
 
-#endif // SERVERINFODIALOG_H

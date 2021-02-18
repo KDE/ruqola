@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWTHREADSDIALOG_H
-#define SHOWTHREADSDIALOG_H
+#pragma once
 #include "libruqolawidgets_private_export.h"
 #include "showlistmessagebasedialog.h"
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsDialog : public ShowListMessageBaseDialog
@@ -34,4 +33,3 @@ private:
     void writeConfig();
 };
 
-#endif // SHOWTHREADSDIALOG_H

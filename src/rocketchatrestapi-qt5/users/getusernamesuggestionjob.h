@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETUSERNAMESUGGESTIONJOB_H
-#define GETUSERNAMESUGGESTIONJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -50,4 +49,3 @@ private:
     void slotGetUsernameSuggestion();
 };
 }
-#endif // GETUSERNAMESUGGESTIONJOB_H

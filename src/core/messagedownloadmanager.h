@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDOWNLOADMANAGER_H
-#define MESSAGEDOWNLOADMANAGER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QObject>
@@ -32,4 +31,3 @@ public:
     ~MessageDownloadManager() override;
 };
 
-#endif // MESSAGEDOWNLOADMANAGER_H

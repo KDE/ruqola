@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGETEXTEDIT_H
-#define MESSAGETEXTEDIT_H
+#pragma once
 
 #include "inputtextmanager.h"
 #include <KTextEdit>
@@ -76,4 +75,3 @@ private:
     CompletionListView *mCommandCompletionListView = nullptr;
 };
 
-#endif // MESSAGETEXTEDIT_H

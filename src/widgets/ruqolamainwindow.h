@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAMAINWINDOW_H
-#define RUQOLAMAINWINDOW_H
+#pragma once
 
 #include "channels/channelbasejob.h"
 #include "libruqolawidgets_export.h"
@@ -100,4 +99,3 @@ private:
     StatusCombobox *mStatusComboBox = nullptr;
 };
 
-#endif // RUQOLAMAINWINDOW_H

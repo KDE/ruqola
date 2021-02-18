@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELINFODIALOG_H
-#define CHANNELINFODIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -38,4 +37,3 @@ private:
     ChannelInfoWidget *const mChannelInfoWidget;
 };
 
-#endif // CHANNELINFODIALOG_H

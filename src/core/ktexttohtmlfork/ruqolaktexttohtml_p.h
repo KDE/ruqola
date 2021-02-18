@@ -5,8 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef RUQOLAKTEXTTOHTML_P_H
-#define RUQOLAKTEXTTOHTML_P_H
+#pragma once
 
 #include <QString>
 
@@ -28,4 +27,3 @@ public:
     int mPos;
 };
 
-#endif

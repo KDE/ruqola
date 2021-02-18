@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERFEEDBACKMANAGER_H
-#define USERFEEDBACKMANAGER_H
+#pragma once
 
 #include <QObject>
 namespace KUserFeedback
@@ -39,4 +38,3 @@ private:
     KUserFeedback::Provider *mUserFeedbackProvider = nullptr;
 };
 
-#endif // USERFEEDBACKMANAGER_H

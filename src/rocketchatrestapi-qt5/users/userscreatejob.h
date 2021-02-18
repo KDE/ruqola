@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSCREATEJOB_H
-#define USERSCREATEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -61,4 +60,3 @@ private:
     CreateInfo mCreateInfo;
 };
 }
-#endif // UsersCreateJob_H

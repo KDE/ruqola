@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNICODEEMOTICONPARSER_H
-#define UNICODEEMOTICONPARSER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "unicodeemoticon.h"
@@ -34,4 +33,3 @@ public:
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> parse(const QJsonObject &o) const;
 };
 
-#endif // UNICODEEMOTICONPARSER_H

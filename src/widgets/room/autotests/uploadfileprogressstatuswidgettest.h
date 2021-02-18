@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEPROGRESSSTATUSWIDGETTEST_H
-#define UPLOADFILEPROGRESSSTATUSWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldChangeText();
 };
 
-#endif // UPLOADFILEPROGRESSSTATUSWIDGETTEST_H

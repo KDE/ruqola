@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATEDMJOB_H
-#define CREATEDMJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -52,4 +51,3 @@ private:
     QStringList mUserNames;
 };
 }
-#endif

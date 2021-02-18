@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FETCHMYKEYSJOB_H
-#define FETCHMYKEYSJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -49,4 +48,3 @@ private:
     void slotFetchMyKeys();
 };
 }
-#endif // FETCHMYKEYSJOB_H

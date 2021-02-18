@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROLES_H
-#define ROLES_H
+#pragma once
 #include "libruqola_private_export.h"
 #include "role.h"
 #include <QJsonObject>
@@ -42,4 +41,3 @@ private:
     QVector<Role> mRoles;
 };
 
-#endif // ROLES_H

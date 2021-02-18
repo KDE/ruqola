@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLUGINTEXT_H
-#define PLUGINTEXT_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <QObject>
@@ -34,4 +33,3 @@ public:
     virtual PluginTextInterface *createInterface(QObject *parent) = 0;
 };
 
-#endif // PLUGINTEXT_H

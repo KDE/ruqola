@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERTEXT_H
-#define MESSAGEDELEGATEHELPERTEXT_H
+#pragma once
 
 #include <QModelIndex>
 #include <QPointer>
@@ -73,4 +72,3 @@ private:
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
 
-#endif // MESSAGEDELEGATEHELPERTEXT_H

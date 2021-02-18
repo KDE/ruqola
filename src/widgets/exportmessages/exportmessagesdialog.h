@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EXPORTMESSAGESDIALOG_H
-#define EXPORTMESSAGESDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "rooms/roomsexportjob.h"
@@ -40,4 +39,3 @@ private:
     ExportMessagesWidget *const mExportMessagesWidget;
 };
 
-#endif // EXPORTMESSAGESDIALOG_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TYPINGNOTIFICATIONTEST_H
-#define TYPINGNOTIFICATIONTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -37,4 +36,3 @@ private Q_SLOTS:
     void shouldEmitTwoSignalWhenChangeRoom();
 };
 
-#endif // TYPINGNOTIFICATIONTEST_H

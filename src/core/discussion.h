@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DISCUSSION_H
-#define DISCUSSION_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -72,4 +71,3 @@ private:
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
 Q_DECLARE_METATYPE(Discussion)
 Q_DECLARE_TYPEINFO(Discussion, Q_MOVABLE_TYPE);
-#endif // DISCUSSION_H

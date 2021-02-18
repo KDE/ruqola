@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMFLOWWIDGET_H
-#define USERSINROOMFLOWWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
@@ -51,4 +50,3 @@ private:
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxyModel;
 };
 
-#endif // USERSINROOMFLOWWIDGET_H

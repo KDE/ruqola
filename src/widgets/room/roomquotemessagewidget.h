@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMQUOTEMESSAGEWIDGET_H
-#define ROOMQUOTEMESSAGEWIDGET_H
+#pragma once
 
 #include <KMessageWidget>
 
@@ -37,4 +36,3 @@ Q_SIGNALS:
     void cancelQuoteMessage();
 };
 
-#endif // ROOMQUOTEMESSAGEWIDGET_H

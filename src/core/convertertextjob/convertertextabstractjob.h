@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONVERTERTEXTABSTRACTJOB_H
-#define CONVERTERTEXTABSTRACTJOB_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QObject>
@@ -40,4 +39,3 @@ private:
     QString mMessageId;
 };
 
-#endif // CONVERTERTEXTABSTRACTJOB_H

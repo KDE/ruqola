@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PERMISSIONMANAGER_H
-#define PERMISSIONMANAGER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "permission.h"
@@ -46,4 +45,3 @@ private:
     QMap<QString, Permission> mMapPermissions;
 };
 
-#endif // PERMISSIONMANAGER_H

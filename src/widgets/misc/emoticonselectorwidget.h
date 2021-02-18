@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONSELECTORWIDGET_H
-#define EMOTICONSELECTORWIDGET_H
+#pragma once
 
 #include "emoticons/unicodeemoticon.h"
 #include "libruqolawidgets_private_export.h"
@@ -55,4 +54,3 @@ private:
     void slotEmoticonClicked(QListWidgetItem *item);
 };
 
-#endif // EMOTICONSELECTORWIDGET_H

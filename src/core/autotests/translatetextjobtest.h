@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TRANSLATETEXTJOBTEST_H
-#define TRANSLATETEXTJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~TranslateTextJobTest() override = default;
 };
 
-#endif // TRANSLATETEXTJOBTEST_H

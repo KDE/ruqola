@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOJOB_H
-#define SERVERINFOJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -57,4 +56,3 @@ private:
     bool mForceRequiresAuthentication = false;
 };
 }
-#endif // SERVERINFOJOB_H

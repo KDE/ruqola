@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFIERJOB_H
-#define NOTIFIERJOB_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "utils.h"
@@ -49,4 +48,3 @@ private:
     QString mAccountName;
 };
 
-#endif // NOTIFIERJOB_H

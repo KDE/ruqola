@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GROUPREMOVEMODERATORJOB_H
-#define GROUPREMOVEMODERATORJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -56,4 +55,3 @@ private:
     QString mRemoveUserId;
 };
 }
-#endif // CHANGECHANNELANNOUNCEMENT_H

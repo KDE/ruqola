@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATEDIRECTMESSAGESWIDGET_H
-#define CREATEDIRECTMESSAGESWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -39,4 +38,3 @@ private:
     AddUsersWidget *const mUsers;
 };
 
-#endif // CREATEDIRECTMESSAGESWIDGET_H

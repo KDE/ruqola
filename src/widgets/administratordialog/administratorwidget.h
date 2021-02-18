@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORWIDGET_H
-#define ADMINISTRATORWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -50,4 +49,3 @@ private:
     int mServerInfoTabIndex = -1;
 };
 
-#endif // ADMINISTRATORWIDGET_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOJIMANAGERTEST_H
-#define EMOJIMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -43,4 +42,3 @@ private Q_SLOTS:
     void shouldOrderUnicodeEmojis();
 };
 
-#endif // EMOJIMANAGERTEST_H

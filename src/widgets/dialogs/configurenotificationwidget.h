@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURENOTIFICATIONWIDGET_H
-#define CONFIGURENOTIFICATIONWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -49,4 +48,3 @@ private:
     QComboBox *mEmailAlertCombobox = nullptr;
 };
 
-#endif // CONFIGURENOTIFICATIONWIDGET_H

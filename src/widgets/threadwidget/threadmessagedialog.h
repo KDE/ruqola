@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADMESSAGEDIALOG_H
-#define THREADMESSAGEDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -46,4 +45,3 @@ private:
     ThreadMessageWidget *const mThreadMessageWidget;
 };
 
-#endif // THREADMESSAGEDIALOG_H

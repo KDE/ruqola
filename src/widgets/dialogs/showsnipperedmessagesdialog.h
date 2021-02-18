@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWSNIPPEREDMESSAGESDIALOG_H
-#define SHOWSNIPPEREDMESSAGESDIALOG_H
+#pragma once
 
 #include "showlistmessagebasedialog.h"
 
@@ -35,4 +34,3 @@ private:
     void writeConfig();
 };
 
-#endif // SHOWSNIPPEREDMESSAGESDIALOG_H

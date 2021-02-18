@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SENDMESSAGEJOB_H
-#define SENDMESSAGEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -59,4 +58,3 @@ private:
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::SendMessageJob::SendMessageArguments)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::SendMessageJob::SendMessageArguments, Q_MOVABLE_TYPE);
-#endif // SENDMESSAGEJOB_H

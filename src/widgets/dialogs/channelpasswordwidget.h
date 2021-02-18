@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELPASSWORDWIDGET_H
-#define CHANNELPASSWORDWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -40,4 +39,3 @@ private:
     KPasswordLineEdit *const mPasswordLineEdit;
 };
 
-#endif // CHANNELPASSWORDWIDGET_H

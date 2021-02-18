@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OTRMANAGER_H
-#define OTRMANAGER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "otr.h"
@@ -37,4 +36,3 @@ private:
     Q_DISABLE_COPY(OtrManager)
 };
 
-#endif // OTRMANAGER_H

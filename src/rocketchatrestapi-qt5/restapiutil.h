@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAPIUTIL_H
-#define RESTAPIUTIL_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include <QString>
@@ -256,4 +255,3 @@ LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString apiUri();
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QByteArray convertSha256Password(const QString &pwd);
 }
 
-#endif // RESTAPIUTIL_H

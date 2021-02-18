@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLAYSOUNDDIALOG_H
-#define PLAYSOUNDDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -37,4 +36,3 @@ private:
     PlaySoundWidget *const mSoundWidget;
 };
 
-#endif // PLAYSOUNDDIALOG_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMUSERSTATUSLISTJOB_H
-#define CUSTOMUSERSTATUSLISTJOB_H
+#pragma once
 
 #include "restapiabstractjob.h"
 
@@ -46,4 +45,3 @@ private:
     void slotCustomUserStatusDone();
 };
 }
-#endif // CUSTOMUSERSTATUSLISTJOB_H

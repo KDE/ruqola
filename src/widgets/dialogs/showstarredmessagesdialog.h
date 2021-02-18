@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWSTARREDMESSAGESDIALOG_H
-#define SHOWSTARREDMESSAGESDIALOG_H
+#pragma once
 
 #include "showlistmessagebasedialog.h"
 class ShowStarredMessagesDialog : public ShowListMessageBaseDialog
@@ -34,4 +33,3 @@ private:
     void writeConfig();
 };
 
-#endif // SHOWSTARREDMESSAGESDIALOG_H

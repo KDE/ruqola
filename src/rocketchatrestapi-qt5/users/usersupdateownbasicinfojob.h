@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSUPDATEOWNBASICINFO_H
-#define USERSUPDATEOWNBASICINFO_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -75,4 +74,3 @@ private:
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_MOVABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t);
-#endif // UsersUpdateOwnBasicInfo_H

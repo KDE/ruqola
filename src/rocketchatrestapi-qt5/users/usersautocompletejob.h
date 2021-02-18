@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSAUTOCOMPLETEJOB_H
-#define USERSAUTOCOMPLETEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -61,4 +60,3 @@ private:
     UsersAutocompleterInfo mUsersCompleterInfo;
 };
 }
-#endif // USERSAUTOCOMPLETEJOB_H

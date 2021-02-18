@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UTILSTEST_H
-#define UTILSTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -46,4 +45,3 @@ private Q_SLOTS:
     void shouldGenerateAvatarUrl();
 };
 
-#endif // UTILSTEST_H

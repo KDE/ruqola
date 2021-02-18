@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURESETTINGSDIALOG_H
-#define CONFIGURESETTINGSDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <KPageDialog>
@@ -60,4 +59,3 @@ private:
     KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
 };
 
-#endif // CONFIGURESETTINGSDIALOG_H

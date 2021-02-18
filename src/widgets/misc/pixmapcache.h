@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PIXMAPCACHE_H
-#define PIXMAPCACHE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 
@@ -42,4 +41,3 @@ private:
     LRUCache<QString, QPixmap, 5> mCachedImages;
 };
 
-#endif // PIXMAPCACHE_H

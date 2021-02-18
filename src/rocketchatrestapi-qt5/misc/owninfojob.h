@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OWNINFOJOB_H
-#define OWNINFOJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -48,4 +47,3 @@ private:
     void slotOwnInfoFinished();
 };
 }
-#endif // OWNINFOJOB_H

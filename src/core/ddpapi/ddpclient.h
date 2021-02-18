@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef DDPCLIENT_H
-#define DDPCLIENT_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "rocketchatmessage.h"
@@ -277,4 +276,3 @@ private:
     bool mLoginEnqueued = false;
 };
 
-#endif // DDPCLIENT_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DELETEGATEUTIL_H
-#define DELETEGATEUTIL_H
+#pragma once
 #include <QString>
 class QWidget;
 class QUrl;
@@ -28,4 +27,3 @@ namespace DelegateUtil
 Q_REQUIRED_RESULT QString querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave);
 }
 
-#endif // DELETEGATEUTIL_H

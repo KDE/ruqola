@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELTEST_H
-#define CHANNELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -39,4 +38,3 @@ private Q_SLOTS:
     void shouldParseChannel();
 };
 
-#endif // CHANNELTEST_H

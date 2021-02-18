@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PINNEDMESSAGEMODELFILTERPROXYMODEL_H
-#define PINNEDMESSAGEMODELFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "listmessagesmodel.h"
@@ -51,4 +50,3 @@ private:
     ListMessagesModel *const mModel;
 };
 
-#endif // PINNEDMESSAGEMODELFILTERPROXYMODEL_H

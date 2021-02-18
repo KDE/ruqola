@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTHENTICATIONMANAGER_H
-#define AUTHENTICATIONMANAGER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <KPluginMetaData>
@@ -77,4 +76,3 @@ private:
 Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
 Q_DECLARE_METATYPE(AuthenticationManager::OauthType)
 
-#endif // AUTHENTICATIONMANAGER_H

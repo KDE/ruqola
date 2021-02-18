@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TRANSLATETEXTJOB_H
-#define TRANSLATETEXTJOB_H
+#pragma once
 
 #include "convertertextabstractjob.h"
 #include "libruqola_private_export.h"
@@ -33,4 +32,3 @@ public:
     void start() override;
 };
 
-#endif // TRANSLATETEXTJOB_H

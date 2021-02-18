@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOJICUSTOMDELETEJOB_H
-#define EMOJICUSTOMDELETEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -52,4 +51,3 @@ private:
     QString mEmojiId;
 };
 }
-#endif // EMOJICUSTOMDELETEJOB_H

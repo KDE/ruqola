@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFO_H
-#define SERVERINFO_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -86,4 +85,3 @@ Q_DECLARE_METATYPE(ServerInfo)
 Q_DECLARE_TYPEINFO(ServerInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerInfo &t);
 
-#endif // SERVERINFO_H

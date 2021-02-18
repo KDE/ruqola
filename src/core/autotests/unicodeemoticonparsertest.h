@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNICODEEMOTICONPARSERTEST_H
-#define UNICODEEMOTICONPARSERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~UnicodeEmoticonParserTest() override = default;
 };
 
-#endif // UNICODEEMOTICONPARSERTEST_H

@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DISCUSSIONSMODEL_H
-#define DISCUSSIONSMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
@@ -69,4 +68,3 @@ private:
     Discussions *const mDiscussions;
 };
 
-#endif // DISCUSSIONSMODEL_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGECACHE_H
-#define MESSAGECACHE_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "model/threadmessagemodel.h"
@@ -63,4 +62,3 @@ private:
     QCache<QString, Message> mMessages;
 };
 
-#endif // MESSAGECACHE_H

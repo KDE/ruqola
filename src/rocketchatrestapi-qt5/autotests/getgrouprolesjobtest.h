@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETGROUPROLESJOBTEST_H
-#define GETGROUPROLESJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldGenerateRequest();
 };
 
-#endif // GETGROUPROLESJOBTEST_H

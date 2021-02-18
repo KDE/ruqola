@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMHEADERWIDGETTEST_H
-#define ROOMHEADERWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -35,4 +34,3 @@ private Q_SLOTS:
     void shouldEmitSignal();
 };
 
-#endif // ROOMHEADERWIDGETTEST_H

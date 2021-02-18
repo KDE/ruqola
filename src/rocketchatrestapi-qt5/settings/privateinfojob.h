@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PRIVATEINFOJOB_H
-#define PRIVATEINFOJOB_H
+#pragma once
 
 #include "restapiabstractjob.h"
 
@@ -46,4 +45,3 @@ private:
     void slotPrivateInfoDone();
 };
 }
-#endif // PRIVATEINFOJOB_H

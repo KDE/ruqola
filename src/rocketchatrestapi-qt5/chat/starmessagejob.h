@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STARMESSAGEJOB_H
-#define STARMESSAGEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -57,4 +56,3 @@ private:
     bool mStarMessage = true;
 };
 }
-#endif // STARMESSAGEJOB_H

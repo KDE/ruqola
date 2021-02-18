@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SETUSERPUBLICANDPRIVATEKEYSJOB_H
-#define SETUSERPUBLICANDPRIVATEKEYSJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -57,4 +56,3 @@ private:
     QString mRsaPrivateKey;
 };
 }
-#endif // SETUSERPUBLICANDPRIVATEKEYSJOB_H

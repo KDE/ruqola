@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMCOUNTERINFOWIDGET_H
-#define ROOMCOUNTERINFOWIDGET_H
+#pragma once
 
 #include "channelcounterinfo.h"
 #include "libruqolawidgets_private_export.h"
@@ -44,4 +43,3 @@ private:
     ChannelCounterInfo mChannelCounterInfo;
 };
 
-#endif // ROOMCOUNTERINFOWIDGET_H

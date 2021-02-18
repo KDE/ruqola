@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMUSERSTATUSES_H
-#define CUSTOMUSERSTATUSES_H
+#pragma once
 
 #include "customuserstatus.h"
 #include "libruqolacore_export.h"
@@ -60,4 +59,3 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatuses &t);
 
-#endif // CUSTOMUSERSTATUSES_H

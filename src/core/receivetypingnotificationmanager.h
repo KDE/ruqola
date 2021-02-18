@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RECEIVETYPINGNOTIFICATIONMANAGER_H
-#define RECEIVETYPINGNOTIFICATIONMANAGER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QMap>
@@ -45,4 +44,3 @@ private:
     QMap<QString, QStringList> mMapTypingNotifications;
 };
 
-#endif // RECEIVETYPINGNOTIFICATIONMANAGER_H

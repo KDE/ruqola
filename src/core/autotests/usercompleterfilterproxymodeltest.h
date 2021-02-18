@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERCOMPLETERFILTERPROXYMODELTEST_H
-#define USERCOMPLETERFILTERPROXYMODELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
 
-#endif // USERCOMPLETERFILTERPROXYMODELTEST_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELLISTWIDGET_H
-#define CHANNELLISTWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QPointer>
@@ -55,4 +54,3 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
-#endif // CHANNELLISTWIDGET_H

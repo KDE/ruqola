@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTPLUGINMANAGER_H
-#define TEXTPLUGINMANAGER_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <KPluginMetaData>
@@ -72,4 +71,3 @@ private:
     QVector<PluginTextUtilData> mPluginDataList;
 };
 
-#endif // TEXTPLUGINMANAGER_H

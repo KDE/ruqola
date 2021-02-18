@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMDIALOG_H
-#define USERSINROOMDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QWidget>
@@ -42,4 +41,3 @@ private:
     UsersInRoomWidget *const mUsersInRoomWidget;
 };
 
-#endif // USERSINROOMDIALOG_H

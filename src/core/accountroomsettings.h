@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTROOMSETTINGS_H
-#define ACCOUNTROOMSETTINGS_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QMap>
@@ -49,4 +48,3 @@ private:
     QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
 };
 
-#endif // ACCOUNTROOMSETTINGS_H

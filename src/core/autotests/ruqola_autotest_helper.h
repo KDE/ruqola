@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLA_AUTOTEST_HELPER_H
-#define RUQOLA_AUTOTEST_HELPER_H
+#pragma once
 
 #include <QDebug>
 #include <QJsonArray>
@@ -100,4 +99,3 @@ QJsonArray loadJsonArrayObject(const QString &originalJsonFile)
 }
 }
 
-#endif // RUQOLA_AUTOTEST_HELPER_H

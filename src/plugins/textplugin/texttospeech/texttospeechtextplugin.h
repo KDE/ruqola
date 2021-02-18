@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTTOSPEECHTEXTPLUGIN_H
-#define TEXTTOSPEECHTEXTPLUGIN_H
+#pragma once
 
 #include <QObject>
 
@@ -35,4 +34,3 @@ public:
     PluginTextInterface *createInterface(QObject *parent) override;
 };
 
-#endif // TEXTTOSPEECHTEXTPLUGIN_H

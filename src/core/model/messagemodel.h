@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef MESSAGEMODEL_H
-#define MESSAGEMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "messages/message.h"
@@ -169,4 +168,3 @@ private:
     LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
 };
 Q_DECLARE_METATYPE(MessageModel::AttachmentVisibility)
-#endif

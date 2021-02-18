@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RETENTIONINFO_H
-#define RETENTIONINFO_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
@@ -59,4 +58,3 @@ private:
 Q_DECLARE_METATYPE(RetentionInfo)
 Q_DECLARE_TYPEINFO(RetentionInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RetentionInfo &t);
-#endif // RETENTIONINFO_H

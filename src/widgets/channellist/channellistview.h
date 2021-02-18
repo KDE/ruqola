@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELLISTVIEW_H
-#define CHANNELLISTVIEW_H
+#pragma once
 
 #include <QListView>
 
@@ -61,4 +60,3 @@ private:
     ChannelListDelegate *const mChannelListDelegate;
 };
 
-#endif // CHANNELLISTVIEW_H

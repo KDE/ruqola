@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTPLUGINMANAGERTEST_H
-#define TEXTPLUGINMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~TextPluginManagerTest() override = default;
 };
 
-#endif // TEXTPLUGINMANAGERTEST_H

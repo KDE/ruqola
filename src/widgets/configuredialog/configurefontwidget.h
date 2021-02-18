@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGUREFONTWIDGET_H
-#define CONFIGUREFONTWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -39,4 +38,3 @@ private:
     KFontChooser *mFontChooser = nullptr;
 };
 
-#endif // CONFIGUREFONTWIDGET_H

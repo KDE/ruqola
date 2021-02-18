@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELPASSWORDDIALOG_H
-#define CHANNELPASSWORDDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -37,4 +36,3 @@ private:
     ChannelPasswordWidget *const mChannelPasswordWidget;
 };
 
-#endif // CHANNELPASSWORDDIALOG_H

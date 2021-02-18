@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATEVIDEOMESSAGEWIDGET_H
-#define CREATEVIDEOMESSAGEWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -39,4 +38,3 @@ private:
     QCamera *mCamera = nullptr;
 };
 
-#endif // CREATEVIDEOMESSAGEWIDGET_H

@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FILETEST_H
-#define FILETEST_H
+#pragma once
 
 #include <QObject>
 
@@ -37,4 +36,3 @@ private Q_SLOTS:
     void shouldParseFile();
 };
 
-#endif // FILESTEST_H

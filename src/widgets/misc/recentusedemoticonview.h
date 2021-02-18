@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RECENTUSEDEMOTICONVIEW_H
-#define RECENTUSEDEMOTICONVIEW_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QListView>
@@ -37,4 +36,3 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 };
 
-#endif // RECENTUSEDEMOTICONVIEW_H

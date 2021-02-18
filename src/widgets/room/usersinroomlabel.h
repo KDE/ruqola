@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMLABEL_H
-#define USERSINROOMLABEL_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QLabel>
@@ -68,4 +67,3 @@ private:
 };
 Q_DECLARE_METATYPE(UsersInRoomLabel::UserInfo)
 Q_DECLARE_TYPEINFO(UsersInRoomLabel::UserInfo, Q_MOVABLE_TYPE);
-#endif // USERSINROOMLABEL_H

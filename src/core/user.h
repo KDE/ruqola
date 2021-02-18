@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USER_H
-#define USER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
@@ -113,4 +112,3 @@ Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User::UserEmailsInfo &t);
 
-#endif // USER_H

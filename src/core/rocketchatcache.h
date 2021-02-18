@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATCACHE_H
-#define ROCKETCHATCACHE_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "utils.h"
@@ -64,4 +63,3 @@ private:
     AvatarManager *mAvatarManager = nullptr;
 };
 
-#endif // ROCKETCHATCACHE_H

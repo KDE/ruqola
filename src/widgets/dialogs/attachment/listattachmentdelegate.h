@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTATTACHMENTDELEGATE_H
-#define LISTATTACHMENTDELEGATE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
@@ -68,4 +67,3 @@ private:
     const QIcon mDeleteIcon;
 };
 
-#endif

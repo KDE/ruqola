@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMSAUTOCOMPLETECHANNELANDPRIVATEJOB_H
-#define ROOMSAUTOCOMPLETECHANNELANDPRIVATEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -59,4 +58,3 @@ private:
     RoomsAutocompleteChannelAndPrivateInfo mRoomsAutocompleteInfo;
 };
 }
-#endif // ROOMSAUTOCOMPLETECHANNELANDPRIVATEJOB_H

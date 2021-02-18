@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOWNLOADFILEJOB_H
-#define DOWNLOADFILEJOB_H
+#pragma once
 
 #include "restapiabstractjob.h"
 
@@ -59,4 +58,3 @@ private:
     QUrl mLocalFileUrl;
 };
 }
-#endif // DOWNLOADFILEJOB_H

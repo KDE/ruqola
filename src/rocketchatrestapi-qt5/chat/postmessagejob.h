@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef POSTMESSAGEJOB_H
-#define POSTMESSAGEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -58,4 +57,3 @@ private:
     QString mRoomId;
 };
 }
-#endif // POSTMESSAGEJOB_H

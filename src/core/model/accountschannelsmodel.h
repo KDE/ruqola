@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTSCHANNELSMODEL_H
-#define ACCOUNTSCHANNELSMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 
@@ -50,4 +49,3 @@ private:
     QVector<ProxyIndex> mProxied;
 };
 
-#endif // ACCOUNTSCHANNELSMODEL_H

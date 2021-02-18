@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGETRANSLATION_H
-#define MESSAGETRANSLATION_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -40,4 +39,3 @@ private:
     QMap<QString, QString> mTranslatedString;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageTranslation &t);
-#endif // MESSAGETRANSLATION_H

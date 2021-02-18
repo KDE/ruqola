@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef INVITEUSERSWIDGET_H
-#define INVITEUSERSWIDGET_H
+#pragma once
 
 #include "invite/findorcreateinvitejob.h"
 #include "libruqolawidgets_private_export.h"
@@ -51,4 +50,3 @@ private:
     QComboBox *mMaxUses = nullptr;
 };
 
-#endif // INVITEUSERSWIDGET_H

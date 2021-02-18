@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTMANAGER_H
-#define ACCOUNTMANAGER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -80,4 +79,3 @@ private:
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 };
 
-#endif // ACCOUNTMANAGER_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLACENTRALWIDGET_H
-#define RUQOLACENTRALWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QAbstractSocket>
@@ -57,4 +56,3 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
-#endif // RUQOLACENTRALWIDGET_H

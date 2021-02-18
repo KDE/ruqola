@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUNNINGANIMATEDIMAGE_H
-#define RUNNINGANIMATEDIMAGE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 
@@ -38,4 +37,3 @@ struct LIBRUQOLAWIDGETS_TESTS_EXPORT RunningAnimatedImage {
     QMovie *movie;
 };
 
-#endif // RUNNINGANIMATEDIMAGE_H

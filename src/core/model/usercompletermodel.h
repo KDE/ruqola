@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERCOMPLETERMODEL_H
-#define USERCOMPLETERMODEL_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "user.h"
@@ -47,4 +46,3 @@ private:
     QVector<User> mUsers;
 };
 
-#endif // USERCOMPLETERMODEL_H

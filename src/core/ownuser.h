@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OWNUSER_H
-#define OWNUSER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "ownuserpreferences.h"
@@ -97,4 +96,3 @@ private:
 Q_DECLARE_METATYPE(OwnUser)
 Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUser &t);
-#endif // OWNUSER_H

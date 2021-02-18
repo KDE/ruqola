@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FINDORCREATEINVITEJOB_H
-#define FINDORCREATEINVITEJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -76,4 +75,3 @@ private:
 Q_DECLARE_METATYPE(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo, Q_MOVABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &t);
-#endif // FINDORCREATEINVITEJOB_H

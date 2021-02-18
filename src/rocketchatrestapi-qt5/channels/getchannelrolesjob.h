@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETCHANNELROLESJOB_H
-#define GETCHANNELROLESJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -52,4 +51,3 @@ private:
     void slotGetChannelRolesFinished();
 };
 }
-#endif // GETCHANNELROLESJOB_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTSERVERLISTWIDGET_H
-#define ACCOUNTSERVERLISTWIDGET_H
+#pragma once
 
 #include "dialogs/createnewserverdialog.h"
 #include "libruqolawidgets_private_export.h"
@@ -59,4 +58,3 @@ private:
     QStringList mListRemovedAccount;
 };
 
-#endif // ACCOUNTSERVERLISTWIDGET_H

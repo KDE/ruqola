@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMUTIL_H
-#define ROOMUTIL_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QString>
@@ -29,4 +28,3 @@ LIBRUQOLAWIDGETS_TESTS_EXPORT Q_REQUIRED_RESULT QString generateUserLink(const Q
 LIBRUQOLAWIDGETS_TESTS_EXPORT Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId, const QString &roomId, const QString &channelType);
 }
 
-#endif // ROOMUTIL_H

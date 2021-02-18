@@ -17,8 +17,7 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "user.h"
@@ -100,4 +99,3 @@ Q_DECLARE_METATYPE(Utils::AvatarInfo)
 Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::NotificationInfo &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::AvatarInfo &t);
-#endif // UTILS_H

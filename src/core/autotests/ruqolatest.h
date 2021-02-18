@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLATEST_H
-#define RUQOLATEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
 
-#endif // RUQOLATEST_H

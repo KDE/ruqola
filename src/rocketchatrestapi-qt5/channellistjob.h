@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELLISTJOB_H
-#define CHANNELLISTJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -45,4 +44,3 @@ private:
     void slotListInfo();
 };
 }
-#endif // CHANNELLISTJOB_H

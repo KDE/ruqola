@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATACCOUNTMODEL_H
-#define ROCKETCHATACCOUNTMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
@@ -63,4 +62,3 @@ private:
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
 
-#endif // ROCKETCHATACCOUNTMODEL_H

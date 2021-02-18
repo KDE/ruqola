@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AVATARCACHEMANAGER_H
-#define AVATARCACHEMANAGER_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "pixmapcache.h"
@@ -56,4 +55,3 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
-#endif // AVATARCACHEMANAGER_H

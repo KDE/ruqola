@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOJICOMPLETIONDELEGATE_H
-#define EMOJICOMPLETIONDELEGATE_H
+#pragma once
 
 #include <QItemDelegate>
 
@@ -35,4 +34,3 @@ private:
     const QFont mEmojiFont;
 };
 
-#endif // EMOJICOMPLETIONDELEGATE_H

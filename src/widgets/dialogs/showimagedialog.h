@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWIMAGEDIALOG_H
-#define SHOWIMAGEDIALOG_H
+#pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ShowImageWidget;
@@ -41,4 +40,3 @@ private:
     ShowImageWidget *const mShowImageWidget;
 };
 
-#endif // SHOWIMAGEDIALOG_H

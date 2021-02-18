@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETTHREADMESSAGESJOB_H
-#define GETTHREADMESSAGESJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -55,4 +54,3 @@ private:
     QString mThreadMessageId;
 };
 }
-#endif // GETTHREADMESSAGESJOB_H

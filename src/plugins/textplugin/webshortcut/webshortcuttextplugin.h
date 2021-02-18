@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef WEBSHORTCUTTEXTPLUGIN_H
-#define WEBSHORTCUTTEXTPLUGIN_H
+#pragma once
 
 #include <QObject>
 
@@ -35,4 +34,3 @@ public:
     PluginTextInterface *createInterface(QObject *parent) override;
 };
 
-#endif // WEBSHORTCUTTEXTPLUGIN_H

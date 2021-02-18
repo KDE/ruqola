@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAPIREQUEST_H
-#define RESTAPIREQUEST_H
+#pragma once
 
 #include "channels/channelbasejob.h"
 #include "commands/runcommandjob.h"
@@ -327,4 +326,3 @@ private:
 };
 }
 
-#endif // RESTAPIREQUEST_H

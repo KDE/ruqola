@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGEDIALOG_H
-#define SEARCHMESSAGEDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 
@@ -50,4 +49,3 @@ private:
     SearchMessageWidget *const mSearchMessageWidget;
 };
 
-#endif // SEARCHMESSAGEDIALOG_H

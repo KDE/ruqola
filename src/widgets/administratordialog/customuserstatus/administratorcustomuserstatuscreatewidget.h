@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H
-#define ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H
+#pragma once
 
 #include "user.h"
 #include <QWidget>
@@ -55,4 +54,3 @@ private:
     StatusCombobox *const mStatusCombobox;
 };
 
-#endif // ADMINISTRATORCUSTOMUSERSTATUSCREATEWIDGET_H

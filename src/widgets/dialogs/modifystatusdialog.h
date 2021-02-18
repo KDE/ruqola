@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MODIFYSTATUSDIALOG_H
-#define MODIFYSTATUSDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
@@ -42,4 +41,3 @@ private:
     ModifyStatusWidget *const mModifyStatusWidget;
 };
 
-#endif // MODIFYSTATUSDIALOG_H

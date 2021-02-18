@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
-#define ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H
+#pragma once
 
 #include "administratorcustomuserstatuscreatewidget.h"
 #include "libruqolawidgets_private_export.h"
@@ -41,4 +40,3 @@ private:
     QPushButton *mOkButton = nullptr;
 };
 
-#endif // ADMINISTRATORCUSTOMUSERSTATUSCREATEDIALOG_H

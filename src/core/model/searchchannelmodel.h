@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELMODEL_H
-#define SEARCHCHANNELMODEL_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
@@ -58,4 +57,3 @@ private:
     QVector<Channel> mChannel;
 };
 
-#endif // SEARCHCHANNELMODEL_H

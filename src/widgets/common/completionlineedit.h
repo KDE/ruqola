@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMPLETIONLINEEDIT_H
-#define COMPLETIONLINEEDIT_H
+#pragma once
 
 #include <QLineEdit>
 
@@ -44,4 +43,3 @@ protected:
     CompletionListView *const mCompletionListView;
 };
 
-#endif // COMPLETIONLINEEDIT_H

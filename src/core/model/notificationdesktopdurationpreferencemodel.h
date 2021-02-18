@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
-#define NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
@@ -56,4 +55,3 @@ private:
     int mCurrentPreference = 0;
 };
 
-#endif // NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H

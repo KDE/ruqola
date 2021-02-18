@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SETCHANNELTYPEJOB_H
-#define SETCHANNELTYPEJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -58,4 +57,3 @@ private:
     GroupType mType = Unknown;
 };
 }
-#endif

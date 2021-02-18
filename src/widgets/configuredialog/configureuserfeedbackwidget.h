@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGUREUSERFEEDBACKWIDGET_H
-#define CONFIGUREUSERFEEDBACKWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -49,4 +48,3 @@ private:
 #endif
 };
 
-#endif // CONFIGUREUSERFEEDBACKWIDGET_H

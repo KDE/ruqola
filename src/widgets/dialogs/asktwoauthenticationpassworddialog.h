@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ASKTWOAUTHENTICATIONPASSWORDDIALOG_H
-#define ASKTWOAUTHENTICATIONPASSWORDDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -36,4 +35,3 @@ private:
     AskTwoAuthenticationPasswordWidget *const mAskTwoAuthicationPasswordWidget;
 };
 
-#endif // ASKTWOAUTHENTICATIONPASSWORDDIALOG_H

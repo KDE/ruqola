@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAWEBSOCKET_H
-#define RUQOLAWEBSOCKET_H
+#pragma once
 
 #include "abstractwebsocket.h"
 
@@ -53,4 +52,3 @@ private:
     QWebSocket *const mWebSocket;
 };
 
-#endif // RUQOLAWEBSOCKET_H

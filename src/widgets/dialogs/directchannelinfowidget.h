@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DIRECTCHANNELINFOWIDGET_H
-#define DIRECTCHANNELINFOWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -54,4 +53,3 @@ private:
     QFormLayout *mMainLayout = nullptr;
 };
 
-#endif // DIRECTCHANNELINFOWIDGET_H

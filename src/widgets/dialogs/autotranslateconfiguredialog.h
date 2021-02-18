@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTOTRANSLATECONFIGUREDIALOG_H
-#define AUTOTRANSLATECONFIGUREDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -37,4 +36,3 @@ private:
     AutoTranslateConfigureWidget *const mAutoTranslateConfigureWidget;
 };
 
-#endif // AUTOTRANSLATECONFIGUREDIALOG_H

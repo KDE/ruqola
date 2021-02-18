@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWDISCUSSIONWIDGET_H
-#define CREATENEWDISCUSSIONWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -55,4 +54,3 @@ private:
     KTextEdit *mMessageTextEdit = nullptr;
 };
 
-#endif // CREATENEWDISCUSSIONWIDGET_H

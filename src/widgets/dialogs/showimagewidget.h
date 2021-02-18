@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWIMAGEWIDGET_H
-#define SHOWIMAGEWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -56,4 +55,3 @@ private:
     bool mIsUpdatingZoom = false;
 };
 
-#endif // SHOWIMAGEWIDGET_H

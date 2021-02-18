@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SetAvatarJob_H
-#define SetAvatarJob_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "userbasejob.h"
@@ -60,4 +59,3 @@ private:
     SetAvatarInfo mAvatarInfo;
 };
 }
-#endif // SetAvatarJob_H

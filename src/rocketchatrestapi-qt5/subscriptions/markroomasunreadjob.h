@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MARKROOMASUNREADJOB_H
-#define MARKROOMASUNREADJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -61,4 +60,3 @@ private:
     MarkAsUnReadObject mUnReadObject = Unknown;
 };
 }
-#endif // MARKROOMASUnREADJOB_H

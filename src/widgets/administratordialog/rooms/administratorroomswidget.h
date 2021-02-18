@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORROOMSWIDGET_H
-#define ADMINISTRATORROOMSWIDGET_H
+#pragma once
 
 #include "administratorroomsselectroomtypewidget.h"
 #include "libruqolawidgets_private_export.h"
@@ -53,4 +52,3 @@ private:
     AdministratorRoomsSelectRoomTypeWidget *mSelectRoomType = nullptr;
 };
 
-#endif // ADMINISTRATORROOMSWIDGET_H

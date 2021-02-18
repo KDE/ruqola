@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONCATEGORY_H
-#define EMOTICONCATEGORY_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -43,4 +42,3 @@ Q_DECLARE_METATYPE(EmoticonCategory)
 Q_DECLARE_TYPEINFO(EmoticonCategory, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const EmoticonCategory &t);
 
-#endif // EMOTICONCATEGORY_H

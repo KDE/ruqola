@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOGINJOB_H
-#define LOGINJOB_H
+#pragma once
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
@@ -64,4 +63,3 @@ private:
     QString mCode;
 };
 }
-#endif // LOGINJOB_H

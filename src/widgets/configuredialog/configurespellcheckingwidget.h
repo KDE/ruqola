@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURESPELLCHECKINGWIDGET_H
-#define CONFIGURESPELLCHECKINGWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -41,4 +40,3 @@ private:
     Sonnet::ConfigWidget *mConfigWidget = nullptr;
 };
 
-#endif // CONFIGURESPELLCHECKINGWIDGET_H

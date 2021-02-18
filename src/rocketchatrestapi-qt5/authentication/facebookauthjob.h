@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FACEBOOKAUTHJOB_H
-#define FACEBOOKAUTHJOB_H
+#pragma once
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
@@ -62,4 +61,3 @@ private:
     // TODO identity ???? it's optional
 };
 }
-#endif // FACEBOOKAUTHJOB_H

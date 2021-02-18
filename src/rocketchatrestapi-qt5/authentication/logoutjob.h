@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOGOUTJOB_H
-#define LOGOUTJOB_H
+#pragma once
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
@@ -46,4 +45,3 @@ private:
     void slotLogout();
 };
 }
-#endif // LOGOUTJOB_H

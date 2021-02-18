@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTDISCUSSIONDELEGATE_H
-#define LISTDISCUSSIONDELEGATE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
@@ -56,4 +55,3 @@ private:
     ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-#endif

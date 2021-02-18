@@ -18,8 +18,7 @@
     02110-1301, USA.
 */
 
-#ifndef TEST_MODEL_HELPERS_H
-#define TEST_MODEL_HELPERS_H
+#pragma once
 
 #include <QSignalSpy>
 #include <QString>
@@ -42,4 +41,3 @@ inline QString rowSpyToText(const QSignalSpy &spy)
 }
 }
 
-#endif // TEST_MODEL_HELPERS_H

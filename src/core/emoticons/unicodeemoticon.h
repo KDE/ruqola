@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNICODEEMOTICON_H
-#define UNICODEEMOTICON_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -68,4 +67,3 @@ Q_DECLARE_METATYPE(UnicodeEmoticon)
 Q_DECLARE_TYPEINFO(UnicodeEmoticon, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const UnicodeEmoticon &t);
 
-#endif // UNICODEEMOTICON_H

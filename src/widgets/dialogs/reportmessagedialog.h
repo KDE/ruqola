@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REPORTMESSAGEDIALOG_H
-#define REPORTMESSAGEDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 
@@ -40,4 +39,3 @@ private:
     ReportMessageWidget *const mReportMessageWidget;
 };
 
-#endif // REPORTMESSAGEDIALOG_H

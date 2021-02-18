@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSMODEL_H
-#define STATUSMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "user.h"
@@ -65,4 +64,3 @@ private:
     int mCurrentStatus = 0;
 };
 
-#endif // STATUSMODEL_H

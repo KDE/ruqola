@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEATTACHMENTFIELDTEST_H
-#define MESSAGEATTACHMENTFIELDTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // MESSAGEATTACHMENTFIELDTEST_H

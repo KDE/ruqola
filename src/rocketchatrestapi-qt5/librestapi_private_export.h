@@ -17,8 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef LIBRESTAPIPRIVATE_EXPORT_H
-#define LIBRESTAPIPRIVATE_EXPORT_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 
@@ -31,4 +30,3 @@
 #define LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT
 #endif
 
-#endif

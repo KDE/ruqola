@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELGETCOUNTERSJOB_H
-#define CHANNELGETCOUNTERSJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "restapiabstractjob.h"
@@ -51,4 +50,3 @@ private:
     void slotChannelGetCountersFinished();
 };
 }
-#endif // CHANNELGETCOUNTERSJOB_H

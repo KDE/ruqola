@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
-#define ASKTWOAUTHENTICATIONPASSWORDWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -36,4 +35,3 @@ private:
     TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;
 };
 
-#endif // ASKTWOAUTHENTICATIONPASSWORDWIDGET_H

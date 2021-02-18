@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOWNLOADAPPSLANGUAGESPARSER_H
-#define DOWNLOADAPPSLANGUAGESPARSER_H
+#pragma once
 
 #include "downloadappslanguagesinfo.h"
 #include "libruqolacore_export.h"
@@ -40,4 +39,3 @@ private:
     QString mFileName;
 };
 
-#endif // DOWNLOADAPPSLANGUAGESPARSER_H

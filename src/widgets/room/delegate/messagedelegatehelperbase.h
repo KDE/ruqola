@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERBASE_H
-#define MESSAGEDELEGATEHELPERBASE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
@@ -56,4 +55,3 @@ protected:
     void drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const;
 };
 
-#endif // MESSAGEDELEGATEHELPERBASE_H

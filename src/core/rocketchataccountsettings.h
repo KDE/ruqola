@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATACCOUNTSETTINGS_H
-#define ROCKETCHATACCOUNTSETTINGS_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QObject>
@@ -117,4 +116,3 @@ private:
     bool mAccountEnabled = true;
 };
 
-#endif // ROCKETCHATACCOUNTSETTINGS_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAMAINWIDGET_H
-#define RUQOLAMAINWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QPointer>
@@ -56,4 +55,3 @@ private:
     QWidget *mEmptyRoomWidget = nullptr;
 };
 
-#endif // RUQOLAMAINWIDGET_H

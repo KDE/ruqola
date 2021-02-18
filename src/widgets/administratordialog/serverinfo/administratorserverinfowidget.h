@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORSERVERINFOWIDGET_H
-#define ADMINISTRATORSERVERINFOWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "serverinfo.h"
@@ -61,4 +60,3 @@ private:
     QTreeWidgetItem *mRuntimeInfoItem = nullptr;
 };
 
-#endif // ADMINISTRATORSERVERINFOWIDGET_H

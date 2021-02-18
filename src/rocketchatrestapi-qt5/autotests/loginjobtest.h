@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOGINJOBTEST_H
-#define LOGINJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -36,4 +35,3 @@ private Q_SLOTS:
     void shouldGenerateJson();
 };
 
-#endif // LOGINJOBTEST_H

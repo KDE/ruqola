@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERCOMPLETERFILTERPROXYMODEL_H
-#define USERCOMPLETERFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
@@ -37,4 +36,3 @@ protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
-#endif // USERCOMPLETERFILTERPROXYMODEL_H

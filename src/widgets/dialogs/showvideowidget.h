@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWVIDEOWIDGET_H
-#define SHOWVIDEOWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QMediaPlayer>
@@ -54,4 +53,3 @@ private:
     QSlider *mSoundSlider = nullptr;
 };
 
-#endif // SHOWVIDEOWIDGET_H

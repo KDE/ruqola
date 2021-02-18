@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAUTHENTICATIONMANAGER_H
-#define RESTAUTHENTICATIONMANAGER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QObject>
@@ -47,4 +46,3 @@ private:
     RocketChatRestApi::RestApiRequest *const mRestApiResquest;
 };
 
-#endif // RESTAUTHENTICATIONMANAGER_H

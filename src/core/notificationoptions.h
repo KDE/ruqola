@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFICATIONOPTIONS_H
-#define NOTIFICATIONOPTIONS_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -90,4 +89,3 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
 
-#endif // NOTIFICATIONOPTIONS_H

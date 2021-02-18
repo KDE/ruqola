@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWLISTMESSAGEBASEWIDGET_H
-#define SHOWLISTMESSAGEBASEWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -57,4 +56,3 @@ private:
     ListMessagesModelFilterProxyModel *mModel = nullptr;
 };
 
-#endif // SHOWLISTMESSAGEBASEWIDGET_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMSOUNDSTREEWIDGET_H
-#define CUSTOMSOUNDSTREEWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QTreeWidget>
@@ -39,4 +38,3 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
 };
 
-#endif // CUSTOMSOUNDSTREEWIDGET_H

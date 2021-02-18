@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FINDORCREATEINVITEJOBTEST_H
-#define FINDORCREATEINVITEJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -38,4 +37,3 @@ private Q_SLOTS:
     void shouldParseResult_data();
 };
 
-#endif // FINDORCREATEINVITEJOBTEST_H

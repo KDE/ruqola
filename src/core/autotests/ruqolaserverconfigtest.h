@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLASERVERCONFIGTEST_H
-#define RUQOLASERVERCONFIGTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -47,4 +46,3 @@ private Q_SLOTS:
     void shouldTestVersion();
 };
 
-#endif // RUQOLASERVERCONFIGTEST_H

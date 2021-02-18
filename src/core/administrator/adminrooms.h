@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINROOMS_H
-#define ADMINROOMS_H
+#pragma once
 
 #include "administrator/adminroom.h"
 #include "libruqola_private_export.h"
@@ -61,4 +60,3 @@ private:
 Q_DECLARE_METATYPE(AdminRooms)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AdminRooms &t);
 
-#endif // ADMINROOMS_H

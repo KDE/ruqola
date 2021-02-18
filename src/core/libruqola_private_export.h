@@ -17,8 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef LIBRUQOLAPRIVATE_EXPORT_H
-#define LIBRUQOLAPRIVATE_EXPORT_H
+#pragma once
 
 #include "libruqolacore_export.h"
 
@@ -31,4 +30,3 @@
 #define LIBRUQOLACORE_TESTS_EXPORT
 #endif
 
-#endif

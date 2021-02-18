@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWDISCUSSIONSWIDGET_H
-#define SHOWDISCUSSIONSWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -49,4 +48,3 @@ private:
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
 };
 
-#endif // SHOWDISCUSSIONSWIDGET_H

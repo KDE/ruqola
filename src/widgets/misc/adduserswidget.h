@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADDUSERSWIDGET_H
-#define ADDUSERSWIDGET_H
+#pragma once
 
 #include "dialogs/adduserscompletionlineedit.h"
 #include "libruqolawidgets_private_export.h"
@@ -53,4 +52,3 @@ private:
     QMap<QString, ClickableUserWidget *> mMap;
 };
 
-#endif // ADDUSERSWIDGET_H

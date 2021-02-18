@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGELISTDELEGATE_H
-#define MESSAGELISTDELEGATE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "utils.h"
@@ -162,4 +161,3 @@ private:
     AvatarCacheManager *const mAvatarCacheManager;
 };
 
-#endif // MESSAGELISTDELEGATE_H

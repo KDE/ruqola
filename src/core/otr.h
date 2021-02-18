@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OTR_H
-#define OTR_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -62,4 +61,3 @@ Q_DECLARE_METATYPE(Otr)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Otr &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CryptoSettings &t);
 
-#endif // OTR_H

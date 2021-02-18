@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPREFERENCECONFIGUREWIDGET_H
-#define MYACCOUNTPREFERENCECONFIGUREWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -48,4 +47,3 @@ private:
     bool mChanged = false;
 };
 
-#endif // MYACCOUNTPREFERENCECONFIGUREWIDGET_H

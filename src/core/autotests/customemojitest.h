@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOJITEST_H
-#define EMOJITEST_H
+#pragma once
 
 #include <QObject>
 
@@ -42,4 +41,3 @@ private Q_SLOTS:
     //    void shouldGenerateHtml();
 };
 
-#endif // EMOJITEST_H

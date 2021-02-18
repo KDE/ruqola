@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REGISTERUSERWIDGET_H
-#define REGISTERUSERWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "users/registeruserjob.h"
@@ -48,4 +47,3 @@ private:
     KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
 };
 
-#endif // REGISTERUSERWIDGET_H

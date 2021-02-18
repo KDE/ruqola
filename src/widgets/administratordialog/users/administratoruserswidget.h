@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORUSERSWIDGET_H
-#define ADMINISTRATORUSERSWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -49,4 +48,3 @@ private:
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
 
-#endif // ADMINISTRATORUSERSWIDGET_H

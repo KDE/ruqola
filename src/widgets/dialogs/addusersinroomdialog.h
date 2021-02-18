@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADDUSERSINROOMDIALOG_H
-#define ADDUSERSINROOMDIALOG_H
+#pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class AddUsersInRoomWidget;
@@ -37,4 +36,3 @@ private:
     AddUsersInRoomWidget *mAddUsersInRoomWidget = nullptr;
 };
 
-#endif // ADDUSERSINROOMDIALOG_H

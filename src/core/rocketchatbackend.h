@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef ROCKETCHATBACKEND_H
-#define ROCKETCHATBACKEND_H
+#pragma once
 
 #include "file.h"
 #include "libruqolacore_export.h"
@@ -68,4 +67,3 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
-#endif // ROCKETCHATBACKEND_H

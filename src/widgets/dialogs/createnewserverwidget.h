@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWSERVERWIDGET_H
-#define CREATENEWSERVERWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -52,4 +51,3 @@ private:
     AccountManager::AccountManagerInfo mAccountInfo;
 };
 
-#endif // CREATENEWSERVERWIDGET_H

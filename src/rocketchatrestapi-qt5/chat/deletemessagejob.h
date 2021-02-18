@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DELETEMESSAGEJOB_H
-#define DELETEMESSAGEJOB_H
+#pragma once
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
@@ -57,4 +56,3 @@ private:
     QString mMessageId;
 };
 }
-#endif // DELETEMESSAGEJOB_H

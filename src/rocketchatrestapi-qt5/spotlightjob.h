@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SPOTLIGHTJOB_H
-#define SPOTLIGHTJOB_H
+#pragma once
 
 #include "restapiabstractjob.h"
 
@@ -52,4 +51,3 @@ private:
     QString mSearchPattern;
 };
 }
-#endif // SPOTLIGHTJOB_H

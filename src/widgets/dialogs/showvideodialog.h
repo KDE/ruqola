@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWVIDEODIALOG_H
-#define SHOWVIDEODIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -38,4 +37,3 @@ private:
     ShowVideoWidget *mShowVideoWidget = nullptr;
 };
 
-#endif // SHOWVIDEODIALOG_H

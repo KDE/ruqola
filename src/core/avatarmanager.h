@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AVATARMANAGER_H
-#define AVATARMANAGER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "users/userbasejob.h"
@@ -50,4 +49,3 @@ private:
     QTimer *mTimer = nullptr;
 };
 
-#endif // AVATARMANAGER_H

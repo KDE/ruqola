@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMSTARTDISCUSSIONJOB_H
-#define ROOMSTARTDISCUSSIONJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -69,4 +68,3 @@ private:
     QString mReplyMessage;
 };
 }
-#endif // ROOMSTARTDISCUSSIONJOB_H

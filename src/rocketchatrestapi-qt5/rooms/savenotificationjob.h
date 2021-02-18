@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SAVENOTIFICATIONJOB_H
-#define SAVENOTIFICATIONJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -111,4 +110,3 @@ private:
     bool mMuteGroupMentions = false;
 };
 }
-#endif // SAVENOTIFICATIONJOB_H

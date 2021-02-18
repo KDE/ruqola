@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEATTACHMENTDELEGATEHELPERTEXT_H
-#define MESSAGEATTACHMENTDELEGATEHELPERTEXT_H
+#pragma once
 
 #include "messagedelegatehelperbase.h"
 #include <QModelIndex>
@@ -55,4 +54,3 @@ private:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach, int width) const;
 };
 
-#endif // MESSAGEATTACHMENTDELEGATEHELPERTEXT_H

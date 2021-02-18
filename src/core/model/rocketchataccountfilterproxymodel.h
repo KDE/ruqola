@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATACCOUNTFILTERPROXYMODEL_H
-#define ROCKETCHATACCOUNTFILTERPROXYMODEL_H
+#pragma once
 
 #include <QSortFilterProxyModel>
 
@@ -34,4 +33,3 @@ public:
     ~RocketChatAccountFilterProxyModel() override;
 };
 
-#endif // ROCKETCHATACCOUNTFILTERPROXYMODEL_H

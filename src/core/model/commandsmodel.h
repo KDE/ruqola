@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMMANDSMODEL_H
-#define COMMANDSMODEL_H
+#pragma once
 
 #include "commands.h"
 #include "libruqolacore_export.h"
@@ -55,4 +54,3 @@ private:
     Commands mCommands;
 };
 
-#endif // COMMANDSMODEL_H

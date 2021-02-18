@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MODIFYSTATUSWIDGET_H
-#define MODIFYSTATUSWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -45,4 +44,3 @@ private:
     QLineEdit *mStatusLineEdit = nullptr;
 };
 
-#endif // MODIFYSTATUSWIDGET_H

@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OTRMANAGERTEST_H
-#define OTRMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -30,4 +29,3 @@ public:
     ~OtrManagerTest() override = default;
 };
 
-#endif // OTRMANAGERTEST_H

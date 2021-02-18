@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GROUPSINFOJOB_H
-#define GROUPSINFOJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -51,4 +50,3 @@ private:
 };
 }
 
-#endif // GROUPSINFOJOB_H

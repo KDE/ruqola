@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMMAND_H
-#define COMMAND_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -74,4 +73,3 @@ Q_DECLARE_METATYPE(Command)
 Q_DECLARE_TYPEINFO(Command, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Command &t);
 
-#endif // COMMAND_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEATTACHMENTDELEGATEHELPERVIDEO_H
-#define MESSAGEATTACHMENTDELEGATEHELPERVIDEO_H
+#pragma once
 
 #include "messagedelegatehelperbase.h"
 
@@ -59,4 +58,3 @@ private:
     const QIcon mVisibilityIcon;
 };
 
-#endif // MESSAGEATTACHMENTDELEGATEHELPERVIDEO_H

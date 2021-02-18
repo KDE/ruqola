@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADMESSAGEMODEL_H
-#define THREADMESSAGEMODEL_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "messagemodel.h"
@@ -49,4 +48,3 @@ private:
     int mTotal = 0;
 };
 
-#endif // THREADMESSAGEMODEL_H

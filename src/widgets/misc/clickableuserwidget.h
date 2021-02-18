@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CLICKABLEUSERWIDGET_H
-#define CLICKABLEUSERWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <QLabel>
@@ -63,4 +62,3 @@ private:
     ClickableLabel *mClickableLabel = nullptr;
 };
 
-#endif // CLICKABLEUSERWIDGET_H

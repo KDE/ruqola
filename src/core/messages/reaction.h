@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REACTION_H
-#define REACTION_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -54,4 +53,3 @@ private:
 Q_DECLARE_METATYPE(Reaction)
 Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reaction &t);
-#endif // REACTION_H

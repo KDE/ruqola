@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LINEEDITCATCHRETURNKEY_H
-#define LINEEDITCATCHRETURNKEY_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
@@ -40,4 +39,3 @@ protected:
 private:
     QLineEdit *mLineEdit = nullptr;
 };
-#endif // LINEEDITCATCHRETURNKEY_H

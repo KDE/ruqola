@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEJOB_H
-#define UPLOADFILEJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -73,4 +72,3 @@ Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadFileInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_MOVABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadStatusInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadStatusInfo, Q_MOVABLE_TYPE);
-#endif // UPLOADFILEJOB_H

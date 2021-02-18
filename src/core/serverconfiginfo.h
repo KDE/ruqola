@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERCONFIGINFO_H
-#define SERVERCONFIGINFO_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QObject>
@@ -42,4 +41,3 @@ private:
     RocketChatAccount *const mAccount;
 };
 
-#endif // SERVERCONFIGINFO_H

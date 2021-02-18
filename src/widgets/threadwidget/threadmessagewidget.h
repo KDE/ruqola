@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADMESSAGEWIDGET_H
-#define THREADMESSAGEWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -54,4 +53,3 @@ private:
     RoomWidgetBase *const mRoomWidgetBase;
 };
 
-#endif // THREADMESSAGEWIDGET_H

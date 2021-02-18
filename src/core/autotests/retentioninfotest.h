@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RETENTIONINFOTEST_H
-#define RETENTIONINFOTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldLoadRetention();
 };
 
-#endif // RETENTIONINFOTEST_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMLABELTEST_H
-#define USERSINROOMLABELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~UsersInRoomLabelTest() override = default;
 };
 
-#endif // USERSINROOMLABELTEST_H

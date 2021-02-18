@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTCONFIGUREWIDGET_H
-#define MYACCOUNTCONFIGUREWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -42,4 +41,3 @@ private:
     MyAccountPreferenceConfigureWidget *mMyAccountPreferenceConfigureWidget = nullptr;
 };
 
-#endif // MYACCOUNTCONFIGUREWIDGET_H

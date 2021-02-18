@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURESETTINGSWIDGETTEST_H
-#define CONFIGURESETTINGSWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~ConfigureSettingsWidgetTest() override = default;
 };
 
-#endif // CONFIGURESETTINGSWIDGETTEST_H

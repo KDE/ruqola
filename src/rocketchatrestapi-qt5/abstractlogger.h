@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ABSTRACTLOGGER_H
-#define ABSTRACTLOGGER_H
+#pragma once
 #include "librocketchatrestapi-qt5_export.h"
 class QByteArray;
 
@@ -43,4 +42,3 @@ public:
 };
 }
 
-#endif // ABSTRACTLOGGER_H

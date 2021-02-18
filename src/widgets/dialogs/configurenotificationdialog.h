@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURENOTIFICATIONDIALOG_H
-#define CONFIGURENOTIFICATIONDIALOG_H
+#pragma once
 
 #include <QDialog>
 
@@ -39,4 +38,3 @@ private:
     ConfigureNotificationWidget *const mConfigureNoticationWidget;
 };
 
-#endif // CONFIGURENOTIFICATIONDIALOG_H

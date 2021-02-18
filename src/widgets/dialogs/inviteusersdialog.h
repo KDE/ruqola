@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef INVITEUSERSDIALOG_H
-#define INVITEUSERSDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -40,4 +39,3 @@ private:
     InviteUsersWidget *const mInviteUsersWidget;
 };
 
-#endif // INVITEUSERSDIALOG_H

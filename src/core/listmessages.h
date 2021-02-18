@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTMESSAGES_H
-#define LISTMESSAGES_H
+#pragma once
 #include "libruqola_private_export.h"
 #include "messages/message.h"
 #include <QDebug>
@@ -52,4 +51,3 @@ private:
 };
 Q_DECLARE_METATYPE(ListMessages)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ListMessages &t);
-#endif // LISTMESSAGES_H

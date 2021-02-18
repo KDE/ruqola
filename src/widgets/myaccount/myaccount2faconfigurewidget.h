@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNT2FACONFIGUREWIDGET_H
-#define MYACCOUNT2FACONFIGUREWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -37,4 +36,3 @@ private:
     QCheckBox *mActivate2FAViaEmailCheckbox = nullptr;
 };
 
-#endif // MYACCOUNT2FACONFIGUREWIDGET_H

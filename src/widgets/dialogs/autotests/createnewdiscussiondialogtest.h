@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWDISCUSSIONDIALOGTEST_H
-#define CREATENEWDISCUSSIONDIALOGTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // CREATENEWDISCUSSIONDIALOGTEST_H

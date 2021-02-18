@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGELISTVIEW_H
-#define MESSAGELISTVIEW_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QListView>
@@ -115,4 +114,3 @@ private:
     bool mDebug = false;
 };
 
-#endif // MESSAGELISTVIEW_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REPORTMESSAGEWIDGET_H
-#define REPORTMESSAGEWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -43,4 +42,3 @@ private:
     QLabel *mMessagePreview = nullptr;
 };
 
-#endif // REPORTMESSAGEWIDGET_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNEL_H
-#define CHANNEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -81,4 +80,3 @@ Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channel &t);
 
-#endif // CHANNEL_H

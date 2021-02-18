@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONCATEGORIESMODEL_H
-#define EMOTICONCATEGORIESMODEL_H
+#pragma once
 
 #include "emoticoncategory.h"
 #include "emoticons/unicodeemoticon.h"
@@ -46,4 +45,3 @@ private:
     Q_DISABLE_COPY(EmoticonCategoriesModel)
     QVector<EmoticonCategory> mCategories;
 };
-#endif // EMOTICONCATEGORIESMODEL_H

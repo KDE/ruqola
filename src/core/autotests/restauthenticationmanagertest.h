@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAUTHENTICATIONMANAGERTEST_H
-#define RESTAUTHENTICATIONMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -30,4 +29,3 @@ public:
     ~RESTAuthenticationManagerTest() override = default;
 };
 
-#endif // RESTAUTHENTICATIONMANAGERTEST_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGEFILTERPROXYMODEL_H
-#define SEARCHMESSAGEFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
@@ -41,4 +40,3 @@ private:
     SearchMessageModel *const mSearchMessageModel;
 };
 
-#endif // SEARCHMESSAGEFILTERPROXYMODEL_H

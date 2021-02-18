@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef GOOGLE_JOB_H
-#define GOOGLE_JOB_H
+#pragma once
 
 #include "o2/o0baseauth.h"
 #include "o2/o2google.h"
@@ -64,4 +63,3 @@ private:
     bool m_isValidToken = false;
 };
 
-#endif // GOOGLE_JOB_H

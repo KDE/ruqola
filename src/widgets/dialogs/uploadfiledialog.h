@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEDIALOG_H
-#define UPLOADFILEDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QUrl>
@@ -55,4 +54,3 @@ private:
     QPushButton *mOkButton = nullptr;
 };
 
-#endif // UPLOADFILEDIALOG_H

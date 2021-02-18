@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SYNCTHREADMESSAGESJOBTEST_H
-#define SYNCTHREADMESSAGESJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -36,4 +35,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
 
-#endif // SYNCTHREADMESSAGESJOBTEST_H

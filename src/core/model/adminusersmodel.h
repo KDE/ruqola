@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINUSERSMODEL_H
-#define ADMINUSERSMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -47,4 +46,3 @@ private:
     QVector<User> mUsers;
 };
 
-#endif // ADMINUSERSMODEL_H

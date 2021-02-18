@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SETTOPICDMJOB_H
-#define SETTOPICDMJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -53,4 +52,3 @@ private:
     QString mTopic;
 };
 }
-#endif

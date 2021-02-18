@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELHISTORYJOB_H
-#define CHANNELHISTORYJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -67,4 +66,3 @@ private:
 Q_DECLARE_METATYPE(RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo, Q_MOVABLE_TYPE);
 
-#endif // CHANNELHISTORYJOB_H

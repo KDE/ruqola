@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USER2FADISABLEEMAILJOB_H
-#define USER2FADISABLEEMAILJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -49,4 +48,3 @@ private:
     void slotDisableEmail();
 };
 }
-#endif

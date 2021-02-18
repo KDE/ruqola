@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMHEADERWIDGET_H
-#define ROOMHEADERWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -91,4 +90,3 @@ private:
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };
 
-#endif // ROOMHEADERWIDGET_H

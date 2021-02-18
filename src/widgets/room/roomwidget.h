@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMWIDGET_H
-#define ROOMWIDGET_H
+#pragma once
 
 #include "uploadfilejob.h"
 #include <QPointer>
@@ -104,4 +103,3 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
-#endif // ROOMWIDGET_H

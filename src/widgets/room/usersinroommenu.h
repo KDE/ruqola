@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMMENU_H
-#define USERSINROOMMENU_H
+#pragma once
 
 #include <QObject>
 
@@ -50,4 +49,3 @@ private:
     QWidget *mParentWidget = nullptr;
 };
 
-#endif // USERSINROOMMENU_H

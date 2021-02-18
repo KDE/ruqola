@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETMESSAGEJOB_H
-#define GETMESSAGEJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -58,4 +57,3 @@ private:
     QString mRoomId;
 };
 }
-#endif // GETMESSAGEJOB_H

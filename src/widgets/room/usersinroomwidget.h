@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINROOMWIDGET_H
-#define USERSINROOMWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -56,4 +55,3 @@ private:
     UsersInRoomComboBox *const mUsersInRoomComboBox;
 };
 
-#endif // USERSINROOMWIDGET_H

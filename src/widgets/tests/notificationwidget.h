@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFICATIONWIDGET_H
-#define NOTIFICATIONWIDGET_H
+#pragma once
 
 #include <QWidget>
 class QLineEdit;
@@ -35,4 +34,3 @@ private:
     QLineEdit *mLineEdit = nullptr;
 };
 
-#endif // NOTIFICATIONWIDGET_H

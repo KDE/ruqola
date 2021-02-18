@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGEMODEL_H
-#define SEARCHMESSAGEMODEL_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "messagemodel.h"
@@ -55,4 +54,3 @@ private:
     bool mLoadSearchMessageInProgress = false;
 };
 
-#endif // SEARCHMESSAGEMODEL_H

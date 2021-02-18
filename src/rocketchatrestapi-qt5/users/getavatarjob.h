@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETAVATARJOB_H
-#define GETAVATARJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "userbasejob.h"
@@ -53,4 +52,3 @@ private:
     void slotGetAvatar();
 };
 }
-#endif // GETAVATARJOB_H

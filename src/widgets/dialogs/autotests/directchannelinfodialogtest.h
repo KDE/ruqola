@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DIRECTCHANNELINFODIALOGTEST_H
-#define DIRECTCHANNELINFODIALOGTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
 
-#endif // DIRECTCHANNELINFODIALOGTEST_H

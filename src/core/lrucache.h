@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LRUCACHE_H
-#define LRUCACHE_H
+#pragma once
 
 #include <algorithm>
 #include <array>
@@ -116,4 +115,3 @@ private:
     std::size_t mNumEntries = 0;
 };
 
-#endif

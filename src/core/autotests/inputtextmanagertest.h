@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef INPUTTEXTMANAGERTEST_H
-#define INPUTTEXTMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -42,4 +41,3 @@ private Q_SLOTS:
     void shouldEmitCompletionRequestSignals();
 };
 
-#endif // INPUTTEXTMANAGERTEST_H

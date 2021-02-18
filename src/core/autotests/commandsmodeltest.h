@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMMANDSMODELTEST_H
-#define COMMANDSMODELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~CommandsModelTest() override = default;
 };
 
-#endif // COMMANDSMODELTEST_H

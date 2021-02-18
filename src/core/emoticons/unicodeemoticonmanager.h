@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNICODEEMOTICONMANAGER_H
-#define UNICODEEMOTICONMANAGER_H
+#pragma once
 
 #include "emoticoncategory.h"
 #include "libruqolacore_export.h"
@@ -47,4 +46,3 @@ private:
     QVector<UnicodeEmoticon> mUnicodeEmojiList;
 };
 
-#endif // UNICODEEMOTICONMANAGER_H

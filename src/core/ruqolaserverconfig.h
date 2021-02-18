@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLASERVERCONFIG_H
-#define RUQOLASERVERCONFIG_H
+#pragma once
 
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
@@ -163,4 +162,3 @@ private:
     int mLoginExpiration = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
-#endif // RUQOLASERVERCONFIG_H

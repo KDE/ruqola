@@ -5,8 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef RUQOLA_KCOREADDONS_KTEXTTOHTML_H
-#define RUQOLA_KCOREADDONS_KTEXTTOHTML_H
+#pragma once
 
 #include <QString>
 
@@ -79,4 +78,3 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Options)
 QString convertToHtml(const QString &plainText, const RuqolaKTextToHTML::Options &options, int maxUrlLen = 4096, int maxAddressLen = 255);
 }
 
-#endif

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H
-#define ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -37,4 +36,3 @@ private:
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
 };
 
-#endif // ADMINISTRATORCUSTOMUSERSTATUSWIDGET_H

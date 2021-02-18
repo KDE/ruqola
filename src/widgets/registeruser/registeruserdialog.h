@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REGISTERUSERDIALOG_H
-#define REGISTERUSERDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "users/registeruserjob.h"
@@ -39,4 +38,3 @@ private:
     void writeConfig();
 };
 
-#endif // REGISTERUSERDIALOG_H

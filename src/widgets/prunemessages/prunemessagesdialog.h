@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PRUNEMESSAGESDIALOG_H
-#define PRUNEMESSAGESDIALOG_H
+#pragma once
 
 #include <QDialog>
 
@@ -43,4 +42,3 @@ private:
     PruneMessagesWidget *mPruneMessageWidget = nullptr;
 };
 
-#endif // PRUNEMESSAGESDIALOG_H

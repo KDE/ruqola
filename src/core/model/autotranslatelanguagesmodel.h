@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTOTRANSLATELANGUAGESMODEL_H
-#define AUTOTRANSLATELANGUAGESMODEL_H
+#pragma once
 
 #include "autotranslatelanguages.h"
 #include "libruqolacore_export.h"
@@ -52,4 +51,3 @@ private:
     int mCurrentLanguage = 0;
 };
 
-#endif // AUTOTRANSLATELANGUAGESMODEL_H

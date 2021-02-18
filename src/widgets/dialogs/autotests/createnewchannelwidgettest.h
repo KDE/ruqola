@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWCHANNELWIDGETTEST_H
-#define CREATENEWCHANNELWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~CreateNewChannelWidgetTest() override = default;
 };
 
-#endif // CREATENEWCHANNELWIDGETTEST_H

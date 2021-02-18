@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGE_H
-#define MESSAGE_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
@@ -314,4 +313,3 @@ private:
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);
-#endif // MESSAGE_H

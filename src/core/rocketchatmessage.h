@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATMESSAGE_H
-#define ROCKETCHATMESSAGE_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include "user.h"
@@ -70,4 +69,3 @@ private:
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
 };
 
-#endif // ROCKETCHATMESSAGE_H

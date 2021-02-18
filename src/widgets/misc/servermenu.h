@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERMENU_H
-#define SERVERMENU_H
+#pragma once
 #include <KActionMenu>
 
 #include "libruqolawidgets_private_export.h"
@@ -38,4 +37,3 @@ private:
     KActionCollection *mActionCollection = nullptr;
 };
 
-#endif // SERVERMENU_H

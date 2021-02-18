@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWLISTMESSAGEBASEDIALOG_H
-#define SHOWLISTMESSAGEBASEDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <QDialog>
@@ -51,4 +50,3 @@ private:
     ShowListMessageBaseWidget *const mShowListMessage;
 };
 
-#endif // SHOWLISTMESSAGEBASEDIALOG_H

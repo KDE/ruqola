@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SETGROUPTYPEJOB_H
-#define SETGROUPTYPEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -62,4 +61,3 @@ private:
     GroupType mType = Unknown;
 };
 }
-#endif

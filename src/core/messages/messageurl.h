@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEURL_H
-#define MESSAGEURL_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -51,4 +50,3 @@ private:
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);
 
-#endif // MESSAGEURL_H

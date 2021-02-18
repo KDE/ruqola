@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOJI_H
-#define EMOJI_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -83,4 +82,3 @@ private:
 Q_DECLARE_METATYPE(CustomEmoji)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmoji &t);
 
-#endif // EMOJI_H

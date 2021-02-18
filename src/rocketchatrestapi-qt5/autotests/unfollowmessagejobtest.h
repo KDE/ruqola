@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNFOLLOWMESSAGEJOBTEST_H
-#define UNFOLLOWMESSAGEJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -36,4 +35,3 @@ private Q_SLOTS:
     void shouldNotStarting();
 };
 
-#endif // UnFOLLOWMESSAGEJOBTEST_H

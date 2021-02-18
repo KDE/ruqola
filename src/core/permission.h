@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PERMISSION_H
-#define PERMISSION_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -47,4 +46,3 @@ private:
 Q_DECLARE_METATYPE(Permission)
 Q_DECLARE_TYPEINFO(Permission, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Permission &t);
-#endif // PERMISSION_H

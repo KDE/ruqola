@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLAYSOUNDWIDGET_H
-#define PLAYSOUNDWIDGET_H
+#pragma once
 
 #include <QMediaPlayer>
 #include <QWidget>
@@ -47,4 +46,3 @@ private:
     QSlider *mSoundSlider = nullptr;
 };
 
-#endif // PLAYSOUNDWIDGET_H

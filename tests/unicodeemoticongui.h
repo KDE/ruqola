@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNICODEEMOTICONGUI_H
-#define UNICODEEMOTICONGUI_H
+#pragma once
 
 #include <QListWidgetItem>
 #include <QWidget>
@@ -77,4 +76,3 @@ private:
     KListWidgetSearchLine *mSearchEmoticon = nullptr;
 };
 
-#endif // UnicodeEmoticonGui_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELDIALOG_H
-#define SEARCHCHANNELDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -37,4 +36,3 @@ private:
     SearchChannelWidget *const mSearchChannelWidget;
 };
 
-#endif // SEARCHCHANNELDIALOG_H

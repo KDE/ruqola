@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLALOGGER_H
-#define RUQOLALOGGER_H
+#pragma once
 #include "abstractlogger.h"
 
 #include <QFile>
@@ -40,4 +39,3 @@ private:
     quint64 mIdentifier = 0;
 };
 
-#endif // RUQOLALOGGER_H

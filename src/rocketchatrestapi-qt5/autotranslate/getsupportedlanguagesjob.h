@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETSUPPORTEDLANGUAGESJOB_H
-#define GETSUPPORTEDLANGUAGESJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -50,4 +49,3 @@ private:
     void slotGetSupportedLanguagesFinished();
 };
 }
-#endif // GETSUPPORTEDLANGUAGESJOB_H

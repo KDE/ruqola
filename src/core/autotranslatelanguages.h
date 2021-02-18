@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTOTRANSLATELANGUAGES_H
-#define AUTOTRANSLATELANGUAGES_H
+#pragma once
 
 #include "autotranslatelanguage.h"
 #include "libruqola_private_export.h"
@@ -46,4 +45,3 @@ private:
 
 Q_DECLARE_METATYPE(AutotranslateLanguages)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguages &t);
-#endif // AUTOTRANSLATELANGUAGES_H

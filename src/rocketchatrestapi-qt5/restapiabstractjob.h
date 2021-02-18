@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAPIABSTRACTJOB_H
-#define RESTAPIABSTRACTJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include <QNetworkRequest>
@@ -124,4 +123,3 @@ private:
     Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
 };
 }
-#endif // RESTAPIABSTRACTJOB_H

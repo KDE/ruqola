@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWCHANNELDIALOG_H
-#define CREATENEWCHANNELDIALOG_H
+#pragma once
 
 #include "createnewchannelwidget.h"
 #include "libruqolawidgets_private_export.h"
@@ -52,4 +51,3 @@ private:
     QPushButton *mOkButton = nullptr;
 };
 
-#endif // CREATENEWCHANNELDIALOG_H

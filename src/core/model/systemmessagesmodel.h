@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SYSTEMMESSAGESMODEL_H
-#define SYSTEMMESSAGESMODEL_H
+#pragma once
 #include "libruqolacore_export.h"
 
 #include <QStandardItemModel>
@@ -40,4 +39,3 @@ private:
     void createItem(const QString &displayStr, const QString &systemStr);
 };
 
-#endif // SYSTEMMESSAGESMODEL_H

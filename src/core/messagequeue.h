@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef MESSAGEQUEUE_H
-#define MESSAGEQUEUE_H
+#pragma once
 
 #include <QObject>
 class RocketChatAccount;
@@ -61,4 +60,3 @@ private:
     RocketChatAccount *const mRocketChatAccount;
 };
 
-#endif // MESSAGEQUEUE_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWDISCUSSIONSWIDGETTEST_H
-#define SHOWDISCUSSIONSWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~ShowDiscussionsWidgetTest() override = default;
 };
 
-#endif // SHOWDISCUSSIONSWIDGETTEST_H

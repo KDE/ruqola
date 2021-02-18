@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLAYSOUNDWIDGETTEST_H
-#define PLAYSOUNDWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~PlaySoundWidgetTest() override = default;
 };
 
-#endif // PLAYSOUNDWIDGETTEST_H

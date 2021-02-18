@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONMENUWIDGET_H
-#define EMOTICONMENUWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -51,4 +50,3 @@ private:
     RecentUsedEmoticonView *mRecentUsedEmoticonView = nullptr;
 };
 
-#endif // EMOTICONMENUWIDGET_H

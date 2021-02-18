@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINROOMSFILTERPROXYMODEL_H
-#define ADMINROOMSFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
@@ -58,4 +57,3 @@ private:
     AdminRoomsModel *const mAdminRoomsModel;
 };
 
-#endif // ADMINROOMSFILTERPROXYMODEL_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURENOTIFICATIONDIALOGTEST_H
-#define CONFIGURENOTIFICATIONDIALOGTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // CONFIGURENOTIFICATIONDIALOGTEST_H

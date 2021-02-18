@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDAUTHENTICATIONINTERFACE_H
-#define PASSWORDAUTHENTICATIONINTERFACE_H
+#pragma once
 
 #include "plugins/pluginauthenticationinterface.h"
 
@@ -33,4 +32,3 @@ public:
     void login() override;
 };
 
-#endif // PASSWORDAUTHENTICATIONINTERFACE_H

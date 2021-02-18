@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GOOGLEAUTHENTICATIONINTERFACE_H
-#define GOOGLEAUTHENTICATIONINTERFACE_H
+#pragma once
 
 #include "plugins/pluginauthenticationinterface.h"
 
@@ -36,4 +35,3 @@ private:
     void slotLoginProvider(const QString &credentialToken, const QString &credentialSecret);
 };
 
-#endif // GOOGLEAUTHENTICATIONINTERFACE_H

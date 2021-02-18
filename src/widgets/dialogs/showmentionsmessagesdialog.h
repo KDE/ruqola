@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWMENTIONSMESSAGESDIALOG_H
-#define SHOWMENTIONSMESSAGESDIALOG_H
+#pragma once
 
 #include "showlistmessagebasedialog.h"
 
@@ -35,4 +34,3 @@ private:
     void writeConfig();
 };
 
-#endif // SHOWMENTIONSMESSAGESDIALOG_H

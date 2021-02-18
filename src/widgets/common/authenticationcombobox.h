@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTHENTICATIONCOMBOBOX_H
-#define AUTHENTICATIONCOMBOBOX_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
@@ -35,4 +34,3 @@ private:
     void initialize();
 };
 
-#endif // AUTHENTICATIONCOMBOBOX_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EXPANDJSON_H
-#define EXPANDJSON_H
+#pragma once
 
 #include <QWidget>
 class QTextEdit;
@@ -39,4 +38,3 @@ private:
     QPushButton *mExpandButton = nullptr;
 };
 
-#endif // EXPANDJSON_H

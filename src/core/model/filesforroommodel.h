@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FILESFORROOMMODEL_H
-#define FILESFORROOMMODEL_H
+#pragma once
 
 #include "file.h"
 #include "fileattachments.h"
@@ -86,4 +85,3 @@ private:
     RocketChatAccount *const mRochetChantAccount;
 };
 
-#endif // FILESFORROOMMODEL_H

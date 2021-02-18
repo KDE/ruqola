@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGESTARRED_H
-#define MESSAGESTARRED_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -37,4 +36,3 @@ private:
     bool mIsStarred = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, MessageStarred t);
-#endif // MESSAGESTARRED_H

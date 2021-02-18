@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWCHANNELWIDGET_H
-#define CREATENEWCHANNELWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -68,4 +67,3 @@ private:
     QFormLayout *mMainLayout = nullptr;
 };
 
-#endif // CREATENEWCHANNELWIDGET_H

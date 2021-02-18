@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOWNLOADAPPSLANGUAGESINFO_H
-#define DOWNLOADAPPSLANGUAGESINFO_H
+#pragma once
 #include "libruqola_private_export.h"
 #include <QJsonObject>
 #include <QMap>
@@ -36,4 +35,3 @@ private:
     QMap<QString, QMap<QString, QString>> mLanguageMap;
 };
 
-#endif // DOWNLOADAPPSLANGUAGESINFO_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELADDLEADERJOB_H
-#define CHANNELADDLEADERJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -52,4 +51,3 @@ private:
     QString mAddLeaderUserId;
 };
 }
-#endif // CHANGECHANNELANNOUNCEMENT_H

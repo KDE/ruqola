@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
-#define MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QPushButton>
@@ -52,4 +51,3 @@ private:
     AvatarImage *mAvatarImage = nullptr;
 };
 
-#endif // MYACCOUNTPROFILECONFIGUREAVATARWIDGET_H

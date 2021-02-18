@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DISCUSSIONSFILTERPROXYMODEL_H
-#define DISCUSSIONSFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
@@ -44,4 +43,3 @@ private:
     DiscussionsModel *const mDiscussionsModel;
 };
 
-#endif // DISCUSSIONSFILTERPROXYMODEL_H

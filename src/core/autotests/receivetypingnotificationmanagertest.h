@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RECEIVETYPINGNOTIFICATIONMANAGERTEST_H
-#define RECEIVETYPINGNOTIFICATIONMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldAddNotifications();
 };
 
-#endif // RECEIVETYPINGNOTIFICATIONMANAGERTEST_H

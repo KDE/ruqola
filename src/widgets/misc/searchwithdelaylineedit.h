@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHWITHDELAYLINEEDIT_H
-#define SEARCHWITHDELAYLINEEDIT_H
+#pragma once
 
 #include <QLineEdit>
 
@@ -41,4 +40,3 @@ private:
     QTimer *const mSearchTimer;
 };
 
-#endif // SEARCHWITHDELAYLINEEDIT_H

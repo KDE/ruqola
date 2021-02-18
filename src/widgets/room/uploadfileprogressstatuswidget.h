@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEPROGRESSSTATUSWIDGET_H
-#define UPLOADFILEPROGRESSSTATUSWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -43,4 +42,3 @@ private:
     QProgressBar *const mProgressBar;
 };
 
-#endif // UPLOADFILEPROGRESSSTATUSWIDGET_H

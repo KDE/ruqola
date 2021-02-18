@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANGEGROUPSTOPICJOB_H
-#define CHANGEGROUPSTOPICJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -55,4 +54,3 @@ private:
     QString mRoomId;
 };
 }
-#endif // CHANGEGROUPSTOPICJOB_H

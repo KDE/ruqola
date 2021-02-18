@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAUSERFEEDBACKPROVIDER_H
-#define RUQOLAUSERFEEDBACKPROVIDER_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <KUserFeedback/Provider>
@@ -31,4 +30,3 @@ public:
     ~RuqolaUserFeedbackProvider() override;
 };
 
-#endif // RUQOLAUSERFEEDBACKPROVIDER_H

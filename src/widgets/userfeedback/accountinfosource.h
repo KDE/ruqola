@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTINFOSOURCE_H
-#define ACCOUNTINFOSOURCE_H
+#pragma once
 
 #include <KUserFeedback/AbstractDataSource>
 
@@ -33,4 +32,3 @@ public:
     Q_REQUIRED_RESULT QVariant data() override;
 };
 
-#endif // ACCOUNTINFOSOURCE_H

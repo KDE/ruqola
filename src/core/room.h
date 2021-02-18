@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef ROOM_H
-#define ROOM_H
+#pragma once
 
 #include "notificationoptions.h"
 #include "roles.h"
@@ -395,4 +394,3 @@ private:
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Room &t);
-#endif // ROOM_H

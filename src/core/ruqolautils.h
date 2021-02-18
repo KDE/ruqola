@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef RUQOLAUTILS_H
-#define RUQOLAUTILS_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QObject>
@@ -43,4 +42,3 @@ private:
     Q_DISABLE_COPY(RuqolaUtils)
 };
 
-#endif // RUQOLAUTILS_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROLE_H
-#define ROLE_H
+#pragma once
 #include "libruqola_private_export.h"
 #include <QDebug>
 #include <QJsonObject>
@@ -59,4 +58,3 @@ private:
 Q_DECLARE_METATYPE(Role)
 Q_DECLARE_TYPEINFO(Role, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Role &t);
-#endif // ROLE_H

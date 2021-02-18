@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOJIMANAGER_H
-#define EMOJIMANAGER_H
+#pragma once
 
 #include "customemoji.h"
 #include "emoticoncategory.h"
@@ -64,4 +63,3 @@ private:
     bool mReplacePatternDirty = true;
 };
 
-#endif // EMOJIMANAGER_H

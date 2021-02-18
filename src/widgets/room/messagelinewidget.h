@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGELINEWIDGET_H
-#define MESSAGELINEWIDGET_H
+#pragma once
 
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
@@ -102,4 +101,3 @@ private:
     bool mReplyInThreadDialogBox = false;
 };
 
-#endif // MESSAGELINEWIDGET_H

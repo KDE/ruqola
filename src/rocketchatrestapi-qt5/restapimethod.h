@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAPIMETHOD_H
-#define RESTAPIMETHOD_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiutil.h"
@@ -41,4 +40,3 @@ private:
     QString mServerUrl;
 };
 }
-#endif // RESTAPIMETHOD_H

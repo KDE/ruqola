@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDLINEEDITWIDGET_H
-#define PASSWORDLINEEDITWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -42,4 +41,3 @@ private:
     QPushButton *mResetPasswordButton = nullptr;
 };
 
-#endif // PASSWORDLINEEDITWIDGET_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SYNCTHREADMESSAGESJOB_H
-#define SYNCTHREADMESSAGESJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -59,4 +58,3 @@ private:
     QString mTimeStamp;
 };
 }
-#endif // SYNCTHREADMESSAGESJOB_H

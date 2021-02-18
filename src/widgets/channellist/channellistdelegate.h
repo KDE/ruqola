@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELLISTDELEGATE_H
-#define CHANNELLISTDELEGATE_H
+#pragma once
 
 #include "utils.h"
 #include <QItemDelegate>
@@ -43,4 +42,3 @@ private:
     AvatarCacheManager *const mAvatarCacheManager;
 };
 
-#endif // CHANNELLISTDELEGATE_H

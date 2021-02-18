@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef WEBSHORTCUTTEXTINTERFACE_H
-#define WEBSHORTCUTTEXTINTERFACE_H
+#pragma once
 
 #include "room/plugins/plugintextinterface.h"
 namespace KIO
@@ -41,4 +40,3 @@ private:
     KIO::KUriFilterSearchProviderActions *const mWebShortcutMenuManager;
 };
 
-#endif // WEBSHORTCUTTEXTINTERFACE_H

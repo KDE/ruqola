@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SAVENOTIFICATIONJOBTEST_H
-#define SAVENOTIFICATIONJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -36,4 +35,3 @@ private Q_SLOTS:
     void shouldNotStarting();
 };
 
-#endif // SAVENOTIFICATIONJOBTEST_H

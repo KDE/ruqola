@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMSOUNDSCREATEDIALOG_H
-#define ADMINISTRATORCUSTOMSOUNDSCREATEDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QObject>
@@ -39,4 +38,3 @@ private:
     AdministratorCustomSoundsCreateWidget *const mCreateWidget;
 };
 
-#endif // ADMINISTRATORCUSTOMSOUNDSCREATEDIALOG_H

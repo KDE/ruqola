@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOWIDGETTEST_H
-#define SERVERINFOWIDGETTEST_H
+#pragma once
 
 #include <QWidget>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // SERVERINFOWIDGETTEST_H

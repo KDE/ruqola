@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOADROOMCACHE_H
-#define LOADROOMCACHE_H
+#pragma once
 
 #include <QWidget>
 class QTextEdit;
@@ -37,4 +36,3 @@ private:
     KUrlRequester *mRequester;
 };
 
-#endif // LOADROOMCACHE_H

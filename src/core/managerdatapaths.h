@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MANAGERDATAPATHS_H
-#define MANAGERDATAPATHS_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QHash>
@@ -47,4 +46,3 @@ private:
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;
     Q_REQUIRED_RESULT QString accountConfigPath(const QString &accountName) const;
 };
-#endif // MANAGERDATAPATHS_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINROOMSMODEL_H
-#define ADMINROOMSMODEL_H
+#pragma once
 
 #include "administrator/adminrooms.h"
 #include "libruqolacore_export.h"
@@ -49,4 +48,3 @@ private:
     AdminRooms mAdminRooms;
 };
 
-#endif // ADMINROOMSMODEL_H

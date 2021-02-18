@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMMODEL_H
-#define USERSFORROOMMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "user.h"
@@ -79,4 +78,3 @@ private:
     bool mLoadingInProgress = false;
 };
 
-#endif // USERSFORROOMMODEL_H

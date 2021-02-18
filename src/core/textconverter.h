@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTCONVERTER_H
-#define TEXTCONVERTER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QString>
@@ -39,4 +38,3 @@ LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString 
                                                                   QString &needUpdateMessageId);
 }
 
-#endif // TEXTCONVERTER_H

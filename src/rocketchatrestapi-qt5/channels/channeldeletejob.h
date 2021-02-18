@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELDELETEJOB_H
-#define CHANNELDELETEJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -49,4 +48,3 @@ private:
 };
 }
 
-#endif // CHANGECHANNELANNOUNCEMENT_H

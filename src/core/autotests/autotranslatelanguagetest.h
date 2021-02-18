@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTOTRANSLATELANGUAGETEST_H
-#define AUTOTRANSLATELANGUAGETEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
 
-#endif // AUTOTRANSLATELANGUAGETEST_H

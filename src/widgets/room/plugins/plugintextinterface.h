@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLUGINTEXTINTERFACE_H
-#define PLUGINTEXTINTERFACE_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <QObject>
@@ -36,4 +35,3 @@ public:
     virtual void setSelectedText(const QString &str);
 };
 
-#endif // PLUGINTEXTINTERFACE_H

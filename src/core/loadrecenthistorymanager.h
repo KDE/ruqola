@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOADRECENTHISTORYMANAGER_H
-#define LOADRECENTHISTORYMANAGER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDateTime>
@@ -39,4 +38,3 @@ private:
     qint64 mLastLoadingTimeStamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
 };
 
-#endif // LOADRECENTHISTORYMANAGER_H

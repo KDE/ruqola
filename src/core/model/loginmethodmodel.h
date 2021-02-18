@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOGINMETHODMODEL_H
-#define LOGINMETHODMODEL_H
+#pragma once
 
 #include "authenticationinfo.h"
 #include "libruqolacore_export.h"
@@ -60,4 +59,3 @@ private:
     int mCurrentLoginMethod = 0;
 };
 
-#endif // LOGINMETHODMODEL_H

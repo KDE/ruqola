@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEPINNED_H
-#define MESSAGEPINNED_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QDebug>
@@ -42,4 +41,3 @@ private:
     bool mPinned = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessagePinned &t);
-#endif // MESSAGEPINNED_H

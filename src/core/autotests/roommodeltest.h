@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMMODELTEST_H
-#define ROOMMODELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -49,4 +48,3 @@ private Q_SLOTS:
     void shouldInsertRoom();
 };
 
-#endif // ROOMMODELTEST_H

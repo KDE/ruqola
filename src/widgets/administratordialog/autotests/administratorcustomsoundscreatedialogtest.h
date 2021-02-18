@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H
-#define ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // ADMINISTRATORCUSTOMSOUNDSCREATEDIALOGTEST_H

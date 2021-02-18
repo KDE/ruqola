@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELJOINJOB_H
-#define CHANNELJOINJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -57,4 +56,3 @@ private:
     QString mJoinCode;
 };
 }
-#endif // CHANNELJOINJOB_H

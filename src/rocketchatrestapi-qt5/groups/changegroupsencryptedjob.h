@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANGEGROUPSENCRYPTEDJOB_H
-#define CHANGEGROUPSENCRYPTEDJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -56,4 +55,3 @@ private:
     bool mEncrypted = false;
 };
 }
-#endif // CHANGECHANNELANNOUNCEMENT_H

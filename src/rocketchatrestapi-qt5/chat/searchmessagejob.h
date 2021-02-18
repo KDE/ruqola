@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGEJOB_H
-#define SEARCHMESSAGEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -67,4 +66,3 @@ private:
     int mCount = -1;
 };
 }
-#endif // SEARCHMESSAGEJOB_H

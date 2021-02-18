@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMREPLYTHREADWIDGET_H
-#define ROOMREPLYTHREADWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <KMessageWidget>
@@ -33,4 +32,3 @@ Q_SIGNALS:
     void cancelReplyingInThread();
 };
 
-#endif // ROOMREPLYTHREADWIDGET_H

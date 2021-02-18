@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEMODELTEST_H
-#define MESSAGEMODELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -43,4 +42,3 @@ private Q_SLOTS:
     void shouldFindPrevNextMessage();
 };
 
-#endif // MESSAGEMODELTEST_H

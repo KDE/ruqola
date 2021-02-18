@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDAUTHENTICATIONINTERFACETEST_H
-#define PASSWORDAUTHENTICATIONINTERFACETEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
 };
 
-#endif // PASSWORDAUTHENTICATIONINTERFACETEST_H

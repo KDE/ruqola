@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EXPORTMESSAGESWIDGET_H
-#define EXPORTMESSAGESWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -46,4 +45,3 @@ private:
     QComboBox *const mFormat;
 };
 
-#endif // EXPORTMESSAGESWIDGET_H

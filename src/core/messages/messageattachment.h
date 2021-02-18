@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEATTACHMENT_H
-#define MESSAGEATTACHMENT_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "messageattachmentfield.h"
@@ -117,4 +116,3 @@ private:
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachment &t);
 
-#endif // MESSAGEATTACHMENT_H

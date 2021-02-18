@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PLUGINAUTHENTICATION_H
-#define PLUGINAUTHENTICATION_H
+#pragma once
 
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
@@ -42,4 +41,3 @@ public:
     Q_REQUIRED_RESULT virtual QString iconName() const = 0;
 };
 
-#endif // PLUGINAUTHENTICATION_H

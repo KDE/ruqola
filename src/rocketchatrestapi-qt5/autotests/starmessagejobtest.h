@@ -17,8 +17,7 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#ifndef STARMESSAGEJOBTEST_H
-#define STARMESSAGEJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -36,4 +35,3 @@ private Q_SLOTS:
     void shouldGenerateJson();
 };
 
-#endif // STARMESSAGEJOBTEST_H

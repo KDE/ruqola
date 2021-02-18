@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLA_RESTAPI_HELPER_H
-#define RUQOLA_RESTAPI_HELPER_H
+#pragma once
 
 #include <restapiabstractjob.h>
 #include <restapimethod.h>
@@ -57,4 +56,3 @@ void verifyDefaultValue(RestApiAbstractJob *job)
     QVERIFY(!job->restApiLogger());
 }
 
-#endif // RUQOLA_RESTAPI_HELPER_H

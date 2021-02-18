@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMUSERSTATUSTREEWIDGET_H
-#define CUSTOMUSERSTATUSTREEWIDGET_H
+#pragma once
 
 #include "customuserstatus.h"
 #include <QTreeWidget>
@@ -60,4 +59,3 @@ private:
     void initialize();
 };
 
-#endif // CUSTOMUSERSTATUSTREEWIDGET_H

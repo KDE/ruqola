@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSLISTJOB_H
-#define USERSLISTJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "userbasejob.h"
@@ -51,4 +50,3 @@ private:
     void slotUsersListFinished();
 };
 }
-#endif // USERSLISTJOB_H

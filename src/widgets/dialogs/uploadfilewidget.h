@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEWIDGET_H
-#define UPLOADFILEWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -44,4 +43,3 @@ private:
     KUrlRequester *mSelectFile = nullptr;
 };
 
-#endif // UPLOADFILEWIDGET_H

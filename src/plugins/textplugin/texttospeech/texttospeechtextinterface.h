@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTTOSPEECHTEXTINTERFACE_H
-#define TEXTTOSPEECHTEXTINTERFACE_H
+#pragma once
 
 #include "room/plugins/plugintextinterface.h"
 class QTextToSpeech;
@@ -40,4 +39,3 @@ private:
     QTextToSpeech *const mTextToSpeech;
 };
 
-#endif // TEXTTOSPEECHTEXTINTERFACE_H

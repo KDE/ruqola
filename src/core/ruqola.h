@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef RUQOLA_H
-#define RUQOLA_H
+#pragma once
 
 #include "ddpapi/ddpclient.h"
 #include "libruqolacore_export.h"
@@ -57,4 +56,3 @@ private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
 };
-#endif // RUQOLA_H

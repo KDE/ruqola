@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TYPINGNOTIFICATION_H
-#define TYPINGNOTIFICATION_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QObject>
@@ -43,4 +42,3 @@ private:
     QTimer *mTimer = nullptr;
 };
 
-#endif // TYPINGNOTIFICATION_H

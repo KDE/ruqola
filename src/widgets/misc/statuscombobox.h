@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSCOMBOBOX_H
-#define STATUSCOMBOBOX_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
@@ -38,4 +37,3 @@ private:
     void init(bool showModifyStatus);
 };
 
-#endif // STATUSCOMBOBOX_H

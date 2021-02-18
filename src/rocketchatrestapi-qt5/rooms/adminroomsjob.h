@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINROOMSJOB_H
-#define ADMINROOMSJOB_H
+#pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
@@ -56,4 +55,3 @@ private:
     AdminRoomsJobInfo mRoomsAdminInfo;
 };
 }
-#endif // ADMINROOMSJOB_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef INPUTTEXTMANAGER_H
-#define INPUTTEXTMANAGER_H
+#pragma once
 
 #include <QJsonObject>
 #include <QObject>
@@ -79,4 +78,3 @@ private:
 
 Q_DECLARE_METATYPE(InputTextManager::CompletionForType)
 
-#endif // INPUTTEXTMANAGER_H

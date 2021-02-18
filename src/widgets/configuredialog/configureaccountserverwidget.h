@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGUREACCOUNTSERVERWIDGET_H
-#define CONFIGUREACCOUNTSERVERWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -49,4 +48,3 @@ private:
     Ui::ConfigureAccountServerWidget *ui = nullptr;
 };
 
-#endif // CONFIGUREACCOUNTSERVERWIDGET_H

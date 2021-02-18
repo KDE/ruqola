@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELINFOWIDGET_H
-#define CHANNELINFOWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <QWidget>
@@ -96,4 +95,3 @@ private:
     SystemMessagesComboBox *const mSystemMessageCombox;
 };
 
-#endif // CHANNELINFOWIDGET_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SYSTEMMESSAGESCOMBOBOX_H
-#define SYSTEMMESSAGESCOMBOBOX_H
+#pragma once
 
 #include <QComboBox>
 
@@ -38,4 +37,3 @@ private:
     SystemMessagesModel *const mSystemMessagesModel;
 };
 
-#endif // SYSTEMMESSAGESCOMBOBOX_H

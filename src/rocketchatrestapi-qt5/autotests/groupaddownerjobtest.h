@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GROUPADDOWNERJOBTEST_H
-#define GROUPADDOWNERJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -35,4 +34,3 @@ private Q_SLOTS:
     void shouldGenerateJson();
 };
 
-#endif // GROUPADDOWNERJOBTEST_H

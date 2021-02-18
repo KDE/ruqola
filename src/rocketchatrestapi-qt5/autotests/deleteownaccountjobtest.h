@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DELETEOWNACCOUNTJOBTEST_H
-#define DELETEOWNACCOUNTJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -36,4 +35,3 @@ private Q_SLOTS:
     void shouldNotStarting();
 };
 
-#endif // DELETEOWNACCOUNTJOBTEST_H

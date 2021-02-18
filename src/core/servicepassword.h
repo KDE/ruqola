@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVICEPASSWORD_H
-#define SERVICEPASSWORD_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "user.h"
@@ -53,4 +52,3 @@ Q_DECLARE_METATYPE(ServicePassword)
 Q_DECLARE_TYPEINFO(ServicePassword, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServicePassword &t);
 
-#endif // SERVICEPASSWORD_H

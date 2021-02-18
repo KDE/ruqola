@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATEDIRECTMESSAGESDIALOG_H
-#define CREATEDIRECTMESSAGESDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
@@ -42,4 +41,3 @@ private:
     QPushButton *mOkButton = nullptr;
 };
 
-#endif // CREATEDIRECTMESSAGESDIALOG_H

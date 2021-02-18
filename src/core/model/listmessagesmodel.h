@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTMESSAGESMODEL_H
-#define LISTMESSAGESMODEL_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "messagemodel.h"
@@ -74,4 +73,3 @@ private:
     ListMessageType mListMessageType = Unknown;
 };
 
-#endif

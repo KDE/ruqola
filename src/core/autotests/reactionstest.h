@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REACTIONSTEST_H
-#define REACTIONSTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldParseReactions();
 };
 
-#endif // REACTIONSTEST_H

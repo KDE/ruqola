@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FILE_H
-#define FILE_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -90,4 +89,3 @@ Q_DECLARE_METATYPE(File)
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);
 
-#endif // FILES_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMUSERSTATUSUPDATEJOB_H
-#define CUSTOMUSERSTATUSUPDATEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -60,4 +59,3 @@ private:
     StatusUpdateInfo mStatusUpdateInfo;
 };
 }
-#endif // CustomUserStatusUpdateJob_H

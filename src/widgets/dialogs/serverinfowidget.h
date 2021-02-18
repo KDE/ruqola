@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOWIDGET_H
-#define SERVERINFOWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_export.h"
 #include <QWidget>
@@ -40,4 +39,3 @@ private:
     QLabel *mServerUrl = nullptr;
 };
 
-#endif // SERVERINFOWIDGET_H

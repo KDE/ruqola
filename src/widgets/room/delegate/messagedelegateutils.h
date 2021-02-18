@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEUTILS_H
-#define MESSAGEDELEGATEUTILS_H
+#pragma once
 
 #include <QString>
 #include <QTextDocument>
@@ -29,4 +28,3 @@ namespace MessageDelegateUtils
 std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
 }
 
-#endif // MESSAGEDELEGATEUTILS_H

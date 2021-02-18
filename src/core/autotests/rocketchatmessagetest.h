@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATMESSAGETEST_H
-#define ROCKETCHATMESSAGETEST_H
+#pragma once
 
 #include <QObject>
 
@@ -59,4 +58,3 @@ private:
     void compareFile(const QString &data, const QString &name);
 };
 
-#endif // ROCKETCHATMESSAGETEST_H

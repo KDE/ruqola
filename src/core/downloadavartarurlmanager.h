@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOWNLOADAVARTARURLMANAGER_H
-#define DOWNLOADAVARTARURLMANAGER_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QMap>
@@ -49,4 +48,3 @@ private:
     QNetworkAccessManager *const mNetworkAccessManager;
 };
 
-#endif // DOWNLOADAVARTARURLMANAGER_H

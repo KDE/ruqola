@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELDELEGATE_H
-#define SEARCHCHANNELDELEGATE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
@@ -51,4 +50,3 @@ private:
     const QString mJoinLabel;
 };
 
-#endif

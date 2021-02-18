@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMWIDGETBASE_H
-#define ROOMWIDGETBASE_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "messagelistview.h"
@@ -76,4 +75,3 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
-#endif // ROOMWIDGETBASE_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADDUSERSCOMPLETIONLINEEDIT_H
-#define ADDUSERSCOMPLETIONLINEEDIT_H
+#pragma once
 
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
@@ -43,4 +42,3 @@ private:
     void slotComplete(const QModelIndex &index);
 };
 
-#endif // ADDUSERSCOMPLETIONLINEEDIT_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFICATIONPREFERENCES_H
-#define NOTIFICATIONPREFERENCES_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QObject>
@@ -56,4 +55,3 @@ private:
     NotificationDesktopSoundPreferenceModel *mDesktopSoundNotificationModel = nullptr;
 };
 
-#endif // NOTIFICATIONPREFERENCES_H

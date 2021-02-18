@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOADEMOJICUSTOMJOB_H
-#define LOADEMOJICUSTOMJOB_H
+#pragma once
 
 #include "restapiabstractjob.h"
 
@@ -47,4 +46,3 @@ private:
     void slotloadEmojiCustomDone();
 };
 }
-#endif // LOADEMOJICUSTOMJOB_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLALOGINWIDGET_H
-#define RUQOLALOGINWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -63,4 +62,3 @@ private:
     AuthenticationComboBox *mAuthenticationCombobox = nullptr;
 };
 
-#endif // RUQOLALOGINWIDGET_H

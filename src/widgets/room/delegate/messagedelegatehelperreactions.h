@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERREACTIONS_H
-#define MESSAGEDELEGATEHELPERREACTIONS_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/pixmapcache.h"
@@ -65,4 +64,3 @@ private:
     mutable PixmapCache mPixmapCache;
 };
 
-#endif // MESSAGEDELEGATEHELPERREACTIONS_H

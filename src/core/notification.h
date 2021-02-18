@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef NOTIFICATION_H
-#define NOTIFICATION_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <KStatusNotifierItem>
@@ -75,4 +74,3 @@ private:
 #endif
 };
 
-#endif // NOTIFICATION_H

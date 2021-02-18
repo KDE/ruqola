@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LEAVECHANNELJOB_H
-#define LEAVECHANNELJOB_H
+#pragma once
 
 #include "channelbasejob.h"
 #include "librestapi_private_export.h"
@@ -48,4 +47,3 @@ private:
     void slotLeaveChannelFinished();
 };
 }
-#endif // LEAVECHANNELJOB_H

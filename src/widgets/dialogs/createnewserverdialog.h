@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CREATENEWSERVERDIALOG_H
-#define CREATENEWSERVERDIALOG_H
+#pragma once
 #include <QDialog>
 
 #include "accountmanager.h"
@@ -43,4 +42,3 @@ private:
     QPushButton *mOkButton = nullptr;
 };
 
-#endif // CREATENEWSERVERDIALOG_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHMESSAGEWIDGET_H
-#define SEARCHMESSAGEWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -58,4 +57,3 @@ private:
     SearchMessageFilterProxyModel *mModel = nullptr;
 };
 
-#endif // SEARCHMESSAGEWIDGET_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELACTIONPOPUPMENU_H
-#define CHANNELACTIONPOPUPMENU_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "roomheaderwidget.h"
@@ -71,4 +70,3 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
-#endif // CHANNELACTIONPOPUPMENU_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DIRECTCHANNELINFODIALOG_H
-#define DIRECTCHANNELINFODIALOG_H
+#pragma once
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
@@ -37,4 +36,3 @@ private:
     DirectChannelInfoWidget *const mDirectChannelInfoWidget;
 };
 
-#endif // DIRECTCHANNELINFODIALOG_H

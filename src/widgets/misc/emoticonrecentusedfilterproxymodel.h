@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONRECENTUSEDFILTERPROXYMODEL_H
-#define EMOTICONRECENTUSEDFILTERPROXYMODEL_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QSortFilterProxyModel>
@@ -45,4 +44,3 @@ private:
     QStringList mUsedIdentifier;
 };
 
-#endif // EMOTICONRECENTUSEDFILTERPROXYMODEL_H

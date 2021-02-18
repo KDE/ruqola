@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMADMIN_H
-#define ROOMADMIN_H
+#pragma once
 
 #include "libruqolacore_export.h"
 #include <QDebug>
@@ -85,4 +84,3 @@ Q_DECLARE_METATYPE(AdminRoom)
 Q_DECLARE_TYPEINFO(AdminRoom, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AdminRoom &t);
 
-#endif // ROOMADMIN_H

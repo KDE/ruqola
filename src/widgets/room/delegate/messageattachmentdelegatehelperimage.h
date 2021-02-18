@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H
-#define MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H
+#pragma once
 
 #include "messagedelegatehelperbase.h"
 #include "misc/pixmapcache.h"
@@ -74,4 +73,3 @@ private:
     mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
 };
 
-#endif // MESSAGEATTACHEMENTDELEGATEHELPERIMAGE_H

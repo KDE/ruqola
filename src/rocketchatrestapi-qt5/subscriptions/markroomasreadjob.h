@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MARKROOMASREADJOB_H
-#define MARKROOMASREADJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -51,4 +50,3 @@ private:
     QString mRoomId;
 };
 }
-#endif // MARKROOMASREADJOB_H

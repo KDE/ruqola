@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATCACHETEST_H
-#define ROCKETCHATCACHETEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~RocketChatCacheTest() override = default;
 };
 
-#endif // ROCKETCHATCACHETEST_H

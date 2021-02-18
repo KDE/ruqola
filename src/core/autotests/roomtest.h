@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMTEST_H
-#define ROOMTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -49,4 +48,3 @@ private Q_SLOTS:
     void shouldParseRoomAndUpdateSubscription();
 };
 
-#endif // ROOMTEST_H

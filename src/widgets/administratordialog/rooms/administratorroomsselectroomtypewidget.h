@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADMINISTRATORROOMSSELECTROOMTYPEWIDGET_H
-#define ADMINISTRATORROOMSSELECTROOMTYPEWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -46,4 +45,3 @@ private:
     // Omnichannel ?? what is it?
 };
 
-#endif // ADMINISTRATORROOMSSELECTROOMTYPEWIDGET_H

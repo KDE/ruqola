@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONMODEL_H
-#define EMOTICONMODEL_H
+#pragma once
 
 #include "emoticons/unicodeemoticon.h"
 #include "libruqolacore_export.h"
@@ -56,4 +55,3 @@ private:
     QVector<QPair<int, int>> mRows;
 };
 
-#endif // EMOTICONMODEL_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWDISCUSSIONSDIALOG_H
-#define SHOWDISCUSSIONSDIALOG_H
+#pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ShowDiscussionsWidget;
@@ -42,4 +41,3 @@ private:
     ShowDiscussionsWidget *const mShowDiscussionsWidget;
 };
 
-#endif // SHOWDISCUSSIONSDIALOG_H

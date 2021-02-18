@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWATTACHMENTDIALOG_H
-#define SHOWATTACHMENTDIALOG_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 
@@ -51,4 +50,3 @@ private:
     ShowAttachmentWidget *const mShowAttachmentWidget;
 };
 
-#endif // SHOWATTACHMENTDIALOG_H

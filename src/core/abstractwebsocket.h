@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ABSTRACTWEBSOCKET_H
-#define ABSTRACTWEBSOCKET_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QAbstractSocket>
@@ -56,4 +55,3 @@ private:
     Q_DISABLE_COPY(AbstractWebSocket)
 };
 
-#endif // ABSTRACTWEBSOCKET_H

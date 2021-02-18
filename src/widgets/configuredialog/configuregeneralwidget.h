@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGUREGENERALWIDGET_H
-#define CONFIGUREGENERALWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -41,4 +40,3 @@ private:
     QCheckBox *const mEnableSystemTray;
 };
 
-#endif // CONFIGUREGENERALWIDGET_H

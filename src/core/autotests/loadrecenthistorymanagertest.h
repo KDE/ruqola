@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LOADRECENTHISTORYMANAGERTEST_H
-#define LOADRECENTHISTORYMANAGERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldIncreaseTimer();
 };
 
-#endif // LOADRECENTHISTORYMANAGERTEST_H

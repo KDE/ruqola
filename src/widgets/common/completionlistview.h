@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMPLETIONLISTVIEW_H
-#define COMPLETIONLISTVIEW_H
+#pragma once
 
 #include <QListView>
 
@@ -50,4 +49,3 @@ private:
     QWidget *mTextWidget = nullptr;
 };
 
-#endif // COMPLETIONLISTVIEW_H

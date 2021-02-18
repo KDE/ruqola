@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTHENTICATIONINFO_H
-#define AUTHENTICATIONINFO_H
+#pragma once
 
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
@@ -50,4 +49,3 @@ private:
 Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AuthenticationInfo &t);
 
-#endif // AUTHENTICATIONINFO_H

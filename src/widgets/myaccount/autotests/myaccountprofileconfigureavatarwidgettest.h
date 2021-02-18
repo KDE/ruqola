@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPROFILECONFIGUREAVATARWIDGETTEST_H
-#define MYACCOUNTPROFILECONFIGUREAVATARWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // MYACCOUNTPROFILECONFIGUREAVATARWIDGETTEST_H

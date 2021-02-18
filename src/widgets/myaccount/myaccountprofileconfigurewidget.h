@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYACCOUNTPROFILECONFIGUREWIDGET_H
-#define MYACCOUNTPROFILECONFIGUREWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include "ownuser.h"
@@ -53,4 +52,3 @@ private:
     OwnUser mOwnUser;
 };
 
-#endif // MYACCOUNTPROFILECONFIGUREWIDGET_H

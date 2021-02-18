@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGETEST_H
-#define MESSAGETEST_H
+#pragma once
 
 #include <QObject>
 
@@ -44,4 +43,3 @@ private Q_SLOTS:
     void shouldUpdateJsonMessage();
 };
 
-#endif // MESSAGETEST_H

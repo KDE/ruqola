@@ -17,8 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UNITYSERVICEMANAGER_H
-#define UNITYSERVICEMANAGER_H
+#pragma once
 
 #include "libruqola_private_export.h"
 #include <QObject>
@@ -40,4 +39,3 @@ private:
     int mCount = 0;
     bool mUnityServiceAvailable = false;
 };
-#endif // UNITYSERVICEMANAGER_H

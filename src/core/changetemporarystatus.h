@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANGETEMPORARYSTATUS_H
-#define CHANGETEMPORARYSTATUS_H
+#pragma once
 
 #include <QObject>
 class QTimer;
@@ -39,4 +38,3 @@ private:
     QTimer *mTimer = nullptr;
 };
 
-#endif // CHANGETEMPORARYSTATUS_H

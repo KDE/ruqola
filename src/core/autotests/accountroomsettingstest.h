@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTROOMSETTINGSTEST_H
-#define ACCOUNTROOMSETTINGSTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -34,4 +33,3 @@ private Q_SLOTS:
     void shouldChangePendingTypedInfo();
 };
 
-#endif // ACCOUNTROOMSETTINGSTEST_H

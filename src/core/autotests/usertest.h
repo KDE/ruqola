@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERTEST_H
-#define USERTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -50,4 +49,3 @@ private Q_SLOTS:
     void shouldParseRestApiJson();
 };
 
-#endif // USERTEST_H

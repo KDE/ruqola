@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELBASEJOB_H
-#define CHANNELBASEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
@@ -60,4 +59,3 @@ private:
 };
 }
 LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
-#endif // CHANNELBASEJOB_H

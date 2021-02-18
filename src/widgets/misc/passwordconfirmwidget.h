@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDCONFIRMWIDGET_H
-#define PASSWORDCONFIRMWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -38,4 +37,3 @@ private:
     KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
 };
 
-#endif // PASSWORDCONFIRMWIDGET_H

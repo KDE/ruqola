@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONFILTERMODEL_H
-#define EMOTICONFILTERMODEL_H
+#pragma once
 
 #include "emoticoncategoriesmodel.h"
 #include "emoticons/unicodeemoticon.h"
@@ -47,4 +46,3 @@ private:
     EmoticonCategoriesModel *const mEmoticonCategoriesModel;
 };
 
-#endif // EMOTICONFILTERMODEL_H

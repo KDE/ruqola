@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef INPUTCOMPLETERMODEL_H
-#define INPUTCOMPLETERMODEL_H
+#pragma once
 
 #include "channel.h"
 #include "libruqola_private_export.h"
@@ -60,4 +59,3 @@ private:
     QVector<Channel> mChannel;
 };
 
-#endif // INPUTCOMPLETERMODEL_H

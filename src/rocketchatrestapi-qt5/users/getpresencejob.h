@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETPRESENCEJOB_H
-#define GETPRESENCEJOB_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "userbasejob.h"
@@ -49,4 +48,3 @@ private:
     void slotGetPresenceUserId();
 };
 }
-#endif // GETPRESENCEJOB_H

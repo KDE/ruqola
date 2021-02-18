@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PASSWORDPLUGINAUTHENTICATION_H
-#define PASSWORDPLUGINAUTHENTICATION_H
+#pragma once
 
 #include <plugins/pluginauthentication.h>
 
@@ -36,4 +35,3 @@ public:
     QString iconName() const override;
 };
 
-#endif // PASSWORDPLUGINAUTHENTICATION_H

@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATACCOUNTMODELTEST_H
-#define ROCKETCHATACCOUNTMODELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -37,4 +36,3 @@ private Q_SLOTS:
     void shouldClearAccounts();
 };
 
-#endif // ROCKETCHATACCOUNTMODELTEST_H

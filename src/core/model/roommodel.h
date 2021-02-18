@@ -20,8 +20,7 @@
  *
  */
 
-#ifndef ROOMMODEL_H
-#define ROOMMODEL_H
+#pragma once
 #include "libruqolacore_export.h"
 #include "room.h"
 #include "user.h"
@@ -123,4 +122,3 @@ private:
     QVector<Room *> mRoomsList;
 };
 
-#endif // ROOMMODEL_H

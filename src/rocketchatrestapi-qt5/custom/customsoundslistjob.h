@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMSOUNDSLISTJOB_H
-#define CUSTOMSOUNDSLISTJOB_H
+#pragma once
 
 #include "restapiabstractjob.h"
 
@@ -46,4 +45,3 @@ private:
     void slotCustomSoundsDone();
 };
 }
-#endif // CUSTOMUSERSTATUSJOB_H

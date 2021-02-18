@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DeleteUserJob_H
-#define DeleteUserJob_H
+#pragma once
 
 #include "librestapi_private_export.h"
 #include "userbasejob.h"
@@ -47,4 +46,3 @@ private:
     void slotDeleteUser();
 };
 }
-#endif // DeleteUserJob_H

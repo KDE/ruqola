@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PluginAuthenticationInterface_H
-#define PluginAuthenticationInterface_H
+#pragma once
 
 #include "ddpapi/ddpclient.h"
 #include "libruqolacore_export.h"
@@ -44,4 +43,3 @@ protected:
     RocketChatAccount *mAccount = nullptr;
 };
 
-#endif

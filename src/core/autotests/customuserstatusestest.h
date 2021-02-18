@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CUSTOMUSERSTATUSESTEST_H
-#define CUSTOMUSERSTATUSESTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -41,4 +40,3 @@ private Q_SLOTS:
     void shouldDeleteUserCustomStatuses_data();
 };
 
-#endif // CUSTOMUSERSTATUSESTEST_H

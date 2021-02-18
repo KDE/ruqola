@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELACTIONPOPUPMENUTEST_H
-#define CHANNELACTIONPOPUPMENUTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -31,4 +30,3 @@ public:
     ~ChannelActionPopupMenuTest() override = default;
 };
 
-#endif // CHANNELACTIONPOPUPMENUTEST_H

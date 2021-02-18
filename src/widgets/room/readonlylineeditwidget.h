@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef READONLYLINEEDITWIDGET_H
-#define READONLYLINEEDITWIDGET_H
+#pragma once
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -36,4 +35,3 @@ private:
     QLabel *mLabel = nullptr;
 };
 
-#endif // READONLYLINEEDITWIDGET_H

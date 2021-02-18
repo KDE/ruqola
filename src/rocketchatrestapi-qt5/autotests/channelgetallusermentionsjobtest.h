@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELGETALLUSERMENTIONSJOBTEST_H
-#define CHANNELGETALLUSERMENTIONSJOBTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -38,4 +37,3 @@ private Q_SLOTS:
     void shouldHaveParameterSupportSortingTwoParameters();
 };
 
-#endif // CHANNELGETALLUSERMENTIONSJOBTEST_H

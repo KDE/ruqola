@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef COMMANDCOMPLETIONDELEGATE_H
-#define COMMANDCOMPLETIONDELEGATE_H
+#pragma once
 
 #include <QItemDelegate>
 
@@ -32,4 +31,3 @@ public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
-#endif // COMMANDCOMPLETIONDELEGATE_H

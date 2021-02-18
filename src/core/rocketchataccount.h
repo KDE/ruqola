@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATACCOUNT_H
-#define ROCKETCHATACCOUNT_H
+#pragma once
 
 #include "accountroomsettings.h"
 #include "authenticationinfo.h"
@@ -586,4 +585,3 @@ private:
     bool mEditingMode = false;
 };
 
-#endif // ROCKETCHATACCOUNT_H

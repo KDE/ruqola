@@ -18,8 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PRUNEMESSAGESWIDGETTEST_H
-#define PRUNEMESSAGESWIDGETTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -33,4 +32,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // PRUNEMESSAGESWIDGETTEST_H
