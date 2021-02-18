@@ -96,10 +96,10 @@ private:
 
     RoomWidgetBase *const mRoomWidgetBase;
 
-    RoomHeaderWidget *mRoomHeaderWidget = nullptr;
+    RoomHeaderWidget *const mRoomHeaderWidget;
     Room *mRoom = nullptr;
-    UsersInRoomFlowWidget *mUsersInRoomFlowWidget = nullptr;
-    RoomCounterInfoWidget *mRoomCounterInfoWidget = nullptr;
+    UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
+    RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

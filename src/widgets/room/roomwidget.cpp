@@ -69,21 +69,21 @@
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
     , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::Editing, this))
+    , mRoomHeaderWidget(new RoomHeaderWidget(this))
+    , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
+    , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mRoomHeaderWidget = new RoomHeaderWidget(this);
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
     mainLayout->addWidget(mRoomHeaderWidget);
 
-    mUsersInRoomFlowWidget = new UsersInRoomFlowWidget(this);
     mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
     mainLayout->addWidget(mUsersInRoomFlowWidget);
     mUsersInRoomFlowWidget->setVisible(false);
 
-    mRoomCounterInfoWidget = new RoomCounterInfoWidget(this);
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
     mainLayout->addWidget(mRoomCounterInfoWidget);
     mainLayout->addWidget(mRoomWidgetBase);
