@@ -143,7 +143,7 @@ void RuqolaLoginWidget::initialize()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
     mAccountName->setText(rocketChatAccount->displayName());
-    mAccountName->setEnabled(rocketChatAccount->displayName().isEmpty());
+    mAccountName->setReadOnly(!rocketChatAccount->displayName().isEmpty());
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
     mLdapCheckBox->setChecked(rocketChatAccount->useLdap());
