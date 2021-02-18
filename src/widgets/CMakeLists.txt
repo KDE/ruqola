@@ -81,6 +81,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/asktwoauthenticationpasswordwidget.cpp
     dialogs/createdirectmessagesdialog.cpp
     dialogs/createdirectmessageswidget.cpp
+    dialogs/channelinfoprunewidget.cpp
     )
 
 set(Ruqola_configure_SRCS
