@@ -47,18 +47,19 @@ private:
     void changeWidgetStatus(bool enabled);
     void slotLogin();
     void slotResetPasswordRequested(const QString &email);
+    void slotUpdateLoginButton();
 
-    QLabel *mAccountName = nullptr;
-    QLineEdit *mServerName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    PasswordLineEditWidget *mPasswordLineEditWidget = nullptr;
-    QCheckBox *mLdapCheckBox = nullptr;
-    QPushButton *mLoginButton = nullptr;
-    KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
-    QLabel *mFailedError = nullptr;
-    TwoAuthenticationPasswordWidget *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
-    QWidget *mAuthenticationWidget = nullptr;
-    QWidget *mAuthenticationAccountWidget = nullptr;
-    AuthenticationComboBox *mAuthenticationCombobox = nullptr;
+    QLineEdit *const mAccountName;
+    QLineEdit *const mServerName;
+    QLineEdit *const mUserName;
+    PasswordLineEditWidget *const mPasswordLineEditWidget;
+    QCheckBox *const mLdapCheckBox;
+    QPushButton *const mLoginButton;
+    KBusyIndicatorWidget *const mBusyIndicatorWidget;
+    QLabel *const mFailedError;
+    TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;
+    QWidget *const mAuthenticationWidget;
+    QWidget *const mAuthenticationAccountWidget;
+    AuthenticationComboBox *const mAuthenticationCombobox;
 };
 

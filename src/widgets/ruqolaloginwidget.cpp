@@ -37,24 +37,34 @@
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
+    , mAccountName(new QLineEdit(this))
+    , mServerName(new QLineEdit(this))
+    , mUserName(new QLineEdit(this))
+    , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
+    , mLdapCheckBox(new QCheckBox(i18n("Use LDAP"), this))
+    , mLoginButton(new QPushButton(i18n("Login"), this))
+    , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
+    , mFailedError(new QLabel(this))
+    , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
+    , mAuthenticationWidget(new QWidget(this))
+    , mAuthenticationAccountWidget(new QWidget(this))
+    , mAuthenticationCombobox(new AuthenticationComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mAccountName = new QLabel(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
+    mAccountName->setPlaceholderText(i18n("Account Name"));
+    connect(mAccountName, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotUpdateLoginButton);
 
-    mServerName = new QLineEdit(this);
     mServerName->setObjectName(QStringLiteral("mServerName"));
     mainLayout->addRow(i18n("Server Name:"), mServerName);
 
-    mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
     // Type of account
-    mAuthenticationAccountWidget = new QWidget(this);
     mAuthenticationAccountWidget->setObjectName(QStringLiteral("mAuthenticationAccountWidget"));
     mAuthenticationAccountWidget->setVisible(false);
 
@@ -66,25 +76,21 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     authenticationAccountLabel->setObjectName(QStringLiteral("authenticationAccountLabel"));
     authenticationAccountLayout->addWidget(authenticationAccountLabel);
 
-    mAuthenticationCombobox = new AuthenticationComboBox(this);
     mAuthenticationCombobox->setObjectName(QStringLiteral("mAuthenticationCombobox"));
     authenticationAccountLayout->addWidget(mAuthenticationCombobox);
     mainLayout->addWidget(mAuthenticationAccountWidget);
     mAuthenticationAccountWidget->setVisible(false);
 
     // Password
-    mPasswordLineEditWidget = new PasswordLineEditWidget(this);
     mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEditWidget"));
     connect(mPasswordLineEditWidget->passwordLineEdit()->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
 
-    mLdapCheckBox = new QCheckBox(i18n("Use LDAP"), this);
     mLdapCheckBox->setObjectName(QStringLiteral("mLdapCheckBox"));
     mainLayout->addWidget(mLdapCheckBox);
 
     // Two Factor authentication
-    mAuthenticationWidget = new QWidget(this);
     mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
     mAuthenticationWidget->setVisible(false);
 
@@ -96,24 +102,20 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
     twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 
-    mTwoFactorAuthenticationPasswordLineEdit = new TwoAuthenticationPasswordWidget(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     mainLayout->addWidget(mAuthenticationWidget);
 
-    mLoginButton = new QPushButton(i18n("Login"), this);
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
     mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
 
-    mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     mainLayout->addWidget(mBusyIndicatorWidget);
     // Hide by default
     mBusyIndicatorWidget->hide();
 
-    mFailedError = new QLabel(this);
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
     QPalette pal = mFailedError->palette();
     const KColorScheme colorScheme{QPalette::Active};
@@ -132,10 +134,16 @@ RuqolaLoginWidget::~RuqolaLoginWidget()
 {
 }
 
+void RuqolaLoginWidget::slotUpdateLoginButton()
+{
+    mLoginButton->setEnabled(!mAccountName->text().isEmpty());
+}
+
 void RuqolaLoginWidget::initialize()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
     mAccountName->setText(rocketChatAccount->displayName());
+    mAccountName->setEnabled(rocketChatAccount->displayName().isEmpty());
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
     mLdapCheckBox->setChecked(rocketChatAccount->useLdap());
@@ -147,7 +155,7 @@ void RuqolaLoginWidget::initialize()
 void RuqolaLoginWidget::slotLogin()
 {
     auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
-    rocketChatAccount->setAccountName(rocketChatAccount->accountName());
+    rocketChatAccount->setAccountName(mAccountName->isEnabled() ? mAccountName->text() : rocketChatAccount->accountName());
     rocketChatAccount->setServerUrl(mServerName->text());
     rocketChatAccount->setUserName(mUserName->text());
     rocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
@@ -165,7 +173,7 @@ void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
     mServerName->setEnabled(enabled);
     mUserName->setEnabled(enabled);
     mPasswordLineEditWidget->setEnabled(enabled);
-    mLoginButton->setEnabled(enabled);
+    mLoginButton->setEnabled(enabled && !mAccountName->text().isEmpty());
 }
 
 void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
