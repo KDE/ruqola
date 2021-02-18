@@ -342,6 +342,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyLinkAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
+        if (canMarkAsUnread) {
+            menu.addAction(markMessageAsUnReadAction);
+            menu.addSeparator();
+        }
         if (index.data(MessageModel::CanEditMessage).toBool()) {
             menu.addSeparator();
             menu.addAction(editAction);
@@ -359,10 +363,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #endif
         if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
-            menu.addSeparator();
-        }
-        if (canMarkAsUnread) {
-            menu.addAction(markMessageAsUnReadAction);
             menu.addSeparator();
         }
         menu.addAction(copyAction);
