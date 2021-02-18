@@ -50,7 +50,7 @@ bool AccountRoomSettings::isEmpty() const
 
 bool AccountRoomSettings::PendingTypedInfo::isValid() const
 {
-    return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1) || !threadMessageId.isEmpty();
+    return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1) || !threadMessageId.isEmpty() || !quotePermalink.isEmpty();
 }
 
 QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
@@ -59,5 +59,6 @@ QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
     d << " messageIdBeingEdited " << t.messageIdBeingEdited;
     d << " scrollbarPosition " << t.scrollbarPosition;
     d << " threadMessageId " << t.threadMessageId;
+    d << " quotePermalink " << t.quotePermalink;
     return d;
 }

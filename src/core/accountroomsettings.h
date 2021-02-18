@@ -32,6 +32,7 @@ public:
         QString text;
         QString messageIdBeingEdited;
         QString threadMessageId;
+        QString quotePermalink;
         int scrollbarPosition = -1;
         Q_REQUIRED_RESULT bool isValid() const;
     };
