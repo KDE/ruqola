@@ -43,7 +43,7 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
+    auto mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
 
