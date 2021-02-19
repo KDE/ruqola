@@ -23,6 +23,13 @@
         "unreadAlert": ""
     },
     "open": false,
+    "retention": {
+        "enabled": false,
+        "excludePinned": false,
+        "filesOnly": false,
+        "maxAge": -1,
+        "overrideGlobal": true
+    },
     "rid": "GENERAL",
     "ro": false,
     "roomCreatorUserID": "",

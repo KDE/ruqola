@@ -324,10 +324,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
     parseDisplaySystemMessage(json);
-    const QJsonValue retentionValue = json.value(QLatin1String("retention"));
-    if (!retentionValue.isUndefined()) {
-        mRetentionInfo.parseRetentionInfo(retentionValue.toObject());
-    }
+    parseRetentionInfo(json);
 }
 
 bool Room::selected() const
@@ -739,8 +736,17 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     //    }
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
+    parseRetentionInfo(json);
 
     // TODO add muted
+}
+
+void Room::parseRetentionInfo(const QJsonObject &json)
+{
+    const QJsonValue retentionValue = json.value(QLatin1String("retention"));
+    if (!retentionValue.isUndefined()) {
+        mRetentionInfo.parseRetentionInfo(retentionValue.toObject());
+    }
 }
 
 void Room::parseDisplaySystemMessage(const QJsonObject &json)

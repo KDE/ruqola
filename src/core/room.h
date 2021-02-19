@@ -296,6 +296,7 @@ private:
     Q_DISABLE_COPY(Room)
     void parseCommonData(const QJsonObject &json);
     void parseDisplaySystemMessage(const QJsonObject &json);
+    void parseRetentionInfo(const QJsonObject &json);
 
     // Room Object Fields
 
