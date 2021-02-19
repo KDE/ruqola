@@ -1,0 +1,42 @@
+{
+    "alert": false,
+    "archived": false,
+    "blocked": false,
+    "blocker": false,
+    "broadcast": false,
+    "encrypted": false,
+    "favorite": false,
+    "fname": "test-",
+    "jitsiTimeout": -1,
+    "lastSeenAt": -1,
+    "name": "test-",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "muteGroupMentions": false,
+        "unreadAlert": ""
+    },
+    "open": false,
+    "retention": {
+        "enabled": true,
+        "excludePinned": true,
+        "filesOnly": true,
+        "maxAge": 41,
+        "overrideGlobal": true
+    },
+    "rid": "GENERAL",
+    "ro": false,
+    "roomCreatorUserID": "H7Q9djXQ4iShzD9T2",
+    "roomCreatorUserName": "laurent",
+    "selected": false,
+    "t": "c",
+    "unread": 0,
+    "updatedAt": 1613401653650,
+    "userMentions": 0
+}

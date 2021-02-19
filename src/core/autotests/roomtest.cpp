@@ -261,6 +261,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
                                                  << (QStringList() << QStringLiteral("room-requiredjoincode-update"));
     QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() << QStringLiteral("autotranslatelanguage-update"));
     QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));
+    QTest::newRow("room-retention") << QStringLiteral("room-retention") << (QStringList() << QStringLiteral("room-retention-update"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
@@ -270,7 +271,11 @@ void RoomTest::shouldParseRoomAndUpdate()
 
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/room-updated/") + fileNameinit + QLatin1String(".json");
     QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
+    bool opened = f.open(QIODevice::ReadOnly);
+    if (!opened) {
+        qWarning() << " impossible to open " << originalJsonFile;
+    }
+    QVERIFY(opened);
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
