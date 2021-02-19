@@ -210,7 +210,13 @@ QString TextConverter::convertMessageText(const QString &_str,
             return msg.messageId() == messageId;
         });
         if (it != allMessages.cend()) {
-            const QString text = convertMessageText((*it).text(), userName, allMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
+            const QString text = convertMessageText(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
+                                                    userName,
+                                                    allMessages,
+                                                    highlightWords,
+                                                    emojiManager,
+                                                    messageCache,
+                                                    needUpdateMessageId);
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {

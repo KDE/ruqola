@@ -92,7 +92,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                     }
                 }
                 // Use TextConverter in case it starts with a [](URL) reply marker
-                const QString contextText = KStringHandler::rsqueeze(contextMessage.text(), 200);
+                const QString contextText =
+                    KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1String(": ") + contextMessage.text(), 200);
+
                 QString needUpdateMessageId;
                 const QString contextString = TextConverter::convertMessageText(contextText,
                                                                                 rcAccount->userName(),
