@@ -19,6 +19,7 @@
 */
 
 #include "channelinfowidget.h"
+#include "channelinfoprunewidget.h"
 #include "misc/systemmessagescombobox.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -41,6 +42,7 @@
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
+    , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -148,6 +150,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
+
+    mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
+    layout->addRow(i18n("Prune:"), mChannelInfoPruneWidget);
 
     mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));

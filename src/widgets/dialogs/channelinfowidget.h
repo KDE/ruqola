@@ -30,6 +30,7 @@ class QLabel;
 class Room;
 class QToolButton;
 class SystemMessagesComboBox;
+class ChannelInfoPruneWidget;
 class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
 {
     Q_OBJECT
@@ -91,6 +92,7 @@ private:
     QLabel *mCommentReadOnly = nullptr;
     QLabel *mAnnouncementReadOnly = nullptr;
     QLabel *mDescriptionReadOnly = nullptr;
+    ChannelInfoPruneWidget *const mChannelInfoPruneWidget;
     Room *mRoom = nullptr;
     SystemMessagesComboBox *const mSystemMessageCombox;
 };
