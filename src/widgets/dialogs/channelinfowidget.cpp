@@ -41,8 +41,8 @@
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
-    , mSystemMessageCombox(new SystemMessagesComboBox(this))
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
+    , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
