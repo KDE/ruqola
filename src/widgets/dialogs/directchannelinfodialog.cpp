@@ -20,10 +20,16 @@
 
 #include "directchannelinfodialog.h"
 #include "directchannelinfowidget.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+namespace
+{
+static const char myConfigDirectChannelInfoDialogGroupName[] = "DirectChannelInfoDialog";
+}
 DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
     , mDirectChannelInfoWidget(new DirectChannelInfoWidget(this))
@@ -39,13 +45,30 @@ DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &DirectChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
+    readConfig();
 }
 
 DirectChannelInfoDialog::~DirectChannelInfoDialog()
 {
+    writeConfig();
 }
 
 void DirectChannelInfoDialog::setUserName(const QString &userName)
 {
     mDirectChannelInfoWidget->setUserName(userName);
+}
+
+void DirectChannelInfoDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigDirectChannelInfoDialogGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void DirectChannelInfoDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigDirectChannelInfoDialogGroupName);
+    group.writeEntry("Size", size());
 }

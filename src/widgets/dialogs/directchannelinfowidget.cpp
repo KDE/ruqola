@@ -50,7 +50,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("UserName:"), mUserName);
+    mMainLayout->addRow(i18n("Username:"), mUserName);
 
     mStatus = new QLabel(this);
     mStatus->setObjectName(QStringLiteral("mStatus"));
@@ -60,7 +60,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mTimeZone = new QLabel(this);
     mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
     mTimeZone->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("TimeZone:"), mTimeZone);
+    mMainLayout->addRow(i18n("Timezone:"), mTimeZone);
 
     mCustomStatus = new QLabel(this);
     mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
@@ -126,11 +126,15 @@ void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 
 void DirectChannelInfoWidget::setUser(const User &user)
 {
-    mName->setText(user.name());
+    const QString name = user.name();
+    if (name.isEmpty()) {
+        hideWidget(mName);
+    } else {
+        mName->setText(name);
+    }
     mUserName->setText(user.userName());
     if (user.statusText().isEmpty()) {
-        mCustomStatus->setVisible(false);
-        mMainLayout->labelForField(mCustomStatus)->setVisible(false);
+        hideWidget(mCustomStatus);
     } else {
         mCustomStatus->setText(user.statusText());
     }

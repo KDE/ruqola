@@ -33,6 +33,8 @@ public:
     void setUserName(const QString &userName);
 
 private:
+    void readConfig();
+    void writeConfig();
     DirectChannelInfoWidget *const mDirectChannelInfoWidget;
 };
 
