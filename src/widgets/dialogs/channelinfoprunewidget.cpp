@@ -21,6 +21,8 @@
 #include "channelinfoprunewidget.h"
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QLabel>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
 ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
@@ -29,6 +31,7 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     , mPruneFileOnlyKeepMessages(new QCheckBox(i18n("Prune files only, keep messages"), this))
     , mAutomaticPruneOldMessages(new QCheckBox(i18n("Automatically prune old messages"), this))
     , mOverrideGlobalRetentionPolicy(new QCheckBox(i18n("Override global retention policy"), this))
+    , mMaximumAgeInDay(new QSpinBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -42,6 +45,12 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     mainLayout->addWidget(mExcludePinnedMessages);
     mPruneFileOnlyKeepMessages->setObjectName(QStringLiteral("mPruneFileOnlyKeepMessages"));
     mainLayout->addWidget(mPruneFileOnlyKeepMessages);
+
+    auto label = new QLabel(i18n("Maximum message age in days (default: 300)"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mMaximumAgeInDay->setObjectName(QStringLiteral("mMaximumAgeInDay"));
+    mainLayout->addWidget(label);
+    mainLayout->addWidget(mMaximumAgeInDay);
 }
 
 ChannelInfoPruneWidget::~ChannelInfoPruneWidget()

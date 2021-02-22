@@ -24,6 +24,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoPruneWidget : public QWidget
 {
     Q_OBJECT
@@ -36,4 +37,5 @@ private:
     QCheckBox *const mPruneFileOnlyKeepMessages;
     QCheckBox *const mAutomaticPruneOldMessages;
     QCheckBox *const mOverrideGlobalRetentionPolicy;
+    QSpinBox *const mMaximumAgeInDay;
 };

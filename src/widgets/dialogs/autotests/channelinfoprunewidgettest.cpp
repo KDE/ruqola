@@ -20,6 +20,8 @@
 #include "channelinfoprunewidgettest.h"
 #include "dialogs/channelinfoprunewidget.h"
 #include <QCheckBox>
+#include <QLabel>
+#include <QSpinBox>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ChannelInfoPruneWidgetTest)
@@ -51,4 +53,10 @@ void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
     auto mPruneFileOnlyKeepMessages = w.findChild<QCheckBox *>(QStringLiteral("mPruneFileOnlyKeepMessages"));
     QVERIFY(mPruneFileOnlyKeepMessages);
     QVERIFY(!mPruneFileOnlyKeepMessages->text().isEmpty());
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+
+    auto mMaximumAgeInDay = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAgeInDay"));
+    QVERIFY(mMaximumAgeInDay);
 }
