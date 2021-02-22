@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordLineEdit>
+#include <KSeparator>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QHBoxLayout>
@@ -154,6 +155,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
     layout->addRow(i18n("Prune:"), mChannelInfoPruneWidget);
+    auto separator = new KSeparator(this);
+    separator->setObjectName(QStringLiteral("separator"));
+    layout->addWidget(separator);
 
     mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
