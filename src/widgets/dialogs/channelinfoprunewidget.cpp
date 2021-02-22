@@ -19,6 +19,7 @@
 */
 
 #include "channelinfoprunewidget.h"
+#include "retentioninfo.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QLabel>
@@ -55,4 +56,13 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
 
 ChannelInfoPruneWidget::~ChannelInfoPruneWidget()
 {
+}
+
+void ChannelInfoPruneWidget::setRetentionInfo(const RetentionInfo &retentionInfo)
+{
+    mExcludePinnedMessages->setChecked(retentionInfo.excludePinned());
+    mPruneFileOnlyKeepMessages->setChecked(retentionInfo.filesOnly());
+    mAutomaticPruneOldMessages->setChecked(retentionInfo.enabled());
+    mOverrideGlobalRetentionPolicy->setChecked(retentionInfo.overrideGlobal());
+    mMaximumAgeInDay->setValue(retentionInfo.maxAge());
 }

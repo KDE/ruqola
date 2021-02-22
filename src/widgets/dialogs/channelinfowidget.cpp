@@ -225,11 +225,19 @@ void ChannelInfoWidget::setRoom(Room *room)
     if (mRoom->canBeModify()) {
         mStackedWidget->setCurrentWidget(mEditableChannel);
         updateEditableChannelInfo();
+        updateRetentionValue();
         connectEditableWidget();
     } else {
         mStackedWidget->setCurrentWidget(mReadOnlyChannel);
         updateReadOnlyChannelInfo();
         connectReadOnlyWidget();
+    }
+}
+
+void ChannelInfoWidget::updateRetentionValue()
+{
+    if (!mChannelInfoPruneWidget->isHidden()) {
+        mChannelInfoPruneWidget->setRetentionInfo(mRoom->retentionInfo());
     }
 }
 

@@ -25,12 +25,15 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QSpinBox;
+class RetentionInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoPruneWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ChannelInfoPruneWidget(QWidget *parent = nullptr);
     ~ChannelInfoPruneWidget() override;
+
+    void setRetentionInfo(const RetentionInfo &retentionInfo);
 
 private:
     QCheckBox *const mExcludePinnedMessages;
