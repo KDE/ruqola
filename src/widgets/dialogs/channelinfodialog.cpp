@@ -36,6 +36,7 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
 
     mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
     mainLayout->addWidget(mChannelInfoWidget);
+    mChannelInfoWidget->updateUiFromPermission();
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);

@@ -19,6 +19,7 @@
 */
 
 #include "channelinfowidgettest.h"
+#include "dialogs/channelinfoprunewidget.h"
 #include "dialogs/channelinfowidget.h"
 #include "misc/systemmessagescombobox.h"
 #include <KPasswordLineEdit>
@@ -129,4 +130,7 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDescriptionReadOnly->text().isEmpty());
     QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mDescriptionReadOnly->wordWrap());
+
+    auto mChannelInfoPruneWidget = mEditableChannel->findChild<ChannelInfoPruneWidget *> QStringLiteral("mChannelInfoPruneWidget");
+    QVERIFY(mChannelInfoPruneWidget);
 }

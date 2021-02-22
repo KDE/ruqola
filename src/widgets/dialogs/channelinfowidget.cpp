@@ -154,7 +154,6 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
     mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
     layout->addRow(i18n("Prune:"), mChannelInfoPruneWidget);
-    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
 
     mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
@@ -213,6 +212,11 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 
 ChannelInfoWidget::~ChannelInfoWidget()
 {
+}
+
+void ChannelInfoWidget::updateUiFromPermission()
+{
+    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
 }
 
 void ChannelInfoWidget::setRoom(Room *room)
