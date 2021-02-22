@@ -22,6 +22,7 @@
 #include "retentioninfo.h"
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QGroupBox>
 #include <QLabel>
 #include <QSpinBox>
 #include <QVBoxLayout>
@@ -37,21 +38,26 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    QGroupBox *groupBox = new QGroupBox(i18n("Prune"), this);
+    groupBox->setObjectName(QStringLiteral("groupBox"));
+    mainLayout->addWidget(groupBox);
+
+    auto groupBoxLayout = new QVBoxLayout(groupBox);
 
     mAutomaticPruneOldMessages->setObjectName(QStringLiteral("mAutomaticPruneOldMessages"));
-    mainLayout->addWidget(mAutomaticPruneOldMessages);
+    groupBoxLayout->addWidget(mAutomaticPruneOldMessages);
     mOverrideGlobalRetentionPolicy->setObjectName(QStringLiteral("mOverrideGlobalRetentionPolicy"));
-    mainLayout->addWidget(mOverrideGlobalRetentionPolicy);
+    groupBoxLayout->addWidget(mOverrideGlobalRetentionPolicy);
     mExcludePinnedMessages->setObjectName(QStringLiteral("mExcludePinnedMessages"));
-    mainLayout->addWidget(mExcludePinnedMessages);
+    groupBoxLayout->addWidget(mExcludePinnedMessages);
     mPruneFileOnlyKeepMessages->setObjectName(QStringLiteral("mPruneFileOnlyKeepMessages"));
-    mainLayout->addWidget(mPruneFileOnlyKeepMessages);
+    groupBoxLayout->addWidget(mPruneFileOnlyKeepMessages);
 
     auto label = new QLabel(i18n("Maximum message age in days (default: 300)"), this);
     label->setObjectName(QStringLiteral("label"));
     mMaximumAgeInDay->setObjectName(QStringLiteral("mMaximumAgeInDay"));
-    mainLayout->addWidget(label);
-    mainLayout->addWidget(mMaximumAgeInDay);
+    groupBoxLayout->addWidget(label);
+    groupBoxLayout->addWidget(mMaximumAgeInDay);
 }
 
 ChannelInfoPruneWidget::~ChannelInfoPruneWidget()

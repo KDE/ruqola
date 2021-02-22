@@ -76,6 +76,8 @@ private:
     void connectEditableWidget();
     void joinCodeChanged();
     void updateRetentionValue();
+    void initEditableWidget();
+    void initReadOnlyWidget();
 
     ChangeTextWidget *mName = nullptr;
     ChangeTextWidget *mComment = nullptr;

@@ -54,7 +54,89 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
 
-    // Editable channel
+    initEditableWidget();
+    initReadOnlyWidget();
+}
+
+ChannelInfoWidget::~ChannelInfoWidget()
+{
+}
+
+void ChannelInfoWidget::updateUiFromPermission()
+{
+    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
+}
+
+void ChannelInfoWidget::setRoom(Room *room)
+{
+    mRoom = room;
+    if (mRoom->canBeModify()) {
+        mStackedWidget->setCurrentWidget(mEditableChannel);
+        updateEditableChannelInfo();
+        updateRetentionValue();
+        connectEditableWidget();
+    } else {
+        mStackedWidget->setCurrentWidget(mReadOnlyChannel);
+        updateReadOnlyChannelInfo();
+        connectReadOnlyWidget();
+    }
+}
+
+void ChannelInfoWidget::updateRetentionValue()
+{
+    if (!mChannelInfoPruneWidget->isHidden()) {
+        mChannelInfoPruneWidget->setRetentionInfo(mRoom->retentionInfo());
+    }
+}
+
+void ChannelInfoWidget::initReadOnlyWidget()
+{
+    mReadOnlyChannel = new QWidget(this);
+    mReadOnlyChannel->setObjectName(QStringLiteral("mReadOnlyChannel"));
+    mStackedWidget->addWidget(mReadOnlyChannel);
+
+    auto layoutReadOnly = new QFormLayout(mReadOnlyChannel);
+    layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
+    layoutReadOnly->setContentsMargins({});
+
+    mNameReadOnly = new QLabel(this);
+    mNameReadOnly->setTextFormat(Qt::RichText);
+    mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
+    mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mNameReadOnly->setOpenExternalLinks(true);
+    mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
+
+    mCommentReadOnly = new QLabel(this);
+    mCommentReadOnly->setTextFormat(Qt::RichText);
+    mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
+    mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mCommentReadOnly->setOpenExternalLinks(true);
+    mCommentReadOnly->setWordWrap(true);
+    mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
+
+    mAnnouncementReadOnly = new QLabel(this);
+    mAnnouncementReadOnly->setTextFormat(Qt::RichText);
+    mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
+    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mAnnouncementReadOnly->setOpenExternalLinks(true);
+    mAnnouncementReadOnly->setWordWrap(true);
+    mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
+
+    mDescriptionReadOnly = new QLabel(this);
+    mDescriptionReadOnly->setTextFormat(Qt::RichText);
+    mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
+    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mDescriptionReadOnly->setOpenExternalLinks(true);
+    mDescriptionReadOnly->setWordWrap(true);
+    mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
+}
+
+void ChannelInfoWidget::initEditableWidget()
+{
     mEditableChannel = new QWidget(this);
     mEditableChannel->setObjectName(QStringLiteral("mEditableChannel"));
     mStackedWidget->addWidget(mEditableChannel);
@@ -154,7 +236,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
 
     mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
-    layout->addRow(i18n("Prune:"), mChannelInfoPruneWidget);
+    layout->addRow(mChannelInfoPruneWidget);
     auto separator = new KSeparator(this);
     separator->setObjectName(QStringLiteral("separator"));
     layout->addWidget(separator);
@@ -168,81 +250,6 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
             Q_EMIT channelDeleted();
         }
     });
-
-    // ReadOnly Channel
-    mReadOnlyChannel = new QWidget(this);
-    mReadOnlyChannel->setObjectName(QStringLiteral("mReadOnlyChannel"));
-    mStackedWidget->addWidget(mReadOnlyChannel);
-
-    auto layoutReadOnly = new QFormLayout(mReadOnlyChannel);
-    layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
-    layoutReadOnly->setContentsMargins({});
-
-    mNameReadOnly = new QLabel(this);
-    mNameReadOnly->setTextFormat(Qt::RichText);
-    mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
-    mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mNameReadOnly->setOpenExternalLinks(true);
-    mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
-
-    mCommentReadOnly = new QLabel(this);
-    mCommentReadOnly->setTextFormat(Qt::RichText);
-    mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
-    mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mCommentReadOnly->setOpenExternalLinks(true);
-    mCommentReadOnly->setWordWrap(true);
-    mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
-
-    mAnnouncementReadOnly = new QLabel(this);
-    mAnnouncementReadOnly->setTextFormat(Qt::RichText);
-    mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
-    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mAnnouncementReadOnly->setOpenExternalLinks(true);
-    mAnnouncementReadOnly->setWordWrap(true);
-    mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
-
-    mDescriptionReadOnly = new QLabel(this);
-    mDescriptionReadOnly->setTextFormat(Qt::RichText);
-    mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
-    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mDescriptionReadOnly->setOpenExternalLinks(true);
-    mDescriptionReadOnly->setWordWrap(true);
-    mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
-}
-
-ChannelInfoWidget::~ChannelInfoWidget()
-{
-}
-
-void ChannelInfoWidget::updateUiFromPermission()
-{
-    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
-}
-
-void ChannelInfoWidget::setRoom(Room *room)
-{
-    mRoom = room;
-    if (mRoom->canBeModify()) {
-        mStackedWidget->setCurrentWidget(mEditableChannel);
-        updateEditableChannelInfo();
-        updateRetentionValue();
-        connectEditableWidget();
-    } else {
-        mStackedWidget->setCurrentWidget(mReadOnlyChannel);
-        updateReadOnlyChannelInfo();
-        connectReadOnlyWidget();
-    }
-}
-
-void ChannelInfoWidget::updateRetentionValue()
-{
-    if (!mChannelInfoPruneWidget->isHidden()) {
-        mChannelInfoPruneWidget->setRetentionInfo(mRoom->retentionInfo());
-    }
 }
 
 void ChannelInfoWidget::updateReadOnlyChannelInfo()
