@@ -124,19 +124,19 @@ QMenu *MessageTextEdit::mousePopupMenu()
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-italic")), i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-strikethrough")), i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
     formatMenu->addSeparator();
-    formatMenu->addAction(i18n("Block Code"), this, &MessageTextEdit::slotInsertBlockCode);
+    formatMenu->addAction(i18n("Code Block"), this, &MessageTextEdit::slotInsertCodeBlock);
     return menu;
 }
 
-void MessageTextEdit::slotInsertBlockCode()
+void MessageTextEdit::slotInsertCodeBlock()
 {
-    const QString textBlockCode{QStringLiteral("```")};
+    const QString textCodeBlock{QStringLiteral("```")};
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString text = textBlockCode + QLatin1Char('\n') + cursor.selectedText() + QLatin1Char('\n') + textBlockCode;
+        const QString text = textCodeBlock + QLatin1Char('\n') + cursor.selectedText() + QLatin1Char('\n') + textCodeBlock;
         cursor.insertText(text);
     } else {
-        cursor.insertText(QString(textBlockCode + QStringLiteral("\n\n") + textBlockCode));
+        cursor.insertText(QString(textCodeBlock + QStringLiteral("\n\n") + textCodeBlock));
     }
     cursor.setPosition(cursor.position() - 4);
     setTextCursor(cursor);

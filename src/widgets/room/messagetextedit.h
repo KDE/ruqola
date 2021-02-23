@@ -66,7 +66,7 @@ private:
     void slotSetAsItalic();
     void slotSetAsStrikeOut();
     void insertFormat(QChar formatChar);
-    void slotInsertBlockCode();
+    void slotInsertCodeBlock();
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
