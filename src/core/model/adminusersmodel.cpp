@@ -63,6 +63,11 @@ int AdminUsersModel::columnCount(const QModelIndex &parent) const
     return static_cast<int>(AdminUsersModel::LastColumn) + 1;
 }
 
+void AdminUsersModel::parseUserInfo(const QJsonObject &usersObj)
+{
+    // TODO
+}
+
 QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mUsers.count()) {
@@ -72,29 +77,15 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-#if 0
-    const AdminRoom &adminroom = mAdminRooms.at(index.row());
+    const User &user = mUsers.at(index.row());
     const int col = index.column();
-    switch (static_cast<AdminRoomsRoles>(col)) {
-    case AdminRoomsRoles::Name:
-        return adminroom.roomName();
-    case AdminRoomsRoles::MessagesCount:
-        return adminroom.messageCount();
-    case AdminRoomsRoles::UsersCount:
-        return adminroom.usersCount();
-    case AdminRoomsRoles::Topic:
-        return adminroom.topic();
-    case AdminRoomsRoles::Identifier:
-        return adminroom.identifier();
-    case AdminRoomsRoles::ReadOnly:
-        return adminroom.readOnly();
-    case AdminRoomsRoles::DefaultRoom:
-        return adminroom.defaultRoom();
-    case AdminRoomsRoles::ChannelType:
-        return adminroom.channelType();
-    case AdminRoomsRoles::ChannelTypeStr:
-        return adminroom.channelTypeStr();
+    switch (static_cast<AdminUsersRoles>(col)) {
+    case AdminUsersRoles::Name:
+    case AdminUsersRoles::UserName:
+    case AdminUsersRoles::Email:
+    case AdminUsersRoles::Roles:
+    case AdminUsersRoles::Disabled:
+        break;
     }
-#endif
     return {};
 }

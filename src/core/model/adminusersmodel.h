@@ -41,6 +41,8 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
+    void parseUserInfo(const QJsonObject &usersObj);
+
 private:
     QVector<User> mUsers;
 };
