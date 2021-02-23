@@ -30,7 +30,6 @@ class LIBRUQOLACORE_EXPORT AdminUsersModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    // TODO
     enum AdminUsersRoles { Name, UserName, Email, Roles, Disabled, LastColumn = Disabled };
     Q_ENUM(AdminUsersRoles)
 
