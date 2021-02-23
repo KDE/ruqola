@@ -97,7 +97,7 @@ void AdministratorUsersWidget::slotAdminUserDone(const QJsonObject &obj)
     //    rooms.parseAdminRooms(obj);
     //    mAdminRoomsModel->setAdminRooms(rooms);
     //    mResultTreeWidget->resizeColumnsToContents();
-    qDebug() << " users " << obj;
+    qDebug() << "Need to implement it. users " << obj;
 }
 
 void AdministratorUsersWidget::slotAddUser()
