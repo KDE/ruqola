@@ -39,7 +39,11 @@ User::PresenceStatus StatusModel::currentUserStatus() const
 
 StatusInfo StatusModel::currentStatusInfo() const
 {
-    return mStatusList.at(mCurrentStatus);
+    StatusInfo info = mStatusList.at(mCurrentStatus);
+    if (!mCustomText.isEmpty()) {
+        info.displayText = mCustomText;
+    }
+    return info;
 }
 
 User::PresenceStatus StatusModel::status(int index) const
@@ -92,6 +96,16 @@ void StatusModel::fillModel()
         statusInfo.status = User::PresenceStatus::PresenceOffline;
         mStatusList.append(statusInfo);
     }
+}
+
+QString StatusModel::customText() const
+{
+    return mCustomText;
+}
+
+void StatusModel::setCustomText(const QString &customText)
+{
+    mCustomText = customText;
 }
 
 int StatusModel::currentStatus() const

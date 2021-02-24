@@ -35,6 +35,7 @@ void StatusModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 4);
 
     QCOMPARE(w.currentStatus(), 0);
+    QVERIFY(w.customText().isEmpty());
 }
 
 // TODO add autotest about currentStatus changed !

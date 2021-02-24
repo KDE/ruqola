@@ -54,6 +54,9 @@ public:
 
     Q_REQUIRED_RESULT StatusInfo currentStatusInfo() const;
 
+    Q_REQUIRED_RESULT QString customText() const;
+    void setCustomText(const QString &customText);
+
 Q_SIGNALS:
     void currentStatusChanged();
 
@@ -61,6 +64,7 @@ private:
     Q_DISABLE_COPY(StatusModel)
     void fillModel();
     QVector<StatusInfo> mStatusList;
+    QString mCustomText;
     int mCurrentStatus = 0;
 };
 
