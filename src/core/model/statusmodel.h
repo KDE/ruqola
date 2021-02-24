@@ -61,6 +61,7 @@ Q_SIGNALS:
     void currentStatusChanged();
 
 private:
+    Q_REQUIRED_RESULT QString textFromPresenceStatus(User::PresenceStatus status) const;
     Q_DISABLE_COPY(StatusModel)
     void fillModel();
     QVector<StatusInfo> mStatusList;

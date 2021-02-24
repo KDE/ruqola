@@ -734,7 +734,7 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
         break;
     }
     mPresenceStatus = status;
-    qDebug() << "RocketChatAccount::setDefaultStatus  " << messageStatus;
+    // qDebug() << "RocketChatAccount::setDefaultStatus  " << messageStatus;
     restApi()->setUserStatus(userId(), type, messageStatus);
 }
 

@@ -66,34 +66,51 @@ void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
     }
 }
 
+QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
+{
+    switch (status) {
+    case User::PresenceStatus::PresenceOnline:
+        return i18n("Online");
+    case User::PresenceStatus::PresenceBusy:
+        return i18n("Busy");
+    case User::PresenceStatus::PresenceAway:
+        return i18n("Away");
+    case User::PresenceStatus::PresenceOffline:
+        return i18n("Offline");
+    case User::PresenceStatus::Unknown:
+        return i18n("Unknown");
+    }
+    return {};
+}
+
 void StatusModel::fillModel()
 {
     {
         StatusInfo statusInfo;
-        statusInfo.displayText = i18n("Online");
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-online"));
         statusInfo.status = User::PresenceStatus::PresenceOnline;
+        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
-        statusInfo.displayText = i18n("Busy");
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-busy"));
         statusInfo.status = User::PresenceStatus::PresenceBusy;
+        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
-        statusInfo.displayText = i18n("Away");
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-away"));
         statusInfo.status = User::PresenceStatus::PresenceAway;
+        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
-        statusInfo.displayText = i18n("Offline");
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-offline"));
         statusInfo.status = User::PresenceStatus::PresenceOffline;
+        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         mStatusList.append(statusInfo);
     }
 }
@@ -126,10 +143,12 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     }
     const StatusInfo statusInfo = mStatusList.at(index.row());
     switch (role) {
+    case Qt::DisplayRole:
     case StatusI18n:
         return statusInfo.displayText;
     case Status:
         return QVariant::fromValue(statusInfo.status);
+    case Qt::DecorationRole:
     case Icon:
         return statusInfo.icon;
     }

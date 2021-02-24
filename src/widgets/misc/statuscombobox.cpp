@@ -19,13 +19,14 @@
 */
 
 #include "statuscombobox.h"
+#include "model/statusmodel.h"
 #include <KLocalizedString>
 #include <QIcon>
 
 StatusCombobox::StatusCombobox(bool showModifyStatus, QWidget *parent)
     : QComboBox(parent)
 {
-    init(showModifyStatus);
+    // init(showModifyStatus);
 }
 
 StatusCombobox::~StatusCombobox()
@@ -46,10 +47,10 @@ void StatusCombobox::init(bool showModifyStatus)
 
 User::PresenceStatus StatusCombobox::status() const
 {
-    return currentData().value<User::PresenceStatus>();
+    return currentData(StatusModel::Status).value<User::PresenceStatus>();
 }
 
 void StatusCombobox::setStatus(User::PresenceStatus status)
 {
-    setCurrentIndex(findData(QVariant::fromValue(status)));
+    setCurrentIndex(findData(QVariant::fromValue(status), StatusModel::Status));
 }
