@@ -76,9 +76,10 @@ private:
     void slotClose();
     void slotStatusChanged();
     void createSystemTray();
+    void slotUpdateCustomUserStatus();
     bool mReallyClose{false};
 
-    RuqolaCentralWidget *mMainWidget = nullptr;
+    RuqolaCentralWidget *const mMainWidget;
     QAction *mServerInfo = nullptr;
     QAction *mLogout = nullptr;
     QAction *mSearchChannel = nullptr;

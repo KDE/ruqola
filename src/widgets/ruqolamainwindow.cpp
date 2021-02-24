@@ -75,8 +75,8 @@ static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
+    , mMainWidget(new RuqolaCentralWidget(this))
 {
-    mMainWidget = new RuqolaCentralWidget(this);
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {
         changeActionStatus(true);
@@ -177,6 +177,7 @@ void RuqolaMainWindow::slotAccountChanged()
                     mStatusComboBox->blockSignals(false);
                 }
             });
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::customUserStatusChanged, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
 
     updateActions();
     changeActionStatus(false); // Disable actions when switching.
@@ -533,4 +534,9 @@ void RuqolaMainWindow::slotStatusChanged()
         }
     }
     mCurrentRocketChatAccount->setDefaultStatus(status, messageStatus);
+}
+
+void RuqolaMainWindow::slotUpdateCustomUserStatus()
+{
+    // TODO
 }
