@@ -26,23 +26,11 @@
 StatusCombobox::StatusCombobox(bool showModifyStatus, QWidget *parent)
     : QComboBox(parent)
 {
-    // init(showModifyStatus);
+    setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
 StatusCombobox::~StatusCombobox()
 {
-}
-
-void StatusCombobox::init(bool showModifyStatus)
-{
-    addItem(QIcon::fromTheme(QStringLiteral("im-user-online")), i18n("Online"), QVariant::fromValue(User::PresenceStatus::PresenceOnline));
-    addItem(QIcon::fromTheme(QStringLiteral("im-user-busy")), i18n("Busy"), QVariant::fromValue(User::PresenceStatus::PresenceBusy));
-    addItem(QIcon::fromTheme(QStringLiteral("im-user-away")), i18n("Away"), QVariant::fromValue(User::PresenceStatus::PresenceAway));
-    addItem(QIcon::fromTheme(QStringLiteral("im-user-offline")), i18n("Offline"), QVariant::fromValue(User::PresenceStatus::PresenceOffline));
-    if (showModifyStatus) {
-        // TODO add icons ?
-        addItem(i18n("Modify Status..."), QVariant::fromValue(User::PresenceStatus::Unknown));
-    }
 }
 
 User::PresenceStatus StatusCombobox::status() const
