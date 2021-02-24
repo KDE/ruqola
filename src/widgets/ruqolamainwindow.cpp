@@ -166,11 +166,16 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::userStatusUpdated, this, [this](User::PresenceStatus status, const QString &accountName) {
-        if (mCurrentRocketChatAccount->accountName() == accountName) {
-            mStatusComboBox->setStatus(status);
-        }
-    });
+    connect(mCurrentRocketChatAccount,
+            &RocketChatAccount::userStatusUpdated,
+            this,
+            [this](User::PresenceStatus status, const QString &customText, const QString &accountName) {
+                if (mCurrentRocketChatAccount->accountName() == accountName) {
+                    mStatusComboBox->blockSignals(true);
+                    mStatusComboBox->setStatus(status);
+                    mStatusComboBox->blockSignals(false);
+                }
+            });
 
     updateActions();
     changeActionStatus(false); // Disable actions when switching.
@@ -513,8 +518,9 @@ void RuqolaMainWindow::slotStatusChanged()
     QString messageStatus;
     if (status == User::PresenceStatus::Unknown) {
         QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
-        dlg->setMessageStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().displayText);
-        dlg->setStatus(mCurrentRocketChatAccount->statusModel()->currentStatusInfo().status);
+        const auto currentStatusInfo = mCurrentRocketChatAccount->statusModel()->currentStatusInfo();
+        dlg->setMessageStatus(currentStatusInfo.displayText);
+        dlg->setStatus(currentStatusInfo.status);
         if (dlg->exec()) {
             messageStatus = dlg->messageStatus();
             status = dlg->status();

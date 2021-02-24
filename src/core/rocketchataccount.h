@@ -456,7 +456,7 @@ Q_SIGNALS:
     void sortUnreadOnTopChanged();
     void jobFailed(const QString &message);
     void switchedRooms();
-    void userStatusUpdated(User::PresenceStatus status, const QString &accountName);
+    void userStatusUpdated(User::PresenceStatus status, const QString &customText, const QString &accountName);
     void publicSettingChanged();
     void serverVersionChanged();
     void openLinkRequested(const QString &link);

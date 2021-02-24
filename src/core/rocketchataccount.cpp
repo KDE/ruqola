@@ -1943,8 +1943,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
     if (user.userId() == userId()) {
         mPresenceStatus = Utils::presenceStatusFromString(user.status());
         statusModel()->setCurrentPresenceStatus(mPresenceStatus);
-        // TODO customText!
-        Q_EMIT userStatusUpdated(mPresenceStatus, accountName());
+        Q_EMIT userStatusUpdated(mPresenceStatus, user.statusText(), accountName());
     }
     if (!hasOldSubscriptionSupport()) {
         mUserModel->addUser(user);
