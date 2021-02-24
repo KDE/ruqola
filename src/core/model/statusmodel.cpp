@@ -78,7 +78,7 @@ QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
     case User::PresenceStatus::PresenceOffline:
         return i18n("Offline");
     case User::PresenceStatus::Unknown:
-        return i18n("Unknown");
+        return i18n("Modify Status...");
     }
     return {};
 }
@@ -110,6 +110,12 @@ void StatusModel::fillModel()
         StatusInfo statusInfo;
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-offline"));
         statusInfo.status = User::PresenceStatus::PresenceOffline;
+        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        mStatusList.append(statusInfo);
+    }
+    {
+        StatusInfo statusInfo;
+        statusInfo.status = User::PresenceStatus::Unknown;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         mStatusList.append(statusInfo);
     }
