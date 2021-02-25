@@ -30,6 +30,7 @@ struct StatusInfo {
     QString displayText;
     QIcon icon;
     User::PresenceStatus status;
+    int order = 0;
 };
 
 class LIBRUQOLACORE_EXPORT StatusModel : public QAbstractListModel

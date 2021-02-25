@@ -90,6 +90,7 @@ void StatusModel::fillModel()
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-online"));
         statusInfo.status = User::PresenceStatus::PresenceOnline;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.order = 20;
         mStatusList.append(statusInfo);
     }
     {
@@ -97,6 +98,7 @@ void StatusModel::fillModel()
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-busy"));
         statusInfo.status = User::PresenceStatus::PresenceBusy;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.order = 19;
         mStatusList.append(statusInfo);
     }
     {
@@ -104,6 +106,7 @@ void StatusModel::fillModel()
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-away"));
         statusInfo.status = User::PresenceStatus::PresenceAway;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.order = 18;
         mStatusList.append(statusInfo);
     }
     {
@@ -111,12 +114,14 @@ void StatusModel::fillModel()
         statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-offline"));
         statusInfo.status = User::PresenceStatus::PresenceOffline;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.order = 17;
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
         statusInfo.status = User::PresenceStatus::Unknown;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.order = -1; // Last one
         mStatusList.append(statusInfo);
     }
 }

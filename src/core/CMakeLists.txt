@@ -23,6 +23,7 @@ set (Ruqola_model_core_srcs
     model/usercompletermodel.cpp
 
     model/statusmodel.cpp
+    model/statusmodelfilterproxymodel.cpp
 
     model/filesforroommodel.cpp
     model/filesforroomfilterproxymodel.cpp
