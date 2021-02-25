@@ -77,6 +77,7 @@ static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
     , mMainWidget(new RuqolaCentralWidget(this))
+    , mStatusProxyModel(new StatusModelFilterProxyModel(this))
 {
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {
@@ -178,7 +179,7 @@ void RuqolaMainWindow::slotAccountChanged()
                     mStatusComboBox->blockSignals(false);
                 }
             });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::customUserStatusChanged, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::updateStatusComboBox, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
 
     updateActions();
     changeActionStatus(false); // Disable actions when switching.
@@ -186,9 +187,9 @@ void RuqolaMainWindow::slotAccountChanged()
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 
     mStatusComboBox->blockSignals(true);
-    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
-    statusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
-    mStatusComboBox->setModel(statusProxyModel);
+    mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
+    mStatusComboBox->setModel(mStatusProxyModel);
+    slotUpdateCustomUserStatus();
     mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
     mStatusComboBox->blockSignals(false);
 }
@@ -542,5 +543,5 @@ void RuqolaMainWindow::slotStatusChanged()
 
 void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
-    // TODO
+    mStatusProxyModel->sort(0);
 }

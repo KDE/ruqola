@@ -19,6 +19,7 @@
 */
 
 #include "statusmodel.h"
+#include "customuserstatuses.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 
@@ -83,37 +84,55 @@ QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
     return {};
 }
 
+QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
+{
+    switch (status) {
+    case User::PresenceStatus::PresenceOnline:
+        return QIcon::fromTheme(QStringLiteral("im-user-online"));
+    case User::PresenceStatus::PresenceBusy:
+        return QIcon::fromTheme(QStringLiteral("im-user-busy"));
+    case User::PresenceStatus::PresenceAway:
+        return QIcon::fromTheme(QStringLiteral("im-user-away"));
+    case User::PresenceStatus::PresenceOffline:
+        return QIcon::fromTheme(QStringLiteral("im-user-offline"));
+    case User::PresenceStatus::Unknown:
+        return {};
+    }
+    return {};
+}
+
 void StatusModel::fillModel()
 {
+    mStatusList.clear();
     {
         StatusInfo statusInfo;
-        statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-online"));
         statusInfo.status = User::PresenceStatus::PresenceOnline;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 20;
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
-        statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-busy"));
         statusInfo.status = User::PresenceStatus::PresenceBusy;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 19;
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
-        statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-away"));
         statusInfo.status = User::PresenceStatus::PresenceAway;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 18;
         mStatusList.append(statusInfo);
     }
     {
         StatusInfo statusInfo;
-        statusInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-offline"));
         statusInfo.status = User::PresenceStatus::PresenceOffline;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 17;
         mStatusList.append(statusInfo);
     }
@@ -134,6 +153,21 @@ QString StatusModel::customText() const
 void StatusModel::setCustomText(const QString &customText)
 {
     mCustomText = customText;
+}
+
+void StatusModel::updateCustomStatus(const QVector<CustomUserStatus> &customUserStatuses)
+{
+    beginResetModel();
+    fillModel();
+    for (const CustomUserStatus &status : customUserStatuses) {
+        StatusInfo statusInfo;
+        statusInfo.status = status.statusType();
+        statusInfo.displayText = status.name();
+        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
+        statusInfo.order = 5;
+        mStatusList.append(statusInfo);
+    }
+    endResetModel();
 }
 
 int StatusModel::currentStatus() const

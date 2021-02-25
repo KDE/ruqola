@@ -25,7 +25,7 @@
 
 #include <QAbstractListModel>
 #include <QIcon>
-
+class CustomUserStatus;
 struct StatusInfo {
     QString displayText;
     QIcon icon;
@@ -63,11 +63,14 @@ public:
     Q_REQUIRED_RESULT QString customText() const;
     void setCustomText(const QString &customText);
 
+    void updateCustomStatus(const QVector<CustomUserStatus> &customUserStatuses);
+
 Q_SIGNALS:
     void currentStatusChanged();
 
 private:
     Q_REQUIRED_RESULT QString textFromPresenceStatus(User::PresenceStatus status) const;
+    Q_REQUIRED_RESULT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
     Q_DISABLE_COPY(StatusModel)
     void fillModel();
     QVector<StatusInfo> mStatusList;

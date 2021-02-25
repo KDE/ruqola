@@ -24,7 +24,6 @@
 StatusModelFilterProxyModel::StatusModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
 
@@ -40,7 +39,7 @@ bool StatusModelFilterProxyModel::lessThan(const QModelIndex &left, const QModel
     if (left.isValid() && right.isValid()) {
         const int leftString = sourceModel()->data(left, StatusModel::Order).toInt();
         const int rightString = sourceModel()->data(right, StatusModel::Order).toInt();
-        return leftString < rightString;
+        return rightString < leftString;
     } else {
         return false;
     }

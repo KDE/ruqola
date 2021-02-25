@@ -33,6 +33,7 @@ class RocketChatAccount;
 class QLabel;
 class AccountsOverviewWidget;
 class Notification;
+class StatusModelFilterProxyModel;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -98,5 +99,6 @@ private:
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
     Notification *mNotification = nullptr;
     StatusCombobox *mStatusComboBox = nullptr;
+    StatusModelFilterProxyModel *mStatusProxyModel = nullptr;
 };
 

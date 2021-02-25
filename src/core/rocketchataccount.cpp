@@ -198,6 +198,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
+    connect(this, &RocketChatAccount::customUserStatusChanged, this, &RocketChatAccount::slotUpdateCustomUserStatus);
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
 }
 
@@ -2519,4 +2520,10 @@ void RocketChatAccount::slotUploadProgress(const RocketChatRestApi::UploadFileJo
 MessageCache *RocketChatAccount::messageCache() const
 {
     return mMessageCache;
+}
+
+void RocketChatAccount::slotUpdateCustomUserStatus()
+{
+    mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserses());
+    Q_EMIT updateStatusComboBox();
 }

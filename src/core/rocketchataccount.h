@@ -470,6 +470,7 @@ Q_SIGNALS:
     void customUserStatusChanged();
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void ownUserPreferencesChanged();
+    void updateStatusComboBox();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -524,6 +525,7 @@ private:
     void slotPermissionListAllDone(const QJsonObject &replyObject);
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+    void slotUpdateCustomUserStatus();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
