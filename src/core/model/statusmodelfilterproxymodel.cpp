@@ -49,12 +49,11 @@ bool StatusModelFilterProxyModel::lessThan(const QModelIndex &left, const QModel
 
 bool StatusModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    //    if (mStatusType.isEmpty()) {
-    //        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-    //    }
-    //    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    //    const QString statusType = sourceIndex.data(UsersForRoomModel::Status).toString();
-    //    return (mStatusType == statusType) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    if (mUseOnlyStandardStatus) {
+        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+        const int order = sourceIndex.data(StatusModel::Order).toInt();
+        return order > 10; // Standard entry has order > 10
+    }
     return true;
 }
 
