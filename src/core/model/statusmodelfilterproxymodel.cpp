@@ -19,6 +19,7 @@
 */
 
 #include "statusmodelfilterproxymodel.h"
+#include "statusmodel.h"
 
 StatusModelFilterProxyModel::StatusModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -36,13 +37,13 @@ bool StatusModelFilterProxyModel::lessThan(const QModelIndex &left, const QModel
     if (!sourceModel()) {
         return false;
     }
-    //    if (left.isValid() && right.isValid()) {
-    //        const QString leftString = sourceModel()->data(left, UsersForRoomModel::UserName).toString();
-    //        const QString rightString = sourceModel()->data(right, UsersForRoomModel::UserName).toString();
-    //        return QString::localeAwareCompare(leftString, rightString) < 0;
-    //    } else {
-    //        return false;
-    //    }
+    if (left.isValid() && right.isValid()) {
+        const int leftString = sourceModel()->data(left, StatusModel::Order).toInt();
+        const int rightString = sourceModel()->data(right, StatusModel::Order).toInt();
+        return leftString < rightString;
+    } else {
+        return false;
+    }
     return true;
 }
 
@@ -55,4 +56,14 @@ bool StatusModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     //    const QString statusType = sourceIndex.data(UsersForRoomModel::Status).toString();
     //    return (mStatusType == statusType) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     return true;
+}
+
+bool StatusModelFilterProxyModel::useOnlyStandardStatus() const
+{
+    return mUseOnlyStandardStatus;
+}
+
+void StatusModelFilterProxyModel::setUseOnlyStandardStatus(bool useOnlyStandardStatus)
+{
+    mUseOnlyStandardStatus = useOnlyStandardStatus;
 }

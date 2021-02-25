@@ -17,26 +17,16 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
 #pragma once
 
-#include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
+#include <QObject>
 
-class LIBRUQOLACORE_EXPORT StatusModelFilterProxyModel : public QSortFilterProxyModel
+class StatusModelFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit StatusModelFilterProxyModel(QObject *parent = nullptr);
-    ~StatusModelFilterProxyModel() override;
-
-    Q_REQUIRED_RESULT bool useOnlyStandardStatus() const;
-    void setUseOnlyStandardStatus(bool useOnlyStandardStatus);
-
-protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-private:
-    bool mUseOnlyStandardStatus = false;
+    explicit StatusModelFilterProxyModelTest(QObject *parent = nullptr);
+    ~StatusModelFilterProxyModelTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

@@ -37,7 +37,12 @@ class LIBRUQOLACORE_EXPORT StatusModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum StatusRoles { StatusI18n = Qt::UserRole + 1, Status, Icon };
+    enum StatusRoles {
+        StatusI18n = Qt::UserRole + 1,
+        Status,
+        Icon,
+        Order,
+    };
     Q_ENUM(StatusRoles)
 
     explicit StatusModel(QObject *parent = nullptr);

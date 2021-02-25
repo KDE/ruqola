@@ -18,25 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
-
-#include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
-
-class LIBRUQOLACORE_EXPORT StatusModelFilterProxyModel : public QSortFilterProxyModel
+#include "statusmodelfilterproxymodeltest.h"
+#include "model/statusmodelfilterproxymodel.h"
+#include <QTest>
+QTEST_MAIN(StatusModelFilterProxyModelTest)
+StatusModelFilterProxyModelTest::StatusModelFilterProxyModelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit StatusModelFilterProxyModel(QObject *parent = nullptr);
-    ~StatusModelFilterProxyModel() override;
+}
 
-    Q_REQUIRED_RESULT bool useOnlyStandardStatus() const;
-    void setUseOnlyStandardStatus(bool useOnlyStandardStatus);
-
-protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-private:
-    bool mUseOnlyStandardStatus = false;
-};
+void StatusModelFilterProxyModelTest::shouldHaveDefaultValues()
+{
+    StatusModelFilterProxyModel w;
+    QVERIFY(!w.useOnlyStandardStatus());
+}

@@ -159,6 +159,8 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
         return statusInfo.displayText;
     case Status:
         return QVariant::fromValue(statusInfo.status);
+    case Order:
+        return statusInfo.order;
     case Qt::DecorationRole:
     case Icon:
         return statusInfo.icon;
