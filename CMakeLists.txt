@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
+
 set(RUQOLA_VERSION "1.3.42")
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(Ruqola VERSION ${RUQOLA_VERSION})
