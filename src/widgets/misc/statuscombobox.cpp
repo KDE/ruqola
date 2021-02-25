@@ -23,7 +23,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-StatusCombobox::StatusCombobox(bool showModifyStatus, QWidget *parent)
+StatusCombobox::StatusCombobox(QWidget *parent)
     : QComboBox(parent)
 {
     setSizeAdjustPolicy(QComboBox::AdjustToContents);

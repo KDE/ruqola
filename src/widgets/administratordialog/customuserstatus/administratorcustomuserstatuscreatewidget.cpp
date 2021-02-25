@@ -20,6 +20,10 @@
 
 #include "administratorcustomuserstatuscreatewidget.h"
 #include "misc/statuscombobox.h"
+#include "model/statusmodel.h"
+#include "model/statusmodelfilterproxymodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -27,7 +31,7 @@
 AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
-    , mStatusCombobox(new StatusCombobox(false, this))
+    , mStatusCombobox(new StatusCombobox(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -35,6 +39,10 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
 
     mName->setObjectName(QStringLiteral("mName"));
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
+    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
+    statusProxyModel->setUseOnlyStandardStatus(true);
+    statusProxyModel->setSourceModel(Ruqola::self()->rocketChatAccount()->statusModel());
+    mStatusCombobox->setModel(statusProxyModel);
 
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);

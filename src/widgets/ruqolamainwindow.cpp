@@ -36,6 +36,7 @@
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"
 #include "model/statusmodel.h"
+#include "model/statusmodelfilterproxymodel.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notification.h"
 #include "receivetypingnotificationmanager.h"
@@ -185,7 +186,9 @@ void RuqolaMainWindow::slotAccountChanged()
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 
     mStatusComboBox->blockSignals(true);
-    mStatusComboBox->setModel(mCurrentRocketChatAccount->statusModel());
+    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
+    statusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
+    mStatusComboBox->setModel(statusProxyModel);
     mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
     mStatusComboBox->blockSignals(false);
 }
@@ -308,7 +311,7 @@ void RuqolaMainWindow::setupActions()
         label->setObjectName(QStringLiteral("label"));
         layout->addWidget(label);
 
-        mStatusComboBox = new StatusCombobox(true, container);
+        mStatusComboBox = new StatusCombobox(container);
         mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
         layout->addWidget(mStatusComboBox);
         connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &RuqolaMainWindow::slotStatusChanged);

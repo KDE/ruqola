@@ -21,6 +21,10 @@
 #include "modifystatuswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/statuscombobox.h"
+#include "model/statusmodel.h"
+#include "model/statusmodelfilterproxymodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -32,8 +36,13 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mStatusCombobox = new StatusCombobox(false, this);
+    mStatusCombobox = new StatusCombobox(this);
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
+
+    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
+    statusProxyModel->setUseOnlyStandardStatus(true);
+    statusProxyModel->setSourceModel(Ruqola::self()->rocketChatAccount()->statusModel());
+    mStatusCombobox->setModel(statusProxyModel);
 
     mStatusLineEdit = new QLineEdit(this);
     mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
