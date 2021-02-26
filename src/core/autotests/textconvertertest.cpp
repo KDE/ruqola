@@ -24,6 +24,7 @@
 #include "textconverter.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QRegularExpression>
 #include <QTest>
 
 #include <KColorScheme>
@@ -334,6 +335,11 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.setServerUrl(serverUrl);
 
     QString needUpdateMessageId;
-    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, &manager, nullptr, needUpdateMessageId),
-             output); // TODO add autotest for highlightwords
+    auto actualOutput = TextConverter::convertMessageText(input, QString(), {}, {}, &manager, nullptr, needUpdateMessageId);
+    if (QLatin1String(QTest::currentDataTag()) == QLatin1String("quotedcode7")) {
+        // remove additional highlighting of the ':)' symbols within the <code> block
+        // the text color is syntax highlighting theme dependent, so hard for us to check
+        actualOutput.replace(QRegularExpression(QStringLiteral("<code><span style=\".+\">:\\)</span></code>")), QLatin1String("<code>:)</code>"));
+    }
+    QCOMPARE(actualOutput, output); // TODO add autotest for highlightwords
 }
