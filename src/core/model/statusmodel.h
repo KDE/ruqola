@@ -70,6 +70,7 @@ Q_SIGNALS:
 private:
     Q_REQUIRED_RESULT QString textFromPresenceStatus(User::PresenceStatus status) const;
     Q_REQUIRED_RESULT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
+    Q_REQUIRED_RESULT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
     Q_DISABLE_COPY(StatusModel)
     void fillModel();
     QVector<DisplayStatusInfo> mStatusList;

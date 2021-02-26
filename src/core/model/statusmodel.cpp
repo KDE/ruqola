@@ -101,46 +101,37 @@ QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
     return {};
 }
 
+StatusModel::DisplayStatusInfo StatusModel::createStatusInfo(User::PresenceStatus status, int order)
+{
+    DisplayStatusInfo statusInfo;
+    statusInfo.status = status;
+    statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
+    statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
+    statusInfo.order = order;
+    return statusInfo;
+}
+
 void StatusModel::fillModel()
 {
     mStatusList.clear();
     {
-        DisplayStatusInfo statusInfo;
-        statusInfo.status = User::PresenceStatus::PresenceOnline;
-        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
-        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
-        statusInfo.order = 20;
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceOnline, 20);
         mStatusList.append(statusInfo);
     }
     {
-        DisplayStatusInfo statusInfo;
-        statusInfo.status = User::PresenceStatus::PresenceBusy;
-        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
-        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
-        statusInfo.order = 19;
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceBusy, 19);
         mStatusList.append(statusInfo);
     }
     {
-        DisplayStatusInfo statusInfo;
-        statusInfo.status = User::PresenceStatus::PresenceAway;
-        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
-        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
-        statusInfo.order = 18;
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceAway, 18);
         mStatusList.append(statusInfo);
     }
     {
-        DisplayStatusInfo statusInfo;
-        statusInfo.status = User::PresenceStatus::PresenceOffline;
-        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
-        statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
-        statusInfo.order = 17;
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceOffline, 17);
         mStatusList.append(statusInfo);
     }
     {
-        DisplayStatusInfo statusInfo;
-        statusInfo.status = User::PresenceStatus::Unknown;
-        statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
-        statusInfo.order = -1; // Last one
+        const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::Unknown, -1);
         mStatusList.append(statusInfo);
     }
 }
