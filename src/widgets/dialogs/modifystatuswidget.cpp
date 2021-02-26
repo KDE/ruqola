@@ -23,8 +23,6 @@
 #include "misc/statuscombobox.h"
 #include "model/statusmodel.h"
 #include "model/statusmodelfilterproxymodel.h"
-#include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -41,7 +39,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 
     auto *statusProxyModel = new StatusModelFilterProxyModel(this);
     statusProxyModel->setUseOnlyStandardStatus(true);
-    statusProxyModel->setSourceModel(Ruqola::self()->rocketChatAccount()->statusModel());
+    statusProxyModel->setSourceModel(new StatusModel(this));
     mStatusCombobox->setModel(statusProxyModel);
 
     mStatusLineEdit = new QLineEdit(this);
