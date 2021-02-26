@@ -182,3 +182,8 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
         RuqolaUtils::self()->openUrl(link);
     }
 }
+
+void ChannelListWidget::setLayoutSpacing(int spacing)
+{
+    layout()->setSpacing(spacing);
+}

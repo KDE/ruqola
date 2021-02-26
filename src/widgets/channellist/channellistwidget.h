@@ -37,6 +37,8 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
+    void setLayoutSpacing(int spacing);
+
 Q_SIGNALS:
     void roomSelected(const QString &roomId, const QString &roomType);
 

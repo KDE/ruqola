@@ -55,6 +55,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     mChannelList = new ChannelListWidget(this);
     mChannelList->setObjectName(QStringLiteral("mChannelList"));
+    mChannelList->setLayoutSpacing(mSplitter->handleWidth());
     mSplitter->addWidget(mChannelList);
 
     mStackedRoomWidget = new QStackedWidget(this);
@@ -63,6 +64,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
+    mRoomWidget->setLayoutSpacing(mSplitter->handleWidth());
     mStackedRoomWidget->addWidget(mRoomWidget);
     connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, [this](const QString &channelId) {
         mChannelList->channelListView()->selectChannelRequested(channelId);

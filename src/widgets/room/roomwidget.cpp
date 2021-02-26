@@ -571,3 +571,8 @@ void RoomWidget::slotFollowMessages()
 {
     qDebug() << " RoomWidget::slotFollowMessages() not implemented yet";
 }
+
+void RoomWidget::setLayoutSpacing(int spacing)
+{
+    mRoomWidgetBase->layout()->setSpacing(spacing);
+}

@@ -52,6 +52,8 @@ public:
     void setChannelSelected(const QString &roomId, const QString &roomType);
     void storeRoomSettings();
 
+    void setLayoutSpacing(int spacing);
+
 Q_SIGNALS:
     void selectChannelRequested(const QString &channelId);
 
