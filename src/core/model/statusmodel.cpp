@@ -38,9 +38,9 @@ User::PresenceStatus StatusModel::currentUserStatus() const
     return mStatusList.at(mCurrentStatus).status;
 }
 
-StatusModel::StatusInfo StatusModel::currentStatusInfo() const
+StatusModel::DisplayStatusInfo StatusModel::currentStatusInfo() const
 {
-    StatusInfo info = mStatusList.at(mCurrentStatus);
+    DisplayStatusInfo info = mStatusList.at(mCurrentStatus);
     if (!mCustomText.isEmpty()) {
         info.displayText = mCustomText;
     }
@@ -105,7 +105,7 @@ void StatusModel::fillModel()
 {
     mStatusList.clear();
     {
-        StatusInfo statusInfo;
+        DisplayStatusInfo statusInfo;
         statusInfo.status = User::PresenceStatus::PresenceOnline;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
@@ -113,7 +113,7 @@ void StatusModel::fillModel()
         mStatusList.append(statusInfo);
     }
     {
-        StatusInfo statusInfo;
+        DisplayStatusInfo statusInfo;
         statusInfo.status = User::PresenceStatus::PresenceBusy;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
@@ -121,7 +121,7 @@ void StatusModel::fillModel()
         mStatusList.append(statusInfo);
     }
     {
-        StatusInfo statusInfo;
+        DisplayStatusInfo statusInfo;
         statusInfo.status = User::PresenceStatus::PresenceAway;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
@@ -129,7 +129,7 @@ void StatusModel::fillModel()
         mStatusList.append(statusInfo);
     }
     {
-        StatusInfo statusInfo;
+        DisplayStatusInfo statusInfo;
         statusInfo.status = User::PresenceStatus::PresenceOffline;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
@@ -137,7 +137,7 @@ void StatusModel::fillModel()
         mStatusList.append(statusInfo);
     }
     {
-        StatusInfo statusInfo;
+        DisplayStatusInfo statusInfo;
         statusInfo.status = User::PresenceStatus::Unknown;
         statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
         statusInfo.order = -1; // Last one
@@ -160,7 +160,7 @@ void StatusModel::updateCustomStatus(const QVector<CustomUserStatus> &customUser
     beginResetModel();
     fillModel();
     for (const CustomUserStatus &status : customUserStatuses) {
-        StatusInfo statusInfo;
+        DisplayStatusInfo statusInfo;
         statusInfo.status = status.statusType();
         statusInfo.displayText = status.name();
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
@@ -186,7 +186,7 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mStatusList.count()) {
         return {};
     }
-    const StatusInfo statusInfo = mStatusList.at(index.row());
+    const DisplayStatusInfo statusInfo = mStatusList.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case StatusI18n:

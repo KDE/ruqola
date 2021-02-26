@@ -37,7 +37,7 @@ public:
         Icon,
         Order,
     };
-    struct StatusInfo {
+    struct DisplayStatusInfo {
         QString displayText;
         QIcon icon;
         User::PresenceStatus status;
@@ -57,7 +57,7 @@ public:
     void setCurrentPresenceStatus(User::PresenceStatus status);
     Q_REQUIRED_RESULT User::PresenceStatus currentUserStatus() const;
 
-    Q_REQUIRED_RESULT StatusInfo currentStatusInfo() const;
+    Q_REQUIRED_RESULT DisplayStatusInfo currentStatusInfo() const;
 
     Q_REQUIRED_RESULT QString customText() const;
     void setCustomText(const QString &customText);
@@ -72,7 +72,7 @@ private:
     Q_REQUIRED_RESULT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
     Q_DISABLE_COPY(StatusModel)
     void fillModel();
-    QVector<StatusInfo> mStatusList;
+    QVector<DisplayStatusInfo> mStatusList;
     QString mCustomText;
     int mCurrentStatus = 0;
 };
