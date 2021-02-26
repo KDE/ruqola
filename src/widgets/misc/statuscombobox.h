@@ -31,7 +31,7 @@ public:
     explicit StatusCombobox(QWidget *parent = nullptr);
     ~StatusCombobox() override;
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
-    void setStatus(User::PresenceStatus status);
+    void setStatus(User::PresenceStatus status, const QString &customText = {});
     void setUseOnlyStandardStatus();
 };
 

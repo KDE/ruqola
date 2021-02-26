@@ -38,7 +38,7 @@ User::PresenceStatus StatusModel::currentUserStatus() const
     return mStatusList.at(mCurrentStatus).status;
 }
 
-StatusInfo StatusModel::currentStatusInfo() const
+StatusModel::StatusInfo StatusModel::currentStatusInfo() const
 {
     StatusInfo info = mStatusList.at(mCurrentStatus);
     if (!mCustomText.isEmpty()) {

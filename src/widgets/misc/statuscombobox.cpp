@@ -39,9 +39,12 @@ User::PresenceStatus StatusCombobox::status() const
     return currentData(StatusModel::Status).value<User::PresenceStatus>();
 }
 
-void StatusCombobox::setStatus(User::PresenceStatus status)
+void StatusCombobox::setStatus(User::PresenceStatus status, const QString &customText)
 {
-    setCurrentIndex(findData(QVariant::fromValue(status), StatusModel::Status));
+    if (customText.isEmpty()) {
+        setCurrentIndex(findData(QVariant::fromValue(status), StatusModel::Status));
+    } else {
+    }
 }
 
 void StatusCombobox::setUseOnlyStandardStatus()

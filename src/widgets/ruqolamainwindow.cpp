@@ -173,9 +173,8 @@ void RuqolaMainWindow::slotAccountChanged()
             this,
             [this](User::PresenceStatus status, const QString &customText, const QString &accountName) {
                 if (mCurrentRocketChatAccount->accountName() == accountName) {
-                    Q_UNUSED(customText)
                     mStatusComboBox->blockSignals(true);
-                    mStatusComboBox->setStatus(status);
+                    mStatusComboBox->setStatus(status, customText);
                     mStatusComboBox->blockSignals(false);
                 }
             });

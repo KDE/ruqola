@@ -26,12 +26,6 @@
 #include <QAbstractListModel>
 #include <QIcon>
 class CustomUserStatus;
-struct StatusInfo {
-    QString displayText;
-    QIcon icon;
-    User::PresenceStatus status;
-    int order = 0;
-};
 
 class LIBRUQOLACORE_EXPORT StatusModel : public QAbstractListModel
 {
@@ -43,8 +37,13 @@ public:
         Icon,
         Order,
     };
+    struct StatusInfo {
+        QString displayText;
+        QIcon icon;
+        User::PresenceStatus status;
+        int order = 0;
+    };
     Q_ENUM(StatusRoles)
-
     explicit StatusModel(QObject *parent = nullptr);
     ~StatusModel() override;
 
