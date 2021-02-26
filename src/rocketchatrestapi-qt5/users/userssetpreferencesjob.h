@@ -41,6 +41,7 @@ public:
         QStringList highlights;
         bool useEmoji = true;
         bool convertAsciiToEmoji = true;
+        bool hideRoles = false;
         // Add more
     };
 

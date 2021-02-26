@@ -79,4 +79,9 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mConvertAsciiEmoji);
     QVERIFY(!mConvertAsciiEmoji->isChecked()); // False by default as we didn't load values yet
     QVERIFY(!mConvertAsciiEmoji->text().isEmpty());
+
+    auto mHideRoles = w.findChild<QCheckBox *>(QStringLiteral("mHideRoles"));
+    QVERIFY(mHideRoles);
+    QVERIFY(!mHideRoles->isChecked());
+    QVERIFY(!mHideRoles->text().isEmpty());
 }

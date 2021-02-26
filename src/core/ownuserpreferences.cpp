@@ -43,13 +43,14 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setMobileNotifications(replyObject.value(QLatin1String("mobileNotifications")).toString());
     setConvertAsciiEmoji(replyObject.value(QLatin1String("convertAsciiEmoji")).toBool(true));
     setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool(true));
+    setHideRoles(replyObject.value(QLatin1String("hideRoles")).toBool(false));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications() && mUseEmojis == other.useEmojis()
-        && mConvertAsciiEmoji == other.convertAsciiEmoji();
+        && mConvertAsciiEmoji == other.convertAsciiEmoji() && mHideRoles == other.hideRoles();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -110,6 +111,16 @@ bool OwnUserPreferences::useEmojis() const
 void OwnUserPreferences::setUseEmojis(bool useEmojis)
 {
     mUseEmojis = useEmojis;
+}
+
+bool OwnUserPreferences::hideRoles() const
+{
+    return mHideRoles;
+}
+
+void OwnUserPreferences::setHideRoles(bool hideRoles)
+{
+    mHideRoles = hideRoles;
 }
 
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)

@@ -37,9 +37,11 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     , mMobileNotification(new QComboBox(this))
     , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
+    , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
 {
     mUseEmoji->setObjectName(QStringLiteral("mUseEmoji"));
     mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
+    mHideRoles->setObjectName(QStringLiteral("mHideRoles"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -83,6 +85,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     connect(mUseEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mConvertAsciiEmoji);
     connect(mConvertAsciiEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mHideRoles);
+    connect(mHideRoles, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addStretch();
     initComboboxValues();
 }
@@ -131,6 +135,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.emailNotificationMode = mEmailNotification->currentData().toString();
         info.userId = Ruqola::self()->rocketChatAccount()->userId();
         info.useEmoji = mUseEmoji->isChecked();
+        info.hideRoles = mHideRoles->isChecked();
         info.convertAsciiToEmoji = mConvertAsciiEmoji->isChecked();
         Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
     }
@@ -144,6 +149,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));
     mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));
     mUseEmoji->setChecked(ownUserPreferences.useEmojis());
+    mHideRoles->setChecked(ownUserPreferences.hideRoles());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
     mChanged = false;
 }

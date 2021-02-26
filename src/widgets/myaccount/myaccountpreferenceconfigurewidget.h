@@ -44,6 +44,7 @@ private:
     QComboBox *const mMobileNotification;
     QCheckBox *const mUseEmoji;
     QCheckBox *const mConvertAsciiEmoji;
+    QCheckBox *const mHideRoles;
     bool mChanged = false;
 };
 

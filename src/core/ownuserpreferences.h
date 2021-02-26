@@ -50,6 +50,9 @@ public:
     Q_REQUIRED_RESULT bool useEmojis() const;
     void setUseEmojis(bool useEmojis);
 
+    Q_REQUIRED_RESULT bool hideRoles() const;
+    void setHideRoles(bool hideRoles);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -57,6 +60,7 @@ private:
     QString mMobileNotifications;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
+    bool mHideRoles = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

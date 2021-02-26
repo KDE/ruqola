@@ -37,6 +37,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(p.mobileNotifications().isEmpty());
     QVERIFY(p.convertAsciiEmoji());
     QVERIFY(p.useEmojis());
+    QVERIFY(!p.hideRoles());
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
