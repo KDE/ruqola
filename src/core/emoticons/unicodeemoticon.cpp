@@ -124,7 +124,7 @@ void UnicodeEmoticon::setAliases(const QStringList &aliases)
 
 bool UnicodeEmoticon::hasEmoji(const QString &identifier) const
 {
-    return (mIdentifier == identifier) || mAliases.contains(identifier);
+    return (mIdentifier == identifier) || (mUnicode == identifier) || mAliases.contains(identifier);
 }
 
 QDebug operator<<(QDebug d, const UnicodeEmoticon &t)

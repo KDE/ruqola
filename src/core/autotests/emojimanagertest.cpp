@@ -174,3 +174,29 @@ void EmojiManagerTest::shouldChangeServerUrl()
     //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
     //    title=':vader:'/>").arg(serverUrl));
 }
+
+void EmojiManagerTest::shouldNormalizeReactions_data()
+{
+    QTest::addColumn<QString>("emoji");
+    QTest::addColumn<QString>("normalizedEmoji");
+
+    QTest::addRow(":)") << ":)"
+                        << ":slight_smile:";
+    QTest::addRow(":slight_simle:") << ":slight_smile:"
+                                    << ":slight_smile:";
+    QString slightSmile;
+    slightSmile += QChar(0xD83D);
+    slightSmile += QChar(0xDE42);
+    QTest::addRow("unicode-smile") << slightSmile << ":slight_smile:";
+    QTest::addRow(":vader:") << ":vader:"
+                             << ":vader:";
+}
+
+void EmojiManagerTest::shouldNormalizeReactions()
+{
+    QFETCH(QString, emoji);
+    QFETCH(QString, normalizedEmoji);
+
+    EmojiManager manager(nullptr);
+    QCOMPARE(manager.normalizedReactionEmoji(emoji), normalizedEmoji);
+}

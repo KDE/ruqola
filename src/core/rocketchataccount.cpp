@@ -402,7 +402,7 @@ void RocketChatAccount::textEditing(const QString &roomId, bool clearNotificatio
 
 void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
 {
-    restApi()->reactOnMessage(messageId, emoji, shouldReact);
+    restApi()->reactOnMessage(messageId, mEmojiManager->normalizedReactionEmoji(emoji), shouldReact);
 }
 
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)

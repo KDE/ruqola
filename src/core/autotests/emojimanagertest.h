@@ -40,5 +40,8 @@ private Q_SLOTS:
 
     void shouldSupportUnicodeEmojis();
     void shouldOrderUnicodeEmojis();
+
+    void shouldNormalizeReactions_data();
+    void shouldNormalizeReactions();
 };
 

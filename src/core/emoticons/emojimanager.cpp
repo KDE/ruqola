@@ -107,6 +107,22 @@ QString EmojiManager::customEmojiFileName(const QString &emojiIdentifier) const
     return {};
 }
 
+QString EmojiManager::normalizedReactionEmoji(const QString &emojiIdentifier) const
+{
+    for (const auto &customEmoji : mCustomEmojiList) {
+        if (customEmoji.hasEmoji(emojiIdentifier)) {
+            return customEmoji.emojiIdentifier();
+        }
+    }
+    const auto unicodeEmojis = unicodeEmojiList();
+    for (const auto &unicodeEmoji : unicodeEmojis) {
+        if (unicodeEmoji.hasEmoji(emojiIdentifier)) {
+            return unicodeEmoji.identifier();
+        }
+    }
+    return emojiIdentifier;
+}
+
 QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction)
 {
     if (mServerUrl.isEmpty()) {
