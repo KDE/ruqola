@@ -30,12 +30,14 @@ StatusComboboxTest::StatusComboboxTest(QObject *parent)
 void StatusComboboxTest::shouldHaveDefaultValues()
 {
     StatusCombobox w;
-    QCOMPARE(w.count(), 5);
+    w.setUseOnlyStandardStatus();
+    QCOMPARE(w.count(), 4);
 }
 
 void StatusComboboxTest::shouldSelectStatus()
 {
     StatusCombobox w;
+    w.setUseOnlyStandardStatus();
     w.setStatus(User::PresenceStatus::PresenceOffline);
     QCOMPARE(w.currentIndex(), 3);
 

@@ -20,6 +20,7 @@
 
 #include "statuscombobox.h"
 #include "model/statusmodel.h"
+#include "model/statusmodelfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QIcon>
 
@@ -41,4 +42,12 @@ User::PresenceStatus StatusCombobox::status() const
 void StatusCombobox::setStatus(User::PresenceStatus status)
 {
     setCurrentIndex(findData(QVariant::fromValue(status), StatusModel::Status));
+}
+
+void StatusCombobox::setUseOnlyStandardStatus()
+{
+    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
+    statusProxyModel->setUseOnlyStandardStatus(true);
+    statusProxyModel->setSourceModel(new StatusModel(this));
+    setModel(statusProxyModel);
 }

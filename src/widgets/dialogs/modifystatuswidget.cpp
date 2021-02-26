@@ -21,8 +21,6 @@
 #include "modifystatuswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/statuscombobox.h"
-#include "model/statusmodel.h"
-#include "model/statusmodelfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -37,10 +35,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     mStatusCombobox = new StatusCombobox(this);
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
 
-    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
-    statusProxyModel->setUseOnlyStandardStatus(true);
-    statusProxyModel->setSourceModel(new StatusModel(this));
-    mStatusCombobox->setModel(statusProxyModel);
+    mStatusCombobox->setUseOnlyStandardStatus();
 
     mStatusLineEdit = new QLineEdit(this);
     mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));

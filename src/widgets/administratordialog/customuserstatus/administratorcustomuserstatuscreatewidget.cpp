@@ -20,8 +20,6 @@
 
 #include "administratorcustomuserstatuscreatewidget.h"
 #include "misc/statuscombobox.h"
-#include "model/statusmodel.h"
-#include "model/statusmodelfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -37,10 +35,7 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
 
     mName->setObjectName(QStringLiteral("mName"));
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
-    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
-    statusProxyModel->setUseOnlyStandardStatus(true);
-    statusProxyModel->setSourceModel(new StatusModel(this));
-    mStatusCombobox->setModel(statusProxyModel);
+    mStatusCombobox->setUseOnlyStandardStatus();
 
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);

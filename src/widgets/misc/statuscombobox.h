@@ -32,5 +32,6 @@ public:
     ~StatusCombobox() override;
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);
+    void setUseOnlyStandardStatus();
 };
 
