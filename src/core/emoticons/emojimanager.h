@@ -51,8 +51,8 @@ public:
 
     Q_REQUIRED_RESULT UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
 
-    QString customEmojiFileName(const QString &emojiIdentifier) const;
-    QString normalizedReactionEmoji(const QString &emojiIdentifier) const;
+    Q_REQUIRED_RESULT QString customEmojiFileName(const QString &emojiIdentifier) const;
+    Q_REQUIRED_RESULT QString normalizedReactionEmoji(const QString &emojiIdentifier) const;
 
 private:
     Q_DISABLE_COPY(EmojiManager)
