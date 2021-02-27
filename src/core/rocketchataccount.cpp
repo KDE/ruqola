@@ -2527,3 +2527,8 @@ void RocketChatAccount::slotUpdateCustomUserStatus()
     mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserses());
     Q_EMIT updateStatusComboBox();
 }
+
+bool RocketChatAccount::hideRoles() const
+{
+    return ownUser().ownUserPreferences().hideRoles();
+}

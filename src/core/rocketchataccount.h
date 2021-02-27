@@ -432,6 +432,7 @@ public:
     void deleteUser(const QJsonArray &replyArray);
     MessageCache *messageCache() const;
 
+    Q_REQUIRED_RESULT bool hideRoles() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

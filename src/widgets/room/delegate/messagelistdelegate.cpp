@@ -155,7 +155,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     int textLeft = senderX + senderTextSize.width() + margin;
 
     // Roles icon
-    const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty();
+    const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles();
     if (hasRoles) {
         textLeft += iconSize + margin;
     }
@@ -402,7 +402,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     painter->setFont(oldFont);
 
     // Draw the roles icon
-    if (!index.data(MessageModel::Roles).toString().isEmpty()) {
+    if (!index.data(MessageModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles()) {
         mRolesIcon.paint(painter, layout.rolesIconRect);
     }
 
