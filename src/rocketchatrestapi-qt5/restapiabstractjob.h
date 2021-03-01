@@ -49,10 +49,14 @@ public:
     Q_REQUIRED_RESULT QMap<QString, SortOrder> sorting() const;
     void setSorting(const QMap<QString, SortOrder> &sorting);
 
+    Q_REQUIRED_RESULT QString type() const;
+    void setType(const QString &type);
+
 private:
     int mOffset = -1;
     int mCount = -1;
     QMap<QString, SortOrder> mSorting;
+    QString mType;
 };
 
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiAbstractJob : public QObject

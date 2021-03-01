@@ -34,6 +34,7 @@ public:
         PinnedMessages,
         MentionsMessages,
         ThreadsMessages,
+        UnreadThreadsMessages,
     };
     Q_ENUM(ListMessageType)
 

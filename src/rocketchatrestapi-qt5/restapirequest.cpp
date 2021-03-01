@@ -1569,7 +1569,7 @@ void RestApiRequest::getDiscussions(const QString &roomId, int offset, int count
     }
 }
 
-void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count)
+void RestApiRequest::getThreadsList(const QString &roomId, bool onlyUnread, int offset, int count)
 {
     auto job = new GetThreadsJob(this);
     initializeRestApiJob(job);
@@ -1580,8 +1580,11 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
     parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
+    parameters.setType(onlyUnread ? QStringLiteral("unread") : QString());
     job->setQueryParameters(parameters);
-    connect(job, &GetThreadsJob::getThreadsDone, this, &RestApiRequest::getThreadsDone);
+    connect(job, &GetThreadsJob::getThreadsDone, this, [this, onlyUnread](const QJsonObject &obj, const QString &roomId) {
+        Q_EMIT getThreadsDone(obj, roomId, onlyUnread);
+    });
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadsList";
     }

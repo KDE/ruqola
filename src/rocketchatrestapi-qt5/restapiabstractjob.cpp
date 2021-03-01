@@ -168,6 +168,9 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
             // It's ok for getAllMentions....
             urlQuery.addQueryItem(QStringLiteral("sort"), str);
         }
+        if (!mQueryParameters.type().isEmpty()) {
+            urlQuery.addQueryItem(QStringLiteral("type"), mQueryParameters.type());
+        }
     }
     // qDebug() << " urlQuery " << urlQuery.toString();
 }
@@ -528,4 +531,14 @@ QMap<QString, QueryParameters::SortOrder> QueryParameters::sorting() const
 void QueryParameters::setSorting(const QMap<QString, QueryParameters::SortOrder> &sorting)
 {
     mSorting = sorting;
+}
+
+QString QueryParameters::type() const
+{
+    return mType;
+}
+
+void QueryParameters::setType(const QString &type)
+{
+    mType = type;
 }

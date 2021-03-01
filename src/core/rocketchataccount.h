@@ -199,7 +199,7 @@ public:
                           const QString &replyMessage,
                           const QString &messageId,
                           const QStringList &users = QStringList());
-    void threadsInRoom(const QString &roomId);
+    void threadsInRoom(const QString &roomId, bool onlyUnread);
     void discussionsInRoom(const QString &roomId);
     void followMessage(const QString &messageId, bool follow);
     void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
@@ -587,5 +587,6 @@ private:
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;
+    bool mMarkUnreadThreadsAsReadOnNextReply = false;
 };
 

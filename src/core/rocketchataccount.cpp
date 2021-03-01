@@ -455,8 +455,11 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
 
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
-            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::ThreadsMessages);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
+            slotGetListMessagesDone(obj,
+                                    roomId,
+                                    onlyUnread ? ListMessagesModel::ListMessageType::UnreadThreadsMessages
+                                               : ListMessagesModel::ListMessageType::ThreadsMessages);
         });
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
@@ -575,6 +578,8 @@ void RocketChatAccount::clearAllUnreadMessages()
 
 void RocketChatAccount::markRoomAsRead(const QString &roomId)
 {
+    mMarkUnreadThreadsAsReadOnNextReply = true;
+    getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
     restApi()->markRoomAsRead(roomId);
 }
 
@@ -883,6 +888,23 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
 
 void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type)
 {
+    if (mMarkUnreadThreadsAsReadOnNextReply && type == ListMessagesModel::UnreadThreadsMessages) {
+        mMarkUnreadThreadsAsReadOnNextReply = false;
+
+        ListMessages messages;
+        messages.parseMessages(obj, QStringLiteral("threads"));
+        for (const auto &msg : messages.listMessages()) {
+            QJsonObject params;
+            params.insert(QStringLiteral("tmid"), msg.messageId());
+            mDdp->method(QStringLiteral("getThreadMessages"), QJsonDocument(params), [](const QJsonObject &reply, RocketChatAccount *account) {
+                // don't trigger warning about unhandled replies
+                Q_UNUSED(reply);
+                Q_UNUSED(account);
+            });
+        }
+        return;
+    }
+
     if (mListMessageModel->roomId() != roomId || mListMessageModel->listMessageType() != type) {
         mListMessageModel->setRoomId(roomId);
         mListMessageModel->setListMessageType(type);
@@ -1077,7 +1099,10 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
         getMentionsMessages(roomId);
         break;
     case ListMessagesModel::ThreadsMessages:
-        threadsInRoom(roomId);
+        threadsInRoom(roomId, false);
+        break;
+    case ListMessagesModel::UnreadThreadsMessages:
+        threadsInRoom(roomId, true);
         break;
     }
 }
@@ -1136,7 +1161,10 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
                 restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::ThreadsMessages:
-                restApi()->getThreadsList(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                restApi()->getThreadsList(roomId, false, offset, qMin(50, mListMessageModel->total() - offset));
+                break;
+            case ListMessagesModel::UnreadThreadsMessages:
+                restApi()->getThreadsList(roomId, true, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             }
         }
@@ -2055,11 +2083,11 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId,
     restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId, users);
 }
 
-void RocketChatAccount::threadsInRoom(const QString &roomId)
+void RocketChatAccount::threadsInRoom(const QString &roomId, bool onlyUnread)
 {
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
-    restApi()->getThreadsList(roomId);
+    restApi()->getThreadsList(roomId, onlyUnread);
 }
 
 void RocketChatAccount::discussionsInRoom(const QString &roomId)

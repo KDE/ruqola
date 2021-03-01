@@ -65,6 +65,8 @@ QString ListMessagesModelFilterProxyModel::title() const
         return i18n("Mentions Messages");
     case ListMessagesModel::ThreadsMessages:
         return i18n("Threads Messages");
+    case ListMessagesModel::UnreadThreadsMessages:
+        return i18n("Unread Threads Messages");
     }
     return {};
 }
