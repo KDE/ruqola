@@ -42,6 +42,8 @@ void StatusCombobox::setStatus(User::PresenceStatus status, const QString &custo
     if (customText.isEmpty()) {
         setCurrentIndex(findData(QVariant::fromValue(status), StatusModel::Status));
     } else {
+        // TODO use customText
+        setCurrentIndex(findData(QVariant::fromValue(status), StatusModel::Status));
     }
 }
 

@@ -21,6 +21,7 @@
 #include "statusmodel.h"
 #include "customuserstatuses.h"
 #include "ruqola_debug.h"
+#include "utils.h"
 #include <KLocalizedString>
 
 StatusModel::StatusModel(QObject *parent)
@@ -38,13 +39,16 @@ User::PresenceStatus StatusModel::currentUserStatus() const
     return mStatusList.at(mCurrentStatus).status;
 }
 
-StatusModel::DisplayStatusInfo StatusModel::currentStatusInfo() const
+StatusModel::StatusInfo StatusModel::currentStatusInfo() const
 {
-    DisplayStatusInfo info = mStatusList.at(mCurrentStatus);
+    const DisplayStatusInfo info = mStatusList.at(mCurrentStatus);
+    StatusInfo currentStatusInfo;
+    currentStatusInfo.status = info.status;
+    currentStatusInfo.statusStr = info.statusStr;
     if (!mCustomText.isEmpty()) {
-        info.displayText = mCustomText;
+        currentStatusInfo.statusStr = mCustomText;
     }
-    return info;
+    return currentStatusInfo;
 }
 
 User::PresenceStatus StatusModel::status(int index) const
@@ -108,6 +112,7 @@ StatusModel::DisplayStatusInfo StatusModel::createStatusInfo(User::PresenceStatu
     statusInfo.displayText = textFromPresenceStatus(statusInfo.status);
     statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
     statusInfo.order = order;
+    statusInfo.statusStr = Utils::presenceStatusToString(status);
     return statusInfo;
 }
 
@@ -156,6 +161,7 @@ void StatusModel::updateCustomStatus(const QVector<CustomUserStatus> &customUser
         statusInfo.displayText = status.name();
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 5;
+        statusInfo.statusStr = status.name();
         mStatusList.append(statusInfo);
     }
     endResetModel();

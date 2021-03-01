@@ -188,6 +188,7 @@ void RuqolaMainWindow::slotAccountChanged()
     mStatusComboBox->blockSignals(true);
     mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
     mStatusComboBox->setModel(mStatusProxyModel);
+
     slotUpdateCustomUserStatus();
     mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
     mStatusComboBox->blockSignals(false);
@@ -520,12 +521,13 @@ void RuqolaMainWindow::createSystemTray()
 
 void RuqolaMainWindow::slotStatusChanged()
 {
+    // const auto currentStatusInfo = mCurrentRocketChatAccount->statusModel()->currentStatusInfo();
     User::PresenceStatus status = mStatusComboBox->status();
-    QString messageStatus;
+    QString messageStatus; // = currentStatusInfo.statusStr;
     if (status == User::PresenceStatus::Unknown) {
         QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
         const auto currentStatusInfo = mCurrentRocketChatAccount->statusModel()->currentStatusInfo();
-        dlg->setMessageStatus(currentStatusInfo.displayText);
+        dlg->setMessageStatus(mCurrentRocketChatAccount->statusModel()->customText());
         dlg->setStatus(currentStatusInfo.status);
         if (dlg->exec()) {
             messageStatus = dlg->messageStatus();

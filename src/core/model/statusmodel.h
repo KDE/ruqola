@@ -37,13 +37,13 @@ public:
         Icon,
         Order,
     };
-    struct DisplayStatusInfo {
-        QString displayText;
-        QIcon icon;
-        User::PresenceStatus status;
-        int order = 0;
-    };
     Q_ENUM(StatusRoles)
+
+    struct StatusInfo {
+        User::PresenceStatus status;
+        QString statusStr;
+    };
+
     explicit StatusModel(QObject *parent = nullptr);
     ~StatusModel() override;
 
@@ -57,7 +57,7 @@ public:
     void setCurrentPresenceStatus(User::PresenceStatus status);
     Q_REQUIRED_RESULT User::PresenceStatus currentUserStatus() const;
 
-    Q_REQUIRED_RESULT DisplayStatusInfo currentStatusInfo() const;
+    Q_REQUIRED_RESULT StatusInfo currentStatusInfo() const;
 
     Q_REQUIRED_RESULT QString customText() const;
     void setCustomText(const QString &customText);
@@ -68,6 +68,13 @@ Q_SIGNALS:
     void currentStatusChanged();
 
 private:
+    struct DisplayStatusInfo {
+        QString displayText;
+        QString statusStr;
+        QIcon icon;
+        User::PresenceStatus status;
+        int order = 0;
+    };
     Q_REQUIRED_RESULT QString textFromPresenceStatus(User::PresenceStatus status) const;
     Q_REQUIRED_RESULT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
     Q_REQUIRED_RESULT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
