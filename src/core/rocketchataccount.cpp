@@ -2532,3 +2532,8 @@ bool RocketChatAccount::hideRoles() const
 {
     return ownUser().ownUserPreferences().hideRoles();
 }
+
+bool RocketChatAccount::hideAvatars() const
+{
+    return ownUser().ownUserPreferences().hideAvatars();
+}

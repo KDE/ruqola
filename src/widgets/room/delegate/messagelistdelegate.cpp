@@ -138,7 +138,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
+    if (!mRocketChatAccount->hideAvatars()) {
+        layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
+    }
 
     QRect usableRect = option.rect;
     const bool displayLastSeenMessage = index.data(MessageModel::DisplayLastSeenMessage).toBool();
@@ -393,7 +395,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Draw the pixmap
-    painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+    if (!mRocketChatAccount->hideAvatars()) {
+        painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+    }
 
     // Draw the sender
     const QFont oldFont = painter->font();
