@@ -284,7 +284,7 @@ Q_SIGNALS:
     void failed(const QString &str);
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
 
-    void getMessageDone(const QJsonObject &obj, const QString &roomId);
+    void getMessageDone(const QJsonObject &obj, const QString &messageId, const QString &roomId);
     void runCommandDone();
     void sendEmailCodeDone();
     void deleteOwnAccountDone();

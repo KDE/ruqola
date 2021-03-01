@@ -49,7 +49,7 @@ protected:
                     "{ \"msg\": \"message foo\","
                     "  \"_id\": \"Co6LnNbu5TYcXPuMG\" } }";
                 const QJsonDocument doc = QJsonDocument::fromJson(content);
-                Q_EMIT getMsgJob->getMessageDone(doc.object(), getMsgJob->messageId());
+                Q_EMIT getMsgJob->getMessageDone(doc.object(), getMsgJob->messageId(), getMsgJob->roomId());
             });
             ++mJobStarted;
             return true;
