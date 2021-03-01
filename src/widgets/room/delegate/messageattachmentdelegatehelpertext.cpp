@@ -28,15 +28,12 @@
 #include "ruqolawidgets_debug.h"
 #include "textconverter.h"
 
-#include <KLocalizedString>
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QPointer>
 #include <QStyleOptionViewItem>
-#include <QTextBlock>
 
 MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
 {

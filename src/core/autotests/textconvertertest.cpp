@@ -22,7 +22,6 @@
 #include "messages/message.h"
 #include "ruqola_autotest_helper.h"
 #include "textconverter.h"
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QRegularExpression>
 #include <QTest>

@@ -22,7 +22,6 @@
 #include "misc/passwordconfirmwidget.h"
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
-#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPushButton>

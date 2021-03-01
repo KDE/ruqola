@@ -25,7 +25,6 @@
 #include "ddpapi/ddpmanager.h"
 #include "libruqolacore_export.h"
 
-#include <QDateTime>
 #include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager

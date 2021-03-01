@@ -24,7 +24,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-#include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelGetCountersJob::ChannelGetCountersJob(QObject *parent)
     : ChannelBaseJob(parent)

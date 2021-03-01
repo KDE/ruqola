@@ -21,7 +21,6 @@
 #include "messages/reactions.h"
 #include "ruqola_autotest_helper.h"
 #include <QDebug>
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(ReactionsTest)

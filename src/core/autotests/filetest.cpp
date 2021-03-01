@@ -20,7 +20,6 @@
 #include "filetest.h"
 #include "file.h"
 #include "ruqola_autotest_helper.h"
-#include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(FileTest)

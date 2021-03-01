@@ -21,11 +21,8 @@
 #include "administratorcustomuserstatuswidget.h"
 #include "customuserstatustreewidget.h"
 
-#include <KLocalizedString>
 #include <KTreeWidgetSearchLineWidget>
-#include <QHBoxLayout>
-#include <QTreeWidget>
-
+#include <QVBoxLayout>
 AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget *parent)
     : QWidget(parent)
     , mCustomUserStatusTreeWidget(new CustomUserStatusTreeWidget(this))

@@ -22,7 +22,7 @@
 #include "asktwoauthenticationpasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *parent)
     : QDialog(parent)

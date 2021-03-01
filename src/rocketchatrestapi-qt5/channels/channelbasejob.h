@@ -24,7 +24,6 @@
 #include "restapiabstractjob.h"
 
 #include <QJsonObject>
-#include <QUrlQuery>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelBaseJob : public RestApiAbstractJob

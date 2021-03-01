@@ -23,7 +23,6 @@
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
-#include <QVBoxLayout>
 
 PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)

@@ -24,7 +24,6 @@
 
 #include <QIcon>
 #include <QModelIndex>
-#include <QPixmap>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : public MessageDelegateHelperBase
 {

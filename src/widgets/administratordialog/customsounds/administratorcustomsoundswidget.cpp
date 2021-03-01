@@ -21,10 +21,8 @@
 #include "administratorcustomsoundswidget.h"
 #include "customsoundstreewidget.h"
 
-#include <KLocalizedString>
 #include <KTreeWidgetSearchLineWidget>
-#include <QHBoxLayout>
-#include <QTreeWidget>
+#include <QVBoxLayout>
 
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent)
     : QWidget(parent)

@@ -57,13 +57,9 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QHBoxLayout>
-#include <QKeyEvent>
-#include <QLabel>
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>
-#include <QStackedWidget>
 #include <QVBoxLayout>
 
 RoomWidget::RoomWidget(QWidget *parent)

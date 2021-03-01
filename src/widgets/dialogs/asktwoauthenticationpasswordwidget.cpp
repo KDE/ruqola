@@ -20,7 +20,6 @@
 
 #include "asktwoauthenticationpasswordwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
-#include <KLocalizedString>
 #include <QVBoxLayout>
 
 AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *parent)

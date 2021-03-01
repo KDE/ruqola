@@ -19,7 +19,6 @@
 */
 
 #include "uploadfileprogressstatuswidget.h"
-#include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QProgressBar>

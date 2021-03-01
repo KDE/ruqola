@@ -21,7 +21,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QMap>
 #include <QObject>
 #include <QSslError>
 class QNetworkAccessManager;

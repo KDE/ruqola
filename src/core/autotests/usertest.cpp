@@ -22,7 +22,6 @@
 #include "ruqola_autotest_helper.h"
 #include "user.h"
 
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(UserTest)

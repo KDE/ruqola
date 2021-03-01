@@ -21,7 +21,6 @@
 #include "channeltest.h"
 #include "channel.h"
 #include "ruqola_autotest_helper.h"
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
 

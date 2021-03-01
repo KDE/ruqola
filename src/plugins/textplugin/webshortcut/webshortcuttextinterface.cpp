@@ -22,7 +22,6 @@
 
 #include <KIO/KUriFilterSearchProviderActions>
 
-#include <QDebug>
 #include <QMenu>
 
 WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)

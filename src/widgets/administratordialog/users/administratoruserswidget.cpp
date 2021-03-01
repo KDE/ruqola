@@ -28,7 +28,6 @@
 #include "ruqolawidgets_debug.h"
 #include "users/userslistjob.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>

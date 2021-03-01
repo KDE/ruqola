@@ -21,7 +21,6 @@
 #include "channelpasswordwidget.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
-#include <QDebug>
 #include <QHBoxLayout>
 #include <QLabel>
 

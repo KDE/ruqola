@@ -8,11 +8,7 @@
 #include "ruqolaktexttohtml.h"
 #include "ruqolaktexttohtml_p.h"
 
-#include <QCoreApplication>
-#include <QFile>
-#include <QPluginLoader>
 #include <QRegularExpression>
-#include <QStringList>
 
 #include <limits.h>
 

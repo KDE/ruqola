@@ -20,7 +20,6 @@
 
 #include "ruqolatest.h"
 #include "ruqola.h"
-#include <QPointer>
 #include <QTest>
 
 QTEST_MAIN(RuqolaTest)

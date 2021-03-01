@@ -23,7 +23,6 @@
 #include "customuserstatuses.h"
 #include "ruqola_autotest_helper.h"
 #include "utils.h"
-#include <QJsonDocument>
 
 #include <QTest>
 QTEST_GUILESS_MAIN(CustomUserStatusesTest)

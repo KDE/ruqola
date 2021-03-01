@@ -27,7 +27,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-#include <QUrlQuery>
 
 using namespace RocketChatRestApi;
 GetChannelRolesJob::GetChannelRolesJob(QObject *parent)

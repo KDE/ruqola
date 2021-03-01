@@ -23,7 +23,6 @@
 #include "downloadappslanguagesinfo.h"
 #include "libruqolacore_export.h"
 #include <QMap>
-#include <QObject>
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesParser
 {
 public:

@@ -23,6 +23,7 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QNetworkReply>
 
 using namespace RocketChatRestApi;

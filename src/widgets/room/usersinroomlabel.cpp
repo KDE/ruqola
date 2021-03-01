@@ -25,12 +25,8 @@
 #include "roomutil.h"
 #include "ruqola.h"
 #include "usersinroommenu.h"
-#include <KLocalizedString>
-#include <KMessageBox>
 #include <QHBoxLayout>
 #include <QIcon>
-#include <QMenu>
-#include <QPointer>
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)

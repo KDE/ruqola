@@ -20,7 +20,6 @@
 #include "retentioninfotest.h"
 #include "retentioninfo.h"
 #include "ruqola_autotest_helper.h"
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(RetentionInfoTest)

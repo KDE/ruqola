@@ -22,7 +22,6 @@
 
 #include "libruqola_private_export.h"
 #include "permission.h"
-#include <QDebug>
 #include <QJsonObject>
 #include <QMap>
 #include <QString>

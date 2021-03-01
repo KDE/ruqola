@@ -20,6 +20,7 @@
 
 #include "channelbasejob.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelBaseJob::ChannelBaseJob(QObject *parent)
     : RestApiAbstractJob(parent)

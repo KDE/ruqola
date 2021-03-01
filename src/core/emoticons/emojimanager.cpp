@@ -24,9 +24,7 @@
 #include "ruqola.h"
 #include "ruqola_debug.h"
 
-#include <QFile>
 #include <QJsonArray>
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QRegularExpressionMatch>
 #include <QTextStream>

@@ -21,7 +21,6 @@
 #include "rolestest.h"
 #include "roles.h"
 #include "ruqola_autotest_helper.h"
-#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(RolesTest)
 

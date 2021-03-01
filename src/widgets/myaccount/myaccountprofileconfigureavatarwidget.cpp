@@ -25,9 +25,9 @@
 #include <QContextMenuEvent>
 #include <QDebug>
 #include <QFileDialog>
+#include <QHBoxLayout>
 #include <QInputDialog>
 #include <QMenu>
-#include <QVBoxLayout>
 
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
     : QWidget(parent)

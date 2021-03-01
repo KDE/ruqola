@@ -21,7 +21,6 @@
 #include "commandstest.h"
 #include "commands.h"
 #include "ruqola_autotest_helper.h"
-#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(CommandsTest)
 

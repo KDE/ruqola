@@ -24,7 +24,6 @@
 #include <KLocalizedString>
 
 #include <QNetworkReply>
-#include <QUrlQuery>
 using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : UserBaseJob(parent)

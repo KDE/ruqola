@@ -22,7 +22,6 @@
 
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
-#include <QObject>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT RuqolaServerConfig

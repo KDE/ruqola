@@ -25,7 +25,6 @@
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include <QAbstractListModel>
-#include <QByteArray>
 #include <QObject>
 
 class RocketChatAccount;

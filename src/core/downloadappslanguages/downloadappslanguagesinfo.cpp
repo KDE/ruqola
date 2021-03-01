@@ -20,8 +20,6 @@
 
 #include "downloadappslanguagesinfo.h"
 
-#include <QDebug>
-#include <QJsonArray>
 
 DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
 {

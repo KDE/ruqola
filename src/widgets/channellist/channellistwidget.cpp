@@ -28,10 +28,9 @@
 
 #include <KLocalizedString>
 #include <QAction>
-#include <QHBoxLayout>
 #include <QKeyEvent>
-#include <QLabel>
 #include <QLineEdit>
+#include <QVBoxLayout>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)

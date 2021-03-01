@@ -37,8 +37,8 @@
 #include <QMimeData>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <QTextBlock>
 #include <QTextDocumentFragment>
-#include <QTextFrame>
 #include <QTextStream>
 #include <QToolTip>
 #include <messagecache.h>

@@ -22,7 +22,6 @@
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QMenu>
-#include <QPointer>
 
 CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     : QTreeWidget(parent)

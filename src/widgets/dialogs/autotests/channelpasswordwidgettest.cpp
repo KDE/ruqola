@@ -23,7 +23,6 @@
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QList>
 #include <QSignalSpy>
 #include <QTest>
 QTEST_MAIN(ChannelPasswordWidgetTest)

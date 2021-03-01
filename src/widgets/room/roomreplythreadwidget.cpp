@@ -21,10 +21,7 @@
 #include "roomreplythreadwidget.h"
 
 #include <KLocalizedString>
-#include <KStandardGuiItem>
 #include <QAction>
-#include <QHBoxLayout>
-#include <QLabel>
 #include <QPushButton>
 
 RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)

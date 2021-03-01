@@ -47,7 +47,6 @@
 #include <QPushButton>
 #include <QStyleOptionViewItem>
 #include <QTemporaryDir>
-#include <QTemporaryFile>
 
 //  Name <download icon>
 //  Description

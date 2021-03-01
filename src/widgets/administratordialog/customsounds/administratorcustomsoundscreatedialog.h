@@ -21,7 +21,6 @@
 #pragma once
 
 #include <QDialog>
-#include <QObject>
 
 #include "libruqolawidgets_private_export.h"
 class AdministratorCustomSoundsCreateWidget;

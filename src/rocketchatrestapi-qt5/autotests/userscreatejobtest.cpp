@@ -21,7 +21,6 @@
 #include "userscreatejobtest.h"
 #include "ruqola_restapi_helper.h"
 #include "users/userscreatejob.h"
-#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(UsersCreateJobTest)
 using namespace RocketChatRestApi;

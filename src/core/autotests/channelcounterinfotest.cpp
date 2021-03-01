@@ -21,7 +21,6 @@
 #include "channelcounterinfotest.h"
 #include "channelcounterinfo.h"
 #include "ruqola_autotest_helper.h"
-#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelCounterInfoTest)
 ChannelCounterInfoTest::ChannelCounterInfoTest(QObject *parent)

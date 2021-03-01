@@ -20,10 +20,7 @@
 
 #include "roomquotemessagewidget.h"
 #include <KLocalizedString>
-#include <KStandardGuiItem>
 #include <QAction>
-#include <QHBoxLayout>
-#include <QLabel>
 #include <QPushButton>
 
 RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)

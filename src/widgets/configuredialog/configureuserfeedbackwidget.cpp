@@ -19,8 +19,7 @@
 */
 
 #include "configureuserfeedbackwidget.h"
-
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"

@@ -24,7 +24,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-#include <QUrlQuery>
 using namespace RocketChatRestApi;
 UserInfoJob::UserInfoJob(QObject *parent)
     : UserBaseJob(parent)

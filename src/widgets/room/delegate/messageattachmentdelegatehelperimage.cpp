@@ -35,7 +35,6 @@
 #include <QMovie>
 #include <QPainter>
 #include <QPixmapCache>
-#include <QPointer>
 #include <QStyleOptionViewItem>
 
 void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach,

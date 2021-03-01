@@ -23,7 +23,6 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "room/messagelistview.h"
 #include <QLabel>
-#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(SearchMessageWidgetTest)
 

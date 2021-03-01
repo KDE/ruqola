@@ -21,8 +21,6 @@
 #include "statuscombobox.h"
 #include "model/statusmodel.h"
 #include "model/statusmodelfilterproxymodel.h"
-#include <KLocalizedString>
-#include <QIcon>
 
 StatusCombobox::StatusCombobox(QWidget *parent)
     : QComboBox(parent)

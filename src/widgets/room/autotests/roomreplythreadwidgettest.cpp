@@ -20,8 +20,6 @@
 
 #include "roomreplythreadwidgettest.h"
 #include "room/roomreplythreadwidget.h"
-#include <QHBoxLayout>
-#include <QLabel>
 #include <QPushButton>
 #include <QTest>
 QTEST_MAIN(RoomReplyThreadWidgetTest)

@@ -29,7 +29,7 @@
 #include "searchchannel/searchchanneldelegate.h"
 #include <KLocalizedString>
 #include <QLineEdit>
-#include <QListWidget>
+#include <QListView>
 #include <QVBoxLayout>
 
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)

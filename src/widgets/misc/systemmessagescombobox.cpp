@@ -21,7 +21,6 @@
 #include "systemmessagescombobox.h"
 #include "model/systemmessagesmodel.h"
 
-#include <QListView>
 
 SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     : QComboBox(parent)
