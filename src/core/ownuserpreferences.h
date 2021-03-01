@@ -53,6 +53,9 @@ public:
     Q_REQUIRED_RESULT bool hideRoles() const;
     void setHideRoles(bool hideRoles);
 
+    Q_REQUIRED_RESULT bool hideAvatars() const;
+    void setHideAvatars(bool hideAvatars);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -61,6 +64,7 @@ private:
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;
+    bool mHideAvatars = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

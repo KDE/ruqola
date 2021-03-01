@@ -38,6 +38,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(p.convertAsciiEmoji());
     QVERIFY(p.useEmojis());
     QVERIFY(!p.hideRoles());
+    QVERIFY(!p.hideAvatars());
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()

@@ -84,4 +84,9 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mHideRoles);
     QVERIFY(!mHideRoles->isChecked());
     QVERIFY(!mHideRoles->text().isEmpty());
+
+    auto mhideAvatars = w.findChild<QCheckBox *>(QStringLiteral("mhideAvatars"));
+    QVERIFY(mhideAvatars);
+    QVERIFY(!mhideAvatars->isChecked());
+    QVERIFY(!mhideAvatars->text().isEmpty());
 }

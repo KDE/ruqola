@@ -45,6 +45,7 @@ private:
     QCheckBox *const mUseEmoji;
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;
+    QCheckBox *const mhideAvatars;
     bool mChanged = false;
 };
 

@@ -62,7 +62,8 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
     job.setUsersSetPreferencesInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
+        QStringLiteral(
+            R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
             .arg(userId, desktopNotifications)
             .toLatin1());
 }

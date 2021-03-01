@@ -128,6 +128,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
     dataObj[QLatin1String("convertAsciiEmoji")] = mUsersSetPreferencesInfo.convertAsciiToEmoji;
     dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     dataObj[QLatin1String("hideRoles")] = mUsersSetPreferencesInfo.hideRoles;
+    dataObj[QLatin1String("hideAvatars")] = mUsersSetPreferencesInfo.hideAvatars;
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -146,6 +147,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d << "useEmoji: " << t.useEmoji;
     d << "convertAsciiToEmoji: " << t.convertAsciiToEmoji;
     d << "hideRoles: " << t.hideRoles;
+    d << "hideAvatars: " << t.hideAvatars;
     return d;
 }
 

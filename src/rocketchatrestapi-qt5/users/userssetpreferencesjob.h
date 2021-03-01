@@ -42,6 +42,7 @@ public:
         bool useEmoji = true;
         bool convertAsciiToEmoji = true;
         bool hideRoles = false;
+        bool hideAvatars = false;
         // Add more
     };
 
