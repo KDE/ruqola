@@ -1587,6 +1587,18 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
     }
 }
 
+void RestApiRequest::getMessage(const QString &messageId, const QString &roomId)
+{
+    auto job = new GetMessageJob(this);
+    initializeRestApiJob(job);
+    job->setMessageId(messageId);
+    job->setRoomId(roomId);
+    connect(job, &GetMessageJob::getMessageDone, this, &RestApiRequest::getMessageDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getMessage";
+    }
+}
+
 void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int count)
 {
     auto job = new GetPinnedMessagesJob(this);
