@@ -408,6 +408,7 @@ void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
     restApi()->postMessage(roomID, message);
+    markRoomAsRead(roomID);
 }
 
 void RocketChatAccount::updateMessage(const QString &roomID, const QString &messageId, const QString &message)
