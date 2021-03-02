@@ -25,13 +25,13 @@
 
 NotificationPreferences::NotificationPreferences(QObject *parent)
     : QObject(parent)
+    , mEmailNotificationModel(new NotificationPreferenceModel(this))
+    , mMobileNotificationModel(new NotificationPreferenceModel(this))
+    , mDesktopNotificationModel(new NotificationPreferenceModel(this))
+    , mDesktopAudioNotificationModel(new NotificationPreferenceModel(this))
+    , mDesktopDurationNotificationModel(new NotificationDesktopDurationPreferenceModel(this))
+    , mDesktopSoundNotificationModel(new NotificationDesktopSoundPreferenceModel(this))
 {
-    mEmailNotificationModel = new NotificationPreferenceModel(this);
-    mMobileNotificationModel = new NotificationPreferenceModel(this);
-    mDesktopNotificationModel = new NotificationPreferenceModel(this);
-    mDesktopAudioNotificationModel = new NotificationPreferenceModel(this);
-    mDesktopDurationNotificationModel = new NotificationDesktopDurationPreferenceModel(this);
-    mDesktopSoundNotificationModel = new NotificationDesktopSoundPreferenceModel(this);
 }
 
 NotificationPreferences::~NotificationPreferences()

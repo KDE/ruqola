@@ -35,6 +35,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChangeTemporaryStatus)
     void initialize();
-    QTimer *mTimer = nullptr;
+    QTimer *const mTimer;
 };
 

@@ -47,11 +47,11 @@ public:
     static NotificationPreferences *self();
 
 private:
-    NotificationPreferenceModel *mEmailNotificationModel = nullptr;
-    NotificationPreferenceModel *mMobileNotificationModel = nullptr;
-    NotificationPreferenceModel *mDesktopNotificationModel = nullptr;
-    NotificationPreferenceModel *mDesktopAudioNotificationModel = nullptr;
-    NotificationDesktopDurationPreferenceModel *mDesktopDurationNotificationModel = nullptr;
-    NotificationDesktopSoundPreferenceModel *mDesktopSoundNotificationModel = nullptr;
+    NotificationPreferenceModel *const mEmailNotificationModel;
+    NotificationPreferenceModel *const mMobileNotificationModel;
+    NotificationPreferenceModel *const mDesktopNotificationModel;
+    NotificationPreferenceModel *const mDesktopAudioNotificationModel;
+    NotificationDesktopDurationPreferenceModel *const mDesktopDurationNotificationModel;
+    NotificationDesktopSoundPreferenceModel *const mDesktopSoundNotificationModel;
 };
 

@@ -40,7 +40,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ReceiveTypingNotificationManager)
-    QString generateNotification(const QStringList &userNames) const;
+    Q_REQUIRED_RESULT QString generateNotification(const QStringList &userNames) const;
     QMap<QString, QStringList> mMapTypingNotifications;
 };
 

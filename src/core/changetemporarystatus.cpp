@@ -23,11 +23,11 @@
 // TODO use QTimer to change status
 ChangeTemporaryStatus::ChangeTemporaryStatus(QObject *parent)
     : QObject(parent)
+    , mTimer(new QTimer(this))
 {
     initialize();
 }
 
 void ChangeTemporaryStatus::initialize()
 {
-    mTimer = new QTimer(this);
 }
