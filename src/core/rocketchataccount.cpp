@@ -110,7 +110,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
                 inputAutocomplete(pattern, exceptions, type, false);
             });
 
-    mInputThreadMessageTextManager = new InputTextManager(this);
+    mInputThreadMessageTextManager = new InputTextManager(this, this);
     mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
     connect(mInputThreadMessageTextManager,
             &InputTextManager::completionRequested,
