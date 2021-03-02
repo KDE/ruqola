@@ -75,7 +75,8 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mSlider->setRange(mZoomSpin->minimum() * 100, mZoomSpin->maximum() * 100);
     mSlider->setValue(mZoomSpin->value() * 100);
 
-    auto *resetButton = new QPushButton(this);
+    auto resetButton = new QPushButton(this);
+    resetButton->setObjectName(QStringLiteral("resetButton"));
     resetButton->setText(i18n("100%"));
     zoomLayout->addWidget(resetButton);
     connect(resetButton, &QPushButton::clicked, this, [=] {

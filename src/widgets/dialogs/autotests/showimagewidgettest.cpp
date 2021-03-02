@@ -23,6 +23,7 @@
 
 #include <QDoubleSpinBox>
 #include <QLabel>
+#include <QPushButton>
 #include <QScrollArea>
 #include <QSlider>
 #include <QTest>
@@ -101,4 +102,15 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 #else
     QCOMPARE(mLabel->pixmap().size(), pixmapSize);
 #endif
+
+    auto resetButton = w.findChild<QPushButton *>(QStringLiteral("resetButton"));
+    QVERIFY(resetButton);
+    resetButton->click();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    QCOMPARE(mLabel->pixmap()->size(), pixmapSize);
+#else
+    QCOMPARE(mLabel->pixmap().size(), pixmapSize);
+#endif
+    QCOMPARE(mZoomSpin->value(), 1.0);
+    QCOMPARE(mSlider->value(), 100);
 }
