@@ -34,7 +34,7 @@ public:
     void load();
 
 private:
-    QCheckBox *mCustomFontCheck = nullptr;
-    KFontChooser *mFontChooser = nullptr;
+    QCheckBox *const mCustomFontCheck;
+    KFontChooser *const mFontChooser;
 };
 

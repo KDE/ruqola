@@ -32,12 +32,12 @@ static const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialo
 }
 AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     : QDialog(parent)
+    , mAddUsersInRoomWidget(new AddUsersInRoomWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Add Users in Room"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mAddUsersInRoomWidget = new AddUsersInRoomWidget(this);
     mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
     mainLayout->addWidget(mAddUsersInRoomWidget);
 

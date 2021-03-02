@@ -32,12 +32,13 @@
 
 AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     : QWidget(parent)
+    , mAutoTranslate(new QCheckBox(i18n("Auto-Translate"), this))
+    , mLanguage(new QComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mAutoTranslate = new QCheckBox(i18n("Auto-Translate"), this);
     mAutoTranslate->setObjectName(QStringLiteral("mAutoTranslate"));
     mainLayout->addWidget(mAutoTranslate);
     connect(mAutoTranslate, &QCheckBox::clicked, this, &AutoTranslateConfigureWidget::slotChangeAutoTranslate);
@@ -52,7 +53,6 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     label->setTextFormat(Qt::PlainText);
     horizontalLayout->addWidget(label);
 
-    mLanguage = new QComboBox(this);
     mLanguage->setObjectName(QStringLiteral("mLanguage"));
     mLanguage->setModel(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel());
     connect(mLanguage, QOverload<int>::of(&QComboBox::activated), this, &AutoTranslateConfigureWidget::slotLanguageChanged);

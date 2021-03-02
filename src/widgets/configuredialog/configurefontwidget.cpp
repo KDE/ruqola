@@ -28,16 +28,16 @@
 
 ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     : QWidget(parent)
+    , mCustomFontCheck(new QCheckBox(i18n("&Use custom fonts"), this))
+    , mFontChooser(new KFontChooser(this, KFontChooser::DisplayFrame, QStringList(), 4))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mCustomFontCheck = new QCheckBox(i18n("&Use custom fonts"), this);
     mCustomFontCheck->setObjectName(QStringLiteral("mCustomFontCheck"));
     mainLayout->addWidget(mCustomFontCheck);
 
-    mFontChooser = new KFontChooser(this, KFontChooser::DisplayFrame, QStringList(), 4);
     mFontChooser->setObjectName(QStringLiteral("mFontChooser"));
     mFontChooser->setEnabled(false); // since !mCustomFontCheck->isChecked()
     mainLayout->addWidget(mFontChooser);

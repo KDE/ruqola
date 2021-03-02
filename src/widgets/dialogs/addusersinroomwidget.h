@@ -23,7 +23,6 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class AddUsersWidget;
-class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomWidget : public QWidget
 {
     Q_OBJECT
@@ -37,7 +36,6 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    AddUsersWidget *mAddUsersWidget = nullptr;
-    QListView *mListUsers = nullptr;
+    AddUsersWidget *const mAddUsersWidget;
 };
 

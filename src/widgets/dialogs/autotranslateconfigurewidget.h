@@ -41,8 +41,8 @@ private:
     void slotChangeAutoTranslate(bool status);
     void slotLanguageChanged(int index);
     void slotAutoTranslateLanguageChanged();
-    QCheckBox *mAutoTranslate = nullptr;
-    QComboBox *mLanguage = nullptr;
+    QCheckBox *const mAutoTranslate;
+    QComboBox *const mLanguage;
     Room *mRoom = nullptr;
 };
 

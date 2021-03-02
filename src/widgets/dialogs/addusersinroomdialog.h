@@ -33,6 +33,6 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    AddUsersInRoomWidget *mAddUsersInRoomWidget = nullptr;
+    AddUsersInRoomWidget *const mAddUsersInRoomWidget;
 };
 

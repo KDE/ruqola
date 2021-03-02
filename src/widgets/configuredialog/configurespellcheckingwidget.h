@@ -37,6 +37,6 @@ public:
     void load();
 
 private:
-    Sonnet::ConfigWidget *mConfigWidget = nullptr;
+    Sonnet::ConfigWidget *const mConfigWidget;
 };
 

@@ -34,17 +34,17 @@
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
+    , mChannelView(new ChannelListView(this))
+    , mSearchRoom(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins({});
 
-    mChannelView = new ChannelListView(this);
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
 
-    mSearchRoom = new QLineEdit(this);
     // dummy action just for getting the icon)
     mSearchRoom->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
     mSearchRoom->setObjectName(QStringLiteral("mSearchRoom"));

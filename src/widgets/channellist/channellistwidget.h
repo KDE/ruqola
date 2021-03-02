@@ -51,8 +51,8 @@ private:
     void clearFilterChannel();
     void slotOpenLinkRequested(const QString &link);
 
-    ChannelListView *mChannelView = nullptr;
-    QLineEdit *mSearchRoom = nullptr;
+    ChannelListView *const mChannelView;
+    QLineEdit *const mSearchRoom;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

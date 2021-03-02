@@ -24,12 +24,12 @@
 
 ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
     : QWidget(parent)
+    , mConfigureAccountServerWidget(new ConfigureAccountServerWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mConfigureAccountServerWidget = new ConfigureAccountServerWidget(this);
     mConfigureAccountServerWidget->setObjectName(QStringLiteral("mConfigureAccountServerWidget"));
     mainLayout->addWidget(mConfigureAccountServerWidget);
 }

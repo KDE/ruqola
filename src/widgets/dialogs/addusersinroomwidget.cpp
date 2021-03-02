@@ -27,12 +27,12 @@
 
 AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     : QWidget(parent)
+    , mAddUsersWidget(new AddUsersWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mAddUsersWidget = new AddUsersWidget(this);
     mAddUsersWidget->setObjectName(QStringLiteral("mAddUsersWidget"));
     mAddUsersWidget->setPlaceholderText(i18n("Search Users..."));
     connect(mAddUsersWidget, &AddUsersWidget::userListChanged, this, &AddUsersInRoomWidget::updateOkButton);

@@ -24,11 +24,11 @@
 
 ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
     : QWidget(parent)
+    , mConfigWidget(new Sonnet::ConfigWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    mConfigWidget = new Sonnet::ConfigWidget(this);
     mConfigWidget->setObjectName(QStringLiteral("mConfigWidget"));
     mainLayout->addWidget(mConfigWidget);
 }

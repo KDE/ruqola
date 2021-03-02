@@ -34,6 +34,6 @@ public:
     void load();
 
 private:
-    ConfigureAccountServerWidget *mConfigureAccountServerWidget = nullptr;
+    ConfigureAccountServerWidget *const mConfigureAccountServerWidget;
 };
 
