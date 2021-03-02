@@ -39,7 +39,7 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
-    QLineEdit *mDescription = nullptr;
-    KUrlRequester *mSelectFile = nullptr;
+    QLineEdit *const mDescription;
+    KUrlRequester *const mSelectFile;
 };
 

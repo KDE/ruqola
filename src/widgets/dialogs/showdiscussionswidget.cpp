@@ -30,12 +30,14 @@
 
 ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchDiscussionLineEdit(new QLineEdit(this))
+    , mDiscussionInfoLabel(new QLabel(this))
+    , mListDiscussions(new QListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchDiscussionLineEdit = new QLineEdit(this);
     mSearchDiscussionLineEdit->setObjectName(QStringLiteral("mSearchDiscussionLineEdit"));
     mSearchDiscussionLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchDiscussionLineEdit, this);
@@ -43,7 +45,6 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     connect(mSearchDiscussionLineEdit, &QLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
 
-    mDiscussionInfoLabel = new QLabel(this);
     mDiscussionInfoLabel->setObjectName(QStringLiteral("mInfo"));
     mDiscussionInfoLabel->setTextFormat(Qt::RichText);
     mainLayout->addWidget(mDiscussionInfoLabel);
@@ -52,7 +53,6 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     mDiscussionInfoLabel->setFont(labFont);
     connect(mDiscussionInfoLabel, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
 
-    mListDiscussions = new QListView(this);
     mListDiscussions->setObjectName(QStringLiteral("mListDiscussions"));
     mainLayout->addWidget(mListDiscussions);
     mListDiscussions->setItemDelegate(new ListDiscussionDelegate(this));

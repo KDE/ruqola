@@ -40,7 +40,7 @@ public:
     void setMessageStatus(const QString &statusStr);
 
 private:
-    StatusCombobox *mStatusCombobox = nullptr;
-    QLineEdit *mStatusLineEdit = nullptr;
+    StatusCombobox *const mStatusCombobox;
+    QLineEdit *const mStatusLineEdit;
 };
 

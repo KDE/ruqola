@@ -27,17 +27,17 @@
 
 ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     : QWidget(parent)
+    , mStatusCombobox(new StatusCombobox(this))
+    , mStatusLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mStatusCombobox = new StatusCombobox(this);
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
 
     mStatusCombobox->setUseOnlyStandardStatus();
 
-    mStatusLineEdit = new QLineEdit(this);
     mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
     mStatusLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mStatusLineEdit, this);

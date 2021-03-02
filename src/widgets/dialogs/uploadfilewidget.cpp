@@ -28,18 +28,18 @@
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
+    , mDescription(new QLineEdit(this))
+    , mSelectFile(new KUrlRequester(this))
 {
     auto layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
 
-    mDescription = new QLineEdit(this);
     new LineEditCatchReturnKey(mDescription, this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mDescription->setClearButtonEnabled(true);
     layout->addRow(i18n("Description:"), mDescription);
 
-    mSelectFile = new KUrlRequester(this);
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     layout->addRow(i18n("File:"), mSelectFile);
 
