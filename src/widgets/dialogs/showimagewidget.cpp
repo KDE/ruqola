@@ -48,6 +48,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mLabel->setAlignment(Qt::AlignCenter);
 
     scrollArea->setWidget(mLabel);
+    scrollArea->setAlignment(Qt::AlignCenter);
 
     mZoomControls = new QWidget(this);
     mZoomControls->setObjectName(QStringLiteral("zoomControls"));
