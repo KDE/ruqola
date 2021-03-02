@@ -1,0 +1,7 @@
+# Suppression file for ASAN/LSAN
+
+leak:libspeechd
+leak:getdelim
+leak:g_malloc
+leak:libfontconfig
+leak:libdbus
