@@ -26,6 +26,8 @@
 class QLabel;
 class QSlider;
 class QDoubleSpinBox;
+class QMovie;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
     Q_OBJECT
@@ -51,6 +53,8 @@ private:
     QLabel *mLabel = nullptr;
     QDoubleSpinBox *mZoomSpin = nullptr;
     QSlider *mSlider = nullptr;
+    QMovie *mMovie = nullptr;
+    QSize mOriginalMovieSize;
     bool mIsAnimatedPixmap = false;
     bool mIsUpdatingZoom = false;
 };
