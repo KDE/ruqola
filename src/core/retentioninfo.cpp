@@ -24,10 +24,6 @@ RetentionInfo::RetentionInfo()
 {
 }
 
-RetentionInfo::~RetentionInfo()
-{
-}
-
 bool RetentionInfo::isNotDefault() const
 {
     return mEnabled || mExcludePinned || mFilesOnly || mOverrideGlobal || (mMaxAge != -1);

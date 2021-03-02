@@ -27,7 +27,7 @@ class LIBRUQOLACORE_EXPORT RetentionInfo
 {
 public:
     RetentionInfo();
-    ~RetentionInfo();
+    ~RetentionInfo() = default;
     void parseRetentionInfo(const QJsonObject &replyObject);
 
     Q_REQUIRED_RESULT bool enabled() const;
