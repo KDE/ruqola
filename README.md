@@ -30,6 +30,11 @@ make
 make install
 ````
 
+## ASAN
+
+We can use sanitizers.supp file
+example: LSAN_OPTIONS=suppressions=../sanitizers.supp ./bin/ruqolaserverconfigtest
+
 ## Maintainer
 
 - Laurent Montel <montel@kde.org>
