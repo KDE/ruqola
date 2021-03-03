@@ -40,11 +40,8 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
     QVERIFY(topLayout);
     QCOMPARE(topLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto mainLayout = topLayout->findChild<QFormLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 #if 0 // Failed. Don't know why . FIXME
-    auto mDisableNotification = mainLayout->findChild<QCheckBox *>(QStringLiteral("mDisableNotification"));
+    auto mDisableNotification = topLayout->findChild<QCheckBox *>(QStringLiteral("mDisableNotification"));
     QVERIFY(mDisableNotification);
 
     auto mHideUnreadRoomStatus = topLayout->findChild<QCheckBox *>(QStringLiteral("mHideUnreadRoomStatus"));
@@ -52,6 +49,7 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 
     auto mMuteGroupMentions = topLayout->findChild<QCheckBox *>(QStringLiteral("mMuteGroupMentions"));
     QVERIFY(mMuteGroupMentions);
+
     auto desktopGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("desktopGroupBox"));
     QVERIFY(desktopGroupBox);
     QVERIFY(!desktopGroupBox->title().isEmpty());

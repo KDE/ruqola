@@ -40,28 +40,23 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
 
-    auto mainLayout = new QFormLayout;
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-    topLayout->addLayout(mainLayout);
-
-    mDisableNotification = new QCheckBox(this);
+    mDisableNotification = new QCheckBox(i18n("Disable Notification"), this);
     mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
-    mainLayout->addRow(i18n("Disable Notification:"), mDisableNotification);
+    topLayout->addWidget(mDisableNotification);
     connect(mDisableNotification, &QCheckBox::clicked, this, [this](bool checked) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DisableNotifications, checked);
     });
 
-    mHideUnreadRoomStatus = new QCheckBox(this);
+    mHideUnreadRoomStatus = new QCheckBox(i18n("Hide Unread Room Status"), this);
     mHideUnreadRoomStatus->setObjectName(QStringLiteral("mHideUnreadRoomStatus"));
-    mainLayout->addRow(i18n("Hide Unread Room Status:"), mHideUnreadRoomStatus);
+    topLayout->addWidget(mHideUnreadRoomStatus);
     connect(mHideUnreadRoomStatus, &QCheckBox::clicked, this, [this](bool checked) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideUnreadStatus, checked);
     });
 
-    mMuteGroupMentions = new QCheckBox(this);
+    mMuteGroupMentions = new QCheckBox(i18n("Mute Group Mentions"), this);
     mMuteGroupMentions->setObjectName(QStringLiteral("mMuteGroupMentions"));
-    mainLayout->addRow(i18n("Mute Group Mentions:"), mMuteGroupMentions);
+    topLayout->addWidget(mMuteGroupMentions);
     connect(mMuteGroupMentions, &QCheckBox::clicked, this, [this](bool checked) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
     });
