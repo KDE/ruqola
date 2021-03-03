@@ -168,6 +168,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
 
 void EmojiManager::replaceEmojis(QString *str)
 {
+    Q_ASSERT(str);
     if (mReplacePatternDirty) {
         // build a regexp pattern for all the possible emoticons we want to replace
         // i.e. this is going to build a pattern like this:
