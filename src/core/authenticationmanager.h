@@ -67,7 +67,7 @@ public:
 
 private:
     Q_DISABLE_COPY(AuthenticationManager)
-    bool initializePluginList();
+    void initializePluginList();
     void loadPlugin(AuthenticationManagerInfo *item);
     PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QVector<AuthenticationManagerInfo> mPluginList;

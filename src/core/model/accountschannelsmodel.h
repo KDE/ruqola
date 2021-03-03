@@ -37,7 +37,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private:
-    QModelIndex modelRoot(QAbstractItemModel *model) const;
+    Q_REQUIRED_RESULT QModelIndex modelRoot(QAbstractItemModel *model) const;
     QAbstractItemModel *rootModel(const QModelIndex &root) const;
     void mapModelToIndex(QAbstractItemModel *model, const std::function<QModelIndex()> &root);
     void unproxyModel(QAbstractItemModel *model);

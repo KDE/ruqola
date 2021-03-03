@@ -69,7 +69,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    QString generateDisplayName(const User &user) const;
+    Q_REQUIRED_RESULT QString generateDisplayName(const User &user) const;
     void checkFullList();
     QVector<User> mUsers;
     int mTotal = 0;
