@@ -171,9 +171,11 @@ void ShowImageWidget::setImage(const QPixmap &pix)
 
 void ShowImageWidget::wheelEvent(QWheelEvent *e)
 {
-    if (e->angleDelta().y() > 0) {
-        mSlider->setValue(mSlider->value() - 5);
-    } else {
-        mSlider->setValue(mSlider->value() + 5);
+    if (e->modifiers() & Qt::ControlModifier) {
+        if (e->angleDelta().y() > 0) {
+            mSlider->setValue(mSlider->value() - 5);
+        } else {
+            mSlider->setValue(mSlider->value() + 5);
+        }
     }
 }
