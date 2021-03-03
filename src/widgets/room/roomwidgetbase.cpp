@@ -213,7 +213,9 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RoomWidgetBase::slotClearNotification()
 {
-    mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
+    if (!mRoomId.isEmpty()) {
+        mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
+    }
 }
 
 void RoomWidgetBase::updateListView()
