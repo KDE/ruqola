@@ -447,6 +447,10 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("The private group is archived");
     } else if (str == QLatin1String("error-user-already-owner")) {
         return i18n("User is already an owner");
+    } else if (str == QLatin1String("error-user-already-leader")) {
+        return i18n("User is already an leader");
+    } else if (str == QLatin1String("error-user-already-moderator")) {
+        return i18n("User is already an moderator");
     } else if (str == QLatin1String("error-invalid-message_id")) {
         return i18n("Invalid message id");
     } else if (str == QLatin1String("error-user-not-leader")) {
