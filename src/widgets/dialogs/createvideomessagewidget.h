@@ -34,7 +34,7 @@ public:
 private:
     void stopCamera();
     void startCamera();
-    QLabel *mErrorLabel = nullptr;
+    QLabel *const mErrorLabel = nullptr;
     QCamera *mCamera = nullptr;
 };
 

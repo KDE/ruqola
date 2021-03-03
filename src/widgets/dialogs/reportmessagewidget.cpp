@@ -28,12 +28,13 @@
 
 ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     : QWidget(parent)
+    , mMessageLineEdit(new KTextEdit(this))
+    , mMessagePreview(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mMessagePreview = new QLabel(this);
     mMessagePreview->setObjectName(QStringLiteral("mMessagePreview"));
     mMessagePreview->setWordWrap(true);
     QFont messagePreviewFont = mMessagePreview->font();
@@ -51,7 +52,6 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     lab->setObjectName(QStringLiteral("label"));
     messageLayout->addWidget(lab);
 
-    mMessageLineEdit = new KTextEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mMessageLineEdit->setAcceptRichText(false);
     mMessageLineEdit->setPlaceholderText(i18n("Why you signal this message?"));

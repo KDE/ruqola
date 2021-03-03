@@ -33,9 +33,9 @@ public:
     void setServerConfigInfo(ServerConfigInfo *info);
 
 private:
-    QLabel *mAccountName = nullptr;
-    QLabel *mUserName = nullptr;
-    QLabel *mServerVersion = nullptr;
-    QLabel *mServerUrl = nullptr;
+    QLabel *const mAccountName;
+    QLabel *const mUserName;
+    QLabel *const mServerVersion;
+    QLabel *const mServerUrl;
 };
 

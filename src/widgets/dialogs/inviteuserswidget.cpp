@@ -38,6 +38,10 @@
 
 InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     : QWidget(parent)
+    , mInviteUserLineEdit(new QLineEdit(this))
+    , mExpireDateLabel(new QLabel(this))
+    , mExpirationDays(new QComboBox(this))
+    , mMaxUses(new QComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -53,7 +57,6 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     label->setTextFormat(Qt::PlainText);
     hlayout->addWidget(label);
 
-    mInviteUserLineEdit = new QLineEdit(this);
     mInviteUserLineEdit->setObjectName(QStringLiteral("mInviteUserLineEdit"));
     mInviteUserLineEdit->setReadOnly(true);
     new LineEditCatchReturnKey(mInviteUserLineEdit, this);
@@ -80,11 +83,9 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     formLayout->setObjectName(QStringLiteral("formLayout"));
     formLayout->setContentsMargins({});
 
-    mExpirationDays = new QComboBox(this);
     mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));
     formLayout->addRow(i18n("Expiration (Days)"), mExpirationDays);
 
-    mMaxUses = new QComboBox(this);
     mMaxUses->setObjectName(QStringLiteral("mMaxUses"));
     formLayout->addRow(i18n("Max number of uses"), mMaxUses);
 
@@ -93,7 +94,6 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
     mainLayout->addWidget(generateNewLink);
 
-    mExpireDateLabel = new QLabel(this);
     mExpireDateLabel->setObjectName(QStringLiteral("mExpireDateLabel"));
     mExpireDateLabel->setTextFormat(Qt::PlainText);
     mExpireDateLabel->setWordWrap(true);

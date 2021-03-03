@@ -27,6 +27,7 @@
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
+    , mErrorLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -45,7 +46,6 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mCamera->setCaptureMode(QCamera::CaptureStillImage);
     mCamera->start();
 
-    mErrorLabel = new QLabel(this);
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
     mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     mainLayout->addWidget(mErrorLabel);

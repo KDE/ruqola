@@ -44,9 +44,9 @@ private:
     void slotCopyLink();
     void slotGenerateNewLink();
     QString mRoomId;
-    QLineEdit *mInviteUserLineEdit = nullptr;
-    QLabel *mExpireDateLabel = nullptr;
-    QComboBox *mExpirationDays = nullptr;
-    QComboBox *mMaxUses = nullptr;
+    QLineEdit *const mInviteUserLineEdit;
+    QLabel *const mExpireDateLabel;
+    QComboBox *const mExpirationDays;
+    QComboBox *const mMaxUses;
 };
 

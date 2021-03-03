@@ -38,7 +38,7 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
-    KTextEdit *mMessageLineEdit = nullptr;
-    QLabel *mMessagePreview = nullptr;
+    KTextEdit *const mMessageLineEdit;
+    QLabel *const mMessagePreview;
 };
 

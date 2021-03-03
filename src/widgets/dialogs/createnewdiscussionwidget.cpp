@@ -29,6 +29,10 @@
 
 CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     : QWidget(parent)
+    , mChannelNameLineEdit(new QLineEdit(this))
+    , mDiscussionNameLineEdit(new QLineEdit(this))
+    , mUsers(new AddUsersWidget(this))
+    , mMessageTextEdit(new KTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -38,7 +42,6 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     channelLabel->setObjectName(QStringLiteral("channelLabel"));
     mainLayout->addWidget(channelLabel);
 
-    mChannelNameLineEdit = new QLineEdit(this);
     mChannelNameLineEdit->setObjectName(QStringLiteral("mChannelNameLineEdit"));
     new LineEditCatchReturnKey(mChannelNameLineEdit, this);
     mChannelNameLineEdit->setClearButtonEnabled(true);
@@ -52,7 +55,6 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     discussionName->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(discussionName);
 
-    mDiscussionNameLineEdit = new QLineEdit(this);
     mDiscussionNameLineEdit->setObjectName(QStringLiteral("mDiscussionNameLineEdit"));
     new LineEditCatchReturnKey(mDiscussionNameLineEdit, this);
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
@@ -62,7 +64,6 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     usersLabel->setObjectName(QStringLiteral("usersLabel"));
     mainLayout->addWidget(usersLabel);
 
-    mUsers = new AddUsersWidget(this);
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Invite Users..."));
     mainLayout->addWidget(mUsers);
@@ -71,7 +72,6 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     messageLabel->setObjectName(QStringLiteral("messageLabel"));
     mainLayout->addWidget(messageLabel);
 
-    mMessageTextEdit = new KTextEdit(this);
     mMessageTextEdit->setAcceptRichText(false);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);

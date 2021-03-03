@@ -48,9 +48,9 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    QLineEdit *mChannelNameLineEdit = nullptr;
-    QLineEdit *mDiscussionNameLineEdit = nullptr;
-    AddUsersWidget *mUsers = nullptr;
-    KTextEdit *mMessageTextEdit = nullptr;
+    QLineEdit *const mChannelNameLineEdit;
+    QLineEdit *const mDiscussionNameLineEdit;
+    AddUsersWidget *const mUsers;
+    KTextEdit *const mMessageTextEdit;
 };
 

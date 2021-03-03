@@ -45,6 +45,6 @@ private:
     void slotItemSelectionChanged();
 
 private:
-    Ui::ConfigureAccountServerWidget *ui = nullptr;
+    Ui::ConfigureAccountServerWidget *const ui;
 };
 
