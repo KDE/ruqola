@@ -188,7 +188,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
-    mMessageQueue = new MessageQueue(this, this); // TODO fix mem leak !
+    mMessageQueue = new MessageQueue(this, this);
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
 
