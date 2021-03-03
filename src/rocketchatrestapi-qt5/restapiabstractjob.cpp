@@ -448,9 +448,9 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
     } else if (str == QLatin1String("error-user-already-owner")) {
         return i18n("User is already an owner");
     } else if (str == QLatin1String("error-user-already-leader")) {
-        return i18n("User is already an leader");
+        return i18n("User is already a leader");
     } else if (str == QLatin1String("error-user-already-moderator")) {
-        return i18n("User is already an moderator");
+        return i18n("User is already a moderator");
     } else if (str == QLatin1String("error-invalid-message_id")) {
         return i18n("Invalid message id");
     } else if (str == QLatin1String("error-user-not-leader")) {
