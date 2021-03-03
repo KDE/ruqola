@@ -36,21 +36,21 @@
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
+    , mUserAndChannelCompletionListView(new CompletionListView)
+    , mEmojiCompletionListView(new CompletionListView)
+    , mCommandCompletionListView(new CompletionListView)
 {
     setAcceptRichText(false);
 
     connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged, this, &QWidget::updateGeometry);
 
-    mUserAndChannelCompletionListView = new CompletionListView;
     mUserAndChannelCompletionListView->setTextWidget(this);
     connect(mUserAndChannelCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 
-    mEmojiCompletionListView = new CompletionListView;
     mEmojiCompletionListView->setItemDelegate(new EmojiCompletionDelegate(mEmojiCompletionListView));
     mEmojiCompletionListView->setTextWidget(this);
     connect(mEmojiCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 
-    mCommandCompletionListView = new CompletionListView;
     mCommandCompletionListView->setItemDelegate(new CommandCompletionDelegate(mCommandCompletionListView));
     mCommandCompletionListView->setTextWidget(this);
     connect(mCommandCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);

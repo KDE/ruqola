@@ -30,16 +30,16 @@
 
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)
+    , mIconLabel(new QLabel(this))
+    , mUserNameLabel(new UserLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
-    mIconLabel = new QLabel(this);
     mIconLabel->setObjectName(QStringLiteral("mIconLabel"));
     mainLayout->addWidget(mIconLabel);
 
-    mUserNameLabel = new UserLabel(this);
     mUserNameLabel->setObjectName(QStringLiteral("mUserNameLabel"));
     mainLayout->addWidget(mUserNameLabel);
 }

@@ -70,8 +70,8 @@ private:
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
-    CompletionListView *mUserAndChannelCompletionListView = nullptr;
-    CompletionListView *mEmojiCompletionListView = nullptr;
-    CompletionListView *mCommandCompletionListView = nullptr;
+    CompletionListView *const mUserAndChannelCompletionListView;
+    CompletionListView *const mEmojiCompletionListView;
+    CompletionListView *const mCommandCompletionListView;
 };
 

@@ -32,6 +32,6 @@ public:
     void setMessage(const QString &str);
 
 private:
-    QLabel *mLabel = nullptr;
+    QLabel *const mLabel;
 };
 

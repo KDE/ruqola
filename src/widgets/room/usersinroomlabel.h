@@ -62,8 +62,8 @@ public:
 
 private:
     UsersInRoomLabel::UserInfo mInfo;
-    QLabel *mIconLabel = nullptr;
-    UserLabel *mUserNameLabel = nullptr;
+    QLabel *const mIconLabel;
+    UserLabel *const mUserNameLabel;
 };
 Q_DECLARE_METATYPE(UsersInRoomLabel::UserInfo)
 Q_DECLARE_TYPEINFO(UsersInRoomLabel::UserInfo, Q_MOVABLE_TYPE);
