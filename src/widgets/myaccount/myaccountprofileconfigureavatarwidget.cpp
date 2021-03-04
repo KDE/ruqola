@@ -31,10 +31,10 @@
 
 MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
     : QWidget(parent)
+    , mAvatarImage(new AvatarImage(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mAvatarImage = new AvatarImage(this);
     mAvatarImage->setObjectName(QStringLiteral("mAvatarImage"));
     mainLayout->addWidget(mAvatarImage, 0, Qt::AlignLeft);
 }

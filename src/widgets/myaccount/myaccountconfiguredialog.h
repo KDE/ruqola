@@ -36,6 +36,6 @@ private:
     void readConfig();
     void writeConfig();
     void slotAccept();
-    MyAccountConfigureWidget *mMyAccountConfigWidget = nullptr;
+    MyAccountConfigureWidget *const mMyAccountConfigWidget;
 };
 

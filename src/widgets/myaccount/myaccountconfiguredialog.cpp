@@ -33,12 +33,12 @@ const char myConfigGroupName[] = "RegisterUserDialog";
 
 MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     : QDialog(parent)
+    , mMyAccountConfigWidget(new MyAccountConfigureWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure my Account"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mMyAccountConfigWidget = new MyAccountConfigureWidget(this);
     mMyAccountConfigWidget->setObjectName(QStringLiteral("mMyAccountConfigWidget"));
     mainLayout->addWidget(mMyAccountConfigWidget);
 

@@ -48,6 +48,6 @@ public:
     ~MyAccountProfileConfigureAvatarWidget() override;
 
 private:
-    AvatarImage *mAvatarImage = nullptr;
+    AvatarImage *const mAvatarImage;
 };
 

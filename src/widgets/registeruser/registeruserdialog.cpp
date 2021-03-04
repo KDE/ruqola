@@ -34,12 +34,12 @@ const char myConfigGroupName[] = "RegisterUserDialog";
 
 RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     : QDialog(parent)
+    , mRegisterUserWidget(new RegisterUserWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Register User"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mRegisterUserWidget = new RegisterUserWidget(this);
     mRegisterUserWidget->setObjectName(QStringLiteral("mRegisterUserWidget"));
     mainLayout->addWidget(mRegisterUserWidget);
 

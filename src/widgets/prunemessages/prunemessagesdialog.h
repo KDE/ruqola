@@ -39,6 +39,6 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    PruneMessagesWidget *mPruneMessageWidget = nullptr;
+    PruneMessagesWidget *const mPruneMessageWidget;
 };
 

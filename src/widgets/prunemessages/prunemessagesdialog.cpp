@@ -35,12 +35,12 @@ const char myConfigGroupName[] = "PruneMessagesDialog";
 
 PruneMessagesDialog::PruneMessagesDialog(QWidget *parent)
     : QDialog(parent)
+    , mPruneMessageWidget(new PruneMessagesWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Prune Messages"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mPruneMessageWidget = new PruneMessagesWidget(this);
     mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
     mainLayout->addWidget(mPruneMessageWidget);
 

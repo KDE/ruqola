@@ -33,6 +33,6 @@ public:
     void save();
 
 private:
-    QCheckBox *mActivate2FAViaEmailCheckbox = nullptr;
+    QCheckBox *const mActivate2FAViaEmailCheckbox;
 };
 
