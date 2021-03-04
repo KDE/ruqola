@@ -20,15 +20,15 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersUpdateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UpdateInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateInfo {
         // TODO add enum ?
         QString mUserId;
         QString mEmail;
@@ -60,3 +60,4 @@ private:
     UpdateInfo mUpdateInfo;
 };
 }
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateJob::UpdateInfo &t);

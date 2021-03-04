@@ -101,10 +101,50 @@ QNetworkRequest UsersUpdateJob::request() const
     return request;
 }
 
+#if 0
+QJsonDocument UsersSetPreferencesJob::json() const
+{
+    QJsonObject jsonObj;
+    QJsonObject dataObj;
+    jsonObj[QLatin1String("userId")] = mUsersSetPreferencesInfo.userId;
+    if (!mUsersSetPreferencesInfo.newRoomNotification.isEmpty()) {
+        dataObj[QLatin1String("newRoomNotification")] = mUsersSetPreferencesInfo.newRoomNotification;
+    }
+    if (!mUsersSetPreferencesInfo.newMessageNotification.isEmpty()) {
+        dataObj[QLatin1String("newMessageNotification")] = mUsersSetPreferencesInfo.newMessageNotification;
+    }
+    if (!mUsersSetPreferencesInfo.desktopNotifications.isEmpty()) {
+        dataObj[QLatin1String("desktopNotifications")] = mUsersSetPreferencesInfo.desktopNotifications;
+    }
+    if (!mUsersSetPreferencesInfo.mobileNotifications.isEmpty()) {
+        dataObj[QLatin1String("mobileNotifications")] = mUsersSetPreferencesInfo.mobileNotifications;
+    }
+    if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
+        dataObj[QLatin1String("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
+    }
+
+    dataObj[QLatin1String("useEmojis")] = mUsersSetPreferencesInfo.useEmoji;
+    dataObj[QLatin1String("convertAsciiEmoji")] = mUsersSetPreferencesInfo.convertAsciiToEmoji;
+    dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
+    dataObj[QLatin1String("hideRoles")] = mUsersSetPreferencesInfo.hideRoles;
+    dataObj[QLatin1String("hideAvatars")] = mUsersSetPreferencesInfo.hideAvatars;
+    jsonObj[QLatin1String("data")] = dataObj;
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
+}
+
+#endif
+
 QJsonDocument UsersUpdateJob::json() const
 {
     QJsonObject jsonObj;
+    QJsonObject dataObj;
+    dataObj[QLatin1String("email")] = mUpdateInfo.mEmail;
+    dataObj[QLatin1String("name")] = mUpdateInfo.mName;
+    dataObj[QLatin1String("password")] = mUpdateInfo.mPassword;
+    dataObj[QLatin1String("username")] = mUpdateInfo.mUserName;
 
+    jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
@@ -112,4 +152,14 @@ QJsonDocument UsersUpdateJob::json() const
 bool UsersUpdateJob::UpdateInfo::isValid() const
 {
     return !mUserId.isEmpty();
+}
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateJob::UpdateInfo &t)
+{
+    d << "userId : " << t.mUserId;
+    d << "mEmail : " << t.mEmail;
+    d << "mName : " << t.mName;
+    d << "mPassword : " << t.mPassword;
+    d << "mUserName : " << t.mUserName;
+    return d;
 }
