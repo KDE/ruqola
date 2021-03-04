@@ -30,20 +30,20 @@
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
+    , mStackedWidget(new QStackedWidget(this))
+    , mRuqolaMainWidget(new RuqolaMainWidget(this))
+    , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
-    mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
 
-    mRuqolaMainWidget = new RuqolaMainWidget(this);
     mRuqolaMainWidget->setObjectName(QStringLiteral("mRuqolaMainWidget"));
     mStackedWidget->addWidget(mRuqolaMainWidget);
 
-    mRuqolaLoginWidget = new RuqolaLoginWidget(this);
     mRuqolaLoginWidget->setObjectName(QStringLiteral("mRuqolaLoginWidget"));
     mStackedWidget->addWidget(mRuqolaLoginWidget);
 

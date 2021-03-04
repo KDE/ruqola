@@ -47,11 +47,11 @@ Q_SIGNALS:
 private:
     void showEvent(QShowEvent *event) override;
 
-    ChannelListWidget *mChannelList = nullptr;
-    RoomWidget *mRoomWidget = nullptr;
-    QSplitter *mSplitter = nullptr;
+    QSplitter *const mSplitter;
+    ChannelListWidget *const mChannelList;
+    QStackedWidget *const mStackedRoomWidget;
+    RoomWidget *const mRoomWidget;
+    QWidget *const mEmptyRoomWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
-    QStackedWidget *mStackedRoomWidget = nullptr;
-    QWidget *mEmptyRoomWidget = nullptr;
 };
 

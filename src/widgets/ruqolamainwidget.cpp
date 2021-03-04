@@ -43,26 +43,27 @@ static const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
 
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     : QWidget(parent)
+    , mSplitter(new QSplitter(this))
+    , mChannelList(new ChannelListWidget(this))
+    , mStackedRoomWidget(new QStackedWidget(this))
+    , mRoomWidget(new RoomWidget(this))
+    , mEmptyRoomWidget(new QWidget(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
-    mSplitter = new QSplitter(this);
     mSplitter->setObjectName(QStringLiteral("mSplitter"));
     mSplitter->setChildrenCollapsible(false);
     mainLayout->addWidget(mSplitter);
 
-    mChannelList = new ChannelListWidget(this);
     mChannelList->setObjectName(QStringLiteral("mChannelList"));
     mChannelList->setLayoutSpacing(mSplitter->handleWidth());
     mSplitter->addWidget(mChannelList);
 
-    mStackedRoomWidget = new QStackedWidget(this);
     mStackedRoomWidget->setObjectName(QStringLiteral("mStackedRoomWidget"));
     mSplitter->addWidget(mStackedRoomWidget);
 
-    mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
     mRoomWidget->setLayoutSpacing(mSplitter->handleWidth());
     mStackedRoomWidget->addWidget(mRoomWidget);
@@ -70,7 +71,6 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
         mChannelList->channelListView()->selectChannelRequested(channelId);
     });
 
-    mEmptyRoomWidget = new QWidget(this);
     mEmptyRoomWidget->setObjectName(QStringLiteral("mEmptyRoomWidget"));
     mStackedRoomWidget->addWidget(mEmptyRoomWidget);
 

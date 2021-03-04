@@ -50,9 +50,9 @@ private:
     void slotJobFailedInfo(const QString &messageError);
     void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
 
-    QStackedWidget *mStackedWidget = nullptr;
-    RuqolaMainWidget *mRuqolaMainWidget = nullptr;
-    RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;
+    QStackedWidget *const mStackedWidget;
+    RuqolaMainWidget *const mRuqolaMainWidget;
+    RuqolaLoginWidget *const mRuqolaLoginWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
