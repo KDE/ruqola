@@ -21,6 +21,7 @@
 #include "usersupdatejobtest.h"
 #include "ruqola_restapi_helper.h"
 #include "users/usersupdatejob.h"
+#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(UsersUpdateJobTest)
 using namespace RocketChatRestApi;
@@ -50,22 +51,27 @@ void UsersUpdateJobTest::shouldGenerateJson()
 {
     UsersUpdateJob job;
     UsersUpdateJob::UpdateInfo info;
-    //    const QString desktopNotifications = QStringLiteral("Bla");
-    //    info.desktopNotifications = desktopNotifications;
-    //    job.setUsersSetPreferencesInfo(info);
-    //    QVERIFY(!job.canStart());
 
-    //    const QString userId = QStringLiteral("foo");
-    //    info.userId = userId;
-    //    job.setUsersSetPreferencesInfo(info);
-    //    QCOMPARE(
-    //        job.json().toJson(QJsonDocument::Compact),
-    //        QStringLiteral(
-    //            R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
-    //            .arg(userId, desktopNotifications)
-    //            .toLatin1());
+    QString mUserId = QStringLiteral("foo");
 
-    // TODO
+    const QString mEmail = QStringLiteral("bla@kde.org");
+    const QString mName = QStringLiteral("name_bla");
+    const QString mUserName = QStringLiteral("username_bla");
+    const QString mPassword = QStringLiteral("password_bla");
+
+    job.setUpdateInfo(info);
+    // QVERIFY(!job.canStart());
+    info.mUserId = mUserId;
+    job.setUpdateInfo(info);
+    // QVERIFY(job.canStart());
+
+    info.mEmail = mEmail;
+    info.mName = mName;
+    info.mUserName = mUserName;
+    info.mPassword = mPassword;
+    job.setUpdateInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"data":{"email":"%1","name":"%2","password":"%4","username":"%3"}})").arg(mEmail, mName, mUserName, mPassword).toLatin1());
 }
 
 void UsersUpdateJobTest::shouldNotStarting()
