@@ -27,16 +27,16 @@
 
 PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     : QWidget(parent)
+    , mPasswordLineEdit(new KPasswordLineEdit(this))
+    , mResetPasswordButton(new QPushButton(i18n("Reset Password"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addWidget(mPasswordLineEdit);
 
-    mResetPasswordButton = new QPushButton(i18n("Reset Password"), this);
     mResetPasswordButton->setObjectName(QStringLiteral("mResetPasswordButton"));
     mainLayout->addWidget(mPasswordLineEdit);
     mainLayout->addWidget(mResetPasswordButton);

@@ -26,16 +26,16 @@
 
 PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)
+    , mNewPasswordLineEdit(new KPasswordLineEdit(this))
+    , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mNewPasswordLineEdit = new KPasswordLineEdit(this);
     mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
     mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
 
-    mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
 }

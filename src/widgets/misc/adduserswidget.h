@@ -47,8 +47,8 @@ Q_SIGNALS:
 private:
     void slotRemoveUser(const QString &username);
     void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
-    AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
-    FlowLayout *mFlowLayout = nullptr;
+    AddUsersCompletionLineEdit *const mSearchUserLineEdit;
+    FlowLayout *const mFlowLayout;
     QMap<QString, ClickableUserWidget *> mMap;
 };
 

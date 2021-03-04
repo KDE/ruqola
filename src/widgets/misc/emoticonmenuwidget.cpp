@@ -37,18 +37,18 @@
 
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchLineEdit(new QLineEdit(this))
+    , mTabWidget(new QTabWidget(this))
 {
     auto layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
 
-    mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
     mSearchLineEdit->setPlaceholderText(i18n("Search"));
     layout->addWidget(mSearchLineEdit);
 
-    mTabWidget = new QTabWidget(this);
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     layout->addWidget(mTabWidget);
     QFont f = mTabWidget->font();

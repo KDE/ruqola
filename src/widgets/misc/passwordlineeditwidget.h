@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     void slotResetPasswordButton();
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    QPushButton *mResetPasswordButton = nullptr;
+    KPasswordLineEdit *const mPasswordLineEdit;
+    QPushButton *const mResetPasswordButton;
 };
 

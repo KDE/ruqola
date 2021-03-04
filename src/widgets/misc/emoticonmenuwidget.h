@@ -44,8 +44,8 @@ private:
     void slotInsertEmoticons(const QString &identifier);
     void initializeTab(RocketChatAccount *account);
 
-    QLineEdit *mSearchLineEdit = nullptr;
-    QTabWidget *mTabWidget = nullptr;
+    QLineEdit *const mSearchLineEdit;
+    QTabWidget *const mTabWidget;
     EmoticonRecentUsedFilterProxyModel *mRecentUsedFilterProxyModel = nullptr;
     RecentUsedEmoticonView *mRecentUsedEmoticonView = nullptr;
 };

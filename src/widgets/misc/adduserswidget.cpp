@@ -25,17 +25,17 @@
 
 AddUsersWidget::AddUsersWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchUserLineEdit(new AddUsersCompletionLineEdit(this))
+    , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchUserLineEdit = new AddUsersCompletionLineEdit(this);
     mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
     connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::newUserName, this, &AddUsersWidget::slotAddNewName);
     mainLayout->addWidget(mSearchUserLineEdit);
 
-    mFlowLayout = new FlowLayout;
     mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
     mainLayout->addLayout(mFlowLayout);
 }

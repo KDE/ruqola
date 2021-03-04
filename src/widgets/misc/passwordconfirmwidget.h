@@ -33,7 +33,7 @@ public:
     Q_REQUIRED_RESULT QString password() const;
 
 private:
-    KPasswordLineEdit *mNewPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
+    KPasswordLineEdit *const mNewPasswordLineEdit;
+    KPasswordLineEdit *const mConfirmPasswordLineEdit;
 };
 

@@ -58,7 +58,7 @@ private:
     void slotRemoveUser();
     QString mUserName;
     QString mUserId;
-    QLabel *mUserLabel = nullptr;
-    ClickableLabel *mClickableLabel = nullptr;
+    QLabel *const mUserLabel;
+    ClickableLabel *const mClickableLabel;
 };
 

@@ -25,16 +25,16 @@
 ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *parent)
     : QWidget(parent)
     , mUserName(userName)
+    , mUserLabel(new QLabel(mUserName, this))
+    , mClickableLabel(new ClickableLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mUserLabel = new QLabel(mUserName, this);
     mUserLabel->setObjectName(QStringLiteral("mUserLabel"));
     mainLayout->addWidget(mUserLabel);
 
-    mClickableLabel = new ClickableLabel(this);
     mClickableLabel->setObjectName(QStringLiteral("mClickableLabel"));
     mainLayout->addWidget(mClickableLabel);
     connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableUserWidget::slotRemoveUser);
