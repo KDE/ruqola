@@ -49,6 +49,22 @@ void UsersUpdateJobTest::shouldGenerateRequest()
 void UsersUpdateJobTest::shouldGenerateJson()
 {
     UsersUpdateJob job;
+    UsersUpdateJob::UpdateInfo info;
+    //    const QString desktopNotifications = QStringLiteral("Bla");
+    //    info.desktopNotifications = desktopNotifications;
+    //    job.setUsersSetPreferencesInfo(info);
+    //    QVERIFY(!job.canStart());
+
+    //    const QString userId = QStringLiteral("foo");
+    //    info.userId = userId;
+    //    job.setUsersSetPreferencesInfo(info);
+    //    QCOMPARE(
+    //        job.json().toJson(QJsonDocument::Compact),
+    //        QStringLiteral(
+    //            R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
+    //            .arg(userId, desktopNotifications)
+    //            .toLatin1());
+
     // TODO
 }
 
