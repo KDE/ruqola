@@ -20,12 +20,22 @@
 
 #pragma once
 
+#include <QColor>
 #include <QListView>
-
 class SearchChannelListView : public QListView
 {
     Q_OBJECT
 public:
     explicit SearchChannelListView(QWidget *parent = nullptr);
     ~SearchChannelListView() override;
+
+    void setSearchChannel(bool search);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
+private:
+    void generalPaletteChanged();
+    QColor mTextColor;
+    bool mSearchChannel = false;
 };

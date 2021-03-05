@@ -68,6 +68,7 @@ SearchChannelWidget::~SearchChannelWidget()
 void SearchChannelWidget::slotTextChanged(const QString &str)
 {
     Ruqola::self()->rocketChatAccount()->channelAndPrivateAutocomplete(str);
+    mResultListWidget->setSearchChannel(!str.isEmpty());
 }
 
 void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
