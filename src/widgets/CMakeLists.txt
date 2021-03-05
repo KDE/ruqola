@@ -82,6 +82,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/createdirectmessagesdialog.cpp
     dialogs/createdirectmessageswidget.cpp
     dialogs/channelinfoprunewidget.cpp
+    dialogs/searchchannellistview.cpp
     )
 
 set(Ruqola_configure_SRCS

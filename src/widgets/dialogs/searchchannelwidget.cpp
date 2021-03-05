@@ -27,6 +27,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "searchchannel/searchchanneldelegate.h"
+#include "searchchannellistview.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -35,7 +36,7 @@
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new SearchWithDelayLineEdit(this))
-    , mResultListWidget(new QListView(this))
+    , mResultListWidget(new SearchChannelListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

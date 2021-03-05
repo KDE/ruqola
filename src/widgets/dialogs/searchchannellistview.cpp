@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,23 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
+#include "searchchannellistview.h"
 
-#include "libruqolawidgets_private_export.h"
-#include <QWidget>
-class SearchWithDelayLineEdit;
-class SearchChannelListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
+SearchChannelListView::SearchChannelListView(QWidget *parent)
+    : QListView(parent)
 {
-    Q_OBJECT
-public:
-    explicit SearchChannelWidget(QWidget *parent = nullptr);
-    ~SearchChannelWidget() override;
+}
 
-private:
-    void slotOpenChannel(const QModelIndex &index);
-    void slotTextChanged(const QString &str);
-    SearchWithDelayLineEdit *const mSearchLineEdit;
-    SearchChannelListView *const mResultListWidget;
-};
-
+SearchChannelListView::~SearchChannelListView()
+{
+}
