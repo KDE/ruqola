@@ -34,6 +34,7 @@ public:
 private:
     void slotOpenChannel(const QModelIndex &index);
     void slotTextChanged(const QString &str);
+    void slotSearchCleared();
     SearchWithDelayLineEdit *const mSearchLineEdit;
     SearchChannelListView *const mResultListWidget;
 };

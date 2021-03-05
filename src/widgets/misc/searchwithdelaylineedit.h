@@ -33,6 +33,7 @@ public:
 
 Q_SIGNALS:
     void searchRequired(const QString &str);
+    void searchCleared();
 
 private:
     void slotSearchTimerFired();

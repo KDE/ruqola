@@ -50,6 +50,7 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
         slotTextChanged(mSearchLineEdit->text());
     });
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchChannelWidget::slotTextChanged);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchChannelWidget::slotSearchCleared);
     mainLayout->addWidget(mSearchLineEdit);
 
     mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchChannelFilterProxyModel());
@@ -63,6 +64,12 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
 
 SearchChannelWidget::~SearchChannelWidget()
 {
+}
+
+void SearchChannelWidget::slotSearchCleared()
+{
+    Ruqola::self()->rocketChatAccount()->searchChannelModel()->clear();
+    mResultListWidget->setSearchChannel(false);
 }
 
 void SearchChannelWidget::slotTextChanged(const QString &str)
