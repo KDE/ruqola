@@ -28,6 +28,7 @@
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createnewchanneldialog.h"
+#include "dialogs/createnewdiscussiondialog.h"
 #include "dialogs/createnewserverdialog.h"
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/searchchanneldialog.h"
@@ -273,6 +274,11 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
     ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
 
+    mDiscussion = new QAction(i18n("Create Discussion..."), this);
+    mDiscussion->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    connect(mDiscussion, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDiscussion);
+    ac->addAction(QStringLiteral("create_discussion"), mDiscussion);
+
     mServerMenu = new ServerMenu(this);
     mServerMenu->setActionCollection(ac);
     ac->addAction(QStringLiteral("server_menu"), mServerMenu);
@@ -328,6 +334,17 @@ void RuqolaMainWindow::slotClearAccountAlerts()
     if (auto acct = Ruqola::self()->accountManager()->account()) {
         acct->clearAllUnreadMessages();
     }
+}
+
+void RuqolaMainWindow::slotCreateDiscussion()
+{
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    if (dlg->exec()) {
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        // TODO
+        // mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateDirectMessages()

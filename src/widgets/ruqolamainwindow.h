@@ -78,6 +78,7 @@ private:
     void slotStatusChanged();
     void createSystemTray();
     void slotUpdateCustomUserStatus();
+    void slotCreateDiscussion();
     bool mReallyClose{false};
 
     RuqolaCentralWidget *const mMainWidget;
@@ -92,6 +93,7 @@ private:
     QAction *mRegisterNewUser = nullptr;
     QAction *mMyAccount = nullptr;
     QAction *mAdministrator = nullptr;
+    QAction *mDiscussion = nullptr;
     QWidgetAction *mStatus = nullptr;
     ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
