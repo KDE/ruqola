@@ -482,7 +482,6 @@ private:
     void slotSplotLightDone(const QJsonObject &obj);
     void slotChannelListDone(const QJsonObject &obj);
     void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
-    void slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
