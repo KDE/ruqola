@@ -20,6 +20,7 @@
 
 #include "rocketchataccount.h"
 #include "authenticationmanager.h"
+#include "config-ruqola.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
@@ -76,6 +77,14 @@
 #include <KNotification>
 #include <QDesktopServices>
 #include <QTimer>
+
+#if HAVE_NETWORKMANAGER
+#include <NetworkManagerQt/Manager>
+#endif
+
+#if HAVE_SOLID
+#include <Solid/Power>
+#endif
 
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
@@ -200,6 +209,21 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     connect(this, &RocketChatAccount::customUserStatusChanged, this, &RocketChatAccount::slotUpdateCustomUserStatus);
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
+
+#if HAVE_SOLID
+    connect(Solid::Power::self(), &Solid::Power::resumeFromSuspend, this, &RocketChatAccount::slotReconnectToServer);
+#endif
+
+#if HAVE_NETWORKMANAGER
+    connect(NetworkManager::notifier(), &NetworkManager::Notifier::primaryConnectionChanged, this, [=](const QString &uni) {
+        // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
+        // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
+        if (uni != QLatin1String("/") && mDdp) {
+            logOut();
+            slotReconnectToServer();
+        }
+    });
+#endif
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -522,7 +546,7 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
         connect(mDdp, &DDPClient::socketError, this, &RocketChatAccount::socketError);
-        connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotDisconnectedByServer);
+        connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToServer);
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
@@ -562,7 +586,13 @@ void RocketChatAccount::logOut()
 {
     mSettings->logout();
     mRoomModel->clear();
-    mDdp->authenticationManager()->logout();
+    if (mDdp) {
+        mDdp->authenticationManager()->logout();
+        delete mDdp;
+        mDdp = nullptr;
+    }
+    delete mRestApi;
+    mRestApi = nullptr;
 }
 
 void RocketChatAccount::clearAllUnreadMessages()
@@ -2158,7 +2188,7 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
     }
 }
 
-void RocketChatAccount::slotDisconnectedByServer()
+void RocketChatAccount::slotReconnectToServer()
 {
     // This happens when we didn't react to pings for a while
     // (e.g. while stopped in gdb, or if network went down for a bit)
@@ -2166,10 +2196,6 @@ void RocketChatAccount::slotDisconnectedByServer()
     // TODO: delay this more and more like RC+ ?
     QTimer::singleShot(mDelayReconnect, this, [this]() {
         qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
-        // Do the parts of logOut() that don't actually try talking to the server
-        mRoomModel->clear();
-        delete mDdp;
-        mDdp = nullptr;
         mDelayReconnect += 1000;
         tryLogin();
     });

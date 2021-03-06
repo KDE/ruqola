@@ -41,6 +41,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
+include(CheckIncludeFileCXX)
 if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
     include(KDEGitCommitHooks)
 endif()
@@ -119,6 +120,26 @@ set_package_properties(Qt5Keychain PROPERTIES
 find_package(KUserFeedback 1.0.0 CONFIG)
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
 set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional). It can be disable in apps.")
+
+find_package(KF5Solid ${KF5_MIN_VERSION})
+if (KF5Solid_FOUND)
+# SolidPower is not built by default, and the only way to find is to
+# check for the header and that it builds
+    get_target_property(SOLID_INCLUDE_DIRS KF5::Solid INTERFACE_INCLUDE_DIRECTORIES)
+    find_file(SOLID_POWER_FOUND Solid/Power PATHS ${SOLID_INCLUDE_DIRS} NO_DEFAULT_PATH)
+    if (SOLID_POWER_FOUND)
+        message(STATUS "Found Solid Power header at ${SOLID_POWER_FOUND}")
+        set(HAVE_SOLID 1)
+    else()
+        message(WARNING "Solid Power header was not found, suspend/resume detection is disabled")
+    endif()
+endif()
+set_package_properties(KF5Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
+
+find_package(KF5NetworkManagerQt ${KF5_MIN_VERSION} CONFIG)
+set(HAVE_NETWORKMANAGER ${KF5NetworkManagerQt_FOUND})
+set_package_properties(KF5NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
+
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)

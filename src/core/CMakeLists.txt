@@ -251,6 +251,14 @@ endif()
 
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
+if (HAVE_SOLID)
+  set(Solid KF5::Solid)
+endif()
+
+if (HAVE_NETWORKMANAGER)
+  set(NetworkManager KF5::NetworkManagerQt)
+endif()
+
 target_link_libraries(libruqolacore
     Qt5::Core
     Qt5::Gui
@@ -264,6 +272,8 @@ target_link_libraries(libruqolacore
     librocketchatrestapi-qt5
     KF5::ConfigGui
     KF5::ConfigWidgets
+    ${Solid}
+    ${NetworkManager}
 )
 
 
