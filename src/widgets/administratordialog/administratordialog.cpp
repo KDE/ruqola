@@ -34,12 +34,12 @@ const char myAdministratorDialogGroupName[] = "AdministratorDialog";
 
 AdministratorDialog::AdministratorDialog(QWidget *parent)
     : QDialog(parent)
+    , mAdministratorWidget(new AdministratorWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Administrator"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mAdministratorWidget = new AdministratorWidget(this);
     mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
     mAdministratorWidget->updateUiFromPermission();
     mainLayout->addWidget(mAdministratorWidget);

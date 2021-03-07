@@ -39,11 +39,14 @@
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchLineEdit(new QLineEdit(this))
+    , mSelectRoomType(new AdministratorRoomsSelectRoomTypeWidget(this))
+    , mResultTreeWidget(new QTableView(this))
+    , mAdminRoomsModel(new AdminRoomsModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search channel..."));
     mSearchLineEdit->setClearButtonEnabled(true);
@@ -51,12 +54,10 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorRoomsWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
 
-    mSelectRoomType = new AdministratorRoomsSelectRoomTypeWidget(this);
     mSelectRoomType->setObjectName(QStringLiteral("mSelectRoomType"));
     mainLayout->addWidget(mSelectRoomType);
     connect(mSelectRoomType, &AdministratorRoomsSelectRoomTypeWidget::filterChanged, this, &AdministratorRoomsWidget::slotFilterChanged);
 
-    mResultTreeWidget = new QTableView(this);
     mResultTreeWidget->setShowGrid(false);
     mResultTreeWidget->setSortingEnabled(true);
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
@@ -67,7 +68,6 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     connect(mResultTreeWidget, &QTableView::customContextMenuRequested, this, &AdministratorRoomsWidget::slotCustomContextMenuRequested);
     mainLayout->addWidget(mResultTreeWidget);
 
-    mAdminRoomsModel = new AdminRoomsModel(this);
     mAdminRoomsModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
 
     mAdminRoomsProxyModel = new AdminRoomsFilterProxyModel(mAdminRoomsModel, this);

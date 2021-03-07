@@ -45,10 +45,10 @@ private:
     void slotAddRoom();
     void slotModifyRoom(const QModelIndex &index);
     void slotRemoveRoom(const QModelIndex &index);
-    QLineEdit *mSearchLineEdit = nullptr;
-    QTableView *mResultTreeWidget = nullptr;
-    AdminRoomsModel *mAdminRoomsModel = nullptr;
+    QLineEdit *const mSearchLineEdit;
+    AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
+    QTableView *const mResultTreeWidget;
+    AdminRoomsModel *const mAdminRoomsModel;
     AdminRoomsFilterProxyModel *mAdminRoomsProxyModel = nullptr;
-    AdministratorRoomsSelectRoomTypeWidget *mSelectRoomType = nullptr;
 };
 

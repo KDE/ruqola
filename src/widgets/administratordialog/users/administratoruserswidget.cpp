@@ -38,6 +38,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new QLineEdit(this))
     , mResultTreeWidget(new QTableView(this))
+    , mAdminUsersModel(new AdminUsersModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -60,7 +61,6 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
 
     mainLayout->addWidget(mResultTreeWidget);
 
-    mAdminUsersModel = new AdminUsersModel(this);
     mAdminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
     mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mAdminUsersModel, this);

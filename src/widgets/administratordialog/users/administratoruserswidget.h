@@ -44,7 +44,7 @@ private:
     void slotRemoveUser(const QModelIndex &index);
     QLineEdit *const mSearchLineEdit;
     QTableView *const mResultTreeWidget;
-    AdminUsersModel *mAdminUsersModel = nullptr;
+    AdminUsersModel *const mAdminUsersModel;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
 
