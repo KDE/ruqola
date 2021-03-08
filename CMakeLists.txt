@@ -121,7 +121,7 @@ find_package(KUserFeedback 1.0.0 CONFIG)
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
 set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional). It can be disable in apps.")
 
-find_package(KF5Solid ${KF5_MIN_VERSION})
+find_package(KF5Solid ${KF5_MIN_VERSION} CONFIG)
 if (KF5Solid_FOUND)
 # SolidPower is not built by default, and the only way to find is to
 # check for the header and that it builds
