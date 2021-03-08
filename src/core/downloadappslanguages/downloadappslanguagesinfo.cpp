@@ -20,6 +20,7 @@
 
 #include "downloadappslanguagesinfo.h"
 
+#include <QVariant>
 
 DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
 {
