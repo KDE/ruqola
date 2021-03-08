@@ -212,6 +212,7 @@ void RuqolaMainWindow::updateActions()
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
     mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->registrationFromEnabled());
     mAdministrator->setEnabled(mCurrentRocketChatAccount->isAdministrator());
+    mDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -462,6 +463,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
     mStatus->setEnabled(!loginPageActivated);
+    mDiscussion->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
