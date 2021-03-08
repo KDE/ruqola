@@ -44,10 +44,10 @@ private:
     void slotChangeAttachmentType(int index);
     void updateLabel();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    QLineEdit *mSearchAttachmentFileLineEdit = nullptr;
-    QLabel *mInfo = nullptr;
-    QListView *mListAttachment = nullptr;
+    QLineEdit *const mSearchAttachmentFileLineEdit;
+    ShowAttachmentComboBox *const mAttachmentCombobox;
+    QLabel *const mInfo;
+    QListView *const mListAttachment;
     FilesForRoomFilterProxyModel *mModel = nullptr;
-    ShowAttachmentComboBox *mAttachmentCombobox = nullptr;
 };
 

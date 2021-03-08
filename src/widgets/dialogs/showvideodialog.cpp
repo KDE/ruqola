@@ -33,12 +33,12 @@ static const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
 
 ShowVideoDialog::ShowVideoDialog(QWidget *parent)
     : QDialog(parent)
+    , mShowVideoWidget(new ShowVideoWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Video"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mShowVideoWidget = new ShowVideoWidget(this);
     mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
     mainLayout->addWidget(mShowVideoWidget);
 

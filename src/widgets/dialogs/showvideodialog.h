@@ -34,6 +34,6 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    ShowVideoWidget *mShowVideoWidget = nullptr;
+    ShowVideoWidget *const mShowVideoWidget;
 };
 

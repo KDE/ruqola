@@ -50,9 +50,9 @@ private:
     void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    QLineEdit *mSearchMessageLineEdit = nullptr;
-    MessageListView *mMessageListView = nullptr;
-    QLabel *mMessageListInfo = nullptr;
+    QLineEdit *const mSearchMessageLineEdit;
+    QLabel *const mMessageListInfo;
+    MessageListView *const mMessageListView;
     ListMessagesModelFilterProxyModel *mModel = nullptr;
 };
 

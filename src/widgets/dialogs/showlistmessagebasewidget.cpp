@@ -30,12 +30,14 @@
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchMessageLineEdit(new QLineEdit(this))
+    , mMessageListInfo(new QLabel(this))
+    , mMessageListView(new MessageListView(MessageListView::Mode::Viewing, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchMessageLineEdit = new QLineEdit(this);
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchMessageLineEdit, this);
@@ -43,7 +45,6 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     connect(mSearchMessageLineEdit, &QLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);
 
-    mMessageListInfo = new QLabel(this);
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);
     mMessageListInfo->setContextMenuPolicy(Qt::NoContextMenu);
@@ -53,7 +54,6 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     connect(mMessageListInfo, &QLabel::linkActivated, this, &ShowListMessageBaseWidget::loadMoreElements);
     mainLayout->addWidget(mMessageListInfo);
 
-    mMessageListView = new MessageListView(MessageListView::Mode::Viewing, this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
 
     mainLayout->addWidget(mMessageListView);

@@ -31,6 +31,10 @@
 
 ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchAttachmentFileLineEdit(new QLineEdit(this))
+    , mAttachmentCombobox(new ShowAttachmentComboBox(this))
+    , mInfo(new QLabel(this))
+    , mListAttachment(new QListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,7 +45,6 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     searchAttachmentLayout->setContentsMargins({});
     mainLayout->addLayout(searchAttachmentLayout);
 
-    mSearchAttachmentFileLineEdit = new QLineEdit(this);
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchAttachmentFileLineEdit, this);
@@ -49,12 +52,10 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
     searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);
 
-    mAttachmentCombobox = new ShowAttachmentComboBox(this);
     mAttachmentCombobox->setObjectName(QStringLiteral("mAttachmentCombobox"));
     searchAttachmentLayout->addWidget(mAttachmentCombobox);
     connect(mAttachmentCombobox, qOverload<int>(&ShowAttachmentComboBox::currentIndexChanged), this, &ShowAttachmentWidget::slotChangeAttachmentType);
 
-    mInfo = new QLabel(this);
     mInfo->setObjectName(QStringLiteral("mInfo"));
     mInfo->setTextFormat(Qt::RichText);
     mInfo->setContextMenuPolicy(Qt::NoContextMenu);
@@ -64,7 +65,6 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mInfo->setFont(labFont);
     connect(mInfo, &QLabel::linkActivated, this, &ShowAttachmentWidget::loadMoreFileAttachment);
 
-    mListAttachment = new QListView(this);
     mListAttachment->setObjectName(QStringLiteral("mListAttachment"));
     mainLayout->addWidget(mListAttachment);
     auto delegate = new ListAttachmentDelegate(this);
