@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -17,18 +17,16 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#pragma once
 
-#include "createnewchannelwidgettest.h"
-#include "dialogs/createnewchannelwidget.h"
-#include <QTest>
-QTEST_MAIN(CreateNewChannelWidgetTest)
-CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#include <QObject>
 
-void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
+class ChannelNameValidLineEditTest : public QObject
 {
-    CreateNewChannelWidget w;
-    // TODO
-}
+    Q_OBJECT
+public:
+    explicit ChannelNameValidLineEditTest(QObject *parent = nullptr);
+    ~ChannelNameValidLineEditTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+};

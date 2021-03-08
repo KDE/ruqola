@@ -19,6 +19,7 @@
 */
 
 #include "createnewchannelwidget.h"
+#include "channelnamevalidlineedit.h"
 #include "misc/adduserswidget.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -33,7 +34,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
 
-    mChannelName = new QLineEdit(this);
+    mChannelName = new ChannelNameValidLineEdit(this);
     mChannelName->setObjectName(QStringLiteral("mChannelName"));
     mMainLayout->addRow(i18n("Name:"), mChannelName);
 

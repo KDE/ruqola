@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,17 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "createnewchannelwidgettest.h"
-#include "dialogs/createnewchannelwidget.h"
-#include <QTest>
-QTEST_MAIN(CreateNewChannelWidgetTest)
-CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#pragma once
 
-void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
+#include "libruqolawidgets_private_export.h"
+#include <QLineEdit>
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public QLineEdit
 {
-    CreateNewChannelWidget w;
-    // TODO
-}
+    Q_OBJECT
+public:
+    explicit ChannelNameValidLineEdit(QWidget *parent = nullptr);
+    ~ChannelNameValidLineEdit() override;
+Q_SIGNALS:
+    void channelIsValid(bool valid);
+};

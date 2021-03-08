@@ -28,5 +28,7 @@ class CreateNewChannelWidgetTest : public QObject
 public:
     explicit CreateNewChannelWidgetTest(QObject *parent = nullptr);
     ~CreateNewChannelWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
