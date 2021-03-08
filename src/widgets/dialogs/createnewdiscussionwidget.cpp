@@ -19,6 +19,7 @@
 */
 
 #include "createnewdiscussionwidget.h"
+#include "channelsearchnamelineedit.h"
 #include "misc/adduserswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
@@ -29,7 +30,7 @@
 
 CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     : QWidget(parent)
-    , mChannelNameLineEdit(new QLineEdit(this))
+    , mChannelNameLineEdit(new ChannelSearchNameLineEdit(this))
     , mDiscussionNameLineEdit(new QLineEdit(this))
     , mUsers(new AddUsersWidget(this))
     , mMessageTextEdit(new KTextEdit(this))

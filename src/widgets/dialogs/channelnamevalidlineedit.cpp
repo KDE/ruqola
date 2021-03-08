@@ -23,6 +23,7 @@
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
+    setClearButtonEnabled(true);
 }
 
 ChannelNameValidLineEdit::~ChannelNameValidLineEdit()

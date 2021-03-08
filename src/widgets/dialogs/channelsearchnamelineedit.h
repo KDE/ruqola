@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -20,38 +20,13 @@
 
 #pragma once
 
-#include <QWidget>
-
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class ChannelSearchNameLineEdit;
-class KTextEdit;
-class AddUsersWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionWidget : public QWidget
+#include <QLineEdit>
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit CreateNewDiscussionWidget(QWidget *parent = nullptr);
-    ~CreateNewDiscussionWidget() override;
-
-    void setChannelName(const QString &name);
-    Q_REQUIRED_RESULT QString channelName() const;
-
-    void setDiscussionName(const QString &name);
-    Q_REQUIRED_RESULT QString discussionName() const;
-
-    void setMessage(const QString &name);
-    Q_REQUIRED_RESULT QString message() const;
-
-    Q_REQUIRED_RESULT QStringList usersId() const;
-
-Q_SIGNALS:
-    void updateOkButton(bool state);
-
-private:
-    ChannelSearchNameLineEdit *const mChannelNameLineEdit;
-    QLineEdit *const mDiscussionNameLineEdit;
-    AddUsersWidget *const mUsers;
-    KTextEdit *const mMessageTextEdit;
+    explicit ChannelSearchNameLineEdit(QWidget *parent = nullptr);
+    ~ChannelSearchNameLineEdit() override;
 };
-

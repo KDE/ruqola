@@ -19,6 +19,7 @@
 */
 
 #include "createnewdiscussionwidgettest.h"
+#include "dialogs/channelsearchnamelineedit.h"
 #include "dialogs/createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"
 #include <KTextEdit>
@@ -45,7 +46,7 @@ void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
     QVERIFY(channelLabel);
     QVERIFY(!channelLabel->text().isEmpty());
 
-    auto mChannelNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mChannelNameLineEdit"));
+    auto mChannelNameLineEdit = w.findChild<ChannelSearchNameLineEdit *>(QStringLiteral("mChannelNameLineEdit"));
     QVERIFY(mChannelNameLineEdit);
     QVERIFY(mChannelNameLineEdit->text().isEmpty());
     QVERIFY(mChannelNameLineEdit->isClearButtonEnabled());

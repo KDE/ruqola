@@ -17,18 +17,13 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#include "channelsearchnamelineedit.h"
 
-#include "channelnamevalidlineedittest.h"
-#include "dialogs/channelnamevalidlineedit.h"
-#include <QTest>
-QTEST_MAIN(ChannelNameValidLineEditTest)
-ChannelNameValidLineEditTest::ChannelNameValidLineEditTest(QObject *parent)
-    : QObject(parent)
+ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
+    : QLineEdit(parent)
 {
 }
 
-void ChannelNameValidLineEditTest::shouldHaveDefaultValue()
+ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit()
 {
-    ChannelNameValidLineEdit d;
-    QVERIFY(d.isClearButtonEnabled());
 }
