@@ -57,13 +57,13 @@ Q_SIGNALS:
 
 private:
     void slotChangeOkButtonEnabled();
-    ChannelNameValidLineEdit *mChannelName = nullptr;
-    AddUsersWidget *mUsers = nullptr;
-    QCheckBox *mReadOnly = nullptr;
-    QCheckBox *mBroadcast = nullptr;
-    QCheckBox *mPrivate = nullptr;
-    QCheckBox *mEncryptedRoom = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    QFormLayout *mMainLayout = nullptr;
+    ChannelNameValidLineEdit *const mChannelName;
+    AddUsersWidget *const mUsers;
+    QCheckBox *const mReadOnly;
+    QCheckBox *const mBroadcast;
+    QCheckBox *const mPrivate;
+    QCheckBox *const mEncryptedRoom;
+    KPasswordLineEdit *const mPasswordLineEdit;
+    QFormLayout *const mMainLayout;
 };
 
