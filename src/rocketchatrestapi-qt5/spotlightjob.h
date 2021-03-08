@@ -20,14 +20,13 @@
 
 #pragma once
 
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
-
-#include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SpotlightJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT SpotlightJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

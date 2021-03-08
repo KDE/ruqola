@@ -18,7 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 #include "channelsearchnamelineedit.h"
-
+#include "rocketchataccount.h"
+#include "spotlightjob.h"
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
@@ -27,3 +28,13 @@ ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
 ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit()
 {
 }
+
+#if 0
+auto *rcAccount = Ruqola::self()->rocketChatAccount();
+auto adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
+rcAccount->restApi()->initializeRestApiJob(adminRoomsJob);
+connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotAdminRoomDone);
+if (!adminRoomsJob->start()) {
+    qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
+}
+#endif
