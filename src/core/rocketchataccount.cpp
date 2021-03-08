@@ -795,6 +795,14 @@ void RocketChatAccount::insertCompleterUsers()
     userCompleterModel()->insertUsers(rocketChatBackend()->users());
 }
 
+void RocketChatAccount::roomsAutocomplete(const QString &searchText, const QString &exception)
+{
+    RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo info;
+    info.name = searchText;
+    info.exception = exception;
+    restApi()->roomsAutocomplete(info);
+}
+
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
     userCompleterModel()->clear();
@@ -954,6 +962,7 @@ void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)
 {
+    qDebug() << " void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)" << obj;
     // TODO
 }
 

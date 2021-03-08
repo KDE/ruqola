@@ -20,13 +20,23 @@
 
 #pragma once
 
+#include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-#include <QLineEdit>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public QLineEdit
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
 public:
+    struct ChannelCompletionInfo {
+        QString channelName;
+        QString channelId;
+    };
     explicit ChannelSearchNameLineEdit(QWidget *parent = nullptr);
     ~ChannelSearchNameLineEdit() override;
+Q_SIGNALS:
+    void newRoomName(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userIno);
+
+private:
+    void slotTextChanged(const QString &text);
+    void slotComplete(const QModelIndex &index);
 };

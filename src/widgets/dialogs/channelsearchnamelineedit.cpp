@@ -19,22 +19,29 @@
 */
 #include "channelsearchnamelineedit.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include "spotlightjob.h"
+
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
-    : QLineEdit(parent)
+    : CompletionLineEdit(parent)
 {
+    connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
+    // FIXME setCompletionModel(Ruqola::self()->rocketChatAccount()->userCompleterFilterModelProxy());
+    connect(this, &ChannelSearchNameLineEdit::complete, this, &ChannelSearchNameLineEdit::slotComplete);
 }
 
 ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit()
 {
 }
 
-#if 0
-auto *rcAccount = Ruqola::self()->rocketChatAccount();
-auto adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
-rcAccount->restApi()->initializeRestApiJob(adminRoomsJob);
-connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotAdminRoomDone);
-if (!adminRoomsJob->start()) {
-    qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
+void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    // TODO add exception!
+    // Add current user + list of users already added.
+    rcAccount->userAutocomplete(text, QString());
 }
-#endif
+
+void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
+{
+}

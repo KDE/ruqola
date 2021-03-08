@@ -20,17 +20,17 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAutocompleteChannelAndPrivateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAutocompleteChannelAndPrivateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomsAutocompleteChannelAndPrivateInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAutocompleteChannelAndPrivateInfo {
         Q_REQUIRED_RESULT bool isValid() const;
 
         QString name;
