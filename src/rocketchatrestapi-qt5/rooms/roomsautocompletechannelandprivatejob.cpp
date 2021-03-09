@@ -76,12 +76,14 @@ QNetworkRequest RoomsAutocompleteChannelAndPrivateJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate);
     QUrlQuery queryUrl;
     // TODO add support for exception.
+    // const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mUsersCompleterInfo.pattern);
     const QString val = QStringLiteral("{\"name\": \"%1\"}").arg(mRoomsAutocompleteInfo.name);
     queryUrl.addQueryItem(QStringLiteral("selector"), val);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
+    qDebug() << " url " << url;
     return request;
 }
 

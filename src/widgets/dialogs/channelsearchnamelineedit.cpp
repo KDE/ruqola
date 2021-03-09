@@ -18,15 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 #include "channelsearchnamelineedit.h"
+#include "model/channelcompleterfilterproxymodel.h"
+#include "model/channelcompletermodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "spotlightjob.h"
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
+    , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
 {
+    mChannelCompleterFilterProxyModel->setSourceModel(new ChannelCompleterModel(this));
     connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
-    // FIXME setCompletionModel(Ruqola::self()->rocketChatAccount()->userCompleterFilterModelProxy());
+    setCompletionModel(mChannelCompleterFilterProxyModel);
     connect(this, &ChannelSearchNameLineEdit::complete, this, &ChannelSearchNameLineEdit::slotComplete);
 }
 
@@ -39,7 +42,7 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     // TODO add exception!
     // Add current user + list of users already added.
-    rcAccount->userAutocomplete(text, QString());
+    rcAccount->roomsAutocomplete(text, QString());
 }
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
