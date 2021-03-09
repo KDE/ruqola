@@ -46,6 +46,9 @@ void CustomSoundsTreeWidget::initialize()
 {
     clear();
     // TODO
+    header()->setSortIndicatorShown(true);
+    header()->setSectionsClickable(true);
+    sortByColumn(0, Qt::AscendingOrder);
 }
 
 void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)

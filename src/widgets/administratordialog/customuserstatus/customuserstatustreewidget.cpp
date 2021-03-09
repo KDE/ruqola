@@ -79,6 +79,10 @@ void CustomUserStatusTreeWidget::initialize()
         item->setText(CustomUserStatusTreeWidget::Name, status.name());
         item->setText(CustomUserStatusTreeWidget::Presence, Utils::presenceStatusToString(status.statusType()));
     }
+    setSortingEnabled(true);
+    header()->setSortIndicatorShown(true);
+    header()->setSectionsClickable(true);
+    sortByColumn(0, Qt::AscendingOrder);
 }
 
 void CustomUserStatusTreeWidget::addClicked()
