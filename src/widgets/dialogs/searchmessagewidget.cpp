@@ -41,7 +41,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Channel"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Messages"));
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchMessageWidget::slotSearchMessages);
