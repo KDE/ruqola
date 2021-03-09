@@ -115,7 +115,9 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 {
     const QString roomName = index.data(AdminRoomsModel::Name).toString();
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", roomName), i18n("Remove Room"))) { }
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", roomName), i18n("Remove Room"))) {
+        qWarning() << " NOT IMPLEMENTED";
+    }
 }
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)
