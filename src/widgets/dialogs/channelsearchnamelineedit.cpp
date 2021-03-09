@@ -44,4 +44,16 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
 {
+#if 0
+    const QString completerName = index.data(UserCompleterModel::UserName).toString();
+    const QString userId = index.data(UserCompleterModel::UserId).toString();
+    UserCompletionInfo info;
+    info.username = completerName;
+    info.userId = userId;
+    mCompletionListView->hide();
+    disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+    Q_EMIT newUserName(info);
+    clear();
+    connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+#endif
 }

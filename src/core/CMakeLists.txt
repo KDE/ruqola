@@ -71,6 +71,7 @@ set (Ruqola_model_core_srcs
     model/adminusersfilterproxymodel.cpp
 
     model/systemmessagesmodel.cpp
+    model/channelcompletermodel.cpp
     )
 
 set(Ruqola_plugins_srcs
