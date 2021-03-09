@@ -66,20 +66,14 @@ QVariant ChannelCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mChannels.count()) {
         return QVariant();
     }
-#if 0
-    const User user = mChannels.at(index.row());
+    const Channel channel = mChannels.at(index.row());
     switch (role) {
-    case Qt::DisplayRole:
-        return displayUserName(user);
-    case UserName:
-        return user.userName();
-    case UserId:
-        return user.userId();
-    case Qt::DecorationRole:
-        return QIcon::fromTheme(user.iconFromStatus());
-    case UserIconStatus:
-        return user.iconFromStatus();
+    case RoomName:
+        return channel.roomName();
+    case ChannelId:
+        return channel.roomId();
+        //    case Qt::DecorationRole:
+        //        return QIcon::fromTheme(user.iconFromStatus());
     }
-#endif
     return {};
 }

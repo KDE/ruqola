@@ -21,14 +21,14 @@
 #pragma once
 
 #include "channel.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT ChannelCompleterModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT ChannelCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum ChannelRoles { UserName = Qt::UserRole + 1, ChannelId };
+    enum ChannelRoles { RoomName = Qt::UserRole + 1, ChannelId };
     Q_ENUM(ChannelRoles)
 
     explicit ChannelCompleterModel(QObject *parent = nullptr);
