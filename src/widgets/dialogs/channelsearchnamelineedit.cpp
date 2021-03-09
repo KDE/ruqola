@@ -20,14 +20,20 @@
 #include "channelsearchnamelineedit.h"
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "spotlightjob.h"
+
+#include <QJsonObject>
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
     , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
+    , mChannelCompleterModel(new ChannelCompleterModel(this))
 {
-    mChannelCompleterFilterProxyModel->setSourceModel(new ChannelCompleterModel(this));
+    mChannelCompleterFilterProxyModel->setSourceModel(mChannelCompleterModel);
     connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
     setCompletionModel(mChannelCompleterFilterProxyModel);
     connect(this, &ChannelSearchNameLineEdit::complete, this, &ChannelSearchNameLineEdit::slotComplete);
@@ -39,24 +45,38 @@ ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit()
 
 void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    // TODO add exception!
-    // Add current user + list of users already added.
-    rcAccount->roomsAutocomplete(text, QString());
+    if (!text.trimmed().isEmpty()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::SpotlightJob(this);
+        job->setSearchPattern(text);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::SpotlightJob::spotlightDone, this, &ChannelSearchNameLineEdit::slotSpotlightDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+        }
+    } else {
+        mChannelCompleterModel->clear();
+    }
+}
+
+void ChannelSearchNameLineEdit::slotSpotlightDone(const QJsonObject &obj)
+{
+    qDebug() << "slotSpotlightDone  " << obj;
+    // TODO
+    mChannelCompleterModel->insertChannels({});
+    // TODO parse element
 }
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
 {
-#if 0
-    const QString completerName = index.data(UserCompleterModel::UserName).toString();
-    const QString userId = index.data(UserCompleterModel::UserId).toString();
-    UserCompletionInfo info;
-    info.username = completerName;
-    info.userId = userId;
-    mCompletionListView->hide();
-    disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
-    Q_EMIT newUserName(info);
-    clear();
-    connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
-#endif
+    const QString completerName = index.data(ChannelCompleterModel::RoomName).toString();
+    const QString roomId = index.data(ChannelCompleterModel::ChannelId).toString();
+    ChannelCompletionInfo info;
+    info.channelName = completerName;
+    info.channelId = roomId;
+    //    mCompletionListView->hide();
+    //    disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+    //    Q_EMIT newRoomName(info);
+    //    clear();
+    //    connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
 }

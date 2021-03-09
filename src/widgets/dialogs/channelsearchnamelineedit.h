@@ -22,6 +22,8 @@
 
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
+class QJsonObject;
+class ChannelCompleterModel;
 class ChannelCompleterFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public CompletionLineEdit
 {
@@ -39,5 +41,7 @@ Q_SIGNALS:
 private:
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);
+    void slotSpotlightDone(const QJsonObject &obj);
     ChannelCompleterFilterProxyModel *const mChannelCompleterFilterProxyModel;
+    ChannelCompleterModel *const mChannelCompleterModel;
 };
