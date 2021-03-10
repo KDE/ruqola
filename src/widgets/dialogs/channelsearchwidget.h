@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QStackedWidget;
 class ChannelSearchNameLineEdit;
+class ChannelSearchNameLineResultWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchWidget : public QWidget
 {
     Q_OBJECT
@@ -38,4 +39,5 @@ private:
     void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
     QStackedWidget *const mStackedWidget;
     ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;
+    ChannelSearchNameLineResultWidget *const mChannelSearchLineResult;
 };

@@ -20,6 +20,7 @@
 
 #include "channelsearchwidget.h"
 #include "channelsearchnamelineedit.h"
+#include "channelsearchnamelineresultwidget.h"
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -27,6 +28,7 @@ ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
     , mChannelSearchNameLineEdit(new ChannelSearchNameLineEdit(this))
+    , mChannelSearchLineResult(new ChannelSearchNameLineResultWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,8 +39,11 @@ ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
     mChannelSearchNameLineEdit->setObjectName(QStringLiteral("mChannelSearchNameLineEdit"));
     mStackedWidget->addWidget(mChannelSearchNameLineEdit);
 
+    mChannelSearchLineResult->setObjectName(QStringLiteral("mChannelSearchLineResult"));
+    mStackedWidget->addWidget(mChannelSearchLineResult);
+
     connect(mChannelSearchNameLineEdit, &ChannelSearchNameLineEdit::newRoomName, this, &ChannelSearchWidget::slotSelectedRoom);
-    // TODO add result;
+    connect(mChannelSearchLineResult, &ChannelSearchNameLineResultWidget::clearRoomName, this, &ChannelSearchWidget::slotClearRoom);
 }
 
 ChannelSearchWidget::~ChannelSearchWidget()
@@ -47,7 +52,9 @@ ChannelSearchWidget::~ChannelSearchWidget()
 
 void ChannelSearchWidget::slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo)
 {
-    // TODO add info
+    mStackedWidget->setCurrentWidget(mChannelSearchLineResult);
+    mChannelSearchLineResult->setRoomName(userInfo.channelName);
+    // TODO store room id
 }
 
 void ChannelSearchWidget::slotClearRoom()
