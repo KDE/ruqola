@@ -79,6 +79,7 @@ void CreateNewDiscussionDialog::writeConfig()
 CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscussionInfo() const
 {
     NewDiscussionInfo info;
+    info.channelId = mCreateNewDiscussionWidget->channelId();
     info.channelName = mCreateNewDiscussionWidget->channelName();
     info.message = mCreateNewDiscussionWidget->message();
     info.users = mCreateNewDiscussionWidget->usersId();
@@ -86,9 +87,9 @@ CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscu
     return info;
 }
 
-void CreateNewDiscussionDialog::setChannelName(const QString &name)
+void CreateNewDiscussionDialog::setChannelInfo(const QString &name, const QString &channelId)
 {
-    mCreateNewDiscussionWidget->setChannelName(name);
+    mCreateNewDiscussionWidget->setChannelInfo(name, channelId);
 }
 
 void CreateNewDiscussionDialog::setDiscussionName(const QString &name)

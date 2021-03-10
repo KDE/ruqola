@@ -49,9 +49,10 @@ ChannelSearchWidget::~ChannelSearchWidget()
 {
 }
 
-void ChannelSearchWidget::setChannelName(const QString &name)
+void ChannelSearchWidget::setChannelInfo(const QString &name, const QString &channelId)
 {
     mUserInfo.channelName = name;
+    mUserInfo.channelId = channelId;
     slotSelectedRoom(mUserInfo);
     mChannelSearchLineResult->setReadOnly(true);
 }
@@ -59,6 +60,11 @@ void ChannelSearchWidget::setChannelName(const QString &name)
 QString ChannelSearchWidget::channelName() const
 {
     return mUserInfo.channelName;
+}
+
+QString ChannelSearchWidget::channelId() const
+{
+    return mUserInfo.channelId;
 }
 
 void ChannelSearchWidget::slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo)

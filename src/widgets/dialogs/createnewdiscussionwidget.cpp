@@ -78,9 +78,14 @@ CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
 {
 }
 
-void CreateNewDiscussionWidget::setChannelName(const QString &name)
+void CreateNewDiscussionWidget::setChannelInfo(const QString &name, const QString &channelId)
 {
-    mChannelSearchWidget->setChannelName(name);
+    mChannelSearchWidget->setChannelInfo(name, channelId);
+}
+
+QString CreateNewDiscussionWidget::channelId() const
+{
+    return mChannelSearchWidget->channelId();
 }
 
 QString CreateNewDiscussionWidget::channelName() const

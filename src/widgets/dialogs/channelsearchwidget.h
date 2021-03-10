@@ -36,8 +36,9 @@ public:
 
     Q_REQUIRED_RESULT QString channelName() const;
 
-    void setChannelName(const QString &name);
+    void setChannelInfo(const QString &name, const QString &channelId);
 
+    Q_REQUIRED_RESULT QString channelId() const;
 Q_SIGNALS:
     void updateRoomName(bool valid);
 

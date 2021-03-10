@@ -34,7 +34,7 @@ public:
     explicit CreateNewDiscussionWidget(QWidget *parent = nullptr);
     ~CreateNewDiscussionWidget() override;
 
-    void setChannelName(const QString &name);
+    void setChannelInfo(const QString &name, const QString &channelId);
     Q_REQUIRED_RESULT QString channelName() const;
 
     void setDiscussionName(const QString &name);
@@ -45,6 +45,7 @@ public:
 
     Q_REQUIRED_RESULT QStringList usersId() const;
 
+    Q_REQUIRED_RESULT QString channelId() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

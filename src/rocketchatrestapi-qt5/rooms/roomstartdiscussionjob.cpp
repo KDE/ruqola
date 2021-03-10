@@ -165,6 +165,7 @@ QJsonDocument RoomStartDiscussionJob::json() const
         jsonObj[QLatin1String("users")] = usersJson;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    qDebug() << " postData " << postData;
     return postData;
 }
 

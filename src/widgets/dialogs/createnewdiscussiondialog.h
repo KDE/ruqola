@@ -33,13 +33,14 @@ public:
         QString discussionName;
         QString channelName;
         QString message;
+        QString channelId;
     };
     explicit CreateNewDiscussionDialog(QWidget *parent = nullptr);
     ~CreateNewDiscussionDialog() override;
 
     Q_REQUIRED_RESULT NewDiscussionInfo newDiscussionInfo() const;
 
-    void setChannelName(const QString &name);
+    void setChannelInfo(const QString &name, const QString &channelId);
     void setDiscussionName(const QString &name);
 
 private:

@@ -131,10 +131,10 @@ void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QSt
 {
     QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
     dlg->setDiscussionName(originalMessage);
-    dlg->setChannelName(channelName);
+    dlg->setChannelInfo(channelName, mRoomId);
     if (dlg->exec()) {
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+        mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, messageId, info.users);
     }
     delete dlg;
 }
