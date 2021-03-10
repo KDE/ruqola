@@ -22,10 +22,12 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
 RoomStartDiscussionJob::RoomStartDiscussionJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -164,4 +166,12 @@ QJsonDocument RoomStartDiscussionJob::json() const
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString RoomStartDiscussionJob::generateErrorMessage(const QString &errorStr) const
+{
+    if (errorStr == QLatin1String("error-invalid-room")) {
+        return i18n("Invalid room");
+    }
+    return RestApiAbstractJob::generateErrorMessage(errorStr);
 }

@@ -58,6 +58,9 @@ public:
 Q_SIGNALS:
     void startDiscussionDone();
 
+protected:
+    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
+
 private:
     Q_DISABLE_COPY(RoomStartDiscussionJob)
     void slotStartDiscussionFinished();
