@@ -33,11 +33,18 @@ ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mainLayout->addWidget(mStackedWidget);
+    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mChannelSearchNameLineEdit->setObjectName(QStringLiteral("mChannelSearchNameLineEdit"));
     mStackedWidget->addWidget(mChannelSearchNameLineEdit);
 
+    connect(mChannelSearchNameLineEdit, &ChannelSearchNameLineEdit::newRoomName, this, &ChannelSearchWidget::slotSelectedRoom);
     // TODO add result;
 }
 
 ChannelSearchWidget::~ChannelSearchWidget()
+{
+}
+
+void ChannelSearchWidget::slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo)
 {
 }

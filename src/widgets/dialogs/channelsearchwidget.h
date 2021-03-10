@@ -22,6 +22,7 @@
 
 #include <QWidget>
 
+#include "channelsearchnamelineedit.h"
 #include "libruqolawidgets_private_export.h"
 class QStackedWidget;
 class ChannelSearchNameLineEdit;
@@ -33,6 +34,7 @@ public:
     ~ChannelSearchWidget() override;
 
 private:
+    void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
     QStackedWidget *const mStackedWidget;
     ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;
 };

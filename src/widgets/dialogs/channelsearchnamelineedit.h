@@ -36,7 +36,7 @@ public:
     explicit ChannelSearchNameLineEdit(QWidget *parent = nullptr);
     ~ChannelSearchNameLineEdit() override;
 Q_SIGNALS:
-    void newRoomName(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userIno);
+    void newRoomName(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
 
 private:
     void slotTextChanged(const QString &text);
