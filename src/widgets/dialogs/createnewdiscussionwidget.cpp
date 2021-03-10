@@ -19,7 +19,7 @@
 */
 
 #include "createnewdiscussionwidget.h"
-#include "channelsearchnamelineedit.h"
+#include "channelsearchwidget.h"
 #include "misc/adduserswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
@@ -30,7 +30,7 @@
 
 CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     : QWidget(parent)
-    , mChannelNameLineEdit(new ChannelSearchNameLineEdit(this))
+    , mChannelSearchWidget(new ChannelSearchWidget(this))
     , mDiscussionNameLineEdit(new QLineEdit(this))
     , mUsers(new AddUsersWidget(this))
     , mMessageTextEdit(new KTextEdit(this))
@@ -43,13 +43,13 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     channelLabel->setObjectName(QStringLiteral("channelLabel"));
     mainLayout->addWidget(channelLabel);
 
-    mChannelNameLineEdit->setObjectName(QStringLiteral("mChannelNameLineEdit"));
-    new LineEditCatchReturnKey(mChannelNameLineEdit, this);
-    mChannelNameLineEdit->setClearButtonEnabled(true);
-    connect(mChannelNameLineEdit, &QLineEdit::textChanged, this, [this](const QString &str) {
-        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
-    });
-    mainLayout->addWidget(mChannelNameLineEdit);
+    mChannelSearchWidget->setObjectName(QStringLiteral("mChannelNameLineEdit"));
+    //    new LineEditCatchReturnKey(mChannelSearchWidget, this);
+    //    mChannelSearchWidget->setClearButtonEnabled(true);
+    //    connect(mChannelSearchWidget, &QLineEdit::textChanged, this, [this](const QString &str) {
+    //        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    //    });
+    mainLayout->addWidget(mChannelSearchWidget);
 
     auto discussionName = new QLabel(i18n("Discussion Name"), this);
     discussionName->setObjectName(QStringLiteral("discussionName"));
@@ -84,13 +84,14 @@ CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
 
 void CreateNewDiscussionWidget::setChannelName(const QString &name)
 {
-    mChannelNameLineEdit->setText(name);
-    mChannelNameLineEdit->setReadOnly(true);
+    //    mChannelSearchWidget->setText(name);
+    //    mChannelSearchWidget->setReadOnly(true);
 }
 
 QString CreateNewDiscussionWidget::channelName() const
 {
-    return mChannelNameLineEdit->text();
+    //    return mChannelSearchWidget->text();
+    return {};
 }
 
 void CreateNewDiscussionWidget::setDiscussionName(const QString &name)
