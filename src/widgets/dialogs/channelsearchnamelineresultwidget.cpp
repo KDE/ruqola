@@ -19,6 +19,7 @@
 */
 
 #include "channelsearchnamelineresultwidget.h"
+#include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QToolButton>
@@ -36,6 +37,8 @@ ChannelSearchNameLineResultWidget::ChannelSearchNameLineResultWidget(QWidget *pa
     mainLayout->addWidget(mLabel);
 
     mClearToolButton->setObjectName(QStringLiteral("mClearToolButton"));
+    mClearToolButton->setIcon(QIcon::fromTheme(QStringLiteral("delete")));
+    mClearToolButton->setToolTip(i18n("Clear"));
     mainLayout->addWidget(mClearToolButton);
     connect(mClearToolButton, &QToolButton::clicked, this, &ChannelSearchNameLineResultWidget::clearRoomName);
 }
@@ -47,4 +50,9 @@ ChannelSearchNameLineResultWidget::~ChannelSearchNameLineResultWidget()
 void ChannelSearchNameLineResultWidget::setRoomName(const QString &name)
 {
     mLabel->setText(name);
+}
+
+void ChannelSearchNameLineResultWidget::setReadOnly(bool readOnly)
+{
+    mClearToolButton->setVisible(!readOnly);
 }

@@ -44,11 +44,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mainLayout->addWidget(channelLabel);
 
     mChannelSearchWidget->setObjectName(QStringLiteral("mChannelNameLineEdit"));
-    //    new LineEditCatchReturnKey(mChannelSearchWidget, this);
-    //    mChannelSearchWidget->setClearButtonEnabled(true);
-    //    connect(mChannelSearchWidget, &QLineEdit::textChanged, this, [this](const QString &str) {
-    //        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
-    //    });
+    connect(mChannelSearchWidget, &ChannelSearchWidget::updateRoomName, this, &CreateNewDiscussionWidget::updateOkButton);
     mainLayout->addWidget(mChannelSearchWidget);
 
     auto discussionName = new QLabel(i18n("Discussion Name"), this);
@@ -84,14 +80,13 @@ CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
 
 void CreateNewDiscussionWidget::setChannelName(const QString &name)
 {
-    //    mChannelSearchWidget->setText(name);
-    //    mChannelSearchWidget->setReadOnly(true);
+    mChannelSearchWidget->setChannelName(name);
+    // mChannelSearchWidget->setReadOnly(true);
 }
 
 QString CreateNewDiscussionWidget::channelName() const
 {
-    //    return mChannelSearchWidget->text();
-    return {};
+    return mChannelSearchWidget->channelName();
 }
 
 void CreateNewDiscussionWidget::setDiscussionName(const QString &name)

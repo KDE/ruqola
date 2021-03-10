@@ -34,9 +34,17 @@ public:
     explicit ChannelSearchWidget(QWidget *parent = nullptr);
     ~ChannelSearchWidget() override;
 
+    Q_REQUIRED_RESULT QString channelName() const;
+
+    void setChannelName(const QString &name);
+
+Q_SIGNALS:
+    void updateRoomName(bool valid);
+
 private:
     void slotClearRoom();
     void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
+    ChannelSearchNameLineEdit::ChannelCompletionInfo mUserInfo;
     QStackedWidget *const mStackedWidget;
     ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;
     ChannelSearchNameLineResultWidget *const mChannelSearchLineResult;

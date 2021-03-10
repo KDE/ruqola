@@ -44,4 +44,5 @@ void ChannelSearchNameLineResultWidgetTest::shouldHaveDefaultValues()
 
     auto mClearToolButton = w.findChild<QToolButton *>(QStringLiteral("mClearToolButton"));
     QVERIFY(mClearToolButton);
+    QVERIFY(!mClearToolButton->toolTip().isEmpty());
 }

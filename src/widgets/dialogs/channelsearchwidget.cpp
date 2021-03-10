@@ -50,14 +50,29 @@ ChannelSearchWidget::~ChannelSearchWidget()
 {
 }
 
+void ChannelSearchWidget::setChannelName(const QString &name)
+{
+    mUserInfo.channelName = name;
+    slotSelectedRoom(mUserInfo);
+    mChannelSearchLineResult->setReadOnly(true);
+}
+
+QString ChannelSearchWidget::channelName() const
+{
+    return mUserInfo.channelName;
+}
+
 void ChannelSearchWidget::slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo)
 {
+    mUserInfo = userInfo;
     mStackedWidget->setCurrentWidget(mChannelSearchLineResult);
     mChannelSearchLineResult->setRoomName(userInfo.channelName);
-    // TODO store room id
+    Q_EMIT updateRoomName(true);
 }
 
 void ChannelSearchWidget::slotClearRoom()
 {
+    mUserInfo = {};
     mStackedWidget->setCurrentWidget(mChannelSearchNameLineEdit);
+    Q_EMIT updateRoomName(false);
 }

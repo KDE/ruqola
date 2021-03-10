@@ -33,6 +33,7 @@ public:
     ~ChannelSearchNameLineResultWidget() override;
 
     void setRoomName(const QString &name);
+    void setReadOnly(bool readOnly);
 
 Q_SIGNALS:
     void clearRoomName();

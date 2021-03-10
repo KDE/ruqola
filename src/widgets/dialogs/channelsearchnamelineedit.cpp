@@ -19,6 +19,7 @@
 */
 #include "channelsearchnamelineedit.h"
 #include "common/completionlistview.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
 #include "restapirequest.h"
@@ -33,6 +34,7 @@ ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
     , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
     , mChannelCompleterModel(new ChannelCompleterModel(this))
 {
+    new LineEditCatchReturnKey(this, this);
     mChannelCompleterFilterProxyModel->setSourceModel(mChannelCompleterModel);
     connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
     setCompletionModel(mChannelCompleterFilterProxyModel);
