@@ -34,6 +34,7 @@ ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
 
     mainLayout->addWidget(mStackedWidget);
     mStackedWidget->addWidget(mChannelSearchNameLineEdit);
+
     // TODO add result;
 }
 

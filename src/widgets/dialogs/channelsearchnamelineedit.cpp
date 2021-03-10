@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "channelsearchnamelineedit.h"
+#include "common/completionlistview.h"
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
 #include "restapirequest.h"
@@ -25,7 +26,6 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "spotlightjob.h"
-
 #include <QJsonObject>
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
@@ -61,10 +61,19 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 
 void ChannelSearchNameLineEdit::slotSpotlightDone(const QJsonObject &obj)
 {
-    qDebug() << "slotSpotlightDone  " << obj;
-    // TODO
-    mChannelCompleterModel->insertChannels({});
-    // TODO parse element
+    // qDebug() << "slotSpotlightDone  " << obj;
+    Channel c;
+    QVector<Channel> channelList;
+    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    channelList.reserve(rooms.size());
+    for (int i = 0; i < rooms.size(); i++) {
+        const QJsonObject o = rooms.at(i).toObject();
+        Channel channel;
+        channel.parseChannel(o, Channel::ChannelType::Room);
+        // Verify that it's valid
+        channelList.append(channel);
+    }
+    mChannelCompleterModel->insertChannels(channelList);
 }
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
@@ -74,9 +83,9 @@ void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
     ChannelCompletionInfo info;
     info.channelName = completerName;
     info.channelId = roomId;
-    //    mCompletionListView->hide();
-    //    disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
-    //    Q_EMIT newRoomName(info);
-    //    clear();
-    //    connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+    mCompletionListView->hide();
+    disconnect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
+    Q_EMIT newRoomName(info);
+    clear();
+    connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
 }

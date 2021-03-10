@@ -68,6 +68,7 @@ QVariant ChannelCompleterModel::data(const QModelIndex &index, int role) const
     }
     const Channel channel = mChannels.at(index.row());
     switch (role) {
+    case Qt::DisplayRole:
     case RoomName:
         return channel.roomName();
     case ChannelId:
