@@ -27,7 +27,6 @@
 #include "serverinfojob.h"
 #include "settings/privateinfojob.h"
 #include "spotlightjob.h"
-#include "uploadfilejob.h"
 
 #include "users/deleteownaccountjob.h"
 #include "users/forgotpasswordjob.h"

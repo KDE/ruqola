@@ -19,7 +19,6 @@
 */
 
 #include "channelsearchwidget.h"
-#include "channelsearchnamelineedit.h"
 #include "channelsearchnamelineresultwidget.h"
 #include <KLocalizedString>
 #include <QStackedWidget>

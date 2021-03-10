@@ -21,14 +21,11 @@
 #include "accountmanager.h"
 #include "managerdatapaths.h"
 #include "notifierjob.h"
-#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
 
-#include "model/rocketchataccountfilterproxymodel.h"
-#include "model/rocketchataccountmodel.h"
 
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)

@@ -32,7 +32,6 @@
 #include "uploadfileprogressstatuswidget.h"
 
 #include <QKeyEvent>
-#include <QPointer>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 

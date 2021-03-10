@@ -20,7 +20,6 @@
 
 #include "inputtextmanager.h"
 #include "model/commandsmodel.h"
-#include "model/inputcompletermodel.h"
 #include "ownuserpreferences.h"
 #include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"

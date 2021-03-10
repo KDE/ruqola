@@ -71,7 +71,6 @@
 #include "messagecache.h"
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
-#include "serverconfiginfo.h"
 
 #include <KLocalizedString>
 #include <KNotification>
