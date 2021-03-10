@@ -81,7 +81,6 @@ CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
 void CreateNewDiscussionWidget::setChannelName(const QString &name)
 {
     mChannelSearchWidget->setChannelName(name);
-    // mChannelSearchWidget->setReadOnly(true);
 }
 
 QString CreateNewDiscussionWidget::channelName() const
