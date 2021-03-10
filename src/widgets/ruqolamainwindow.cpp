@@ -342,8 +342,7 @@ void RuqolaMainWindow::slotCreateDiscussion()
     QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
     if (dlg->exec()) {
         const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        // TODO
-        // mCurrentRocketChatAccount->createDiscussion(mRoomId, info.discussionName, info.message, messageId, info.users);
+        mCurrentRocketChatAccount->createDiscussion(info.channelName, info.discussionName, info.message, {}, info.users);
     }
     delete dlg;
 }
