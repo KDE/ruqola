@@ -18,24 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
+#include "channelsearchnamelineresultwidgettest.h"
+#include "dialogs/channelsearchnamelineresultwidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QTest>
+#include <QToolButton>
+QTEST_MAIN(ChannelSearchNameLineResultWidgetTest)
 
-#include <QWidget>
-
-#include "channelsearchnamelineedit.h"
-#include "libruqolawidgets_private_export.h"
-class QStackedWidget;
-class ChannelSearchNameLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchWidget : public QWidget
+ChannelSearchNameLineResultWidgetTest::ChannelSearchNameLineResultWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ChannelSearchWidget(QWidget *parent = nullptr);
-    ~ChannelSearchWidget() override;
+}
 
-private:
-    void slotClearRoom();
-    void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
-    QStackedWidget *const mStackedWidget;
-    ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;
-};
+void ChannelSearchNameLineResultWidgetTest::shouldHaveDefaultValues()
+{
+    ChannelSearchNameLineResultWidget w;
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
+    QVERIFY(mLabel);
+    QVERIFY(mLabel->text().isEmpty());
+
+    auto mClearToolButton = w.findChild<QToolButton *>(QStringLiteral("mClearToolButton"));
+    QVERIFY(mClearToolButton);
+}

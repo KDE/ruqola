@@ -20,22 +20,14 @@
 
 #pragma once
 
-#include <QWidget>
+#include <QObject>
 
-#include "channelsearchnamelineedit.h"
-#include "libruqolawidgets_private_export.h"
-class QStackedWidget;
-class ChannelSearchNameLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchWidget : public QWidget
+class ChannelSearchNameLineResultWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ChannelSearchWidget(QWidget *parent = nullptr);
-    ~ChannelSearchWidget() override;
-
-private:
-    void slotClearRoom();
-    void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
-    QStackedWidget *const mStackedWidget;
-    ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;
+    explicit ChannelSearchNameLineResultWidgetTest(QObject *parent = nullptr);
+    ~ChannelSearchNameLineResultWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

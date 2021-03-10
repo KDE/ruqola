@@ -17,25 +17,27 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
 #pragma once
 
 #include <QWidget>
 
-#include "channelsearchnamelineedit.h"
 #include "libruqolawidgets_private_export.h"
-class QStackedWidget;
-class ChannelSearchNameLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchWidget : public QWidget
+class QLabel;
+class QToolButton;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineResultWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelSearchWidget(QWidget *parent = nullptr);
-    ~ChannelSearchWidget() override;
+    explicit ChannelSearchNameLineResultWidget(QWidget *parent = nullptr);
+    ~ChannelSearchNameLineResultWidget() override;
+
+    void setRoomName(const QString &name);
+
+Q_SIGNALS:
+    void clearRoomName();
 
 private:
-    void slotClearRoom();
-    void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
-    QStackedWidget *const mStackedWidget;
-    ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;
+    QLabel *const mLabel;
+    QToolButton *const mClearToolButton;
 };

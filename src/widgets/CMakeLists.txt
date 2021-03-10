@@ -86,6 +86,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/channelnamevalidlineedit.cpp
     dialogs/channelsearchnamelineedit.cpp
     dialogs/channelsearchwidget.cpp
+    dialogs/channelsearchnamelineresultwidget.cpp
     )
 
 set(Ruqola_configure_SRCS

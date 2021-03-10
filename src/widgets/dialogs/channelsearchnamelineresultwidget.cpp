@@ -18,39 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channelsearchwidget.h"
-#include "channelsearchnamelineedit.h"
-#include <KLocalizedString>
-#include <QStackedWidget>
-#include <QVBoxLayout>
-ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
+#include "channelsearchnamelineresultwidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QToolButton>
+
+ChannelSearchNameLineResultWidget::ChannelSearchNameLineResultWidget(QWidget *parent)
     : QWidget(parent)
-    , mStackedWidget(new QStackedWidget(this))
-    , mChannelSearchNameLineEdit(new ChannelSearchNameLineEdit(this))
+    , mLabel(new QLabel(this))
+    , mClearToolButton(new QToolButton(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mainLayout->addWidget(mStackedWidget);
-    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
-    mChannelSearchNameLineEdit->setObjectName(QStringLiteral("mChannelSearchNameLineEdit"));
-    mStackedWidget->addWidget(mChannelSearchNameLineEdit);
+    mLabel->setObjectName(QStringLiteral("mLabel"));
+    mainLayout->addWidget(mLabel);
 
-    connect(mChannelSearchNameLineEdit, &ChannelSearchNameLineEdit::newRoomName, this, &ChannelSearchWidget::slotSelectedRoom);
-    // TODO add result;
+    mClearToolButton->setObjectName(QStringLiteral("mClearToolButton"));
+    mainLayout->addWidget(mClearToolButton);
+    connect(mClearToolButton, &QToolButton::clicked, this, &ChannelSearchNameLineResultWidget::clearRoomName);
 }
 
-ChannelSearchWidget::~ChannelSearchWidget()
+ChannelSearchNameLineResultWidget::~ChannelSearchNameLineResultWidget()
 {
 }
 
-void ChannelSearchWidget::slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo)
+void ChannelSearchNameLineResultWidget::setRoomName(const QString &name)
 {
-    // TODO add info
-}
-
-void ChannelSearchWidget::slotClearRoom()
-{
-    mStackedWidget->setCurrentWidget(mChannelSearchNameLineEdit);
+    mLabel->setText(name);
 }
