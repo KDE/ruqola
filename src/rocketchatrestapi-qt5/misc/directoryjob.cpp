@@ -43,7 +43,6 @@ bool DirectoryJob::requireHttpAuthentication() const
 bool DirectoryJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DirectoryJob";
         deleteLater();
         return false;
     }
@@ -72,6 +71,16 @@ void DirectoryJob::slotDirectoryFinished()
     deleteLater();
 }
 
+DirectoryJob::SearchType DirectoryJob::searchType() const
+{
+    return mSearchType;
+}
+
+void DirectoryJob::setSearchType(const SearchType &searchType)
+{
+    mSearchType = searchType;
+}
+
 QNetworkRequest DirectoryJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Directory);
@@ -82,4 +91,16 @@ QNetworkRequest DirectoryJob::request() const
     addRequestAttribute(request, false);
 
     return request;
+}
+
+bool DirectoryJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mSearchType == SearchType::Unknown) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DirectoryJob: mSearchType is undefined";
+        return false;
+    }
+    return true;
 }

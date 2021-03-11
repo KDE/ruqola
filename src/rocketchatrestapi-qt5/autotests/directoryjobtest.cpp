@@ -47,3 +47,20 @@ void DirectoryJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/directory")));
     }
 }
+
+void DirectoryJobTest::shouldNotStarting()
+{
+    DirectoryJob job;
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+
+    QNetworkAccessManager networkAccessManager;
+    job.setNetworkAccessManager(&networkAccessManager);
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setSearchType(DirectoryJob::Room);
+    QVERIFY(job.canStart());
+}
