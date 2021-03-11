@@ -61,6 +61,8 @@ void DirectoryJobTest::shouldNotStarting()
     const QString userId = QStringLiteral("foo");
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
-    job.setSearchType(DirectoryJob::Room);
+    DirectoryJob::DirectoryInfo info;
+    info.searchType = DirectoryJob::Room;
+    job.setDirectoryInfo(info);
     QVERIFY(job.canStart());
 }

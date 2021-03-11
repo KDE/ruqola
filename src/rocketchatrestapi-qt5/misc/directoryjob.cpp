@@ -71,14 +71,14 @@ void DirectoryJob::slotDirectoryFinished()
     deleteLater();
 }
 
-DirectoryJob::SearchType DirectoryJob::searchType() const
+DirectoryJob::DirectoryInfo DirectoryJob::directoryInfo() const
 {
-    return mSearchType;
+    return mDirectoryInfo;
 }
 
-void DirectoryJob::setSearchType(const SearchType &searchType)
+void DirectoryJob::setDirectoryInfo(const DirectoryInfo &directoryInfo)
 {
-    mSearchType = searchType;
+    mDirectoryInfo = directoryInfo;
 }
 
 QNetworkRequest DirectoryJob::request() const
@@ -98,9 +98,19 @@ bool DirectoryJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mSearchType == SearchType::Unknown) {
+    if (!mDirectoryInfo.canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DirectoryJob: mSearchType is undefined";
         return false;
     }
     return true;
+}
+
+bool DirectoryJob::DirectoryInfo::canStart() const
+{
+    return searchType != SearchType::Unknown && !pattern.isEmpty();
+}
+
+bool DirectoryJob::DirectoryInfo::operator==(const DirectoryJob::DirectoryInfo &other) const
+{
+    return other.searchType == searchType && other.pattern == pattern;
 }

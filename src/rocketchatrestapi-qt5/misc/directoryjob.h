@@ -32,11 +32,16 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT DirectoryJob : public RestApiAbstractJob
 public:
     explicit DirectoryJob(QObject *parent = nullptr);
     ~DirectoryJob() override;
-
     enum SearchType {
         Unknown = 0,
         Room = 1,
         Users = 2,
+    };
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT DirectoryInfo {
+        SearchType searchType = SearchType::Unknown;
+        QString pattern;
+        Q_REQUIRED_RESULT bool canStart() const;
+        Q_REQUIRED_RESULT bool operator==(const DirectoryInfo &other) const;
     };
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -45,10 +50,10 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT SearchType searchType() const;
-    void setSearchType(const SearchType &searchType);
-
     Q_REQUIRED_RESULT bool canStart() const override;
+
+    Q_REQUIRED_RESULT DirectoryInfo directoryInfo() const;
+    void setDirectoryInfo(const DirectoryInfo &directoryInfo);
 
 Q_SIGNALS:
     void directoryDone(const QJsonObject &obj);
@@ -56,6 +61,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(DirectoryJob)
     void slotDirectoryFinished();
-    SearchType mSearchType = SearchType::Unknown;
+    DirectoryInfo mDirectoryInfo;
 };
 }
