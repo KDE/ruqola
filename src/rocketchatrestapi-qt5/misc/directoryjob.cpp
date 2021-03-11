@@ -74,7 +74,7 @@ void DirectoryJob::slotDirectoryFinished()
 
 QNetworkRequest DirectoryJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Statistics);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Directory);
     QUrlQuery queryUrl;
     // queryUrl.addQueryItem(QStringLiteral("refresh"), mRefresh ? QStringLiteral("true") : QStringLiteral("false"));
     url.setQuery(queryUrl);
