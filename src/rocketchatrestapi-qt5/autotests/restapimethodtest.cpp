@@ -272,4 +272,5 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsListAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.listAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.update")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Statistics), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Directory), QUrl(QStringLiteral("http://www.kde.org/api/v1/directory")));
 }

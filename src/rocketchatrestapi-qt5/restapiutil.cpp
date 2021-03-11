@@ -430,6 +430,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("permissions.update");
     case RestApiUtil::RestApiUrlType::Statistics:
         return QStringLiteral("statistics");
+    case RestApiUtil::RestApiUrlType::Directory:
+        return QStringLiteral("directory");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
