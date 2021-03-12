@@ -37,3 +37,11 @@ void QueryParametersTest::shouldHaveDefaultValue()
     QVERIFY(query.sorting().isEmpty());
     QVERIFY(query.custom().isEmpty());
 }
+
+void QueryParametersTest::shouldQueryIsValid()
+{
+    RocketChatRestApi::QueryParameters query;
+    QVERIFY(!query.isValid());
+    query.setCount(4);
+    QVERIFY(query.isValid());
+}

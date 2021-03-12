@@ -30,5 +30,6 @@ public:
     ~QueryParametersTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldQueryIsValid();
 };
 
