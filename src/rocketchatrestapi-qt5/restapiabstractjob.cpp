@@ -141,6 +141,22 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
         if (mQueryParameters.offset() >= 0) {
             urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(mQueryParameters.offset()));
         }
+        if (mQueryParameters.custom().isEmpty()) {
+            QMapIterator<QString, QString> i(mQueryParameters.custom());
+            QString str;
+            while (i.hasNext()) {
+                i.next();
+                if (!str.isEmpty()) {
+                    str += QLatin1Char(',');
+                }
+                str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
+                str += QLatin1Char('"') + i.value() + QLatin1Char('"');
+            }
+            str = QStringLiteral("{%1}").arg(str);
+
+            urlQuery.addQueryItem(QStringLiteral("query"), str);
+        }
+
         if (!mQueryParameters.sorting().isEmpty()) {
             // example    sort={"name" : -1,"status" : 1}
             QMapIterator<QString, QueryParameters::SortOrder> i(mQueryParameters.sorting());
@@ -524,7 +540,7 @@ void QueryParameters::setCount(int count)
 
 bool QueryParameters::isValid() const
 {
-    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty());
+    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty()) || !mCustom.isEmpty();
 }
 
 QMap<QString, QueryParameters::SortOrder> QueryParameters::sorting() const
@@ -545,4 +561,14 @@ QString QueryParameters::type() const
 void QueryParameters::setType(const QString &type)
 {
     mType = type;
+}
+
+QMap<QString, QString> QueryParameters::custom() const
+{
+    return mCustom;
+}
+
+void QueryParameters::setCustom(const QMap<QString, QString> &custom)
+{
+    mCustom = custom;
 }

@@ -52,10 +52,14 @@ public:
     Q_REQUIRED_RESULT QString type() const;
     void setType(const QString &type);
 
+    Q_REQUIRED_RESULT QMap<QString, QString> custom() const;
+    void setCustom(const QMap<QString, QString> &custom);
+
 private:
     int mOffset = -1;
     int mCount = -1;
     QMap<QString, SortOrder> mSorting;
+    QMap<QString, QString> mCustom;
     QString mType;
 };
 

@@ -90,6 +90,7 @@ QNetworkRequest DirectoryJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Directory);
     QUrlQuery queryUrl;
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
