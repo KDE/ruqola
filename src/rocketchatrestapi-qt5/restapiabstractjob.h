@@ -55,6 +55,8 @@ public:
     Q_REQUIRED_RESULT QMap<QString, QString> custom() const;
     void setCustom(const QMap<QString, QString> &custom);
 
+    static void generateQueryParameter(const QueryParameters &queryParameters, QUrlQuery &urlQuery);
+
 private:
     int mOffset = -1;
     int mCount = -1;

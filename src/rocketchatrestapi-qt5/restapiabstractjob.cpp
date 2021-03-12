@@ -135,58 +135,7 @@ void RestApiAbstractJob::setQueryParameters(const QueryParameters &queryParamete
 void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
 {
     if (hasQueryParameterSupport() && mQueryParameters.isValid()) {
-        if (mQueryParameters.count() >= 0) {
-            urlQuery.addQueryItem(QStringLiteral("count"), QString::number(mQueryParameters.count()));
-        }
-        if (mQueryParameters.offset() >= 0) {
-            urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(mQueryParameters.offset()));
-        }
-        if (mQueryParameters.custom().isEmpty()) {
-            QMapIterator<QString, QString> i(mQueryParameters.custom());
-            QString str;
-            while (i.hasNext()) {
-                i.next();
-                if (!str.isEmpty()) {
-                    str += QLatin1Char(',');
-                }
-                str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
-                str += QLatin1Char('"') + i.value() + QLatin1Char('"');
-            }
-            str = QStringLiteral("{%1}").arg(str);
-
-            urlQuery.addQueryItem(QStringLiteral("query"), str);
-        }
-
-        if (!mQueryParameters.sorting().isEmpty()) {
-            // example    sort={"name" : -1,"status" : 1}
-            QMapIterator<QString, QueryParameters::SortOrder> i(mQueryParameters.sorting());
-            QString str;
-            while (i.hasNext()) {
-                i.next();
-                if (!str.isEmpty()) {
-                    str += QLatin1Char(',');
-                }
-                str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
-                switch (i.value()) {
-                case QueryParameters::SortOrder::Ascendant:
-                    str += QString::number(1);
-                    break;
-                case QueryParameters::SortOrder::Descendant:
-                    str += QString::number(-1);
-                    break;
-                case QueryParameters::SortOrder::NoSorting:
-                    qCWarning(ROCKETCHATQTRESTAPI_LOG) << "It's not a sorting attribute";
-                    break;
-                }
-            }
-            str = QStringLiteral("{%1}").arg(str);
-
-            // It's ok for getAllMentions....
-            urlQuery.addQueryItem(QStringLiteral("sort"), str);
-        }
-        if (!mQueryParameters.type().isEmpty()) {
-            urlQuery.addQueryItem(QStringLiteral("type"), mQueryParameters.type());
-        }
+        QueryParameters::generateQueryParameter(mQueryParameters, urlQuery);
     }
     // qDebug() << " urlQuery " << urlQuery.toString();
 }
@@ -571,4 +520,61 @@ QMap<QString, QString> QueryParameters::custom() const
 void QueryParameters::setCustom(const QMap<QString, QString> &custom)
 {
     mCustom = custom;
+}
+
+void QueryParameters::generateQueryParameter(const QueryParameters &queryParameters, QUrlQuery &urlQuery)
+{
+    if (queryParameters.count() >= 0) {
+        urlQuery.addQueryItem(QStringLiteral("count"), QString::number(queryParameters.count()));
+    }
+    if (queryParameters.offset() >= 0) {
+        urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(queryParameters.offset()));
+    }
+    if (!queryParameters.custom().isEmpty()) {
+        QMapIterator<QString, QString> i(queryParameters.custom());
+        QString str;
+        while (i.hasNext()) {
+            i.next();
+            if (!str.isEmpty()) {
+                str += QLatin1Char(',');
+            }
+            str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
+            str += QLatin1Char('"') + i.value() + QLatin1Char('"');
+        }
+        str = QStringLiteral("{%1}").arg(str);
+
+        urlQuery.addQueryItem(QStringLiteral("query"), str);
+    }
+
+    if (!queryParameters.sorting().isEmpty()) {
+        // example    sort={"name" : -1,"status" : 1}
+        QMapIterator<QString, QueryParameters::SortOrder> i(queryParameters.sorting());
+        QString str;
+        while (i.hasNext()) {
+            i.next();
+            if (!str.isEmpty()) {
+                str += QLatin1Char(',');
+            }
+            str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
+            switch (i.value()) {
+            case QueryParameters::SortOrder::Ascendant:
+                str += QString::number(1);
+                break;
+            case QueryParameters::SortOrder::Descendant:
+                str += QString::number(-1);
+                break;
+            case QueryParameters::SortOrder::NoSorting:
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << "It's not a sorting attribute";
+                break;
+            }
+        }
+        str = QStringLiteral("{%1}").arg(str);
+
+        // It's ok for getAllMentions....
+        urlQuery.addQueryItem(QStringLiteral("sort"), str);
+    }
+    if (!queryParameters.type().isEmpty()) {
+        urlQuery.addQueryItem(QStringLiteral("type"), queryParameters.type());
+    }
+    // qDebug() << " urlQuery " << urlQuery.toString();
 }

@@ -21,6 +21,7 @@
 #include "queryparameterstest.h"
 #include "restapiabstractjob.h"
 #include <QTest>
+#include <QUrlQuery>
 QTEST_GUILESS_MAIN(QueryParametersTest)
 
 QueryParametersTest::QueryParametersTest(QObject *parent)
@@ -44,4 +45,39 @@ void QueryParametersTest::shouldQueryIsValid()
     QVERIFY(!query.isValid());
     query.setCount(4);
     QVERIFY(query.isValid());
+}
+
+void QueryParametersTest::shouldGenerateQuery()
+{
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        query.setCount(4);
+        QUrlQuery urlQuery;
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("count=4"));
+    }
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        QMap<QString, QString> custom;
+        custom.insert(QStringLiteral("bla"), QStringLiteral("foo"));
+        query.setCustom(custom);
+        QVERIFY(query.isValid());
+        QUrlQuery urlQuery;
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22bla%22:%22foo%22%7D"));
+    }
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        QMap<QString, QString> custom;
+        custom.insert(QStringLiteral("text"), QStringLiteral("gene"));
+        custom.insert(QStringLiteral("type"), QStringLiteral("channels"));
+        query.setCustom(custom);
+        QVERIFY(query.isValid());
+        QUrlQuery urlQuery;
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22text%22:%22gene%22,%22type%22:%22channels%22%7D"));
+    }
 }
