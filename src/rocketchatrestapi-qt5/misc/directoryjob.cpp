@@ -48,7 +48,7 @@ bool DirectoryJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &DirectoryJob::slotDirectoryFinished);
-    addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for server statistics"));
+    addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for search room or users"));
     return true;
 }
 
