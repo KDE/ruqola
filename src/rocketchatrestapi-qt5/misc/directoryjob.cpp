@@ -81,6 +81,11 @@ void DirectoryJob::setDirectoryInfo(const DirectoryInfo &directoryInfo)
     mDirectoryInfo = directoryInfo;
 }
 
+bool DirectoryJob::hasQueryParameterSupport() const
+{
+    return true;
+}
+
 QNetworkRequest DirectoryJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Directory);

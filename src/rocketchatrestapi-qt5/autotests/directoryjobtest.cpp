@@ -35,7 +35,7 @@ void DirectoryJobTest::shouldHaveDefaultValue()
     DirectoryJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void DirectoryJobTest::shouldGenerateRequest()

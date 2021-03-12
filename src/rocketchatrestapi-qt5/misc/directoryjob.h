@@ -55,6 +55,8 @@ public:
     Q_REQUIRED_RESULT DirectoryInfo directoryInfo() const;
     void setDirectoryInfo(const DirectoryInfo &directoryInfo);
 
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+
 Q_SIGNALS:
     void directoryDone(const QJsonObject &obj);
 
