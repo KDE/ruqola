@@ -1932,6 +1932,9 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (message.userId() != userId()) {
         return false;
     }
+    if (ruqolaServerConfig()->blockEditingMessageInMinutes() == 0) {
+        return true;
+    }
     return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
 }
 
