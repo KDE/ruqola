@@ -55,7 +55,7 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
         info.searchType = RocketChatRestApi::DirectoryJob::Room;
         job->setDirectoryInfo(info);
         rcAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelSearchNameLineEdit::slotSpotlightDone);
+        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelSearchNameLineEdit::slotSearchDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
         }
@@ -64,7 +64,7 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
     }
 }
 
-void ChannelSearchNameLineEdit::slotSpotlightDone(const QJsonObject &obj)
+void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
 {
     Channel c;
     QVector<Channel> channelList;

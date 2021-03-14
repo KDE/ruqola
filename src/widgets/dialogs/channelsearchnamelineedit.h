@@ -41,7 +41,7 @@ Q_SIGNALS:
 private:
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);
-    void slotSpotlightDone(const QJsonObject &obj);
+    void slotSearchDone(const QJsonObject &obj);
     ChannelCompleterFilterProxyModel *const mChannelCompleterFilterProxyModel;
     ChannelCompleterModel *const mChannelCompleterModel;
 };
