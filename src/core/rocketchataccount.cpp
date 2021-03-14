@@ -473,6 +473,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::jobFailed);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::directoryDone, this, &RocketChatAccount::slotDirectoryDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelListDone, this, &RocketChatAccount::slotChannelListDone);
@@ -983,6 +984,11 @@ ListMessagesModelFilterProxyModel *RocketChatAccount::listMessagesFilterProxyMod
 ListMessagesModel *RocketChatAccount::listMessageModel() const
 {
     return mListMessageModel;
+}
+
+void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)
+{
+    loadAutoCompleteChannel(obj);
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)

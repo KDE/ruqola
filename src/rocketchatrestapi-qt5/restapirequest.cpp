@@ -24,6 +24,7 @@
 
 #include "channellistjob.h"
 #include "downloadfilejob.h"
+#include "misc/directoryjob.h"
 #include "serverinfojob.h"
 #include "settings/privateinfojob.h"
 #include "spotlightjob.h"
@@ -811,6 +812,20 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
     job->setSearchPattern(pattern);
     initializeRestApiJob(job);
     connect(job, &SpotlightJob::spotlightDone, this, &RestApiRequest::spotlightDone);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchRoomUser job";
+    }
+}
+
+void RestApiRequest::searchRooms(const QString &pattern)
+{
+    auto job = new DirectoryJob(this);
+    DirectoryJob::DirectoryInfo info;
+    info.searchType = DirectoryJob::SearchType::Room;
+    info.pattern = pattern;
+    job->setDirectoryInfo(info);
+    initializeRestApiJob(job);
+    connect(job, &DirectoryJob::directoryDone, this, &RestApiRequest::directoryDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchRoomUser job";
     }

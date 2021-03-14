@@ -216,6 +216,7 @@ public:
     void resetAvatar(const UserBaseJob::UserInfo &info);
     void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
     void statistics(bool refresh);
+    void searchRooms(const QString &pattern);
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
@@ -305,6 +306,7 @@ Q_SIGNALS:
     void roomExportDone();
     void statisticDone(const QJsonObject &replyObject);
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+    void directoryDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

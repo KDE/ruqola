@@ -528,6 +528,7 @@ private:
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void slotUpdateCustomUserStatus();
+    void slotDirectoryDone(const QJsonObject &obj);
 
     AccountRoomSettings *const mAccountRoomSettings;
 
