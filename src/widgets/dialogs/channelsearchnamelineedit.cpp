@@ -27,9 +27,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "spotlightjob.h"
 #include <QJsonObject>
-//#define USE_DIRECTORY 1
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
@@ -51,15 +49,6 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 {
     if (!text.trimmed().isEmpty()) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
-#ifndef USE_DIRECTORY
-        auto job = new RocketChatRestApi::SpotlightJob(this);
-        job->setSearchPattern(text);
-        rcAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::SpotlightJob::spotlightDone, this, &ChannelSearchNameLineEdit::slotSpotlightDone);
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
-        }
-#else
         auto job = new RocketChatRestApi::DirectoryJob(this);
         RocketChatRestApi::DirectoryJob::DirectoryInfo info;
         info.pattern = text;
@@ -70,7 +59,6 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
         }
-#endif
     } else {
         mChannelCompleterModel->clear();
     }
@@ -80,11 +68,7 @@ void ChannelSearchNameLineEdit::slotSpotlightDone(const QJsonObject &obj)
 {
     Channel c;
     QVector<Channel> channelList;
-#ifdef USE_DIRECTORY
     const QJsonArray rooms = obj.value(QLatin1String("result")).toArray();
-#else
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-#endif
     channelList.reserve(rooms.size());
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
