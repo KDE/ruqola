@@ -1949,6 +1949,9 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     if (hasPermission(QStringLiteral("force-delete-message"))) {
         return true;
     }
+    if (ruqolaServerConfig()->blockDeletingMessageInMinutes() == 0) { // TODO verify it
+        return true;
+    }
     return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
 }
 
