@@ -62,6 +62,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(DirectoryJob)
+    void initialQueryParameters();
     void slotDirectoryFinished();
     DirectoryInfo mDirectoryInfo;
 };

@@ -46,10 +46,32 @@ bool DirectoryJob::start()
         deleteLater();
         return false;
     }
+    initialQueryParameters();
     QNetworkReply *reply = submitGetRequest();
+
     connect(reply, &QNetworkReply::finished, this, &DirectoryJob::slotDirectoryFinished);
     addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for search room or users"));
     return true;
+}
+
+void DirectoryJob::initialQueryParameters()
+{
+    QueryParameters parameters;
+    QMap<QString, QString> map;
+    switch (mDirectoryInfo.searchType) {
+    case Unknown:
+        break;
+    case Room:
+        map.insert(QStringLiteral("type"), QStringLiteral("channels"));
+        break;
+    case Users:
+        map.insert(QStringLiteral("type"), QStringLiteral("users"));
+        break;
+    }
+
+    map.insert(QStringLiteral("text"), mDirectoryInfo.pattern);
+    parameters.setCustom(map);
+    setQueryParameters(parameters);
 }
 
 void DirectoryJob::slotDirectoryFinished()
@@ -95,7 +117,6 @@ QNetworkRequest DirectoryJob::request() const
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
-
     return request;
 }
 
