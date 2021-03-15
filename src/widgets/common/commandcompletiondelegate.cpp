@@ -38,6 +38,10 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 {
     // command <parameter> description at end
     drawBackground(painter, option, index);
+
+    if (option.state & QStyle::State_Selected)
+        painter->fillRect(option.rect, option.palette.highlight());
+
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
     const QFontMetrics commandFontMetrics(painter->font());
