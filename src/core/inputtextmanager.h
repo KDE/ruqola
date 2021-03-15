@@ -66,7 +66,9 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(InputTextManager)
 
+    void slotCompletionChannels(const QString &pattern);
     void setCompletionType(CompletionForType type);
+    void slotCompletionChannelDone(const QJsonObject &root);
 
     InputCompleterModel *const mInputCompleterModel;
     QSortFilterProxyModel *const mEmoticonFilterProxyModel;

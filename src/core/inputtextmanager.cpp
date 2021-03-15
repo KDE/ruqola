@@ -19,8 +19,10 @@
 */
 
 #include "inputtextmanager.h"
+#include "misc/directoryjob.h"
 #include "model/commandsmodel.h"
 #include "ownuserpreferences.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"
 #include "ruqola_debug.h"
@@ -135,6 +137,28 @@ void InputTextManager::setCompletionType(InputTextManager::CompletionForType typ
     }
 }
 
+void InputTextManager::slotCompletionChannels(const QString &pattern)
+{
+    if (!pattern.isEmpty()) {
+        auto job = new RocketChatRestApi::DirectoryJob(this);
+        RocketChatRestApi::DirectoryJob::DirectoryInfo info;
+        info.pattern = pattern;
+        info.searchType = RocketChatRestApi::DirectoryJob::Room;
+        job->setDirectoryInfo(info);
+        mAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &InputTextManager::slotCompletionChannelDone);
+        if (!job->start()) {
+            qCWarning(RUQOLA_COMPLETION_LOG) << "Impossible to start searchRoomUser job";
+        }
+    }
+}
+
+void InputTextManager::slotCompletionChannelDone(const QJsonObject &root)
+{
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    inputTextCompleter(obj);
+}
+
 void InputTextManager::setInputTextChanged(const QString &text, int position)
 {
     if (text.isEmpty()) {
@@ -162,6 +186,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             mCurrentCompletionPattern = str;
             Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
+            // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
             if (mAccount && mAccount->ownUserPreferences().useEmojis()) {
