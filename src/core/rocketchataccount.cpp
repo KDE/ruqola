@@ -847,11 +847,6 @@ void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketC
     }
 }
 
-void RocketChatAccount::loadAutoCompleteChannel(const QJsonObject &obj)
-{
-    mSearchChannelModel->parseChannels(obj);
-}
-
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
     mFilesModelForRoom->initialize();
@@ -988,14 +983,14 @@ ListMessagesModel *RocketChatAccount::listMessageModel() const
 
 void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)
 {
-    loadAutoCompleteChannel(obj);
+    mSearchChannelModel->parseChannels(obj);
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 {
     // qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
     // If empty ! show empty list
-    loadAutoCompleteChannel(obj);
+    mSearchChannelModel->parseChannels(obj);
 }
 
 void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)

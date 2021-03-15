@@ -300,8 +300,6 @@ public:
     void membersInRoom(const QString &roomId, const QString &roomType);
     void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
 
-    void loadAutoCompleteChannel(const QJsonObject &obj);
-
     void insertCompleterUsers();
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
