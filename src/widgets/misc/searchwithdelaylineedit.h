@@ -32,7 +32,7 @@ public:
     ~SearchWithDelayLineEdit() override;
 
 Q_SIGNALS:
-    void searchRequired(const QString &str);
+    void searchRequested(const QString &str);
     void searchCleared();
 
 private:

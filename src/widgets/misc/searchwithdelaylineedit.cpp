@@ -40,7 +40,7 @@ void SearchWithDelayLineEdit::slotSearchTimerFired()
 {
     mSearchTimer->stop();
     if (!text().trimmed().isEmpty()) {
-        Q_EMIT searchRequired(text());
+        Q_EMIT searchRequested(text());
     } else {
         Q_EMIT searchCleared();
     }

@@ -44,7 +44,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mSearchLineEdit->setPlaceholderText(i18n("Search Messages"));
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
-    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchMessageWidget::slotSearchMessages);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchMessageWidget::slotSearchMessages);
 
     mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
     QFont labFont = mSearchLabel->font();

@@ -21,9 +21,11 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QLineEdit>
+#include "misc/searchwithdelaylineedit.h"
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public QLineEdit
+#include <QJsonObject>
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public SearchWithDelayLineEdit
 {
     Q_OBJECT
 public:
@@ -31,4 +33,8 @@ public:
     ~ChannelNameValidLineEdit() override;
 Q_SIGNALS:
     void channelIsValid(bool valid);
+
+private:
+    void slotSearchChannelRequested(const QString &str);
+    void slotSearchDone(const QJsonObject &obj);
 };

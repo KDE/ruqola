@@ -49,7 +49,7 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, [this]() {
         slotTextChanged(mSearchLineEdit->text());
     });
-    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequired, this, &SearchChannelWidget::slotTextChanged);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchChannelWidget::slotTextChanged);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchChannelWidget::slotSearchCleared);
     mainLayout->addWidget(mSearchLineEdit);
 

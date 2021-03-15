@@ -56,7 +56,7 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    void slotChangeOkButtonEnabled();
+    void slotChangeOkButtonEnabled(bool state);
     ChannelNameValidLineEdit *const mChannelName;
     AddUsersWidget *const mUsers;
     QCheckBox *const mReadOnly;

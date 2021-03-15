@@ -19,13 +19,52 @@
 */
 
 #include "channelnamevalidlineedit.h"
+#include "misc/directoryjob.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
-    : QLineEdit(parent)
+    : SearchWithDelayLineEdit(parent)
 {
-    setClearButtonEnabled(true);
+    connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
 }
 
 ChannelNameValidLineEdit::~ChannelNameValidLineEdit()
 {
+}
+
+void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
+{
+    if (!text.trimmed().isEmpty()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::DirectoryJob(this);
+        RocketChatRestApi::DirectoryJob::DirectoryInfo info;
+        info.pattern = text;
+        info.searchType = RocketChatRestApi::DirectoryJob::Room;
+        job->setDirectoryInfo(info);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelNameValidLineEdit::slotSearchDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+        }
+    } else {
+        Q_EMIT channelIsValid(true);
+    }
+}
+
+void ChannelNameValidLineEdit::slotSearchDone(const QJsonObject &obj)
+{
+    const QJsonArray rooms = obj.value(QLatin1String("result")).toArray();
+    for (int i = 0; i < rooms.size(); i++) {
+        const QJsonObject o = rooms.at(i).toObject();
+        Channel channel;
+        channel.parseChannel(o, Channel::ChannelType::Room);
+        if (channel.roomName() == text()) {
+            Q_EMIT channelIsValid(false);
+            return;
+        }
+    }
+    Q_EMIT channelIsValid(true);
 }
