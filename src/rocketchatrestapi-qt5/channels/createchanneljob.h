@@ -55,6 +55,9 @@ Q_SIGNALS:
     void createChannelDone();
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 private:
     Q_DISABLE_COPY(CreateChannelJob)
     void slotCreateChannelFinished();

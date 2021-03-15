@@ -22,6 +22,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -85,6 +86,14 @@ QString CreateChannelJob::password() const
 void CreateChannelJob::setPassword(const QString &password)
 {
     mPassword = password;
+}
+
+QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("error-duplicate-channel-name")) {
+        return i18n("A channel with name '%1' exists", detail.value(QStringLiteral("channel_name")).toString());
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 QStringList CreateChannelJob::members() const
