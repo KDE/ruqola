@@ -741,6 +741,7 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
     } else {
         // Use restapi
         // Avoid to show own user
+        // restApi()->searchRooms(pattern);
         restApi()->searchRoomUser(pattern);
     }
 }
@@ -983,6 +984,7 @@ ListMessagesModel *RocketChatAccount::listMessageModel() const
 
 void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)
 {
+    qDebug() << "void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)" << obj;
     mSearchChannelModel->parseChannels(obj);
 }
 
