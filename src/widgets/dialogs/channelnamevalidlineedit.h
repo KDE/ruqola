@@ -37,4 +37,6 @@ Q_SIGNALS:
 private:
     void slotSearchChannelRequested(const QString &str);
     void slotSearchDone(const QJsonObject &obj);
+    void emitIsValid(bool state);
+    QString mNegativeBackground;
 };

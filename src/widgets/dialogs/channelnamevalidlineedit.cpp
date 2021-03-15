@@ -25,6 +25,8 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
+#include <KColorScheme>
+
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
     : SearchWithDelayLineEdit(parent)
 {
@@ -61,10 +63,27 @@ void ChannelNameValidLineEdit::slotSearchDone(const QJsonObject &obj)
         const QJsonObject o = rooms.at(i).toObject();
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
+        qDebug() << " o " << o;
         if (channel.roomName() == text()) {
-            Q_EMIT channelIsValid(false);
+            Q_EMIT emitIsValid(false);
             return;
         }
     }
-    Q_EMIT channelIsValid(true);
+    Q_EMIT emitIsValid(true);
+}
+
+void ChannelNameValidLineEdit::emitIsValid(bool state)
+{
+#ifndef QT_NO_STYLE_STYLESHEET
+    QString styleSheet;
+    if (mNegativeBackground.isEmpty()) {
+        const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeBackground);
+        mNegativeBackground = QStringLiteral("QLineEdit{ background-color:%1 }").arg(bgBrush.brush(this).color().name());
+    }
+    if (!state) {
+        styleSheet = mNegativeBackground;
+    }
+    setStyleSheet(styleSheet);
+#endif
+    Q_EMIT channelIsValid(state);
 }
