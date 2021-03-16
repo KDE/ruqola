@@ -19,8 +19,6 @@
 */
 
 #include "channelnamevalidlineedit.h"
-#include "misc/directoryjob.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -30,7 +28,9 @@
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
     : SearchWithDelayLineEdit(parent)
 {
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
+    connect(rcAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
 }
 
 ChannelNameValidLineEdit::~ChannelNameValidLineEdit()
@@ -41,35 +41,21 @@ void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
 {
     if (!text.trimmed().isEmpty()) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        auto job = new RocketChatRestApi::DirectoryJob(this);
-        RocketChatRestApi::DirectoryJob::DirectoryInfo info;
-        info.pattern = text;
-        info.searchType = RocketChatRestApi::DirectoryJob::Room;
-        job->setDirectoryInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelNameValidLineEdit::slotSearchDone);
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
-        }
+        mDdpIdentifier = rcAccount->ddp()->roomNameExists(text);
     } else {
         Q_EMIT channelIsValid(true);
     }
 }
 
-void ChannelNameValidLineEdit::slotSearchDone(const QJsonObject &obj)
+void ChannelNameValidLineEdit::slotSearchDone(quint64 id, const QJsonDocument &result)
 {
-    const QJsonArray rooms = obj.value(QLatin1String("result")).toArray();
-    for (int i = 0; i < rooms.size(); i++) {
-        const QJsonObject o = rooms.at(i).toObject();
-        Channel channel;
-        channel.parseChannel(o, Channel::ChannelType::Room);
-        qDebug() << " o " << o;
-        if (channel.roomName() == text()) {
-            Q_EMIT emitIsValid(false);
-            return;
+    if (id == mDdpIdentifier) {
+        const QJsonObject objresult = result.object();
+        const auto resultValue = objresult.value(QLatin1String("result"));
+        if (!resultValue.isUndefined()) {
+            emitIsValid(!resultValue.toBool());
         }
     }
-    Q_EMIT emitIsValid(true);
 }
 
 void ChannelNameValidLineEdit::emitIsValid(bool state)

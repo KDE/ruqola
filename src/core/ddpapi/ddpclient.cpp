@@ -74,8 +74,7 @@ void room_name_exist(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Check if Room Name Exist:") + QJsonDocument(root).toJson());
     }
-    const bool result = root.value(QLatin1String("result")).toBool();
-    qDebug() << " obj " << result;
+    Q_EMIT account->ddp()->result(root.value(QLatin1String("id")).toString().toULongLong(), QJsonDocument(root));
 }
 
 void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatAccount *account)

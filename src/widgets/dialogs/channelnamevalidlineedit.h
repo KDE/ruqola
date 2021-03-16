@@ -23,7 +23,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchwithdelaylineedit.h"
 
-#include <QJsonObject>
+#include <QJsonDocument>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public SearchWithDelayLineEdit
 {
@@ -35,8 +35,9 @@ Q_SIGNALS:
     void channelIsValid(bool valid);
 
 private:
+    void slotSearchDone(quint64 id, const QJsonDocument &result);
     void slotSearchChannelRequested(const QString &str);
-    void slotSearchDone(const QJsonObject &obj);
     void emitIsValid(bool state);
     QString mNegativeBackground;
+    quint64 mDdpIdentifier = 0;
 };
