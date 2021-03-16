@@ -69,6 +69,15 @@ void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount 
     account->inputTextManager()->inputTextCompleter(obj);
 }
 
+void room_name_exist(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Check if Room Name Exist:") + QJsonDocument(root).toJson());
+    }
+    const bool result = root.value(QLatin1String("result")).toBool();
+    qDebug() << " obj " << result;
+}
+
 void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -322,6 +331,12 @@ quint64 DDPClient::createJitsiConfCall(const QString &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, m_uid);
     return method(result, create_jitsi_conf_call, DDPClient::Persistent);
+}
+
+quint64 DDPClient::roomNameExists(const QString &roomName)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomNameExists(roomName, m_uid);
+    return method(result, room_name_exist, DDPClient::Persistent);
 }
 
 quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog)

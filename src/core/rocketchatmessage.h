@@ -60,6 +60,8 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult roomNameExists(const QString &roomName, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);
