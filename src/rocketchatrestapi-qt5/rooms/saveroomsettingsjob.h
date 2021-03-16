@@ -31,15 +31,19 @@ public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT SaveRoomSettingsInfo {
         QStringList systemMessages;
         QString roomId;
+        QString roomName;
+        QString roomTopic;
+        QString roomAnnouncement;
+        QString roomDescription;
         bool retentionEnabled = false;
         bool retentionExcludePinned = false;
         bool retentionFilesOnly = false;
         bool retentionIgnoreThreads = false;
         bool retentionOverrideGlobal = false;
         int retentionMaxAge = 32;
-        //'roomAvatar', 'featured', 'roomName', 'roomTopic', 'roomAnnouncement', 'roomCustomFields', 'roomDescription', 'roomType', 'readOnly',
-        //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions', 'retentionEnabled', 'retentionMaxAge', 'retentionExcludePinned',
-        //'retentionFilesOnly', 'retentionIgnoreThreads', 'retentionOverrideGlobal', 'encrypted', 'favorite'
+        //'roomAvatar', 'featured','roomCustomFields', 'roomType', 'readOnly',
+        //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions'
+        //'encrypted', 'favorite'
         Q_REQUIRED_RESULT bool isValid() const;
     };
 

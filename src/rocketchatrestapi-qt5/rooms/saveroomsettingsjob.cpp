@@ -109,6 +109,18 @@ QJsonDocument SaveRoomSettingsJob::json() const
     jsonObj[QLatin1String("roomId")] = mSaveRoomSettingsInfo.roomId;
     const QJsonArray systemSettingsArray = QJsonArray::fromStringList(mSaveRoomSettingsInfo.systemMessages);
     jsonObj[QLatin1String("systemMessages")] = systemSettingsArray;
+    jsonObj[QLatin1String("retentionEnabled")] = mSaveRoomSettingsInfo.retentionEnabled;
+    jsonObj[QLatin1String("retentionExcludePinned")] = mSaveRoomSettingsInfo.retentionExcludePinned;
+    jsonObj[QLatin1String("retentionFilesOnly")] = mSaveRoomSettingsInfo.retentionFilesOnly;
+    jsonObj[QLatin1String("retentionIgnoreThreads")] = mSaveRoomSettingsInfo.retentionIgnoreThreads;
+    jsonObj[QLatin1String("retentionOverrideGlobal")] = mSaveRoomSettingsInfo.retentionOverrideGlobal;
+    jsonObj[QLatin1String("retentionMaxAge")] = mSaveRoomSettingsInfo.retentionMaxAge;
+
+    jsonObj[QLatin1String("roomName")] = mSaveRoomSettingsInfo.roomName;
+    jsonObj[QLatin1String("roomTopic")] = mSaveRoomSettingsInfo.roomTopic;
+    jsonObj[QLatin1String("roomAnnouncement")] = mSaveRoomSettingsInfo.roomAnnouncement;
+    jsonObj[QLatin1String("roomDescription")] = mSaveRoomSettingsInfo.roomDescription;
+
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
