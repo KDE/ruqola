@@ -33,6 +33,9 @@ public:
     void setMessagesSystem(const QStringList &lst);
     Q_REQUIRED_RESULT QStringList systemMessagesSelected() const;
 
+Q_SIGNALS:
+    void settingsChanged();
+
 private:
     SystemMessagesModel *const mSystemMessagesModel;
 };

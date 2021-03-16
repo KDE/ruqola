@@ -27,6 +27,7 @@ SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     , mSystemMessagesModel(new SystemMessagesModel(this))
 {
     setModel(mSystemMessagesModel);
+    connect(mSystemMessagesModel, &SystemMessagesModel::dataChanged, this, &SystemMessagesComboBox::settingsChanged);
 }
 
 SystemMessagesComboBox::~SystemMessagesComboBox()

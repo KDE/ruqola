@@ -234,6 +234,9 @@ void ChannelInfoWidget::initEditableWidget()
 
     mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
+    connect(mSystemMessageCombox, &SystemMessagesComboBox::settingsChanged, this, [this]() {
+        qDebug() << " systemmessagechanged";
+    });
 
     mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
     layout->addRow(mChannelInfoPruneWidget);
