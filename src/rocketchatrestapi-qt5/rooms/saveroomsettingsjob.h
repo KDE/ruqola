@@ -29,6 +29,22 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT SaveRoomSettingsJob : public RestApiAbstra
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT SaveRoomSettingsInfo {
+        enum SettingChanged {
+            Unknown = 0,
+            SystemMessages = 1,
+            RoomName = 2,
+            RoomTopic = 4,
+            RoomAnnouncement = 8,
+            RoomDescription = 16,
+            RetentionEnabled = 32,
+            RetentionExcludePinned = 64,
+            RetentionFilesOnly = 128,
+            RetentionIgnoreThreads = 256,
+            RetentionOverrideGlobal = 512,
+            RetentionMaxAge = 1024,
+        };
+        Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
+
         QStringList systemMessages;
         QString roomId;
         QString roomName;
@@ -44,6 +60,7 @@ public:
         //'roomAvatar', 'featured','roomCustomFields', 'roomType', 'readOnly',
         //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions'
         //'encrypted', 'favorite'
+        SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
         Q_REQUIRED_RESULT bool isValid() const;
     };
 

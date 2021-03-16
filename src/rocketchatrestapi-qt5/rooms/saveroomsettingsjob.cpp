@@ -127,5 +127,5 @@ QJsonDocument SaveRoomSettingsJob::json() const
 
 bool SaveRoomSettingsJob::SaveRoomSettingsInfo::isValid() const
 {
-    return !roomId.isEmpty();
+    return !roomId.isEmpty() && (mSettingsWillBeChanged != SettingChanged::Unknown);
 }
