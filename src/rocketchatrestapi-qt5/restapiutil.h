@@ -171,6 +171,7 @@ enum class RestApiUrlType {
     EmojiCustomUpdate,
     RoomsUpload,
     RoomsSaveNotification,
+    RoomsSaveSettings,
     RoomsAdminRooms,
     ImClose,
     ImCreate,
