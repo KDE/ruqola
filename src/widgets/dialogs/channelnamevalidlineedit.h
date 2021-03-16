@@ -35,6 +35,7 @@ Q_SIGNALS:
     void channelIsValid(bool valid);
 
 private:
+    void updateStyleSheet(bool state);
     void slotSearchDone(quint64 id, const QJsonDocument &result);
     void slotSearchChannelRequested(const QString &str);
     void emitIsValid(bool state);

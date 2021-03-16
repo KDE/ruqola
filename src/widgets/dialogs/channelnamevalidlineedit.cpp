@@ -30,6 +30,9 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
+    connect(this, &ChannelNameValidLineEdit::searchCleared, this, [this] {
+        updateStyleSheet(true);
+    });
     connect(rcAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
 }
 
@@ -43,7 +46,7 @@ void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         mDdpIdentifier = rcAccount->ddp()->roomNameExists(text);
     } else {
-        Q_EMIT channelIsValid(true);
+        updateStyleSheet(true);
     }
 }
 
@@ -58,7 +61,7 @@ void ChannelNameValidLineEdit::slotSearchDone(quint64 id, const QJsonDocument &r
     }
 }
 
-void ChannelNameValidLineEdit::emitIsValid(bool state)
+void ChannelNameValidLineEdit::updateStyleSheet(bool state)
 {
 #ifndef QT_NO_STYLE_STYLESHEET
     QString styleSheet;
@@ -71,5 +74,10 @@ void ChannelNameValidLineEdit::emitIsValid(bool state)
     }
     setStyleSheet(styleSheet);
 #endif
+}
+
+void ChannelNameValidLineEdit::emitIsValid(bool state)
+{
+    updateStyleSheet(state);
     Q_EMIT channelIsValid(state);
 }
