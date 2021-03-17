@@ -89,7 +89,7 @@ private:
     QCheckBox *mPrivate = nullptr;
     QCheckBox *mEncrypted = nullptr;
     QPushButton *mDeleteChannel = nullptr;
-    QStackedWidget *mStackedWidget = nullptr;
+    QStackedWidget *const mStackedWidget;
     QWidget *mEditableChannel = nullptr;
     QWidget *mReadOnlyChannel = nullptr;
     QWidget *mEncryptedLabel = nullptr;

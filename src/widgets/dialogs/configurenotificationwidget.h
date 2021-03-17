@@ -36,15 +36,15 @@ public:
     void setRoom(Room *room);
 
 private:
-    QCheckBox *mDisableNotification = nullptr;
-    QCheckBox *mHideUnreadRoomStatus = nullptr;
-    QCheckBox *mMuteGroupMentions = nullptr;
+    QCheckBox *const mDisableNotification;
+    QCheckBox *const mHideUnreadRoomStatus;
+    QCheckBox *const mMuteGroupMentions;
     Room *mRoom = nullptr;
-    QComboBox *mDesktopAlertCombobox = nullptr;
-    QComboBox *mDesktopAudioCombobox = nullptr;
-    QComboBox *mDesktopSoundCombobox = nullptr;
-    QComboBox *mDesktopDurationCombobox = nullptr;
-    QComboBox *mMobileAlertCombobox = nullptr;
-    QComboBox *mEmailAlertCombobox = nullptr;
+    QComboBox *const mDesktopAlertCombobox;
+    QComboBox *const mDesktopAudioCombobox;
+    QComboBox *const mDesktopSoundCombobox;
+    QComboBox *const mDesktopDurationCombobox;
+    QComboBox *const mMobileAlertCombobox;
+    QComboBox *const mEmailAlertCombobox;
 };
 

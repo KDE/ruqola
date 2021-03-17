@@ -77,7 +77,7 @@ void ChannelSearchWidget::slotSelectedRoom(const ChannelSearchNameLineEdit::Chan
 
 void ChannelSearchWidget::slotClearRoom()
 {
-    mUserInfo = {};
+    mUserInfo = ChannelSearchNameLineEdit::ChannelCompletionInfo();
     mStackedWidget->setCurrentWidget(mChannelSearchNameLineEdit);
     Q_EMIT updateRoomName(false);
 }

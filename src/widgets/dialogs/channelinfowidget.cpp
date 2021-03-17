@@ -43,6 +43,7 @@
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
+    , mStackedWidget(new QStackedWidget(this))
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
@@ -50,7 +51,6 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mStackedWidget = new QStackedWidget(this);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
 
