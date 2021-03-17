@@ -35,6 +35,7 @@ CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     setRootIsDecorated(false);
     connect(this, &CustomSoundsTreeWidget::customContextMenuRequested, this, &CustomSoundsTreeWidget::slotCustomContextMenuRequested);
+    connect(this, &CustomSoundsTreeWidget::itemDoubleClicked, this, &CustomSoundsTreeWidget::editClicked);
     initialize();
 }
 
