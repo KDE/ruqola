@@ -29,12 +29,12 @@
 
 TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent)
     : QWidget(parent)
+    , mTwoFactorAuthenticationPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto twoFactorLayout = new QHBoxLayout(this);
     twoFactorLayout->setObjectName(QStringLiteral("twoFactorLayout"));
     twoFactorLayout->setContentsMargins({});
 
-    mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);

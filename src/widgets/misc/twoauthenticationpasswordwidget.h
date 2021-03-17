@@ -35,6 +35,6 @@ public:
 
 private:
     void slotSendNewEmailCode();
-    KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
+    KPasswordLineEdit *const mTwoFactorAuthenticationPasswordLineEdit;
 };
 
