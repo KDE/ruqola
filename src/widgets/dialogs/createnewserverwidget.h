@@ -44,10 +44,10 @@ Q_SIGNALS:
 private:
     void slotChangeOkButtonEnabled();
     QStringList mNames;
-    QLineEdit *mAccountName = nullptr;
-    QLineEdit *mServerName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
+
+    QLineEdit *const mAccountName;
+    QLineEdit *const mServerName;
+    QLineEdit *const mUserName;
+    KPasswordLineEdit *const mPasswordLineEdit;
     AccountManager::AccountManagerInfo mAccountInfo;
 };
-

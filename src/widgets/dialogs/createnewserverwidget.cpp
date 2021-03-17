@@ -28,30 +28,30 @@
 
 CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     : QWidget(parent)
+    , mAccountName(new QLineEdit(this))
+    , mServerName(new QLineEdit(this))
+    , mUserName(new QLineEdit(this))
+    , mPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mAccountName = new QLineEdit(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mAccountName, this);
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
 
-    mServerName = new QLineEdit(this);
     mServerName->setObjectName(QStringLiteral("mServerName"));
     mServerName->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mServerName, this);
     mainLayout->addRow(i18n("Server Name:"), mServerName);
 
-    mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mUserName, this);
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
-    mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
