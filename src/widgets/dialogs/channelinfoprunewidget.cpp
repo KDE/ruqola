@@ -48,6 +48,8 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     groupBoxLayout->addWidget(mAutomaticPruneOldMessages);
     mOverrideGlobalRetentionPolicy->setObjectName(QStringLiteral("mOverrideGlobalRetentionPolicy"));
     groupBoxLayout->addWidget(mOverrideGlobalRetentionPolicy);
+    connect(mOverrideGlobalRetentionPolicy, &QCheckBox::clicked, this, &ChannelInfoPruneWidget::setOverrideGlobalSettings);
+
     mExcludePinnedMessages->setObjectName(QStringLiteral("mExcludePinnedMessages"));
     groupBoxLayout->addWidget(mExcludePinnedMessages);
     mPruneFileOnlyKeepMessages->setObjectName(QStringLiteral("mPruneFileOnlyKeepMessages"));
@@ -64,6 +66,13 @@ ChannelInfoPruneWidget::~ChannelInfoPruneWidget()
 {
 }
 
+void ChannelInfoPruneWidget::setOverrideGlobalSettings(bool override)
+{
+    mExcludePinnedMessages->setEnabled(override);
+    mPruneFileOnlyKeepMessages->setEnabled(override);
+    mMaximumAgeInDay->setEnabled(override);
+}
+
 void ChannelInfoPruneWidget::setRetentionInfo(const RetentionInfo &retentionInfo)
 {
     mExcludePinnedMessages->setChecked(retentionInfo.excludePinned());
@@ -71,4 +80,5 @@ void ChannelInfoPruneWidget::setRetentionInfo(const RetentionInfo &retentionInfo
     mAutomaticPruneOldMessages->setChecked(retentionInfo.enabled());
     mOverrideGlobalRetentionPolicy->setChecked(retentionInfo.overrideGlobal());
     mMaximumAgeInDay->setValue(retentionInfo.maxAge());
+    setOverrideGlobalSettings(retentionInfo.overrideGlobal());
 }

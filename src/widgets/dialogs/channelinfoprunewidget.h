@@ -36,6 +36,7 @@ public:
     void setRetentionInfo(const RetentionInfo &retentionInfo);
 
 private:
+    void setOverrideGlobalSettings(bool override);
     QCheckBox *const mExcludePinnedMessages;
     QCheckBox *const mPruneFileOnlyKeepMessages;
     QCheckBox *const mAutomaticPruneOldMessages;
