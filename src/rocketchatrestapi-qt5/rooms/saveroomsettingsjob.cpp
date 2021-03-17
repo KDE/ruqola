@@ -141,6 +141,9 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomDescription) {
         jsonObj[QLatin1String("roomDescription")] = mSaveRoomSettingsInfo.roomDescription;
     }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::Favorite) {
+        jsonObj[QLatin1String("favorite")] = mSaveRoomSettingsInfo.favorite;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -149,4 +152,22 @@ QJsonDocument SaveRoomSettingsJob::json() const
 bool SaveRoomSettingsJob::SaveRoomSettingsInfo::isValid() const
 {
     return !roomId.isEmpty() && (mSettingsWillBeChanged != SettingChanged::Unknown);
+}
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &t)
+{
+    d << "systemMessages : " << t.systemMessages;
+    d << "roomId : " << t.roomId;
+    d << "roomName : " << t.roomName;
+    d << "roomTopic : " << t.roomTopic;
+    d << "roomAnnouncement : " << t.roomAnnouncement;
+    d << "roomDescription : " << t.roomDescription;
+    d << "retentionEnabled : " << t.retentionEnabled;
+    d << "retentionExcludePinned : " << t.retentionExcludePinned;
+    d << "retentionFilesOnly : " << t.retentionFilesOnly;
+    d << "retentionIgnoreThreads : " << t.retentionIgnoreThreads;
+    d << "retentionOverrideGlobal : " << t.retentionOverrideGlobal;
+    d << "favorite : " << t.favorite;
+    d << "retentionMaxAge : " << t.retentionMaxAge;
+    return d;
 }

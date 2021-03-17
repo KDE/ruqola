@@ -42,6 +42,7 @@ public:
             RetentionIgnoreThreads = 256,
             RetentionOverrideGlobal = 512,
             RetentionMaxAge = 1024,
+            Favorite = 2048,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -56,6 +57,7 @@ public:
         bool retentionFilesOnly = false;
         bool retentionIgnoreThreads = false;
         bool retentionOverrideGlobal = false;
+        bool favorite = false;
         int retentionMaxAge = 32;
         //'roomAvatar', 'featured','roomCustomFields', 'roomType', 'readOnly',
         //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions'
@@ -87,3 +89,6 @@ private:
     SaveRoomSettingsInfo mSaveRoomSettingsInfo;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &t);
