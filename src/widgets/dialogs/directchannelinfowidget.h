@@ -40,16 +40,16 @@ private:
     void fetchUserInfo(const QString &userName);
     void setUser(const User &user);
     void hideWidget(QLabel *label);
-    QLabel *mName = nullptr;
-    QLabel *mUserName = nullptr;
-    QLabel *mCustomStatus = nullptr;
-    QLabel *mStatus = nullptr;
-    QLabel *mTimeZone = nullptr;
-    QLabel *mAvatar = nullptr;
-    QLabel *mRoles = nullptr;
-    QLabel *mCreateAt = nullptr;
-    QLabel *mLastLogin = nullptr;
-    QLabel *mEmailsInfo = nullptr;
-    QFormLayout *mMainLayout = nullptr;
+    QLabel *const mName;
+    QLabel *const mUserName;
+    QLabel *const mCustomStatus;
+    QLabel *const mStatus;
+    QLabel *const mTimeZone;
+    QLabel *const mAvatar;
+    QLabel *const mRoles;
+    QLabel *const mCreateAt;
+    QLabel *const mLastLogin;
+    QLabel *const mEmailsInfo;
+    QFormLayout *const mMainLayout;
 };
 

@@ -33,56 +33,56 @@
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
+    , mName(new QLabel(this))
+    , mUserName(new QLabel(this))
+    , mCustomStatus(new QLabel(this))
+    , mStatus(new QLabel(this))
+    , mTimeZone(new QLabel(this))
+    , mAvatar(new QLabel(this))
+    , mRoles(new QLabel(this))
+    , mCreateAt(new QLabel(this))
+    , mLastLogin(new QLabel(this))
+    , mEmailsInfo(new QLabel(this))
+    , mMainLayout(new QFormLayout(this))
 {
-    mMainLayout = new QFormLayout(this);
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
 
-    mAvatar = new QLabel(this);
     mAvatar->setObjectName(QStringLiteral("mAvatar"));
     mMainLayout->addWidget(mAvatar);
 
-    mName = new QLabel(this);
     mName->setObjectName(QStringLiteral("mName"));
     mName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Name:"), mName);
 
-    mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Username:"), mUserName);
 
-    mStatus = new QLabel(this);
     mStatus->setObjectName(QStringLiteral("mStatus"));
     mStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Status:"), mStatus);
 
-    mTimeZone = new QLabel(this);
     mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
     mTimeZone->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Timezone:"), mTimeZone);
 
-    mCustomStatus = new QLabel(this);
     mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
     mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
 
-    mRoles = new QLabel(this);
     mRoles->setObjectName(QStringLiteral("mRoles"));
     mRoles->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Roles:"), mRoles);
 
-    mCreateAt = new QLabel(this);
     mCreateAt->setObjectName(QStringLiteral("mCreateAt"));
     mCreateAt->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Created At:"), mCreateAt);
 
-    mLastLogin = new QLabel(this);
     mLastLogin->setObjectName(QStringLiteral("mLastLogin"));
     mLastLogin->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Last Login:"), mLastLogin);
 
-    mEmailsInfo = new QLabel(this);
     mEmailsInfo->setObjectName(QStringLiteral("mEmailsInfo"));
     mEmailsInfo->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Email:"), mEmailsInfo);
