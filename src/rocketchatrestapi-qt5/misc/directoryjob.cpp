@@ -70,6 +70,7 @@ void DirectoryJob::initialQueryParameters()
     }
 
     map.insert(QStringLiteral("text"), mDirectoryInfo.pattern);
+    map.insert(QStringLiteral("workspace"), QStringLiteral("local"));
     parameters.setCustom(map);
     setQueryParameters(parameters);
 }
