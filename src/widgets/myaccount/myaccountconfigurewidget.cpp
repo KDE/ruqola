@@ -30,6 +30,9 @@
 
 MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     : QWidget(parent)
+    , mMyAccount2FaConfigureWidget(new MyAccount2FaConfigureWidget(this))
+    , mMyAccount2ProfileConfigureWidget(new MyAccountProfileConfigureWidget(this))
+    , mMyAccountPreferenceConfigureWidget(new MyAccountPreferenceConfigureWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -39,18 +42,15 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(QWidget *parent)
     tabWidget->setObjectName(QStringLiteral("tabWidget"));
     mainLayout->addWidget(tabWidget);
 
-    mMyAccount2ProfileConfigureWidget = new MyAccountProfileConfigureWidget(this);
     mMyAccount2ProfileConfigureWidget->setObjectName(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
     tabWidget->addTab(mMyAccount2ProfileConfigureWidget, i18n("Profile"));
 
-    mMyAccount2FaConfigureWidget = new MyAccount2FaConfigureWidget(this);
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
     if (!Ruqola::self()->rocketChatAccount()->allowProfileChange()) {
         mMyAccount2ProfileConfigureWidget->setVisible(false);
     }
 
-    mMyAccountPreferenceConfigureWidget = new MyAccountPreferenceConfigureWidget(this);
     mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));
 }

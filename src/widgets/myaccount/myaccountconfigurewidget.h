@@ -36,8 +36,8 @@ public:
     void load();
 
 private:
-    MyAccount2FaConfigureWidget *mMyAccount2FaConfigureWidget = nullptr;
-    MyAccountProfileConfigureWidget *mMyAccount2ProfileConfigureWidget = nullptr;
-    MyAccountPreferenceConfigureWidget *mMyAccountPreferenceConfigureWidget = nullptr;
+    MyAccount2FaConfigureWidget *const mMyAccount2FaConfigureWidget;
+    MyAccountProfileConfigureWidget *const mMyAccount2ProfileConfigureWidget;
+    MyAccountPreferenceConfigureWidget *const mMyAccountPreferenceConfigureWidget;
 };
 
