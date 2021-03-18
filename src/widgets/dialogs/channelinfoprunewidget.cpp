@@ -38,7 +38,7 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    QGroupBox *groupBox = new QGroupBox(i18n("Prune"), this);
+    auto groupBox = new QGroupBox(i18n("Prune"), this);
     groupBox->setObjectName(QStringLiteral("groupBox"));
     mainLayout->addWidget(groupBox);
 
