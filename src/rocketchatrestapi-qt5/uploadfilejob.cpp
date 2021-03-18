@@ -21,6 +21,7 @@
 #include "uploadfilejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QFile>
 #include <QHttpMultiPart>
 #include <QJsonDocument>
@@ -66,6 +67,7 @@ bool UploadFileJob::start()
     auto file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mUploadFileInfo.filenameUrl;
+        Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile));
         delete file;
         deleteLater();
         return false;
