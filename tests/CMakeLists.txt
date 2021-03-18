@@ -10,9 +10,7 @@ target_link_libraries(expandjsontest
     )
 
 # ==================================================================== #
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-    ItemViews
-)
+
 set(unicodeemoticongui_SRCS unicodeemoticongui.cpp)
 
 qt5_add_resources(unicodeemoticongui_SRCS ../src/core/ruqolacore.qrc)
