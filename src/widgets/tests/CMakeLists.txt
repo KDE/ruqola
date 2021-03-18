@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
 set(testshowimage_gui_SRCS testshowimage_gui.cpp)
 add_executable(testshowimage_gui ${testshowimage_gui_SRCS})
 target_link_libraries(testshowimage_gui libruqolawidgets KF5::I18n)

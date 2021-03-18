@@ -1,4 +1,6 @@
-
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
 set(Ruqola_ddpapi_SRCS
     ddpapi/ddpauthenticationmanager.cpp
     ddpapi/ddpclient.cpp
