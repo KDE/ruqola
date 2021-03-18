@@ -44,7 +44,7 @@ public:
 
 private:
 #if HAVE_KUSERFEEDBACK
-    KUserFeedback::FeedbackConfigWidget *mUserFeedbackWidget = nullptr;
+    KUserFeedback::FeedbackConfigWidget *const mUserFeedbackWidget;
 #endif
 };
 

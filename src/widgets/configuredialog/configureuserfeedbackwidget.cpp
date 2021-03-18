@@ -29,14 +29,15 @@
 
 ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
     : QWidget(parent)
+#if HAVE_KUSERFEEDBACK
+    , mUserFeedbackWidget(new KUserFeedback::FeedbackConfigWidget(this))
+#endif
 {
     auto userFeedBackLayout = new QVBoxLayout(this);
     userFeedBackLayout->setObjectName(QStringLiteral("userFeedBackLayout"));
     userFeedBackLayout->setContentsMargins({});
 #if HAVE_KUSERFEEDBACK
-    mUserFeedbackWidget = new KUserFeedback::FeedbackConfigWidget(this);
     mUserFeedbackWidget->setObjectName(QStringLiteral("mUserFeedbackWidget"));
-
     userFeedBackLayout->addWidget(mUserFeedbackWidget);
 #endif
 }
