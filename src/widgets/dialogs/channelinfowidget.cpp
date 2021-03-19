@@ -241,8 +241,9 @@ void ChannelInfoWidget::initEditableWidget()
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
         RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
+        info.mSettingsWillBeChanged = info.mSettingsWillBeChanged | RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
         info.roomId = mRoom->roomId();
-        // qDebug() << " info.roomId" <<info.roomId;
+        qDebug() << " info.roomId" << info.roomId;
         info.systemMessages = mSystemMessageCombox->systemMessagesSelected();
         saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
         rcAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
