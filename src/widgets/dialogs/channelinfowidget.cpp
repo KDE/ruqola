@@ -50,6 +50,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
+    // TODO convert it to a dialogbox with ok/cancel => we will use one rest api method for all settings.
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -193,7 +194,7 @@ void ChannelInfoWidget::initEditableWidget()
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [](const QString &password) {
-        qWarning() << "change password not implemented yet ";
+        qWarning() << "joincode ! ";
         // Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Password, password, mRoom->channelType());
     });
 
