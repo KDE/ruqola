@@ -144,6 +144,12 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::Favorite) {
         jsonObj[QLatin1String("favorite")] = mSaveRoomSettingsInfo.favorite;
     }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomType) {
+        jsonObj[QLatin1String("roomType")] = mSaveRoomSettingsInfo.roomType;
+    }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::JoinCode) {
+        jsonObj[QLatin1String("joinCode")] = mSaveRoomSettingsInfo.joinCode;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -167,7 +173,9 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRo
     d << "retentionFilesOnly : " << t.retentionFilesOnly;
     d << "retentionIgnoreThreads : " << t.retentionIgnoreThreads;
     d << "retentionOverrideGlobal : " << t.retentionOverrideGlobal;
-    d << "favorite : " << t.favorite;
     d << "retentionMaxAge : " << t.retentionMaxAge;
+    d << "favorite : " << t.favorite;
+    d << "roomType : " << t.roomType;
+    // hide password d << "joinCode : " << t.joinCode;
     return d;
 }

@@ -43,6 +43,8 @@ public:
             RetentionOverrideGlobal = 512,
             RetentionMaxAge = 1024,
             Favorite = 2048,
+            RoomType = 4096,
+            JoinCode = 8192,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -52,6 +54,8 @@ public:
         QString roomTopic;
         QString roomAnnouncement;
         QString roomDescription;
+        QString roomType;
+        QString joinCode;
         bool retentionEnabled = false;
         bool retentionExcludePinned = false;
         bool retentionFilesOnly = false;
@@ -59,9 +63,9 @@ public:
         bool retentionOverrideGlobal = false;
         bool favorite = false;
         int retentionMaxAge = 32;
-        //'roomAvatar', 'featured','roomCustomFields', 'roomType', 'readOnly',
+        //'roomAvatar', 'featured','roomCustomFields', , 'readOnly',
         //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions'
-        //'encrypted', 'favorite'
+        //'encrypted',
         SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
         Q_REQUIRED_RESULT bool isValid() const;
     };
