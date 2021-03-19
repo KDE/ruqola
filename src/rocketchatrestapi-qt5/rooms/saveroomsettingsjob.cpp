@@ -87,7 +87,7 @@ bool SaveRoomSettingsJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mSaveRoomSettingsInfo.isValid()) {
+    if (!mSaveRoomSettingsInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SaveRoomSettingsJob: mRoomId is empty";
         return false;
     }
