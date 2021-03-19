@@ -106,7 +106,7 @@ QNetworkRequest SaveRoomSettingsJob::request() const
 QJsonDocument SaveRoomSettingsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mSaveRoomSettingsInfo.roomId;
+    jsonObj[QLatin1String("rid")] = mSaveRoomSettingsInfo.roomId;
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::SystemMessages) {
         const QJsonArray systemSettingsArray = QJsonArray::fromStringList(mSaveRoomSettingsInfo.systemMessages);
         jsonObj[QLatin1String("systemMessages")] = systemSettingsArray;
