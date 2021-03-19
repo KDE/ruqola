@@ -80,11 +80,11 @@ public:
     void setSaveRoomSettingsInfo(const SaveRoomSettingsInfo &saveRoomSettingsInfo);
 
 Q_SIGNALS:
-    void changeNotificationDone();
+    void saveRoomSettingsDone();
 
 private:
     Q_DISABLE_COPY(SaveRoomSettingsJob)
-    void slotChangeNotificationFinished();
+    void slotSaveRoomSettingsFinished();
 
     SaveRoomSettingsInfo mSaveRoomSettingsInfo;
 };

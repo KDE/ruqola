@@ -44,11 +44,11 @@ bool SaveRoomSettingsJob::start()
     }
     addStartRestApiInfo("SaveRoomSettingsJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &SaveRoomSettingsJob::slotChangeNotificationFinished);
+    connect(reply, &QNetworkReply::finished, this, &SaveRoomSettingsJob::slotSaveRoomSettingsFinished);
     return true;
 }
 
-void SaveRoomSettingsJob::slotChangeNotificationFinished()
+void SaveRoomSettingsJob::slotSaveRoomSettingsFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,7 +57,7 @@ void SaveRoomSettingsJob::slotChangeNotificationFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("SaveRoomSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT changeNotificationDone();
+            Q_EMIT saveRoomSettingsDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("SaveRoomSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -96,7 +96,7 @@ bool SaveRoomSettingsJob::canStart() const
 
 QNetworkRequest SaveRoomSettingsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveNotification);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveSettings);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
