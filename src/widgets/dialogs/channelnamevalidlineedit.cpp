@@ -28,6 +28,7 @@
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
     : SearchWithDelayLineEdit(parent)
 {
+    setPlaceholderText(QString());
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
     connect(this, &ChannelNameValidLineEdit::searchCleared, this, [this] {
