@@ -57,7 +57,7 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.roomId = roomId;
     job.setSaveRoomSettingsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1"})").arg(roomId).toLatin1());
 }
 
 void SaveRoomSettingsJobTest::shouldNotStarting()
