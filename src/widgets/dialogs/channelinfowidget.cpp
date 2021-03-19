@@ -22,9 +22,12 @@
 #include "channelinfoprunewidget.h"
 #include "misc/systemmessagescombobox.h"
 #include "permissionmanager.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "room.h"
+#include "rooms/saveroomsettingsjob.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -235,7 +238,18 @@ void ChannelInfoWidget::initEditableWidget()
     mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
     connect(mSystemMessageCombox, &SystemMessagesComboBox::settingsChanged, this, [this]() {
-        qDebug() << " systemmessagechanged";
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
+        RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
+        info.roomId = mRoom->roomId();
+        // qDebug() << " info.roomId" <<info.roomId;
+        info.systemMessages = mSystemMessageCombox->systemMessagesSelected();
+        saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
+        rcAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
+        // connect(saveRoomSettingsJob, &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone, this, &AdministratorRoomsWidget::slotAdminRoomDone);
+        if (!saveRoomSettingsJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
+        }
     });
 
     mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
