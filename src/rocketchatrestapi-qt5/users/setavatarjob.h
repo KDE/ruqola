@@ -30,6 +30,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT SetAvatarJob : public UserBaseJob
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT SetAvatarInfo {
         // TODO addimage directly
+        QString mLocalFilePath;
         QString mAvatarUrl;
         Q_REQUIRED_RESULT bool isValid() const;
     };
