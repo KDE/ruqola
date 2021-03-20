@@ -21,6 +21,7 @@
 #include "completionlistview.h"
 
 #include <QApplication>
+#include <QDebug>
 #include <QDesktopWidget>
 #include <QKeyEvent>
 #include <QScreen>
@@ -83,6 +84,16 @@ void CompletionListView::keyPressEvent(QKeyEvent *event)
     }
 
     QListView::keyPressEvent(event);
+}
+
+bool CompletionListView::event(QEvent *event)
+{
+    // QAbstractScrollArea::event doesn't call QWidget::mousePressEvent, which leads to
+    // https://bugs.kde.org/show_bug.cgi?id=434473 when making the scrollarea a Qt::Popup
+    if (event->type() == QEvent::MouseButtonPress) {
+        QWidget::mousePressEvent(static_cast<QMouseEvent *>(event));
+    }
+    return QListView::event(event);
 }
 
 void CompletionListView::slotCompletionAvailable()

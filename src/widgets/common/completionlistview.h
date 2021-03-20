@@ -44,6 +44,7 @@ Q_SIGNALS:
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
+    bool event(QEvent *event) override;
 
 private:
     QWidget *mTextWidget = nullptr;
