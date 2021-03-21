@@ -38,8 +38,9 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     mainLayout->addWidget(mChannelInfoWidget);
     mChannelInfoWidget->updateUiFromPermission();
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelInfoDialog::accept);
     mainLayout->addWidget(buttonBox);
     resize(600, 400);
     connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
@@ -49,6 +50,13 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
 ChannelInfoDialog::~ChannelInfoDialog()
 {
 }
+
+RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::saveRoomSettingsInfo() const
+{
+    // TODO
+    return {};
+}
+// TODO return saveRoomsSettingsInfo
 
 void ChannelInfoDialog::setRoom(Room *room)
 {

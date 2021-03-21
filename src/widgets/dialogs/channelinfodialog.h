@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "rooms/saveroomsettingsjob.h"
 #include <QDialog>
 class ChannelInfoWidget;
 class Room;
@@ -31,6 +32,8 @@ public:
     explicit ChannelInfoDialog(QWidget *parent = nullptr);
     ~ChannelInfoDialog() override;
     void setRoom(Room *room);
+
+    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
 private:
     void slotFnameChanged(const QString &fname);

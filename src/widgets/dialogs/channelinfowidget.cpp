@@ -25,7 +25,6 @@
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "rooms/saveroomsettingsjob.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
@@ -69,6 +68,12 @@ ChannelInfoWidget::~ChannelInfoWidget()
 void ChannelInfoWidget::updateUiFromPermission()
 {
     mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
+}
+
+RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoWidget::saveRoomSettingsInfo() const
+{
+    // TODO
+    return {};
 }
 
 void ChannelInfoWidget::setRoom(Room *room)

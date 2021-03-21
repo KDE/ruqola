@@ -21,6 +21,8 @@
 #pragma once
 
 #include "libruqolawidgets_export.h"
+#include "rooms/saveroomsettingsjob.h"
+
 #include <QWidget>
 class KPasswordLineEdit;
 class QCheckBox;
@@ -65,6 +67,7 @@ public:
 
     void updateUiFromPermission();
 
+    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 Q_SIGNALS:
     void channelDeleted();
     void fnameChanged(const QString &fname);
