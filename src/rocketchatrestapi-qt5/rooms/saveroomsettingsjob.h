@@ -45,6 +45,7 @@ public:
             Favorite = 2048,
             RoomType = 4096,
             JoinCode = 8192,
+            ReadOnly = 16384,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -62,8 +63,9 @@ public:
         bool retentionIgnoreThreads = false;
         bool retentionOverrideGlobal = false;
         bool favorite = false;
+        bool readOnly = false;
         int retentionMaxAge = 32;
-        //'roomAvatar', 'featured','roomCustomFields', , 'readOnly',
+        //'roomAvatar', 'featured','roomCustomFields',
         //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions'
         //'encrypted',
         SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;

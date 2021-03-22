@@ -160,6 +160,14 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.roomDescription = mDescription->text();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomDescription;
     }
+    //    if (mRoom->topic() != mComment->text()) {
+    //        info.roomComment = mComment->text();
+    //        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomDescription;
+    //    }
+    if (mRoom->readOnly() != mReadOnly->isChecked()) {
+        info.readOnly = mReadOnly->isChecked();
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::ReadOnly;
+    }
     // TODO
     return info;
 }
