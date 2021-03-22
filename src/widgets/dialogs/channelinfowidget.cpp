@@ -19,6 +19,7 @@
 */
 
 #include "channelinfowidget.h"
+#include "channelinfoeditablewidget.h"
 #include "channelinfoprunewidget.h"
 #include "channelinforeadonlywidget.h"
 #include "misc/systemmessagescombobox.h"
@@ -47,8 +48,7 @@
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
-    , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
-    , mSystemMessageCombox(new SystemMessagesComboBox(this))
+    , mChannelInfoEditableWidget(new ChannelInfoEditableWidget(this))
     , mChannelInfoReadOnlyWidget(new ChannelInfoReadOnlyWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -59,7 +59,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mainLayout->addWidget(mStackedWidget);
 
     mStackedWidget->addWidget(mChannelInfoReadOnlyWidget);
-    initEditableWidget();
+    mStackedWidget->addWidget(mChannelInfoEditableWidget);
+    connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::channelDeleted, this, &ChannelInfoWidget::channelDeleted);
+    connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::fnameChanged, this, &ChannelInfoWidget::fnameChanged);
 }
 
 ChannelInfoWidget::~ChannelInfoWidget()
@@ -68,14 +70,13 @@ ChannelInfoWidget::~ChannelInfoWidget()
 
 void ChannelInfoWidget::updateUiFromPermission()
 {
-    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
+    mChannelInfoEditableWidget->updateUiFromPermission();
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoWidget::saveRoomSettingsInfo() const
 {
     if (mRoom->canBeModify()) {
-        // TODO
-        return {};
+        return mChannelInfoEditableWidget->saveRoomSettingsInfo();
     }
     return {};
 }
@@ -84,279 +85,14 @@ void ChannelInfoWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom->canBeModify()) {
-        mStackedWidget->setCurrentWidget(mEditableChannel);
-        updateEditableChannelInfo();
-        updateRetentionValue();
-        connectEditableWidget();
+        mStackedWidget->setCurrentWidget(mChannelInfoEditableWidget);
+        mChannelInfoEditableWidget->updateEditableChannelInfo();
+        mChannelInfoEditableWidget->updateRetentionValue();
+        mChannelInfoEditableWidget->connectEditableWidget();
     } else {
         mChannelInfoReadOnlyWidget->setRoom(mRoom);
         mStackedWidget->setCurrentWidget(mChannelInfoReadOnlyWidget);
     }
 }
 
-void ChannelInfoWidget::updateRetentionValue()
-{
-    if (!mChannelInfoPruneWidget->isHidden()) {
-        mChannelInfoPruneWidget->setRetentionInfo(mRoom->retentionInfo());
-    }
-}
 
-void ChannelInfoWidget::initEditableWidget()
-{
-    mEditableChannel = new QWidget(this);
-    mEditableChannel->setObjectName(QStringLiteral("mEditableChannel"));
-    mStackedWidget->addWidget(mEditableChannel);
-
-    auto layout = new QFormLayout(mEditableChannel);
-    layout->setObjectName(QStringLiteral("layout"));
-    layout->setContentsMargins({});
-
-    QString str = i18n("Name:");
-    mName = new ChangeTextWidget(this);
-    mName->setObjectName(QStringLiteral("mName"));
-    connect(mName, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Name, name, mRoom->channelType());
-    });
-    mName->setLabelText(str);
-    layout->addRow(str, mName);
-
-    mComment = new ChangeTextWidget(this);
-    mComment->setObjectName(QStringLiteral("mComment"));
-    mComment->setAllowEmptyText(true);
-    str = i18n("Comment:");
-    mComment->setLabelText(str);
-    layout->addRow(str, mComment);
-    connect(mComment, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Topic, name, mRoom->channelType());
-    });
-
-    mAnnouncement = new ChangeTextWidget(this);
-    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
-    mAnnouncement->setAllowEmptyText(true);
-    connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Announcement, name, mRoom->channelType());
-    });
-    str = i18n("Announcement:");
-    mAnnouncement->setLabelText(str);
-    layout->addRow(str, mAnnouncement);
-
-    mDescription = new ChangeTextWidget(this);
-    mDescription->setObjectName(QStringLiteral("mDescription"));
-    mDescription->setAllowEmptyText(true);
-    connect(mDescription, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Description, name, mRoom->channelType());
-    });
-    str = i18n("Description:");
-    mDescription->setLabelText(str);
-
-    layout->addRow(str, mDescription);
-
-    // Show it if room is not private
-    mPasswordLineEdit = new KPasswordLineEdit(this);
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    layout->addRow(i18n("Password:"), mPasswordLineEdit);
-    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [](const QString &password) {
-        qWarning() << "joincode ! ";
-        // Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Password, password, mRoom->channelType());
-    });
-
-    mReadOnly = new QCheckBox(this);
-    mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
-    layout->addRow(i18n("ReadOnly:"), mReadOnly);
-    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
-    });
-
-    mArchive = new QCheckBox(this);
-    mArchive->setObjectName(QStringLiteral("mArchive"));
-    layout->addRow(i18n("Archive:"), mArchive);
-    const bool canArchiveOrUnarchive = (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("archive-room"))
-                                        || Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("unarchive-room")));
-    mArchive->setEnabled(canArchiveOrUnarchive);
-    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
-        const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
-        const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
-        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, text, title)) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
-        }
-    });
-
-    mPrivate = new QCheckBox(this);
-    mPrivate->setObjectName(QStringLiteral("mPrivate"));
-    layout->addRow(i18n("Private:"), mPrivate);
-    connect(mPrivate, &QCheckBox::clicked, this, [this, layout](bool checked) {
-        mEncrypted->setVisible(checked);
-        layout->labelForField(mEncrypted)->setVisible(checked);
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
-    });
-
-    mEncrypted = new QCheckBox(this);
-    mEncrypted->setObjectName(QStringLiteral("mEncrypted"));
-    layout->addRow(i18n("Encrypted:"), mEncrypted);
-    connect(mEncrypted, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Encrypted, checked, mRoom->channelType());
-    });
-    mEncryptedLabel = layout->labelForField(mEncrypted);
-
-    mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
-    layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
-    connect(mSystemMessageCombox, &SystemMessagesComboBox::settingsChanged, this, [this]() {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
-        RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
-        info.mSettingsWillBeChanged = info.mSettingsWillBeChanged | RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
-        info.roomId = mRoom->roomId();
-        qDebug() << " info.roomId" << info.roomId;
-        info.systemMessages = mSystemMessageCombox->systemMessagesSelected();
-        saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
-        // connect(saveRoomSettingsJob, &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone, this, &AdministratorRoomsWidget::slotAdminRoomDone);
-        if (!saveRoomSettingsJob->start()) {
-            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
-        }
-    });
-
-    mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
-    layout->addRow(mChannelInfoPruneWidget);
-    auto separator = new KSeparator(this);
-    separator->setObjectName(QStringLiteral("separator"));
-    layout->addWidget(separator);
-
-    mDeleteChannel = new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this);
-    mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
-    layout->addRow(QStringLiteral(" "), mDeleteChannel);
-    connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
-        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
-            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());
-            Q_EMIT channelDeleted();
-        }
-    });
-}
-
-void ChannelInfoWidget::updateEditableChannelInfo()
-{
-    mName->setText(mRoom->displayFName());
-    mComment->setText(mRoom->topic());
-    mAnnouncement->setText(mRoom->announcement());
-    mDescription->setText(mRoom->description());
-    mReadOnly->setChecked(mRoom->readOnly());
-    mArchive->setChecked(mRoom->archived());
-    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
-    mEncrypted->setVisible(mRoom->encryptedEnabled());
-    mEncrypted->setChecked(mRoom->encrypted());
-    mEncryptedLabel->setVisible(mRoom->encryptedEnabled());
-    mSystemMessageCombox->setMessagesSystem(mRoom->displaySystemMessageTypes());
-    joinCodeChanged();
-}
-
-void ChannelInfoWidget::joinCodeChanged()
-{
-    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoom->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
-}
-
-void ChannelInfoWidget::connectEditableWidget()
-{
-    connect(mRoom, &Room::announcementChanged, this, [this]() {
-        mAnnouncement->setText(mRoom->announcement());
-    });
-    connect(mRoom, &Room::topicChanged, this, [this]() {
-        mComment->setText(mRoom->topic());
-    });
-    connect(mRoom, &Room::fnameChanged, this, [this]() {
-        mName->setText(mRoom->fName());
-        Q_EMIT fnameChanged(mRoom->fName());
-    });
-    connect(mRoom, &Room::descriptionChanged, this, [this]() {
-        mDescription->setText(mRoom->description());
-    });
-    connect(mRoom, &Room::readOnlyChanged, this, [this]() {
-        mReadOnly->setChecked(mRoom->readOnly());
-    });
-    connect(mRoom, &Room::archivedChanged, this, [this]() {
-        mArchive->setChecked(mRoom->archived());
-    });
-    connect(mRoom, &Room::joinCodeRequiredChanged, this, [this]() {
-        joinCodeChanged();
-    });
-    connect(mRoom, &Room::channelTypeChanged, this, [this]() {
-        mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
-    });
-    // TODO react when we change settings
-    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
-    });
-    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
-        if (KMessageBox::Yes
-            == KMessageBox::questionYesNo(this,
-                                          checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"),
-                                          i18n("Archive room"))) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
-        }
-    });
-    connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
-    });
-}
-
-ChangeTextWidget::ChangeTextWidget(QWidget *parent)
-    : QWidget(parent)
-{
-    auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-    mLabel = new QLabel(this);
-    mLabel->setObjectName(QStringLiteral("mLabel"));
-    mLabel->setWordWrap(true);
-    mLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mLabel->setOpenExternalLinks(true);
-    mLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    mainLayout->addWidget(mLabel);
-    mChangeTextToolButton = new QToolButton(this);
-    mChangeTextToolButton->setIcon(QIcon::fromTheme(QStringLiteral("document-edit")));
-    mChangeTextToolButton->setObjectName(QStringLiteral("mChangeTextToolButton"));
-    mainLayout->addWidget(mChangeTextToolButton);
-    connect(mChangeTextToolButton, &QToolButton::clicked, this, &ChangeTextWidget::slotChangeText);
-}
-
-ChangeTextWidget::~ChangeTextWidget()
-{
-}
-
-void ChangeTextWidget::setAllowEmptyText(bool b)
-{
-    mAllowEmptyText = b;
-}
-
-void ChangeTextWidget::slotChangeText()
-{
-    // Convert html to text. Otherwise we will have html tag
-    QString text = mLabel->text();
-    QTextDocument doc;
-    doc.setHtml(text);
-    text = doc.toPlainText();
-    bool accepted = false;
-    const QString result = QInputDialog::getText(this, i18n("Change Text"), mLabelText, QLineEdit::Normal, text, &accepted);
-    if (accepted) {
-        if (!result.trimmed().isEmpty() || mAllowEmptyText) {
-            if (result != text) {
-                Q_EMIT textChanged(result);
-            }
-        }
-    }
-}
-
-bool ChangeTextWidget::allowEmptyText() const
-{
-    return mAllowEmptyText;
-}
-
-void ChangeTextWidget::setText(const QString &str)
-{
-    mLabel->setText(str);
-}
-
-void ChangeTextWidget::setLabelText(const QString &str)
-{
-    mLabelText = str;
-}

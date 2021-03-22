@@ -24,39 +24,10 @@
 #include "rooms/saveroomsettingsjob.h"
 
 #include <QWidget>
-class KPasswordLineEdit;
-class QCheckBox;
-class QPushButton;
 class QStackedWidget;
-class QLabel;
 class Room;
-class QToolButton;
-class SystemMessagesComboBox;
-class ChannelInfoPruneWidget;
 class ChannelInfoReadOnlyWidget;
-class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit ChangeTextWidget(QWidget *parent = nullptr);
-    ~ChangeTextWidget() override;
-    void setAllowEmptyText(bool b);
-    void setText(const QString &str);
-
-    void setLabelText(const QString &str);
-    Q_REQUIRED_RESULT bool allowEmptyText() const;
-
-Q_SIGNALS:
-    void textChanged(const QString &str);
-
-private:
-    void slotChangeText();
-    QString mLabelText;
-    bool mAllowEmptyText = false;
-    QLabel *mLabel = nullptr;
-    QToolButton *mChangeTextToolButton = nullptr;
-};
-
+class ChannelInfoEditableWidget;
 class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -68,34 +39,15 @@ public:
 
     void updateUiFromPermission();
 
-    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
+    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 Q_SIGNALS:
     void channelDeleted();
     void fnameChanged(const QString &fname);
 
 private:
-    void updateEditableChannelInfo();
-    void connectEditableWidget();
-    void joinCodeChanged();
-    void updateRetentionValue();
-    void initEditableWidget();
-
-    ChangeTextWidget *mName = nullptr;
-    ChangeTextWidget *mComment = nullptr;
-    ChangeTextWidget *mAnnouncement = nullptr;
-    ChangeTextWidget *mDescription = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    QCheckBox *mReadOnly = nullptr;
-    QCheckBox *mArchive = nullptr;
-    QCheckBox *mPrivate = nullptr;
-    QCheckBox *mEncrypted = nullptr;
-    QPushButton *mDeleteChannel = nullptr;
     QStackedWidget *const mStackedWidget;
-    QWidget *mEditableChannel = nullptr;
-    QWidget *mEncryptedLabel = nullptr;
-    ChannelInfoPruneWidget *const mChannelInfoPruneWidget;
     Room *mRoom = nullptr;
-    SystemMessagesComboBox *const mSystemMessageCombox;
+    ChannelInfoEditableWidget *const mChannelInfoEditableWidget;
     ChannelInfoReadOnlyWidget *const mChannelInfoReadOnlyWidget;
 };
 

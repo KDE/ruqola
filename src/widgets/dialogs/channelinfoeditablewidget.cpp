@@ -140,3 +140,80 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
     // TODO
     return {};
 }
+
+void ChannelInfoEditableWidget::updateEditableChannelInfo()
+{
+    mName->setText(mRoom->displayFName());
+    mComment->setText(mRoom->topic());
+    mAnnouncement->setText(mRoom->announcement());
+    mDescription->setText(mRoom->description());
+    mReadOnly->setChecked(mRoom->readOnly());
+    mArchive->setChecked(mRoom->archived());
+    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
+    mEncrypted->setVisible(mRoom->encryptedEnabled());
+    mEncrypted->setChecked(mRoom->encrypted());
+    mEncryptedLabel->setVisible(mRoom->encryptedEnabled());
+    mSystemMessageCombox->setMessagesSystem(mRoom->displaySystemMessageTypes());
+    joinCodeChanged();
+}
+
+void ChannelInfoEditableWidget::joinCodeChanged()
+{
+    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoom->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
+}
+
+void ChannelInfoEditableWidget::connectEditableWidget()
+{
+    connect(mRoom, &Room::announcementChanged, this, [this]() {
+        mAnnouncement->setText(mRoom->announcement());
+    });
+    connect(mRoom, &Room::topicChanged, this, [this]() {
+        mComment->setText(mRoom->topic());
+    });
+    connect(mRoom, &Room::fnameChanged, this, [this]() {
+        mName->setText(mRoom->fName());
+        Q_EMIT fnameChanged(mRoom->fName());
+    });
+    connect(mRoom, &Room::descriptionChanged, this, [this]() {
+        mDescription->setText(mRoom->description());
+    });
+    connect(mRoom, &Room::readOnlyChanged, this, [this]() {
+        mReadOnly->setChecked(mRoom->readOnly());
+    });
+    connect(mRoom, &Room::archivedChanged, this, [this]() {
+        mArchive->setChecked(mRoom->archived());
+    });
+    connect(mRoom, &Room::joinCodeRequiredChanged, this, [this]() {
+        joinCodeChanged();
+    });
+    connect(mRoom, &Room::channelTypeChanged, this, [this]() {
+        mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
+    });
+    // TODO react when we change settings
+    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
+    });
+    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
+        if (KMessageBox::Yes
+            == KMessageBox::questionYesNo(this,
+                                          checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"),
+                                          i18n("Archive room"))) {
+            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
+        }
+    });
+    connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
+    });
+}
+
+void ChannelInfoEditableWidget::updateRetentionValue()
+{
+    if (!mChannelInfoPruneWidget->isHidden()) {
+        mChannelInfoPruneWidget->setRetentionInfo(mRoom->retentionInfo());
+    }
+}
+
+void ChannelInfoEditableWidget::updateUiFromPermission()
+{
+    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
+}

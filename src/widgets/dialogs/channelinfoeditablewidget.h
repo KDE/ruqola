@@ -41,10 +41,16 @@ public:
     void setRoom(Room *room);
     Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
+    void updateEditableChannelInfo();
+    void connectEditableWidget();
+    void updateRetentionValue();
+    void updateUiFromPermission();
 Q_SIGNALS:
     void channelDeleted();
+    void fnameChanged(const QString &fname);
 
 private:
+    void joinCodeChanged();
     Room *mRoom = nullptr;
 
     QLineEdit *const mName;

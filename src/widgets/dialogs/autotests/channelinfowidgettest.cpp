@@ -19,14 +19,8 @@
 */
 
 #include "channelinfowidgettest.h"
-#include "dialogs/channelinfoprunewidget.h"
 #include "dialogs/channelinfowidget.h"
-#include "misc/systemmessagescombobox.h"
-#include <KPasswordLineEdit>
-#include <QCheckBox>
 #include <QFormLayout>
-#include <QLabel>
-#include <QPushButton>
 #include <QStackedWidget>
 #include <QTest>
 
@@ -49,88 +43,4 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     // Editable channel
     auto mEditableChannel = w.findChild<QWidget *>(QStringLiteral("mEditableChannel"));
     QVERIFY(mEditableChannel);
-
-    auto layout = mEditableChannel->findChild<QFormLayout *>(QStringLiteral("layout"));
-    QVERIFY(layout);
-    QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
-
-    auto mComment = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mComment"));
-    QVERIFY(mComment);
-    QVERIFY(mComment->allowEmptyText());
-
-    auto mAnnouncement = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mAnnouncement"));
-    QVERIFY(mAnnouncement);
-    QVERIFY(mAnnouncement->allowEmptyText());
-
-    auto mDescription = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mDescription"));
-    QVERIFY(mDescription);
-    QVERIFY(mDescription->allowEmptyText());
-
-    auto mPasswordLineEdit = mEditableChannel->findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
-    QVERIFY(mPasswordLineEdit);
-
-    auto mArchive = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mArchive"));
-    QVERIFY(mArchive);
-    QVERIFY(mArchive->text().isEmpty());
-    QCOMPARE(mArchive->checkState(), Qt::Unchecked);
-
-    auto mReadOnly = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mReadOnly"));
-    QVERIFY(mReadOnly);
-    QVERIFY(mReadOnly->text().isEmpty());
-    QCOMPARE(mReadOnly->checkState(), Qt::Unchecked);
-
-    auto mEncrypted = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mEncrypted"));
-    QVERIFY(mEncrypted);
-    QVERIFY(mEncrypted->text().isEmpty());
-    QCOMPARE(mEncrypted->checkState(), Qt::Unchecked);
-
-    auto mPrivate = mEditableChannel->findChild<QCheckBox *>(QStringLiteral("mPrivate"));
-    QVERIFY(mPrivate);
-    QVERIFY(mPrivate->text().isEmpty());
-    QCOMPARE(mPrivate->checkState(), Qt::Unchecked);
-
-    auto mDeleteChannel = mEditableChannel->findChild<QPushButton *>(QStringLiteral("mDeleteChannel"));
-    QVERIFY(mDeleteChannel);
-    QVERIFY(!mDeleteChannel->text().isEmpty());
-
-    auto mSystemMessageCombox = mEditableChannel->findChild<SystemMessagesComboBox *>(QStringLiteral("mSystemMessageCombox"));
-    QVERIFY(mSystemMessageCombox);
-
-    // ReadOnly Channel
-    auto mReadOnlyChannel = w.findChild<QWidget *>(QStringLiteral("mReadOnlyChannel"));
-    QVERIFY(mReadOnlyChannel);
-
-    auto layoutreadonly = mReadOnlyChannel->findChild<QFormLayout *>(QStringLiteral("layoutReadOnly"));
-    QVERIFY(layoutreadonly);
-    QCOMPARE(layoutreadonly->contentsMargins(), QMargins(0, 0, 0, 0));
-
-    auto mNameReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mNameReadOnly"));
-    QVERIFY(mNameReadOnly);
-    QVERIFY(mNameReadOnly->text().isEmpty());
-    QCOMPARE(mNameReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
-    QCOMPARE(mNameReadOnly->textFormat(), Qt::RichText);
-
-    auto mCommentReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mCommentReadOnly"));
-    QVERIFY(mCommentReadOnly);
-    QVERIFY(mCommentReadOnly->text().isEmpty());
-    QCOMPARE(mCommentReadOnly->textFormat(), Qt::RichText);
-    QCOMPARE(mCommentReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
-    QVERIFY(mCommentReadOnly->wordWrap());
-
-    auto mAnnouncementReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mAnnouncementReadOnly"));
-    QVERIFY(mAnnouncementReadOnly);
-    QVERIFY(mAnnouncementReadOnly->text().isEmpty());
-    QCOMPARE(mAnnouncementReadOnly->textFormat(), Qt::RichText);
-    QCOMPARE(mAnnouncementReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
-    QVERIFY(mAnnouncementReadOnly->wordWrap());
-
-    auto mDescriptionReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mDescriptionReadOnly"));
-    QVERIFY(mDescriptionReadOnly);
-    QCOMPARE(mDescriptionReadOnly->textFormat(), Qt::RichText);
-    QVERIFY(mDescriptionReadOnly->text().isEmpty());
-    QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
-    QVERIFY(mDescriptionReadOnly->wordWrap());
-
-    auto mChannelInfoPruneWidget = mEditableChannel->findChild<ChannelInfoPruneWidget *> QStringLiteral("mChannelInfoPruneWidget");
-    QVERIFY(mChannelInfoPruneWidget);
 }
