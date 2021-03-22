@@ -142,8 +142,26 @@ void ChannelInfoEditableWidget::setRoom(Room *room)
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditableWidget::saveRoomSettingsInfo() const
 {
+    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
+    if (mName->text().isEmpty()) {
+        return info;
+    }
+
+    info.joinCode = mPasswordLineEdit->password();
+    if (mRoom->name() != mName->text()) {
+        info.roomName = mName->text();
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomName;
+    }
+    if (mRoom->announcement() != mAnnouncement->text()) {
+        info.roomAnnouncement = mAnnouncement->text();
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
+    }
+    if (mRoom->description() != mDescription->text()) {
+        info.roomDescription = mDescription->text();
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomDescription;
+    }
     // TODO
-    return {};
+    return info;
 }
 
 void ChannelInfoEditableWidget::updateEditableChannelInfo()
