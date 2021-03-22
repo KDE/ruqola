@@ -22,6 +22,7 @@
 #include "libruqolawidgets_export.h"
 #include <QWidget>
 class QLabel;
+class Room;
 class LIBRUQOLAWIDGETS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
 {
     Q_OBJECT
@@ -29,9 +30,14 @@ public:
     explicit ChannelInfoReadOnlyWidget(QWidget *parent = nullptr);
     ~ChannelInfoReadOnlyWidget() override;
 
+    void setRoom(Room *room);
+
 private:
+    void updateReadOnlyChannelInfo();
+    void connectReadOnlyWidget();
     QLabel *const mNameReadOnly;
     QLabel *const mCommentReadOnly;
     QLabel *const mAnnouncementReadOnly;
     QLabel *const mDescriptionReadOnly;
+    Room *mRoom = nullptr;
 };

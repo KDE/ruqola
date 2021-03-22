@@ -20,6 +20,7 @@
 
 #include "channelinfowidget.h"
 #include "channelinfoprunewidget.h"
+#include "channelinforeadonlywidget.h"
 #include "misc/systemmessagescombobox.h"
 #include "permissionmanager.h"
 #include "restapirequest.h"
@@ -48,6 +49,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     , mStackedWidget(new QStackedWidget(this))
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
+    , mChannelInfoReadOnlyWidget(new ChannelInfoReadOnlyWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -56,8 +58,8 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
 
+    mStackedWidget->addWidget(mChannelInfoReadOnlyWidget);
     initEditableWidget();
-    initReadOnlyWidget();
 }
 
 ChannelInfoWidget::~ChannelInfoWidget()
@@ -87,9 +89,8 @@ void ChannelInfoWidget::setRoom(Room *room)
         updateRetentionValue();
         connectEditableWidget();
     } else {
-        mStackedWidget->setCurrentWidget(mReadOnlyChannel);
-        updateReadOnlyChannelInfo();
-        connectReadOnlyWidget();
+        mChannelInfoReadOnlyWidget->setRoom(mRoom);
+        mStackedWidget->setCurrentWidget(mChannelInfoReadOnlyWidget);
     }
 }
 
@@ -98,52 +99,6 @@ void ChannelInfoWidget::updateRetentionValue()
     if (!mChannelInfoPruneWidget->isHidden()) {
         mChannelInfoPruneWidget->setRetentionInfo(mRoom->retentionInfo());
     }
-}
-
-void ChannelInfoWidget::initReadOnlyWidget()
-{
-    mReadOnlyChannel = new QWidget(this);
-    mReadOnlyChannel->setObjectName(QStringLiteral("mReadOnlyChannel"));
-    mStackedWidget->addWidget(mReadOnlyChannel);
-
-    auto layoutReadOnly = new QFormLayout(mReadOnlyChannel);
-    layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
-    layoutReadOnly->setContentsMargins({});
-
-    mNameReadOnly = new QLabel(this);
-    mNameReadOnly->setTextFormat(Qt::RichText);
-    mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
-    mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mNameReadOnly->setOpenExternalLinks(true);
-    mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
-
-    mCommentReadOnly = new QLabel(this);
-    mCommentReadOnly->setTextFormat(Qt::RichText);
-    mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
-    mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mCommentReadOnly->setOpenExternalLinks(true);
-    mCommentReadOnly->setWordWrap(true);
-    mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
-
-    mAnnouncementReadOnly = new QLabel(this);
-    mAnnouncementReadOnly->setTextFormat(Qt::RichText);
-    mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
-    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mAnnouncementReadOnly->setOpenExternalLinks(true);
-    mAnnouncementReadOnly->setWordWrap(true);
-    mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
-
-    mDescriptionReadOnly = new QLabel(this);
-    mDescriptionReadOnly->setTextFormat(Qt::RichText);
-    mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
-    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mDescriptionReadOnly->setOpenExternalLinks(true);
-    mDescriptionReadOnly->setWordWrap(true);
-    mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
 
 void ChannelInfoWidget::initEditableWidget()
@@ -278,14 +233,6 @@ void ChannelInfoWidget::initEditableWidget()
     });
 }
 
-void ChannelInfoWidget::updateReadOnlyChannelInfo()
-{
-    mNameReadOnly->setText(mRoom->displayFName());
-    mCommentReadOnly->setText(mRoom->displayTopic());
-    mAnnouncementReadOnly->setText(mRoom->displayAnnouncement());
-    mDescriptionReadOnly->setText(mRoom->description());
-}
-
 void ChannelInfoWidget::updateEditableChannelInfo()
 {
     mName->setText(mRoom->displayFName());
@@ -305,22 +252,6 @@ void ChannelInfoWidget::updateEditableChannelInfo()
 void ChannelInfoWidget::joinCodeChanged()
 {
     mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoom->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
-}
-
-void ChannelInfoWidget::connectReadOnlyWidget()
-{
-    connect(mRoom, &Room::announcementChanged, this, [this]() {
-        mAnnouncementReadOnly->setText(mRoom->announcement());
-    });
-    connect(mRoom, &Room::topicChanged, this, [this]() {
-        mCommentReadOnly->setText(mRoom->topic());
-    });
-    connect(mRoom, &Room::nameChanged, this, [this]() {
-        mNameReadOnly->setText(mRoom->name());
-    });
-    connect(mRoom, &Room::descriptionChanged, this, [this]() {
-        mDescriptionReadOnly->setText(mRoom->description());
-    });
 }
 
 void ChannelInfoWidget::connectEditableWidget()

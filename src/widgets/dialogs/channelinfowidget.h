@@ -33,6 +33,7 @@ class Room;
 class QToolButton;
 class SystemMessagesComboBox;
 class ChannelInfoPruneWidget;
+class ChannelInfoReadOnlyWidget;
 class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
 {
     Q_OBJECT
@@ -73,14 +74,11 @@ Q_SIGNALS:
     void fnameChanged(const QString &fname);
 
 private:
-    void updateReadOnlyChannelInfo();
     void updateEditableChannelInfo();
-    void connectReadOnlyWidget();
     void connectEditableWidget();
     void joinCodeChanged();
     void updateRetentionValue();
     void initEditableWidget();
-    void initReadOnlyWidget();
 
     ChangeTextWidget *mName = nullptr;
     ChangeTextWidget *mComment = nullptr;
@@ -94,14 +92,10 @@ private:
     QPushButton *mDeleteChannel = nullptr;
     QStackedWidget *const mStackedWidget;
     QWidget *mEditableChannel = nullptr;
-    QWidget *mReadOnlyChannel = nullptr;
     QWidget *mEncryptedLabel = nullptr;
-    QLabel *mNameReadOnly = nullptr;
-    QLabel *mCommentReadOnly = nullptr;
-    QLabel *mAnnouncementReadOnly = nullptr;
-    QLabel *mDescriptionReadOnly = nullptr;
     ChannelInfoPruneWidget *const mChannelInfoPruneWidget;
     Room *mRoom = nullptr;
     SystemMessagesComboBox *const mSystemMessageCombox;
+    ChannelInfoReadOnlyWidget *const mChannelInfoReadOnlyWidget;
 };
 

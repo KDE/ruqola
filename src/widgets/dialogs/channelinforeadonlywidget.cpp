@@ -19,6 +19,7 @@
 */
 
 #include "channelinforeadonlywidget.h"
+#include "room.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
@@ -68,4 +69,35 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(QWidget *parent)
 
 ChannelInfoReadOnlyWidget::~ChannelInfoReadOnlyWidget()
 {
+}
+
+void ChannelInfoReadOnlyWidget::setRoom(Room *room)
+{
+    mRoom = room;
+    updateReadOnlyChannelInfo();
+    connectReadOnlyWidget();
+}
+
+void ChannelInfoReadOnlyWidget::updateReadOnlyChannelInfo()
+{
+    mNameReadOnly->setText(mRoom->displayFName());
+    mCommentReadOnly->setText(mRoom->displayTopic());
+    mAnnouncementReadOnly->setText(mRoom->displayAnnouncement());
+    mDescriptionReadOnly->setText(mRoom->description());
+}
+
+void ChannelInfoReadOnlyWidget::connectReadOnlyWidget()
+{
+    connect(mRoom, &Room::announcementChanged, this, [this]() {
+        mAnnouncementReadOnly->setText(mRoom->announcement());
+    });
+    connect(mRoom, &Room::topicChanged, this, [this]() {
+        mCommentReadOnly->setText(mRoom->topic());
+    });
+    connect(mRoom, &Room::nameChanged, this, [this]() {
+        mNameReadOnly->setText(mRoom->name());
+    });
+    connect(mRoom, &Room::descriptionChanged, this, [this]() {
+        mDescriptionReadOnly->setText(mRoom->description());
+    });
 }
