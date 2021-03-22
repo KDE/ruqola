@@ -168,7 +168,16 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.readOnly = mReadOnly->isChecked();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::ReadOnly;
     }
+    if (mRoom->displaySystemMessageTypes() != mRoom->displaySystemMessageTypes()) {
+        info.systemMessages = mRoom->displaySystemMessageTypes();
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
+    }
     // TODO
+    //    mArchive->setChecked(mRoom->archived());
+    //    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
+    //    mEncrypted->setVisible(mRoom->encryptedEnabled());
+    //    mEncrypted->setChecked(mRoom->encrypted());
+    // mChannelInfoPruneWidget
     return info;
 }
 
