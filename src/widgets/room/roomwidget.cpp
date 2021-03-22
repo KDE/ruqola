@@ -40,6 +40,7 @@
 #include "messagetextedit.h"
 #include "prunemessages/prunemessagesdialog.h"
 #include "readonlylineeditwidget.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"
@@ -116,7 +117,15 @@ void RoomWidget::slotChannelInfoRequested()
     } else {
         QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
         dlg->setRoom(mRoom);
-        dlg->exec();
+        if (dlg->exec()) {
+            auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
+            const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info = dlg->saveRoomSettingsInfo();
+            saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
+            if (!saveRoomSettingsJob->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
+            }
+        }
         delete dlg;
     }
 }

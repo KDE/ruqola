@@ -33,7 +33,7 @@ public:
     ~ChannelInfoDialog() override;
     void setRoom(Room *room);
 
-    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
+    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
 private:
     void slotFnameChanged(const QString &fname);

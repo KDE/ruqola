@@ -46,6 +46,7 @@ public:
             RoomType = 4096,
             JoinCode = 8192,
             ReadOnly = 16384,
+            Encrypted = 32768,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -64,10 +65,10 @@ public:
         bool retentionOverrideGlobal = false;
         bool favorite = false;
         bool readOnly = false;
+        bool encrypted = false;
         int retentionMaxAge = 32;
         //'roomAvatar', 'featured','roomCustomFields',
-        //'reactWhenReadOnly', 'default', 'joinCode', 'tokenpass', 'streamingOptions'
-        //'encrypted',
+        //'reactWhenReadOnly', 'default','tokenpass', 'streamingOptions'
         SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
         Q_REQUIRED_RESULT bool isValid() const;
     };

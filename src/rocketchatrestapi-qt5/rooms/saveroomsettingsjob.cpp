@@ -153,6 +153,9 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::ReadOnly) {
         jsonObj[QLatin1String("readOnly")] = mSaveRoomSettingsInfo.readOnly;
     }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::Encrypted) {
+        jsonObj[QLatin1String("encrypted")] = mSaveRoomSettingsInfo.encrypted;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -180,6 +183,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRo
     d << "favorite : " << t.favorite;
     d << "roomType : " << t.roomType;
     d << "readOnly : " << t.readOnly;
+    d << "encrypted : " << t.encrypted;
     // hide password d << "joinCode : " << t.joinCode;
     return d;
 }

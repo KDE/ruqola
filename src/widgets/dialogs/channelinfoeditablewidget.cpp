@@ -147,6 +147,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         return info;
     }
 
+    info.roomId = mRoom->roomId();
     info.joinCode = mPasswordLineEdit->password();
     if (mRoom->name() != mName->text()) {
         info.roomName = mName->text();
@@ -168,15 +169,18 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.readOnly = mReadOnly->isChecked();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::ReadOnly;
     }
-    if (mRoom->displaySystemMessageTypes() != mRoom->displaySystemMessageTypes()) {
-        info.systemMessages = mRoom->displaySystemMessageTypes();
+    if (mRoom->displaySystemMessageTypes() != mSystemMessageCombox->systemMessagesSelected()) {
+        info.systemMessages = mSystemMessageCombox->systemMessagesSelected();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
     }
+    if (mRoom->encrypted() != mEncrypted->isChecked()) {
+        info.encrypted = mEncrypted->isChecked();
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
+    }
+
     // TODO
     //    mArchive->setChecked(mRoom->archived());
     //    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
-    //    mEncrypted->setVisible(mRoom->encryptedEnabled());
-    //    mEncrypted->setChecked(mRoom->encrypted());
     // mChannelInfoPruneWidget
     return info;
 }
