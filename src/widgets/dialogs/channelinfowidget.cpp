@@ -85,6 +85,7 @@ void ChannelInfoWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom->canBeModify()) {
+        mChannelInfoEditableWidget->setRoom(mRoom);
         mStackedWidget->setCurrentWidget(mChannelInfoEditableWidget);
         mChannelInfoEditableWidget->updateEditableChannelInfo();
         mChannelInfoEditableWidget->updateRetentionValue();

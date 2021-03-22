@@ -135,6 +135,11 @@ ChannelInfoEditableWidget::~ChannelInfoEditableWidget()
 {
 }
 
+void ChannelInfoEditableWidget::setRoom(Room *room)
+{
+    mRoom = room;
+}
+
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditableWidget::saveRoomSettingsInfo() const
 {
     // TODO
