@@ -99,21 +99,6 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
 
     mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
-    //    connect(mSystemMessageCombox, &SystemMessagesComboBox::settingsChanged, this, [this]() {
-    //        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    //        auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
-    //        RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
-    //        info.mSettingsWillBeChanged = info.mSettingsWillBeChanged | RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
-    //        info.roomId = mRoom->roomId();
-    //        qDebug() << " info.roomId" << info.roomId;
-    //        info.systemMessages = mSystemMessageCombox->systemMessagesSelected();
-    //        saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
-    //        rcAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
-    //        // connect(saveRoomSettingsJob, &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone, this,
-    //        &AdministratorRoomsWidget::slotAdminRoomDone); if (!saveRoomSettingsJob->start()) {
-    //            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
-    //        }
-    //    });
 
     mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
     layout->addRow(mChannelInfoPruneWidget);
@@ -178,10 +163,10 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
     }
 
+    mChannelInfoPruneWidget->saveRoomSettingsInfo(info, mRoom);
     // TODO
     //    mArchive->setChecked(mRoom->archived());
     //    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
-    // mChannelInfoPruneWidget
     return info;
 }
 

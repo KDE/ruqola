@@ -22,10 +22,13 @@
 
 #include <QWidget>
 
+#include "rooms/saveroomsettingsjob.h"
+
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QSpinBox;
 class RetentionInfo;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoPruneWidget : public QWidget
 {
     Q_OBJECT
@@ -34,6 +37,8 @@ public:
     ~ChannelInfoPruneWidget() override;
 
     void setRetentionInfo(const RetentionInfo &retentionInfo);
+
+    void saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &info, Room *mRoom);
 
 private:
     void setOverrideGlobalSettings(bool override);

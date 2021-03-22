@@ -82,3 +82,8 @@ void ChannelInfoPruneWidget::setRetentionInfo(const RetentionInfo &retentionInfo
     mMaximumAgeInDay->setValue(retentionInfo.maxAge());
     setOverrideGlobalSettings(retentionInfo.overrideGlobal());
 }
+
+void ChannelInfoPruneWidget::saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &info, Room *mRoom)
+{
+    // TODO
+}
