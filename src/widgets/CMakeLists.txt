@@ -90,6 +90,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/channelsearchnamelineedit.cpp
     dialogs/channelsearchwidget.cpp
     dialogs/channelsearchnamelineresultwidget.cpp
+    dialogs/channelinforeadonlywidget.cpp
     )
 
 set(Ruqola_configure_SRCS

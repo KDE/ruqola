@@ -1,0 +1,71 @@
+/*
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
+
+   This library is free software; you can redistribute it and/or modify
+   it under the terms of the GNU Library General Public License as published
+   by the Free Software Foundation; either version 2 of the License or
+   ( at your option ) version 3 or, at the discretion of KDE e.V.
+   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public License
+   along with this library; see the file COPYING.LIB.  If not, write to
+   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.
+*/
+
+#include "channelinforeadonlywidget.h"
+#include <KLocalizedString>
+#include <QFormLayout>
+#include <QLabel>
+
+ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(QWidget *parent)
+    : QWidget(parent)
+    , mNameReadOnly(new QLabel(this))
+    , mCommentReadOnly(new QLabel(this))
+    , mAnnouncementReadOnly(new QLabel(this))
+    , mDescriptionReadOnly(new QLabel(this))
+{
+    auto layoutReadOnly = new QFormLayout(this);
+    layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
+    layoutReadOnly->setContentsMargins({});
+
+    mNameReadOnly->setTextFormat(Qt::RichText);
+    mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
+    mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mNameReadOnly->setOpenExternalLinks(true);
+    mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
+
+    mCommentReadOnly->setTextFormat(Qt::RichText);
+    mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
+    mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mCommentReadOnly->setOpenExternalLinks(true);
+    mCommentReadOnly->setWordWrap(true);
+    mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
+
+    mAnnouncementReadOnly->setTextFormat(Qt::RichText);
+    mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
+    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mAnnouncementReadOnly->setOpenExternalLinks(true);
+    mAnnouncementReadOnly->setWordWrap(true);
+    mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
+
+    mDescriptionReadOnly->setTextFormat(Qt::RichText);
+    mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
+    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mDescriptionReadOnly->setOpenExternalLinks(true);
+    mDescriptionReadOnly->setWordWrap(true);
+    mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
+}
+
+ChannelInfoReadOnlyWidget::~ChannelInfoReadOnlyWidget()
+{
+}

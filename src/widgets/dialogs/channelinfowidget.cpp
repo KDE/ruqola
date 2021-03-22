@@ -49,7 +49,6 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
 {
-    // TODO convert it to a dialogbox with ok/cancel => we will use one rest api method for all settings.
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -72,7 +71,10 @@ void ChannelInfoWidget::updateUiFromPermission()
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoWidget::saveRoomSettingsInfo() const
 {
-    // TODO
+    if (mRoom->canBeModify()) {
+        // TODO
+        return {};
+    }
     return {};
 }
 
