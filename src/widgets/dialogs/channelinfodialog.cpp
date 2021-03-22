@@ -53,10 +53,8 @@ ChannelInfoDialog::~ChannelInfoDialog()
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::saveRoomSettingsInfo() const
 {
-    // TODO
-    return {};
+    return mChannelInfoWidget->saveRoomSettingsInfo();
 }
-// TODO return saveRoomsSettingsInfo
 
 void ChannelInfoDialog::setRoom(Room *room)
 {
