@@ -157,7 +157,14 @@ QJsonDocument SaveRoomSettingsJob::json() const
         jsonObj[QLatin1String("encrypted")] = mSaveRoomSettingsInfo.encrypted;
     }
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomAvatar) {
-        // Save a base64!
+        // Save a base64! roomAvatar	"data:image/svg+xml;base64,I...."
+        //        QBuffer buffer;
+        //        buffer.open(QIODevice::WriteOnly);
+        //        img.save(&buffer, "PNG");
+
+        //        QSharedPointer<EmbeddedImage> embeddedImage(new EmbeddedImage());
+        //        embeddedImage->image = KCodecs::Codec::codecForName("base64")->encode(buffer.buffer());
+
         // "roomAvatar":null if we revert it.
         // jsonObj[QLatin1String("roomAvatar")] = mSaveRoomSettingsInfo.encrypted;
     }
