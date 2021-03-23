@@ -29,6 +29,7 @@
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
     , mChannelInfoWidget(new ChannelInfoWidget(this))
+    , mButtonBox(new QDialogButtonBox(this))
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
     auto mainLayout = new QVBoxLayout(this);
@@ -38,10 +39,9 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     mainLayout->addWidget(mChannelInfoWidget);
     mChannelInfoWidget->updateUiFromPermission();
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelInfoDialog::accept);
-    mainLayout->addWidget(buttonBox);
+    connect(mButtonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
+    connect(mButtonBox, &QDialogButtonBox::accepted, this, &ChannelInfoDialog::accept);
+    mainLayout->addWidget(mButtonBox);
     resize(600, 400);
     connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
     connect(mChannelInfoWidget, &ChannelInfoWidget::fnameChanged, this, &ChannelInfoDialog::slotFnameChanged);
@@ -58,6 +58,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::
 
 void ChannelInfoDialog::setRoom(Room *room)
 {
+    mButtonBox->setStandardButtons(room->canBeModify() ? QDialogButtonBox::Ok | QDialogButtonBox::Cancel : QDialogButtonBox::Close);
     slotFnameChanged(room->displayFName());
     mChannelInfoWidget->setRoom(room);
 }

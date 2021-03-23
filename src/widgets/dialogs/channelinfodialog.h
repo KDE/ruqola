@@ -25,6 +25,7 @@
 #include <QDialog>
 class ChannelInfoWidget;
 class Room;
+class QDialogButtonBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
 {
     Q_OBJECT
@@ -38,5 +39,6 @@ public:
 private:
     void slotFnameChanged(const QString &fname);
     ChannelInfoWidget *const mChannelInfoWidget;
+    QDialogButtonBox *const mButtonBox;
 };
 
