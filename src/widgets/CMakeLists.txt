@@ -92,6 +92,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/channelsearchnamelineresultwidget.cpp
     dialogs/channelinforeadonlywidget.cpp
     dialogs/channelinfoeditablewidget.cpp
+    dialogs/roomavatarwidget.cpp
     )
 
 set(Ruqola_configure_SRCS
