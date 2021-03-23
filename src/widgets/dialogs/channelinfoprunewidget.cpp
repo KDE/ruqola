@@ -20,6 +20,7 @@
 
 #include "channelinfoprunewidget.h"
 #include "retentioninfo.h"
+#include "room.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QGroupBox>
@@ -85,5 +86,26 @@ void ChannelInfoPruneWidget::setRetentionInfo(const RetentionInfo &retentionInfo
 
 void ChannelInfoPruneWidget::saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &info, Room *mRoom)
 {
-    // TODO
+    const auto retentionInfo = mRoom->retentionInfo();
+    if (retentionInfo.maxAge() != mMaximumAgeInDay->value()) {
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionMaxAge;
+        info.retentionMaxAge = mMaximumAgeInDay->value();
+    }
+    if (retentionInfo.excludePinned() != mExcludePinnedMessages->isChecked()) {
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionExcludePinned;
+        info.retentionExcludePinned = mExcludePinnedMessages->isChecked();
+    }
+    if (retentionInfo.filesOnly() != mPruneFileOnlyKeepMessages->isChecked()) {
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionFilesOnly;
+        info.retentionFilesOnly = mPruneFileOnlyKeepMessages->isChecked();
+    }
+    if (retentionInfo.filesOnly() != mAutomaticPruneOldMessages->isChecked()) {
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionEnabled;
+        info.retentionEnabled = mAutomaticPruneOldMessages->isChecked();
+    }
+
+    if (retentionInfo.overrideGlobal() != mOverrideGlobalRetentionPolicy->isChecked()) {
+        info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionOverrideGlobal;
+        info.retentionOverrideGlobal = mOverrideGlobalRetentionPolicy->isChecked();
+    }
 }
