@@ -234,9 +234,6 @@ void ChannelInfoEditableWidget::connectEditableWidget()
             Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
-    connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::RoomType, checked, mRoom->channelType());
-    });
 }
 
 void ChannelInfoEditableWidget::updateRetentionValue()
