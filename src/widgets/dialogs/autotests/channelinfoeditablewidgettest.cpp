@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,25 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channelinfowidgettest.h"
-#include "dialogs/channelinfowidget.h"
-#include <QFormLayout>
-#include <QStackedWidget>
+#include "channelinfoeditablewidgettest.h"
+#include "dialogs/channelinfoeditablewidget.h"
 #include <QTest>
-
-QTEST_MAIN(ChannelInfoWidgetTest)
-ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)
+QTEST_MAIN(ChannelInfoEditableWidgetTest)
+ChannelInfoEditableWidgetTest::ChannelInfoEditableWidgetTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void ChannelInfoWidgetTest::shouldHaveDefaultValues()
+void ChannelInfoEditableWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelInfoWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
-
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
-    QVERIFY(mStackedWidget);
+    ChannelInfoEditableWidget w;
+    // TODO
 }
