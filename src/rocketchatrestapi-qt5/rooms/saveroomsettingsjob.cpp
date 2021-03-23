@@ -156,6 +156,9 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::Encrypted) {
         jsonObj[QLatin1String("encrypted")] = mSaveRoomSettingsInfo.encrypted;
     }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomAvatar) {
+        // jsonObj[QLatin1String("roomAvatar")] = mSaveRoomSettingsInfo.encrypted;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

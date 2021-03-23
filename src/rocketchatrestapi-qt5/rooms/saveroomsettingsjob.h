@@ -47,10 +47,12 @@ public:
             JoinCode = 8192,
             ReadOnly = 16384,
             Encrypted = 32768,
+            RoomAvatar = 65536,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
         QStringList systemMessages;
+        QString roomAvatarPath;
         QString roomId;
         QString roomName;
         QString roomTopic;
