@@ -118,12 +118,14 @@ void RoomWidget::slotChannelInfoRequested()
         QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
         dlg->setRoom(mRoom);
         if (dlg->exec()) {
-            auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
             const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info = dlg->saveRoomSettingsInfo();
-            saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
-            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
-            if (!saveRoomSettingsJob->start()) {
-                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
+            if (info.isValid()) {
+                auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
+                saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
+                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
+                if (!saveRoomSettingsJob->start()) {
+                    qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
+                }
             }
         }
         delete dlg;
