@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "libruqolawidgets_export.h"
+#include "libruqolawidgets_private_export.h"
 #include "rooms/saveroomsettingsjob.h"
 
 #include <QWidget>
@@ -28,7 +28,7 @@ class QStackedWidget;
 class Room;
 class ChannelInfoReadOnlyWidget;
 class ChannelInfoEditableWidget;
-class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:

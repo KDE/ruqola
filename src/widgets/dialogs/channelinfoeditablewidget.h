@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "libruqolawidgets_export.h"
+#include "libruqolawidgets_private_export.h"
 #include "rooms/saveroomsettingsjob.h"
 
 #include <QWidget>
@@ -32,7 +32,7 @@ class ChannelInfoPruneWidget;
 class KPasswordLineEdit;
 class SystemMessagesComboBox;
 class QLineEdit;
-class LIBRUQOLAWIDGETS_EXPORT ChannelInfoEditableWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoEditableWidget : public QWidget
 {
     Q_OBJECT
 public:

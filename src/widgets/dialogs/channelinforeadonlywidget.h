@@ -19,11 +19,11 @@
 */
 #pragma once
 
-#include "libruqolawidgets_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLabel;
 class Room;
-class LIBRUQOLAWIDGETS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
 {
     Q_OBJECT
 public:
