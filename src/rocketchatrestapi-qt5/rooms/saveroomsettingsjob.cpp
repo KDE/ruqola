@@ -156,6 +156,9 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::Encrypted) {
         jsonObj[QLatin1String("encrypted")] = mSaveRoomSettingsInfo.encrypted;
     }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::ReactWhenReadOnly) {
+        jsonObj[QLatin1String("reactWhenReadOnly")] = mSaveRoomSettingsInfo.reactWhenReadOnly;
+    }
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomAvatar) {
         // Save a base64! roomAvatar	"data:image/svg+xml;base64,I...."
         //        QBuffer buffer;
