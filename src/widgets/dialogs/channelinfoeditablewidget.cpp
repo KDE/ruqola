@@ -164,11 +164,13 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
     }
 
     if ((mRoom->channelType() == QStringLiteral("p")) != mPrivate->isChecked()) {
-        info.roomTopic = mPrivate->isChecked() ? QStringLiteral("p") : QStringLiteral("c");
+        info.roomType = mPrivate->isChecked() ? QStringLiteral("p") : QStringLiteral("c");
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomType;
     }
 
-    mChannelInfoPruneWidget->saveRoomSettingsInfo(info, mRoom);
+    if (mChannelInfoPruneWidget->isVisible()) {
+        mChannelInfoPruneWidget->saveRoomSettingsInfo(info, mRoom);
+    }
     // TODO
     //    mArchive->setChecked(mRoom->archived());
     return info;
