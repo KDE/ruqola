@@ -78,6 +78,7 @@ enum class RestApiUrlType {
     ChatMessageReadReceipts,
     // Since 2.0.0
     ChatGetPinnedMessages,
+    ChatGetMentionedMessages,
 
     // Since 2.2.x
     ChatGetStarredMessages,

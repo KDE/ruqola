@@ -103,6 +103,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatMessageReadReceipts),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessageReadReceipts")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetPinnedMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getPinnedMessages")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetMentionedMessages),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMentionedMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetStarredMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getStarredMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getSnippetedMessages")));
