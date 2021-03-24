@@ -217,6 +217,7 @@ public:
     void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
     void statistics(bool refresh);
     void searchRooms(const QString &pattern);
+    void getMentionedMessages(const QString &roomId, int offset = 0, int count = 50);
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
@@ -271,6 +272,7 @@ Q_SIGNALS:
     void getPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getStarredMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void getMentionedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getSupportedLanguagesDone(const QJsonObject &obj);
     void roomsAdminDone(const QJsonObject &obj);
     void translateSavesettingsDone();

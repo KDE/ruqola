@@ -486,7 +486,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
                                     onlyUnread ? ListMessagesModel::ListMessageType::UnreadThreadsMessages
                                                : ListMessagesModel::ListMessageType::ThreadsMessages);
         });
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
         });
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
@@ -1028,7 +1028,7 @@ void RocketChatAccount::getMentionsMessages(const QString &roomId)
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
-    restApi()->channelGetAllUserMentions(roomId);
+    restApi()->getMentionedMessages(roomId);
 }
 
 void RocketChatAccount::getPinnedMessages(const QString &roomId)
@@ -1200,7 +1200,7 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
                 restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::MentionsMessages:
-                restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                restApi()->getMentionedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::ThreadsMessages:
                 restApi()->getThreadsList(roomId, false, offset, qMin(50, mListMessageModel->total() - offset));

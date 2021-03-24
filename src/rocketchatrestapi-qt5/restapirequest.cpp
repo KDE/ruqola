@@ -48,6 +48,7 @@
 
 #include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
+#include "chat/getmentionedmessagesjob.h"
 #include "chat/getmessagejob.h"
 #include "chat/getpinnedmessagesjob.h"
 #include "chat/getsnippetedmessagesjob.h"
@@ -155,6 +156,7 @@
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -1631,6 +1633,25 @@ void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int co
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &RestApiRequest::getPinnedMessagesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPinnedMessagesList";
+    }
+}
+
+void RestApiRequest::getMentionedMessages(const QString &roomId, int offset, int count)
+{
+    auto job = new GetMentionedMessagesJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    QueryParameters parameters;
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+
+    connect(job, &GetMentionedMessagesJob::getMentionedMessagesDone, this, &RestApiRequest::getMentionedMessagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getMentionedMessages";
     }
 }
 

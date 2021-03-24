@@ -36,7 +36,7 @@ void ListMessagesModel::parse(const QJsonObject &obj)
     ListMessages messages;
     QString parseMessageName;
     if (mListMessageType == MentionsMessages) {
-        parseMessageName = QStringLiteral("mentions");
+        parseMessageName = QStringLiteral("messages");
     } else if (mListMessageType == ThreadsMessages || mListMessageType == UnreadThreadsMessages) {
         parseMessageName = QStringLiteral("threads");
     } else {
