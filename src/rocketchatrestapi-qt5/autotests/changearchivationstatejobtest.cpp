@@ -35,7 +35,7 @@ void ChangeArchivationStateJobTest::shouldHaveDefaultValue()
     ChangeArchivationStateJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.roomId().isEmpty());
+    QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -44,7 +44,7 @@ void ChangeArchivationStateJobTest::shouldGenerateRequest()
     ChangeArchivationStateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveRoomSettings")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.changeArchivationState")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
@@ -53,7 +53,7 @@ void ChangeArchivationStateJobTest::shouldGenerateJson()
     ChangeArchivationStateJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"action":"archive","rid":"%1"})").arg(roomId).toLatin1());
 }
 
 void ChangeArchivationStateJobTest::shouldNotStarting()
