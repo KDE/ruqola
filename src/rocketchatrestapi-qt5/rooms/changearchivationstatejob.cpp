@@ -106,7 +106,7 @@ bool ChangeArchivationStateJob::canStart() const
 
 QNetworkRequest ChangeArchivationStateJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveSettings);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsChangeArchivactionState);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
