@@ -343,7 +343,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     // since 3.8.0
     case RestApiUtil::RestApiUrlType::RoomsExport:
         return QStringLiteral("rooms.export");
-
+    case RestApiUtil::RestApiUrlType::RoomsChangeArchivactionState:
+        return QStringLiteral("rooms.changeArchivationState");
     // since 0.72 ? Need to implement it
     case RestApiUtil::RestApiUrlType::RoomsInfo:
         return QStringLiteral("rooms.info");
