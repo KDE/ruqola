@@ -168,9 +168,10 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomType;
     }
 
-    if (mChannelInfoPruneWidget->isVisible()) {
+    if (hasRetentionPermission()) {
         mChannelInfoPruneWidget->saveRoomSettingsInfo(info, mRoom);
     }
+    qDebug() << " info " << info;
     // TODO
     //    mArchive->setChecked(mRoom->archived());
     return info;
@@ -225,17 +226,17 @@ void ChannelInfoEditableWidget::connectEditableWidget()
         mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
     });
     // TODO react when we change settings
-    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
-    });
-    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
-        if (KMessageBox::Yes
-            == KMessageBox::questionYesNo(this,
-                                          checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"),
-                                          i18n("Archive room"))) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
-        }
-    });
+    //    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
+    //        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
+    //    });
+    //    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
+    //        if (KMessageBox::Yes
+    //            == KMessageBox::questionYesNo(this,
+    //                                          checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"),
+    //                                          i18n("Archive room"))) {
+    //            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
+    //        }
+    //    });
 }
 
 void ChannelInfoEditableWidget::updateRetentionValue()
@@ -247,5 +248,10 @@ void ChannelInfoEditableWidget::updateRetentionValue()
 
 void ChannelInfoEditableWidget::updateUiFromPermission()
 {
-    mChannelInfoPruneWidget->setHidden(!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy")));
+    mChannelInfoPruneWidget->setHidden(!hasRetentionPermission());
+}
+
+bool ChannelInfoEditableWidget::hasRetentionPermission() const
+{
+    return Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy"));
 }

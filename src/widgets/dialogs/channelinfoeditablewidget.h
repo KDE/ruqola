@@ -51,6 +51,7 @@ Q_SIGNALS:
 
 private:
     void joinCodeChanged();
+    Q_REQUIRED_RESULT bool hasRetentionPermission() const;
     Room *mRoom = nullptr;
 
     QLineEdit *const mName;
