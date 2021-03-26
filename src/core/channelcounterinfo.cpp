@@ -35,7 +35,7 @@ void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
     mJoined = replyObject.value(QLatin1String("joined")).toBool();
     mUnreadFrom = QDateTime::fromString(replyObject.value(QLatin1String("unreadsFrom")).toString(), Qt::ISODate);
     mUnreadFrom = mUnreadFrom.toTimeSpec(Qt::LocalTime);
-    // TODO
+    mUnreadMessageTimeStep = mUnreadFrom.toMSecsSinceEpoch();
 }
 
 bool ChannelCounterInfo::operator==(const ChannelCounterInfo &other) const
@@ -91,6 +91,16 @@ void ChannelCounterInfo::setJoined(bool joined)
 bool ChannelCounterInfo::isValid() const
 {
     return mUnreadFrom.isValid();
+}
+
+qint64 ChannelCounterInfo::unreadMessageTimeStep() const
+{
+    return mUnreadMessageTimeStep;
+}
+
+void ChannelCounterInfo::setUnreadMessageTimeStep(const qint64 &unreadMessageTimeStep)
+{
+    mUnreadMessageTimeStep = unreadMessageTimeStep;
 }
 
 QDebug operator<<(QDebug d, const ChannelCounterInfo &t)

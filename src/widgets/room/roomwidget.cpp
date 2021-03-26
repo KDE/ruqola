@@ -85,6 +85,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mainLayout->addWidget(mRoomCounterInfoWidget);
     mainLayout->addWidget(mRoomWidgetBase);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
+    connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::jumpToUnreadMessage, this, &RoomWidget::slotJumpToUnreadMessage);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
@@ -523,6 +524,11 @@ void RoomWidget::connectRoom()
     }
     slotUpdateRoomCounterInfoWidget();
     updateRoomHeader();
+}
+
+void RoomWidget::slotJumpToUnreadMessage(qint64 timeStep)
+{
+    mCurrentRocketChatAccount->loadHistory(mRoomWidgetBase->roomId(), mRoomType, false, timeStep);
 }
 
 void RoomWidget::slotClearNotification()

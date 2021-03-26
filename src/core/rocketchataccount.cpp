@@ -1665,7 +1665,7 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
     return mCache->attachmentUrl(url);
 }
 
-void RocketChatAccount::loadHistory(const QString &roomID, const QString &channelType, bool initial)
+void RocketChatAccount::loadHistory(const QString &roomID, const QString &channelType, bool initial, qint64 timeStep)
 {
     // TODO port to restapi
     Q_UNUSED(channelType)
@@ -1683,6 +1683,21 @@ void RocketChatAccount::loadHistory(const QString &roomID, const QString &channe
             // qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
             dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
             params.append(dateObject);
+        } else if (timeStep != 0) {
+            QJsonObject dateObjectEnd;
+            dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
+
+            // qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime) << "
+            // ROOMID" << roomID;
+            params.append(dateObjectEnd);
+
+            params.append(QJsonValue(175)); // Max number of messages to load;
+
+            QJsonObject dateObjectStart;
+            qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID << " timeStep " << timeStep;
+            // dateObjectStart[QStringLiteral("$date")] = QJsonValue(timeStep);
+            // params.append(dateObjectStart);
+            qDebug() << " params" << params;
         } else {
             const qint64 startDateTime = roomModel->generateNewStartTimeStamp(endDateTime);
             QJsonObject dateObjectEnd;

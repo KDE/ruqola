@@ -47,10 +47,14 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
+    Q_REQUIRED_RESULT qint64 unreadMessageTimeStep() const;
+    void setUnreadMessageTimeStep(const qint64 &unreadMessageTimeStep);
+
 private:
     QDateTime mUnreadFrom;
     quint64 mUnreadMessages = 0;
     quint64 mMessageCount = 0;
+    qint64 mUnreadMessageTimeStep = 0;
     bool mJoined = false;
 };
 Q_DECLARE_METATYPE(ChannelCounterInfo)
