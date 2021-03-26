@@ -58,6 +58,24 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     info.roomId = roomId;
     job.setSaveRoomSettingsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1"})").arg(roomId).toLatin1());
+
+    const QString roomAnnouncement = QStringLiteral("announcement");
+    info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
+    info.roomAnnouncement = roomAnnouncement;
+    job.setSaveRoomSettingsInfo(info);
+    const QStringList systemMessages{QStringLiteral("ua"), QStringLiteral("ca")};
+    info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
+    info.systemMessages = systemMessages;
+    job.setSaveRoomSettingsInfo(info);
+    QString res;
+    for (const QString &s : systemMessages) {
+        if (!res.isEmpty()) {
+            res += QLatin1Char(',');
+        }
+        res += QStringLiteral("\"%1\"").arg(s);
+    }
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"rid":"%1","roomAnnouncement":"%2","systemMessages":[%3]})").arg(roomId).arg(roomAnnouncement).arg(res).toLatin1());
 }
 
 void SaveRoomSettingsJobTest::shouldNotStarting()
