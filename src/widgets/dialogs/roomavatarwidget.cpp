@@ -62,7 +62,8 @@ void RoomAvatarWidget::changeImage()
     const QString fileName = QFileDialog::getOpenFileName(this, i18n("Select Room Avatar"), QString(), filter); // TODO
     if (!fileName.isEmpty()) {
         mRoomAvatarPath = fileName;
-        // TODO load image.
+        const QIcon img(mRoomAvatarPath);
+        setIcon(img);
     }
 }
 
