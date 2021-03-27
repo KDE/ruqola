@@ -526,9 +526,9 @@ void RoomWidget::connectRoom()
     updateRoomHeader();
 }
 
-void RoomWidget::slotJumpToUnreadMessage(qint64 timeStep)
+void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
-    mCurrentRocketChatAccount->loadHistory(mRoomWidgetBase->roomId(), mRoomType, false, timeStep);
+    mCurrentRocketChatAccount->loadMessagesHistory(mRoomWidgetBase->roomId(), numberOfMessage);
 }
 
 void RoomWidget::slotClearNotification()

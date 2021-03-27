@@ -94,7 +94,7 @@ private:
     void slotExportMessages();
     void slotFollowMessages();
     void clearBeforeSwitching();
-    void slotJumpToUnreadMessage(qint64 timeStep);
+    void slotJumpToUnreadMessage(qint64 numberOfMessage);
 
     QString mRoomType;
 

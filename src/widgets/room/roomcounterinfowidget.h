@@ -36,7 +36,7 @@ public:
 
 Q_SIGNALS:
     void markAsRead();
-    void jumpToUnreadMessage(qint64 timeStep);
+    void jumpToUnreadMessage(qint64 numberOfMessages);
 
 private:
     void updateInfo();

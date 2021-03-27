@@ -1665,6 +1665,32 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
     return mCache->attachmentUrl(url);
 }
 
+void RocketChatAccount::loadMessagesHistory(const QString &roomID, qint64 numberOfMessages)
+{
+    MessageModel *roomModel = messageModelForRoom(roomID);
+    if (roomModel) {
+        const auto realNumberOfMessages = numberOfMessages - roomModel->rowCount() + 2;
+        if (realNumberOfMessages > 0) {
+            QJsonArray params;
+            params.append(QJsonValue(roomID));
+            // Load history
+            const qint64 endDateTime = roomModel->lastTimestamp();
+
+            QJsonObject dateObjectEnd;
+            dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
+
+            params.append(dateObjectEnd);
+
+            params.append(realNumberOfMessages); // Max number of messages to load;
+
+            QJsonObject dateObjectStart;
+            qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID << " numberOfMessages " << numberOfMessages;
+            qDebug() << " params" << params;
+            ddp()->loadHistory(params);
+        }
+    }
+}
+
 void RocketChatAccount::loadHistory(const QString &roomID, const QString &channelType, bool initial, qint64 timeStep)
 {
     // TODO port to restapi

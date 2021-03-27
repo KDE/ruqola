@@ -433,6 +433,7 @@ public:
     Q_REQUIRED_RESULT bool hideRoles() const;
     Q_REQUIRED_RESULT bool hideAvatars() const;
     void roomsAutocomplete(const QString &searchText, const QString &exception);
+    void loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
