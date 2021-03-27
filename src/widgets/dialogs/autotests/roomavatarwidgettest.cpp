@@ -31,4 +31,5 @@ void RoomAvatarWidgetTest::shouldHaveDefaultValues()
 {
     RoomAvatarWidget w;
     QVERIFY(w.roomAvatarPath().isEmpty());
+    QVERIFY(!w.wasChanged());
 }
