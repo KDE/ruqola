@@ -22,6 +22,7 @@
 #include <KLocalizedString>
 #include <QContextMenuEvent>
 #include <QFileDialog>
+#include <QImageReader>
 #include <QMenu>
 
 RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
@@ -49,7 +50,16 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 
 void RoomAvatarWidget::changeImage()
 {
-    const QString fileName = QFileDialog::getOpenFileName(this, i18n("Select Room Avatar")); // TODO
+    QString filter;
+    const QList<QByteArray> supportedImage = QImageReader::supportedImageFormats();
+    for (const QByteArray &ba : supportedImage) {
+        if (!filter.isEmpty()) {
+            filter += QLatin1Char(' ');
+        }
+        filter += QLatin1String("*.") + QString::fromLatin1(ba);
+    }
+    filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
+    const QString fileName = QFileDialog::getOpenFileName(this, i18n("Select Room Avatar"), QString(), filter); // TODO
     if (!fileName.isEmpty()) {
         mRoomAvatarPath = fileName;
         // TODO load image.
