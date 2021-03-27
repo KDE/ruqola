@@ -128,3 +128,14 @@ QNetworkRequest ChannelHistoryJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &t)
+{
+    d << "latestMessage " << t.latestMessage;
+    d << "oldestMessage " << t.oldestMessage;
+    d << "channelType " << t.channelType;
+    d << "offset " << t.offset;
+    d << "count " << t.count;
+    d << "inclusive " << t.inclusive;
+    return d;
+}
