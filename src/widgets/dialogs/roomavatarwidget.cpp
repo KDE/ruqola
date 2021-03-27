@@ -64,12 +64,21 @@ void RoomAvatarWidget::changeImage()
         mRoomAvatarPath = fileName;
         const QIcon img(mRoomAvatarPath);
         setIcon(img);
+        mWasChanged = true;
     }
 }
 
 void RoomAvatarWidget::resetAvatar()
 {
     mRoomAvatarPath.clear();
+    setIcon(QIcon());
+    // Fetch default icons.
+    mWasChanged = true;
+}
+
+bool RoomAvatarWidget::wasChanged() const
+{
+    return mWasChanged;
 }
 
 QString RoomAvatarWidget::roomAvatarPath() const

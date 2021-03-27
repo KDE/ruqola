@@ -30,6 +30,8 @@ public:
 
     Q_REQUIRED_RESULT QString roomAvatarPath() const;
 
+    Q_REQUIRED_RESULT bool wasChanged() const;
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
@@ -37,4 +39,5 @@ private:
     void changeImage();
     void resetAvatar();
     QString mRoomAvatarPath;
+    bool mWasChanged = false;
 };
