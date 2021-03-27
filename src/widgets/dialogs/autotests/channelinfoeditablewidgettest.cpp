@@ -20,6 +20,8 @@
 
 #include "channelinfoeditablewidgettest.h"
 #include "dialogs/channelinfoeditablewidget.h"
+#include "dialogs/roomavatarwidget.h"
+#include <QFormLayout>
 #include <QTest>
 QTEST_MAIN(ChannelInfoEditableWidgetTest)
 ChannelInfoEditableWidgetTest::ChannelInfoEditableWidgetTest(QObject *parent)
@@ -30,5 +32,10 @@ ChannelInfoEditableWidgetTest::ChannelInfoEditableWidgetTest(QObject *parent)
 void ChannelInfoEditableWidgetTest::shouldHaveDefaultValues()
 {
     ChannelInfoEditableWidget w;
-    // TODO
+    auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    QVERIFY(layout);
+    QCOMPARE(layout->contentsMargins(), {});
+
+    auto mRoomAvatarWidget = w.findChild<RoomAvatarWidget *>(QStringLiteral("mRoomAvatarWidget"));
+    QVERIFY(mRoomAvatarWidget);
 }
