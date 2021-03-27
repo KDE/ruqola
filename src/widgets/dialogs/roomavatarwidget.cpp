@@ -21,6 +21,7 @@
 #include "roomavatarwidget.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
+#include <QFileDialog>
 #include <QMenu>
 
 RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
@@ -48,7 +49,11 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 
 void RoomAvatarWidget::changeImage()
 {
-    // TODO
+    const QString fileName = QFileDialog::getOpenFileName(this, i18n("Select Room Avatar")); // TODO
+    if (!fileName.isEmpty()) {
+        mRoomAvatarPath = fileName;
+        // TODO load image.
+    }
 }
 
 void RoomAvatarWidget::resetAvatar()
