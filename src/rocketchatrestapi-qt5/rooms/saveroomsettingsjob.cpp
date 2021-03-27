@@ -160,6 +160,15 @@ QJsonDocument SaveRoomSettingsJob::json() const
         jsonObj[QLatin1String("reactWhenReadOnly")] = mSaveRoomSettingsInfo.reactWhenReadOnly;
     }
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomAvatar) {
+#if 0
+        QImage image(newUrl.path());
+        QByteArray ba;
+        QBuffer buf(&ba);
+        image.save(&buf, "png");
+        const QByteArray hexed = ba.toBase64();
+        buf.close();
+        const QUrl r = QUrl(QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed));
+#endif
         // Save a base64! roomAvatar	"data:image/svg+xml;base64,I...."
         //        QBuffer buffer;
         //        buffer.open(QIODevice::WriteOnly);

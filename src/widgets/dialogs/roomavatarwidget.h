@@ -28,10 +28,13 @@ public:
     explicit RoomAvatarWidget(QWidget *parent = nullptr);
     ~RoomAvatarWidget() override;
 
+    Q_REQUIRED_RESULT QString roomAvatarPath() const;
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
     void changeImage();
     void resetAvatar();
+    QString mRoomAvatarPath;
 };

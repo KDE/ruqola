@@ -1,4 +1,4 @@
-﻿/*
+/*
    Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
@@ -18,45 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomavatarwidget.h"
-#include <KLocalizedString>
-#include <QContextMenuEvent>
-#include <QMenu>
+#pragma once
 
-RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
-    : QPushButton(parent)
+#include <QObject>
+
+class RoomAvatarWidgetTest : public QObject
 {
-    setIconSize(QSize(100, 100));
-    setFixedSize(QSize(120, 120));
-
-    connect(this, &RoomAvatarWidget::clicked, this, &RoomAvatarWidget::changeImage);
-    // TODO fetch roomAvatar
-}
-
-RoomAvatarWidget::~RoomAvatarWidget()
-{
-}
-
-void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
-{
-    QMenu menu;
-    menu.addAction(i18n("Change Picture..."), this, &RoomAvatarWidget::changeImage);
-    menu.addSeparator();
-    menu.addAction(i18n("Reset Avatar"), this, &RoomAvatarWidget::resetAvatar);
-    menu.exec(event->globalPos());
-}
-
-void RoomAvatarWidget::changeImage()
-{
-    // TODO
-}
-
-void RoomAvatarWidget::resetAvatar()
-{
-    mRoomAvatarPath.clear();
-}
-
-QString RoomAvatarWidget::roomAvatarPath() const
-{
-    return mRoomAvatarPath;
-}
+    Q_OBJECT
+public:
+    explicit RoomAvatarWidgetTest(QObject *parent = nullptr);
+    ~RoomAvatarWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
