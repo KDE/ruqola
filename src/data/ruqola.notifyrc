@@ -49,6 +49,7 @@ Comment[x-test]=xxNotificationxx
 Name=Messages Exported
 Name[ca]=Missatges exportats
 Name[ca@valencia]=Missatges exportats
+Name[cs]=Zprávy byly exportovány
 Name[de]=Nachrichten exportiert
 Name[en_GB]=Messages Exported
 Name[es]=Los mensajes han sido exportados
