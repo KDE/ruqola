@@ -22,6 +22,7 @@
 #include "channelinfoprunewidget.h"
 #include "misc/systemmessagescombobox.h"
 #include "rocketchataccount.h"
+#include "roomavatarwidget.h"
 #include "ruqola.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -45,11 +46,14 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     , mDeleteChannel(new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18n("Delete"), this))
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
+    , mRoomAvatarWidget(new RoomAvatarWidget(this))
 {
     auto layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
 
+    mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
+    layout->addRow(QStringLiteral(" "), mRoomAvatarWidget);
     QString str = i18n("Name:");
     mName->setObjectName(QStringLiteral("mName"));
     layout->addRow(str, mName);
@@ -86,7 +90,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
         const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, text, title)) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
+            // Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
 

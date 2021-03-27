@@ -32,6 +32,7 @@ class ChannelInfoPruneWidget;
 class KPasswordLineEdit;
 class SystemMessagesComboBox;
 class QLineEdit;
+class RoomAvatarWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoEditableWidget : public QWidget
 {
     Q_OBJECT
@@ -67,4 +68,5 @@ private:
     QWidget *mEncryptedLabel = nullptr;
     ChannelInfoPruneWidget *const mChannelInfoPruneWidget;
     SystemMessagesComboBox *const mSystemMessageCombox;
+    RoomAvatarWidget *const mRoomAvatarWidget;
 };
