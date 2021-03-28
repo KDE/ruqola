@@ -98,6 +98,12 @@ void RuqolaMainWidget::selectChannelRoom(const QString &roomId, const QString &r
     Q_EMIT channelSelected();
 }
 
+void RuqolaMainWidget::selectNextUnreadChannel()
+{
+    if (mChannelList && mChannelList->channelListView())
+        mChannelList->channelListView()->selectNextUnreadChannel();
+}
+
 Room *RuqolaMainWidget::room() const
 {
     return mRoomWidget->room();

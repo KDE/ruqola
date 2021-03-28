@@ -55,6 +55,7 @@ private:
     void slotConfigure();
     void slotLogout();
     void slotSearchChannel();
+    void slotSelectNextUnreadChannel();
     void slotCreateNewChannel();
     void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
     void slotClearNotification();
@@ -85,6 +86,7 @@ private:
     QAction *mServerInfo = nullptr;
     QAction *mLogout = nullptr;
     QAction *mSearchChannel = nullptr;
+    QAction *mNextUnreadChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
     QAction *mCreateDirectMessages = nullptr;
     QAction *mUnreadOnTop = nullptr;

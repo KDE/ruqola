@@ -265,6 +265,10 @@ void RuqolaMainWindow::setupActions()
     connect(mSearchChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSearchChannel);
     ac->addAction(QStringLiteral("search_channel"), mSearchChannel);
 
+    mNextUnreadChannel = new QAction(i18n("Jump to Next Unread Channel"), this);
+    connect(mNextUnreadChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSelectNextUnreadChannel);
+    ac->addAction(QStringLiteral("next_unread_channel"), mNextUnreadChannel);
+
     mCreateNewChannel = new QAction(i18n("Create New Channel..."), this);
     mCreateNewChannel->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
@@ -428,6 +432,11 @@ void RuqolaMainWindow::slotSearchChannel()
     QPointer<SearchChannelDialog> dlg = new SearchChannelDialog(this);
     dlg->exec();
     delete dlg;
+}
+
+void RuqolaMainWindow::slotSelectNextUnreadChannel()
+{
+    mMainWidget->selectNextUnreadChannel();
 }
 
 void RuqolaMainWindow::slotUnreadOnTop(bool checked)

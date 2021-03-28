@@ -83,6 +83,12 @@ QString RuqolaCentralWidget::roomType() const
     return mRuqolaMainWidget->roomType();
 }
 
+
+void RuqolaCentralWidget::selectNextUnreadChannel()
+{
+    mRuqolaMainWidget->selectNextUnreadChannel();
+}
+
 void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {

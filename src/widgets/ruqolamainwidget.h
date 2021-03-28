@@ -41,6 +41,7 @@ public:
     Room *room() const;
 
     void selectChannelRoom(const QString &roomId, const QString &roomType);
+    void selectNextUnreadChannel();
 Q_SIGNALS:
     void channelSelected();
 

@@ -39,6 +39,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    void selectNextUnreadChannel();
     Q_REQUIRED_RESULT QString roomType() const;
     Room *room() const;
 Q_SIGNALS:
