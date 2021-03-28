@@ -25,6 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelHistoryJob::ChannelHistoryJob(QObject *parent)
     : ChannelBaseJob(parent)
@@ -101,7 +102,6 @@ QJsonDocument ChannelHistoryJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
@@ -123,6 +123,17 @@ QNetworkRequest ChannelHistoryJob::request() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Type is not defined";
         break;
     }
+
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("latest"), mChannelHistoryInfo.latestMessage);
+    queryUrl.addQueryItem(QStringLiteral("oldest"), mChannelHistoryInfo.oldestMessage);
+    queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mChannelHistoryInfo.offset));
+    queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mChannelHistoryInfo.count));
+    // queryUrl.addQueryItem(QStringLiteral("inclusive"), mChannelHistoryInfo.inclusive);
+    // queryUrl.addQueryItem(QStringLiteral("unreads"), mChannelHistoryInfo.unreads);
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -137,5 +148,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelHistoryJob::ChannelH
     d << "offset " << t.offset;
     d << "count " << t.count;
     d << "inclusive " << t.inclusive;
+    d << "unreads " << t.unreads;
     return d;
 }

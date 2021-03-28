@@ -35,9 +35,10 @@ public:
         QString latestMessage;
         QString oldestMessage;
         ChannelType channelType = Unknown;
-        int offset = 0; // default
-        int count = -1;
+        int offset = 10; // default
+        int count = 100;
         bool inclusive = false; // Default
+        bool unreads = false;
     };
 
     explicit ChannelHistoryJob(QObject *parent = nullptr);
