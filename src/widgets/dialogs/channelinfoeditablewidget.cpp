@@ -59,18 +59,15 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     layout->addRow(str, mName);
 
     mComment->setObjectName(QStringLiteral("mComment"));
-    // mComment->setAllowEmptyText(true);
     str = i18n("Comment:");
     layout->addRow(str, mComment);
 
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
-    // mAnnouncement->setAllowEmptyText(true);
     str = i18n("Announcement:");
     layout->addRow(str, mAnnouncement);
 
     mDescription->setObjectName(QStringLiteral("mDescription"));
     str = i18n("Description:");
-    // mDescription->setLabelText(str);
 
     layout->addRow(str, mDescription);
 
@@ -233,18 +230,6 @@ void ChannelInfoEditableWidget::connectEditableWidget()
     connect(mRoom, &Room::channelTypeChanged, this, [this]() {
         mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
     });
-    // TODO react when we change settings
-    //    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-    //        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::ReadOnly, checked, mRoom->channelType());
-    //    });
-    //    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
-    //        if (KMessageBox::Yes
-    //            == KMessageBox::questionYesNo(this,
-    //                                          checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"),
-    //                                          i18n("Archive room"))) {
-    //            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
-    //        }
-    //    });
 }
 
 void ChannelInfoEditableWidget::updateRetentionValue()
