@@ -176,7 +176,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.roomAvatar = mRoomAvatarWidget->roomAvatar();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAvatar;
     }
-    qDebug() << " info " << info;
+    // qDebug() << " info " << info;
     // TODO
     //    mArchive->setChecked(mRoom->archived());
     return info;
@@ -230,6 +230,13 @@ void ChannelInfoEditableWidget::connectEditableWidget()
     connect(mRoom, &Room::channelTypeChanged, this, [this]() {
         mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
     });
+
+    const Utils::AvatarInfo avatarInfo = mRoom->avatarInfo();
+    const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(avatarInfo);
+    if (!iconUrlStr.isEmpty()) {
+        const QIcon icon(QUrl(iconUrlStr).toLocalFile());
+        mRoomAvatarWidget->setIcon(icon);
+    }
 }
 
 void ChannelInfoEditableWidget::updateRetentionValue()
