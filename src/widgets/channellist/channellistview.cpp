@@ -198,3 +198,31 @@ bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRo
     }
     return false;
 }
+
+void ChannelListView::selectNextUnreadChannel()
+{
+    RoomFilterProxyModel *filterModel = model();
+    Q_ASSERT(filterModel);
+    const int nRooms = filterModel->rowCount();
+    if (nRooms == 0) {
+        return; 
+    }
+    int roomIdx = 0; 
+    // if we have a selection, start searching for the next unread channel there, otherwise start at the top
+    const auto currentlySelectedIndex = selectionModel()->currentIndex();
+    if (currentlySelectedIndex.isValid())
+        roomIdx = currentlySelectedIndex.row();
+
+    const int startIndex = roomIdx;
+    // iterate through to the end, and then wrap around to the starting point
+    while (roomIdx < nRooms || (roomIdx % nRooms < startIndex)) {
+        const auto roomModelIndex = filterModel->index(roomIdx % nRooms, 0);
+        const bool isUnRead = roomModelIndex.data(RoomModel::RoomAlert).toBool();
+        if (isUnRead && roomModelIndex != currentlySelectedIndex) {
+            channelSelected(roomModelIndex);
+            selectionModel()->setCurrentIndex(filterModel->index(roomIdx % nRooms, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            return;
+        }
+        roomIdx++;
+    }
+}
