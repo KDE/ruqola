@@ -53,7 +53,7 @@ public:
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
         QStringList systemMessages;
-        QByteArray roomAvatarBa;
+        QString roomAvatar;
         QString roomId;
         QString roomName;
         QString roomTopic;

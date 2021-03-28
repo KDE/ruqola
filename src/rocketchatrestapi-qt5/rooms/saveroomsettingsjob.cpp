@@ -160,24 +160,8 @@ QJsonDocument SaveRoomSettingsJob::json() const
         jsonObj[QLatin1String("reactWhenReadOnly")] = mSaveRoomSettingsInfo.reactWhenReadOnly;
     }
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomAvatar) {
-#if 0
-        QByteArray ba;
-        QBuffer buf(&ba);
-        image.save(&buf, "png");
-        const QByteArray hexed = ba.toBase64();
-        buf.close();
-        const QUrl r = QUrl(QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed));
-#endif
-        // Save a base64! roomAvatar	"data:image/svg+xml;base64,I...."
-        //        QBuffer buffer;
-        //        buffer.open(QIODevice::WriteOnly);
-        //        img.save(&buffer, "PNG");
-
-        //        QSharedPointer<EmbeddedImage> embeddedImage(new EmbeddedImage());
-        //        embeddedImage->image = KCodecs::Codec::codecForName("base64")->encode(buffer.buffer());
-
         // "roomAvatar":null if we revert it.
-        jsonObj[QLatin1String("roomAvatar")] = QString::fromLatin1(mSaveRoomSettingsInfo.roomAvatarBa);
+        jsonObj[QLatin1String("roomAvatar")] = mSaveRoomSettingsInfo.roomAvatar;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
@@ -207,6 +191,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRo
     d << "roomType : " << t.roomType;
     d << "readOnly : " << t.readOnly;
     d << "encrypted : " << t.encrypted;
+    d << "roomAvatar : " << t.roomAvatar;
     // hide password d << "joinCode : " << t.joinCode;
     d << " mSettingsWillBeChanged " << t.mSettingsWillBeChanged;
     return d;

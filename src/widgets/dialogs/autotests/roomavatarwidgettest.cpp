@@ -30,6 +30,6 @@ RoomAvatarWidgetTest::RoomAvatarWidgetTest(QObject *parent)
 void RoomAvatarWidgetTest::shouldHaveDefaultValues()
 {
     RoomAvatarWidget w;
-    QVERIFY(w.roomAvatarPath().isEmpty());
+    QVERIFY(w.roomAvatar().isEmpty());
     QVERIFY(!w.wasChanged());
 }

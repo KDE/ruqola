@@ -20,6 +20,7 @@
 
 #include "roomavatarwidget.h"
 #include <KLocalizedString>
+#include <QBuffer>
 #include <QContextMenuEvent>
 #include <QFileDialog>
 #include <QImageReader>
@@ -81,7 +82,13 @@ bool RoomAvatarWidget::wasChanged() const
     return mWasChanged;
 }
 
-QString RoomAvatarWidget::roomAvatarPath() const
+QString RoomAvatarWidget::roomAvatar() const
 {
-    return mRoomAvatarPath;
+    QImage b(mRoomAvatarPath);
+    QByteArray ba;
+    QBuffer buf(&ba);
+    b.save(&buf, "png");
+    const QByteArray hexed = ba.toBase64();
+    buf.close();
+    return QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed);
 }
