@@ -43,6 +43,7 @@ void ChannelHistoryJobTest::shouldHaveDefaultValue()
     QVERIFY(info.oldestMessage.isEmpty());
     QCOMPARE(info.offset, 0);
     QVERIFY(!info.inclusive);
+    QVERIFY(!info.unreads);
 
     QVERIFY(!job.hasQueryParameterSupport());
 }

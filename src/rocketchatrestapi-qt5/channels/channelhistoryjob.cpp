@@ -124,10 +124,17 @@ QNetworkRequest ChannelHistoryJob::request() const
         break;
     }
 
+    // TODO add roomId
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("latest"), mChannelHistoryInfo.latestMessage);
-    queryUrl.addQueryItem(QStringLiteral("oldest"), mChannelHistoryInfo.oldestMessage);
-    queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mChannelHistoryInfo.offset));
+    if (!mChannelHistoryInfo.latestMessage.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("latest"), mChannelHistoryInfo.latestMessage);
+    }
+    if (!mChannelHistoryInfo.oldestMessage.isEmpty()) {
+        queryUrl.addQueryItem(QStringLiteral("oldest"), mChannelHistoryInfo.oldestMessage);
+    }
+    if (mChannelHistoryInfo.offset != 0) {
+        queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mChannelHistoryInfo.offset));
+    }
     queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mChannelHistoryInfo.count));
     // queryUrl.addQueryItem(QStringLiteral("inclusive"), mChannelHistoryInfo.inclusive);
     // queryUrl.addQueryItem(QStringLiteral("unreads"), mChannelHistoryInfo.unreads);
