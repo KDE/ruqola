@@ -173,7 +173,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         mChannelInfoPruneWidget->saveRoomSettingsInfo(info, mRoom);
     }
     if (mRoomAvatarWidget->wasChanged()) {
-        info.roomAvatarPath = mRoomAvatarWidget->roomAvatarPath();
+        // TODO info.roomAvatarBa = mRoomAvatarWidget->roomAvatarPath();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAvatar;
     }
     qDebug() << " info " << info;

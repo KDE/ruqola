@@ -53,7 +53,7 @@ public:
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
         QStringList systemMessages;
-        QString roomAvatarPath;
+        QByteArray roomAvatarBa;
         QString roomId;
         QString roomName;
         QString roomTopic;
@@ -71,7 +71,7 @@ public:
         bool encrypted = false;
         bool reactWhenReadOnly = false;
         int retentionMaxAge = 32;
-        //'roomAvatar', 'featured','roomCustomFields',
+        //'featured','roomCustomFields',
         //'reactWhenReadOnly', 'default','tokenpass', 'streamingOptions'
         SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
         Q_REQUIRED_RESULT bool isValid() const;

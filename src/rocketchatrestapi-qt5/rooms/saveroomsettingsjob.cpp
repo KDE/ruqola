@@ -161,7 +161,6 @@ QJsonDocument SaveRoomSettingsJob::json() const
     }
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomAvatar) {
 #if 0
-        QImage image(newUrl.path());
         QByteArray ba;
         QBuffer buf(&ba);
         image.save(&buf, "png");
@@ -178,7 +177,7 @@ QJsonDocument SaveRoomSettingsJob::json() const
         //        embeddedImage->image = KCodecs::Codec::codecForName("base64")->encode(buffer.buffer());
 
         // "roomAvatar":null if we revert it.
-        // jsonObj[QLatin1String("roomAvatar")] = mSaveRoomSettingsInfo.encrypted;
+        jsonObj[QLatin1String("roomAvatar")] = QString::fromLatin1(mSaveRoomSettingsInfo.roomAvatarBa);
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
