@@ -267,6 +267,7 @@ void RuqolaMainWindow::setupActions()
 
     mNextUnreadChannel = new QAction(i18n("Jump to Next Unread Channel"), this);
     connect(mNextUnreadChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSelectNextUnreadChannel);
+    ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
     ac->addAction(QStringLiteral("next_unread_channel"), mNextUnreadChannel);
 
     mCreateNewChannel = new QAction(i18n("Create New Channel..."), this);
