@@ -22,6 +22,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -64,6 +65,14 @@ void ChannelMembersJob::slotChannelMembersFinished()
         reply->deleteLater();
     }
     deleteLater();
+}
+
+QString ChannelMembersJob::generateErrorMessage(const QString &errorStr) const
+{
+    if (errorStr == QLatin1String("unauthorized")) {
+        return i18n("Get Members not authorized in this room");
+    }
+    return ChannelBaseJob::generateErrorMessage(errorStr);
 }
 
 ChannelMembersJob::ChannelType ChannelMembersJob::channelType() const

@@ -47,6 +47,9 @@ public:
 Q_SIGNALS:
     void channelMembersDone(const QJsonObject &replyObjectj, const ChannelBaseJob::ChannelInfo &channelInfo);
 
+protected:
+    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
+
 private:
     Q_DISABLE_COPY(ChannelMembersJob)
     void slotChannelMembersFinished();
