@@ -82,6 +82,11 @@ void RoomAvatarWidget::resetAvatar()
     mWasChanged = true;
 }
 
+bool RoomAvatarWidget::readOnly() const
+{
+    return mReadOnly;
+}
+
 bool RoomAvatarWidget::wasChanged() const
 {
     return mWasChanged;

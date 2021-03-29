@@ -34,6 +34,8 @@ public:
 
     void setReadOnly(bool state);
 
+    Q_REQUIRED_RESULT bool readOnly() const;
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 

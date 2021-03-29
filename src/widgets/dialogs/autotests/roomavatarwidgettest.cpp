@@ -32,4 +32,5 @@ void RoomAvatarWidgetTest::shouldHaveDefaultValues()
     RoomAvatarWidget w;
     QVERIFY(w.roomAvatar().isEmpty());
     QVERIFY(!w.wasChanged());
+    QVERIFY(!w.readOnly());
 }
