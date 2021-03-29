@@ -32,6 +32,7 @@ public:
     Q_ENUM(ChannelType)
 
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryInfo {
+        QString roomId;
         QString latestMessage;
         QString oldestMessage;
         ChannelType channelType = Unknown;
@@ -50,13 +51,11 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-
     Q_REQUIRED_RESULT ChannelHistoryInfo channelHistoryInfo() const;
     void setChannelHistoryInfo(const ChannelHistoryInfo &channelHistoryInfo);
 
 Q_SIGNALS:
-    void channelHistoryDone();
+    void channelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)

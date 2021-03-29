@@ -43,7 +43,7 @@ bool ChannelHistoryJob::start()
         return false;
     }
     addStartRestApiInfo("ChannelHistoryJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
+    QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &ChannelHistoryJob::slotLoadHistoryChannelFinished);
     return true;
 }
@@ -57,7 +57,7 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelHistoryDone();
+            Q_EMIT channelHistoryDone(replyObject, channelInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -84,26 +84,22 @@ bool ChannelHistoryJob::requireHttpAuthentication() const
 
 bool ChannelHistoryJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId and RoomName are empty";
-        return false;
-    }
+    //    if (!hasRoomIdentifier()) {
+    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId and RoomName are empty";
+    //        return false;
+    //    }
     if (mChannelHistoryInfo.channelType == ChannelHistoryJob::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
+        return false;
+    }
+    if (mChannelHistoryInfo.roomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: roomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
     return true;
-}
-
-QJsonDocument ChannelHistoryJob::json() const
-{
-    QJsonObject jsonObj;
-    generateJson(jsonObj);
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
 }
 
 QNetworkRequest ChannelHistoryJob::request() const
@@ -124,8 +120,8 @@ QNetworkRequest ChannelHistoryJob::request() const
         break;
     }
 
-    // TODO add roomId
     QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelHistoryInfo.roomId);
     if (!mChannelHistoryInfo.latestMessage.isEmpty()) {
         queryUrl.addQueryItem(QStringLiteral("latest"), mChannelHistoryInfo.latestMessage);
     }
@@ -158,5 +154,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelHistoryJob::ChannelH
     d << "count " << t.count;
     d << "inclusive " << t.inclusive;
     d << "unreads " << t.unreads;
+    d << "roomId " << t.roomId;
     return d;
 }
