@@ -36,12 +36,16 @@ public:
 
     Q_REQUIRED_RESULT bool readOnly() const;
 
+    void setCurrentIconPath(const QString &currentPath);
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
-    void changeImage();
-    void resetAvatar();
+    void slotCancel();
+    void slotChangeImage();
+    void slotResetAvatar();
+    QString mCurrentIconPath;
     QString mRoomAvatarPath;
     bool mWasChanged = false;
     bool mReadOnly = false;

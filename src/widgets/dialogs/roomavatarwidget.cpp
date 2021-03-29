@@ -32,7 +32,7 @@ RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
     setIconSize(QSize(100, 100));
     setFixedSize(QSize(120, 120));
 
-    connect(this, &RoomAvatarWidget::clicked, this, &RoomAvatarWidget::changeImage);
+    connect(this, &RoomAvatarWidget::clicked, this, &RoomAvatarWidget::slotChangeImage);
 }
 
 RoomAvatarWidget::~RoomAvatarWidget()
@@ -45,13 +45,15 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     QMenu menu;
-    menu.addAction(i18n("Change Picture..."), this, &RoomAvatarWidget::changeImage);
+    menu.addAction(i18n("Change Picture..."), this, &RoomAvatarWidget::slotChangeImage);
     menu.addSeparator();
-    menu.addAction(i18n("Reset Avatar"), this, &RoomAvatarWidget::resetAvatar);
+    menu.addAction(i18n("Reset Avatar"), this, &RoomAvatarWidget::slotResetAvatar);
+    menu.addSeparator();
+    menu.addAction(i18n("Cancel"), this, &RoomAvatarWidget::slotCancel);
     menu.exec(event->globalPos());
 }
 
-void RoomAvatarWidget::changeImage()
+void RoomAvatarWidget::slotChangeImage()
 {
     if (mReadOnly) {
         return;
@@ -74,7 +76,13 @@ void RoomAvatarWidget::changeImage()
     }
 }
 
-void RoomAvatarWidget::resetAvatar()
+void RoomAvatarWidget::slotCancel()
+{
+    mWasChanged = false;
+    setIcon(QIcon(mCurrentIconPath));
+}
+
+void RoomAvatarWidget::slotResetAvatar()
 {
     mRoomAvatarPath.clear();
     setIcon(QIcon());
@@ -85,6 +93,12 @@ void RoomAvatarWidget::resetAvatar()
 bool RoomAvatarWidget::readOnly() const
 {
     return mReadOnly;
+}
+
+void RoomAvatarWidget::setCurrentIconPath(const QString &currentPath)
+{
+    mCurrentIconPath = currentPath;
+    setIcon(QIcon(mCurrentIconPath));
 }
 
 bool RoomAvatarWidget::wasChanged() const
