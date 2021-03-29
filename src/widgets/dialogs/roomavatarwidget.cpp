@@ -33,7 +33,6 @@ RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
     setFixedSize(QSize(120, 120));
 
     connect(this, &RoomAvatarWidget::clicked, this, &RoomAvatarWidget::changeImage);
-    // TODO fetch roomAvatar
 }
 
 RoomAvatarWidget::~RoomAvatarWidget()
@@ -42,6 +41,9 @@ RoomAvatarWidget::~RoomAvatarWidget()
 
 void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 {
+    if (mReadOnly) {
+        return;
+    }
     QMenu menu;
     menu.addAction(i18n("Change Picture..."), this, &RoomAvatarWidget::changeImage);
     menu.addSeparator();
@@ -51,6 +53,9 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 
 void RoomAvatarWidget::changeImage()
 {
+    if (mReadOnly) {
+        return;
+    }
     QString filter;
     const QList<QByteArray> supportedImage = QImageReader::supportedImageFormats();
     for (const QByteArray &ba : supportedImage) {
@@ -80,6 +85,11 @@ void RoomAvatarWidget::resetAvatar()
 bool RoomAvatarWidget::wasChanged() const
 {
     return mWasChanged;
+}
+
+void RoomAvatarWidget::setReadOnly(bool state)
+{
+    mReadOnly = state;
 }
 
 QString RoomAvatarWidget::roomAvatar() const

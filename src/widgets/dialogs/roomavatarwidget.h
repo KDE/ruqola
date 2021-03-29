@@ -32,6 +32,8 @@ public:
 
     Q_REQUIRED_RESULT bool wasChanged() const;
 
+    void setReadOnly(bool state);
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
@@ -40,4 +42,5 @@ private:
     void resetAvatar();
     QString mRoomAvatarPath;
     bool mWasChanged = false;
+    bool mReadOnly = false;
 };
