@@ -135,9 +135,11 @@ QNetworkRequest ChannelHistoryJob::request() const
     if (mChannelHistoryInfo.offset != 0) {
         queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mChannelHistoryInfo.offset));
     }
-    queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mChannelHistoryInfo.count));
-    // queryUrl.addQueryItem(QStringLiteral("inclusive"), mChannelHistoryInfo.inclusive);
-    // queryUrl.addQueryItem(QStringLiteral("unreads"), mChannelHistoryInfo.unreads);
+    if (mChannelHistoryInfo.count != 0) {
+        queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mChannelHistoryInfo.count));
+    }
+    queryUrl.addQueryItem(QStringLiteral("inclusive"), mChannelHistoryInfo.inclusive ? QStringLiteral("true") : QStringLiteral("false"));
+    queryUrl.addQueryItem(QStringLiteral("unreads"), mChannelHistoryInfo.unreads ? QStringLiteral("true") : QStringLiteral("false"));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

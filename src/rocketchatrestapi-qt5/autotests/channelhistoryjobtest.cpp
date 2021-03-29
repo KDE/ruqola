@@ -56,19 +56,19 @@ void ChannelHistoryJobTest::shouldGenerateRequest()
     job.setChannelHistoryInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.history?offset=10&count=100")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.history?offset=10&count=100&inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
     info.channelType = ChannelHistoryJob::Direct;
     job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.history?offset=10&count=100")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.history?offset=10&count=100&inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
     info.channelType = ChannelHistoryJob::Groups;
     job.setChannelHistoryInfo(info);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.history?offset=10&count=100")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.history?offset=10&count=100&inclusive=false&unreads=false")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
