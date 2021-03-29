@@ -20,12 +20,12 @@
 
 #pragma once
 
+#include "channels/channelhistoryjob.h"
+#include "libruqolawidgets_private_export.h"
+#include "roomheaderwidget.h"
 #include "uploadfilejob.h"
 #include <QPointer>
 #include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-#include "roomheaderwidget.h"
 
 class RoomHeaderWidget;
 class RocketChatAccount;
@@ -95,6 +95,7 @@ private:
     void slotFollowMessages();
     void clearBeforeSwitching();
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
+    void slotChannelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
 
     QString mRoomType;
 

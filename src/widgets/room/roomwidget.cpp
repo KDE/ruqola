@@ -532,6 +532,25 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
     if (!messageId.isEmpty()) {
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
     }
+#if 0
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
+    RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
+    info.channelType = RocketChatRestApi::ChannelHistoryJob::Channel;
+    info.count = numberOfMessage;
+    info.roomId = mRoomWidgetBase->roomId();
+    job->setChannelHistoryInfo(info);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, &RoomWidget::slotChannelHistoryDone);
+    if (!job->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelHistoryJob";
+    }
+#endif
+}
+
+void RoomWidget::slotChannelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+{
+    qDebug() << " obj " << obj;
 }
 
 void RoomWidget::slotClearNotification()
