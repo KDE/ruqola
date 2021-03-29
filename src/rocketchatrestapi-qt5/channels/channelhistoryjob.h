@@ -21,17 +21,17 @@
 #pragma once
 
 #include "channelbasejob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelHistoryJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
     enum ChannelType { Channel = 0, Groups, Direct, Unknown };
     Q_ENUM(ChannelType)
 
-    struct ChannelHistoryInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryInfo {
         QString latestMessage;
         QString oldestMessage;
         ChannelType channelType = Unknown;
