@@ -84,11 +84,15 @@ bool RoomAvatarWidget::wasChanged() const
 
 QString RoomAvatarWidget::roomAvatar() const
 {
-    QImage b(mRoomAvatarPath);
-    QByteArray ba;
-    QBuffer buf(&ba);
-    b.save(&buf, "png");
-    const QByteArray hexed = ba.toBase64();
-    buf.close();
-    return QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed);
+    if (mRoomAvatarPath.isEmpty()) {
+        return {};
+    } else {
+        QImage b(mRoomAvatarPath);
+        QByteArray ba;
+        QBuffer buf(&ba);
+        b.save(&buf, "png");
+        const QByteArray hexed = ba.toBase64();
+        buf.close();
+        return QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed);
+    }
 }
