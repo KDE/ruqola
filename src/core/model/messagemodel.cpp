@@ -165,6 +165,11 @@ QModelIndex MessageModel::indexForMessage(const QString &messageId) const
     return idx;
 }
 
+QString MessageModel::messageIdFromIndex(int rowIndex)
+{
+    return mAllMessages.at(rowIndex).messageId();
+}
+
 void MessageModel::refresh()
 {
     beginResetModel();

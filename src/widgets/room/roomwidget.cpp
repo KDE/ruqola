@@ -528,7 +528,10 @@ void RoomWidget::connectRoom()
 
 void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
-    mCurrentRocketChatAccount->loadMessagesHistory(mRoomWidgetBase->roomId(), numberOfMessage);
+    const QString messageId = mCurrentRocketChatAccount->loadMessagesHistory(mRoomWidgetBase->roomId(), numberOfMessage);
+    if (!messageId.isEmpty()) {
+        mRoomWidgetBase->messageListView()->goToMessage(messageId);
+    }
 }
 
 void RoomWidget::slotClearNotification()

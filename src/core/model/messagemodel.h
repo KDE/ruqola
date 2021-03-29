@@ -140,6 +140,8 @@ public:
     Q_REQUIRED_RESULT Message findMessageById(const QString &messageId) const;
     Q_REQUIRED_RESULT QModelIndex indexForMessage(const QString &messageId) const;
 
+    Q_REQUIRED_RESULT QString messageIdFromIndex(int rowIndex);
+
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
