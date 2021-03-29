@@ -49,6 +49,7 @@ public:
 Q_SIGNALS:
     void channelDeleted();
     void fnameChanged(const QString &fname);
+    void roomNameValid(bool valid);
 
 private:
     void joinCodeChanged();

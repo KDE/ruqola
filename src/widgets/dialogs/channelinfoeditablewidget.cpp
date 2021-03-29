@@ -57,6 +57,9 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     QString str = i18n("Name:");
     mName->setObjectName(QStringLiteral("mName"));
     layout->addRow(str, mName);
+    connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
+        Q_EMIT roomNameValid(!str.trimmed().isEmpty());
+    });
 
     mComment->setObjectName(QStringLiteral("mComment"));
     str = i18n("Comment:");

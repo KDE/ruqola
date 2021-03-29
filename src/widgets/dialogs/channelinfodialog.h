@@ -37,6 +37,7 @@ public:
     Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
 private:
+    void slotRoomNameValid(bool state);
     void slotFnameChanged(const QString &fname);
     ChannelInfoWidget *const mChannelInfoWidget;
     QDialogButtonBox *const mButtonBox;

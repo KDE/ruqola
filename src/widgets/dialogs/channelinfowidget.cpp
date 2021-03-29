@@ -62,6 +62,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mStackedWidget->addWidget(mChannelInfoEditableWidget);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::channelDeleted, this, &ChannelInfoWidget::channelDeleted);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::fnameChanged, this, &ChannelInfoWidget::fnameChanged);
+    connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::roomNameValid, this, &ChannelInfoWidget::roomNameValid);
 }
 
 ChannelInfoWidget::~ChannelInfoWidget()

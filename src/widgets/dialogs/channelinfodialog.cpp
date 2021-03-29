@@ -24,6 +24,7 @@
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
@@ -45,6 +46,7 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     resize(600, 400);
     connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
     connect(mChannelInfoWidget, &ChannelInfoWidget::fnameChanged, this, &ChannelInfoDialog::slotFnameChanged);
+    connect(mChannelInfoWidget, &ChannelInfoWidget::roomNameValid, this, &ChannelInfoDialog::slotRoomNameValid);
 }
 
 ChannelInfoDialog::~ChannelInfoDialog()
@@ -66,4 +68,11 @@ void ChannelInfoDialog::setRoom(Room *room)
 void ChannelInfoDialog::slotFnameChanged(const QString &fname)
 {
     setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", fname));
+}
+
+void ChannelInfoDialog::slotRoomNameValid(bool state)
+{
+    if (auto button = mButtonBox->button(QDialogButtonBox::Ok)) {
+        button->setEnabled(state);
+    }
 }
