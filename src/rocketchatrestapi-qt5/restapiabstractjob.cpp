@@ -530,8 +530,9 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
     if (queryParameters.offset() >= 0) {
         urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(queryParameters.offset()));
     }
-    if (!queryParameters.custom().isEmpty()) {
-        QMapIterator<QString, QString> i(queryParameters.custom());
+    const QMap<QString, QString> custom = queryParameters.custom();
+    if (!custom.isEmpty()) {
+        QMapIterator<QString, QString> i(custom);
         QString str;
         while (i.hasNext()) {
             i.next();
