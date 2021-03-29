@@ -19,7 +19,10 @@
 */
 
 #include "channelinforeadonlywidget.h"
+#include "rocketchataccount.h"
 #include "room.h"
+#include "roomavatarwidget.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
@@ -30,10 +33,15 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(QWidget *parent)
     , mCommentReadOnly(new QLabel(this))
     , mAnnouncementReadOnly(new QLabel(this))
     , mDescriptionReadOnly(new QLabel(this))
+    , mRoomAvatarWidget(new RoomAvatarWidget(this))
 {
     auto layoutReadOnly = new QFormLayout(this);
     layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
     layoutReadOnly->setContentsMargins({});
+
+    mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
+    mRoomAvatarWidget->setReadOnly(true);
+    layoutReadOnly->addRow(QStringLiteral(" "), mRoomAvatarWidget);
 
     mNameReadOnly->setTextFormat(Qt::RichText);
     mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
@@ -100,4 +108,10 @@ void ChannelInfoReadOnlyWidget::connectReadOnlyWidget()
     connect(mRoom, &Room::descriptionChanged, this, [this]() {
         mDescriptionReadOnly->setText(mRoom->description());
     });
+    const Utils::AvatarInfo avatarInfo = mRoom->avatarInfo();
+    const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(avatarInfo);
+    if (!iconUrlStr.isEmpty()) {
+        const QIcon icon(QUrl(iconUrlStr).toLocalFile());
+        mRoomAvatarWidget->setIcon(icon);
+    }
 }

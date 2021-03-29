@@ -23,6 +23,7 @@
 #include <QWidget>
 class QLabel;
 class Room;
+class RoomAvatarWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
 {
     Q_OBJECT
@@ -39,5 +40,6 @@ private:
     QLabel *const mCommentReadOnly;
     QLabel *const mAnnouncementReadOnly;
     QLabel *const mDescriptionReadOnly;
+    RoomAvatarWidget *const mRoomAvatarWidget;
     Room *mRoom = nullptr;
 };
