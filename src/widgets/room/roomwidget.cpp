@@ -62,6 +62,7 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>
+#include <QTimeZone>
 #include <QVBoxLayout>
 
 RoomWidget::RoomWidget(QWidget *parent)
@@ -531,7 +532,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     MessageModel *roomMessageModel = rcAccount->messageModelForRoom(mRoomWidgetBase->roomId());
-    if (roomMessageModel->rowCount() > numberOfMessage) {
+    if (roomMessageModel->rowCount() >= numberOfMessage) {
         const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
     } else {
@@ -539,10 +540,10 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         // TODO verify it.
         info.channelType = mRoomType == QLatin1String("c") ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
-        info.count = numberOfMessage;
+        info.count = numberOfMessage - roomMessageModel->rowCount() + 1;
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = roomMessageModel->lastTimestamp();
-        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toString(Qt::ISODateWithMs);
+        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
         // qDebug() << " info.latestMessage " << info.latestMessage;
         job->setChannelHistoryInfo(info);
         rcAccount->restApi()->initializeRestApiJob(job);
@@ -553,7 +554,9 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
             [this, numberOfMessage, rcAccount, roomMessageModel](const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo) {
                 rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
                 // qDebug() << " obj " << obj;
-                // qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
+                //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
+                //                qDebug() << " numberOfMessage " << numberOfMessage;
+                //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
 
                 const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
                 mRoomWidgetBase->messageListView()->goToMessage(messageId);
