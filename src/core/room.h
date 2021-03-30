@@ -124,9 +124,9 @@ public:
      */
     static QByteArray serialize(Room *r, bool toBinary = true);
 
-    UsersForRoomModel *usersModelForRoom() const;
+    Q_REQUIRED_RESULT UsersForRoomModel *usersModelForRoom() const;
 
-    MessageModel *messageModel() const;
+    Q_REQUIRED_RESULT MessageModel *messageModel() const;
 
     Q_REQUIRED_RESULT QString inputMessage() const;
     void setInputMessage(const QString &inputMessage);
