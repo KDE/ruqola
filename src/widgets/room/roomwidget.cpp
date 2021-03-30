@@ -533,6 +533,9 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
     }
 #if 0
+    //TODO use mRoomType
+
+
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
     RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
