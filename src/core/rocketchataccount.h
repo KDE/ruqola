@@ -174,9 +174,9 @@ public:
     void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     void changeDefaultAuthentication(int index);
     void messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression = false);
-    InputTextManager *inputTextManager() const;
+    Q_REQUIRED_RESULT InputTextManager *inputTextManager() const;
 
-    InputTextManager *inputThreadMessageTextManager() const;
+    Q_REQUIRED_RESULT InputTextManager *inputThreadMessageTextManager() const;
 
     void blockUser(const QString &userId, bool block);
     void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
@@ -215,7 +215,7 @@ public:
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
-    MessageModel *messageModelForRoom(const QString &roomID);
+    Q_REQUIRED_RESULT MessageModel *messageModelForRoom(const QString &roomID);
     void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
     void loadMoreListMessages(const QString &roomId);
@@ -243,28 +243,28 @@ public:
     RocketChatAccountSettings *settings() const;
 
     DDPClient *ddp();
-    RoomModel *roomModel() const;
-    LoginMethodModel *loginMethodModel() const;
+    Q_REQUIRED_RESULT RoomModel *roomModel() const;
+    Q_REQUIRED_RESULT LoginMethodModel *loginMethodModel() const;
     Q_REQUIRED_RESULT bool editingMode() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
     Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
 
-    Room *room(const QString &roomId);
+    Q_REQUIRED_RESULT Room *room(const QString &roomId);
 
     // Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
 
-    MessageQueue *messageQueue() const;
+    Q_REQUIRED_RESULT MessageQueue *messageQueue() const;
 
-    RocketChatBackend *rocketChatBackend() const;
+    Q_REQUIRED_RESULT RocketChatBackend *rocketChatBackend() const;
 
-    RuqolaLogger *ruqolaLogger() const;
+    Q_REQUIRED_RESULT RuqolaLogger *ruqolaLogger() const;
 
     void parsePublicSettings(const QJsonObject &obj);
 
-    RuqolaServerConfig *ruqolaServerConfig() const;
+    Q_REQUIRED_RESULT RuqolaServerConfig *ruqolaServerConfig() const;
 
     void setUserName(const QString &username);
     Q_REQUIRED_RESULT QString userName() const;
@@ -294,7 +294,7 @@ public:
     void setServerVersion(const QString &version);
 
     Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
-    EmojiManager *emojiManager() const;
+    Q_REQUIRED_RESULT EmojiManager *emojiManager() const;
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
     void membersInRoom(const QString &roomId, const QString &roomType);
@@ -304,7 +304,7 @@ public:
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
-    SearchMessageModel *searchMessageModel() const;
+    Q_REQUIRED_RESULT SearchMessageModel *searchMessageModel() const;
 
     void updateUser(const QJsonObject &object);
 
@@ -312,9 +312,9 @@ public:
 
     void rolesChanged(const QJsonArray &contents);
 
-    FilesForRoomModel *filesModelForRoom() const;
+    Q_REQUIRED_RESULT FilesForRoomModel *filesModelForRoom() const;
 
-    DiscussionsModel *discussionsModel() const;
+    Q_REQUIRED_RESULT DiscussionsModel *discussionsModel() const;
 
     void updateThreadMessageList(const Message &m);
 
@@ -324,8 +324,8 @@ public:
 
     Q_REQUIRED_RESULT bool otrEnabled() const;
 
-    ListMessagesModel *listMessageModel() const;
-    ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
+    Q_REQUIRED_RESULT ListMessagesModel *listMessageModel() const;
+    Q_REQUIRED_RESULT ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
     Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
     Q_REQUIRED_RESULT QString serverUrl() const;
     Q_REQUIRED_RESULT StatusModel *statusModel() const;
