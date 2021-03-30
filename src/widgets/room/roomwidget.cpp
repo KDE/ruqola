@@ -547,20 +547,19 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         // qDebug() << " info.latestMessage " << info.latestMessage;
         job->setChannelHistoryInfo(info);
         rcAccount->restApi()->initializeRestApiJob(job);
-        connect(
-            job,
-            &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone,
-            this,
-            [this, numberOfMessage, rcAccount, roomMessageModel](const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo) {
-                rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
-                // qDebug() << " obj " << obj;
-                //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
-                //                qDebug() << " numberOfMessage " << numberOfMessage;
-                //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
+        connect(job,
+                &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone,
+                this,
+                [this, numberOfMessage, rcAccount, roomMessageModel](const QJsonObject &obj) {
+                    rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
+                    // qDebug() << " obj " << obj;
+                    //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
+                    //                qDebug() << " numberOfMessage " << numberOfMessage;
+                    //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
 
-                const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
-                mRoomWidgetBase->messageListView()->goToMessage(messageId);
-            });
+                    const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
+                    mRoomWidgetBase->messageListView()->goToMessage(messageId);
+                });
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelHistoryJob";
         }
