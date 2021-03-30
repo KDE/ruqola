@@ -551,7 +551,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
             &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone,
             this,
             [this, numberOfMessage, rcAccount, roomMessageModel](const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo) {
-                rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), false, true);
+                rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
                 // qDebug() << " obj " << obj;
                 // qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
 
