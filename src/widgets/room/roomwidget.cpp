@@ -266,7 +266,7 @@ void RoomWidget::slotStarredMessages()
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::StarredMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
 }
@@ -279,7 +279,7 @@ void RoomWidget::slotPinnedMessages()
     dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::PinnedMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
 }
@@ -292,7 +292,7 @@ void RoomWidget::slotShowMentions()
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::MentionsMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
 }
@@ -305,7 +305,7 @@ void RoomWidget::slotSnipperedMessages()
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::SnipperedMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
 }
@@ -318,7 +318,7 @@ void RoomWidget::slotShowThreads()
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::ThreadsMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
+    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
 }
@@ -351,7 +351,7 @@ void RoomWidget::slotSearchMessages()
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
-    connect(dlg, &SearchMessageDialog::goToMessageRequested, mRoomWidgetBase->messageListView(), &MessageListView::goToMessage);
+    connect(dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
 }
@@ -560,6 +560,48 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
                     const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
                     mRoomWidgetBase->messageListView()->goToMessage(messageId);
                 });
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelHistoryJob";
+        }
+    }
+}
+
+void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc)
+{
+    auto messageModel = qobject_cast<MessageModel *>(mRoomWidgetBase->messageListView()->model());
+    Q_ASSERT(messageModel);
+    const QModelIndex index = messageModel->indexForMessage(messageId);
+    if (index.isValid()) {
+        mRoomWidgetBase->messageListView()->scrollTo(index);
+    } else {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
+        RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
+        // TODO verify it.
+        info.channelType = mRoomType == QLatin1String("c") ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
+        info.roomId = mRoomWidgetBase->roomId();
+        const qint64 endDateTime = messageModel->lastTimestamp();
+        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
+        info.oldestMessage = messageDateTimeUtc;
+        info.inclusive = true;
+        info.count = 50000;
+        qDebug() << " info " << info;
+        job->setChannelHistoryInfo(info);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, [this, messageId, rcAccount, messageModel](const QJsonObject &obj) {
+            rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
+            // qDebug() << " obj " << obj;
+            //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
+            //                qDebug() << " numberOfMessage " << numberOfMessage;
+            //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
+
+            const QModelIndex index = messageModel->indexForMessage(messageId);
+            if (index.isValid()) {
+                mRoomWidgetBase->messageListView()->scrollTo(index);
+            } else {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Message not found:" << messageId;
+            }
+        });
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelHistoryJob";
         }

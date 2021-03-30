@@ -128,10 +128,10 @@ QNetworkRequest ChannelHistoryJob::request() const
     if (!mChannelHistoryInfo.oldestMessage.isEmpty()) {
         queryUrl.addQueryItem(QStringLiteral("oldest"), mChannelHistoryInfo.oldestMessage);
     }
-    if (mChannelHistoryInfo.offset != 0) {
+    if (mChannelHistoryInfo.offset > 0) {
         queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mChannelHistoryInfo.offset));
     }
-    if (mChannelHistoryInfo.count != 0) {
+    if (mChannelHistoryInfo.count > 0) {
         queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mChannelHistoryInfo.count));
     }
     queryUrl.addQueryItem(QStringLiteral("inclusive"), mChannelHistoryInfo.inclusive ? QStringLiteral("true") : QStringLiteral("false"));

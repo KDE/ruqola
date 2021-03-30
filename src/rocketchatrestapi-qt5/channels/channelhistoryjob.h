@@ -36,8 +36,8 @@ public:
         QString latestMessage;
         QString oldestMessage;
         ChannelType channelType = Unknown;
-        int offset = 10; // default
-        int count = 100;
+        int offset = -1; // default
+        int count = -1;
         bool inclusive = false; // Default
         bool unreads = false;
     };

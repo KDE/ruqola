@@ -44,6 +44,7 @@ public:
         OriginalMessage,
         MessageConvertedText,
         Timestamp,
+        DateTimeUtc,
         UserId,
         SystemMessageType,
         MessageId,

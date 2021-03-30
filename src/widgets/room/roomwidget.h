@@ -95,6 +95,7 @@ private:
     void slotFollowMessages();
     void clearBeforeSwitching();
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
+    void slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc);
 
     QString mRoomType;
 

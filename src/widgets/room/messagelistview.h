@@ -75,7 +75,7 @@ Q_SIGNALS:
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
     void createPrivateConversation(const QString &userName);
     void loadHistoryRequested();
-    void goToMessageRequested(const QString &messageId);
+    void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
     void replyInThreadRequested(const QString &messageId);
 
 private:

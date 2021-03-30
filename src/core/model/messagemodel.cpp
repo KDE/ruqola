@@ -267,6 +267,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.username();
     case MessageModel::OriginalMessage:
         return message.text();
+    case MessageModel::DateTimeUtc:
+        return QDateTime::fromMSecsSinceEpoch(message.timeStamp()).toUTC().toString(Qt::ISODateWithMs);
     case MessageModel::MessageConvertedText:
         return convertedText(message);
     case MessageModel::Timestamp:

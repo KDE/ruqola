@@ -43,7 +43,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
     void setRoom(Room *room);
 Q_SIGNALS:
-    void goToMessageRequested(const QString &messageId);
+    void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
 
 private:
     void slotSearchLineMessagesEnterPressed();
