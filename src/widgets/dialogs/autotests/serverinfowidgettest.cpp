@@ -19,7 +19,7 @@
 */
 
 #include "serverinfowidgettest.h"
-#include "dialogs/serverinfowidget.h"
+#include "dialogs/serverinfo/serverinfowidget.h"
 #include <QFormLayout>
 #include <QLabel>
 #include <QTest>

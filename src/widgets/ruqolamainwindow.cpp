@@ -32,7 +32,7 @@
 #include "dialogs/createnewserverdialog.h"
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/searchchanneldialog.h"
-#include "dialogs/serverinfodialog.h"
+#include "dialogs/serverinfo/serverinfodialog.h"
 #include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"

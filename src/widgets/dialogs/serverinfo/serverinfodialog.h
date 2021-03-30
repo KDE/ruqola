@@ -20,22 +20,18 @@
 
 #pragma once
 
-#include "libruqolawidgets_export.h"
-#include <QWidget>
-class QLabel;
+#include "libruqolawidgets_private_export.h"
+#include <QDialog>
+class ServerInfoWidget;
 class ServerConfigInfo;
-class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ServerInfoWidget(QWidget *parent = nullptr);
-    ~ServerInfoWidget() override;
+    explicit ServerInfoDialog(QWidget *parent = nullptr);
+    ~ServerInfoDialog() override;
     void setServerConfigInfo(ServerConfigInfo *info);
 
 private:
-    QLabel *const mAccountName;
-    QLabel *const mUserName;
-    QLabel *const mServerVersion;
-    QLabel *const mServerUrl;
+    ServerInfoWidget *const mServerInfoWidget;
 };
-

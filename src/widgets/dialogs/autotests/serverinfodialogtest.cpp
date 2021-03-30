@@ -19,8 +19,8 @@
 */
 
 #include "serverinfodialogtest.h"
-#include "dialogs/serverinfodialog.h"
-#include "dialogs/serverinfowidget.h"
+#include "dialogs/serverinfo/serverinfodialog.h"
+#include "dialogs/serverinfo/serverinfowidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>

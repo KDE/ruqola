@@ -24,8 +24,8 @@ set(Ruqola_widget_register_user_SRCS
     )
 
 set(Ruqola_widgets_dialog_SRCS
-    dialogs/serverinfowidget.cpp
-    dialogs/serverinfodialog.cpp
+    dialogs/serverinfo/serverinfowidget.cpp
+    dialogs/serverinfo/serverinfodialog.cpp
     dialogs/uploadfiledialog.cpp
     dialogs/uploadfilewidget.cpp
     dialogs/channelinfowidget.cpp
