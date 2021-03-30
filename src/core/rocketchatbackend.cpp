@@ -165,7 +165,7 @@ void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
     }
 }
 
-void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory)
+void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
 {
     QHash<MessageModel *, QVector<Message>> dispatcher;
     for (const QJsonValue &v : messages) {
@@ -178,7 +178,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
             qCDebug(RUQOLA_MESSAGE_LOG) << " new message: " << o;
         }
         Message m(mRocketChatAccount->emojiManager());
-        m.parseMessage(o);
+        m.parseMessage(o, restApi);
         // qDebug() << " roomId"<<m.roomId() << " add message " << m;
         if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
             if (!m.threadMessageId().isEmpty()) {

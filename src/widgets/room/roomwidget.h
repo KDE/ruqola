@@ -95,7 +95,6 @@ private:
     void slotFollowMessages();
     void clearBeforeSwitching();
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
-    void slotChannelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
 
     QString mRoomType;
 

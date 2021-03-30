@@ -42,7 +42,7 @@ public:
      *
      * @param messages The Json containing the message
      */
-    void processIncomingMessages(const QJsonArray &messages, bool loadHistory);
+    void processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi = false);
 
     void clearUsersList();
 

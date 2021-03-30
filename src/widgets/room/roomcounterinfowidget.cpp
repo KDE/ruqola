@@ -66,5 +66,6 @@ void RoomCounterInfoWidget::slotLinkActivated(const QString &contents)
         Q_EMIT markAsRead();
     } else if (contents == QLatin1String("gotofirstunreadmessage")) {
         Q_EMIT jumpToUnreadMessage(mChannelCounterInfo.unreadMessages());
+        setVisible(false);
     }
 }
