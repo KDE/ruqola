@@ -1262,7 +1262,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     // todo add timestamp
 
     o[QStringLiteral("rid")] = r->roomId();
-    o[QStringLiteral("t")] = r->channelType();
+    o[QStringLiteral("t")] = Room::roomFromRoomType(r->channelType());
     o[QStringLiteral("name")] = r->name();
     o[QStringLiteral("fname")] = r->fName();
     o[QStringLiteral("roomCreatorUserName")] = r->roomOwnerUserName();
