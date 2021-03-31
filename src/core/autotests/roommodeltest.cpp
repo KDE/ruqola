@@ -349,7 +349,7 @@ void RoomModelTest::shouldReturnDataDefault()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSelected);
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); // channel type
-    QVERIFY(output.toString().isEmpty());
+    QCOMPARE(output.value<Room::RoomType>(), Room::RoomType::Unknown);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserName);
@@ -424,7 +424,7 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSelected);
     QCOMPARE(output.toBool(), selected);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); // channel type
-    QCOMPARE(output.toString(), roomType);
+    QCOMPARE(Room::roomFromRoomType(output.value<Room::RoomType>()), roomType);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
     QCOMPARE(output.toString(), userId);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserName);
