@@ -22,6 +22,7 @@
 
 #include "channels/channelhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
+#include "room.h"
 #include "roomheaderwidget.h"
 #include "uploadfilejob.h"
 #include <QPointer>
@@ -44,12 +45,12 @@ public:
     void setRoomId(const QString &roomId);
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
-    Q_REQUIRED_RESULT QString roomType() const;
+    Q_REQUIRED_RESULT Room::RoomType roomType() const;
 
     Room *room() const;
 
     void slotShowListOfUsersInRoom(bool checked);
-    void setChannelSelected(const QString &roomId, const QString &roomType);
+    void setChannelSelected(const QString &roomId, Room::RoomType roomType);
     void storeRoomSettings();
 
     void setLayoutSpacing(int spacing);
@@ -66,7 +67,7 @@ private:
     void updateRoomHeader();
     void connectRoom();
     void slotChangeFavorite(bool b);
-    void setRoomType(const QString &roomType);
+    void setRoomType(Room::RoomType roomType);
     void slotEncryptedChanged(bool b);
     void slotGoBackToRoom();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
@@ -97,7 +98,7 @@ private:
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
     void slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc);
 
-    QString mRoomType;
+    Room::RoomType mRoomType = Room::RoomType::Unknown;
 
     RoomWidgetBase *const mRoomWidgetBase;
 

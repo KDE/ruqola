@@ -36,6 +36,7 @@
 #include "ownuser.h"
 #include "permissionmanager.h"
 #include "rocketchataccountsettings.h"
+#include "room.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
 #include "ruqolaserverconfig.h"
@@ -156,9 +157,7 @@ public:
     void createJitsiConfCall(const QString &roomId);
     void deleteMessage(const QString &messageId, const QString &roomId);
     void userAutocomplete(const QString &searchText, const QString &exception);
-    void eraseRoom(const QString &roomId, const QString &channelType);
-    void
-    changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType = QString());
+    void eraseRoom(const QString &roomId, Room::RoomType channelType);
     void changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     void starMessage(const QString &messageId, bool starred);
@@ -167,11 +166,11 @@ public:
     uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
-    void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false, qint64 timeStep = 0);
+    void loadHistory(const QString &roomID, bool initial = false, qint64 timeStep = 0);
     void channelAndPrivateAutocomplete(const QString &pattern);
 
-    void roomFiles(const QString &roomId, const QString &channelType = QString());
-    void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
+    void roomFiles(const QString &roomId, Room::RoomType channelType = Room::RoomType::Unknown);
+    void addUserToRoom(const QString &username, const QString &roomId, Room::RoomType channelType);
     void changeDefaultAuthentication(int index);
     void messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression = false);
     Q_REQUIRED_RESULT InputTextManager *inputTextManager() const;
@@ -179,7 +178,7 @@ public:
     Q_REQUIRED_RESULT InputTextManager *inputThreadMessageTextManager() const;
 
     void blockUser(const QString &userId, bool block);
-    void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
+    void deleteFileMessage(const QString &roomId, const QString &fileId, Room::RoomType channelType);
     void openDocumentation();
     void clearSearchModel();
     void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
@@ -188,9 +187,9 @@ public:
     void groupInfo(const QString &roomId);
     void switchEditingMode(bool b);
     void setSortUnreadOnTop(bool b);
-    void kickUser(const QString &rid, const QString &userId, const QString &channelType);
-    void changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType);
-    void rolesInRoom(const QString &roomId, const QString &channelType);
+    void kickUser(const QString &rid, const QString &userId, Room::RoomType channelType);
+    void changeRoles(const QString &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
+    void rolesInRoom(const QString &roomId, Room::RoomType channelType);
     void switchingToRoom(const QString &roomID);
     void reportMessage(const QString &messageId, const QString &message);
     void getThreadMessages(const QString &threadMessageId);
@@ -202,10 +201,10 @@ public:
     void threadsInRoom(const QString &roomId, bool onlyUnread);
     void discussionsInRoom(const QString &roomId);
     void followMessage(const QString &messageId, bool follow);
-    void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
+    void loadMoreFileAttachments(const QString &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QString &roomId);
     void loadThreadMessagesHistory(const QString &roomId);
-    void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
+    void loadMoreUsersInRoom(const QString &roomId, Room::RoomType channelType);
 
     void getPinnedMessages(const QString &roomId);
     void getStarredMessages(const QString &roomId);
@@ -297,7 +296,7 @@ public:
     Q_REQUIRED_RESULT EmojiManager *emojiManager() const;
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
-    void membersInRoom(const QString &roomId, const QString &roomType);
+    void membersInRoom(const QString &roomId, Room::RoomType channelType);
     void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
 
     void insertCompleterUsers();

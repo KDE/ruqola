@@ -103,12 +103,12 @@ void ShowAttachmentDialog::slotLoadMoreAttachment()
     Ruqola::self()->rocketChatAccount()->loadMoreFileAttachments(mRoomId, mRoomType);
 }
 
-QString ShowAttachmentDialog::roomType() const
+Room::RoomType ShowAttachmentDialog::roomType() const
 {
     return mRoomType;
 }
 
-void ShowAttachmentDialog::setRoomType(const QString &roomType)
+void ShowAttachmentDialog::setRoomType(Room::RoomType roomType)
 {
     mRoomType = roomType;
 }

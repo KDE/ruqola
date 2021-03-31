@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "room.h"
 #include <QAbstractSocket>
 #include <QPointer>
 #include <QWidget>
@@ -40,7 +41,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void selectNextUnreadChannel();
-    Q_REQUIRED_RESULT QString roomType() const;
+    Q_REQUIRED_RESULT Room::RoomType roomType() const;
     Room *room() const;
 Q_SIGNALS:
     void channelSelected();

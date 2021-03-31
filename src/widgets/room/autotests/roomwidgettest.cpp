@@ -95,7 +95,7 @@ static Room *createRoom(const QString &roomId, const QString &roomName)
     Room *r = new Room(rcAccount);
     r->setRoomId(roomId);
     r->setName(roomName);
-    const QString roomType = QStringLiteral("c"); // should be an enum...
+    const Room::RoomType roomType = Room::RoomType::Channel; // should be an enum...
     r->setChannelType(roomType);
     r->setArchived(true); // workaround to skip RestApiRequest::membersInRoom
     return r;

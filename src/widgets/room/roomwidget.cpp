@@ -413,7 +413,7 @@ void RoomWidget::clearBeforeSwitching()
     mRoomWidgetBase->messageLineWidget()->setQuoteMessage({}, {});
 }
 
-void RoomWidget::setChannelSelected(const QString &roomId, const QString &roomType)
+void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomType)
 {
     storeRoomSettings();
     setRoomId(roomId);
@@ -470,7 +470,7 @@ QString RoomWidget::roomId() const
     return mRoomWidgetBase->roomId();
 }
 
-void RoomWidget::setRoomType(const QString &roomType)
+void RoomWidget::setRoomType(Room::RoomType roomType)
 {
     mRoomType = roomType;
 }
@@ -624,7 +624,7 @@ void RoomWidget::slotChangeFavorite(bool b)
     mCurrentRocketChatAccount->changeFavorite(mRoomWidgetBase->roomId(), b);
 }
 
-QString RoomWidget::roomType() const
+Room::RoomType RoomWidget::roomType() const
 {
     return mRoomType;
 }

@@ -46,6 +46,35 @@ Room::~Room()
 {
 }
 
+Room::RoomType Room::roomTypeFromString(const QString &type)
+{
+    if (type == QStringLiteral("p")) {
+        return Room::Private;
+    } else if (type == QStringLiteral("c")) {
+        return Room::Channel;
+    } else if (type == QStringLiteral("d")) {
+        return Room::Direct;
+    } else {
+        return Room::Unknown;
+    }
+}
+
+QString Room::roomFromRoomType(Room::RoomType type)
+{
+    switch (type) {
+    case Room::Private:
+        return QStringLiteral("p");
+    case Room::Channel:
+        return QStringLiteral("c");
+    case Room::Direct:
+        return QStringLiteral("d");
+    case Room::Unknown:
+        qCDebug(RUQOLA_LOG) << "void Room::roomFromRoomType : unknown type";
+        return {};
+    }
+    return {};
+}
+
 bool Room::operator==(const Room &other) const
 {
     // qDebug() << " other.id"<<other.id << " id " << id;
@@ -71,7 +100,7 @@ bool Room::isEqual(const Room &other) const
 QString Room::displayRoomName() const
 {
     const QString displayName = mFName.isEmpty() ? mName : mFName;
-    if (channelType() == QLatin1Char('d')) {
+    if (channelType() == RoomType::Direct) {
         return QLatin1Char('@') + displayName;
     } else {
         return QLatin1Char('#') + displayName;
@@ -351,7 +380,7 @@ void Room::setUnread(int unread)
         mUnread = unread;
         Q_EMIT unreadChanged();
     }
-    if (channelType() != QLatin1Char('c')) { // TODO verify it
+    if (channelType() != RoomType::Channel) { // TODO verify it
         if (mUnread > 0) {
             Q_EMIT needAttention();
         }
@@ -506,12 +535,12 @@ void Room::setFavorite(bool favorite)
     }
 }
 
-QString Room::channelType() const
+Room::RoomType Room::channelType() const
 {
     return mChannelType;
 }
 
-void Room::setChannelType(const QString &channelType)
+void Room::setChannelType(RoomType channelType)
 {
     if (mChannelType != channelType) {
         mChannelType = channelType;
@@ -563,7 +592,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     // topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
-    setChannelType(roomType);
+    setChannelType(Room::roomTypeFromString(roomType));
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
@@ -691,7 +720,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     // topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
-    setChannelType(roomType);
+    setChannelType(Room::roomTypeFromString(roomType));
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
@@ -1131,7 +1160,7 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     auto r = std::make_unique<Room>(nullptr);
 
     r->setRoomId(o[QStringLiteral("rid")].toString());
-    r->setChannelType(o[QStringLiteral("t")].toString());
+    r->setChannelType(Room::roomTypeFromString(o[QStringLiteral("t")].toString()));
     r->setName(o[QStringLiteral("name")].toString());
     r->setFName(o[QStringLiteral("fname")].toString());
     r->setAutoTranslateLanguage(o[QStringLiteral("autoTranslateLanguage")].toString());

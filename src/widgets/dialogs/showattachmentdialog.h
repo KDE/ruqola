@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-
+#include "room.h"
 #include <QDialog>
 class ShowAttachmentWidget;
 class FilesForRoomFilterProxyModel;
@@ -37,8 +37,8 @@ public:
     void setRoomId(const QString &roomId);
     Q_REQUIRED_RESULT QString roomId() const;
 
-    Q_REQUIRED_RESULT QString roomType() const;
-    void setRoomType(const QString &roomType);
+    Q_REQUIRED_RESULT Room::RoomType roomType() const;
+    void setRoomType(Room::RoomType roomType);
 
 private:
     void readConfig();
@@ -46,7 +46,7 @@ private:
     void slotLoadMoreAttachment();
     void slotDeleteAttachment(const QString &fileId);
     QString mRoomId;
-    QString mRoomType;
+    Room::RoomType mRoomType = Room::RoomType::Unknown;
     ShowAttachmentWidget *const mShowAttachmentWidget;
 };
 

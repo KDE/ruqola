@@ -133,7 +133,7 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
     const QString roomId = index.data(RoomModel::RoomId).toString();
-    const QString roomType = index.data(RoomModel::RoomType).toString();
+    const Room::RoomType roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     Q_EMIT roomSelected(roomId, roomType);
 }
 

@@ -44,6 +44,17 @@ public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~Room() override;
 
+    // t (can take values "d" , "c" or "p" or "l")
+    enum RoomType {
+        Unknown,
+        Direct,
+        Channel,
+        Private,
+    };
+    Q_ENUM(RoomType)
+
+    static Q_REQUIRED_RESULT QString roomFromRoomType(RoomType type);
+
     // To be used in ID find: message ID
     Q_REQUIRED_RESULT bool operator==(const Room &other) const;
 
@@ -81,8 +92,8 @@ public:
     Q_REQUIRED_RESULT QString announcement() const;
     void setAnnouncement(const QString &announcement);
 
-    Q_REQUIRED_RESULT QString channelType() const;
-    void setChannelType(const QString &channelType);
+    Q_REQUIRED_RESULT RoomType channelType() const;
+    void setChannelType(RoomType channelType);
 
     Q_REQUIRED_RESULT bool favorite() const;
     void setFavorite(bool favorite);
@@ -244,6 +255,7 @@ public:
     Q_REQUIRED_RESULT RetentionInfo retentionInfo() const;
     void setRetentionInfo(const RetentionInfo &retentionInfo);
 
+    static Q_REQUIRED_RESULT Room::RoomType roomTypeFromString(const QString &type);
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -320,7 +332,7 @@ private:
     QString mRoomId;
 
     // t (can take values "d" , "c" or "p" or "l")
-    QString mChannelType;
+    Room::RoomType mChannelType = RoomType::Unknown;
 
     // Parent Rid when we have a discussion.
     QString mParentRid;

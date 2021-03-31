@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "room.h"
 #include <QPointer>
 #include <QWidget>
 class ChannelListView;
@@ -40,7 +41,7 @@ public:
     void setLayoutSpacing(int spacing);
 
 Q_SIGNALS:
-    void roomSelected(const QString &roomId, const QString &roomType);
+    void roomSelected(const QString &roomId, Room::RoomType roomType);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "room.h"
 #include <QPointer>
 #include <QStackedWidget>
 #include <QWidget>
@@ -37,10 +38,10 @@ public:
     ~RuqolaMainWidget() override;
     Q_REQUIRED_RESULT QString roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
-    Q_REQUIRED_RESULT QString roomType() const;
+    Q_REQUIRED_RESULT Room::RoomType roomType() const;
     Room *room() const;
 
-    void selectChannelRoom(const QString &roomId, const QString &roomType);
+    void selectChannelRoom(const QString &roomId, Room::RoomType roomType);
     void selectNextUnreadChannel();
 Q_SIGNALS:
     void channelSelected();

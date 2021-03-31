@@ -25,17 +25,22 @@ QString RoomUtil::generateUserLink(const QString &userName)
     return QStringLiteral("ruqola:/user/") + userName;
 }
 
-QString RoomUtil::generatePermalink(const QString &messageId, const QString &roomId, const QString &channelType)
+QString RoomUtil::generatePermalink(const QString &messageId, const QString &roomId, Room::RoomType channelType)
 {
     QString prefix;
-    if (channelType == QLatin1Char('c')) {
+    switch (channelType) {
+    case Room::Channel:
         prefix = QStringLiteral("channel/");
-    } else if (channelType == QLatin1Char('d')) {
+        break;
+    case Room::Direct:
         prefix = QStringLiteral("direct/");
-    } else if (channelType == QLatin1Char('p')) {
+        break;
+    case Room::Private:
         prefix = QStringLiteral("group/");
-    } else {
+        break;
+    case Room::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << " channel type undefined " << channelType;
+        break;
     }
     const QString result = QStringLiteral("%1%2?msg=%3").arg(prefix, roomId, messageId);
     return result;

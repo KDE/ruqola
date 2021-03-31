@@ -78,7 +78,7 @@ QString RuqolaCentralWidget::roomId() const
     return mRuqolaMainWidget->roomId();
 }
 
-QString RuqolaCentralWidget::roomType() const
+Room::RoomType RuqolaCentralWidget::roomType() const
 {
     return mRuqolaMainWidget->roomType();
 }

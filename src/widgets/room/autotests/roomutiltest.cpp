@@ -32,7 +32,7 @@ void RoomUtilTest::shouldGeneratePermalink()
 {
     QFETCH(QString, messageId);
     QFETCH(QString, roomId);
-    QFETCH(QString, channelType);
+    QFETCH(Room::RoomType, channelType);
     QFETCH(QString, generatePermalink);
 
     QCOMPARE(RoomUtil::generatePermalink(messageId, roomId, channelType), generatePermalink);
@@ -42,10 +42,10 @@ void RoomUtilTest::shouldGeneratePermalink_data()
 {
     QTest::addColumn<QString>("messageId");
     QTest::addColumn<QString>("roomId");
-    QTest::addColumn<QString>("channelType");
+    QTest::addColumn<Room::RoomType>("channelType");
     QTest::addColumn<QString>("generatePermalink");
 
-    QTest::addRow("channels") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("c") << QStringLiteral("channel/roomId?msg=msId");
-    QTest::addRow("direct") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("d") << QStringLiteral("direct/roomId?msg=msId");
-    QTest::addRow("group") << QStringLiteral("msId") << QStringLiteral("roomId") << QStringLiteral("p") << QStringLiteral("group/roomId?msg=msId");
+    QTest::addRow("channels") << QStringLiteral("msId") << QStringLiteral("roomId") << Room::RoomType::Channel << QStringLiteral("channel/roomId?msg=msId");
+    QTest::addRow("direct") << QStringLiteral("msId") << QStringLiteral("roomId") << Room::RoomType::Direct << QStringLiteral("direct/roomId?msg=msId");
+    QTest::addRow("group") << QStringLiteral("msId") << QStringLiteral("roomId") << Room::RoomType::Private << QStringLiteral("group/roomId?msg=msId");
 }

@@ -91,7 +91,7 @@ RuqolaMainWidget::~RuqolaMainWidget()
     }
 }
 
-void RuqolaMainWidget::selectChannelRoom(const QString &roomId, const QString &roomType)
+void RuqolaMainWidget::selectChannelRoom(const QString &roomId, Room::RoomType roomType)
 {
     mRoomWidget->setChannelSelected(roomId, roomType);
     mStackedRoomWidget->setCurrentWidget(mRoomWidget);
@@ -114,7 +114,7 @@ QString RuqolaMainWidget::roomId() const
     return mRoomWidget->roomId();
 }
 
-QString RuqolaMainWidget::roomType() const
+Room::RoomType RuqolaMainWidget::roomType() const
 {
     return mRoomWidget->roomType();
 }

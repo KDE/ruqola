@@ -436,30 +436,49 @@ QString RoomModel::sectionName(Room *r) const
     if (r->favorite()) {
         str = i18n("Favorites");
     } else {
-        const QString channelTypeStr = r->channelType();
+        const Room::RoomType roomType = r->channelType();
         if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
-            if (channelTypeStr == QLatin1Char('p')) {
+            switch (roomType) {
+            case Room::Private: {
                 if (r->parentRid().isEmpty()) {
                     str = i18n("Unread Rooms");
                 } else {
                     str = i18n("Unread Discussions");
                 }
-            } else if (channelTypeStr == QLatin1Char('c')) {
+                break;
+            }
+            case Room::Channel: {
                 str = i18n("Unread Rooms");
-            } else if (channelTypeStr == QLatin1Char('d')) {
+                break;
+            }
+            case Room::Direct: {
                 str = i18n("Unread Private Messages");
+                break;
+            }
+            case Room::Unknown:
+                break;
             }
         } else {
-            if (channelTypeStr == QLatin1Char('p')) {
+            switch (roomType) {
+            case Room::Private: {
                 if (r->parentRid().isEmpty()) {
                     str = i18n("Rooms");
                 } else {
                     str = i18n("Discussions");
                 }
-            } else if (channelTypeStr == QLatin1Char('c')) {
+
+                break;
+            }
+            case Room::Channel: {
                 str = i18n("Rooms");
-            } else if (channelTypeStr == QLatin1Char('d')) {
+                break;
+            }
+            case Room::Direct: {
                 str = i18n("Private Messages");
+                break;
+            }
+            case Room::Unknown:
+                break;
             }
         }
     }
@@ -478,45 +497,59 @@ int RoomModel::order(Room *r) const
     if (!r->favorite()) {
         order += 10;
     }
-    const QString channelTypeStr = r->channelType();
-    if (channelTypeStr == QLatin1Char('c')) {
-        order += 1;
-    } else if (channelTypeStr == QLatin1Char('d')) {
-        order += 2;
-    } else if (channelTypeStr == QLatin1Char('p')) {
+    const Room::RoomType roomType = r->channelType();
+    switch (roomType) {
+    case Room::Private: {
         if (r->parentRid().isEmpty()) {
             order += 1;
         } else {
             order += 4;
         }
-    } else {
-        qCDebug(RUQOLA_ROOMS_LOG) << r->name() << "has unhandled channel type" << channelTypeStr;
+        break;
+    }
+    case Room::Channel: {
+        order += 1;
+        break;
+    }
+    case Room::Direct: {
+        order += 2;
+        break;
+    }
+    case Room::Unknown:
+        qCDebug(RUQOLA_ROOMS_LOG) << r->name() << "has unhandled channel type" << roomType;
         order += 5;
+
+        break;
     }
     return order;
 }
 
 QIcon RoomModel::icon(Room *r) const
 {
-    if (r->channelType() == QLatin1Char('c')) {
+    switch (r->channelType()) {
+    case Room::Private:
+        if (r->parentRid().isEmpty()) {
+            return QIcon::fromTheme(QStringLiteral("lock"));
+        } else {
+            // TODO use a specific icon for discussion
+        }
+        break;
+    case Room::Channel:
         if (r->unread() > 0 || r->alert()) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
         } else {
             return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
         }
-    } else if (r->channelType() == QLatin1Char('d')) {
+    case Room::Direct: {
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("user-available"));
         } else {
             return QIcon::fromTheme(userStatusIconFileName);
         }
-    } else if (r->channelType() == QLatin1Char('p')) {
-        if (r->parentRid().isEmpty()) {
-            return QIcon::fromTheme(QStringLiteral("lock"));
-        } else {
-            // TODO use a specific icon for discussion
-        }
+    }
+    case Room::Unknown:
+        break;
     }
     return {};
 }

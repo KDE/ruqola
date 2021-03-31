@@ -24,6 +24,7 @@
 
 #include "libruqolacore_export.h"
 #include "rocketchatmessage.h"
+#include "room.h"
 #include <QAbstractSocket>
 #include <QQueue>
 #include <QSslError>
@@ -189,7 +190,7 @@ public:
     quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
-    quint64 deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
+    quint64 deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType);
     quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
     quint64 roomNameExists(const QString &roomId);
 Q_SIGNALS:

@@ -19,7 +19,7 @@
 */
 
 #pragma once
-
+#include "room.h"
 #include <QListView>
 
 #include "libruqolawidgets_private_export.h"
@@ -46,7 +46,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 Q_SIGNALS:
-    void roomSelected(const QString &roomId, const QString &roomType);
+    void roomSelected(const QString &roomId, Room::RoomType roomType);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;

@@ -401,7 +401,7 @@ void RoomModelTest::shouldReturnData()
     input.setRoomId(Id);
     input.setName(name);
     input.setSelected(selected);
-    input.setChannelType(roomType);
+    input.setChannelType(Room::roomTypeFromString(roomType));
     input.setRoomCreatorUserId(userId);
     input.setRoomCreatorUserName(userName);
     input.setTopic(topic);
