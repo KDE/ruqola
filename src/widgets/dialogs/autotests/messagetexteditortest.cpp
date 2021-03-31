@@ -30,5 +30,5 @@ MessageTextEditorTest::MessageTextEditorTest(QObject *parent)
 void MessageTextEditorTest::shouldHaveDefaultValues()
 {
     MessageTextEditor d;
-    // TODO
+    QVERIFY(!d.acceptRichText());
 }
