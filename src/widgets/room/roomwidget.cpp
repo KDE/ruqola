@@ -112,7 +112,7 @@ void RoomWidget::slotLoadHistory()
 
 void RoomWidget::slotChannelInfoRequested()
 {
-    if (mRoomType == QLatin1String("d")) {
+    if (mRoomType == Room::RoomType::Direct) {
         QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
         dlg->setUserName(mRoom->name());
         dlg->exec();
@@ -539,7 +539,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         // TODO verify it.
-        info.channelType = mRoomType == QLatin1String("c") ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
+        info.channelType = mRoomType == Room::RoomType::Channel ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
         info.count = numberOfMessage - roomMessageModel->rowCount() + 1;
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = roomMessageModel->lastTimestamp();
@@ -578,7 +578,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         // TODO verify it.
-        info.channelType = mRoomType == QLatin1String("c") ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
+        info.channelType = mRoomType == Room::RoomType::Channel ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = messageModel->lastTimestamp();
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
