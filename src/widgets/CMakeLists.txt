@@ -93,6 +93,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/channelinforeadonlywidget.cpp
     dialogs/channelinfoeditablewidget.cpp
     dialogs/roomavatarwidget.cpp
+    dialogs/messagetexteditor.cpp
     )
 
 set(Ruqola_configure_SRCS
