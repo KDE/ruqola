@@ -126,8 +126,7 @@ QJsonDocument SetAvatarJob::json() const
     QJsonObject jsonObj;
     if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
         jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
-    }
-    if (!mAvatarInfo.mLocalFilePath.isEmpty()) {
+    } else if (!mAvatarInfo.mAvatarUserStr.isEmpty()) {
         // USe multipart here.
     }
     generateJson(jsonObj);
@@ -137,5 +136,5 @@ QJsonDocument SetAvatarJob::json() const
 
 bool SetAvatarJob::SetAvatarInfo::isValid() const
 {
-    return !mAvatarUrl.isEmpty() && !mLocalFilePath.isEmpty();
+    return !mAvatarUrl.isEmpty() && !mAvatarUserStr.isEmpty();
 }
