@@ -31,4 +31,5 @@ void MessageTextEditorTest::shouldHaveDefaultValues()
 {
     MessageTextEditor d;
     QVERIFY(!d.acceptRichText());
+    QVERIFY(d.toPlainText().isEmpty());
 }

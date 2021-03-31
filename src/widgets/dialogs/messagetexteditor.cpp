@@ -36,11 +36,11 @@ QSize MessageTextEditor::sizeHint() const
     // But I don't really want to redo the layout with a different width like idealWidth(), seems slow.
     const QSize docSize = document()->size().toSize();
     const int margin = int(document()->documentMargin());
-    return {docSize.width() + margin, qMin(300, docSize.height()) + margin};
+    return {docSize.width() + margin, qMin(300, 2 * docSize.height()) + margin};
 }
 
 QSize MessageTextEditor::minimumSizeHint() const
 {
     const int margin = int(document()->documentMargin());
-    return {300, fontMetrics().height() + margin};
+    return {300, fontMetrics().height() * 2 + margin};
 }
