@@ -167,7 +167,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
     }
 
-    if ((mRoom->channelType() == QStringLiteral("p")) != mPrivate->isChecked()) {
+    if ((mRoom->channelType() == Room::RoomType::Private) != mPrivate->isChecked()) {
         info.roomType = mPrivate->isChecked() ? QStringLiteral("p") : QStringLiteral("c");
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomType;
     }
@@ -192,7 +192,7 @@ void ChannelInfoEditableWidget::updateEditableChannelInfo()
     mDescription->setText(mRoom->description());
     mReadOnly->setChecked(mRoom->readOnly());
     mArchive->setChecked(mRoom->archived());
-    mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
+    mPrivate->setChecked(mRoom->channelType() == Room::RoomType::Private);
     mEncrypted->setVisible(mRoom->encryptedEnabled());
     mEncrypted->setChecked(mRoom->encrypted());
     mEncryptedLabel->setVisible(mRoom->encryptedEnabled());
@@ -230,7 +230,7 @@ void ChannelInfoEditableWidget::connectEditableWidget()
         joinCodeChanged();
     });
     connect(mRoom, &Room::channelTypeChanged, this, [this]() {
-        mPrivate->setChecked(mRoom->channelType() == QStringLiteral("p"));
+        mPrivate->setChecked(mRoom->channelType() == Room::RoomType::Private);
     });
 
     const Utils::AvatarInfo avatarInfo = mRoom->avatarInfo();

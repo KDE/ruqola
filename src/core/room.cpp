@@ -49,26 +49,26 @@ Room::~Room()
 Room::RoomType Room::roomTypeFromString(const QString &type)
 {
     if (type == QStringLiteral("p")) {
-        return Room::Private;
+        return Room::RoomType::Private;
     } else if (type == QStringLiteral("c")) {
-        return Room::Channel;
+        return Room::RoomType::Channel;
     } else if (type == QStringLiteral("d")) {
-        return Room::Direct;
+        return Room::RoomType::Direct;
     } else {
-        return Room::Unknown;
+        return Room::RoomType::Unknown;
     }
 }
 
 QString Room::roomFromRoomType(Room::RoomType type)
 {
     switch (type) {
-    case Room::Private:
+    case Room::RoomType::Private:
         return QStringLiteral("p");
-    case Room::Channel:
+    case Room::RoomType::Channel:
         return QStringLiteral("c");
-    case Room::Direct:
+    case Room::RoomType::Direct:
         return QStringLiteral("d");
-    case Room::Unknown:
+    case Room::RoomType::Unknown:
         qCDebug(RUQOLA_LOG) << "void Room::roomFromRoomType : unknown type";
         return {};
     }

@@ -73,7 +73,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const bool canManageUsersInRoom = mRoom->canChangeRoles();
     const QString ownUserId = Ruqola::self()->rocketChatAccount()->userId();
-    const bool isAdirectChannel = mRoom->channelType() == QStringLiteral("d");
+    const bool isAdirectChannel = mRoom->channelType() == Room::RoomType::Direct;
     const bool isNotMe = mUserId != ownUserId;
     QMenu menu(mParentWidget);
 

@@ -149,7 +149,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomSelected:
         return r->selected();
     case RoomModel::RoomType:
-        return r->channelType();
+        return QVariant::fromValue(r->channelType());
     case RoomModel::RoomOwnerUserId:
         return r->roomCreatorUserId();
     case RoomModel::RoomOwnerUserName:
@@ -439,7 +439,7 @@ QString RoomModel::sectionName(Room *r) const
         const Room::RoomType roomType = r->channelType();
         if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
             switch (roomType) {
-            case Room::Private: {
+            case Room::RoomType::Private: {
                 if (r->parentRid().isEmpty()) {
                     str = i18n("Unread Rooms");
                 } else {
@@ -447,20 +447,20 @@ QString RoomModel::sectionName(Room *r) const
                 }
                 break;
             }
-            case Room::Channel: {
+            case Room::RoomType::Channel: {
                 str = i18n("Unread Rooms");
                 break;
             }
-            case Room::Direct: {
+            case Room::RoomType::Direct: {
                 str = i18n("Unread Private Messages");
                 break;
             }
-            case Room::Unknown:
+            case Room::RoomType::Unknown:
                 break;
             }
         } else {
             switch (roomType) {
-            case Room::Private: {
+            case Room::RoomType::Private: {
                 if (r->parentRid().isEmpty()) {
                     str = i18n("Rooms");
                 } else {
@@ -469,15 +469,15 @@ QString RoomModel::sectionName(Room *r) const
 
                 break;
             }
-            case Room::Channel: {
+            case Room::RoomType::Channel: {
                 str = i18n("Rooms");
                 break;
             }
-            case Room::Direct: {
+            case Room::RoomType::Direct: {
                 str = i18n("Private Messages");
                 break;
             }
-            case Room::Unknown:
+            case Room::RoomType::Unknown:
                 break;
             }
         }
@@ -499,7 +499,7 @@ int RoomModel::order(Room *r) const
     }
     const Room::RoomType roomType = r->channelType();
     switch (roomType) {
-    case Room::Private: {
+    case Room::RoomType::Private: {
         if (r->parentRid().isEmpty()) {
             order += 1;
         } else {
@@ -507,15 +507,15 @@ int RoomModel::order(Room *r) const
         }
         break;
     }
-    case Room::Channel: {
+    case Room::RoomType::Channel: {
         order += 1;
         break;
     }
-    case Room::Direct: {
+    case Room::RoomType::Direct: {
         order += 2;
         break;
     }
-    case Room::Unknown:
+    case Room::RoomType::Unknown:
         qCDebug(RUQOLA_ROOMS_LOG) << r->name() << "has unhandled channel type" << roomType;
         order += 5;
 
@@ -527,20 +527,20 @@ int RoomModel::order(Room *r) const
 QIcon RoomModel::icon(Room *r) const
 {
     switch (r->channelType()) {
-    case Room::Private:
+    case Room::RoomType::Private:
         if (r->parentRid().isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("lock"));
         } else {
             // TODO use a specific icon for discussion
         }
         break;
-    case Room::Channel:
+    case Room::RoomType::Channel:
         if (r->unread() > 0 || r->alert()) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
         } else {
             return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
         }
-    case Room::Direct: {
+    case Room::RoomType::Direct: {
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("user-available"));
@@ -548,7 +548,7 @@ QIcon RoomModel::icon(Room *r) const
             return QIcon::fromTheme(userStatusIconFileName);
         }
     }
-    case Room::Unknown:
+    case Room::RoomType::Unknown:
         break;
     }
     return {};

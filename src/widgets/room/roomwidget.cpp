@@ -107,7 +107,7 @@ RoomWidget::~RoomWidget()
 
 void RoomWidget::slotLoadHistory()
 {
-    mCurrentRocketChatAccount->loadHistory(mRoomWidgetBase->roomId(), mRoomType);
+    mCurrentRocketChatAccount->loadHistory(mRoomWidgetBase->roomId());
 }
 
 void RoomWidget::slotChannelInfoRequested()

@@ -674,14 +674,14 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 void RocketChatAccount::eraseRoom(const QString &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
-    case Room::Private:
+    case Room::RoomType::Private:
         restApi()->groupDelete(roomId);
         break;
-    case Room::Channel:
+    case Room::RoomType::Channel:
         restApi()->channelDelete(roomId);
         break;
-    case Room::Direct:
-    case Room::Unknown:
+    case Room::RoomType::Direct:
+    case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport delete for type " << channelType;
         break;
     }
@@ -1233,14 +1233,14 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 void RocketChatAccount::addUserToRoom(const QString &userId, const QString &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
-    case Room::Private:
+    case Room::RoomType::Private:
         restApi()->addUserInGroup(roomId, userId);
         break;
-    case Room::Channel:
+    case Room::RoomType::Channel:
         restApi()->addUserInChannel(roomId, userId);
         break;
-    case Room::Direct:
-    case Room::Unknown:
+    case Room::RoomType::Direct:
+    case Room::RoomType::Unknown:
         break;
     }
 }
@@ -1804,14 +1804,14 @@ bool RocketChatAccount::sortUnreadOnTop() const
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
 {
     switch (channelType) {
-    case Room::Private:
+    case Room::RoomType::Private:
         restApi()->groupKick(roomId, userId);
         break;
-    case Room::Channel:
+    case Room::RoomType::Channel:
         restApi()->channelKick(roomId, userId);
         break;
-    case Room::Direct:
-    case Room::Unknown:
+    case Room::RoomType::Direct:
+    case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport kickUser room for type " << channelType;
         break;
     }
@@ -1820,14 +1820,14 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, R
 void RocketChatAccount::rolesInRoom(const QString &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
-    case Room::Private:
+    case Room::RoomType::Private:
         restApi()->getGroupRoles(roomId);
         break;
-    case Room::Channel:
+    case Room::RoomType::Channel:
         restApi()->getChannelRoles(roomId);
         break;
-    case Room::Direct:
-    case Room::Unknown:
+    case Room::RoomType::Direct:
+    case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
         break;
     }
@@ -1842,7 +1842,7 @@ void RocketChatAccount::switchingToRoom(const QString &roomID)
 void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType)
 {
     switch (channelType) {
-    case Room::Private:
+    case Room::RoomType::Private:
         switch (roleType) {
         case RocketChatAccount::AddOwner:
             restApi()->groupAddOwner(roomId, userId);
@@ -1865,7 +1865,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
         }
 
         break;
-    case Room::Channel:
+    case Room::RoomType::Channel:
         switch (roleType) {
         case RocketChatAccount::AddOwner:
             restApi()->channelAddOwner(roomId, userId);
@@ -1888,8 +1888,8 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
         }
 
         break;
-    case Room::Direct:
-    case Room::Unknown:
+    case Room::RoomType::Direct:
+    case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport changeRoles room for type " << channelType;
         break;
     }
@@ -2046,7 +2046,7 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
         if (!r->archived()) {
             membersInRoom(r->roomId(), r->channelType());
             rolesInRoom(r->roomId(), r->channelType());
-            if (r->channelType() == QLatin1Char('c')) {
+            if (r->channelType() == Room::RoomType::Channel) {
                 restApi()->getChannelsCounter(r->roomId());
             }
         }

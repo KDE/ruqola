@@ -45,7 +45,7 @@ public:
     ~Room() override;
 
     // t (can take values "d" , "c" or "p" or "l")
-    enum RoomType {
+    enum class RoomType {
         Unknown,
         Direct,
         Channel,

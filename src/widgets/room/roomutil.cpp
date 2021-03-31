@@ -29,16 +29,16 @@ QString RoomUtil::generatePermalink(const QString &messageId, const QString &roo
 {
     QString prefix;
     switch (channelType) {
-    case Room::Channel:
+    case Room::RoomType::Channel:
         prefix = QStringLiteral("channel/");
         break;
-    case Room::Direct:
+    case Room::RoomType::Direct:
         prefix = QStringLiteral("direct/");
         break;
-    case Room::Private:
+    case Room::RoomType::Private:
         prefix = QStringLiteral("group/");
         break;
-    case Room::Unknown:
+    case Room::RoomType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << " channel type undefined " << channelType;
         break;
     }
