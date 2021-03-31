@@ -24,7 +24,7 @@
 #include "rooms/saveroomsettingsjob.h"
 
 #include <QWidget>
-
+class MessageTextEditor;
 class QCheckBox;
 class QPushButton;
 class Room;
@@ -57,9 +57,9 @@ private:
     Room *mRoom = nullptr;
 
     QLineEdit *const mName;
-    QLineEdit *const mComment;
-    QLineEdit *const mAnnouncement;
-    QLineEdit *const mDescription;
+    MessageTextEditor *const mComment;
+    MessageTextEditor *const mAnnouncement;
+    MessageTextEditor *const mDescription;
     KPasswordLineEdit *const mPasswordLineEdit;
     QCheckBox *const mReadOnly;
     QCheckBox *const mArchive;

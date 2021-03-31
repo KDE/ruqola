@@ -20,6 +20,7 @@
 
 #include "channelinfoeditablewidget.h"
 #include "channelinfoprunewidget.h"
+#include "messagetexteditor.h"
 #include "misc/systemmessagescombobox.h"
 #include "rocketchataccount.h"
 #include "roomavatarwidget.h"
@@ -35,9 +36,9 @@
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
-    , mComment(new QLineEdit(this))
-    , mAnnouncement(new QLineEdit(this))
-    , mDescription(new QLineEdit(this))
+    , mComment(new MessageTextEditor(this))
+    , mAnnouncement(new MessageTextEditor(this))
+    , mDescription(new MessageTextEditor(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mReadOnly(new QCheckBox(this))
     , mArchive(new QCheckBox(this))
@@ -142,16 +143,16 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.roomName = mName->text();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomName;
     }
-    if (mRoom->announcement() != mAnnouncement->text()) {
-        info.roomAnnouncement = mAnnouncement->text();
+    if (mRoom->announcement() != mAnnouncement->toPlainText()) {
+        info.roomAnnouncement = mAnnouncement->toPlainText();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
     }
-    if (mRoom->description() != mDescription->text()) {
-        info.roomDescription = mDescription->text();
+    if (mRoom->description() != mDescription->toPlainText()) {
+        info.roomDescription = mDescription->toPlainText();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomDescription;
     }
-    if (mRoom->topic() != mComment->text()) {
-        info.roomTopic = mComment->text();
+    if (mRoom->topic() != mComment->toPlainText()) {
+        info.roomTopic = mComment->toPlainText();
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomTopic;
     }
     if (mRoom->readOnly() != mReadOnly->isChecked()) {
