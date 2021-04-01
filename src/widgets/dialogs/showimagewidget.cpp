@@ -33,6 +33,10 @@
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
+    , mZoomControls(new QWidget(this))
+    , mLabel(new QLabel(this))
+    , mZoomSpin(new QDoubleSpinBox(this))
+    , mSlider(new QSlider(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -42,7 +46,6 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     scrollArea->setObjectName(QStringLiteral("scrollArea"));
     mainLayout->addWidget(scrollArea);
 
-    mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("mLabel"));
     mLabel->setBackgroundRole(QPalette::Base);
     mLabel->setAlignment(Qt::AlignCenter);
@@ -50,7 +53,6 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     scrollArea->setWidget(mLabel);
     scrollArea->setAlignment(Qt::AlignCenter);
 
-    mZoomControls = new QWidget(this);
     mZoomControls->setObjectName(QStringLiteral("zoomControls"));
     auto zoomLayout = new QHBoxLayout;
     zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
@@ -61,7 +63,6 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     zoomLabel->setObjectName(QStringLiteral("zoomLabel"));
     zoomLayout->addWidget(zoomLabel);
 
-    mZoomSpin = new QDoubleSpinBox(this);
     mZoomSpin->setObjectName(QStringLiteral("mZoomSpin"));
     mZoomSpin->setRange(0.1, 10);
     mZoomSpin->setValue(1);
@@ -69,12 +70,11 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mZoomSpin->setSingleStep(0.1);
     zoomLayout->addWidget(mZoomSpin);
 
-    mSlider = new QSlider(this);
     mSlider->setObjectName(QStringLiteral("mSlider"));
     mSlider->setOrientation(Qt::Horizontal);
     zoomLayout->addWidget(mSlider);
-    mSlider->setRange(mZoomSpin->minimum() * 100, mZoomSpin->maximum() * 100);
-    mSlider->setValue(mZoomSpin->value() * 100);
+    mSlider->setRange(mZoomSpin->minimum() * 100.0, mZoomSpin->maximum() * 100.0);
+    mSlider->setValue(mZoomSpin->value() * 100.0);
 
     auto resetButton = new QPushButton(this);
     resetButton->setObjectName(QStringLiteral("resetButton"));

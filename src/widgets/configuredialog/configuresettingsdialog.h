@@ -45,17 +45,17 @@ private:
     void slotAccepted();
     void load();
     KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
-    ConfigureAccountWidget *mConfigureAccountWidget = nullptr;
+    ConfigureAccountWidget *const mConfigureAccountWidget;
     KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;
-    ConfigureSpellCheckingWidget *mConfigureSpellCheckingWidget = nullptr;
+    ConfigureSpellCheckingWidget *const mConfigureSpellCheckingWidget;
+    ConfigureGeneralWidget *const mConfigureGeneralWidget;
+    KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
+
+    ConfigureFontWidget *const mConfigureFontWidget;
+    KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
 #if HAVE_KUSERFEEDBACK
     ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
 #endif
-    ConfigureGeneralWidget *mConfigureGeneralWidget = nullptr;
-    KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
-
-    ConfigureFontWidget *mConfigureFontWidget = nullptr;
-    KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
 };
 

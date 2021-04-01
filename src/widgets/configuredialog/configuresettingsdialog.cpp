@@ -40,6 +40,13 @@ const char myConfigGroupName[] = "ConfigureSettingsDialog";
 }
 ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     : KPageDialog(parent)
+    , mConfigureAccountWidget(new ConfigureAccountWidget(this))
+    , mConfigureSpellCheckingWidget(new ConfigureSpellCheckingWidget(this))
+    , mConfigureGeneralWidget(new ConfigureGeneralWidget(this))
+    , mConfigureFontWidget(new ConfigureFontWidget(this))
+#if HAVE_KUSERFEEDBACK
+    , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
+#endif
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
@@ -47,32 +54,27 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
     const QString generalPageName = i18nc("@title Preferences page name", "General");
-    mConfigureGeneralWidget = new ConfigureGeneralWidget(this);
     mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
     mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
     addPage(mConfigureGeneralWidgetPage);
 
     const QString fontPageName = i18nc("@title Preferences page name", "Font");
-    mConfigureFontWidget = new ConfigureFontWidget(this);
     mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
     mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
     addPage(mConfigureFontWidgetPage);
 
     const QString accountPageName = i18nc("@title Preferences page name", "Account");
-    mConfigureAccountWidget = new ConfigureAccountWidget(this);
     mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
     mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureAccountWidgetPage);
 
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
-    mConfigureSpellCheckingWidget = new ConfigureSpellCheckingWidget(this);
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
     mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
     addPage(mConfigureSpellCheckingWidgetPage);
 
 #if HAVE_KUSERFEEDBACK
     const QString userFeedBackPageName = i18nc("@title Preferences page name", "User Feedback");
-    mConfigureUserFeedBackWidget = new ConfigureUserFeedbackWidget(this);
     mConfigureUserFeedBackWidgetPage = new KPageWidgetItem(mConfigureUserFeedBackWidget, userFeedBackPageName);
     mConfigureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-other")));
     addPage(mConfigureUserFeedBackWidgetPage);

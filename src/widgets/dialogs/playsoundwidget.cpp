@@ -27,12 +27,15 @@
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     : QWidget(parent)
+    , mMediaPlayer(new QMediaPlayer(this))
+    , mPlayButton(new QPushButton(this))
+    , mSoundButton(new QToolButton(this))
+    , mSoundSlider(new QSlider(Qt::Horizontal, this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mMediaPlayer = new QMediaPlayer(this);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
     // connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
     // mMediaPlayer->setVolume(50);
@@ -41,21 +44,18 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &PlaySoundWidget::mediaStateChanged);
 
-    mPlayButton = new QPushButton(this);
     mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
     mainLayout->addWidget(mPlayButton);
     connect(mPlayButton, &QAbstractButton::clicked, this, &PlaySoundWidget::play);
 
-    mSoundButton = new QToolButton(this);
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
     mainLayout->addWidget(mSoundButton);
-    mSoundSlider = new QSlider(Qt::Horizontal, this);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(100);

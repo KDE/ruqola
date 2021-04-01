@@ -49,10 +49,10 @@ private:
     void setZoom(double scale);
 
     QPixmap mPixmap;
-    QWidget *mZoomControls = nullptr;
-    QLabel *mLabel = nullptr;
-    QDoubleSpinBox *mZoomSpin = nullptr;
-    QSlider *mSlider = nullptr;
+    QWidget *const mZoomControls;
+    QLabel *const mLabel;
+    QDoubleSpinBox *const mZoomSpin;
+    QSlider *const mSlider;
     QMovie *mMovie = nullptr;
     QSize mOriginalMovieSize;
     bool mIsAnimatedPixmap = false;

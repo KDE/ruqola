@@ -40,9 +40,9 @@ private:
     void play();
     void muteChanged(bool state);
     void mediaStateChanged(QMediaPlayer::State state);
-    QMediaPlayer *mMediaPlayer = nullptr;
-    QPushButton *mPlayButton = nullptr;
-    QToolButton *mSoundButton = nullptr;
-    QSlider *mSoundSlider = nullptr;
+    QMediaPlayer *const mMediaPlayer;
+    QPushButton *const mPlayButton;
+    QToolButton *const mSoundButton;
+    QSlider *const mSoundSlider;
 };
 
