@@ -49,7 +49,7 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
     menu.addSeparator();
     menu.addAction(i18n("Reset Avatar"), this, &RoomAvatarWidget::slotResetAvatar);
     menu.addSeparator();
-    menu.addAction(i18n("Cancel"), this, &RoomAvatarWidget::slotCancel);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Cancel"), this, &RoomAvatarWidget::slotCancel);
     menu.exec(event->globalPos());
 }
 
