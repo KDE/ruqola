@@ -538,8 +538,20 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
     } else {
         RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
-        // TODO verify it.
-        info.channelType = mRoomType == Room::RoomType::Channel ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
+        switch (mRoomType) {
+        case Room::RoomType::Channel:
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::Channel;
+            break;
+        case Room::RoomType::Direct:
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::Direct;
+            break;
+        case Room::RoomType::Private:
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::Groups;
+            break;
+        case Room::RoomType::Unknown:
+            qCWarning(RUQOLAWIDGETS_LOG) << " Problem with room type ";
+            break;
+        }
         info.count = numberOfMessage - roomMessageModel->rowCount() + 1;
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = roomMessageModel->lastTimestamp();
@@ -577,8 +589,20 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         RocketChatRestApi::ChannelHistoryJob *job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
-        // TODO verify it.
-        info.channelType = mRoomType == Room::RoomType::Channel ? RocketChatRestApi::ChannelHistoryJob::Channel : RocketChatRestApi::ChannelHistoryJob::Groups;
+        switch (mRoomType) {
+        case Room::RoomType::Channel:
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::Channel;
+            break;
+        case Room::RoomType::Direct:
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::Direct;
+            break;
+        case Room::RoomType::Private:
+            info.channelType = RocketChatRestApi::ChannelHistoryJob::Groups;
+            break;
+        case Room::RoomType::Unknown:
+            qCWarning(RUQOLAWIDGETS_LOG) << " Problem with room type ";
+            break;
+        }
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = messageModel->lastTimestamp();
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
