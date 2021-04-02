@@ -1811,6 +1811,7 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, R
         restApi()->channelKick(roomId, userId);
         break;
     case Room::RoomType::Direct:
+        break;
     case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport kickUser room for type " << channelType;
         break;
@@ -1827,6 +1828,7 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, Room::RoomType channe
         restApi()->getChannelRoles(roomId);
         break;
     case Room::RoomType::Direct:
+        break;
     case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
         break;
