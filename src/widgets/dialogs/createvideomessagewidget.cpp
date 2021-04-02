@@ -28,12 +28,12 @@
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
     , mErrorLabel(new QLabel(this))
+    , mCamera(new QCamera(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mCamera = new QCamera(this);
     mCamera->setObjectName(QStringLiteral("mCamera"));
 
     auto viewfinder = new QCameraViewfinder(this);

@@ -45,11 +45,11 @@ private:
     void handleError();
     void play();
 
-    QMediaPlayer *mMediaPlayer = nullptr;
-    QPushButton *mPlayButton = nullptr;
-    QSlider *mPositionSlider = nullptr;
-    QLabel *mErrorLabel = nullptr;
-    QToolButton *mSoundButton = nullptr;
-    QSlider *mSoundSlider = nullptr;
+    QMediaPlayer *const mMediaPlayer;
+    QPushButton *const mPlayButton;
+    QSlider *const mPositionSlider;
+    QLabel *const mErrorLabel;
+    QToolButton *const mSoundButton;
+    QSlider *const mSoundSlider;
 };
 

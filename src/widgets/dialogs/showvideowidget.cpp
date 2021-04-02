@@ -31,12 +31,17 @@
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
+    , mMediaPlayer(new QMediaPlayer(this, QMediaPlayer::VideoSurface))
+    , mPlayButton(new QPushButton(this))
+    , mPositionSlider(new QSlider(Qt::Horizontal, this))
+    , mErrorLabel(new QLabel(this))
+    , mSoundButton(new QToolButton(this))
+    , mSoundSlider(new QSlider(Qt::Horizontal, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mMediaPlayer = new QMediaPlayer(this, QMediaPlayer::VideoSurface);
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
     auto videoWidget = new QVideoWidget(this);
     videoWidget->setObjectName(QStringLiteral("videoWidget"));
@@ -48,7 +53,6 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     controlLayout->setContentsMargins({});
     mainLayout->addLayout(controlLayout);
 
-    mPlayButton = new QPushButton(this);
     mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
@@ -56,14 +60,12 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     controlLayout->addWidget(mPlayButton);
     connect(mPlayButton, &QAbstractButton::clicked, this, &ShowVideoWidget::play);
 
-    mPositionSlider = new QSlider(Qt::Horizontal, this);
     mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
     mPositionSlider->setRange(0, 0);
     controlLayout->addWidget(mPositionSlider);
 
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
 
-    mErrorLabel = new QLabel(this);
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
     mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     mainLayout->addWidget(mErrorLabel);
@@ -73,14 +75,12 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
     connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
 
-    mSoundButton = new QToolButton(this);
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::muteChanged);
     controlLayout->addWidget(mSoundButton);
-    mSoundSlider = new QSlider(Qt::Horizontal, this);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(100);
