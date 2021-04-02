@@ -165,7 +165,7 @@ void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *acco
 
 void ChannelActionPopupMenu::slotUpdateMenu()
 {
-    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
+    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->allowMessagePinningEnabled());
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());

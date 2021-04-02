@@ -336,7 +336,6 @@ public:
     Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
-    Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
     Q_REQUIRED_RESULT bool hasStarredMessagesSupport() const;
     Q_REQUIRED_RESULT bool hasSnippetedMessagesSupport() const;
 
