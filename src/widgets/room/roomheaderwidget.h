@@ -76,17 +76,17 @@ Q_SIGNALS:
     void channelInfoRequested();
 
 private:
-    QLabel *mRoomName = nullptr;
-    QLabel *mTopic = nullptr;
-    QLabel *mAnnouncement = nullptr;
-    QLabel *mDescription = nullptr;
-    QToolButton *mFavoriteButton = nullptr;
-    QToolButton *mEncryptedButton = nullptr;
-    QToolButton *mDiscussionBackButton = nullptr;
-    QToolButton *mListOfUsersButton = nullptr;
-    QToolButton *mSearchMessageButton = nullptr;
-    QToolButton *mChannelAction = nullptr;
-    QToolButton *mChannelInfoButton = nullptr;
+    QLabel *const mRoomName;
+    QLabel *const mTopic;
+    QLabel *const mAnnouncement;
+    QLabel *const mDescription;
+    QToolButton *const mFavoriteButton;
+    QToolButton *const mEncryptedButton;
+    QToolButton *const mDiscussionBackButton;
+    QToolButton *const mListOfUsersButton;
+    QToolButton *const mSearchMessageButton;
+    QToolButton *const mChannelAction;
+    QToolButton *const mChannelInfoButton;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };
 

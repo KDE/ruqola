@@ -32,9 +32,9 @@ public:
     ~UserFeedBackManager() override;
     static UserFeedBackManager *self();
 
-    KUserFeedback::Provider *userFeedbackProvider() const;
+    Q_REQUIRED_RESULT KUserFeedback::Provider *userFeedbackProvider() const;
 
 private:
-    KUserFeedback::Provider *mUserFeedbackProvider = nullptr;
+    KUserFeedback::Provider *const mUserFeedbackProvider;
 };
 

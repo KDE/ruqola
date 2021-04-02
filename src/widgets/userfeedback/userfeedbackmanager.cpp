@@ -22,8 +22,8 @@
 
 UserFeedBackManager::UserFeedBackManager(QObject *parent)
     : QObject(parent)
+    , mUserFeedbackProvider(new RuqolaUserFeedbackProvider(this))
 {
-    mUserFeedbackProvider = new RuqolaUserFeedbackProvider(this);
 }
 
 UserFeedBackManager::~UserFeedBackManager()

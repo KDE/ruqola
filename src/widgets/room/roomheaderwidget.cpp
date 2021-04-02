@@ -29,6 +29,17 @@
 
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
+    , mRoomName(new QLabel(this))
+    , mTopic(new QLabel(this))
+    , mAnnouncement(new QLabel(this))
+    , mDescription(new QLabel(this))
+    , mFavoriteButton(new QToolButton(this))
+    , mEncryptedButton(new QToolButton(this))
+    , mDiscussionBackButton(new QToolButton(this))
+    , mListOfUsersButton(new QToolButton(this))
+    , mSearchMessageButton(new QToolButton(this))
+    , mChannelAction(new QToolButton(this))
+    , mChannelInfoButton(new QToolButton(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -39,7 +50,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->setContentsMargins({});
     mainLayout->addLayout(headerLayout);
 
-    mFavoriteButton = new QToolButton(this);
     mFavoriteButton->setAutoRaise(true);
     mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
@@ -48,7 +58,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
-    mDiscussionBackButton = new QToolButton(this);
     mDiscussionBackButton->setAutoRaise(true);
     mDiscussionBackButton->setObjectName(QStringLiteral("mDiscussionBackButton"));
     mDiscussionBackButton->setIcon(QIcon::fromTheme(QStringLiteral("draw-arrow-back")));
@@ -57,7 +66,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mDiscussionBackButton, &QToolButton::clicked, this, &RoomHeaderWidget::goBackToRoom);
     mDiscussionBackButton->setVisible(false);
 
-    mEncryptedButton = new QToolButton(this);
     mEncryptedButton->setAutoRaise(true);
     mEncryptedButton->setObjectName(QStringLiteral("mEncryptedButton"));
     mEncryptedButton->setIcon(QIcon::fromTheme(QStringLiteral("encrypted")));
@@ -72,13 +80,11 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     infoLayout->setContentsMargins({});
     headerLayout->addLayout(infoLayout);
 
-    mRoomName = new QLabel(this);
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
     mRoomName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     infoLayout->addWidget(mRoomName);
     mRoomName->setVisible(false);
 
-    mTopic = new QLabel(this);
     mTopic->setObjectName(QStringLiteral("mTopic"));
     infoLayout->addWidget(mTopic);
     mTopic->setWordWrap(true);
@@ -87,7 +93,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTopic->setTextFormat(Qt::RichText);
     mTopic->setVisible(false);
 
-    mAnnouncement = new QLabel(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mAnnouncement->setWordWrap(true);
     mAnnouncement->setTextFormat(Qt::RichText);
@@ -96,7 +101,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mAnnouncement->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mAnnouncement->setVisible(false);
 
-    mDescription = new QLabel(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mDescription->setTextFormat(Qt::RichText);
     mDescription->setWordWrap(true);
@@ -111,7 +115,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 
-    mChannelInfoButton = new QToolButton(this);
     mChannelInfoButton->setAutoRaise(true);
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
@@ -119,7 +122,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->addWidget(mChannelInfoButton, Qt::AlignTop);
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
-    mListOfUsersButton = new QToolButton(this);
     mListOfUsersButton->setAutoRaise(true);
     mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
@@ -128,7 +130,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->addWidget(mListOfUsersButton, Qt::AlignTop);
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 
-    mSearchMessageButton = new QToolButton(this);
     mSearchMessageButton->setAutoRaise(true);
     mSearchMessageButton->setObjectName(QStringLiteral("mSearchMessageButton"));
     mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
@@ -137,7 +138,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->addWidget(mSearchMessageButton, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
 
-    mChannelAction = new QToolButton(this);
     mChannelAction->setAutoRaise(true);
     mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
     mChannelAction->setPopupMode(QToolButton::InstantPopup);
