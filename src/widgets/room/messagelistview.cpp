@@ -610,6 +610,13 @@ void MessageListView::clearTextDocumentCache()
     mMessageListDelegate->clearTextDocumentCache();
 }
 
+void MessageListView::scrollTo(const QModelIndex &index, QAbstractItemView::ScrollHint hint)
+{
+    disconnect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+    QListView::scrollTo(index, hint);
+    connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+}
+
 MessageListView::Mode MessageListView::mode() const
 {
     return mMode;

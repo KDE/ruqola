@@ -60,6 +60,8 @@ public:
 
     void clearTextDocumentCache();
 
+    void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
