@@ -35,6 +35,7 @@ public:
     Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
 private:
+    Q_DISABLE_COPY_MOVE(LoadRecentHistoryManager)
     qint64 mLastLoadingTimeStamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
 };
 
