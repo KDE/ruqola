@@ -173,6 +173,7 @@ set (RocketChatRestApiQt_SRCS
     custom/customsoundslistjob.cpp
 
     invite/findorcreateinvitejob.cpp
+    invite/listinvitejob.cpp
 
     2fa/user2faenableemailjob.cpp
     2fa/user2fadisableemailjob.cpp
