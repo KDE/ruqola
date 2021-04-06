@@ -72,7 +72,7 @@ CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo() con
 
 void CreateNewChannelDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewChannelDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myCreateNewChannelDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -81,7 +81,7 @@ void CreateNewChannelDialog::readConfig()
 
 void CreateNewChannelDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewChannelDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myCreateNewChannelDialogGroupName);
     group.writeEntry("Size", size());
 }
 

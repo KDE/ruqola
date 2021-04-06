@@ -80,7 +80,7 @@ void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 
 void CreateNewServerDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateNewAccountDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateNewAccountDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -89,6 +89,6 @@ void CreateNewServerDialog::readConfig()
 
 void CreateNewServerDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateNewAccountDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateNewAccountDialogGroupName);
     group.writeEntry("Size", size());
 }

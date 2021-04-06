@@ -57,7 +57,7 @@ SearchChannelDialog::~SearchChannelDialog()
 
 void SearchChannelDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), mySearchChannelDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), mySearchChannelDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -66,6 +66,6 @@ void SearchChannelDialog::readConfig()
 
 void SearchChannelDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), mySearchChannelDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), mySearchChannelDialogGroupName);
     group.writeEntry("Size", size());
 }

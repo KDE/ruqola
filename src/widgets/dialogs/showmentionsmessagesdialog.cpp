@@ -42,7 +42,7 @@ ShowMentionsMessagesDialog::~ShowMentionsMessagesDialog()
 
 void ShowMentionsMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowMentionsMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -51,6 +51,6 @@ void ShowMentionsMessagesDialog::readConfig()
 
 void ShowMentionsMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowMentionsMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

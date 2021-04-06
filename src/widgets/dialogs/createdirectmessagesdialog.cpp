@@ -69,7 +69,7 @@ QStringList CreateDirectMessagesDialog::userNames() const
 
 void CreateDirectMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateDirectMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateDirectMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -78,6 +78,6 @@ void CreateDirectMessagesDialog::readConfig()
 
 void CreateDirectMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigCreateDirectMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateDirectMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

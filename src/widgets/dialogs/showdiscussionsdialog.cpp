@@ -61,7 +61,7 @@ ShowDiscussionsDialog::~ShowDiscussionsDialog()
 
 void ShowDiscussionsDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowDiscussionsDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowDiscussionsDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -70,7 +70,7 @@ void ShowDiscussionsDialog::readConfig()
 
 void ShowDiscussionsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowDiscussionsDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowDiscussionsDialogGroupName);
     group.writeEntry("Size", size());
 }
 

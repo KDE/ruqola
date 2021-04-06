@@ -63,7 +63,7 @@ CreateNewDiscussionDialog::~CreateNewDiscussionDialog()
 
 void CreateNewDiscussionDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewDiscussionDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myCreateNewDiscussionDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -72,7 +72,7 @@ void CreateNewDiscussionDialog::readConfig()
 
 void CreateNewDiscussionDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myCreateNewDiscussionDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myCreateNewDiscussionDialogGroupName);
     group.writeEntry("Size", size());
 }
 

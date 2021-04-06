@@ -63,7 +63,7 @@ void SearchMessageDialog::setRoomId(const QString &roomId)
 
 void SearchMessageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), mySearchMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), mySearchMessageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -72,7 +72,7 @@ void SearchMessageDialog::readConfig()
 
 void SearchMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), mySearchMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), mySearchMessageDialogGroupName);
     group.writeEntry("Size", size());
 }
 

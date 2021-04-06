@@ -93,7 +93,7 @@ ConfigureSettingsDialog::~ConfigureSettingsDialog()
 
 void ConfigureSettingsDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -102,7 +102,7 @@ void ConfigureSettingsDialog::readConfig()
 
 void ConfigureSettingsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
 

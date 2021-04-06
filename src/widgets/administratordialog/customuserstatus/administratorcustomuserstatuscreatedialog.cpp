@@ -59,7 +59,7 @@ AdministratorCustomUserStatusCreateDialog::~AdministratorCustomUserStatusCreateD
 
 void AdministratorCustomUserStatusCreateDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -68,7 +68,7 @@ void AdministratorCustomUserStatusCreateDialog::readConfig()
 
 void AdministratorCustomUserStatusCreateDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
     group.writeEntry("Size", size());
 }
 

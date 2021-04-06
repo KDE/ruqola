@@ -58,7 +58,7 @@ AdministratorCustomSoundsCreateDialog::~AdministratorCustomSoundsCreateDialog()
 
 void AdministratorCustomSoundsCreateDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -67,6 +67,6 @@ void AdministratorCustomSoundsCreateDialog::readConfig()
 
 void AdministratorCustomSoundsCreateDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
     group.writeEntry("Size", size());
 }

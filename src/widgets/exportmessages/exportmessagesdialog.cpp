@@ -61,7 +61,7 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExp
 
 void ExportMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -70,6 +70,6 @@ void ExportMessagesDialog::readConfig()
 
 void ExportMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }

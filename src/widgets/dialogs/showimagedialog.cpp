@@ -76,7 +76,7 @@ void ShowImageDialog::setImage(const QPixmap &pix)
 
 void ShowImageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowImageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowImageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -85,6 +85,6 @@ void ShowImageDialog::readConfig()
 
 void ShowImageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowImageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowImageDialogGroupName);
     group.writeEntry("Size", size());
 }

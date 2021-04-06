@@ -60,7 +60,7 @@ void DirectChannelInfoDialog::setUserName(const QString &userName)
 
 void DirectChannelInfoDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigDirectChannelInfoDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigDirectChannelInfoDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -69,6 +69,6 @@ void DirectChannelInfoDialog::readConfig()
 
 void DirectChannelInfoDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigDirectChannelInfoDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigDirectChannelInfoDialogGroupName);
     group.writeEntry("Size", size());
 }

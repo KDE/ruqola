@@ -62,13 +62,13 @@ void UsersInRoomDialog::setRoom(Room *room)
 
 void UsersInRoomDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myUsersInRoomDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myUsersInRoomDialogGroupName);
     group.writeEntry("Size", size());
 }
 
 void UsersInRoomDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myUsersInRoomDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myUsersInRoomDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);

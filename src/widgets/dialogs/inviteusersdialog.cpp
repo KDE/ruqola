@@ -72,7 +72,7 @@ void InviteUsersDialog::generateLink()
 
 void InviteUsersDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myInviteUsersDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myInviteUsersDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(300, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -81,6 +81,6 @@ void InviteUsersDialog::readConfig()
 
 void InviteUsersDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myInviteUsersDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myInviteUsersDialogGroupName);
     group.writeEntry("Size", size());
 }

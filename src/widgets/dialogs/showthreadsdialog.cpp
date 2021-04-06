@@ -45,7 +45,7 @@ ShowThreadsDialog::~ShowThreadsDialog()
 
 void ShowThreadsDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowThreadsDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowThreadsDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -54,6 +54,6 @@ void ShowThreadsDialog::readConfig()
 
 void ShowThreadsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowThreadsDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowThreadsDialogGroupName);
     group.writeEntry("Size", size());
 }

@@ -62,7 +62,7 @@ ReportMessageDialog::~ReportMessageDialog()
 
 void ReportMessageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myReportMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myReportMessageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -71,7 +71,7 @@ void ReportMessageDialog::readConfig()
 
 void ReportMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myReportMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myReportMessageDialogGroupName);
     group.writeEntry("Size", size());
 }
 

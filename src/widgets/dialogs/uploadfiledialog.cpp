@@ -65,7 +65,7 @@ void UploadFileDialog::setFileUrl(const QUrl &url)
 
 void UploadFileDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myUploadFileDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myUploadFileDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -74,7 +74,7 @@ void UploadFileDialog::readConfig()
 
 void UploadFileDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myUploadFileDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myUploadFileDialogGroupName);
     group.writeEntry("Size", size());
 }
 

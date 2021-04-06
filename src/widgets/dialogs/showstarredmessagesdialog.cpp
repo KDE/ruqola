@@ -42,7 +42,7 @@ ShowStarredMessagesDialog::~ShowStarredMessagesDialog()
 
 void ShowStarredMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowStarredMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowStarredMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -51,6 +51,6 @@ void ShowStarredMessagesDialog::readConfig()
 
 void ShowStarredMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowStarredMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowStarredMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

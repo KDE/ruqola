@@ -64,7 +64,7 @@ QStringList AddUsersInRoomDialog::users() const
 
 void AddUsersInRoomDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigAddUsersInRoomDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAddUsersInRoomDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -73,6 +73,6 @@ void AddUsersInRoomDialog::readConfig()
 
 void AddUsersInRoomDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myConfigAddUsersInRoomDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAddUsersInRoomDialogGroupName);
     group.writeEntry("Size", size());
 }

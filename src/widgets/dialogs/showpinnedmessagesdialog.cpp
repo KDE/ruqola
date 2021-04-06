@@ -43,7 +43,7 @@ ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
 
 void ShowPinnedMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowPinnedMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowPinnedMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -52,6 +52,6 @@ void ShowPinnedMessagesDialog::readConfig()
 
 void ShowPinnedMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowPinnedMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowPinnedMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

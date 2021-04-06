@@ -56,7 +56,7 @@ ThreadMessageDialog::~ThreadMessageDialog()
 
 void ThreadMessageDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myThreadMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myThreadMessageDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -65,7 +65,7 @@ void ThreadMessageDialog::readConfig()
 
 void ThreadMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myThreadMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myThreadMessageDialogGroupName);
     group.writeEntry("Size", size());
 }
 

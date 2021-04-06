@@ -62,7 +62,7 @@ void ShowVideoDialog::setVideoUrl(const QUrl &videoPath)
 
 void ShowVideoDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowVideoDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowVideoDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -71,6 +71,6 @@ void ShowVideoDialog::readConfig()
 
 void ShowVideoDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowVideoDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowVideoDialogGroupName);
     group.writeEntry("Size", size());
 }

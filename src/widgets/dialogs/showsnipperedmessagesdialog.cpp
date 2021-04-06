@@ -42,7 +42,7 @@ ShowSnipperedMessagesDialog::~ShowSnipperedMessagesDialog()
 
 void ShowSnipperedMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowSnipperedMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowSnipperedMessagesDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -51,6 +51,6 @@ void ShowSnipperedMessagesDialog::readConfig()
 
 void ShowSnipperedMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myShowSnipperedMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myShowSnipperedMessagesDialogGroupName);
     group.writeEntry("Size", size());
 }

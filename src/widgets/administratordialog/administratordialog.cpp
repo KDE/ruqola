@@ -60,7 +60,7 @@ AdministratorDialog::~AdministratorDialog()
 
 void AdministratorDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myAdministratorDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorDialogGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -69,6 +69,6 @@ void AdministratorDialog::readConfig()
 
 void AdministratorDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myAdministratorDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorDialogGroupName);
     group.writeEntry("Size", size());
 }
