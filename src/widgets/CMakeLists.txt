@@ -223,6 +223,8 @@ set(Ruqola_administrator_SRCS
     administratordialog/customsounds/customsoundstreewidget.cpp
 
     administratordialog/users/administratoruserswidget.cpp
+
+    administratordialog/invites/administratorinviteswidget.cpp
     )
 
 set(Ruqola_export_messages_SRCS
