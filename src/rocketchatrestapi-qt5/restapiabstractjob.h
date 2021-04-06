@@ -119,6 +119,7 @@ protected:
     virtual Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
     Q_REQUIRED_RESULT QNetworkReply *submitGetRequest();
     Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
+    Q_REQUIRED_RESULT QNetworkReply *submitDeleteRequest();
 
     RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
 

@@ -437,6 +437,13 @@ QString RestApiAbstractJob::jobName() const
     return {};
 }
 
+QNetworkReply *RestApiAbstractJob::submitDeleteRequest()
+{
+    QNetworkReply *reply = mNetworkAccessManager->deleteResource(request());
+    reply->setProperty("job", QVariant::fromValue(this));
+    return reply;
+}
+
 QNetworkReply *RestApiAbstractJob::submitGetRequest()
 {
     QNetworkReply *reply = mNetworkAccessManager->get(request());
