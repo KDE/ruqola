@@ -47,11 +47,11 @@ public:
     void setIdentifier(const QString &identifier);
 
 Q_SIGNALS:
-    void listInviteDone(const QJsonObject &obj);
+    void removeInviteDone();
 
 private:
     Q_DISABLE_COPY(RemoveInviteJob)
-    void slotListInviteFinished();
+    void slotRemoveInviteFinished();
     QString mIdentifier;
 };
 }

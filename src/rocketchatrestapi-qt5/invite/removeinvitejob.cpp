@@ -40,20 +40,32 @@ bool RemoveInviteJob::requireHttpAuthentication() const
     return true;
 }
 
+bool RemoveInviteJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mIdentifier.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mIdentifier is Empty. Impossible to start RemoveInviteJob";
+        return false;
+    }
+    return true;
+}
+
 bool RemoveInviteJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
+    QNetworkReply *reply = submitDeleteRequest();
 
-    connect(reply, &QNetworkReply::finished, this, &RemoveInviteJob::slotListInviteFinished);
+    connect(reply, &QNetworkReply::finished, this, &RemoveInviteJob::slotRemoveInviteFinished);
     addStartRestApiInfo(QByteArrayLiteral("RemoveInviteJob: Ask for displaying all invite link url"));
     return true;
 }
 
-void RemoveInviteJob::slotListInviteFinished()
+void RemoveInviteJob::slotRemoveInviteFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -62,7 +74,7 @@ void RemoveInviteJob::slotListInviteFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT listInviteDone(replyObject);
+            Q_EMIT removeInviteDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("RemoveInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -89,20 +101,10 @@ bool RemoveInviteJob::hasQueryParameterSupport() const
 
 QNetworkRequest RemoveInviteJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite);
-    QUrlQuery queryUrl;
-    addQueryParameter(queryUrl);
-    url.setQuery(queryUrl);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite, mIdentifier);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
     return request;
 }
 
-bool RemoveInviteJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    return true;
-}
