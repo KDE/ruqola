@@ -48,12 +48,12 @@ bool ListInviteJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
 
-    connect(reply, &QNetworkReply::finished, this, &ListInviteJob::slotDirectoryFinished);
-    addStartRestApiInfo(QByteArrayLiteral("ListInviteJob: Ask for search room or users"));
+    connect(reply, &QNetworkReply::finished, this, &ListInviteJob::slotinviteFinished);
+    addStartRestApiInfo(QByteArrayLiteral("ListInviteJob: Ask for displaying all invite link url"));
     return true;
 }
 
-void ListInviteJob::slotDirectoryFinished()
+void ListInviteJob::slotinviteFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -62,7 +62,7 @@ void ListInviteJob::slotDirectoryFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ListInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT directoryDone(replyObject);
+            Q_EMIT inviteDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ListInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
