@@ -44,10 +44,10 @@ public:
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void inviteDone(const QJsonObject &obj);
+    void listInviteDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ListInviteJob)
-    void slotinviteFinished();
+    void slotListInviteFinished();
 };
 }
