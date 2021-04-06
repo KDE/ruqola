@@ -520,20 +520,25 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
     return mRestApi;
 }
 
-void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
+void RocketChatAccount::leaveRoom(const QString &roomId, Room::RoomType channelType)
 {
-    if (channelType == QLatin1Char('c')) {
-        restApi()->leaveChannel(roomId);
-    } else if (channelType == QLatin1Char('p')) {
+    switch (channelType) {
+    case Room::RoomType::Private:
         restApi()->leaveGroups(roomId);
-    } else {
+        break;
+    case Room::RoomType::Channel:
+        restApi()->leaveChannel(roomId);
+        break;
+    case Room::RoomType::Direct:
+    case Room::RoomType::Unknown:
         qCWarning(RUQOLA_LOG) << " unsupport leave room for type " << channelType;
+        break;
     }
 }
 
-void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelType)
+void RocketChatAccount::hideRoom(const QString &roomId, Room::RoomType channelType)
 {
-    restApi()->closeChannel(roomId, channelType);
+    restApi()->closeChannel(roomId, Room::roomFromRoomType(channelType));
 }
 
 DDPClient *RocketChatAccount::ddp()

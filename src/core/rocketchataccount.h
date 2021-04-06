@@ -131,8 +131,8 @@ public:
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     void setUserCurrentMessage(const QString &message, const QString &roomId);
     void textEditing(const QString &roomId, bool clearNotification);
-    void leaveRoom(const QString &roomId, const QString &channelType);
-    void hideRoom(const QString &roomId, const QString &channelType = QString());
+    void leaveRoom(const QString &roomId, Room::RoomType channelType);
+    void hideRoom(const QString &roomId, Room::RoomType channelType);
     void tryLogin();
     void logOut();
     void clearAllUnreadMessages();

@@ -81,7 +81,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     }
     QMenu menu(this);
 
-    const QString roomType = index.data(RoomModel::RoomType).toString();
+    const Room::RoomType roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
     connect(hideChannel, &QAction::triggered, this, [=]() {
         slotHideChannel(index, roomType);
@@ -104,7 +104,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(favoriteAction);
 
-    if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { // Not direct channel
+    if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
         auto separator = new QAction(&menu);
         separator->setSeparator(true);
         menu.addAction(separator);
@@ -137,14 +137,14 @@ void ChannelListView::channelSelected(const QModelIndex &index)
     Q_EMIT roomSelected(roomId, roomType);
 }
 
-void ChannelListView::slotHideChannel(const QModelIndex &index, const QString &roomType)
+void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString roomId = index.data(RoomModel::RoomId).toString();
     rcAccount->hideRoom(roomId, roomType);
 }
 
-void ChannelListView::slotLeaveChannel(const QModelIndex &index, const QString &roomType)
+void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString roomId = index.data(RoomModel::RoomId).toString();
