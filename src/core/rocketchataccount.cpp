@@ -1908,6 +1908,9 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (!allowEditingMessages()) {
         return false;
     }
+    if (hasPermission(QStringLiteral("edit-message"))) {
+        return true;
+    }
     if (message.userId() != userId()) {
         return false;
     }
@@ -1922,11 +1925,14 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     if (!allowMessageDeletingEnabled()) {
         return false;
     }
-    if (message.userId() != userId()) {
-        return false;
-    }
     if (hasPermission(QStringLiteral("force-delete-message"))) {
         return true;
+    }
+    if (hasPermission(QStringLiteral("delete-message"))) {
+        return true;
+    }
+    if (message.userId() != userId()) {
+        return false;
     }
     if (ruqolaServerConfig()->blockDeletingMessageInMinutes() == 0) { // TODO verify it
         return true;

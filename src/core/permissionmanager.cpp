@@ -82,7 +82,7 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("post-readonly") || id == QLatin1String("manage-sounds") || id == QLatin1String("set-moderator")
             || id == QLatin1String("set-leader") || id == QLatin1String("set-owner") || id == QLatin1String("delete-user")
             || id == QLatin1String("edit-room-retention-policy") || id == QLatin1String("access-setting-permissions") || id == QLatin1String("start-discussion")
-            || id == QLatin1String("start-discussion-other-user")) {
+            || id == QLatin1String("start-discussion-other-user") || id == QLatin1String("force-delete-message")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
