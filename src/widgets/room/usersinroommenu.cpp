@@ -125,7 +125,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
                                                              hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
         });
         menu.addAction(removeAsModerator);
-
+        menu.addSeparator();
         auto removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
         connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
         menu.addAction(removeFromRoom);
