@@ -54,6 +54,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
     connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
+    connect(mMessageTextEdit, &MessageTextEdit::textClicked, this, &MessageLineWidget::textEditClicked);
 
     mSendFile = new QToolButton(this);
     mSendFile->setAutoRaise(true);
@@ -389,4 +390,9 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else {
         Q_EMIT keyPressed(ev);
     }
+}
+
+void MessageLineWidget::textEditClicked()
+{
+    mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
 }

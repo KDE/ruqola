@@ -88,6 +88,7 @@ private:
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendFile();
     void keyPressedInLineEdit(QKeyEvent *ev);
+    void textEditClicked();
     Q_REQUIRED_RESULT MessageModel *messageModel() const;
     void clearEditingMode();
 
