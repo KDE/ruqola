@@ -219,6 +219,12 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
     }
 }
 
+void MessageTextEdit::mousePressEvent(QMouseEvent *ev)
+{
+    if (ev->buttons().testFlag(Qt::LeftButton))
+        Q_EMIT textClicked();
+}
+
 void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForType type)
 {
     if (type == InputTextManager::Emoji) {
