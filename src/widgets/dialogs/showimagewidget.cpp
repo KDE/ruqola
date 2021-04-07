@@ -31,6 +31,22 @@
 #include <QVBoxLayout>
 #include <QWheelEvent>
 
+namespace
+{
+double fitToViewZoomScale(const QSize &imageSize, const QSize &widgetSize)
+{
+    if (imageSize.width() > widgetSize.width() || imageSize.height() > widgetSize.height()) {
+        // Make sure it fits, we care only about the first decimal, so round to the smaller value
+        const double hZoom = (double)widgetSize.width() / imageSize.width();
+        const double vZoom = (double)widgetSize.height() / imageSize.height();
+        return std::max((int)(std::min(hZoom, vZoom) * 10) / 10.0, 0.1);
+    }
+
+    return 1.0;
+}
+
+}
+
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
     , mZoomControls(new QWidget(this))
@@ -84,6 +100,14 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
         setZoom(1.0);
     });
 
+    auto fitToViewButton = new QPushButton(this);
+    fitToViewButton->setObjectName(QStringLiteral("fitToViewButton"));
+    fitToViewButton->setText(i18n("Fit to View"));
+    zoomLayout->addWidget(fitToViewButton);
+    connect(fitToViewButton, &QPushButton::clicked, this, [=] {
+        fitToView();
+    });
+
     connect(mZoomSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ShowImageWidget::setZoom);
     connect(mSlider, &QSlider::valueChanged, this, [this](int value) {
         setZoom(static_cast<double>(value) / 100);
@@ -112,6 +136,18 @@ void ShowImageWidget::setZoom(double scale)
     }
 }
 
+void ShowImageWidget::fitToView()
+{
+    QSize imageSize;
+    if (mIsAnimatedPixmap) {
+        imageSize = mOriginalMovieSize;
+    } else {
+        imageSize = mPixmap.size();
+    }
+
+    setZoom(fitToViewZoomScale(imageSize, size()));
+}
+
 bool ShowImageWidget::isAnimatedPixmap() const
 {
     return mIsAnimatedPixmap;
@@ -135,15 +171,8 @@ void ShowImageWidget::setImagePath(const QString &imagePath)
 
     QTimer::singleShot(0, this, [=] {
         mOriginalMovieSize = mMovie->currentPixmap().size();
-        const auto widgetSize = size();
-        double zoomScale = 1.0;
-        if (mOriginalMovieSize.width() > widgetSize.width() || mOriginalMovieSize.height() > widgetSize.height()) {
-            // Make sure it fits, we care only about the first decimal, so round to the smaller value
-            const double hZoom = (double)widgetSize.width() / mOriginalMovieSize.width();
-            const double vZoom = (double)widgetSize.height() / mOriginalMovieSize.height();
-            zoomScale = std::max((int)(std::min(hZoom, vZoom) * 10) / 10.0, 0.1);
-        }
-        setZoom(zoomScale);
+
+        fitToView();
         mMovie->start();
     });
 }
@@ -158,14 +187,7 @@ void ShowImageWidget::setImage(const QPixmap &pix)
     updateGeometry(); // sizeHint changed
 
     QTimer::singleShot(0, this, [=] {
-        const auto labelSize = mLabel->size();
-        const auto widgetSize = size();
-        if (labelSize.width() > widgetSize.width() || labelSize.height() > widgetSize.height()) {
-            // Make sure it fits, we care only about the first decimal, so round to the smaller value
-            const double hZoom = (double)widgetSize.width() / labelSize.width();
-            const double vZoom = (double)widgetSize.height() / labelSize.height();
-            setZoom(std::max((int)(std::min(hZoom, vZoom) * 10) / 10.0, 0.1));
-        }
+        fitToView();
     });
 }
 

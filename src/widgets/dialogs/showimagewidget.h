@@ -47,6 +47,7 @@ protected:
 
 private:
     void setZoom(double scale);
+    void fitToView();
 
     QPixmap mPixmap;
     QWidget *const mZoomControls;
