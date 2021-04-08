@@ -54,7 +54,6 @@
 #include "otrmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
-#include "room.h"
 #include "ruqola.h"
 #include "ruqola_commands_debug.h"
 #include "ruqola_debug.h"

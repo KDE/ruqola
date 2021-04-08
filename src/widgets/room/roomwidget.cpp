@@ -43,7 +43,6 @@
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
-#include "room.h"
 #include "roomutil.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
