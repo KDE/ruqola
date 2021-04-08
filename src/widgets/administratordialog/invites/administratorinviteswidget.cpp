@@ -20,6 +20,7 @@
 
 #include "administratorinviteswidget.h"
 #include "invite/listinvitejob.h"
+#include "invite/removeinvitejob.h"
 #include "invitetreewidget.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -42,6 +43,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeWidget);
     initialize();
+    connect(mInviteTreeWidget, &InviteTreeWidget::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()
@@ -62,4 +64,21 @@ void AdministratorInvitesWidget::initialize()
 void AdministratorInvitesWidget::slotListInviteDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
+}
+
+void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto removeInviteJob = new RocketChatRestApi::RemoveInviteJob(this);
+    removeInviteJob->setIdentifier(identifier);
+    rcAccount->restApi()->initializeRestApiJob(removeInviteJob);
+    connect(removeInviteJob, &RocketChatRestApi::RemoveInviteJob::removeInviteDone, this, &AdministratorInvitesWidget::slotRemoveInviteDone);
+    if (!removeInviteJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RemoveInviteJob";
+    }
+}
+
+void AdministratorInvitesWidget::slotRemoveInviteDone()
+{
+    // TODO
 }

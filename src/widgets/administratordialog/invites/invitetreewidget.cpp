@@ -45,7 +45,6 @@ InviteTreeWidget::~InviteTreeWidget()
 void InviteTreeWidget::initialize()
 {
     clear();
-    // TODO
     header()->setSortIndicatorShown(true);
     header()->setSectionsClickable(true);
     sortByColumn(0, Qt::AscendingOrder);
@@ -67,4 +66,5 @@ void InviteTreeWidget::removeClicked()
         return;
     }
     // TODO
+    Q_EMIT removeInvite(QString());
 }

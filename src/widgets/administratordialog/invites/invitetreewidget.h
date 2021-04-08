@@ -30,6 +30,9 @@ public:
     explicit InviteTreeWidget(QWidget *parent = nullptr);
     ~InviteTreeWidget() override;
 
+Q_SIGNALS:
+    void removeInvite(const QString &identifier);
+
 private:
     void initialize();
     void removeClicked();
