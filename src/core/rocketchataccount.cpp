@@ -2148,7 +2148,7 @@ bool RocketChatAccount::hasOldSubscriptionSupport() const
 
 void RocketChatAccount::getSupportedLanguages()
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0) && autoTranslateEnabled()) {
+    if (autoTranslateEnabled()) {
         restApi()->getSupportedLanguagesMessages();
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSupportedLanguages is not supported before server 2.0.0";
@@ -2162,20 +2162,12 @@ void RocketChatAccount::slotGetSupportedLanguagesDone(const QJsonObject &obj)
 
 void RocketChatAccount::autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0)) {
-        restApi()->autoTranslateSaveLanguageSettings(roomId, language);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::autoTranslateSaveLanguageSettings is not supported before server 2.0.0";
-    }
+    restApi()->autoTranslateSaveLanguageSettings(roomId, language);
 }
 
 void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0)) {
-        restApi()->autoTranslateSaveAutoTranslateSettings(roomId, autoTranslate);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::autoTranslateSaveLanguageSettings is not supported before server 2.0.0";
-    }
+    restApi()->autoTranslateSaveAutoTranslateSettings(roomId, autoTranslate);
 }
 
 void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
