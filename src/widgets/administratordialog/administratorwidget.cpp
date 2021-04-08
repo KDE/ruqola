@@ -21,6 +21,7 @@
 #include "administratorwidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
+#include "invites/administratorinviteswidget.h"
 #include "permissionmanager.h"
 #include "rocketchataccount.h"
 #include "rooms/administratorroomswidget.h"
@@ -39,6 +40,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(this))
     , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(this))
     , mAdministratorUsersWidget(new AdministratorUsersWidget(this))
+    , mAdministratorInvitesWidget(new AdministratorInvitesWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -61,6 +63,9 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
     mAdministratorUsersWidget->setObjectName(QStringLiteral("mAdministratorUsersWidget"));
     mTabWidget->addTab(mAdministratorUsersWidget, i18n("Users"));
+
+    mAdministratorInvitesWidget->setObjectName(QStringLiteral("mAdministratorInvitesWidget"));
+    mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
 }
 
 AdministratorWidget::~AdministratorWidget()

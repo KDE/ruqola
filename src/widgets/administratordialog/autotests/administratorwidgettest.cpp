@@ -22,6 +22,7 @@
 #include "administratordialog/administratorwidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
+#include "administratordialog/invites/administratorinviteswidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include "administratordialog/users/administratoruserswidget.h"
@@ -60,4 +61,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mAdministratorUsersWidget = w.findChild<AdministratorUsersWidget *>(QStringLiteral("mAdministratorUsersWidget"));
     QVERIFY(mAdministratorUsersWidget);
+
+    auto mAdministratorInvitesWidget = w.findChild<AdministratorInvitesWidget *>(QStringLiteral("mAdministratorInvitesWidget"));
+    QVERIFY(mAdministratorInvitesWidget);
 }
