@@ -58,8 +58,10 @@ void ListInviteJob::slotListInviteFinished()
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
+        // TODO it's a jsonarray
+        // FIXME
+#if 0
         const QJsonObject replyObject = replyJson.object();
-
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ListInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT listInviteDone(replyObject);
@@ -67,6 +69,7 @@ void ListInviteJob::slotListInviteFinished()
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ListInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+#endif
         reply->deleteLater();
     }
     deleteLater();

@@ -32,6 +32,8 @@ public:
     ~AdministratorInvitesWidget() override;
 
 private:
+    void initialize();
+    void slotListInviteDone(const QJsonObject &obj);
     InviteTreeWidget *const mInviteTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
 };

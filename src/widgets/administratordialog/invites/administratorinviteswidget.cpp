@@ -19,8 +19,12 @@
 */
 
 #include "administratorinviteswidget.h"
+#include "invite/listinvitejob.h"
 #include "invitetreewidget.h"
-
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QVBoxLayout>
 
@@ -37,8 +41,25 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
 
     mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeWidget);
+    initialize();
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()
 {
+}
+
+void AdministratorInvitesWidget::initialize()
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto inviteJob = new RocketChatRestApi::ListInviteJob(this);
+    rcAccount->restApi()->initializeRestApiJob(inviteJob);
+    connect(inviteJob, &RocketChatRestApi::ListInviteJob::listInviteDone, this, &AdministratorInvitesWidget::slotListInviteDone);
+    if (!inviteJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ListInviteJob";
+    }
+}
+
+void AdministratorInvitesWidget::slotListInviteDone(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
 }
