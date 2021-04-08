@@ -24,7 +24,6 @@
 #include <QTreeWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QTreeWidget;
 
 class CustomUserStatusTreeWidgetItem : public QTreeWidgetItem
 {

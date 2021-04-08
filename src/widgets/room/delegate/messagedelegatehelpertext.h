@@ -31,7 +31,6 @@
 
 class QPainter;
 class QRect;
-class QModelIndex;
 class QMouseEvent;
 class QHelpEvent;
 class QStyleOptionViewItem;

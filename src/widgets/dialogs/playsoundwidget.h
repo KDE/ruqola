@@ -24,7 +24,6 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QMediaPlayer;
 class QPushButton;
 class QToolButton;
 class QSlider;

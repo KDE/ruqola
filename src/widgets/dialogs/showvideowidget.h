@@ -23,7 +23,6 @@
 #include "libruqolawidgets_private_export.h"
 #include <QMediaPlayer>
 #include <QWidget>
-class QMediaPlayer;
 class QPushButton;
 class QSlider;
 class QLabel;
