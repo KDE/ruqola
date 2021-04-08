@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,27 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "administratorinviteswidget.h"
-#include "invitetreewidget.h"
-
-#include <KTreeWidgetSearchLineWidget>
-#include <QVBoxLayout>
-
-AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
-    : QWidget(parent)
-    , mInviteTreeWidget(new InviteTreeWidget(this))
-    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mInviteTreeWidget))
+#include "administratorinviteswidgettest.h"
+#include "administratordialog/invites/administratorinviteswidget.h"
+#include <QTest>
+QTEST_MAIN(AdministratorInvitesWidgetTest)
+AdministratorInvitesWidgetTest::AdministratorInvitesWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mainLayout->addWidget(mSearchLineWidget);
-
-    mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
-    mainLayout->addWidget(mInviteTreeWidget);
 }
 
-AdministratorInvitesWidget::~AdministratorInvitesWidget()
+void AdministratorInvitesWidgetTest::shouldHaveDefaultValues()
 {
+    AdministratorInvitesWidget w;
+    // TODO
 }

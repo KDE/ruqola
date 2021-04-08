@@ -22,6 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class InviteTreeWidget;
 class KTreeWidgetSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
 {
@@ -31,6 +32,6 @@ public:
     ~AdministratorInvitesWidget() override;
 
 private:
-    //    CustomSoundsTreeWidget *const mCustomSoundsTreeWidget;
-    //    KTreeWidgetSearchLineWidget *const mSearchLineWidget;
+    InviteTreeWidget *const mInviteTreeWidget;
+    KTreeWidgetSearchLineWidget *const mSearchLineWidget;
 };

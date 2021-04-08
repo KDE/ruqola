@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -17,28 +17,16 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#pragma once
 
-#include "administratorinviteswidget.h"
-#include "invitetreewidget.h"
+#include <QObject>
 
-#include <KTreeWidgetSearchLineWidget>
-#include <QVBoxLayout>
-
-AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
-    : QWidget(parent)
-    , mInviteTreeWidget(new InviteTreeWidget(this))
-    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mInviteTreeWidget))
+class AdministratorInvitesWidgetTest : public QObject
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mainLayout->addWidget(mSearchLineWidget);
-
-    mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
-    mainLayout->addWidget(mInviteTreeWidget);
-}
-
-AdministratorInvitesWidget::~AdministratorInvitesWidget()
-{
-}
+    Q_OBJECT
+public:
+    explicit AdministratorInvitesWidgetTest(QObject *parent = nullptr);
+    ~AdministratorInvitesWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
