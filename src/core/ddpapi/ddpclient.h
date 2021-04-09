@@ -219,12 +219,13 @@ private Q_SLOTS:
 private:
     Q_DISABLE_COPY(DDPClient)
     void initializeWebSocket();
+    void connectWebSocket();
 
     QUrl adaptUrl(const QString &url);
 
     void pong();
     void executeSubsCallBack(const QJsonObject &root);
-
+    
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;
 
