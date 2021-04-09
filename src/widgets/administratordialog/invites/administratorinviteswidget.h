@@ -33,7 +33,7 @@ public:
 
 private:
     void initialize();
-    void slotListInviteDone(const QJsonObject &obj);
+    void slotListInviteDone(const QJsonDocument &obj);
     void slotRemoveInvite(const QString &identifier);
     void slotRemoveInviteDone();
     InviteTreeWidget *const mInviteTreeWidget;

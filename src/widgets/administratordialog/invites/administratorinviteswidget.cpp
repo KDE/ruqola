@@ -61,7 +61,7 @@ void AdministratorInvitesWidget::initialize()
     }
 }
 
-void AdministratorInvitesWidget::slotListInviteDone(const QJsonObject &obj)
+void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 {
     qDebug() << " obj " << obj;
 }

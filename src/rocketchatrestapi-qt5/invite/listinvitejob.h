@@ -44,7 +44,7 @@ public:
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void listInviteDone(const QJsonObject &obj);
+    void listInviteDone(const QJsonDocument &obj);
 
 private:
     Q_DISABLE_COPY(ListInviteJob)
