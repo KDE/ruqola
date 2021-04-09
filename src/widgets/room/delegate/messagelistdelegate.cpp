@@ -258,11 +258,11 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
             const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
                 attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
-                layout.attachmentsRectList.append(QRect(textLeft, topAttachment, attachmentsSize.width(), attachmentsSize.height()));
+                layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attachmentsSize.width(), attachmentsSize.height()));
                 topAttachment += attachmentsSize.height();
             } else {
                 const QSize attSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
-                layout.attachmentsRectList.append(QRect(textLeft, topAttachment, attSize.width(), attSize.height()));
+                layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attSize.width(), attSize.height()));
                 attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
                 topAttachment += attSize.height();
             }
