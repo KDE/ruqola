@@ -22,9 +22,9 @@
 #include "dialogs/showimagewidget.h"
 
 #include <QDoubleSpinBox>
+#include <QGraphicsView>
 #include <QLabel>
 #include <QPushButton>
-#include <QScrollArea>
 #include <QSlider>
 #include <QTest>
 #include <QVBoxLayout>
@@ -40,25 +40,17 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 {
     ShowImageWidget w;
     const auto pixmap = QPixmap(QStringLiteral(":/icons/systray.png"));
-    auto pixmapSize = pixmap.size();
     w.setImage(pixmap);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    auto scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
-    QVERIFY(scrollArea);
+    auto graphicsView = w.findChild<ImageGraphicsView *>(QStringLiteral("mImageGraphicsView"));
+    QVERIFY(graphicsView);
 
-    auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
-    QVERIFY(mLabel);
-    QVERIFY(mLabel->text().isEmpty());
-    QCOMPARE(mLabel->backgroundRole(), QPalette::Base);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QVERIFY(mLabel->pixmap());
-#else
-    QVERIFY(!mLabel->pixmap().isNull());
-#endif
+    auto image = graphicsView->image();
+    QVERIFY(!image.isNull());
 
     auto zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
     QVERIFY(zoomLayout);
@@ -80,37 +72,19 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     mSlider->setValue(200);
     QCOMPARE(mSlider->value(), 200);
     QCOMPARE(mZoomSpin->value(), 2);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QCOMPARE(mLabel->pixmap()->size(), 2 * pixmapSize);
-#else
-    QCOMPARE(mLabel->pixmap().size(), 2 * pixmapSize);
-#endif
+    QCOMPARE(graphicsView->zoom(), (qreal)2.0);
 
     mZoomSpin->setValue(3);
     QCOMPARE(mZoomSpin->value(), 3);
     QCOMPARE(mSlider->value(), 300);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QCOMPARE(mLabel->pixmap()->size(), 3 * pixmapSize);
-#else
-    QCOMPARE(mLabel->pixmap().size(), 3 * pixmapSize);
-#endif
+    QCOMPARE(graphicsView->zoom(), (qreal)3.0);
 
     QVERIFY(!w.isAnimatedPixmap());
-    QEXPECT_FAIL("", "the pixmap is currently sized according to the label size, not vice versa", Continue);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QCOMPARE(mLabel->pixmap()->size(), pixmapSize);
-#else
-    QCOMPARE(mLabel->pixmap().size(), pixmapSize);
-#endif
 
     auto resetButton = w.findChild<QPushButton *>(QStringLiteral("resetButton"));
     QVERIFY(resetButton);
     resetButton->click();
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QCOMPARE(mLabel->pixmap()->size(), pixmapSize);
-#else
-    QCOMPARE(mLabel->pixmap().size(), pixmapSize);
-#endif
+    QCOMPARE(graphicsView->zoom(), (qreal)1.0);
     QCOMPARE(mZoomSpin->value(), 1.0);
     QCOMPARE(mSlider->value(), 100);
 }
