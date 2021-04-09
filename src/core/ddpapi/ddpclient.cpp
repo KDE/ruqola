@@ -206,6 +206,12 @@ void DDPClient::start()
     }
 }
 
+void DDPClient::connectWebSocket()
+{
+    mWebSocket->openUrl(adaptUrl(mUrl));
+    qCDebug(RUQOLA_DDPAPI_LOG) << "Reconnecting" << mUrl;
+}
+
 QUrl DDPClient::adaptUrl(const QString &url)
 {
     return Utils::generateServerUrl(url);
@@ -219,9 +225,7 @@ void DDPClient::onServerURLChange()
             mWebSocket->close();
         }
         mUrl = mRocketChatAccount->settings()->serverUrl();
-        mWebSocket->openUrl(adaptUrl(mUrl));
-        connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
-        qCDebug(RUQOLA_DDPAPI_LOG) << "Reconnecting" << mUrl;
+        connectWebSocket();
     }
 }
 
@@ -632,7 +636,11 @@ void DDPClient::enqueueLogin()
     if (isConnected()) {
         login();
     } else {
+        // if the connection is already in, it's enough to wait for the web socket to connect
         mLoginEnqueued = true;
+        if (!mWebSocket->isValid()) {
+            connectWebSocket();
+        }
     }
 }
 
