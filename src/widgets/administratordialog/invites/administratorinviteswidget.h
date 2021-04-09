@@ -32,6 +32,15 @@ public:
     ~AdministratorInvitesWidget() override;
 
 private:
+    // TODO
+    // QJsonDocument([{"_id":"D2F6of","_updatedAt":"2021-04-07T06:49:04.571Z","createdAt":"2021-04-07T06:49:04.571Z","days":1,"expires":"2021-04-08T06:49:04.571Z","maxUses":25,"rid":"n2GWePY4zjG48g7qA","userId":"H7Q9djXQ4iShzD9T2","uses":0}])
+    struct InviteInfo {
+        QString identifier;
+        QString roomId;
+        QString userId;
+        int maxUses = -1;
+        int uses = -1;
+    };
     void initialize();
     void slotListInviteDone(const QJsonDocument &obj);
     void slotRemoveInvite(const QString &identifier);
