@@ -39,6 +39,8 @@ public:
     static Q_REQUIRED_RESULT QJsonObject serialize(const TeamInfo &retention);
     static Q_REQUIRED_RESULT TeamInfo fromJSon(const QJsonObject &o);
 
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
     QString mTeamId;
     bool mMainTeam = false;

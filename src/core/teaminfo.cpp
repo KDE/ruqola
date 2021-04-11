@@ -46,6 +46,11 @@ TeamInfo TeamInfo::fromJSon(const QJsonObject &obj)
     return info;
 }
 
+bool TeamInfo::isValid() const
+{
+    return !mTeamId.isEmpty();
+}
+
 QString TeamInfo::teamId() const
 {
     return mTeamId;
