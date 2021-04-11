@@ -30,11 +30,13 @@ void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
     mMainTeam = replyObject.value(QStringLiteral("teamMain")).toBool(false);
 }
 
-QJsonObject TeamInfo::serialize(const TeamInfo &retention)
+QJsonObject TeamInfo::serialize(const TeamInfo &teams)
 {
     QJsonObject obj;
-    obj[QStringLiteral("teamId")] = retention.teamId();
-    obj[QStringLiteral("teamMain")] = retention.mainTeam();
+    if (teams.isValid()) {
+        obj[QStringLiteral("teamId")] = teams.teamId();
+        obj[QStringLiteral("teamMain")] = teams.mainTeam();
+    }
     return obj;
 }
 
