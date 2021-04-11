@@ -18,35 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "teaminfo.h"
+#pragma once
 
-TeamInfo::TeamInfo()
-{
-}
+#include <QObject>
 
-QString TeamInfo::teamId() const
+class TeamInfoTest : public QObject
 {
-    return mTeamId;
-}
-
-void TeamInfo::setTeamId(const QString &teamId)
-{
-    mTeamId = teamId;
-}
-
-bool TeamInfo::mainTeam() const
-{
-    return mMainTeam;
-}
-
-void TeamInfo::setMainTeam(bool mainTeam)
-{
-    mMainTeam = mainTeam;
-}
-
-QDebug operator<<(QDebug d, const TeamInfo &t)
-{
-    d << "team id: " << t.teamId();
-    d << "is Main Team: " << t.mainTeam();
-    return d;
-}
+    Q_OBJECT
+public:
+    explicit TeamInfoTest(QObject *parent = nullptr);
+    ~TeamInfoTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};

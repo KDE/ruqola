@@ -27,6 +27,16 @@ class LIBRUQOLACORE_EXPORT TeamInfo
 public:
     TeamInfo();
     ~TeamInfo() = default;
+
+    Q_REQUIRED_RESULT QString teamId() const;
+    void setTeamId(const QString &teamId);
+
+    Q_REQUIRED_RESULT bool mainTeam() const;
+    void setMainTeam(bool mainTeam);
+
+private:
+    QString mTeamId;
+    bool mMainTeam = false;
 };
 
 Q_DECLARE_METATYPE(TeamInfo)
