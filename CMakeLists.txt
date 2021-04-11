@@ -99,8 +99,8 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     SyntaxHighlighting
     NotifyConfig
     ItemViews
+    DocTools
 )
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DocTools)
 
 find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5XmlGui ${KF5_MIN_VERSION} CONFIG REQUIRED)
