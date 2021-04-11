@@ -30,6 +30,7 @@
 #include "channelcounterinfo.h"
 #include "libruqolacore_export.h"
 #include "retentioninfo.h"
+#include "teaminfo.h"
 #include "utils.h"
 
 #include <memory>
@@ -256,6 +257,9 @@ public:
     void setRetentionInfo(const RetentionInfo &retentionInfo);
 
     static Q_REQUIRED_RESULT Room::RoomType roomTypeFromString(const QString &type);
+    Q_REQUIRED_RESULT TeamInfo teamInfo() const;
+    void setTeamInfo(const TeamInfo &teamInfo);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -303,6 +307,7 @@ Q_SIGNALS:
     void userNamesChanged();
 
     void retentionInfoChanged();
+    void teamInfoChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -399,6 +404,7 @@ private:
     QStringList mDisplaySystemMessageType;
     ChannelCounterInfo mChannelCounterInfo;
     RetentionInfo mRetentionInfo;
+    TeamInfo mTeamInfo;
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
     UsersForRoomModel *const mUsersModelForRoom;

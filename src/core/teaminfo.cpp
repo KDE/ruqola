@@ -53,6 +53,16 @@ bool TeamInfo::isValid() const
     return !mTeamId.isEmpty();
 }
 
+bool TeamInfo::operator==(const TeamInfo &other) const
+{
+    return mTeamId == other.teamId() && mMainTeam == other.mainTeam();
+}
+
+bool TeamInfo::operator!=(const TeamInfo &other) const
+{
+    return !operator==(other);
+}
+
 QString TeamInfo::teamId() const
 {
     return mTeamId;

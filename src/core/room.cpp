@@ -778,6 +778,19 @@ void Room::parseRetentionInfo(const QJsonObject &json)
     }
 }
 
+TeamInfo Room::teamInfo() const
+{
+    return mTeamInfo;
+}
+
+void Room::setTeamInfo(const TeamInfo &teamInfo)
+{
+    if (mTeamInfo != teamInfo) {
+        mTeamInfo = teamInfo;
+        Q_EMIT teamInfoChanged();
+    }
+}
+
 void Room::parseDisplaySystemMessage(const QJsonObject &json)
 {
     const QJsonArray sysMessArray = json.value(QLatin1String("sysMes")).toArray();

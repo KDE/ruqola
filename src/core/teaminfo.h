@@ -41,6 +41,9 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
+    Q_REQUIRED_RESULT bool operator==(const TeamInfo &other) const;
+    Q_REQUIRED_RESULT bool operator!=(const TeamInfo &other) const;
+
 private:
     QString mTeamId;
     bool mMainTeam = false;
