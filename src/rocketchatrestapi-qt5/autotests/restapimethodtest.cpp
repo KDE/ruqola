@@ -278,4 +278,21 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.update")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Statistics), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Directory), QUrl(QStringLiteral("http://www.kde.org/api/v1/directory")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsListAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listAll")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.create")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsAddRooms), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.addRooms")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsRemoveRoom), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeRoom")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsListRooms), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listRooms")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsUpdateRoom), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.updateRoom")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsListRoomsOfUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listRoomsOfUser")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsMembers), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.members")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsAddMembers), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.addMembers")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsUpdateMember), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.updateMember")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsRemoveMember), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeMember")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsLeave), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.leave")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.info")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.delete")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsAutocomplete), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.autocomplete")));
 }

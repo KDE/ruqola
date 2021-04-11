@@ -253,6 +253,24 @@ enum class RestApiUrlType {
     Statistics,
 
     Directory,
+
+    // Teams 3.13
+    TeamsList,
+    TeamsListAll,
+    TeamsCreate,
+    TeamsAddRooms,
+    TeamsRemoveRoom,
+    TeamsUpdateRoom,
+    TeamsListRooms,
+    TeamsListRoomsOfUser,
+    TeamsMembers,
+    TeamsAddMembers,
+    TeamsUpdateMember,
+    TeamsRemoveMember,
+    TeamsLeave,
+    TeamsInfo,
+    TeamsDelete,
+    TeamsAutocomplete,
 };
 LIBROCKETCHATRESTAPI_QT5_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

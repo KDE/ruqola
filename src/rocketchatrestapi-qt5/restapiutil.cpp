@@ -437,6 +437,39 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("statistics");
     case RestApiUtil::RestApiUrlType::Directory:
         return QStringLiteral("directory");
+
+    case RestApiUtil::RestApiUrlType::TeamsList:
+        return QStringLiteral("teams.list");
+    case RestApiUtil::RestApiUrlType::TeamsListAll:
+        return QStringLiteral("teams.listAll");
+    case RestApiUtil::RestApiUrlType::TeamsCreate:
+        return QStringLiteral("teams.create");
+    case RestApiUtil::RestApiUrlType::TeamsAddRooms:
+        return QStringLiteral("teams.addRooms");
+    case RestApiUtil::RestApiUrlType::TeamsRemoveRoom:
+        return QStringLiteral("teams.removeRoom");
+    case RestApiUtil::RestApiUrlType::TeamsUpdateRoom:
+        return QStringLiteral("teams.updateRoom");
+    case RestApiUtil::RestApiUrlType::TeamsListRooms:
+        return QStringLiteral("teams.listRooms");
+    case RestApiUtil::RestApiUrlType::TeamsListRoomsOfUser:
+        return QStringLiteral("teams.listRoomsOfUser");
+    case RestApiUtil::RestApiUrlType::TeamsMembers:
+        return QStringLiteral("teams.members");
+    case RestApiUtil::RestApiUrlType::TeamsAddMembers:
+        return QStringLiteral("teams.addMembers");
+    case RestApiUtil::RestApiUrlType::TeamsUpdateMember:
+        return QStringLiteral("teams.updateMember");
+    case RestApiUtil::RestApiUrlType::TeamsRemoveMember:
+        return QStringLiteral("teams.removeMember");
+    case RestApiUtil::RestApiUrlType::TeamsLeave:
+        return QStringLiteral("teams.leave");
+    case RestApiUtil::RestApiUrlType::TeamsInfo:
+        return QStringLiteral("teams.info");
+    case RestApiUtil::RestApiUrlType::TeamsDelete:
+        return QStringLiteral("teams.delete");
+    case RestApiUtil::RestApiUrlType::TeamsAutocomplete:
+        return QStringLiteral("teams.autocomplete");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
