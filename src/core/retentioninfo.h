@@ -48,8 +48,8 @@ public:
     Q_REQUIRED_RESULT bool operator!=(const RetentionInfo &other) const;
 
     static Q_REQUIRED_RESULT QJsonObject serialize(const RetentionInfo &retention);
-    Q_REQUIRED_RESULT bool isNotDefault() const;
     static Q_REQUIRED_RESULT RetentionInfo fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT bool isNotDefault() const;
 
 private:
     int mMaxAge = -1;

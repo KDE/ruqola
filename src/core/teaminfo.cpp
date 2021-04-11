@@ -24,6 +24,28 @@ TeamInfo::TeamInfo()
 {
 }
 
+void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
+{
+    mTeamId = replyObject.value(QStringLiteral("teamId")).toString();
+    mMainTeam = replyObject.value(QStringLiteral("teamMain")).toBool(false);
+}
+
+QJsonObject TeamInfo::serialize(const TeamInfo &retention)
+{
+    QJsonObject obj;
+    obj[QStringLiteral("teamId")] = retention.teamId();
+    obj[QStringLiteral("teamMain")] = retention.mainTeam();
+    return obj;
+}
+
+TeamInfo TeamInfo::fromJSon(const QJsonObject &obj)
+{
+    TeamInfo info;
+    info.setMainTeam(obj[QStringLiteral("teamMain")].toBool());
+    info.setTeamId(obj[QStringLiteral("teamId")].toString());
+    return info;
+}
+
 QString TeamInfo::teamId() const
 {
     return mTeamId;

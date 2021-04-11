@@ -28,11 +28,16 @@ public:
     TeamInfo();
     ~TeamInfo() = default;
 
+    void parseTeamInfo(const QJsonObject &replyObject);
+
     Q_REQUIRED_RESULT QString teamId() const;
     void setTeamId(const QString &teamId);
 
     Q_REQUIRED_RESULT bool mainTeam() const;
     void setMainTeam(bool mainTeam);
+
+    static Q_REQUIRED_RESULT QJsonObject serialize(const TeamInfo &retention);
+    static Q_REQUIRED_RESULT TeamInfo fromJSon(const QJsonObject &o);
 
 private:
     QString mTeamId;
