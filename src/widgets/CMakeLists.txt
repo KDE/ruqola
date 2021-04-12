@@ -233,6 +233,11 @@ set(Ruqola_export_messages_SRCS
     exportmessages/exportmessageswidget.cpp
     )
 
+set(Ruqola_teams_dialog_SRCS
+    teams/teamchannelsdialog.cpp
+    teams/teamchannelswidget.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
@@ -240,6 +245,7 @@ ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selecti
 
 add_library(libruqolawidgets
     ruqolawidget.qrc
+    ${Ruqola_teams_dialog_SRCS}
     ${Ruqola_widget_register_user_SRCS}
     ${Ruqola_textplugin_SRCS}
     ${ruqola_userfeedback_SRCS}
@@ -310,6 +316,7 @@ if (BUILD_TESTING)
     add_subdirectory(prunemessages/autotests)
     add_subdirectory(administratordialog/autotests)
     add_subdirectory(exportmessages/autotests)
+    add_subdirectory(teams/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
