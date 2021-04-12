@@ -526,6 +526,7 @@ int RoomModel::order(Room *r) const
 
 QIcon RoomModel::icon(Room *r) const
 {
+    // TODO add team icon support.
     switch (r->channelType()) {
     case Room::RoomType::Private:
         if (r->parentRid().isEmpty()) {
