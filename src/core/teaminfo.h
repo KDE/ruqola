@@ -36,7 +36,7 @@ public:
     Q_REQUIRED_RESULT bool mainTeam() const;
     void setMainTeam(bool mainTeam);
 
-    static Q_REQUIRED_RESULT QJsonObject serialize(const TeamInfo &retention);
+    static void serialize(const TeamInfo &teams, QJsonObject &obj);
     static Q_REQUIRED_RESULT TeamInfo fromJSon(const QJsonObject &o);
 
     Q_REQUIRED_RESULT bool isValid() const;

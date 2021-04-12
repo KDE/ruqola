@@ -94,7 +94,8 @@ bool Room::isEqual(const Room &other) const
         && (mBroadcast == other.broadcast()) && (mParentRid == other.parentRid()) && (mFName == other.fName()) && (mAutoTranslate == other.autoTranslate())
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
-        && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo());
+        && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
+        && (mTeamInfo == other.teamInfo());
 }
 
 QString Room::displayRoomName() const
@@ -154,6 +155,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "usernames " << t.userNames();
     d << "highlightsWord " << t.highlightsWord();
     d << "RetentionInfo " << t.retentionInfo();
+    d << "TeamInfo " << t.teamInfo();
     return d;
 }
 
@@ -354,6 +356,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
     parseDisplaySystemMessage(json);
     parseRetentionInfo(json);
+    mTeamInfo.parseTeamInfo(json);
 }
 
 bool Room::selected() const
@@ -652,6 +655,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     }
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
+    mTeamInfo.parseTeamInfo(json);
 }
 
 qint64 Room::lastSeenAt() const
@@ -1261,6 +1265,8 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     const QJsonObject retentionObj = o.value(QLatin1String("retention")).toObject();
     const RetentionInfo retention = RetentionInfo::fromJSon(retentionObj);
     r->setRetentionInfo(retention);
+    const TeamInfo teaminfo = TeamInfo::fromJSon(o);
+    r->setTeamInfo(teaminfo);
 
     // TODO add parent RID
 
@@ -1372,6 +1378,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     if (r->retentionInfo().isNotDefault()) {
         o[QStringLiteral("retention")] = RetentionInfo::serialize(r->retentionInfo());
+    }
+    if (r->teamInfo().isValid()) {
+        TeamInfo::serialize(r->teamInfo(), o);
     }
 
     if (toBinary) {
