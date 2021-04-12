@@ -19,10 +19,15 @@
 */
 
 #include "teamchannelswidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
 TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     : QWidget(parent)
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 TeamChannelsWidget::~TeamChannelsWidget()

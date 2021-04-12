@@ -1755,6 +1755,12 @@ bool RocketChatAccount::allowAvatarChanged() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserAvatarChange;
 }
 
+bool RocketChatAccount::teamEnabled() const
+{
+    // TODO verify RC version
+    return true;
+}
+
 bool RocketChatAccount::ldapEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::LdapEnabled;

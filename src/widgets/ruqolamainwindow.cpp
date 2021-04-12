@@ -212,7 +212,8 @@ void RuqolaMainWindow::updateActions()
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
     mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->registrationFromEnabled());
     mAdministrator->setEnabled(mCurrentRocketChatAccount->isAdministrator());
-    mDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
+    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
+    mCreateTeam->setEnabled(mCurrentRocketChatAccount->teamEnabled());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -280,10 +281,15 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
     ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
 
-    mDiscussion = new QAction(i18n("Create Discussion..."), this);
-    mDiscussion->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
-    connect(mDiscussion, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDiscussion);
-    ac->addAction(QStringLiteral("create_discussion"), mDiscussion);
+    mCreateDiscussion = new QAction(i18n("Create Discussion..."), this);
+    mCreateDiscussion->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    connect(mCreateDiscussion, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDiscussion);
+    ac->addAction(QStringLiteral("create_discussion"), mCreateDiscussion);
+
+    mCreateTeam = new QAction(i18n("Create Team..."), this);
+    mCreateTeam->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    connect(mCreateTeam, &QAction::triggered, this, &RuqolaMainWindow::slotCreateTeam);
+    ac->addAction(QStringLiteral("create_team"), mCreateTeam);
 
     mServerMenu = new ServerMenu(this);
     mServerMenu->setActionCollection(ac);
@@ -340,6 +346,11 @@ void RuqolaMainWindow::slotClearAccountAlerts()
     if (auto acct = Ruqola::self()->accountManager()->account()) {
         acct->clearAllUnreadMessages();
     }
+}
+
+void RuqolaMainWindow::slotCreateTeam()
+{
+    // TODO
 }
 
 void RuqolaMainWindow::slotCreateDiscussion()
@@ -472,7 +483,8 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
     mStatus->setEnabled(!loginPageActivated);
-    mDiscussion->setEnabled(!loginPageActivated);
+    mCreateDiscussion->setEnabled(!loginPageActivated);
+    mCreateTeam->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
