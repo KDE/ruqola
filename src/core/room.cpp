@@ -770,6 +770,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
     parseRetentionInfo(json);
+    mTeamInfo.parseTeamInfo(json);
 
     // TODO add muted
 }

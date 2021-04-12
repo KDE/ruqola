@@ -1,0 +1,22 @@
+{
+    "_id": "epGvxJC5MCxTTb9GY",
+    "_updatedAt": {
+        "$date": 1618146576614
+    },
+    "broadcast": false,
+    "default": false,
+    "description": "",
+    "encrypted": false,
+    "fname": "ruqola-team",
+    "name": "ruqola-team",
+    "ro": false,
+    "sysMes": true,
+    "t": "p",
+    "teamId": "6072f51066b377a354d793cc",
+    "teamMain": true,
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "usersCount": 1
+}
