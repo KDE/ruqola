@@ -1387,7 +1387,6 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         return QCborValue::fromJsonValue(o).toCbor();
     }
     d.setObject(o);
-    // TODO retention
     return d.toJson(QJsonDocument::Indented);
 }
 
