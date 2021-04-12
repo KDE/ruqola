@@ -74,6 +74,7 @@ ImageGraphicsView::ImageGraphicsView(QWidget *parent)
     mGraphicsProxyWidget->setFlag(QGraphicsItem::ItemIsMovable, true);
 
     mGraphicsPixmapItem = scene->addPixmap({});
+    mGraphicsPixmapItem->setTransformationMode(Qt::SmoothTransformation);
 
     updateRanges();
 }
