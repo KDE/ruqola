@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,20 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "teamchannelswidget.h"
-#include "restapirequest.h"
-#include "ruqola.h"
-#include <KLocalizedString>
-#include <QVBoxLayout>
-
-TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
-    : QWidget(parent)
+#include "teamslistroomsjobtest.h"
+#include "permissions/permissionslistalljob.h"
+#include "ruqola_restapi_helper.h"
+#include <QTest>
+#include <restapimethod.h>
+QTEST_GUILESS_MAIN(TeamsListRoomsJobTest)
+using namespace RocketChatRestApi;
+TeamsListRoomsJobTest::TeamsListRoomsJobTest(QObject *parent)
+    : QObject(parent)
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
 }
 
-TeamChannelsWidget::~TeamChannelsWidget()
+void TeamsListRoomsJobTest::shouldHaveDefaultValue()
 {
+    PermissionsListAllJob job;
+    verifyDefaultValue(&job);
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
+}
+
+void TeamsListRoomsJobTest::shouldGenerateRequest()
+{
+    PermissionsListAllJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.listAll")));
 }

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,20 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "teamchannelswidget.h"
-#include "restapirequest.h"
-#include "ruqola.h"
-#include <KLocalizedString>
-#include <QVBoxLayout>
+#pragma once
 
-TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
-    : QWidget(parent)
-{
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-}
+#include <QObject>
 
-TeamChannelsWidget::~TeamChannelsWidget()
+class TeamsListRoomsJobTest : public QObject
 {
-}
+    Q_OBJECT
+public:
+    explicit TeamsListRoomsJobTest(QObject *parent = nullptr);
+    ~TeamsListRoomsJobTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+};

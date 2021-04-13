@@ -181,6 +181,7 @@ set (RocketChatRestApiQt_SRCS
     2fa/user2fasendemailcodejob.cpp
 
     teams/createteamjob.cpp
+    teams/teamslistroomsjob.cpp
 
     )
 

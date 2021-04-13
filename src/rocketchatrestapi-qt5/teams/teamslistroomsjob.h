@@ -18,20 +18,32 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "teamchannelswidget.h"
-#include "restapirequest.h"
-#include "ruqola.h"
-#include <KLocalizedString>
-#include <QVBoxLayout>
+#pragma once
 
-TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
-    : QWidget(parent)
-{
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-}
+#include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
 
-TeamChannelsWidget::~TeamChannelsWidget()
+#include <QNetworkRequest>
+namespace RocketChatRestApi
 {
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT TeamsListRoomsJob : public RestApiAbstractJob
+{
+    Q_OBJECT
+public:
+    explicit TeamsListRoomsJob(QObject *parent = nullptr);
+    ~TeamsListRoomsJob() override;
+
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+
+    Q_REQUIRED_RESULT bool start() override;
+
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+Q_SIGNALS:
+    void teamListRoomsDone(const QJsonObject &obj);
+
+private:
+    Q_DISABLE_COPY(TeamsListRoomsJob)
+    void slotTeamLisRoomsFinished();
+};
 }
