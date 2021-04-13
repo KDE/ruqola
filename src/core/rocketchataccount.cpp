@@ -1757,8 +1757,7 @@ bool RocketChatAccount::allowAvatarChanged() const
 
 bool RocketChatAccount::teamEnabled() const
 {
-    // TODO verify RC version
-    return true;
+    return mRuqolaServerConfig->hasAtLeastVersion(3, 13, 0);
 }
 
 bool RocketChatAccount::ldapEnabled() const
