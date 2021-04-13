@@ -192,6 +192,10 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->directChannelUserId();
     case RoomModel::RoomAvatarInfo:
         return QVariant::fromValue(r->avatarInfo());
+    case RoomModel::RoomTeamId:
+        return r->teamInfo().teamId();
+    case RoomModel::RoomTeamIsMain:
+        return r->teamInfo().mainTeam();
     }
     return {};
 }
