@@ -229,7 +229,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
 
         if (response.contains(sl("error"))) {
             const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
-
+            qCWarning(RUQOLA_DDPAPI_LOG) << "Login Error: " << response;
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
             //   - When logging in with user and password -> invalid username or password
