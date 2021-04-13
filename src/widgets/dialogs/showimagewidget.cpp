@@ -24,7 +24,6 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsProxyWidget>
 #include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QLabel>
 #include <QMovie>
 #include <QPushButton>
