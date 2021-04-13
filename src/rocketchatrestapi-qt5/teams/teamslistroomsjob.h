@@ -20,13 +20,13 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT TeamsListRoomsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsListRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -39,11 +39,17 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    Q_REQUIRED_RESULT QString teamId() const;
+    void setTeamId(const QString &teamId);
+
+    Q_REQUIRED_RESULT bool canStart() const override;
+
 Q_SIGNALS:
     void teamListRoomsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(TeamsListRoomsJob)
     void slotTeamLisRoomsFinished();
+    QString mTeamId;
 };
 }

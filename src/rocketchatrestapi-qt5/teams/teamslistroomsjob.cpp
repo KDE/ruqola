@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 TeamsListRoomsJob::TeamsListRoomsJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -48,7 +49,7 @@ bool TeamsListRoomsJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &TeamsListRoomsJob::slotTeamLisRoomsFinished);
-    addStartRestApiInfo(QByteArrayLiteral("TeamsListRoomsJob: Ask info about me"));
+    addStartRestApiInfo(QByteArrayLiteral("TeamsListRoomsJob: ask list of rooms in team"));
     return true;
 }
 
@@ -70,12 +71,38 @@ void TeamsListRoomsJob::slotTeamLisRoomsFinished()
     deleteLater();
 }
 
+QString TeamsListRoomsJob::teamId() const
+{
+    return mTeamId;
+}
+
+void TeamsListRoomsJob::setTeamId(const QString &teamId)
+{
+    mTeamId = teamId;
+}
+
 QNetworkRequest TeamsListRoomsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsListRooms);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsListRooms);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("teamId"), mTeamId);
+    // TODO add offset/count for the future
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
 
     return request;
+}
+
+bool TeamsListRoomsJob::canStart() const
+{
+    if (mTeamId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsListRoomsJob: mTeamId is empty";
+        return false;
+    }
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    return true;
 }
