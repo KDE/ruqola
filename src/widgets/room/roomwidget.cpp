@@ -52,6 +52,7 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomwidgetbase.h"
+#include "teams/teamchannelsdialog.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "uploadfileprogressstatuswidget.h"
 
@@ -96,6 +97,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::channelInfoRequested, this, &RoomWidget::slotChannelInfoRequested);
     connect(mRoomWidgetBase, &RoomWidgetBase::loadHistory, this, &RoomWidget::slotLoadHistory);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::teamChannelsRequested, this, &RoomWidget::slotTeamChannelsRequested);
     setAcceptDrops(true);
 }
 
@@ -355,6 +357,17 @@ void RoomWidget::slotSearchMessages()
     delete dlg;
 }
 
+void RoomWidget::slotTeamChannelsRequested()
+{
+    // TODO
+    QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(this);
+    dlg->setTeamId(mRoom->teamInfo().teamId());
+    // dlg->setRoomId(mRoomWidgetBase->roomId());
+    // connect(dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
+    dlg->exec();
+    delete dlg;
+}
+
 void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {
     mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, mRoomHeaderWidget->roomName());
@@ -453,6 +466,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
         mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
+        mRoomHeaderWidget->setMainTeam(mRoom->teamInfo().mainTeam());
         // TODO Description ?
 
         mRoomWidgetBase->updateRoomReadOnly(mRoom);

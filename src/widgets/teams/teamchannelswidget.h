@@ -29,4 +29,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 public:
     explicit TeamChannelsWidget(QWidget *parent = nullptr);
     ~TeamChannelsWidget() override;
+    void setTeamId(const QString &teamId);
+
+private:
+    void initializeTeamRoomsList();
+    QString mTeamId;
 };

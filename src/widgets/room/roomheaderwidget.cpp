@@ -40,6 +40,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     , mSearchMessageButton(new QToolButton(this))
     , mChannelAction(new QToolButton(this))
     , mChannelInfoButton(new QToolButton(this))
+    , mTeamChannelsButton(new QToolButton(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -122,6 +123,13 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->addWidget(mChannelInfoButton, Qt::AlignTop);
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
+    mTeamChannelsButton->setAutoRaise(true);
+    mTeamChannelsButton->setObjectName(QStringLiteral("mTeamChannelsButton"));
+    mTeamChannelsButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-channel-active")));
+    mTeamChannelsButton->setToolTip(i18n("Team Channels"));
+    buttonLayout->addWidget(mTeamChannelsButton, Qt::AlignTop);
+    connect(mTeamChannelsButton, &QToolButton::clicked, this, &RoomHeaderWidget::teamChannelsRequested);
+
     mListOfUsersButton->setAutoRaise(true);
     mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
@@ -186,6 +194,11 @@ void RoomHeaderWidget::setEncypted(bool b)
 {
     mEncryptedButton->setChecked(b);
     mEncryptedButton->setVisible(b);
+}
+
+void RoomHeaderWidget::setMainTeam(bool isMainTeam)
+{
+    mTeamChannelsButton->setVisible(isMainTeam);
 }
 
 void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)

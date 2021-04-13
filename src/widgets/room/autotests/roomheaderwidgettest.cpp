@@ -113,6 +113,12 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mChannelAction->popupMode(), QToolButton::InstantPopup);
     QVERIFY(!mChannelAction->icon().isNull());
     QVERIFY(mChannelAction->autoRaise());
+
+    auto mTeamChannelsButton = w.findChild<QToolButton *>(QStringLiteral("mTeamChannelsButton"));
+    QVERIFY(mTeamChannelsButton);
+    QCOMPARE(mTeamChannelsButton->popupMode(), QToolButton::InstantPopup);
+    QVERIFY(!mTeamChannelsButton->icon().isNull());
+    QVERIFY(mTeamChannelsButton->autoRaise());
 }
 
 void RoomHeaderWidgetTest::shouldShowHideIcon()

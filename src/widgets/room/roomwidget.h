@@ -95,6 +95,7 @@ private:
     void slotExportMessages();
     void slotFollowMessages();
     void clearBeforeSwitching();
+    void slotTeamChannelsRequested();
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
     void slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc);
 

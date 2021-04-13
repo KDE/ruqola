@@ -53,6 +53,11 @@ TeamChannelsDialog::~TeamChannelsDialog()
     writeConfig();
 }
 
+void TeamChannelsDialog::setTeamId(const QString &teamId)
+{
+    mTeamChannelsWidget->setTeamId(teamId);
+}
+
 void TeamChannelsDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamChannelsDialogConfigGroupName);

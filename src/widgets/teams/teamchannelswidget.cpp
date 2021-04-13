@@ -21,6 +21,7 @@
 #include "teamchannelswidget.h"
 #include "restapirequest.h"
 #include "ruqola.h"
+#include "teams/teamslistroomsjob.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
@@ -34,4 +35,17 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
 
 TeamChannelsWidget::~TeamChannelsWidget()
 {
+}
+
+void TeamChannelsWidget::setTeamId(const QString &teamId)
+{
+    if (mTeamId != teamId) {
+        mTeamId = teamId;
+        initializeTeamRoomsList();
+    }
+}
+
+void TeamChannelsWidget::initializeTeamRoomsList()
+{
+    // TODO
 }

@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsDialog : public QDialog
 public:
     explicit TeamChannelsDialog(QWidget *parent = nullptr);
     ~TeamChannelsDialog() override;
+    void setTeamId(const QString &teamId);
 
 private:
     void readConfig();

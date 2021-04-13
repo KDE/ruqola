@@ -66,6 +66,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setRoom(Room *room);
 
+    void setMainTeam(bool isMainTeam);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);
@@ -74,6 +75,7 @@ Q_SIGNALS:
     void searchMessageRequested();
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
     void channelInfoRequested();
+    void teamChannelsRequested();
 
 private:
     QLabel *const mRoomName;
@@ -87,6 +89,7 @@ private:
     QToolButton *const mSearchMessageButton;
     QToolButton *const mChannelAction;
     QToolButton *const mChannelInfoButton;
+    QToolButton *const mTeamChannelsButton;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };
 
