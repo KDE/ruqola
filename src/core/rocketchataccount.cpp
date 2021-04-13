@@ -2307,6 +2307,9 @@ void RocketChatAccount::loginStatusChangedSlot()
     } else if (loginStatus() == DDPAuthenticationManager::LoggedIn) {
         // Reset it.
         mDelayReconnect = 100;
+    } else if (loginStatus() == DDPAuthenticationManager::LoginFailedInvalidUserOrPassword) {
+        // clear auth token to refresh it with the next login
+        setAuthToken({});
     }
     Q_EMIT loginStatusChanged();
 }
