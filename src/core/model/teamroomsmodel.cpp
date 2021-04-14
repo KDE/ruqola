@@ -44,8 +44,7 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const TeamRoom &teamroom = mTeamRooms.at(index.row());
-    const int col = index.column();
-    switch (static_cast<TeamRoomsRoles>(col)) {
+    switch (role) {
     case TeamRoomsRoles::Name:
         return teamroom.name();
     case TeamRoomsRoles::AutoJoin:
