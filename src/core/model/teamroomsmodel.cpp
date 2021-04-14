@@ -32,9 +32,7 @@ TeamRoomsModel::~TeamRoomsModel()
 
 int TeamRoomsModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) {
-        return 0; // flat model
-    }
+    Q_UNUSED(parent);
     return mTeamRooms.count();
 }
 
@@ -66,7 +64,7 @@ void TeamRoomsModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
         mTeamRooms.clear();
         endRemoveRows();
     }
-    if (!mTeamRooms.isEmpty()) {
+    if (!teamRooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, teamRooms.count() - 1);
         mTeamRooms = teamRooms;
         endInsertRows();
