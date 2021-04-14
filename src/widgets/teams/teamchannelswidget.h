@@ -25,6 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class QListView;
 class QLineEdit;
+class TeamRoomsModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 {
     Q_OBJECT
@@ -38,5 +39,6 @@ private:
     void initializeTeamRoomsList();
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
+    TeamRoomsModel *const mTeamRoomsModel;
     QString mTeamId;
 };

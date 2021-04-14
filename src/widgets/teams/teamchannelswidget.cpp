@@ -20,6 +20,7 @@
 
 #include "teamchannelswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -36,6 +37,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
+    , mTeamRoomsModel(new TeamRoomsModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -50,6 +52,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
 
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);
+    mListView->setModel(mTeamRoomsModel);
 }
 
 TeamChannelsWidget::~TeamChannelsWidget()
@@ -88,4 +91,5 @@ void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
         teamRooms.append(teamRoom);
         qDebug() << "TeamRoom  " << teamRoom;
     }
+    mTeamRoomsModel->setTeamRooms(teamRooms);
 }

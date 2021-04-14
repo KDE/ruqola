@@ -29,7 +29,7 @@ class LIBRUQOLACORE_EXPORT TeamRoomsModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum TeamRoomsRoles {
-        Name,
+        Name = Qt::UserRole + 1,
         AutoJoin,
     };
     Q_ENUM(TeamRoomsRoles)
