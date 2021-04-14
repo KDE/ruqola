@@ -20,7 +20,9 @@
 
 #include "teamchannelswidget.h"
 #include "restapirequest.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "teams/teamslistroomsjob.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
@@ -47,5 +49,17 @@ void TeamChannelsWidget::setTeamId(const QString &teamId)
 
 void TeamChannelsWidget::initializeTeamRoomsList()
 {
-    // TODO
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
+    job->setTeamId(mTeamId);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &TeamChannelsWidget::slotTeamListRoomsDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+    }
+}
+
+void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
 }

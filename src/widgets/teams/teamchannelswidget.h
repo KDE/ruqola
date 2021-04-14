@@ -32,6 +32,7 @@ public:
     void setTeamId(const QString &teamId);
 
 private:
+    void slotTeamListRoomsDone(const QJsonObject &obj);
     void initializeTeamRoomsList();
     QString mTeamId;
 };
