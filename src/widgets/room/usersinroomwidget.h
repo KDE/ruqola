@@ -50,7 +50,7 @@ private:
     QLineEdit *const mSearchLineEdit;
     Room *mRoom = nullptr;
     UsersInRoomMenu *mMenu = nullptr;
-    QLabel *const mMessageListInfo = nullptr;
+    QLabel *const mMessageListInfo;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;
     UsersInRoomComboBox *const mUsersInRoomComboBox;
 };
