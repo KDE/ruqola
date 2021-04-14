@@ -23,13 +23,16 @@
 #include "libruqolacore_export.h"
 #include "teamroom.h"
 #include <QAbstractListModel>
-
+#include <QVector>
 class LIBRUQOLACORE_EXPORT TeamRoomsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum AdminRoomsRoles { Name, Topic, ChannelType, ChannelTypeStr, MessagesCount, UsersCount, ReadOnly, DefaultRoom, Identifier, LastColumn = Identifier };
-    Q_ENUM(AdminRoomsRoles)
+    enum TeamRoomsRoles {
+        Name,
+        AutoJoin,
+    };
+    Q_ENUM(TeamRoomsRoles)
 
     explicit TeamRoomsModel(QObject *parent = nullptr);
     ~TeamRoomsModel() override;
@@ -37,7 +40,10 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
+    Q_REQUIRED_RESULT QVector<TeamRoom> teamRooms() const;
+    void setTeamRooms(const QVector<TeamRoom> &teamRooms);
+
 private:
     Q_DISABLE_COPY(TeamRoomsModel)
-    // AdminRooms mAdminRooms;
+    QVector<TeamRoom> mTeamRooms;
 };

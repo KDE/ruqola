@@ -35,61 +35,40 @@ int TeamRoomsModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    // return mAdminRooms.count();
-    return 0;
+    return mTeamRooms.count();
 }
 
 QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
 {
-#if 0
-    if (index.row() < 0 || index.row() >= mAdminRooms.count()) {
+    if (index.row() < 0 || index.row() >= mTeamRooms.count()) {
         return {};
     }
-    if (role != Qt::DisplayRole) {
-        return {};
-    }
-
-    const AdminRoom &adminroom = mAdminRooms.at(index.row());
+    const TeamRoom &teamroom = mTeamRooms.at(index.row());
     const int col = index.column();
-    switch (static_cast<AdminRoomsRoles>(col)) {
-    case AdminRoomsRoles::Name:
-        return adminroom.roomName();
-    case AdminRoomsRoles::MessagesCount:
-        return adminroom.messageCount();
-    case AdminRoomsRoles::UsersCount:
-        return adminroom.usersCount();
-    case AdminRoomsRoles::Topic:
-        return adminroom.topic();
-    case AdminRoomsRoles::Identifier:
-        return adminroom.identifier();
-    case AdminRoomsRoles::ReadOnly:
-        return adminroom.readOnly();
-    case AdminRoomsRoles::DefaultRoom:
-        return adminroom.defaultRoom();
-    case AdminRoomsRoles::ChannelType:
-        return adminroom.channelType();
-    case AdminRoomsRoles::ChannelTypeStr:
-        return adminroom.channelTypeStr();
+    switch (static_cast<TeamRoomsRoles>(col)) {
+    case TeamRoomsRoles::Name:
+        return teamroom.name();
+    case TeamRoomsRoles::AutoJoin:
+        return teamroom.autoJoin();
     }
-#endif
     return {};
 }
 
-// AdminRooms TeamRoomsModel::adminRooms() const
-//{
-//    return mAdminRooms;
-//}
+QVector<TeamRoom> TeamRoomsModel::teamRooms() const
+{
+    return mTeamRooms;
+}
 
-// void TeamRoomsModel::setAdminRooms(const AdminRooms &adminrooms)
-//{
-//    if (rowCount() != 0) {
-//        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-//        mAdminRooms.clear();
-//        endRemoveRows();
-//    }
-//    if (!adminrooms.isEmpty()) {
-//        beginInsertRows(QModelIndex(), 0, adminrooms.count() - 1);
-//        mAdminRooms = adminrooms;
-//        endInsertRows();
-//    }
-//}
+void TeamRoomsModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mTeamRooms.count() - 1);
+        mTeamRooms.clear();
+        endRemoveRows();
+    }
+    if (!mTeamRooms.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, teamRooms.count() - 1);
+        mTeamRooms = teamRooms;
+        endInsertRows();
+    }
+}

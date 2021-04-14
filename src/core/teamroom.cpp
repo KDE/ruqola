@@ -59,6 +59,13 @@ void TeamRoom::setFname(const QString &fname)
     mFname = fname;
 }
 
+void TeamRoom::parse(const QJsonObject &obj)
+{
+    mName = obj[QLatin1String("name")].toString();
+    mFname = obj[QLatin1String("fname")].toString();
+    mAutoJoin = obj[QLatin1String("teamDefault")].toBool(false);
+}
+
 QDebug operator<<(QDebug d, const TeamRoom &t)
 {
     d << "Name " << t.name();
