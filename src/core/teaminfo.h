@@ -44,9 +44,13 @@ public:
     Q_REQUIRED_RESULT bool operator==(const TeamInfo &other) const;
     Q_REQUIRED_RESULT bool operator!=(const TeamInfo &other) const;
 
+    Q_REQUIRED_RESULT bool autoJoin() const;
+    void setAutoJoin(bool autoJoin);
+
 private:
     QString mTeamId;
     bool mMainTeam = false;
+    bool mAutoJoin = false;
 };
 
 Q_DECLARE_METATYPE(TeamInfo)
