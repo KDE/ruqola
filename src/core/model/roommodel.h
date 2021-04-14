@@ -92,7 +92,7 @@ public:
      *
      * @param room The room to be added
      */
-    void addRoom(Room *room);
+    Q_REQUIRED_RESULT bool addRoom(Room *room);
     void removeRoom(const QString &roomId);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);

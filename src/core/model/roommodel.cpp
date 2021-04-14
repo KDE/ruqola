@@ -212,7 +212,9 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     r->setRoomId(roomID);
     r->setName(roomName);
     r->setSelected(selected);
-    addRoom(r);
+    if (!addRoom(r)) {
+        qWarning(RUQOLA_ROOMS_LOG) << "Failed to add room";
+    }
 }
 
 Room *RoomModel::createNewRoom()
@@ -269,8 +271,9 @@ QString RoomModel::insertRoom(const QJsonObject &room)
     Room *r = createNewRoom();
     r->parseInsertRoom(room);
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room" << r->name() << r->roomId() << r->topic();
-    addRoom(r);
-    return r->roomId();
+    if (addRoom(r))
+        return r->roomId();
+    return {};
 }
 
 Room *RoomModel::addRoom(const QJsonObject &room)
@@ -278,11 +281,12 @@ Room *RoomModel::addRoom(const QJsonObject &room)
     Room *r = createNewRoom();
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_ROOMS_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
-    addRoom(r);
-    return r;
+    if (addRoom(r))
+        return r;
+    return nullptr;
 }
 
-void RoomModel::addRoom(Room *room)
+bool RoomModel::addRoom(Room *room)
 {
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::addRoom(const Room &room)" << room->name();
     int roomCount = mRoomsList.count();
@@ -290,7 +294,7 @@ void RoomModel::addRoom(Room *room)
         if (mRoomsList.at(i)->roomId() == room->roomId()) {
             qCDebug(RUQOLA_ROOMS_LOG) << " room already exist " << room->roomId() << " A bug ? ";
             delete room;
-            return;
+            return false;
         }
     }
     roomCount = mRoomsList.count();
@@ -299,6 +303,7 @@ void RoomModel::addRoom(Room *room)
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" << roomCount << " room name " << room->name();
     mRoomsList.append(room);
     endInsertRows();
+    return true;
 }
 
 void RoomModel::removeRoom(const QString &roomId)
