@@ -81,10 +81,16 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     const int col = index.column();
     switch (static_cast<AdminUsersRoles>(col)) {
     case AdminUsersRoles::Name:
+        return user.name();
     case AdminUsersRoles::UserName:
+        return user.userName();
     case AdminUsersRoles::Email:
+        // TODO
+        break;
     case AdminUsersRoles::Roles:
+        return user.roles();
     case AdminUsersRoles::Disabled:
+        // TODO
         break;
     }
     return {};
