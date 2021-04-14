@@ -32,5 +32,6 @@ void TeamInfoTest::shouldHaveDefaultValues()
     TeamInfo info;
     QVERIFY(info.teamId().isEmpty());
     QVERIFY(!info.mainTeam());
+    QVERIFY(!info.autoJoin());
     QVERIFY(!info.isValid());
 }
