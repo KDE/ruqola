@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -20,29 +20,29 @@
 
 #pragma once
 
-#include "emoticoncategoriesmodel.h"
-#include "emoticons/unicodeemoticon.h"
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
-
-// Model showing emojis from a single category
-class LIBRUQOLACORE_EXPORT EmoticonFilterModel : public QSortFilterProxyModel
+class TeamRoomsModel;
+class LIBRUQOLACORE_EXPORT TeamRoomsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit EmoticonFilterModel(QObject *parent = nullptr);
-    ~EmoticonFilterModel() override;
+    explicit TeamRoomsFilterProxyModel(TeamRoomsModel *fileModel = nullptr, QObject *parent = nullptr);
+    ~TeamRoomsFilterProxyModel() override;
 
-    void setCurrentCategory(const QString &category);
-    Q_REQUIRED_RESULT QString currentCategory() const;
+    void setFilterString(const QString &string);
+    Q_REQUIRED_RESULT int total() const;
 
-    Q_REQUIRED_RESULT EmoticonCategoriesModel *emoticonCategoriesModel() const;
+    Q_REQUIRED_RESULT bool hasFullList() const;
 
+protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
-private:
-    Q_DISABLE_COPY(EmoticonFilterModel)
-    QString mCurrentCategory;
-    EmoticonCategoriesModel *const mEmoticonCategoriesModel;
-};
+    // Q_SIGNALS:
+    //    void hasFullListChanged();
+    //    void totalChanged();
+    //    void loadingInProgressChanged();
 
+private:
+    TeamRoomsModel *const mTeamRoomsModel;
+};

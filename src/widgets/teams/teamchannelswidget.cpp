@@ -79,4 +79,13 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
+    QVector<TeamRoom> teamRooms;
+    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    for (int i = 0; i < rooms.count(); ++i) {
+        QJsonObject r = rooms.at(i).toObject();
+        TeamRoom teamRoom;
+        teamRoom.parse(r);
+        teamRooms.append(teamRoom);
+        qDebug() << "TeamRoom  " << teamRoom;
+    }
 }
