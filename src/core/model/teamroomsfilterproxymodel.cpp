@@ -21,21 +21,18 @@
 #include "teamroomsfilterproxymodel.h"
 #include "teamroomsmodel.h"
 
-TeamRoomsFilterProxyModel::TeamRoomsFilterProxyModel(TeamRoomsModel *fileModel, QObject *parent)
+TeamRoomsFilterProxyModel::TeamRoomsFilterProxyModel(TeamRoomsModel *teamModel, QObject *parent)
     : QSortFilterProxyModel(parent)
-    , mFilesForRoomModel(fileModel)
+    , mTeamRoomsModel(teamModel)
 {
-    setSourceModel(mFilesForRoomModel);
+    setSourceModel(mTeamRoomsModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     // Filter on filename for the moment
-    setFilterRole(FilesForRoomModel::FileName);
+    setFilterRole(TeamRoomsModel::Name);
 
-    setSortRole(FilesForRoomModel::SortByTimeStamp);
+    setSortRole(TeamRoomsModel::Name);
     sort(0, Qt::DescendingOrder);
-    connect(mFilesForRoomModel, &FilesForRoomModel::hasFullListChanged, this, &TeamRoomsFilterProxyModel::hasFullListChanged);
-    connect(mFilesForRoomModel, &FilesForRoomModel::totalChanged, this, &TeamRoomsFilterProxyModel::totalChanged);
-    connect(mFilesForRoomModel, &FilesForRoomModel::loadingInProgressChanged, this, &TeamRoomsFilterProxyModel::loadingInProgressChanged);
 }
 
 TeamRoomsFilterProxyModel::~TeamRoomsFilterProxyModel()
@@ -47,40 +44,22 @@ void TeamRoomsFilterProxyModel::setFilterString(const QString &string)
     setFilterFixedString(string);
 }
 
-int TeamRoomsFilterProxyModel::total() const
-{
-    return mFilesForRoomModel->total();
-}
-
-bool TeamRoomsFilterProxyModel::hasFullList() const
-{
-    return mFilesForRoomModel->hasFullList();
-}
-
-int TeamRoomsFilterProxyModel::attachmentCount() const
-{
-    return mFilesForRoomModel->rowCount();
-}
-
-void TeamRoomsFilterProxyModel::resetTypeGroup()
-{
-    setTypeGroup({});
-}
-
-void TeamRoomsFilterProxyModel::setTypeGroup(const QString &typeGroup)
-{
-    if (mTypeGroup != typeGroup) {
-        mTypeGroup = typeGroup;
-        invalidateFilter();
-    }
-}
-
 bool TeamRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (mTypeGroup.isEmpty()) {
+    if (!mSortByAutoJoin) {
         return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
-    return (mTypeGroup == typegroup) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    const bool autojoin = sourceIndex.data(TeamRoomsModel::AutoJoin).toBool();
+    return autojoin && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+}
+
+bool TeamRoomsFilterProxyModel::sortByAutoJoin() const
+{
+    return mSortByAutoJoin;
+}
+
+void TeamRoomsFilterProxyModel::setSortByAutoJoin(bool sortByAutoJoin)
+{
+    mSortByAutoJoin = sortByAutoJoin;
 }

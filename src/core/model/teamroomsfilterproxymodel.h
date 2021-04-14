@@ -31,18 +31,14 @@ public:
     ~TeamRoomsFilterProxyModel() override;
 
     void setFilterString(const QString &string);
-    Q_REQUIRED_RESULT int total() const;
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
+    Q_REQUIRED_RESULT bool sortByAutoJoin() const;
+    void setSortByAutoJoin(bool sortByAutoJoin);
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
-    // Q_SIGNALS:
-    //    void hasFullListChanged();
-    //    void totalChanged();
-    //    void loadingInProgressChanged();
-
 private:
     TeamRoomsModel *const mTeamRoomsModel;
+    bool mSortByAutoJoin = false;
 };
