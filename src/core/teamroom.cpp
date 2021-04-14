@@ -26,11 +26,43 @@ TeamRoom::TeamRoom()
 
 bool TeamRoom::operator==(const TeamRoom &other) const
 {
-    // TODO
-    return false;
+    return mAutoJoin == other.autoJoin() && mName == other.name() && mFname == other.fname();
+}
+
+bool TeamRoom::autoJoin() const
+{
+    return mAutoJoin;
+}
+
+void TeamRoom::setAutoJoin(bool autoJoin)
+{
+    mAutoJoin = autoJoin;
+}
+
+QString TeamRoom::name() const
+{
+    return mName;
+}
+
+void TeamRoom::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString TeamRoom::fname() const
+{
+    return mFname;
+}
+
+void TeamRoom::setFname(const QString &fname)
+{
+    mFname = fname;
 }
 
 QDebug operator<<(QDebug d, const TeamRoom &t)
 {
+    d << "Name " << t.name();
+    d << "Fname : " << t.fname();
+    d << "autojoin: " << t.autoJoin();
     return d;
 }

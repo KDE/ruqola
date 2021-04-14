@@ -23,11 +23,28 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
+
 class LIBRUQOLACORE_EXPORT TeamRoom
 {
 public:
     TeamRoom();
     Q_REQUIRED_RESULT bool operator==(const TeamRoom &other) const;
+
+    Q_REQUIRED_RESULT bool autoJoin() const;
+    void setAutoJoin(bool autoJoin);
+
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &name);
+
+    Q_REQUIRED_RESULT QString fname() const;
+    void setFname(const QString &fname);
+
+    void parse(const QJsonObject &obj);
+
+private:
+    QString mName;
+    QString mFname;
+    bool mAutoJoin = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoom &t);
 Q_DECLARE_METATYPE(TeamRoom)
