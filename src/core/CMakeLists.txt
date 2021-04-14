@@ -75,6 +75,8 @@ set (Ruqola_model_core_srcs
     model/systemmessagesmodel.cpp
     model/channelcompletermodel.cpp
     model/channelcompleterfilterproxymodel.cpp
+
+    model/teamroomsmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
