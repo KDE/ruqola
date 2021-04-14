@@ -227,6 +227,7 @@ set (Ruqola_core_srcs
     serverinfo.cpp
     retentioninfo.cpp
     teaminfo.cpp
+    teamroom.cpp
 )
 
 if (NOT WIN32)
