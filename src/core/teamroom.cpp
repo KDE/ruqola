@@ -26,7 +26,7 @@ TeamRoom::TeamRoom()
 
 bool TeamRoom::operator==(const TeamRoom &other) const
 {
-    return mAutoJoin == other.autoJoin() && mName == other.name() && mFname == other.fname();
+    return mAutoJoin == other.autoJoin() && mName == other.name() && mFname == other.fname() && mIdentifier == other.identifier();
 }
 
 bool TeamRoom::autoJoin() const
@@ -64,6 +64,17 @@ void TeamRoom::parse(const QJsonObject &obj)
     mName = obj[QLatin1String("name")].toString();
     mFname = obj[QLatin1String("fname")].toString();
     mAutoJoin = obj[QLatin1String("teamDefault")].toBool(false);
+    mIdentifier = obj[QLatin1String("_id")].toString();
+}
+
+QString TeamRoom::identifier() const
+{
+    return mIdentifier;
+}
+
+void TeamRoom::setIdentifier(const QString &identifier)
+{
+    mIdentifier = identifier;
 }
 
 QDebug operator<<(QDebug d, const TeamRoom &t)
@@ -71,5 +82,6 @@ QDebug operator<<(QDebug d, const TeamRoom &t)
     d << "Name " << t.name();
     d << "Fname : " << t.fname();
     d << "autojoin: " << t.autoJoin();
+    d << "identifier: " << t.identifier();
     return d;
 }

@@ -41,9 +41,13 @@ public:
 
     void parse(const QJsonObject &obj);
 
+    Q_REQUIRED_RESULT QString identifier() const;
+    void setIdentifier(const QString &identifier);
+
 private:
     QString mName;
     QString mFname;
+    QString mIdentifier;
     bool mAutoJoin = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoom &t);

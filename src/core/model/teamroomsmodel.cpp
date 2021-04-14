@@ -48,6 +48,8 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
         return teamroom.name();
     case TeamRoomsRoles::AutoJoin:
         return teamroom.autoJoin();
+    case TeamRoomsRoles::Identifier:
+        return teamroom.identifier();
     }
     return {};
 }

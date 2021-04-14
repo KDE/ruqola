@@ -31,6 +31,7 @@ public:
     enum TeamRoomsRoles {
         Name = Qt::UserRole + 1,
         AutoJoin,
+        Identifier,
     };
     Q_ENUM(TeamRoomsRoles)
 
