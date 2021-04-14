@@ -23,6 +23,8 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QListView;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 {
     Q_OBJECT
@@ -34,5 +36,7 @@ public:
 private:
     void slotTeamListRoomsDone(const QJsonObject &obj);
     void initializeTeamRoomsList();
+    QListView *const mListView;
+    QLineEdit *const mSearchLineEdit;
     QString mTeamId;
 };

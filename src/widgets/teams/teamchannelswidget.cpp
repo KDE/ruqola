@@ -19,20 +19,37 @@
 */
 
 #include "teamchannelswidget.h"
+#include "misc/lineeditcatchreturnkey.h"
+#include "model/teamroomsmodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "teamroom.h"
 #include "teams/teamslistroomsjob.h"
 #include <KLocalizedString>
+#include <QLineEdit>
+#include <QListView>
 #include <QVBoxLayout>
 
 TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     : QWidget(parent)
+    , mListView(new QListView(this))
+    , mSearchLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mSearchLineEdit->setObjectName(QStringLiteral("mListView"));
+    mainLayout->addWidget(mSearchLineEdit);
+
+    mSearchLineEdit->setPlaceholderText(i18n("Search Room..."));
+    mSearchLineEdit->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
+
+    mListView->setObjectName(QStringLiteral("mListView"));
+    mainLayout->addWidget(mListView);
 }
 
 TeamChannelsWidget::~TeamChannelsWidget()
