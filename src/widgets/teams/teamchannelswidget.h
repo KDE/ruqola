@@ -40,6 +40,10 @@ private:
     void slotTeamListRoomsDone(const QJsonObject &obj);
     void initializeTeamRoomsList();
     void slotTypeTeamListChanged(int index);
+    void slotTextChanged(const QString &str);
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotAddExistingRoom();
+    void slotCreateRoom();
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamChannelsComboBox *const mTeamChannelsCombobox;

@@ -33,6 +33,7 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QListView>
+#include <QMenu>
 #include <QVBoxLayout>
 
 TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
@@ -53,6 +54,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     hboxLayout->addWidget(mSearchLineEdit);
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &TeamChannelsWidget::slotTextChanged);
 
     mTeamChannelsCombobox->setObjectName(QStringLiteral("mTeamChannelsCombobox"));
     hboxLayout->addWidget(mTeamChannelsCombobox);
@@ -68,6 +70,8 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
 
     mListView->setModel(mTeamRoomFilterProxyModel);
     connect(mTeamChannelsCombobox, &TeamChannelsComboBox::currentIndexChanged, this, &TeamChannelsWidget::slotTypeTeamListChanged);
+    mListView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mListView, &QListView::customContextMenuRequested, this, &TeamChannelsWidget::slotCustomContextMenuRequested);
 }
 
 TeamChannelsWidget::~TeamChannelsWidget()
@@ -103,12 +107,44 @@ void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
     QVector<TeamRoom> teamRooms;
     const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-    for (int i = 0; i < rooms.count(); ++i) {
-        QJsonObject r = rooms.at(i).toObject();
+    for (int i = 0, total = rooms.count(); i < total; ++i) {
+        const QJsonObject r = rooms.at(i).toObject();
         TeamRoom teamRoom;
         teamRoom.parse(r);
         teamRooms.append(teamRoom);
         // qDebug() << "TeamRoom  " << teamRoom;
     }
     mTeamRoomsModel->setTeamRooms(teamRooms);
+}
+
+void TeamChannelsWidget::slotTextChanged(const QString &str)
+{
+    mTeamRoomFilterProxyModel->setFilterString(str);
+}
+
+void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    QModelIndex index = mListView->indexAt(pos);
+    if (index.isValid()) {
+        menu.addAction(i18n("Remove from Team"), this, [this]() {
+            // TODO
+        });
+        // TODO configure auto join
+        // TODO
+        menu.addSeparator();
+    }
+    menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
+    menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
+    menu.exec(mListView->viewport()->mapToGlobal(pos));
+}
+
+void TeamChannelsWidget::slotAddExistingRoom()
+{
+    // TODO
+}
+
+void TeamChannelsWidget::slotCreateRoom()
+{
+    // TODO
 }
