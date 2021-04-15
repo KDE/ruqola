@@ -20,7 +20,10 @@
 
 #include "teamchannelswidgettest.h"
 #include "teams/teamchannelswidget.h"
+#include <QLineEdit>
+#include <QListView>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(TeamChannelsWidgetTest)
 TeamChannelsWidgetTest::TeamChannelsWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +33,12 @@ TeamChannelsWidgetTest::TeamChannelsWidgetTest(QObject *parent)
 void TeamChannelsWidgetTest::shouldHaveDefaultValues()
 {
     TeamChannelsWidget w;
-    // TODO
+    auto mainLayout = w.findChild<QListView *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
+    QVERIFY(mListView);
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 }
