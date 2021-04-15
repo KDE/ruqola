@@ -30,6 +30,7 @@
 #include "teams/teamchannelscombobox.h"
 #include "teams/teamremoveroomjob.h"
 #include "teams/teamslistroomsjob.h"
+#include "teams/teamupdateroomjob.h"
 
 #include <KLocalizedString>
 #include <QHBoxLayout>
@@ -133,13 +134,34 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
             removeRoomFromTeam(roomId);
         });
-        // TODO configure auto join
-        // TODO
+        const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
+        menu.addAction(autojoin ? i18n("Remove Autojoin") : i18n("Add Autojoin"), this, [this, index, autojoin]() {
+            const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+            updateAutojoin(roomId, autojoin);
+        });
         menu.addSeparator();
     }
     menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
     menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     menu.exec(mListView->viewport()->mapToGlobal(pos));
+}
+
+void TeamChannelsWidget::updateAutojoin(const QString &roomId, bool autojoin)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::TeamUpdateRoomJob(this);
+    job->setIsDefault(!autojoin);
+    job->setRoomId(roomId);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamUpdateRoomJob::teamUpdateRoomDone, this, &TeamChannelsWidget::slotTeamUpdateRoomDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamUpdateRoomJob job";
+    }
+}
+
+void TeamChannelsWidget::slotTeamUpdateRoomDone()
+{
+    qDebug() << "slotTeamUpdateRoomDone ";
 }
 
 void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
@@ -157,6 +179,7 @@ void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 
 void TeamChannelsWidget::slotRemoveTeamRoomDone()
 {
+    // TODO remove line or update list
     qDebug() << " remove room";
     // TODO
 }

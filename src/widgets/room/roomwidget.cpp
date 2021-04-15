@@ -52,6 +52,7 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomwidgetbase.h"
+#include "teaminfo.h"
 #include "teams/teamchannelsdialog.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "uploadfileprogressstatuswidget.h"
@@ -359,7 +360,6 @@ void RoomWidget::slotSearchMessages()
 
 void RoomWidget::slotTeamChannelsRequested()
 {
-    // TODO
     QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(this);
     dlg->setTeamId(mRoom->teamInfo().teamId());
     // dlg->setRoomId(mRoomWidgetBase->roomId());
@@ -530,6 +530,10 @@ void RoomWidget::connectRoom()
         });
         connect(mRoom, &Room::encryptedChanged, this, [this]() {
             mRoomHeaderWidget->setEncypted(mRoom->encrypted());
+        });
+        // TODO verify it.
+        connect(mRoom, &Room::teamInfoChanged, this, [this]() {
+            mRoomHeaderWidget->setMainTeam(mRoom->teamInfo().mainTeam());
         });
         connect(mRoom, &Room::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
         connect(mRoom, &Room::autoTranslateChanged, this, &RoomWidget::updateListView);

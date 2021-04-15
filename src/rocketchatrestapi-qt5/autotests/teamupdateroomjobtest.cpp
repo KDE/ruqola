@@ -18,51 +18,51 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "teamremoveroomjobtest.h"
+#include "teamupdateroomjobtest.h"
 #include "ruqola_restapi_helper.h"
-#include "teams/teamremoveroomjob.h"
+#include "teams/teamupdateroomjob.h"
 #include <QJsonDocument>
 #include <QTest>
-QTEST_GUILESS_MAIN(TeamRemoveRoomJobTest)
+QTEST_GUILESS_MAIN(TeamUpdateRoomJobTest)
 using namespace RocketChatRestApi;
-TeamRemoveRoomJobTest::TeamRemoveRoomJobTest(QObject *parent)
+TeamUpdateRoomJobTest::TeamUpdateRoomJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void TeamRemoveRoomJobTest::shouldHaveDefaultValue()
+void TeamUpdateRoomJobTest::shouldHaveDefaultValue()
 {
-    TeamRemoveRoomJob job;
+    TeamUpdateRoomJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
-    QVERIFY(job.teamId().isEmpty());
+    QVERIFY(!job.isDefault());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void TeamRemoveRoomJobTest::shouldGenerateRequest()
+void TeamUpdateRoomJobTest::shouldGenerateRequest()
 {
-    TeamRemoveRoomJob job;
+    TeamUpdateRoomJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeRoom")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.updateRoom")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void TeamRemoveRoomJobTest::shouldGenerateJson()
+void TeamUpdateRoomJobTest::shouldGenerateJson()
 {
-    TeamRemoveRoomJob job;
+    TeamUpdateRoomJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    const QString teamId = QStringLiteral("foo2");
-    job.setTeamId(teamId);
+    const bool isDefault = true;
+    job.setIsDefault(isDefault);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","teamId":"%2"})").arg(roomId).arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"isDefault":true,"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
-void TeamRemoveRoomJobTest::shouldNotStarting()
+void TeamUpdateRoomJobTest::shouldNotStarting()
 {
-    TeamRemoveRoomJob job;
+    TeamUpdateRoomJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -79,8 +79,5 @@ void TeamRemoveRoomJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    QVERIFY(!job.canStart());
-    const QString teamId = QStringLiteral("foo2");
-    job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }
