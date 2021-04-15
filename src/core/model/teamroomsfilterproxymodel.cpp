@@ -61,5 +61,8 @@ bool TeamRoomsFilterProxyModel::sortByAutoJoin() const
 
 void TeamRoomsFilterProxyModel::setSortByAutoJoin(bool sortByAutoJoin)
 {
-    mSortByAutoJoin = sortByAutoJoin;
+    if (mSortByAutoJoin != sortByAutoJoin) {
+        mSortByAutoJoin = sortByAutoJoin;
+        invalidateFilter();
+    }
 }

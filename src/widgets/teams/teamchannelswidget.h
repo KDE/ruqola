@@ -27,6 +27,7 @@ class QListView;
 class QLineEdit;
 class TeamRoomsModel;
 class TeamRoomsFilterProxyModel;
+class TeamChannelsComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 {
     Q_OBJECT
@@ -38,8 +39,10 @@ public:
 private:
     void slotTeamListRoomsDone(const QJsonObject &obj);
     void initializeTeamRoomsList();
+    void slotTypeTeamListChanged(int index);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
+    TeamChannelsComboBox *const mTeamChannelsCombobox;
     TeamRoomsModel *const mTeamRoomsModel;
     TeamRoomsFilterProxyModel *const mTeamRoomFilterProxyModel;
     QString mTeamId;

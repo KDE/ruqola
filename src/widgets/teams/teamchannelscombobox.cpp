@@ -19,7 +19,7 @@
 */
 
 #include "teamchannelscombobox.h"
-
+#include <KLocalizedString>
 TeamChannelsComboBox::TeamChannelsComboBox(QWidget *parent)
     : QComboBox(parent)
 {
@@ -32,5 +32,6 @@ TeamChannelsComboBox::~TeamChannelsComboBox()
 
 void TeamChannelsComboBox::init()
 {
-    // TODO
+    addItem(i18n("All"));
+    addItem(i18n("Autojoin"));
 }

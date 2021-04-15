@@ -27,8 +27,10 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "teamroom.h"
+#include "teams/teamchannelscombobox.h"
 #include "teams/teamslistroomsjob.h"
 #include <KLocalizedString>
+#include <QHBoxLayout>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
@@ -37,6 +39,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
+    , mTeamChannelsCombobox(new TeamChannelsComboBox(this))
     , mTeamRoomsModel(new TeamRoomsModel(this))
     , mTeamRoomFilterProxyModel(new TeamRoomsFilterProxyModel(mTeamRoomsModel, this))
 {
@@ -44,8 +47,17 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setContentsMargins({});
+
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mainLayout->addWidget(mSearchLineEdit);
+    hboxLayout->addWidget(mSearchLineEdit);
+
+    mTeamChannelsCombobox->setObjectName(QStringLiteral("mTeamChannelsCombobox"));
+    hboxLayout->addWidget(mTeamChannelsCombobox);
+
+    mainLayout->addLayout(hboxLayout);
 
     mSearchLineEdit->setPlaceholderText(i18n("Search Room..."));
     mSearchLineEdit->setClearButtonEnabled(true);
@@ -55,10 +67,16 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     mainLayout->addWidget(mListView);
 
     mListView->setModel(mTeamRoomFilterProxyModel);
+    connect(mTeamChannelsCombobox, &TeamChannelsComboBox::currentIndexChanged, this, &TeamChannelsWidget::slotTypeTeamListChanged);
 }
 
 TeamChannelsWidget::~TeamChannelsWidget()
 {
+}
+
+void TeamChannelsWidget::slotTypeTeamListChanged(int index)
+{
+    mTeamRoomFilterProxyModel->setSortByAutoJoin(index == 1 ? true : false);
 }
 
 void TeamChannelsWidget::setTeamId(const QString &teamId)

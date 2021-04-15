@@ -19,6 +19,7 @@
 */
 
 #include "teamchannelswidgettest.h"
+#include "teams/teamchannelscombobox.h"
 #include "teams/teamchannelswidget.h"
 #include <QLineEdit>
 #include <QListView>
@@ -36,9 +37,16 @@ void TeamChannelsWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
+    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    QVERIFY(hboxLayout);
+    QCOMPARE(hboxLayout->contentsMargins(), {});
+
     auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
     QVERIFY(mListView);
     auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
+
+    auto mTeamChannelsCombobox = w.findChild<TeamChannelsComboBox *>(QStringLiteral("mTeamChannelsCombobox"));
+    QVERIFY(mTeamChannelsCombobox);
 }
