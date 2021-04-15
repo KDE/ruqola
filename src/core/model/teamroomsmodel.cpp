@@ -44,8 +44,10 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
     const TeamRoom &teamroom = mTeamRooms.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
-    case TeamRoomsRoles::Name:
-        return teamroom.name();
+    case TeamRoomsRoles::Name: {
+        const QString name = teamroom.name() + (teamroom.autoJoin() ? QLatin1Char(' ') + i18n("(Autojoin)") : QString());
+        return name;
+    }
     case TeamRoomsRoles::AutoJoin:
         return teamroom.autoJoin();
     case TeamRoomsRoles::Identifier:
