@@ -40,7 +40,9 @@ void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
     if (teams.isValid()) {
         obj[QStringLiteral("teamId")] = teams.teamId();
         obj[QStringLiteral("teamMain")] = teams.mainTeam();
-        obj[QStringLiteral("teamDefault")] = teams.autoJoin();
+        if (teams.autoJoin()) {
+            obj[QStringLiteral("teamDefault")] = true;
+        }
     }
 }
 

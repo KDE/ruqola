@@ -33,7 +33,7 @@ TeamChannelsWidgetTest::TeamChannelsWidgetTest(QObject *parent)
 void TeamChannelsWidgetTest::shouldHaveDefaultValues()
 {
     TeamChannelsWidget w;
-    auto mainLayout = w.findChild<QListView *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
     auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));

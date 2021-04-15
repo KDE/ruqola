@@ -44,7 +44,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mListView"));
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mainLayout->addWidget(mSearchLineEdit);
 
     mSearchLineEdit->setPlaceholderText(i18n("Search Room..."));
