@@ -44,6 +44,8 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotAddExistingRoom();
     void slotCreateRoom();
+    void slotRemoveTeamRoomDone();
+    void removeRoomFromTeam(const QString &roomId);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamChannelsComboBox *const mTeamChannelsCombobox;

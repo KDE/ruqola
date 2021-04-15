@@ -28,7 +28,9 @@
 #include "ruqolawidgets_debug.h"
 #include "teamroom.h"
 #include "teams/teamchannelscombobox.h"
+#include "teams/teamremoveroomjob.h"
 #include "teams/teamslistroomsjob.h"
+
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLineEdit>
@@ -127,8 +129,9 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
     if (index.isValid()) {
-        menu.addAction(i18n("Remove from Team"), this, [this]() {
-            // TODO
+        menu.addAction(i18n("Remove from Team"), this, [this, index]() {
+            const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+            removeRoomFromTeam(roomId);
         });
         // TODO configure auto join
         // TODO
@@ -137,6 +140,25 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
     menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     menu.exec(mListView->viewport()->mapToGlobal(pos));
+}
+
+void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
+    job->setTeamId(mTeamId);
+    job->setRoomId(roomId);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+    }
+}
+
+void TeamChannelsWidget::slotRemoveTeamRoomDone()
+{
+    qDebug() << " remove room";
+    // TODO
 }
 
 void TeamChannelsWidget::slotAddExistingRoom()
