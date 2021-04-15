@@ -40,7 +40,7 @@ TeamChannelsDialog::TeamChannelsDialog(QWidget *parent)
     mTeamChannelsWidget->setObjectName(QStringLiteral("mTeamChannelsWidget"));
     mainLayout->addWidget(mTeamChannelsWidget);
 
-    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamChannelsDialog::reject);
