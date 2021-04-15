@@ -38,6 +38,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mTeamRoomsModel(new TeamRoomsModel(this))
+    , mTeamRoomFilterProxyModel(new TeamRoomsFilterProxyModel(mTeamRoomsModel, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -52,7 +53,8 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
 
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);
-    mListView->setModel(mTeamRoomsModel);
+
+    mListView->setModel(mTeamRoomFilterProxyModel);
 }
 
 TeamChannelsWidget::~TeamChannelsWidget()

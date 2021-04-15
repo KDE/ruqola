@@ -26,6 +26,7 @@
 class QListView;
 class QLineEdit;
 class TeamRoomsModel;
+class TeamRoomsFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 {
     Q_OBJECT
@@ -40,5 +41,6 @@ private:
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamRoomsModel *const mTeamRoomsModel;
+    TeamRoomsFilterProxyModel *const mTeamRoomFilterProxyModel;
     QString mTeamId;
 };
