@@ -161,6 +161,8 @@ void TeamChannelsWidget::updateAutojoin(const QString &roomId, bool autojoin)
 
 void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
 {
+    // For the moment reinitialize it.
+    initializeTeamRoomsList();
     qDebug() << "slotTeamUpdateRoomDone " << replyObject;
     // TODO update room info
 }
@@ -180,9 +182,7 @@ void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 
 void TeamChannelsWidget::slotRemoveTeamRoomDone()
 {
-    // TODO remove line or update list
-    qDebug() << " remove room";
-    // TODO
+    initializeTeamRoomsList();
 }
 
 void TeamChannelsWidget::slotAddExistingRoom()
