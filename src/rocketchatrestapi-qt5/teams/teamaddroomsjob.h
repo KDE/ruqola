@@ -41,8 +41,8 @@ public:
     Q_REQUIRED_RESULT QString teamId() const;
     void setTeamId(const QString &teamId);
 
-    Q_REQUIRED_RESULT QStringList roomsId() const;
-    void setRoomsId(const QStringList &roomsId);
+    Q_REQUIRED_RESULT QStringList roomIds() const;
+    void setRoomIds(const QStringList &roomsId);
 
 Q_SIGNALS:
     void teamAddRoomsDone();
@@ -50,7 +50,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(TeamAddRoomsJob)
     void slotTeamAddRoomsFinished();
-    QStringList mRoomsId;
+    QStringList mRoomIds;
     QString mTeamId;
 };
 }

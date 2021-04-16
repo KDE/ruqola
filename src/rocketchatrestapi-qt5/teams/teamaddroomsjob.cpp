@@ -67,14 +67,14 @@ void TeamAddRoomsJob::slotTeamAddRoomsFinished()
     deleteLater();
 }
 
-QStringList TeamAddRoomsJob::roomsId() const
+QStringList TeamAddRoomsJob::roomIds() const
 {
-    return mRoomsId;
+    return mRoomIds;
 }
 
-void TeamAddRoomsJob::setRoomsId(const QStringList &roomsId)
+void TeamAddRoomsJob::setRoomIds(const QStringList &roomsId)
 {
-    mRoomsId = roomsId;
+    mRoomIds = roomsId;
 }
 
 QString TeamAddRoomsJob::teamId() const
@@ -97,7 +97,7 @@ bool TeamAddRoomsJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRoomsId.isEmpty()) {
+    if (mRoomIds.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamAddRoomsJob: mRoomsId is empty";
         return false;
     }
