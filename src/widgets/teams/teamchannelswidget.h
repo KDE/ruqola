@@ -45,7 +45,7 @@ private:
     void slotAddExistingRoom();
     void slotCreateRoom();
     void slotRemoveTeamRoomDone();
-    void slotTeamUpdateRoomDone();
+    void slotTeamUpdateRoomDone(const QJsonObject &replyObject);
     void removeRoomFromTeam(const QString &roomId);
     void updateAutojoin(const QString &roomId, bool autojoin);
     QListView *const mListView;

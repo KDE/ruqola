@@ -44,7 +44,7 @@ public:
     void setIsDefault(bool isDefault);
 
 Q_SIGNALS:
-    void teamUpdateRoomDone();
+    void teamUpdateRoomDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(TeamUpdateRoomJob)
