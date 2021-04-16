@@ -22,38 +22,35 @@
 
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
-
-#include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAutocompleteAvailableForTeamsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT TeamAddRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAutocompleteChannelAndPrivateInfo {
-        Q_REQUIRED_RESULT bool isValid() const;
-        QString name;
-        QString exception;
-    };
-
-    explicit RoomsAutocompleteAvailableForTeamsJob(QObject *parent = nullptr);
-    ~RoomsAutocompleteAvailableForTeamsJob() override;
-
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    explicit TeamAddRoomsJob(QObject *parent = nullptr);
+    ~TeamAddRoomsJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
-
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT RoomsAutocompleteChannelAndPrivateInfo roomsCompleterInfo() const;
-    void setRoomsCompleterInfo(const RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo);
+    Q_REQUIRED_RESULT QJsonDocument json() const;
+
+    Q_REQUIRED_RESULT QString teamId() const;
+    void setTeamId(const QString &teamId);
+
+    Q_REQUIRED_RESULT QStringList roomsId() const;
+    void setRoomsId(const QStringList &roomsId);
 
 Q_SIGNALS:
-    void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
+    void teamAddRoomsDone();
 
 private:
-    Q_DISABLE_COPY(RoomsAutocompleteAvailableForTeamsJob)
-    void slotRoomsAutoCompleteChannelAndPrivateFinished();
-    RoomsAutocompleteChannelAndPrivateInfo mRoomsAutocompleteInfo;
+    Q_DISABLE_COPY(TeamAddRoomsJob)
+    void slotTeamAddRoomsFinished();
+    QStringList mRoomsId;
+    QString mTeamId;
 };
 }

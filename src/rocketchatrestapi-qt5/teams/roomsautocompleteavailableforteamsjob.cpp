@@ -73,12 +73,9 @@ void RoomsAutocompleteAvailableForTeamsJob::slotRoomsAutoCompleteChannelAndPriva
 
 QNetworkRequest RoomsAutocompleteAvailableForTeamsJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteAvailableForTeams);
     QUrlQuery queryUrl;
-    // TODO add support for exception.
-    // const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mUsersCompleterInfo.pattern);
-    const QString val = QStringLiteral("{\"name\": \"%1\"}").arg(mRoomsAutocompleteInfo.name);
-    queryUrl.addQueryItem(QStringLiteral("selector"), val);
+    queryUrl.addQueryItem(QStringLiteral("name"), mRoomsAutocompleteInfo.name);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
@@ -100,6 +97,5 @@ void RoomsAutocompleteAvailableForTeamsJob::setRoomsCompleterInfo(
 
 bool RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo::isValid() const
 {
-    // FIXME
     return !name.isEmpty();
 }
