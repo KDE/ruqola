@@ -44,6 +44,8 @@ public:
     Q_REQUIRED_RESULT QVector<TeamRoom> teamRooms() const;
     void setTeamRooms(const QVector<TeamRoom> &teamRooms);
 
+    void setRoomChanged(const TeamRoom &teamRoom);
+
 private:
     Q_DISABLE_COPY(TeamRoomsModel)
     QVector<TeamRoom> mTeamRooms;

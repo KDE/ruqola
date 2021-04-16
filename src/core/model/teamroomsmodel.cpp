@@ -74,3 +74,17 @@ void TeamRoomsModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
         endInsertRows();
     }
 }
+
+void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
+{
+    const int roomCount = mTeamRooms.count();
+    for (int i = 0; i < roomCount; ++i) {
+        TeamRoom &teamRoom = mTeamRooms[i];
+        if (teamRoom.identifier() == t.identifier()) {
+            teamRoom.setAutoJoin(t.autoJoin());
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT dataChanged(idx, idx);
+            break;
+        }
+    }
+}
