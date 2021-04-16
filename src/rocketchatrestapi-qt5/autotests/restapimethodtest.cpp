@@ -295,4 +295,6 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.info")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsAutocomplete), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.autocomplete")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteAvailableForTeams),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.availableForTeams")));
 }
