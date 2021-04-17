@@ -54,6 +54,11 @@ TeamSearchRoomDialog::~TeamSearchRoomDialog()
     writeConfig();
 }
 
+QStringList TeamSearchRoomDialog::roomIds() const
+{
+    return mTeamSearchRoomWidget->roomIds();
+}
+
 void TeamSearchRoomDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamSearchRoomDialogConfigGroupName);

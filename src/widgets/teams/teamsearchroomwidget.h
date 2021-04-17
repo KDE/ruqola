@@ -28,4 +28,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomWidget : public QWidget
 public:
     explicit TeamSearchRoomWidget(QWidget *parent = nullptr);
     ~TeamSearchRoomWidget() override;
+
+    Q_REQUIRED_RESULT QStringList roomIds() const;
 };

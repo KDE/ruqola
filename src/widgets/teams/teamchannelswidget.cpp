@@ -29,6 +29,7 @@
 #include "teamroom.h"
 #include "teams/teamchannelscombobox.h"
 #include "teams/teamremoveroomjob.h"
+#include "teams/teamsearchroomdialog.h"
 #include "teams/teamslistroomsjob.h"
 #include "teams/teamupdateroomjob.h"
 
@@ -37,6 +38,7 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QMenu>
+#include <QPointer>
 #include <QVBoxLayout>
 
 TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
@@ -188,7 +190,11 @@ void TeamChannelsWidget::slotRemoveTeamRoomDone()
 
 void TeamChannelsWidget::slotAddExistingRoom()
 {
-    // TODO
+    QPointer<TeamSearchRoomDialog> dlg = new TeamSearchRoomDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void TeamChannelsWidget::slotCreateRoom()

@@ -31,6 +31,8 @@ public:
     explicit TeamSearchRoomDialog(QWidget *parent = nullptr);
     ~TeamSearchRoomDialog() override;
 
+    Q_REQUIRED_RESULT QStringList roomIds() const;
+
 private:
     void readConfig();
     void writeConfig();

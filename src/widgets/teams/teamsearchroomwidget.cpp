@@ -33,3 +33,9 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(QWidget *parent)
 TeamSearchRoomWidget::~TeamSearchRoomWidget()
 {
 }
+
+QStringList TeamSearchRoomWidget::roomIds() const
+{
+    // TODO
+    return {};
+}
