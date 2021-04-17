@@ -9,3 +9,5 @@ endmacro()
 
 add_ruqola_teams_test(teamchannelsdialogtest.cpp)
 add_ruqola_teams_test(teamchannelswidgettest.cpp)
+add_ruqola_teams_test(teamsearchroomdialogtest.cpp)
+add_ruqola_teams_test(teamsearchroomwidgettest.cpp)
