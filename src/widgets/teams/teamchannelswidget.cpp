@@ -185,6 +185,7 @@ void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 
 void TeamChannelsWidget::slotRemoveTeamRoomDone()
 {
+    // TODO try to remove item without sending new rest api call
     initializeTeamRoomsList();
 }
 
