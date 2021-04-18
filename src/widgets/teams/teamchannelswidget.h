@@ -48,6 +48,7 @@ private:
     void slotTeamUpdateRoomDone(const QJsonObject &replyObject);
     void removeRoomFromTeam(const QString &roomId);
     void updateAutojoin(const QString &roomId, bool autojoin);
+    void slotTeamAddRoomsDone();
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamChannelsComboBox *const mTeamChannelsCombobox;

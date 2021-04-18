@@ -27,6 +27,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "teamroom.h"
+#include "teams/teamaddroomsjob.h"
 #include "teams/teamchannelscombobox.h"
 #include "teams/teamremoveroomjob.h"
 #include "teams/teamsearchroomdialog.h"
@@ -191,11 +192,27 @@ void TeamChannelsWidget::slotRemoveTeamRoomDone()
 
 void TeamChannelsWidget::slotAddExistingRoom()
 {
+    QStringList roomIds;
     QPointer<TeamSearchRoomDialog> dlg = new TeamSearchRoomDialog(this);
     if (dlg->exec()) {
-        // TODO
+        roomIds = dlg->roomIds();
     }
     delete dlg;
+    if (!roomIds.isEmpty()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
+        job->setTeamId(mTeamId);
+        job->setRoomIds(roomIds);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &TeamChannelsWidget::slotTeamAddRoomsDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
+        }
+    }
+}
+
+void TeamChannelsWidget::slotTeamAddRoomsDone()
+{
 }
 
 void TeamChannelsWidget::slotCreateRoom()
