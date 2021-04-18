@@ -78,6 +78,8 @@ set (Ruqola_model_core_srcs
 
     model/teamroomsmodel.cpp
     model/teamroomsfilterproxymodel.cpp
+
+    model/teamroomcompletermodel.cpp
     )
 
 set(Ruqola_plugins_srcs
