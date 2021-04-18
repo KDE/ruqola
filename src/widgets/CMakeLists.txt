@@ -240,6 +240,7 @@ set(Ruqola_teams_dialog_SRCS
     teams/teamsearchroomdialog.cpp
     teams/teamsearchroomwidget.cpp
     teams/teamsearchroomforteamwidget.cpp
+    teams/addteamroomcompletionlineedit.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets

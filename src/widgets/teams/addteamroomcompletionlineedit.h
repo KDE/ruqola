@@ -18,29 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "teamsearchroomwidget.h"
-#include "teamsearchroomforteamwidget.h"
-#include <KLocalizedString>
-#include <QVBoxLayout>
+#pragma once
 
-TeamSearchRoomWidget::TeamSearchRoomWidget(QWidget *parent)
-    : QWidget(parent)
-    , mTeamSearchRoomForTeamWidget(new TeamSearchRoomForTeamWidget(this))
+#include "common/completionlineedit.h"
+#include "libruqolawidgets_private_export.h"
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AddTeamRoomCompletionLineEdit : public CompletionLineEdit
 {
-    auto vboxLayout = new QVBoxLayout(this);
-    vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
+    Q_OBJECT
+public:
+    explicit AddTeamRoomCompletionLineEdit(QWidget *parent = nullptr);
+    ~AddTeamRoomCompletionLineEdit() override;
 
-    mTeamSearchRoomForTeamWidget->setObjectName(QStringLiteral("mTeamSearchRoomForTeamWidget"));
-    vboxLayout->addWidget(mTeamSearchRoomForTeamWidget);
-    // TODO
-}
-
-TeamSearchRoomWidget::~TeamSearchRoomWidget()
-{
-}
-
-QStringList TeamSearchRoomWidget::roomIds() const
-{
-    // TODO
-    return {};
-}
+private:
+    void slotTextChanged(const QString &text);
+    void slotComplete(const QModelIndex &index);
+    void slotRemoveTeamRoomDone(const QJsonObject &obj);
+};

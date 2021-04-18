@@ -59,6 +59,7 @@ void RoomsAutocompleteAvailableForTeamsJob::slotRoomsAutoCompleteChannelAndPriva
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
+        qDebug() << " replyObject " << replyObject;
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);

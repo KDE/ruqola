@@ -20,11 +20,11 @@
 
 #pragma once
 
-// #include "dialogs/adduserscompletionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
 #include <QWidget>
 class FlowLayout;
+class AddTeamRoomCompletionLineEdit;
 // class ClickableUserWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomForTeamWidget : public QWidget
 {
@@ -43,6 +43,7 @@ Q_SIGNALS:
     void userListChanged(bool isNotEmpty);
 
 private:
+    AddTeamRoomCompletionLineEdit *const mSearchRoomLineEdit;
     //    void slotRemoveUser(const QString &username);
     //    void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
     //    AddUsersCompletionLineEdit *const mSearchUserLineEdit;

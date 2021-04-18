@@ -19,22 +19,23 @@
 */
 
 #include "teamsearchroomforteamwidget.h"
+#include "addteamroomcompletionlineedit.h"
 #include "common/flowlayout.h"
 //#include "misc/clickableuserwidget.h"
 #include <QVBoxLayout>
 
 TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(QWidget *parent)
     : QWidget(parent)
-    //    , mSearchUserLineEdit(new AddUsersCompletionLineEdit(this))
+    , mSearchRoomLineEdit(new AddTeamRoomCompletionLineEdit(this))
     , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    //    mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
-    //    connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::newUserName, this, &TeamSearchRoomForTeamWidget::slotAddNewName);
-    //    mainLayout->addWidget(mSearchUserLineEdit);
+    mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoomLineEdit"));
+    // TODO connect(mSearchRoomLineEdit, &AddUsersCompletionLineEdit::newUserName, this, &TeamSearchRoomForTeamWidget::slotAddNewName);
+    mainLayout->addWidget(mSearchRoomLineEdit);
 
     mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
     mainLayout->addLayout(mFlowLayout);

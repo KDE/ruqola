@@ -22,6 +22,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class TeamSearchRoomForTeamWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomWidget : public QWidget
 {
     Q_OBJECT
@@ -30,4 +31,7 @@ public:
     ~TeamSearchRoomWidget() override;
 
     Q_REQUIRED_RESULT QStringList roomIds() const;
+
+private:
+    TeamSearchRoomForTeamWidget *const mTeamSearchRoomForTeamWidget;
 };
