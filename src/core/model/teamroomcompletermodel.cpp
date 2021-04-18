@@ -34,23 +34,23 @@ TeamRoomCompleterModel::~TeamRoomCompleterModel()
 
 void TeamRoomCompleterModel::clear()
 {
-    if (!mUsers.isEmpty()) {
+    if (!mRooms.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
-        mUsers.clear();
+        // TODO mRooms.clear();
         endRemoveRows();
     }
 }
 
-void TeamRoomCompleterModel::insertRooms(const QVector<User> &users)
+void TeamRoomCompleterModel::insertRooms(const QVector<Room> &rooms)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
-        mUsers.clear();
+        beginRemoveRows(QModelIndex(), 0, mRooms.count() - 1);
+        // TODO mRooms.clear();
         endRemoveRows();
     }
-    if (!users.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, users.count() - 1);
-        mUsers = users;
+    if (!rooms.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, rooms.count() - 1);
+        // TODO mRooms = rooms;
         endInsertRows();
     }
 }
@@ -58,37 +58,25 @@ void TeamRoomCompleterModel::insertRooms(const QVector<User> &users)
 int TeamRoomCompleterModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mUsers.count();
+    return mRooms.count();
 }
 
 QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mUsers.count()) {
+    if (index.row() < 0 || index.row() >= mRooms.count()) {
         return QVariant();
     }
-    const User user = mUsers.at(index.row());
+    const Room &room = mRooms.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
-        return displayUserName(user);
     case RoomName:
-        return user.userName();
+        return room.name();
     case RoomId:
-        return user.userId();
+        return room.roomId();
     case Qt::DecorationRole:
-        return QIcon::fromTheme(user.iconFromStatus());
-    case UserIconStatus:
-        return user.iconFromStatus();
+    case RoomIcon:
+        return {};
     }
 
     return {};
-}
-
-QString TeamRoomCompleterModel::displayUserName(const User &user) const
-{
-    QString text = user.userName();
-    const QString name = user.name();
-    if (!name.isEmpty()) {
-        text += QLatin1String(" (") + name + QLatin1Char(')');
-    }
-    return text;
 }
