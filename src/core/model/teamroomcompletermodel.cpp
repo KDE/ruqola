@@ -41,7 +41,7 @@ void TeamRoomCompleterModel::clear()
     }
 }
 
-void TeamRoomCompleterModel::insertUsers(const QVector<User> &users)
+void TeamRoomCompleterModel::insertRooms(const QVector<User> &users)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
@@ -70,9 +70,9 @@ QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
         return displayUserName(user);
-    case UserName:
+    case RoomName:
         return user.userName();
-    case UserId:
+    case RoomId:
         return user.userId();
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());

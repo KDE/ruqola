@@ -28,7 +28,7 @@ class LIBRUQOLACORE_EXPORT TeamRoomCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum UserRoles { UserName = Qt::UserRole + 1, UserId, UserIconStatus };
+    enum UserRoles { RoomName = Qt::UserRole + 1, RoomId, UserIconStatus };
     Q_ENUM(UserRoles)
 
     explicit TeamRoomCompleterModel(QObject *parent = nullptr);
@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertUsers(const QVector<User> &users);
+    void insertRooms(const QVector<User> &users);
 
 private:
     Q_REQUIRED_RESULT QString displayUserName(const User &user) const;
