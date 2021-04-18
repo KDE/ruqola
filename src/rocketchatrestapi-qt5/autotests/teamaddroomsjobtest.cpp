@@ -20,7 +20,7 @@
 
 #include "teamaddroomsjobtest.h"
 #include "ruqola_restapi_helper.h"
-#include "teams/teamremoveroomjob.h"
+#include "teams/teamaddroomsjob.h"
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(TeamAddRoomsJobTest)
@@ -32,37 +32,37 @@ TeamAddRoomsJobTest::TeamAddRoomsJobTest(QObject *parent)
 
 void TeamAddRoomsJobTest::shouldHaveDefaultValue()
 {
-    TeamRemoveRoomJob job;
+    TeamAddRoomsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(job.roomIds().isEmpty());
     QVERIFY(job.teamId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void TeamAddRoomsJobTest::shouldGenerateRequest()
 {
-    TeamRemoveRoomJob job;
+    TeamAddRoomsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeRoom")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.addRooms")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void TeamAddRoomsJobTest::shouldGenerateJson()
 {
-    TeamRemoveRoomJob job;
+    TeamAddRoomsJob job;
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    job.setRoomIds({roomId});
     const QString teamId = QStringLiteral("foo2");
     job.setTeamId(teamId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","teamId":"%2"})").arg(roomId).arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rooms":["%1"],"teamId":"%2"})").arg(roomId).arg(teamId).toLatin1());
 }
 
 void TeamAddRoomsJobTest::shouldNotStarting()
 {
-    TeamRemoveRoomJob job;
+    TeamAddRoomsJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -78,7 +78,7 @@ void TeamAddRoomsJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    job.setRoomIds({roomId});
     QVERIFY(!job.canStart());
     const QString teamId = QStringLiteral("foo2");
     job.setTeamId(teamId);

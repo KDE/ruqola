@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -121,7 +122,7 @@ QJsonDocument TeamAddRoomsJob::json() const
 {
     QJsonObject jsonObj;
     // Example {"rooms":["QMkvkiMyxKoEuJjnb","zMHhMfsEPvKjgFuyE"],"teamId":"6072f51066b377a354d793cc"}
-    // TODO jsonObj[QLatin1String("roomId")] = mRoomId;
+    jsonObj[QLatin1String("rooms")] = QJsonArray::fromStringList(mRoomIds);
     jsonObj[QLatin1String("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
