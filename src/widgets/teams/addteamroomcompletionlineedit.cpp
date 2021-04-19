@@ -20,17 +20,22 @@
 
 #include "addteamroomcompletionlineedit.h"
 #include "common/completionlistview.h"
+#include "model/teamroomcompletermodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "teamroomcompleter.h"
 #include "teams/roomsautocompleteavailableforteamsjob.h"
+
+#include <QJsonArray>
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
+    , mTeamRoomCompleterModel(new TeamRoomCompleterModel(this))
 {
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotTextChanged);
-    // setCompletionModel(Ruqola::self()->rocketChatAccount()->userCompleterFilterModelProxy());
+    setCompletionModel(mTeamRoomCompleterModel);
     connect(this, &AddTeamRoomCompletionLineEdit::complete, this, &AddTeamRoomCompletionLineEdit::slotComplete);
 }
 
@@ -55,16 +60,23 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
     connect(job,
             &RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::roomsAutoCompleteChannelAndPrivateDone,
             this,
-            &AddTeamRoomCompletionLineEdit::slotRemoveTeamRoomDone);
+            &AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
     }
 }
 
-void AddTeamRoomCompletionLineEdit::slotRemoveTeamRoomDone(const QJsonObject &obj)
+void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
-    // TODO
+    const QJsonArray items = obj[QLatin1String("items")].toArray();
+    QVector<TeamRoomCompleter> teams;
+    for (int i = 0, total = items.count(); i < total; ++i) {
+        TeamRoomCompleter teamCompleter;
+        teamCompleter.parse(items.at(i).toObject());
+        teams.append(teamCompleter);
+    }
+    mTeamRoomCompleterModel->insertRooms(teams);
 }
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)

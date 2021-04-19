@@ -22,6 +22,7 @@
 
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
+class TeamRoomCompleterModel;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddTeamRoomCompletionLineEdit : public CompletionLineEdit
 {
@@ -35,5 +36,6 @@ public:
 private:
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);
-    void slotRemoveTeamRoomDone(const QJsonObject &obj);
+    void slotAutoCompletTeamRoomDone(const QJsonObject &obj);
+    TeamRoomCompleterModel *const mTeamRoomCompleterModel;
 };

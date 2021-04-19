@@ -55,6 +55,7 @@ void TeamRoomCompleter::parse(const QJsonObject &obj)
     mName = obj[QLatin1String("name")].toString();
     mFname = obj[QLatin1String("fname")].toString();
     mIdentifier = obj[QLatin1String("_id")].toString();
+    // TODO add room type too
 }
 
 QString TeamRoomCompleter::identifier() const
