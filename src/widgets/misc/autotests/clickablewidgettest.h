@@ -18,17 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "clickableuserwidgettest.h"
-#include "misc/clickableuserwidget.h"
-#include <QTest>
-QTEST_MAIN(ClickableUserWidgetTest)
-ClickableUserWidgetTest::ClickableUserWidgetTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#pragma once
 
-void ClickableUserWidgetTest::shouldHaveDefaultValues()
+#include <QObject>
+
+class ClickableWidgetTest : public QObject
 {
-    ClickableUserWidget w(QStringLiteral("foo"));
-    // TODO
-}
+    Q_OBJECT
+public:
+    explicit ClickableWidgetTest(QObject *parent = nullptr);
+    ~ClickableWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};

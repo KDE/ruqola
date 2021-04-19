@@ -25,7 +25,7 @@
 #include <QMap>
 #include <QWidget>
 class FlowLayout;
-class ClickableUserWidget;
+class ClickableWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -49,6 +49,6 @@ private:
     void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
     AddUsersCompletionLineEdit *const mSearchUserLineEdit;
     FlowLayout *const mFlowLayout;
-    QMap<QString, ClickableUserWidget *> mMap;
+    QMap<QString, ClickableWidget *> mMap;
 };
 

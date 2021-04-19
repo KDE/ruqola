@@ -169,7 +169,7 @@ set(Ruqola_misc_widget_SRCS
     misc/emoticonselectorwidget.cpp
     misc/emoticonrecentusedfilterproxymodel.cpp
     misc/adduserswidget.cpp
-    misc/clickableuserwidget.cpp
+    misc/clickablewidget.cpp
     misc/recentusedemoticonview.cpp
     misc/lineeditcatchreturnkey.cpp
     misc/passwordlineeditwidget.cpp

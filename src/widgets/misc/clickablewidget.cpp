@@ -18,11 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "clickableuserwidget.h"
+#include "clickablewidget.h"
 #include <QHBoxLayout>
 #include <QIcon>
 
-ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *parent)
+ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
     : QWidget(parent)
     , mUserName(userName)
     , mUserLabel(new QLabel(mUserName, this))
@@ -37,34 +37,34 @@ ClickableUserWidget::ClickableUserWidget(const QString &userName, QWidget *paren
 
     mClickableLabel->setObjectName(QStringLiteral("mClickableLabel"));
     mainLayout->addWidget(mClickableLabel);
-    connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableUserWidget::slotRemoveUser);
+    connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableWidget::slotRemoveUser);
 }
 
-ClickableUserWidget::~ClickableUserWidget()
+ClickableWidget::~ClickableWidget()
 {
 }
 
-void ClickableUserWidget::slotRemoveUser()
+void ClickableWidget::slotRemoveUser()
 {
     Q_EMIT removeUser(mUserName);
 }
 
-QString ClickableUserWidget::userName() const
+QString ClickableWidget::userName() const
 {
     return mUserName;
 }
 
-void ClickableUserWidget::setUserName(const QString &userName)
+void ClickableWidget::setUserName(const QString &userName)
 {
     mUserName = userName;
 }
 
-QString ClickableUserWidget::userId() const
+QString ClickableWidget::userId() const
 {
     return mUserId;
 }
 
-void ClickableUserWidget::setUserId(const QString &userId)
+void ClickableWidget::setUserId(const QString &userId)
 {
     mUserId = userId;
 }

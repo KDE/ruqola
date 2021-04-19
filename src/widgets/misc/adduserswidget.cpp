@@ -20,7 +20,7 @@
 
 #include "adduserswidget.h"
 #include "common/flowlayout.h"
-#include "misc/clickableuserwidget.h"
+#include "misc/clickablewidget.h"
 #include <QVBoxLayout>
 
 AddUsersWidget::AddUsersWidget(QWidget *parent)
@@ -51,9 +51,9 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
     if (mMap.contains(userName)) {
         return;
     }
-    auto clickableUserWidget = new ClickableUserWidget(userName, this);
+    auto clickableUserWidget = new ClickableWidget(userName, this);
     clickableUserWidget->setUserId(info.userId);
-    connect(clickableUserWidget, &ClickableUserWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
+    connect(clickableUserWidget, &ClickableWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
     mMap.insert(userName, clickableUserWidget);
     Q_EMIT userListChanged(!mMap.isEmpty());
@@ -61,7 +61,7 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
 
 void AddUsersWidget::slotRemoveUser(const QString &username)
 {
-    ClickableUserWidget *userWidget = mMap.value(username);
+    ClickableWidget *userWidget = mMap.value(username);
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
@@ -76,7 +76,7 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
 QStringList AddUsersWidget::userIds() const
 {
     QStringList addUsers;
-    QMapIterator<QString, ClickableUserWidget *> i(mMap);
+    QMapIterator<QString, ClickableWidget *> i(mMap);
     while (i.hasNext()) {
         i.next();
         addUsers << i.value()->userId();
@@ -87,7 +87,7 @@ QStringList AddUsersWidget::userIds() const
 QStringList AddUsersWidget::userNames() const
 {
     QStringList addUsers;
-    QMapIterator<QString, ClickableUserWidget *> i(mMap);
+    QMapIterator<QString, ClickableWidget *> i(mMap);
     while (i.hasNext()) {
         i.next();
         addUsers << i.value()->userName();

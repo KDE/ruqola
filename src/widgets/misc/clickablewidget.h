@@ -20,15 +20,44 @@
 
 #pragma once
 
-#include <QObject>
+#include "libruqolawidgets_export.h"
+#include <QLabel>
+#include <QWidget>
 
-class ClickableUserWidgetTest : public QObject
+class LIBRUQOLAWIDGETS_EXPORT ClickableLabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit ClickableUserWidgetTest(QObject *parent = nullptr);
-    ~ClickableUserWidgetTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit ClickableLabel(QWidget *parent = nullptr);
+    ~ClickableLabel() override;
+
+Q_SIGNALS:
+    void clicked();
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
 };
 
+class LIBRUQOLAWIDGETS_EXPORT ClickableWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit ClickableWidget(const QString &userName, QWidget *parent = nullptr);
+    ~ClickableWidget() override;
+
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &userName);
+
+    Q_REQUIRED_RESULT QString userId() const;
+    void setUserId(const QString &userId);
+
+Q_SIGNALS:
+    void removeUser(const QString &username);
+
+private:
+    void slotRemoveUser();
+    QString mUserName;
+    QString mUserId;
+    QLabel *const mUserLabel;
+    ClickableLabel *const mClickableLabel;
+};
