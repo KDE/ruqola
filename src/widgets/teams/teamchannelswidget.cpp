@@ -223,7 +223,9 @@ void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
         teamRooms.append(teamRoom);
         qDebug() << "TeamRoom  " << teamRoom;
     }
-    // TODO
+    if (!teamRooms.isEmpty()) {
+        mTeamRoomsModel->insertRooms(teamRooms);
+    }
 }
 
 void TeamChannelsWidget::slotCreateRoom()

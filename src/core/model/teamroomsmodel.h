@@ -46,6 +46,8 @@ public:
 
     void setRoomChanged(const TeamRoom &teamRoom);
 
+    void insertRooms(const QVector<TeamRoom> &teamRooms);
+
 private:
     Q_DISABLE_COPY(TeamRoomsModel)
     QVector<TeamRoom> mTeamRooms;

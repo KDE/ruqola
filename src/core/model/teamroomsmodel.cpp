@@ -88,3 +88,11 @@ void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
         }
     }
 }
+
+void TeamRoomsModel::insertRooms(const QVector<TeamRoom> &teamRooms)
+{
+    const int count = mTeamRooms.count();
+    beginInsertRows(QModelIndex(), count, count + teamRooms.count() - 1);
+    mTeamRooms.append(teamRooms);
+    endInsertRows();
+}
