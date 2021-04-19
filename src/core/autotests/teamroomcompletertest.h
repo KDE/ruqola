@@ -20,28 +20,14 @@
 
 #pragma once
 
-#include "libruqolacore_export.h"
-#include "teamroomcompleter.h"
-#include <QAbstractListModel>
+#include <QObject>
 
-class LIBRUQOLACORE_EXPORT TeamRoomCompleterModel : public QAbstractListModel
+class TeamRoomCompleterTest : public QObject
 {
     Q_OBJECT
 public:
-    // TeamRoomCompleter
-    enum UserRoles { RoomName = Qt::UserRole + 1, RoomId, RoomIcon };
-    Q_ENUM(UserRoles)
-
-    explicit TeamRoomCompleterModel(QObject *parent = nullptr);
-    ~TeamRoomCompleterModel() override;
-
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
-    void clear();
-    void insertRooms(const QVector<TeamRoomCompleter> &rooms);
-
-private:
-    Q_DISABLE_COPY(TeamRoomCompleterModel)
-    QVector<TeamRoomCompleter> mRooms;
+    explicit TeamRoomCompleterTest(QObject *parent = nullptr);
+    ~TeamRoomCompleterTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

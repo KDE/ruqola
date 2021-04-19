@@ -36,21 +36,21 @@ void TeamRoomCompleterModel::clear()
 {
     if (!mRooms.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
-        // TODO mRooms.clear();
+        mRooms.clear();
         endRemoveRows();
     }
 }
 
-void TeamRoomCompleterModel::insertRooms(const QVector<Room> &rooms)
+void TeamRoomCompleterModel::insertRooms(const QVector<TeamRoomCompleter> &rooms)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRooms.count() - 1);
-        // TODO mRooms.clear();
+        mRooms.clear();
         endRemoveRows();
     }
     if (!rooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, rooms.count() - 1);
-        // TODO mRooms = rooms;
+        mRooms = rooms;
         endInsertRows();
     }
 }
@@ -66,13 +66,13 @@ QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mRooms.count()) {
         return QVariant();
     }
-    const Room &room = mRooms.at(index.row());
+    const TeamRoomCompleter &room = mRooms.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case RoomName:
         return room.name();
     case RoomId:
-        return room.roomId();
+        return room.identifier();
     case Qt::DecorationRole:
     case RoomIcon:
         return {};

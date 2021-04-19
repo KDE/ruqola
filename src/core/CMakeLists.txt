@@ -233,6 +233,7 @@ set (Ruqola_core_srcs
     retentioninfo.cpp
     teaminfo.cpp
     teamroom.cpp
+    teamroomcompleter.cpp
 )
 
 if (NOT WIN32)
