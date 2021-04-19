@@ -52,8 +52,8 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
         return;
     }
     auto clickableUserWidget = new ClickableWidget(userName, this);
-    clickableUserWidget->setUserId(info.userId);
-    connect(clickableUserWidget, &ClickableWidget::removeUser, this, &AddUsersWidget::slotRemoveUser);
+    clickableUserWidget->setIdentifier(info.userId);
+    connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
     mMap.insert(userName, clickableUserWidget);
     Q_EMIT userListChanged(!mMap.isEmpty());
@@ -79,7 +79,7 @@ QStringList AddUsersWidget::userIds() const
     QMapIterator<QString, ClickableWidget *> i(mMap);
     while (i.hasNext()) {
         i.next();
-        addUsers << i.value()->userId();
+        addUsers << i.value()->identifier();
     }
     return addUsers;
 }
@@ -90,7 +90,7 @@ QStringList AddUsersWidget::userNames() const
     QMapIterator<QString, ClickableWidget *> i(mMap);
     while (i.hasNext()) {
         i.next();
-        addUsers << i.value()->userName();
+        addUsers << i.value()->name();
     }
     return addUsers;
 }

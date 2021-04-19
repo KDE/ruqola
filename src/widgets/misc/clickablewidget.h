@@ -45,19 +45,19 @@ public:
     explicit ClickableWidget(const QString &userName, QWidget *parent = nullptr);
     ~ClickableWidget() override;
 
-    Q_REQUIRED_RESULT QString userName() const;
-    void setUserName(const QString &userName);
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString userId() const;
-    void setUserId(const QString &userId);
+    Q_REQUIRED_RESULT QString identifier() const;
+    void setIdentifier(const QString &userId);
 
 Q_SIGNALS:
-    void removeUser(const QString &username);
+    void removeClickableWidget(const QString &username);
 
 private:
-    void slotRemoveUser();
-    QString mUserName;
-    QString mUserId;
-    QLabel *const mUserLabel;
+    void slotRemove();
+    QString mName;
+    QString mIdentifier;
+    QLabel *const mLabel;
     ClickableLabel *const mClickableLabel;
 };

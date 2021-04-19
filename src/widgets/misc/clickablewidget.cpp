@@ -24,49 +24,49 @@
 
 ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
     : QWidget(parent)
-    , mUserName(userName)
-    , mUserLabel(new QLabel(mUserName, this))
+    , mName(userName)
+    , mLabel(new QLabel(mName, this))
     , mClickableLabel(new ClickableLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mUserLabel->setObjectName(QStringLiteral("mUserLabel"));
-    mainLayout->addWidget(mUserLabel);
+    mLabel->setObjectName(QStringLiteral("mUserLabel"));
+    mainLayout->addWidget(mLabel);
 
     mClickableLabel->setObjectName(QStringLiteral("mClickableLabel"));
     mainLayout->addWidget(mClickableLabel);
-    connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableWidget::slotRemoveUser);
+    connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableWidget::slotRemove);
 }
 
 ClickableWidget::~ClickableWidget()
 {
 }
 
-void ClickableWidget::slotRemoveUser()
+void ClickableWidget::slotRemove()
 {
-    Q_EMIT removeUser(mUserName);
+    Q_EMIT removeClickableWidget(mName);
 }
 
-QString ClickableWidget::userName() const
+QString ClickableWidget::name() const
 {
-    return mUserName;
+    return mName;
 }
 
-void ClickableWidget::setUserName(const QString &userName)
+void ClickableWidget::setName(const QString &userName)
 {
-    mUserName = userName;
+    mName = userName;
 }
 
-QString ClickableWidget::userId() const
+QString ClickableWidget::identifier() const
 {
-    return mUserId;
+    return mIdentifier;
 }
 
-void ClickableWidget::setUserId(const QString &userId)
+void ClickableWidget::setIdentifier(const QString &userId)
 {
-    mUserId = userId;
+    mIdentifier = userId;
 }
 
 ClickableLabel::ClickableLabel(QWidget *parent)
