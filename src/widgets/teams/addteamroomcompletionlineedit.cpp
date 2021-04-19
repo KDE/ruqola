@@ -45,25 +45,29 @@ AddTeamRoomCompletionLineEdit::~AddTeamRoomCompletionLineEdit()
 
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob(this);
+    if (text.trimmed().isEmpty()) {
+        mTeamRoomCompleterModel->clear();
+    } else {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob(this);
 
-    RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo info;
-    info.name = text;
-    job->setRoomsCompleterInfo(info);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job,
-            &RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::roomsAutoCompleteChannelAndPrivateDone,
-            this,
-            &AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+        RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo info;
+        info.name = text;
+        job->setRoomsCompleterInfo(info);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job,
+                &RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::roomsAutoCompleteChannelAndPrivateDone,
+                this,
+                &AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+        }
     }
 }
 
 void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    // qDebug() << " obj " << obj;
     const QJsonArray items = obj[QLatin1String("items")].toArray();
     QVector<TeamRoomCompleter> teams;
     for (int i = 0, total = items.count(); i < total; ++i) {
