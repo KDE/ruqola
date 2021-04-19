@@ -57,4 +57,9 @@ void AdministratorRoomsSelectRoomTypeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDiscussionRooms);
     QVERIFY(!mDiscussionRooms->text().isEmpty());
     QVERIFY(!mDiscussionRooms->isChecked());
+
+    auto mTeamRooms = w.findChild<QCheckBox *>(QStringLiteral("mTeamRooms"));
+    QVERIFY(mTeamRooms);
+    QVERIFY(!mTeamRooms->text().isEmpty());
+    QVERIFY(!mTeamRooms->isChecked());
 }

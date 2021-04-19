@@ -32,7 +32,8 @@ public:
         PublicRooms = 2,
         PrivateRooms = 4,
         DiscussionRooms = 8,
-        All = DirectRooms | PublicRooms | DiscussionRooms | PrivateRooms
+        TeamRooms = 16,
+        All = DirectRooms | PublicRooms | DiscussionRooms | PrivateRooms | TeamRooms
     };
     Q_FLAGS(FilterRoom FilterRooms)
     Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
