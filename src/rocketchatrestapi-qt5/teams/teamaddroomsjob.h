@@ -45,7 +45,7 @@ public:
     void setRoomIds(const QStringList &roomsId);
 
 Q_SIGNALS:
-    void teamAddRoomsDone();
+    void teamAddRoomsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(TeamAddRoomsJob)

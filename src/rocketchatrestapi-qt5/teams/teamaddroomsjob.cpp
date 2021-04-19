@@ -57,8 +57,7 @@ void TeamAddRoomsJob::slotTeamAddRoomsFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamAddRoomsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            // TODO look at if we can send info about new rooms for updating model
-            Q_EMIT teamAddRoomsDone();
+            Q_EMIT teamAddRoomsDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("TeamAddRoomsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
