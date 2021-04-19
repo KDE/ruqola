@@ -28,10 +28,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddTeamRoomCompletionLineEdit : public Compl
 {
     Q_OBJECT
 public:
+    struct RoomCompletionInfo {
+        QString roomId;
+        QString roomName;
+    };
     explicit AddTeamRoomCompletionLineEdit(QWidget *parent = nullptr);
     ~AddTeamRoomCompletionLineEdit() override;
 
-    Q_REQUIRED_RESULT QStringList roomIds() const;
+Q_SIGNALS:
+    void newRoomName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &);
 
 private:
     void slotTextChanged(const QString &text);

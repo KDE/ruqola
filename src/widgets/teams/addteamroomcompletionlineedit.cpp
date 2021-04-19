@@ -43,11 +43,6 @@ AddTeamRoomCompletionLineEdit::~AddTeamRoomCompletionLineEdit()
 {
 }
 
-QStringList AddTeamRoomCompletionLineEdit::roomIds() const
-{
-    return {};
-}
-
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -81,16 +76,14 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
-#if 0
-    const QString completerName = index.data(UserCompleterModel::UserName).toString();
-    const QString userId = index.data(UserCompleterModel::UserId).toString();
-    UserCompletionInfo info;
-    info.username = completerName;
-    info.userId = userId;
+    const QString completerName = index.data(TeamRoomCompleterModel::RoomName).toString();
+    const QString roomId = index.data(TeamRoomCompleterModel::RoomId).toString();
+    RoomCompletionInfo info;
+    info.roomName = completerName;
+    info.roomId = roomId;
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotTextChanged);
-    Q_EMIT newUserName(info);
+    Q_EMIT newRoomName(info);
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotTextChanged);
-#endif
 }

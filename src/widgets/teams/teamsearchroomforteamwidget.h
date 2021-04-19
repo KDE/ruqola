@@ -20,12 +20,12 @@
 
 #pragma once
 
+#include "addteamroomcompletionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
 #include <QWidget>
 class FlowLayout;
-class AddTeamRoomCompletionLineEdit;
-// class ClickableUserWidget;
+class ClickableWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomForTeamWidget : public QWidget
 {
     Q_OBJECT
@@ -38,15 +38,15 @@ public:
     Q_REQUIRED_RESULT QString placeHolderText() const;
 
     Q_REQUIRED_RESULT QStringList roomIds() const;
+    QStringList names() const;
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);
 
 private:
     AddTeamRoomCompletionLineEdit *const mSearchRoomLineEdit;
-    //    void slotRemoveUser(const QString &username);
-    //    void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
-    //    AddUsersCompletionLineEdit *const mSearchUserLineEdit;
+    void slotRemoveRoom(const QString &name);
+    void slotAddNewName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &info);
     FlowLayout *const mFlowLayout;
-    //    QMap<QString, ClickableUserWidget *> mMap;
+    QMap<QString, ClickableWidget *> mMap;
 };

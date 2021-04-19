@@ -21,7 +21,7 @@
 #include "teamsearchroomforteamwidget.h"
 #include "addteamroomcompletionlineedit.h"
 #include "common/flowlayout.h"
-//#include "misc/clickableuserwidget.h"
+#include "misc/clickablewidget.h"
 #include <QVBoxLayout>
 
 TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(QWidget *parent)
@@ -34,46 +34,46 @@ TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoomLineEdit"));
-    // TODO connect(mSearchRoomLineEdit, &AddUsersCompletionLineEdit::newUserName, this, &TeamSearchRoomForTeamWidget::slotAddNewName);
+    connect(mSearchRoomLineEdit, &AddTeamRoomCompletionLineEdit::newRoomName, this, &TeamSearchRoomForTeamWidget::slotAddNewName);
     mainLayout->addWidget(mSearchRoomLineEdit);
 
     mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
     mainLayout->addLayout(mFlowLayout);
+    mainLayout->addStretch();
 }
 
 TeamSearchRoomForTeamWidget::~TeamSearchRoomForTeamWidget()
 {
     delete mFlowLayout;
 }
-/*
-void TeamSearchRoomForTeamWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info)
+
+void TeamSearchRoomForTeamWidget::slotAddNewName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &info)
 {
-    const QString &userName = info.username;
-    if (mMap.contains(userName)) {
+    const QString &roomName = info.roomName;
+    if (mMap.contains(roomName)) {
         return;
     }
-    auto clickableUserWidget = new ClickableUserWidget(userName, this);
-    clickableUserWidget->setUserId(info.userId);
-    connect(clickableUserWidget, &ClickableUserWidget::removeUser, this, &TeamSearchRoomForTeamWidget::slotRemoveUser);
-    mFlowLayout->addWidget(clickableUserWidget);
-    mMap.insert(userName, clickableUserWidget);
+    auto clickableWidget = new ClickableWidget(roomName, this);
+    clickableWidget->setIdentifier(info.roomId);
+    connect(clickableWidget, &ClickableWidget::removeClickableWidget, this, &TeamSearchRoomForTeamWidget::slotRemoveRoom);
+    mFlowLayout->addWidget(clickableWidget);
+    mMap.insert(roomName, clickableWidget);
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-void TeamSearchRoomForTeamWidget::slotRemoveUser(const QString &username)
+void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
 {
-    ClickableUserWidget *userWidget = mMap.value(username);
+    ClickableWidget *userWidget = mMap.value(name);
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
             delete mFlowLayout->takeAt(index);
-            mMap.remove(username);
+            mMap.remove(name);
             delete userWidget;
         }
     }
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
-*/
 
 void TeamSearchRoomForTeamWidget::setPlaceholderText(const QString &str)
 {
@@ -87,5 +87,22 @@ QString TeamSearchRoomForTeamWidget::placeHolderText() const
 
 QStringList TeamSearchRoomForTeamWidget::roomIds() const
 {
-    return mSearchRoomLineEdit->roomIds();
+    QStringList addUsers;
+    QMapIterator<QString, ClickableWidget *> i(mMap);
+    while (i.hasNext()) {
+        i.next();
+        addUsers << i.value()->identifier();
+    }
+    return addUsers;
+}
+
+QStringList TeamSearchRoomForTeamWidget::names() const
+{
+    QStringList addUsers;
+    QMapIterator<QString, ClickableWidget *> i(mMap);
+    while (i.hasNext()) {
+        i.next();
+        addUsers << i.value()->name();
+    }
+    return addUsers;
 }

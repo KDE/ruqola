@@ -33,7 +33,6 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(QWidget *parent)
 
     mTeamSearchRoomForTeamWidget->setObjectName(QStringLiteral("mTeamSearchRoomForTeamWidget"));
     vboxLayout->addWidget(mTeamSearchRoomForTeamWidget);
-    // TODO
 }
 
 TeamSearchRoomWidget::~TeamSearchRoomWidget()
@@ -42,6 +41,5 @@ TeamSearchRoomWidget::~TeamSearchRoomWidget()
 
 QStringList TeamSearchRoomWidget::roomIds() const
 {
-    // TODO
-    return {};
+    return mTeamSearchRoomForTeamWidget->roomIds();
 }
