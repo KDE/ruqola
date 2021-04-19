@@ -19,8 +19,10 @@
 */
 
 #include "teamsearchroomwidgettest.h"
+#include "teams/teamsearchroomforteamwidget.h"
 #include "teams/teamsearchroomwidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(TeamSearchRoomWidgetTest)
 TeamSearchRoomWidgetTest::TeamSearchRoomWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +32,12 @@ TeamSearchRoomWidgetTest::TeamSearchRoomWidgetTest(QObject *parent)
 void TeamSearchRoomWidgetTest::shouldHaveDefaultValues()
 {
     TeamSearchRoomWidget w;
-    // TODO
+    QVERIFY(w.roomIds().isEmpty());
+
+    auto mTeamSearchRoomForTeamWidget = w.findChild<TeamSearchRoomForTeamWidget *>(QStringLiteral("mTeamSearchRoomForTeamWidget"));
+    QVERIFY(mTeamSearchRoomForTeamWidget);
+
+    auto vboxLayout = w.findChild<QVBoxLayout *>(QStringLiteral("vboxLayout"));
+    QVERIFY(vboxLayout);
+    QCOMPARE(vboxLayout->contentsMargins(), {});
 }

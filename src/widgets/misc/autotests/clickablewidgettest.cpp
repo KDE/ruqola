@@ -30,6 +30,6 @@ ClickableWidgetTest::ClickableWidgetTest(QObject *parent)
 void ClickableWidgetTest::shouldHaveDefaultValues()
 {
     ClickableWidget w(QStringLiteral("foo"));
-    QVERIFY(w.name().isEmpty());
+    QVERIFY(!w.name().isEmpty()); // See foo in constructor
     QVERIFY(w.identifier().isEmpty());
 }
