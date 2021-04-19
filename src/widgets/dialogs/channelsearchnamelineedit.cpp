@@ -69,8 +69,9 @@ void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
     Channel c;
     QVector<Channel> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("result")).toArray();
-    channelList.reserve(rooms.size());
-    for (int i = 0; i < rooms.size(); i++) {
+    const int roomsSize(rooms.size());
+    channelList.reserve(roomsSize);
+    for (int i = 0; i < roomsSize; i++) {
         const QJsonObject o = rooms.at(i).toObject();
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
