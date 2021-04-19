@@ -77,16 +77,15 @@ void TeamSearchRoomForTeamWidget::slotRemoveUser(const QString &username)
 
 void TeamSearchRoomForTeamWidget::setPlaceholderText(const QString &str)
 {
-    //    mSearchUserLineEdit->setPlaceholderText(str);
+    mSearchRoomLineEdit->setPlaceholderText(str);
 }
 
 QString TeamSearchRoomForTeamWidget::placeHolderText() const
 {
-    //  return mSearchUserLineEdit->placeholderText();
-    return {};
+    return mSearchRoomLineEdit->placeholderText();
 }
 
 QStringList TeamSearchRoomForTeamWidget::roomIds() const
 {
-    return {};
+    return mSearchRoomLineEdit->roomIds();
 }

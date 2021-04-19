@@ -30,6 +30,8 @@ public:
     explicit AddTeamRoomCompletionLineEdit(QWidget *parent = nullptr);
     ~AddTeamRoomCompletionLineEdit() override;
 
+    Q_REQUIRED_RESULT QStringList roomIds() const;
+
 private:
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);

@@ -38,6 +38,11 @@ AddTeamRoomCompletionLineEdit::~AddTeamRoomCompletionLineEdit()
 {
 }
 
+QStringList AddTeamRoomCompletionLineEdit::roomIds() const
+{
+    return {};
+}
+
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();

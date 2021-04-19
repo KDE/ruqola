@@ -29,6 +29,7 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(QWidget *parent)
 {
     auto vboxLayout = new QVBoxLayout(this);
     vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
+    vboxLayout->setContentsMargins({});
 
     mTeamSearchRoomForTeamWidget->setObjectName(QStringLiteral("mTeamSearchRoomForTeamWidget"));
     vboxLayout->addWidget(mTeamSearchRoomForTeamWidget);
