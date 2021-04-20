@@ -187,6 +187,7 @@ set (RocketChatRestApiQt_SRCS
     teams/teamleaveroomjob.cpp
     teams/roomsautocompleteavailableforteamsjob.cpp
     teams/teamaddroomsjob.cpp
+    teams/teamscreatejob.cpp
 
     )
 
