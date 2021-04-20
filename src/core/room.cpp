@@ -356,6 +356,11 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
     parseDisplaySystemMessage(json);
     parseRetentionInfo(json);
+    parseTeamInfo(json);
+}
+
+void Room::parseTeamInfo(const QJsonObject &json)
+{
     TeamInfo info;
     info.parseTeamInfo(json);
     setTeamInfo(std::move(info));
@@ -657,9 +662,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     }
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
-    TeamInfo info;
-    info.parseTeamInfo(json);
-    setTeamInfo(std::move(info));
+    parseTeamInfo(json);
 }
 
 qint64 Room::lastSeenAt() const
@@ -774,10 +777,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
     parseRetentionInfo(json);
-    TeamInfo info;
-    info.parseTeamInfo(json);
-    setTeamInfo(std::move(info));
-
+    parseTeamInfo(json);
     // TODO add muted
 }
 

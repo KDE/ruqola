@@ -314,6 +314,7 @@ private:
     void parseCommonData(const QJsonObject &json);
     void parseDisplaySystemMessage(const QJsonObject &json);
     void parseRetentionInfo(const QJsonObject &json);
+    void parseTeamInfo(const QJsonObject &obj);
 
     // Room Object Fields
 
