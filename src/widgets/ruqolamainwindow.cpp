@@ -168,6 +168,9 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::permissionChanged, this, &RuqolaMainWindow::slotPermissionChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::slotPermissionChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, &RuqolaMainWindow::slotPermissionChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
     connect(mCurrentRocketChatAccount,
             &RocketChatAccount::userStatusUpdated,
@@ -207,13 +210,17 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     // Laurent disable for the moment mSaveAs->setEnabled(enabled);
 }
 
+void RuqolaMainWindow::slotPermissionChanged()
+{
+    mCreateTeam->setEnabled(mCurrentRocketChatAccount->teamEnabled());
+}
+
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
     mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->registrationFromEnabled());
     mAdministrator->setEnabled(mCurrentRocketChatAccount->isAdministrator());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
-    mCreateTeam->setEnabled(mCurrentRocketChatAccount->teamEnabled());
 }
 
 void RuqolaMainWindow::readConfig()

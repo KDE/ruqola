@@ -1757,7 +1757,7 @@ bool RocketChatAccount::allowAvatarChanged() const
 
 bool RocketChatAccount::teamEnabled() const
 {
-    return mRuqolaServerConfig->hasAtLeastVersion(3, 13, 0);
+    return mRuqolaServerConfig->hasAtLeastVersion(3, 13, 0) && hasPermission(QStringLiteral("create-team"));
 }
 
 bool RocketChatAccount::ldapEnabled() const
@@ -2519,6 +2519,7 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
 {
     // qDebug() << accountName() << " replyObject " << replyObject;
     mPermissionManager.parsePermissions(replyObject);
+    Q_EMIT permissionChanged();
 }
 
 QStringList RocketChatAccount::permissions(const QString &permissionId) const

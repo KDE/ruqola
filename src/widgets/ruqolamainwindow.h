@@ -81,6 +81,7 @@ private:
     void slotUpdateCustomUserStatus();
     void slotCreateDiscussion();
     void slotCreateTeam();
+    void slotPermissionChanged();
     bool mReallyClose{false};
 
     RuqolaCentralWidget *const mMainWidget;
