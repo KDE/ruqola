@@ -29,10 +29,10 @@ void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
     mTeamId = replyObject.value(QStringLiteral("teamId")).toString();
     mMainTeam = replyObject.value(QStringLiteral("teamMain")).toBool(false);
     mAutoJoin = replyObject.value(QStringLiteral("teamDefault")).toBool(false);
-    if (isValid()) {
-        // TODO add specific debug category ?
-        qDebug() << " END team info " << *this;
-    }
+    //    if (isValid()) {
+    //        // TODO add specific debug category ?
+    //        qDebug() << " END team info " << *this;
+    //    }
 }
 
 void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
