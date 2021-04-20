@@ -45,11 +45,11 @@ bool TeamsCreateJob::start()
     }
     addStartRestApiInfo("TeamsCreateJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &TeamsCreateJob::slotCreateChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &TeamsCreateJob::slotTeamCreateFinished);
     return true;
 }
 
-void TeamsCreateJob::slotCreateChannelFinished()
+void TeamsCreateJob::slotTeamCreateFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +58,7 @@ void TeamsCreateJob::slotCreateChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT createChannelDone();
+            Q_EMIT teamCreateDone();
             if (!mPassword.isEmpty()) {
                 const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
                 const QString channelId = channelObj[QStringLiteral("_id")].toString();
@@ -86,14 +86,6 @@ QString TeamsCreateJob::password() const
 void TeamsCreateJob::setPassword(const QString &password)
 {
     mPassword = password;
-}
-
-QString TeamsCreateJob::errorMessage(const QString &str, const QJsonObject &detail)
-{
-    if (str == QLatin1String("error-duplicate-channel-name")) {
-        return i18n("A channel with name '%1' exists", detail.value(QStringLiteral("channel_name")).toString());
-    }
-    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 QStringList TeamsCreateJob::members() const

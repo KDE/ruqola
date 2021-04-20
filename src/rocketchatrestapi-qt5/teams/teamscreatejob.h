@@ -20,11 +20,11 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT TeamsCreateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -52,15 +52,12 @@ public:
     void setPassword(const QString &password);
 
 Q_SIGNALS:
-    void createChannelDone();
+    void teamCreateDone();
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
-
-protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(TeamsCreateJob)
-    void slotCreateChannelFinished();
+    void slotTeamCreateFinished();
     QString mChannelName;
     QStringList mMembers;
     QString mPassword;
