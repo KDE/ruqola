@@ -23,7 +23,7 @@
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 class TeamRoomCompleterModel;
-
+class QTimer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddTeamRoomCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -39,8 +39,11 @@ Q_SIGNALS:
     void newRoomName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &);
 
 private:
+    void slotSearchTimerFired();
+    void slotSearchTextEdited();
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);
     void slotAutoCompletTeamRoomDone(const QJsonObject &obj);
     TeamRoomCompleterModel *const mTeamRoomCompleterModel;
+    QTimer *const mSearchTimer;
 };

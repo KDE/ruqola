@@ -29,18 +29,38 @@
 #include "teams/roomsautocompleteavailableforteamsjob.h"
 
 #include <QJsonArray>
+#include <QTimer>
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
     , mTeamRoomCompleterModel(new TeamRoomCompleterModel(this))
+    , mSearchTimer(new QTimer(this))
 {
-    connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotTextChanged);
     setCompletionModel(mTeamRoomCompleterModel);
     connect(this, &AddTeamRoomCompletionLineEdit::complete, this, &AddTeamRoomCompletionLineEdit::slotComplete);
+
+    connect(mSearchTimer, &QTimer::timeout, this, &AddTeamRoomCompletionLineEdit::slotSearchTimerFired);
+    connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }
 
 AddTeamRoomCompletionLineEdit::~AddTeamRoomCompletionLineEdit()
 {
+}
+
+void AddTeamRoomCompletionLineEdit::slotSearchTimerFired()
+{
+    mSearchTimer->stop();
+    slotTextChanged(text());
+}
+
+void AddTeamRoomCompletionLineEdit::slotSearchTextEdited()
+{
+    if (mSearchTimer->isActive()) {
+        mSearchTimer->stop(); // eventually
+    }
+
+    mSearchTimer->setSingleShot(true);
+    mSearchTimer->start(500);
 }
 
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
@@ -86,8 +106,8 @@ void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
     info.roomName = completerName;
     info.roomId = roomId;
     mCompletionListView->hide();
-    disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotTextChanged);
+    disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT newRoomName(info);
     clear();
-    connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotTextChanged);
+    connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }
