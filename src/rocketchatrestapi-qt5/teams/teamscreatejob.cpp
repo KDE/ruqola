@@ -59,14 +59,14 @@ void TeamsCreateJob::slotTeamCreateFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT teamCreateDone();
-            if (!mTeamsCreateJobInfo.mPassword.isEmpty()) {
+            if (!mTeamsCreateJobInfo.password.isEmpty()) {
                 const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
                 const QString channelId = channelObj[QStringLiteral("_id")].toString();
                 if (channelId.isEmpty()) {
                     emitFailedMessage(replyObject, reply);
                     addLoggerWarning(QByteArrayLiteral("TeamsCreateJob Impossible to extract channel id: ") + replyJson.toJson(QJsonDocument::Indented));
                 } else {
-                    Q_EMIT addJoinCodeToChannel(channelId, mTeamsCreateJobInfo.mPassword);
+                    Q_EMIT addJoinCodeToChannel(channelId, mTeamsCreateJobInfo.password);
                 }
             }
         } else {
@@ -95,7 +95,7 @@ bool TeamsCreateJob::requireHttpAuthentication() const
 
 bool TeamsCreateJob::canStart() const
 {
-    if (mTeamsCreateJobInfo.mTeamName.isEmpty()) {
+    if (mTeamsCreateJobInfo.teamName.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsCreateJob: channelname is empty";
         return false;
     }
@@ -108,11 +108,11 @@ bool TeamsCreateJob::canStart() const
 QJsonDocument TeamsCreateJob::json() const
 {
     QJsonObject jsonObj;
-    if (!mTeamsCreateJobInfo.mMembers.isEmpty()) {
-        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mTeamsCreateJobInfo.mMembers);
+    if (!mTeamsCreateJobInfo.members.isEmpty()) {
+        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mTeamsCreateJobInfo.members);
     }
-    jsonObj[QLatin1String("name")] = mTeamsCreateJobInfo.mTeamName;
-    if (mTeamsCreateJobInfo.mReadOnly) {
+    jsonObj[QLatin1String("name")] = mTeamsCreateJobInfo.teamName;
+    if (mTeamsCreateJobInfo.readOnly) {
         // Default is false
         jsonObj[QLatin1String("readOnly")] = true;
     }

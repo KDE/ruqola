@@ -29,10 +29,10 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJob : public RestApiAbstractJob
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJobInfo {
-        QString mTeamName;
-        QStringList mMembers;
-        QString mPassword;
-        bool mReadOnly = false;
+        QString teamName;
+        QStringList members;
+        QString password;
+        bool readOnly = false;
     };
     explicit TeamsCreateJob(QObject *parent = nullptr);
     ~TeamsCreateJob() override;

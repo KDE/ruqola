@@ -36,10 +36,10 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     TeamsCreateJob::TeamsCreateJobInfo info = job.teamsCreateJobInfo();
-    QVERIFY(!info.mReadOnly);
-    QVERIFY(info.mTeamName.isEmpty());
-    QVERIFY(info.mMembers.isEmpty());
-    QVERIFY(info.mPassword.isEmpty());
+    QVERIFY(!info.readOnly);
+    QVERIFY(info.teamName.isEmpty());
+    QVERIFY(info.members.isEmpty());
+    QVERIFY(info.password.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -57,22 +57,22 @@ void TeamsCreateJobTest::shouldGenerateJson()
     TeamsCreateJob job;
     TeamsCreateJob::TeamsCreateJobInfo info;
     const QString channelname = QStringLiteral("foo1");
-    info.mTeamName = channelname;
+    info.teamName = channelname;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     bool readOnly = false;
-    info.mReadOnly = readOnly;
+    info.readOnly = readOnly;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     readOnly = true;
-    info.mReadOnly = readOnly;
+    info.readOnly = readOnly;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
-    info.mMembers = members;
+    info.members = members;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 }
@@ -97,7 +97,7 @@ void TeamsCreateJobTest::shouldNotStarting()
 
     TeamsCreateJob::TeamsCreateJobInfo info;
     const QString roomId = QStringLiteral("foo1");
-    info.mTeamName = roomId;
+    info.teamName = roomId;
     job.setTeamsCreateJobInfo(info);
     QVERIFY(job.canStart());
 }
