@@ -135,20 +135,21 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
+    menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
+    menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     if (index.isValid()) {
-        menu.addAction(i18n("Remove from Team"), this, [this, index]() {
-            const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
-            removeRoomFromTeam(roomId);
-        });
+        menu.addSeparator();
         const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
         menu.addAction(autojoin ? i18n("Remove Autojoin") : i18n("Add Autojoin"), this, [this, index, autojoin]() {
             const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
             updateAutojoin(roomId, autojoin);
         });
         menu.addSeparator();
+        menu.addAction(i18n("Remove from Team"), this, [this, index]() {
+            const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+            removeRoomFromTeam(roomId);
+        });
     }
-    menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
-    menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     menu.exec(mListView->viewport()->mapToGlobal(pos));
 }
 
@@ -224,7 +225,6 @@ void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
         TeamRoom teamRoom;
         teamRoom.parse(r);
         teamRooms.append(teamRoom);
-        qDebug() << "TeamRoom  " << teamRoom;
     }
     if (!teamRooms.isEmpty()) {
         mTeamRoomsModel->insertRooms(teamRooms);
