@@ -246,6 +246,7 @@ void TeamChannelsWidget::slotCreateRoom()
         RocketChatRestApi::CreateRoomInfo createRoominfo = info.info;
         createRoominfo.teamId = mTeamId;
         rcAccount->createNewChannel(createRoominfo, info.privateChannel);
+        // TODO  we need to refresh list of rooms
     }
     delete dlg;
 }
