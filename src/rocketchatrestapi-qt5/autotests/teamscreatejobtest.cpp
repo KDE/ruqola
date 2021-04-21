@@ -35,10 +35,11 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     TeamsCreateJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.readOnly());
-    QVERIFY(job.channelName().isEmpty());
-    QVERIFY(job.members().isEmpty());
-    QVERIFY(job.password().isEmpty());
+    TeamsCreateJob::TeamsCreateJobInfo info = job.teamsCreateJobInfo();
+    QVERIFY(!info.mReadOnly);
+    QVERIFY(info.mTeamName.isEmpty());
+    QVERIFY(info.mMembers.isEmpty());
+    QVERIFY(info.mPassword.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -54,20 +55,25 @@ void TeamsCreateJobTest::shouldGenerateRequest()
 void TeamsCreateJobTest::shouldGenerateJson()
 {
     TeamsCreateJob job;
+    TeamsCreateJob::TeamsCreateJobInfo info;
     const QString channelname = QStringLiteral("foo1");
-    job.setChannelName(channelname);
+    info.mTeamName = channelname;
+    job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     bool readOnly = false;
-    job.setReadOnly(readOnly);
+    info.mReadOnly = readOnly;
+    job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     readOnly = true;
-    job.setReadOnly(readOnly);
+    info.mReadOnly = readOnly;
+    job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
-    job.setMembers(members);
+    info.mMembers = members;
+    job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 }
 
@@ -88,7 +94,10 @@ void TeamsCreateJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
+
+    TeamsCreateJob::TeamsCreateJobInfo info;
     const QString roomId = QStringLiteral("foo1");
-    job.setChannelName(roomId);
+    info.mTeamName = roomId;
+    job.setTeamsCreateJobInfo(info);
     QVERIFY(job.canStart());
 }

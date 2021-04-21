@@ -59,14 +59,14 @@ void TeamsCreateJob::slotTeamCreateFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT teamCreateDone();
-            if (!mPassword.isEmpty()) {
+            if (!mTeamsCreateJobInfo.mPassword.isEmpty()) {
                 const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
                 const QString channelId = channelObj[QStringLiteral("_id")].toString();
                 if (channelId.isEmpty()) {
                     emitFailedMessage(replyObject, reply);
                     addLoggerWarning(QByteArrayLiteral("TeamsCreateJob Impossible to extract channel id: ") + replyJson.toJson(QJsonDocument::Indented));
                 } else {
-                    Q_EMIT addJoinCodeToChannel(channelId, mPassword);
+                    Q_EMIT addJoinCodeToChannel(channelId, mTeamsCreateJobInfo.mPassword);
                 }
             }
         } else {
@@ -78,44 +78,14 @@ void TeamsCreateJob::slotTeamCreateFinished()
     deleteLater();
 }
 
-QString TeamsCreateJob::password() const
+TeamsCreateJob::TeamsCreateJobInfo TeamsCreateJob::teamsCreateJobInfo() const
 {
-    return mPassword;
+    return mTeamsCreateJobInfo;
 }
 
-void TeamsCreateJob::setPassword(const QString &password)
+void TeamsCreateJob::setTeamsCreateJobInfo(const TeamsCreateJobInfo &teamsCreateJobInfo)
 {
-    mPassword = password;
-}
-
-QStringList TeamsCreateJob::members() const
-{
-    return mMembers;
-}
-
-void TeamsCreateJob::setMembers(const QStringList &members)
-{
-    mMembers = members;
-}
-
-QString TeamsCreateJob::channelName() const
-{
-    return mChannelName;
-}
-
-void TeamsCreateJob::setChannelName(const QString &channelName)
-{
-    mChannelName = channelName;
-}
-
-bool TeamsCreateJob::readOnly() const
-{
-    return mReadOnly;
-}
-
-void TeamsCreateJob::setReadOnly(bool readOnly)
-{
-    mReadOnly = readOnly;
+    mTeamsCreateJobInfo = teamsCreateJobInfo;
 }
 
 bool TeamsCreateJob::requireHttpAuthentication() const
@@ -125,7 +95,7 @@ bool TeamsCreateJob::requireHttpAuthentication() const
 
 bool TeamsCreateJob::canStart() const
 {
-    if (mChannelName.isEmpty()) {
+    if (mTeamsCreateJobInfo.mTeamName.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamsCreateJob: channelname is empty";
         return false;
     }
@@ -138,11 +108,11 @@ bool TeamsCreateJob::canStart() const
 QJsonDocument TeamsCreateJob::json() const
 {
     QJsonObject jsonObj;
-    if (!mMembers.isEmpty()) {
-        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mMembers);
+    if (!mTeamsCreateJobInfo.mMembers.isEmpty()) {
+        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mTeamsCreateJobInfo.mMembers);
     }
-    jsonObj[QLatin1String("name")] = channelName();
-    if (mReadOnly) {
+    jsonObj[QLatin1String("name")] = mTeamsCreateJobInfo.mTeamName;
+    if (mTeamsCreateJobInfo.mReadOnly) {
         // Default is false
         jsonObj[QLatin1String("readOnly")] = true;
     }

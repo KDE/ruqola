@@ -28,6 +28,12 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJobInfo {
+        QString mTeamName;
+        QStringList mMembers;
+        QString mPassword;
+        bool mReadOnly = false;
+    };
     explicit TeamsCreateJob(QObject *parent = nullptr);
     ~TeamsCreateJob() override;
 
@@ -39,17 +45,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT bool readOnly() const;
-    void setReadOnly(bool readOnly);
-
-    Q_REQUIRED_RESULT QString channelName() const;
-    void setChannelName(const QString &channelName);
-
-    Q_REQUIRED_RESULT QStringList members() const;
-    void setMembers(const QStringList &members);
-
-    Q_REQUIRED_RESULT QString password() const;
-    void setPassword(const QString &password);
+    Q_REQUIRED_RESULT TeamsCreateJobInfo teamsCreateJobInfo() const;
+    void setTeamsCreateJobInfo(const TeamsCreateJobInfo &teamsCreateJobInfo);
 
 Q_SIGNALS:
     void teamCreateDone();
@@ -58,9 +55,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(TeamsCreateJob)
     void slotTeamCreateFinished();
-    QString mChannelName;
-    QStringList mMembers;
-    QString mPassword;
-    bool mReadOnly = false;
+    TeamsCreateJobInfo mTeamsCreateJobInfo;
 };
 }
