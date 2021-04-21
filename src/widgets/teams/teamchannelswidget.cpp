@@ -263,7 +263,10 @@ void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo 
     // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::CreateChannelJob::createChannelDone, this, [this](const QJsonObject &replyObject) {
-        // TODO
+        const QJsonObject obj = replyObject[QLatin1String("channel")].toObject();
+        TeamRoom teamRoom;
+        teamRoom.parse(obj);
+        mTeamRoomsModel->insertRooms({teamRoom});
     });
     job->setCreateChannelInfo(info);
     if (!job->start()) {
@@ -278,7 +281,10 @@ void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateRoomInfo &i
     rcAccount->restApi()->initializeRestApiJob(job);
     job->setCreateGroupsInfo(info);
     connect(job, &RocketChatRestApi::CreateGroupsJob::createGroupsDone, this, [this](const QJsonObject &replyObject) {
-        // TODO
+        const QJsonObject obj = replyObject[QLatin1String("group")].toObject();
+        TeamRoom teamRoom;
+        teamRoom.parse(obj);
+        mTeamRoomsModel->insertRooms({teamRoom});
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CreateGroupsJob job";
