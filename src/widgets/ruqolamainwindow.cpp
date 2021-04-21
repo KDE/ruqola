@@ -42,11 +42,13 @@
 #include "notification.h"
 #include "receivetypingnotificationmanager.h"
 #include "registeruser/registeruserdialog.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola.h"
 #include "ruqolacentralwidget.h"
 #include "ruqolaserverconfig.h"
+#include "teams/teamscreatejob.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -357,7 +359,33 @@ void RuqolaMainWindow::slotClearAccountAlerts()
 
 void RuqolaMainWindow::slotCreateTeam()
 {
-    // TODO
+    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    CreateNewChannelWidget::Features flags;
+    if (mCurrentRocketChatAccount->broadCastEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::BroadCast;
+    }
+    if (mCurrentRocketChatAccount->encryptionEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::Encrypted;
+    }
+    dlg->setFeatures(flags);
+    if (dlg->exec()) {
+        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
+        RocketChatRestApi::TeamsCreateJob *job = new RocketChatRestApi::TeamsCreateJob(this);
+        RocketChatRestApi::TeamsCreateJob::TeamsCreateJobInfo teamInfo;
+        teamInfo.teamName = info.channelName;
+        teamInfo.readOnly = info.readOnly;
+        // teamInfo.members = info.usersName.join(QLatin1Char(','));
+        job->setTeamsCreateJobInfo(teamInfo);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, [this]() {
+            qDebug() << " teamCreateDone";
+        });
+        if (!job->start()) {
+            // TODO add debug categories
+            qWarning() << "Impossible to start TeamsCreateJob";
+        }
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateDiscussion()
