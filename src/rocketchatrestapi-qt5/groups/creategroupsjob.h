@@ -57,5 +57,7 @@ private:
     QString mChannelName;
     QStringList mMembers;
     bool mReadOnly = false;
+    // {"name":"teams-test-room2","members":[],"readOnly":false,"extraData":{"description":"","broadcast":false,"encrypted":false,"teamId":"607fb34ee8da65ad4f476487"}
+    // TODO add extraData
 };
 }
