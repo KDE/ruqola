@@ -19,7 +19,9 @@
 */
 
 #include "teamchannelswidget.h"
+#include "channels/createchanneljob.h"
 #include "dialogs/createnewchanneldialog.h"
+#include "groups/creategroupsjob.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
@@ -245,8 +247,40 @@ void TeamChannelsWidget::slotCreateRoom()
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
         RocketChatRestApi::CreateRoomInfo createRoominfo = info.info;
         createRoominfo.teamId = mTeamId;
-        rcAccount->createNewChannel(createRoominfo, info.privateChannel);
-        // TODO  we need to refresh list of rooms
+        if (info.privateChannel) {
+            createGroups(createRoominfo);
+        } else {
+            createChannels(createRoominfo);
+        }
     }
     delete dlg;
+}
+
+void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo &info)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::CreateChannelJob(this);
+    // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::CreateChannelJob::createChannelDone, this, [this](const QJsonObject &replyObject) {
+        // TODO
+    });
+    job->setCreateChannelInfo(info);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CreateChannelJob job";
+    }
+}
+
+void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateRoomInfo &info)
+{
+    auto job = new RocketChatRestApi::CreateGroupsJob(this);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    rcAccount->restApi()->initializeRestApiJob(job);
+    job->setCreateGroupsInfo(info);
+    connect(job, &RocketChatRestApi::CreateGroupsJob::createGroupsDone, this, [this](const QJsonObject &replyObject) {
+        // TODO
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CreateGroupsJob job";
+    }
 }

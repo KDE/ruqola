@@ -58,7 +58,8 @@ void CreateChannelJob::slotCreateChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("CreateChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT createChannelDone();
+            qDebug() << " replyObject : " << replyObject;
+            Q_EMIT createChannelDone(replyObject);
             if (!mCreateChannelInfo.password.isEmpty()) {
                 const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
                 const QString channelId = channelObj[QStringLiteral("_id")].toString();

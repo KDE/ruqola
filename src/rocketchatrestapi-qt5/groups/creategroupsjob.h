@@ -20,13 +20,13 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 
 #include "createroominfo.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CreateGroupsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT CreateGroupsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -45,7 +45,7 @@ public:
     void setCreateGroupsInfo(const CreateRoomInfo &createGroupsInfo);
 
 Q_SIGNALS:
-    void createGroupsDone();
+    void createGroupsDone(const QJsonObject &reply);
 
 private:
     Q_DISABLE_COPY(CreateGroupsJob)

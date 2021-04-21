@@ -45,7 +45,7 @@ public:
     void setCreateChannelInfo(const CreateRoomInfo &createChannelInfo);
 
 Q_SIGNALS:
-    void createChannelDone();
+    void createChannelDone(const QJsonObject &reply);
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
 
 protected:
