@@ -58,22 +58,31 @@ void CreateGroupsJobTest::shouldGenerateJson()
     CreateRoomInfo info;
     info.name = channelname;
     job.setCreateGroupsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1"})").arg(channelname).toLatin1());
 
     bool readOnly = false;
     info.readOnly = readOnly;
     job.setCreateGroupsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1"})").arg(channelname).toLatin1());
 
     readOnly = true;
     info.readOnly = readOnly;
     job.setCreateGroupsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
     info.members = members;
     job.setCreateGroupsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+
+    const QString teamId = {QStringLiteral("foo")};
+    info.teamId = teamId;
+    info.broadcast = true;
+    job.setCreateGroupsInfo(info);
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(R"({"extraData":{"broadcast":true,"teamId":"foo"},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 }
 
 void CreateGroupsJobTest::shouldNotStarting()

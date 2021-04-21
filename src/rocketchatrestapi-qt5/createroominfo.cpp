@@ -45,6 +45,21 @@ QJsonDocument CreateRoomInfo::json() const
         jsonObj[QLatin1String("readOnly")] = true;
     } // Default is false
 
+    QJsonObject extraJsonObj;
+
+    if (broadcast) {
+        extraJsonObj[QLatin1String("broadcast")] = true;
+    } // Default is false
+    if (encrypted) {
+        extraJsonObj[QLatin1String("encrypted")] = true;
+    } // Default is false
+    if (!description.isEmpty()) {
+        extraJsonObj[QLatin1String("description")] = description;
+    }
+    if (!teamId.isEmpty()) {
+        extraJsonObj[QLatin1String("teamId")] = teamId;
+    }
+    jsonObj[QLatin1String("extraData")] = extraJsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
