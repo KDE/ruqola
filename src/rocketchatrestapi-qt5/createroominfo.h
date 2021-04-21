@@ -20,6 +20,7 @@
 #pragma once
 
 #include "librocketchatrestapi-qt5_export.h"
+#include <QDebug>
 #include <QJsonDocument>
 #include <QString>
 #include <QStringList>
@@ -43,3 +44,5 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
     Q_REQUIRED_RESULT QJsonDocument json() const;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateRoomInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateRoomInfo &t);
