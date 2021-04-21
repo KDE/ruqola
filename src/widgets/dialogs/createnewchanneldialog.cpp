@@ -19,6 +19,7 @@
 */
 
 #include "createnewchanneldialog.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -59,15 +60,17 @@ CreateNewChannelDialog::~CreateNewChannelDialog()
 
 CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo() const
 {
-    NewChannelInfo info;
-    info.usersName = mCreateNewChannelWidget->users();
-    info.channelName = mCreateNewChannelWidget->channelName();
+    CreateNewChannelDialog::NewChannelInfo newChannelInfo;
+    RocketChatRestApi::CreateRoomInfo info;
+    info.members = mCreateNewChannelWidget->users();
+    info.name = mCreateNewChannelWidget->channelName();
     info.password = mCreateNewChannelWidget->password();
     info.readOnly = mCreateNewChannelWidget->readOnly();
-    info.broadCast = mCreateNewChannelWidget->broadCast();
-    info.privateChannel = mCreateNewChannelWidget->privateChannel();
-    info.encryptedRoom = mCreateNewChannelWidget->encryptedRoom();
-    return info;
+    info.broadcast = mCreateNewChannelWidget->broadCast();
+    info.encrypted = mCreateNewChannelWidget->encryptedRoom();
+    newChannelInfo.info = info;
+    newChannelInfo.privateChannel = mCreateNewChannelWidget->privateChannel();
+    return newChannelInfo;
 }
 
 void CreateNewChannelDialog::readConfig()

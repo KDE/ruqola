@@ -24,6 +24,7 @@
 #include "authenticationinfo.h"
 #include "channels/channelbasejob.h"
 #include "commands/runcommandjob.h"
+#include "createroominfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "customuserstatuses.h"
@@ -143,13 +144,7 @@ public:
     void replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message);
     void openChannel(const QString &url, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QString &roomId);
-    void createNewChannel(const QString &name,
-                          bool readOnly,
-                          bool privateRoom,
-                          const QString &userNames,
-                          bool encryptedRoom,
-                          const QString &password,
-                          bool broadcast);
+    void createNewChannel(const RocketChatRestApi::CreateRoomInfo &info, bool privateRoom);
     void joinRoom(const QString &roomId, const QString &joinCode = QString());
     void openDirectChannel(const QString &username);
     void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?

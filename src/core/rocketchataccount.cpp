@@ -703,27 +703,13 @@ void RocketChatAccount::openDirectChannel(const QString &username)
     //#endif
 }
 
-void RocketChatAccount::createNewChannel(const QString &name,
-                                         bool readOnly,
-                                         bool privateRoom,
-                                         const QString &userNames,
-                                         bool encryptedRoom,
-                                         const QString &password,
-                                         bool broadcast)
+void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateRoomInfo &info, bool privateRoom)
 {
-    // TODO use encrypted room
-    // TODO use broadcast
-    if (!name.trimmed().isEmpty()) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
-#else
-        const QStringList lstUsers = userNames.split(QLatin1Char(','), Qt::SkipEmptyParts);
-#endif
+    if (!info.name.trimmed().isEmpty()) {
         if (privateRoom) {
-            // TODO add password ???
-            restApi()->createGroups(name, readOnly, lstUsers);
+            restApi()->createGroups(info);
         } else {
-            restApi()->createChannels(name, readOnly, lstUsers, password);
+            restApi()->createChannels(info);
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Channel name can't be empty";

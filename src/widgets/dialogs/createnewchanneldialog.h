@@ -21,6 +21,7 @@
 #pragma once
 
 #include "createnewchannelwidget.h"
+#include "createroominfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class CreateNewChannelWidget;
@@ -32,13 +33,8 @@ public:
     explicit CreateNewChannelDialog(QWidget *parent = nullptr);
     ~CreateNewChannelDialog() override;
     struct NewChannelInfo {
-        QStringList usersName;
-        QString channelName;
-        QString password;
-        bool readOnly = false;
-        bool broadCast = false;
+        RocketChatRestApi::CreateRoomInfo info;
         bool privateChannel = false;
-        bool encryptedRoom = false;
     };
     Q_REQUIRED_RESULT NewChannelInfo channelInfo() const;
 

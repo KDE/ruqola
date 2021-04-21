@@ -22,6 +22,7 @@
 
 #include "channels/channelbasejob.h"
 #include "commands/runcommandjob.h"
+#include "createroominfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "invite/findorcreateinvitejob.h"
@@ -91,8 +92,8 @@ public:
     void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QString &roomId, const QString &text);
     void deleteMessage(const QString &roomId, const QString &messageId);
-    void createChannels(const QString &channelName, bool readOnly, const QStringList &members, const QString &password);
-    void createGroups(const QString &channelName, bool readOnly, const QStringList &members);
+    void createChannels(const RocketChatRestApi::CreateRoomInfo &info);
+    void createGroups(const RocketChatRestApi::CreateRoomInfo &info);
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
     void updateMessage(const QString &roomId, const QString &messageId, const QString &text);

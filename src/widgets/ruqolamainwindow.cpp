@@ -371,10 +371,7 @@ void RuqolaMainWindow::slotCreateTeam()
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
         RocketChatRestApi::TeamsCreateJob *job = new RocketChatRestApi::TeamsCreateJob(this);
-        RocketChatRestApi::CreateRoomInfo teamInfo;
-        teamInfo.name = info.channelName;
-        teamInfo.readOnly = info.readOnly;
-        // teamInfo.members = info.usersName.join(QLatin1Char(','));
+        RocketChatRestApi::CreateRoomInfo teamInfo = info.info;
         job->setTeamsCreateJobInfo(teamInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, [this]() {
@@ -422,13 +419,7 @@ void RuqolaMainWindow::slotCreateNewChannel()
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
         // TODO adapt createNewChannel api for using QStringList
-        mCurrentRocketChatAccount->createNewChannel(info.channelName,
-                                                    info.readOnly,
-                                                    info.privateChannel,
-                                                    info.usersName.join(QLatin1Char(',')),
-                                                    info.encryptedRoom,
-                                                    info.password,
-                                                    info.broadCast);
+        mCurrentRocketChatAccount->createNewChannel(info.info, info.privateChannel);
     }
     delete dlg;
 }

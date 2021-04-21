@@ -549,29 +549,21 @@ void RestApiRequest::slotAddJoinCodeToChannel(const QString &channelId, const QS
     setJoinCodeChannel(channelId, password);
 }
 
-void RestApiRequest::createChannels(const QString &channelName, bool readOnly, const QStringList &members, const QString &password)
+void RestApiRequest::createChannels(const RocketChatRestApi::CreateRoomInfo &info)
 {
     auto job = new CreateChannelJob(this);
     connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
     initializeRestApiJob(job);
-    CreateRoomInfo info;
-    info.name = channelName;
-    info.readOnly = readOnly;
-    info.members = members;
-    info.password = password;
+    job->setCreateChannelInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateChannelJob job";
     }
 }
 
-void RestApiRequest::createGroups(const QString &channelName, bool readOnly, const QStringList &members)
+void RestApiRequest::createGroups(const RocketChatRestApi::CreateRoomInfo &info)
 {
     auto job = new CreateGroupsJob(this);
     initializeRestApiJob(job);
-    CreateRoomInfo info;
-    info.name = channelName;
-    info.readOnly = readOnly;
-    info.members = members;
     job->setCreateGroupsInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateGroupsJob job";

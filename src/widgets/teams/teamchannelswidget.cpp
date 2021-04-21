@@ -19,6 +19,7 @@
 */
 
 #include "teamchannelswidget.h"
+#include "dialogs/createnewchanneldialog.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
@@ -230,5 +231,21 @@ void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 
 void TeamChannelsWidget::slotCreateRoom()
 {
-    // TODO
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    CreateNewChannelWidget::Features flags;
+    if (rcAccount->broadCastEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::BroadCast;
+    }
+    if (rcAccount->encryptionEnabled()) {
+        flags |= CreateNewChannelWidget::Feature::Encrypted;
+    }
+    dlg->setFeatures(flags);
+    if (dlg->exec()) {
+        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
+        RocketChatRestApi::CreateRoomInfo createRoominfo = info.info;
+        createRoominfo.teamId = mTeamId;
+        rcAccount->createNewChannel(createRoominfo, info.privateChannel);
+    }
+    delete dlg;
 }
