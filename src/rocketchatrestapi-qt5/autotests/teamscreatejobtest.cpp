@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -35,9 +35,9 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     TeamsCreateJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    TeamsCreateJob::TeamsCreateJobInfo info = job.teamsCreateJobInfo();
+    CreateRoomInfo info = job.teamsCreateJobInfo();
     QVERIFY(!info.readOnly);
-    QVERIFY(info.teamName.isEmpty());
+    QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
     QVERIFY(info.password.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -55,9 +55,9 @@ void TeamsCreateJobTest::shouldGenerateRequest()
 void TeamsCreateJobTest::shouldGenerateJson()
 {
     TeamsCreateJob job;
-    TeamsCreateJob::TeamsCreateJobInfo info;
+    CreateRoomInfo info;
     const QString channelname = QStringLiteral("foo1");
-    info.teamName = channelname;
+    info.name = channelname;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
@@ -95,9 +95,9 @@ void TeamsCreateJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    TeamsCreateJob::TeamsCreateJobInfo info;
-    const QString roomId = QStringLiteral("foo1");
-    info.teamName = roomId;
+    CreateRoomInfo info;
+    const QString channel = QStringLiteral("foo1");
+    info.name = channel;
     job.setTeamsCreateJobInfo(info);
     QVERIFY(job.canStart());
 }

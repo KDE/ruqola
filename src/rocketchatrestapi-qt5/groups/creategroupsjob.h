@@ -22,6 +22,8 @@
 
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
+
+#include "createroominfo.h"
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CreateGroupsJob : public RestApiAbstractJob
@@ -39,14 +41,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT bool readOnly() const;
-    void setReadOnly(bool readOnly);
-
-    Q_REQUIRED_RESULT QString channelName() const;
-    void setChannelName(const QString &channelName);
-
-    Q_REQUIRED_RESULT QStringList members() const;
-    void setMembers(const QStringList &members);
+    Q_REQUIRED_RESULT CreateRoomInfo createGroupsInfo() const;
+    void setCreateGroupsInfo(const CreateRoomInfo &createGroupsInfo);
 
 Q_SIGNALS:
     void createGroupsDone();
@@ -54,9 +50,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(CreateGroupsJob)
     void slotCreateGroupsFinished();
-    QString mChannelName;
-    QStringList mMembers;
-    bool mReadOnly = false;
+    CreateRoomInfo mCreateGroupInfo;
     // {"name":"teams-test-room2","members":[],"readOnly":false,"extraData":{"description":"","broadcast":false,"encrypted":false,"teamId":"607fb34ee8da65ad4f476487"}
     // TODO add extraData
 };

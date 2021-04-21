@@ -22,15 +22,12 @@
 
 #include <QObject>
 
-class TeamsCreateJobTest : public QObject
+class CreateRoomInfoTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit TeamsCreateJobTest(QObject *parent = nullptr);
-    ~TeamsCreateJobTest() override = default;
+    explicit CreateRoomInfoTest(QObject *parent = nullptr);
+    ~CreateRoomInfoTest() override = default;
 private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldGenerateJson();
-    void shouldNotStarting();
+    void shouldHaveDefaultValues();
 };

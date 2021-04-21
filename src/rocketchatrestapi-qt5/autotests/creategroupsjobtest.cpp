@@ -35,9 +35,10 @@ void CreateGroupsJobTest::shouldHaveDefaultValue()
     CreateGroupsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.readOnly());
-    QVERIFY(job.channelName().isEmpty());
-    QVERIFY(job.members().isEmpty());
+    CreateRoomInfo info = job.createGroupsInfo();
+    QVERIFY(!info.readOnly);
+    QVERIFY(info.name.isEmpty());
+    QVERIFY(info.members.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -54,19 +55,24 @@ void CreateGroupsJobTest::shouldGenerateJson()
 {
     CreateGroupsJob job;
     const QString channelname = QStringLiteral("foo1");
-    job.setChannelName(channelname);
+    CreateRoomInfo info;
+    info.name = channelname;
+    job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     bool readOnly = false;
-    job.setReadOnly(readOnly);
+    info.readOnly = readOnly;
+    job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     readOnly = true;
-    job.setReadOnly(readOnly);
+    info.readOnly = readOnly;
+    job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
-    job.setMembers(members);
+    info.members = members;
+    job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 }
 
@@ -88,6 +94,8 @@ void CreateGroupsJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setChannelName(roomId);
+    CreateRoomInfo info;
+    info.name = roomId;
+    job.setCreateGroupsInfo(info);
     QVERIFY(job.canStart());
 }

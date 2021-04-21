@@ -17,20 +17,34 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#include "createroominfo.h"
 
-#pragma once
+#include <QJsonArray>
+#include <QJsonObject>
 
-#include <QObject>
+using namespace RocketChatRestApi;
 
-class TeamsCreateJobTest : public QObject
+bool RocketChatRestApi::CreateRoomInfo::isValid() const
 {
-    Q_OBJECT
-public:
-    explicit TeamsCreateJobTest(QObject *parent = nullptr);
-    ~TeamsCreateJobTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldGenerateJson();
-    void shouldNotStarting();
-};
+    return !name.isEmpty();
+}
+
+bool CreateRoomInfo::canStart() const
+{
+    return !name.isEmpty();
+}
+
+QJsonDocument CreateRoomInfo::json() const
+{
+    QJsonObject jsonObj;
+    if (!members.isEmpty()) {
+        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(members);
+    }
+    jsonObj[QLatin1String("name")] = name;
+    if (readOnly) {
+        jsonObj[QLatin1String("readOnly")] = true;
+    } // Default is false
+
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
+}

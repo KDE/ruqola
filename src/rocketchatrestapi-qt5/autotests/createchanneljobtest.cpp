@@ -35,10 +35,10 @@ void CreateChannelJobTest::shouldHaveDefaultValue()
     CreateChannelJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.readOnly());
-    QVERIFY(job.channelName().isEmpty());
-    QVERIFY(job.members().isEmpty());
-    QVERIFY(job.password().isEmpty());
+    CreateRoomInfo info = job.createChannelInfo();
+    QVERIFY(!info.readOnly);
+    QVERIFY(info.name.isEmpty());
+    QVERIFY(info.members.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -55,19 +55,24 @@ void CreateChannelJobTest::shouldGenerateJson()
 {
     CreateChannelJob job;
     const QString channelname = QStringLiteral("foo1");
-    job.setChannelName(channelname);
+    CreateRoomInfo info;
+    info.name = channelname;
+    job.setCreateChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     bool readOnly = false;
-    job.setReadOnly(readOnly);
+    info.readOnly = readOnly;
+    job.setCreateChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1"})").arg(channelname).toLatin1());
 
     readOnly = true;
-    job.setReadOnly(readOnly);
+    info.readOnly = readOnly;
+    job.setCreateChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
-    job.setMembers(members);
+    info.members = members;
+    job.setCreateChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 }
 
@@ -88,7 +93,9 @@ void CreateChannelJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
-    job.setChannelName(roomId);
+    const QString channelName = QStringLiteral("foo1");
+    CreateRoomInfo info;
+    info.name = channelName;
+    job.setCreateChannelInfo(info);
     QVERIFY(job.canStart());
 }

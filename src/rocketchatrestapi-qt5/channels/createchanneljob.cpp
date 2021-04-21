@@ -59,14 +59,14 @@ void CreateChannelJob::slotCreateChannelFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("CreateChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT createChannelDone();
-            if (!mPassword.isEmpty()) {
+            if (!mCreateChannelInfo.password.isEmpty()) {
                 const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
                 const QString channelId = channelObj[QStringLiteral("_id")].toString();
                 if (channelId.isEmpty()) {
                     emitFailedMessage(replyObject, reply);
                     addLoggerWarning(QByteArrayLiteral("CreateChannelJob Impossible to extract channel id: ") + replyJson.toJson(QJsonDocument::Indented));
                 } else {
-                    Q_EMIT addJoinCodeToChannel(channelId, mPassword);
+                    Q_EMIT addJoinCodeToChannel(channelId, mCreateChannelInfo.password);
                 }
             }
         } else {
@@ -78,14 +78,14 @@ void CreateChannelJob::slotCreateChannelFinished()
     deleteLater();
 }
 
-QString CreateChannelJob::password() const
+CreateRoomInfo CreateChannelJob::createChannelInfo() const
 {
-    return mPassword;
+    return mCreateChannelInfo;
 }
 
-void CreateChannelJob::setPassword(const QString &password)
+void CreateChannelJob::setCreateChannelInfo(const CreateRoomInfo &createChannelInfo)
 {
-    mPassword = password;
+    mCreateChannelInfo = createChannelInfo;
 }
 
 QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &detail)
@@ -96,36 +96,6 @@ QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &de
     return RestApiAbstractJob::errorMessage(str, detail);
 }
 
-QStringList CreateChannelJob::members() const
-{
-    return mMembers;
-}
-
-void CreateChannelJob::setMembers(const QStringList &members)
-{
-    mMembers = members;
-}
-
-QString CreateChannelJob::channelName() const
-{
-    return mChannelName;
-}
-
-void CreateChannelJob::setChannelName(const QString &channelName)
-{
-    mChannelName = channelName;
-}
-
-bool CreateChannelJob::readOnly() const
-{
-    return mReadOnly;
-}
-
-void CreateChannelJob::setReadOnly(bool readOnly)
-{
-    mReadOnly = readOnly;
-}
-
 bool CreateChannelJob::requireHttpAuthentication() const
 {
     return true;
@@ -133,7 +103,7 @@ bool CreateChannelJob::requireHttpAuthentication() const
 
 bool CreateChannelJob::canStart() const
 {
-    if (mChannelName.isEmpty()) {
+    if (!mCreateChannelInfo.canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateChannelJob: channelname is empty";
         return false;
     }
@@ -145,18 +115,7 @@ bool CreateChannelJob::canStart() const
 
 QJsonDocument CreateChannelJob::json() const
 {
-    QJsonObject jsonObj;
-    if (!mMembers.isEmpty()) {
-        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mMembers);
-    }
-    jsonObj[QLatin1String("name")] = channelName();
-    if (mReadOnly) {
-        // Default is false
-        jsonObj[QLatin1String("readOnly")] = true;
-    }
-
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
+    return mCreateChannelInfo.json();
 }
 
 QNetworkRequest CreateChannelJob::request() const

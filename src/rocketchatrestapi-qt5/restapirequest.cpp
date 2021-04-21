@@ -554,10 +554,11 @@ void RestApiRequest::createChannels(const QString &channelName, bool readOnly, c
     auto job = new CreateChannelJob(this);
     connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
     initializeRestApiJob(job);
-    job->setChannelName(channelName);
-    job->setReadOnly(readOnly);
-    job->setMembers(members);
-    job->setPassword(password);
+    CreateRoomInfo info;
+    info.name = channelName;
+    info.readOnly = readOnly;
+    info.members = members;
+    info.password = password;
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateChannelJob job";
     }
@@ -567,9 +568,11 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
 {
     auto job = new CreateGroupsJob(this);
     initializeRestApiJob(job);
-    job->setChannelName(channelName);
-    job->setReadOnly(readOnly);
-    job->setMembers(members);
+    CreateRoomInfo info;
+    info.name = channelName;
+    info.readOnly = readOnly;
+    info.members = members;
+    job->setCreateGroupsInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
     }

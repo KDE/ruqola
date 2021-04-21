@@ -18,19 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
+#include "createroominfotest.h"
+#include "createroominfo.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(CreateRoomInfoTest)
 
-#include <QObject>
-
-class TeamsCreateJobTest : public QObject
+CreateRoomInfoTest::CreateRoomInfoTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit TeamsCreateJobTest(QObject *parent = nullptr);
-    ~TeamsCreateJobTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldGenerateJson();
-    void shouldNotStarting();
-};
+}
+
+void CreateRoomInfoTest::shouldHaveDefaultValues()
+{
+    RocketChatRestApi::CreateRoomInfo info;
+    QVERIFY(info.members.isEmpty());
+    QVERIFY(info.name.isEmpty());
+    QVERIFY(info.password.isEmpty());
+    QVERIFY(!info.readOnly);
+    QVERIFY(!info.isValid());
+}

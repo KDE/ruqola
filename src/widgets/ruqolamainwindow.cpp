@@ -371,8 +371,8 @@ void RuqolaMainWindow::slotCreateTeam()
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
         RocketChatRestApi::TeamsCreateJob *job = new RocketChatRestApi::TeamsCreateJob(this);
-        RocketChatRestApi::TeamsCreateJob::TeamsCreateJobInfo teamInfo;
-        teamInfo.teamName = info.channelName;
+        RocketChatRestApi::CreateRoomInfo teamInfo;
+        teamInfo.name = info.channelName;
         teamInfo.readOnly = info.readOnly;
         // teamInfo.members = info.usersName.join(QLatin1Char(','));
         job->setTeamsCreateJobInfo(teamInfo);

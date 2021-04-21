@@ -17,20 +17,22 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
 #pragma once
 
-#include <QObject>
-
-class TeamsCreateJobTest : public QObject
+#include "librocketchatrestapi-qt5_export.h"
+#include <QJsonDocument>
+#include <QString>
+#include <QStringList>
+namespace RocketChatRestApi
 {
-    Q_OBJECT
-public:
-    explicit TeamsCreateJobTest(QObject *parent = nullptr);
-    ~TeamsCreateJobTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldGenerateJson();
-    void shouldNotStarting();
+struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
+    Q_REQUIRED_RESULT bool isValid() const;
+    Q_REQUIRED_RESULT bool canStart() const;
+    QString name;
+    QString password;
+    QStringList members;
+    bool readOnly = false;
+
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 };
+}

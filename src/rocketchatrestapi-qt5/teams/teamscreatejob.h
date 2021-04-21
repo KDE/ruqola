@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "createroominfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
@@ -28,12 +29,6 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_EXPORT TeamsCreateJobInfo {
-        QString teamName;
-        QStringList members;
-        QString password;
-        bool readOnly = false;
-    };
     explicit TeamsCreateJob(QObject *parent = nullptr);
     ~TeamsCreateJob() override;
 
@@ -45,8 +40,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT TeamsCreateJobInfo teamsCreateJobInfo() const;
-    void setTeamsCreateJobInfo(const TeamsCreateJobInfo &teamsCreateJobInfo);
+    Q_REQUIRED_RESULT CreateRoomInfo teamsCreateJobInfo() const;
+    void setTeamsCreateJobInfo(const CreateRoomInfo &teamsCreateJobInfo);
 
 Q_SIGNALS:
     void teamCreateDone();
@@ -55,6 +50,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(TeamsCreateJob)
     void slotTeamCreateFinished();
-    TeamsCreateJobInfo mTeamsCreateJobInfo;
+    CreateRoomInfo mTeamsCreateJobInfo;
 };
 }

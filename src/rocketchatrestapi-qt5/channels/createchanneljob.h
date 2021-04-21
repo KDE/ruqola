@@ -20,8 +20,10 @@
 
 #pragma once
 
+#include "createroominfo.h"
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CreateChannelJob : public RestApiAbstractJob
@@ -39,17 +41,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT bool readOnly() const;
-    void setReadOnly(bool readOnly);
-
-    Q_REQUIRED_RESULT QString channelName() const;
-    void setChannelName(const QString &channelName);
-
-    Q_REQUIRED_RESULT QStringList members() const;
-    void setMembers(const QStringList &members);
-
-    Q_REQUIRED_RESULT QString password() const;
-    void setPassword(const QString &password);
+    Q_REQUIRED_RESULT CreateRoomInfo createChannelInfo() const;
+    void setCreateChannelInfo(const CreateRoomInfo &createChannelInfo);
 
 Q_SIGNALS:
     void createChannelDone();
@@ -61,9 +54,6 @@ protected:
 private:
     Q_DISABLE_COPY(CreateChannelJob)
     void slotCreateChannelFinished();
-    QString mChannelName;
-    QStringList mMembers;
-    QString mPassword;
-    bool mReadOnly = false;
+    CreateRoomInfo mCreateChannelInfo;
 };
 }

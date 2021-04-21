@@ -67,34 +67,14 @@ void CreateGroupsJob::slotCreateGroupsFinished()
     deleteLater();
 }
 
-QStringList CreateGroupsJob::members() const
+CreateRoomInfo CreateGroupsJob::createGroupsInfo() const
 {
-    return mMembers;
+    return mCreateGroupInfo;
 }
 
-void CreateGroupsJob::setMembers(const QStringList &members)
+void CreateGroupsJob::setCreateGroupsInfo(const CreateRoomInfo &createGroupsInfo)
 {
-    mMembers = members;
-}
-
-QString CreateGroupsJob::channelName() const
-{
-    return mChannelName;
-}
-
-void CreateGroupsJob::setChannelName(const QString &channelName)
-{
-    mChannelName = channelName;
-}
-
-bool CreateGroupsJob::readOnly() const
-{
-    return mReadOnly;
-}
-
-void CreateGroupsJob::setReadOnly(bool readOnly)
-{
-    mReadOnly = readOnly;
+    mCreateGroupInfo = createGroupsInfo;
 }
 
 bool CreateGroupsJob::requireHttpAuthentication() const
@@ -104,7 +84,7 @@ bool CreateGroupsJob::requireHttpAuthentication() const
 
 bool CreateGroupsJob::canStart() const
 {
-    if (mChannelName.isEmpty()) {
+    if (!mCreateGroupInfo.canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
         return false;
     }
@@ -116,17 +96,7 @@ bool CreateGroupsJob::canStart() const
 
 QJsonDocument CreateGroupsJob::json() const
 {
-    QJsonObject jsonObj;
-    if (!mMembers.isEmpty()) {
-        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mMembers);
-    }
-    jsonObj[QLatin1String("name")] = channelName();
-    if (mReadOnly) {
-        jsonObj[QLatin1String("readOnly")] = true;
-    } // Default is false
-
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
+    return mCreateGroupInfo.json();
 }
 
 QNetworkRequest CreateGroupsJob::request() const
