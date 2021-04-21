@@ -145,7 +145,7 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             updateAutojoin(roomId, autojoin);
         });
         menu.addSeparator();
-        menu.addAction(i18n("Remove from Team"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Remove from Team"), this, [this, index]() {
             const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
             removeRoomFromTeam(roomId);
         });
