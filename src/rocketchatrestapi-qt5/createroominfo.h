@@ -39,8 +39,6 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
     bool broadcast = false;
     bool encrypted = false;
 
-    // {"name":"teams-test-room2","members":[],"readOnly":false,"extraData":{"description":"","broadcast":false,"encrypted":false,"teamId":"607fb34ee8da65ad4f476487"}
-
     Q_REQUIRED_RESULT QJsonDocument json() const;
 };
 }
