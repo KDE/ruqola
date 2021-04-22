@@ -38,6 +38,7 @@
 #include "teams/teamupdateroomjob.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QListView>
@@ -168,7 +169,6 @@ void TeamChannelsWidget::updateAutojoin(const QString &roomId, bool autojoin)
 
 void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
 {
-    QVector<TeamRoom> teamRooms;
     const QJsonObject room = replyObject.value(QLatin1String("room")).toObject();
     TeamRoom teamRoom;
     teamRoom.parse(room);
@@ -177,14 +177,16 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
 
 void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
-    job->setTeamId(mTeamId);
-    job->setRoomId(roomId);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Would you like to remove this Channel from team?"), i18n("Remove Channel from Team"))) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
+        job->setTeamId(mTeamId);
+        job->setRoomId(roomId);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+        }
     }
 }
 
