@@ -501,13 +501,18 @@ int RoomModel::order(Room *r) const
     int order = 0;
     // Unread on top: push down everything that isn't unread
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && r->unread() == 0 && !r->alert()) {
-        order += 20;
+        order += 30;
     }
 
     // Then we have favorites channels, push down everything else
     if (!r->favorite()) {
+        order += 20;
+    }
+
+    if (!r->teamInfo().mainTeam()) {
         order += 10;
     }
+
     const Room::RoomType roomType = r->channelType();
     switch (roomType) {
     case Room::RoomType::Private: {
@@ -537,6 +542,10 @@ int RoomModel::order(Room *r) const
 
 QIcon RoomModel::icon(Room *r) const
 {
+    if (r->teamInfo().mainTeam()) {
+        return QIcon::fromTheme(QStringLiteral("group"));
+    }
+
     // TODO add team icon support.
     switch (r->channelType()) {
     case Room::RoomType::Private:
