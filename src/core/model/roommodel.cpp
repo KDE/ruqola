@@ -444,6 +444,8 @@ QString RoomModel::sectionName(Room *r) const
     QString str;
     if (r->favorite()) {
         str = i18n("Favorites");
+    } else if (r->teamInfo().mainTeam()) {
+        str = i18n("Teams");
     } else {
         const Room::RoomType roomType = r->channelType();
         if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
