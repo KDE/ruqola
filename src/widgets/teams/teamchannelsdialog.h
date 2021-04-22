@@ -24,13 +24,14 @@
 
 #include "libruqolawidgets_private_export.h"
 class TeamChannelsWidget;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit TeamChannelsDialog(QWidget *parent = nullptr);
     ~TeamChannelsDialog() override;
-    void setTeamId(const QString &teamId);
+    void setRoom(Room *room);
 
 private:
     void readConfig();

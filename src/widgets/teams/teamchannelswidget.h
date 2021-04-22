@@ -29,13 +29,15 @@ class QLineEdit;
 class TeamRoomsModel;
 class TeamRoomsFilterProxyModel;
 class TeamChannelsComboBox;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit TeamChannelsWidget(QWidget *parent = nullptr);
     ~TeamChannelsWidget() override;
-    void setTeamId(const QString &teamId);
+
+    void setRoom(Room *room);
 
 private:
     void slotTeamListRoomsDone(const QJsonObject &obj);
@@ -57,5 +59,6 @@ private:
     TeamChannelsComboBox *const mTeamChannelsCombobox;
     TeamRoomsModel *const mTeamRoomsModel;
     TeamRoomsFilterProxyModel *const mTeamRoomFilterProxyModel;
+    Room *mRoom = nullptr;
     QString mTeamId;
 };

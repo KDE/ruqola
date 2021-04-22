@@ -93,12 +93,11 @@ void TeamChannelsWidget::slotTypeTeamListChanged(int index)
     mTeamRoomFilterProxyModel->setSortByAutoJoin(index == 1 ? true : false);
 }
 
-void TeamChannelsWidget::setTeamId(const QString &teamId)
+void TeamChannelsWidget::setRoom(Room *room)
 {
-    if (mTeamId != teamId) {
-        mTeamId = teamId;
-        initializeTeamRoomsList();
-    }
+    mRoom = room;
+    mTeamId = mRoom->teamInfo().teamId();
+    initializeTeamRoomsList();
 }
 
 void TeamChannelsWidget::initializeTeamRoomsList()
@@ -145,11 +144,13 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
             updateAutojoin(roomId, autojoin);
         });
-        menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Remove from Team"), this, [this, index]() {
-            const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
-            removeRoomFromTeam(roomId);
-        });
+        if (mRoom->hasPermission(QStringLiteral("remove-team-channel"))) {
+            menu.addSeparator();
+            menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Remove from Team"), this, [this, index]() {
+                const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+                removeRoomFromTeam(roomId);
+            });
+        }
     }
     menu.exec(mListView->viewport()->mapToGlobal(pos));
 }

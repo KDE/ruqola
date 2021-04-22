@@ -53,9 +53,9 @@ TeamChannelsDialog::~TeamChannelsDialog()
     writeConfig();
 }
 
-void TeamChannelsDialog::setTeamId(const QString &teamId)
+void TeamChannelsDialog::setRoom(Room *room)
 {
-    mTeamChannelsWidget->setTeamId(teamId);
+    mTeamChannelsWidget->setRoom(room);
 }
 
 void TeamChannelsDialog::readConfig()

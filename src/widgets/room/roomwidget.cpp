@@ -361,9 +361,7 @@ void RoomWidget::slotSearchMessages()
 void RoomWidget::slotTeamChannelsRequested()
 {
     QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(this);
-    dlg->setTeamId(mRoom->teamInfo().teamId());
-    // dlg->setRoomId(mRoomWidgetBase->roomId());
-    // connect(dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
+    dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
 }
