@@ -68,6 +68,8 @@ CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo() con
     info.readOnly = mCreateNewChannelWidget->readOnly();
     info.broadcast = mCreateNewChannelWidget->broadCast();
     info.encrypted = mCreateNewChannelWidget->encryptedRoom();
+    info.description = mCreateNewChannelWidget->topic();
+
     newChannelInfo.info = info;
     newChannelInfo.privateChannel = mCreateNewChannelWidget->privateChannel();
     return newChannelInfo;

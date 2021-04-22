@@ -36,6 +36,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     , mPrivate(new QCheckBox(this))
     , mEncryptedRoom(new QCheckBox(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
+    , mTopicLineEdit(new QLineEdit(this))
     , mMainLayout(new QFormLayout(this))
 {
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -43,6 +44,9 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
 
     mChannelName->setObjectName(QStringLiteral("mChannelName"));
     mMainLayout->addRow(i18n("Name:"), mChannelName);
+
+    mTopicLineEdit->setObjectName(QStringLiteral("mTopicLineEdit"));
+    mMainLayout->addRow(i18n("Topic:"), mTopicLineEdit);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Invite Users..."));
@@ -112,6 +116,11 @@ bool CreateNewChannelWidget::encryptedRoom() const
 QString CreateNewChannelWidget::password() const
 {
     return mPasswordLineEdit->password();
+}
+
+QString CreateNewChannelWidget::topic() const
+{
+    return mTopicLineEdit->text();
 }
 
 void CreateNewChannelWidget::setFeatures(CreateNewChannelWidget::Features features)

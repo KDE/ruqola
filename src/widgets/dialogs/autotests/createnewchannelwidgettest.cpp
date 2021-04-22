@@ -19,7 +19,12 @@
 */
 
 #include "createnewchannelwidgettest.h"
+#include "dialogs/channelnamevalidlineedit.h"
 #include "dialogs/createnewchannelwidget.h"
+#include "misc/adduserswidget.h"
+#include <KPasswordLineEdit>
+#include <QCheckBox>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(CreateNewChannelWidgetTest)
 CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
@@ -30,5 +35,24 @@ CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
 void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
 {
     CreateNewChannelWidget w;
-    // TODO
+    auto mChannelName = w.findChild<ChannelNameValidLineEdit *>(QStringLiteral("mChannelName"));
+    QVERIFY(mChannelName);
+
+    auto mTopicLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mTopicLineEdit"));
+    QVERIFY(mTopicLineEdit);
+
+    auto mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
+    QVERIFY(mUsers);
+
+    auto mReadOnly = w.findChild<QCheckBox *>(QStringLiteral("mReadOnly"));
+    QVERIFY(mReadOnly);
+    auto mBroadcast = w.findChild<QCheckBox *>(QStringLiteral("mBroadcast"));
+    QVERIFY(mBroadcast);
+    auto mPrivate = w.findChild<QCheckBox *>(QStringLiteral("mPrivate"));
+    QVERIFY(mPrivate);
+    auto mEncryptedRoom = w.findChild<QCheckBox *>(QStringLiteral("mEncryptedRoom"));
+    QVERIFY(mEncryptedRoom);
+
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
 }

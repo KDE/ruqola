@@ -28,6 +28,7 @@ class QCheckBox;
 class KPasswordLineEdit;
 class AddUsersWidget;
 class QFormLayout;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ public:
     Q_REQUIRED_RESULT bool broadCast() const;
     Q_REQUIRED_RESULT bool readOnly() const;
     Q_REQUIRED_RESULT QString password() const;
+    Q_REQUIRED_RESULT QString topic() const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
 Q_SIGNALS:
@@ -64,6 +66,7 @@ private:
     QCheckBox *const mPrivate;
     QCheckBox *const mEncryptedRoom;
     KPasswordLineEdit *const mPasswordLineEdit;
+    QLineEdit *const mTopicLineEdit;
     QFormLayout *const mMainLayout;
 };
 

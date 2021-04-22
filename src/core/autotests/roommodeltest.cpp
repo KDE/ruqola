@@ -375,7 +375,7 @@ void RoomModelTest::shouldReturnDataDefault()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
 
     // Verify it.
-    QCOMPARE(output, QVariant(int(15))); // not favorite (10) + no channel selected or 'p' (3) = total order(6) => undefined here.
+    QCOMPARE(output, QVariant(int(35))); // not favorite (10) + no channel selected or 'p' (3) = total order(6) => undefined here.
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon()));
 }
@@ -448,7 +448,7 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
     QCOMPARE(output.toString(), QStringLiteral("Favorites")); // first priority for favorites and then to channels
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
-    QCOMPARE(output, QVariant(int(1))); // Private room
+    QCOMPARE(output, QVariant(int(11))); // Private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
 }
