@@ -135,15 +135,19 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
-    menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
-    menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
+    if (mRoom->hasPermission(QStringLiteral("add-team-channel"))) {
+        menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
+        menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
+    }
     if (index.isValid()) {
-        menu.addSeparator();
-        const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
-        menu.addAction(autojoin ? i18n("Remove Autojoin") : i18n("Add Autojoin"), this, [this, index, autojoin]() {
-            const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
-            updateAutojoin(roomId, autojoin);
-        });
+        if (mRoom->hasPermission(QStringLiteral("edit-team-channel"))) {
+            menu.addSeparator();
+            const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
+            menu.addAction(autojoin ? i18n("Remove Autojoin") : i18n("Add Autojoin"), this, [this, index, autojoin]() {
+                const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+                updateAutojoin(roomId, autojoin);
+            });
+        }
         if (mRoom->hasPermission(QStringLiteral("remove-team-channel"))) {
             menu.addSeparator();
             menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Remove from Team"), this, [this, index]() {
@@ -152,7 +156,9 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             });
         }
     }
-    menu.exec(mListView->viewport()->mapToGlobal(pos));
+    if (!menu.isEmpty()) {
+        menu.exec(mListView->viewport()->mapToGlobal(pos));
+    }
 }
 
 void TeamChannelsWidget::updateAutojoin(const QString &roomId, bool autojoin)
