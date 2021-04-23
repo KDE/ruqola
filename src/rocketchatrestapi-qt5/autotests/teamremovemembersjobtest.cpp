@@ -45,7 +45,7 @@ void TeamRemoveMembersJobTest::shouldGenerateRequest()
     TeamRemoveMembersJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeRoom")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeMember")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
@@ -56,7 +56,7 @@ void TeamRemoveMembersJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
     const QStringList rooms = {QStringLiteral("bla"), QStringLiteral("bla1")};
     job.setRoomsId(rooms);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"room":{"bla","bla1"},"teamId":"%1"})").arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rooms":["bla","bla1"],"teamId":"%1"})").arg(teamId).toLatin1());
 }
 
 void TeamRemoveMembersJobTest::shouldNotStarting()
@@ -79,5 +79,7 @@ void TeamRemoveMembersJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString teamId = QStringLiteral("foo2");
     job.setTeamId(teamId);
+    const QStringList rooms = {QStringLiteral("bb"), QStringLiteral("aa")};
+    job.setRoomsId(rooms);
     QVERIFY(job.canStart());
 }
