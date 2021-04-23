@@ -472,6 +472,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("teams.autocomplete");
     case RestApiUtil::RestApiUrlType::RoomsAutocompleteAvailableForTeams:
         return QStringLiteral("rooms.autocomplete.availableForTeams");
+    case RestApiUtil::RestApiUrlType::ChannelsConvertToTeam:
+        return QStringLiteral("channels.convertToTeam");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
