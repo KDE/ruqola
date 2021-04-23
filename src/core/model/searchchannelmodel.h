@@ -20,11 +20,11 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 #include <channel.h>
 
-class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT SearchChannelModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
