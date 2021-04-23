@@ -36,6 +36,11 @@ SearchWithDelayLineEdit::~SearchWithDelayLineEdit()
 {
 }
 
+void SearchWithDelayLineEdit::setDelayMs(int ms)
+{
+    mMilliseconds = ms;
+}
+
 void SearchWithDelayLineEdit::slotSearchTimerFired()
 {
     mSearchTimer->stop();
@@ -53,5 +58,5 @@ void SearchWithDelayLineEdit::slotSearchTextEdited()
     }
 
     mSearchTimer->setSingleShot(true);
-    mSearchTimer->start(1000);
+    mSearchTimer->start(mMilliseconds);
 }
