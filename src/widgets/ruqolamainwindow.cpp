@@ -360,6 +360,7 @@ void RuqolaMainWindow::slotClearAccountAlerts()
 void RuqolaMainWindow::slotCreateTeam()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    dlg->setWindowTitle(i18nc("@title:window", "Create Team"));
     CreateNewChannelWidget::Features flags;
     if (mCurrentRocketChatAccount->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;
