@@ -166,7 +166,7 @@ void ImageGraphicsView::wheelEvent(QWheelEvent *e)
 {
     if (e->modifiers() == Qt::ControlModifier) {
         const int y = e->angleDelta().y();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         if (y < 0) {
             zoomOut(e->position());
         } else if (y > 0) {
