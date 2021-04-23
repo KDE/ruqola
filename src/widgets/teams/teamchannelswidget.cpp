@@ -79,7 +79,7 @@ TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
     mainLayout->addWidget(mListView);
 
     mListView->setModel(mTeamRoomFilterProxyModel);
-    connect(mTeamChannelsCombobox, &TeamChannelsComboBox::currentIndexChanged, this, &TeamChannelsWidget::slotTypeTeamListChanged);
+    connect(mTeamChannelsCombobox, qOverload<int>(&TeamChannelsComboBox::currentIndexChanged), this, &TeamChannelsWidget::slotTypeTeamListChanged);
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListView, &QListView::customContextMenuRequested, this, &TeamChannelsWidget::slotCustomContextMenuRequested);
 }
