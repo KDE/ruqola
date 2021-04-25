@@ -99,7 +99,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     SyntaxHighlighting
     NotifyConfig
     ItemViews
-    DocTools
 )
 
 find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -108,6 +107,13 @@ find_package(KF5Config ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5KIO ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Sonnet ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
+
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
+
 
 find_package(Qt5Keychain CONFIG)
 set_package_properties(Qt5Keychain PROPERTIES
@@ -169,9 +175,6 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-if (TARGET KF5::DocTools)
-    add_subdirectory(doc)
-endif()
 
 ecm_qt_install_logging_categories(
         EXPORT RUQOLA
@@ -182,5 +185,8 @@ if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
     kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 endif()
 ki18n_install(po)
-kdoctools_install(po)
+if (KF5DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
