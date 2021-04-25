@@ -188,6 +188,7 @@ set (RocketChatRestApiQt_SRCS
     teams/teamaddroomsjob.cpp
     teams/teamscreatejob.cpp
     teams/teamremovemembersjob.cpp
+    teams/channelsconverttoteamjob.cpp
 
     createroominfo.cpp
     )
