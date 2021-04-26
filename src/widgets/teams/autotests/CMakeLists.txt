@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
 macro(add_ruqola_teams_test _source)
   set( _test ${_source})
   get_filename_component( _name ${_source} NAME_WE )
