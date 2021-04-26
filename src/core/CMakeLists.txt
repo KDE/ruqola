@@ -236,6 +236,8 @@ set (Ruqola_core_srcs
     teaminfo.cpp
     teamroom.cpp
     teamroomcompleter.cpp
+
+    inviteinfo.cpp
 )
 
 if (NOT WIN32)
