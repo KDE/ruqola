@@ -28,4 +28,13 @@ class LIBRUQOLACORE_EXPORT InviteInfo
 {
 public:
     InviteInfo();
+    ~InviteInfo() = default;
+    void parseInviteInfo(const QJsonObject &replyObject);
+    // TODO obj
+    // QJsonDocument([{"_id":"D2F6of","_updatedAt":"2021-04-07T06:49:04.571Z","createdAt":"2021-04-07T06:49:04.571Z","days":1,"expires":"2021-04-08T06:49:04.571Z"
+    // ,"maxUses":25,"rid":"n2GWePY4zjG48g7qA","userId":"H7Q9djXQ4iShzD9T2","uses":0}])
 };
+
+Q_DECLARE_METATYPE(InviteInfo)
+Q_DECLARE_TYPEINFO(InviteInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const InviteInfo &t);

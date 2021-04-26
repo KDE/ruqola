@@ -18,19 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "inviteinfo.h"
+#pragma once
 
-InviteInfo::InviteInfo()
-{
-}
+#include <QObject>
 
-void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
+class InviteInfoTest : public QObject
 {
-    // TODO
-}
-
-QDebug operator<<(QDebug d, const InviteInfo &t)
-{
-    // TODO
-    return d;
-}
+    Q_OBJECT
+public:
+    explicit InviteInfoTest(QObject *parent = nullptr);
+    ~InviteInfoTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
