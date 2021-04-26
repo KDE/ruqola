@@ -80,6 +80,8 @@ set (Ruqola_model_core_srcs
     model/teamroomsfilterproxymodel.cpp
 
     model/teamroomcompletermodel.cpp
+
+    model/inviteusersmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
