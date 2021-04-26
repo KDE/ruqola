@@ -28,12 +28,8 @@ class LIBRUQOLACORE_EXPORT InviteUsersModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum TeamRoomsRoles {
-        Name = Qt::UserRole + 1,
-        AutoJoin,
-        Identifier,
-    };
-    Q_ENUM(TeamRoomsRoles)
+    enum InviteRoles { Identifier = Qt::UserRole + 1, Updated, Created, MaxUser, UserId, Uses, RoomId };
+    Q_ENUM(InviteRoles)
 
     explicit InviteUsersModel(QObject *parent = nullptr);
     ~InviteUsersModel() override;

@@ -41,6 +41,7 @@ QVariant InviteUsersModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mTeamRooms.count()) {
         return {};
     }
+#if 0
     const TeamRoom &teamroom = mTeamRooms.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
@@ -53,6 +54,7 @@ QVariant InviteUsersModel::data(const QModelIndex &index, int role) const
     case TeamRoomsRoles::Identifier:
         return teamroom.identifier();
     }
+#endif
     return {};
 }
 
