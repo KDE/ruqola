@@ -168,4 +168,4 @@ add_rocketchatrestapi_test(teamscreatejobtest.cpp)
 add_rocketchatrestapi_test(createroominfotest.cpp)
 add_rocketchatrestapi_test(teamremovemembersjobtest.cpp)
 add_rocketchatrestapi_test(channelsconverttoteamjobtest.cpp)
-
+add_rocketchatrestapi_test(teamdeletejobtest.cpp)
