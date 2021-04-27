@@ -37,5 +37,5 @@ public:
 private:
     void updateCurrentTab();
 
-    QTabBar *const mTabBar = nullptr;
+    QTabBar *const mTabBar;
 };
