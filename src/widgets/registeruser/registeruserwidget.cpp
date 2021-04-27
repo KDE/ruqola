@@ -29,32 +29,32 @@
 
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     : QWidget(parent)
+    , mRegisterButton(new QPushButton(i18n("Register"), this))
+    , mUserName(new QLineEdit(this))
+    , mEmail(new QLineEdit(this))
+    , mPasswordLineEdit(new KPasswordLineEdit(this))
+    , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("UserName:"), mUserName);
     connect(mUserName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
-    mEmail = new QLineEdit(this);
     mEmail->setObjectName(QStringLiteral("mEmail"));
     mainLayout->addRow(i18n("Email:"), mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
-    mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
-    mConfirmPasswordLineEdit = new KPasswordLineEdit(this);
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
     connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
-    mRegisterButton = new QPushButton(i18n("Register"), this);
     mRegisterButton->setObjectName(QStringLiteral("mRegisterButton"));
     connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
     mainLayout->addWidget(mRegisterButton);

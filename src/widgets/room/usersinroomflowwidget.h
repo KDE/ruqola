@@ -43,7 +43,7 @@ private:
     void generateListUsersWidget();
     void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void loadExternalDialog();
-    FlowLayout *mFlowLayout = nullptr;
+    FlowLayout *const mFlowLayout;
     Room *mRoom = nullptr;
     // userId, UsersInRoomLabel
     QMap<QString, UsersInRoomLabel *> mListUsersWidget;

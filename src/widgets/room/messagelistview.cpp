@@ -46,9 +46,9 @@
 MessageListView::MessageListView(Mode mode, QWidget *parent)
     : QListView(parent)
     , mMode(mode)
+    , mMessageListDelegate(new MessageListDelegate(this))
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
-    mMessageListDelegate = new MessageListDelegate(this);
     mMessageListDelegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     setItemDelegate(mMessageListDelegate);

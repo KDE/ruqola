@@ -40,10 +40,10 @@ Q_SIGNALS:
 private:
     void slotRegisterNewUser();
     void slotUpdateRegisterButton();
-    QPushButton *mRegisterButton = nullptr;
-    QLineEdit *mUserName = nullptr;
-    QLineEdit *mEmail = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    KPasswordLineEdit *mConfirmPasswordLineEdit = nullptr;
+    QPushButton *const mRegisterButton;
+    QLineEdit *const mUserName;
+    QLineEdit *const mEmail;
+    KPasswordLineEdit *const mPasswordLineEdit;
+    KPasswordLineEdit *const mConfirmPasswordLineEdit;
 };
 

@@ -33,9 +33,9 @@
 #define MAX_NUMBER_USER 120
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
+    , mFlowLayout(new FlowLayout(this))
     , mUsersForRoomFilterProxyModel(new UsersForRoomFilterProxyModel(this))
 {
-    mFlowLayout = new FlowLayout(this);
     mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
     mFlowLayout->setSpacing(0);
     mFlowLayout->setContentsMargins({});
