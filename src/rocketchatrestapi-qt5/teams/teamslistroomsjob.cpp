@@ -87,6 +87,7 @@ QNetworkRequest TeamsListRoomsJob::request() const
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("teamId"), mTeamId);
     // TODO add offset/count for the future
+    // Add filter
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
