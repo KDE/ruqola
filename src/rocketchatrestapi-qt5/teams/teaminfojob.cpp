@@ -48,12 +48,12 @@ bool TeamInfoJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &TeamInfoJob::slotTeamLisRoomsFinished);
+    connect(reply, &QNetworkReply::finished, this, &TeamInfoJob::slotTeamInfoFinished);
     addStartRestApiInfo(QByteArrayLiteral("TeamInfoJob: ask list of rooms in team"));
     return true;
 }
 
-void TeamInfoJob::slotTeamLisRoomsFinished()
+void TeamInfoJob::slotTeamInfoFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -61,7 +61,7 @@ void TeamInfoJob::slotTeamLisRoomsFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT teamListRoomsDone(replyObject);
+            Q_EMIT teamInfoDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("TeamInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

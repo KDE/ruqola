@@ -45,11 +45,11 @@ public:
     Q_REQUIRED_RESULT bool canStart() const override;
 
 Q_SIGNALS:
-    void teamListRoomsDone(const QJsonObject &obj);
+    void teamInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(TeamInfoJob)
-    void slotTeamLisRoomsFinished();
+    void slotTeamInfoFinished();
     QString mTeamId;
 };
 }

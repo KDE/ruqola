@@ -49,7 +49,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamsListRoomsJob)
-    void slotTeamLisRoomsFinished();
+    void slotTeamListRoomsFinished();
     QString mTeamId;
 };
 }

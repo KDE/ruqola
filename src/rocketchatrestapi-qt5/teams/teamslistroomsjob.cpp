@@ -48,12 +48,12 @@ bool TeamsListRoomsJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &TeamsListRoomsJob::slotTeamLisRoomsFinished);
+    connect(reply, &QNetworkReply::finished, this, &TeamsListRoomsJob::slotTeamListRoomsFinished);
     addStartRestApiInfo(QByteArrayLiteral("TeamsListRoomsJob: ask list of rooms in team"));
     return true;
 }
 
-void TeamsListRoomsJob::slotTeamLisRoomsFinished()
+void TeamsListRoomsJob::slotTeamListRoomsFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
