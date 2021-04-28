@@ -19,7 +19,6 @@
 */
 
 #include "teamsearchroomforteamwidget.h"
-#include "addteamroomcompletionlineedit.h"
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
