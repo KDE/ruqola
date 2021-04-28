@@ -45,6 +45,7 @@ public:
 
 Q_SIGNALS:
     void teamCreateDone();
+    // TODO verify it.
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
 
 private:
