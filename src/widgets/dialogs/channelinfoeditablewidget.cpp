@@ -115,9 +115,12 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         // TODO special case for team. We will remove associate room too.
-        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
-            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());
-            Q_EMIT channelDeleted();
+        if (mRoom->teamInfo().mainTeam()) {
+        } else {
+            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
+                Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());
+                Q_EMIT channelDeleted();
+            }
         }
     });
 }
