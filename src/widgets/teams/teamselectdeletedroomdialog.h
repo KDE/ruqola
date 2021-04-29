@@ -22,11 +22,16 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class TeamSearchRoomWidget;
+class TeamSelectDeletedRoomWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSelectDeletedRoomDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit TeamSelectDeletedRoomDialog(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomDialog() override;
+
+private:
+    void readConfig();
+    void writeConfig();
+    TeamSelectDeletedRoomWidget *const mTeamSelectDeletedRoomWidget;
 };

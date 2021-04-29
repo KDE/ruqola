@@ -19,6 +19,8 @@
 */
 
 #include "teamselectdeletedroomwidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
 TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     : QWidget(parent)
