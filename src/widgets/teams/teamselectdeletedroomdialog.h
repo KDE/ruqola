@@ -30,6 +30,8 @@ public:
     explicit TeamSelectDeletedRoomDialog(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomDialog() override;
 
+    Q_REQUIRED_RESULT QStringList roomsId() const;
+
 private:
     void readConfig();
     void writeConfig();

@@ -20,32 +20,20 @@
 
 #pragma once
 
-#include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-class QListView;
-class QLineEdit;
+#include <QSortFilterProxyModel>
 class TeamRoomsModel;
-class TeamSelectDeletedRoomFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSelectDeletedRoomWidget : public QWidget
+class TeamSelectDeletedRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit TeamSelectDeletedRoomWidget(QWidget *parent = nullptr);
-    ~TeamSelectDeletedRoomWidget() override;
+    explicit TeamSelectDeletedRoomFilterProxyModel(TeamRoomsModel *fileModel = nullptr, QObject *parent = nullptr);
+    ~TeamSelectDeletedRoomFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT QString teamId() const;
-    void setTeamId(const QString &teamId);
+    void setFilterString(const QString &string);
 
-    Q_REQUIRED_RESULT QStringList roomsId() const;
+protected:
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
 private:
-    void slotTeamListRoomsDone(const QJsonObject &obj);
-    void initializeTeamRoomsList();
-    void slotTextChanged(const QString &str);
-    QString mTeamId;
-    QListView *const mListView;
-    QLineEdit *const mSearchLineEdit;
     TeamRoomsModel *const mTeamRoomsModel;
-    TeamSelectDeletedRoomFilterProxyModel *const mTeamSelectProxyModel;
 };

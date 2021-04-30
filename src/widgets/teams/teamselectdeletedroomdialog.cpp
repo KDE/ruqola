@@ -67,3 +67,8 @@ void TeamSelectDeletedRoomDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamSelectDeletedRoomDialogConfigGroupName);
     group.writeEntry("Size", size());
 }
+
+QStringList TeamSelectDeletedRoomDialog::roomsId() const
+{
+    return mTeamSelectDeletedRoomWidget->roomsId();
+}

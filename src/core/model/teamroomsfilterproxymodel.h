@@ -27,7 +27,7 @@ class LIBRUQOLACORE_EXPORT TeamRoomsFilterProxyModel : public QSortFilterProxyMo
 {
     Q_OBJECT
 public:
-    explicit TeamRoomsFilterProxyModel(TeamRoomsModel *fileModel = nullptr, QObject *parent = nullptr);
+    explicit TeamRoomsFilterProxyModel(TeamRoomsModel *teamModel = nullptr, QObject *parent = nullptr);
     ~TeamRoomsFilterProxyModel() override;
 
     void setFilterString(const QString &string);

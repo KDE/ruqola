@@ -22,6 +22,7 @@
 #include "teams/teamselectdeletedroomdialog.h"
 #include "teams/teamselectdeletedroomwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(TeamSelectDeletedRoomDialogTest)
@@ -29,6 +30,7 @@ QTEST_MAIN(TeamSelectDeletedRoomDialogTest)
 TeamSelectDeletedRoomDialogTest::TeamSelectDeletedRoomDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void TeamSelectDeletedRoomDialogTest::shouldHaveDefaultValues()
@@ -43,4 +45,6 @@ void TeamSelectDeletedRoomDialogTest::shouldHaveDefaultValues()
     QVERIFY(button);
     auto mTeamSelectDeletedRoomWidget = d.findChild<TeamSelectDeletedRoomWidget *>(QStringLiteral("mTeamSelectDeletedRoomWidget"));
     QVERIFY(mTeamSelectDeletedRoomWidget);
+
+    QVERIFY(d.roomsId().isEmpty());
 }
