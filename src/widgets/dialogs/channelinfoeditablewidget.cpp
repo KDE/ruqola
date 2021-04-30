@@ -25,12 +25,14 @@
 #include "rocketchataccount.h"
 #include "roomavatarwidget.h"
 #include "ruqola.h"
+#include "teams/teamselectdeletedroomdialog.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordLineEdit>
 #include <KSeparator>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QPointer>
 #include <QPushButton>
 
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
@@ -116,6 +118,10 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         // TODO special case for team. We will remove associate room too.
         if (mRoom->teamInfo().mainTeam()) {
+            QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
+            dlg->setTeamId(mRoom->teamInfo().teamId());
+            if (dlg->exec()) { }
+            delete dlg;
         } else {
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
                 Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());

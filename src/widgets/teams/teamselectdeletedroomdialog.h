@@ -32,6 +32,8 @@ public:
 
     Q_REQUIRED_RESULT QStringList roomsId() const;
 
+    void setTeamId(const QString &teamId);
+
 private:
     void readConfig();
     void writeConfig();

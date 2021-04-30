@@ -72,3 +72,8 @@ QStringList TeamSelectDeletedRoomDialog::roomsId() const
 {
     return mTeamSelectDeletedRoomWidget->roomsId();
 }
+
+void TeamSelectDeletedRoomDialog::setTeamId(const QString &teamId)
+{
+    mTeamSelectDeletedRoomWidget->setTeamId(teamId);
+}

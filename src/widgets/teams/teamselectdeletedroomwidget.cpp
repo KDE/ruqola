@@ -101,6 +101,7 @@ QString TeamSelectDeletedRoomWidget::teamId() const
 void TeamSelectDeletedRoomWidget::setTeamId(const QString &teamId)
 {
     mTeamId = teamId;
+    initializeTeamRoomsList();
 }
 
 QStringList TeamSelectDeletedRoomWidget::roomsId() const
