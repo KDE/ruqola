@@ -52,6 +52,12 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
         return teamroom.autoJoin();
     case TeamRoomsRoles::Identifier:
         return teamroom.identifier();
+    case Qt::CheckStateRole: {
+        if (mIsCheckable) {
+            const QString roomId = data(index, TeamRoomsModel::Identifier).toString();
+            return mRoomSelected.contains(roomId) ? Qt::Checked : Qt::Unchecked;
+        }
+    }
     }
     return {};
 }
@@ -95,4 +101,46 @@ void TeamRoomsModel::insertRooms(const QVector<TeamRoom> &teamRooms)
     beginInsertRows(QModelIndex(), count, count + teamRooms.count() - 1);
     mTeamRooms.append(teamRooms);
     endInsertRows();
+}
+
+bool TeamRoomsModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (mIsCheckable) {
+        if (role == Qt::CheckStateRole) {
+            if (index.isValid()) {
+                Q_EMIT dataChanged(index, index);
+                const QString roomId = data(index, TeamRoomsModel::Identifier).toString();
+                qDebug() << " roomIOd " << value;
+                if (value == Qt::Checked) {
+                    mRoomSelected.append(roomId);
+                } else {
+                    mRoomSelected.removeAll(roomId);
+                }
+                return true;
+            }
+        }
+    }
+    return QAbstractListModel::setData(index, value, role);
+}
+
+Qt::ItemFlags TeamRoomsModel::flags(const QModelIndex &index) const
+{
+    if (mIsCheckable) {
+        if (index.isValid()) {
+            return QAbstractListModel::flags(index) | Qt::ItemIsUserCheckable;
+        } else {
+            return QAbstractListModel::flags(index);
+        }
+    }
+    return QAbstractListModel::flags(index);
+}
+
+bool TeamRoomsModel::isCheckable() const
+{
+    return mIsCheckable;
+}
+
+void TeamRoomsModel::setIsCheckable(bool isCheckable)
+{
+    mIsCheckable = isCheckable;
 }

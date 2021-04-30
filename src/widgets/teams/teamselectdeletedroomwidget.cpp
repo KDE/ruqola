@@ -55,6 +55,7 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);
 
+    mTeamRoomsModel->setIsCheckable(true);
     mListView->setModel(mTeamSelectProxyModel);
 }
 

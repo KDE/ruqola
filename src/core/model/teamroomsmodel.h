@@ -48,7 +48,15 @@ public:
 
     void insertRooms(const QVector<TeamRoom> &teamRooms);
 
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+
+    Q_REQUIRED_RESULT bool isCheckable() const;
+    void setIsCheckable(bool isCheckable);
+
 private:
     Q_DISABLE_COPY(TeamRoomsModel)
     QVector<TeamRoom> mTeamRooms;
+    QStringList mRoomSelected;
+    bool mIsCheckable = false;
 };
