@@ -22,9 +22,12 @@
 #include "channelinfoprunewidget.h"
 #include "messagetexteditor.h"
 #include "misc/systemmessagescombobox.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "roomavatarwidget.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+#include "teams/teamdeletejob.h"
 #include "teams/teamselectdeletedroomdialog.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -116,12 +119,23 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
-        // TODO special case for team. We will remove associate room too.
         if (mRoom->teamInfo().mainTeam()) {
-            QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
-            dlg->setTeamId(mRoom->teamInfo().teamId());
-            if (dlg->exec()) { }
-            delete dlg;
+            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
+                QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
+                dlg->setTeamId(mRoom->teamInfo().teamId());
+                if (dlg->exec()) {
+                    const QStringList roomIds = dlg->roomsId();
+                    RocketChatRestApi::TeamDeleteJob *job = new RocketChatRestApi::TeamDeleteJob(this);
+                    job->setRoomsId(roomIds);
+                    job->setTeamId(mRoom->teamInfo().teamId());
+                    Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+                    connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
+                    if (!job->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+                    }
+                }
+                delete dlg;
+            }
         } else {
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
                 Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());
@@ -133,6 +147,11 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
 
 ChannelInfoEditableWidget::~ChannelInfoEditableWidget()
 {
+}
+
+void ChannelInfoEditableWidget::slotTeamDeleteDone()
+{
+    Q_EMIT channelDeleted();
 }
 
 void ChannelInfoEditableWidget::setRoom(Room *room)

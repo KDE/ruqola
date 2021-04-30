@@ -53,6 +53,7 @@ Q_SIGNALS:
 
 private:
     void joinCodeChanged();
+    void slotTeamDeleteDone();
     Q_REQUIRED_RESULT bool hasRetentionPermission() const;
     Room *mRoom = nullptr;
 
