@@ -81,7 +81,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     }
     QMenu menu(this);
 
-    const Room::RoomType roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
+    const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
     connect(hideChannel, &QAction::triggered, this, [=]() {
         slotHideChannel(index, roomType);
@@ -133,7 +133,7 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
     const QString roomId = index.data(RoomModel::RoomId).toString();
-    const Room::RoomType roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
+    const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     Q_EMIT roomSelected(roomId, roomType);
 }
 

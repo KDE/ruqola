@@ -125,7 +125,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
                 dlg->setTeamId(mRoom->teamInfo().teamId());
                 if (dlg->exec()) {
                     const QStringList roomIds = dlg->roomsId();
-                    RocketChatRestApi::TeamDeleteJob *job = new RocketChatRestApi::TeamDeleteJob(this);
+                    auto *job = new RocketChatRestApi::TeamDeleteJob(this);
                     job->setRoomsId(roomIds);
                     job->setTeamId(mRoom->teamInfo().teamId());
                     Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
