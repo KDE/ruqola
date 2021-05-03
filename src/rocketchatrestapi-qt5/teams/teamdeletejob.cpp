@@ -98,10 +98,6 @@ bool TeamDeleteJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRoomToDeleteId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamDeleteJob: mRoomsId is empty";
-        return false;
-    }
     if (mTeamId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamDeleteJob: mTeamId is empty";
         return false;

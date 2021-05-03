@@ -79,6 +79,8 @@ void TeamDeleteJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString teamId = QStringLiteral("foo2");
     job.setTeamId(teamId);
+    QVERIFY(job.canStart());
+    // roomsId can be empty
     const QStringList rooms = {QStringLiteral("bb"), QStringLiteral("aa")};
     job.setRoomsId(rooms);
     QVERIFY(job.canStart());
