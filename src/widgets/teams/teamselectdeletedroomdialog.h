@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "teamroom.h"
 #include <QDialog>
 class TeamSelectDeletedRoomWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSelectDeletedRoomDialog : public QDialog
@@ -30,9 +31,9 @@ public:
     explicit TeamSelectDeletedRoomDialog(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomDialog() override;
 
-    Q_REQUIRED_RESULT QStringList roomsId() const;
+    void setTeamRooms(const QVector<TeamRoom> &rooms);
 
-    void setTeamId(const QString &teamId);
+    Q_REQUIRED_RESULT QStringList roomsId() const;
 
 private:
     void readConfig();

@@ -53,6 +53,11 @@ TeamSelectDeletedRoomDialog::~TeamSelectDeletedRoomDialog()
     writeConfig();
 }
 
+void TeamSelectDeletedRoomDialog::setTeamRooms(const QVector<TeamRoom> &rooms)
+{
+    mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
+}
+
 void TeamSelectDeletedRoomDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamSelectDeletedRoomDialogConfigGroupName);
@@ -71,9 +76,4 @@ void TeamSelectDeletedRoomDialog::writeConfig()
 QStringList TeamSelectDeletedRoomDialog::roomsId() const
 {
     return mTeamSelectDeletedRoomWidget->roomsId();
-}
-
-void TeamSelectDeletedRoomDialog::setTeamId(const QString &teamId)
-{
-    mTeamSelectDeletedRoomWidget->setTeamId(teamId);
 }

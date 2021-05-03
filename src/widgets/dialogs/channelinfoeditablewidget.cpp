@@ -29,6 +29,7 @@
 #include "ruqolawidgets_debug.h"
 #include "teams/teamdeletejob.h"
 #include "teams/teamselectdeletedroomdialog.h"
+#include "teams/teamslistroomsjob.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordLineEdit>
@@ -37,6 +38,7 @@
 #include <QFormLayout>
 #include <QPointer>
 #include <QPushButton>
+#include <teamroom.h>
 
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     : QWidget(parent)
@@ -120,21 +122,8 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         if (mRoom->teamInfo().mainTeam()) {
-            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
-                QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
-                dlg->setTeamId(mRoom->teamInfo().teamId());
-                if (dlg->exec()) {
-                    const QStringList roomIds = dlg->roomsId();
-                    auto *job = new RocketChatRestApi::TeamDeleteJob(this);
-                    job->setRoomsId(roomIds);
-                    job->setTeamId(mRoom->teamInfo().teamId());
-                    Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
-                    connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
-                    if (!job->start()) {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
-                    }
-                }
-                delete dlg;
+            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this Team?"), i18n("Delete Team"))) {
+                selectRoomToDelete(mRoom->teamInfo().teamId());
             }
         } else {
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
@@ -147,6 +136,64 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
 
 ChannelInfoEditableWidget::~ChannelInfoEditableWidget()
 {
+}
+
+void ChannelInfoEditableWidget::selectRoomToDelete(const QString &teamId)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
+    job->setTeamId(teamId);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &ChannelInfoEditableWidget::slotTeamListRoomsDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+    }
+}
+
+void ChannelInfoEditableWidget::deleteTeam(const QString &teamId, const QStringList &roomIds)
+{
+    auto *job = new RocketChatRestApi::TeamDeleteJob(this);
+    job->setTeamId(teamId);
+    job->setRoomsId(roomIds);
+    Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+    }
+}
+
+void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
+{
+    QVector<TeamRoom> teamRooms;
+    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    const int total = rooms.count();
+    teamRooms.reserve(total);
+    for (int i = 0; i < total; ++i) {
+        const QJsonObject r = rooms.at(i).toObject();
+        TeamRoom teamRoom;
+        teamRoom.parse(r);
+        teamRooms.append(teamRoom);
+        // qDebug() << "TeamRoom  " << teamRoom;
+    }
+    const QString teamId = mRoom->teamInfo().teamId();
+    if (teamRooms.isEmpty()) {
+        deleteTeam(teamId, {});
+    } else {
+        QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
+        dlg->setTeamRooms(teamRooms);
+        if (dlg->exec()) {
+            const QStringList roomIds = dlg->roomsId();
+            auto *job = new RocketChatRestApi::TeamDeleteJob(this);
+            job->setRoomsId(roomIds);
+            job->setTeamId(teamId);
+            Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+            }
+        }
+        delete dlg;
+    }
 }
 
 void ChannelInfoEditableWidget::slotTeamDeleteDone()

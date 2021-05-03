@@ -34,7 +34,6 @@ void TeamSelectDeletedRoomWidgetTest::shouldHaveDefaultValues()
 {
     TeamSelectDeletedRoomWidget w;
 
-    QVERIFY(w.teamId().isEmpty());
     QVERIFY(w.roomsId().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

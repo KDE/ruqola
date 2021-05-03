@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "teamroom.h"
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -33,17 +34,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSelectDeletedRoomWidget : public QWidget
 public:
     explicit TeamSelectDeletedRoomWidget(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomWidget() override;
-
-    Q_REQUIRED_RESULT QString teamId() const;
-    void setTeamId(const QString &teamId);
-
     Q_REQUIRED_RESULT QStringList roomsId() const;
 
+    void setTeamRooms(const QVector<TeamRoom> &rooms);
+
 private:
-    void slotTeamListRoomsDone(const QJsonObject &obj);
-    void initializeTeamRoomsList();
     void slotTextChanged(const QString &str);
-    QString mTeamId;
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamRoomsModel *const mTeamRoomsModel;

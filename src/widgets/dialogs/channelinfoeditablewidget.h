@@ -54,6 +54,9 @@ Q_SIGNALS:
 private:
     void joinCodeChanged();
     void slotTeamDeleteDone();
+    void slotTeamListRoomsDone(const QJsonObject &obj);
+    void selectRoomToDelete(const QString &teamId);
+    void deleteTeam(const QString &teamId, const QStringList &roomdId);
     Q_REQUIRED_RESULT bool hasRetentionPermission() const;
     Room *mRoom = nullptr;
 

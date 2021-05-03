@@ -21,11 +21,8 @@
 #include "teamselectdeletedroomwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsmodel.h"
-#include "restapirequest.h"
-#include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "teams/teamslistroomsjob.h"
 #include "teamselectdeletedroomfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -68,41 +65,9 @@ void TeamSelectDeletedRoomWidget::slotTextChanged(const QString &str)
     mTeamSelectProxyModel->setFilterString(str);
 }
 
-void TeamSelectDeletedRoomWidget::initializeTeamRoomsList()
+void TeamSelectDeletedRoomWidget::setTeamRooms(const QVector<TeamRoom> &rooms)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
-    job->setTeamId(mTeamId);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &TeamSelectDeletedRoomWidget::slotTeamListRoomsDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
-    }
-}
-
-void TeamSelectDeletedRoomWidget::slotTeamListRoomsDone(const QJsonObject &obj)
-{
-    QVector<TeamRoom> teamRooms;
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-    for (int i = 0, total = rooms.count(); i < total; ++i) {
-        const QJsonObject r = rooms.at(i).toObject();
-        TeamRoom teamRoom;
-        teamRoom.parse(r);
-        teamRooms.append(teamRoom);
-        // qDebug() << "TeamRoom  " << teamRoom;
-    }
-    mTeamRoomsModel->setTeamRooms(teamRooms);
-}
-
-QString TeamSelectDeletedRoomWidget::teamId() const
-{
-    return mTeamId;
-}
-
-void TeamSelectDeletedRoomWidget::setTeamId(const QString &teamId)
-{
-    mTeamId = teamId;
-    initializeTeamRoomsList();
+    mTeamRoomsModel->setTeamRooms(rooms);
 }
 
 QStringList TeamSelectDeletedRoomWidget::roomsId() const
