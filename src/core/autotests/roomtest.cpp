@@ -263,6 +263,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() << QStringLiteral("autotranslatelanguage-update"));
     QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));
     QTest::newRow("room-retention") << QStringLiteral("room-retention") << (QStringList() << QStringLiteral("room-retention-update"));
+    QTest::newRow("room-team") << QStringLiteral("room-team") << (QStringList() << QStringLiteral("room-team"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
