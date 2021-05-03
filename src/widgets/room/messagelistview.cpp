@@ -406,6 +406,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotDebugMessage(index);
         });
         menu.addAction(debugMessageAction);
+        createSeparator(menu);
+        auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu);
+        connect(debugRoomAction, &QAction::triggered, this, [=]() {
+            qDebug() << " *mRoom " << *mRoom;
+        });
+        menu.addAction(debugRoomAction);
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
