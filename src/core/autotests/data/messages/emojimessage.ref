@@ -2,7 +2,7 @@
     "alias": "",
     "attachments": [
         {
-            "attchmentType": "NormalText",
+            "attachmentType": "NormalText",
             "color": "warning",
             "text": "\n* WARNINGs: Write IO Wait time is 4.44 (outside range [0:3]).",
             "url": ""

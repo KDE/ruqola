@@ -1,5 +1,39 @@
 {
     "alias": "",
+    "attachments": [
+        {
+            "attachmentType": "NormalText",
+            "color": "warning",
+            "fields": [
+                {
+                    "title": "Job Name",
+                    "value": "<https://rundeck.newlotusweb.net/project/eonian/job/show/ac162ac0-2c51-45a8-a737-b9e419404362|Affiliation/Esmeralda / Deploy Special Affiliation Oraculum for Esmeralda FR>"
+                },
+                {
+                    "title": "Project",
+                    "value": "eonian"
+                },
+                {
+                    "title": "Status",
+                    "value": "Started"
+                },
+                {
+                    "title": "Execution ID",
+                    "value": "<https://rundeck.newlotusweb.net/project/eonian/execution/follow/3724|#3,724>"
+                },
+                {
+                    "title": "Options",
+                    "value": "N/A"
+                },
+                {
+                    "title": "Started By",
+                    "value": "jordi.vilar"
+                }
+            ],
+            "title": "RunDeck Job Started",
+            "url": ""
+        }
+    ],
     "avatar": "",
     "editedAt": -1,
     "editedByUserID": "",

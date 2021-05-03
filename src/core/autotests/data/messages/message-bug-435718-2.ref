@@ -1,5 +1,18 @@
 {
     "alias": "Taiga (Angel Docampo)",
+    "attachments": [
+        {
+            "attachmentType": "NormalText",
+            "color": "warning",
+            "fields": [
+                {
+                    "title": "status",
+                    "value": "*From* Initial tests *to* Done"
+                }
+            ],
+            "url": ""
+        }
+    ],
     "avatar": "",
     "editedAt": -1,
     "editedByUserID": "",

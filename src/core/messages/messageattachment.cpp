@@ -157,7 +157,7 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (message.collapsed()) {
         obj[QStringLiteral("collapsed")] = true;
     }
-    obj[QStringLiteral("attchmentType")] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(message.attachmentType()));
+    obj[QStringLiteral("attachmentType")] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(message.attachmentType()));
     return obj;
 }
 
@@ -188,7 +188,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
     }
     att.setAttachmentFields(messageFields);
     att.setCollapsed(o.value(QLatin1String("collapsed")).toBool());
-    att.setAttachmentType(o[QStringLiteral("attchmentType")].toVariant().value<AttachmentType>());
+    att.setAttachmentType(o[QStringLiteral("attachmentType")].toVariant().value<AttachmentType>());
     return att;
 }
 
@@ -234,7 +234,7 @@ void MessageAttachment::setAuthorName(const QString &authorName)
 
 bool MessageAttachment::isValid() const
 {
-    return !mAttachmentId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty());
+    return !mAttachmentId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty() || !mAttachmentFields.isEmpty());
 }
 
 bool MessageAttachment::canDownloadAttachment() const
