@@ -1,0 +1,36 @@
+{
+    "_id": "zc2ZEfMBffRgqC6Wz",
+    "_updatedAt": {
+        "$date": 1617876860729
+    },
+    "alias": "Héctor Rovira",
+    "attachments": [
+        {
+            "color": "#FF0000",
+            "text": "Card moved: \"[test1](https://trello.com/c/qErZFThk)\" from list \"TO-DO reunion' to 'Assigned-Waiting'\n",
+            "title": "Campagne Manager",
+            "title_link": "https://trello.com/b/63TFCh20",
+            "ts": "1970-01-01T00:00:00.000Z"
+        }
+    ],
+    "avatar": "https://trello-members.s3.amazonaws.com/5d5bf5371f5d565e44d66d72/cefb7644e18a16b25531e09d2d6a5d22/170.png",
+    "bot": {
+        "i": "aAqQRxwHoexx5MzJM"
+    },
+    "channels": [
+    ],
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "parseUrls": false,
+    "rid": "EGpqR23fNnjsTHua4",
+    "ts": {
+        "$date": 1617874423534
+    },
+    "u": {
+        "_id": "rocket.cat",
+        "name": "Rocket.Cat",
+        "username": "rocket.cat"
+    }
+}

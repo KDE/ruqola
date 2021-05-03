@@ -1,0 +1,30 @@
+{
+    "alias": "Héctor Rovira",
+    "attachments": [
+        {
+            "attchmentType": "NormalText",
+            "color": "#FF0000",
+            "text": "Card moved: \"[test1](https://trello.com/c/qErZFThk)\" from list \"TO-DO reunion' to 'Assigned-Waiting'\n",
+            "title": "Campagne Manager",
+            "url": "https://trello.com/b/63TFCh20"
+        }
+    ],
+    "avatar": "https://trello-members.s3.amazonaws.com/5d5bf5371f5d565e44d66d72/cefb7644e18a16b25531e09d2d6a5d22/170.png",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "",
+    "messageID": "zc2ZEfMBffRgqC6Wz",
+    "messageType": "NormalText",
+    "name": "Rocket.Cat",
+    "parseUrls": false,
+    "pinned": false,
+    "roomID": "EGpqR23fNnjsTHua4",
+    "starred": false,
+    "timestamp": 1617874423534,
+    "type": "",
+    "updatedAt": 1617876860729,
+    "userID": "rocket.cat",
+    "username": "rocket.cat"
+}

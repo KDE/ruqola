@@ -1,0 +1,68 @@
+{
+    "_id": "Yj3wcLPi2xfr2Gc65",
+    "_updatedAt": {
+        "$date": 1617087956309
+    },
+    "alias": "",
+    "attachments": [
+        {
+            "channel": "#notifications",
+            "color": "warning",
+            "fallback": "Started: RunDeck Job Notification:",
+            "fields": [
+                {
+                    "short": true,
+                    "title": "Job Name",
+                    "value": "<https://rundeck.newlotusweb.net/project/eonian/job/show/ac162ac0-2c51-45a8-a737-b9e419404362|Affiliation/Esmeralda / Deploy Special Affiliation Oraculum for Esmeralda FR>"
+                },
+                {
+                    "short": true,
+                    "title": "Project",
+                    "value": "eonian"
+                },
+                {
+                    "short": true,
+                    "title": "Status",
+                    "value": "Started"
+                },
+                {
+                    "short": true,
+                    "title": "Execution ID",
+                    "value": "<https://rundeck.newlotusweb.net/project/eonian/execution/follow/3724|#3,724>"
+                },
+                {
+                    "short": true,
+                    "title": "Options",
+                    "value": "N/A"
+                },
+                {
+                    "short": true,
+                    "title": "Started By",
+                    "value": "jordi.vilar"
+                }
+            ],
+            "icon_emoji": ":rundeck:",
+            "title": "RunDeck Job Started",
+            "ts": "1970-01-01T00:00:00.000Z"
+        }
+    ],
+    "bot": {
+        "i": "CHRkkKgywmGAfG8FD"
+    },
+    "channels": [
+    ],
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "parseUrls": false,
+    "rid": "EGpqR23fNnjsTHua4",
+    "ts": {
+        "$date": 1617082008028
+    },
+    "u": {
+        "_id": "rocket.cat",
+        "name": "Rocket.Cat",
+        "username": "rocket.cat"
+    }
+}
