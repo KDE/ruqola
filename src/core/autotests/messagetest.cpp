@@ -358,6 +358,7 @@ void MessageTest::shouldParseJsonMessage_data()
     QTest::newRow("attachmentaudio") << QStringLiteral("attachmentaudio");
     QTest::newRow("attachmentimage-preview") << QStringLiteral("attachmentimage-preview");
     QTest::newRow("message-attachment-link") << QStringLiteral("message-attachment-link");
+    // TODO fix them
     QTest::newRow("message-bug-435718") << QStringLiteral("message-bug-435718");
     QTest::newRow("message-bug-435718-2") << QStringLiteral("message-bug-435718-2");
     QTest::newRow("message-bug-435718-3") << QStringLiteral("message-bug-435718-3");
