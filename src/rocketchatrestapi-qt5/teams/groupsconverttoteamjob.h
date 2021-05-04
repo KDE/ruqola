@@ -38,8 +38,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString groupId() const;
-    void setGroupId(const QString &channelId);
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
     void groupConvertToTeamDone(const QJsonObject &obj);
@@ -47,6 +47,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GroupsConvertToTeamJob)
     void slotGroupConvertToTeamFinished();
-    QString mGroupId;
+    QString mRoomId;
 };
 }

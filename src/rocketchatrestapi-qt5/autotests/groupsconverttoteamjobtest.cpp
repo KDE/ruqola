@@ -35,7 +35,7 @@ void GroupsConvertToTeamJobTest::shouldHaveDefaultValue()
     GroupsConvertToTeamJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.groupId().isEmpty());
+    QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -51,10 +51,10 @@ void GroupsConvertToTeamJobTest::shouldGenerateRequest()
 void GroupsConvertToTeamJobTest::shouldGenerateJson()
 {
     GroupsConvertToTeamJob job;
-    const QString channelId = QStringLiteral("foo2");
-    job.setGroupId(channelId);
+    const QString roomId = QStringLiteral("foo2");
+    job.setRoomId(roomId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"channelId":"%1"})").arg(channelId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
 void GroupsConvertToTeamJobTest::shouldNotStarting()
@@ -74,7 +74,7 @@ void GroupsConvertToTeamJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString teamId = QStringLiteral("foo2");
-    job.setGroupId(teamId);
+    const QString roomId = QStringLiteral("foo2");
+    job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }

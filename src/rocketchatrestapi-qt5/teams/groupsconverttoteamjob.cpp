@@ -67,14 +67,14 @@ void GroupsConvertToTeamJob::slotGroupConvertToTeamFinished()
     deleteLater();
 }
 
-QString GroupsConvertToTeamJob::groupId() const
+QString GroupsConvertToTeamJob::roomId() const
 {
-    return mGroupId;
+    return mRoomId;
 }
 
-void GroupsConvertToTeamJob::setGroupId(const QString &channelId)
+void GroupsConvertToTeamJob::setRoomId(const QString &roomId)
 {
-    mGroupId = channelId;
+    mRoomId = roomId;
 }
 
 bool GroupsConvertToTeamJob::requireHttpAuthentication() const
@@ -87,7 +87,7 @@ bool GroupsConvertToTeamJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mGroupId.isEmpty()) {
+    if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsConvertToTeamJob: mTeamId is empty";
         return false;
     }
@@ -106,7 +106,7 @@ QNetworkRequest GroupsConvertToTeamJob::request() const
 QJsonDocument GroupsConvertToTeamJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mGroupId;
+    jsonObj[QLatin1String("roomId")] = mRoomId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

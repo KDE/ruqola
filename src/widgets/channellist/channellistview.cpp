@@ -21,11 +21,15 @@
 #include "channellistview.h"
 #include "channellistdelegate.h"
 #include "model/roomfilterproxymodel.h"
+#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "teams/channelsconverttoteamjob.h"
+#include "teams/groupsconverttoteamjob.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QAction>
 #include <QContextMenuEvent>
@@ -110,7 +114,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
             connect(convertToTeam, &QAction::triggered, this, [=]() {
-                slotConvertToTeam(index);
+                slotConvertToTeam(index, roomType);
             });
             menu.addAction(convertToTeam);
         }
@@ -127,7 +131,49 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     }
 }
 
-void ChannelListView::slotConvertToTeam(const QModelIndex &index)
+void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)
+{
+    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure to convert it to team? It can not be undo."), i18n("Convert to Team"))) {
+        const QString roomId = index.data(RoomModel::RoomId).toString();
+        switch (roomType) {
+        case Room::RoomType::Unknown:
+            qCWarning(RUQOLAWIDGETS_LOG) << "Unknow type used it's a bug";
+            break;
+        case Room::RoomType::Direct:
+            qCWarning(RUQOLAWIDGETS_LOG) << "We can't convert Direct to Team. It's a bug";
+            break;
+        case Room::RoomType::Channel: {
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            auto job = new RocketChatRestApi::ChannelsConvertToTeamJob(this);
+            job->setChannelId(roomId);
+            rcAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::ChannelsConvertToTeamJob::channelConvertToTeamDone, this, &ChannelListView::slotChannelConvertToTeamDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
+            }
+            break;
+        }
+        case Room::RoomType::Private: {
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            auto job = new RocketChatRestApi::GroupsConvertToTeamJob(this);
+            job->setRoomId(roomId);
+            rcAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::GroupsConvertToTeamJob::groupConvertToTeamDone, this, &ChannelListView::slotGroupConvertToTeamDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
+            }
+            break;
+        }
+        }
+    }
+}
+
+void ChannelListView::slotChannelConvertToTeamDone()
+{
+    // TODO
+}
+
+void ChannelListView::slotGroupConvertToTeamDone()
 {
     // TODO
 }
