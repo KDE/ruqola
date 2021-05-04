@@ -31,9 +31,6 @@ public:
 
     void setFilterString(const QString &string);
 
-protected:
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-
 private:
     TeamRoomsModel *const mTeamRoomsModel;
 };

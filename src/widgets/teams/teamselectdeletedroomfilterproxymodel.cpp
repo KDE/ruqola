@@ -44,9 +44,3 @@ void TeamSelectDeletedRoomFilterProxyModel::setFilterString(const QString &strin
 {
     setFilterFixedString(string);
 }
-
-Qt::ItemFlags TeamSelectDeletedRoomFilterProxyModel::flags(const QModelIndex &index) const
-{
-    Qt::ItemFlags defaultFlags = QAbstractItemModel::flags(index);
-    return Qt::ItemIsUserCheckable | defaultFlags;
-}
