@@ -20,10 +20,10 @@
 
 #include "teamselectdeletedroomwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "teamselectdeletedroomfilterproxymodel.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -34,7 +34,7 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mTeamRoomsModel(new TeamRoomsModel(this))
-    , mTeamSelectProxyModel(new TeamSelectDeletedRoomFilterProxyModel(mTeamRoomsModel, this))
+    , mTeamSelectProxyModel(new TeamRoomsFilterProxyModel(mTeamRoomsModel, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
