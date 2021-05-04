@@ -119,7 +119,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelInfoButton->setAutoRaise(true);
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
-    mChannelInfoButton->setToolTip(i18n("Channel Info"));
+    mChannelInfoButton->setToolTip(i18n("Channel's Information"));
     buttonLayout->addWidget(mChannelInfoButton, Qt::AlignTop);
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
@@ -199,6 +199,7 @@ void RoomHeaderWidget::setEncypted(bool b)
 void RoomHeaderWidget::setMainTeam(bool isMainTeam)
 {
     mTeamChannelsButton->setVisible(isMainTeam);
+    mChannelInfoButton->setToolTip(isMainTeam ? i18n("Team's Information") : i18n("Channel's Information"));
 }
 
 void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
