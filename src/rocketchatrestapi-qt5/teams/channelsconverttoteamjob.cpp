@@ -67,16 +67,6 @@ void ChannelsConvertToTeamJob::slotChannelConvertToTeamFinished()
     deleteLater();
 }
 
-QStringList ChannelsConvertToTeamJob::roomIds() const
-{
-    return mRoomIds;
-}
-
-void ChannelsConvertToTeamJob::setRoomIds(const QStringList &roomsId)
-{
-    mRoomIds = roomsId;
-}
-
 QString ChannelsConvertToTeamJob::teamId() const
 {
     return mTeamId;
@@ -95,10 +85,6 @@ bool ChannelsConvertToTeamJob::requireHttpAuthentication() const
 bool ChannelsConvertToTeamJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    if (mRoomIds.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelsConvertToTeamJob: mRoomsId is empty";
         return false;
     }
     if (mTeamId.isEmpty()) {
@@ -120,8 +106,6 @@ QNetworkRequest ChannelsConvertToTeamJob::request() const
 QJsonDocument ChannelsConvertToTeamJob::json() const
 {
     QJsonObject jsonObj;
-    // Example {"rooms":["QMkvkiMyxKoEuJjnb","zMHhMfsEPvKjgFuyE"],"teamId":"6072f51066b377a354d793cc"}
-    jsonObj[QLatin1String("rooms")] = QJsonArray::fromStringList(mRoomIds);
     jsonObj[QLatin1String("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

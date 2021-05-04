@@ -105,9 +105,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(favoriteAction);
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
-        auto separator = new QAction(&menu);
-        separator->setSeparator(true);
-        menu.addAction(separator);
+        const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
+        if (!mainTeam) {
+            menu.addSeparator();
+            auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
+            connect(convertToTeam, &QAction::triggered, this, [=]() {
+                slotConvertToTeam(index);
+            });
+            menu.addAction(convertToTeam);
+        }
+
+        menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [=]() {
             slotLeaveChannel(index, roomType);
@@ -117,6 +125,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void ChannelListView::slotConvertToTeam(const QModelIndex &index)
+{
+    // TODO
 }
 
 void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRead)

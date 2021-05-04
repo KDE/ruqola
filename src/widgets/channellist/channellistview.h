@@ -57,6 +57,7 @@ private:
     void slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType);
     void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
     void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
+    void slotConvertToTeam(const QModelIndex &index);
 
     ChannelListDelegate *const mChannelListDelegate;
 };

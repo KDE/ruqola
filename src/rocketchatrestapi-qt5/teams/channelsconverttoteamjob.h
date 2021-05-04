@@ -41,16 +41,12 @@ public:
     Q_REQUIRED_RESULT QString teamId() const;
     void setTeamId(const QString &teamId);
 
-    Q_REQUIRED_RESULT QStringList roomIds() const;
-    void setRoomIds(const QStringList &roomsId);
-
 Q_SIGNALS:
     void channelConvertToTeamDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ChannelsConvertToTeamJob)
     void slotChannelConvertToTeamFinished();
-    QStringList mRoomIds;
     QString mTeamId;
 };
 }
