@@ -273,6 +273,7 @@ enum class RestApiUrlType {
     TeamsAutocomplete,
     RoomsAutocompleteAvailableForTeams,
     ChannelsConvertToTeam,
+    GroupsConvertToTeam,
 };
 LIBROCKETCHATRESTAPI_QT5_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
