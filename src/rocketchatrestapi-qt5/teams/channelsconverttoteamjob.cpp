@@ -67,14 +67,14 @@ void ChannelsConvertToTeamJob::slotChannelConvertToTeamFinished()
     deleteLater();
 }
 
-QString ChannelsConvertToTeamJob::teamId() const
+QString ChannelsConvertToTeamJob::channelId() const
 {
-    return mTeamId;
+    return mChannelId;
 }
 
-void ChannelsConvertToTeamJob::setTeamId(const QString &teamId)
+void ChannelsConvertToTeamJob::setChannelId(const QString &channelId)
 {
-    mTeamId = teamId;
+    mChannelId = channelId;
 }
 
 bool ChannelsConvertToTeamJob::requireHttpAuthentication() const
@@ -87,7 +87,7 @@ bool ChannelsConvertToTeamJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mTeamId.isEmpty()) {
+    if (mChannelId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelsConvertToTeamJob: mTeamId is empty";
         return false;
     }
@@ -106,7 +106,7 @@ QNetworkRequest ChannelsConvertToTeamJob::request() const
 QJsonDocument ChannelsConvertToTeamJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("teamId")] = mTeamId;
+    jsonObj[QLatin1String("channelId")] = mChannelId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

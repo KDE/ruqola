@@ -35,7 +35,7 @@ void ChannelsConvertToTeamJobTest::shouldHaveDefaultValue()
     ChannelsConvertToTeamJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.teamId().isEmpty());
+    QVERIFY(job.channelId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -51,10 +51,10 @@ void ChannelsConvertToTeamJobTest::shouldGenerateRequest()
 void ChannelsConvertToTeamJobTest::shouldGenerateJson()
 {
     ChannelsConvertToTeamJob job;
-    const QString teamId = QStringLiteral("foo2");
-    job.setTeamId(teamId);
+    const QString channelId = QStringLiteral("foo2");
+    job.setChannelId(channelId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%2"})").arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"channelId":"%1"})").arg(channelId).toLatin1());
 }
 
 void ChannelsConvertToTeamJobTest::shouldNotStarting()
@@ -75,6 +75,6 @@ void ChannelsConvertToTeamJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString teamId = QStringLiteral("foo2");
-    job.setTeamId(teamId);
+    job.setChannelId(teamId);
     QVERIFY(job.canStart());
 }

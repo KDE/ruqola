@@ -38,8 +38,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString teamId() const;
-    void setTeamId(const QString &teamId);
+    Q_REQUIRED_RESULT QString channelId() const;
+    void setChannelId(const QString &channelId);
 
 Q_SIGNALS:
     void channelConvertToTeamDone(const QJsonObject &obj);
@@ -47,6 +47,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelsConvertToTeamJob)
     void slotChannelConvertToTeamFinished();
-    QString mTeamId;
+    QString mChannelId;
 };
 }
