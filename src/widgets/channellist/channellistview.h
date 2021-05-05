@@ -58,8 +58,8 @@ private:
     void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
     void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
     void slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType);
-    void slotChannelConvertToTeamDone();
-    void slotGroupConvertToTeamDone();
+    void slotChannelConvertToTeamDone(const QJsonObject &obj);
+    void slotGroupConvertToTeamDone(const QJsonObject &obj);
 
     ChannelListDelegate *const mChannelListDelegate;
 };

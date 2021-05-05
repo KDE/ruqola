@@ -168,13 +168,17 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
     }
 }
 
-void ChannelListView::slotChannelConvertToTeamDone()
+void ChannelListView::slotChannelConvertToTeamDone(const QJsonObject &obj)
 {
+    Q_UNUSED(obj);
+    // qDebug() << " obj "<< obj;
     // TODO
 }
 
-void ChannelListView::slotGroupConvertToTeamDone()
+void ChannelListView::slotGroupConvertToTeamDone(const QJsonObject &obj)
 {
+    Q_UNUSED(obj);
+    // qDebug() << " obj "<< obj;
     // TODO
 }
 
