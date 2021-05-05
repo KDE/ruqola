@@ -34,23 +34,23 @@ TeamCompleterModel::~TeamCompleterModel()
 
 void TeamCompleterModel::clear()
 {
-    if (!mRooms.isEmpty()) {
+    if (!mTeams.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
-        mRooms.clear();
+        mTeams.clear();
         endRemoveRows();
     }
 }
 
-void TeamCompleterModel::insertRooms(const QVector<TeamRoomCompleter> &rooms)
+void TeamCompleterModel::insertRooms(const QVector<TeamCompleter> &rooms)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mRooms.count() - 1);
-        mRooms.clear();
+        beginRemoveRows(QModelIndex(), 0, mTeams.count() - 1);
+        mTeams.clear();
         endRemoveRows();
     }
     if (!rooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, rooms.count() - 1);
-        mRooms = rooms;
+        mTeams = rooms;
         endInsertRows();
     }
 }
@@ -58,23 +58,23 @@ void TeamCompleterModel::insertRooms(const QVector<TeamRoomCompleter> &rooms)
 int TeamCompleterModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mRooms.count();
+    return mTeams.count();
 }
 
 QVariant TeamCompleterModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mRooms.count()) {
+    if (index.row() < 0 || index.row() >= mTeams.count()) {
         return QVariant();
     }
-    const TeamRoomCompleter &room = mRooms.at(index.row());
+    const TeamCompleter &room = mTeams.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
-    case RoomName:
+    case TeamName:
         return room.name();
-    case RoomId:
-        return room.identifier();
+    case TeamId:
+        return room.teamId();
     case Qt::DecorationRole:
-    case RoomIcon:
+    case TeamIcon:
         return {};
     }
 
