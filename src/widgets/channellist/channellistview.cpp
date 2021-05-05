@@ -120,6 +120,15 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 });
                 menu.addAction(convertToTeam);
             }
+            const QString mainTeamId = index.data(RoomModel::RoomTeamId).toString();
+            if (mainTeamId.isEmpty()) {
+                menu.addSeparator();
+                auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
+                connect(moveToTeam, &QAction::triggered, this, [=]() {
+                    slotMoveToTeam(index);
+                });
+                menu.addAction(moveToTeam);
+            }
         }
 
         menu.addSeparator();
@@ -132,6 +141,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void ChannelListView::slotMoveToTeam(const QModelIndex &index)
+{
+    // TODO
 }
 
 void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)

@@ -60,6 +60,7 @@ private:
     void slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType);
     void slotChannelConvertToTeamDone(const QJsonObject &obj);
     void slotGroupConvertToTeamDone(const QJsonObject &obj);
+    void slotMoveToTeam(const QModelIndex &index);
 
     ChannelListDelegate *const mChannelListDelegate;
 };
