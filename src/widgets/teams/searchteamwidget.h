@@ -32,5 +32,8 @@ public:
     ~SearchTeamWidget() override;
 
 private:
+    void slotSearchCleared();
+    void slotSearchRequested(const QString &str);
+    void slotTeamAutoCompleteDone(const QJsonObject &obj);
     SearchWithDelayLineEdit *const mSearchLine;
 };
