@@ -45,11 +45,11 @@ public:
     void setName(const QString &newName);
 
 Q_SIGNALS:
-    void teamListRoomsDone(const QJsonObject &obj);
+    void teamAutoCompleteDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(TeamsAutoCompleteJob)
-    void slotTeamListRoomsFinished();
+    void slotTeamAutoCompleteFinished();
     QString mName;
 };
 }
