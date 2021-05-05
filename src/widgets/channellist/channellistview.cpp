@@ -109,14 +109,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(favoriteAction);
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
-        const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
-        if (!mainTeam) {
-            menu.addSeparator();
-            auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
-            connect(convertToTeam, &QAction::triggered, this, [=]() {
-                slotConvertToTeam(index, roomType);
-            });
-            menu.addAction(convertToTeam);
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        if (rcAccount->teamEnabled()) {
+            const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
+            if (!mainTeam) {
+                menu.addSeparator();
+                auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
+                connect(convertToTeam, &QAction::triggered, this, [=]() {
+                    slotConvertToTeam(index, roomType);
+                });
+                menu.addAction(convertToTeam);
+            }
         }
 
         menu.addSeparator();
