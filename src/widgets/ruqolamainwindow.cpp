@@ -58,7 +58,6 @@
 #include <KStandardAction>
 #include <QApplication>
 #include <QFontDatabase>
-#include <QGuiApplication>
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QLabel>

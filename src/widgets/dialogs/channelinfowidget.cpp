@@ -30,20 +30,10 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KPasswordLineEdit>
-#include <KSeparator>
 #include <QCheckBox>
-#include <QFormLayout>
-#include <QHBoxLayout>
-#include <QInputDialog>
-#include <QLabel>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QStackedWidget>
-#include <QTextDocument>
-#include <QToolButton>
+#include <QVBoxLayout>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)

@@ -30,7 +30,6 @@
 #include "searchchannellistview.h"
 #include <KLocalizedString>
 #include <QLineEdit>
-#include <QListView>
 #include <QVBoxLayout>
 
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)

@@ -20,7 +20,6 @@
 
 #include "searchteamdialog.h"
 #include "searchteamwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>

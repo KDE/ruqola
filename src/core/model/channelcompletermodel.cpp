@@ -20,7 +20,6 @@
 
 #include "channelcompletermodel.h"
 #include "ruqola_debug.h"
-#include <QIcon>
 #include <QModelIndex>
 
 ChannelCompleterModel::ChannelCompleterModel(QObject *parent)

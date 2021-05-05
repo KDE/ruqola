@@ -20,7 +20,6 @@
 
 #include "searchteamwidgettest.h"
 #include "teams/searchteamwidget.h"
-#include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(SearchTeamWidgetTest)

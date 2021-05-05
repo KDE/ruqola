@@ -22,8 +22,6 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
-#include <KLocalizedString>
-#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>

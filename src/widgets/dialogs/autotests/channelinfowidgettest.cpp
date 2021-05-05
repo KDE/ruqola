@@ -20,9 +20,9 @@
 
 #include "channelinfowidgettest.h"
 #include "dialogs/channelinfowidget.h"
-#include <QFormLayout>
 #include <QStackedWidget>
 #include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(ChannelInfoWidgetTest)
 ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)

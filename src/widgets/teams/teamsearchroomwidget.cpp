@@ -20,7 +20,6 @@
 
 #include "teamsearchroomwidget.h"
 #include "teamsearchroomforteamwidget.h"
-#include <KLocalizedString>
 #include <QVBoxLayout>
 
 TeamSearchRoomWidget::TeamSearchRoomWidget(QWidget *parent)

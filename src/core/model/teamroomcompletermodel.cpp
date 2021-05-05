@@ -20,7 +20,6 @@
 
 #include "teamroomcompletermodel.h"
 #include "ruqola_debug.h"
-#include <QIcon>
 #include <QModelIndex>
 
 TeamRoomCompleterModel::TeamRoomCompleterModel(QObject *parent)

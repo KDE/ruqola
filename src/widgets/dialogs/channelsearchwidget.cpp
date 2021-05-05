@@ -20,7 +20,6 @@
 
 #include "channelsearchwidget.h"
 #include "channelsearchnamelineresultwidget.h"
-#include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
