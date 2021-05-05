@@ -26,10 +26,6 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-namespace
-{
-const char mySearchTeamDialogConfigGroupName[] = "SearchTeamDialog";
-}
 SearchTeamDialog::SearchTeamDialog(QWidget *parent)
     : QDialog(parent)
     , mSearchTeamWidget(new SearchTeamWidget(this))
@@ -46,25 +42,14 @@ SearchTeamDialog::SearchTeamDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &SearchTeamDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &SearchTeamDialog::accept);
-    readConfig();
 }
 
 SearchTeamDialog::~SearchTeamDialog()
 {
-    writeConfig();
 }
 
-void SearchTeamDialog::readConfig()
+const QString &SearchTeamDialog::teamId() const
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), mySearchTeamDialogConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    return mSearchTeamWidget->teamId();
 }
 
-void SearchTeamDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), mySearchTeamDialogConfigGroupName);
-    group.writeEntry("Size", size());
-}

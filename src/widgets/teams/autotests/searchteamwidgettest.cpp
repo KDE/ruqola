@@ -33,5 +33,9 @@ SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
 void SearchTeamWidgetTest::shouldHaveDefaultValues()
 {
     SearchTeamWidget d;
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
     // TODO
 }

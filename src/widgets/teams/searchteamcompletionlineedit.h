@@ -20,19 +20,26 @@
 
 #pragma once
 
-#include <QDialog>
-
+#include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-class SearchTeamWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamDialog : public QDialog
+class TeamCompleterModel;
+class QTimer;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
 public:
-    explicit SearchTeamDialog(QWidget *parent = nullptr);
-    ~SearchTeamDialog() override;
+    explicit SearchTeamCompletionLineEdit(QWidget *parent = nullptr);
+    ~SearchTeamCompletionLineEdit() override;
 
     const QString &teamId() const;
 
 private:
-    SearchTeamWidget *const mSearchTeamWidget;
+    void slotSearchTimerFired();
+    void slotSearchTextEdited();
+    void slotTextChanged(const QString &text);
+    void slotComplete(const QModelIndex &index);
+    void slotTeamAutoCompleteDone(const QJsonObject &obj);
+    QString mTeamId;
+    TeamCompleterModel *const mTeamCompleterModel;
+    QTimer *const mSearchTimer;
 };

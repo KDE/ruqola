@@ -23,7 +23,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class SearchWithDelayLineEdit;
+class SearchTeamCompletionLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamWidget : public QWidget
 {
     Q_OBJECT
@@ -31,9 +31,11 @@ public:
     explicit SearchTeamWidget(QWidget *parent = nullptr);
     ~SearchTeamWidget() override;
 
+    const QString &teamId() const;
+
 private:
     void slotSearchCleared();
     void slotSearchRequested(const QString &str);
     void slotTeamAutoCompleteDone(const QJsonObject &obj);
-    SearchWithDelayLineEdit *const mSearchLine;
+    SearchTeamCompletionLineEdit *const mSearchLine;
 };

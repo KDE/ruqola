@@ -245,6 +245,7 @@ set(Ruqola_teams_dialog_SRCS
     teams/teamselectdeletedroomwidget.cpp
     teams/searchteamdialog.cpp
     teams/searchteamwidget.cpp
+    teams/searchteamcompletionlineedit.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets

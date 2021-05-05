@@ -19,25 +19,20 @@
 */
 
 #include "searchteamwidget.h"
-#include "misc/searchwithdelaylineedit.h"
-#include "restapirequest.h"
-#include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "teams/teamsautocompletejob.h"
+#include "searchteamcompletionlineedit.h"
 #include <QVBoxLayout>
 
 SearchTeamWidget::SearchTeamWidget(QWidget *parent)
     : QWidget(parent)
-    , mSearchLine(new SearchWithDelayLineEdit(this))
+    , mSearchLine(new SearchTeamCompletionLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
     mainLayout->addWidget(mSearchLine);
-    connect(mSearchLine, &SearchWithDelayLineEdit::searchCleared, this, &SearchTeamWidget::slotSearchCleared);
-    connect(mSearchLine, &SearchWithDelayLineEdit::searchRequested, this, &SearchTeamWidget::slotSearchRequested);
+    mainLayout->addStretch(1);
     // TODO
 }
 
@@ -45,24 +40,7 @@ SearchTeamWidget::~SearchTeamWidget()
 {
 }
 
-void SearchTeamWidget::slotSearchRequested(const QString &str)
+const QString &SearchTeamWidget::teamId() const
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::TeamsAutoCompleteJob(this);
-    job->setName(str);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::TeamsAutoCompleteJob::teamAutoCompleteDone, this, &SearchTeamWidget::slotTeamAutoCompleteDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
-    }
-}
-
-void SearchTeamWidget::slotTeamAutoCompleteDone(const QJsonObject &obj)
-{
-    qDebug() << " obj " << obj;
-}
-
-void SearchTeamWidget::slotSearchCleared()
-{
-    // TODO
+    return mSearchLine->teamId();
 }
