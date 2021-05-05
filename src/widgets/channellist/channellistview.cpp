@@ -27,6 +27,7 @@
 #include "ruqolawidgets_debug.h"
 #include "teams/channelsconverttoteamjob.h"
 #include "teams/groupsconverttoteamjob.h"
+#include "teams/searchteamdialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -34,6 +35,7 @@
 #include <QAction>
 #include <QContextMenuEvent>
 #include <QMenu>
+#include <QPointer>
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
@@ -145,7 +147,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
 void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 {
-    // TODO
+    QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)
