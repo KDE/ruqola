@@ -28,7 +28,6 @@ class LIBRUQOLACORE_EXPORT TeamCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    // TeamRoomCompleter
     enum TeamCompleterRoles {
         TeamName = Qt::UserRole + 1,
         TeamId,
