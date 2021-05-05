@@ -192,6 +192,7 @@ set (RocketChatRestApiQt_SRCS
     teams/teamdeletejob.cpp
     teams/teaminfojob.cpp
     teams/groupsconverttoteamjob.cpp
+    teams/teamsautocompletejob.cpp
 
     createroominfo.cpp
     )
