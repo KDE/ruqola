@@ -38,13 +38,13 @@ public:
 
     void parse(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    Q_REQUIRED_RESULT QString teamId() const;
+    void setTeamId(const QString &identifier);
 
 private:
     QString mName;
     QString mFname;
-    QString mIdentifier;
+    QString mTeamId;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamCompleter &t);
 Q_DECLARE_METATYPE(TeamCompleter)

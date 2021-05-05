@@ -26,7 +26,7 @@ TeamCompleter::TeamCompleter()
 
 bool TeamCompleter::operator==(const TeamCompleter &other) const
 {
-    return mName == other.name() && mFname == other.fname() && mIdentifier == other.identifier();
+    return mName == other.name() && mFname == other.fname() && mTeamId == other.teamId();
 }
 
 QString TeamCompleter::name() const
@@ -54,24 +54,24 @@ void TeamCompleter::parse(const QJsonObject &obj)
     // QJsonObject({"items":[{"_id":"zMHhMfsEPvKjgFuyE","fname":"ruqola-broadcast","name":"ruqola-broadcast","t":"p"},{"_id":"QMkvkiMyxKoEuJjnb","avatarETag":"MDRisL8NzZtsCdkYE","fname":"ruqola-test","name":"ruqola-test","t":"p"},
     mName = obj[QLatin1String("name")].toString();
     mFname = obj[QLatin1String("fname")].toString();
-    mIdentifier = obj[QLatin1String("_id")].toString();
+    mTeamId = obj[QLatin1String("teamId")].toString();
     // TODO add room type too
 }
 
-QString TeamCompleter::identifier() const
+QString TeamCompleter::teamId() const
 {
-    return mIdentifier;
+    return mTeamId;
 }
 
-void TeamCompleter::setIdentifier(const QString &identifier)
+void TeamCompleter::setTeamId(const QString &identifier)
 {
-    mIdentifier = identifier;
+    mTeamId = identifier;
 }
 
 QDebug operator<<(QDebug d, const TeamCompleter &t)
 {
     d << "Name " << t.name();
     d << "Fname : " << t.fname();
-    d << "identifier: " << t.identifier();
+    d << "identifier: " << t.teamId();
     return d;
 }
