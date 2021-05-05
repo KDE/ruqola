@@ -70,7 +70,6 @@ void SearchTeamCompletionLineEdit::slotSearchTextEdited()
 
 void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    qDebug() << " void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)" << text;
     if (text.trimmed().isEmpty()) {
         mTeamCompleterModel->clear();
         mTeamId.clear();
