@@ -19,10 +19,18 @@
 */
 
 #include "searchteamwidget.h"
+#include "misc/searchwithdelaylineedit.h"
+#include <QVBoxLayout>
 
 SearchTeamWidget::SearchTeamWidget(QWidget *parent)
     : QWidget(parent)
+    , mSearchLine(new SearchWithDelayLineEdit(this))
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
+    mainLayout->addWidget(mSearchLine);
     // TODO
 }
 

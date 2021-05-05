@@ -20,8 +20,11 @@
 
 #include "searchteamdialogtest.h"
 #include "teams/searchteamdialog.h"
+#include "teams/searchteamwidget.h"
+#include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(SearchTeamDialogTest)
 SearchTeamDialogTest::SearchTeamDialogTest(QObject *parent)
     : QObject(parent)
@@ -32,5 +35,14 @@ SearchTeamDialogTest::SearchTeamDialogTest(QObject *parent)
 void SearchTeamDialogTest::shouldHaveDefaultValues()
 {
     SearchTeamDialog d;
-    // TODO
+    QVERIFY(!d.windowTitle().isEmpty());
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
+
+    auto mSearchTeamWidget = d.findChild<SearchTeamWidget *>(QStringLiteral("mSearchTeamWidget"));
+    QVERIFY(mSearchTeamWidget);
 }

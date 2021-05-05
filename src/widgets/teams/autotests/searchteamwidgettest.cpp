@@ -20,7 +20,9 @@
 
 #include "searchteamwidgettest.h"
 #include "teams/searchteamwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(SearchTeamWidgetTest)
 
 SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
@@ -30,6 +32,6 @@ SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
 
 void SearchTeamWidgetTest::shouldHaveDefaultValues()
 {
-    SearchTeamWidget w;
+    SearchTeamWidget d;
     // TODO
 }

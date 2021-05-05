@@ -23,10 +23,14 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class SearchWithDelayLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit SearchTeamWidget(QWidget *parent = nullptr);
     ~SearchTeamWidget() override;
+
+private:
+    SearchWithDelayLineEdit *const mSearchLine;
 };
