@@ -33,7 +33,6 @@ SearchTeamWidget::SearchTeamWidget(QWidget *parent)
     mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
     mainLayout->addWidget(mSearchLine);
     mainLayout->addStretch(1);
-    // TODO
 }
 
 SearchTeamWidget::~SearchTeamWidget()
