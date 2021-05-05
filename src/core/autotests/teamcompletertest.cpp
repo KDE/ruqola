@@ -18,34 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
+#include "teamcompletertest.h"
+#include "teamcompleter.h"
+#include <QTest>
 
-#include "libruqolacore_export.h"
-#include "teamroomcompleter.h"
-#include <QAbstractListModel>
-
-class LIBRUQOLACORE_EXPORT TeamRoomCompleterModel : public QAbstractListModel
+QTEST_GUILESS_MAIN(TeamCompleterTest)
+TeamCompleterTest::TeamCompleterTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    // TeamRoomCompleter
-    enum TeamRoomCompleterRoles {
-        TeamName = Qt::UserRole + 1,
-        TeamId,
-        TeamIcon,
-    };
-    Q_ENUM(TeamRoomCompleterRoles)
+}
 
-    explicit TeamRoomCompleterModel(QObject *parent = nullptr);
-    ~TeamRoomCompleterModel() override;
-
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
-    void clear();
-    void insertRooms(const QVector<TeamRoomCompleter> &rooms);
-
-private:
-    Q_DISABLE_COPY(TeamRoomCompleterModel)
-    QVector<TeamRoomCompleter> mRooms;
-};
+void TeamCompleterTest::shouldHaveDefaultValues()
+{
+    TeamCompleter t;
+    // TODO
+}

@@ -238,6 +238,7 @@ set (Ruqola_core_srcs
     teaminfo.cpp
     teamroom.cpp
     teamroomcompleter.cpp
+    teamcompleter.cpp
 
     inviteinfo.cpp
 )

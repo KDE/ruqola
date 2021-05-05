@@ -100,8 +100,8 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
-    const QString completerName = index.data(TeamRoomCompleterModel::RoomName).toString();
-    const QString roomId = index.data(TeamRoomCompleterModel::RoomId).toString();
+    const QString completerName = index.data(TeamRoomCompleterModel::TeamName).toString();
+    const QString roomId = index.data(TeamRoomCompleterModel::TeamId).toString();
     RoomCompletionInfo info;
     info.roomName = completerName;
     info.roomId = roomId;

@@ -21,31 +21,31 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "teamroomcompleter.h"
-#include <QAbstractListModel>
+#include <QDebug>
+#include <QJsonObject>
 
-class LIBRUQOLACORE_EXPORT TeamRoomCompleterModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT TeamCompleter
 {
-    Q_OBJECT
 public:
-    // TeamRoomCompleter
-    enum TeamRoomCompleterRoles {
-        TeamName = Qt::UserRole + 1,
-        TeamId,
-        TeamIcon,
-    };
-    Q_ENUM(TeamRoomCompleterRoles)
+    TeamCompleter();
+    Q_REQUIRED_RESULT bool operator==(const TeamCompleter &other) const;
 
-    explicit TeamRoomCompleterModel(QObject *parent = nullptr);
-    ~TeamRoomCompleterModel() override;
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &name);
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT QString fname() const;
+    void setFname(const QString &fname);
 
-    void clear();
-    void insertRooms(const QVector<TeamRoomCompleter> &rooms);
+    void parse(const QJsonObject &obj);
+
+    Q_REQUIRED_RESULT QString identifier() const;
+    void setIdentifier(const QString &identifier);
 
 private:
-    Q_DISABLE_COPY(TeamRoomCompleterModel)
-    QVector<TeamRoomCompleter> mRooms;
+    QString mName;
+    QString mFname;
+    QString mIdentifier;
 };
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamCompleter &t);
+Q_DECLARE_METATYPE(TeamCompleter)
+Q_DECLARE_TYPEINFO(TeamCompleter, Q_MOVABLE_TYPE);
