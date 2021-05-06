@@ -124,7 +124,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addAction(convertToTeam);
             }
             const QString mainTeamId = index.data(RoomModel::RoomTeamId).toString();
-            if (mainTeamId.isEmpty()) {
+            if (mainTeamId.isEmpty() && !mainTeam) {
                 menu.addSeparator();
                 auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
                 connect(moveToTeam, &QAction::triggered, this, [=]() {
