@@ -43,9 +43,6 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool favorite() const;
-    void setFavorite(bool favorite);
-
 Q_SIGNALS:
     void roomLeaveDone();
 

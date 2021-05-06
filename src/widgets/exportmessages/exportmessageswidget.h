@@ -35,8 +35,8 @@ public:
 
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
 
-Q_SIGNALS:
-    void updateOkButton(bool state);
+    // Q_SIGNALS:
+    //    void updateOkButton(bool state);
 
 private:
     void fillFormat();

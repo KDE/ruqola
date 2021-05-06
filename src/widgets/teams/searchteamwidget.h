@@ -34,8 +34,5 @@ public:
     const QString &teamId() const;
 
 private:
-    void slotSearchCleared();
-    void slotSearchRequested(const QString &str);
-    void slotTeamAutoCompleteDone(const QJsonObject &obj);
     SearchTeamCompletionLineEdit *const mSearchLine;
 };
