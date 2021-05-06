@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -125,4 +126,12 @@ QJsonDocument TeamAddRoomsJob::json() const
     jsonObj[QLatin1String("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString TeamAddRoomsJob::generateErrorMessage(const QString &errorStr) const
+{
+    if (errorStr == QLatin1String("error-no-permission-team-channel")) {
+        return i18n("You don't have permission to add this channel to the team");
+    }
+    return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
