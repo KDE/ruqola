@@ -80,5 +80,6 @@ void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
 
 void AdministratorInvitesWidget::slotRemoveInviteDone()
 {
+    qDebug() << " Update list view ?";
     // TODO
 }

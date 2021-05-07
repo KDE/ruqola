@@ -20,6 +20,7 @@
 
 #include "invitetreewidget.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHeaderView>
 #include <QMenu>
 
@@ -65,6 +66,7 @@ void InviteTreeWidget::removeClicked()
     if (!currentItem()) {
         return;
     }
-    // TODO
-    Q_EMIT removeInvite(QString());
+    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
+        Q_EMIT removeInvite(QString());
+    }
 }
