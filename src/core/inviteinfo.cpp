@@ -69,12 +69,45 @@ void InviteInfo::setRoomId(const QString &newRoomId)
     mRoomId = newRoomId;
 }
 
+int InviteInfo::uses() const
+{
+    return mUses;
+}
+
+void InviteInfo::setUses(int newUses)
+{
+    mUses = newUses;
+}
+
+const QDateTime &InviteInfo::expireDateTime() const
+{
+    return mExpireDateTime;
+}
+
+void InviteInfo::setExpireDateTime(const QDateTime &newExpireDateTime)
+{
+    mExpireDateTime = newExpireDateTime;
+}
+
+const QDateTime &InviteInfo::createDateTime() const
+{
+    return mCreateDateTime;
+}
+
+void InviteInfo::setCreateDateTime(const QDateTime &newCreateDateTime)
+{
+    mCreateDateTime = newCreateDateTime;
+}
+
 QDebug operator<<(QDebug d, const InviteInfo &t)
 {
     // TODO
     d << "mIdentifier: " << t.identifier();
     d << "mUserIdentifier: " << t.userIdentifier();
     d << "mMaxUses: " << t.maxUses();
+    d << "v: " << t.uses();
     d << "mRoomId: " << t.roomId();
+    d << "mExpireDateTime: " << t.expireDateTime();
+    d << "mCreateDateTime: " << t.createDateTime();
     return d;
 }

@@ -45,10 +45,22 @@ public:
     const QString &roomId() const;
     void setRoomId(const QString &newRoomId);
 
+    int uses() const;
+    void setUses(int newUses);
+
+    const QDateTime &expireDateTime() const;
+    void setExpireDateTime(const QDateTime &newExpireDateTime);
+
+    const QDateTime &createDateTime() const;
+    void setCreateDateTime(const QDateTime &newCreateDateTime);
+
 private:
     QString mUserIdentifier;
     QString mIdentifier;
     QString mRoomId;
+    QDateTime mExpireDateTime;
+    QDateTime mCreateDateTime;
+    int mUses = 0;
     int mMaxUses = 0;
 };
 

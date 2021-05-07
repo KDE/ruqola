@@ -35,6 +35,7 @@ void InviteInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.userIdentifier().isEmpty());
     QVERIFY(w.roomId().isEmpty());
     QCOMPARE(w.maxUses(), 0);
-
-    // TODO
+    QCOMPARE(w.uses(), 0);
+    QVERIFY(!w.expireDateTime().isValid());
+    QVERIFY(!w.createDateTime().isValid());
 }
