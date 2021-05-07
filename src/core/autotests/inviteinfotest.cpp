@@ -31,5 +31,10 @@ InviteInfoTest::InviteInfoTest(QObject *parent)
 void InviteInfoTest::shouldHaveDefaultValues()
 {
     InviteInfo w;
+    QVERIFY(w.identifier().isEmpty());
+    QVERIFY(w.userIdentifier().isEmpty());
+    QVERIFY(w.roomId().isEmpty());
+    QCOMPARE(w.maxUses(), 0);
+
     // TODO
 }

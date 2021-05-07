@@ -29,8 +29,52 @@ void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
     // TODO
 }
 
+const QString &InviteInfo::identifier() const
+{
+    return mIdentifier;
+}
+
+void InviteInfo::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
+}
+
+int InviteInfo::maxUses() const
+{
+    return mMaxUses;
+}
+
+void InviteInfo::setMaxUses(int newMaxUses)
+{
+    mMaxUses = newMaxUses;
+}
+
+const QString &InviteInfo::userIdentifier() const
+{
+    return mUserIdentifier;
+}
+
+void InviteInfo::setUserIdentifier(const QString &newUserIdentifier)
+{
+    mUserIdentifier = newUserIdentifier;
+}
+
+const QString &InviteInfo::roomId() const
+{
+    return mRoomId;
+}
+
+void InviteInfo::setRoomId(const QString &newRoomId)
+{
+    mRoomId = newRoomId;
+}
+
 QDebug operator<<(QDebug d, const InviteInfo &t)
 {
     // TODO
+    d << "mIdentifier: " << t.identifier();
+    d << "mUserIdentifier: " << t.userIdentifier();
+    d << "mMaxUses: " << t.maxUses();
+    d << "mRoomId: " << t.roomId();
     return d;
 }
