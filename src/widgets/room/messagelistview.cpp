@@ -269,12 +269,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
-        auto startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);
-        connect(startPrivateConversation, &QAction::triggered, this, [=]() {
-            slotStartPrivateConversation(index);
-        });
-        menu.addAction(startPrivateConversation);
-
+        if (mRoom->channelType() != Room::RoomType::Direct) {
+            auto startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);
+            connect(startPrivateConversation, &QAction::triggered, this, [=]() {
+                slotStartPrivateConversation(index);
+            });
+            menu.addAction(startPrivateConversation);
+        }
         auto startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
             slotStartDiscussion(index);
