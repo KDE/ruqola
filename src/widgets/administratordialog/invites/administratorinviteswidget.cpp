@@ -21,6 +21,7 @@
 #include "administratorinviteswidget.h"
 #include "invite/listinvitejob.h"
 #include "invite/removeinvitejob.h"
+#include "inviteinfo.h"
 #include "invitetreewidget.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -63,7 +64,16 @@ void AdministratorInvitesWidget::initialize()
 
 void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 {
-    qDebug() << " obj " << obj;
+    QVector<InviteInfo> lstInvite;
+    QJsonArray array = obj.array();
+    for (int i = 0; i < array.count(); ++i) {
+        const QJsonObject o = array.at(i).toObject();
+        InviteInfo invite;
+        invite.parseInviteInfo(o);
+        lstInvite.append(invite);
+    }
+    qDebug() << " lstInvite " << lstInvite;
+    // qDebug() << " obj " << obj;
 }
 
 void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
