@@ -24,9 +24,20 @@ InviteInfo::InviteInfo()
 {
 }
 
+// TODO obj
+// QJsonDocument([{"_id":"D2F6of","_updatedAt":"2021-04-07T06:49:04.571Z","createdAt":"2021-04-07T06:49:04.571Z","days":1,"expires":"2021-04-08T06:49:04.571Z"
+// ,"maxUses":25,"rid":"n2GWePY4zjG48g7qA","userId":"H7Q9djXQ4iShzD9T2","uses":0}])
+
 void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
 {
+    mIdentifier = replyObject[QLatin1String("_id")].toString();
+    mUserIdentifier = replyObject[QLatin1String("userId")].toString();
+    mRoomId = replyObject[QLatin1String("rid")].toString();
+    mUses = replyObject[QLatin1String("uses")].toInt();
+    mMaxUses = replyObject[QLatin1String("maxUses")].toInt();
     // TODO
+    //    QDateTime mExpireDateTime;
+    // QDateTime mCreateDateTime;
 }
 
 const QString &InviteInfo::identifier() const
