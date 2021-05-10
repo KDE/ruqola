@@ -332,5 +332,9 @@ QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
 
 QString Utils::emojiFontName()
 {
+#ifdef Q_OS_WIN
+    return QStringLiteral("Segoe UI Emoji");
+#else
     return QStringLiteral("NotoColorEmoji");
+#endif
 }
