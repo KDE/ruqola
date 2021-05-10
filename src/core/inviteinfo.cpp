@@ -111,8 +111,6 @@ void InviteInfo::setCreateDateTime(const QDateTime &newCreateDateTime)
 
 bool InviteInfo::operator==(const InviteInfo &other) const
 {
-    int mUses = 0;
-    int mMaxUses = 0;
     return mUserIdentifier == other.userIdentifier() && mIdentifier == other.identifier() && mRoomId == other.roomId()
         && mExpireDateTime == other.expireDateTime() && mCreateDateTime == other.createDateTime() && mUses == other.uses() && mMaxUses == other.maxUses();
 }
