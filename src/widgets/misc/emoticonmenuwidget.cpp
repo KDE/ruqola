@@ -26,6 +26,7 @@
 #include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "utils.h"
 #include <KLocalizedString>
 
 #include <QLineEdit>
@@ -53,7 +54,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     layout->addWidget(mTabWidget);
     QFont f = mTabWidget->font();
     f.setPointSize(22);
-    f.setFamily(QStringLiteral("NotoColorEmoji"));
+    f.setFamily(Utils::emojiFontName());
     mTabWidget->tabBar()->setFont(f);
     setAttribute(Qt::WA_DeleteOnClose);
 }

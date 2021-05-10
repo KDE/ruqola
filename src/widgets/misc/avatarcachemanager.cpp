@@ -22,14 +22,14 @@
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
-
+#include "utils.h"
 #include <QPainter>
 #include <QWidget>
 
 AvatarCacheManager::AvatarCacheManager(const Utils::AvatarType avatarType, QObject *parent)
     : QObject(parent)
     , mAvatarType(avatarType)
-    , mEmojiFont(QStringLiteral("NotoColorEmoji"))
+    , mEmojiFont(Utils::emojiFontName())
 {
 }
 

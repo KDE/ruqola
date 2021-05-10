@@ -329,3 +329,8 @@ QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
     d << "avatarType " << static_cast<int>(t.avatarType);
     return d;
 }
+
+QString Utils::emojiFontName()
+{
+    return QStringLiteral("NotoColorEmoji");
+}

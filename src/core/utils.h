@@ -58,6 +58,7 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString iconFromStatus(const QStrin
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonObject strToJsonObject(const QString &jsonString);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray strToJsonArray(const QString &jsonString);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QByteArray convertSha256Password(const QString &pwd);
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString emojiFontName();
 
 /**
  * @brief Convert []() style Markdown URLS with proper HTML tags

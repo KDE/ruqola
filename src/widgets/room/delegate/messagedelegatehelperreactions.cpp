@@ -25,6 +25,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
+#include "utils.h"
 #include <model/messagemodel.h>
 
 #include <QAbstractTextDocumentLayout>
@@ -34,7 +35,7 @@
 #include <ruqola.h>
 
 MessageDelegateHelperReactions::MessageDelegateHelperReactions()
-    : mEmojiFont(QStringLiteral("NotoColorEmoji"))
+    : mEmojiFont(Utils::emojiFontName())
 {
 }
 

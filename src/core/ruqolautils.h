@@ -35,7 +35,7 @@ public:
     static RuqolaUtils *self();
     void openUrl(const QString &url);
 
-    QString extractRoomUserFromUrl(const QString &url);
+    Q_REQUIRED_RESULT QString extractRoomUserFromUrl(const QString &url);
 
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);

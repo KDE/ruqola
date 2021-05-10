@@ -19,6 +19,7 @@
 */
 
 #include "emoticonselectorwidget.h"
+#include "utils.h"
 #include <QFont>
 EmoticonTextEditItem::EmoticonTextEditItem(const QString &identifier, const QString &emoticonText, QListWidget *parent)
     : QListWidgetItem(emoticonText, parent)
@@ -54,7 +55,7 @@ EmoticonSelectorWidget::EmoticonSelectorWidget(QWidget *parent)
     setIconSize(QSize(32, 32));
     QFont f = font();
     f.setPointSize(22);
-    f.setFamily(QStringLiteral("NotoColorEmoji"));
+    f.setFamily(Utils::emojiFontName());
     setFont(f);
 }
 

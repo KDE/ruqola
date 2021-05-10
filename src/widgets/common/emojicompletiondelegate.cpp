@@ -20,13 +20,14 @@
 
 #include "emojicompletiondelegate.h"
 #include "common/delegatepaintutil.h"
+#include "utils.h"
 #include <model/emoticonmodel.h>
 
 #include <QPainter>
 
 EmojiCompletionDelegate::EmojiCompletionDelegate(QObject *parent)
     : QItemDelegate(parent)
-    , mEmojiFont(QStringLiteral("NotoColorEmoji"))
+    , mEmojiFont(Utils::emojiFontName())
 {
 }
 

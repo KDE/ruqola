@@ -19,6 +19,7 @@
 */
 
 #include "emoticons/unicodeemoticon.h"
+#include "utils.h"
 #include <sstream>
 
 UnicodeEmoticon::UnicodeEmoticon()
@@ -49,7 +50,7 @@ QString UnicodeEmoticon::unicodeDisplay() const
 {
     if (!mUnicode.isEmpty()) {
         if (mCachedHtml.isEmpty()) {
-            mCachedHtml = QStringLiteral("<span style=\"font: x-large NotoColorEmoji\" title=\"%2\">%1</span>").arg(mUnicode, mIdentifier);
+            mCachedHtml = QStringLiteral("<span style=\"font: x-large %3\" title=\"%2\">%1</span>").arg(mUnicode, mIdentifier, Utils::emojiFontName());
         }
     }
     return mCachedHtml;
