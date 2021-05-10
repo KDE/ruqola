@@ -75,7 +75,7 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
         res += QStringLiteral("\"%1\"").arg(s);
     }
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"rid":"%1","roomAnnouncement":"%2","systemMessages":[%3]})").arg(roomId).arg(roomAnnouncement).arg(res).toLatin1());
+             QStringLiteral(R"({"rid":"%1","roomAnnouncement":"%2","systemMessages":[%3]})").arg(roomId, roomAnnouncement, res).toLatin1());
 }
 
 void SaveRoomSettingsJobTest::shouldNotStarting()

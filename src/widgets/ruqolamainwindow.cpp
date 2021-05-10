@@ -374,7 +374,7 @@ void RuqolaMainWindow::slotCreateTeam()
         RocketChatRestApi::CreateRoomInfo teamInfo = info.info;
         job->setTeamsCreateJobInfo(teamInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, [this]() {
+        connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, []() {
             qDebug() << " teamCreateDone";
         });
         if (!job->start()) {

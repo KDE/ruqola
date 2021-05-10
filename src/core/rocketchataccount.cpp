@@ -923,7 +923,8 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
 
         ListMessages messages;
         messages.parseMessages(obj, QStringLiteral("threads"));
-        for (const auto &msg : messages.listMessages()) {
+        const auto listMessages = messages.listMessages();
+        for (const auto &msg : listMessages) {
             QJsonObject params;
             params.insert(QStringLiteral("tmid"), msg.messageId());
             mDdp->method(QStringLiteral("getThreadMessages"), QJsonDocument(params), [](const QJsonObject &reply, RocketChatAccount *account) {
