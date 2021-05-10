@@ -54,9 +54,18 @@ void InviteInfoTest::shouldParseInviteInfo_data()
         expected.setUserIdentifier(QStringLiteral("H7Q9djXQ4iShzD9T2"));
         expected.setRoomId(QStringLiteral("n2GWePY4zjG48g7qA"));
         expected.setUses(0);
-        // expected.setExpireDateTime(const QDateTime &newExpireDateTime);
-        // expected.setCreateDateTime(const QDateTime &newCreateDateTime);
 
+        QDateTime expireDateTime;
+        expireDateTime.setDate(QDate(2021, 04, 8));
+        expireDateTime.setTime(QTime(8, 49, 04, 571));
+        expireDateTime.setTimeSpec(Qt::LocalTime);
+        expected.setExpireDateTime(expireDateTime);
+
+        QDateTime createDateTime;
+        createDateTime.setDate(QDate(2021, 04, 7));
+        createDateTime.setTime(QTime(8, 49, 04, 571));
+        createDateTime.setTimeSpec(Qt::LocalTime);
+        expected.setCreateDateTime(createDateTime);
         QTest::newRow("inviteinfo") << QStringLiteral("inviteinfo") << expected;
     }
 }
