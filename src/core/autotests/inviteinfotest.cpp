@@ -20,6 +20,7 @@
 
 #include "inviteinfotest.h"
 #include "inviteinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(InviteInfoTest)
 
@@ -38,4 +39,41 @@ void InviteInfoTest::shouldHaveDefaultValues()
     QCOMPARE(w.uses(), 0);
     QVERIFY(!w.expireDateTime().isValid());
     QVERIFY(!w.createDateTime().isValid());
+}
+
+void InviteInfoTest::shouldParseInviteInfo_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<InviteInfo>("expectedInvite");
+    {
+        // RestAPI
+        InviteInfo expected;
+
+        expected.setIdentifier(QStringLiteral("D2F6of"));
+        expected.setMaxUses(25);
+        expected.setUserIdentifier(QStringLiteral("H7Q9djXQ4iShzD9T2"));
+        expected.setRoomId(QStringLiteral("n2GWePY4zjG48g7qA"));
+        expected.setUses(0);
+        // expected.setExpireDateTime(const QDateTime &newExpireDateTime);
+        // expected.setCreateDateTime(const QDateTime &newCreateDateTime);
+
+        QTest::newRow("inviteinfo") << QStringLiteral("inviteinfo") << expected;
+    }
+}
+
+void InviteInfoTest::shouldParseInviteInfo()
+{
+    QFETCH(QString, fileName);
+    QFETCH(InviteInfo, expectedInvite);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    InviteInfo newFile;
+    newFile.parseInviteInfo(fields);
+    const bool equal = (newFile == expectedInvite);
+    if (!equal) {
+        qDebug() << " current value " << newFile;
+        qDebug() << " expected value " << expectedInvite;
+    }
+    QVERIFY(equal);
 }

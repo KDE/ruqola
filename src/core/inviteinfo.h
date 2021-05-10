@@ -51,6 +51,8 @@ public:
     const QDateTime &createDateTime() const;
     void setCreateDateTime(const QDateTime &newCreateDateTime);
 
+    Q_REQUIRED_RESULT bool operator==(const InviteInfo &other) const;
+
 private:
     QString mUserIdentifier;
     QString mIdentifier;

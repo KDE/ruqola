@@ -30,4 +30,6 @@ public:
     ~InviteInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldParseInviteInfo_data();
+    void shouldParseInviteInfo();
 };
