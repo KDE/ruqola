@@ -41,5 +41,6 @@ private:
     void slotFnameChanged(const QString &fname);
     ChannelInfoWidget *const mChannelInfoWidget;
     QDialogButtonBox *const mButtonBox;
+    bool mIsATeam = false;
 };
 

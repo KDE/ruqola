@@ -61,13 +61,14 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::
 void ChannelInfoDialog::setRoom(Room *room)
 {
     mButtonBox->setStandardButtons(room->canBeModify() ? QDialogButtonBox::Ok | QDialogButtonBox::Cancel : QDialogButtonBox::Close);
+    mIsATeam = room->teamInfo().mainTeam();
     slotFnameChanged(room->displayFName());
     mChannelInfoWidget->setRoom(room);
 }
 
 void ChannelInfoDialog::slotFnameChanged(const QString &fname)
 {
-    setWindowTitle(i18nc("@title:window", "Channel Info about \'%1\'", fname));
+    setWindowTitle(mIsATeam ? i18nc("@title:window", "Team Info about \'%1\'", fname) : i18nc("@title:window", "Channel Info about \'%1\'", fname));
 }
 
 void ChannelInfoDialog::slotRoomNameValid(bool state)
