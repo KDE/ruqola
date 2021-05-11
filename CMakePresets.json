@@ -72,12 +72,27 @@
                 "CXX": "clazy",
                 "CCACHE_DISABLE": "ON"
             }
+        },
+        {
+            "name": "pch",
+            "displayName": "pch",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-pch",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "USE_PRECOMPILED_HEADERS": "ON",
+                "BUILD_COVERAGE": "ON"
+            }
         }
     ],
     "buildPresets": [
         {
             "name": "dev",
             "configurePreset": "dev"
+        },
+	{
+            "name": "pch",
+            "configurePreset": "pch"
         },
         {
             "name": "clazy",
