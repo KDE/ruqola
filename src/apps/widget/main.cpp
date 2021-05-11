@@ -126,6 +126,10 @@ int main(int argc, char *argv[])
 
     if (RuqolaGlobalConfig::self()->useCustomFont()) {
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
+    } else {
+#ifdef Q_OS_WIN
+        qApp->setFont(QFont(QStringLiteral("Segoe UI Emoji")));
+#endif
     }
 
     auto mw = new RuqolaMainWindow();
