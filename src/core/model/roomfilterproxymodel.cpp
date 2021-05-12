@@ -41,8 +41,8 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
         const int orderLeftData = sourceModel()->data(left, RoomModel::RoomOrder).toInt();
         const int orderRightData = sourceModel()->data(right, RoomModel::RoomOrder).toInt();
         if (orderLeftData == orderRightData) {
-            const QString leftString = sourceModel()->data(left, RoomModel::RoomName).toString();
-            const QString rightString = sourceModel()->data(right, RoomModel::RoomName).toString();
+            const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
+            const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
             return QString::localeAwareCompare(leftString, rightString) < 0;
         } else {
             return orderLeftData < orderRightData;
