@@ -22,3 +22,4 @@ target_link_libraries(unicodeemoticongui
     KF5::ItemViews
     libruqolacore
     )
+set_target_properties(unicodeemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

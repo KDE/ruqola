@@ -8,6 +8,7 @@ macro(add_ruqolacommon_test _source)
   add_test(NAME ${_name} COMMAND ${_name} )
   ecm_mark_as_test(${_name})
   target_link_libraries( ${_name} Qt5::Test libruqolacore libruqolawidgets)
+  set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
 add_ruqolacommon_test(authenticationcomboboxtest.cpp)
