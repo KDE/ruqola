@@ -31,6 +31,10 @@ AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *
     mainLayout->setContentsMargins({});
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mainLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+    connect(mTwoFactorAuthenticationPasswordLineEdit,
+            &TwoAuthenticationPasswordWidget::updateButtonOk,
+            this,
+            &AskTwoAuthenticationPasswordWidget::updateButtonOk);
 }
 
 AskTwoAuthenticationPasswordWidget::~AskTwoAuthenticationPasswordWidget()

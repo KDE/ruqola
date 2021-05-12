@@ -30,6 +30,8 @@ public:
     explicit AskTwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordWidget() override;
     Q_REQUIRED_RESULT QString code() const;
+Q_SIGNALS:
+    void updateButtonOk(bool state);
 
 private:
     TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;

@@ -43,6 +43,9 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
     sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
     twoFactorLayout->addWidget(sendNewEmailCode);
     connect(sendNewEmailCode, &QPushButton::clicked, this, &TwoAuthenticationPasswordWidget::slotSendNewEmailCode);
+    connect(mTwoFactorAuthenticationPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [this](const QString &password) {
+        Q_EMIT updateButtonOk(!password.isEmpty());
+    });
 }
 
 TwoAuthenticationPasswordWidget::~TwoAuthenticationPasswordWidget()

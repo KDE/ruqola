@@ -22,6 +22,7 @@
 #include "asktwoauthenticationpasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *parent)
@@ -40,6 +41,9 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
     connect(buttonBox, &QDialogButtonBox::rejected, this, &AskTwoAuthenticationPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &AskTwoAuthenticationPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
+    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
+    connect(mAskTwoAuthicationPasswordWidget, &AskTwoAuthenticationPasswordWidget::updateButtonOk, mOkButton, &QPushButton::setEnabled);
 }
 
 AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog()

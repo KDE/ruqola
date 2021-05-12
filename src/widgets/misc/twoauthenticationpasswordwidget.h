@@ -33,6 +33,9 @@ public:
 
     void clear();
 
+Q_SIGNALS:
+    void updateButtonOk(bool state);
+
 private:
     void slotSendNewEmailCode();
     KPasswordLineEdit *const mTwoFactorAuthenticationPasswordLineEdit;

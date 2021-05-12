@@ -22,6 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
+class QPushButton;
 class AskTwoAuthenticationPasswordWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordDialog : public QDialog
 {
@@ -33,5 +34,6 @@ public:
 
 private:
     AskTwoAuthenticationPasswordWidget *const mAskTwoAuthicationPasswordWidget;
+    QPushButton *mOkButton = nullptr;
 };
 
