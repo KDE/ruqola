@@ -32,7 +32,7 @@ TeamRoomsFilterProxyModel::TeamRoomsFilterProxyModel(TeamRoomsModel *teamModel, 
     setFilterRole(TeamRoomsModel::Name);
 
     setSortRole(TeamRoomsModel::Name);
-    sort(0, Qt::DescendingOrder);
+    sort(0, Qt::AscendingOrder);
 }
 
 TeamRoomsFilterProxyModel::~TeamRoomsFilterProxyModel()
