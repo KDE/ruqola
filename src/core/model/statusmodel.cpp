@@ -92,13 +92,13 @@ QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
 {
     switch (status) {
     case User::PresenceStatus::PresenceOnline:
-        return QIcon::fromTheme(QStringLiteral("im-user-online"));
+        return QIcon::fromTheme(QStringLiteral("user-online"));
     case User::PresenceStatus::PresenceBusy:
-        return QIcon::fromTheme(QStringLiteral("im-user-busy"));
+        return QIcon::fromTheme(QStringLiteral("user-busy"));
     case User::PresenceStatus::PresenceAway:
-        return QIcon::fromTheme(QStringLiteral("im-user-away"));
+        return QIcon::fromTheme(QStringLiteral("user-away"));
     case User::PresenceStatus::PresenceOffline:
-        return QIcon::fromTheme(QStringLiteral("im-user-offline"));
+        return QIcon::fromTheme(QStringLiteral("user-offline"));
     case User::PresenceStatus::Unknown:
         return {};
     }
