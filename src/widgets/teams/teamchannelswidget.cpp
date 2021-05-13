@@ -137,6 +137,7 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     QModelIndex index = mListView->indexAt(pos);
     if (mRoom->hasPermission(QStringLiteral("add-team-channel"))) {
         menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
+        menu.addSeparator();
         menu.addAction(i18n("Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     }
     if (index.isValid()) {
