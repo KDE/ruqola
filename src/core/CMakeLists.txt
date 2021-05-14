@@ -81,9 +81,9 @@ set (Ruqola_model_core_srcs
 
     model/teamroomcompletermodel.cpp
 
-    model/inviteusersmodel.cpp
-
     model/teamcompletermodel.cpp
+
+    model/admininvitemodel.cpp
     )
 
 set(Ruqola_plugins_srcs

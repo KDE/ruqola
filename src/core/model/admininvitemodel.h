@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -20,31 +20,40 @@
 
 #pragma once
 
+#include "inviteinfo.h"
 #include "libruqolacore_export.h"
-#include "teamroom.h"
 #include <QAbstractListModel>
-#include <QVector>
-class LIBRUQOLACORE_EXPORT InviteUsersModel : public QAbstractListModel
+
+class LIBRUQOLACORE_EXPORT AdminInviteModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum InviteRoles { Identifier = Qt::UserRole + 1, Updated, Created, MaxUser, UserId, Uses, RoomId };
-    Q_ENUM(InviteRoles)
+    enum AdminInviteRoles {
+        Name,
+        Topic,
+        ChannelType,
+        ChannelTypeStr,
+        MessagesCount,
+        UsersCount,
+        ReadOnly,
+        DefaultRoom,
+        Identifier,
+        LastColumn = Identifier,
+    };
+    Q_ENUM(AdminInviteRoles)
 
-    explicit InviteUsersModel(QObject *parent = nullptr);
-    ~InviteUsersModel() override;
+    explicit AdminInviteModel(QObject *parent = nullptr);
+    ~AdminInviteModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_REQUIRED_RESULT QVector<TeamRoom> teamRooms() const;
-    void setTeamRooms(const QVector<TeamRoom> &teamRooms);
-
-    void setRoomChanged(const TeamRoom &teamRoom);
-
-    void insertRooms(const QVector<TeamRoom> &teamRooms);
+    const QVector<InviteInfo> &adminInvites() const;
+    void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
 
 private:
-    Q_DISABLE_COPY(InviteUsersModel)
-    QVector<TeamRoom> mTeamRooms;
+    Q_DISABLE_COPY(AdminInviteModel)
+    QVector<InviteInfo> mAdminInvites;
 };

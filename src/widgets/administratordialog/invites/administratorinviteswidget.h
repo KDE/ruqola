@@ -24,6 +24,7 @@
 #include <QWidget>
 class InviteTreeWidget;
 class KTreeWidgetSearchLineWidget;
+class AdminInviteModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
 {
     Q_OBJECT
@@ -38,4 +39,5 @@ private:
     void slotRemoveInviteDone();
     InviteTreeWidget *const mInviteTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
+    AdminInviteModel *const mAdminInviteModel;
 };

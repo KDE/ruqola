@@ -23,6 +23,7 @@
 #include "invite/removeinvitejob.h"
 #include "inviteinfo.h"
 #include "invitetreewidget.h"
+#include "model/admininvitemodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -34,6 +35,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     : QWidget(parent)
     , mInviteTreeWidget(new InviteTreeWidget(this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mInviteTreeWidget))
+    , mAdminInviteModel(new AdminInviteModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -43,6 +45,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
 
     mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeWidget);
+    // mInviteTreeWidget->setSou(mAdminInviteModel);
     initialize();
     connect(mInviteTreeWidget, &InviteTreeWidget::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
 }
