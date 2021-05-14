@@ -29,16 +29,14 @@ class LIBRUQOLACORE_EXPORT AdminInviteModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum AdminInviteRoles {
-        Name,
-        Topic,
-        ChannelType,
-        ChannelTypeStr,
-        MessagesCount,
-        UsersCount,
-        ReadOnly,
-        DefaultRoom,
+        UserIdentifier,
         Identifier,
-        LastColumn = Identifier,
+        RoomId,
+        Expire,
+        Create,
+        Uses,
+        MaxUses,
+        LastColumn = MaxUses,
     };
     Q_ENUM(AdminInviteRoles)
 

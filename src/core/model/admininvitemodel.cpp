@@ -42,24 +42,18 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<AdminInviteRoles>(section)) {
-        case AdminInviteModel::Name:
-            return i18n("Name");
-        case AdminInviteModel::MessagesCount:
-            return i18n("Number Of Messages");
-        case AdminInviteModel::UsersCount:
-            return i18n("Number Of Users");
-        case AdminInviteModel::Topic:
-            return i18n("Topic");
+        case AdminInviteModel::UserIdentifier:
         case AdminInviteModel::Identifier:
-            return i18n("Identifier");
-        case AdminInviteModel::ReadOnly:
-            return i18n("Read Only");
-        case AdminInviteModel::DefaultRoom:
-            return i18n("Default Room");
-        case AdminInviteModel::ChannelType:
-            return i18n("Type");
-        case AdminInviteModel::ChannelTypeStr:
-            return i18n("Type");
+        case AdminInviteModel::RoomId:
+            break;
+        case AdminInviteModel::Create:
+            return i18n("Created at");
+        case AdminInviteModel::Uses:
+            return i18n("Uses");
+        case AdminInviteModel::MaxUses:
+            return i18n("Uses left");
+        case AdminInviteModel::Expire:
+            return i18n("Expiration");
         }
     }
     return QVariant();
