@@ -28,6 +28,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QVBoxLayout>
 
@@ -49,6 +50,12 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     initialize();
     connect(mInviteTreeWidget, &InviteTreeWidget::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorInvitesWidget::slotTextChanged);
+
+    mInviteTreeWidget->verticalHeader()->hide();
+    // Hide not useful columns
+    mInviteTreeWidget->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
+    mInviteTreeWidget->setColumnHidden(AdminInviteModel::AdminInviteRoles::Identifier, true);
+    mInviteTreeWidget->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()
