@@ -36,3 +36,16 @@ void TeamInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.isValid());
     QVERIFY(!info.hasTeamRoom());
 }
+
+void TeamInfoTest::shouldVerifyHasTeamRoom()
+{
+    TeamInfo info;
+    QVERIFY(!info.hasTeamRoom());
+    info.setMainTeam(true);
+    info.setTeamId(QStringLiteral("ff"));
+    QVERIFY(!info.hasTeamRoom());
+    info.setMainTeam(false);
+    QVERIFY(info.hasTeamRoom());
+    info.setTeamId(QString());
+    QVERIFY(!info.hasTeamRoom());
+}
