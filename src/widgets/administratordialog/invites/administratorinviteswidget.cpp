@@ -28,13 +28,13 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include <KTreeWidgetSearchLineWidget>
+#include <QLineEdit>
 #include <QVBoxLayout>
 
 AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     : QWidget(parent)
     , mInviteTreeWidget(new InviteTreeWidget(this))
-    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mInviteTreeWidget))
+    , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -45,13 +45,19 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
 
     mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeWidget);
-    // mInviteTreeWidget->setSou(mAdminInviteModel);
+    mInviteTreeWidget->setModel(mAdminInviteModel);
     initialize();
     connect(mInviteTreeWidget, &InviteTreeWidget::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
+    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorInvitesWidget::slotTextChanged);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()
 {
+}
+
+void AdministratorInvitesWidget::slotTextChanged(const QString &str)
+{
+    // TODO
 }
 
 void AdministratorInvitesWidget::initialize()
@@ -75,6 +81,7 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
         invite.parseInviteInfo(o);
         lstInvite.append(invite);
     }
+    mAdminInviteModel->setAdminInvites(lstInvite);
     qDebug() << " lstInvite " << lstInvite;
     // qDebug() << " obj " << obj;
 }

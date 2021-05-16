@@ -21,9 +21,9 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QTreeWidget>
+#include <QTableView>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteTreeWidget : public QTreeWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteTreeWidget : public QTableView
 {
     Q_OBJECT
 public:

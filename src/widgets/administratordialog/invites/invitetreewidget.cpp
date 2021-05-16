@@ -25,16 +25,11 @@
 #include <QMenu>
 
 InviteTreeWidget::InviteTreeWidget(QWidget *parent)
-    : QTreeWidget(parent)
+    : QTableView(parent)
 {
-    setColumnCount(5);
-    setHeaderLabels({i18n("Token"), i18n("Created at"), i18n("Expiration"), i18n("Uses"), i18n("Uses left")});
     setAlternatingRowColors(true);
-    header()->setSectionsMovable(false);
-    header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     setSelectionMode(SingleSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
-    setRootIsDecorated(false);
     connect(this, &InviteTreeWidget::customContextMenuRequested, this, &InviteTreeWidget::slotCustomContextMenuRequested);
     initialize();
 }
@@ -45,28 +40,22 @@ InviteTreeWidget::~InviteTreeWidget()
 
 void InviteTreeWidget::initialize()
 {
-    clear();
-    header()->setSortIndicatorShown(true);
-    header()->setSectionsClickable(true);
+    //    clear();
     sortByColumn(0, Qt::AscendingOrder);
 }
 
 void InviteTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    QTreeWidgetItem *item = itemAt(pos);
-    if (item) {
-        QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &InviteTreeWidget::removeClicked);
-        menu.exec(viewport()->mapToGlobal(pos));
-    }
+    //    if (item) {
+    //        QMenu menu(this);
+    //        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &InviteTreeWidget::removeClicked);
+    //        menu.exec(viewport()->mapToGlobal(pos));
+    //    }
 }
 
 void InviteTreeWidget::removeClicked()
 {
-    if (!currentItem()) {
-        return;
-    }
-    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
-        Q_EMIT removeInvite(QString());
-    }
+    //    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
+    //        Q_EMIT removeInvite(QString());
+    //    }
 }
