@@ -544,7 +544,7 @@ int RoomModel::order(Room *r) const
 
 QString RoomModel::roomTeamName(Room *r) const
 {
-    if (!r->teamInfo().teamId().isEmpty() && r) {
+    if (r->teamInfo().hasTeamRoom()) {
         // TODO
         return {};
     }
