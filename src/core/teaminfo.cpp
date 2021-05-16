@@ -100,6 +100,11 @@ void TeamInfo::setMainTeam(bool mainTeam)
     mMainTeam = mainTeam;
 }
 
+bool TeamInfo::hasTeamRoom() const
+{
+    return !mMainTeam && !mTeamId.isEmpty();
+}
+
 QDebug operator<<(QDebug d, const TeamInfo &t)
 {
     d << "team id: " << t.teamId();

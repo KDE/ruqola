@@ -34,4 +34,5 @@ void TeamInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.mainTeam());
     QVERIFY(!info.autoJoin());
     QVERIFY(!info.isValid());
+    QVERIFY(!info.hasTeamRoom());
 }

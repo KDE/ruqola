@@ -36,6 +36,8 @@ public:
     Q_REQUIRED_RESULT bool mainTeam() const;
     void setMainTeam(bool mainTeam);
 
+    Q_REQUIRED_RESULT bool hasTeamRoom() const;
+
     static void serialize(const TeamInfo &teams, QJsonObject &obj);
     static Q_REQUIRED_RESULT TeamInfo fromJSon(const QJsonObject &o);
 
