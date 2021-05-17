@@ -50,11 +50,11 @@ void InviteTableView::initialize()
 void InviteTableView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = indexAt(pos);
-    qDebug() << index;
     if (index.isValid()) {
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            removeClicked(index.data(AdminInviteModel::Identifier).toString());
+            const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
+            removeClicked(modelIndex.data().toString());
         });
         menu.exec(viewport()->mapToGlobal(pos));
     }

@@ -68,10 +68,17 @@ void RemoveInviteJob::slotRemoveInviteFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
+        if (reply->readAll() == "true") {
+            addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: "));
+            Q_EMIT removeInviteDone();
+        } else {
+            // emitFailedMessage(replyObject, reply);
+            addLoggerWarning(QByteArrayLiteral("RemoveInviteJob: Problem: "));
+        }
+#if 0
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
-        qDebug() << " replyObject " << replyObject;
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeInviteDone();
@@ -79,6 +86,7 @@ void RemoveInviteJob::slotRemoveInviteFinished()
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("RemoveInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+#endif
         reply->deleteLater();
     }
     deleteLater();
