@@ -97,6 +97,7 @@ void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto removeInviteJob = new RocketChatRestApi::RemoveInviteJob(this);
+    qDebug() << " identifier " << identifier;
     removeInviteJob->setIdentifier(identifier);
     rcAccount->restApi()->initializeRestApiJob(removeInviteJob);
     connect(removeInviteJob, &RocketChatRestApi::RemoveInviteJob::removeInviteDone, this, &AdministratorInvitesWidget::slotRemoveInviteDone);

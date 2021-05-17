@@ -35,6 +35,6 @@ Q_SIGNALS:
 
 private:
     void initialize();
-    void removeClicked();
+    void removeClicked(const QString &identifier);
     void slotCustomContextMenuRequested(const QPoint &pos);
 };

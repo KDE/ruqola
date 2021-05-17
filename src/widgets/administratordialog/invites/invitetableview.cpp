@@ -19,6 +19,7 @@
 */
 
 #include "invitetableview.h"
+#include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QHeaderView>
@@ -48,16 +49,20 @@ void InviteTableView::initialize()
 
 void InviteTableView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    //    if (item) {
-    //        QMenu menu(this);
-    //        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, &InviteTreeWidget::removeClicked);
-    //        menu.exec(viewport()->mapToGlobal(pos));
-    //    }
+    const QModelIndex index = indexAt(pos);
+    qDebug() << index;
+    if (index.isValid()) {
+        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+            removeClicked(index.data(AdminInviteModel::Identifier).toString());
+        });
+        menu.exec(viewport()->mapToGlobal(pos));
+    }
 }
 
-void InviteTableView::removeClicked()
+void InviteTableView::removeClicked(const QString &identifier)
 {
-    //    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
-    //        Q_EMIT removeInvite(QString());
-    //    }
+    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
+        Q_EMIT removeInvite(identifier);
+    }
 }
