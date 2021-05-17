@@ -22,7 +22,7 @@
 #include "invite/listinvitejob.h"
 #include "invite/removeinvitejob.h"
 #include "inviteinfo.h"
-#include "invitetreewidget.h"
+#include "invitetableview.h"
 #include "model/admininvitemodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -34,7 +34,7 @@
 
 AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     : QWidget(parent)
-    , mInviteTreeWidget(new InviteTreeWidget(this))
+    , mInviteTableView(new InviteTableView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
 {
@@ -44,18 +44,18 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
 
-    mInviteTreeWidget->setObjectName(QStringLiteral("mInviteTreeWidget"));
-    mainLayout->addWidget(mInviteTreeWidget);
-    mInviteTreeWidget->setModel(mAdminInviteModel);
+    mInviteTableView->setObjectName(QStringLiteral("mInviteTreeWidget"));
+    mainLayout->addWidget(mInviteTableView);
+    mInviteTableView->setModel(mAdminInviteModel);
     initialize();
-    connect(mInviteTreeWidget, &InviteTreeWidget::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
+    connect(mInviteTableView, &InviteTableView::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorInvitesWidget::slotTextChanged);
 
-    mInviteTreeWidget->verticalHeader()->hide();
+    mInviteTableView->verticalHeader()->hide();
     // Hide not useful columns
-    mInviteTreeWidget->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
-    mInviteTreeWidget->setColumnHidden(AdminInviteModel::AdminInviteRoles::Identifier, true);
-    mInviteTreeWidget->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
+    mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
+    mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::Identifier, true);
+    mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()
@@ -81,7 +81,7 @@ void AdministratorInvitesWidget::initialize()
 void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 {
     QVector<InviteInfo> lstInvite;
-    QJsonArray array = obj.array();
+    const QJsonArray array = obj.array();
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject o = array.at(i).toObject();
         InviteInfo invite;
@@ -89,7 +89,7 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
         lstInvite.append(invite);
     }
     mAdminInviteModel->setAdminInvites(lstInvite);
-    qDebug() << " lstInvite " << lstInvite;
+    // qDebug() << " lstInvite " << lstInvite;
     // qDebug() << " obj " << obj;
 }
 

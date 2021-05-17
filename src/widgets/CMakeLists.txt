@@ -225,7 +225,7 @@ set(Ruqola_administrator_SRCS
     administratordialog/users/administratoruserswidget.cpp
 
     administratordialog/invites/administratorinviteswidget.cpp
-    administratordialog/invites/invitetreewidget.cpp
+    administratordialog/invites/invitetableview.cpp
     )
 
 set(Ruqola_export_messages_SRCS

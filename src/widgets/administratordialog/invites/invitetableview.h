@@ -23,12 +23,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QTableView>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteTreeWidget : public QTableView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteTableView : public QTableView
 {
     Q_OBJECT
 public:
-    explicit InviteTreeWidget(QWidget *parent = nullptr);
-    ~InviteTreeWidget() override;
+    explicit InviteTableView(QWidget *parent = nullptr);
+    ~InviteTableView() override;
 
 Q_SIGNALS:
     void removeInvite(const QString &identifier);

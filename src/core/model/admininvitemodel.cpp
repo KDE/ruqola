@@ -93,29 +93,23 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const InviteInfo &adminroom = mAdminInvites.at(index.row());
+    const InviteInfo &inviteInfo = mAdminInvites.at(index.row());
     const int col = index.column();
-#if 0
-    switch (static_cast<AdminInviteRoles>(col)) {
-    case AdminInviteRoles::Name:
-        return adminroom.roomName();
-    case AdminInviteRoles::MessagesCount:
-        return adminroom.messageCount();
-    case AdminInviteRoles::UsersCount:
-        return adminroom.usersCount();
-    case AdminInviteRoles::Topic:
-        return adminroom.topic();
-    case AdminInviteRoles::Identifier:
-        return adminroom.identifier();
-    case AdminInviteRoles::ReadOnly:
-        return adminroom.readOnly();
-    case AdminInviteRoles::DefaultRoom:
-        return adminroom.defaultRoom();
-    case AdminInviteRoles::ChannelType:
-        return adminroom.channelType();
-    case AdminInviteRoles::ChannelTypeStr:
-        return adminroom.channelTypeStr();
+    switch (col) {
+    case AdminInviteModel::UserIdentifier:
+        return inviteInfo.userIdentifier();
+    case AdminInviteModel::Identifier:
+        return inviteInfo.identifier();
+    case AdminInviteModel::RoomId:
+        return inviteInfo.roomId();
+    case AdminInviteModel::Create:
+        return inviteInfo.createDateTime().toString();
+    case AdminInviteModel::Uses:
+        return inviteInfo.uses();
+    case AdminInviteModel::MaxUses:
+        return inviteInfo.maxUses();
+    case AdminInviteModel::Expire:
+        return inviteInfo.expireDateTime().toString();
     }
-#endif
     return {};
 }

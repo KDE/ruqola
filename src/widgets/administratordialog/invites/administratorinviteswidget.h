@@ -22,7 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class InviteTreeWidget;
+class InviteTableView;
 class QLineEdit;
 class AdminInviteModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
@@ -38,7 +38,7 @@ private:
     void slotRemoveInvite(const QString &identifier);
     void slotRemoveInviteDone();
     void slotTextChanged(const QString &str);
-    InviteTreeWidget *const mInviteTreeWidget;
+    InviteTableView *const mInviteTableView;
     QLineEdit *const mSearchLineWidget;
     AdminInviteModel *const mAdminInviteModel;
 };
