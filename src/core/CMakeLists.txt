@@ -84,6 +84,7 @@ set (Ruqola_model_core_srcs
     model/teamcompletermodel.cpp
 
     model/admininvitemodel.cpp
+    model/admininvitefilterproxymodel.cpp
     )
 
 set(Ruqola_plugins_srcs
