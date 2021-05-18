@@ -23,6 +23,7 @@
 #include "invite/removeinvitejob.h"
 #include "inviteinfo.h"
 #include "invitetableview.h"
+#include "model/admininvitefilterproxymodel.h"
 #include "model/admininvitemodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -38,6 +39,9 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
 {
+    mAdminInviteFilterProxyModel = new AdminInviteFilterProxyModel(mAdminInviteModel, this);
+    mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -46,7 +50,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
 
     mInviteTableView->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTableView);
-    mInviteTableView->setModel(mAdminInviteModel);
+    mInviteTableView->setModel(mAdminInviteFilterProxyModel);
     initialize();
     connect(mInviteTableView, &InviteTableView::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorInvitesWidget::slotTextChanged);
@@ -64,7 +68,7 @@ AdministratorInvitesWidget::~AdministratorInvitesWidget()
 
 void AdministratorInvitesWidget::slotTextChanged(const QString &str)
 {
-    // TODO
+    mAdminInviteFilterProxyModel->setFilterString(str);
 }
 
 void AdministratorInvitesWidget::initialize()

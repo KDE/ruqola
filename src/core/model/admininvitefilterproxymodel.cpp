@@ -49,5 +49,5 @@ bool AdminInviteFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
         return false;
     }
     // TODO order by date
-    return false;
+    return true;
 }

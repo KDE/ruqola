@@ -25,6 +25,7 @@
 class InviteTableView;
 class QLineEdit;
 class AdminInviteModel;
+class AdminInviteFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
 {
     Q_OBJECT
@@ -41,4 +42,5 @@ private:
     InviteTableView *const mInviteTableView;
     QLineEdit *const mSearchLineWidget;
     AdminInviteModel *const mAdminInviteModel;
+    AdminInviteFilterProxyModel *mAdminInviteFilterProxyModel = nullptr;
 };
