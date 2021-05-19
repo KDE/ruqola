@@ -31,13 +31,13 @@
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>
-#include <QTableView>
+#include <QTreeView>
 #include <QVBoxLayout>
 
 AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new QLineEdit(this))
-    , mResultTreeWidget(new QTableView(this))
+    , mResultTreeView(new QTreeView(this))
     , mAdminUsersModel(new AdminUsersModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -50,23 +50,21 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorUsersWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
 
-    mResultTreeWidget->setShowGrid(false);
-    mResultTreeWidget->setSortingEnabled(true);
-    mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
-    mResultTreeWidget->verticalHeader()->hide();
-    mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
-    mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
-    mResultTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(mResultTreeWidget, &QTableView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
+    mResultTreeView->setSortingEnabled(true);
+    mResultTreeView->setObjectName(QStringLiteral("mResultTreeWidget"));
+    mResultTreeView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    mResultTreeView->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
+    mResultTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mResultTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
 
-    mainLayout->addWidget(mResultTreeWidget);
+    mainLayout->addWidget(mResultTreeView);
 
     mAdminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
     mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mAdminUsersModel, this);
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
 
-    mResultTreeWidget->setModel(mAdminUsersProxyModel);
+    mResultTreeView->setModel(mAdminUsersProxyModel);
     initialize();
 }
 
@@ -115,7 +113,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
-    const QModelIndex index = mResultTreeWidget->indexAt(pos);
+    const QModelIndex index = mResultTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             slotModifyUser(index);
@@ -125,5 +123,5 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             slotRemoveUser(index);
         });
     }
-    menu.exec(mResultTreeWidget->viewport()->mapToGlobal(pos));
+    menu.exec(mResultTreeView->viewport()->mapToGlobal(pos));
 }

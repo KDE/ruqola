@@ -24,7 +24,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
-class QTableView;
+class QTreeView;
 class AdminUsersModel;
 class AdminUsersFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
@@ -43,7 +43,7 @@ private:
     void slotModifyUser(const QModelIndex &index);
     void slotRemoveUser(const QModelIndex &index);
     QLineEdit *const mSearchLineEdit;
-    QTableView *const mResultTreeWidget;
+    QTreeView *const mResultTreeView;
     AdminUsersModel *const mAdminUsersModel;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
