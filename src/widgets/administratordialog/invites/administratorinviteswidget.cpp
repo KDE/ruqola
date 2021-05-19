@@ -58,7 +58,6 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     mInviteTableView->verticalHeader()->hide();
     // Hide not useful columns
     mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
-    mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::Identifier, true);
     mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
 }
 

@@ -43,9 +43,10 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<AdminInviteRoles>(section)) {
         case AdminInviteModel::UserIdentifier:
-        case AdminInviteModel::Identifier:
         case AdminInviteModel::RoomId:
             break;
+        case AdminInviteModel::Identifier:
+            return i18n("Token");
         case AdminInviteModel::Create:
             return i18n("Created at");
         case AdminInviteModel::Uses:

@@ -26,6 +26,7 @@ AdminInviteFilterProxyModel::AdminInviteFilterProxyModel(AdminInviteModel *model
     setSourceModel(mAdminInviteModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
+    setFilterRole(AdminInviteModel::AdminInviteRoles::Identifier);
     sort(0, Qt::DescendingOrder);
 }
 
@@ -45,9 +46,5 @@ void AdminInviteFilterProxyModel::clearFilter()
 
 bool AdminInviteFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (!QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent)) {
-        return false;
-    }
-    // TODO order by date
-    return true;
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
