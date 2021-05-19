@@ -248,6 +248,11 @@ set(Ruqola_teams_dialog_SRCS
     teams/searchteamcompletionlineedit.cpp
     )
 
+set(Ruqola_directory_dialog_SRCS
+    directory/directorydialog.cpp
+    directory/directorywidget.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
@@ -255,6 +260,7 @@ ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selecti
 
 add_library(libruqolawidgets
     ruqolawidget.qrc
+    ${Ruqola_directory_dialog_SRCS}
     ${Ruqola_teams_dialog_SRCS}
     ${Ruqola_widget_register_user_SRCS}
     ${Ruqola_textplugin_SRCS}
