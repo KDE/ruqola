@@ -114,3 +114,16 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     }
     return {};
 }
+
+void AdminInviteModel::removeInvite(const QString &identifier)
+{
+    const int roomCount = mAdminInvites.count();
+    for (int i = 0; i < roomCount; ++i) {
+        if (mAdminInvites.at(i).identifier() == identifier) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mAdminInvites.removeAt(i);
+            endRemoveRows();
+            break;
+        }
+    }
+}

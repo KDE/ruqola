@@ -51,6 +51,8 @@ public:
     const QVector<InviteInfo> &adminInvites() const;
     void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
 
+    void removeInvite(const QString &identifier);
+
 private:
     Q_DISABLE_COPY(AdminInviteModel)
     QVector<InviteInfo> mAdminInvites;

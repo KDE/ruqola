@@ -37,7 +37,7 @@ private:
     void initialize();
     void slotListInviteDone(const QJsonDocument &obj);
     void slotRemoveInvite(const QString &identifier);
-    void slotRemoveInviteDone();
+    void slotRemoveInviteDone(const QString &identifier);
     void slotTextChanged(const QString &str);
     InviteTableView *const mInviteTableView;
     QLineEdit *const mSearchLineWidget;

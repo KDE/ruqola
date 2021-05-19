@@ -47,7 +47,7 @@ public:
     void setIdentifier(const QString &identifier);
 
 Q_SIGNALS:
-    void removeInviteDone();
+    void removeInviteDone(const QString &identifier);
 
 private:
     Q_DISABLE_COPY(RemoveInviteJob)

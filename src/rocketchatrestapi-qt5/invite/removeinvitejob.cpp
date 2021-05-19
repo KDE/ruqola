@@ -70,7 +70,7 @@ void RemoveInviteJob::slotRemoveInviteFinished()
     if (reply) {
         if (reply->readAll() == "true") {
             addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: "));
-            Q_EMIT removeInviteDone();
+            Q_EMIT removeInviteDone(mIdentifier);
         } else {
             // emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("RemoveInviteJob: Problem: "));

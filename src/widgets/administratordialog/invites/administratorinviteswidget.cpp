@@ -108,8 +108,7 @@ void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
     }
 }
 
-void AdministratorInvitesWidget::slotRemoveInviteDone()
+void AdministratorInvitesWidget::slotRemoveInviteDone(const QString &identifier)
 {
-    initialize();
-    // TODO
+    mAdminInviteModel->removeInvite(identifier);
 }
