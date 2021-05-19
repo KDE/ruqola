@@ -22,7 +22,7 @@
 #include "invite/listinvitejob.h"
 #include "invite/removeinvitejob.h"
 #include "inviteinfo.h"
-#include "invitetableview.h"
+#include "invitetreeview.h"
 #include "model/admininvitefilterproxymodel.h"
 #include "model/admininvitemodel.h"
 #include "restapirequest.h"
@@ -35,7 +35,7 @@
 
 AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     : QWidget(parent)
-    , mInviteTableView(new InviteTableView(this))
+    , mInviteTreeView(new InviteTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
 {
@@ -48,17 +48,16 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
 
-    mInviteTableView->setObjectName(QStringLiteral("mInviteTreeWidget"));
-    mainLayout->addWidget(mInviteTableView);
-    mInviteTableView->setModel(mAdminInviteFilterProxyModel);
+    mInviteTreeView->setObjectName(QStringLiteral("mInviteTreeWidget"));
+    mainLayout->addWidget(mInviteTreeView);
+    mInviteTreeView->setModel(mAdminInviteFilterProxyModel);
     initialize();
-    connect(mInviteTableView, &InviteTableView::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
+    connect(mInviteTreeView, &InviteTreeView::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorInvitesWidget::slotTextChanged);
 
-    mInviteTableView->verticalHeader()->hide();
     // Hide not useful columns
-    mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
-    mInviteTableView->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
+    mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
+    mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()

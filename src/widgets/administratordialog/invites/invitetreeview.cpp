@@ -18,36 +18,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "invitetableview.h"
+#include "invitetreeview.h"
 #include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QHeaderView>
 #include <QMenu>
 
-InviteTableView::InviteTableView(QWidget *parent)
-    : QTableView(parent)
+InviteTreeView::InviteTreeView(QWidget *parent)
+    : QTreeView(parent)
 {
     setAlternatingRowColors(true);
     setSelectionMode(SingleSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSortingEnabled(true);
-    connect(this, &InviteTableView::customContextMenuRequested, this, &InviteTableView::slotCustomContextMenuRequested);
+    connect(this, &InviteTreeView::customContextMenuRequested, this, &InviteTreeView::slotCustomContextMenuRequested);
     initialize();
 }
 
-InviteTableView::~InviteTableView()
+InviteTreeView::~InviteTreeView()
 {
 }
 
-void InviteTableView::initialize()
+void InviteTreeView::initialize()
 {
     //    clear();
     sortByColumn(0, Qt::AscendingOrder);
 }
 
-void InviteTableView::slotCustomContextMenuRequested(const QPoint &pos)
+void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = indexAt(pos);
     if (index.isValid()) {
@@ -60,7 +60,7 @@ void InviteTableView::slotCustomContextMenuRequested(const QPoint &pos)
     }
 }
 
-void InviteTableView::removeClicked(const QString &identifier)
+void InviteTreeView::removeClicked(const QString &identifier)
 {
     if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
         Q_EMIT removeInvite(identifier);

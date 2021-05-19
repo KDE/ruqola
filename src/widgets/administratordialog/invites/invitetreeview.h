@@ -21,14 +21,14 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QTableView>
+#include <QTreeView>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteTableView : public QTableView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteTreeView : public QTreeView
 {
     Q_OBJECT
 public:
-    explicit InviteTableView(QWidget *parent = nullptr);
-    ~InviteTableView() override;
+    explicit InviteTreeView(QWidget *parent = nullptr);
+    ~InviteTreeView() override;
 
 Q_SIGNALS:
     void removeInvite(const QString &identifier);
