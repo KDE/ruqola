@@ -18,10 +18,14 @@
 */
 
 #include "directorywidget.h"
+#include <QVBoxLayout>
 
 DirectoryWidget::DirectoryWidget(QWidget *parent)
     : QWidget(parent)
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 DirectoryWidget::~DirectoryWidget()
