@@ -333,6 +333,7 @@ if (BUILD_TESTING)
     add_subdirectory(administratordialog/autotests)
     add_subdirectory(exportmessages/autotests)
     add_subdirectory(teams/autotests)
+    add_subdirectory(directory/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

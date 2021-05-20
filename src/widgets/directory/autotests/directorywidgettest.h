@@ -18,19 +18,14 @@
 */
 #pragma once
 
-#include <QDialog>
+#include <QObject>
 
-#include "libruqolawidgets_private_export.h"
-class DirectoryWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
+class DirectoryWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit DirectoryDialog(QWidget *parent = nullptr);
-    ~DirectoryDialog() override;
-
-private:
-    void readConfig();
-    void writeConfig();
-    DirectoryWidget *const mDirectoryWidget;
+    explicit DirectoryWidgetTest(QObject *parent = nullptr);
+    ~DirectoryWidgetTest() override = default;
+private
+    Q_SLOT : void shouldHaveDefaultValues();
 };

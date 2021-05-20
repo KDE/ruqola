@@ -16,21 +16,30 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#pragma once
 
-#include <QDialog>
-
-#include "libruqolawidgets_private_export.h"
-class DirectoryWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
+#include "directorydialogtest.h"
+#include "directory/directorydialog.h"
+#include "directory/directorywidget.h"
+#include <QDialogButtonBox>
+#include <QTest>
+#include <QVBoxLayout>
+QTEST_MAIN(DirectoryDialogTest)
+DirectoryDialogTest::DirectoryDialogTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit DirectoryDialog(QWidget *parent = nullptr);
-    ~DirectoryDialog() override;
+}
 
-private:
-    void readConfig();
-    void writeConfig();
-    DirectoryWidget *const mDirectoryWidget;
-};
+void DirectoryDialogTest::shouldHaveDefaultValues()
+{
+    DirectoryDialog d;
+    QVERIFY(!d.windowTitle().isEmpty());
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mDirectoryWidget = d.findChild<DirectoryWidget *>(QStringLiteral("mDirectoryWidget"));
+    QVERIFY(mDirectoryWidget);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
+}

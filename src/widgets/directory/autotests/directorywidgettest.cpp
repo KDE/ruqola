@@ -16,21 +16,18 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#pragma once
 
-#include <QDialog>
-
-#include "libruqolawidgets_private_export.h"
-class DirectoryWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
+#include "directorywidgettest.h"
+#include "directory/directorywidget.h"
+#include <QTest>
+QTEST_MAIN(DirectoryWidgetTest)
+DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit DirectoryDialog(QWidget *parent = nullptr);
-    ~DirectoryDialog() override;
+}
 
-private:
-    void readConfig();
-    void writeConfig();
-    DirectoryWidget *const mDirectoryWidget;
-};
+void DirectoryWidgetTest::shouldHaveDefaultValues()
+{
+    DirectoryWidget w;
+    // TODO
+}

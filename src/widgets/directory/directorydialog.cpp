@@ -20,14 +20,52 @@
 #include "directorydialog.h"
 #include "directorywidget.h"
 
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+namespace
+{
+const char myDirectoryDialog[] = "DirectoryDialog";
+}
 DirectoryDialog::DirectoryDialog(QWidget *parent)
     : QDialog(parent)
     , mDirectoryWidget(new DirectoryWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Directory"));
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mDirectoryWidget->setObjectName(QStringLiteral("mDirectoryWidget"));
+    mainLayout->addWidget(mDirectoryWidget);
+
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &DirectoryDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &DirectoryDialog::accept);
+
+    readConfig();
 }
 
 DirectoryDialog::~DirectoryDialog()
 {
+    writeConfig();
+}
+
+void DirectoryDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myDirectoryDialog);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void DirectoryDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myDirectoryDialog);
+    group.writeEntry("Size", size());
 }
