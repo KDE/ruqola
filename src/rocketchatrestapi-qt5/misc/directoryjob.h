@@ -36,6 +36,7 @@ public:
         Unknown = 0,
         Room = 1,
         Users = 2,
+        Teams = 3,
     };
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT DirectoryInfo {
         SearchType searchType = SearchType::Unknown;

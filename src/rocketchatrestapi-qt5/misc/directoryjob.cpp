@@ -67,6 +67,9 @@ void DirectoryJob::initialQueryParameters()
     case Users:
         map.insert(QStringLiteral("type"), QStringLiteral("users"));
         break;
+    case Teams:
+        map.insert(QStringLiteral("type"), QStringLiteral("teams")); // Verify
+        break;
     }
 
     map.insert(QStringLiteral("text"), mDirectoryInfo.pattern);
