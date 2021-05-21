@@ -23,6 +23,7 @@
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
+#include <QDateTime>
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
@@ -39,11 +40,15 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    const QDateTime &updatedSince() const;
+    void setUpdatedSince(const QDateTime &newUpdatedSince);
+
 Q_SIGNALS:
     void permissionListAllDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(PermissionsListAllJob)
     void slotPermissionListAllFinished();
+    QDateTime mUpdatedSince;
 };
 }

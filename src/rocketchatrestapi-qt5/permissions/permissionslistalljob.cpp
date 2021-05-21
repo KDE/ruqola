@@ -70,9 +70,20 @@ void PermissionsListAllJob::slotPermissionListAllFinished()
     deleteLater();
 }
 
+const QDateTime &PermissionsListAllJob::updatedSince() const
+{
+    return mUpdatedSince;
+}
+
+void PermissionsListAllJob::setUpdatedSince(const QDateTime &newUpdatedSince)
+{
+    mUpdatedSince = newUpdatedSince;
+}
+
 QNetworkRequest PermissionsListAllJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::PermissionsListAll);
+    // TODO use mUpdatedSince (Date as ISO string)
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
