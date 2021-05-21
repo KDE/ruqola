@@ -3,11 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 include(ECMAddAppIcon)
 
-set(ruqola-widget_SRCS
-	main.cpp
-	)
-
-add_executable(ruqola ${ruqola-widget_SRCS})
+add_executable(ruqola main.cpp)
 
 target_link_libraries(ruqola
     libruqolacore
