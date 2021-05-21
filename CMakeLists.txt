@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 set(RUQOLA_VERSION "1.4.42")
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -25,13 +25,6 @@ set(RUQOLA_VERSION_STRING "${RUQOLA_VERSION}${RUQOLA_DEV_VERSION}")
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
-if (POLICY CMP0063)
-    cmake_policy(SET CMP0063 NEW)
-endif()
-
-if (POLICY CMP0071)
-    cmake_policy(SET CMP0071 NEW)
-endif()
 
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
