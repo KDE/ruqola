@@ -19,6 +19,7 @@
 */
 
 #include "adminroom.h"
+
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
@@ -159,6 +160,16 @@ QString AdminRoom::roomName() const
     return mName;
 }
 
+const TeamInfo &AdminRoom::teamInfo() const
+{
+    return mTeamInfo;
+}
+
+void AdminRoom::setTeamInfo(const TeamInfo &newTeamInfo)
+{
+    mTeamInfo = newTeamInfo;
+}
+
 QString AdminRoom::name() const
 {
     return mName;
@@ -198,7 +209,7 @@ bool AdminRoom::operator==(const AdminRoom &other) const
 {
     return mDefaultRoom == other.defaultRoom() && mUsersCount == other.usersCount() && mMessageCount == other.messageCount()
         && mChannelType == other.channelType() && mIdentifier == other.identifier() && mTopic == other.topic() && mName == other.name()
-        && mUserNames == other.userNames() && mUsers == other.users();
+        && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo();
 }
 
 QDebug operator<<(QDebug d, const AdminRoom &t)
@@ -212,5 +223,6 @@ QDebug operator<<(QDebug d, const AdminRoom &t)
     d << " name: " << t.name();
     d << " usernames: " << t.userNames();
     d << " users: " << t.users();
+    d << " teaminfo: " << t.teamInfo();
     return d;
 }

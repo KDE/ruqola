@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "teaminfo.h"
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>
@@ -67,7 +68,11 @@ public:
 
     Q_REQUIRED_RESULT QString roomName() const;
 
+    Q_REQUIRED_RESULT const TeamInfo &teamInfo() const;
+    void setTeamInfo(const TeamInfo &newTeamInfo);
+
 private:
+    TeamInfo mTeamInfo;
     QStringList mUserNames;
     QStringList mUsers;
     QString mTopic;
