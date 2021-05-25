@@ -5,7 +5,7 @@ Ruqola is a Rocket.Chat client for the KDE desktop.
 
 ## Features
 
-It supports multi-account, search in room, open close rooms, direct message, thread, discussions.
+It supports multi-account, search in room, open close rooms, direct message, thread, discussions, teams, administrator.
 RC settings can be changed directly.
 
 ## Source Code
