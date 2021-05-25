@@ -18,14 +18,26 @@
 */
 
 #include "directorywidget.h"
+#include "misc/lineeditcatchreturnkey.h"
+#include <QLabel>
+#include <QLineEdit>
 #include <QVBoxLayout>
 
 DirectoryWidget::DirectoryWidget(QWidget *parent)
     : QWidget(parent)
+    , mLabelResultSearch(new QLabel(this))
+    , mSearchLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mainLayout->addWidget(mSearchLineEdit);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
+
+    mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
+    mainLayout->addWidget(mLabelResultSearch);
 }
 
 DirectoryWidget::~DirectoryWidget()

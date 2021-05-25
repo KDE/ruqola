@@ -16,22 +16,14 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#include "directorytabwidget.h"
 
-#pragma once
-
-#include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-class QLabel;
-class QLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
+DirectoryTabWidget::DirectoryTabWidget(QWidget *parent)
+    : QTabWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit DirectoryWidget(QWidget *parent = nullptr);
-    ~DirectoryWidget() override;
+    // TODO
+}
 
-private:
-    QLabel *const mLabelResultSearch;
-    QLineEdit *const mSearchLineEdit;
-};
+DirectoryTabWidget::~DirectoryTabWidget()
+{
+}

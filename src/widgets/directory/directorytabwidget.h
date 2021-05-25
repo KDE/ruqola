@@ -19,19 +19,13 @@
 
 #pragma once
 
-#include <QWidget>
+#include <QTabWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLabel;
-class QLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryTabWidget : public QTabWidget
 {
     Q_OBJECT
 public:
-    explicit DirectoryWidget(QWidget *parent = nullptr);
-    ~DirectoryWidget() override;
-
-private:
-    QLabel *const mLabelResultSearch;
-    QLineEdit *const mSearchLineEdit;
+    explicit DirectoryTabWidget(QWidget *parent = nullptr);
+    ~DirectoryTabWidget() override;
 };
