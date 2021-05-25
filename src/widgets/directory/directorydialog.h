@@ -21,7 +21,7 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
-class DirectoryWidget;
+class DirectoryTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
 {
     Q_OBJECT
@@ -32,5 +32,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    DirectoryWidget *const mDirectoryWidget;
+    DirectoryTabWidget *const mDirectoryTabWidget;
 };

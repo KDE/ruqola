@@ -22,9 +22,9 @@
 
 DirectoryTabWidget::DirectoryTabWidget(QWidget *parent)
     : QTabWidget(parent)
-    , mRooms(new DirectoryWidget(this))
-    , mUsers(new DirectoryWidget(this))
-    , mTeams(new DirectoryWidget(this))
+    , mRooms(new DirectoryWidget(DirectoryWidget::Room, this))
+    , mUsers(new DirectoryWidget(DirectoryWidget::User, this))
+    , mTeams(new DirectoryWidget(DirectoryWidget::Team, this))
 {
     mRooms->setObjectName(QStringLiteral("mRooms"));
     mUsers->setObjectName(QStringLiteral("mUsers"));

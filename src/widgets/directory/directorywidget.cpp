@@ -23,8 +23,9 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-DirectoryWidget::DirectoryWidget(QWidget *parent)
+DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     : QWidget(parent)
+    , mType(type)
     , mLabelResultSearch(new QLabel(this))
     , mSearchLineEdit(new QLineEdit(this))
 {

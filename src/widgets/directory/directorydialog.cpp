@@ -18,7 +18,7 @@
 */
 
 #include "directorydialog.h"
-#include "directorywidget.h"
+#include "directorytabwidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -32,14 +32,14 @@ const char myDirectoryDialog[] = "DirectoryDialog";
 }
 DirectoryDialog::DirectoryDialog(QWidget *parent)
     : QDialog(parent)
-    , mDirectoryWidget(new DirectoryWidget(this))
+    , mDirectoryTabWidget(new DirectoryTabWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Directory"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mDirectoryWidget->setObjectName(QStringLiteral("mDirectoryWidget"));
-    mainLayout->addWidget(mDirectoryWidget);
+    mDirectoryTabWidget->setObjectName(QStringLiteral("mDirectoryTabWidget"));
+    mainLayout->addWidget(mDirectoryTabWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));

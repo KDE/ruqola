@@ -19,7 +19,7 @@
 
 #include "directorydialogtest.h"
 #include "directory/directorydialog.h"
-#include "directory/directorywidget.h"
+#include "directory/directorytabwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -37,8 +37,8 @@ void DirectoryDialogTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mDirectoryWidget = d.findChild<DirectoryWidget *>(QStringLiteral("mDirectoryWidget"));
-    QVERIFY(mDirectoryWidget);
+    auto mDirectoryTabWidget = d.findChild<DirectoryTabWidget *>(QStringLiteral("mDirectoryTabWidget"));
+    QVERIFY(mDirectoryTabWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
