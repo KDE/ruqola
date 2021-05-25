@@ -22,10 +22,16 @@
 #include <QTabWidget>
 
 #include "libruqolawidgets_private_export.h"
+class DirectoryWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryTabWidget : public QTabWidget
 {
     Q_OBJECT
 public:
     explicit DirectoryTabWidget(QWidget *parent = nullptr);
     ~DirectoryTabWidget() override;
+
+private:
+    DirectoryWidget *const mRooms;
+    DirectoryWidget *const mUsers;
+    DirectoryWidget *const mTeams;
 };

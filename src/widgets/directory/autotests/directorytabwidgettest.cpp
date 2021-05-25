@@ -16,24 +16,17 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#include "directorytabwidget.h"
-#include "directorywidget.h"
-#include <KLocalizedString>
-
-DirectoryTabWidget::DirectoryTabWidget(QWidget *parent)
-    : QTabWidget(parent)
-    , mRooms(new DirectoryWidget(this))
-    , mUsers(new DirectoryWidget(this))
-    , mTeams(new DirectoryWidget(this))
+#include "directorytabwidgettest.h"
+#include "directory/directorytabwidget.h"
+#include <QTest>
+QTEST_MAIN(DirectoryTabWidgetTest)
+DirectoryTabWidgetTest::DirectoryTabWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    mRooms->setObjectName(QStringLiteral("mRooms"));
-    mUsers->setObjectName(QStringLiteral("mUsers"));
-    mTeams->setObjectName(QStringLiteral("mTeams"));
-    addTab(mRooms, i18n("Rooms"));
-    addTab(mUsers, i18n("Users"));
-    addTab(mTeams, i18n("Teams"));
 }
 
-DirectoryTabWidget::~DirectoryTabWidget()
+void DirectoryTabWidgetTest::shouldHaveDefaultValues()
 {
+    DirectoryTabWidget w;
+    // TODO
 }

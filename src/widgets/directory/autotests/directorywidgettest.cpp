@@ -19,7 +19,10 @@
 
 #include "directorywidgettest.h"
 #include "directory/directorywidget.h"
+#include <QLabel>
+#include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(DirectoryWidgetTest)
 DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
     : QObject(parent)
@@ -29,5 +32,14 @@ DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
 void DirectoryWidgetTest::shouldHaveDefaultValues()
 {
     DirectoryWidget w;
-    // TODO
+    auto mLabelResultSearch = w.findChild<QLabel *>(QStringLiteral("mLabelResultSearch"));
+    QVERIFY(mLabelResultSearch);
+    QVERIFY(mLabelResultSearch->text().isEmpty());
+
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->text().isEmpty());
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
 }
