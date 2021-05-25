@@ -33,6 +33,7 @@
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/serverinfo/serverinfodialog.h"
+#include "directory/directorydialog.h"
 #include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"
@@ -325,6 +326,10 @@ void RuqolaMainWindow::setupActions()
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
     ac->addAction(QStringLiteral("administrator"), mAdministrator);
 
+    mDirectory = new QAction(i18n("Directory..."), this);
+    connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);
+    ac->addAction(QStringLiteral("directory"), mDirectory);
+
     {
         auto action = new QWidgetAction(this);
         action->setText(i18n("Status"));
@@ -545,6 +550,13 @@ void RuqolaMainWindow::slotConfigureMyAccount()
 void RuqolaMainWindow::slotAdministrator()
 {
     QPointer<AdministratorDialog> dlg = new AdministratorDialog(this);
+    dlg->exec();
+    delete dlg;
+}
+
+void RuqolaMainWindow::slotDirectory()
+{
+    QPointer<DirectoryDialog> dlg = new DirectoryDialog(this);
     dlg->exec();
     delete dlg;
 }

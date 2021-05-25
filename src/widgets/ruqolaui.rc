@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="21">
+<gui name="ruqola" version="22">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -15,6 +15,8 @@
    <Action name="administrator" />
    <Separator/>
    <Action name="mark_all_channels_read" />
+   <Separator/>
+   <Action name="directory" />
    <Separator/>
    <Action name="logout" />
    <Separator/>
