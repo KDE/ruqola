@@ -24,16 +24,25 @@
 #include "libruqolawidgets_private_export.h"
 class QLabel;
 class QLineEdit;
+class QTreeView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum DirectoryType { Unknown = 0, Room = 1, User = 2, Team = 3 };
+    enum DirectoryType {
+        Unknown = 0,
+        Room = 1,
+        User = 2,
+        Team = 3,
+    };
     explicit DirectoryWidget(DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryWidget() override;
+
+    void fillDirectory();
 
 private:
     const DirectoryType mType;
     QLabel *const mLabelResultSearch;
     QLineEdit *const mSearchLineEdit;
+    QTreeView *const mTreeView;
 };

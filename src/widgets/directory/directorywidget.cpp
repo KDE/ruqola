@@ -18,9 +18,14 @@
 */
 
 #include "directorywidget.h"
+#include "misc/directoryjob.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
+#include <QTreeView>
 #include <QVBoxLayout>
 
 DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
@@ -28,6 +33,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     , mType(type)
     , mLabelResultSearch(new QLabel(this))
     , mSearchLineEdit(new QLineEdit(this))
+    , mTreeView(new QTreeView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -39,8 +45,30 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
     mainLayout->addWidget(mLabelResultSearch);
+
+    mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mainLayout->addWidget(mTreeView);
+
+    switch (mType) {
+    case Room:
+        mSearchLineEdit->setPlaceholderText(i18n("Search Channels"));
+        break;
+    case User:
+        mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
+        break;
+    case Team:
+        mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
+        break;
+    case Unknown:
+        break;
+    }
+    // TODO add model
 }
 
 DirectoryWidget::~DirectoryWidget()
+{
+}
+
+void DirectoryWidget::fillDirectory()
 {
 }

@@ -22,6 +22,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QTest>
+#include <QTreeView>
 #include <QVBoxLayout>
 QTEST_MAIN(DirectoryWidgetTest)
 DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
@@ -42,4 +43,7 @@ void DirectoryWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    QVERIFY(mTreeView);
 }
