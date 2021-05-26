@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-set(ruqola_userfeedback_SRCS)
+add_library(libruqolawidgets)
+
 if (TARGET KUserFeedbackWidgets)
-    set(ruqola_userfeedback_SRCS
+    target_sources(libruqolawidgets PRIVATE
         userfeedback/userfeedbackmanager.cpp
         userfeedback/ruqolauserfeedbackprovider.cpp
         userfeedback/accountinfosource.cpp
@@ -10,19 +11,15 @@ if (TARGET KUserFeedbackWidgets)
 endif()
 
 
-set(Ruqola_widgets_SRCS
+target_sources(libruqolawidgets PRIVATE
     ruqolamainwindow.cpp
     ruqolacentralwidget.cpp
     ruqolaloginwidget.cpp
     ruqolamainwidget.cpp
-    )
 
-set(Ruqola_widget_register_user_SRCS
     registeruser/registeruserdialog.cpp
     registeruser/registeruserwidget.cpp
-    )
 
-set(Ruqola_widgets_dialog_SRCS
     dialogs/serverinfo/serverinfowidget.cpp
     dialogs/serverinfo/serverinfodialog.cpp
     dialogs/uploadfiledialog.cpp
@@ -93,9 +90,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/channelinfoeditablewidget.cpp
     dialogs/roomavatarwidget.cpp
     dialogs/messagetexteditor.cpp
-    )
 
-set(Ruqola_configure_SRCS
     configuredialog/configuresettingsdialog.cpp
     configuredialog/configureaccountwidget.cpp
     configuredialog/accountserverlistwidget.cpp
@@ -104,29 +99,17 @@ set(Ruqola_configure_SRCS
     configuredialog/configureuserfeedbackwidget.cpp
     configuredialog/configuregeneralwidget.cpp
     configuredialog/configurefontwidget.cpp
-    )
 
-set(Ruqola_threadwidget_SRCS
     threadwidget/threadmessagewidget.cpp
     threadwidget/threadmessagedialog.cpp
-    )
 
-ki18n_wrap_ui(Ruqola_configure_SRCS
-    configuredialog/configureaccountserverwidget.ui
-    )
-
-
-set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
     channellist/channellistview.cpp
     channellist/channellistdelegate.cpp
-    )
-set(Ruqola_prunemessages_SRCS
+
     prunemessages/prunemessagesdialog.cpp
     prunemessages/prunemessageswidget.cpp
-    )
 
-set(Ruqola_roomwidget_SRCS
     room/roomwidget.cpp
     room/roomheaderwidget.cpp
     room/messagelistview.cpp
@@ -157,9 +140,7 @@ set(Ruqola_roomwidget_SRCS
     room/usersinroomcombobox.cpp
     room/uploadfileprogressstatuswidget.cpp
     room/roomwidgetbase.cpp
-    )
 
-set(Ruqola_misc_widget_SRCS
     misc/pixmapcache.cpp
     misc/avatarcachemanager.cpp
     misc/servermenu.cpp
@@ -177,9 +158,7 @@ set(Ruqola_misc_widget_SRCS
     misc/statuscombobox.cpp
     misc/systemmessagescombobox.cpp
     misc/searchwithdelaylineedit.cpp
-    )
 
-set(Ruqola_common_SRCS
     common/completionlineedit.cpp
     common/completionlistview.cpp
     common/emojicompletiondelegate.cpp
@@ -188,24 +167,18 @@ set(Ruqola_common_SRCS
     common/commandcompletiondelegate.cpp
     common/delegatepaintutil.cpp
     common/delegateutil.cpp
-    )
 
-set(Ruqola_textplugin_SRCS
     room/textpluginmanager.cpp
     room/plugins/plugintext.cpp
     room/plugins/plugintextinterface.cpp
-    )
 
-set(Ruqola_myaccount_SRCS
     myaccount/myaccountconfiguredialog.cpp
     myaccount/myaccountconfigurewidget.cpp
     myaccount/myaccount2faconfigurewidget.cpp
     myaccount/myaccountprofileconfigurewidget.cpp
     myaccount/myaccountpreferenceconfigurewidget.cpp
     myaccount/myaccountprofileconfigureavatarwidget.cpp
-    )    
 
-set(Ruqola_administrator_SRCS
     administratordialog/administratordialog.cpp
     administratordialog/administratorwidget.cpp
     administratordialog/rooms/administratorroomswidget.cpp
@@ -225,14 +198,10 @@ set(Ruqola_administrator_SRCS
 
     administratordialog/invites/administratorinviteswidget.cpp
     administratordialog/invites/invitetreeview.cpp
-    )
 
-set(Ruqola_export_messages_SRCS
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
-    )
 
-set(Ruqola_teams_dialog_SRCS
     teams/teamchannelsdialog.cpp
     teams/teamchannelswidget.cpp
     teams/teamchannelscombobox.cpp
@@ -245,48 +214,34 @@ set(Ruqola_teams_dialog_SRCS
     teams/searchteamdialog.cpp
     teams/searchteamwidget.cpp
     teams/searchteamcompletionlineedit.cpp
-    )
 
-set(Ruqola_directory_dialog_SRCS
     directory/directorydialog.cpp
     directory/directorywidget.cpp
     directory/directorytabwidget.cpp
+
+    ruqolawidget.qrc
     )
 
-ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
+
+ki18n_wrap_ui(libruqolawidgets
+    configuredialog/configureaccountserverwidget.ui
+    )
+
+
+
+ecm_qt_declare_logging_category(libruqolawidgets HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
+ecm_qt_declare_logging_category(libruqolawidgets HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
     DESCRIPTION "ruqola widgets (selection)" EXPORT RUQOLA)
 
-add_library(libruqolawidgets
-    ruqolawidget.qrc
-    ${Ruqola_directory_dialog_SRCS}
-    ${Ruqola_teams_dialog_SRCS}
-    ${Ruqola_widget_register_user_SRCS}
-    ${Ruqola_textplugin_SRCS}
-    ${ruqola_userfeedback_SRCS}
-    ${Ruqola_common_SRCS}
-    ${Ruqola_widgets_SRCS}
-    ${Ruqola_widgets_dialog_SRCS}
-    ${Ruqola_channellist_SRCS}
-    ${Ruqola_roomwidget_SRCS}
-    ${Ruqola_configure_SRCS}
-    ${Ruqola_misc_widget_SRCS}
-    ${Ruqola_threadwidget_SRCS}
-    ${Ruqola_myaccount_SRCS}
-    ${Ruqola_prunemessages_SRCS}
-    ${Ruqola_administrator_SRCS}
-    ${Ruqola_export_messages_SRCS}
-    )
 ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolawidgets PROPERTIES UNITY_BUILD ON)
 endif()
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
-set(ruqola_userfeedback_LIB)
 if (TARGET KUserFeedbackWidgets)
-        set(ruqola_userfeedback_LIB KUserFeedbackWidgets)
+        target_link_libraries(libruqolawidgets KUserFeedbackWidgets)
 endif()
 
 
@@ -305,7 +260,6 @@ target_link_libraries(libruqolawidgets
     KF5::ItemViews
     librocketchatrestapi-qt5
     libruqolacore
-    ${ruqola_userfeedback_LIB}
 )
 
 if (NOT WIN32)

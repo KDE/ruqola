@@ -1,16 +1,12 @@
 # SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-set(Ruqola_ddpapi_SRCS
+add_library(libruqolacore)
+
+target_sources(libruqolacore PRIVATE
     ddpapi/ddpauthenticationmanager.cpp
     ddpapi/ddpclient.cpp
     ddpapi/ddpmanager.cpp
-    )
-
-set(Ruqola_ktexttohtml_fork_srcs
     ktexttohtmlfork/ruqolaktexttohtml.cpp
-   )
-
-set (Ruqola_model_core_srcs    
     model/messagemodel.cpp
     model/roommodel.cpp
     model/roomfilterproxymodel.cpp
@@ -84,22 +80,13 @@ set (Ruqola_model_core_srcs
 
     model/admininvitemodel.cpp
     model/admininvitefilterproxymodel.cpp
-    )
-
-set(Ruqola_plugins_srcs
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthentication.cpp
-    )
-
-set(Ruqola_emoticons_srcs 
     emoticons/customemoji.cpp
     emoticons/emojimanager.cpp
     emoticons/unicodeemoticon.cpp
     emoticons/unicodeemoticonparser.cpp
     emoticons/unicodeemoticonmanager.cpp
-)
-    
-set(Ruqola_messages_srcs  
     messages/message.cpp
     messages/messageattachment.cpp
     messages/messageurl.cpp
@@ -109,52 +96,24 @@ set(Ruqola_messages_srcs
     messages/messagepinned.cpp
     messages/messagetranslation.cpp
     messages/messageattachmentfield.cpp
-    )
 
-set(Ruqola_message_convertertextjob_SRCS
     convertertextjob/convertertextabstractjob.cpp
     convertertextjob/translatetextjob.cpp
-    )
 
-set(Ruqola_autotranslatelanguage_SRCS
     autotranslatelanguage.cpp
     autotranslatelanguages.cpp
-    )
 
-set(Ruqola_command_SRCS
     command.cpp
     commands.cpp
-    )
 
-set(Ruqola_apps_language_SRCS
     downloadappslanguages/downloadappslanguagesjob.cpp
     downloadappslanguages/downloadappslanguagesparser.cpp
     downloadappslanguages/downloadappslanguagesmanager.cpp
     downloadappslanguages/downloadappslanguagesinfo.cpp
-    )
 
-set(Ruqola_apps_admin_SRCS
     administrator/adminroom.cpp
     administrator/adminrooms.cpp
-    )
 
-set( Ruqola_kcfg_SRCS settings/ruqolaglobalconfig.kcfgc )
-
-kconfig_add_kcfg_files(Ruqola_kcfg_SRCS ${Ruqola_kcfg_SRCS})
-
-set (Ruqola_core_srcs
-    ${Ruqola_ktexttohtml_fork_srcs}
-    ${Ruqola_apps_admin_SRCS}
-    ${Ruqola_kcfg_SRCS}
-    ${Ruqola_command_SRCS}
-    ${Ruqola_autotranslatelanguage_SRCS}
-    ${Ruqola_message_convertertextjob_SRCS}
-    ${Ruqola_emoticons_srcs}
-    ${Ruqola_messages_srcs}
-    ${Ruqola_model_core_srcs}
-    ${Ruqola_plugins_srcs}
-    ${Ruqola_ddpapi_SRCS}
-    ${Ruqola_apps_language_SRCS}
     authenticationinfo.cpp
     room.cpp
     ruqola.cpp
@@ -241,28 +200,31 @@ set (Ruqola_core_srcs
     teamcompleter.cpp
 
     inviteinfo.cpp
+    ruqolacore.qrc
 )
 
+kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
+
+
 if (NOT WIN32)
-    set(Ruqola_core_srcs ${Ruqola_core_srcs} unityservicemanager.cpp)
+    target_sources(libruqolacore PRIVATE unityservicemanager.cpp)
 endif()
 
 if (NOT ANDROID)
-    list(APPEND Ruqola_core_srcs notification.cpp)
+    target_sources(libruqolacore PRIVATE notification.cpp)
 endif()
 
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.message DESCRIPTION "ruqola (show message debug)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_debug.h IDENTIFIER RUQOLA_DDPAPI_LOG CATEGORY_NAME org.kde.ruqola.ddpapi DESCRIPTION "ruqola (ddpapi)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_command_debug.h IDENTIFIER RUQOLA_DDPAPI_COMMAND_LOG CATEGORY_NAME org.kde.ruqola.ddpapi.command DESCRIPTION "ruqola (ddpapi command)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_unknown_collectiontype_debug.h IDENTIFIER RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG CATEGORY_NAME org.kde.ruqola.ddp.collectiontype DESCRIPTION "ruqola ddp unknown collection" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.typingnotification DESCRIPTION "ruqola typingnotification" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_completion_debug.h IDENTIFIER RUQOLA_COMPLETION_LOG CATEGORY_NAME org.kde.ruqola.completion DESCRIPTION "ruqola (completion)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_notification_debug.h IDENTIFIER RUQOLA_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.notification DESCRIPTION "ruqola notification" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_rooms_debug.h IDENTIFIER RUQOLA_ROOMS_LOG CATEGORY_NAME org.kde.ruqola.rooms DESCRIPTION "ruqola rooms" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.message DESCRIPTION "ruqola (show message debug)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_ddpapi_debug.h IDENTIFIER RUQOLA_DDPAPI_LOG CATEGORY_NAME org.kde.ruqola.ddpapi DESCRIPTION "ruqola (ddpapi)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_ddpapi_command_debug.h IDENTIFIER RUQOLA_DDPAPI_COMMAND_LOG CATEGORY_NAME org.kde.ruqola.ddpapi.command DESCRIPTION "ruqola (ddpapi command)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_unknown_collectiontype_debug.h IDENTIFIER RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG CATEGORY_NAME org.kde.ruqola.ddp.collectiontype DESCRIPTION "ruqola ddp unknown collection" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.typingnotification DESCRIPTION "ruqola typingnotification" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_completion_debug.h IDENTIFIER RUQOLA_COMPLETION_LOG CATEGORY_NAME org.kde.ruqola.completion DESCRIPTION "ruqola (completion)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_notification_debug.h IDENTIFIER RUQOLA_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.notification DESCRIPTION "ruqola notification" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore HEADER ruqola_rooms_debug.h IDENTIFIER RUQOLA_ROOMS_LOG CATEGORY_NAME org.kde.ruqola.rooms DESCRIPTION "ruqola rooms" EXPORT RUQOLA)
 
-add_library(libruqolacore ${Ruqola_core_srcs} ${libruqolacore_RSC} ruqolacore.qrc)
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libruqolacore PROPERTIES UNITY_BUILD ON)
@@ -271,11 +233,11 @@ endif()
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
 if (HAVE_SOLID)
-  set(Solid KF5::Solid)
+  target_link_libraries(libruqolacore KF5::Solid)
 endif()
 
 if (HAVE_NETWORKMANAGER)
-  set(NetworkManager KF5::NetworkManagerQt)
+  target_link_libraries(libruqolacore KF5::NetworkManagerQt)
 endif()
 
 target_link_libraries(libruqolacore
@@ -291,8 +253,6 @@ target_link_libraries(libruqolacore
     librocketchatrestapi-qt5
     KF5::ConfigGui
     KF5::ConfigWidgets
-    ${Solid}
-    ${NetworkManager}
 )
 
 

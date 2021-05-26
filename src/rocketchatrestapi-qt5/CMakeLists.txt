@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-set (RocketChatRestApiQt_SRCS
+
+add_library(librocketchatrestapi-qt5)
+target_sources(librocketchatrestapi-qt5 PRIVATE
     restapirequest.cpp
     restapiutil.cpp
     restapimethod.cpp
@@ -197,9 +199,9 @@ set (RocketChatRestApiQt_SRCS
     )
 
 
-ecm_qt_declare_logging_category(RocketChatRestApiQt_SRCS HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi
+ecm_qt_declare_logging_category(librocketchatrestapi-qt5 HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi
     DESCRIPTION "RocketChatQtRestApi (Rocket Chat Qt Rest API used by ruqola)" EXPORT RUQOLA)
-add_library(librocketchatrestapi-qt5 ${RocketChatRestApiQt_SRCS})
+
 #ruqola_target_precompile_headers(librocketchatrestapi-qt5 PUBLIC ../../ruqola_pch.h)
 generate_export_header(librocketchatrestapi-qt5 BASE_NAME librocketchatrestapi-qt5)
 target_link_libraries(librocketchatrestapi-qt5
