@@ -89,7 +89,8 @@ void DirectoryWidget::fillDirectory()
         mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
         break;
     case Unknown:
-        break;
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
+        return;
     }
     job->setDirectoryInfo(info);
     rcAccount->restApi()->initializeRestApiJob(job);
@@ -102,7 +103,16 @@ void DirectoryWidget::fillDirectory()
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
-    // TODO
+    switch (mType) {
+    case Room:
+        break;
+    case User:
+        break;
+    case Team:
+        break;
+    case Unknown:
+        break;
+    }
 }
 
 DirectoryWidget::DirectoryType DirectoryWidget::type() const
