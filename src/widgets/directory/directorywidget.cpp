@@ -73,8 +73,6 @@ DirectoryWidget::~DirectoryWidget()
 
 void DirectoryWidget::fillDirectory()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::DirectoryJob(this);
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
     case Room:
@@ -92,6 +90,8 @@ void DirectoryWidget::fillDirectory()
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::DirectoryJob(this);
     job->setDirectoryInfo(info);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
