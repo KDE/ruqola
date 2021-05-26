@@ -25,6 +25,7 @@
 class QLabel;
 class QLineEdit;
 class QTreeView;
+class QJsonObject;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
 {
     Q_OBJECT
@@ -40,7 +41,10 @@ public:
 
     void fillDirectory();
 
+    DirectoryType type() const;
+
 private:
+    void slotSearchDone(const QJsonObject &obj);
     const DirectoryType mType;
     QLabel *const mLabelResultSearch;
     QLineEdit *const mSearchLineEdit;

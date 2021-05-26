@@ -29,6 +29,8 @@ public:
     explicit DirectoryDialog(QWidget *parent = nullptr);
     ~DirectoryDialog() override;
 
+    void fillTabs();
+
 private:
     void readConfig();
     void writeConfig();

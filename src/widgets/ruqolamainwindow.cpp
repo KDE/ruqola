@@ -557,6 +557,7 @@ void RuqolaMainWindow::slotAdministrator()
 void RuqolaMainWindow::slotDirectory()
 {
     QPointer<DirectoryDialog> dlg = new DirectoryDialog(this);
+    dlg->fillTabs();
     dlg->exec();
     delete dlg;
 }

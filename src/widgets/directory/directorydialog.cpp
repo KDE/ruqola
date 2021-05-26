@@ -55,6 +55,11 @@ DirectoryDialog::~DirectoryDialog()
     writeConfig();
 }
 
+void DirectoryDialog::fillTabs()
+{
+    mDirectoryTabWidget->fillTabs();
+}
+
 void DirectoryDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myDirectoryDialog);

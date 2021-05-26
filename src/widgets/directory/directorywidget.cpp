@@ -22,6 +22,8 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -71,4 +73,39 @@ DirectoryWidget::~DirectoryWidget()
 
 void DirectoryWidget::fillDirectory()
 {
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::DirectoryJob(this);
+    RocketChatRestApi::DirectoryJob::DirectoryInfo info;
+    switch (mType) {
+    case Room:
+        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
+        break;
+    case User:
+        info.searchType = RocketChatRestApi::DirectoryJob::Users;
+        mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
+        break;
+    case Team:
+        info.searchType = RocketChatRestApi::DirectoryJob::Teams;
+        mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
+        break;
+    case Unknown:
+        break;
+    }
+    job->setDirectoryInfo(info);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+    }
+}
+
+void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
+    // TODO
+}
+
+DirectoryWidget::DirectoryType DirectoryWidget::type() const
+{
+    return mType;
 }

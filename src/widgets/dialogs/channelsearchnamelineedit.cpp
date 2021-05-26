@@ -52,7 +52,7 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
         auto job = new RocketChatRestApi::DirectoryJob(this);
         RocketChatRestApi::DirectoryJob::DirectoryInfo info;
         info.pattern = text;
-        info.searchType = RocketChatRestApi::DirectoryJob::Room;
+        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
         job->setDirectoryInfo(info);
         rcAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelSearchNameLineEdit::slotSearchDone);

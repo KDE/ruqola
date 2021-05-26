@@ -18,6 +18,7 @@
 */
 #include "directorytabwidgettest.h"
 #include "directory/directorytabwidget.h"
+#include "directory/directorywidget.h"
 #include <QTest>
 QTEST_MAIN(DirectoryTabWidgetTest)
 DirectoryTabWidgetTest::DirectoryTabWidgetTest(QObject *parent)
@@ -28,5 +29,17 @@ DirectoryTabWidgetTest::DirectoryTabWidgetTest(QObject *parent)
 void DirectoryTabWidgetTest::shouldHaveDefaultValues()
 {
     DirectoryTabWidget w;
-    // TODO
+    QCOMPARE(w.count(), 3);
+
+    DirectoryWidget *tab = qobject_cast<DirectoryWidget *>(w.widget(0));
+    QCOMPARE(tab->type(), DirectoryWidget::Room);
+    QVERIFY(tab);
+
+    tab = qobject_cast<DirectoryWidget *>(w.widget(1));
+    QCOMPARE(tab->type(), DirectoryWidget::User);
+    QVERIFY(tab);
+
+    tab = qobject_cast<DirectoryWidget *>(w.widget(2));
+    QCOMPARE(tab->type(), DirectoryWidget::Team);
+    QVERIFY(tab);
 }

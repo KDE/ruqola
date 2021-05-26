@@ -37,3 +37,10 @@ DirectoryTabWidget::DirectoryTabWidget(QWidget *parent)
 DirectoryTabWidget::~DirectoryTabWidget()
 {
 }
+
+void DirectoryTabWidget::fillTabs()
+{
+    mRooms->fillDirectory();
+    mUsers->fillDirectory();
+    mTeams->fillDirectory();
+}

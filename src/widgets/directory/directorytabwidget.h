@@ -30,6 +30,8 @@ public:
     explicit DirectoryTabWidget(QWidget *parent = nullptr);
     ~DirectoryTabWidget() override;
 
+    void fillTabs();
+
 private:
     DirectoryWidget *const mRooms;
     DirectoryWidget *const mUsers;
