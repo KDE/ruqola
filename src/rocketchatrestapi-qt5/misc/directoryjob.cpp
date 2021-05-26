@@ -50,7 +50,7 @@ bool DirectoryJob::start()
     QNetworkReply *reply = submitGetRequest();
 
     connect(reply, &QNetworkReply::finished, this, &DirectoryJob::slotDirectoryFinished);
-    addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for search room or users"));
+    addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for search room or users or teams"));
     return true;
 }
 
@@ -138,7 +138,7 @@ bool DirectoryJob::canStart() const
 
 bool DirectoryJob::DirectoryInfo::canStart() const
 {
-    return searchType != SearchType::Unknown && !pattern.isEmpty();
+    return searchType != SearchType::Unknown;
 }
 
 bool DirectoryJob::DirectoryInfo::operator==(const DirectoryJob::DirectoryInfo &other) const
