@@ -62,7 +62,7 @@ void DirectoryJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     DirectoryJob::DirectoryInfo info;
-    info.searchType = DirectoryJob::Room;
+    info.searchType = DirectoryJob::Rooms;
     job.setDirectoryInfo(info);
     QVERIFY(job.canStart());
 }

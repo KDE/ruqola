@@ -61,7 +61,7 @@ void DirectoryJob::initialQueryParameters()
     switch (mDirectoryInfo.searchType) {
     case Unknown:
         break;
-    case Room:
+    case Rooms:
         map.insert(QStringLiteral("type"), QStringLiteral("channels"));
         break;
     case Users:

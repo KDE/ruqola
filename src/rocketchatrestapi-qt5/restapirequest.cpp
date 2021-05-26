@@ -818,7 +818,7 @@ void RestApiRequest::searchRooms(const QString &pattern)
 {
     auto job = new DirectoryJob(this);
     DirectoryJob::DirectoryInfo info;
-    info.searchType = DirectoryJob::SearchType::Room;
+    info.searchType = DirectoryJob::SearchType::Rooms;
     info.pattern = pattern;
     job->setDirectoryInfo(info);
     initializeRestApiJob(job);

@@ -34,7 +34,7 @@ public:
     ~DirectoryJob() override;
     enum SearchType {
         Unknown = 0,
-        Room = 1,
+        Rooms = 1,
         Users = 2,
         Teams = 3,
     };
