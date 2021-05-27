@@ -32,7 +32,7 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseRooms(const QJsonObject &discussionsObj, const QString &roomId);
+    void parseRooms(const QJsonObject &discussionsObj);
 
     void addMoreRooms(const QJsonObject &discussionsObj);
 

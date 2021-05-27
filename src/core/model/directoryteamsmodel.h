@@ -21,6 +21,8 @@
 
 #include "directorybasemodel.h"
 #include "libruqolacore_export.h"
+#include "roomsinfo.h"
+
 class LIBRUQOLACORE_EXPORT DirectoryTeamsModel : public DirectoryBaseModel
 {
     Q_OBJECT
@@ -31,11 +33,12 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseTeams(const QJsonObject &discussionsObj, const QString &roomId);
+    void parseTeams(const QJsonObject &discussionsObj);
 
     void addMoreTeams(const QJsonObject &discussionsObj);
 
 private:
     Q_DISABLE_COPY(DirectoryTeamsModel)
     void checkFullList();
+    RoomsInfo mRoomsInfo;
 };

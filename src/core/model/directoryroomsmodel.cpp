@@ -31,47 +31,45 @@ DirectoryRoomsModel::~DirectoryRoomsModel()
 
 void DirectoryRoomsModel::checkFullList()
 {
-    // setHasFullList(mDiscussions->discussions().count() == mDiscussions->total());
+    setHasFullList(mRoomsInfo.count() == mRoomsInfo.total());
 }
 
 int DirectoryRoomsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    // return mDiscussions->count();
-    return {};
+    return mRoomsInfo.count();
 }
 
-void DirectoryRoomsModel::addMoreRooms(const QJsonObject &discussionsObj)
+void DirectoryRoomsModel::addMoreRooms(const QJsonObject &obj)
 {
-    //    const int numberOfElement = mDiscussions->discussions().count();
-    //    mDiscussions->parseMoreDiscussions(discussionsObj);
-    //    beginInsertRows(QModelIndex(), numberOfElement, mDiscussions->discussions().count() - 1);
-    //    endInsertRows();
-    //    checkFullList();
+    const int numberOfElement = mRoomsInfo.count();
+    mRoomsInfo.parseMoreRooms(obj);
+    beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
+    endInsertRows();
+    checkFullList();
 }
 
-void DirectoryRoomsModel::parseRooms(const QJsonObject &discussionsObj, const QString &roomId)
+void DirectoryRoomsModel::parseRooms(const QJsonObject &discussionsObj)
 {
-    //    mRoomId = roomId;
-    //    if (rowCount() != 0) {
-    //        beginRemoveRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
-    //        mDiscussions->clear();
-    //        endRemoveRows();
-    //    }
-    //    mDiscussions->parseDiscussions(discussionsObj);
-    //    if (!mDiscussions->isEmpty()) {
-    //        beginInsertRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
-    //        endInsertRows();
-    //    }
-    //    checkFullList();
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
+        mRoomsInfo.clear();
+        endRemoveRows();
+    }
+    mRoomsInfo.parseRooms(discussionsObj);
+    if (!mRoomsInfo.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
+        endInsertRows();
+    }
+    checkFullList();
 }
 
 QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
 {
-    //    if (index.row() < 0 || index.row() >= mDiscussions->count()) {
-    //        return {};
-    //    }
-    //    const Discussion discussion = mDiscussions->at(index.row());
+    if (index.row() < 0 || index.row() >= mRoomsInfo.count()) {
+        return {};
+    }
+    const RoomInfo roomInfo = mRoomsInfo.at(index.row());
     //    switch (role) {
     //    case ParentId:
     //        return discussion.parentRoomId();
