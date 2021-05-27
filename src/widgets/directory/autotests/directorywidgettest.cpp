@@ -46,4 +46,5 @@ void DirectoryWidgetTest::shouldHaveDefaultValues()
 
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
+    QVERIFY(!mTreeView->rootIsDecorated());
 }
