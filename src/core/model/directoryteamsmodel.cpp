@@ -40,7 +40,7 @@ int DirectoryTeamsModel::rowCount(const QModelIndex &parent) const
     return mRoomsInfo.count();
 }
 
-void DirectoryTeamsModel::addMoreTeams(const QJsonObject &obj)
+void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();
     mRoomsInfo.parseMoreRooms(obj);
@@ -49,7 +49,7 @@ void DirectoryTeamsModel::addMoreTeams(const QJsonObject &obj)
     checkFullList();
 }
 
-void DirectoryTeamsModel::parseTeams(const QJsonObject &discussionsObj)
+void DirectoryTeamsModel::parseElements(const QJsonObject &discussionsObj)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);

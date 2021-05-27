@@ -32,9 +32,9 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseRooms(const QJsonObject &discussionsObj);
+    void parseElements(const QJsonObject &discussionsObj) override;
 
-    void addMoreRooms(const QJsonObject &discussionsObj);
+    void addMoreElements(const QJsonObject &discussionsObj) override;
 
 private:
     Q_DISABLE_COPY(DirectoryRoomsModel)

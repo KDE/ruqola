@@ -40,7 +40,7 @@ int DirectoryRoomsModel::rowCount(const QModelIndex &parent) const
     return mRoomsInfo.count();
 }
 
-void DirectoryRoomsModel::addMoreRooms(const QJsonObject &obj)
+void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();
     mRoomsInfo.parseMoreRooms(obj);
@@ -49,7 +49,7 @@ void DirectoryRoomsModel::addMoreRooms(const QJsonObject &obj)
     checkFullList();
 }
 
-void DirectoryRoomsModel::parseRooms(const QJsonObject &discussionsObj)
+void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);

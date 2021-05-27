@@ -41,29 +41,12 @@ int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
     return {};
 }
 
-void DirectoryUsersModel::addMoreUsers(const QJsonObject &discussionsObj)
+void DirectoryUsersModel::parseElements(const QJsonObject &obj)
 {
-    //    const int numberOfElement = mDiscussions->discussions().count();
-    //    mDiscussions->parseMoreDiscussions(discussionsObj);
-    //    beginInsertRows(QModelIndex(), numberOfElement, mDiscussions->discussions().count() - 1);
-    //    endInsertRows();
-    //    checkFullList();
 }
 
-void DirectoryUsersModel::parseUsers(const QJsonObject &discussionsObj, const QString &roomId)
+void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 {
-    //    mRoomId = roomId;
-    //    if (rowCount() != 0) {
-    //        beginRemoveRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
-    //        mDiscussions->clear();
-    //        endRemoveRows();
-    //    }
-    //    mDiscussions->parseDiscussions(discussionsObj);
-    //    if (!mDiscussions->isEmpty()) {
-    //        beginInsertRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
-    //        endInsertRows();
-    //    }
-    //    checkFullList();
 }
 
 QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const

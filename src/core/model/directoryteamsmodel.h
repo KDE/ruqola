@@ -33,9 +33,8 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseTeams(const QJsonObject &discussionsObj);
-
-    void addMoreTeams(const QJsonObject &discussionsObj);
+    void parseElements(const QJsonObject &discussionsObj) override;
+    void addMoreElements(const QJsonObject &obj) override;
 
 private:
     Q_DISABLE_COPY(DirectoryTeamsModel)

@@ -36,6 +36,10 @@ public:
     Q_REQUIRED_RESULT bool loadMoreInProgress() const;
     void setLoadMoreInProgress(bool loadMoreInProgress);
 
+    virtual void parseElements(const QJsonObject &discussionsObj) = 0;
+
+    virtual void addMoreElements(const QJsonObject &discussionsObj) = 0;
+
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
