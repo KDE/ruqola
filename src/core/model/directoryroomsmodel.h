@@ -31,7 +31,6 @@ public:
         Topic,
         ChannelType,
         ChannelTypeStr,
-        MessagesCount,
         UsersCount,
         ReadOnly,
         DefaultRoom,

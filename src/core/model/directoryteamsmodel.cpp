@@ -70,24 +70,17 @@ QVariant DirectoryTeamsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mRoomsInfo.count()) {
         return {};
     }
-    const RoomInfo roomInfo = mRoomsInfo.at(index.row());
-    //    switch (role) {
-    //    case ParentId:
-    //        return discussion.parentRoomId();
-    //    case Description:
-    //        return discussion.description().isEmpty() ? discussion.fname() : discussion.description();
-    //    case NumberOfMessages:
-    //        return discussion.numberMessages();
-    //    case Qt::DisplayRole:
-    //    case LastMessage:
-    //        return discussion.lastMessageDisplay();
-    //    case DiscussionRoomId:
-    //        return discussion.discussionRoomId();
-    //    case TimeStamp:
-    //        return discussion.timeStampDisplay();
-    //    case SortByTimeStamp:
-    //        return discussion.timeStamp();
-    //    }
+    if (role != Qt::DisplayRole) {
+        return {};
+    }
+    const RoomInfo &roomInfo = mRoomsInfo.at(index.row());
+    const int col = index.column();
+    switch (static_cast<DirectoryTeamsRoles>(col)) {
+    case DirectoryTeamsRoles::TeamName:
+        return roomInfo.roomName();
+    case DirectoryTeamsRoles::RoomsCount:
+        return roomInfo.teamInfo().roomsCount();
+    }
     return {};
 }
 
@@ -97,23 +90,15 @@ QVariant DirectoryTeamsModel::headerData(int section, Qt::Orientation orientatio
         switch (static_cast<DirectoryTeamsRoles>(section)) {
         case DirectoryTeamsModel::TeamName:
             return i18n("Name");
-            //        case AdminRoomsRoles::MessagesCount:
-            //            return i18n("Number Of Messages");
-            //        case AdminRoomsRoles::UsersCount:
-            //            return i18n("Number Of Users");
-            //        case AdminRoomsRoles::Topic:
-            //            return i18n("Topic");
-            //        case AdminRoomsRoles::Identifier:
-            //            return i18n("Identifier");
-            //        case AdminRoomsRoles::ReadOnly:
-            //            return i18n("Read Only");
-            //        case AdminRoomsRoles::DefaultRoom:
-            //            return i18n("Default Room");
-            //        case AdminRoomsRoles::ChannelType:
-            //            return i18n("Type");
-            //        case AdminRoomsRoles::ChannelTypeStr:
-            //            return i18n("Type");
+        case DirectoryTeamsRoles::RoomsCount:
+            return i18n("Rooms");
         }
     }
     return QVariant();
+}
+
+int DirectoryTeamsModel::columnCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    return static_cast<int>(DirectoryTeamsModel::LastColumn) + 1;
 }

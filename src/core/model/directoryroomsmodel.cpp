@@ -62,7 +62,6 @@ void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
         beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         endInsertRows();
     }
-    qDebug() << " mRoomsInfo********" << mRoomsInfo;
     checkFullList();
 }
 
@@ -80,8 +79,6 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
     switch (static_cast<DirectoryRoomsRoles>(col)) {
     case DirectoryRoomsRoles::Name:
         return roomInfo.roomName();
-    case DirectoryRoomsRoles::MessagesCount:
-        return roomInfo.messageCount();
     case DirectoryRoomsRoles::UsersCount:
         return roomInfo.usersCount();
     case DirectoryRoomsRoles::Topic:
@@ -106,8 +103,6 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
         switch (static_cast<DirectoryRoomsRoles>(section)) {
         case DirectoryRoomsModel::Name:
             return i18n("Name");
-        case DirectoryRoomsModel::MessagesCount:
-            return i18n("Number Of Messages");
         case DirectoryRoomsModel::UsersCount:
             return i18n("Number Of Users");
         case DirectoryRoomsModel::Topic:

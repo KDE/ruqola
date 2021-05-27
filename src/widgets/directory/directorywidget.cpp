@@ -52,6 +52,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     mainLayout->addWidget(mLabelResultSearch);
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mTreeView->setRootIsDecorated(false);
     mainLayout->addWidget(mTreeView);
 
     switch (mType) {

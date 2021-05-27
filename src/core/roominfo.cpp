@@ -61,6 +61,7 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     for (const auto &var : userNamesList) {
         mUserNames.append(var.toString());
     }
+    mTeamInfo.parseTeamInfo(object);
     // TODO load team info
     // qDebug() << " * this " << *this;
     // Add users "u"

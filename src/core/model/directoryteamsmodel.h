@@ -29,7 +29,8 @@ class LIBRUQOLACORE_EXPORT DirectoryTeamsModel : public DirectoryBaseModel
 public:
     enum DirectoryTeamsRoles {
         TeamName,
-        LastColumn = TeamName,
+        RoomsCount,
+        LastColumn = RoomsCount,
     };
     Q_ENUM(DirectoryTeamsRoles)
     explicit DirectoryTeamsModel(QObject *parent = nullptr);
@@ -38,6 +39,7 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
 
     void parseElements(const QJsonObject &discussionsObj) override;
     void addMoreElements(const QJsonObject &obj) override;
