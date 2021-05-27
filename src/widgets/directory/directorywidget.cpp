@@ -50,6 +50,12 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
     mainLayout->addWidget(mLabelResultSearch);
+    mLabelResultSearch->setTextFormat(Qt::RichText);
+    mLabelResultSearch->setContextMenuPolicy(Qt::NoContextMenu);
+    QFont labFont = mLabelResultSearch->font();
+    labFont.setBold(true);
+    mLabelResultSearch->setFont(labFont);
+    connect(mLabelResultSearch, &QLabel::linkActivated, this, &DirectoryWidget::loadMoreElements);
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
@@ -72,10 +78,33 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
         break;
     }
     mTreeView->setModel(mModel);
+    connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &DirectoryWidget::updateLabel);
+    connect(mModel, &DirectoryBaseModel::totalChanged, this, &DirectoryWidget::updateLabel);
+    connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &DirectoryWidget::updateLabel);
 }
 
 DirectoryWidget::~DirectoryWidget()
 {
+}
+
+void DirectoryWidget::loadMoreElements()
+{
+    // TODO
+}
+
+void DirectoryWidget::updateLabel()
+{
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No Attachments found") : displayShowMessageInRoom());
+    // TODO
+}
+
+QString DirectoryWidget::displayShowMessageInRoom() const
+{
+    QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->rowCount(), mModel->total());
+    if (!mModel->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
 }
 
 void DirectoryWidget::fillDirectory()
@@ -97,6 +126,7 @@ void DirectoryWidget::fillDirectory()
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
+    mModel->initialize();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::DirectoryJob(this);
     job->setDirectoryInfo(info);
@@ -109,7 +139,7 @@ void DirectoryWidget::fillDirectory()
 
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    // qDebug() << " obj " << obj;
     mModel->parseElements(obj);
 }
 

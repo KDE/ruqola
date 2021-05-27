@@ -42,10 +42,13 @@ public:
 
     void fillDirectory();
 
-    DirectoryType type() const;
+    Q_REQUIRED_RESULT DirectoryType type() const;
 
 private:
     void slotSearchDone(const QJsonObject &obj);
+    void loadMoreElements();
+    void updateLabel();
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     const DirectoryType mType;
     QLabel *const mLabelResultSearch;
     QLineEdit *const mSearchLineEdit;

@@ -40,13 +40,11 @@ public:
 
     virtual void addMoreElements(const QJsonObject &discussionsObj) = 0;
 
+    void initialize();
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
     void loadingInProgressChanged();
-
-protected:
-    void initialize();
 
 private:
     Q_DISABLE_COPY(DirectoryBaseModel)
