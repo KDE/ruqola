@@ -117,7 +117,7 @@ target_sources(libruqolacore PRIVATE
     downloadappslanguages/downloadappslanguagesmanager.cpp
     downloadappslanguages/downloadappslanguagesinfo.cpp
 
-    administrator/adminroom.cpp
+    administrator/roominfo.cpp
     administrator/adminrooms.cpp
 
     authenticationinfo.cpp

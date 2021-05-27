@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "administrator/adminroom.h"
+#include "administrator/roominfo.h"
 #include "libruqola_private_export.h"
 #include <QDebug>
 #include <QVector>
@@ -32,7 +32,7 @@ public:
     Q_REQUIRED_RESULT bool isEmpty() const;
     void clear();
     Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT AdminRoom at(int index) const;
+    Q_REQUIRED_RESULT RoomInfo at(int index) const;
 
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int offset);
@@ -43,15 +43,15 @@ public:
     void parseAdminRooms(const QJsonObject &commandsObj);
     void parseMoreAdminRooms(const QJsonObject &fileAttachmentsObj);
 
-    Q_REQUIRED_RESULT QVector<AdminRoom> adminRooms() const;
-    void setAdminRooms(const QVector<AdminRoom> &commands);
+    Q_REQUIRED_RESULT QVector<RoomInfo> adminRooms() const;
+    void setAdminRooms(const QVector<RoomInfo> &commands);
 
     Q_REQUIRED_RESULT int adminRoomsCount() const;
     void setAdminRoomsCount(int adminroomsCount);
 
 private:
     void parseListAdminRooms(const QJsonObject &commandsObj);
-    QVector<AdminRoom> mAdminRooms;
+    QVector<RoomInfo> mAdminRooms;
     int mAdminRoomsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

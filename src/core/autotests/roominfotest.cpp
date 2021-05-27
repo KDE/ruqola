@@ -18,17 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
+#include "roominfotest.h"
+#include "administrator/roominfo.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(RoomInfoTest)
 
-#include <QObject>
-
-class AdminRoomTest : public QObject
+RoomInfoTest::RoomInfoTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit AdminRoomTest(QObject *parent = nullptr);
-    ~AdminRoomTest() override = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
+}
 
+void RoomInfoTest::shouldHaveDefaultValues()
+{
+    RoomInfo w;
+    QVERIFY(!w.defaultRoom());
+    QCOMPARE(w.usersCount(), -1);
+    QCOMPARE(w.messageCount(), -1);
+    QVERIFY(w.channelType().isEmpty());
+    QVERIFY(w.topic().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
+    QVERIFY(!w.readOnly());
+    QVERIFY(w.name().isEmpty());
+}

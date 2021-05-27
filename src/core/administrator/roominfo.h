@@ -26,12 +26,12 @@
 #include <QJsonObject>
 #include <QString>
 
-class LIBRUQOLACORE_EXPORT AdminRoom
+class LIBRUQOLACORE_EXPORT RoomInfo
 {
 public:
-    AdminRoom();
-    ~AdminRoom();
-    Q_REQUIRED_RESULT bool operator==(const AdminRoom &other) const;
+    RoomInfo();
+    ~RoomInfo();
+    Q_REQUIRED_RESULT bool operator==(const RoomInfo &other) const;
     void parseAdminRoom(const QJsonObject &object);
 
     Q_REQUIRED_RESULT bool defaultRoom() const;
@@ -85,7 +85,6 @@ private:
     bool mDefaultRoom = false;
     bool mReadOnly = false;
 };
-Q_DECLARE_METATYPE(AdminRoom)
-Q_DECLARE_TYPEINFO(AdminRoom, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AdminRoom &t);
-
+Q_DECLARE_METATYPE(RoomInfo)
+Q_DECLARE_TYPEINFO(RoomInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomInfo &t);

@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "adminroom.h"
+#include "roominfo.h"
 
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
 
-AdminRoom::AdminRoom()
+RoomInfo::RoomInfo()
 {
 }
 
-AdminRoom::~AdminRoom()
+RoomInfo::~RoomInfo()
 {
 }
 
-void AdminRoom::parseAdminRoom(const QJsonObject &object)
+void RoomInfo::parseAdminRoom(const QJsonObject &object)
 {
     // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("topic"))) {
@@ -67,37 +67,37 @@ void AdminRoom::parseAdminRoom(const QJsonObject &object)
     // TODO
 }
 
-bool AdminRoom::defaultRoom() const
+bool RoomInfo::defaultRoom() const
 {
     return mDefaultRoom;
 }
 
-void AdminRoom::setDefaultRoom(bool defaultRoom)
+void RoomInfo::setDefaultRoom(bool defaultRoom)
 {
     mDefaultRoom = defaultRoom;
 }
 
-int AdminRoom::usersCount() const
+int RoomInfo::usersCount() const
 {
     return mUsersCount;
 }
 
-void AdminRoom::setUsersCount(int usersCount)
+void RoomInfo::setUsersCount(int usersCount)
 {
     mUsersCount = usersCount;
 }
 
-int AdminRoom::messageCount() const
+int RoomInfo::messageCount() const
 {
     return mMessageCount;
 }
 
-void AdminRoom::setMessageCount(int messageCount)
+void RoomInfo::setMessageCount(int messageCount)
 {
     mMessageCount = messageCount;
 }
 
-QString AdminRoom::channelType() const
+QString RoomInfo::channelType() const
 {
     return mChannelType;
 }
@@ -116,43 +116,43 @@ static QString convertChannelType(const QString &str)
     }
 }
 
-void AdminRoom::setChannelType(const QString &channelType)
+void RoomInfo::setChannelType(const QString &channelType)
 {
     mChannelType = channelType;
     mChannelTypeStr = convertChannelType(channelType);
 }
 
-QString AdminRoom::identifier() const
+QString RoomInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void AdminRoom::setIdentifier(const QString &identifier)
+void RoomInfo::setIdentifier(const QString &identifier)
 {
     mIdentifier = identifier;
 }
 
-QString AdminRoom::topic() const
+QString RoomInfo::topic() const
 {
     return mTopic;
 }
 
-void AdminRoom::setTopic(const QString &topic)
+void RoomInfo::setTopic(const QString &topic)
 {
     mTopic = topic;
 }
 
-bool AdminRoom::readOnly() const
+bool RoomInfo::readOnly() const
 {
     return mReadOnly;
 }
 
-void AdminRoom::setReadOnly(bool readOnly)
+void RoomInfo::setReadOnly(bool readOnly)
 {
     mReadOnly = readOnly;
 }
 
-QString AdminRoom::roomName() const
+QString RoomInfo::roomName() const
 {
     if (mName.isEmpty()) {
         return mUserNames.join(QStringLiteral(" x "));
@@ -160,59 +160,59 @@ QString AdminRoom::roomName() const
     return mName;
 }
 
-const TeamInfo &AdminRoom::teamInfo() const
+const TeamInfo &RoomInfo::teamInfo() const
 {
     return mTeamInfo;
 }
 
-void AdminRoom::setTeamInfo(const TeamInfo &newTeamInfo)
+void RoomInfo::setTeamInfo(const TeamInfo &newTeamInfo)
 {
     mTeamInfo = newTeamInfo;
 }
 
-QString AdminRoom::name() const
+QString RoomInfo::name() const
 {
     return mName;
 }
 
-void AdminRoom::setName(const QString &name)
+void RoomInfo::setName(const QString &name)
 {
     mName = name;
 }
 
-QStringList AdminRoom::userNames() const
+QStringList RoomInfo::userNames() const
 {
     return mUserNames;
 }
 
-void AdminRoom::setUserNames(const QStringList &userNames)
+void RoomInfo::setUserNames(const QStringList &userNames)
 {
     mUserNames = userNames;
 }
 
-QStringList AdminRoom::users() const
+QStringList RoomInfo::users() const
 {
     return mUsers;
 }
 
-void AdminRoom::setUsers(const QStringList &users)
+void RoomInfo::setUsers(const QStringList &users)
 {
     mUsers = users;
 }
 
-QString AdminRoom::channelTypeStr() const
+QString RoomInfo::channelTypeStr() const
 {
     return mChannelTypeStr;
 }
 
-bool AdminRoom::operator==(const AdminRoom &other) const
+bool RoomInfo::operator==(const RoomInfo &other) const
 {
     return mDefaultRoom == other.defaultRoom() && mUsersCount == other.usersCount() && mMessageCount == other.messageCount()
         && mChannelType == other.channelType() && mIdentifier == other.identifier() && mTopic == other.topic() && mName == other.name()
         && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo();
 }
 
-QDebug operator<<(QDebug d, const AdminRoom &t)
+QDebug operator<<(QDebug d, const RoomInfo &t)
 {
     d << " default Room : " << t.defaultRoom();
     d << " user count : " << t.usersCount();

@@ -80,7 +80,7 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const AdminRoom &adminroom = mAdminRooms.at(index.row());
+    const RoomInfo &adminroom = mAdminRooms.at(index.row());
     const int col = index.column();
     switch (static_cast<AdminRoomsRoles>(col)) {
     case AdminRoomsRoles::Name:

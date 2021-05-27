@@ -42,7 +42,7 @@ int AdminRooms::count() const
     return mAdminRooms.count();
 }
 
-AdminRoom AdminRooms::at(int index) const
+RoomInfo AdminRooms::at(int index) const
 {
     return mAdminRooms.at(index);
 }
@@ -63,7 +63,7 @@ void AdminRooms::parseListAdminRooms(const QJsonObject &adminRoomsObj)
     for (const QJsonValue &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject adminRoomObject = current.toObject();
-            AdminRoom m;
+            RoomInfo m;
             m.parseAdminRoom(adminRoomObject);
             mAdminRooms.append(m);
         } else {
@@ -82,12 +82,12 @@ void AdminRooms::setAdminRoomsCount(int adminroomsCount)
     mAdminRoomsCount = adminroomsCount;
 }
 
-QVector<AdminRoom> AdminRooms::adminRooms() const
+QVector<RoomInfo> AdminRooms::adminRooms() const
 {
     return mAdminRooms;
 }
 
-void AdminRooms::setAdminRooms(const QVector<AdminRoom> &commands)
+void AdminRooms::setAdminRooms(const QVector<RoomInfo> &commands)
 {
     mAdminRooms = commands;
 }
