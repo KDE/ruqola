@@ -20,14 +20,14 @@
 
 #pragma once
 
-#include "administrator/roominfo.h"
 #include "libruqola_private_export.h"
+#include "roominfo.h"
 #include <QDebug>
 #include <QVector>
-class LIBRUQOLACORE_EXPORT AdminRooms
+class LIBRUQOLACORE_EXPORT RoomsInfo
 {
 public:
-    AdminRooms();
+    RoomsInfo();
 
     Q_REQUIRED_RESULT bool isEmpty() const;
     void clear();
@@ -57,6 +57,5 @@ private:
     int mTotal = 0;
 };
 
-Q_DECLARE_METATYPE(AdminRooms)
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AdminRooms &t);
-
+Q_DECLARE_METATYPE(RoomsInfo)
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomsInfo &t);

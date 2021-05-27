@@ -18,36 +18,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "adminrooms.h"
+#include "roomsinfo.h"
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
-AdminRooms::AdminRooms()
+RoomsInfo::RoomsInfo()
 {
 }
 
-bool AdminRooms::isEmpty() const
+bool RoomsInfo::isEmpty() const
 {
     return mRooms.isEmpty();
 }
 
-void AdminRooms::clear()
+void RoomsInfo::clear()
 {
     mRooms.clear();
 }
 
-int AdminRooms::count() const
+int RoomsInfo::count() const
 {
     return mRooms.count();
 }
 
-RoomInfo AdminRooms::at(int index) const
+RoomInfo RoomsInfo::at(int index) const
 {
     return mRooms.at(index);
 }
 
-void AdminRooms::parseMoreRooms(const QJsonObject &fileAttachmentsObj)
+void RoomsInfo::parseMoreRooms(const QJsonObject &fileAttachmentsObj)
 {
     const int adminRoomsCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
     mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
@@ -56,7 +56,7 @@ void AdminRooms::parseMoreRooms(const QJsonObject &fileAttachmentsObj)
     mRoomsCount += adminRoomsCount;
 }
 
-void AdminRooms::parseListRooms(const QJsonObject &adminRoomsObj)
+void RoomsInfo::parseListRooms(const QJsonObject &adminRoomsObj)
 {
     const QJsonArray adminRoomsArray = adminRoomsObj[QStringLiteral("rooms")].toArray();
     mRooms.reserve(mRooms.count() + adminRoomsArray.count());
@@ -72,27 +72,27 @@ void AdminRooms::parseListRooms(const QJsonObject &adminRoomsObj)
     }
 }
 
-int AdminRooms::roomsCount() const
+int RoomsInfo::roomsCount() const
 {
     return mRoomsCount;
 }
 
-void AdminRooms::setRoomsCount(int adminroomsCount)
+void RoomsInfo::setRoomsCount(int count)
 {
-    mRoomsCount = adminroomsCount;
+    mRoomsCount = count;
 }
 
-QVector<RoomInfo> AdminRooms::rooms() const
+QVector<RoomInfo> RoomsInfo::rooms() const
 {
     return mRooms;
 }
 
-void AdminRooms::setRooms(const QVector<RoomInfo> &rooms)
+void RoomsInfo::setRooms(const QVector<RoomInfo> &rooms)
 {
     mRooms = rooms;
 }
 
-void AdminRooms::parseRooms(const QJsonObject &roomsObj)
+void RoomsInfo::parseRooms(const QJsonObject &roomsObj)
 {
     mRoomsCount = roomsObj[QStringLiteral("count")].toInt();
     mOffset = roomsObj[QStringLiteral("offset")].toInt();
@@ -101,27 +101,27 @@ void AdminRooms::parseRooms(const QJsonObject &roomsObj)
     parseListRooms(roomsObj);
 }
 
-int AdminRooms::offset() const
+int RoomsInfo::offset() const
 {
     return mOffset;
 }
 
-void AdminRooms::setOffset(int offset)
+void RoomsInfo::setOffset(int offset)
 {
     mOffset = offset;
 }
 
-int AdminRooms::total() const
+int RoomsInfo::total() const
 {
     return mTotal;
 }
 
-void AdminRooms::setTotal(int total)
+void RoomsInfo::setTotal(int total)
 {
     mTotal = total;
 }
 
-QDebug operator<<(QDebug d, const AdminRooms &t)
+QDebug operator<<(QDebug d, const RoomsInfo &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

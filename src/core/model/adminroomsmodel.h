@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "administrator/adminrooms.h"
 #include "libruqolacore_export.h"
+#include "roomsinfo.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
@@ -39,12 +39,12 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_REQUIRED_RESULT AdminRooms adminRooms() const;
+    Q_REQUIRED_RESULT RoomsInfo adminRooms() const;
 
-    void setAdminRooms(const AdminRooms &adminrooms);
+    void setAdminRooms(const RoomsInfo &adminrooms);
 
 private:
     Q_DISABLE_COPY(AdminRoomsModel)
-    AdminRooms mAdminRooms;
+    RoomsInfo mAdminRooms;
 };
 

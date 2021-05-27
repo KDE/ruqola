@@ -106,12 +106,12 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-AdminRooms AdminRoomsModel::adminRooms() const
+RoomsInfo AdminRoomsModel::adminRooms() const
 {
     return mAdminRooms;
 }
 
-void AdminRoomsModel::setAdminRooms(const AdminRooms &adminrooms)
+void AdminRoomsModel::setAdminRooms(const RoomsInfo &adminrooms)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);

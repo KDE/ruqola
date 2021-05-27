@@ -19,12 +19,12 @@
 */
 
 #include "administratorroomswidget.h"
-#include "administrator/adminrooms.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminroomsmodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "rooms/adminroomsjob.h"
+#include "roomsinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
@@ -143,7 +143,7 @@ void AdministratorRoomsWidget::initialize()
 
 void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
 {
-    AdminRooms rooms;
+    RoomsInfo rooms;
     rooms.parseRooms(obj);
     mAdminRoomsModel->setAdminRooms(rooms);
     mResultTreeWidget->resizeColumnsToContents();
