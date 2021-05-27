@@ -34,10 +34,10 @@ bool DirectoryBaseModel::loadMoreInProgress() const
     return mLoadMoreInProgress;
 }
 
-void DirectoryBaseModel::setLoadMoreInProgress(bool loadMoreDiscussionsInProgress)
+void DirectoryBaseModel::setLoadMoreInProgress(bool inProgress)
 {
-    if (mLoadMoreInProgress != loadMoreDiscussionsInProgress) {
-        mLoadMoreInProgress = loadMoreDiscussionsInProgress;
+    if (mLoadMoreInProgress != inProgress) {
+        mLoadMoreInProgress = inProgress;
         Q_EMIT loadingInProgressChanged();
     }
 }
