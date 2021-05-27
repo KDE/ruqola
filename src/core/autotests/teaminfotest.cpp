@@ -35,6 +35,7 @@ void TeamInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.autoJoin());
     QVERIFY(!info.isValid());
     QVERIFY(!info.hasTeamRoom());
+    QCOMPARE(info.roomsCount(), 0);
 }
 
 void TeamInfoTest::shouldVerifyHasTeamRoom()

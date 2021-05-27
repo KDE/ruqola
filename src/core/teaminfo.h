@@ -49,8 +49,12 @@ public:
     Q_REQUIRED_RESULT bool autoJoin() const;
     void setAutoJoin(bool autoJoin);
 
+    Q_REQUIRED_RESULT int roomsCount() const;
+    void setRoomsCount(int newRoomsCount);
+
 private:
     QString mTeamId;
+    int mRoomsCount = 0;
     bool mMainTeam = false;
     bool mAutoJoin = false;
 };
