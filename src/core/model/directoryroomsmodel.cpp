@@ -41,7 +41,7 @@ int DirectoryRoomsModel::rowCount(const QModelIndex &parent) const
     return {};
 }
 
-void DirectoryRoomsModel::addMoreDiscussions(const QJsonObject &discussionsObj)
+void DirectoryRoomsModel::addMoreRooms(const QJsonObject &discussionsObj)
 {
     //    const int numberOfElement = mDiscussions->discussions().count();
     //    mDiscussions->parseMoreDiscussions(discussionsObj);
@@ -50,7 +50,7 @@ void DirectoryRoomsModel::addMoreDiscussions(const QJsonObject &discussionsObj)
     //    checkFullList();
 }
 
-void DirectoryRoomsModel::parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId)
+void DirectoryRoomsModel::parseRooms(const QJsonObject &discussionsObj, const QString &roomId)
 {
     //    mRoomId = roomId;
     //    if (rowCount() != 0) {

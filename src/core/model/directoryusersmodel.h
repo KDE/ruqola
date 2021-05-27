@@ -31,18 +31,11 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId);
+    void parseUsers(const QJsonObject &discussionsObj, const QString &roomId);
 
-    void addMoreDiscussions(const QJsonObject &discussionsObj);
-
-Q_SIGNALS:
-    void hasFullListChanged();
-    void totalChanged();
-    void loadingInProgressChanged();
+    void addMoreUsers(const QJsonObject &discussionsObj);
 
 private:
     Q_DISABLE_COPY(DirectoryUsersModel)
     void checkFullList();
-    bool mLoadMoreDiscussionsInProgress = false;
-    bool mHasFullList = false;
 };

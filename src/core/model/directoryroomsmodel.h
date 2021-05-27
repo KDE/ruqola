@@ -21,6 +21,7 @@
 
 #include "directorybasemodel.h"
 #include "libruqolacore_export.h"
+#include "roomsinfo.h"
 class LIBRUQOLACORE_EXPORT DirectoryRoomsModel : public DirectoryBaseModel
 {
     Q_OBJECT
@@ -31,18 +32,12 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId);
+    void parseRooms(const QJsonObject &discussionsObj, const QString &roomId);
 
-    void addMoreDiscussions(const QJsonObject &discussionsObj);
-
-Q_SIGNALS:
-    void hasFullListChanged();
-    void totalChanged();
-    void loadingInProgressChanged();
+    void addMoreRooms(const QJsonObject &discussionsObj);
 
 private:
     Q_DISABLE_COPY(DirectoryRoomsModel)
     void checkFullList();
-    bool mLoadMoreDiscussionsInProgress = false;
-    bool mHasFullList = false;
+    RoomsInfo mRoomsInfo;
 };

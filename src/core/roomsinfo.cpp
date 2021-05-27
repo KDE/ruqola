@@ -67,7 +67,7 @@ void RoomsInfo::parseListRooms(const QJsonObject &adminRoomsObj)
             m.parseRoomInfo(adminRoomObject);
             mRooms.append(m);
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing admin Rooms" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
         }
     }
 }
