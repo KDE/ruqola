@@ -80,6 +80,12 @@ target_sources(libruqolacore PRIVATE
 
     model/admininvitemodel.cpp
     model/admininvitefilterproxymodel.cpp
+
+    model/directoryroomsmodel.cpp
+    model/directoryteamsmodel.cpp
+    model/directoryusersmodel.cpp
+    model/directorybasemodel.cpp
+
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthentication.cpp
     emoticons/customemoji.cpp
