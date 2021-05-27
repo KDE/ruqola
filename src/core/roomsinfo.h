@@ -27,6 +27,7 @@
 class LIBRUQOLACORE_EXPORT RoomsInfo
 {
 public:
+    enum ParseType { Administrator, Directory };
     RoomsInfo();
 
     Q_REQUIRED_RESULT bool isEmpty() const;
@@ -40,8 +41,8 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseRooms(const QJsonObject &commandsObj);
-    void parseMoreRooms(const QJsonObject &fileAttachmentsObj);
+    void parseRooms(const QJsonObject &commandsObj, RoomsInfo::ParseType type);
+    void parseMoreRooms(const QJsonObject &fileAttachmentsObj, RoomsInfo::ParseType type);
 
     Q_REQUIRED_RESULT QVector<RoomInfo> rooms() const;
     void setRooms(const QVector<RoomInfo> &rooms);
@@ -50,7 +51,7 @@ public:
     void setRoomsCount(int adminroomsCount);
 
 private:
-    void parseListRooms(const QJsonObject &commandsObj);
+    void parseListRooms(const QJsonObject &commandsObj, ParseType type);
     QVector<RoomInfo> mRooms;
     int mRoomsCount = 0;
     int mOffset = 0;

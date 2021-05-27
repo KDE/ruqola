@@ -27,8 +27,16 @@ class LIBRUQOLACORE_EXPORT DirectoryRoomsModel : public DirectoryBaseModel
     Q_OBJECT
 public:
     enum DirectoryRoomsRoles {
-        RoomName,
-        LastColumn = RoomName,
+        Name,
+        Topic,
+        ChannelType,
+        ChannelTypeStr,
+        MessagesCount,
+        UsersCount,
+        ReadOnly,
+        DefaultRoom,
+        Identifier,
+        LastColumn = Identifier,
     };
     Q_ENUM(DirectoryRoomsRoles)
 

@@ -44,7 +44,7 @@ int DirectoryRoomsModel::rowCount(const QModelIndex &parent) const
 void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();
-    mRoomsInfo.parseMoreRooms(obj);
+    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::Directory);
     beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
     endInsertRows();
     checkFullList();
@@ -57,11 +57,12 @@ void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
         mRoomsInfo.clear();
         endRemoveRows();
     }
-    mRoomsInfo.parseRooms(discussionsObj);
+    mRoomsInfo.parseRooms(discussionsObj, RoomsInfo::Directory);
     if (!mRoomsInfo.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         endInsertRows();
     }
+    qDebug() << " mRoomsInfo********" << mRoomsInfo;
     checkFullList();
 }
 
@@ -70,24 +71,32 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mRoomsInfo.count()) {
         return {};
     }
-    const RoomInfo roomInfo = mRoomsInfo.at(index.row());
-    //    switch (role) {
-    //    case ParentId:
-    //        return discussion.parentRoomId();
-    //    case Description:
-    //        return discussion.description().isEmpty() ? discussion.fname() : discussion.description();
-    //    case NumberOfMessages:
-    //        return discussion.numberMessages();
-    //    case Qt::DisplayRole:
-    //    case LastMessage:
-    //        return discussion.lastMessageDisplay();
-    //    case DiscussionRoomId:
-    //        return discussion.discussionRoomId();
-    //    case TimeStamp:
-    //        return discussion.timeStampDisplay();
-    //    case SortByTimeStamp:
-    //        return discussion.timeStamp();
-    //    }
+    if (role != Qt::DisplayRole) {
+        return {};
+    }
+
+    const RoomInfo &roomInfo = mRoomsInfo.at(index.row());
+    const int col = index.column();
+    switch (static_cast<DirectoryRoomsRoles>(col)) {
+    case DirectoryRoomsRoles::Name:
+        return roomInfo.roomName();
+    case DirectoryRoomsRoles::MessagesCount:
+        return roomInfo.messageCount();
+    case DirectoryRoomsRoles::UsersCount:
+        return roomInfo.usersCount();
+    case DirectoryRoomsRoles::Topic:
+        return roomInfo.topic();
+    case DirectoryRoomsRoles::Identifier:
+        return roomInfo.identifier();
+    case DirectoryRoomsRoles::ReadOnly:
+        return roomInfo.readOnly();
+    case DirectoryRoomsRoles::DefaultRoom:
+        return roomInfo.defaultRoom();
+    case DirectoryRoomsRoles::ChannelType:
+        return roomInfo.channelType();
+    case DirectoryRoomsRoles::ChannelTypeStr:
+        return roomInfo.channelTypeStr();
+    }
     return {};
 }
 
@@ -95,24 +104,24 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<DirectoryRoomsRoles>(section)) {
-        case DirectoryRoomsModel::RoomName:
+        case DirectoryRoomsModel::Name:
             return i18n("Name");
-            //        case AdminRoomsRoles::MessagesCount:
-            //            return i18n("Number Of Messages");
-            //        case AdminRoomsRoles::UsersCount:
-            //            return i18n("Number Of Users");
-            //        case AdminRoomsRoles::Topic:
-            //            return i18n("Topic");
-            //        case AdminRoomsRoles::Identifier:
-            //            return i18n("Identifier");
-            //        case AdminRoomsRoles::ReadOnly:
-            //            return i18n("Read Only");
-            //        case AdminRoomsRoles::DefaultRoom:
-            //            return i18n("Default Room");
-            //        case AdminRoomsRoles::ChannelType:
-            //            return i18n("Type");
-            //        case AdminRoomsRoles::ChannelTypeStr:
-            //            return i18n("Type");
+        case DirectoryRoomsModel::MessagesCount:
+            return i18n("Number Of Messages");
+        case DirectoryRoomsModel::UsersCount:
+            return i18n("Number Of Users");
+        case DirectoryRoomsModel::Topic:
+            return i18n("Topic");
+        case DirectoryRoomsModel::Identifier:
+            return i18n("Identifier");
+        case DirectoryRoomsModel::ReadOnly:
+            return i18n("Read Only");
+        case DirectoryRoomsModel::DefaultRoom:
+            return i18n("Default Room");
+        case DirectoryRoomsModel::ChannelType:
+            return i18n("Type");
+        case DirectoryRoomsModel::ChannelTypeStr:
+            return i18n("Type");
         }
     }
     return QVariant();
