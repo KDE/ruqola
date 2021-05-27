@@ -40,19 +40,19 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseAdminRooms(const QJsonObject &commandsObj);
-    void parseMoreAdminRooms(const QJsonObject &fileAttachmentsObj);
+    void parseRooms(const QJsonObject &commandsObj);
+    void parseMoreRooms(const QJsonObject &fileAttachmentsObj);
 
-    Q_REQUIRED_RESULT QVector<RoomInfo> adminRooms() const;
-    void setAdminRooms(const QVector<RoomInfo> &commands);
+    Q_REQUIRED_RESULT QVector<RoomInfo> rooms() const;
+    void setRooms(const QVector<RoomInfo> &rooms);
 
-    Q_REQUIRED_RESULT int adminRoomsCount() const;
-    void setAdminRoomsCount(int adminroomsCount);
+    Q_REQUIRED_RESULT int roomsCount() const;
+    void setRoomsCount(int adminroomsCount);
 
 private:
-    void parseListAdminRooms(const QJsonObject &commandsObj);
-    QVector<RoomInfo> mAdminRooms;
-    int mAdminRoomsCount = 0;
+    void parseListRooms(const QJsonObject &commandsObj);
+    QVector<RoomInfo> mRooms;
+    int mRoomsCount = 0;
     int mOffset = 0;
     int mTotal = 0;
 };

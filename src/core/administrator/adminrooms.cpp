@@ -29,76 +29,76 @@ AdminRooms::AdminRooms()
 
 bool AdminRooms::isEmpty() const
 {
-    return mAdminRooms.isEmpty();
+    return mRooms.isEmpty();
 }
 
 void AdminRooms::clear()
 {
-    mAdminRooms.clear();
+    mRooms.clear();
 }
 
 int AdminRooms::count() const
 {
-    return mAdminRooms.count();
+    return mRooms.count();
 }
 
 RoomInfo AdminRooms::at(int index) const
 {
-    return mAdminRooms.at(index);
+    return mRooms.at(index);
 }
 
-void AdminRooms::parseMoreAdminRooms(const QJsonObject &fileAttachmentsObj)
+void AdminRooms::parseMoreRooms(const QJsonObject &fileAttachmentsObj)
 {
     const int adminRoomsCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
     mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
     mTotal = fileAttachmentsObj[QStringLiteral("total")].toInt();
-    parseListAdminRooms(fileAttachmentsObj);
-    mAdminRoomsCount += adminRoomsCount;
+    parseListRooms(fileAttachmentsObj);
+    mRoomsCount += adminRoomsCount;
 }
 
-void AdminRooms::parseListAdminRooms(const QJsonObject &adminRoomsObj)
+void AdminRooms::parseListRooms(const QJsonObject &adminRoomsObj)
 {
     const QJsonArray adminRoomsArray = adminRoomsObj[QStringLiteral("rooms")].toArray();
-    mAdminRooms.reserve(mAdminRooms.count() + adminRoomsArray.count());
+    mRooms.reserve(mRooms.count() + adminRoomsArray.count());
     for (const QJsonValue &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject adminRoomObject = current.toObject();
             RoomInfo m;
-            m.parseAdminRoom(adminRoomObject);
-            mAdminRooms.append(m);
+            m.parseRoomInfo(adminRoomObject);
+            mRooms.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing admin Rooms" << current;
         }
     }
 }
 
-int AdminRooms::adminRoomsCount() const
+int AdminRooms::roomsCount() const
 {
-    return mAdminRoomsCount;
+    return mRoomsCount;
 }
 
-void AdminRooms::setAdminRoomsCount(int adminroomsCount)
+void AdminRooms::setRoomsCount(int adminroomsCount)
 {
-    mAdminRoomsCount = adminroomsCount;
+    mRoomsCount = adminroomsCount;
 }
 
-QVector<RoomInfo> AdminRooms::adminRooms() const
+QVector<RoomInfo> AdminRooms::rooms() const
 {
-    return mAdminRooms;
+    return mRooms;
 }
 
-void AdminRooms::setAdminRooms(const QVector<RoomInfo> &commands)
+void AdminRooms::setRooms(const QVector<RoomInfo> &rooms)
 {
-    mAdminRooms = commands;
+    mRooms = rooms;
 }
 
-void AdminRooms::parseAdminRooms(const QJsonObject &commandsObj)
+void AdminRooms::parseRooms(const QJsonObject &roomsObj)
 {
-    mAdminRoomsCount = commandsObj[QStringLiteral("count")].toInt();
-    mOffset = commandsObj[QStringLiteral("offset")].toInt();
-    mTotal = commandsObj[QStringLiteral("total")].toInt();
-    mAdminRooms.clear();
-    parseListAdminRooms(commandsObj);
+    mRoomsCount = roomsObj[QStringLiteral("count")].toInt();
+    mOffset = roomsObj[QStringLiteral("offset")].toInt();
+    mTotal = roomsObj[QStringLiteral("total")].toInt();
+    mRooms.clear();
+    parseListRooms(roomsObj);
 }
 
 int AdminRooms::offset() const
@@ -125,9 +125,9 @@ QDebug operator<<(QDebug d, const AdminRooms &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "adminRoomsCount " << t.adminRoomsCount() << "\n";
-    for (int i = 0, total = t.adminRooms().count(); i < total; ++i) {
-        d << t.adminRooms().at(i) << "\n";
+    d << "adminRoomsCount " << t.roomsCount() << "\n";
+    for (int i = 0, total = t.rooms().count(); i < total; ++i) {
+        d << t.rooms().at(i) << "\n";
     }
     return d;
 }

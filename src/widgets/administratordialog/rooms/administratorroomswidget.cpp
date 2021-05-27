@@ -144,7 +144,7 @@ void AdministratorRoomsWidget::initialize()
 void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
 {
     AdminRooms rooms;
-    rooms.parseAdminRooms(obj);
+    rooms.parseRooms(obj);
     mAdminRoomsModel->setAdminRooms(rooms);
     mResultTreeWidget->resizeColumnsToContents();
     // qDebug() << " rooms " << rooms;

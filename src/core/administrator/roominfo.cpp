@@ -32,7 +32,7 @@ RoomInfo::~RoomInfo()
 {
 }
 
-void RoomInfo::parseAdminRoom(const QJsonObject &object)
+void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {
     // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("topic"))) {
@@ -61,7 +61,7 @@ void RoomInfo::parseAdminRoom(const QJsonObject &object)
     for (const auto &var : userNamesList) {
         mUserNames.append(var.toString());
     }
-
+    // TODO load team info
     // qDebug() << " * this " << *this;
     // Add users "u"
     // TODO

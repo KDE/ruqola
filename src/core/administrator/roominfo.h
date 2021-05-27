@@ -32,7 +32,7 @@ public:
     RoomInfo();
     ~RoomInfo();
     Q_REQUIRED_RESULT bool operator==(const RoomInfo &other) const;
-    void parseAdminRoom(const QJsonObject &object);
+    void parseRoomInfo(const QJsonObject &object);
 
     Q_REQUIRED_RESULT bool defaultRoom() const;
     void setDefaultRoom(bool defaultRoom);
