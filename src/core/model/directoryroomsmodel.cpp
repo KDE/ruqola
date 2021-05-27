@@ -19,6 +19,7 @@
 
 #include "directoryroomsmodel.h"
 #include "discussions.h"
+#include <KLocalizedString>
 
 DirectoryRoomsModel::DirectoryRoomsModel(QObject *parent)
     : DirectoryBaseModel(parent)
@@ -88,4 +89,37 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
     //        return discussion.timeStamp();
     //    }
     return {};
+}
+
+QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
+        switch (static_cast<DirectoryRoomsRoles>(section)) {
+        case DirectoryRoomsModel::RoomName:
+            return i18n("Name");
+            //        case AdminRoomsRoles::MessagesCount:
+            //            return i18n("Number Of Messages");
+            //        case AdminRoomsRoles::UsersCount:
+            //            return i18n("Number Of Users");
+            //        case AdminRoomsRoles::Topic:
+            //            return i18n("Topic");
+            //        case AdminRoomsRoles::Identifier:
+            //            return i18n("Identifier");
+            //        case AdminRoomsRoles::ReadOnly:
+            //            return i18n("Read Only");
+            //        case AdminRoomsRoles::DefaultRoom:
+            //            return i18n("Default Room");
+            //        case AdminRoomsRoles::ChannelType:
+            //            return i18n("Type");
+            //        case AdminRoomsRoles::ChannelTypeStr:
+            //            return i18n("Type");
+        }
+    }
+    return QVariant();
+}
+
+int DirectoryRoomsModel::columnCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    return static_cast<int>(DirectoryRoomsModel::LastColumn) + 1;
 }

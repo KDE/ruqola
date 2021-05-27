@@ -26,11 +26,19 @@ class LIBRUQOLACORE_EXPORT DirectoryRoomsModel : public DirectoryBaseModel
 {
     Q_OBJECT
 public:
+    enum DirectoryRoomsRoles {
+        RoomName,
+        LastColumn = RoomName,
+    };
+    Q_ENUM(DirectoryRoomsRoles)
+
     explicit DirectoryRoomsModel(QObject *parent = nullptr);
     ~DirectoryRoomsModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
 
     void parseElements(const QJsonObject &discussionsObj) override;
 

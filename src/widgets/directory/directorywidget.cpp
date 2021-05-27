@@ -57,17 +57,20 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     switch (mType) {
     case Room:
         mSearchLineEdit->setPlaceholderText(i18n("Search Channels"));
+        mModel = new DirectoryRoomsModel(this);
         break;
     case User:
         mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
+        mModel = new DirectoryUsersModel(this);
         break;
     case Team:
         mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
+        mModel = new DirectoryTeamsModel(this);
         break;
     case Unknown:
         break;
     }
-    // TODO add model
+    mTreeView->setModel(mModel);
 }
 
 DirectoryWidget::~DirectoryWidget()
@@ -106,16 +109,7 @@ void DirectoryWidget::fillDirectory()
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
-    switch (mType) {
-    case Room:
-        break;
-    case User:
-        break;
-    case Team:
-        break;
-    case Unknown:
-        break;
-    }
+    mModel->parseElements(obj);
 }
 
 DirectoryWidget::DirectoryType DirectoryWidget::type() const

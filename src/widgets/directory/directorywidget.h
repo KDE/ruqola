@@ -26,6 +26,7 @@ class QLabel;
 class QLineEdit;
 class QTreeView;
 class QJsonObject;
+class DirectoryBaseModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
 {
     Q_OBJECT
@@ -49,4 +50,5 @@ private:
     QLabel *const mLabelResultSearch;
     QLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
+    DirectoryBaseModel *mModel = nullptr;
 };
