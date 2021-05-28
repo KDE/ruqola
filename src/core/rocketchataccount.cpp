@@ -1166,9 +1166,9 @@ void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
 void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 {
     if (!mListMessageModel->loadMoreListMessagesInProgress()) {
-        mListMessageModel->setLoadMoreListMessagesInProgress(true);
         const int offset = mListMessageModel->rowCount();
         if (offset < mListMessageModel->total()) {
+            mListMessageModel->setLoadMoreListMessagesInProgress(true);
             switch (mListMessageModel->listMessageType()) {
             case ListMessagesModel::Unknown:
                 qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
