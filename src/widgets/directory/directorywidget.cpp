@@ -28,8 +28,10 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QHeaderView>
 #include <QLabel>
 #include <QLineEdit>
+#include <QSortFilterProxyModel>
 #include <QTreeView>
 #include <QVBoxLayout>
 
@@ -59,6 +61,11 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
+    mTreeView->setSortingEnabled(true);
+    mTreeView->header()->setSectionsClickable(true);
+    mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &DirectoryWidget::slotCustomContextMenuRequested);
+
     mainLayout->addWidget(mTreeView);
 
     switch (mType) {
@@ -77,7 +84,9 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     case Unknown:
         break;
     }
-    mTreeView->setModel(mModel);
+    auto sortProxyModel = new QSortFilterProxyModel(this);
+    sortProxyModel->setSourceModel(mModel);
+    mTreeView->setModel(sortProxyModel);
     connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &DirectoryWidget::updateLabel);
     connect(mModel, &DirectoryBaseModel::totalChanged, this, &DirectoryWidget::updateLabel);
     connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &DirectoryWidget::updateLabel);
@@ -87,7 +96,16 @@ DirectoryWidget::~DirectoryWidget()
 {
 }
 
+void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    // TODO
+}
+
 void DirectoryWidget::loadMoreElements()
+{
+}
+
+void DirectoryWidget::loadElements(int offset)
 {
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
@@ -104,16 +122,14 @@ void DirectoryWidget::loadMoreElements()
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
-#if 0
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::DirectoryJob(this);
     job->setDirectoryInfo(info);
-    QueryParameters parameters;
+    RocketChatRestApi::QueryParameters parameters;
 
-    QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
-    parameters.setCount(count);
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
 
@@ -122,8 +138,6 @@ void DirectoryWidget::loadMoreElements()
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
     }
-#endif
-    // TODO
 }
 
 void DirectoryWidget::updateLabel()
@@ -170,18 +184,14 @@ QString DirectoryWidget::displayShowMessageInRoom() const
 
 void DirectoryWidget::fillDirectory()
 {
-    RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
     case Room:
-        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
         mSearchLineEdit->setPlaceholderText(i18n("Search Rooms"));
         break;
     case User:
-        info.searchType = RocketChatRestApi::DirectoryJob::Users;
         mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
         break;
     case Team:
-        info.searchType = RocketChatRestApi::DirectoryJob::Teams;
         mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
         break;
     case Unknown:
@@ -189,20 +199,7 @@ void DirectoryWidget::fillDirectory()
         return;
     }
     mModel->initialize();
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::DirectoryJob(this);
-    RocketChatRestApi::QueryParameters parameters;
-    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
-    parameters.setSorting(map);
-    job->setQueryParameters(parameters);
-
-    job->setDirectoryInfo(info);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
-    }
+    loadElements();
 }
 
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)

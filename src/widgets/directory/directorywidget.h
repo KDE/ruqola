@@ -46,8 +46,10 @@ public:
 
 private:
     void slotSearchDone(const QJsonObject &obj);
+    void loadElements(int offset = 0);
     void loadMoreElements();
     void updateLabel();
+    void slotCustomContextMenuRequested(const QPoint &pos);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     Q_REQUIRED_RESULT QString noFoundInfo() const;
     const DirectoryType mType;
