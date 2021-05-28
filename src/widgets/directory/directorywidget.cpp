@@ -191,6 +191,12 @@ void DirectoryWidget::fillDirectory()
     mModel->initialize();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::DirectoryJob(this);
+    RocketChatRestApi::QueryParameters parameters;
+    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    parameters.setSorting(map);
+    job->setQueryParameters(parameters);
+
     job->setDirectoryInfo(info);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);

@@ -32,7 +32,7 @@ namespace RocketChatRestApi
 class RestApiMethod;
 class AbstractLogger;
 
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QueryParameters
+class LIBROCKETCHATRESTAPI_QT5_EXPORT QueryParameters
 {
 public:
     enum class SortOrder { Ascendant, Descendant, NoSorting };

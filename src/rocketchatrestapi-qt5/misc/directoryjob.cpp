@@ -56,7 +56,7 @@ bool DirectoryJob::start()
 
 void DirectoryJob::initialQueryParameters()
 {
-    QueryParameters parameters;
+    QueryParameters parameters = queryParameters();
     QMap<QString, QString> map;
     switch (mDirectoryInfo.searchType) {
     case Unknown:
