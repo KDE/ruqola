@@ -89,6 +89,40 @@ DirectoryWidget::~DirectoryWidget()
 
 void DirectoryWidget::loadMoreElements()
 {
+    RocketChatRestApi::DirectoryJob::DirectoryInfo info;
+    switch (mType) {
+    case Room:
+        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
+        break;
+    case User:
+        info.searchType = RocketChatRestApi::DirectoryJob::Users;
+        break;
+    case Team:
+        info.searchType = RocketChatRestApi::DirectoryJob::Teams;
+        break;
+    case Unknown:
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
+        return;
+    }
+#if 0
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::DirectoryJob(this);
+    job->setDirectoryInfo(info);
+    QueryParameters parameters;
+
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+    }
+#endif
     // TODO
 }
 
@@ -140,6 +174,7 @@ void DirectoryWidget::fillDirectory()
     switch (mType) {
     case Room:
         info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
+        mSearchLineEdit->setPlaceholderText(i18n("Search Rooms"));
         break;
     case User:
         info.searchType = RocketChatRestApi::DirectoryJob::Users;
