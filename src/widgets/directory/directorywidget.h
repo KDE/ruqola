@@ -49,6 +49,7 @@ private:
     void loadMoreElements();
     void updateLabel();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    Q_REQUIRED_RESULT QString noFoundInfo() const;
     const DirectoryType mType;
     QLabel *const mLabelResultSearch;
     QLineEdit *const mSearchLineEdit;

@@ -94,13 +94,40 @@ void DirectoryWidget::loadMoreElements()
 
 void DirectoryWidget::updateLabel()
 {
-    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No Attachments found") : displayShowMessageInRoom());
-    // TODO
+    mLabelResultSearch->setText(mModel->total() == 0 ? noFoundInfo() : displayShowMessageInRoom());
+}
+
+QString DirectoryWidget::noFoundInfo() const
+{
+    switch (mType) {
+    case Room:
+        return i18n("No Room found");
+    case User:
+        return i18n("No User found");
+    case Team:
+        return i18n("No Team found");
+    case Unknown:
+        return {};
+    }
+    return {};
 }
 
 QString DirectoryWidget::displayShowMessageInRoom() const
 {
-    QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->rowCount(), mModel->total());
+    QString displayMessageStr;
+    switch (mType) {
+    case Room:
+        displayMessageStr = i18np("%1 room (Total: %2)", "%1 rooms (Total: %2)", mModel->rowCount(), mModel->total());
+        break;
+    case User:
+        displayMessageStr = i18np("%1 user (Total: %2)", "%1 users (Total: %2)", mModel->rowCount(), mModel->total());
+        break;
+    case Team:
+        displayMessageStr = i18np("%1 team (Total: %2)", "%1 teams (Total: %2)", mModel->rowCount(), mModel->total());
+        break;
+    case Unknown:
+        break;
+    }
     if (!mModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
