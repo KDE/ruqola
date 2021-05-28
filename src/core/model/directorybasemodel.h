@@ -28,7 +28,7 @@ public:
     explicit DirectoryBaseModel(QObject *parent = nullptr);
     ~DirectoryBaseModel() override;
 
-    Q_REQUIRED_RESULT int total() const;
+    Q_REQUIRED_RESULT virtual int total() const = 0;
 
     void setHasFullList(bool state);
     Q_REQUIRED_RESULT bool hasFullList() const;

@@ -43,6 +43,7 @@ int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
 
 void DirectoryUsersModel::parseElements(const QJsonObject &obj)
 {
+    Q_EMIT totalChanged();
 }
 
 void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
@@ -100,4 +101,9 @@ QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientatio
         //        }
     }
     return QVariant();
+}
+
+int DirectoryUsersModel::total() const
+{
+    return -1;
 }

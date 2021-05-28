@@ -63,6 +63,7 @@ void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
         endInsertRows();
     }
     checkFullList();
+    Q_EMIT totalChanged();
 }
 
 QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
@@ -126,4 +127,9 @@ int DirectoryRoomsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return static_cast<int>(DirectoryRoomsModel::LastColumn) + 1;
+}
+
+int DirectoryRoomsModel::total() const
+{
+    return mRoomsInfo.total();
 }

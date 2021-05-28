@@ -63,6 +63,7 @@ void DirectoryTeamsModel::parseElements(const QJsonObject &discussionsObj)
         endInsertRows();
     }
     checkFullList();
+    Q_EMIT totalChanged();
 }
 
 QVariant DirectoryTeamsModel::data(const QModelIndex &index, int role) const
@@ -101,4 +102,9 @@ int DirectoryTeamsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return static_cast<int>(DirectoryTeamsModel::LastColumn) + 1;
+}
+
+int DirectoryTeamsModel::total() const
+{
+    return mRoomsInfo.total();
 }

@@ -48,11 +48,6 @@ void DirectoryBaseModel::initialize()
     setHasFullList(false);
 }
 
-int DirectoryBaseModel::total() const
-{
-    return mTotal;
-}
-
 void DirectoryBaseModel::setHasFullList(bool state)
 {
     if (mHasFullList != state) {

@@ -44,6 +44,8 @@ public:
     void parseElements(const QJsonObject &discussionsObj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
+    Q_REQUIRED_RESULT int total() const override;
+
 private:
     Q_DISABLE_COPY(DirectoryTeamsModel)
     void checkFullList();
