@@ -103,9 +103,16 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void DirectoryWidget::loadMoreElements()
 {
+    if (!mModel->loadMoreInProgress()) {
+        const int offset = mModel->rowCount();
+        if (offset < mModel->total()) {
+            mModel->setLoadMoreInProgress(true);
+            loadElements(offset, qMin(50, mModel->total() - offset));
+        }
+    }
 }
 
-void DirectoryWidget::loadElements(int offset)
+void DirectoryWidget::loadElements(int offset, int count)
 {
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
@@ -130,11 +137,20 @@ void DirectoryWidget::loadElements(int offset)
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
-    parameters.setOffset(offset);
+    if (offset != -1) {
+        parameters.setOffset(offset);
+    }
+    if (count != -1) {
+        parameters.setCount(count);
+    }
     job->setQueryParameters(parameters);
 
     rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
+    if (offset != -1) {
+        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotLoadMoreElementDone);
+    } else {
+        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
+    }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
     }
@@ -202,10 +218,17 @@ void DirectoryWidget::fillDirectory()
     loadElements();
 }
 
+void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)
+{
+    mModel->addMoreElements(obj);
+    mModel->setLoadMoreInProgress(false);
+}
+
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
-    // qDebug() << " obj " << obj;
+    qDebug() << " obj " << obj;
     mModel->parseElements(obj);
+    mModel->setLoadMoreInProgress(false);
 }
 
 DirectoryWidget::DirectoryType DirectoryWidget::type() const

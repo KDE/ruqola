@@ -46,8 +46,9 @@ public:
 
 private:
     void slotSearchDone(const QJsonObject &obj);
-    void loadElements(int offset = 0);
+    void loadElements(int offset = -1, int count = -1);
     void loadMoreElements();
+    void slotLoadMoreElementDone(const QJsonObject &obj);
     void updateLabel();
     void slotCustomContextMenuRequested(const QPoint &pos);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
