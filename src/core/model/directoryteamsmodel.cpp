@@ -41,6 +41,11 @@ int DirectoryTeamsModel::rowCount(const QModelIndex &parent) const
     return mRoomsInfo.count();
 }
 
+QList<int> DirectoryTeamsModel::hideColumns() const
+{
+    return {};
+}
+
 void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();

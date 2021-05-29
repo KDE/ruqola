@@ -50,6 +50,9 @@ public:
 
     void addMoreElements(const QJsonObject &discussionsObj) override;
 
+protected:
+    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
+
 private:
     Q_DISABLE_COPY(DirectoryRoomsModel)
     void checkFullList();

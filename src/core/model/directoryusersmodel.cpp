@@ -50,6 +50,11 @@ void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 {
 }
 
+QList<int> DirectoryUsersModel::hideColumns() const
+{
+    return {};
+}
+
 QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
 {
     //    if (index.row() < 0 || index.row() >= mDiscussions->count()) {

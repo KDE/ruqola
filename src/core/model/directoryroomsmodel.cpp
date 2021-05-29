@@ -50,6 +50,11 @@ void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
     checkFullList();
 }
 
+QList<int> DirectoryRoomsModel::hideColumns() const
+{
+    return {};
+}
+
 void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
 {
     if (rowCount() != 0) {

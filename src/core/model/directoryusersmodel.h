@@ -36,6 +36,9 @@ public:
     void parseElements(const QJsonObject &discussionsObj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
+protected:
+    QList<int> hideColumns() const override;
+
 private:
     Q_DISABLE_COPY(DirectoryUsersModel)
     void checkFullList();

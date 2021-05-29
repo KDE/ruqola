@@ -40,6 +40,8 @@ public:
 
     virtual void addMoreElements(const QJsonObject &discussionsObj) = 0;
 
+    virtual QList<int> hideColumns() const = 0;
+
     void initialize();
 Q_SIGNALS:
     void hasFullListChanged();
