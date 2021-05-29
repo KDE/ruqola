@@ -52,7 +52,7 @@ void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> DirectoryRoomsModel::hideColumns() const
 {
-    return {};
+    return {Identifier};
 }
 
 void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
