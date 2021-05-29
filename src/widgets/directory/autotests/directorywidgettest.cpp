@@ -19,6 +19,7 @@
 
 #include "directorywidgettest.h"
 #include "directory/directorywidget.h"
+#include <QHeaderView>
 #include <QLabel>
 #include <QLineEdit>
 #include <QTest>
@@ -47,4 +48,7 @@ void DirectoryWidgetTest::shouldHaveDefaultValues()
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
+    QVERIFY(mTreeView->isSortingEnabled());
+    QCOMPARE(mTreeView->contextMenuPolicy(), Qt::CustomContextMenu);
+    QVERIFY(mTreeView->header()->sectionsClickable());
 }
