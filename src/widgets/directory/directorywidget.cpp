@@ -62,6 +62,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
     mTreeView->setSortingEnabled(true);
+    mTreeView->sortByColumn(0, Qt::AscendingOrder);
     mTreeView->header()->setSectionsClickable(true);
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &DirectoryWidget::slotCustomContextMenuRequested);
