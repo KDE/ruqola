@@ -90,10 +90,6 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
         return roomInfo.readOnly();
     case DirectoryRoomsRoles::DefaultRoom:
         return roomInfo.defaultRoom();
-    case DirectoryRoomsRoles::ChannelType:
-        return roomInfo.channelType();
-    case DirectoryRoomsRoles::ChannelTypeStr:
-        return roomInfo.channelTypeStr();
     }
     return {};
 }
@@ -114,10 +110,6 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Read Only");
         case DirectoryRoomsModel::DefaultRoom:
             return i18n("Default Room");
-        case DirectoryRoomsModel::ChannelType:
-            return i18n("Type");
-        case DirectoryRoomsModel::ChannelTypeStr:
-            return i18n("Type");
         }
     }
     return QVariant();

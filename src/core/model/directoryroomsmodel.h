@@ -29,8 +29,6 @@ public:
     enum DirectoryRoomsRoles {
         Name,
         Topic,
-        ChannelType,
-        ChannelTypeStr,
         UsersCount,
         ReadOnly,
         DefaultRoom,
