@@ -55,14 +55,14 @@ void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
     checkFullList();
 }
 
-void DirectoryTeamsModel::parseElements(const QJsonObject &discussionsObj)
+void DirectoryTeamsModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         mRoomsInfo.clear();
         endRemoveRows();
     }
-    mRoomsInfo.parseRooms(discussionsObj, RoomsInfo::Directory);
+    mRoomsInfo.parseRooms(obj, RoomsInfo::Directory);
     if (!mRoomsInfo.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         endInsertRows();

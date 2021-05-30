@@ -41,7 +41,7 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
 
-    void parseElements(const QJsonObject &discussionsObj) override;
+    void parseElements(const QJsonObject &obj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
     Q_REQUIRED_RESULT int total() const override;
