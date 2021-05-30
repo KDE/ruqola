@@ -64,7 +64,7 @@ void Users::parseListUsers(const QJsonObject &obj)
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;
-            m.parseUser(userObject);
+            m.parseUserRestApi(userObject);
             mUsers.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
