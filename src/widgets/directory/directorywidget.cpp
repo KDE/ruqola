@@ -31,6 +31,7 @@
 #include <QHeaderView>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMenu>
 #include <QSortFilterProxyModel>
 #include <QTreeView>
 #include <QVBoxLayout>
@@ -101,6 +102,18 @@ DirectoryWidget::~DirectoryWidget()
 }
 
 void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    const QModelIndex index = mTreeView->indexAt(pos);
+    if (index.isValid()) {
+        menu.addAction(i18n("Open..."), this, [this, index]() {
+            slotOpen(index);
+        });
+    }
+    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+}
+
+void DirectoryWidget::slotOpen(const QModelIndex &index)
 {
     // TODO
 }

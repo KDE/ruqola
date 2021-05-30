@@ -51,6 +51,7 @@ private:
     void slotLoadMoreElementDone(const QJsonObject &obj);
     void updateLabel();
     void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotOpen(const QModelIndex &index);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     Q_REQUIRED_RESULT QString noFoundInfo() const;
     const DirectoryType mType;
