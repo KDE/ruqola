@@ -21,7 +21,7 @@
 
 #include "directorybasemodel.h"
 #include "libruqolacore_export.h"
-#include "user.h"
+#include "users.h"
 
 #include <QVector>
 class LIBRUQOLACORE_EXPORT DirectoryUsersModel : public DirectoryBaseModel
@@ -43,7 +43,7 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int total() const override;
 
-    void parseElements(const QJsonObject &discussionsObj) override;
+    void parseElements(const QJsonObject &obj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
     int columnCount(const QModelIndex &parent) const override;
@@ -54,5 +54,5 @@ protected:
 private:
     Q_DISABLE_COPY(DirectoryUsersModel)
     void checkFullList();
-    QVector<User> mUsers;
+    Users mUsers;
 };

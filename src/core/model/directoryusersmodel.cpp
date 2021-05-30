@@ -32,7 +32,7 @@ DirectoryUsersModel::~DirectoryUsersModel()
 
 void DirectoryUsersModel::checkFullList()
 {
-    // setHasFullList(mRoomsInfo.count() == mRoomsInfo.total());
+    setHasFullList(mUsers.count() == mUsers.total());
 }
 
 int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
@@ -48,45 +48,48 @@ QList<int> DirectoryUsersModel::hideColumns() const
 
 void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 {
-    //    const int numberOfElement = mRoomsInfo.count();
-    //    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::Directory);
-    //    beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
-    //    endInsertRows();
+    const int numberOfElement = mUsers.count();
+    mUsers.parseMoreUsers(obj);
+    beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
+    endInsertRows();
     checkFullList();
 }
 
-void DirectoryUsersModel::parseElements(const QJsonObject &discussionsObj)
+void DirectoryUsersModel::parseElements(const QJsonObject &obj)
 {
-    //    if (rowCount() != 0) {
-    //        beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
-    //        mRoomsInfo.clear();
-    //        endRemoveRows();
-    //    }
-    //    mRoomsInfo.parseRooms(discussionsObj, RoomsInfo::Directory);
-    //    if (!mRoomsInfo.isEmpty()) {
-    //        beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
-    //        endInsertRows();
-    //    }
-    //    checkFullList();
-    //    Q_EMIT totalChanged();
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+        mUsers.clear();
+        endRemoveRows();
+    }
+    mUsers.parseUsers(obj);
+    if (!mUsers.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
+        endInsertRows();
+    }
+    checkFullList();
+    Q_EMIT totalChanged();
 }
 
 QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
 {
-    //    if (index.row() < 0 || index.row() >= mRoomsInfo.count()) {
-    //        return {};
-    //    }
-    //    if (role != Qt::DisplayRole) {
-    //        return {};
-    //    }
-    //    const RoomInfo &roomInfo = mRoomsInfo.at(index.row());
-    //    const int col = index.column();
-    //    switch (static_cast<DirectoryTeamsRoles>(col)) {
-    //    case DirectoryTeamsRoles::TeamName:
-    //        return roomInfo.roomName();
-    //    case DirectoryTeamsRoles::RoomsCount:
-    //        return roomInfo.teamInfo().roomsCount();
-    //    }
+    if (index.row() < 0 || index.row() >= mUsers.count()) {
+        return {};
+    }
+    if (role != Qt::DisplayRole) {
+        return {};
+    }
+    const User &user = mUsers.at(index.row());
+    const int col = index.column();
+    switch (static_cast<DirectoryUsersRoles>(col)) {
+    case DirectoryUsersRoles::Name:
+        return user.name();
+    case DirectoryUsersRoles::Email:
+        // return user.teamInfo().roomsCount();
+        return {};
+    case DirectoryUsersRoles::JoinAt:
+        return {};
+    }
     return {};
 }
 
@@ -113,6 +116,5 @@ int DirectoryUsersModel::columnCount(const QModelIndex &parent) const
 
 int DirectoryUsersModel::total() const
 {
-    // return mRoomsInfo.total();
-    return -1;
+    return mUsers.total();
 }
