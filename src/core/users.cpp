@@ -49,11 +49,11 @@ User Users::at(int index) const
 
 void Users::parseMoreUsers(const QJsonObject &obj)
 {
-    const int adminRoomsCount = obj[QStringLiteral("count")].toInt();
+    const int usersCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
     parseListUsers(obj);
-    mUsersCount += adminRoomsCount;
+    mUsersCount += usersCount;
 }
 
 void Users::parseListUsers(const QJsonObject &obj)
@@ -67,7 +67,7 @@ void Users::parseListUsers(const QJsonObject &obj)
             m.parseUserRestApi(userObject);
             mUsers.append(m);
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing Users" << current;
         }
     }
 }
