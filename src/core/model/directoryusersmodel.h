@@ -25,6 +25,13 @@ class LIBRUQOLACORE_EXPORT DirectoryUsersModel : public DirectoryBaseModel
 {
     Q_OBJECT
 public:
+    enum DirectoryUsersRoles {
+        Name,
+        Email,
+        JoinAt,
+        LastColumn = JoinAt,
+    };
+    Q_ENUM(DirectoryUsersRoles)
     explicit DirectoryUsersModel(QObject *parent = nullptr);
     ~DirectoryUsersModel() override;
 
@@ -36,8 +43,10 @@ public:
     void parseElements(const QJsonObject &discussionsObj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
+    int columnCount(const QModelIndex &parent) const;
+
 protected:
-    QList<int> hideColumns() const override;
+    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
 
 private:
     Q_DISABLE_COPY(DirectoryUsersModel)

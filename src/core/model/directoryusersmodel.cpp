@@ -19,6 +19,7 @@
 
 #include "directoryusersmodel.h"
 #include "discussions.h"
+#include <KLocalizedString>
 
 DirectoryUsersModel::DirectoryUsersModel(QObject *parent)
     : DirectoryBaseModel(parent)
@@ -31,23 +32,14 @@ DirectoryUsersModel::~DirectoryUsersModel()
 
 void DirectoryUsersModel::checkFullList()
 {
-    // setHasFullList(mDiscussions->discussions().count() == mDiscussions->total());
+    // setHasFullList(mRoomsInfo.count() == mRoomsInfo.total());
 }
 
 int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    // return mDiscussions->count();
+    // return mRoomsInfo.count();
     return {};
-}
-
-void DirectoryUsersModel::parseElements(const QJsonObject &obj)
-{
-    Q_EMIT totalChanged();
-}
-
-void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
-{
 }
 
 QList<int> DirectoryUsersModel::hideColumns() const
@@ -55,28 +47,46 @@ QList<int> DirectoryUsersModel::hideColumns() const
     return {};
 }
 
+void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
+{
+    //    const int numberOfElement = mRoomsInfo.count();
+    //    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::Directory);
+    //    beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
+    //    endInsertRows();
+    checkFullList();
+}
+
+void DirectoryUsersModel::parseElements(const QJsonObject &discussionsObj)
+{
+    //    if (rowCount() != 0) {
+    //        beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
+    //        mRoomsInfo.clear();
+    //        endRemoveRows();
+    //    }
+    //    mRoomsInfo.parseRooms(discussionsObj, RoomsInfo::Directory);
+    //    if (!mRoomsInfo.isEmpty()) {
+    //        beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
+    //        endInsertRows();
+    //    }
+    //    checkFullList();
+    //    Q_EMIT totalChanged();
+}
+
 QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
 {
-    //    if (index.row() < 0 || index.row() >= mDiscussions->count()) {
+    //    if (index.row() < 0 || index.row() >= mRoomsInfo.count()) {
     //        return {};
     //    }
-    //    const Discussion discussion = mDiscussions->at(index.row());
-    //    switch (role) {
-    //    case ParentId:
-    //        return discussion.parentRoomId();
-    //    case Description:
-    //        return discussion.description().isEmpty() ? discussion.fname() : discussion.description();
-    //    case NumberOfMessages:
-    //        return discussion.numberMessages();
-    //    case Qt::DisplayRole:
-    //    case LastMessage:
-    //        return discussion.lastMessageDisplay();
-    //    case DiscussionRoomId:
-    //        return discussion.discussionRoomId();
-    //    case TimeStamp:
-    //        return discussion.timeStampDisplay();
-    //    case SortByTimeStamp:
-    //        return discussion.timeStamp();
+    //    if (role != Qt::DisplayRole) {
+    //        return {};
+    //    }
+    //    const RoomInfo &roomInfo = mRoomsInfo.at(index.row());
+    //    const int col = index.column();
+    //    switch (static_cast<DirectoryTeamsRoles>(col)) {
+    //    case DirectoryTeamsRoles::TeamName:
+    //        return roomInfo.roomName();
+    //    case DirectoryTeamsRoles::RoomsCount:
+    //        return roomInfo.teamInfo().roomsCount();
     //    }
     return {};
 }
@@ -84,31 +94,26 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
 QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        //        switch (static_cast<AdminRoomsRoles>(section)) {
-        //        case AdminRoomsRoles::Name:
-        //            return i18n("Name");
-        //        case AdminRoomsRoles::MessagesCount:
-        //            return i18n("Number Of Messages");
-        //        case AdminRoomsRoles::UsersCount:
-        //            return i18n("Number Of Users");
-        //        case AdminRoomsRoles::Topic:
-        //            return i18n("Topic");
-        //        case AdminRoomsRoles::Identifier:
-        //            return i18n("Identifier");
-        //        case AdminRoomsRoles::ReadOnly:
-        //            return i18n("Read Only");
-        //        case AdminRoomsRoles::DefaultRoom:
-        //            return i18n("Default Room");
-        //        case AdminRoomsRoles::ChannelType:
-        //            return i18n("Type");
-        //        case AdminRoomsRoles::ChannelTypeStr:
-        //            return i18n("Type");
-        //        }
+        switch (static_cast<DirectoryUsersRoles>(section)) {
+        case DirectoryUsersModel::Name:
+            return i18n("Name");
+        case DirectoryUsersModel::Email:
+            return i18n("Emails");
+        case DirectoryUsersModel::JoinAt:
+            return i18n("Emails");
+        }
     }
     return QVariant();
 }
 
+int DirectoryUsersModel::columnCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    return static_cast<int>(DirectoryUsersModel::LastColumn) + 1;
+}
+
 int DirectoryUsersModel::total() const
 {
+    // return mRoomsInfo.total();
     return -1;
 }

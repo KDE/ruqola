@@ -47,7 +47,7 @@ public:
     Q_REQUIRED_RESULT int total() const override;
 
 protected:
-    QList<int> hideColumns() const override;
+    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
 
 private:
     Q_DISABLE_COPY(DirectoryTeamsModel)
