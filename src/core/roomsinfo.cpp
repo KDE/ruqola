@@ -135,7 +135,7 @@ QDebug operator<<(QDebug d, const RoomsInfo &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "adminRoomsCount " << t.roomsCount() << "\n";
+    d << "roomsCount " << t.roomsCount() << "\n";
     for (int i = 0, total = t.rooms().count(); i < total; ++i) {
         d << t.rooms().at(i) << "\n";
     }
