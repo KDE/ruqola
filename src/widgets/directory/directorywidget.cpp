@@ -243,6 +243,7 @@ void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)
 
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
+    qDebug() << " obj " << obj;
     mModel->parseElements(obj);
     mModel->setLoadMoreInProgress(false);
 }

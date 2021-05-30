@@ -47,12 +47,12 @@ RoomInfo RoomsInfo::at(int index) const
     return mRooms.at(index);
 }
 
-void RoomsInfo::parseMoreRooms(const QJsonObject &fileAttachmentsObj, RoomsInfo::ParseType type)
+void RoomsInfo::parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type)
 {
-    const int adminRoomsCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
-    mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
-    mTotal = fileAttachmentsObj[QStringLiteral("total")].toInt();
-    parseListRooms(fileAttachmentsObj, type);
+    const int adminRoomsCount = obj[QStringLiteral("count")].toInt();
+    mOffset = obj[QStringLiteral("offset")].toInt();
+    mTotal = obj[QStringLiteral("total")].toInt();
+    parseListRooms(obj, type);
     mRoomsCount += adminRoomsCount;
 }
 
@@ -102,13 +102,13 @@ void RoomsInfo::setRooms(const QVector<RoomInfo> &rooms)
     mRooms = rooms;
 }
 
-void RoomsInfo::parseRooms(const QJsonObject &roomsObj, RoomsInfo::ParseType type)
+void RoomsInfo::parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type)
 {
-    mRoomsCount = roomsObj[QStringLiteral("count")].toInt();
-    mOffset = roomsObj[QStringLiteral("offset")].toInt();
-    mTotal = roomsObj[QStringLiteral("total")].toInt();
+    mRoomsCount = obj[QStringLiteral("count")].toInt();
+    mOffset = obj[QStringLiteral("offset")].toInt();
+    mTotal = obj[QStringLiteral("total")].toInt();
     mRooms.clear();
-    parseListRooms(roomsObj, type);
+    parseListRooms(obj, type);
 }
 
 int RoomsInfo::offset() const

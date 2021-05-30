@@ -41,8 +41,8 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseRooms(const QJsonObject &commandsObj, RoomsInfo::ParseType type);
-    void parseMoreRooms(const QJsonObject &fileAttachmentsObj, RoomsInfo::ParseType type);
+    void parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
+    void parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
 
     Q_REQUIRED_RESULT QVector<RoomInfo> rooms() const;
     void setRooms(const QVector<RoomInfo> &rooms);
