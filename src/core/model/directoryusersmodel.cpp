@@ -38,8 +38,7 @@ void DirectoryUsersModel::checkFullList()
 int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    // return mRoomsInfo.count();
-    return {};
+    return mUsers.count();
 }
 
 QList<int> DirectoryUsersModel::hideColumns() const
