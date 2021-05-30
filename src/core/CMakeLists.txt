@@ -119,6 +119,7 @@ target_sources(libruqolacore PRIVATE
 
     roominfo.cpp
     roomsinfo.cpp
+    users.cpp
 
     authenticationinfo.cpp
     room.cpp
