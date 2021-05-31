@@ -55,5 +55,6 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminInviteModel)
+    Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
     QVector<InviteInfo> mAdminInvites;
 };

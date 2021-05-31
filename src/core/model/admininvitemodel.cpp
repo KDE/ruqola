@@ -110,9 +110,18 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     case AdminInviteModel::MaxUses:
         return inviteInfo.maxUses();
     case AdminInviteModel::Expire:
-        return inviteInfo.expireDateTime().toString();
+        return expireInvitation(inviteInfo);
     }
     return {};
+}
+
+QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo) const
+{
+    if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
+        return i18n("Expire in %1 days", QDateTime::currentDateTime().daysTo(inviteInfo.expireDateTime()));
+    } else {
+        return i18n("Expired");
+    }
 }
 
 void AdminInviteModel::removeInvite(const QString &identifier)
