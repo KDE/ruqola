@@ -27,7 +27,10 @@
 class LIBRUQOLACORE_EXPORT RoomsInfo
 {
 public:
-    enum ParseType { Administrator, Directory };
+    enum ParseType {
+        Administrator,
+        Directory,
+    };
     RoomsInfo();
 
     Q_REQUIRED_RESULT bool isEmpty() const;

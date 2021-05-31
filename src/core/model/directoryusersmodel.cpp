@@ -46,10 +46,15 @@ QList<int> DirectoryUsersModel::hideColumns() const
     return {UserId};
 }
 
+Users::ParseType DirectoryUsersModel::parseType() const
+{
+    return Users::ParseType::Directory;
+}
+
 void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mUsers.count();
-    mUsers.parseMoreUsers(obj);
+    mUsers.parseMoreUsers(obj, parseType());
     beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
     endInsertRows();
     checkFullList();
@@ -62,7 +67,7 @@ void DirectoryUsersModel::parseElements(const QJsonObject &obj)
         mUsers.clear();
         endRemoveRows();
     }
-    mUsers.parseUsers(obj);
+    mUsers.parseUsers(obj, parseType());
     if (!mUsers.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
         endInsertRows();

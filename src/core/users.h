@@ -27,6 +27,10 @@
 class LIBRUQOLACORE_EXPORT Users
 {
 public:
+    enum ParseType {
+        Administrator,
+        Directory,
+    };
     Users();
 
     Q_REQUIRED_RESULT bool isEmpty() const;
@@ -40,8 +44,8 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseUsers(const QJsonObject &obj);
-    void parseMoreUsers(const QJsonObject &obj);
+    void parseUsers(const QJsonObject &obj, ParseType type);
+    void parseMoreUsers(const QJsonObject &obj, ParseType type);
 
     Q_REQUIRED_RESULT QVector<User> users() const;
     void setUsers(const QVector<User> &rooms);
@@ -50,7 +54,7 @@ public:
     void setRoomsCount(int adminroomsCount);
 
 private:
-    void parseListUsers(const QJsonObject &obj);
+    void parseListUsers(const QJsonObject &obj, ParseType type);
     QVector<User> mUsers;
     int mUsersCount = 0;
     int mOffset = 0;

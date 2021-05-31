@@ -47,18 +47,28 @@ User Users::at(int index) const
     return mUsers.at(index);
 }
 
-void Users::parseMoreUsers(const QJsonObject &obj)
+void Users::parseMoreUsers(const QJsonObject &obj, ParseType type)
 {
     const int usersCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
-    parseListUsers(obj);
+    parseListUsers(obj, type);
     mUsersCount += usersCount;
 }
 
-void Users::parseListUsers(const QJsonObject &obj)
+void Users::parseListUsers(const QJsonObject &obj, ParseType type)
 {
-    const QJsonArray adminRoomsArray = obj[QStringLiteral("result")].toArray();
+    QString parseTypeStr;
+    switch (type) {
+    case Administrator:
+        parseTypeStr = QStringLiteral("users");
+        break;
+    case Directory:
+        parseTypeStr = QStringLiteral("result");
+        break;
+    }
+
+    const QJsonArray adminRoomsArray = obj[parseTypeStr].toArray();
     mUsers.reserve(mUsers.count() + adminRoomsArray.count());
     for (const QJsonValue &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
@@ -92,13 +102,13 @@ void Users::setUsers(const QVector<User> &rooms)
     mUsers = rooms;
 }
 
-void Users::parseUsers(const QJsonObject &obj)
+void Users::parseUsers(const QJsonObject &obj, ParseType type)
 {
     mUsersCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
     mUsers.clear();
-    parseListUsers(obj);
+    parseListUsers(obj, type);
 }
 
 int Users::offset() const

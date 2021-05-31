@@ -22,7 +22,7 @@
 #include <KLocalizedString>
 
 AdminUsersModel::AdminUsersModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : DirectoryUsersModel(parent)
 {
 }
 
@@ -30,12 +30,9 @@ AdminUsersModel::~AdminUsersModel()
 {
 }
 
-int AdminUsersModel::rowCount(const QModelIndex &parent) const
+Users::ParseType AdminUsersModel::parseType() const
 {
-    if (parent.isValid()) {
-        return 0; // flat model
-    }
-    return mUsers.count();
+    return Users::ParseType::Administrator;
 }
 
 QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -61,11 +58,6 @@ int AdminUsersModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return static_cast<int>(AdminUsersModel::LastColumn) + 1;
-}
-
-void AdminUsersModel::parseUserInfo(const QJsonObject &usersObj)
-{
-    // TODO
 }
 
 QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
