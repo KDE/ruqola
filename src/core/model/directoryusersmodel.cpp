@@ -102,7 +102,7 @@ QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientatio
         case DirectoryUsersModel::Email:
             return i18n("Emails");
         case DirectoryUsersModel::JoinAt:
-            return i18n("Emails");
+            return i18n("Join At");
         }
     }
     return QVariant();
