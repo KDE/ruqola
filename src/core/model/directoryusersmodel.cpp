@@ -43,7 +43,7 @@ int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
 
 QList<int> DirectoryUsersModel::hideColumns() const
 {
-    return {};
+    return {UserId};
 }
 
 void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
@@ -83,11 +83,13 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
     const int col = index.column();
     switch (static_cast<DirectoryUsersRoles>(col)) {
     case DirectoryUsersRoles::Name:
-        return user.name();
+        return user.name().isEmpty() ? user.userName() : user.name();
     case DirectoryUsersRoles::Email:
-        // return user.teamInfo().roomsCount();
+        return user.userEmailsInfo().email;
         return {};
     case DirectoryUsersRoles::JoinAt:
+        return {};
+    case DirectoryUsersRoles::UserId:
         return {};
     }
     return {};
@@ -103,6 +105,8 @@ QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Emails");
         case DirectoryUsersModel::JoinAt:
             return i18n("Join At");
+        case DirectoryUsersModel::UserId:
+            return {};
         }
     }
     return QVariant();

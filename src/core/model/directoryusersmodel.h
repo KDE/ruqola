@@ -32,6 +32,7 @@ public:
         Name,
         Email,
         JoinAt,
+        UserId,
         LastColumn = JoinAt,
     };
     Q_ENUM(DirectoryUsersRoles)
