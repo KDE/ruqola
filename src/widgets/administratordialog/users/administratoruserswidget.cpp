@@ -55,6 +55,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mResultTreeView->setSelectionBehavior(QAbstractItemView::SelectRows);
     mResultTreeView->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
     mResultTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
+    mResultTreeView->setRootIsDecorated(false);
     connect(mResultTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
 
     mainLayout->addWidget(mResultTreeView);
