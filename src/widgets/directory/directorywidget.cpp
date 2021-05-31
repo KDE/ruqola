@@ -124,12 +124,12 @@ void DirectoryWidget::loadMoreElements()
         const int offset = mModel->rowCount();
         if (offset < mModel->total()) {
             mModel->setLoadMoreInProgress(true);
-            loadElements(offset, qMin(50, mModel->total() - offset));
+            loadElements(offset, qMin(50, mModel->total() - offset), mSearchLineEdit->text().trimmed());
         }
     }
 }
 
-void DirectoryWidget::loadElements(int offset, int count)
+void DirectoryWidget::loadElements(int offset, int count, const QString &searchName)
 {
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
@@ -148,6 +148,9 @@ void DirectoryWidget::loadElements(int offset, int count)
     }
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::DirectoryJob(this);
+    if (!searchName.isEmpty()) {
+        info.pattern = searchName;
+    }
     job->setDirectoryInfo(info);
     RocketChatRestApi::QueryParameters parameters;
 

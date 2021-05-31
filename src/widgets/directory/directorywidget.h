@@ -46,7 +46,7 @@ public:
 
 private:
     void slotSearchDone(const QJsonObject &obj);
-    void loadElements(int offset = -1, int count = -1);
+    void loadElements(int offset = -1, int count = -1, const QString &searchName = {});
     void loadMoreElements();
     void slotLoadMoreElementDone(const QJsonObject &obj);
     void updateLabel();
