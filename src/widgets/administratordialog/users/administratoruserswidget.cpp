@@ -66,7 +66,6 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
 
     mResultTreeView->setModel(mAdminUsersProxyModel);
-    initialize();
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()

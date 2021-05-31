@@ -19,7 +19,10 @@
 */
 #include "administratoruserswidgettest.h"
 #include "administratordialog/users/administratoruserswidget.h"
+#include <QLineEdit>
 #include <QTest>
+#include <QTreeView>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorUsersWidgetTest)
 
 AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)
@@ -30,5 +33,15 @@ AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)
 void AdministratorUsersWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorUsersWidget w;
-    // TODO
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    auto mResultTreeView = w.findChild<QTreeView *>(QStringLiteral("mResultTreeWidget"));
+    QVERIFY(mResultTreeView);
+    QVERIFY(!mResultTreeView->rootIsDecorated());
+    QVERIFY(mResultTreeView->isSortingEnabled());
+
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
+    QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 }

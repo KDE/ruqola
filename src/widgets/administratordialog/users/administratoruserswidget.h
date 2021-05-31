@@ -33,10 +33,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
 public:
     explicit AdministratorUsersWidget(QWidget *parent = nullptr);
     ~AdministratorUsersWidget() override;
+    void initialize();
 
 private:
     void slotTextChanged(const QString &str);
-    void initialize();
     void slotAdminUserDone(const QJsonObject &obj);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotAddUser();
