@@ -254,13 +254,17 @@ void DirectoryWidget::fillDirectory()
 void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)
 {
     mModel->addMoreElements(obj);
-    mModel->setLoadMoreInProgress(false);
-    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
+    finishSearching();
 }
 
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
     mModel->parseElements(obj);
+    finishSearching();
+}
+
+void DirectoryWidget::finishSearching()
+{
     mModel->setLoadMoreInProgress(false);
     mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }

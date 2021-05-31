@@ -56,6 +56,7 @@ private:
     void slotSearchCleared();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     Q_REQUIRED_RESULT QString noFoundInfo() const;
+    void finishSearching();
     const DirectoryType mType;
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
