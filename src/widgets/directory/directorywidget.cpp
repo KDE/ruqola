@@ -20,6 +20,7 @@
 #include "directorywidget.h"
 #include "misc/directoryjob.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "model/directoryroomsmodel.h"
 #include "model/directoryteamsmodel.h"
 #include "model/directoryusersmodel.h"
@@ -30,7 +31,6 @@
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QLabel>
-#include <QLineEdit>
 #include <QMenu>
 #include <QSortFilterProxyModel>
 #include <QTreeView>
@@ -40,7 +40,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     : QWidget(parent)
     , mType(type)
     , mLabelResultSearch(new QLabel(this))
-    , mSearchLineEdit(new QLineEdit(this))
+    , mSearchLineEdit(new SearchWithDelayLineEdit(this))
     , mTreeView(new QTreeView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -49,6 +49,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mainLayout->addWidget(mSearchLineEdit);
+    mSearchLineEdit->setDelayMs(500);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
@@ -95,10 +96,25 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &DirectoryWidget::updateLabel);
     connect(mModel, &DirectoryBaseModel::totalChanged, this, &DirectoryWidget::updateLabel);
     connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &DirectoryWidget::updateLabel);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &DirectoryWidget::slotSearchCleared);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &DirectoryWidget::slotSearchRequested);
+
+    void searchRequested(const QString &str);
+    void searchCleared();
 }
 
 DirectoryWidget::~DirectoryWidget()
 {
+}
+
+void DirectoryWidget::slotSearchCleared()
+{
+    loadElements();
+}
+
+void DirectoryWidget::slotSearchRequested(const QString &str)
+{
+    loadElements(-1, -1, str);
 }
 
 void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -246,7 +262,6 @@ void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)
 
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
     mModel->parseElements(obj);
     mModel->setLoadMoreInProgress(false);
 }

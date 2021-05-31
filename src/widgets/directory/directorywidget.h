@@ -23,7 +23,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLabel;
-class QLineEdit;
+class SearchWithDelayLineEdit;
 class QTreeView;
 class QJsonObject;
 class DirectoryBaseModel;
@@ -52,11 +52,13 @@ private:
     void updateLabel();
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotOpen(const QModelIndex &index);
+    void slotSearchRequested(const QString &str);
+    void slotSearchCleared();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     Q_REQUIRED_RESULT QString noFoundInfo() const;
     const DirectoryType mType;
     QLabel *const mLabelResultSearch;
-    QLineEdit *const mSearchLineEdit;
+    SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
     DirectoryBaseModel *mModel = nullptr;
 };

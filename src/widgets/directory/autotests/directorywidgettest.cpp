@@ -19,6 +19,7 @@
 
 #include "directorywidgettest.h"
 #include "directory/directorywidget.h"
+#include "misc/searchwithdelaylineedit.h"
 #include <QHeaderView>
 #include <QLabel>
 #include <QLineEdit>
@@ -38,7 +39,7 @@ void DirectoryWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabelResultSearch);
     QVERIFY(mLabelResultSearch->text().isEmpty());
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
