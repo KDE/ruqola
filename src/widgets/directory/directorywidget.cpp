@@ -98,9 +98,6 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &DirectoryWidget::updateLabel);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &DirectoryWidget::slotSearchCleared);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &DirectoryWidget::slotSearchRequested);
-
-    void searchRequested(const QString &str);
-    void searchCleared();
 }
 
 DirectoryWidget::~DirectoryWidget()
@@ -258,12 +255,14 @@ void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)
 {
     mModel->addMoreElements(obj);
     mModel->setLoadMoreInProgress(false);
+    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
 {
     mModel->parseElements(obj);
     mModel->setLoadMoreInProgress(false);
+    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 DirectoryWidget::DirectoryType DirectoryWidget::type() const
