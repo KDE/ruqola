@@ -27,6 +27,7 @@ class SearchWithDelayLineEdit;
 class QTreeView;
 class QJsonObject;
 class DirectoryBaseModel;
+class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
 {
     Q_OBJECT
@@ -62,4 +63,5 @@ private:
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
     DirectoryBaseModel *mModel = nullptr;
+    QSortFilterProxyModel *const mSortProxyModel;
 };

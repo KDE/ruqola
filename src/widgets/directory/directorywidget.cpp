@@ -42,6 +42,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     , mLabelResultSearch(new QLabel(this))
     , mSearchLineEdit(new SearchWithDelayLineEdit(this))
     , mTreeView(new QTreeView(this))
+    , mSortProxyModel(new QSortFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -87,9 +88,8 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     case Unknown:
         break;
     }
-    auto sortProxyModel = new QSortFilterProxyModel(this);
-    sortProxyModel->setSourceModel(mModel);
-    mTreeView->setModel(sortProxyModel);
+    mSortProxyModel->setSourceModel(mModel);
+    mTreeView->setModel(mSortProxyModel);
     const auto hideColumns = mModel->hideColumns();
     for (const auto col : hideColumns) {
         mTreeView->setColumnHidden(col, true);
@@ -120,8 +120,9 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        menu.addAction(i18n("Open..."), this, [this, index]() {
-            slotOpen(index);
+        const QModelIndex i = mSortProxyModel->mapToSource(index);
+        menu.addAction(i18n("Open..."), this, [this, i]() {
+            slotOpen(i);
         });
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
@@ -129,7 +130,30 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void DirectoryWidget::slotOpen(const QModelIndex &index)
 {
-    // TODO
+    if (index.isValid()) {
+        switch (mType) {
+        case Room: {
+            const QModelIndex modelIndex = mModel->index(index.row(), DirectoryRoomsModel::Identifier);
+            const QString channelId = modelIndex.data().toString();
+            Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            break;
+        }
+        case User: {
+            const QModelIndex modelIndex = mModel->index(index.row(), DirectoryUsersModel::UserId);
+            const QString channelId = modelIndex.data().toString();
+            Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
+            break;
+        }
+        case Team: {
+            const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::TeamIdentifier);
+            const QString channelId = modelIndex.data().toString();
+            Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            break;
+        }
+        case Unknown:
+            break;
+        }
+    }
 }
 
 void DirectoryWidget::loadMoreElements()

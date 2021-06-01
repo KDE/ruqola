@@ -30,6 +30,7 @@ public:
     enum DirectoryTeamsRoles {
         TeamName,
         RoomsCount,
+        TeamIdentifier,
         LastColumn = RoomsCount,
     };
     Q_ENUM(DirectoryTeamsRoles)

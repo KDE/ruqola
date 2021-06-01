@@ -43,7 +43,7 @@ int DirectoryTeamsModel::rowCount(const QModelIndex &parent) const
 
 QList<int> DirectoryTeamsModel::hideColumns() const
 {
-    return {};
+    return {TeamIdentifier};
 }
 
 void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
@@ -86,6 +86,8 @@ QVariant DirectoryTeamsModel::data(const QModelIndex &index, int role) const
         return roomInfo.roomName();
     case DirectoryTeamsRoles::RoomsCount:
         return roomInfo.teamInfo().roomsCount();
+    case DirectoryTeamsRoles::TeamIdentifier:
+        return roomInfo.identifier();
     }
     return {};
 }
@@ -98,6 +100,8 @@ QVariant DirectoryTeamsModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Name");
         case DirectoryTeamsRoles::RoomsCount:
             return i18n("Rooms");
+        case DirectoryTeamsRoles::TeamIdentifier:
+            return i18n("Identifier");
         }
     }
     return QVariant();
