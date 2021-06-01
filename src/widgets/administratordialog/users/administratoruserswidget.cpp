@@ -35,37 +35,17 @@
 #include <QVBoxLayout>
 
 AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
-    : QWidget(parent)
-    , mSearchLineEdit(new QLineEdit(this))
-    , mResultTreeView(new QTreeView(this))
+    : SearchTreeBaseWidget(parent)
     , mAdminUsersModel(new AdminUsersModel(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
-    mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
-    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorUsersWidget::slotTextChanged);
-    mainLayout->addWidget(mSearchLineEdit);
-
-    mResultTreeView->setSortingEnabled(true);
-    mResultTreeView->setObjectName(QStringLiteral("mResultTreeWidget"));
-    mResultTreeView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    mResultTreeView->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
-    mResultTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
-    mResultTreeView->setRootIsDecorated(false);
-    connect(mResultTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
-
-    mainLayout->addWidget(mResultTreeView);
+    // connect(mResultTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
 
     mAdminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
     mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mAdminUsersModel, this);
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
 
-    mResultTreeView->setModel(mAdminUsersProxyModel);
+    mTreeView->setModel(mAdminUsersProxyModel);
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
@@ -109,7 +89,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
-    const QModelIndex index = mResultTreeView->indexAt(pos);
+    const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             slotModifyUser(index);
@@ -119,5 +99,5 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             slotRemoveUser(index);
         });
     }
-    menu.exec(mResultTreeView->viewport()->mapToGlobal(pos));
+    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
 }

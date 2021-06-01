@@ -20,14 +20,14 @@
 
 #pragma once
 
-#include <QWidget>
+#include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QTreeView;
 class AdminUsersModel;
 class AdminUsersFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
 public:
@@ -42,8 +42,6 @@ private:
     void slotAddUser();
     void slotModifyUser(const QModelIndex &index);
     void slotRemoveUser(const QModelIndex &index);
-    QLineEdit *const mSearchLineEdit;
-    QTreeView *const mResultTreeView;
     AdminUsersModel *const mAdminUsersModel;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
