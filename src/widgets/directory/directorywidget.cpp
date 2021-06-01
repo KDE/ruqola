@@ -90,7 +90,8 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     auto sortProxyModel = new QSortFilterProxyModel(this);
     sortProxyModel->setSourceModel(mModel);
     mTreeView->setModel(sortProxyModel);
-    for (const auto col : mModel->hideColumns()) {
+    const auto hideColumns = mModel->hideColumns();
+    for (const auto col : hideColumns) {
         mTreeView->setColumnHidden(col, true);
     }
     connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &DirectoryWidget::updateLabel);
