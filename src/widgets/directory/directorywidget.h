@@ -21,6 +21,8 @@
 
 #include <QWidget>
 
+#include "misc/searchtreebasewidget.h"
+
 #include "libruqolawidgets_private_export.h"
 class QLabel;
 class SearchWithDelayLineEdit;
@@ -28,7 +30,7 @@ class QTreeView;
 class QJsonObject;
 class DirectoryBaseModel;
 class QSortFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
 public:
@@ -47,8 +49,8 @@ public:
 
 private:
     void slotSearchDone(const QJsonObject &obj);
-    void loadElements(int offset = -1, int count = -1, const QString &searchName = {});
-    void loadMoreElements();
+    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {});
+    void slotLoadMoreElements();
     void slotLoadMoreElementDone(const QJsonObject &obj);
     void updateLabel();
     void slotCustomContextMenuRequested(const QPoint &pos);
@@ -59,9 +61,6 @@ private:
     Q_REQUIRED_RESULT QString noFoundInfo() const;
     void finishSearching();
     const DirectoryType mType;
-    QLabel *const mLabelResultSearch;
-    SearchWithDelayLineEdit *const mSearchLineEdit;
-    QTreeView *const mTreeView;
     DirectoryBaseModel *mModel = nullptr;
     QSortFilterProxyModel *const mSortProxyModel;
 };

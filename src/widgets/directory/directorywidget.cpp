@@ -37,40 +37,15 @@
 #include <QVBoxLayout>
 
 DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
-    : QWidget(parent)
+    : SearchTreeBaseWidget(parent)
     , mType(type)
-    , mLabelResultSearch(new QLabel(this))
-    , mSearchLineEdit(new SearchWithDelayLineEdit(this))
-    , mTreeView(new QTreeView(this))
     , mSortProxyModel(new QSortFilterProxyModel(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    connect(this, &SearchTreeBaseWidget::loadMoreElements, this, [this]() {
+        slotLoadMoreElements();
+    });
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mainLayout->addWidget(mSearchLineEdit);
-    mSearchLineEdit->setDelayMs(500);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
-
-    mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
-    mainLayout->addWidget(mLabelResultSearch);
-    mLabelResultSearch->setTextFormat(Qt::RichText);
-    mLabelResultSearch->setContextMenuPolicy(Qt::NoContextMenu);
-    QFont labFont = mLabelResultSearch->font();
-    labFont.setBold(true);
-    mLabelResultSearch->setFont(labFont);
-    connect(mLabelResultSearch, &QLabel::linkActivated, this, &DirectoryWidget::loadMoreElements);
-
-    mTreeView->setObjectName(QStringLiteral("mTreeView"));
-    mTreeView->setRootIsDecorated(false);
-    mTreeView->setSortingEnabled(true);
-    mTreeView->sortByColumn(0, Qt::AscendingOrder);
-    mTreeView->header()->setSectionsClickable(true);
-    mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &DirectoryWidget::slotCustomContextMenuRequested);
-
-    mainLayout->addWidget(mTreeView);
 
     switch (mType) {
     case Room:
@@ -107,12 +82,12 @@ DirectoryWidget::~DirectoryWidget()
 
 void DirectoryWidget::slotSearchCleared()
 {
-    loadElements();
+    slotLoadElements();
 }
 
 void DirectoryWidget::slotSearchRequested(const QString &str)
 {
-    loadElements(-1, -1, str);
+    slotLoadElements(-1, -1, str);
 }
 
 void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -156,18 +131,18 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
     }
 }
 
-void DirectoryWidget::loadMoreElements()
+void DirectoryWidget::slotLoadMoreElements()
 {
     if (!mModel->loadMoreInProgress()) {
         const int offset = mModel->rowCount();
         if (offset < mModel->total()) {
             mModel->setLoadMoreInProgress(true);
-            loadElements(offset, qMin(50, mModel->total() - offset), mSearchLineEdit->text().trimmed());
+            slotLoadElements(offset, qMin(50, mModel->total() - offset), mSearchLineEdit->text().trimmed());
         }
     }
 }
 
-void DirectoryWidget::loadElements(int offset, int count, const QString &searchName)
+void DirectoryWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
     RocketChatRestApi::DirectoryJob::DirectoryInfo info;
     switch (mType) {
@@ -273,7 +248,7 @@ void DirectoryWidget::fillDirectory()
         return;
     }
     mModel->initialize();
-    loadElements();
+    slotLoadElements();
 }
 
 void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)

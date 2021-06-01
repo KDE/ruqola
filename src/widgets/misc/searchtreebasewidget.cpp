@@ -48,14 +48,13 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     QFont labFont = mLabelResultSearch->font();
     labFont.setBold(true);
     mLabelResultSearch->setFont(labFont);
-    // connect(mLabelResultSearch, &QLabel::linkActivated, this, &SearchTreeBaseWidget::loadMoreElements);
+    connect(mLabelResultSearch, &QLabel::linkActivated, this, &SearchTreeBaseWidget::loadMoreElements);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
     mTreeView->setSortingEnabled(true);
     mTreeView->sortByColumn(0, Qt::AscendingOrder);
     mTreeView->header()->setSectionsClickable(true);
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
-    // connect(mTreeView, &QTreeView::customContextMenuRequested, this, &DirectoryWidget::slotCustomContextMenuRequested);
 
     mainLayout->addWidget(mTreeView);
 }

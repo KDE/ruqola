@@ -30,7 +30,10 @@ public:
     explicit SearchTreeBaseWidget(QWidget *parent = nullptr);
     ~SearchTreeBaseWidget() override;
 
-private:
+Q_SIGNALS:
+    void loadMoreElements();
+
+protected:
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
