@@ -87,7 +87,7 @@ QVariant DirectoryTeamsModel::data(const QModelIndex &index, int role) const
     case DirectoryTeamsRoles::RoomsCount:
         return roomInfo.teamInfo().roomsCount();
     case DirectoryTeamsRoles::TeamIdentifier:
-        return roomInfo.identifier();
+        return roomInfo.teamInfo().teamId();
     }
     return {};
 }
