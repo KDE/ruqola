@@ -158,6 +158,7 @@ target_sources(libruqolawidgets PRIVATE
     misc/statuscombobox.cpp
     misc/systemmessagescombobox.cpp
     misc/searchwithdelaylineedit.cpp
+    misc/searchtreebasewidget.cpp
 
     common/completionlineedit.cpp
     common/completionlistview.cpp
