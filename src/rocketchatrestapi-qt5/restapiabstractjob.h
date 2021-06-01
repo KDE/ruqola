@@ -65,7 +65,7 @@ private:
     QString mType;
 };
 
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiAbstractJob : public QObject
+class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiAbstractJob : public QObject
 {
     Q_OBJECT
 public:
