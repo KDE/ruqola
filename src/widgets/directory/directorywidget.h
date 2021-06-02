@@ -24,11 +24,6 @@
 #include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"
-class QLabel;
-class SearchWithDelayLineEdit;
-class QTreeView;
-class QJsonObject;
-class DirectoryBaseModel;
 class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public SearchTreeBaseWidget
 {

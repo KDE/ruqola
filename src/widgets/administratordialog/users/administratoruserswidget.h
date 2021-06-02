@@ -23,9 +23,6 @@
 #include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QTreeView;
-class AdminUsersModel;
 class AdminUsersFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public SearchTreeBaseWidget
 {
