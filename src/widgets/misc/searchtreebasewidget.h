@@ -23,6 +23,7 @@
 class QLabel;
 class SearchWithDelayLineEdit;
 class QTreeView;
+class DirectoryBaseModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTreeBaseWidget : public QWidget
 {
     Q_OBJECT
@@ -30,11 +31,25 @@ public:
     explicit SearchTreeBaseWidget(QWidget *parent = nullptr);
     ~SearchTreeBaseWidget() override;
 
+    void initialize();
 Q_SIGNALS:
     void loadMoreElements();
 
 protected:
+    virtual void slotCustomContextMenuRequested(const QPoint &pos) = 0;
+    virtual void updateLabel() = 0;
+    virtual void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) = 0;
+    void slotLoadMoreElementDone(const QJsonObject &obj);
+    void slotSearchDone(const QJsonObject &obj);
+    void connectModel();
+    void finishSearching();
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
+    DirectoryBaseModel *mModel = nullptr;
+
+private:
+    void slotSearchCleared();
+    void slotSearchRequested(const QString &str);
+    void slotLoadMoreElements();
 };

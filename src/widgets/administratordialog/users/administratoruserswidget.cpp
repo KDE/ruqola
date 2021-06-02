@@ -38,22 +38,15 @@
 
 AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     : SearchTreeBaseWidget(parent)
-    , mAdminUsersModel(new AdminUsersModel(this))
 {
-    // connect(mResultTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
+    mModel = new AdminUsersModel(this);
+    mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
-    mAdminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
-
-    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mAdminUsersModel, this);
+    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mModel, this);
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-
+    mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
     mTreeView->setModel(mAdminUsersProxyModel);
-    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
-    connect(mAdminUsersModel, &DirectoryBaseModel::hasFullListChanged, this, &AdministratorUsersWidget::updateLabel);
-    connect(mAdminUsersModel, &DirectoryBaseModel::totalChanged, this, &AdministratorUsersWidget::updateLabel);
-    connect(mAdminUsersModel, &DirectoryBaseModel::loadingInProgressChanged, this, &AdministratorUsersWidget::updateLabel);
-    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &AdministratorUsersWidget::slotSearchCleared);
-    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &AdministratorUsersWidget::slotSearchRequested);
+    connectModel();
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
@@ -63,28 +56,6 @@ AdministratorUsersWidget::~AdministratorUsersWidget()
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {
     mAdminUsersProxyModel->setFilterString(str);
-}
-
-void AdministratorUsersWidget::initialize()
-{
-    slotLoadElements();
-}
-
-void AdministratorUsersWidget::slotLoadMoreElements()
-{
-    if (!mAdminUsersModel->loadMoreInProgress()) {
-        const int offset = mAdminUsersModel->rowCount();
-        if (offset < mAdminUsersModel->total()) {
-            mAdminUsersModel->setLoadMoreInProgress(true);
-            slotLoadElements(offset, qMin(50, mAdminUsersModel->total() - offset), mSearchLineEdit->text().trimmed());
-        }
-    }
-}
-
-void AdministratorUsersWidget::finishSearching()
-{
-    mAdminUsersModel->setLoadMoreInProgress(false);
-    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void AdministratorUsersWidget::slotAddUser()
@@ -118,26 +89,16 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void AdministratorUsersWidget::updateLabel()
 {
-    mLabelResultSearch->setText(mAdminUsersModel->total() == 0 ? i18n("No user found") : displayShowMessageInRoom());
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No user found") : displayShowMessageInRoom());
 }
 
 QString AdministratorUsersWidget::displayShowMessageInRoom() const
 {
-    QString displayMessageStr = i18np("%1 user (Total: %2)", "%1 users (Total: %2)", mAdminUsersModel->rowCount(), mAdminUsersModel->total());
-    if (!mAdminUsersModel->hasFullList()) {
+    QString displayMessageStr = i18np("%1 user (Total: %2)", "%1 users (Total: %2)", mModel->rowCount(), mModel->total());
+    if (!mModel->hasFullList()) {
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
-}
-
-void AdministratorUsersWidget::slotSearchCleared()
-{
-    slotLoadElements();
-}
-
-void AdministratorUsersWidget::slotSearchRequested(const QString &str)
-{
-    slotLoadElements(-1, -1, str);
 }
 
 void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QString &searchName)
@@ -170,16 +131,4 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
     }
-}
-
-void AdministratorUsersWidget::slotLoadMoreElementDone(const QJsonObject &obj)
-{
-    mAdminUsersModel->addMoreElements(obj);
-    finishSearching();
-}
-
-void AdministratorUsersWidget::slotSearchDone(const QJsonObject &obj)
-{
-    mAdminUsersModel->parseElements(obj);
-    finishSearching();
 }

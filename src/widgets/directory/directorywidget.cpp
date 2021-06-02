@@ -41,12 +41,6 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     , mType(type)
     , mSortProxyModel(new QSortFilterProxyModel(this))
 {
-    connect(this, &SearchTreeBaseWidget::loadMoreElements, this, [this]() {
-        slotLoadMoreElements();
-    });
-
-    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &DirectoryWidget::slotCustomContextMenuRequested);
-
     switch (mType) {
     case Room:
         mSearchLineEdit->setPlaceholderText(i18n("Search Channels"));
@@ -69,25 +63,11 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     for (const auto col : hideColumns) {
         mTreeView->setColumnHidden(col, true);
     }
-    connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &DirectoryWidget::updateLabel);
-    connect(mModel, &DirectoryBaseModel::totalChanged, this, &DirectoryWidget::updateLabel);
-    connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &DirectoryWidget::updateLabel);
-    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &DirectoryWidget::slotSearchCleared);
-    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &DirectoryWidget::slotSearchRequested);
+    connectModel();
 }
 
 DirectoryWidget::~DirectoryWidget()
 {
-}
-
-void DirectoryWidget::slotSearchCleared()
-{
-    slotLoadElements();
-}
-
-void DirectoryWidget::slotSearchRequested(const QString &str)
-{
-    slotLoadElements(-1, -1, str);
 }
 
 void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -127,17 +107,6 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
         }
         case Unknown:
             break;
-        }
-    }
-}
-
-void DirectoryWidget::slotLoadMoreElements()
-{
-    if (!mModel->loadMoreInProgress()) {
-        const int offset = mModel->rowCount();
-        if (offset < mModel->total()) {
-            mModel->setLoadMoreInProgress(true);
-            slotLoadElements(offset, qMin(50, mModel->total() - offset), mSearchLineEdit->text().trimmed());
         }
     }
 }
@@ -247,27 +216,9 @@ void DirectoryWidget::fillDirectory()
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
-    mModel->initialize();
-    slotLoadElements();
+    initialize();
 }
 
-void DirectoryWidget::slotLoadMoreElementDone(const QJsonObject &obj)
-{
-    mModel->addMoreElements(obj);
-    finishSearching();
-}
-
-void DirectoryWidget::slotSearchDone(const QJsonObject &obj)
-{
-    mModel->parseElements(obj);
-    finishSearching();
-}
-
-void DirectoryWidget::finishSearching()
-{
-    mModel->setLoadMoreInProgress(false);
-    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
-}
 
 DirectoryWidget::DirectoryType DirectoryWidget::type() const
 {

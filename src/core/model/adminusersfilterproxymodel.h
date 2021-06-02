@@ -21,12 +21,12 @@
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
-class AdminUsersModel;
+class DirectoryBaseModel;
 class LIBRUQOLACORE_EXPORT AdminUsersFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit AdminUsersFilterProxyModel(AdminUsersModel *model = nullptr, QObject *parent = nullptr);
+    explicit AdminUsersFilterProxyModel(DirectoryBaseModel *model = nullptr, QObject *parent = nullptr);
     ~AdminUsersFilterProxyModel() override;
 
     void setFilterString(const QString &string);
@@ -37,8 +37,5 @@ Q_SIGNALS:
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-private:
-    AdminUsersModel *const mAdminUsersModel;
 };
 

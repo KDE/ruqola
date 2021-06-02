@@ -20,6 +20,7 @@
 #include "searchtreebasewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
+#include "model/directorybasemodel.h"
 
 #include <QHeaderView>
 #include <QLabel>
@@ -57,8 +58,66 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
 
     mainLayout->addWidget(mTreeView);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchTreeBaseWidget::slotSearchCleared);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchTreeBaseWidget::slotSearchRequested);
+    connect(this, &SearchTreeBaseWidget::loadMoreElements, this, [this]() {
+        slotLoadMoreElements();
+    });
+    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &SearchTreeBaseWidget::slotCustomContextMenuRequested);
 }
 
 SearchTreeBaseWidget::~SearchTreeBaseWidget()
 {
+}
+
+void SearchTreeBaseWidget::slotLoadMoreElements()
+{
+    if (!mModel->loadMoreInProgress()) {
+        const int offset = mModel->rowCount();
+        if (offset < mModel->total()) {
+            mModel->setLoadMoreInProgress(true);
+            slotLoadElements(offset, qMin(50, mModel->total() - offset), mSearchLineEdit->text().trimmed());
+        }
+    }
+}
+
+void SearchTreeBaseWidget::connectModel()
+{
+    connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &SearchTreeBaseWidget::updateLabel);
+    connect(mModel, &DirectoryBaseModel::totalChanged, this, &SearchTreeBaseWidget::updateLabel);
+    connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &SearchTreeBaseWidget::updateLabel);
+}
+
+void SearchTreeBaseWidget::finishSearching()
+{
+    mModel->setLoadMoreInProgress(false);
+    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
+}
+
+void SearchTreeBaseWidget::slotLoadMoreElementDone(const QJsonObject &obj)
+{
+    mModel->addMoreElements(obj);
+    finishSearching();
+}
+
+void SearchTreeBaseWidget::slotSearchDone(const QJsonObject &obj)
+{
+    mModel->parseElements(obj);
+    finishSearching();
+}
+
+void SearchTreeBaseWidget::slotSearchCleared()
+{
+    slotLoadElements();
+}
+
+void SearchTreeBaseWidget::slotSearchRequested(const QString &str)
+{
+    slotLoadElements(-1, -1, str);
+}
+
+void SearchTreeBaseWidget::initialize()
+{
+    mModel->initialize();
+    slotLoadElements();
 }

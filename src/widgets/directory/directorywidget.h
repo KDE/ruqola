@@ -47,13 +47,12 @@ public:
 
     Q_REQUIRED_RESULT DirectoryType type() const;
 
+protected:
+    void updateLabel() override;
+    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
+    void slotCustomContextMenuRequested(const QPoint &pos) override;
+
 private:
-    void slotSearchDone(const QJsonObject &obj);
-    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {});
-    void slotLoadMoreElements();
-    void slotLoadMoreElementDone(const QJsonObject &obj);
-    void updateLabel();
-    void slotCustomContextMenuRequested(const QPoint &pos);
     void slotOpen(const QModelIndex &index);
     void slotSearchRequested(const QString &str);
     void slotSearchCleared();
@@ -61,6 +60,5 @@ private:
     Q_REQUIRED_RESULT QString noFoundInfo() const;
     void finishSearching();
     const DirectoryType mType;
-    DirectoryBaseModel *mModel = nullptr;
     QSortFilterProxyModel *const mSortProxyModel;
 };

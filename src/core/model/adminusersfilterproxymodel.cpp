@@ -19,11 +19,10 @@
 
 #include "adminusersfilterproxymodel.h"
 #include "adminusersmodel.h"
-AdminUsersFilterProxyModel::AdminUsersFilterProxyModel(AdminUsersModel *model, QObject *parent)
+AdminUsersFilterProxyModel::AdminUsersFilterProxyModel(DirectoryBaseModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
-    , mAdminUsersModel(model)
 {
-    setSourceModel(mAdminUsersModel);
+    setSourceModel(model);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0, Qt::DescendingOrder);

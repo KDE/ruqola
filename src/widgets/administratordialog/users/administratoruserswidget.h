@@ -33,12 +33,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public SearchTree
 public:
     explicit AdministratorUsersWidget(QWidget *parent = nullptr);
     ~AdministratorUsersWidget() override;
-    void initialize();
+
+protected:
+    void updateLabel() override;
+    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
+    void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {});
     void slotTextChanged(const QString &str);
-    void slotCustomContextMenuRequested(const QPoint &pos);
     void slotAddUser();
     void slotModifyUser(const QModelIndex &index);
     void slotRemoveUser(const QModelIndex &index);
@@ -46,11 +48,7 @@ private:
     void finishSearching();
     void slotSearchCleared();
     void slotSearchRequested(const QString &str);
-    void updateLabel();
-    void slotLoadMoreElementDone(const QJsonObject &obj);
-    void slotSearchDone(const QJsonObject &obj);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    AdminUsersModel *const mAdminUsersModel;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
 
