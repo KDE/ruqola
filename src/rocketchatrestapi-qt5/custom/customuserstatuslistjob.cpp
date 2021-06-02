@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 CustomUserStatusListJob::CustomUserStatusListJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -74,8 +75,16 @@ bool CustomUserStatusListJob::requireHttpAuthentication() const
 
 QNetworkRequest CustomUserStatusListJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList);
+    QUrlQuery queryUrl;
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
     QNetworkRequest req(url);
     addAuthRawHeader(req);
     return req;
+}
+
+bool CustomUserStatusListJob::hasQueryParameterSupport() const
+{
+    return true;
 }

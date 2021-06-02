@@ -42,11 +42,15 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+    Q_REQUIRED_RESULT const QString &pattern() const;
+    void setPattern(const QString &newPattern);
+
 Q_SIGNALS:
     void userListDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersListJob)
     void slotUsersListFinished();
+    QString mPattern;
 };
 }

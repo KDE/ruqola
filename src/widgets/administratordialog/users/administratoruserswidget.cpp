@@ -105,12 +105,10 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::UsersListJob(this);
-    //    if (!searchName.isEmpty()) {
-    //        info.pattern = searchName;
-    //    }
-    // job->setDirectoryInfo(info);
+    if (!searchName.isEmpty()) {
+        job->setPattern(searchName);
+    }
     RocketChatRestApi::QueryParameters parameters;
-
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);

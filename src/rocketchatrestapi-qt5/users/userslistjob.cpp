@@ -71,6 +71,16 @@ void UsersListJob::slotUsersListFinished()
     deleteLater();
 }
 
+const QString &UsersListJob::pattern() const
+{
+    return mPattern;
+}
+
+void UsersListJob::setPattern(const QString &newPattern)
+{
+    mPattern = newPattern;
+}
+
 QNetworkRequest UsersListJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersList);
