@@ -76,7 +76,7 @@ void AdministratorUsersWidget::slotLoadMoreElements()
         const int offset = mAdminUsersModel->rowCount();
         if (offset < mAdminUsersModel->total()) {
             mAdminUsersModel->setLoadMoreInProgress(true);
-            // slotLoadElements(offset, qMin(50, mAdminUsersModel->total() - offset), mSearchLineEdit->text().trimmed());
+            slotLoadElements(offset, qMin(50, mAdminUsersModel->total() - offset), mSearchLineEdit->text().trimmed());
         }
     }
 }

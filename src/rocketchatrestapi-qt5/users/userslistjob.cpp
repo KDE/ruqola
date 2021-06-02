@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 UsersListJob::UsersListJob(QObject *parent)
     : UserBaseJob(parent)
@@ -73,7 +74,9 @@ void UsersListJob::slotUsersListFinished()
 QNetworkRequest UsersListJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersList);
-    addQueryUrl(url);
+    QUrlQuery queryUrl;
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
