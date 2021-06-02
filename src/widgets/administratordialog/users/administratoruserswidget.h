@@ -36,12 +36,20 @@ public:
     void initialize();
 
 private:
+    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {});
     void slotTextChanged(const QString &str);
-    void slotAdminUserDone(const QJsonObject &obj);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotAddUser();
     void slotModifyUser(const QModelIndex &index);
     void slotRemoveUser(const QModelIndex &index);
+    void slotLoadMoreElements();
+    void finishSearching();
+    void slotSearchCleared();
+    void slotSearchRequested(const QString &str);
+    void updateLabel();
+    void slotLoadMoreElementDone(const QJsonObject &obj);
+    void slotSearchDone(const QJsonObject &obj);
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     AdminUsersModel *const mAdminUsersModel;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };

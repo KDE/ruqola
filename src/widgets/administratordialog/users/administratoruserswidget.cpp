@@ -20,6 +20,7 @@
 
 #include "administratoruserswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersfilterproxymodel.h"
 #include "model/adminusersmodel.h"
 #include "restapirequest.h"
@@ -29,6 +30,7 @@
 #include "users/userslistjob.h"
 #include <KLocalizedString>
 #include <QHeaderView>
+#include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
 #include <QTreeView>
@@ -46,6 +48,12 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
 
     mTreeView->setModel(mAdminUsersProxyModel);
+    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorUsersWidget::slotCustomContextMenuRequested);
+    connect(mAdminUsersModel, &DirectoryBaseModel::hasFullListChanged, this, &AdministratorUsersWidget::updateLabel);
+    connect(mAdminUsersModel, &DirectoryBaseModel::totalChanged, this, &AdministratorUsersWidget::updateLabel);
+    connect(mAdminUsersModel, &DirectoryBaseModel::loadingInProgressChanged, this, &AdministratorUsersWidget::updateLabel);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &AdministratorUsersWidget::slotSearchCleared);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &AdministratorUsersWidget::slotSearchRequested);
 }
 
 AdministratorUsersWidget::~AdministratorUsersWidget()
@@ -59,18 +67,24 @@ void AdministratorUsersWidget::slotTextChanged(const QString &str)
 
 void AdministratorUsersWidget::initialize()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto adminUsersJob = new RocketChatRestApi::UsersListJob(this);
-    rcAccount->restApi()->initializeRestApiJob(adminUsersJob);
-    connect(adminUsersJob, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotAdminUserDone);
-    if (!adminUsersJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
+    slotLoadElements();
+}
+
+void AdministratorUsersWidget::slotLoadMoreElements()
+{
+    if (!mAdminUsersModel->loadMoreInProgress()) {
+        const int offset = mAdminUsersModel->rowCount();
+        if (offset < mAdminUsersModel->total()) {
+            mAdminUsersModel->setLoadMoreInProgress(true);
+            // slotLoadElements(offset, qMin(50, mAdminUsersModel->total() - offset), mSearchLineEdit->text().trimmed());
+        }
     }
 }
 
-void AdministratorUsersWidget::slotAdminUserDone(const QJsonObject &obj)
+void AdministratorUsersWidget::finishSearching()
 {
-    mAdminUsersModel->parseElements(obj);
+    mAdminUsersModel->setLoadMoreInProgress(false);
+    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void AdministratorUsersWidget::slotAddUser()
@@ -100,4 +114,72 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
         });
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+}
+
+void AdministratorUsersWidget::updateLabel()
+{
+    mLabelResultSearch->setText(mAdminUsersModel->total() == 0 ? i18n("No user found") : displayShowMessageInRoom());
+}
+
+QString AdministratorUsersWidget::displayShowMessageInRoom() const
+{
+    QString displayMessageStr = i18np("%1 user (Total: %2)", "%1 users (Total: %2)", mAdminUsersModel->rowCount(), mAdminUsersModel->total());
+    if (!mAdminUsersModel->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
+}
+
+void AdministratorUsersWidget::slotSearchCleared()
+{
+    slotLoadElements();
+}
+
+void AdministratorUsersWidget::slotSearchRequested(const QString &str)
+{
+    slotLoadElements(-1, -1, str);
+}
+
+void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QString &searchName)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::UsersListJob(this);
+    //    if (!searchName.isEmpty()) {
+    //        info.pattern = searchName;
+    //    }
+    // job->setDirectoryInfo(info);
+    RocketChatRestApi::QueryParameters parameters;
+
+    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    parameters.setSorting(map);
+    if (offset != -1) {
+        parameters.setOffset(offset);
+    }
+    if (count != -1) {
+        parameters.setCount(count);
+    }
+    job->setQueryParameters(parameters);
+
+    rcAccount->restApi()->initializeRestApiJob(job);
+    if (offset != -1) {
+        connect(job, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotLoadMoreElementDone);
+    } else {
+        connect(job, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotSearchDone);
+    }
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+    }
+}
+
+void AdministratorUsersWidget::slotLoadMoreElementDone(const QJsonObject &obj)
+{
+    mAdminUsersModel->addMoreElements(obj);
+    finishSearching();
+}
+
+void AdministratorUsersWidget::slotSearchDone(const QJsonObject &obj)
+{
+    mAdminUsersModel->parseElements(obj);
+    finishSearching();
 }
