@@ -19,7 +19,7 @@
 */
 
 #include "ownuser.h"
-
+#include "utils.h"
 #include <QJsonArray>
 
 OwnUser::OwnUser()
@@ -199,7 +199,7 @@ User OwnUser::user() const
     User user;
     user.setUserId(mUserId);
     user.setUserName(mUserName);
-    user.setStatus(mStatus);
+    user.setStatus(Utils::presenceStatusFromString(mStatus));
     return user;
 }
 

@@ -21,6 +21,7 @@
 #include "usersforroommodel.h"
 #include "ruqola_debug.h"
 #include "usersmodel.h"
+#include "utils.h"
 
 #include <QIcon>
 #include <QJsonArray>
@@ -92,7 +93,7 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
     case Name:
         return user.name();
     case Status:
-        return user.status();
+        return Utils::presenceStatusToString(user.status()); // Translate it ?
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
     }
@@ -170,7 +171,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 user.setUserName(userName);
                 user.setUserId(id);
                 user.setUtcOffset(utcOffset);
-                user.setStatus(status);
+                user.setStatus(Utils::presenceStatusFromString(status));
                 if (user.isValid()) {
                     users.append(user);
                 } else {

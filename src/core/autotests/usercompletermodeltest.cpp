@@ -50,7 +50,7 @@ void UserCompleterModelTest::shouldAddValues()
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
@@ -66,7 +66,7 @@ void UserCompleterModelTest::shouldAddValues()
     for (int i = 0; i < 3; ++i) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
@@ -86,7 +86,7 @@ void UserCompleterModelTest::shouldVerifyData()
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);

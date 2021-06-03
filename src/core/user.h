@@ -28,7 +28,13 @@ class LIBRUQOLACORE_EXPORT User
 {
     Q_GADGET
 public:
-    enum class PresenceStatus { PresenceOnline, PresenceBusy, PresenceAway, PresenceOffline, Unknown };
+    enum class PresenceStatus {
+        PresenceOnline,
+        PresenceBusy,
+        PresenceAway,
+        PresenceOffline,
+        Unknown,
+    };
     Q_ENUM(PresenceStatus)
 
     struct LIBRUQOLACORE_EXPORT UserEmailsInfo {
@@ -54,8 +60,8 @@ public:
     Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QString status() const;
-    void setStatus(const QString &status);
+    Q_REQUIRED_RESULT User::PresenceStatus status() const;
+    void setStatus(User::PresenceStatus status);
 
     void parseUser(const QJsonObject &json);
     Q_REQUIRED_RESULT QString iconFromStatus() const;
@@ -98,7 +104,7 @@ private:
     QDateTime mCreatedAt;
     QDateTime mLastLogin;
 
-    QString mStatus = QStringLiteral("offline");
+    PresenceStatus mStatus = PresenceStatus::PresenceOffline;
     QString mUserId;
     QString mName;
     QString mUserName;

@@ -55,14 +55,14 @@ void User::setUserId(const QString &userId)
     mUserId = userId;
 }
 
-QString User::status() const
+User::PresenceStatus User::status() const
 {
     return mStatus;
 }
 
-void User::setStatus(const QString &status)
+void User::setStatus(PresenceStatus s)
 {
-    mStatus = status;
+    mStatus = s;
 }
 
 bool User::operator==(const User &other) const
@@ -139,7 +139,7 @@ void User::parseUserRestApi(const QJsonObject &object)
 {
     setUserId(object.value(QLatin1String("_id")).toString());
     setName(object.value(QLatin1String("name")).toString());
-    setStatus(object.value(QLatin1String("status")).toString());
+    setStatus(Utils::presenceStatusFromString(object.value(QLatin1String("status")).toString()));
     setUserName(object.value(QLatin1String("username")).toString());
     setStatusText(object.value(QLatin1String("statusText")).toString());
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
@@ -184,13 +184,13 @@ void User::parseUser(const QVariantList &list)
     setUserName(list.at(1).toString());
     const int valueStatus = list.at(2).toInt();
     if (valueStatus == 0) {
-        setStatus(QStringLiteral("offline"));
+        setStatus(PresenceStatus::PresenceOffline);
     } else if (valueStatus == 1) {
-        setStatus(QStringLiteral("online"));
+        setStatus(PresenceStatus::PresenceOnline);
     } else if (valueStatus == 2) {
-        setStatus(QStringLiteral("away"));
+        setStatus(PresenceStatus::PresenceAway);
     } else if (valueStatus == 3) {
-        setStatus(QStringLiteral("busy"));
+        setStatus(PresenceStatus::PresenceBusy);
     } else {
         qCWarning(RUQOLA_LOG) << " Invalid status value" << valueStatus;
         return;
@@ -215,6 +215,8 @@ void User::setRoles(const QStringList &roles)
             rolesI18n << i18n("User");
         } else if (role == QLatin1String("admin")) {
             rolesI18n << i18n("Administrator");
+        } else if (role == QLatin1String("bot")) {
+            rolesI18n << i18n("Bot");
         } else {
             rolesI18n << role;
         }
@@ -263,7 +265,7 @@ void User::parseUser(const QJsonObject &object)
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
     setUserId(object.value(QLatin1String("id")).toString());
     setName(fields.value(QLatin1String("name")).toString());
-    setStatus(fields.value(QLatin1String("status")).toString());
+    setStatus(Utils::presenceStatusFromString(fields.value(QLatin1String("status")).toString()));
     setUserName(fields.value(QLatin1String("username")).toString());
     setStatusText(fields.value(QLatin1String("statusText")).toString());
     setUtcOffset(fields.value(QLatin1String("utcOffset")).toDouble());
@@ -271,7 +273,7 @@ void User::parseUser(const QJsonObject &object)
 
 QString User::iconFromStatus() const
 {
-    return Utils::iconFromStatus(mStatus);
+    return Utils::iconFromPresenceStatus(mStatus);
 }
 
 QVector<User> User::parseUsersList(const QJsonObject &object)

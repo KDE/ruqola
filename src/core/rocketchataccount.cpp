@@ -1994,7 +1994,7 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
 void RocketChatAccount::userStatusChanged(const User &user)
 {
     if (user.userId() == userId()) {
-        mPresenceStatus = Utils::presenceStatusFromString(user.status());
+        mPresenceStatus = user.status();
         statusModel()->setCurrentPresenceStatus(mPresenceStatus);
         statusModel()->setCustomText(user.statusText());
         Q_EMIT userStatusUpdated(mPresenceStatus, user.statusText(), accountName());

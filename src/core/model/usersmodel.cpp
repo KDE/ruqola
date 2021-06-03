@@ -20,7 +20,7 @@
 
 #include "usersmodel.h"
 #include "ruqola_debug.h"
-
+#include "utils.h"
 #include <QJsonObject>
 
 UsersModel::UsersModel(QObject *parent)
@@ -50,7 +50,7 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     case UserId:
         return user.userId();
     case UserStatus:
-        return user.status();
+        return Utils::presenceStatusToString(user.status());
     case UserIcon:
         return user.iconFromStatus();
     case UserStatusText:
@@ -73,7 +73,7 @@ QString UsersModel::userStatusIconFileName(const QString &name) const
     return QStringLiteral("user-offline");
 }
 
-QString UsersModel::status(const QString &userId) const
+User::PresenceStatus UsersModel::status(const QString &userId) const
 {
     const int userCount = mUsers.count();
 
@@ -83,7 +83,7 @@ QString UsersModel::status(const QString &userId) const
         }
     }
     // Return offline as default;
-    return QStringLiteral("offline");
+    return User::PresenceStatus::PresenceOffline;
 }
 
 User UsersModel::fullUserInfo(const QString &userName) const
@@ -108,7 +108,7 @@ void UsersModel::removeUser(const QString &userId)
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
             // Send info as it's disconnected. But don't remove it from list
             User &user = mUsers[i];
-            user.setStatus(QStringLiteral("offline"));
+            user.setStatus(User::PresenceStatus::PresenceOffline);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
             Q_EMIT dataChanged(idx, idx);
@@ -155,7 +155,7 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QString newStatus = fields.value(QLatin1String("status")).toString();
             bool userDataChanged = false;
             if (!newStatus.isEmpty()) {
-                user.setStatus(newStatus);
+                user.setStatus(Utils::presenceStatusFromString(newStatus));
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
                 Q_EMIT userStatusChanged(user);
