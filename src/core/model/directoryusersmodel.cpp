@@ -91,7 +91,6 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
         return user.name().isEmpty() ? user.userName() : user.name();
     case DirectoryUsersRoles::Email:
         return user.userEmailsInfo().email;
-        return {};
     case DirectoryUsersRoles::JoinAt:
         return {};
     case DirectoryUsersRoles::UserId:

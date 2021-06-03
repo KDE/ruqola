@@ -49,6 +49,8 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Role");
         case AdminUsersModel::Disabled:
             return i18n("Disabled");
+        case AdminUsersModel::Status:
+            return i18n("Status");
         }
     }
     return QVariant();
@@ -75,12 +77,13 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     case AdminUsersRoles::Name:
         return user.name();
     case AdminUsersRoles::UserName:
-        return user.userName();
+        return user.name().isEmpty() ? user.userName() : user.name();
     case AdminUsersRoles::Email:
-        // TODO
-        break;
+        return user.userEmailsInfo().email;
     case AdminUsersRoles::Roles:
         return user.roles();
+    case AdminUsersRoles::Status:
+        return {}; // TODO
     case AdminUsersRoles::Disabled:
         // TODO
         break;

@@ -35,6 +35,7 @@ public:
         UserName,
         Email,
         Roles,
+        Status,
         Disabled,
         LastColumn = Disabled,
     };
