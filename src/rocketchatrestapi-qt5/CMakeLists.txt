@@ -39,6 +39,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     users/deleteuserjob.cpp
     users/userscreatejob.cpp
     users/userslistjob.cpp
+    users/setuseractivestatusjob.cpp
 
     authentication/logoutjob.cpp
     authentication/loginjob.cpp

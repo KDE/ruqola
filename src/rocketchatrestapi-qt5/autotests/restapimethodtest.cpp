@@ -79,6 +79,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersPresence), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.autocomplete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRemoveOtherTokens), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removeOtherTokens")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::usersSetActiveStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setActiveStatus")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage")));

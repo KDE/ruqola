@@ -92,6 +92,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.autocomplete");
     case RestApiUtil::RestApiUrlType::UsersRemoveOtherTokens:
         return QStringLiteral("users.removeOtherTokens");
+    case RestApiUtil::RestApiUrlType::usersSetActiveStatus:
+        return QStringLiteral("users.setActiveStatus");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:
