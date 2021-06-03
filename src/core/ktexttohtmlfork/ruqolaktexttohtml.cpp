@@ -169,7 +169,7 @@ bool KTextToHTMLHelper::atUrl() const
         }
     }
 
-    const auto segment = mText.midRef(mPos);
+    const auto segment = QStringView(mText).mid(mPos);
     return segment.startsWith(QLatin1String("http://")) || segment.startsWith(QLatin1String("https://")) || segment.startsWith(QLatin1String("vnc://"))
         || segment.startsWith(QLatin1String("fish://")) || segment.startsWith(QLatin1String("ftp://")) || segment.startsWith(QLatin1String("ftps://"))
         || segment.startsWith(QLatin1String("sftp://")) || segment.startsWith(QLatin1String("smb://")) || segment.startsWith(QLatin1String("mailto:"))
