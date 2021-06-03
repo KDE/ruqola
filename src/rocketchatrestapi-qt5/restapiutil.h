@@ -53,7 +53,7 @@ enum class RestApiUrlType {
     /* ... 3.1 ? */
     UsersRemoveOtherTokens,
     UsersDeleteOwnAccount,
-    usersSetActiveStatus,
+    UsersSetActiveStatus,
 
     ChatDelete,
     ChatGetMessage,

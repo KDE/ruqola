@@ -104,7 +104,7 @@ bool SetUserActiveStatusJob::canStart() const
 
 QNetworkRequest SetUserActiveStatusJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersSetStatus);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersSetActiveStatus);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
