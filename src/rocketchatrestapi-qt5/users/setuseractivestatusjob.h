@@ -30,7 +30,6 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetUserActiveStatusJob : public Rest
 public:
     explicit SetUserActiveStatusJob(QObject *parent = nullptr);
     ~SetUserActiveStatusJob() override;
-    enum StatusType { OnLine, Away, Offline, Busy, Unknown };
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -39,11 +38,19 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT bool activate() const;
+    void setActivate(bool newActivate);
+
+    Q_REQUIRED_RESULT const QString &activateUserId() const;
+    void setActivateUserId(const QString &newActivateUserId);
+
 Q_SIGNALS:
     void setStatusDone();
 
 private:
     Q_DISABLE_COPY(SetUserActiveStatusJob)
     void slotSetStatus();
+    QString mActivateUserId;
+    bool mActivate = true;
 };
 }

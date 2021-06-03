@@ -65,6 +65,26 @@ void SetUserActiveStatusJob::slotSetStatus()
     deleteLater();
 }
 
+const QString &SetUserActiveStatusJob::activateUserId() const
+{
+    return mActivateUserId;
+}
+
+void SetUserActiveStatusJob::setActivateUserId(const QString &newActivateUserId)
+{
+    mActivateUserId = newActivateUserId;
+}
+
+bool SetUserActiveStatusJob::activate() const
+{
+    return mActivate;
+}
+
+void SetUserActiveStatusJob::setActivate(bool newActivate)
+{
+    mActivate = newActivate;
+}
+
 bool SetUserActiveStatusJob::requireHttpAuthentication() const
 {
     return true;
@@ -75,14 +95,10 @@ bool SetUserActiveStatusJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (mStatusUserId.isEmpty()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserActiveStatusJob: mUserId is empty";
-    //        return false;
-    //    }
-    //    if (mStatus == SetUserActiveStatusJob::Unknown) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserActiveStatusJob: mStatus is not defined";
-    //        return false;
-    //    }
+    if (mActivateUserId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserActiveStatusJob: mUserId is empty";
+        return false;
+    }
     return true;
 }
 
@@ -98,27 +114,8 @@ QNetworkRequest SetUserActiveStatusJob::request() const
 QJsonDocument SetUserActiveStatusJob::json() const
 {
     QJsonObject jsonObj;
-    //    jsonObj[QLatin1String("userId")] = mStatusUserId;
-    //    QString statusType;
-    //    switch (mStatus) {
-    //    case OnLine:
-    //        statusType = QStringLiteral("online");
-    //        break;
-    //    case Away:
-    //        statusType = QStringLiteral("away");
-    //        break;
-    //    case Offline:
-    //        statusType = QStringLiteral("offline");
-    //        break;
-    //    case Busy:
-    //        statusType = QStringLiteral("busy");
-    //        break;
-    //    case Unknown:
-    //        break;
-    //    }
-    //    jsonObj[QLatin1String("status")] = statusType;
-    //    jsonObj[QLatin1String("message")] = mStatusMessage;
-
+    jsonObj[QLatin1String("userId")] = mActivateUserId;
+    jsonObj[QLatin1String("activeStatus")] = mActivate;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
