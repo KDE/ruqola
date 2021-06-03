@@ -81,7 +81,7 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     case AdminUsersRoles::Email:
         return user.userEmailsInfo().email;
     case AdminUsersRoles::Roles:
-        return user.roles();
+        return user.roles().join(QLatin1Char(','));
     case AdminUsersRoles::Status:
         return user.status(); // TODO i18n ?
     case AdminUsersRoles::Disabled:
