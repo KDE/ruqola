@@ -84,7 +84,7 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     case AdminUsersRoles::Roles:
         return user.i18nRoles().join(QLatin1Char(','));
     case AdminUsersRoles::Status:
-        return Utils::presenceStatusToString(user.status()); // TODO i18n ?
+        return Utils::displaytextFromPresenceStatus(user.status());
     case AdminUsersRoles::Disabled:
         // TODO
         break;

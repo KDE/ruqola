@@ -20,6 +20,7 @@
 
 #include "utils.h"
 #include "ruqola_debug.h"
+#include <KLocalizedString>
 
 #include <KColorScheme>
 #include <QCryptographicHash>
@@ -355,4 +356,21 @@ QString Utils::emojiFontName()
 #else
     return QStringLiteral("NotoColorEmoji");
 #endif
+}
+
+QString Utils::displaytextFromPresenceStatus(User::PresenceStatus status)
+{
+    switch (status) {
+    case User::PresenceStatus::PresenceOnline:
+        return i18n("Online");
+    case User::PresenceStatus::PresenceBusy:
+        return i18n("Busy");
+    case User::PresenceStatus::PresenceAway:
+        return i18n("Away");
+    case User::PresenceStatus::PresenceOffline:
+        return i18n("Offline");
+    case User::PresenceStatus::Unknown:
+        return {};
+    }
+    return {};
 }
