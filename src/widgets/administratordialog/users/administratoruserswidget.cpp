@@ -70,12 +70,21 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
 }
 
+void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index)
+{
+}
+
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
+        // TODO enable/disable
+        menu.addAction(i18n("Active"), this, [this, index]() {
+            slotActivateUser(index);
+        });
+        menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             slotModifyUser(index);
         });

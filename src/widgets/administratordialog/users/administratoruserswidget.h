@@ -45,6 +45,7 @@ private:
     void finishSearching();
     void slotSearchCleared();
     void slotSearchRequested(const QString &str);
+    void slotActivateUser(const QModelIndex &index);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
