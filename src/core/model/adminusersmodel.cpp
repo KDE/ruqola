@@ -83,7 +83,7 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     case AdminUsersRoles::Roles:
         return user.roles();
     case AdminUsersRoles::Status:
-        return {}; // TODO
+        return user.status(); // TODO i18n ?
     case AdminUsersRoles::Disabled:
         // TODO
         break;
