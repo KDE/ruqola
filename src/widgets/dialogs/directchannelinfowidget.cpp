@@ -138,7 +138,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     } else {
         mCustomStatus->setText(user.statusText());
     }
-    mStatus->setText(Utils::presenceStatusToString(user.status()));
+    mStatus->setText(Utils::displaytextFromPresenceStatus(user.status()));
     mTimeZone->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
     // Download avatar ?
     Utils::AvatarInfo info;
@@ -146,7 +146,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); // TODO hardcoded ?
-    // TODO use i18n ?
+
     const QStringList i18nRoles{user.i18nRoles()};
     if (i18nRoles.isEmpty()) {
         hideWidget(mRoles);
