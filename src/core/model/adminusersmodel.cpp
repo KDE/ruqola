@@ -77,7 +77,7 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     case AdminUsersRoles::Name:
         return user.name();
     case AdminUsersRoles::UserName:
-        return user.name().isEmpty() ? user.userName() : user.name();
+        return user.userName();
     case AdminUsersRoles::Email:
         return user.userEmailsInfo().email;
     case AdminUsersRoles::Roles:
