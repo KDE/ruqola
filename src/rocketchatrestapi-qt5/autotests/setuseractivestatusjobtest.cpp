@@ -20,7 +20,7 @@
 
 #include "setuseractivestatusjobtest.h"
 #include "ruqola_restapi_helper.h"
-#include "users/setstatusjob.h"
+#include "users/setuseractivestatusjob.h"
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(SetUserActiveStatusJobTest)
@@ -32,18 +32,17 @@ SetUserActiveStatusJobTest::SetUserActiveStatusJobTest(QObject *parent)
 
 void SetUserActiveStatusJobTest::shouldHaveDefaultValue()
 {
-    SetStatusJob job;
+    SetUserActiveStatusJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.statusUserId().isEmpty());
-    QVERIFY(job.statusMessage().isEmpty());
-    QCOMPARE(job.status(), SetStatusJob::Unknown);
+    QVERIFY(job.activateUserId().isEmpty());
+    QVERIFY(job.activate());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void SetUserActiveStatusJobTest::shouldGenerateRequest()
 {
-    SetStatusJob job;
+    SetUserActiveStatusJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setStatus")));
@@ -52,21 +51,18 @@ void SetUserActiveStatusJobTest::shouldGenerateRequest()
 
 void SetUserActiveStatusJobTest::shouldGenerateJson()
 {
-    SetStatusJob job;
+    SetUserActiveStatusJob job;
     const QString userId = QStringLiteral("foo1");
-    job.setStatusUserId(userId);
-    job.setStatusMessage(QString());
-    job.setStatus(SetStatusJob::Away);
+    job.setActivateUserId(userId);
+    job.setActivate(false);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"","status":"away","userId":"foo1"})").arg(userId).toLatin1());
-    job.setStatusMessage(QStringLiteral("bla"));
+    job.setActivate(true);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"away","userId":"foo1"})").arg(userId).toLatin1());
-    job.setStatus(SetStatusJob::Offline);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"offline","userId":"foo1"})").arg(userId).toLatin1());
 }
 
 void SetUserActiveStatusJobTest::shouldNotStarting()
 {
-    SetStatusJob job;
+    SetUserActiveStatusJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -82,8 +78,6 @@ void SetUserActiveStatusJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString statusUserid = QStringLiteral("foo1");
-    job.setStatusUserId(statusUserid);
-    QVERIFY(!job.canStart());
-    job.setStatus(SetStatusJob::Away);
+    job.setActivateUserId(statusUserid);
     QVERIFY(job.canStart());
 }
