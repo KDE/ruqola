@@ -95,6 +95,10 @@
             "configurePreset": "pch"
         },
         {
+            "name": "release",
+            "configurePreset": "release"
+        },
+        {
             "name": "clazy",
             "configurePreset": "clazy",
             "environment": {
