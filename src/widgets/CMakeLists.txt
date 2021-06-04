@@ -196,6 +196,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/customsounds/customsoundstreewidget.cpp
 
     administratordialog/users/administratoruserswidget.cpp
+    administratordialog/users/administratoradduserdialog.cpp
+    administratordialog/users/administratoradduserwidget.cpp
 
     administratordialog/invites/administratorinviteswidget.cpp
     administratordialog/invites/invitetreeview.cpp

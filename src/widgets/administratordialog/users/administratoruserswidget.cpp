@@ -74,7 +74,6 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)
 {
-    // Use !activeUser
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
