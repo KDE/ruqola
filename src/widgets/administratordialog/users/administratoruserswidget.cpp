@@ -77,7 +77,8 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     // Use !activeUser
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
-    const QString userId = index.data(AdminUsersModel::UserId).toString();
+    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+    const QString userId = modelIndex.data().toString();
     qDebug() << "userId " << userId;
     job->setActivate(!activateUser);
     job->setActivateUserId(userId);
@@ -99,7 +100,8 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        const bool activateUser = index.data(AdminUsersModel::ActiveUser).toBool();
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::ActiveUser);
+        const bool activateUser = modelIndex.data(AdminUsersModel::ActiveUser).toBool();
         menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, index, activateUser]() {
             slotActivateUser(index, activateUser);
         });
