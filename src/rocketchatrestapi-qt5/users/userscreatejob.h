@@ -20,21 +20,27 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersCreateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CreateInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateInfo {
         // TODO add enum ?
+        QStringList roles;
         QString mUserId;
         QString mEmail;
         QString mName;
         QString mUserName;
         QString mPassword;
+        QString mStatusText;
+        bool mJoinDefaultChannels = false;
+        bool mRequirePasswordChange = false;
+        bool mAssignRandomPassword = false;
+        bool mSendWelcomeEmail = false;
         Q_REQUIRED_RESULT bool isValid() const;
         // TODO add more
     };
