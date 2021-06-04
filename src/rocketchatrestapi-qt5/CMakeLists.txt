@@ -18,6 +18,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     misc/settingsoauthjob.cpp
     misc/statisticsjob.cpp
     misc/directoryjob.cpp
+    misc/roleslistjob.cpp
 
     users/userbasejob.cpp
     users/getavatarjob.cpp
