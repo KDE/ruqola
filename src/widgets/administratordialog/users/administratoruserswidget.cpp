@@ -79,7 +79,6 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
     const QString userId = modelIndex.data().toString();
-    qDebug() << "userId " << userId;
     job->setActivate(!activateUser);
     job->setActivateUserId(userId);
     rcAccount->restApi()->initializeRestApiJob(job);
@@ -101,7 +100,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::ActiveUser);
-        const bool activateUser = modelIndex.data(AdminUsersModel::ActiveUser).toBool();
+        const bool activateUser = modelIndex.data().toBool();
         menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, index, activateUser]() {
             slotActivateUser(index, activateUser);
         });

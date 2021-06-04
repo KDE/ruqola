@@ -37,6 +37,7 @@ public:
         Roles,
         Status,
         UserId,
+        ActiveUserDisplay,
         ActiveUser,
         LastColumn = ActiveUser,
     };

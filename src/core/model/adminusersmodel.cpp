@@ -48,11 +48,12 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Email");
         case AdminUsersModel::Roles:
             return i18n("Role");
-        case AdminUsersModel::ActiveUser:
+        case AdminUsersModel::ActiveUserDisplay:
             return i18n("Disabled");
         case AdminUsersModel::Status:
             return i18n("Status");
         case AdminUsersModel::UserId:
+        case AdminUsersModel::ActiveUser:
             return {};
         }
     }
@@ -67,7 +68,7 @@ int AdminUsersModel::columnCount(const QModelIndex &parent) const
 
 QList<int> AdminUsersModel::hideColumns() const
 {
-    return {AdminUsersRoles::UserId};
+    return {AdminUsersRoles::UserId, AdminUsersRoles::ActiveUser};
 }
 
 QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
@@ -92,10 +93,13 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
         return user.i18nRoles().join(QLatin1Char(','));
     case AdminUsersRoles::Status:
         return Utils::displaytextFromPresenceStatus(user.status());
-    case AdminUsersRoles::ActiveUser:
+    case AdminUsersRoles::ActiveUserDisplay:
         return user.active() ? i18n("Active") : i18n("Disabled");
-    case AdminUsersRoles::UserId:
+    case AdminUsersRoles::ActiveUser:
+        return user.active();
+    case AdminUsersRoles::UserId: {
         return user.userId();
+    }
     }
     return {};
 }
