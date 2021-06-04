@@ -47,6 +47,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
     mTreeView->setModel(mAdminUsersProxyModel);
+    hideColumns();
     connectModel();
 }
 
@@ -76,7 +77,10 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     // Use !activeUser
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
+    const QString userId = index.data(AdminUsersModel::UserId).toString();
+    qDebug() << "userId " << userId;
     job->setActivate(!activateUser);
+    job->setActivateUserId(userId);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, &AdministratorUsersWidget::slotSetUserActiveStatus);
     if (!job->start()) {

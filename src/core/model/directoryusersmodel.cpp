@@ -94,7 +94,7 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
     case DirectoryUsersRoles::JoinAt:
         return {};
     case DirectoryUsersRoles::UserId:
-        return {};
+        return user.userId();
     }
     return {};
 }

@@ -42,6 +42,7 @@ protected:
     void slotLoadMoreElementDone(const QJsonObject &obj);
     void slotSearchDone(const QJsonObject &obj);
     void connectModel();
+    void hideColumns();
     void finishSearching();
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;

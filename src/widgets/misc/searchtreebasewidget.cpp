@@ -81,6 +81,14 @@ void SearchTreeBaseWidget::slotLoadMoreElements()
     }
 }
 
+void SearchTreeBaseWidget::hideColumns()
+{
+    const auto hideColumns = mModel->hideColumns();
+    for (const auto col : hideColumns) {
+        mTreeView->setColumnHidden(col, true);
+    }
+}
+
 void SearchTreeBaseWidget::connectModel()
 {
     connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &SearchTreeBaseWidget::updateLabel);

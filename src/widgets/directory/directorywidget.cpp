@@ -59,10 +59,7 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     }
     mSortProxyModel->setSourceModel(mModel);
     mTreeView->setModel(mSortProxyModel);
-    const auto hideColumns = mModel->hideColumns();
-    for (const auto col : hideColumns) {
-        mTreeView->setColumnHidden(col, true);
-    }
+    hideColumns();
     connectModel();
 }
 

@@ -36,6 +36,7 @@ public:
         Email,
         Roles,
         Status,
+        UserId,
         ActiveUser,
         LastColumn = ActiveUser,
     };
@@ -47,6 +48,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
 
 protected:
     Q_REQUIRED_RESULT Users::ParseType parseType() const override;

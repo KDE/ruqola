@@ -52,6 +52,8 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Disabled");
         case AdminUsersModel::Status:
             return i18n("Status");
+        case AdminUsersModel::UserId:
+            return {};
         }
     }
     return QVariant();
@@ -61,6 +63,11 @@ int AdminUsersModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return static_cast<int>(AdminUsersModel::LastColumn) + 1;
+}
+
+QList<int> AdminUsersModel::hideColumns() const
+{
+    return {AdminUsersRoles::UserId};
 }
 
 QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
@@ -87,6 +94,8 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
         return Utils::displaytextFromPresenceStatus(user.status());
     case AdminUsersRoles::ActiveUser:
         return user.active() ? i18n("Active") : i18n("Disabled");
+    case AdminUsersRoles::UserId:
+        return user.userId();
     }
     return {};
 }
