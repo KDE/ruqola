@@ -45,7 +45,7 @@ public:
     void setActivateUserId(const QString &newActivateUserId);
 
 Q_SIGNALS:
-    void setUserActiveStatusDone();
+    void setUserActiveStatusDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(SetUserActiveStatusJob)
