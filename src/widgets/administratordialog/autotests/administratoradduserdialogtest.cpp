@@ -21,7 +21,9 @@
 #include "administratoradduserdialogtest.h"
 #include "administratordialog/users/administratoradduserdialog.h"
 #include "administratordialog/users/administratoradduserwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorAddUserDialogTest)
 AdministratorAddUserDialogTest::AdministratorAddUserDialogTest(QObject *parent)
     : QObject(parent)
@@ -31,5 +33,12 @@ AdministratorAddUserDialogTest::AdministratorAddUserDialogTest(QObject *parent)
 void AdministratorAddUserDialogTest::shouldHaveDefaultValues()
 {
     AdministratorAddUserDialog d;
-    // TODO
+    QVERIFY(!d.windowTitle().isEmpty());
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    auto mAdministratorWidget = d.findChild<AdministratorAddUserWidget *>(QStringLiteral("mAdministratorWidget"));
+    QVERIFY(mAdministratorWidget);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

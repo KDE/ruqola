@@ -22,11 +22,22 @@
 
 #include <QWidget>
 
+#include "users/userscreatejob.h"
+
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorAddUserWidget(QWidget *parent = nullptr);
     ~AdministratorAddUserWidget() override;
+
+    Q_REQUIRED_RESULT RocketChatRestApi::UsersCreateJob::CreateInfo createInfo() const;
+
+private:
+    QLineEdit *const mName;
+    QLineEdit *const mUserName;
+    QLineEdit *const mEmail;
 };

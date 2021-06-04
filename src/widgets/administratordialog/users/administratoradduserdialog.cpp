@@ -45,3 +45,8 @@ AdministratorAddUserDialog::AdministratorAddUserDialog(QWidget *parent)
 AdministratorAddUserDialog::~AdministratorAddUserDialog()
 {
 }
+
+RocketChatRestApi::UsersCreateJob::CreateInfo AdministratorAddUserDialog::createInfo() const
+{
+    return mAdministratorWidget->createInfo();
+}

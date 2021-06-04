@@ -22,6 +22,8 @@
 
 #include <QDialog>
 
+#include "users/userscreatejob.h"
+
 #include "libruqolawidgets_private_export.h"
 class AdministratorAddUserWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserDialog : public QDialog
@@ -30,6 +32,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserDialog : public QDialog
 public:
     explicit AdministratorAddUserDialog(QWidget *parent = nullptr);
     ~AdministratorAddUserDialog() override;
+
+    Q_REQUIRED_RESULT RocketChatRestApi::UsersCreateJob::CreateInfo createInfo() const;
 
 private:
     AdministratorAddUserWidget *const mAdministratorWidget;

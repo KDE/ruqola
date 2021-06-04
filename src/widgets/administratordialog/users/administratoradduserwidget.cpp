@@ -18,12 +18,27 @@
    Boston, MA 02110-1301, USA.
 */
 #include "administratoradduserwidget.h"
+#include <KLocalizedString>
+#include <QLabel>
+#include <QLineEdit>
+#include <QVBoxLayout>
 
 AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     : QWidget(parent)
+    , mName(new QLineEdit(this))
+    , mUserName(new QLineEdit(this))
+    , mEmail(new QLineEdit(this))
 {
+    mName->setObjectName(QStringLiteral("mName"));
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mEmail->setObjectName(QStringLiteral("mEmail"));
 }
 
 AdministratorAddUserWidget::~AdministratorAddUserWidget()
 {
+}
+
+RocketChatRestApi::UsersCreateJob::CreateInfo AdministratorAddUserWidget::createInfo() const
+{
+    return {};
 }
