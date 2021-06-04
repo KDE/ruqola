@@ -27,6 +27,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "users/setuseractivestatusjob.h"
 #include "users/userslistjob.h"
 #include <KLocalizedString>
 #include <QHeaderView>
@@ -70,8 +71,22 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
 }
 
-void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index)
+void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)
 {
+    // Use !activeUser
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
+    job->setActivate(!activateUser);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, &AdministratorUsersWidget::slotSetUserActiveStatus);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
+    }
+}
+
+void AdministratorUsersWidget::slotSetUserActiveStatus()
+{
+    // TODO
 }
 
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -80,9 +95,9 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        // TODO enable/disable
-        menu.addAction(i18n("Active"), this, [this, index]() {
-            slotActivateUser(index);
+        const bool activateUser = index.data(AdminUsersModel::ActiveUser).toBool();
+        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, index, activateUser]() {
+            slotActivateUser(index, activateUser);
         });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {

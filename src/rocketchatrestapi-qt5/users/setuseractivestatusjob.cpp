@@ -43,11 +43,11 @@ bool SetUserActiveStatusJob::start()
     }
     addStartRestApiInfo("SetUserActiveStatusJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &SetUserActiveStatusJob::slotSetStatus);
+    connect(reply, &QNetworkReply::finished, this, &SetUserActiveStatusJob::slotSetUserActiveStatus);
     return true;
 }
 
-void SetUserActiveStatusJob::slotSetStatus()
+void SetUserActiveStatusJob::slotSetUserActiveStatus()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -55,7 +55,7 @@ void SetUserActiveStatusJob::slotSetStatus()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("SetUserActiveStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setStatusDone();
+            Q_EMIT setUserActiveStatusDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("SetUserActiveStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

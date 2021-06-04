@@ -48,7 +48,7 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Email");
         case AdminUsersModel::Roles:
             return i18n("Role");
-        case AdminUsersModel::Disabled:
+        case AdminUsersModel::ActiveUser:
             return i18n("Disabled");
         case AdminUsersModel::Status:
             return i18n("Status");
@@ -85,7 +85,7 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
         return user.i18nRoles().join(QLatin1Char(','));
     case AdminUsersRoles::Status:
         return Utils::displaytextFromPresenceStatus(user.status());
-    case AdminUsersRoles::Disabled:
+    case AdminUsersRoles::ActiveUser:
         return user.active() ? i18n("Active") : i18n("Disabled");
     }
     return {};

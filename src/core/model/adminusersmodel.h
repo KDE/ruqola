@@ -36,8 +36,8 @@ public:
         Email,
         Roles,
         Status,
-        Disabled,
-        LastColumn = Disabled,
+        ActiveUser,
+        LastColumn = ActiveUser,
     };
     Q_ENUM(AdminUsersRoles)
 

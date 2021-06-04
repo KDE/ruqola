@@ -45,11 +45,11 @@ public:
     void setActivateUserId(const QString &newActivateUserId);
 
 Q_SIGNALS:
-    void setStatusDone();
+    void setUserActiveStatusDone();
 
 private:
     Q_DISABLE_COPY(SetUserActiveStatusJob)
-    void slotSetStatus();
+    void slotSetUserActiveStatus();
     QString mActivateUserId;
     bool mActivate = true;
 };
