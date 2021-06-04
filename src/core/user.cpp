@@ -69,7 +69,7 @@ bool User::operator==(const User &other) const
 {
     return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
         && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
-        && (mLastLogin == other.lastLogin());
+        && (mLastLogin == other.lastLogin()) && (mActive == other.active());
 }
 
 bool User::operator!=(const User &other) const
@@ -131,6 +131,7 @@ QDebug operator<<(QDebug d, const User &t)
     d << "CreatedAt: " << t.createdAt();
     d << "Last Login " << t.lastLogin();
     d << "userEmailsInfo " << t.userEmailsInfo();
+    d << "active " << t.active();
     return d;
 }
 
@@ -143,6 +144,7 @@ void User::parseUserRestApi(const QJsonObject &object)
     setUserName(object.value(QLatin1String("username")).toString());
     setStatusText(object.value(QLatin1String("statusText")).toString());
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
+    setActive(object.value(QLatin1String("active")).toBool(true)); // By default it's active
     const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
     QStringList roles;
     const int total = rolesArray.size();
@@ -260,6 +262,16 @@ QStringList User::i18nRoles() const
     return mI18nRoles;
 }
 
+bool User::active() const
+{
+    return mActive;
+}
+
+void User::setActive(bool newActive)
+{
+    mActive = newActive;
+}
+
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
@@ -269,6 +281,7 @@ void User::parseUser(const QJsonObject &object)
     setUserName(fields.value(QLatin1String("username")).toString());
     setStatusText(fields.value(QLatin1String("statusText")).toString());
     setUtcOffset(fields.value(QLatin1String("utcOffset")).toDouble());
+    // TODO active ?
 }
 
 QString User::iconFromStatus() const

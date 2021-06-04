@@ -99,9 +99,10 @@ void SearchTreeBaseWidget::slotLoadMoreElementDone(const QJsonObject &obj)
     mModel->addMoreElements(obj);
     finishSearching();
 }
-
+#include <QDebug>
 void SearchTreeBaseWidget::slotSearchDone(const QJsonObject &obj)
 {
+    qDebug() << " obj " << obj;
     mModel->parseElements(obj);
     finishSearching();
 }

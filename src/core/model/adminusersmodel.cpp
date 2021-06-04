@@ -86,8 +86,7 @@ QVariant AdminUsersModel::data(const QModelIndex &index, int role) const
     case AdminUsersRoles::Status:
         return Utils::displaytextFromPresenceStatus(user.status());
     case AdminUsersRoles::Disabled:
-        // TODO
-        break;
+        return user.active() ? i18n("Active") : i18n("Disabled");
     }
     return {};
 }

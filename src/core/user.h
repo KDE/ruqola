@@ -99,6 +99,9 @@ public:
 
     Q_REQUIRED_RESULT QStringList i18nRoles() const;
 
+    Q_REQUIRED_RESULT bool active() const;
+    void setActive(bool newActive);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -112,6 +115,7 @@ private:
     QStringList mRoles;
     QStringList mI18nRoles;
     double mUtcOffset = 0.0;
+    bool mActive = true;
 };
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
