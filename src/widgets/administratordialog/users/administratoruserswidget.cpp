@@ -19,6 +19,7 @@
 */
 
 #include "administratoruserswidget.h"
+#include "administratoradduserdialog.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersfilterproxymodel.h"
@@ -34,6 +35,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
+#include <QPointer>
 #include <QTreeView>
 #include <QVBoxLayout>
 
@@ -62,6 +64,11 @@ void AdministratorUsersWidget::slotTextChanged(const QString &str)
 
 void AdministratorUsersWidget::slotAddUser()
 {
+    QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
