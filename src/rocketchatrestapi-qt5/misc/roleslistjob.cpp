@@ -48,12 +48,12 @@ bool RolesListJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &RolesListJob::slotStatisticFinished);
+    connect(reply, &QNetworkReply::finished, this, &RolesListJob::slotRolesListFinished);
     addStartRestApiInfo(QByteArrayLiteral("RolesListJob: Ask for server statistics"));
     return true;
 }
 
-void RolesListJob::slotStatisticFinished()
+void RolesListJob::slotRolesListFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -62,7 +62,7 @@ void RolesListJob::slotStatisticFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("RolesListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT statisticDone(replyObject);
+            Q_EMIT rolesListDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("RolesListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

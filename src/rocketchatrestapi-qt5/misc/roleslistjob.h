@@ -40,10 +40,10 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void statisticDone(const QJsonObject &obj);
+    void rolesListDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RolesListJob)
-    void slotStatisticFinished();
+    void slotRolesListFinished();
 };
 }
