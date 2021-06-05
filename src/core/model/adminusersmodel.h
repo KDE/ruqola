@@ -50,6 +50,7 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;
+    Q_REQUIRED_RESULT bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 protected:
     Q_REQUIRED_RESULT Users::ParseType parseType() const override;

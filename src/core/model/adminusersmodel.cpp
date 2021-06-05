@@ -19,6 +19,7 @@
 */
 
 #include "adminusersmodel.h"
+#include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
 
@@ -34,6 +35,18 @@ AdminUsersModel::~AdminUsersModel()
 Users::ParseType AdminUsersModel::parseType() const
 {
     return Users::ParseType::Administrator;
+}
+
+bool AdminUsersModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (!index.isValid()) {
+        qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
+        return false;
+    }
+    const int idx = index.row();
+    // User &user = mUsers[idx];
+    // const User &user = mUsers.at(index.row());
+    return true;
 }
 
 QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, int role) const

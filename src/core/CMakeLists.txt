@@ -86,6 +86,8 @@ target_sources(libruqolacore PRIVATE
     model/directoryusersmodel.cpp
     model/directorybasemodel.cpp
 
+    model/rolesmodel.cpp
+
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthentication.cpp
     emoticons/customemoji.cpp
