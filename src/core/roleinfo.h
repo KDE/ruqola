@@ -29,7 +29,15 @@ public:
     RoleInfo();
     ~RoleInfo() = default;
 
+    Q_REQUIRED_RESULT const QString &identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
+    Q_REQUIRED_RESULT const QString &scope() const;
+    void setScope(const QString &newScope);
+
 private:
+    QString mIdentifier;
+    QString mScope;
 };
 
 Q_DECLARE_METATYPE(RoleInfo)

@@ -22,9 +22,35 @@
 
 RoleInfo::RoleInfo()
 {
+    //{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
 }
+
+const QString &RoleInfo::identifier() const
+{
+    return mIdentifier;
+}
+
+void RoleInfo::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
+}
+
+const QString &RoleInfo::scope() const
+{
+    return mScope;
+}
+
+void RoleInfo::setScope(const QString &newScope)
+{
+    mScope = newScope;
+}
+
+// TODO translate name.
 
 QDebug operator<<(QDebug d, const RoleInfo &t)
 {
+    // TODO add more
+    d << "Identifier: " << t.identifier();
+    d << "Scope: " << t.scope();
     return d;
 }
