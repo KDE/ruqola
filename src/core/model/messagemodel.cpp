@@ -424,7 +424,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
 {
     if (!index.isValid()) {
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
-        return {};
+        return false;
     }
     const int idx = index.row();
     Message &message = mAllMessages[idx];
