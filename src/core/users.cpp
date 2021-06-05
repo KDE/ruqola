@@ -47,6 +47,11 @@ User Users::at(int index) const
     return mUsers.at(index);
 }
 
+User &Users::operator[](int i)
+{
+    return mUsers[i];
+}
+
 void Users::parseMoreUsers(const QJsonObject &obj, ParseType type)
 {
     const int usersCount = obj[QStringLiteral("count")].toInt();

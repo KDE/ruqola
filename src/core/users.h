@@ -38,6 +38,8 @@ public:
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT User at(int index) const;
 
+    Q_REQUIRED_RESULT User &operator[](int i);
+
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int offset);
 

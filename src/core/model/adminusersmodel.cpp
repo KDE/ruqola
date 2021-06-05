@@ -37,16 +37,31 @@ Users::ParseType AdminUsersModel::parseType() const
     return Users::ParseType::Administrator;
 }
 
-bool AdminUsersModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool AdminUsersModel::setData(const QModelIndex &id, const QVariant &value, int role)
 {
-    if (!index.isValid()) {
+    if (!id.isValid()) {
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
         return false;
     }
-    const int idx = index.row();
-    // User &user = mUsers[idx];
-    // const User &user = mUsers.at(index.row());
-    return true;
+    const int idx = id.row();
+    User &user = mUsers[idx];
+    switch (role) {
+    case AdminUsersRoles::ActiveUser: {
+        user.setActive(value.toBool());
+        const QModelIndex newIndex = index(id.row(), AdminUsersModel::ActiveUserDisplay);
+        Q_EMIT dataChanged(newIndex, newIndex);
+        return true;
+    }
+    case AdminUsersRoles::Name:
+    case AdminUsersRoles::UserName:
+    case AdminUsersRoles::Email:
+    case AdminUsersRoles::Roles:
+    case AdminUsersRoles::Status:
+    case AdminUsersRoles::UserId:
+    case AdminUsersRoles::ActiveUserDisplay:
+        return false;
+    }
+    return false;
 }
 
 QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, int role) const

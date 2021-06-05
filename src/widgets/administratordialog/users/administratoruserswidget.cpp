@@ -88,16 +88,21 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     job->setActivate(!activateUser);
     job->setActivateUserId(userId);
     rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, &AdministratorUsersWidget::slotSetUserActiveStatus);
+    connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, modelIndex](const QJsonObject &replyObject) {
+        slotSetUserActiveStatus(replyObject, modelIndex);
+    });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
     }
 }
 
-void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyObject)
+void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyObject, const QModelIndex &modelIndex)
 {
-    qDebug() << " replyObject: " << replyObject;
-    // TODO parse result.
+    // QJsonObject({"success":true,"user":{"_id":"EkQYDwHPyYMdS36Nd","active":true}}
+    const QJsonObject userObj = replyObject[QLatin1String("user")].toObject();
+    const bool active = userObj[QLatin1String("active")].toBool();
+    const QString userId = userObj[QLatin1String("_id")].toString();
+    mModel->setData(modelIndex, active, AdminUsersModel::ActiveUser);
 }
 
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
