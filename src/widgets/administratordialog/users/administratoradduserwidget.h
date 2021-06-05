@@ -37,6 +37,8 @@ public:
     Q_REQUIRED_RESULT RocketChatRestApi::UsersCreateJob::CreateInfo createInfo() const;
 
 private:
+    void slotRolesListDone(const QJsonObject &obj);
+    void listRoles();
     QLineEdit *const mName;
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;

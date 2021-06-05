@@ -18,6 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 #include "administratoradduserwidget.h"
+#include "misc/roleslistjob.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -41,4 +46,20 @@ AdministratorAddUserWidget::~AdministratorAddUserWidget()
 RocketChatRestApi::UsersCreateJob::CreateInfo AdministratorAddUserWidget::createInfo() const
 {
     return {};
+}
+
+void AdministratorAddUserWidget::listRoles()
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::RolesListJob(this);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, this, &AdministratorAddUserWidget::slotRolesListDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SetUserActiveStatusJob job";
+    }
+}
+
+void AdministratorAddUserWidget::slotRolesListDone(const QJsonObject &obj)
+{
+    qDebug() << "obj " << obj;
 }
