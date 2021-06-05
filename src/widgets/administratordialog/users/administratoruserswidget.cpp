@@ -29,6 +29,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "users/setuseractivestatusjob.h"
+#include "users/userscreatejob.h"
 #include "users/userslistjob.h"
 #include <KLocalizedString>
 #include <QHeaderView>
@@ -66,6 +67,8 @@ void AdministratorUsersWidget::slotAddUser()
 {
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
     if (dlg->exec()) {
+        const RocketChatRestApi::UsersCreateJob::CreateInfo info = dlg->createInfo();
+
         // TODO
     }
     delete dlg;

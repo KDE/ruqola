@@ -24,6 +24,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -33,15 +34,21 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     , mName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
+    , mJoinDefaultChannels(new QCheckBox(i18n("Join Default Channels"), this))
+    , mSendWelcomeEmails(new QCheckBox(i18n("Send Welcome Email"), this))
 {
     auto formLayout = new QFormLayout(this);
     formLayout->setObjectName(QStringLiteral("formLayout"));
     mName->setObjectName(QStringLiteral("mName"));
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mEmail->setObjectName(QStringLiteral("mEmail"));
+    mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
+    mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
     formLayout->addRow(i18n("Name"), mName);
     formLayout->addRow(i18n("Username"), mUserName);
     formLayout->addRow(i18n("email"), mEmail);
+    formLayout->addWidget(mJoinDefaultChannels);
+    formLayout->addWidget(mSendWelcomeEmails);
     listRoles();
 }
 
@@ -55,6 +62,8 @@ RocketChatRestApi::UsersCreateJob::CreateInfo AdministratorAddUserWidget::create
     info.mName = mName->text().trimmed();
     info.mEmail = mEmail->text().trimmed();
     info.mUserName = mUserName->text();
+    info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
+    info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     return info;
 }
 
