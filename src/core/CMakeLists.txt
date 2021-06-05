@@ -166,6 +166,7 @@ target_sources(libruqolacore PRIVATE
 
     roles.cpp
     role.cpp
+    roleinfo.cpp
 
     avatarmanager.cpp
 
