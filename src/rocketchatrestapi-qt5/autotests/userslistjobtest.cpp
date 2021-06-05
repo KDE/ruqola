@@ -48,7 +48,7 @@ void UsersListJobTest::shouldGenerateRequest()
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.list")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.list?userId=foo1")));
 }
 
 void UsersListJobTest::shouldGenerateRequestUsername()
@@ -60,5 +60,5 @@ void UsersListJobTest::shouldGenerateRequestUsername()
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.list")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.list?username=foo1")));
 }
