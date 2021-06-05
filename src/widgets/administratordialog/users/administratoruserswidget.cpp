@@ -97,6 +97,7 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
 void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyObject)
 {
     qDebug() << " replyObject: " << replyObject;
+    // TODO parse result.
 }
 
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)

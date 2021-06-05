@@ -24,9 +24,9 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <QVBoxLayout>
 
 AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     : QWidget(parent)
@@ -34,9 +34,14 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
 {
+    auto formLayout = new QFormLayout(this);
+    formLayout->setObjectName(QStringLiteral("formLayout"));
     mName->setObjectName(QStringLiteral("mName"));
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mEmail->setObjectName(QStringLiteral("mEmail"));
+    formLayout->addRow(i18n("Name"), mName);
+    formLayout->addRow(i18n("Username"), mUserName);
+    formLayout->addRow(i18n("email"), mEmail);
     listRoles();
 }
 
