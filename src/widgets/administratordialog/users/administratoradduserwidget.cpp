@@ -37,6 +37,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mName->setObjectName(QStringLiteral("mName"));
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mEmail->setObjectName(QStringLiteral("mEmail"));
+    listRoles();
 }
 
 AdministratorAddUserWidget::~AdministratorAddUserWidget()
