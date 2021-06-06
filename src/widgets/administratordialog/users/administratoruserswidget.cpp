@@ -100,15 +100,18 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
     info.userIdentifier = userId;
     job->setUserInfo(info);
     rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, &AdministratorUsersWidget::slotDeleteUserDone);
+    connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, [this, userId]() {
+        slotDeleteUserDone(userId);
+    });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
     }
 }
 
-void AdministratorUsersWidget::slotDeleteUserDone()
+void AdministratorUsersWidget::slotDeleteUserDone(const QString &userId)
 {
-    // TODO
+    qDebug() << " user : " << userId;
+    // TODO remove it from list
 }
 
 void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)

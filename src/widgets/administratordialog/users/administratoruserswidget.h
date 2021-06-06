@@ -47,7 +47,7 @@ private:
     void slotSearchRequested(const QString &str);
     void slotActivateUser(const QModelIndex &index, bool activateUser);
     void slotSetUserActiveStatus(const QJsonObject &replyObject, const QModelIndex &modelIndex);
-    void slotDeleteUserDone();
+    void slotDeleteUserDone(const QString &userId);
     void slotUserCreateDone();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
