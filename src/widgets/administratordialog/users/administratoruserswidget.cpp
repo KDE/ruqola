@@ -111,7 +111,7 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 void AdministratorUsersWidget::slotDeleteUserDone(const QString &userId)
 {
     qDebug() << " user : " << userId;
-    // TODO remove it from list
+    mModel->removeElement(userId);
 }
 
 void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)

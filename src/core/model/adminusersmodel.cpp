@@ -37,6 +37,11 @@ Users::ParseType AdminUsersModel::parseType() const
     return Users::ParseType::Administrator;
 }
 
+void AdminUsersModel::removeElement(const QString &identifier)
+{
+    // TODO
+}
+
 bool AdminUsersModel::setData(const QModelIndex &id, const QVariant &value, int role)
 {
     if (!id.isValid()) {

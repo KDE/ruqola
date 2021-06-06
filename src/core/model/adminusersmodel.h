@@ -54,5 +54,6 @@ public:
 
 protected:
     Q_REQUIRED_RESULT Users::ParseType parseType() const override;
+    void removeElement(const QString &identifier) override;
 };
 

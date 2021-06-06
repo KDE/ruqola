@@ -42,6 +42,8 @@ public:
 
     virtual QList<int> hideColumns() const = 0;
 
+    virtual void removeElement(const QString &identifier);
+
     void initialize();
 Q_SIGNALS:
     void hasFullListChanged();

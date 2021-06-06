@@ -42,6 +42,10 @@ void DirectoryBaseModel::setLoadMoreInProgress(bool inProgress)
     }
 }
 
+void DirectoryBaseModel::removeElement(const QString &identifier)
+{
+}
+
 void DirectoryBaseModel::initialize()
 {
     mLoadMoreInProgress = false;
