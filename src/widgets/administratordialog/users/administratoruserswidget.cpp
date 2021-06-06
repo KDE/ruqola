@@ -76,8 +76,6 @@ void AdministratorUsersWidget::slotAddUser()
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
         }
-
-        // TODO
     }
     delete dlg;
 }
