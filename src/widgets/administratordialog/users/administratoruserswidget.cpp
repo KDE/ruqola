@@ -28,6 +28,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "users/deleteuserjob.h"
 #include "users/setuseractivestatusjob.h"
 #include "users/userscreatejob.h"
 #include "users/userslistjob.h"
