@@ -27,6 +27,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QCheckBox;
+class User;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
@@ -35,6 +36,8 @@ public:
     ~AdministratorAddUserWidget() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::UsersCreateJob::CreateInfo createInfo() const;
+
+    void setUser(const User &user);
 
 private:
     void slotRolesListDone(const QJsonObject &obj);

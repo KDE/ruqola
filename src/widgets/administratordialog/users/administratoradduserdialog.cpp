@@ -50,3 +50,8 @@ RocketChatRestApi::UsersCreateJob::CreateInfo AdministratorAddUserDialog::create
 {
     return mAdministratorWidget->createInfo();
 }
+
+void AdministratorAddUserDialog::setUser(const User &user)
+{
+    mAdministratorWidget->setUser(user);
+}

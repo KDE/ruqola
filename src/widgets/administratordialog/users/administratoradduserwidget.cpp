@@ -82,3 +82,8 @@ void AdministratorAddUserWidget::slotRolesListDone(const QJsonObject &obj)
 {
     qDebug() << "obj " << obj;
 }
+
+void AdministratorAddUserWidget::setUser(const User &user)
+{
+    // TODO
+}
