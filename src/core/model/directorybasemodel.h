@@ -36,9 +36,9 @@ public:
     Q_REQUIRED_RESULT bool loadMoreInProgress() const;
     void setLoadMoreInProgress(bool loadMoreInProgress);
 
-    virtual void parseElements(const QJsonObject &discussionsObj) = 0;
+    virtual void parseElements(const QJsonObject &obj) = 0;
 
-    virtual void addMoreElements(const QJsonObject &discussionsObj) = 0;
+    virtual void addMoreElements(const QJsonObject &obj) = 0;
 
     virtual QList<int> hideColumns() const = 0;
 
