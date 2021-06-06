@@ -92,6 +92,23 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::DeleteUserJob(this);
+    RocketChatRestApi::UserBaseJob::UserInfo info;
+    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+    const QString userId = index.data().toString();
+    info.userIdentifier = userId;
+    job->setUserInfo(info);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, &AdministratorUsersWidget::slotDeleteUserDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+    }
+}
+
+void AdministratorUsersWidget::slotDeleteUserDone()
+{
+    // TODO
 }
 
 void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)
@@ -126,18 +143,21 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::ActiveUser);
+        const QModelIndex newModelIndex = mAdminUsersProxyModel->mapToSource(index);
+
+        const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
         const bool activateUser = modelIndex.data().toBool();
-        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, index, activateUser]() {
-            slotActivateUser(index, activateUser);
+        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
+            slotActivateUser(newModelIndex, activateUser);
         });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             slotModifyUser(index);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            slotRemoveUser(index);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
+            const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+            slotRemoveUser(i);
         });
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
