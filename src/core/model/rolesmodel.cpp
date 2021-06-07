@@ -38,27 +38,23 @@ int RolesModel::rowCount(const QModelIndex &parent) const
 
 QVariant RolesModel::data(const QModelIndex &index, int role) const
 {
-    //    if (index.row() < 0 || index.row() >= mTeamRooms.count()) {
-    //        return {};
-    //    }
-    //    const TeamRoom &teamroom = mTeamRooms.at(index.row());
-    //    switch (role) {
-    //    case Qt::DisplayRole:
-    //    case TeamRoomsRoles::Name: {
-    //        const QString name = teamroom.name() + (teamroom.autoJoin() ? QLatin1Char(' ') + i18n("(Autojoin)") : QString());
-    //        return name;
-    //    }
-    //    case TeamRoomsRoles::AutoJoin:
-    //        return teamroom.autoJoin();
-    //    case TeamRoomsRoles::Identifier:
-    //        return teamroom.identifier();
-    //    case Qt::CheckStateRole: {
-    //        if (mIsCheckable) {
-    //            const QString roomId = data(index, RolesModel::Identifier).toString();
-    //            return mRoomSelected.contains(roomId) ? Qt::Checked : Qt::Unchecked;
-    //        }
-    //    }
-    //    }
+    if (index.row() < 0 || index.row() >= mRoles.count()) {
+        return {};
+    }
+    const RoleInfo &roleInfo = mRoles.at(index.row());
+    switch (role) {
+    case Qt::DisplayRole:
+    case RolesInfoRoles::Name: {
+        const QString name = roleInfo.name();
+        return name;
+    }
+    case RolesInfoRoles::Identifier:
+        return roleInfo.identifier();
+    case Qt::CheckStateRole: {
+        const QString roomId = data(index, RolesInfoRoles::Identifier).toString();
+        return mRolesSelected.contains(roomId) ? Qt::Checked : Qt::Unchecked;
+    }
+    }
     return {};
 }
 

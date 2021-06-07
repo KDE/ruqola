@@ -49,6 +49,17 @@ void RoleInfo::parseRoleInfo(const QJsonObject &obj)
 {
     mScope = obj[QLatin1String("scope")].toString();
     mIdentifier = obj[QLatin1String("_id")].toString();
+    mName = obj[QLatin1String("name")].toString();
+}
+
+const QString &RoleInfo::name() const
+{
+    return mName;
+}
+
+void RoleInfo::setName(const QString &newName)
+{
+    mName = newName;
 }
 
 // TODO translate name.
@@ -58,5 +69,6 @@ QDebug operator<<(QDebug d, const RoleInfo &t)
     // TODO add more
     d << "Identifier: " << t.identifier();
     d << "Scope: " << t.scope();
+    d << "name: " << t.name();
     return d;
 }

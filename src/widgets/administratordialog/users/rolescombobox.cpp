@@ -22,6 +22,7 @@
 #include "model/rolesmodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
+#include "roleinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
@@ -50,6 +51,14 @@ void RolesComboBox::initialize()
 void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
 {
     const QJsonArray array = obj[QLatin1String("roles")].toArray();
+    QVector<RoleInfo> roleInfo;
+    for (const QJsonValue &current : array) {
+        const QJsonObject roleObject = current.toObject();
+        RoleInfo info;
+        info.parseRoleInfo(roleObject);
+        roleInfo.append(info);
+    }
+    mRolesModel->setRoles(roleInfo);
     qDebug() << "obj " << obj;
 }
 

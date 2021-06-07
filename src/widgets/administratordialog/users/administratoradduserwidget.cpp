@@ -54,6 +54,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addRow(i18n("Roles"), mRolesComboBox);
+    mRolesComboBox->initialize();
 }
 
 AdministratorAddUserWidget::~AdministratorAddUserWidget()

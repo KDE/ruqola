@@ -37,7 +37,11 @@ public:
 
     void parseRoleInfo(const QJsonObject &obj);
 
+    Q_REQUIRED_RESULT const QString &name() const;
+    void setName(const QString &newName);
+
 private:
+    QString mName;
     QString mIdentifier;
     QString mScope;
 };
