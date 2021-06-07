@@ -198,6 +198,7 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/users/administratoruserswidget.cpp
     administratordialog/users/administratoradduserdialog.cpp
     administratordialog/users/administratoradduserwidget.cpp
+    administratordialog/users/rolescombobox.cpp
 
     administratordialog/invites/administratorinviteswidget.cpp
     administratordialog/invites/invitetreeview.cpp
