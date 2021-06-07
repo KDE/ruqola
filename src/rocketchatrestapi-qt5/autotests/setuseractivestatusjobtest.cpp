@@ -45,7 +45,7 @@ void SetUserActiveStatusJobTest::shouldGenerateRequest()
     SetUserActiveStatusJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setStatus")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setActiveStatus")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
@@ -55,9 +55,9 @@ void SetUserActiveStatusJobTest::shouldGenerateJson()
     const QString userId = QStringLiteral("foo1");
     job.setActivateUserId(userId);
     job.setActivate(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"","status":"away","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":false,"userId":"%1"})").arg(userId).toLatin1());
     job.setActivate(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"away","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":true,"userId":"%1"})").arg(userId).toLatin1());
 }
 
 void SetUserActiveStatusJobTest::shouldNotStarting()
