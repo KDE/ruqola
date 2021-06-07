@@ -81,6 +81,16 @@ const QVector<RoleInfo> &RolesModel::roles() const
     return mRoles;
 }
 
+const QStringList &RolesModel::rolesSelected() const
+{
+    return mRolesSelected;
+}
+
+void RolesModel::setRolesSelected(const QStringList &newRolesSelected)
+{
+    mRolesSelected = newRolesSelected;
+}
+
 // void RolesModel::setRoomChanged(const TeamRoom &t)
 //{
 //    const int roomCount = mTeamRooms.count();

@@ -46,6 +46,9 @@ public:
 
     Q_REQUIRED_RESULT const QVector<RoleInfo> &roles() const;
 
+    Q_REQUIRED_RESULT const QStringList &rolesSelected() const;
+    void setRolesSelected(const QStringList &newRolesSelected);
+
 private:
     Q_DISABLE_COPY(RolesModel)
     QStringList mRolesSelected;
