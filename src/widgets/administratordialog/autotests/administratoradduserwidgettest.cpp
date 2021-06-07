@@ -63,6 +63,6 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPasswordLineEdit);
     QVERIFY(mPasswordLineEdit->password().isEmpty());
 
-    auto mRolesComboBox = w.findChild<KPasswordLineEdit *>(QStringLiteral("mRolesComboBox"));
+    auto mRolesComboBox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesComboBox"));
     QVERIFY(mRolesComboBox);
 }
