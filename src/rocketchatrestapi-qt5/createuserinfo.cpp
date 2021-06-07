@@ -28,6 +28,16 @@ bool CreateUserInfo::isValid() const
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUserInfo &t)
 {
-    // TODO
+    d << "roles " << t.roles;
+    d << "mUserId " << t.mUserId;
+    d << "mEmail " << t.mEmail;
+    d << "mName " << t.mName;
+    d << "mUserName " << t.mUserName;
+    // d << "mPassword " << t.mPassword;
+    d << "mStatusText " << t.mStatusText;
+    d << "mJoinDefaultChannels " << t.mJoinDefaultChannels;
+    d << "mRequirePasswordChange " << t.mRequirePasswordChange;
+    d << "mAssignRandomPassword " << t.mAssignRandomPassword;
+    d << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
     return d;
 }
