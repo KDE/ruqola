@@ -157,15 +157,15 @@ QString generateRichText(const QString &str, const QString &username, const QStr
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::ActiveText).color().name();
-    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::ActiveBackground).color().name();
+    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::NegativeText).color().name();
+    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::NegativeBackground).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
         const QStringRef word = match.capturedRef(2);
         // Highlight only if it's yours
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word,
-                           QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;\">@%1</a>")
+                           QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
                                .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor));
         } else {
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));

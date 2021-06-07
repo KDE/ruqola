@@ -180,13 +180,14 @@ void TextConverterTest::shouldHighlightText_data()
     QTest::newRow("empty") << QString() << QString() << QString();
     QTest::newRow("word@1") << QStringLiteral("@foo") << QString() << QStringLiteral("<div><a href='ruqola:/user/foo'>@foo</a></div>");
     KColorScheme colorScheme;
-    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::ActiveText).color().name();
-    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::ActiveBackground).color().name();
+    const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::NegativeText).color().name();
+    const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::NegativeBackground).color().name();
     QTest::newRow("word@1-username") << QStringLiteral("@foo") << QStringLiteral("foo")
-                                     << QStringLiteral("<div><a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;\">@foo</a></div>")
+                                     << QStringLiteral("<div><a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></div>")
                                             .arg(userMentionForegroundColor, userMentionBackgroundColor);
     QTest::newRow("word@2-username") << QStringLiteral("bla bla @foo") << QStringLiteral("foo")
-                                     << QStringLiteral("<div>bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;\">@foo</a></div>")
+                                     << QStringLiteral(
+                                            "<div>bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></div>")
                                             .arg(userMentionForegroundColor, userMentionBackgroundColor);
 }
 
