@@ -35,7 +35,7 @@ void AdministratorUsersWidgetTest::shouldHaveDefaultValues()
     AdministratorUsersWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    auto mResultTreeView = w.findChild<QTreeView *>(QStringLiteral("mResultTreeWidget"));
+    auto mResultTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mResultTreeView);
     QVERIFY(!mResultTreeView->rootIsDecorated());
     QVERIFY(mResultTreeView->isSortingEnabled());

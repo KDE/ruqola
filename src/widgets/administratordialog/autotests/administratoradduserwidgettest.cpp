@@ -20,6 +20,11 @@
 
 #include "administratoradduserwidgettest.h"
 #include "administratordialog/users/administratoradduserwidget.h"
+#include "administratordialog/users/rolescombobox.h"
+#include <KPasswordLineEdit>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AdministratorAddUserWidgetTest)
 AdministratorAddUserWidgetTest::AdministratorAddUserWidgetTest(QObject *parent)
@@ -30,5 +35,34 @@ AdministratorAddUserWidgetTest::AdministratorAddUserWidgetTest(QObject *parent)
 void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorAddUserWidget w;
-    // TODO
+    auto formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
+    QVERIFY(formLayout);
+    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    QVERIFY(mName);
+    QVERIFY(mName->text().isEmpty());
+
+    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+    QVERIFY(mUserName->text().isEmpty());
+
+    auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    QVERIFY(mEmail);
+    QVERIFY(mEmail->text().isEmpty());
+
+    auto mJoinDefaultChannels = w.findChild<QCheckBox *>(QStringLiteral("mJoinDefaultChannels"));
+    QVERIFY(mJoinDefaultChannels);
+    QVERIFY(!mJoinDefaultChannels->text().isEmpty());
+    QVERIFY(!mJoinDefaultChannels->isChecked());
+
+    auto mSendWelcomeEmails = w.findChild<QCheckBox *>(QStringLiteral("mSendWelcomeEmails"));
+    QVERIFY(mSendWelcomeEmails);
+    QVERIFY(!mSendWelcomeEmails->text().isEmpty());
+    QVERIFY(!mSendWelcomeEmails->isChecked());
+
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
+    QVERIFY(mPasswordLineEdit->password().isEmpty());
+
+    auto mRolesComboBox = w.findChild<KPasswordLineEdit *>(QStringLiteral("mRolesComboBox"));
+    QVERIFY(mRolesComboBox);
 }
