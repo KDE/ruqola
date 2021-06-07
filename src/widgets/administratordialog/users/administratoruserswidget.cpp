@@ -88,6 +88,20 @@ void AdministratorUsersWidget::slotUserCreateDone()
 
 void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 {
+    // TODO
+    QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    if (dlg->exec()) {
+        //        const RocketChatRestApi::UsersCreateJob::CreateInfo info = dlg->createInfo();
+        //        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        //        auto job = new RocketChatRestApi::UsersCreateJob(this);
+        //        job->setCreateInfo(info);
+        //        rcAccount->restApi()->initializeRestApiJob(job);
+        //        connect(job, &RocketChatRestApi::UsersCreateJob::usersCreateDone, this, &AdministratorUsersWidget::slotUserCreateDone);
+        //        if (!job->start()) {
+        //            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+        //        }
+    }
+    delete dlg;
 }
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)

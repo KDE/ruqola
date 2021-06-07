@@ -78,6 +78,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mName->setText(user.name());
     mUserName->setText(user.userName());
     mEmail->setText(user.userEmailsInfo().email);
+    mRolesComboBox->setRoles(user.roles());
 
     // TODO
 }
