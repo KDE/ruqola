@@ -85,6 +85,7 @@ void AdministratorAddUserWidget::listRoles()
 
 void AdministratorAddUserWidget::slotRolesListDone(const QJsonObject &obj)
 {
+    const QJsonArray array = obj[QLatin1String("roles")].toArray();
     qDebug() << "obj " << obj;
 }
 

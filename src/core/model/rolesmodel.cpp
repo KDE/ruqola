@@ -33,7 +33,7 @@ RolesModel::~RolesModel()
 int RolesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return 0; // TODO
+    return mRoles.count();
 }
 
 QVariant RolesModel::data(const QModelIndex &index, int role) const
@@ -62,24 +62,24 @@ QVariant RolesModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-// QVector<TeamRoom> RolesModel::teamRooms() const
-//{
-//    return mTeamRooms;
-//}
+void RolesModel::setRoles(const QVector<RoleInfo> &newRoles)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mRoles.count() - 1);
+        mRoles.clear();
+        endRemoveRows();
+    }
+    if (!newRoles.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newRoles.count() - 1);
+        mRoles = newRoles;
+        endInsertRows();
+    }
+}
 
-// void RolesModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
-//{
-//    if (rowCount() != 0) {
-//        beginRemoveRows(QModelIndex(), 0, mTeamRooms.count() - 1);
-//        mTeamRooms.clear();
-//        endRemoveRows();
-//    }
-//    if (!teamRooms.isEmpty()) {
-//        beginInsertRows(QModelIndex(), 0, teamRooms.count() - 1);
-//        mTeamRooms = teamRooms;
-//        endInsertRows();
-//    }
-//}
+const QVector<RoleInfo> &RolesModel::roles() const
+{
+    return mRoles;
+}
 
 // void RolesModel::setRoomChanged(const TeamRoom &t)
 //{
@@ -95,41 +95,28 @@ QVariant RolesModel::data(const QModelIndex &index, int role) const
 //    }
 //}
 
-// void RolesModel::insertRooms(const QVector<TeamRoom> &teamRooms)
-//{
-//    const int count = mTeamRooms.count();
-//    beginInsertRows(QModelIndex(), count, count + teamRooms.count() - 1);
-//    mTeamRooms.append(teamRooms);
-//    endInsertRows();
-//}
-
 bool RolesModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    //    if (mIsCheckable) {
-    //        if (role == Qt::CheckStateRole) {
-    //            if (index.isValid()) {
-    //                Q_EMIT dataChanged(index, index);
-    //                const QString roomId = data(index, RolesModel::Identifier).toString();
-    //                if (value == Qt::Checked) {
-    //                    mRoomSelected.append(roomId);
-    //                } else {
-    //                    mRoomSelected.removeAll(roomId);
-    //                }
-    //                return true;
-    //            }
-    //        }
-    //    }
+    if (role == Qt::CheckStateRole) {
+        if (index.isValid()) {
+            Q_EMIT dataChanged(index, index);
+            const QString roleId = data(index, RolesModel::Identifier).toString();
+            if (value == Qt::Checked) {
+                mRolesSelected.append(roleId);
+            } else {
+                mRolesSelected.removeAll(roleId);
+            }
+            return true;
+        }
+    }
     return QAbstractListModel::setData(index, value, role);
 }
 
 Qt::ItemFlags RolesModel::flags(const QModelIndex &index) const
 {
-    //    if (mIsCheckable) {
-    //        if (index.isValid()) {
-    //            return QAbstractListModel::flags(index) | Qt::ItemIsUserCheckable;
-    //        } else {
-    //            return QAbstractListModel::flags(index);
-    //        }
-    //    }
-    return QAbstractListModel::flags(index);
+    if (index.isValid()) {
+        return QAbstractListModel::flags(index) | Qt::ItemIsUserCheckable;
+    } else {
+        return QAbstractListModel::flags(index);
+    }
 }

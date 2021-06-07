@@ -35,6 +35,8 @@ public:
     Q_REQUIRED_RESULT const QString &scope() const;
     void setScope(const QString &newScope);
 
+    void parseRoleInfo(const QJsonObject &obj);
+
 private:
     QString mIdentifier;
     QString mScope;

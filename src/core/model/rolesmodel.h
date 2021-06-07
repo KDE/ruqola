@@ -21,19 +21,18 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "teamroom.h"
+#include "roleinfo.h"
 #include <QAbstractListModel>
 #include <QVector>
 class LIBRUQOLACORE_EXPORT RolesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    //    enum TeamRoomsRoles {
-    //        Name = Qt::UserRole + 1,
-    //        AutoJoin,
-    //        Identifier,
-    //    };
-    //    Q_ENUM(TeamRoomsRoles)
+    enum RolesInfoRoles {
+        Name = Qt::UserRole + 1,
+        Identifier,
+    };
+    Q_ENUM(RolesInfoRoles)
 
     explicit RolesModel(QObject *parent = nullptr);
     ~RolesModel() override;
@@ -43,7 +42,12 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
+    void setRoles(const QVector<RoleInfo> &newRoles);
+
+    Q_REQUIRED_RESULT const QVector<RoleInfo> &roles() const;
+
 private:
     Q_DISABLE_COPY(RolesModel)
-    QStringList mRoomSelected;
+    QStringList mRolesSelected;
+    QVector<RoleInfo> mRoles;
 };

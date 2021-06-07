@@ -45,6 +45,12 @@ void RoleInfo::setScope(const QString &newScope)
     mScope = newScope;
 }
 
+void RoleInfo::parseRoleInfo(const QJsonObject &obj)
+{
+    mScope = obj[QLatin1String("scope")].toString();
+    mIdentifier = obj[QLatin1String("_id")].toString();
+}
+
 // TODO translate name.
 
 QDebug operator<<(QDebug d, const RoleInfo &t)
