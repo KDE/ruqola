@@ -53,6 +53,7 @@ void DeleteUserJob::slotDeleteUser()
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
+        qDebug() << "replyObject " << replyObject;
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("DeleteUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));

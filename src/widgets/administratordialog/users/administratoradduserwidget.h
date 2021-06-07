@@ -28,6 +28,7 @@
 class QLineEdit;
 class QCheckBox;
 class User;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
@@ -47,4 +48,5 @@ private:
     QLineEdit *const mEmail;
     QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
+    KPasswordLineEdit *const mPasswordLineEdit;
 };
