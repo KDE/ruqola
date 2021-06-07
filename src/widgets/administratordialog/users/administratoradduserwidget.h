@@ -29,6 +29,7 @@ class QLineEdit;
 class QCheckBox;
 class User;
 class KPasswordLineEdit;
+class RolesComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
@@ -41,12 +42,11 @@ public:
     void setUser(const User &user);
 
 private:
-    void slotRolesListDone(const QJsonObject &obj);
-    void listRoles();
     QLineEdit *const mName;
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;
     QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
     KPasswordLineEdit *const mPasswordLineEdit;
+    RolesComboBox *const mRolesComboBox;
 };

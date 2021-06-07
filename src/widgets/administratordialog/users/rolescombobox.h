@@ -34,5 +34,6 @@ public:
     void initialize();
 
 private:
+    void slotRolesListDone(const QJsonObject &obj);
     RolesModel *const mRolesModel;
 };

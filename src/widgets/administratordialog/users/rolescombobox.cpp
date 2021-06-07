@@ -18,7 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 #include "rolescombobox.h"
+#include "misc/roleslistjob.h"
 #include "model/rolesmodel.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 RolesComboBox::RolesComboBox(QWidget *parent)
     : QComboBox(parent)
@@ -33,7 +38,19 @@ RolesComboBox::~RolesComboBox()
 
 void RolesComboBox::initialize()
 {
-    // TODO
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::RolesListJob(this);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, this, &RolesComboBox::slotRolesListDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RolesListJob job";
+    }
+}
+
+void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
+{
+    const QJsonArray array = obj[QLatin1String("roles")].toArray();
+    qDebug() << "obj " << obj;
 }
 
 void RolesComboBox::setRoles(const QStringList &lst)
