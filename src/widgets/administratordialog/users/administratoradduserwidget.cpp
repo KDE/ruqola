@@ -55,10 +55,21 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addRow(i18n("Roles"), mRolesComboBox);
     mRolesComboBox->initialize();
+    connect(mName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
+    connect(mUserName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
+    connect(mEmail, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
 }
 
 AdministratorAddUserWidget::~AdministratorAddUserWidget()
 {
+}
+
+void AdministratorAddUserWidget::slotUpdateOkButton()
+{
+    const bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty()
+        && !mPasswordLineEdit->password().isEmpty();
+    Q_EMIT updateButtonOk(enableOkButton);
 }
 
 RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo() const

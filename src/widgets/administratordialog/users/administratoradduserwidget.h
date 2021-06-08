@@ -45,6 +45,7 @@ Q_SIGNALS:
     void updateButtonOk(bool b);
 
 private:
+    void slotUpdateOkButton();
     QLineEdit *const mName;
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;
