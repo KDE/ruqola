@@ -59,6 +59,8 @@ void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
         roleInfo.append(info);
     }
     mRolesModel->setRoles(roleInfo);
+    setSizeAdjustPolicy(QComboBox::AdjustToContents);
+
     qDebug() << "obj " << obj;
 }
 
