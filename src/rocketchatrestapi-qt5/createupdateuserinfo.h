@@ -33,7 +33,6 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
         Update,
     };
 
-    // TODO add enum ?
     QStringList mRoles;
     QString mUserId;
     QString mEmail;
