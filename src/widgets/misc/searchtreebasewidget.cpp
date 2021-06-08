@@ -34,7 +34,6 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     , mTreeView(new QTreeView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchLayout = new QVBoxLayout;
