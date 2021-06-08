@@ -26,6 +26,9 @@ using namespace RocketChatRestApi;
 
 bool CreateUpdateUserInfo::isValid() const
 {
+    if (mTypeInfo == Create) {
+        return true; // TODO verify it
+    }
     return !mUserId.isEmpty();
 }
 
@@ -47,6 +50,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
 
 QJsonDocument CreateUpdateUserInfo::json() const
 {
+    // TODO add update support
     QJsonObject dataObj;
     if (!mEmail.isEmpty()) {
         dataObj[QLatin1String("email")] = mEmail;

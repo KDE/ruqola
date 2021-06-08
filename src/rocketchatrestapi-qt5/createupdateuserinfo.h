@@ -28,6 +28,11 @@
 namespace RocketChatRestApi
 {
 struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
+    enum InfoType {
+        Create = 0,
+        Update,
+    };
+
     // TODO add enum ?
     QStringList mRoles;
     QString mUserId;
@@ -36,6 +41,7 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
     QString mUserName;
     QString mPassword;
     QString mStatusText;
+    InfoType mTypeInfo = Create;
     bool mJoinDefaultChannels = false;
     bool mRequirePasswordChange = false;
     bool mAssignRandomPassword = false;
