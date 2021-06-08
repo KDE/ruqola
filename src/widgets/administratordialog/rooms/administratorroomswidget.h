@@ -25,9 +25,6 @@
 #include "misc/searchtreebasewidget.h"
 #include "model/adminroomsfilterproxymodel.h"
 #include <QWidget>
-class QLineEdit;
-class QTreeView;
-class AdminRoomsModel;
 class AdminRoomsFilterProxyModel;
 class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTreeBaseWidget
