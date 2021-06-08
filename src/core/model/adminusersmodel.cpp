@@ -46,6 +46,7 @@ void AdminUsersModel::removeElement(const QString &identifier)
             beginRemoveRows(QModelIndex(), i, i);
             mUsers.takeAt(i);
             endRemoveRows();
+            Q_EMIT totalChanged();
             break;
         }
     }
