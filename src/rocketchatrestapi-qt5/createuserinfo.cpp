@@ -19,6 +19,8 @@
 */
 
 #include "createuserinfo.h"
+
+#include <QJsonObject>
 using namespace RocketChatRestApi;
 
 bool CreateUserInfo::isValid() const
@@ -40,4 +42,26 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUserInfo &t)
     d << "mAssignRandomPassword " << t.mAssignRandomPassword;
     d << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
     return d;
+}
+
+QJsonDocument CreateUserInfo::json() const
+{
+    QJsonObject jsonObj;
+
+    QJsonObject dataObj;
+    if (!mEmail.isEmpty()) {
+        dataObj[QLatin1String("email")] = mEmail;
+    }
+    if (!mName.isEmpty()) {
+        dataObj[QLatin1String("name")] = mName;
+    }
+    if (!mPassword.isEmpty()) {
+        dataObj[QLatin1String("password")] = mPassword;
+    }
+    if (!mUserName.isEmpty()) {
+        dataObj[QLatin1String("username")] = mUserName;
+    }
+    jsonObj[QLatin1String("data")] = dataObj;
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }

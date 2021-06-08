@@ -101,25 +101,8 @@ QNetworkRequest UsersUpdateJob::request() const
     return request;
 }
 
-// TODO move to CreateUserInfo
 QJsonDocument UsersUpdateJob::json() const
 {
-    QJsonObject jsonObj;
-    QJsonObject dataObj;
-    if (!mUpdateInfo.mEmail.isEmpty()) {
-        dataObj[QLatin1String("email")] = mUpdateInfo.mEmail;
-    }
-    if (!mUpdateInfo.mName.isEmpty()) {
-        dataObj[QLatin1String("name")] = mUpdateInfo.mName;
-    }
-    if (!mUpdateInfo.mPassword.isEmpty()) {
-        dataObj[QLatin1String("password")] = mUpdateInfo.mPassword;
-    }
-    if (!mUpdateInfo.mUserName.isEmpty()) {
-        dataObj[QLatin1String("username")] = mUpdateInfo.mUserName;
-    }
-    jsonObj[QLatin1String("data")] = dataObj;
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
+    return mUpdateInfo.json();
 }
 

@@ -42,6 +42,7 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUserInfo {
     bool mSendWelcomeEmail = false;
     Q_REQUIRED_RESULT bool isValid() const;
     // TODO add more
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateUserInfo, Q_MOVABLE_TYPE);

@@ -103,8 +103,5 @@ QNetworkRequest UsersCreateJob::request() const
 
 QJsonDocument UsersCreateJob::json() const
 {
-    QJsonObject jsonObj;
-
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
+    return mCreateInfo.json();
 }
