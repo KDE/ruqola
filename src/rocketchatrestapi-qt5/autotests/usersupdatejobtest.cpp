@@ -50,7 +50,7 @@ void UsersUpdateJobTest::shouldGenerateRequest()
 void UsersUpdateJobTest::shouldGenerateJson()
 {
     UsersUpdateJob job;
-    CreateUserInfo info;
+    CreateUpdateUserInfo info;
 
     QString mUserId = QStringLiteral("foo");
 
@@ -91,7 +91,7 @@ void UsersUpdateJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
-    CreateUserInfo info;
+    CreateUpdateUserInfo info;
     info.mUserId = QStringLiteral("userid");
     job.setUpdateInfo(info);
 

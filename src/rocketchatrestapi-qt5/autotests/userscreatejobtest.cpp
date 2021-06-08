@@ -69,7 +69,7 @@ void UsersCreateJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
-    CreateUserInfo info;
+    CreateUpdateUserInfo info;
     info.mUserId = QStringLiteral("userid");
     job.setCreateInfo(info);
 

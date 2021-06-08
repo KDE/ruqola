@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "createuserinfo.h"
+#include "createupdateuserinfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 
@@ -40,8 +40,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateUserInfo updateInfo() const;
-    void setUpdateInfo(const CreateUserInfo &updateInfo);
+    Q_REQUIRED_RESULT CreateUpdateUserInfo updateInfo() const;
+    void setUpdateInfo(const CreateUpdateUserInfo &updateInfo);
 
 Q_SIGNALS:
     void usersUpdateDone();
@@ -49,6 +49,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UsersUpdateJob)
     void slotUsersUpdate();
-    CreateUserInfo mUpdateInfo;
+    CreateUpdateUserInfo mUpdateInfo;
 };
 }

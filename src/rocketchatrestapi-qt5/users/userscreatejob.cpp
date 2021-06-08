@@ -65,12 +65,12 @@ void UsersCreateJob::slotUsersCreate()
     deleteLater();
 }
 
-CreateUserInfo UsersCreateJob::createInfo() const
+CreateUpdateUserInfo UsersCreateJob::createInfo() const
 {
     return mCreateInfo;
 }
 
-void UsersCreateJob::setCreateInfo(const CreateUserInfo &createInfo)
+void UsersCreateJob::setCreateInfo(const CreateUpdateUserInfo &createInfo)
 {
     mCreateInfo = createInfo;
 }

@@ -18,19 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "createuserinfo.h"
+#include "createupdateuserinfo.h"
 
+#include <QJsonArray>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
 
-bool CreateUserInfo::isValid() const
+bool CreateUpdateUserInfo::isValid() const
 {
     return !mUserId.isEmpty();
 }
 
-QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUserInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
 {
-    d << "roles " << t.roles;
+    d << "roles " << t.mRoles;
     d << "mUserId " << t.mUserId;
     d << "mEmail " << t.mEmail;
     d << "mName " << t.mName;
@@ -44,10 +45,8 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUserInfo &t)
     return d;
 }
 
-QJsonDocument CreateUserInfo::json() const
+QJsonDocument CreateUpdateUserInfo::json() const
 {
-    QJsonObject jsonObj;
-
     QJsonObject dataObj;
     if (!mEmail.isEmpty()) {
         dataObj[QLatin1String("email")] = mEmail;
@@ -61,7 +60,16 @@ QJsonDocument CreateUserInfo::json() const
     if (!mUserName.isEmpty()) {
         dataObj[QLatin1String("username")] = mUserName;
     }
-    jsonObj[QLatin1String("data")] = dataObj;
-    const QJsonDocument postData = QJsonDocument(jsonObj);
+    if (!mStatusText.isEmpty()) {
+        dataObj[QLatin1String("statusText")] = mStatusText;
+    }
+    if (!mRoles.isEmpty()) {
+        dataObj[QLatin1String("roles")] = QJsonArray::fromStringList(mRoles);
+    }
+    dataObj[QLatin1String("requirePasswordChange")] = mRequirePasswordChange;
+    dataObj[QLatin1String("sendWelcomeEmail")] = mSendWelcomeEmail;
+    dataObj[QLatin1String("setRandomPassword")] = mSetRandomPassword;
+    dataObj[QLatin1String("verified")] = mVerified;
+    const QJsonDocument postData = QJsonDocument(dataObj);
     return postData;
 }

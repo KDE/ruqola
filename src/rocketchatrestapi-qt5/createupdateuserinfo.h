@@ -27,9 +27,9 @@
 #include <QStringList>
 namespace RocketChatRestApi
 {
-struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUserInfo {
+struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
     // TODO add enum ?
-    QStringList roles;
+    QStringList mRoles;
     QString mUserId;
     QString mEmail;
     QString mName;
@@ -40,10 +40,12 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUserInfo {
     bool mRequirePasswordChange = false;
     bool mAssignRandomPassword = false;
     bool mSendWelcomeEmail = false;
+    bool mSetRandomPassword = false;
+    bool mVerified = false;
     Q_REQUIRED_RESULT bool isValid() const;
     // TODO add more
     Q_REQUIRED_RESULT QJsonDocument json() const;
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateUserInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUserInfo &t);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateUpdateUserInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t);

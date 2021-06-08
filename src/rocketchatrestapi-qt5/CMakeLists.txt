@@ -198,7 +198,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     teams/teamsautocompletejob.cpp
 
     createroominfo.cpp
-    createuserinfo.cpp
+    createupdateuserinfo.cpp
     )
 
 
