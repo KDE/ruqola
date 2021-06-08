@@ -39,7 +39,16 @@ Users::ParseType AdminUsersModel::parseType() const
 
 void AdminUsersModel::removeElement(const QString &identifier)
 {
-    // TODO
+    qDebug() << " remove user: identifier: " << identifier;
+    const int roomCount = mUsers.count();
+    for (int i = 0; i < roomCount; ++i) {
+        if (mUsers.at(i).userId() == identifier) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mUsers.takeAt(i);
+            endRemoveRows();
+            break;
+        }
+    }
 }
 
 bool AdminUsersModel::setData(const QModelIndex &id, const QVariant &value, int role)

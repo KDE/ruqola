@@ -46,6 +46,8 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
+    User takeAt(int index);
+
     void parseUsers(const QJsonObject &obj, ParseType type);
     void parseMoreUsers(const QJsonObject &obj, ParseType type);
 

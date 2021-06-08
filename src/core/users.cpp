@@ -136,6 +136,11 @@ void Users::setTotal(int total)
     mTotal = total;
 }
 
+User Users::takeAt(int index)
+{
+    return mUsers.takeAt(index);
+}
+
 QDebug operator<<(QDebug d, const Users &t)
 {
     d << "total " << t.total();

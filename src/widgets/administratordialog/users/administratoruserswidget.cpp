@@ -37,6 +37,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
+#include <QMessageBox>
 #include <QPointer>
 #include <QTreeView>
 #include <QVBoxLayout>
@@ -106,19 +107,21 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::DeleteUserJob(this);
-    RocketChatRestApi::UserBaseJob::UserInfo info;
-    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    const QString userId = index.data().toString();
-    info.userIdentifier = userId;
-    job->setUserInfo(info);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, [this, userId]() {
-        slotDeleteUserDone(userId);
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+    if (QMessageBox::question(this, i18n("Remove User"), i18n("Do you want to remove this user?")) == QMessageBox::Yes) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::DeleteUserJob(this);
+        RocketChatRestApi::UserBaseJob::UserInfo info;
+        info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+        const QString userId = index.data().toString();
+        info.userIdentifier = userId;
+        job->setUserInfo(info);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, [this, userId]() {
+            slotDeleteUserDone(userId);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+        }
     }
 }
 
