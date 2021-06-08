@@ -34,7 +34,7 @@ public:
     explicit AdministratorAddUserDialog(QWidget *parent = nullptr);
     ~AdministratorAddUserDialog() override;
 
-    Q_REQUIRED_RESULT RocketChatRestApi::UsersCreateJob::CreateInfo createInfo() const;
+    Q_REQUIRED_RESULT RocketChatRestApi::CreateUserInfo createInfo() const;
     void setUser(const User &user);
 
 private:

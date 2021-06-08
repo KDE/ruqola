@@ -65,12 +65,12 @@ void UsersUpdateJob::slotUsersUpdate()
     deleteLater();
 }
 
-UsersUpdateJob::UpdateInfo UsersUpdateJob::updateInfo() const
+CreateUserInfo UsersUpdateJob::updateInfo() const
 {
     return mUpdateInfo;
 }
 
-void UsersUpdateJob::setUpdateInfo(const UpdateInfo &updateInfo)
+void UsersUpdateJob::setUpdateInfo(const CreateUserInfo &updateInfo)
 {
     mUpdateInfo = updateInfo;
 }
@@ -101,6 +101,7 @@ QNetworkRequest UsersUpdateJob::request() const
     return request;
 }
 
+// TODO move to CreateUserInfo
 QJsonDocument UsersUpdateJob::json() const
 {
     QJsonObject jsonObj;
@@ -122,17 +123,3 @@ QJsonDocument UsersUpdateJob::json() const
     return postData;
 }
 
-bool UsersUpdateJob::UpdateInfo::isValid() const
-{
-    return !mUserId.isEmpty();
-}
-
-QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateJob::UpdateInfo &t)
-{
-    d << "userId : " << t.mUserId;
-    d << "mEmail : " << t.mEmail;
-    d << "mName : " << t.mName;
-    d << "mPassword : " << t.mPassword;
-    d << "mUserName : " << t.mUserName;
-    return d;
-}

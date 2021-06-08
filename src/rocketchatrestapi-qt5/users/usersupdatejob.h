@@ -20,24 +20,16 @@
 
 #pragma once
 
+#include "createuserinfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersUpdateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateInfo {
-        // TODO add enum ?
-        QString mUserId;
-        QString mEmail;
-        QString mName;
-        QString mUserName;
-        QString mPassword;
-        Q_REQUIRED_RESULT bool isValid() const;
-        // TODO add more
-    };
     explicit UsersUpdateJob(QObject *parent = nullptr);
     ~UsersUpdateJob() override;
 
@@ -48,8 +40,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT UpdateInfo updateInfo() const;
-    void setUpdateInfo(const UpdateInfo &updateInfo);
+    Q_REQUIRED_RESULT CreateUserInfo updateInfo() const;
+    void setUpdateInfo(const CreateUserInfo &updateInfo);
 
 Q_SIGNALS:
     void usersUpdateDone();
@@ -57,7 +49,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UsersUpdateJob)
     void slotUsersUpdate();
-    UpdateInfo mUpdateInfo;
+    CreateUserInfo mUpdateInfo;
 };
 }
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateJob::UpdateInfo &t);

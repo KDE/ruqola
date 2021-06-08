@@ -20,30 +20,16 @@
 
 #pragma once
 
+#include "createuserinfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersCreateJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateInfo {
-        // TODO add enum ?
-        QStringList roles;
-        QString mUserId;
-        QString mEmail;
-        QString mName;
-        QString mUserName;
-        QString mPassword;
-        QString mStatusText;
-        bool mJoinDefaultChannels = false;
-        bool mRequirePasswordChange = false;
-        bool mAssignRandomPassword = false;
-        bool mSendWelcomeEmail = false;
-        Q_REQUIRED_RESULT bool isValid() const;
-        // TODO add more
-    };
     explicit UsersCreateJob(QObject *parent = nullptr);
     ~UsersCreateJob() override;
 
@@ -54,8 +40,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateInfo createInfo() const;
-    void setCreateInfo(const CreateInfo &createInfo);
+    Q_REQUIRED_RESULT CreateUserInfo createInfo() const;
+    void setCreateInfo(const CreateUserInfo &createInfo);
 
 Q_SIGNALS:
     void usersCreateDone();
@@ -63,6 +49,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UsersCreateJob)
     void slotUsersCreate();
-    CreateInfo mCreateInfo;
+    CreateUserInfo mCreateInfo;
 };
 }

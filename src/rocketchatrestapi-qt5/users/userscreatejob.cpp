@@ -65,12 +65,12 @@ void UsersCreateJob::slotUsersCreate()
     deleteLater();
 }
 
-UsersCreateJob::CreateInfo UsersCreateJob::createInfo() const
+CreateUserInfo UsersCreateJob::createInfo() const
 {
     return mCreateInfo;
 }
 
-void UsersCreateJob::setCreateInfo(const CreateInfo &createInfo)
+void UsersCreateJob::setCreateInfo(const CreateUserInfo &createInfo)
 {
     mCreateInfo = createInfo;
 }
@@ -107,9 +107,4 @@ QJsonDocument UsersCreateJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-bool UsersCreateJob::CreateInfo::isValid() const
-{
-    return !mUserId.isEmpty();
 }
