@@ -202,8 +202,9 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     )
 
 
-ecm_qt_declare_logging_category(librocketchatrestapi-qt5 HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi
+ecm_qt_declare_logging_category(librocketchatrestapi_qt5_debug_SRCS HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi
     DESCRIPTION "RocketChatQtRestApi (Rocket Chat Qt Rest API used by ruqola)" EXPORT RUQOLA)
+target_sources(librocketchatrestapi-qt5 PRIVATE ${librocketchatrestapi_qt5_debug_SRCS})
 
 #ruqola_target_precompile_headers(librocketchatrestapi-qt5 PUBLIC ../../ruqola_pch.h)
 generate_export_header(librocketchatrestapi-qt5 BASE_NAME librocketchatrestapi-qt5)

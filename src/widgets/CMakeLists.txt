@@ -233,10 +233,11 @@ ki18n_wrap_ui(libruqolawidgets
 
 
 
-ecm_qt_declare_logging_category(libruqolawidgets HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolawidgets HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqolawidgets_selection_debug.h IDENTIFIER RUQOLAWIDGETS_SELECTION_LOG CATEGORY_NAME org.kde.ruqola.widgets.selection
     DESCRIPTION "ruqola widgets (selection)" EXPORT RUQOLA)
+target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
