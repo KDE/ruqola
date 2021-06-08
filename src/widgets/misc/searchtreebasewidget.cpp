@@ -50,6 +50,9 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     labFont.setBold(true);
     mLabelResultSearch->setFont(labFont);
     connect(mLabelResultSearch, &QLabel::linkActivated, this, &SearchTreeBaseWidget::loadMoreElements);
+
+    addExtraWidget(mainLayout);
+
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
     mTreeView->setSortingEnabled(true);
@@ -102,15 +105,19 @@ void SearchTreeBaseWidget::finishSearching()
     mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
+void SearchTreeBaseWidget::addExtraWidget(QVBoxLayout *layout)
+{
+    Q_UNUSED(layout);
+}
+
 void SearchTreeBaseWidget::slotLoadMoreElementDone(const QJsonObject &obj)
 {
     mModel->addMoreElements(obj);
     finishSearching();
 }
-#include <QDebug>
+
 void SearchTreeBaseWidget::slotSearchDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
     mModel->parseElements(obj);
     finishSearching();
 }

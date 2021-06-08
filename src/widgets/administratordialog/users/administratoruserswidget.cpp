@@ -69,7 +69,7 @@ void AdministratorUsersWidget::slotAddUser()
 {
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
     if (dlg->exec()) {
-        const RocketChatRestApi::CreateUserInfo info = dlg->createInfo();
+        const RocketChatRestApi::CreateUpdateUserInfo info = dlg->createInfo();
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::UsersCreateJob(this);
         job->setCreateInfo(info);

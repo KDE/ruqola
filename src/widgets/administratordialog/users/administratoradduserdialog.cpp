@@ -46,7 +46,7 @@ AdministratorAddUserDialog::~AdministratorAddUserDialog()
 {
 }
 
-RocketChatRestApi::CreateUserInfo AdministratorAddUserDialog::createInfo() const
+RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserDialog::createInfo() const
 {
     return mAdministratorWidget->createInfo();
 }

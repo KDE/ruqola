@@ -20,11 +20,11 @@
 
 #pragma once
 
+#include "directorybasemodel.h"
 #include "libruqolacore_export.h"
 #include "roomsinfo.h"
-#include <QAbstractListModel>
 
-class LIBRUQOLACORE_EXPORT AdminRoomsModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT AdminRoomsModel : public DirectoryBaseModel
 {
     Q_OBJECT
 public:
@@ -53,6 +53,11 @@ public:
     Q_REQUIRED_RESULT RoomsInfo adminRooms() const;
 
     void setAdminRooms(const RoomsInfo &adminrooms);
+
+    Q_REQUIRED_RESULT int total() const override;
+    void parseElements(const QJsonObject &obj) override;
+    void addMoreElements(const QJsonObject &obj) override;
+    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
 
 private:
     Q_DISABLE_COPY(AdminRoomsModel)

@@ -24,6 +24,7 @@ class QLabel;
 class SearchWithDelayLineEdit;
 class QTreeView;
 class DirectoryBaseModel;
+class QVBoxLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTreeBaseWidget : public QWidget
 {
     Q_OBJECT
@@ -44,6 +45,7 @@ protected:
     void connectModel();
     void hideColumns();
     void finishSearching();
+    virtual void addExtraWidget(QVBoxLayout *layout);
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;

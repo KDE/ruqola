@@ -25,7 +25,7 @@
 #include "model/adminroomsfilterproxymodel.h"
 #include <QWidget>
 class QLineEdit;
-class QTableView;
+class QTreeView;
 class AdminRoomsModel;
 class AdminRoomsFilterProxyModel;
 class AdministratorRoomsSelectRoomTypeWidget;
@@ -47,7 +47,7 @@ private:
     void slotRemoveRoom(const QModelIndex &index);
     QLineEdit *const mSearchLineEdit;
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
-    QTableView *const mResultTreeWidget;
+    QTreeView *const mResultTreeWidget;
     AdminRoomsModel *const mAdminRoomsModel;
     AdminRoomsFilterProxyModel *mAdminRoomsProxyModel = nullptr;
 };

@@ -61,9 +61,9 @@ AdministratorAddUserWidget::~AdministratorAddUserWidget()
 {
 }
 
-RocketChatRestApi::CreateUserInfo AdministratorAddUserWidget::createInfo() const
+RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo() const
 {
-    RocketChatRestApi::CreateUserInfo info;
+    RocketChatRestApi::CreateUpdateUserInfo info;
     info.mName = mName->text().trimmed();
     info.mEmail = mEmail->text().trimmed();
     info.mUserName = mUserName->text();

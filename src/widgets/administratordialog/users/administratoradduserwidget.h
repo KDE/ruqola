@@ -37,7 +37,7 @@ public:
     explicit AdministratorAddUserWidget(QWidget *parent = nullptr);
     ~AdministratorAddUserWidget() override;
 
-    Q_REQUIRED_RESULT RocketChatRestApi::CreateUserInfo createInfo() const;
+    Q_REQUIRED_RESULT RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
 
     void setUser(const User &user);
 

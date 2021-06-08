@@ -22,8 +22,8 @@
 #include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include <QLineEdit>
-#include <QTableView>
 #include <QTest>
+#include <QTreeView>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorRoomsWidgetTest)
 AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
@@ -41,11 +41,11 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
-    auto mResultTreeWidget = w.findChild<QTableView *>(QStringLiteral("mResultTreeWidget"));
+    auto mResultTreeWidget = w.findChild<QTreeView *>(QStringLiteral("mResultTreeWidget"));
     QVERIFY(mResultTreeWidget);
-    QVERIFY(!mResultTreeWidget->showGrid());
     QVERIFY(mResultTreeWidget->isSortingEnabled());
     QCOMPARE(mResultTreeWidget->selectionMode(), QAbstractItemView::SelectionMode::SingleSelection);
+    QVERIFY(!mResultTreeWidget->rootIsDecorated());
 
     auto mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
     QVERIFY(mSelectRoomType);

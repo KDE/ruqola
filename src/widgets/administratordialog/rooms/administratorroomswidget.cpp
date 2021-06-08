@@ -34,14 +34,14 @@
 #include <QJsonObject>
 #include <QLineEdit>
 #include <QMenu>
-#include <QTableView>
+#include <QTreeView>
 #include <QVBoxLayout>
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new QLineEdit(this))
     , mSelectRoomType(new AdministratorRoomsSelectRoomTypeWidget(this))
-    , mResultTreeWidget(new QTableView(this))
+    , mResultTreeWidget(new QTreeView(this))
     , mAdminRoomsModel(new AdminRoomsModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -58,14 +58,13 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mainLayout->addWidget(mSelectRoomType);
     connect(mSelectRoomType, &AdministratorRoomsSelectRoomTypeWidget::filterChanged, this, &AdministratorRoomsWidget::slotFilterChanged);
 
-    mResultTreeWidget->setShowGrid(false);
     mResultTreeWidget->setSortingEnabled(true);
     mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
-    mResultTreeWidget->verticalHeader()->hide();
     mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
     mResultTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(mResultTreeWidget, &QTableView::customContextMenuRequested, this, &AdministratorRoomsWidget::slotCustomContextMenuRequested);
+    mResultTreeWidget->setRootIsDecorated(false);
+    connect(mResultTreeWidget, &QTreeView::customContextMenuRequested, this, &AdministratorRoomsWidget::slotCustomContextMenuRequested);
     mainLayout->addWidget(mResultTreeWidget);
 
     mAdminRoomsModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
@@ -146,6 +145,6 @@ void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
     RoomsInfo rooms;
     rooms.parseRooms(obj, RoomsInfo::Administrator);
     mAdminRoomsModel->setAdminRooms(rooms);
-    mResultTreeWidget->resizeColumnsToContents();
+    // mResultTreeWidget->resizeColumnsToContents();
     // qDebug() << " rooms " << rooms;
 }

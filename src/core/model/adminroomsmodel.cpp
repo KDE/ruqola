@@ -22,7 +22,7 @@
 #include <KLocalizedString>
 
 AdminRoomsModel::AdminRoomsModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : DirectoryBaseModel(parent)
 {
 }
 
@@ -123,4 +123,24 @@ void AdminRoomsModel::setAdminRooms(const RoomsInfo &adminrooms)
         mAdminRooms = adminrooms;
         endInsertRows();
     }
+}
+
+int AdminRoomsModel::total() const
+{
+    return mAdminRooms.count();
+}
+
+void AdminRoomsModel::parseElements(const QJsonObject &obj)
+{
+    // TODO
+}
+
+void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
+{
+    // TODO
+}
+
+QList<int> AdminRoomsModel::hideColumns() const
+{
+    return {};
 }
