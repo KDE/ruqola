@@ -71,6 +71,7 @@ void UsersCreateJobTest::shouldNotStarting()
 
     CreateUpdateUserInfo info;
     info.mUserId = QStringLiteral("userid");
+    info.mPassword = QStringLiteral("ccc");
     job.setCreateInfo(info);
 
     QVERIFY(job.canStart());
