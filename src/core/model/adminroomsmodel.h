@@ -61,6 +61,7 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminRoomsModel)
+    void checkFullList();
     RoomsInfo mAdminRooms;
 };
 

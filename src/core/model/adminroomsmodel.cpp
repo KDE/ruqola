@@ -132,12 +132,32 @@ int AdminRoomsModel::total() const
 
 void AdminRoomsModel::parseElements(const QJsonObject &obj)
 {
-    // TODO
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
+        mAdminRooms.clear();
+        endRemoveRows();
+    }
+    mAdminRooms.parseRooms(obj, RoomsInfo::Administrator);
+    if (!mAdminRooms.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mAdminRooms.count() - 1);
+        endInsertRows();
+    }
+    checkFullList();
+    Q_EMIT totalChanged();
+}
+
+void AdminRoomsModel::checkFullList()
+{
+    setHasFullList(mAdminRooms.count() == mAdminRooms.total());
 }
 
 void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 {
-    // TODO
+    const int numberOfElement = mAdminRooms.count();
+    mAdminRooms.parseMoreRooms(obj, RoomsInfo::Directory);
+    beginInsertRows(QModelIndex(), numberOfElement, mAdminRooms.count() - 1);
+    endInsertRows();
+    checkFullList();
 }
 
 QList<int> AdminRoomsModel::hideColumns() const
