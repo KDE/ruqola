@@ -53,6 +53,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
     mTreeView->setModel(mAdminRoomsProxyModel);
+    mSearchLayout->addWidget(mSelectRoomType);
     hideColumns();
     connectModel();
 }
@@ -90,11 +91,6 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
-}
-
-void AdministratorRoomsWidget::addExtraWidget(QVBoxLayout *layout)
-{
-    layout->addWidget(mSelectRoomType);
 }
 
 void AdministratorRoomsWidget::slotAddRoom()

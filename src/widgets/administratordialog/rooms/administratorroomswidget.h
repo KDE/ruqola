@@ -38,7 +38,6 @@ protected:
     void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
     void slotCustomContextMenuRequested(const QPoint &pos) override;
     void updateLabel() override;
-    void addExtraWidget(QVBoxLayout *layout) override;
 
 private:
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;

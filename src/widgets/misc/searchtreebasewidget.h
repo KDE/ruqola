@@ -45,11 +45,11 @@ protected:
     void connectModel();
     void hideColumns();
     void finishSearching();
-    virtual void addExtraWidget(QVBoxLayout *layout);
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
     DirectoryBaseModel *mModel = nullptr;
+    QVBoxLayout *mSearchLayout = nullptr;
 
 private:
     void slotSearchCleared();

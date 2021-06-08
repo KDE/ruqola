@@ -37,13 +37,16 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mSearchLayout = new QVBoxLayout;
+    mSearchLayout->setContentsMargins({});
+    mainLayout->addLayout(mSearchLayout);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mainLayout->addWidget(mSearchLineEdit);
+    mSearchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setDelayMs(500);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
-    mainLayout->addWidget(mLabelResultSearch);
+    mSearchLayout->addWidget(mLabelResultSearch);
     mLabelResultSearch->setTextFormat(Qt::RichText);
     mLabelResultSearch->setContextMenuPolicy(Qt::NoContextMenu);
     QFont labFont = mLabelResultSearch->font();
@@ -51,7 +54,9 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     mLabelResultSearch->setFont(labFont);
     connect(mLabelResultSearch, &QLabel::linkActivated, this, &SearchTreeBaseWidget::loadMoreElements);
 
-    addExtraWidget(mainLayout);
+    auto treeViewLayout = new QVBoxLayout;
+    treeViewLayout->setContentsMargins({});
+    mainLayout->addLayout(treeViewLayout);
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
@@ -60,7 +65,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
     mTreeView->header()->setSectionsClickable(true);
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    mainLayout->addWidget(mTreeView);
+    treeViewLayout->addWidget(mTreeView);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchTreeBaseWidget::slotSearchCleared);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchTreeBaseWidget::slotSearchRequested);
     connect(this, &SearchTreeBaseWidget::loadMoreElements, this, [this]() {
@@ -103,11 +108,6 @@ void SearchTreeBaseWidget::finishSearching()
 {
     mModel->setLoadMoreInProgress(false);
     mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
-}
-
-void SearchTreeBaseWidget::addExtraWidget(QVBoxLayout *layout)
-{
-    Q_UNUSED(layout);
 }
 
 void SearchTreeBaseWidget::slotLoadMoreElementDone(const QJsonObject &obj)
