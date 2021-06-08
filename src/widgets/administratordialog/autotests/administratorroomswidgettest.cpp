@@ -41,11 +41,11 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
-    auto mResultTreeWidget = w.findChild<QTreeView *>(QStringLiteral("mResultTreeWidget"));
-    QVERIFY(mResultTreeWidget);
-    QVERIFY(mResultTreeWidget->isSortingEnabled());
-    QCOMPARE(mResultTreeWidget->selectionMode(), QAbstractItemView::SelectionMode::SingleSelection);
-    QVERIFY(!mResultTreeWidget->rootIsDecorated());
+    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    QVERIFY(mTreeView);
+    QVERIFY(mTreeView->isSortingEnabled());
+    QCOMPARE(mTreeView->selectionMode(), QAbstractItemView::SelectionMode::SingleSelection);
+    QVERIFY(!mTreeView->rootIsDecorated());
 
     auto mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
     QVERIFY(mSelectRoomType);
