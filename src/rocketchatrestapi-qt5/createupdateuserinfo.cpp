@@ -27,7 +27,7 @@ using namespace RocketChatRestApi;
 bool CreateUpdateUserInfo::isValid() const
 {
     if (mTypeInfo == Create) {
-        return true; // TODO verify it
+        return !mPassword.isEmpty(); // TODO verify it
     }
     return !mUserId.isEmpty();
 }

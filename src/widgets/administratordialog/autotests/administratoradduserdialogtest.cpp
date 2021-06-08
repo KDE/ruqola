@@ -22,6 +22,7 @@
 #include "administratordialog/users/administratoradduserdialog.h"
 #include "administratordialog/users/administratoradduserwidget.h"
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorAddUserDialogTest)
@@ -41,4 +42,8 @@ void AdministratorAddUserDialogTest::shouldHaveDefaultValues()
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    QPushButton *buttonOk = button->button(QDialogButtonBox::Ok);
+    QVERIFY(buttonOk);
+    QVERIFY(!buttonOk->isEnabled());
 }

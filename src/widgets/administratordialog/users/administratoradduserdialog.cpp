@@ -22,6 +22,7 @@
 #include "administratoradduserwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 AdministratorAddUserDialog::AdministratorAddUserDialog(QWidget *parent)
@@ -40,6 +41,9 @@ AdministratorAddUserDialog::AdministratorAddUserDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorAddUserDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorAddUserDialog::accept);
+    QPushButton *buttonOk = button->button(QDialogButtonBox::Ok);
+    buttonOk->setEnabled(false);
+    connect(mAdministratorWidget, &AdministratorAddUserWidget::updateButtonOk, buttonOk, &QPushButton::setEnabled);
 }
 
 AdministratorAddUserDialog::~AdministratorAddUserDialog()

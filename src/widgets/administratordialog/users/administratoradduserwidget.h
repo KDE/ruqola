@@ -41,6 +41,9 @@ public:
 
     void setUser(const User &user);
 
+Q_SIGNALS:
+    void updateButtonOk(bool b);
+
 private:
     QLineEdit *const mName;
     QLineEdit *const mUserName;
