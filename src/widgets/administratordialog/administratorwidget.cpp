@@ -67,6 +67,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mAdministratorInvitesWidget->setObjectName(QStringLiteral("mAdministratorInvitesWidget"));
     mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
     mAdministratorUsersWidget->initialize();
+    mAdministratorRoomsWidget->initialize();
 }
 
 AdministratorWidget::~AdministratorWidget()

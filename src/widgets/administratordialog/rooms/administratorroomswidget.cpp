@@ -20,6 +20,7 @@
 
 #include "administratorroomswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "model/adminroomsmodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -32,52 +33,28 @@
 #include <KMessageBox>
 #include <QHeaderView>
 #include <QJsonObject>
+#include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
 #include <QTreeView>
 #include <QVBoxLayout>
 
 AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
-    : QWidget(parent)
-    , mSearchLineEdit(new QLineEdit(this))
+    : SearchTreeBaseWidget(parent)
     , mSelectRoomType(new AdministratorRoomsSelectRoomTypeWidget(this))
-    , mResultTreeWidget(new QTreeView(this))
-    , mAdminRoomsModel(new AdminRoomsModel(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search channel..."));
-    mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
-    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &AdministratorRoomsWidget::slotTextChanged);
-    mainLayout->addWidget(mSearchLineEdit);
-
     mSelectRoomType->setObjectName(QStringLiteral("mSelectRoomType"));
-    mainLayout->addWidget(mSelectRoomType);
     connect(mSelectRoomType, &AdministratorRoomsSelectRoomTypeWidget::filterChanged, this, &AdministratorRoomsWidget::slotFilterChanged);
 
-    mResultTreeWidget->setSortingEnabled(true);
-    mResultTreeWidget->setObjectName(QStringLiteral("mResultTreeWidget"));
-    mResultTreeWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
-    mResultTreeWidget->setSelectionMode(QAbstractItemView::SelectionMode::SingleSelection);
-    mResultTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    mResultTreeWidget->setRootIsDecorated(false);
-    connect(mResultTreeWidget, &QTreeView::customContextMenuRequested, this, &AdministratorRoomsWidget::slotCustomContextMenuRequested);
-    mainLayout->addWidget(mResultTreeWidget);
+    mModel = new AdminRoomsModel(this);
+    mModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
 
-    mAdminRoomsModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
-
-    mAdminRoomsProxyModel = new AdminRoomsFilterProxyModel(mAdminRoomsModel, this);
-    mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminRoomsProxyModel"));
-
-    mResultTreeWidget->setModel(mAdminRoomsProxyModel);
-    // Hide not useful columns
-    mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::ChannelType, true);
-    mResultTreeWidget->setColumnHidden(AdminRoomsModel::AdminRoomsRoles::Identifier, true);
-
-    initialize();
+    mAdminRoomsProxyModel = new AdminRoomsFilterProxyModel(mModel, this);
+    mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
+    mTreeView->setModel(mAdminRoomsProxyModel);
+    hideColumns();
+    connectModel();
 }
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget()
@@ -88,7 +65,7 @@ void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRoomsWidget::slotAddRoom);
-    const QModelIndex index = mResultTreeWidget->indexAt(pos);
+    const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             slotModifyRoom(index);
@@ -98,7 +75,26 @@ void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             slotRemoveRoom(index);
         });
     }
-    menu.exec(mResultTreeWidget->viewport()->mapToGlobal(pos));
+    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+}
+
+void AdministratorRoomsWidget::updateLabel()
+{
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No room found") : displayShowMessageInRoom());
+}
+
+QString AdministratorRoomsWidget::displayShowMessageInRoom() const
+{
+    QString displayMessageStr = i18np("%1 room (Total: %2)", "%1 rooms (Total: %2)", mModel->rowCount(), mModel->total());
+    if (!mModel->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
+}
+
+void AdministratorRoomsWidget::addExtraWidget(QVBoxLayout *layout)
+{
+    layout->addWidget(mSelectRoomType);
 }
 
 void AdministratorRoomsWidget::slotAddRoom()
@@ -129,22 +125,34 @@ void AdministratorRoomsWidget::slotTextChanged(const QString &text)
     mAdminRoomsProxyModel->setFilterString(text);
 }
 
-void AdministratorRoomsWidget::initialize()
+void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto adminRoomsJob = new RocketChatRestApi::AdminRoomsJob(this);
-    rcAccount->restApi()->initializeRestApiJob(adminRoomsJob);
-    connect(adminRoomsJob, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotAdminRoomDone);
-    if (!adminRoomsJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob";
+    auto job = new RocketChatRestApi::AdminRoomsJob(this);
+    if (!searchName.isEmpty()) {
+        RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo info;
+        info.filter = searchName;
+        job->setRoomsAdminInfo(info);
     }
-}
+    RocketChatRestApi::QueryParameters parameters;
+    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    parameters.setSorting(map);
+    if (offset != -1) {
+        parameters.setOffset(offset);
+    }
+    if (count != -1) {
+        parameters.setCount(count);
+    }
+    job->setQueryParameters(parameters);
 
-void AdministratorRoomsWidget::slotAdminRoomDone(const QJsonObject &obj)
-{
-    RoomsInfo rooms;
-    rooms.parseRooms(obj, RoomsInfo::Administrator);
-    mAdminRoomsModel->setAdminRooms(rooms);
-    // mResultTreeWidget->resizeColumnsToContents();
-    // qDebug() << " rooms " << rooms;
+    rcAccount->restApi()->initializeRestApiJob(job);
+    if (offset != -1) {
+        connect(job, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotLoadMoreElementDone);
+    } else {
+        connect(job, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotSearchDone);
+    }
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob job";
+    }
 }

@@ -21,7 +21,7 @@
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
-class AdminRoomsModel;
+class DirectoryBaseModel;
 class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -38,7 +38,7 @@ public:
     Q_FLAGS(FilterRoom FilterRooms)
     Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
 
-    explicit AdminRoomsFilterProxyModel(AdminRoomsModel *model = nullptr, QObject *parent = nullptr);
+    explicit AdminRoomsFilterProxyModel(DirectoryBaseModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
 
     void setFilterString(const QString &string);
@@ -55,6 +55,5 @@ protected:
 
 private:
     AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::All;
-    AdminRoomsModel *const mAdminRoomsModel;
 };
 

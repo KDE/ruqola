@@ -22,6 +22,7 @@
 
 #include "administratorroomsselectroomtypewidget.h"
 #include "libruqolawidgets_private_export.h"
+#include "misc/searchtreebasewidget.h"
 #include "model/adminroomsfilterproxymodel.h"
 #include <QWidget>
 class QLineEdit;
@@ -29,26 +30,27 @@ class QTreeView;
 class AdminRoomsModel;
 class AdminRoomsFilterProxyModel;
 class AdministratorRoomsSelectRoomTypeWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorRoomsWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsWidget() override;
 
+protected:
+    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
+    void slotCustomContextMenuRequested(const QPoint &pos) override;
+    void updateLabel() override;
+    void addExtraWidget(QVBoxLayout *layout) override;
+
 private:
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
-    void slotAdminRoomDone(const QJsonObject &obj);
     void slotTextChanged(const QString &text);
-    void initialize();
-    void slotCustomContextMenuRequested(const QPoint &pos);
     void slotAddRoom();
     void slotModifyRoom(const QModelIndex &index);
     void slotRemoveRoom(const QModelIndex &index);
-    QLineEdit *const mSearchLineEdit;
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
-    QTreeView *const mResultTreeWidget;
-    AdminRoomsModel *const mAdminRoomsModel;
     AdminRoomsFilterProxyModel *mAdminRoomsProxyModel = nullptr;
 };
 
