@@ -102,6 +102,9 @@ void AdminRoomsJob::initialQueryParameters()
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Team) {
         types << QStringLiteral("teams");
     }
+    if (!types.isEmpty()) {
+        map.insert(QStringLiteral("types[]"), types.join(QLatin1Char(',')));
+    }
     parameters.setCustom(map);
     setQueryParameters(parameters);
 }
