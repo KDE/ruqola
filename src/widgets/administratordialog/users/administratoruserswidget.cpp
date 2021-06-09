@@ -30,6 +30,7 @@
 #include "ruqolawidgets_debug.h"
 #include "users/deleteuserjob.h"
 #include "users/setuseractivestatusjob.h"
+#include "users/userinfojob.h"
 #include "users/userscreatejob.h"
 #include "users/userslistjob.h"
 #include <KLocalizedString>
@@ -90,8 +91,27 @@ void AdministratorUsersWidget::slotUserCreateDone(const QJsonObject &obj)
 
 void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 {
-    // TODO
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto userJob = new RocketChatRestApi::UserInfoJob(this);
+    rcAccount->restApi()->initializeRestApiJob(userJob);
+    RocketChatRestApi::UserBaseJob::UserInfo info;
+    info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+    const QString userId = index.data().toString();
+    info.userIdentifier = userId;
+    userJob->setUserInfo(info);
+    connect(userJob, &RocketChatRestApi::UserInfoJob::userInfoDone, this, &AdministratorUsersWidget::slotUserInfoDone);
+    if (!userJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start UserInfoJob";
+    }
+}
+
+void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
+{
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    User user;
+    user.parseUserRestApi(obj[QLatin1String("user")].toObject());
+    dlg->setUser(user);
+    qDebug() << " sssssssss " << obj;
     if (dlg->exec()) {
         //        const RocketChatRestApi::UsersCreateJob::CreateInfo info = dlg->createInfo();
         //        auto *rcAccount = Ruqola::self()->rocketChatAccount();

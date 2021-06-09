@@ -49,6 +49,7 @@ private:
     void slotSetUserActiveStatus(const QJsonObject &replyObject, const QModelIndex &modelIndex);
     void slotDeleteUserDone(const QString &userId);
     void slotUserCreateDone(const QJsonObject &obj);
+    void slotUserInfoDone(const QJsonObject &obj);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
