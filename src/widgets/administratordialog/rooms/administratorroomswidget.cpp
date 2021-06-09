@@ -65,7 +65,6 @@ AdministratorRoomsWidget::~AdministratorRoomsWidget()
 void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRoomsWidget::slotAddRoom);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
@@ -91,11 +90,6 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
-}
-
-void AdministratorRoomsWidget::slotAddRoom()
-{
-    // TODO
 }
 
 void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)

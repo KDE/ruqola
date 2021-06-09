@@ -43,7 +43,6 @@ private:
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
     void slotTextChanged(const QString &text);
-    void slotAddRoom();
     void slotModifyRoom(const QModelIndex &index);
     void slotRemoveRoom(const QModelIndex &index);
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
