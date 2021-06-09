@@ -465,8 +465,8 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+        qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCWarning(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
     }
@@ -657,8 +657,8 @@ void DDPClient::onWSConnected()
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+        qCWarning(RUQOLA_DDPAPI_COMMAND_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCWarning(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
     }
@@ -673,7 +673,7 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
 {
     qCDebug(RUQOLA_DDPAPI_LOG) << "SSL error" << errors.count();
     for (const QSslError &err : errors) {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "error ssl type:" << err.errorString();
+        qCWarning(RUQOLA_DDPAPI_LOG) << "error ssl type:" << err.errorString();
     }
     mWebSocket->ignoreSslErrors();
 }
