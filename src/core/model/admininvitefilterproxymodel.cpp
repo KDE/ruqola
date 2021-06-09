@@ -44,7 +44,3 @@ void AdminInviteFilterProxyModel::clearFilter()
     setFilterFixedString(QString());
 }
 
-bool AdminInviteFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
-{
-    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-}
