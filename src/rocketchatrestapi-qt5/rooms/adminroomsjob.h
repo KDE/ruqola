@@ -30,9 +30,14 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT AdminRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    enum class AdminRoomSearchType { None = 0, Direct = 1, Public = 2, Private = 4, Channel = 8, Team = 16, All = Direct | Private | Channel | Team };
+    Q_DECLARE_FLAGS(AdminRoomSearchTypes, AdminRoomSearchType)
+    Q_FLAG(AdminRoomSearchType)
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT AdminRoomsJobInfo {
         Q_REQUIRED_RESULT bool isValid() const;
+
         QString filter;
+        AdminRoomSearchTypes searchType = AdminRoomSearchType::None;
     };
     explicit AdminRoomsJob(QObject *parent = nullptr);
     ~AdminRoomsJob() override;
@@ -52,6 +57,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AdminRoomsJob)
     void slotRoomsAdminFinished();
+    void initialQueryParameters();
     AdminRoomsJobInfo mRoomsAdminInfo;
 };
 }

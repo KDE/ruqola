@@ -47,6 +47,7 @@ bool AdminRoomsJob::start()
         deleteLater();
         return false;
     }
+    initialQueryParameters();
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &AdminRoomsJob::slotRoomsAdminFinished);
     addStartRestApiInfo(QByteArrayLiteral("RoomsAdminJob: Ask info about room admin info"));
@@ -81,16 +82,37 @@ void AdminRoomsJob::setRoomsAdminInfo(const AdminRoomsJobInfo &roomsAdminInfo)
     mRoomsAdminInfo = roomsAdminInfo;
 }
 
+void AdminRoomsJob::initialQueryParameters()
+{
+    QueryParameters parameters = queryParameters();
+    QMap<QString, QString> map;
+    if (!mRoomsAdminInfo.filter.isEmpty()) {
+        map.insert(QStringLiteral("filter"), mRoomsAdminInfo.filter);
+    }
+    QStringList types;
+    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Direct) {
+        types << QStringLiteral("d");
+    }
+    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Private) {
+        types << QStringLiteral("p");
+    }
+    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Channel) {
+        types << QStringLiteral("c");
+    }
+    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Team) {
+        types << QStringLiteral("teams");
+    }
+    parameters.setCustom(map);
+    setQueryParameters(parameters);
+}
+
 QNetworkRequest AdminRoomsJob::request() const
 {
+    // rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms);
-    if (mRoomsAdminInfo.isValid()) {
-        QUrlQuery queryUrl;
-        queryUrl.addQueryItem(QStringLiteral("filter"), mRoomsAdminInfo.filter);
-        addQueryParameter(queryUrl);
-        url.setQuery(queryUrl);
-    }
-
+    QUrlQuery queryUrl;
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

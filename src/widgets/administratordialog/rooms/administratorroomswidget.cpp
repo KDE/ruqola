@@ -125,11 +125,11 @@ void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QSt
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::AdminRoomsJob(this);
-    if (!searchName.isEmpty()) {
-        RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo info;
-        info.filter = searchName;
-        job->setRoomsAdminInfo(info);
-    }
+    RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo info;
+    info.filter = searchName;
+    info.searchType = RocketChatRestApi::AdminRoomsJob::AdminRoomSearchType::All;
+    job->setRoomsAdminInfo(info);
+
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
