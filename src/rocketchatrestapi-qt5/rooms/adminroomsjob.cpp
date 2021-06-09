@@ -121,8 +121,3 @@ QNetworkRequest AdminRoomsJob::request() const
     addRequestAttribute(request);
     return request;
 }
-
-bool AdminRoomsJob::AdminRoomsJobInfo::isValid() const
-{
-    return !filter.isEmpty();
-}

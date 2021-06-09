@@ -38,7 +38,6 @@ void AdminRoomsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
-    QVERIFY(!job.roomsAdminInfo().isValid());
 }
 
 void AdminRoomsJobTest::shouldGenerateRequest()

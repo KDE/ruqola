@@ -41,12 +41,12 @@ public:
     };
     Q_DECLARE_FLAGS(AdminRoomSearchTypes, AdminRoomSearchType)
     Q_FLAG(AdminRoomSearchType)
-    struct LIBROCKETCHATRESTAPI_QT5_EXPORT AdminRoomsJobInfo {
-        Q_REQUIRED_RESULT bool isValid() const;
 
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT AdminRoomsJobInfo {
         QString filter;
         AdminRoomSearchTypes searchType = AdminRoomSearchType::None;
     };
+
     explicit AdminRoomsJob(QObject *parent = nullptr);
     ~AdminRoomsJob() override;
 
