@@ -48,8 +48,15 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
     bool mSetRandomPassword = false;
     bool mVerified = false;
     Q_REQUIRED_RESULT bool isValid() const;
-    // TODO add more
     Q_REQUIRED_RESULT QJsonDocument json() const;
+};
+
+struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateUserInfo : public CreateUpdateUserInfo {
+    UpdateUserInfo()
+        : CreateUpdateUserInfo()
+    {
+        mTypeInfo = Update;
+    }
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateUpdateUserInfo, Q_MOVABLE_TYPE);

@@ -50,7 +50,8 @@ void UsersUpdateJobTest::shouldGenerateRequest()
 void UsersUpdateJobTest::shouldGenerateJson()
 {
     UsersUpdateJob job;
-    CreateUpdateUserInfo info;
+    UpdateUserInfo info;
+    info.mTypeInfo = CreateUpdateUserInfo::Update;
 
     QString mUserId = QStringLiteral("foo");
 
@@ -70,8 +71,12 @@ void UsersUpdateJobTest::shouldGenerateJson()
     info.mUserName = mUserName;
     info.mPassword = mPassword;
     job.setUpdateInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"data":{"email":"%1","name":"%2","password":"%4","username":"%3"}})").arg(mEmail, mName, mUserName, mPassword).toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(
+            R"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false}})")
+            .arg(mEmail, mName, mUserName, mPassword)
+            .toLatin1());
 }
 
 void UsersUpdateJobTest::shouldNotStarting()
@@ -91,7 +96,7 @@ void UsersUpdateJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
-    CreateUpdateUserInfo info;
+    UpdateUserInfo info;
     info.mUserId = QStringLiteral("userid");
     job.setUpdateInfo(info);
 

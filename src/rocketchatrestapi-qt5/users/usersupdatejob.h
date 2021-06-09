@@ -40,8 +40,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateUpdateUserInfo updateInfo() const;
-    void setUpdateInfo(const CreateUpdateUserInfo &updateInfo);
+    Q_REQUIRED_RESULT UpdateUserInfo updateInfo() const;
+    void setUpdateInfo(const UpdateUserInfo &updateInfo);
 
 Q_SIGNALS:
     void usersUpdateDone();
@@ -49,6 +49,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UsersUpdateJob)
     void slotUsersUpdate();
-    CreateUpdateUserInfo mUpdateInfo;
+    UpdateUserInfo mUpdateInfo;
 };
 }

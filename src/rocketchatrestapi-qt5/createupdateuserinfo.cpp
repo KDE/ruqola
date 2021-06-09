@@ -51,29 +51,35 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
 QJsonDocument CreateUpdateUserInfo::json() const
 {
     // TODO add update support
-    QJsonObject dataObj;
+    QJsonObject userInfoObj;
     if (!mEmail.isEmpty()) {
-        dataObj[QLatin1String("email")] = mEmail;
+        userInfoObj[QLatin1String("email")] = mEmail;
     }
     if (!mName.isEmpty()) {
-        dataObj[QLatin1String("name")] = mName;
+        userInfoObj[QLatin1String("name")] = mName;
     }
     if (!mPassword.isEmpty()) {
-        dataObj[QLatin1String("password")] = mPassword;
+        userInfoObj[QLatin1String("password")] = mPassword;
     }
     if (!mUserName.isEmpty()) {
-        dataObj[QLatin1String("username")] = mUserName;
+        userInfoObj[QLatin1String("username")] = mUserName;
     }
     if (!mStatusText.isEmpty()) {
-        dataObj[QLatin1String("statusText")] = mStatusText;
+        userInfoObj[QLatin1String("statusText")] = mStatusText;
     }
     if (!mRoles.isEmpty()) {
-        dataObj[QLatin1String("roles")] = QJsonArray::fromStringList(mRoles);
+        userInfoObj[QLatin1String("roles")] = QJsonArray::fromStringList(mRoles);
     }
-    dataObj[QLatin1String("requirePasswordChange")] = mRequirePasswordChange;
-    dataObj[QLatin1String("sendWelcomeEmail")] = mSendWelcomeEmail;
-    dataObj[QLatin1String("setRandomPassword")] = mSetRandomPassword;
-    dataObj[QLatin1String("verified")] = mVerified;
-    const QJsonDocument postData = QJsonDocument(dataObj);
+    userInfoObj[QLatin1String("requirePasswordChange")] = mRequirePasswordChange;
+    userInfoObj[QLatin1String("sendWelcomeEmail")] = mSendWelcomeEmail;
+    userInfoObj[QLatin1String("setRandomPassword")] = mSetRandomPassword;
+    userInfoObj[QLatin1String("verified")] = mVerified;
+    if (mTypeInfo == Update) {
+        QJsonObject dataObj;
+        dataObj[QLatin1String("data")] = userInfoObj;
+        const QJsonDocument postData = QJsonDocument(dataObj);
+        return postData;
+    }
+    const QJsonDocument postData = QJsonDocument(userInfoObj);
     return postData;
 }
