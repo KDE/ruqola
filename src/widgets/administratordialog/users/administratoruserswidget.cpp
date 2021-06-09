@@ -82,8 +82,9 @@ void AdministratorUsersWidget::slotAddUser()
     delete dlg;
 }
 
-void AdministratorUsersWidget::slotUserCreateDone()
+void AdministratorUsersWidget::slotUserCreateDone(const QJsonObject &obj)
 {
+    qDebug() << "obj" << obj;
     // TODO use obj ?
 }
 

@@ -44,7 +44,7 @@ public:
     void setCreateInfo(const CreateUpdateUserInfo &createInfo);
 
 Q_SIGNALS:
-    void usersCreateDone();
+    void usersCreateDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersCreateJob)
