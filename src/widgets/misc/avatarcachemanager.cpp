@@ -22,7 +22,6 @@
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
-#include "utils.h"
 #include <QPainter>
 #include <QWidget>
 
