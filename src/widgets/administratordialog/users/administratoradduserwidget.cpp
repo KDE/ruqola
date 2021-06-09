@@ -72,6 +72,13 @@ void AdministratorAddUserWidget::slotUpdateOkButton()
     Q_EMIT updateButtonOk(enableOkButton);
 }
 
+RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
+{
+    RocketChatRestApi::UpdateUserInfo info;
+    // TODO
+    return info;
+}
+
 RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo() const
 {
     RocketChatRestApi::CreateUpdateUserInfo info;

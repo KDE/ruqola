@@ -33,6 +33,7 @@
 #include "users/userinfojob.h"
 #include "users/userscreatejob.h"
 #include "users/userslistjob.h"
+#include "users/usersupdatejob.h"
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QLabel>
@@ -111,19 +112,23 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     User user;
     user.parseUserRestApi(obj[QLatin1String("user")].toObject());
     dlg->setUser(user);
-    qDebug() << " sssssssss " << obj;
     if (dlg->exec()) {
-        //        const RocketChatRestApi::UsersCreateJob::CreateInfo info = dlg->createInfo();
-        //        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        //        auto job = new RocketChatRestApi::UsersCreateJob(this);
-        //        job->setCreateInfo(info);
-        //        rcAccount->restApi()->initializeRestApiJob(job);
-        //        connect(job, &RocketChatRestApi::UsersCreateJob::usersCreateDone, this, &AdministratorUsersWidget::slotUserCreateDone);
-        //        if (!job->start()) {
-        //            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
-        //        }
+        const RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::UsersUpdateJob(this);
+        job->setUpdateInfo(info);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::UsersUpdateJob::usersUpdateDone, this, &AdministratorUsersWidget::slotUserUpdateDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+        }
     }
     delete dlg;
+}
+
+void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
+{
+    // TODO
 }
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)

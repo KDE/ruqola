@@ -44,7 +44,7 @@ public:
     void setUpdateInfo(const UpdateUserInfo &updateInfo);
 
 Q_SIGNALS:
-    void usersUpdateDone();
+    void usersUpdateDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UsersUpdateJob)

@@ -35,6 +35,7 @@ public:
     ~AdministratorAddUserDialog() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
+    Q_REQUIRED_RESULT RocketChatRestApi::UpdateUserInfo updateInfo() const;
     void setUser(const User &user);
 
 private:

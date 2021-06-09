@@ -55,6 +55,11 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserDialog::createInfo()
     return mAdministratorWidget->createInfo();
 }
 
+RocketChatRestApi::UpdateUserInfo AdministratorAddUserDialog::updateInfo() const
+{
+    return mAdministratorWidget->updateInfo();
+}
+
 void AdministratorAddUserDialog::setUser(const User &user)
 {
     setWindowTitle(i18nc("@title:window", "Edit User"));

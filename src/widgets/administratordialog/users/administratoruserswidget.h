@@ -50,6 +50,7 @@ private:
     void slotDeleteUserDone(const QString &userId);
     void slotUserCreateDone(const QJsonObject &obj);
     void slotUserInfoDone(const QJsonObject &obj);
+    void slotUserUpdateDone(const QJsonObject &obj);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };

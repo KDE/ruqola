@@ -41,6 +41,7 @@ public:
 
     void setUser(const User &user);
 
+    Q_REQUIRED_RESULT RocketChatRestApi::UpdateUserInfo updateInfo() const;
 Q_SIGNALS:
     void updateButtonOk(bool b);
 
