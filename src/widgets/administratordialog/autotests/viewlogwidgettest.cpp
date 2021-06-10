@@ -19,4 +19,5 @@ void ViewLogWidgetTest::shouldHaveDefaultValues()
 
     auto *mPlainTextEdit = w.findChild<QPlainTextEdit *>(QStringLiteral("mPlainTextEdit"));
     QVERIFY(mPlainTextEdit);
+    QVERIFY(mPlainTextEdit->isReadOnly());
 }

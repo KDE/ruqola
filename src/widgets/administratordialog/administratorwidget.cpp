@@ -19,6 +19,7 @@
 */
 
 #include "administratorwidget.h"
+#include "administratordialog/logs/viewlogwidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "invites/administratorinviteswidget.h"
@@ -41,6 +42,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(this))
     , mAdministratorUsersWidget(new AdministratorUsersWidget(this))
     , mAdministratorInvitesWidget(new AdministratorInvitesWidget(this))
+    , mViewLogWidget(new ViewLogWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -66,6 +68,10 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
     mAdministratorInvitesWidget->setObjectName(QStringLiteral("mAdministratorInvitesWidget"));
     mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
+
+    mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
+    mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
+
     mAdministratorUsersWidget->initialize();
     mAdministratorRoomsWidget->initialize();
 }

@@ -31,6 +31,7 @@ ViewLogWidget::ViewLogWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mPlainTextEdit->setObjectName(QStringLiteral("mPlainTextEdit"));
+    mPlainTextEdit->setReadOnly(true);
     mainLayout->addWidget(mPlainTextEdit);
 }
 
