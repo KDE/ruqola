@@ -177,7 +177,7 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 {
     const QJsonObject userObj = replyObject[QLatin1String("user")].toObject();
     const bool active = userObj[QLatin1String("active")].toBool();
-    const QString userId = userObj[QLatin1String("_id")].toString();
+    // const QString userId = userObj[QLatin1String("_id")].toString();
     mModel->setData(modelIndex, active, AdminUsersModel::ActiveUser);
 }
 
