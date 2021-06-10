@@ -87,20 +87,6 @@ void RolesModel::setRolesSelected(const QStringList &newRolesSelected)
     mRolesSelected = newRolesSelected;
 }
 
-// void RolesModel::setRoomChanged(const TeamRoom &t)
-//{
-//    const int roomCount = mTeamRooms.count();
-//    for (int i = 0; i < roomCount; ++i) {
-//        TeamRoom &teamRoom = mTeamRooms[i];
-//        if (teamRoom.identifier() == t.identifier()) {
-//            teamRoom.setAutoJoin(t.autoJoin());
-//            const QModelIndex idx = createIndex(i, 0);
-//            Q_EMIT dataChanged(idx, idx);
-//            break;
-//        }
-//    }
-//}
-
 bool RolesModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (role == Qt::CheckStateRole) {
