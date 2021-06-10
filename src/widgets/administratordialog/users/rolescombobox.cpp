@@ -66,11 +66,10 @@ void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
 
 void RolesComboBox::setRoles(const QStringList &lst)
 {
-    // TODO
+    mRolesModel->setRolesSelected(lst);
 }
 
 QStringList RolesComboBox::roles() const
 {
-    // TODO
-    return {};
+    return mRolesModel->rolesSelected();
 }
