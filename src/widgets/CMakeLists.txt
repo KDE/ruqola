@@ -203,6 +203,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/invites/administratorinviteswidget.cpp
     administratordialog/invites/invitetreeview.cpp
 
+    administratordialog/logs/viewlogwidget.cpp
+
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
 
