@@ -21,10 +21,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ViewLogWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ViewLogWidget(QWidget *parent = nullptr);
     ~ViewLogWidget() override;
+
+private:
+    QPlainTextEdit *const mPlainTextEdit;
 };

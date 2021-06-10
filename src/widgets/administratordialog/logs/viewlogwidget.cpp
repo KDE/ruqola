@@ -20,13 +20,18 @@
 
 #include "viewlogwidget.h"
 #include <KLocalizedString>
+#include <QPlainTextEdit>
 #include <QVBoxLayout>
 
 ViewLogWidget::ViewLogWidget(QWidget *parent)
     : QWidget(parent)
+    , mPlainTextEdit(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mPlainTextEdit->setObjectName(QStringLiteral("mPlainTextEdit"));
+    mainLayout->addWidget(mPlainTextEdit);
 }
 
 ViewLogWidget::~ViewLogWidget()
