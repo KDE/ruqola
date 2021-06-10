@@ -108,6 +108,7 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 {
+    qDebug() << " obj " << obj;
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
     User user;
     user.parseUserRestApi(obj[QLatin1String("user")].toObject());
@@ -128,7 +129,10 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 
 void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 {
+    User newUser;
+    newUser.parseUserRestApi(obj[QLatin1String("user")].toObject());
     // TODO
+    qDebug() << " obj " << obj;
 }
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
