@@ -87,6 +87,7 @@ target_sources(libruqolacore PRIVATE
     model/directorybasemodel.cpp
 
     model/rolesmodel.cpp
+    model/admincustomsoundmodel.cpp
 
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthentication.cpp
