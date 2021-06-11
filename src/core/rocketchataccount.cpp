@@ -623,7 +623,7 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
     restApi()->markAsFavorite(roomId, checked);
 }
 
-void RocketChatAccount::openChannel(const QString &url, ChannelTypeInfo typeInfo)
+void RocketChatAccount::openChannel(const QString &identifier, ChannelTypeInfo typeInfo)
 {
     RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
     switch (typeInfo) {
@@ -634,8 +634,8 @@ void RocketChatAccount::openChannel(const QString &url, ChannelTypeInfo typeInfo
         info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomName;
         break;
     }
-    info.channelInfoIdentifier = url;
-    qCDebug(RUQOLA_LOG) << "opening channel" << url;
+    info.channelInfoIdentifier = identifier;
+    qCDebug(RUQOLA_LOG) << "opening channel" << identifier;
     restApi()->channelJoin(info, QString());
 }
 

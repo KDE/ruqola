@@ -142,7 +142,7 @@ public:
     void sendMessage(const QString &roomID, const QString &message);
     void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
     void replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message);
-    void openChannel(const QString &url, RocketChatAccount::ChannelTypeInfo typeInfo);
+    void openChannel(const QString &identifier, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QString &roomId);
     void createNewChannel(const RocketChatRestApi::CreateRoomInfo &info, bool privateRoom);
     void joinRoom(const QString &roomId, const QString &joinCode = QString());
