@@ -19,6 +19,12 @@
 */
 
 #include "viewlogwidget.h"
+#include "misc/stdoutqueuejob.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+
 #include <KLocalizedString>
 #include <QPlainTextEdit>
 #include <QVBoxLayout>
@@ -37,4 +43,20 @@ ViewLogWidget::ViewLogWidget(QWidget *parent)
 
 ViewLogWidget::~ViewLogWidget()
 {
+}
+
+void ViewLogWidget::initialize()
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::StdoutQueueJob(this);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::StdoutQueueJob::stdoutQueueDone, this, &ViewLogWidget::slotStdoutQueueDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start StdoutQueueJob job";
+    }
+}
+
+void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
+{
+    qDebug() << " obj" << obj;
 }

@@ -28,7 +28,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ViewLogWidget : public QWidget
 public:
     explicit ViewLogWidget(QWidget *parent = nullptr);
     ~ViewLogWidget() override;
+    void initialize();
 
 private:
+    void slotStdoutQueueDone(const QJsonObject &obj);
     QPlainTextEdit *const mPlainTextEdit;
 };
