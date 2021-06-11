@@ -46,6 +46,15 @@ ViewLogWidget::~ViewLogWidget()
 {
 }
 
+void ViewLogWidget::showEvent(QShowEvent *event)
+{
+    if (!event->spontaneous() && !mWasInitialized) {
+        mWasInitialized = true;
+        initialize();
+    }
+    QWidget::showEvent(event);
+}
+
 void ViewLogWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();

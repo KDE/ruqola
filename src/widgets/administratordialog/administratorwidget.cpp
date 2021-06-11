@@ -82,7 +82,6 @@ void AdministratorWidget::initialize()
 {
     mAdministratorUsersWidget->initialize();
     mAdministratorRoomsWidget->initialize();
-    mViewLogWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()
