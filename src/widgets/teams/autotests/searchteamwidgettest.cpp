@@ -20,8 +20,10 @@
 
 #include "searchteamwidgettest.h"
 #include "teams/searchteamwidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QTest>
-#include <QVBoxLayout>
 QTEST_MAIN(SearchTeamWidgetTest)
 
 SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
@@ -33,8 +35,14 @@ void SearchTeamWidgetTest::shouldHaveDefaultValues()
 {
     SearchTeamWidget d;
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    // TODO
+    auto label = d.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    auto mSearchLine = d.findChild<QLineEdit *>(QStringLiteral("mSearchLine"));
+    QVERIFY(mSearchLine);
+    QVERIFY(mSearchLine->text().isEmpty());
 }

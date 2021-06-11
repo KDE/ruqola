@@ -21,14 +21,20 @@
 #include "searchteamwidget.h"
 #include "ruqolawidgets_debug.h"
 #include "searchteamcompletionlineedit.h"
-#include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QHBoxLayout>
+#include <QLabel>
 
 SearchTeamWidget::SearchTeamWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLine(new SearchTeamCompletionLineEdit(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    auto label = new QLabel(i18n("Team Name:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
 
     mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
     mainLayout->addWidget(mSearchLine);
