@@ -102,7 +102,7 @@ QString KTextToHTMLHelper::getPhoneNumber()
         // check for maximum number of digits (15), see https://en.wikipedia.org/wiki/Telephone_numbering_plan
         if (std::count_if(m.begin(),
                           m.end(),
-                          [](const QChar &c) {
+                          [](QChar c) {
                               return c.isDigit();
                           })
             > 15) {
@@ -350,7 +350,7 @@ QString KTextToHTMLHelper::highlightedText()
     return QString();
 }
 
-QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, const RuqolaKTextToHTML::Options &flags, int maxUrlLen, int maxAddressLen)
+QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextToHTML::Options flags, int maxUrlLen, int maxAddressLen)
 {
     KTextToHTMLHelper helper(plainText, 0, maxUrlLen, maxAddressLen);
 

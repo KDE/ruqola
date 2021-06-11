@@ -52,6 +52,7 @@ void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
 {
     const QJsonArray array = obj[QLatin1String("roles")].toArray();
     QVector<RoleInfo> roleInfo;
+    roleInfo.reserve(array.count());
     for (const QJsonValue &current : array) {
         const QJsonObject roleObject = current.toObject();
         RoleInfo info;
@@ -60,8 +61,6 @@ void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
     }
     mRolesModel->setRoles(roleInfo);
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
-
-    qDebug() << "obj " << obj;
 }
 
 void RolesComboBox::setRoles(const QStringList &lst)

@@ -98,7 +98,7 @@ qint64 ChannelCounterInfo::unreadMessageTimeStep() const
     return mUnreadMessageTimeStep;
 }
 
-void ChannelCounterInfo::setUnreadMessageTimeStep(const qint64 &unreadMessageTimeStep)
+void ChannelCounterInfo::setUnreadMessageTimeStep(qint64 unreadMessageTimeStep)
 {
     mUnreadMessageTimeStep = unreadMessageTimeStep;
 }

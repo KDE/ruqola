@@ -39,10 +39,6 @@ void RoomsCleanHistoryJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 
     RoomsCleanHistoryJob::CleanHistoryInfo info;
-    QDateTime latest; // required
-    QDateTime oldest; // required
-    QString roomId; // required
-    QStringList users;
     QVERIFY(!info.isValid());
     QVERIFY(!info.inclusive);
     QVERIFY(!info.excludePinned);

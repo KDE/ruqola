@@ -254,7 +254,7 @@ public:
     Q_REQUIRED_RESULT QString displayAnnouncement() const;
 
     Q_REQUIRED_RESULT RetentionInfo retentionInfo() const;
-    void setRetentionInfo(const RetentionInfo &retentionInfo);
+    void setRetentionInfo(RetentionInfo retentionInfo);
 
     static Q_REQUIRED_RESULT Room::RoomType roomTypeFromString(const QString &type);
     Q_REQUIRED_RESULT TeamInfo teamInfo() const;

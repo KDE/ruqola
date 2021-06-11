@@ -819,7 +819,7 @@ RetentionInfo Room::retentionInfo() const
     return mRetentionInfo;
 }
 
-void Room::setRetentionInfo(const RetentionInfo &retentionInfo)
+void Room::setRetentionInfo(RetentionInfo retentionInfo)
 {
     if (mRetentionInfo != retentionInfo) {
         mRetentionInfo = retentionInfo;

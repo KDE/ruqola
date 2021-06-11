@@ -88,18 +88,18 @@ void RetentionInfo::setMaxAge(int maxAge)
     mMaxAge = maxAge;
 }
 
-bool RetentionInfo::operator==(const RetentionInfo &other) const
+bool RetentionInfo::operator==(RetentionInfo other) const
 {
     return mMaxAge == other.maxAge() && mEnabled == other.enabled() && mOverrideGlobal == other.overrideGlobal() && mExcludePinned == other.excludePinned()
         && mFilesOnly == other.filesOnly();
 }
 
-bool RetentionInfo::operator!=(const RetentionInfo &other) const
+bool RetentionInfo::operator!=(RetentionInfo other) const
 {
     return !RetentionInfo::operator==(other);
 }
 
-QJsonObject RetentionInfo::serialize(const RetentionInfo &retention)
+QJsonObject RetentionInfo::serialize(RetentionInfo retention)
 {
     QJsonObject obj;
     obj[QStringLiteral("enabled")] = retention.enabled();
@@ -122,7 +122,7 @@ RetentionInfo RetentionInfo::fromJSon(const QJsonObject &obj)
     return info;
 }
 
-QDebug operator<<(QDebug d, const RetentionInfo &t)
+QDebug operator<<(QDebug d, RetentionInfo t)
 {
     d << "Enabled " << t.enabled();
     d << "overrideGlobal " << t.overrideGlobal();

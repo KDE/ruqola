@@ -48,7 +48,7 @@ public:
     Q_REQUIRED_RESULT bool isValid() const;
 
     Q_REQUIRED_RESULT qint64 unreadMessageTimeStep() const;
-    void setUnreadMessageTimeStep(const qint64 &unreadMessageTimeStep);
+    void setUnreadMessageTimeStep(qint64 unreadMessageTimeStep);
 
 private:
     QDateTime mUnreadFrom;

@@ -74,7 +74,7 @@ void ChannelInfoPruneWidget::setOverrideGlobalSettings(bool override)
     mMaximumAgeInDay->setEnabled(override);
 }
 
-void ChannelInfoPruneWidget::setRetentionInfo(const RetentionInfo &retentionInfo)
+void ChannelInfoPruneWidget::setRetentionInfo(RetentionInfo retentionInfo)
 {
     mExcludePinnedMessages->setChecked(retentionInfo.excludePinned());
     mPruneFileOnlyKeepMessages->setChecked(retentionInfo.filesOnly());

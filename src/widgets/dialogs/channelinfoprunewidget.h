@@ -36,7 +36,7 @@ public:
     explicit ChannelInfoPruneWidget(QWidget *parent = nullptr);
     ~ChannelInfoPruneWidget() override;
 
-    void setRetentionInfo(const RetentionInfo &retentionInfo);
+    void setRetentionInfo(RetentionInfo retentionInfo);
 
     void saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &info, Room *mRoom);
 
