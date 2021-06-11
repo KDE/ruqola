@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2019-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -20,28 +20,17 @@
 
 #pragma once
 
-#include "librocketchatrestapi-qt5_export.h"
-#include "restapiabstractjob.h"
+#include "libruqolacore_export.h"
+#include <QDebug>
+#include <QJsonObject>
 
-#include <QNetworkRequest>
-namespace RocketChatRestApi
+class LIBRUQOLACORE_EXPORT CustomSoundInfo
 {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT CustomUserStatusListJob : public RestApiAbstractJob
-{
-    Q_OBJECT
 public:
-    explicit CustomUserStatusListJob(QObject *parent = nullptr);
-    ~CustomUserStatusListJob() override;
-
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
-Q_SIGNALS:
-    void customUserStatusDone(const QJsonObject &data);
-
-private:
-    Q_DISABLE_COPY(CustomUserStatusListJob)
-    void slotCustomUserStatusDone();
+    CustomSoundInfo();
+    ~CustomSoundInfo() = default;
 };
-}
+
+Q_DECLARE_METATYPE(CustomSoundInfo)
+Q_DECLARE_TYPEINFO(CustomSoundInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomSoundInfo &t);

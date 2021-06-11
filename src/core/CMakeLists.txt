@@ -210,6 +210,7 @@ target_sources(libruqolacore PRIVATE
     teamcompleter.cpp
 
     inviteinfo.cpp
+    customsoundinfo.cpp
     ruqolacore.qrc
 )
 
