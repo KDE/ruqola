@@ -29,6 +29,16 @@ class LIBRUQOLACORE_EXPORT CustomSoundInfo
 public:
     CustomSoundInfo();
     ~CustomSoundInfo() = default;
+
+    Q_REQUIRED_RESULT const QString &identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
+    Q_REQUIRED_RESULT const QString &name() const;
+    void setName(const QString &newName);
+
+private:
+    QString mIdentifier;
+    QString mName;
 };
 
 Q_DECLARE_METATYPE(CustomSoundInfo)

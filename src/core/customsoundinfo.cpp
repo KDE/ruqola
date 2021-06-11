@@ -24,8 +24,29 @@ CustomSoundInfo::CustomSoundInfo()
 {
 }
 
+const QString &CustomSoundInfo::identifier() const
+{
+    return mIdentifier;
+}
+
+void CustomSoundInfo::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
+}
+
+const QString &CustomSoundInfo::name() const
+{
+    return mName;
+}
+
+void CustomSoundInfo::setName(const QString &newName)
+{
+    mName = newName;
+}
+
 QDebug operator<<(QDebug d, const CustomSoundInfo &t)
 {
-    // TODO
+    d << "Identifier: " << t.identifier();
+    d << "Name: " << t.name();
     return d;
 }
