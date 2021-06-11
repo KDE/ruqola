@@ -30,6 +30,8 @@ public:
     explicit AdministratorDialog(QWidget *parent = nullptr);
     ~AdministratorDialog() override;
 
+    void initialize();
+
 private:
     void readConfig();
     void writeConfig();

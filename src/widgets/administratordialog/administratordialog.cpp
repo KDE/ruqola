@@ -41,7 +41,6 @@ AdministratorDialog::AdministratorDialog(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
-    mAdministratorWidget->updateUiFromPermission();
     mainLayout->addWidget(mAdministratorWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
@@ -56,6 +55,12 @@ AdministratorDialog::AdministratorDialog(QWidget *parent)
 AdministratorDialog::~AdministratorDialog()
 {
     writeConfig();
+}
+
+void AdministratorDialog::initialize()
+{
+    mAdministratorWidget->updateUiFromPermission();
+    mAdministratorWidget->initialize();
 }
 
 void AdministratorDialog::readConfig()

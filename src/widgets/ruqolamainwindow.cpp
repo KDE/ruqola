@@ -550,6 +550,7 @@ void RuqolaMainWindow::slotConfigureMyAccount()
 void RuqolaMainWindow::slotAdministrator()
 {
     QPointer<AdministratorDialog> dlg = new AdministratorDialog(this);
+    dlg->initialize();
     dlg->exec();
     delete dlg;
 }

@@ -39,6 +39,7 @@ public:
     ~AdministratorWidget() override;
 
     void updateUiFromPermission();
+    void initialize();
 
 private:
     QTabWidget *const mTabWidget;

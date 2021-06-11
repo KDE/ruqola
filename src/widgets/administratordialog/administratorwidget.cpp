@@ -72,12 +72,17 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
     mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
 
-    mAdministratorUsersWidget->initialize();
-    mAdministratorRoomsWidget->initialize();
 }
 
 AdministratorWidget::~AdministratorWidget()
 {
+}
+
+void AdministratorWidget::initialize()
+{
+    mAdministratorUsersWidget->initialize();
+    mAdministratorRoomsWidget->initialize();
+    mViewLogWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()
