@@ -122,6 +122,7 @@ target_sources(libruqolacore PRIVATE
 
     roominfo.cpp
     roomsinfo.cpp
+    customsoundsinfo.cpp
     users.cpp
 
     authenticationinfo.cpp
@@ -212,6 +213,7 @@ target_sources(libruqolacore PRIVATE
 
     inviteinfo.cpp
     customsoundinfo.cpp
+    customsoundsinfo.cpp
     ruqolacore.qrc
 )
 

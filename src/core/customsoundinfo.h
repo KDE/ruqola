@@ -36,6 +36,8 @@ public:
     Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
 
+    void parseCustomSoundInfo(const QJsonObject &obj);
+
 private:
     QString mIdentifier;
     QString mName;
