@@ -26,6 +26,7 @@
 #include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QPlainTextEdit>
 #include <QVBoxLayout>
 
@@ -58,5 +59,13 @@ void ViewLogWidget::initialize()
 
 void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
 {
-    qDebug() << " obj" << obj;
+    // qDebug() << " obj" << obj;
+    QString listLog;
+    const QJsonArray array = obj[QLatin1String("queue")].toArray();
+    for (int i = 0; i < array.count(); ++i) {
+        const QJsonObject objQueue = array.at(i).toObject();
+        listLog += objQueue[QLatin1String("string")].toString();
+    }
+    mPlainTextEdit->setPlainText(listLog);
+    // Need to update it.
 }
