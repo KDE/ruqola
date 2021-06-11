@@ -19,10 +19,12 @@
 */
 
 #include "customsoundstreewidget.h"
+#include "administratorcustomsoundscreatedialog.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QHeaderView>
 #include <QMenu>
-
+#include <QPointer>
 CustomSoundsTreeWidget::CustomSoundsTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
 {
@@ -67,7 +69,11 @@ void CustomSoundsTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void CustomSoundsTreeWidget::addClicked()
 {
-    // TODO
+    QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void CustomSoundsTreeWidget::editClicked()
@@ -75,7 +81,12 @@ void CustomSoundsTreeWidget::editClicked()
     if (!currentItem()) {
         return;
     }
-    // TODO
+    // TODO edit
+    QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void CustomSoundsTreeWidget::removeClicked()
@@ -83,5 +94,7 @@ void CustomSoundsTreeWidget::removeClicked()
     if (!currentItem()) {
         return;
     }
-    // TODO
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this sound file?"), i18n("Remove Sound")) == KMessageBox::Yes) {
+        // TODO
+    }
 }

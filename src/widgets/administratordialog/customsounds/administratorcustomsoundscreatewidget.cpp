@@ -19,15 +19,24 @@
 */
 
 #include "administratorcustomsoundscreatewidget.h"
+#include <KLocalizedString>
 #include <QFormLayout>
+#include <QLabel>
+#include <QLineEdit>
 
 AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWidget *parent)
     : QWidget(parent)
+    , mName(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    // TODO add widget for adding sounds
+    mName->setObjectName(QStringLiteral("mName"));
+
+    auto label = new QLabel(i18n("Name:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
+    mainLayout->addWidget(mName);
 }
 
 AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()

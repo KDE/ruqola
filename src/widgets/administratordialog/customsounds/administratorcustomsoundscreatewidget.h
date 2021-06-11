@@ -23,11 +23,15 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomSoundsCreateWidget() override;
+
+private:
+    QLineEdit *const mName;
 };
 
