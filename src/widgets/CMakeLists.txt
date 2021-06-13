@@ -193,7 +193,6 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/customsounds/administratorcustomsoundswidget.cpp
     administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp
     administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp
-    administratordialog/customsounds/customsoundstreewidget.cpp
 
     administratordialog/users/administratoruserswidget.cpp
     administratordialog/users/administratoradduserdialog.cpp
