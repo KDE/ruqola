@@ -19,26 +19,66 @@
 */
 
 #include "administratorcustomsoundswidget.h"
-#include "customsoundstreewidget.h"
-
-#include <KTreeWidgetSearchLineWidget>
-#include <QVBoxLayout>
+#include "custom/customsoundslistjob.h"
+#include "model/admincustomsoundmodel.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent)
-    : QWidget(parent)
-    , mCustomSoundsTreeWidget(new CustomSoundsTreeWidget(this))
-    , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomSoundsTreeWidget))
+    : SearchTreeBaseWidget(parent)
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mModel = new AdminCustomSoundModel(this);
+    mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
 
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mainLayout->addWidget(mSearchLineWidget);
-
-    mCustomSoundsTreeWidget->setObjectName(QStringLiteral("mCustomSoundsTreeWidget"));
-    mainLayout->addWidget(mCustomSoundsTreeWidget);
+    //    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mModel, this);
+    //    mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    //    mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
+    //    mTreeView->setModel(mAdminUsersProxyModel);
+    hideColumns();
+    connectModel();
 }
 
 AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
 {
+}
+
+void AdministratorCustomSoundsWidget::updateLabel()
+{
+}
+
+void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, const QString &searchName)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::CustomSoundsListJob(this);
+    //    if (!searchName.isEmpty()) {
+    //        job->setPattern(searchName);
+    //    }
+    RocketChatRestApi::QueryParameters parameters;
+    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    parameters.setSorting(map);
+    if (offset != -1) {
+        parameters.setOffset(offset);
+    }
+    if (count != -1) {
+        parameters.setCount(count);
+    }
+    job->setQueryParameters(parameters);
+
+    rcAccount->restApi()->initializeRestApiJob(job);
+    if (offset != -1) {
+        connect(job, &RocketChatRestApi::CustomSoundsListJob::customSoundsListDone, this, &AdministratorCustomSoundsWidget::slotLoadMoreElementDone);
+    } else {
+        connect(job, &RocketChatRestApi::CustomSoundsListJob::customSoundsListDone, this, &AdministratorCustomSoundsWidget::slotSearchDone);
+    }
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CustomSoundsListJob job";
+    }
+}
+
+void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    // TODO
 }

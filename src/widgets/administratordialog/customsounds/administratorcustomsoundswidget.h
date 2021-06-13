@@ -21,18 +21,18 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "misc/searchtreebasewidget.h"
 #include <QWidget>
-class CustomSoundsTreeWidget;
-class KTreeWidgetSearchLineWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorCustomSoundsWidget(QWidget *parent = nullptr);
     ~AdministratorCustomSoundsWidget() override;
 
-private:
-    CustomSoundsTreeWidget *const mCustomSoundsTreeWidget;
-    KTreeWidgetSearchLineWidget *const mSearchLineWidget;
+protected:
+    void updateLabel() override;
+    void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
+    void slotCustomContextMenuRequested(const QPoint &pos) override;
 };
 

@@ -22,12 +22,12 @@
 
 #include "restapiabstractjob.h"
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CustomSoundsListJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT CustomSoundsListJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 Q_SIGNALS:
-    void customSoundsListDone(const QByteArray &data);
+    void customSoundsListDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(CustomSoundsListJob)

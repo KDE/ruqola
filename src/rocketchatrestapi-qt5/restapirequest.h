@@ -194,7 +194,6 @@ public:
     void getStarredMessages(const QString &roomId, int offset = 0, int count = 50);
     void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
     void customUserStatus();
-    void customSounds();
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
     void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
@@ -279,8 +278,7 @@ Q_SIGNALS:
     void translateSavesettingsDone();
     void setStatusDone();
     void usersPresenceDone(const QJsonObject &obj);
-    void customUserStatusDone(const QJsonObject &); // TODO QByteArray or QJson ?
-    void customSoundsDone(const QByteArray &); // TODO QByteArray or QJson ?
+    void customUserStatusDone(const QJsonObject &);
 
     void usersAutocompleteDone(const QJsonObject &obj);
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);

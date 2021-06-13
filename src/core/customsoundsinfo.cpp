@@ -95,6 +95,7 @@ void CustomSoundsInfo::setRoomsCount(int count)
 
 void CustomSoundsInfo::parseCustomSounds(const QJsonObject &obj)
 {
+    qDebug() << " OBJ " << obj;
     mRoomsCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
