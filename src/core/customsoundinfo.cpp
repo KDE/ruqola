@@ -46,7 +46,8 @@ void CustomSoundInfo::setName(const QString &newName)
 
 void CustomSoundInfo::parseCustomSoundInfo(const QJsonObject &obj)
 {
-    // TODO
+    mName = obj[QLatin1String("name")].toString();
+    mIdentifier = obj[QLatin1String("_id")].toString();
 }
 
 QDebug operator<<(QDebug d, const CustomSoundInfo &t)

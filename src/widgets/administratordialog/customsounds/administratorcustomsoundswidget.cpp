@@ -41,6 +41,7 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent
     //    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mModel, this);
     //    mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     //    mTreeView->setModel(mAdminUsersProxyModel);
+    mTreeView->setModel(mModel);
     hideColumns();
     connectModel();
 }
@@ -51,7 +52,7 @@ AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
 
 void AdministratorCustomSoundsWidget::updateLabel()
 {
-    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No room found") : displayShowMessage());
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No custom sound found") : displayShowMessage());
 }
 
 QString AdministratorCustomSoundsWidget::displayShowMessage() const

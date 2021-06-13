@@ -54,7 +54,7 @@ public:
     void setCustomSoundInfos(const QVector<CustomSoundInfo> &newCustomSoundInfos);
 
 private:
-    void parseListCustomSound(const QJsonObject &commandsObj);
+    void parseListCustomSound(const QJsonObject &obj);
     QVector<CustomSoundInfo> mCustomSoundInfos;
     int mRoomsCount = 0;
     int mOffset = 0;
