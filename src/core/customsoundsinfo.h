@@ -45,7 +45,7 @@ public:
     void setTotal(int total);
 
     void parseRooms(const QJsonObject &obj);
-    void parseMoreRooms(const QJsonObject &obj);
+    void parseMoreCustomSounds(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
@@ -54,7 +54,7 @@ public:
     void setCustomSoundInfos(const QVector<CustomSoundInfo> &newCustomSoundInfos);
 
 private:
-    void parseListRooms(const QJsonObject &commandsObj);
+    void parseListCustomSound(const QJsonObject &commandsObj);
     QVector<CustomSoundInfo> mCustomSoundInfos;
     int mRoomsCount = 0;
     int mOffset = 0;

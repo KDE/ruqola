@@ -47,16 +47,16 @@ CustomSoundInfo CustomSoundsInfo::at(int index) const
     return mCustomSoundInfos.at(index);
 }
 
-void CustomSoundsInfo::parseMoreRooms(const QJsonObject &obj)
+void CustomSoundsInfo::parseMoreCustomSounds(const QJsonObject &obj)
 {
     const int adminRoomsCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
-    parseListRooms(obj);
+    parseListCustomSound(obj);
     mRoomsCount += adminRoomsCount;
 }
 
-void CustomSoundsInfo::parseListRooms(const QJsonObject &adminRoomsObj)
+void CustomSoundsInfo::parseListCustomSound(const QJsonObject &adminRoomsObj)
 {
     QString jsonKeyType;
     const QJsonArray adminRoomsArray = adminRoomsObj[jsonKeyType].toArray();
@@ -99,7 +99,7 @@ void CustomSoundsInfo::parseRooms(const QJsonObject &obj)
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
     mCustomSoundInfos.clear();
-    parseListRooms(obj);
+    parseListCustomSound(obj);
 }
 
 int CustomSoundsInfo::offset() const
