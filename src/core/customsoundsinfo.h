@@ -44,7 +44,7 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseRooms(const QJsonObject &obj);
+    void parseCustomSounds(const QJsonObject &obj);
     void parseMoreCustomSounds(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT int roomsCount() const;

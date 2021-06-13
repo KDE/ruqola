@@ -93,7 +93,7 @@ void CustomSoundsInfo::setRoomsCount(int count)
     mRoomsCount = count;
 }
 
-void CustomSoundsInfo::parseRooms(const QJsonObject &obj)
+void CustomSoundsInfo::parseCustomSounds(const QJsonObject &obj)
 {
     mRoomsCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();

@@ -35,31 +35,17 @@ int AdminCustomSoundModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mAdminRooms.count();
+    return mCustomSounds.count();
 }
 
 QVariant AdminCustomSoundModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AdminRoomsRoles>(section)) {
-        case AdminRoomsRoles::Name:
+        switch (static_cast<CustomSoundsRoles>(section)) {
+        case CustomSoundsRoles::Name:
             return i18n("Name");
-        case AdminRoomsRoles::MessagesCount:
-            return i18n("Number Of Messages");
-        case AdminRoomsRoles::UsersCount:
-            return i18n("Number Of Users");
-        case AdminRoomsRoles::Topic:
-            return i18n("Topic");
-        case AdminRoomsRoles::Identifier:
+        case CustomSoundsRoles::Identifier:
             return i18n("Identifier");
-        case AdminRoomsRoles::ReadOnly:
-            return i18n("Read Only");
-        case AdminRoomsRoles::DefaultRoom:
-            return i18n("Default Room");
-        case AdminRoomsRoles::ChannelType:
-            return i18n("Type");
-        case AdminRoomsRoles::ChannelTypeStr:
-            return i18n("Type");
         }
     }
     return QVariant();
@@ -68,78 +54,45 @@ QVariant AdminCustomSoundModel::headerData(int section, Qt::Orientation orientat
 int AdminCustomSoundModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(AdminRoomsRoles::LastColumn) + 1;
+    return static_cast<int>(CustomSoundsRoles::LastColumn) + 1;
 }
 
 QVariant AdminCustomSoundModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mAdminRooms.count()) {
+    if (index.row() < 0 || index.row() >= mCustomSounds.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const RoomInfo &adminroom = mAdminRooms.at(index.row());
+    const CustomSoundInfo &customSound = mCustomSounds.at(index.row());
     const int col = index.column();
-    switch (static_cast<AdminRoomsRoles>(col)) {
-    case AdminRoomsRoles::Name:
-        return adminroom.roomName();
-    case AdminRoomsRoles::MessagesCount:
-        return adminroom.messageCount();
-    case AdminRoomsRoles::UsersCount:
-        return adminroom.usersCount();
-    case AdminRoomsRoles::Topic:
-        return adminroom.topic();
-    case AdminRoomsRoles::Identifier:
-        return adminroom.identifier();
-    case AdminRoomsRoles::ReadOnly:
-        return adminroom.readOnly();
-    case AdminRoomsRoles::DefaultRoom:
-        return adminroom.defaultRoom();
-    case AdminRoomsRoles::ChannelType:
-        return adminroom.channelType();
-    case AdminRoomsRoles::ChannelTypeStr:
-        return adminroom.channelTypeStr();
+    switch (static_cast<CustomSoundsRoles>(col)) {
+    case CustomSoundsRoles::Name:
+        return customSound.name();
+    case CustomSoundsRoles::Identifier:
+        return customSound.identifier();
     }
 
     return {};
 }
 
-RoomsInfo AdminCustomSoundModel::adminRooms() const
-{
-    return mAdminRooms;
-}
-
-void AdminCustomSoundModel::setAdminRooms(const RoomsInfo &adminrooms)
-{
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-        mAdminRooms.clear();
-        endRemoveRows();
-    }
-    if (!adminrooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, adminrooms.count() - 1);
-        mAdminRooms = adminrooms;
-        endInsertRows();
-    }
-}
-
 int AdminCustomSoundModel::total() const
 {
-    return mAdminRooms.count();
+    return mCustomSounds.count();
 }
 
 void AdminCustomSoundModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-        mAdminRooms.clear();
+        beginRemoveRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+        mCustomSounds.clear();
         endRemoveRows();
     }
-    mAdminRooms.parseRooms(obj, RoomsInfo::Administrator);
-    if (!mAdminRooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mAdminRooms.count() - 1);
+    mCustomSounds.parseCustomSounds(obj);
+    if (!mCustomSounds.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
         endInsertRows();
     }
     checkFullList();
@@ -148,19 +101,38 @@ void AdminCustomSoundModel::parseElements(const QJsonObject &obj)
 
 void AdminCustomSoundModel::checkFullList()
 {
-    setHasFullList(mAdminRooms.count() == mAdminRooms.total());
+    setHasFullList(mCustomSounds.count() == mCustomSounds.total());
+}
+
+const CustomSoundsInfo &AdminCustomSoundModel::customSounds() const
+{
+    return mCustomSounds;
+}
+
+void AdminCustomSoundModel::setCustomSounds(const CustomSoundsInfo &newCustomSounds)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+        mCustomSounds.clear();
+        endRemoveRows();
+    }
+    if (!mCustomSounds.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+        mCustomSounds = newCustomSounds;
+        endInsertRows();
+    }
 }
 
 void AdminCustomSoundModel::addMoreElements(const QJsonObject &obj)
 {
-    const int numberOfElement = mAdminRooms.count();
-    mAdminRooms.parseMoreRooms(obj, RoomsInfo::Directory);
-    beginInsertRows(QModelIndex(), numberOfElement, mAdminRooms.count() - 1);
+    const int numberOfElement = mCustomSounds.count();
+    mCustomSounds.parseCustomSounds(obj);
+    beginInsertRows(QModelIndex(), numberOfElement, mCustomSounds.count() - 1);
     endInsertRows();
     checkFullList();
 }
 
 QList<int> AdminCustomSoundModel::hideColumns() const
 {
-    return {AdminRoomsRoles::Identifier};
+    return {CustomSoundsRoles::Identifier};
 }
