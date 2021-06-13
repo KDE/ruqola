@@ -262,7 +262,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotQuoteMessage(index);
     });
 
-    auto copyLinkAction = new QAction(i18n("Copy Link"), &menu); // TODO add icon
+    auto copyLinkAction = new QAction(i18n("Copy Link To Message"), &menu); // TODO add icon
     connect(copyLinkAction, &QAction::triggered, this, [=]() {
         slotCopyLink(index);
     });
