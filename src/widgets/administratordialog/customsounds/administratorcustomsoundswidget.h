@@ -34,5 +34,8 @@ protected:
     void updateLabel() override;
     void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
     void slotCustomContextMenuRequested(const QPoint &pos) override;
+
+private:
+    Q_REQUIRED_RESULT QString displayShowMessage() const;
 };
 

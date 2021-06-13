@@ -20,21 +20,26 @@
 
 #include "administratorcustomsoundswidget.h"
 #include "custom/customsoundslistjob.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
+#include <QLabel>
+#include <QMenu>
+#include <QTreeView>
 
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent)
     : SearchTreeBaseWidget(parent)
 {
     mModel = new AdminCustomSoundModel(this);
     mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search Custom Sounds"));
 
     //    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mModel, this);
     //    mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    //    mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
     //    mTreeView->setModel(mAdminUsersProxyModel);
     hideColumns();
     connectModel();
@@ -46,6 +51,16 @@ AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
 
 void AdministratorCustomSoundsWidget::updateLabel()
 {
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No room found") : displayShowMessage());
+}
+
+QString AdministratorCustomSoundsWidget::displayShowMessage() const
+{
+    QString displayMessageStr = i18np("%1 custom sound (Total: %2)", "%1 customs sound (Total: %2)", mModel->rowCount(), mModel->total());
+    if (!mModel->hasFullList()) {
+        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
 }
 
 void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, const QString &searchName)
@@ -80,5 +95,16 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    // TODO
+    QMenu menu(this);
+    const QModelIndex index = mTreeView->indexAt(pos);
+    if (index.isValid()) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+            // slotModifyRoom(index);
+        });
+        menu.addSeparator();
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+            // slotRemoveRoom(index);
+        });
+    }
+    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
 }
