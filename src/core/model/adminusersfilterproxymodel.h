@@ -34,8 +34,5 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();
-
-protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 };
 

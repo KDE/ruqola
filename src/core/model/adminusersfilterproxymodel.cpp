@@ -41,8 +41,3 @@ void AdminUsersFilterProxyModel::clearFilter()
 {
     setFilterFixedString(QString());
 }
-
-bool AdminUsersFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
-{
-    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-}
