@@ -22,6 +22,7 @@
 #include "custom/customsoundslistjob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
+#include "model/directorybasefilterproxymodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -38,9 +39,9 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent
     mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Custom Sounds"));
 
-    //    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mModel, this);
-    //    mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    //    mTreeView->setModel(mAdminUsersProxyModel);
+    mCustomSoundProxyModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mCustomSoundProxyModel->setObjectName(QStringLiteral("mCustomSoundProxyModel"));
+    mTreeView->setModel(mCustomSoundProxyModel);
     mTreeView->setModel(mModel);
     hideColumns();
     connectModel();

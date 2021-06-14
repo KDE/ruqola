@@ -23,6 +23,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 #include <QWidget>
+class DirectoryBaseFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
@@ -37,5 +38,6 @@ protected:
 
 private:
     Q_REQUIRED_RESULT QString displayShowMessage() const;
+    DirectoryBaseFilterProxyModel *mCustomSoundProxyModel = nullptr;
 };
 
