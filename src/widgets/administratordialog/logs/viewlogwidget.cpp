@@ -28,6 +28,7 @@
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QPlainTextEdit>
+#include <QScrollBar>
 #include <QVBoxLayout>
 
 ViewLogWidget::ViewLogWidget(QWidget *parent)
@@ -76,6 +77,7 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
         listLog += objQueue[QLatin1String("string")].toString();
     }
     mPlainTextEdit->setPlainText(listLog);
+    mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
     // Need to update it.
 }
 
