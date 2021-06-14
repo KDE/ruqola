@@ -31,8 +31,5 @@ public:
 
     void setFilterString(const QString &string);
     void clearFilter();
-Q_SIGNALS:
-    void hasFullListChanged();
-    void loadingInProgressChanged();
 };
 
