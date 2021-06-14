@@ -65,7 +65,6 @@ target_sources(libruqolacore PRIVATE
     model/adminroomsfilterproxymodel.cpp
 
     model/adminusersmodel.cpp
-    model/adminusersfilterproxymodel.cpp
 
     model/systemmessagesmodel.cpp
     model/channelcompletermodel.cpp
@@ -79,12 +78,12 @@ target_sources(libruqolacore PRIVATE
     model/teamcompletermodel.cpp
 
     model/admininvitemodel.cpp
-    model/admininvitefilterproxymodel.cpp
 
     model/directoryroomsmodel.cpp
     model/directoryteamsmodel.cpp
     model/directoryusersmodel.cpp
     model/directorybasemodel.cpp
+    model/directorybasefilterproxymodel.cpp
 
     model/rolesmodel.cpp
     model/admincustomsoundmodel.cpp

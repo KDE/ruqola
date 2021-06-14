@@ -22,8 +22,8 @@
 #include "administratoradduserdialog.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
-#include "model/adminusersfilterproxymodel.h"
 #include "model/adminusersmodel.h"
+#include "model/directorybasefilterproxymodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -50,7 +50,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mModel = new AdminUsersModel(this);
     mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
-    mAdminUsersProxyModel = new AdminUsersFilterProxyModel(mModel, this);
+    mAdminUsersProxyModel = new DirectoryBaseFilterProxyModel(mModel, this);
     mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
     mTreeView->setModel(mAdminUsersProxyModel);

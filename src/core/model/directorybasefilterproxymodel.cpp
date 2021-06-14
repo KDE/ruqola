@@ -17,19 +17,26 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
-
-#include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
-class DirectoryBaseModel;
-class LIBRUQOLACORE_EXPORT AdminUsersFilterProxyModel : public QSortFilterProxyModel
+#include "directorybasefilterproxymodel.h"
+DirectoryBaseFilterProxyModel::DirectoryBaseFilterProxyModel(QAbstractListModel *model, QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
-    Q_OBJECT
-public:
-    explicit AdminUsersFilterProxyModel(DirectoryBaseModel *model = nullptr, QObject *parent = nullptr);
-    ~AdminUsersFilterProxyModel() override;
+    setSourceModel(model);
+    setDynamicSortFilter(true);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+    sort(0, Qt::DescendingOrder);
+}
 
-    void setFilterString(const QString &string);
-    void clearFilter();
-};
+DirectoryBaseFilterProxyModel::~DirectoryBaseFilterProxyModel()
+{
+}
 
+void DirectoryBaseFilterProxyModel::setFilterString(const QString &string)
+{
+    setFilterFixedString(string);
+}
+
+void DirectoryBaseFilterProxyModel::clearFilter()
+{
+    setFilterFixedString(QString());
+}

@@ -17,30 +17,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "admininvitefilterproxymodel.h"
-#include "admininvitemodel.h"
-AdminInviteFilterProxyModel::AdminInviteFilterProxyModel(AdminInviteModel *model, QObject *parent)
-    : QSortFilterProxyModel(parent)
-    , mAdminInviteModel(model)
-{
-    setSourceModel(mAdminInviteModel);
-    setDynamicSortFilter(true);
-    setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(AdminInviteModel::AdminInviteRoles::Identifier);
-    sort(0, Qt::DescendingOrder);
-}
+#pragma once
 
-AdminInviteFilterProxyModel::~AdminInviteFilterProxyModel()
+#include "libruqolacore_export.h"
+#include <QSortFilterProxyModel>
+class DirectoryBaseModel;
+class LIBRUQOLACORE_EXPORT DirectoryBaseFilterProxyModel : public QSortFilterProxyModel
 {
-}
+    Q_OBJECT
+public:
+    explicit DirectoryBaseFilterProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
+    ~DirectoryBaseFilterProxyModel() override;
 
-void AdminInviteFilterProxyModel::setFilterString(const QString &string)
-{
-    setFilterFixedString(string);
-}
-
-void AdminInviteFilterProxyModel::clearFilter()
-{
-    setFilterFixedString(QString());
-}
-
+    void setFilterString(const QString &string);
+    void clearFilter();
+};

@@ -23,7 +23,7 @@
 #include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"
-class AdminUsersFilterProxyModel;
+class DirectoryBaseFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorUsersWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
@@ -52,6 +52,6 @@ private:
     void slotUserInfoDone(const QJsonObject &obj);
     void slotUserUpdateDone(const QJsonObject &obj);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    AdminUsersFilterProxyModel *mAdminUsersProxyModel = nullptr;
+    DirectoryBaseFilterProxyModel *mAdminUsersProxyModel = nullptr;
 };
 

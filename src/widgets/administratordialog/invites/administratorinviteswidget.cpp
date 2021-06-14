@@ -23,8 +23,8 @@
 #include "invite/removeinvitejob.h"
 #include "inviteinfo.h"
 #include "invitetreeview.h"
-#include "model/admininvitefilterproxymodel.h"
 #include "model/admininvitemodel.h"
+#include "model/directorybasefilterproxymodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -39,7 +39,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
 {
-    mAdminInviteFilterProxyModel = new AdminInviteFilterProxyModel(mAdminInviteModel, this);
+    mAdminInviteFilterProxyModel = new DirectoryBaseFilterProxyModel(mAdminInviteModel, this);
     mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
 
     auto mainLayout = new QVBoxLayout(this);
