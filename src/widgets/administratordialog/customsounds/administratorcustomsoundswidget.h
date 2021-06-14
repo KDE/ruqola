@@ -38,6 +38,7 @@ protected:
 
 private:
     Q_REQUIRED_RESULT QString displayShowMessage() const;
+    void slotAddCustomSound();
     DirectoryBaseFilterProxyModel *mCustomSoundProxyModel = nullptr;
 };
 
