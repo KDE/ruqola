@@ -96,6 +96,17 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
+    // TODO
+}
+
+void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
+{
+    // TODO
+}
+
+void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &index)
+{
+    // TODO
 }
 
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -105,11 +116,11 @@ void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoin
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
     if (index.isValid()) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-            // slotModifyRoom(index);
+            slotModifyCustomSound(index);
         });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            // slotRemoveRoom(index);
+            slotRemoveCustomSound(index);
         });
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
