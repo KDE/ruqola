@@ -21,6 +21,7 @@
 #include "misc/directoryjob.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
+#include "model/directorybasefilterproxymodel.h"
 #include "model/directoryroomsmodel.h"
 #include "model/directoryteamsmodel.h"
 #include "model/directoryusersmodel.h"
@@ -39,7 +40,6 @@
 DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     : SearchTreeBaseWidget(parent)
     , mType(type)
-    , mSortProxyModel(new QSortFilterProxyModel(this))
 {
     switch (mType) {
     case Room:
@@ -57,8 +57,8 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     case Unknown:
         break;
     }
-    mSortProxyModel->setSourceModel(mModel);
-    mTreeView->setModel(mSortProxyModel);
+    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
 }
@@ -72,7 +72,7 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        const QModelIndex i = mSortProxyModel->mapToSource(index);
+        const QModelIndex i = mProxyModelModel->mapToSource(index);
         menu.addAction(i18n("Open..."), this, [this, i]() {
             slotOpen(i);
         });

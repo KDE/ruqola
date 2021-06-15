@@ -24,7 +24,6 @@
 #include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"
-class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
@@ -55,5 +54,4 @@ private:
     Q_REQUIRED_RESULT QString noFoundInfo() const;
     void finishSearching();
     const DirectoryType mType;
-    QSortFilterProxyModel *const mSortProxyModel;
 };

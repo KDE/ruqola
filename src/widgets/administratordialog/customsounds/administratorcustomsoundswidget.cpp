@@ -39,9 +39,9 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent
     mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Custom Sounds"));
 
-    mCustomSoundProxyModel = new DirectoryBaseFilterProxyModel(mModel, this);
-    mCustomSoundProxyModel->setObjectName(QStringLiteral("mCustomSoundProxyModel"));
-    mTreeView->setModel(mCustomSoundProxyModel);
+    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mProxyModelModel->setObjectName(QStringLiteral("mCustomSoundProxyModel"));
+    mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
 }

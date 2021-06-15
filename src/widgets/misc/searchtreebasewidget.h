@@ -25,6 +25,7 @@ class SearchWithDelayLineEdit;
 class QTreeView;
 class DirectoryBaseModel;
 class QVBoxLayout;
+class DirectoryBaseFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTreeBaseWidget : public QWidget
 {
     Q_OBJECT
@@ -49,6 +50,7 @@ protected:
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
     DirectoryBaseModel *mModel = nullptr;
+    DirectoryBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
 
 private:

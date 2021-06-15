@@ -50,10 +50,10 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mModel = new AdminUsersModel(this);
     mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
-    mAdminUsersProxyModel = new DirectoryBaseFilterProxyModel(mModel, this);
-    mAdminUsersProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
-    mTreeView->setModel(mAdminUsersProxyModel);
+    mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
 }
@@ -64,7 +64,7 @@ AdministratorUsersWidget::~AdministratorUsersWidget()
 
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {
-    mAdminUsersProxyModel->setFilterString(str);
+    mProxyModelModel->setFilterString(str);
 }
 
 void AdministratorUsersWidget::slotAddUser()
@@ -191,7 +191,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        const QModelIndex newModelIndex = mAdminUsersProxyModel->mapToSource(index);
+        const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
         const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
         const bool activateUser = modelIndex.data().toBool();
