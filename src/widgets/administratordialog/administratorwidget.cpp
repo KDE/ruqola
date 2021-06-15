@@ -51,6 +51,9 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     mainLayout->addWidget(mTabWidget);
 
+    mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
+    mServerInfoTabIndex = mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
+
     mAdministratorRoomsWidget->setObjectName(QStringLiteral("mAdministratorRoomsWidget"));
     mTabWidget->addTab(mAdministratorRoomsWidget, i18n("Rooms"));
 
@@ -60,8 +63,6 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
     mCustomSoundsTabIndex = mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 
-    mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
-    mServerInfoTabIndex = mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
 
     mAdministratorUsersWidget->setObjectName(QStringLiteral("mAdministratorUsersWidget"));
     mTabWidget->addTab(mAdministratorUsersWidget, i18n("Users"));
@@ -71,7 +72,6 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
     mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
     mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
-
 }
 
 AdministratorWidget::~AdministratorWidget()
