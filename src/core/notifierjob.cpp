@@ -19,10 +19,14 @@
 */
 
 #include "notifierjob.h"
+#include "knotifications_version.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <KNotification>
-
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
+#include <KNotificationReplyAction>
+#endif
+#define ADD_REPLY_NOTIFICATION 1
 NotifierJob::NotifierJob(QObject *parent)
     : QObject(parent)
 {
@@ -46,6 +50,16 @@ void NotifierJob::start()
         connect(notification, &KNotification::defaultActivated, this, &NotifierJob::slotDefaultActionActivated);
         connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
 
+#ifdef ADD_REPLY_NOTIFICATION
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
+        std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
+        replyAction->setPlaceholderText(i18n("Reply..."));
+        QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, [](const QString &text) {
+            qDebug() << " reply " << text;
+        });
+        notification->setReplyAction(std::move(replyAction));
+#endif
+#endif
         notification->sendEvent();
     } else {
         qCWarning(RUQOLA_LOG) << "Info is invalid";
