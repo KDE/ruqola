@@ -28,7 +28,10 @@ class LIBRUQOLACORE_EXPORT ChannelCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum ChannelRoles { RoomName = Qt::UserRole + 1, ChannelId };
+    enum ChannelRoles {
+        RoomName = Qt::UserRole + 1,
+        ChannelId,
+    };
     Q_ENUM(ChannelRoles)
 
     explicit ChannelCompleterModel(QObject *parent = nullptr);

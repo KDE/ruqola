@@ -34,7 +34,13 @@ public:
     Otr();
     ~Otr();
 
-    enum OtrType { Unknown = 0, End, Handshake, Deny, AcknowLedge };
+    enum OtrType {
+        Unknown = 0,
+        End,
+        Handshake,
+        Deny,
+        AcknowLedge,
+    };
     Q_ENUM(OtrType)
 
     void parseOtr(const QJsonArray &contents);

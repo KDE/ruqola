@@ -108,7 +108,17 @@ public:
     };
     Q_ENUM(ChannelTypeInfo)
 
-    enum RoomInfoType { Announcement, Description, Name, Topic, ReadOnly, Archive, RoomType, Encrypted, Password };
+    enum RoomInfoType {
+        Announcement,
+        Description,
+        Name,
+        Topic,
+        ReadOnly,
+        Archive,
+        RoomType,
+        Encrypted,
+        Password,
+    };
     Q_ENUM(RoomInfoType)
 
     enum NotificationOptionsType {
@@ -126,7 +136,14 @@ public:
 
     Q_ENUM(NotificationOptionsType)
 
-    enum RoleType { AddOwner, AddLeader, AddModerator, RemoveOwner, RemoveLeader, RemoveModerator };
+    enum RoleType {
+        AddOwner,
+        AddLeader,
+        AddModerator,
+        RemoveOwner,
+        RemoveLeader,
+        RemoveModerator,
+    };
     Q_ENUM(RoleType)
 
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);

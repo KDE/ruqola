@@ -30,7 +30,10 @@ class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategoriesModel : public QAbstractListM
 {
     Q_OBJECT
 public:
-    enum EmoticonCategoryRoles { Name = Qt::UserRole + 1, Category };
+    enum EmoticonCategoryRoles {
+        Name = Qt::UserRole + 1,
+        Category,
+    };
     Q_ENUM(EmoticonCategoryRoles)
 
     explicit EmoticonCategoriesModel(QObject *parent = nullptr);

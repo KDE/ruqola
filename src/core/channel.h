@@ -27,7 +27,11 @@ class LIBRUQOLACORE_EXPORT Channel
 {
     Q_GADGET
 public:
-    enum ChannelType { Room, PrivateChannel, Unknown };
+    enum ChannelType {
+        Room,
+        PrivateChannel,
+        Unknown,
+    };
     Q_ENUM(ChannelType)
 
     Channel();

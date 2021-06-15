@@ -28,7 +28,12 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
-    enum ChannelType { Channel = 0, Groups, Direct, Unknown };
+    enum ChannelType {
+        Channel = 0,
+        Groups,
+        Direct,
+        Unknown,
+    };
     Q_ENUM(ChannelType)
 
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryInfo {

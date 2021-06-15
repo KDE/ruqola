@@ -28,7 +28,11 @@ class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum UserRoles { UserName = Qt::UserRole + 1, UserId, UserIconStatus };
+    enum UserRoles {
+        UserName = Qt::UserRole + 1,
+        UserId,
+        UserIconStatus,
+    };
     Q_ENUM(UserRoles)
 
     explicit UserCompleterModel(QObject *parent = nullptr);

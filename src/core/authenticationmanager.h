@@ -54,7 +54,17 @@ class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
 {
     Q_OBJECT
 public:
-    enum OauthType { Unknown = 0, Twitter = 1, FaceBook = 2, GitHub = 4, GitLab = 8, Google = 16, Linkedin = 32, Wordpress = 64, Password = 128 };
+    enum OauthType {
+        Unknown = 0,
+        Twitter = 1,
+        FaceBook = 2,
+        GitHub = 4,
+        GitLab = 8,
+        Google = 16,
+        Linkedin = 32,
+        Wordpress = 64,
+        Password = 128,
+    };
     Q_ENUM(OauthType)
     Q_DECLARE_FLAGS(OauthTypes, OauthType)
 

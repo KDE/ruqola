@@ -31,7 +31,12 @@ class LIBRUQOLACORE_EXPORT NotificationOptions
 public:
     NotificationOptions();
 
-    enum NotificationType { Default = 0, AllMessages, Mentions, Nothing };
+    enum NotificationType {
+        Default = 0,
+        AllMessages,
+        Mentions,
+        Nothing,
+    };
     Q_ENUM(NotificationType)
 
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;

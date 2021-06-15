@@ -30,7 +30,14 @@ class LIBRUQOLACORE_EXPORT MessageAttachment
 public:
     MessageAttachment();
 
-    enum AttachmentType { Unknown, NormalText, File, Video, Audio, Image };
+    enum AttachmentType {
+        Unknown,
+        NormalText,
+        File,
+        Video,
+        Audio,
+        Image,
+    };
     Q_ENUM(AttachmentType)
     void parseAttachment(const QJsonObject &o);
 

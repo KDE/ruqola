@@ -27,7 +27,10 @@ class LIBRUQOLACORE_EXPORT SystemMessagesModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
-    enum SystemMessagesRoles { SystemMessagesI18n = Qt::UserRole + 1, SystemMessages };
+    enum SystemMessagesRoles {
+        SystemMessagesI18n = Qt::UserRole + 1,
+        SystemMessages,
+    };
     Q_ENUM(SystemMessagesRoles)
     explicit SystemMessagesModel(QObject *parent = nullptr);
     ~SystemMessagesModel() override;

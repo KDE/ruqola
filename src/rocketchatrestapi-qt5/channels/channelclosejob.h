@@ -28,7 +28,12 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelCloseJob : public ChannelBase
 {
     Q_OBJECT
 public:
-    enum ChannelType { Channel = 0, Groups, Direct, Unknown };
+    enum ChannelType {
+        Channel = 0,
+        Groups,
+        Direct,
+        Unknown,
+    };
     Q_ENUM(ChannelType)
     explicit ChannelCloseJob(QObject *parent = nullptr);
     ~ChannelCloseJob() override;

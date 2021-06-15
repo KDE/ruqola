@@ -32,7 +32,10 @@ class LIBRUQOLACORE_EXPORT NotificationDesktopDurationPreferenceModel : public Q
 {
     Q_OBJECT
 public:
-    enum NotificationPreferenceRoles { NotificationPreferenceI18n = Qt::UserRole + 1, NotificationPreference };
+    enum NotificationPreferenceRoles {
+        NotificationPreferenceI18n = Qt::UserRole + 1,
+        NotificationPreference,
+    };
     Q_ENUM(NotificationPreferenceRoles)
 
     explicit NotificationDesktopDurationPreferenceModel(QObject *parent = nullptr);
