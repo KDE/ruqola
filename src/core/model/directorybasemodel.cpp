@@ -42,6 +42,12 @@ void DirectoryBaseModel::setLoadMoreInProgress(bool inProgress)
     }
 }
 
+void DirectoryBaseModel::insertElement(const QJsonObject &obj)
+{
+    Q_UNUSED(obj);
+    // Nothing
+}
+
 void DirectoryBaseModel::removeElement(const QString &identifier)
 {
     Q_UNUSED(identifier);

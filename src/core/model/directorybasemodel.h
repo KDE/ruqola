@@ -42,6 +42,8 @@ public:
 
     virtual QList<int> hideColumns() const = 0;
 
+    virtual void insertElement(const QJsonObject &obj);
+
     virtual void removeElement(const QString &identifier);
 
     void initialize();
