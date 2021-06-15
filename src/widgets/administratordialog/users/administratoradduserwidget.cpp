@@ -75,7 +75,13 @@ void AdministratorAddUserWidget::slotUpdateOkButton()
 RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
 {
     RocketChatRestApi::UpdateUserInfo info;
-    // TODO
+    info.mName = mName->text().trimmed();
+    info.mEmail = mEmail->text().trimmed();
+    info.mUserName = mUserName->text();
+    info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
+    info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
+    info.mPassword = mPasswordLineEdit->password();
+    // TODO add more
     return info;
 }
 
@@ -97,6 +103,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mUserName->setText(user.userName());
     mEmail->setText(user.userEmailsInfo().email);
     mRolesComboBox->setRoles(user.roles());
+    // mJoinDefaultChannels->setChecked(user.jo)
 
     // TODO
 }

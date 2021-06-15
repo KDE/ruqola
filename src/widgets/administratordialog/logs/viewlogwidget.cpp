@@ -41,6 +41,7 @@ ViewLogWidget::ViewLogWidget(QWidget *parent)
     mPlainTextEdit->setObjectName(QStringLiteral("mPlainTextEdit"));
     mPlainTextEdit->setReadOnly(true);
     mainLayout->addWidget(mPlainTextEdit);
+    // TODO add search widget
 }
 
 ViewLogWidget::~ViewLogWidget()

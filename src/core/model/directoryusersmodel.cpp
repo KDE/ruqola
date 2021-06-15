@@ -92,7 +92,7 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
     case DirectoryUsersRoles::Email:
         return user.userEmailsInfo().email;
     case DirectoryUsersRoles::JoinAt:
-        return {};
+        return user.createdAt().toString(); // TODO verify it
     case DirectoryUsersRoles::UserId:
         return user.userId();
     }
