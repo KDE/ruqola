@@ -35,5 +35,5 @@ void ListMessagesModelTest::shouldHaveDefaultValues()
     QVERIFY(!w.roomId().isEmpty()); // By default we define a name! Need to fix it
     QVERIFY(!w.loadMoreListMessagesInProgress());
     QCOMPARE(w.listMessageType(), ListMessagesModel::ListMessageType::Unknown);
-    QCOMPARE(w.total(), 0);
+    QCOMPARE(w.total(), -1);
 }

@@ -68,7 +68,7 @@ Q_SIGNALS:
 private:
     void parse(const QJsonObject &obj);
     void checkFullList();
-    int mTotal = 0;
+    int mTotal = -1;
     bool mLoadingInProgress = false;
     bool mHasFullList = false;
     ListMessageType mListMessageType = Unknown;
