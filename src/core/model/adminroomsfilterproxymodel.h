@@ -19,10 +19,10 @@
 
 #pragma once
 
+#include "directorybasefilterproxymodel.h"
 #include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
 class DirectoryBaseModel;
-class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public DirectoryBaseFilterProxyModel
 {
     Q_OBJECT
 public:
@@ -41,14 +41,8 @@ public:
     explicit AdminRoomsFilterProxyModel(DirectoryBaseModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
 
-    void setFilterString(const QString &string);
-    void clearFilter();
 
     void setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters);
-
-Q_SIGNALS:
-    void hasFullListChanged();
-    void loadingInProgressChanged();
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;

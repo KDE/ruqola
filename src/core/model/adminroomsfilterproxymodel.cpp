@@ -20,9 +20,8 @@
 #include "adminroomsfilterproxymodel.h"
 #include "adminroomsmodel.h"
 AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(DirectoryBaseModel *model, QObject *parent)
-    : QSortFilterProxyModel(parent)
+    : DirectoryBaseFilterProxyModel(model, parent)
 {
-    setSourceModel(model);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0, Qt::DescendingOrder);
@@ -30,16 +29,6 @@ AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(DirectoryBaseModel *model
 
 AdminRoomsFilterProxyModel::~AdminRoomsFilterProxyModel()
 {
-}
-
-void AdminRoomsFilterProxyModel::setFilterString(const QString &string)
-{
-    setFilterFixedString(string);
-}
-
-void AdminRoomsFilterProxyModel::clearFilter()
-{
-    setFilterFixedString(QString());
 }
 
 void AdminRoomsFilterProxyModel::setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters)

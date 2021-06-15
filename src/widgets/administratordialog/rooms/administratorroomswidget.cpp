@@ -49,10 +49,10 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
     mModel = new AdminRoomsModel(this);
     mModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
 
-    mAdminRoomsProxyModel = new AdminRoomsFilterProxyModel(mModel, this);
-    mAdminRoomsProxyModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    mProxyModelModel = new AdminRoomsFilterProxyModel(mModel, this);
+    mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
-    mTreeView->setModel(mAdminRoomsProxyModel);
+    mTreeView->setModel(mProxyModelModel);
     mSearchLayout->addWidget(mSelectRoomType);
     hideColumns();
     connectModel();
@@ -107,12 +107,7 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)
 {
-    mAdminRoomsProxyModel->setFilterRooms(filters);
-}
-
-void AdministratorRoomsWidget::slotTextChanged(const QString &text)
-{
-    mAdminRoomsProxyModel->setFilterString(text);
+    static_cast<AdminRoomsFilterProxyModel *>(mProxyModelModel)->setFilterRooms(filters);
 }
 
 void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QString &searchName)

@@ -25,7 +25,6 @@
 #include "misc/searchtreebasewidget.h"
 #include "model/adminroomsfilterproxymodel.h"
 #include <QWidget>
-class AdminRoomsFilterProxyModel;
 class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTreeBaseWidget
 {
@@ -42,10 +41,8 @@ protected:
 private:
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
-    void slotTextChanged(const QString &text);
     void slotModifyRoom(const QModelIndex &index);
     void slotRemoveRoom(const QModelIndex &index);
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
-    AdminRoomsFilterProxyModel *mAdminRoomsProxyModel = nullptr;
 };
 
