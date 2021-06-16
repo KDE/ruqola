@@ -59,6 +59,12 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     }
     mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
     mTreeView->setModel(mProxyModelModel);
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            const QModelIndex i = mProxyModelModel->mapToSource(index);
+            slotOpen(i);
+        }
+    });
     hideColumns();
     connectModel();
 }
