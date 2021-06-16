@@ -88,6 +88,9 @@ public:
     void updateSubscription(const QJsonArray &array);
     void updateRoom(const QJsonObject &array);
     Room *addRoom(const QJsonObject &room);
+
+    Q_REQUIRED_RESULT QString roomFromTeamId(const QString &teamId);
+
     /**
      * @brief Adds a room to mRoomsList with @param room
      *

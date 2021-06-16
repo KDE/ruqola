@@ -96,6 +96,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTeamName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     roomNameLayout->addWidget(mTeamName);
     mTeamName->setVisible(false);
+    roomNameLayout->addStretch(1);
 
     mTopic->setObjectName(QStringLiteral("mTopic"));
     infoLayout->addWidget(mTopic);
@@ -175,7 +176,7 @@ RoomHeaderWidget::~RoomHeaderWidget()
 
 void RoomHeaderWidget::setTeamName(const QString &name)
 {
-    mTeamName->setText(name);
+    mTeamName->setText(QStringLiteral("[%1]").arg(name));
     mTeamName->setVisible(!name.isEmpty());
 }
 

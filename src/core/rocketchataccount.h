@@ -146,6 +146,8 @@ public:
     };
     Q_ENUM(RoleType)
 
+    Q_REQUIRED_RESULT QString roomFromTeamId(const QString &teamId) const;
+
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     void setUserCurrentMessage(const QString &message, const QString &roomId);
     void textEditing(const QString &roomId, bool clearNotification);

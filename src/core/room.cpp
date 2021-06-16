@@ -592,7 +592,7 @@ void Room::setName(const QString &name)
 
 void Room::parseInsertRoom(const QJsonObject &json)
 {
-    QString roomID = json.value(QLatin1String("_id")).toString();
+    const QString roomID = json.value(QLatin1String("_id")).toString();
     // qDebug() << " json " << json;
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
@@ -791,7 +791,12 @@ void Room::parseRetentionInfo(const QJsonObject &json)
 
 QString Room::teamName() const
 {
-    return {}; // TODO
+    if (mRocketChatAccount) {
+        if (!mTeamInfo.mainTeam() && !mTeamInfo.teamId().isEmpty()) {
+            return mRocketChatAccount->roomFromTeamId(mTeamInfo.teamId()); // TODO
+        }
+    }
+    return {};
 }
 
 TeamInfo Room::teamInfo() const

@@ -288,6 +288,19 @@ Room *RoomModel::addRoom(const QJsonObject &room)
     return nullptr;
 }
 
+QString RoomModel::roomFromTeamId(const QString &teamId)
+{
+    for (int row = 0; row < rowCount(); ++row) {
+        const QModelIndex modelIndex = index(row, 0);
+        if (modelIndex.data(RoomModel::RoomTeamIsMain).toBool()) {
+            if (modelIndex.data(RoomModel::RoomTeamId).toString() == teamId) {
+                return modelIndex.data(RoomModel::RoomName).toString();
+            }
+        }
+    }
+    return {};
+}
+
 bool RoomModel::addRoom(Room *room)
 {
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::addRoom(const Room &room)" << room->name();
