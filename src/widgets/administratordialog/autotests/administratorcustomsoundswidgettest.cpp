@@ -20,6 +20,8 @@
 
 #include "administratorcustomsoundswidgettest.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
+#include "model/admincustomsoundmodel.h"
+#include "model/directorybasefilterproxymodel.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QTest>
 #include <QTreeWidget>
@@ -36,9 +38,9 @@ void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mCustomSoundsTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomSoundsTreeWidget"));
-    QVERIFY(mCustomSoundsTreeWidget);
+    auto mModel = w.findChild<AdminCustomSoundModel *>(QStringLiteral("mAdminCustomSoundModel"));
+    QVERIFY(mModel);
 
-    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
-    QVERIFY(mSearchLineWidget);
+    auto mProxyModelModel = w.findChild<DirectoryBaseFilterProxyModel *>(QStringLiteral("mCustomSoundProxyModel"));
+    QVERIFY(mProxyModelModel);
 }
