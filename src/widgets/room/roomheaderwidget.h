@@ -79,6 +79,7 @@ Q_SIGNALS:
 
 private:
     QLabel *const mRoomName;
+    QLabel *const mTeamName;
     QLabel *const mTopic;
     QLabel *const mAnnouncement;
     QLabel *const mDescription;

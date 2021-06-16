@@ -37,13 +37,23 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     RoomHeaderWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto mRoomName = w.findChild<QLabel *>(QStringLiteral("mRoomName"));
     QVERIFY(mRoomName);
     QVERIFY(mRoomName->text().isEmpty());
     QVERIFY(!mRoomName->isVisible());
     QCOMPARE(mRoomName->textInteractionFlags(), Qt::TextBrowserInteraction);
+
+    auto roomNameLayout = w.findChild<QHBoxLayout *>(QStringLiteral("roomNameLayout"));
+    QVERIFY(roomNameLayout);
+    QCOMPARE(roomNameLayout->contentsMargins(), {});
+
+    auto mTeamName = w.findChild<QLabel *>(QStringLiteral("mTeamName"));
+    QVERIFY(mTeamName);
+    QVERIFY(mTeamName->text().isEmpty());
+    QVERIFY(!mTeamName->isVisible());
+    QCOMPARE(mTeamName->textInteractionFlags(), Qt::TextBrowserInteraction);
 
     auto mTopic = w.findChild<QLabel *>(QStringLiteral("mTopic"));
     QVERIFY(mTopic);

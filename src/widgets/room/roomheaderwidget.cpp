@@ -30,6 +30,7 @@
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
     , mRoomName(new QLabel(this))
+    , mTeamName(new QLabel(this))
     , mTopic(new QLabel(this))
     , mAnnouncement(new QLabel(this))
     , mDescription(new QLabel(this))
@@ -81,10 +82,20 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     infoLayout->setContentsMargins({});
     headerLayout->addLayout(infoLayout);
 
+    auto roomNameLayout = new QHBoxLayout;
+    roomNameLayout->setObjectName(QStringLiteral("roomNameLayout"));
+    roomNameLayout->setContentsMargins({});
+    infoLayout->addLayout(roomNameLayout);
+
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
     mRoomName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    infoLayout->addWidget(mRoomName);
+    roomNameLayout->addWidget(mRoomName);
     mRoomName->setVisible(false);
+
+    mTeamName->setObjectName(QStringLiteral("mTeamName"));
+    mTeamName->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    roomNameLayout->addWidget(mTeamName);
+    mTeamName->setVisible(false);
 
     mTopic->setObjectName(QStringLiteral("mTopic"));
     infoLayout->addWidget(mTopic);
