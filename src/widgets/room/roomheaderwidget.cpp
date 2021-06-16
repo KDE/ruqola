@@ -173,6 +173,12 @@ RoomHeaderWidget::~RoomHeaderWidget()
 {
 }
 
+void RoomHeaderWidget::setTeamName(const QString &name)
+{
+    mTeamName->setText(name);
+    mTeamName->setVisible(!name.isEmpty());
+}
+
 void RoomHeaderWidget::setRoomName(const QString &name)
 {
     mRoomName->setText(name);
@@ -207,7 +213,7 @@ void RoomHeaderWidget::setEncypted(bool b)
     mEncryptedButton->setVisible(b);
 }
 
-void RoomHeaderWidget::setMainTeam(bool isMainTeam)
+void RoomHeaderWidget::setIsMainTeam(bool isMainTeam)
 {
     mTeamChannelsButton->setVisible(isMainTeam);
     mChannelInfoButton->setToolTip(isMainTeam ? i18n("Team's Information") : i18n("Channel's Information"));

@@ -463,7 +463,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
         mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
-        mRoomHeaderWidget->setMainTeam(mRoom->teamInfo().mainTeam());
+        mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         // TODO Description ?
 
         mRoomWidgetBase->updateRoomReadOnly(mRoom);
@@ -530,7 +530,7 @@ void RoomWidget::connectRoom()
         });
         // TODO verify it.
         connect(mRoom, &Room::teamInfoChanged, this, [this]() {
-            mRoomHeaderWidget->setMainTeam(mRoom->teamInfo().mainTeam());
+            mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         });
         connect(mRoom, &Room::autoTranslateLanguageChanged, this, &RoomWidget::updateListView);
         connect(mRoom, &Room::autoTranslateChanged, this, &RoomWidget::updateListView);

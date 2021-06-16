@@ -66,7 +66,8 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setRoom(Room *room);
 
-    void setMainTeam(bool isMainTeam);
+    void setIsMainTeam(bool isMainTeam);
+    void setTeamName(const QString &name);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);
