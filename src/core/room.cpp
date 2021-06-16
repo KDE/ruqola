@@ -789,6 +789,11 @@ void Room::parseRetentionInfo(const QJsonObject &json)
     }
 }
 
+QString Room::teamName() const
+{
+    return {}; // TODO
+}
+
 TeamInfo Room::teamInfo() const
 {
     return mTeamInfo;

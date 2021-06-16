@@ -464,6 +464,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
+        mRoomHeaderWidget->setTeamName(mRoom->teamName());
         // TODO Description ?
 
         mRoomWidgetBase->updateRoomReadOnly(mRoom);

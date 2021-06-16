@@ -260,6 +260,7 @@ public:
     Q_REQUIRED_RESULT TeamInfo teamInfo() const;
     void setTeamInfo(const TeamInfo &teamInfo);
 
+    Q_REQUIRED_RESULT QString teamName() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
