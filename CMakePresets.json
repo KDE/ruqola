@@ -99,6 +99,10 @@
             "configurePreset": "release"
         },
         {
+            "name": "unity",
+            "configurePreset": "unity"
+        },
+        {
             "name": "clazy",
             "configurePreset": "clazy",
             "environment": {
@@ -117,6 +121,12 @@
     {
       "name": "asan",
       "configurePreset": "asan",
+      "output": {"outputOnFailure": true},
+      "execution": {"noTestsAction": "error", "stopOnFailure": true}
+    },
+    {
+      "name": "unity",
+      "configurePreset": "unity",
       "output": {"outputOnFailure": true},
       "execution": {"noTestsAction": "error", "stopOnFailure": true}
     }
