@@ -36,7 +36,7 @@ void ModifyStatusWidgetTest::shouldHaveDefaultValues()
     ModifyStatusWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
     QVERIFY(mStatusCombobox);

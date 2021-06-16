@@ -39,11 +39,11 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto lastestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("lastestLayout"));
     QVERIFY(lastestLayout);
-    QCOMPARE(lastestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(lastestLayout->contentsMargins(), {});
 
     auto lastestLabel = w.findChild<QLabel *>(QStringLiteral("lastestLabel"));
     QVERIFY(lastestLabel);
@@ -54,7 +54,7 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 
     auto oldestLayout = w.findChild<QHBoxLayout *>(QStringLiteral("oldestLayout"));
     QVERIFY(oldestLayout);
-    QCOMPARE(oldestLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(oldestLayout->contentsMargins(), {});
 
     auto oldestLabel = w.findChild<QLabel *>(QStringLiteral("oldestLabel"));
     QVERIFY(oldestLabel);

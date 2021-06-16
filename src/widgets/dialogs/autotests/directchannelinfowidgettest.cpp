@@ -35,7 +35,7 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto mAvatar = w.findChild<QLabel *>(QStringLiteral("mAvatar"));
     QVERIFY(mAvatar);

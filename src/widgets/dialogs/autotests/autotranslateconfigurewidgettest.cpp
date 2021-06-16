@@ -38,7 +38,7 @@ void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto mAutoTranslate = w.findChild<QCheckBox *>(QStringLiteral("mAutoTranslate"));
     QVERIFY(mAutoTranslate);
@@ -47,7 +47,7 @@ void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto horizontalLayout = w.findChild<QHBoxLayout *>(QStringLiteral("horizontalLayout"));
     QVERIFY(horizontalLayout);
-    QCOMPARE(horizontalLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(horizontalLayout->contentsMargins(), {});
 
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);

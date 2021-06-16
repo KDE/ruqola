@@ -44,7 +44,7 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto graphicsView = w.findChild<ImageGraphicsView *>(QStringLiteral("mImageGraphicsView"));
     QVERIFY(graphicsView);

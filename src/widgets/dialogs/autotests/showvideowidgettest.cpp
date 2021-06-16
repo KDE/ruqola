@@ -38,14 +38,14 @@ void ShowVideoWidgetTest::shouldHaveDefaultValues()
     ShowVideoWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto videoWidget = w.findChild<QVideoWidget *>(QStringLiteral("videoWidget"));
     QVERIFY(videoWidget);
 
     QBoxLayout *controlLayout = w.findChild<QHBoxLayout *>(QStringLiteral("controlLayout"));
     QVERIFY(controlLayout);
-    QCOMPARE(controlLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(controlLayout->contentsMargins(), {});
 
     auto mPlayButton = w.findChild<QPushButton *>(QStringLiteral("mPlayButton"));
     QVERIFY(mPlayButton);

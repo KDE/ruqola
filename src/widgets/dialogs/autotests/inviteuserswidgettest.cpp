@@ -41,7 +41,7 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     InviteUsersWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
@@ -66,7 +66,7 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
 
     auto formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
     QVERIFY(formLayout);
-    QCOMPARE(formLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QCOMPARE(formLayout->contentsMargins(), {});
 
     auto mExpirationDays = w.findChild<QComboBox *>(QStringLiteral("mExpirationDays"));
     QVERIFY(mExpirationDays);
