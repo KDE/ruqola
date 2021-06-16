@@ -593,7 +593,7 @@ void Room::setName(const QString &name)
 void Room::parseInsertRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QLatin1String("_id")).toString();
-    qDebug() << " json " << json;
+    // qDebug() << " json " << json;
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
