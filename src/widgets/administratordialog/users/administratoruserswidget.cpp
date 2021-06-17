@@ -120,7 +120,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
         rcAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::UsersUpdateJob::usersUpdateDone, this, &AdministratorUsersWidget::slotUserUpdateDone);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersUpdateJob job";
         }
     }
     delete dlg;
@@ -149,7 +149,7 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
             slotDeleteUserDone(userId);
         });
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start DeleteUserJob job";
         }
     }
 }
