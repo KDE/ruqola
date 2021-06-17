@@ -23,6 +23,9 @@
 TeamNameLabel::TeamNameLabel(QWidget *parent)
     : QLabel(parent)
 {
+    setTextFormat(Qt::RichText);
+    setContextMenuPolicy(Qt::NoContextMenu);
+    connect(this, &QLabel::linkActivated, this, &TeamNameLabel::slotGoToRoomTeam);
 }
 
 TeamNameLabel::~TeamNameLabel()
@@ -31,5 +34,12 @@ TeamNameLabel::~TeamNameLabel()
 
 void TeamNameLabel::setTeamName(const QString &name)
 {
-    setText(QStringLiteral("[%1]").arg(name));
+    setText(QStringLiteral("<a href=\"gotoroomteam\">[%1]</a>").arg(name));
+}
+
+void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
+{
+    if (contents == QLatin1String("gotoroomteam")) {
+        // TODO
+    }
 }
