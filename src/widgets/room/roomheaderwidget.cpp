@@ -94,7 +94,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mRoomName->setVisible(false);
 
     mTeamName->setObjectName(QStringLiteral("mTeamName"));
-    mTeamName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     roomNameLayout->addWidget(mTeamName);
     mTeamName->setVisible(false);
     roomNameLayout->addStretch(1);

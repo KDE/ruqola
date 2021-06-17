@@ -25,6 +25,7 @@ TeamNameLabel::TeamNameLabel(QWidget *parent)
 {
     setTextFormat(Qt::RichText);
     setContextMenuPolicy(Qt::NoContextMenu);
+    setTextInteractionFlags(Qt::TextBrowserInteraction);
     connect(this, &QLabel::linkActivated, this, &TeamNameLabel::slotGoToRoomTeam);
 }
 
