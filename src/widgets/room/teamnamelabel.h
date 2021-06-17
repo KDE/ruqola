@@ -29,4 +29,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamNameLabel : public QLabel
 public:
     explicit TeamNameLabel(QWidget *parent = nullptr);
     ~TeamNameLabel() override;
+    void setTeamName(const QString &name);
 };

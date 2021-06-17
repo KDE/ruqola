@@ -177,7 +177,7 @@ RoomHeaderWidget::~RoomHeaderWidget()
 
 void RoomHeaderWidget::setTeamName(const QString &name)
 {
-    mTeamName->setText(QStringLiteral("[%1]").arg(name));
+    mTeamName->setTeamName(name);
     mTeamName->setVisible(!name.isEmpty());
 }
 

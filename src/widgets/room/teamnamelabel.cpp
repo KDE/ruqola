@@ -28,3 +28,8 @@ TeamNameLabel::TeamNameLabel(QWidget *parent)
 TeamNameLabel::~TeamNameLabel()
 {
 }
+
+void TeamNameLabel::setTeamName(const QString &name)
+{
+    setText(QStringLiteral("[%1]").arg(name));
+}
