@@ -28,6 +28,7 @@ class QToolButton;
 class ChannelActionPopupMenu;
 class RocketChatAccount;
 class Room;
+class TeamNameLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -80,7 +81,7 @@ Q_SIGNALS:
 
 private:
     QLabel *const mRoomName;
-    QLabel *const mTeamName;
+    TeamNameLabel *const mTeamName;
     QLabel *const mTopic;
     QLabel *const mAnnouncement;
     QLabel *const mDescription;

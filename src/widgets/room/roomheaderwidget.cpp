@@ -22,6 +22,7 @@
 #include "channelactionpopupmenu.h"
 #include "room.h"
 #include "ruqolawidgets_debug.h"
+#include "teamnamelabel.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QToolButton>
@@ -30,7 +31,7 @@
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
     , mRoomName(new QLabel(this))
-    , mTeamName(new QLabel(this))
+    , mTeamName(new TeamNameLabel(this))
     , mTopic(new QLabel(this))
     , mAnnouncement(new QLabel(this))
     , mDescription(new QLabel(this))
