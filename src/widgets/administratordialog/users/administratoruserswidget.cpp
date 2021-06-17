@@ -113,7 +113,8 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     user.parseUserRestApi(obj[QLatin1String("user")].toObject());
     dlg->setUser(user);
     if (dlg->exec()) {
-        const RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
+        RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
+        info.mUserId = user.userId();
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::UsersUpdateJob(this);
         job->setUpdateInfo(info);
