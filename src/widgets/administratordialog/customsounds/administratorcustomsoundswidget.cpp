@@ -59,7 +59,7 @@ QString AdministratorCustomSoundsWidget::displayShowMessage() const
 {
     QString displayMessageStr = i18np("%1 custom sound (Total: %2)", "%1 custom sounds (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += clickableStr();
     }
     return displayMessageStr;
 }

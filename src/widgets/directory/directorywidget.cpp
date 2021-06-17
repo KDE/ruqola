@@ -198,7 +198,7 @@ QString DirectoryWidget::displayShowMessageInRoom() const
         break;
     }
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+        displayMessageStr += clickableStr();
     }
     return displayMessageStr;
 }
@@ -207,13 +207,13 @@ void DirectoryWidget::fillDirectory()
 {
     switch (mType) {
     case Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Rooms"));
+        mSearchLineEdit->setPlaceholderText(i18n("Search Rooms..."));
         break;
     case User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
+        mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
         break;
     case Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
+        mSearchLineEdit->setPlaceholderText(i18n("Search Teams..."));
         break;
     case Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";

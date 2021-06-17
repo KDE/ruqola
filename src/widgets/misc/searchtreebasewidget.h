@@ -53,6 +53,8 @@ protected:
     DirectoryBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
 
+    Q_REQUIRED_RESULT QString clickableStr() const;
+
 private:
     void slotSearchCleared();
     void slotSearchRequested(const QString &str);

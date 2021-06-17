@@ -22,6 +22,7 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/directorybasemodel.h"
 
+#include <KLocalizedString>
 #include <QHeaderView>
 #include <QLabel>
 #include <QTreeView>
@@ -75,6 +76,11 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
 
 SearchTreeBaseWidget::~SearchTreeBaseWidget()
 {
+}
+
+QString SearchTreeBaseWidget::clickableStr() const
+{
+    return QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
 }
 
 void SearchTreeBaseWidget::slotLoadMoreElements()
