@@ -20,6 +20,7 @@
 
 #include "roomheaderwidgettest.h"
 #include "room/roomheaderwidget.h"
+#include "room/teamnamelabel.h"
 #include <QLabel>
 #include <QSignalSpy>
 #include <QTest>
@@ -49,7 +50,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(roomNameLayout);
     QCOMPARE(roomNameLayout->contentsMargins(), {});
 
-    auto mTeamName = w.findChild<QLabel *>(QStringLiteral("mTeamName"));
+    auto mTeamName = w.findChild<TeamNameLabel *>(QStringLiteral("mTeamName"));
     QVERIFY(mTeamName);
     QVERIFY(mTeamName->text().isEmpty());
     QVERIFY(!mTeamName->isVisible());
