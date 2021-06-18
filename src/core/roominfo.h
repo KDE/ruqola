@@ -72,6 +72,7 @@ public:
     void setTeamInfo(const TeamInfo &newTeamInfo);
 
 private:
+    void generateDisplayChannelType();
     TeamInfo mTeamInfo;
     QStringList mUserNames;
     QStringList mUsers;

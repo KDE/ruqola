@@ -62,6 +62,7 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
         mUserNames.append(var.toString());
     }
     mTeamInfo.parseTeamInfo(object);
+    generateDisplayChannelType();
     // TODO load team info
     // qDebug() << " * this " << *this;
     // Add users "u"
@@ -103,12 +104,20 @@ QString RoomInfo::channelType() const
     return mChannelType;
 }
 
-static QString convertChannelType(const QString &str)
+static QString convertChannelType(const QString &str, bool mainTeam)
 {
     if (str == QLatin1Char('p')) {
-        return i18n("Group");
+        if (mainTeam) {
+            return i18n("Private Team");
+        } else {
+            return i18n("Group");
+        }
     } else if (str == QLatin1Char('c')) {
-        return i18n("Channel");
+        if (mainTeam) {
+            return i18n("Public Team");
+        } else {
+            return i18n("Channel");
+        }
     } else if (str == QLatin1Char('d')) {
         return i18n("Direct");
     } else {
@@ -117,10 +126,14 @@ static QString convertChannelType(const QString &str)
     }
 }
 
+void RoomInfo::generateDisplayChannelType()
+{
+    mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());
+}
+
 void RoomInfo::setChannelType(const QString &channelType)
 {
     mChannelType = channelType;
-    mChannelTypeStr = convertChannelType(channelType);
 }
 
 QString RoomInfo::identifier() const
