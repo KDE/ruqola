@@ -90,8 +90,8 @@ void AdminRoomsJob::initialUrlParameters(QUrlQuery &urlQuery) const
 {
     // https://<server>/api/v1/rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25&offset=25
     if (!mRoomsAdminInfo.filter.isEmpty()) {
+        urlQuery.addQueryItem(QStringLiteral("filter"), mRoomsAdminInfo.filter);
     }
-    urlQuery.addQueryItem(QStringLiteral("filter"), QStringLiteral(""));
     QStringList types;
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Direct) {
         types << QStringLiteral("d");
