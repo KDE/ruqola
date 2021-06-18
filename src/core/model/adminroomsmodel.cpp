@@ -162,5 +162,5 @@ void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> AdminRoomsModel::hideColumns() const
 {
-    return {AdminRoomsRoles::Identifier};
+    return {AdminRoomsRoles::Identifier, AdminRoomsRoles::ChannelType};
 }
