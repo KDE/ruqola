@@ -19,6 +19,7 @@
 */
 
 #include "administratorcustomsoundswidget.h"
+#include "administratorcustomsoundscreatedialog.h"
 #include "custom/customsoundslistjob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
@@ -30,6 +31,7 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QMenu>
+#include <QPointer>
 #include <QTreeView>
 
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent)
@@ -97,7 +99,11 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
-    // TODO
+    QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
