@@ -47,7 +47,6 @@ bool AdminRoomsJob::start()
         deleteLater();
         return false;
     }
-    initialQueryParameters();
     QNetworkReply *reply = submitGetRequest();
     connect(reply, &QNetworkReply::finished, this, &AdminRoomsJob::slotRoomsAdminFinished);
     addStartRestApiInfo(QByteArrayLiteral("RoomsAdminJob: Ask info about room admin info"));
@@ -82,13 +81,17 @@ void AdminRoomsJob::setRoomsAdminInfo(const AdminRoomsJobInfo &roomsAdminInfo)
     mRoomsAdminInfo = roomsAdminInfo;
 }
 
-void AdminRoomsJob::initialQueryParameters()
+bool AdminRoomsJob::hasQueryParameterSupport() const
 {
-    QueryParameters parameters = queryParameters();
-    QMap<QString, QString> map;
+    return true;
+}
+
+void AdminRoomsJob::initialUrlParameters(QUrlQuery &urlQuery) const
+{
+    // https://<server>/api/v1/rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25&offset=25
     if (!mRoomsAdminInfo.filter.isEmpty()) {
-        map.insert(QStringLiteral("filter"), mRoomsAdminInfo.filter);
     }
+    urlQuery.addQueryItem(QStringLiteral("filter"), QStringLiteral(""));
     QStringList types;
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Direct) {
         types << QStringLiteral("d");
@@ -103,10 +106,10 @@ void AdminRoomsJob::initialQueryParameters()
         types << QStringLiteral("teams");
     }
     if (!types.isEmpty()) {
-        map.insert(QStringLiteral("types[]"), types.join(QLatin1Char(',')));
+        for (const QString &str : qAsConst(types)) {
+            urlQuery.addQueryItem(QStringLiteral("types[]"), str);
+        }
     }
-    parameters.setCustom(map);
-    setQueryParameters(parameters);
 }
 
 QNetworkRequest AdminRoomsJob::request() const
@@ -115,6 +118,7 @@ QNetworkRequest AdminRoomsJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms);
     QUrlQuery queryUrl;
     addQueryParameter(queryUrl);
+    initialUrlParameters(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

@@ -58,6 +58,7 @@ public:
 
     Q_REQUIRED_RESULT AdminRoomsJobInfo roomsAdminInfo() const;
     void setRoomsAdminInfo(const AdminRoomsJobInfo &roomsAdminInfo);
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
     void adminRoomsDone(const QJsonObject &obj);
@@ -65,7 +66,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AdminRoomsJob)
     void slotRoomsAdminFinished();
-    void initialQueryParameters();
+    void initialUrlParameters(QUrlQuery &urlQuery) const;
     AdminRoomsJobInfo mRoomsAdminInfo;
 };
 }
