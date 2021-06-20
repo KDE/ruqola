@@ -67,6 +67,16 @@ void CustomSoundsListJob::slotCustomSoundsDone()
     deleteLater();
 }
 
+const QString &CustomSoundsListJob::pattern() const
+{
+    return mPattern;
+}
+
+void CustomSoundsListJob::setPattern(const QString &newPattern)
+{
+    mPattern = newPattern;
+}
+
 bool CustomSoundsListJob::requireHttpAuthentication() const
 {
     return true;
