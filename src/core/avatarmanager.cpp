@@ -22,6 +22,8 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <QTimer>
+#include <chrono>
+using namespace std::chrono_literals;
 
 AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -30,7 +32,7 @@ AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
     mTimer = new QTimer(this);
     mTimer->setSingleShot(true);
     // increase interval otherwise we can have some error
-    mTimer->setInterval(2000);
+    mTimer->setInterval(2s);
     connect(mTimer, &QTimer::timeout, this, &AvatarManager::slotLoadNextAvatar);
 }
 
@@ -52,7 +54,7 @@ void AvatarManager::slotLoadNextAvatar()
 void AvatarManager::slotRescheduleDownload()
 {
     // if problem we need to reschedule after several seconds
-    QTimer::singleShot(20000, this, &AvatarManager::slotLoadNextAvatar);
+    QTimer::singleShot(20s, this, &AvatarManager::slotLoadNextAvatar);
 }
 
 void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
