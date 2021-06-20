@@ -73,11 +73,12 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
     // qDebug() << " obj" << obj;
     QString listLog;
     const QJsonArray array = obj[QLatin1String("queue")].toArray();
+    mPlainTextEdit->blockSignals(true);
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject objQueue = array.at(i).toObject();
-        listLog += objQueue[QLatin1String("string")].toString();
+        mPlainTextEdit->appendHtml(QStringLiteral("<p style=\"color:red;white-space:pre\">%1</p>").arg(objQueue[QLatin1String("string")].toString()));
     }
-    mPlainTextEdit->setPlainText(listLog);
+    mPlainTextEdit->blockSignals(false);
     mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
     // Need to update it.
 }
