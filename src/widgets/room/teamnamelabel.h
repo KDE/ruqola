@@ -27,11 +27,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamNameLabel : public QLabel
 {
     Q_OBJECT
 public:
+    struct TeamNameInfo {
+        QString teamName;
+        QString teamIdentifier;
+    };
+
     explicit TeamNameLabel(QWidget *parent = nullptr);
     ~TeamNameLabel() override;
 
-    void setTeamName(const QString &name);
+    void setTeamNameInfo(const TeamNameInfo &newTeamNameInfo);
 
 private:
     void slotGoToRoomTeam(const QString &contents);
+    TeamNameInfo mTeamNameInfo;
 };

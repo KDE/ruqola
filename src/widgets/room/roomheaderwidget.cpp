@@ -176,7 +176,10 @@ RoomHeaderWidget::~RoomHeaderWidget()
 
 void RoomHeaderWidget::setTeamName(const QString &name)
 {
-    mTeamName->setTeamName(name);
+    TeamNameLabel::TeamNameInfo info;
+    info.teamName = name;
+    // TODO add identifier
+    mTeamName->setTeamNameInfo(info);
     mTeamName->setVisible(!name.isEmpty());
 }
 

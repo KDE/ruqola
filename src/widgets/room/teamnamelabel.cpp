@@ -33,14 +33,15 @@ TeamNameLabel::~TeamNameLabel()
 {
 }
 
-void TeamNameLabel::setTeamName(const QString &name)
-{
-    setText(QStringLiteral("<a href=\"gotoroomteam\">[%1]</a>").arg(name));
-}
-
 void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
 {
     if (contents == QLatin1String("gotoroomteam")) {
         // TODO
     }
+}
+
+void TeamNameLabel::setTeamNameInfo(const TeamNameInfo &newTeamNameInfo)
+{
+    mTeamNameInfo = newTeamNameInfo;
+    setText(QStringLiteral("<a href=\"gotoroomteam\">[%1]</a>").arg(mTeamNameInfo.teamName));
 }
