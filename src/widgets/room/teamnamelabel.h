@@ -38,6 +38,9 @@ public:
 
     void setTeamRoomInfo(const Room::TeamRoomInfo &newTeamNameInfo);
 
+Q_SIGNALS:
+    void openTeam(const QString &identifier);
+
 private:
     void slotGoToRoomTeam(const QString &contents);
     Room::TeamRoomInfo mTeamNameInfo;

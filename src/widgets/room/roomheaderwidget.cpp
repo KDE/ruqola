@@ -168,6 +168,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
     mChannelAction->setMenu(mChannelActionPopupMenu->menu());
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
+    connect(mTeamName, &TeamNameLabel::openTeam, this, &RoomHeaderWidget::openTeam);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()

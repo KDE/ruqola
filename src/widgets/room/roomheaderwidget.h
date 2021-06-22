@@ -79,6 +79,7 @@ Q_SIGNALS:
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
     void channelInfoRequested();
     void teamChannelsRequested();
+    void openTeam(const QString &identifier);
 
 private:
     QLabel *const mRoomName;
