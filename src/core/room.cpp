@@ -789,11 +789,11 @@ void Room::parseRetentionInfo(const QJsonObject &json)
     }
 }
 
-QString Room::teamName() const
+Room::TeamNameInfo Room::teamNameInfo() const
 {
     if (mRocketChatAccount) {
         if (!mTeamInfo.mainTeam() && !mTeamInfo.teamId().isEmpty()) {
-            return mRocketChatAccount->roomFromTeamId(mTeamInfo.teamId()); // TODO
+            return mRocketChatAccount->roomFromTeamId(mTeamInfo.teamId());
         }
     }
     return {};

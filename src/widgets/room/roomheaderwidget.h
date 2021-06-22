@@ -23,6 +23,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+#include "model/roommodel.h"
 class QLabel;
 class QToolButton;
 class ChannelActionPopupMenu;
@@ -68,7 +69,7 @@ public:
     void setRoom(Room *room);
 
     void setIsMainTeam(bool isMainTeam);
-    void setTeamName(const QString &name);
+    void setTeamName(const Room::TeamNameInfo &name);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);

@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "model/roommodel.h"
 #include <QLabel>
 
 #include "libruqolawidgets_private_export.h"
@@ -35,9 +36,9 @@ public:
     explicit TeamNameLabel(QWidget *parent = nullptr);
     ~TeamNameLabel() override;
 
-    void setTeamNameInfo(const TeamNameInfo &newTeamNameInfo);
+    void setTeamNameInfo(const Room::TeamNameInfo &newTeamNameInfo);
 
 private:
     void slotGoToRoomTeam(const QString &contents);
-    TeamNameInfo mTeamNameInfo;
+    Room::TeamNameInfo mTeamNameInfo;
 };

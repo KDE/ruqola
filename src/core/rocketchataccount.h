@@ -34,6 +34,7 @@
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include "model/listmessagesmodel.h"
+#include "model/roommodel.h"
 #include "ownuser.h"
 #include "permissionmanager.h"
 #include "rocketchataccountsettings.h"
@@ -146,7 +147,7 @@ public:
     };
     Q_ENUM(RoleType)
 
-    Q_REQUIRED_RESULT QString roomFromTeamId(const QString &teamId) const;
+    Q_REQUIRED_RESULT Room::TeamNameInfo roomFromTeamId(const QString &teamId) const;
 
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     void setUserCurrentMessage(const QString &message, const QString &roomId);

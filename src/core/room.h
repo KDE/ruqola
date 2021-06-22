@@ -45,6 +45,11 @@ public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~Room() override;
 
+    struct TeamNameInfo {
+        QString teamName;
+        QString teamIdentifier;
+    };
+
     // t (can take values "d" , "c" or "p" or "l")
     enum class RoomType {
         Unknown,
@@ -260,7 +265,7 @@ public:
     Q_REQUIRED_RESULT TeamInfo teamInfo() const;
     void setTeamInfo(const TeamInfo &teamInfo);
 
-    Q_REQUIRED_RESULT QString teamName() const;
+    Q_REQUIRED_RESULT Room::TeamNameInfo teamNameInfo() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();

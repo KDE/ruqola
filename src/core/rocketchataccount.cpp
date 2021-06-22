@@ -234,7 +234,7 @@ RocketChatAccount::~RocketChatAccount()
     delete mAccountRoomSettings;
 }
 
-QString RocketChatAccount::roomFromTeamId(const QString &teamId) const
+Room::TeamNameInfo RocketChatAccount::roomFromTeamId(const QString &teamId) const
 {
     return mRoomModel->roomFromTeamId(teamId);
 }

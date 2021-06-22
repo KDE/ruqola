@@ -174,13 +174,10 @@ RoomHeaderWidget::~RoomHeaderWidget()
 {
 }
 
-void RoomHeaderWidget::setTeamName(const QString &name)
+void RoomHeaderWidget::setTeamName(const Room::TeamNameInfo &info)
 {
-    TeamNameLabel::TeamNameInfo info;
-    info.teamName = name;
-    // TODO add identifier
     mTeamName->setTeamNameInfo(info);
-    mTeamName->setVisible(!name.isEmpty());
+    mTeamName->setVisible(!info.teamName.isEmpty());
 }
 
 void RoomHeaderWidget::setRoomName(const QString &name)
