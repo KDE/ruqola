@@ -147,7 +147,7 @@ public:
     };
     Q_ENUM(RoleType)
 
-    Q_REQUIRED_RESULT Room::TeamNameInfo roomFromTeamId(const QString &teamId) const;
+    Q_REQUIRED_RESULT Room::TeamRoomInfo roomFromTeamId(const QString &teamId) const;
 
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     void setUserCurrentMessage(const QString &message, const QString &roomId);

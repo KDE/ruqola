@@ -69,7 +69,7 @@ public:
     void setRoom(Room *room);
 
     void setIsMainTeam(bool isMainTeam);
-    void setTeamName(const Room::TeamNameInfo &name);
+    void setTeamRoomInfo(const Room::TeamRoomInfo &name);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);

@@ -174,9 +174,9 @@ RoomHeaderWidget::~RoomHeaderWidget()
 {
 }
 
-void RoomHeaderWidget::setTeamName(const Room::TeamNameInfo &info)
+void RoomHeaderWidget::setTeamRoomInfo(const Room::TeamRoomInfo &info)
 {
-    mTeamName->setTeamNameInfo(info);
+    mTeamName->setTeamRoomInfo(info);
     mTeamName->setVisible(!info.teamName.isEmpty());
 }
 

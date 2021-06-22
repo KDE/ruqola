@@ -40,7 +40,7 @@ void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
     }
 }
 
-void TeamNameLabel::setTeamNameInfo(const Room::TeamNameInfo &newTeamNameInfo)
+void TeamNameLabel::setTeamRoomInfo(const Room::TeamRoomInfo &newTeamNameInfo)
 {
     mTeamNameInfo = newTeamNameInfo;
     setText(QStringLiteral("<a href=\"gotoroomteam\">[%1]</a>").arg(mTeamNameInfo.teamName));

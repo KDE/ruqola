@@ -288,13 +288,13 @@ Room *RoomModel::addRoom(const QJsonObject &room)
     return nullptr;
 }
 
-Room::TeamNameInfo RoomModel::roomFromTeamId(const QString &teamId)
+Room::TeamRoomInfo RoomModel::roomFromTeamId(const QString &teamId)
 {
     for (int row = 0; row < rowCount(); ++row) {
         const QModelIndex modelIndex = index(row, 0);
         if (modelIndex.data(RoomModel::RoomTeamIsMain).toBool()) {
             if (modelIndex.data(RoomModel::RoomTeamId).toString() == teamId) {
-                Room::TeamNameInfo teamInfo;
+                Room::TeamRoomInfo teamInfo;
                 teamInfo.teamName = modelIndex.data(RoomModel::RoomName).toString();
                 teamInfo.teamIdentifier = modelIndex.data(RoomModel::RoomId).toString();
                 return teamInfo;

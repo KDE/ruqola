@@ -36,9 +36,9 @@ public:
     explicit TeamNameLabel(QWidget *parent = nullptr);
     ~TeamNameLabel() override;
 
-    void setTeamNameInfo(const Room::TeamNameInfo &newTeamNameInfo);
+    void setTeamRoomInfo(const Room::TeamRoomInfo &newTeamNameInfo);
 
 private:
     void slotGoToRoomTeam(const QString &contents);
-    Room::TeamNameInfo mTeamNameInfo;
+    Room::TeamRoomInfo mTeamNameInfo;
 };

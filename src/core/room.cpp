@@ -789,7 +789,7 @@ void Room::parseRetentionInfo(const QJsonObject &json)
     }
 }
 
-Room::TeamNameInfo Room::teamNameInfo() const
+Room::TeamRoomInfo Room::teamRoomInfo() const
 {
     if (mRocketChatAccount) {
         if (!mTeamInfo.mainTeam() && !mTeamInfo.teamId().isEmpty()) {
