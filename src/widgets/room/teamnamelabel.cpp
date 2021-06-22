@@ -19,7 +19,8 @@
 */
 
 #include "teamnamelabel.h"
-
+#include "rocketchataccount.h"
+#include "ruqola.h"
 TeamNameLabel::TeamNameLabel(QWidget *parent)
     : QLabel(parent)
 {
@@ -36,7 +37,7 @@ TeamNameLabel::~TeamNameLabel()
 void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
 {
     if (contents == QLatin1String("gotoroomteam")) {
-        // TODO
+        Ruqola::self()->rocketChatAccount()->openChannel(mTeamNameInfo.teamIdentifier, RocketChatAccount::ChannelTypeInfo::RoomId);
     }
 }
 
