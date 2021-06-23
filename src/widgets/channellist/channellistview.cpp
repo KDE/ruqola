@@ -279,16 +279,16 @@ void ChannelListView::selectChannelRequested(const QString &channelId)
     qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
 }
 
-bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRoomName)
+bool ChannelListView::selectChannelByRoomIdOrRoomName(const QString &id, bool roomId)
 {
-    if (selectedRoomName.isEmpty()) {
+    if (id.isEmpty()) {
         return false;
     }
     RoomFilterProxyModel *filterModel = model();
     for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto roomName = roomModelIndex.data(RoomModel::RoomName).toString();
-        if (roomName == selectedRoomName) {
+        const auto identifier = roomId ? roomModelIndex.data(RoomModel::RoomId).toString() : roomModelIndex.data(RoomModel::RoomName).toString();
+        if (identifier == id) {
             channelSelected(roomModelIndex);
             selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
             return true;
@@ -297,22 +297,14 @@ bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRo
     return false;
 }
 
+bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRoomName)
+{
+    return selectChannelByRoomIdOrRoomName(selectedRoomName, false);
+}
+
 bool ChannelListView::selectChannelByRoomIdRequested(const QString &identifier)
 {
-    if (identifier.isEmpty()) {
-        return false;
-    }
-    RoomFilterProxyModel *filterModel = model();
-    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toString();
-        if (roomId == identifier) {
-            channelSelected(roomModelIndex);
-            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            return true;
-        }
-    }
-    return false;
+    return selectChannelByRoomIdOrRoomName(identifier, true);
 }
 
 void ChannelListView::selectNextUnreadChannel()

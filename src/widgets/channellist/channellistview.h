@@ -64,5 +64,6 @@ private:
     void slotMoveToTeam(const QModelIndex &index);
 
     ChannelListDelegate *const mChannelListDelegate;
+    Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
 };
 
