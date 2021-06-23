@@ -157,12 +157,12 @@ void TextConverterTest::shouldHighlightWords_data()
                                << QStringLiteral(
                                       "<div><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
                                       "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></div>");
-
-    QTest::newRow("channel ruqola") << QStringLiteral("#ruqola-bla bla kde KDE.") << QStringLiteral("foo") << highlightWords
-                                    << QStringLiteral(
-                                           "<div><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> bla <a "
-                                           "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
-                                           "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</div>");
+    QTest::newRow("channelruqola")
+        << QStringLiteral("#ruqola-bla bla kde KDE.") << QStringLiteral("foo") << highlightWords
+        << QStringLiteral(
+               "<div><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
+               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</div>");
 }
 
 void TextConverterTest::shouldHighlightWords()
@@ -175,7 +175,6 @@ void TextConverterTest::shouldHighlightWords()
     output = prepareExpectedOutput(output);
 
     QString needUpdateMessageId;
-    QEXPECT_FAIL("channel ruqola", "Problem with href + highlight ruqola", Continue);
     QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr, nullptr, needUpdateMessageId), output);
 }
 

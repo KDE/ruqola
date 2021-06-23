@@ -109,16 +109,48 @@ QString markdownToRichText(const QString &markDown)
 QString generateRichText(const QString &str, const QString &username, const QStringList &highlightWords)
 {
     QString newStr = markdownToRichText(str);
+    static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\'.*\'>|<a href=\".*\">)"));
+    struct HrefPos {
+        int start = 0;
+        int end = 0;
+    };
+    QList<HrefPos> lstPos;
     KColorScheme colorScheme;
+    {
+        QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
+        while (userIteratorHref.hasNext()) {
+            const QRegularExpressionMatch match = userIteratorHref.next();
+            HrefPos pos;
+            pos.start = match.capturedStart(1);
+            pos.end = match.capturedEnd(1);
+            lstPos.append(std::move(pos));
+        }
+
+        static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"));
+        QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
+        while (roomIterator.hasNext()) {
+            const QRegularExpressionMatch match = roomIterator.next();
+            const QStringRef word = match.capturedRef(2);
+            bool inAnUrl = false;
+            const int matchCapturedStart = match.capturedStart(2);
+            for (const HrefPos &hrefPos : lstPos) {
+                if ((matchCapturedStart > hrefPos.start) && (matchCapturedStart < hrefPos.end)) {
+                    inAnUrl = true;
+                    break;
+                }
+            }
+            if (inAnUrl) {
+                continue;
+            }
+
+            newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
+        }
+    }
+
     const auto userHighlightForegroundColor = colorScheme.foreground(KColorScheme::PositiveText).color().name();
     const auto userHighlightBackgroundColor = colorScheme.background(KColorScheme::PositiveBackground).color().name();
     if (!highlightWords.isEmpty()) {
-        struct HrefPos {
-            int start = 0;
-            int end = 0;
-        };
-        QList<HrefPos> lstPos;
-        static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\".*\">)"));
+        lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
             const QRegularExpressionMatch match = userIteratorHref.next();
@@ -170,13 +202,6 @@ QString generateRichText(const QString &str, const QString &username, const QStr
         } else {
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
         }
-    }
-    static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"));
-    QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
-    while (roomIterator.hasNext()) {
-        const QRegularExpressionMatch match = roomIterator.next();
-        const QStringRef word = match.capturedRef(2);
-        newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
     }
 
     return newStr;
