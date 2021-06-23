@@ -98,6 +98,7 @@ private:
     void slotTeamChannelsRequested();
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
     void slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc);
+    void slotOpenTeamRequested(const QString &teamId);
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 

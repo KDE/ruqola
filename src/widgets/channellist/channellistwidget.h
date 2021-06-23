@@ -51,6 +51,7 @@ private:
     void slotSearchRoomTextChanged();
     void clearFilterChannel();
     void slotOpenLinkRequested(const QString &link);
+    void slotOpenTeamRequested(const QString &identifier);
 
     ChannelListView *const mChannelView;
     QLineEdit *const mSearchRoom;

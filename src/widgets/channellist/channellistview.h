@@ -45,6 +45,7 @@ public:
     void channelSelected(const QModelIndex &index);
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
+    Q_REQUIRED_RESULT bool selectChannelByRoomIdRequested(const QString &identifier);
 Q_SIGNALS:
     void roomSelected(const QString &roomId, Room::RoomType roomType);
 

@@ -85,6 +85,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::accountInitialized, this, &ChannelListWidget::slotAccountInitialized);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openLinkRequested, this, &ChannelListWidget::slotOpenLinkRequested);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openTeamNameRequested, this, &ChannelListWidget::slotOpenTeamRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
 
@@ -146,14 +147,29 @@ void ChannelListWidget::slotSearchRoomTextChanged()
     mChannelView->model()->setFilterString(mSearchRoom->text());
 }
 
+void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
+{
+    const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+    if (selectedIndex.isValid()) {
+        const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
+        if (identifier == currentRoomId) {
+            return;
+        }
+    }
+    if (!mChannelView->selectChannelByRoomIdRequested(identifier)) {
+        qDebug() << " ddddddddddddddddd" << identifier;
+        mCurrentRocketChatAccount->openChannel(identifier, RocketChatAccount::ChannelTypeInfo::RoomId);
+    }
+}
+
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
     if (link.startsWith(QLatin1String("ruqola:"))) {
         const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
-            const QString currentRoomId = selectedIndex.data(RoomModel::RoomName).toString();
-            if (roomOrUser == currentRoomId) {
+            const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
+            if (roomOrUser == currentRoomName) {
                 return;
             }
         }

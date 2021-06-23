@@ -297,6 +297,24 @@ bool ChannelListView::selectChannelByRoomNameRequested(const QString &selectedRo
     return false;
 }
 
+bool ChannelListView::selectChannelByRoomIdRequested(const QString &identifier)
+{
+    if (identifier.isEmpty()) {
+        return false;
+    }
+    RoomFilterProxyModel *filterModel = model();
+    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = filterModel->index(roomIdx, 0);
+        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toString();
+        if (roomId == identifier) {
+            channelSelected(roomModelIndex);
+            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            return true;
+        }
+    }
+    return false;
+}
+
 void ChannelListView::selectNextUnreadChannel()
 {
     RoomFilterProxyModel *filterModel = model();

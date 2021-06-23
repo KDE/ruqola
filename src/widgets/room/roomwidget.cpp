@@ -98,6 +98,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomWidgetBase, &RoomWidgetBase::loadHistory, this, &RoomWidget::slotLoadHistory);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::teamChannelsRequested, this, &RoomWidget::slotTeamChannelsRequested);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::openTeam, this, &RoomWidget::slotOpenTeamRequested);
     setAcceptDrops(true);
 }
 
@@ -355,6 +356,11 @@ void RoomWidget::slotSearchMessages()
     connect(dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
+}
+
+void RoomWidget::slotOpenTeamRequested(const QString &teamId)
+{
+    Q_EMIT mCurrentRocketChatAccount->openTeamNameRequested(teamId);
 }
 
 void RoomWidget::slotTeamChannelsRequested()
