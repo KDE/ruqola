@@ -45,6 +45,7 @@ void AdminUsersModel::removeElement(const QString &identifier)
         if (mUsers.at(i).userId() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mUsers.takeAt(i);
+            mUsers.setTotal(mUsers.count()); // Update total
             endRemoveRows();
             Q_EMIT totalChanged();
             break;
