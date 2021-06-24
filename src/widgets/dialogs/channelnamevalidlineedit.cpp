@@ -69,7 +69,7 @@ void ChannelNameValidLineEdit::updateStyleSheet(bool state)
     QString styleSheet;
     if (mNegativeBackground.isEmpty()) {
         const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeBackground);
-        mNegativeBackground = QStringLiteral("QLineEdit{ background-color:%1 }").arg(bgBrush.brush(this).color().name());
+        mNegativeBackground = QStringLiteral("QLineEdit{ background-color:%1 }").arg(bgBrush.brush(palette()).color().name());
     }
     if (!state) {
         styleSheet = mNegativeBackground;
