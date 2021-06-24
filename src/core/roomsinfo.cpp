@@ -92,6 +92,11 @@ void RoomsInfo::setRoomsCount(int count)
     mRoomsCount = count;
 }
 
+RoomInfo RoomsInfo::takeAt(int index)
+{
+    return mRooms.takeAt(index);
+}
+
 QVector<RoomInfo> RoomsInfo::rooms() const
 {
     return mRooms;

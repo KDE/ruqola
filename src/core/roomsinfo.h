@@ -53,6 +53,8 @@ public:
     Q_REQUIRED_RESULT int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
+    RoomInfo takeAt(int index);
+
 private:
     void parseListRooms(const QJsonObject &commandsObj, ParseType type);
     QVector<RoomInfo> mRooms;

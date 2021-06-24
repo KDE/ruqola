@@ -59,6 +59,8 @@ public:
     void addMoreElements(const QJsonObject &obj) override;
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;
 
+    void removeElement(const QString &identifier) override;
+
 private:
     Q_DISABLE_COPY(AdminRoomsModel)
     void checkFullList();
