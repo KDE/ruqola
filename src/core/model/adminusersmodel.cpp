@@ -39,7 +39,6 @@ Users::ParseType AdminUsersModel::parseType() const
 
 void AdminUsersModel::removeElement(const QString &identifier)
 {
-    qDebug() << " remove user: identifier: " << identifier;
     const int roomCount = mUsers.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mUsers.at(i).userId() == identifier) {
