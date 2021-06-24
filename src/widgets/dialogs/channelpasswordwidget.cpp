@@ -19,6 +19,7 @@
 */
 
 #include "channelpasswordwidget.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
@@ -38,6 +39,7 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     mainLayout->addWidget(label);
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mainLayout->addWidget(mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &ChannelPasswordWidget::slotPasswordChanged);
 }

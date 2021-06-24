@@ -20,6 +20,7 @@
 
 #include "passwordconfirmwidget.h"
 
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -35,9 +36,11 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
 
     mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
     mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
+    mNewPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
 
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
+    mConfirmPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
 }
 
 PasswordConfirmWidget::~PasswordConfirmWidget()

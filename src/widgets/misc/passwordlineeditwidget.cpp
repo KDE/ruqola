@@ -19,6 +19,7 @@
 */
 
 #include "passwordlineeditwidget.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
@@ -35,6 +36,7 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mainLayout->addWidget(mPasswordLineEdit);
 
     mResetPasswordButton->setObjectName(QStringLiteral("mResetPasswordButton"));

@@ -20,6 +20,7 @@
 
 #include "createnewserverwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include <KAuthorized>
 #include <QFormLayout>
 #include <QLineEdit>
 
@@ -53,6 +54,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     connect(mUserName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);

@@ -21,6 +21,7 @@
 #include "rolescombobox.h"
 #include "ruqolawidgets_debug.h"
 #include "user.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
@@ -46,6 +47,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
     formLayout->addRow(i18n("Name"), mName);
     formLayout->addRow(i18n("Username"), mUserName);

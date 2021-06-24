@@ -30,6 +30,7 @@
 #include "teams/teamdeletejob.h"
 #include "teams/teamselectdeletedroomdialog.h"
 #include "teams/teamslistroomsjob.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordLineEdit>
@@ -84,6 +85,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
 
     // Show it if room is not private
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));

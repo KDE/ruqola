@@ -21,6 +21,7 @@
 #include "twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 
@@ -37,6 +38,7 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
 
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
+    mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     auto sendNewEmailCode = new QPushButton(i18n("Send new code"), this);

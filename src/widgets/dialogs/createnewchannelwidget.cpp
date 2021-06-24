@@ -21,6 +21,7 @@
 #include "createnewchannelwidget.h"
 #include "channelnamevalidlineedit.h"
 #include "misc/adduserswidget.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
@@ -69,6 +70,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mMainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     connect(mChannelName, &ChannelNameValidLineEdit::channelIsValid, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);

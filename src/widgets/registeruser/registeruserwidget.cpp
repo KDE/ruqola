@@ -21,6 +21,7 @@
 #include "registeruserwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -48,10 +49,12 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
+    mConfirmPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
     connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
