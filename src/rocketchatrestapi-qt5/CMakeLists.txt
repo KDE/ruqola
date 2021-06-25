@@ -110,6 +110,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     channels/channeladdleaderjob.cpp
     channels/channelbasejob.cpp
     channels/channelgetcountersjob.cpp
+    channels/channelopenjob.cpp
 
     groups/changegroupstopicjob.cpp
     groups/changegroupsannouncementjob.cpp

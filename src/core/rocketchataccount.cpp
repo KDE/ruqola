@@ -87,6 +87,7 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
+#include "channels/channelopenjob.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
@@ -641,7 +642,20 @@ void RocketChatAccount::openChannel(const QString &identifier, ChannelTypeInfo t
     }
     info.channelInfoIdentifier = identifier;
     qCDebug(RUQOLA_LOG) << "opening channel" << identifier;
+#if 0
     restApi()->channelJoin(info, QString());
+#else
+    auto job = new RocketChatRestApi::ChannelOpenJob(this);
+    job->setChannelInfo(info);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::ChannelOpenJob::channelOpenDone, this, [this](const QJsonObject &obj) {
+        qDebug() << " obj " << obj;
+    });
+    if (!job->start()) {
+        qWarning() << "Impossible to start ChannelOpenJob job";
+        // TODO qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelOpenJob job";
+    }
+#endif
 }
 
 void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
