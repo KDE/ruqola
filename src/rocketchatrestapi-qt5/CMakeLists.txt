@@ -133,6 +133,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     groups/groupsdeletejob.cpp
     groups/changegroupsreadonlyjob.cpp
     groups/changegroupsencryptedjob.cpp
+    groups/groupopenjob.cpp
 
     directmessage/createdmjob.cpp
     directmessage/opendmjob.cpp
