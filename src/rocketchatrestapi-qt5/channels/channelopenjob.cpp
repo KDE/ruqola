@@ -29,7 +29,7 @@
 
 using namespace RocketChatRestApi;
 ChannelOpenJob::ChannelOpenJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 

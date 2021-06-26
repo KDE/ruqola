@@ -43,8 +43,8 @@ void ChannelFilesJobTest::shouldGenerateRequest()
 {
     ChannelFilesJob job;
     job.setChannelType(ChannelFilesJob::Channel);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = QStringLiteral("foo");
     job.setChannelInfo(info);
 
@@ -79,8 +79,8 @@ void ChannelFilesJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     QVERIFY(!job.canStart());

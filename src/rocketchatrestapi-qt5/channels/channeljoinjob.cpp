@@ -29,7 +29,7 @@
 
 using namespace RocketChatRestApi;
 ChannelJoinJob::ChannelJoinJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -131,5 +131,5 @@ QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &deta
     } else if (str == QLatin1String("error-code-invalid")) {
         return i18n("The room required a password.");
     }
-    return ChannelBaseJob::errorMessage(str, detail);
+    return ChannelGroupBaseJob::errorMessage(str, detail);
 }

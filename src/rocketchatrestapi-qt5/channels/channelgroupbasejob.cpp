@@ -18,35 +18,35 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channelbasejob.h"
+#include "channelgroupbasejob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
-ChannelBaseJob::ChannelBaseJob(QObject *parent)
+ChannelGroupBaseJob::ChannelGroupBaseJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-ChannelBaseJob::~ChannelBaseJob()
+ChannelGroupBaseJob::~ChannelGroupBaseJob()
 {
 }
 
-bool ChannelBaseJob::hasRoomIdentifier() const
+bool ChannelGroupBaseJob::hasRoomIdentifier() const
 {
-    return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelBaseJob::ChannelInfoType::Unknown);
+    return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelGroupBaseJob::ChannelInfoType::Unknown);
 }
 
-void ChannelBaseJob::addQueryItem(QUrl &url) const
+void ChannelGroupBaseJob::addQueryItem(QUrl &url) const
 {
     QUrlQuery queryUrl;
     switch (mChannelInfo.channelInfoType) {
-    case ChannelBaseJob::ChannelInfoType::Unknown:
+    case ChannelGroupBaseJob::ChannelInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
-    case ChannelBaseJob::ChannelInfoType::RoomId:
+    case ChannelGroupBaseJob::ChannelInfoType::RoomId:
         queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelInfo.channelInfoIdentifier);
         break;
-    case ChannelBaseJob::ChannelInfoType::RoomName:
+    case ChannelGroupBaseJob::ChannelInfoType::RoomName:
         queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelInfo.channelInfoIdentifier);
         break;
     }
@@ -54,32 +54,32 @@ void ChannelBaseJob::addQueryItem(QUrl &url) const
     url.setQuery(queryUrl);
 }
 
-void ChannelBaseJob::generateJson(QJsonObject &jsonObj) const
+void ChannelGroupBaseJob::generateJson(QJsonObject &jsonObj) const
 {
     switch (mChannelInfo.channelInfoType) {
-    case ChannelBaseJob::ChannelInfoType::Unknown:
+    case ChannelGroupBaseJob::ChannelInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
-    case ChannelBaseJob::ChannelInfoType::RoomId:
+    case ChannelGroupBaseJob::ChannelInfoType::RoomId:
         jsonObj[QLatin1String("roomId")] = mChannelInfo.channelInfoIdentifier;
         break;
-    case ChannelBaseJob::ChannelInfoType::RoomName:
+    case ChannelGroupBaseJob::ChannelInfoType::RoomName:
         jsonObj[QLatin1String("roomName")] = mChannelInfo.channelInfoIdentifier;
         break;
     }
 }
 
-ChannelBaseJob::ChannelInfo ChannelBaseJob::channelInfo() const
+ChannelGroupBaseJob::ChannelInfo ChannelGroupBaseJob::channelInfo() const
 {
     return mChannelInfo;
 }
 
-void ChannelBaseJob::setChannelInfo(const ChannelInfo &channelInfo)
+void ChannelGroupBaseJob::setChannelInfo(const ChannelInfo &channelInfo)
 {
     mChannelInfo = channelInfo;
 }
 
-QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &t)
 {
     d << "channelInfoIdentifier " << t.channelInfoIdentifier;
     d << "channelInfoType " << t.channelInfoType;

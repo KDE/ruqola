@@ -19,12 +19,12 @@
 */
 
 #pragma once
-#include "channelbasejob.h"
+#include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelInfoJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelInfoJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void channelInfoDone(const QJsonObject &replyObjectj, const ChannelBaseJob::ChannelInfo &channelInfo);
+    void channelInfoDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelInfoJob)

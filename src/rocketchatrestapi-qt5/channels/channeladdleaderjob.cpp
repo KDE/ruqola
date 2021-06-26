@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelAddLeaderJob::ChannelAddLeaderJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 

@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 LeaveChannelJob::LeaveChannelJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 

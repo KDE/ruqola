@@ -30,7 +30,7 @@
 
 using namespace RocketChatRestApi;
 GetChannelRolesJob::GetChannelRolesJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 

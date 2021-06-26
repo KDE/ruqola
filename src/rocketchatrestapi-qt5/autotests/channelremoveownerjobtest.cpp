@@ -53,8 +53,8 @@ void ChannelRemoveOwnerJobTest::shouldGenerateJson()
     ChannelRemoveOwnerJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString removeUserId = QStringLiteral("topic1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     job.setRemoveUserId(removeUserId);

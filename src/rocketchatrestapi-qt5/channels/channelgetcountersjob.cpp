@@ -26,7 +26,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelGetCountersJob::ChannelGetCountersJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 

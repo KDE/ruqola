@@ -48,8 +48,8 @@ void GetChannelRolesJobTest::shouldGenerateRequest()
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("avat");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     const QNetworkRequest request = job.request();

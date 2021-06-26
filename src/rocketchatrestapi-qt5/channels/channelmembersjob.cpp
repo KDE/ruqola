@@ -28,7 +28,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelMembersJob::ChannelMembersJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -72,7 +72,7 @@ QString ChannelMembersJob::generateErrorMessage(const QString &errorStr) const
     if (errorStr == QLatin1String("unauthorized")) {
         return i18n("Get Members not authorized in this room");
     }
-    return ChannelBaseJob::generateErrorMessage(errorStr);
+    return ChannelGroupBaseJob::generateErrorMessage(errorStr);
 }
 
 ChannelMembersJob::ChannelType ChannelMembersJob::channelType() const

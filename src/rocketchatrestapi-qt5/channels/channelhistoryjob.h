@@ -20,11 +20,11 @@
 
 #pragma once
 
-#include "channelbasejob.h"
+#include "channelgroupbasejob.h"
 #include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelHistoryJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -60,7 +60,7 @@ public:
     void setChannelHistoryInfo(const ChannelHistoryInfo &channelHistoryInfo);
 
 Q_SIGNALS:
-    void channelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
+    void channelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)

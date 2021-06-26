@@ -48,8 +48,8 @@ void ChannelGetCountersJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = QStringLiteral("avat");
     job.setChannelInfo(info);
     QNetworkRequest request = job.request();
@@ -74,8 +74,8 @@ void ChannelGetCountersJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = QStringLiteral("avat");
     job.setChannelInfo(info);
     QVERIFY(job.canStart());

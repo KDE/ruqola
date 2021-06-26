@@ -54,8 +54,8 @@ void ChannelInviteJobTest::shouldGenerateUserIdJson()
     ChannelInviteJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString userId = QStringLiteral("topic1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     job.setInviteUserId(userId);
@@ -67,8 +67,8 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
     ChannelInviteJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString userName = QStringLiteral("topic1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     job.setInviteUserName(userName);

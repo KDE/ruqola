@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "channels/channelbasejob.h"
+#include "channels/channelgroupbasejob.h"
 #include "libruqolawidgets_export.h"
 #include <KXmlGuiWindow>
 #include <QPointer>
@@ -62,7 +62,7 @@ private:
     void slotAccountChanged();
     void slotUnreadOnTop(bool checked);
     void updateActions();
-    void slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo);
+    void slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
     void slotLoginPageActivated(bool loginPageActivated);

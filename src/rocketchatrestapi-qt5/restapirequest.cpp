@@ -573,8 +573,8 @@ void RestApiRequest::leaveChannel(const QString &roomId)
 {
     auto job = new LeaveChannelJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (!job->start()) {
@@ -650,8 +650,8 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
 {
     auto job = new ChannelCloseJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (type == QLatin1Char('d')) {
@@ -670,8 +670,8 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
 {
     auto job = new ChannelHistoryJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (type == QLatin1Char('d')) {
@@ -717,8 +717,8 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     auto job = new ChannelFilesJob(this);
     connect(job, &ChannelFilesJob::channelFilesDone, this, &RestApiRequest::channelFilesDone);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     QueryParameters parameters;
@@ -751,8 +751,8 @@ void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, i
     job->setQueryParameters(parameters);
     connect(job, &ChannelMembersJob::channelMembersDone, this, &RestApiRequest::channelMembersDone);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (type == QLatin1Char('d')) {
@@ -771,8 +771,8 @@ void RestApiRequest::addUserInChannel(const QString &roomId, const QString &user
 {
     auto job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     job->setInviteUserId(userId);
@@ -964,8 +964,8 @@ void RestApiRequest::channelInfo(const QString &roomId)
 {
     auto job = new ChannelInfoJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     if (!job->start()) {
@@ -1139,8 +1139,8 @@ void RestApiRequest::setChannelType(const QString &roomId, bool isPrivate)
 {
     auto job = new SetChannelTypeJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     job->setType(isPrivate ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
@@ -1164,8 +1164,8 @@ void RestApiRequest::getChannelRoles(const QString &roomId)
 {
     auto job = new GetChannelRolesJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &RestApiRequest::channelRolesDone);
@@ -1241,8 +1241,8 @@ void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &jo
     auto job = new SetJoinCodeChannelJob(this);
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
 
@@ -1263,7 +1263,7 @@ void RestApiRequest::updatejitsiTimeOut(const QString &roomId)
     }
 }
 
-void RestApiRequest::channelJoin(const ChannelBaseJob::ChannelInfo &channelInfo, const QString &joinCode)
+void RestApiRequest::channelJoin(const ChannelGroupBaseJob::ChannelInfo &channelInfo, const QString &joinCode)
 {
     auto job = new ChannelJoinJob(this);
     initializeRestApiJob(job);
@@ -1301,8 +1301,8 @@ void RestApiRequest::channelKick(const QString &roomId, const QString &userId)
     auto job = new ChannelKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelKickJob::kickUserDone, this, &RestApiRequest::channelKickUserDone);
@@ -1400,8 +1400,8 @@ void RestApiRequest::channelAddModerator(const QString &roomId, const QString &u
     auto job = new ChannelAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelAddModeratorJob::addModeratorDone, this, &RestApiRequest::addModeratorDone);
@@ -1415,8 +1415,8 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
     auto job = new ChannelRemoveModeratorJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelRemoveModeratorJob::removeModeratorDone, this, &RestApiRequest::removeModeratorDone);
@@ -1430,8 +1430,8 @@ void RestApiRequest::channelAddLeader(const QString &roomId, const QString &user
     auto job = new ChannelAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelAddLeaderJob::addLeaderDone, this, &RestApiRequest::addLeaderDone);
@@ -1445,8 +1445,8 @@ void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &u
     auto job = new ChannelRemoveLeaderJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelRemoveLeaderJob::removeLeaderDone, this, &RestApiRequest::removeLeaderDone);
@@ -1460,8 +1460,8 @@ void RestApiRequest::channelAddOwner(const QString &roomId, const QString &userI
     auto job = new ChannelAddOwnerJob(this);
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelAddOwnerJob::addOwnerDone, this, &RestApiRequest::addOwnerDone);
@@ -1475,8 +1475,8 @@ void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &us
     auto job = new ChannelRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, &RestApiRequest::channelRemoveOwnerDone);
@@ -1489,8 +1489,8 @@ void RestApiRequest::channelDelete(const QString &roomId)
 {
     auto job = new ChannelDeleteJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelDeleteJob::deletechannelDone, this, &RestApiRequest::deletechannelDone);
@@ -1930,8 +1930,8 @@ void RestApiRequest::getChannelsCounter(const QString &roomId)
 {
     auto job = new ChannelGetCountersJob(this);
     initializeRestApiJob(job);
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job->setChannelInfo(info);
     connect(job, &ChannelGetCountersJob::channelGetCountersDone, this, &RestApiRequest::channelGetCountersDone);

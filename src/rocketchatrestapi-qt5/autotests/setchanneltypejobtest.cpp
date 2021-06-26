@@ -53,8 +53,8 @@ void SetChannelTypeJobTest::shouldGenerateJson()
 {
     SetChannelTypeJob job;
     const QString channelname = QStringLiteral("foo1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = channelname;
     job.setChannelInfo(info);
     job.setType(SetChannelTypeJob::Private);
@@ -82,8 +82,8 @@ void SetChannelTypeJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     QVERIFY(!job.canStart());

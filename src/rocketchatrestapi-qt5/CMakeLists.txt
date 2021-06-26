@@ -108,7 +108,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     channels/channelmembersjob.cpp
     channels/channelremoveleaderjob.cpp
     channels/channeladdleaderjob.cpp
-    channels/channelbasejob.cpp
+    channels/channelgroupbasejob.cpp
     channels/channelgetcountersjob.cpp
     channels/channelopenjob.cpp
 

@@ -28,7 +28,7 @@
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelHistoryJob::ChannelHistoryJob(QObject *parent)
-    : ChannelBaseJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 

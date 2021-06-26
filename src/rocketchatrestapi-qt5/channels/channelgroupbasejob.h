@@ -26,12 +26,12 @@
 #include <QJsonObject>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelBaseJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelGroupBaseJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit ChannelBaseJob(QObject *parent = nullptr);
-    ~ChannelBaseJob() override;
+    explicit ChannelGroupBaseJob(QObject *parent = nullptr);
+    ~ChannelGroupBaseJob() override;
     enum class ChannelInfoType {
         Unknown,
         RoomId,
@@ -41,7 +41,7 @@ public:
 
     struct ChannelInfo {
         QString channelInfoIdentifier;
-        ChannelBaseJob::ChannelInfoType channelInfoType = ChannelBaseJob::ChannelInfoType::Unknown;
+        ChannelGroupBaseJob::ChannelInfoType channelInfoType = ChannelGroupBaseJob::ChannelInfoType::Unknown;
     };
 
     Q_REQUIRED_RESULT bool hasRoomIdentifier() const;
@@ -57,4 +57,4 @@ private:
     ChannelInfo mChannelInfo;
 };
 }
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &t);

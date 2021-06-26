@@ -631,13 +631,13 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 
 void RocketChatAccount::openChannel(const QString &identifier, ChannelTypeInfo typeInfo)
 {
-    RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo info;
     switch (typeInfo) {
     case ChannelTypeInfo::RoomId:
-        info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId;
+        info.channelInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelInfoType::RoomId;
         break;
     case ChannelTypeInfo::RoomName:
-        info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomName;
+        info.channelInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelInfoType::RoomName;
         break;
     }
     info.channelInfoIdentifier = identifier;
@@ -658,24 +658,24 @@ void RocketChatAccount::openChannel(const QString &identifier, ChannelTypeInfo t
 #endif
 }
 
-void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RocketChatAccount::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     ddp()->subscribeRoomMessage(channelInfo.channelInfoIdentifier);
     // FIXME room is not added yet...
     switch (channelInfo.channelInfoType) {
-    case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown:
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelInfoType::Unknown:
         qCWarning(RUQOLA_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
         break;
-    case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId:
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelInfoType::RoomId:
         Q_EMIT selectRoomByRoomIdRequested(channelInfo.channelInfoIdentifier);
         break;
-    case RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomName:
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelInfoType::RoomName:
         Q_EMIT selectRoomByRoomNameRequested(channelInfo.channelInfoIdentifier);
         break;
     }
 }
 
-void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     // TODO
 }
@@ -742,8 +742,8 @@ void RocketChatAccount::joinDiscussion(const QString &roomId, const QString &joi
 
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
-    RocketChatRestApi::ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = RocketChatRestApi::ChannelBaseJob::ChannelInfoType::RoomId;
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     restApi()->channelJoin(info, joinCode);
 }
@@ -849,7 +849,7 @@ void RocketChatAccount::membersInRoom(const QString &roomId, Room::RoomType chan
     restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
 }
 
-void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     // FIXME channelInfo
     const QString channelInfoIdentifier = channelInfo.channelInfoIdentifier;
@@ -903,7 +903,7 @@ ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationMa
     return mReceiveTypingNotificationManager;
 }
 
-void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     Room *room = mRoomModel->findRoom(channelInfo.channelInfoIdentifier);
     if (room) {
@@ -1016,7 +1016,7 @@ void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)
     mSearchChannelModel->parseAllChannels(obj);
 }
 
-void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     // TODO fixme channelinfo
     // qDebug() << " slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)" << roomId << " obj " << obj;
@@ -2394,7 +2394,7 @@ bool RocketChatAccount::isAdministrator() const
     return mOwnUser.isAdministrator();
 }
 
-void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     Room *room = mRoomModel->findRoom(channelInfo.channelInfoIdentifier);
     if (room) {

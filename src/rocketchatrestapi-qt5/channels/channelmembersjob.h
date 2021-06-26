@@ -20,11 +20,11 @@
 
 #pragma once
 
-#include "channelbasejob.h"
+#include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelMembersJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelMembersJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -50,7 +50,7 @@ public:
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void channelMembersDone(const QJsonObject &replyObjectj, const ChannelBaseJob::ChannelInfo &channelInfo);
+    void channelMembersDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
 
 protected:
     Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;

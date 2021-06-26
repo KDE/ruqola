@@ -487,7 +487,7 @@ void RuqolaMainWindow::slotUnreadOnTop(bool checked)
     mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
 }
 
-void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelBaseJob::ChannelInfo &channelInfo)
+void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
 {
     QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
     // TODO add channel name!

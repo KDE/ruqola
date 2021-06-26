@@ -20,11 +20,11 @@
 
 #pragma once
 
-#include "channelbasejob.h"
+#include "channelgroupbasejob.h"
 #include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelOpenJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelOpenJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:

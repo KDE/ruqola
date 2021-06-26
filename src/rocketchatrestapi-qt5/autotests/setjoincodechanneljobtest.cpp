@@ -52,8 +52,8 @@ void SetJoinCodeChannelJobTest::shouldGenerateJson()
 {
     SetJoinCodeChannelJob job;
     const QString roomId = QStringLiteral("foo1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     const QString joinCode = QStringLiteral("bli");
@@ -80,8 +80,8 @@ void SetJoinCodeChannelJobTest::shouldNotStarting()
 
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    ChannelBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelBaseJob::ChannelInfoType::RoomId;
+    ChannelGroupBaseJob::ChannelInfo info;
+    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
     info.channelInfoIdentifier = roomId;
     job.setChannelInfo(info);
     QVERIFY(!job.canStart());
