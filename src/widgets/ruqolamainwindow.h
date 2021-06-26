@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "channels/channelgroupbasejob.h"
+#include "channelgroupbasejob.h"
 #include "libruqolawidgets_export.h"
 #include <KXmlGuiWindow>
 #include <QPointer>

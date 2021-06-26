@@ -108,7 +108,6 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     channels/channelmembersjob.cpp
     channels/channelremoveleaderjob.cpp
     channels/channeladdleaderjob.cpp
-    channels/channelgroupbasejob.cpp
     channels/channelgetcountersjob.cpp
     channels/channelopenjob.cpp
 
@@ -202,6 +201,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
 
     createroominfo.cpp
     createupdateuserinfo.cpp
+    channelgroupbasejob.cpp
     )
 
 

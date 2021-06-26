@@ -22,7 +22,7 @@
 
 #include "accountroomsettings.h"
 #include "authenticationinfo.h"
-#include "channels/channelgroupbasejob.h"
+#include "channelgroupbasejob.h"
 #include "commands/runcommandjob.h"
 #include "createroominfo.h"
 #include "custom/customuserstatuscreatejob.h"

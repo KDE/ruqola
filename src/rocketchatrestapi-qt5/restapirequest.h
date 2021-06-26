@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "channels/channelgroupbasejob.h"
+#include "channelgroupbasejob.h"
 #include "commands/runcommandjob.h"
 #include "createroominfo.h"
 #include "custom/customuserstatuscreatejob.h"
