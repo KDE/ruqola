@@ -83,7 +83,7 @@ bool ChannelCloseJob::requireHttpAuthentication() const
 
 bool ChannelCloseJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCloseJob: RoomId and RoomName are empty";
         return false;
     }

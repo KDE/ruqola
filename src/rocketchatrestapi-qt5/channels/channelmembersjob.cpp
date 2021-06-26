@@ -57,7 +57,7 @@ void ChannelMembersJob::slotChannelMembersFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("channelMembersDone success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelMembersDone(replyObject, channelInfo());
+            Q_EMIT channelMembersDone(replyObject, channelGroupInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("channelMembersDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -97,7 +97,7 @@ bool ChannelMembersJob::requireHttpAuthentication() const
 
 bool ChannelMembersJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelMembersJob: RoomId and RoomName are empty";
         return false;
     }

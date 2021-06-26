@@ -36,7 +36,7 @@ ChannelGetCountersJob::~ChannelGetCountersJob()
 
 bool ChannelGetCountersJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelGetCountersJob: RoomId and RoomName are empty";
         return false;
     }
@@ -85,7 +85,7 @@ void ChannelGetCountersJob::slotChannelGetCountersFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelGetCountersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelGetCountersDone(replyObject, channelInfo());
+            Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelGetCountersJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

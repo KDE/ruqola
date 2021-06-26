@@ -34,17 +34,17 @@ void ChannelsModeratorsJobTest::shouldHaveDefaultValue()
     ChannelsModeratorsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelsModeratorsJobTest::shouldGenerateRequest()
 {
     ChannelsModeratorsJob job;
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = QStringLiteral("foo");
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = QStringLiteral("foo");
+    job.setChannelGroupInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.moderators?roomId=foo")));
@@ -68,9 +68,9 @@ void ChannelsModeratorsJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }

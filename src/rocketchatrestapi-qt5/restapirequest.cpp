@@ -573,10 +573,10 @@ void RestApiRequest::leaveChannel(const QString &roomId)
 {
     auto job = new LeaveChannelJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start leaveChannel job";
     }
@@ -650,10 +650,10 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
 {
     auto job = new ChannelCloseJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelCloseJob::Direct);
     } else if (type == QLatin1Char('p')) {
@@ -670,10 +670,10 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
 {
     auto job = new ChannelHistoryJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
         historyInfo.channelType = ChannelHistoryJob::Direct;
@@ -717,10 +717,10 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     auto job = new ChannelFilesJob(this);
     connect(job, &ChannelFilesJob::channelFilesDone, this, &RestApiRequest::channelFilesDone);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     QueryParameters parameters;
     parameters.setCount(count);
     parameters.setOffset(offset);
@@ -751,10 +751,10 @@ void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, i
     job->setQueryParameters(parameters);
     connect(job, &ChannelMembersJob::channelMembersDone, this, &RestApiRequest::channelMembersDone);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelMembersJob::Direct);
     } else if (type == QLatin1Char('p')) {
@@ -771,10 +771,10 @@ void RestApiRequest::addUserInChannel(const QString &roomId, const QString &user
 {
     auto job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setInviteUserId(userId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInChannel job";
@@ -964,10 +964,10 @@ void RestApiRequest::channelInfo(const QString &roomId)
 {
     auto job = new ChannelInfoJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelInfo job";
     }
@@ -1139,10 +1139,10 @@ void RestApiRequest::setChannelType(const QString &roomId, bool isPrivate)
 {
     auto job = new SetChannelTypeJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setType(isPrivate ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelType job";
@@ -1164,10 +1164,10 @@ void RestApiRequest::getChannelRoles(const QString &roomId)
 {
     auto job = new GetChannelRolesJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &RestApiRequest::channelRolesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetChannelRolesJob job";
@@ -1241,10 +1241,10 @@ void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &jo
     auto job = new SetJoinCodeChannelJob(this);
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
 
     connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &RestApiRequest::setJoinCodeDone);
     if (!job->start()) {
@@ -1263,12 +1263,12 @@ void RestApiRequest::updatejitsiTimeOut(const QString &roomId)
     }
 }
 
-void RestApiRequest::channelJoin(const ChannelGroupBaseJob::ChannelInfo &channelInfo, const QString &joinCode)
+void RestApiRequest::channelJoin(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode)
 {
     auto job = new ChannelJoinJob(this);
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
-    job->setChannelInfo(channelInfo);
+    job->setChannelGroupInfo(channelInfo);
     connect(job, &ChannelJoinJob::setChannelJoinDone, this, &RestApiRequest::setChannelJoinDone);
     connect(job, &ChannelJoinJob::missingChannelPassword, this, &RestApiRequest::missingChannelPassword);
     connect(job, &ChannelJoinJob::openArchivedRoom, this, &RestApiRequest::openArchivedRoom);
@@ -1301,10 +1301,10 @@ void RestApiRequest::channelKick(const QString &roomId, const QString &userId)
     auto job = new ChannelKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelKickJob::kickUserDone, this, &RestApiRequest::channelKickUserDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelKick";
@@ -1400,10 +1400,10 @@ void RestApiRequest::channelAddModerator(const QString &roomId, const QString &u
     auto job = new ChannelAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelAddModeratorJob::addModeratorDone, this, &RestApiRequest::addModeratorDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelAddModerator";
@@ -1415,10 +1415,10 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
     auto job = new ChannelRemoveModeratorJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveModeratorJob::removeModeratorDone, this, &RestApiRequest::removeModeratorDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveModeratorJob";
@@ -1430,10 +1430,10 @@ void RestApiRequest::channelAddLeader(const QString &roomId, const QString &user
     auto job = new ChannelAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelAddLeaderJob::addLeaderDone, this, &RestApiRequest::addLeaderDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelAddLeader";
@@ -1445,10 +1445,10 @@ void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &u
     auto job = new ChannelRemoveLeaderJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveLeaderJob::removeLeaderDone, this, &RestApiRequest::removeLeaderDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelRemoveLeader";
@@ -1460,10 +1460,10 @@ void RestApiRequest::channelAddOwner(const QString &roomId, const QString &userI
     auto job = new ChannelAddOwnerJob(this);
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelAddOwnerJob::addOwnerDone, this, &RestApiRequest::addOwnerDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelAddOwnerJob";
@@ -1475,10 +1475,10 @@ void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &us
     auto job = new ChannelRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, &RestApiRequest::channelRemoveOwnerDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob";
@@ -1489,10 +1489,10 @@ void RestApiRequest::channelDelete(const QString &roomId)
 {
     auto job = new ChannelDeleteJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelDeleteJob::deletechannelDone, this, &RestApiRequest::deletechannelDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelDeleteJob";
@@ -1930,10 +1930,10 @@ void RestApiRequest::getChannelsCounter(const QString &roomId)
 {
     auto job = new ChannelGetCountersJob(this);
     initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job->setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &ChannelGetCountersJob::channelGetCountersDone, this, &RestApiRequest::channelGetCountersDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetCountersJob";

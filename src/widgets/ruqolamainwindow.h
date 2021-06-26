@@ -62,7 +62,7 @@ private:
     void slotAccountChanged();
     void slotUnreadOnTop(bool checked);
     void updateActions();
-    void slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void changeActionStatus(bool enabled);
     void slotClearAccountAlerts();
     void slotLoginPageActivated(bool loginPageActivated);

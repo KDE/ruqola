@@ -31,23 +31,23 @@ ChannelGroupBaseJob::~ChannelGroupBaseJob()
 {
 }
 
-bool ChannelGroupBaseJob::hasRoomIdentifier() const
+bool ChannelGroupBaseJob::hasIdentifier() const
 {
-    return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelGroupBaseJob::ChannelInfoType::Unknown);
+    return !mChannelGroupInfo.identifier.isEmpty() && (mChannelGroupInfo.channelGroupInfoType != ChannelGroupBaseJob::ChannelGroupInfoType::Unknown);
 }
 
 void ChannelGroupBaseJob::addQueryItem(QUrl &url) const
 {
     QUrlQuery queryUrl;
-    switch (mChannelInfo.channelInfoType) {
-    case ChannelGroupBaseJob::ChannelInfoType::Unknown:
+    switch (mChannelGroupInfo.channelGroupInfoType) {
+    case ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
-    case ChannelGroupBaseJob::ChannelInfoType::RoomId:
-        queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelInfo.channelInfoIdentifier);
+    case ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
+        queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelGroupInfo.identifier);
         break;
-    case ChannelGroupBaseJob::ChannelInfoType::RoomName:
-        queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelInfo.channelInfoIdentifier);
+    case ChannelGroupBaseJob::ChannelGroupInfoType::Name:
+        queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelGroupInfo.identifier);
         break;
     }
     addQueryParameter(queryUrl);
@@ -56,32 +56,32 @@ void ChannelGroupBaseJob::addQueryItem(QUrl &url) const
 
 void ChannelGroupBaseJob::generateJson(QJsonObject &jsonObj) const
 {
-    switch (mChannelInfo.channelInfoType) {
-    case ChannelGroupBaseJob::ChannelInfoType::Unknown:
+    switch (mChannelGroupInfo.channelGroupInfoType) {
+    case ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
-    case ChannelGroupBaseJob::ChannelInfoType::RoomId:
-        jsonObj[QLatin1String("roomId")] = mChannelInfo.channelInfoIdentifier;
+    case ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
+        jsonObj[QLatin1String("roomId")] = mChannelGroupInfo.identifier;
         break;
-    case ChannelGroupBaseJob::ChannelInfoType::RoomName:
-        jsonObj[QLatin1String("roomName")] = mChannelInfo.channelInfoIdentifier;
+    case ChannelGroupBaseJob::ChannelGroupInfoType::Name:
+        jsonObj[QLatin1String("roomName")] = mChannelGroupInfo.identifier;
         break;
     }
 }
 
-ChannelGroupBaseJob::ChannelInfo ChannelGroupBaseJob::channelInfo() const
+ChannelGroupBaseJob::ChannelGroupInfo ChannelGroupBaseJob::channelGroupInfo() const
 {
-    return mChannelInfo;
+    return mChannelGroupInfo;
 }
 
-void ChannelGroupBaseJob::setChannelInfo(const ChannelInfo &channelInfo)
+void ChannelGroupBaseJob::setChannelGroupInfo(const ChannelGroupInfo &channelInfo)
 {
-    mChannelInfo = channelInfo;
+    mChannelGroupInfo = channelInfo;
 }
 
-QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &t)
 {
-    d << "channelInfoIdentifier " << t.channelInfoIdentifier;
-    d << "channelInfoType " << t.channelInfoType;
+    d << "channelInfoIdentifier " << t.identifier;
+    d << "channelInfoType " << t.channelGroupInfoType;
     return d;
 }

@@ -34,17 +34,17 @@ void ChannelInfoJobTest::shouldHaveDefaultValue()
     ChannelInfoJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelInfoJobTest::shouldGenerateRequest()
 {
     ChannelInfoJob job;
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = QStringLiteral("foo");
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = QStringLiteral("foo");
+    job.setChannelGroupInfo(info);
 
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
@@ -69,9 +69,9 @@ void ChannelInfoJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }

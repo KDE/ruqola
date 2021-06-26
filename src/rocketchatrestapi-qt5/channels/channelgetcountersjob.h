@@ -43,7 +43,7 @@ public:
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void channelGetCountersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelGetCountersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelGetCountersJob)

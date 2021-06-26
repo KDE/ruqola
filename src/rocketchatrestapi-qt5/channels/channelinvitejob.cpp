@@ -97,7 +97,7 @@ bool ChannelInviteJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: inviteUserId is empty or inviteUserName is empty";
         return false;
     }
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: RoomId and RoomName are empty";
         return false;
     }

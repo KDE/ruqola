@@ -73,7 +73,7 @@ bool LeaveChannelJob::requireHttpAuthentication() const
 
 bool LeaveChannelJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "LeaveChannelJob: RoomId and RoomName are empty";
         return false;
     }

@@ -34,7 +34,7 @@ void ChannelDeleteJobTest::shouldHaveDefaultValue()
 {
     ChannelDeleteJob job;
     verifyDefaultValue(&job);
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -51,10 +51,10 @@ void ChannelDeleteJobTest::shouldGenerateUserIdJson()
 {
     ChannelDeleteJob job;
     const QString roomId = QStringLiteral("foo1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
@@ -62,9 +62,9 @@ void ChannelDeleteJobTest::shouldGenerateUserNameJson()
 {
     ChannelDeleteJob job;
     const QString roomId = QStringLiteral("foo1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }

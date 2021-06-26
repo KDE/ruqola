@@ -40,7 +40,7 @@ GetChannelRolesJob::~GetChannelRolesJob()
 
 bool GetChannelRolesJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetChannelRolesJob: RoomId and RoomName are empty";
         return false;
     }
@@ -88,7 +88,7 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelRolesDone(replyObject, channelInfo());
+            Q_EMIT channelRolesDone(replyObject, channelGroupInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

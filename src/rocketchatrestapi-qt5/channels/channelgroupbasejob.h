@@ -32,29 +32,29 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelGroupBaseJob : public RestApi
 public:
     explicit ChannelGroupBaseJob(QObject *parent = nullptr);
     ~ChannelGroupBaseJob() override;
-    enum class ChannelInfoType {
+    enum class ChannelGroupInfoType {
         Unknown,
-        RoomId,
-        RoomName,
+        Identifier,
+        Name,
     };
-    Q_ENUM(ChannelInfoType)
+    Q_ENUM(ChannelGroupInfoType)
 
-    struct ChannelInfo {
-        QString channelInfoIdentifier;
-        ChannelGroupBaseJob::ChannelInfoType channelInfoType = ChannelGroupBaseJob::ChannelInfoType::Unknown;
+    struct ChannelGroupInfo {
+        QString identifier;
+        ChannelGroupBaseJob::ChannelGroupInfoType channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Unknown;
     };
 
-    Q_REQUIRED_RESULT bool hasRoomIdentifier() const;
+    Q_REQUIRED_RESULT bool hasIdentifier() const;
 
-    Q_REQUIRED_RESULT ChannelInfo channelInfo() const;
-    void setChannelInfo(const ChannelInfo &channelInfo);
+    Q_REQUIRED_RESULT ChannelGroupInfo channelGroupInfo() const;
+    void setChannelGroupInfo(const ChannelGroupInfo &channelInfo);
 
 protected:
     void generateJson(QJsonObject &obj) const;
     void addQueryItem(QUrl &url) const;
 
 private:
-    ChannelInfo mChannelInfo;
+    ChannelGroupInfo mChannelGroupInfo;
 };
 }
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &t);

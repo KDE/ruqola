@@ -46,9 +46,9 @@ protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
-    void setChannelJoinDone(const ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void missingChannelPassword(const ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void openArchivedRoom(const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void setChannelJoinDone(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void missingChannelPassword(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void openArchivedRoom(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelJoinJob)

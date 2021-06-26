@@ -60,7 +60,7 @@ public:
     void setChannelHistoryInfo(const ChannelHistoryInfo &channelHistoryInfo);
 
 Q_SIGNALS:
-    void channelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelHistoryDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)

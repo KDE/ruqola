@@ -58,16 +58,16 @@ void ChannelJoinJob::slotChannelJoinFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setChannelJoinDone(channelInfo());
+            Q_EMIT setChannelJoinDone(channelGroupInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
             // Invalid password
             const QString errorType = replyObject[QStringLiteral("errorType")].toString();
             if (errorType == QLatin1String("error-code-invalid")) {
-                Q_EMIT missingChannelPassword(channelInfo());
+                Q_EMIT missingChannelPassword(channelGroupInfo());
             } else if (errorType == QLatin1String("error-room-archived")) {
-                Q_EMIT openArchivedRoom(channelInfo());
+                Q_EMIT openArchivedRoom(channelGroupInfo());
             }
         }
         reply->deleteLater();
@@ -95,7 +95,7 @@ bool ChannelJoinJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelJoinJob: RoomId and RoomName are empty";
         return false;
     }
@@ -127,7 +127,7 @@ QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &deta
 {
     // TODO use details
     if (str == QLatin1String("error-room-not-found")) {
-        return i18n("The required \'%1\' param provided does not match any channel", channelInfo().channelInfoIdentifier);
+        return i18n("The required \'%1\' param provided does not match any channel", channelGroupInfo().identifier);
     } else if (str == QLatin1String("error-code-invalid")) {
         return i18n("The room required a password.");
     }

@@ -73,7 +73,7 @@ bool ChannelDeleteJob::requireHttpAuthentication() const
 
 bool ChannelDeleteJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelDeleteJob: RoomId and RoomName are empty";
         return false;
     }

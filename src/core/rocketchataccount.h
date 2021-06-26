@@ -312,7 +312,7 @@ public:
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
     void membersInRoom(const QString &roomId, Room::RoomType channelType);
-    void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
     void insertCompleterUsers();
 
@@ -467,7 +467,7 @@ Q_SIGNALS:
     void notification(const Utils::NotificationInfo &info);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
-    void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void editingModeChanged();
     void sortUnreadOnTopChanged();
     void jobFailed(const QString &message);
@@ -493,8 +493,8 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatAccount)
 
-    void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void slotSplotLightDone(const QJsonObject &obj);
     void slotChannelListDone(const QJsonObject &obj);
     void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
@@ -513,9 +513,9 @@ private:
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
     void userStatusChanged(const User &user);
-    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
     void getSupportedLanguages();
     void usersPresence();

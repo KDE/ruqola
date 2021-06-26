@@ -86,7 +86,7 @@ bool SetJoinCodeChannelJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId and RoomName are empty";
         return false;
     }

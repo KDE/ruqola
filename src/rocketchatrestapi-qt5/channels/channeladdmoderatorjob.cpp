@@ -87,7 +87,7 @@ bool ChannelAddModeratorJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddModeratorJob: remove userid is empty";
         return false;
     }
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddModeratorJob: RoomId and roomname are empty";
         return false;
     }

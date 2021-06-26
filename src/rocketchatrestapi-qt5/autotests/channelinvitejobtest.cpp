@@ -36,7 +36,7 @@ void ChannelInviteJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.inviteUserId().isEmpty());
     QVERIFY(job.inviteUserName().isEmpty());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -54,10 +54,10 @@ void ChannelInviteJobTest::shouldGenerateUserIdJson()
     ChannelInviteJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString userId = QStringLiteral("topic1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     job.setInviteUserId(userId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
 }
@@ -67,10 +67,10 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
     ChannelInviteJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString userName = QStringLiteral("topic1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     job.setInviteUserName(userName);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userName, roomId).toLatin1());
 }

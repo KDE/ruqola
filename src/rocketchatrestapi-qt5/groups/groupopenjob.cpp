@@ -78,7 +78,7 @@ bool GroupOpenJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (!hasRoomIdentifier()) {
+    //    if (!hasIdentifier()) {
     //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupOpenJob: RoomId and RoomName are empty";
     //        return false;
     //    }

@@ -487,13 +487,13 @@ void RuqolaMainWindow::slotUnreadOnTop(bool checked)
     mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
 }
 
-void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelInfo &channelInfo)
+void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
     QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
     // TODO add channel name!
     if (dlg->exec()) {
         // FIXME channelinfo
-        mCurrentRocketChatAccount->joinRoom(channelInfo.channelInfoIdentifier, dlg->password());
+        mCurrentRocketChatAccount->joinRoom(channelInfo.identifier, dlg->password());
     }
     delete dlg;
 }

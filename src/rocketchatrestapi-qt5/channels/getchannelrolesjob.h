@@ -44,7 +44,7 @@ protected:
     QString jobName() const override;
 
 Q_SIGNALS:
-    void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(GetChannelRolesJob)

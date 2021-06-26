@@ -37,7 +37,7 @@ void ChannelGetCountersJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -48,10 +48,10 @@ void ChannelGetCountersJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = QStringLiteral("avat");
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = QStringLiteral("avat");
+    job.setChannelGroupInfo(info);
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.counters?roomId=avat")));
@@ -74,9 +74,9 @@ void ChannelGetCountersJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = QStringLiteral("avat");
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = QStringLiteral("avat");
+    job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }

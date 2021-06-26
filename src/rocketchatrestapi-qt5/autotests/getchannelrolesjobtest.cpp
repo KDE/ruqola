@@ -36,7 +36,7 @@ void GetChannelRolesJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -48,10 +48,10 @@ void GetChannelRolesJobTest::shouldGenerateRequest()
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("avat");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.roles?roomId=avat")));
 }

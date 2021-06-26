@@ -35,7 +35,7 @@ void ChannelCloseJobTest::shouldHaveDefaultValue()
     ChannelCloseJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.channelType(), ChannelCloseJob::ChannelType::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -64,10 +64,10 @@ void ChannelCloseJobTest::shouldGenerateJson()
 {
     ChannelCloseJob job;
     const QString roomId = QStringLiteral("foo1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
 
@@ -89,10 +89,10 @@ void ChannelCloseJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
 
     QVERIFY(!job.canStart());
     job.setChannelType(ChannelCloseJob::ChannelType::Channel);

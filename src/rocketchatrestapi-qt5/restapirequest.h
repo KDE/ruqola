@@ -139,7 +139,7 @@ public:
     void listCommands();
     void fetchMyKeys();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
-    void channelJoin(const ChannelGroupBaseJob::ChannelInfo &channelInfo, const QString &joinCode);
+    void channelJoin(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode);
     void muteGroupMentions(const QString &roomId, bool value);
 
     void channelInfo(const QString &roomId);
@@ -227,8 +227,8 @@ Q_SIGNALS:
     void serverInfoFailed(bool useDeprecatedVersion);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QJsonObject &data);
-    void channelFilesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void channelMembersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelFilesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelMembersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
@@ -236,7 +236,7 @@ Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
-    void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void permissionListAllDone(const QJsonObject &obj);
@@ -244,9 +244,9 @@ Q_SIGNALS:
     void getCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();
     void setJoinCodeDone();
-    void setChannelJoinDone(const ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void missingChannelPassword(const ChannelGroupBaseJob::ChannelInfo &channelInfo);
-    void openArchivedRoom(const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void setChannelJoinDone(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void missingChannelPassword(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void openArchivedRoom(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void updateJitsiTimeOutDone(const QString &datetime);
     void channelKickUserDone(const QJsonObject &obj);
@@ -295,7 +295,7 @@ Q_SIGNALS:
     void disableEmailDone();
     void updateOwnBasicInfoDone();
     void cleanHistoryDone();
-    void channelGetCountersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelGetCountersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QString &roomId);
     void usersSetPreferencesDone(const QJsonObject &replyObject);
     void removeOtherTokensDone();

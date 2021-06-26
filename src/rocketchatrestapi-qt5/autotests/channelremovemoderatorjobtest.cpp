@@ -35,7 +35,7 @@ void ChannelRemoveModeratorJobTest::shouldHaveDefaultValue()
     ChannelRemoveModeratorJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.removeUserId().isEmpty());
-    QVERIFY(!job.hasRoomIdentifier());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,10 +53,10 @@ void ChannelRemoveModeratorJobTest::shouldGenerateJson()
     ChannelRemoveModeratorJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString removeUserId = QStringLiteral("topic1");
-    ChannelGroupBaseJob::ChannelInfo info;
-    info.channelInfoType = ChannelGroupBaseJob::ChannelInfoType::RoomId;
-    info.channelInfoIdentifier = roomId;
-    job.setChannelInfo(info);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     job.setRemoveUserId(removeUserId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(removeUserId, roomId).toLatin1());
 }

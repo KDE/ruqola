@@ -83,7 +83,7 @@ bool SetChannelTypeJob::requireHttpAuthentication() const
 
 bool SetChannelTypeJob::canStart() const
 {
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetChannelTypeJob: mRoomId and RoomName are empty";
         return false;
     }

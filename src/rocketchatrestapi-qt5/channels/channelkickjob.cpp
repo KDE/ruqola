@@ -77,7 +77,7 @@ bool ChannelKickJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelKickJob: mKickUserId is empty";
         return false;
     }
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelKickJob: RoomId and roomName are empty";
         return false;
     }

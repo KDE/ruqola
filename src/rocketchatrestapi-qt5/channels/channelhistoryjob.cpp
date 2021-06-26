@@ -57,7 +57,7 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelHistoryDone(replyObject, channelInfo());
+            Q_EMIT channelHistoryDone(replyObject, channelGroupInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -84,7 +84,7 @@ bool ChannelHistoryJob::requireHttpAuthentication() const
 
 bool ChannelHistoryJob::canStart() const
 {
-    //    if (!hasRoomIdentifier()) {
+    //    if (!hasIdentifier()) {
     //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId and RoomName are empty";
     //        return false;
     //    }

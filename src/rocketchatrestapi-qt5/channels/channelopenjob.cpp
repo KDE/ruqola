@@ -78,7 +78,7 @@ bool ChannelOpenJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!hasRoomIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelOpenJob: RoomId and RoomName are empty";
         return false;
     }

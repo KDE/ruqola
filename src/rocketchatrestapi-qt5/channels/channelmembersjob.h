@@ -50,7 +50,7 @@ public:
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void channelMembersDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelInfo &channelInfo);
+    void channelMembersDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 protected:
     Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
