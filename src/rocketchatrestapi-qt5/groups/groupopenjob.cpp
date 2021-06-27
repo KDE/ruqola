@@ -29,7 +29,7 @@
 
 using namespace RocketChatRestApi;
 GroupOpenJob::GroupOpenJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -78,17 +78,17 @@ bool GroupOpenJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (!hasIdentifier()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupOpenJob: RoomId and RoomName are empty";
-    //        return false;
-    //    }
+    if (!hasIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupOpenJob: RoomId and RoomName are empty";
+        return false;
+    }
     return true;
 }
 
 QJsonDocument GroupOpenJob::json() const
 {
     QJsonObject jsonObj;
-    // generateJson(jsonObj);
+    generateJson(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
