@@ -31,7 +31,6 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
-    void shouldGenerateUsernameJson();
-    void shouldGenerateUserIdJson();
+    void shouldGenerateRoomIdJson();
 };
 

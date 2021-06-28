@@ -1503,7 +1503,10 @@ void RestApiRequest::groupDelete(const QString &roomId)
 {
     auto job = new GroupsDeleteJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.identifier = roomId;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    job->setChannelGroupInfo(info);
     connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &RestApiRequest::deleteGroupsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupsDeleteJob";

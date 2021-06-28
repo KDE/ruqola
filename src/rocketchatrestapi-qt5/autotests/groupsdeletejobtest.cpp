@@ -34,7 +34,7 @@ void GroupsDeleteJobTest::shouldHaveDefaultValue()
 {
     GroupsDeleteJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -47,18 +47,13 @@ void GroupsDeleteJobTest::shouldGenerateRequest()
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void GroupsDeleteJobTest::shouldGenerateUsernameJson()
+void GroupsDeleteJobTest::shouldGenerateRoomIdJson()
 {
     GroupsDeleteJob job;
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
-}
-
-void GroupsDeleteJobTest::shouldGenerateUserIdJson()
-{
-    GroupsDeleteJob job;
-    const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.identifier = roomId;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
