@@ -586,7 +586,10 @@ void RestApiRequest::leaveGroups(const QString &roomId)
 {
     auto job = new LeaveGroupsJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start leaveGroups job";
     }
@@ -1328,7 +1331,10 @@ void RestApiRequest::groupAddModerator(const QString &roomId, const QString &use
     auto job = new GroupAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &GroupAddModeratorJob::addModeratorDone, this, &RestApiRequest::addModeratorDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddModerator";

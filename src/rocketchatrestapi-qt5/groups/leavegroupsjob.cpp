@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 LeaveGroupsJob::LeaveGroupsJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -73,7 +73,7 @@ bool LeaveGroupsJob::requireHttpAuthentication() const
 
 bool LeaveGroupsJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "LeaveGroupsJob: RoomId is empty";
         return false;
     }
@@ -86,20 +86,10 @@ bool LeaveGroupsJob::canStart() const
 QJsonDocument LeaveGroupsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString LeaveGroupsJob::roomId() const
-{
-    return mRoomId;
-}
-
-void LeaveGroupsJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest LeaveGroupsJob::request() const
