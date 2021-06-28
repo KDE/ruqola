@@ -58,14 +58,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
     mFavoriteButton->setCheckable(true);
     mFavoriteButton->setToolTip(i18n("Favorite"));
-    headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
+    headerLayout->addWidget(mFavoriteButton, 0, Qt::AlignTop);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
     mDiscussionBackButton->setAutoRaise(true);
     mDiscussionBackButton->setObjectName(QStringLiteral("mDiscussionBackButton"));
     mDiscussionBackButton->setIcon(QIcon::fromTheme(QStringLiteral("draw-arrow-back")));
     mDiscussionBackButton->setCheckable(false);
-    headerLayout->addWidget(mDiscussionBackButton, Qt::AlignTop);
+    headerLayout->addWidget(mDiscussionBackButton, 0, Qt::AlignTop);
     connect(mDiscussionBackButton, &QToolButton::clicked, this, &RoomHeaderWidget::goBackToRoom);
     mDiscussionBackButton->setVisible(false);
 
@@ -75,7 +75,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mEncryptedButton->setToolTip(i18n("E2E Enabled"));
     mEncryptedButton->setCheckable(true);
     mEncryptedButton->setVisible(false);
-    headerLayout->addWidget(mEncryptedButton, Qt::AlignTop);
+    headerLayout->addWidget(mEncryptedButton, 0, Qt::AlignTop);
     connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
 
     auto infoLayout = new QVBoxLayout;
@@ -132,14 +132,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
     mChannelInfoButton->setToolTip(i18n("Channel's Information"));
-    buttonLayout->addWidget(mChannelInfoButton, Qt::AlignTop);
+    buttonLayout->addWidget(mChannelInfoButton, 0, Qt::AlignTop);
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
     mTeamChannelsButton->setAutoRaise(true);
     mTeamChannelsButton->setObjectName(QStringLiteral("mTeamChannelsButton"));
     mTeamChannelsButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-channel-active")));
     mTeamChannelsButton->setToolTip(i18n("Team Channels"));
-    buttonLayout->addWidget(mTeamChannelsButton, Qt::AlignTop);
+    buttonLayout->addWidget(mTeamChannelsButton, 0, Qt::AlignTop);
     connect(mTeamChannelsButton, &QToolButton::clicked, this, &RoomHeaderWidget::teamChannelsRequested);
 
     mListOfUsersButton->setAutoRaise(true);
@@ -147,7 +147,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
     mListOfUsersButton->setCheckable(true);
     mListOfUsersButton->setToolTip(i18n("Show List of Users"));
-    buttonLayout->addWidget(mListOfUsersButton, Qt::AlignTop);
+    buttonLayout->addWidget(mListOfUsersButton, 0, Qt::AlignTop);
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 
     mSearchMessageButton->setAutoRaise(true);
@@ -155,14 +155,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
     mSearchMessageButton->setCheckable(false);
     mSearchMessageButton->setToolTip(i18n("Search Messages..."));
-    buttonLayout->addWidget(mSearchMessageButton, Qt::AlignTop);
+    buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
 
     mChannelAction->setAutoRaise(true);
     mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
     mChannelAction->setPopupMode(QToolButton::InstantPopup);
     mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down-double")));
-    buttonLayout->addWidget(mChannelAction, Qt::AlignTop);
+    buttonLayout->addWidget(mChannelAction, 0, Qt::AlignTop);
 
     mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelAction);
     mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
