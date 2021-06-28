@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChangeGroupsEncryptedJob::ChangeGroupsEncryptedJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -83,7 +83,7 @@ bool ChangeGroupsEncryptedJob::requireHttpAuthentication() const
 
 bool ChangeGroupsEncryptedJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsEncryptedJob: RoomId is empty";
         return false;
     }
@@ -96,21 +96,11 @@ bool ChangeGroupsEncryptedJob::canStart() const
 QJsonDocument ChangeGroupsEncryptedJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     jsonObj[QLatin1String("encrypted")] = encrypted();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChangeGroupsEncryptedJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChangeGroupsEncryptedJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChangeGroupsEncryptedJob::request() const

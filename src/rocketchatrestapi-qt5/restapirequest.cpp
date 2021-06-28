@@ -436,7 +436,10 @@ void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &top
 {
     auto job = new ChangeGroupsTopicJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setTopic(topic);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsTopicJob job";
@@ -458,7 +461,10 @@ void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
 {
     auto job = new ChangeGroupsReadonlyJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setReadOnly(b);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsReadOnly job";
@@ -469,7 +475,10 @@ void RestApiRequest::changeGroupsEncrypted(const QString &roomId, bool b)
 {
     auto job = new ChangeGroupsEncryptedJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setEncrypted(b);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsEncryptedJob job";
@@ -491,7 +500,10 @@ void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QStri
 {
     auto job = new ChangeGroupsAnnouncementJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setAnnouncement(announcement);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
@@ -513,7 +525,10 @@ void RestApiRequest::changeGroupsDescription(const QString &roomId, const QStrin
 {
     auto job = new ChangeGroupsDescriptionJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setDescription(description);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsDescription job";
@@ -610,7 +625,10 @@ void RestApiRequest::archiveGroups(const QString &roomId, bool archive)
 {
     auto job = new ArchiveGroupsJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setArchive(archive);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start archiveGroups job";
@@ -945,7 +963,10 @@ void RestApiRequest::changeGroupName(const QString &roomId, const QString &newNa
 {
     auto job = new ChangeGroupsNameJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     job->setName(newName);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupName job";
@@ -1361,7 +1382,10 @@ void RestApiRequest::groupAddLeader(const QString &roomId, const QString &userId
     auto job = new GroupAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &GroupAddLeaderJob::addLeaderDone, this, &RestApiRequest::addLeaderDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddLeader";

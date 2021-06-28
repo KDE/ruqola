@@ -35,7 +35,7 @@ void ChangeGroupsReadonlyJobTest::shouldHaveDefaultValue()
     ChangeGroupsReadonlyJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.readOnly());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,10 @@ void ChangeGroupsReadonlyJobTest::shouldGenerateJson()
     ChangeGroupsReadonlyJob job;
     const QString roomId = QStringLiteral("foo1");
     bool readOnly = true;
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     job.setReadOnly(readOnly);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"readOnly":true,"roomId":"%1"})").arg(roomId).toLatin1());
 

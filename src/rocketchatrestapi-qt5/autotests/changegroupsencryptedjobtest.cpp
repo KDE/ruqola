@@ -35,7 +35,7 @@ void ChangeGroupsEncryptedJobTest::shouldHaveDefaultValue()
     ChangeGroupsEncryptedJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.encrypted());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,10 @@ void ChangeGroupsEncryptedJobTest::shouldGenerateJson()
     ChangeGroupsEncryptedJob job;
     const QString roomId = QStringLiteral("foo1");
     bool encrypted = true;
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     job.setEncrypted(encrypted);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"encrypted":true,"roomId":"%1"})").arg(roomId).toLatin1());
 

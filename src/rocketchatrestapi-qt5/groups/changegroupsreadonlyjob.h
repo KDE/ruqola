@@ -20,11 +20,11 @@
 
 #pragma once
 
+#include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChangeGroupsReadonlyJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChangeGroupsReadonlyJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -39,9 +39,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT bool readOnly() const;
     void setReadOnly(bool readOnly);
 
@@ -51,7 +48,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChangeGroupsReadonlyJob)
     void slotChangeReadonlyFinished();
-    QString mRoomId;
     bool mReadOnly = false;
 };
 }

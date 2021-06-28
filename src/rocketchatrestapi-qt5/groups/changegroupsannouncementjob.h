@@ -20,11 +20,11 @@
 
 #pragma once
 
+#include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChangeGroupsAnnouncementJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChangeGroupsAnnouncementJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -41,8 +41,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
     void changeGroupsAnnouncement();
@@ -51,6 +49,5 @@ private:
     Q_DISABLE_COPY(ChangeGroupsAnnouncementJob)
     void slotChangeGroupsAnnouncementFinished();
     QString mAnnouncement;
-    QString mRoomId;
 };
 }

@@ -35,7 +35,7 @@ void ChangeGroupsAnnouncementJobTest::shouldHaveDefaultValue()
     ChangeGroupsAnnouncementJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.announcement().isEmpty());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,11 @@ void ChangeGroupsAnnouncementJobTest::shouldGenerateJson()
     ChangeGroupsAnnouncementJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString announcement = QStringLiteral("topic1");
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
+
     job.setAnnouncement(announcement);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"announcement":"%1","roomId":"%2"})").arg(announcement, roomId).toLatin1());
 }

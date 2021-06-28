@@ -26,7 +26,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChangeGroupsTopicJob::ChangeGroupsTopicJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -72,7 +72,7 @@ bool ChangeGroupsTopicJob::requireHttpAuthentication() const
 
 bool ChangeGroupsTopicJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsTopicJob: RoomId is empty";
         return false;
     }
@@ -85,21 +85,11 @@ bool ChangeGroupsTopicJob::canStart() const
 QJsonDocument ChangeGroupsTopicJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     jsonObj[QLatin1String("topic")] = topic();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChangeGroupsTopicJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChangeGroupsTopicJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QString ChangeGroupsTopicJob::topic() const
