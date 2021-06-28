@@ -621,7 +621,9 @@ void RocketChatAccount::markRoomAsRead(const QString &roomId)
 {
     mMarkUnreadThreadsAsReadOnNextReply = true;
     restApi()->markRoomAsRead(roomId);
-    getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
+    if (threadsEnabled()) {
+        getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
+    }
 }
 
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
