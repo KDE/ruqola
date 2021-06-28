@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 GroupRemoveLeaderJob::GroupRemoveLeaderJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -87,7 +87,7 @@ bool GroupRemoveLeaderJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveLeaderJob: remove userid is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveLeaderJob: RoomId is empty";
         return false;
     }
@@ -100,21 +100,11 @@ bool GroupRemoveLeaderJob::canStart() const
 QJsonDocument GroupRemoveLeaderJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString GroupRemoveLeaderJob::roomId() const
-{
-    return mRoomId;
-}
-
-void GroupRemoveLeaderJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest GroupRemoveLeaderJob::request() const

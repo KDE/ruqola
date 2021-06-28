@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 GroupAddOwnerJob::GroupAddOwnerJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -87,7 +87,7 @@ bool GroupAddOwnerJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: remove userid is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: RoomId is empty";
         return false;
     }
@@ -100,21 +100,11 @@ bool GroupAddOwnerJob::canStart() const
 QJsonDocument GroupAddOwnerJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = addownerUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString GroupAddOwnerJob::roomId() const
-{
-    return mRoomId;
-}
-
-void GroupAddOwnerJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest GroupAddOwnerJob::request() const

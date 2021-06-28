@@ -35,7 +35,7 @@ void GroupAddOwnerJobTest::shouldHaveDefaultValue()
     GroupAddOwnerJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.addownerUserId().isEmpty());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,10 @@ void GroupAddOwnerJobTest::shouldGenerateJson()
     GroupAddOwnerJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString addUsedId = QStringLiteral("topic1");
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.identifier = roomId;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    job.setChannelGroupInfo(info);
     job.setAddownerUserId(addUsedId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(addUsedId, roomId).toLatin1());
 }

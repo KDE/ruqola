@@ -35,7 +35,7 @@ void GroupRemoveModeratorJobTest::shouldHaveDefaultValue()
     GroupRemoveModeratorJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.removeUserId().isEmpty());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -53,7 +53,10 @@ void GroupRemoveModeratorJobTest::shouldGenerateJson()
     GroupRemoveModeratorJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString removeUserId = QStringLiteral("topic1");
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.identifier = roomId;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    job.setChannelGroupInfo(info);
     job.setRemoveUserId(removeUserId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(removeUserId, roomId).toLatin1());
 }

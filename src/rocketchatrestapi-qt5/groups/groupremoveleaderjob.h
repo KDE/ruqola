@@ -20,11 +20,11 @@
 
 #pragma once
 
+#include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GroupRemoveLeaderJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GroupRemoveLeaderJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -38,10 +38,6 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
-
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QString removeUserId() const;
     void setRemoveUserId(const QString &removeUserId);
 
@@ -51,7 +47,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GroupRemoveLeaderJob)
     void slotRemoveLeaderFinished();
-    QString mRoomId;
     QString mRemoveUserId;
 };
 }
