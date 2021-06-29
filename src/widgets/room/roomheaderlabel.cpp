@@ -63,7 +63,6 @@ void RoomHeaderLabel::updateSqueezedText()
 
     if (mFullText.isEmpty()) {
         QLabel::setText(QString());
-
         return;
     }
 
