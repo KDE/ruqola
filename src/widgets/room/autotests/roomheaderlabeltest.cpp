@@ -30,5 +30,6 @@ RoomHeaderLabelTest::RoomHeaderLabelTest(QObject *parent)
 void RoomHeaderLabelTest::shouldHaveDefaultValues()
 {
     RoomHeaderLabel w;
+    QVERIFY(w.fullText().isEmpty());
     // TODO
 }

@@ -110,6 +110,11 @@ int RoomHeaderLabel::textWidth(const QString &text) const
     return document.size().toSize().width();
 }
 
+const QString &RoomHeaderLabel::fullText() const
+{
+    return mFullText;
+}
+
 void RoomHeaderLabel::setRoomAnnouncement(const QString &announcement)
 {
     mAnnouncement = announcement;

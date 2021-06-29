@@ -31,6 +31,8 @@ public:
     void setRoomAnnouncement(const QString &announcement);
     void setRoomTopic(const QString &name);
 
+    Q_REQUIRED_RESULT const QString &fullText() const;
+
 protected:
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
