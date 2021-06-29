@@ -141,6 +141,7 @@ target_sources(libruqolawidgets PRIVATE
     room/uploadfileprogressstatuswidget.cpp
     room/roomwidgetbase.cpp
     room/teamnamelabel.cpp
+    room/roomheaderlabel.cpp
 
     misc/pixmapcache.cpp
     misc/avatarcachemanager.cpp
