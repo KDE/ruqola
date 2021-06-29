@@ -49,14 +49,6 @@ void RoomHeaderLabel::resizeEvent(QResizeEvent *ev)
     updateSqueezedText();
 }
 
-void RoomHeaderLabel::setLabelText(const QString &text)
-{
-    if (text != mFullText) {
-        mFullText = text;
-        updateSqueezedText();
-    }
-}
-
 void RoomHeaderLabel::updateSqueezedText()
 {
     setToolTip(QString());
@@ -116,4 +108,31 @@ int RoomHeaderLabel::textWidth(const QString &text) const
     document.setHtml(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
 
     return document.size().toSize().width();
+}
+
+void RoomHeaderLabel::setRoomAnnouncement(const QString &announcement)
+{
+    mAnnouncement = announcement;
+    updateHeaderText();
+}
+
+void RoomHeaderLabel::setRoomTopic(const QString &topic)
+{
+    mTopic = topic;
+    updateHeaderText();
+}
+
+void RoomHeaderLabel::updateHeaderText()
+{
+    mFullText.clear();
+    if (!mTopic.isEmpty()) {
+        mFullText = mTopic;
+    }
+    if (!mAnnouncement.isEmpty()) {
+        if (!mFullText.isEmpty()) {
+            mFullText += QLatin1Char('\n');
+        }
+        mFullText += mAnnouncement;
+    }
+    updateSqueezedText();
 }

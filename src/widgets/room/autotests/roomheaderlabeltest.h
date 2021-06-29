@@ -19,29 +19,14 @@
 */
 #pragma once
 
-#include "libruqolawidgets_private_export.h"
-#include <QLabel>
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderLabel : public QLabel
+#include <QObject>
+
+class RoomHeaderLabelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit RoomHeaderLabel(QWidget *parent = nullptr);
-    ~RoomHeaderLabel() override;
-
-    void setRoomAnnouncement(const QString &announcement);
-    void setRoomTopic(const QString &name);
-
-protected:
-    QSize minimumSizeHint() const override;
-    QSize sizeHint() const override;
-    void resizeEvent(QResizeEvent *ev) override;
-
-private:
-    void updateSqueezedText();
-    void updateHeaderText();
-    Q_REQUIRED_RESULT QString rPixelSqueeze(const QString &text, int maxPixels) const;
-    Q_REQUIRED_RESULT int textWidth(const QString &text) const;
-    QString mFullText;
-    QString mTopic;
-    QString mAnnouncement;
+    explicit RoomHeaderLabelTest(QObject *parent = nullptr);
+    ~RoomHeaderLabelTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

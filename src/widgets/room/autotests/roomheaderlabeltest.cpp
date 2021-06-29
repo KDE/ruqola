@@ -17,31 +17,18 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#pragma once
 
-#include "libruqolawidgets_private_export.h"
-#include <QLabel>
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderLabel : public QLabel
+#include "roomheaderlabeltest.h"
+#include "room/roomheaderlabel.h"
+#include <QTest>
+QTEST_MAIN(RoomHeaderLabelTest)
+RoomHeaderLabelTest::RoomHeaderLabelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RoomHeaderLabel(QWidget *parent = nullptr);
-    ~RoomHeaderLabel() override;
+}
 
-    void setRoomAnnouncement(const QString &announcement);
-    void setRoomTopic(const QString &name);
-
-protected:
-    QSize minimumSizeHint() const override;
-    QSize sizeHint() const override;
-    void resizeEvent(QResizeEvent *ev) override;
-
-private:
-    void updateSqueezedText();
-    void updateHeaderText();
-    Q_REQUIRED_RESULT QString rPixelSqueeze(const QString &text, int maxPixels) const;
-    Q_REQUIRED_RESULT int textWidth(const QString &text) const;
-    QString mFullText;
-    QString mTopic;
-    QString mAnnouncement;
-};
+void RoomHeaderLabelTest::shouldHaveDefaultValues()
+{
+    RoomHeaderLabel w;
+    // TODO
+}
