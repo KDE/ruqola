@@ -28,7 +28,16 @@ public:
     explicit RoomHeaderLabel(QWidget *parent = nullptr);
     ~RoomHeaderLabel() override;
 
+    void setLabelText(const QString &text);
+
 protected:
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
+    void resizeEvent(QResizeEvent *ev) override;
+
+private:
+    void updateSqueezedText();
+    Q_REQUIRED_RESULT QString rPixelSqueeze(const QString &text, int maxPixels) const;
+    Q_REQUIRED_RESULT int textWidth(const QString &text) const;
+    QString mFullText;
 };

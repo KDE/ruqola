@@ -20,11 +20,101 @@
 
 #include "roomheaderlabel.h"
 
+#include <QTextDocument>
+
 RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
     : QLabel(parent)
 {
+    setWordWrap(true);
+    setTextInteractionFlags(Qt::TextBrowserInteraction);
 }
 
 RoomHeaderLabel::~RoomHeaderLabel()
 {
+}
+
+QSize RoomHeaderLabel::minimumSizeHint() const
+{
+    return QLabel::minimumSizeHint();
+}
+
+QSize RoomHeaderLabel::sizeHint() const
+{
+    return QLabel::sizeHint();
+}
+
+void RoomHeaderLabel::resizeEvent(QResizeEvent *ev)
+{
+    QLabel::resizeEvent(ev);
+    updateSqueezedText();
+}
+
+void RoomHeaderLabel::setLabelText(const QString &text)
+{
+    if (text != mFullText) {
+        mFullText = text;
+        updateSqueezedText();
+    }
+}
+
+void RoomHeaderLabel::updateSqueezedText()
+{
+    setToolTip(QString());
+
+    if (mFullText.isEmpty()) {
+        QLabel::setText(QString());
+
+        return;
+    }
+
+    QString text = mFullText;
+
+    if (height() < ((fontMetrics().ascent() + fontMetrics().descent()) * 2)) {
+        text = rPixelSqueeze(text, width() - 10);
+        setWordWrap(false);
+    } else {
+        setWordWrap(true);
+    }
+    QLabel::setText(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
+}
+
+QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
+{
+    int tw = textWidth(text);
+
+    if (tw > maxPixels) {
+        QString tmp = text;
+        int em = fontMetrics().maxWidth();
+        maxPixels -= fontMetrics().horizontalAdvance(QStringLiteral("..."));
+        int len, delta;
+
+        // On some MacOS system, maxWidth may return 0
+        if (em == 0) {
+            for (QChar c : text) {
+                em = qMax(em, fontMetrics().horizontalAdvance(c));
+            }
+        }
+
+        while ((tw > maxPixels) && !tmp.isEmpty()) {
+            len = tmp.length();
+            delta = (tw - maxPixels) / em;
+            delta = qBound(1, delta, len);
+
+            tmp.remove(len - delta, delta);
+            tw = textWidth(tmp);
+        }
+
+        return tmp.append(QLatin1String("..."));
+    }
+
+    return text;
+}
+
+int RoomHeaderLabel::textWidth(const QString &text) const
+{
+    QTextDocument document;
+    document.setDefaultFont(font());
+    document.setHtml(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
+
+    return document.size().toSize().width();
 }
