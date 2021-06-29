@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 GroupsInviteJob::GroupsInviteJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -97,7 +97,7 @@ bool GroupsInviteJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInviteJob: mInviteUserId is empty or mInviteUserName is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInviteJob: RoomId is empty";
         return false;
     }
@@ -110,7 +110,7 @@ bool GroupsInviteJob::canStart() const
 QJsonDocument GroupsInviteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     if (!inviteUserId().isEmpty()) {
         jsonObj[QLatin1String("userId")] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {
@@ -118,16 +118,6 @@ QJsonDocument GroupsInviteJob::json() const
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString GroupsInviteJob::roomId() const
-{
-    return mRoomId;
-}
-
-void GroupsInviteJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest GroupsInviteJob::request() const

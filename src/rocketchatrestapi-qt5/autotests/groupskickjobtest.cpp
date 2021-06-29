@@ -35,7 +35,7 @@ void GroupsKickJobTest::shouldHaveDefaultValue()
     GroupsKickJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasIdentifier());
     QVERIFY(job.kickUserId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -53,7 +53,10 @@ void GroupsKickJobTest::shouldGenerateJson()
 {
     GroupsKickJob job;
     const QString channelname = QStringLiteral("foo1");
-    job.setRoomId(channelname);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = channelname;
+    job.setChannelGroupInfo(info);
     const QString userkick = QStringLiteral("bla");
     job.setKickUserId(userkick);
 
@@ -78,7 +81,10 @@ void GroupsKickJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job.setChannelGroupInfo(info);
     QVERIFY(!job.canStart());
     const QString kickuser = QStringLiteral("bla");
     job.setKickUserId(kickuser);

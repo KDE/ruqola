@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 GroupsKickJob::GroupsKickJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -77,7 +77,7 @@ bool GroupsKickJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsKickJob: mKickUserId is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsKickJob: RoomId is empty";
         return false;
     }
@@ -90,21 +90,11 @@ bool GroupsKickJob::canStart() const
 QJsonDocument GroupsKickJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     jsonObj[QLatin1String("userId")] = kickUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString GroupsKickJob::roomId() const
-{
-    return mRoomId;
-}
-
-void GroupsKickJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest GroupsKickJob::request() const

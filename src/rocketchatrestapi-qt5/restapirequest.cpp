@@ -806,7 +806,11 @@ void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId
 {
     auto job = new GroupsInviteJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
+
     job->setUserId(userId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInGroup job";
@@ -1152,7 +1156,11 @@ void RestApiRequest::setGroupType(const QString &roomId, bool isPrivate)
 {
     auto job = new SetGroupTypeJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
+
     job->setType(isPrivate ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setGroupType job";
@@ -1340,7 +1348,11 @@ void RestApiRequest::groupKick(const QString &roomId, const QString &userId)
     auto job = new GroupsKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
+
     connect(job, &GroupsKickJob::kickUserDone, this, &RestApiRequest::groupKickUserDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelKick";
@@ -1427,7 +1439,11 @@ void RestApiRequest::groupRemoveOwner(const QString &roomId, const QString &user
     auto job = new GroupRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
+
     connect(job, &GroupRemoveOwnerJob::groupRemoveOwnerDone, this, &RestApiRequest::channelRemoveOwnerDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveOwner";

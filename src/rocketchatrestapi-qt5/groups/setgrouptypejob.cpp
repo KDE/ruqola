@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 SetGroupTypeJob::SetGroupTypeJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelGroupBaseJob(parent)
 {
 }
 
@@ -76,15 +76,6 @@ void SetGroupTypeJob::setType(GroupType type)
     mType = type;
 }
 
-QString SetGroupTypeJob::roomId() const
-{
-    return mRoomId;
-}
-
-void SetGroupTypeJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
 
 bool SetGroupTypeJob::requireHttpAuthentication() const
 {
@@ -93,7 +84,7 @@ bool SetGroupTypeJob::requireHttpAuthentication() const
 
 bool SetGroupTypeJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetGroupTypeJob: mRoomId is empty";
         return false;
     }
@@ -110,7 +101,7 @@ bool SetGroupTypeJob::canStart() const
 QJsonDocument SetGroupTypeJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJson(jsonObj);
     switch (mType) {
     case Public:
         jsonObj[QLatin1String("type")] = QStringLiteral("c");

@@ -20,11 +20,12 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "channelgroupbasejob.h"
 #include "restapiabstractjob.h"
+
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GroupRemoveOwnerJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GroupRemoveOwnerJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -39,9 +40,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QString removeUserId() const;
     void setRemoveUserId(const QString &removeUserId);
 
@@ -51,7 +49,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GroupRemoveOwnerJob)
     void slotRemoveOwnerFinished();
-    QString mRoomId;
     QString mRemoveUserId;
 };
 }
