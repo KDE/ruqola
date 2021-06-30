@@ -21,6 +21,7 @@
 #include "roomheaderwidget.h"
 #include "channelactionpopupmenu.h"
 #include "room.h"
+#include "roomheaderlabel.h"
 #include "ruqolawidgets_debug.h"
 #include "teamnamelabel.h"
 #include <KLocalizedString>
@@ -32,9 +33,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
     , mRoomName(new QLabel(this))
     , mTeamName(new TeamNameLabel(this))
-    , mTopic(new QLabel(this))
-    , mAnnouncement(new QLabel(this))
-    , mDescription(new QLabel(this))
+    , mRoomHeaderLabel(new RoomHeaderLabel(this))
     , mFavoriteButton(new QToolButton(this))
     , mEncryptedButton(new QToolButton(this))
     , mDiscussionBackButton(new QToolButton(this))
@@ -99,29 +98,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTeamName->setVisible(false);
     roomNameLayout->addStretch(1);
 
-    mTopic->setObjectName(QStringLiteral("mTopic"));
-    infoLayout->addWidget(mTopic);
-    mTopic->setWordWrap(true);
-    mTopic->setOpenExternalLinks(true);
-    mTopic->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mTopic->setTextFormat(Qt::RichText);
-    mTopic->setVisible(false);
-
-    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
-    mAnnouncement->setWordWrap(true);
-    mAnnouncement->setTextFormat(Qt::RichText);
-    infoLayout->addWidget(mAnnouncement);
-    mAnnouncement->setOpenExternalLinks(true);
-    mAnnouncement->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mAnnouncement->setVisible(false);
-
-    mDescription->setObjectName(QStringLiteral("mDescription"));
-    mDescription->setTextFormat(Qt::RichText);
-    mDescription->setWordWrap(true);
-    infoLayout->addWidget(mDescription);
-    mDescription->setOpenExternalLinks(true);
-    mDescription->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mDescription->setVisible(false);
+    mRoomHeaderLabel->setObjectName(QStringLiteral("mRoomHeaderLabel"));
+    infoLayout->addWidget(mRoomHeaderLabel);
 
     auto buttonLayout = new QHBoxLayout;
     buttonLayout->setObjectName(QStringLiteral("buttonLayout"));
@@ -195,14 +173,12 @@ QString RoomHeaderWidget::roomName() const
 
 void RoomHeaderWidget::setRoomAnnouncement(const QString &name)
 {
-    mAnnouncement->setText(name);
-    mAnnouncement->setVisible(!name.isEmpty());
+    mRoomHeaderLabel->setRoomAnnouncement(name);
 }
 
 void RoomHeaderWidget::setRoomTopic(const QString &name)
 {
-    mTopic->setText(name);
-    mTopic->setVisible(!name.isEmpty());
+    mRoomHeaderLabel->setRoomTopic(name);
 }
 
 void RoomHeaderWidget::setFavoriteStatus(bool b)

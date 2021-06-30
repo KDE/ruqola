@@ -27,6 +27,9 @@ RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
 {
     setWordWrap(true);
     setTextInteractionFlags(Qt::TextBrowserInteraction);
+    setOpenExternalLinks(true);
+    setTextFormat(Qt::RichText);
+    setVisible(false);
 }
 
 RoomHeaderLabel::~RoomHeaderLabel()
@@ -55,9 +58,10 @@ void RoomHeaderLabel::updateSqueezedText()
 
     if (mFullText.isEmpty()) {
         QLabel::setText(QString());
+        setVisible(false);
         return;
     }
-
+    setVisible(true);
     QString text = mFullText;
 
     if (height() < ((fontMetrics().ascent() + fontMetrics().descent()) * 2)) {
