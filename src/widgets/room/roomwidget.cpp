@@ -72,21 +72,16 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomHeaderWidget(new RoomHeaderWidget(this))
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
-    , mSplitter(new QSplitter(Qt::Vertical, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSplitter->setObjectName(QStringLiteral("mSplitter"));
-    mainLayout->addWidget(mSplitter);
-
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
-    mSplitter->addWidget(mRoomHeaderWidget);
-    mSplitter->setChildrenCollapsible(false);
+    mainLayout->addWidget(mRoomHeaderWidget);
 
     auto roomWidget = new QWidget(this);
-    mSplitter->addWidget(roomWidget);
+    mainLayout->addWidget(roomWidget);
     auto roomWidgetLayout = new QVBoxLayout(roomWidget);
     roomWidgetLayout->setObjectName(QStringLiteral("roomWidgetLayout"));
     roomWidgetLayout->setContentsMargins({});

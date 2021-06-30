@@ -20,6 +20,8 @@
 
 #include "roomheaderlabel.h"
 
+#include <KLocalizedString>
+#include <QDesktopServices>
 #include <QTextDocument>
 
 RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
@@ -27,23 +29,13 @@ RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
 {
     setWordWrap(true);
     setTextInteractionFlags(Qt::TextBrowserInteraction);
-    setOpenExternalLinks(true);
     setTextFormat(Qt::RichText);
     setVisible(false);
+    connect(this, &QLabel::linkActivated, this, &RoomHeaderLabel::slotMoreInfo);
 }
 
 RoomHeaderLabel::~RoomHeaderLabel()
 {
-}
-
-QSize RoomHeaderLabel::minimumSizeHint() const
-{
-    return QLabel::minimumSizeHint();
-}
-
-QSize RoomHeaderLabel::sizeHint() const
-{
-    return QLabel::sizeHint();
 }
 
 void RoomHeaderLabel::resizeEvent(QResizeEvent *ev)
@@ -62,56 +54,76 @@ void RoomHeaderLabel::updateSqueezedText()
         return;
     }
     setVisible(true);
-    QString text = mFullText;
-
-    if (height() < ((fontMetrics().ascent() + fontMetrics().descent()) * 2)) {
-        text = rPixelSqueeze(text, width() - 10);
-        setWordWrap(false);
-    } else {
-        setWordWrap(true);
-    }
+    const QString text = rPixelSqueeze(mFullText, width() - 10);
     QLabel::setText(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
+    setToolTip(mFullText);
+}
+
+void RoomHeaderLabel::slotMoreInfo(const QString &content)
+{
+    if (content == QLatin1String("showmoretext")) {
+        mExpandTopic = true;
+        updateSqueezedText();
+    } else if (content == QLatin1String("showlesstext")) {
+        mExpandTopic = false;
+        updateSqueezedText();
+    } else {
+        QDesktopServices::openUrl(QUrl(content));
+    }
 }
 
 QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
 {
-    int tw = textWidth(text);
+    const auto tSize = textSize(text);
+    int tHeight = tSize.height();
+    int tw = tSize.width();
+    QString tmp = text;
+    const QString showMoreText = i18n("(Show more...)");
+    if (tHeight > (2 * fontMetrics().ascent() + fontMetrics().descent())) {
+        if (!mExpandTopic) {
+            if (tw > maxPixels) {
+                int em = fontMetrics().maxWidth();
+                maxPixels -= fontMetrics().horizontalAdvance(showMoreText);
+                int len, delta;
 
-    if (tw > maxPixels) {
-        QString tmp = text;
-        int em = fontMetrics().maxWidth();
-        maxPixels -= fontMetrics().horizontalAdvance(QStringLiteral("..."));
-        int len, delta;
+                // On some MacOS system, maxWidth may return 0
+                if (em == 0) {
+                    for (QChar c : text) {
+                        em = qMax(em, fontMetrics().horizontalAdvance(c));
+                    }
+                }
+                while ((tw > maxPixels) && !tmp.isEmpty()) {
+                    len = tmp.length();
+                    delta = (em == 0) ? 0 : (tw - maxPixels) / em;
+                    delta = qBound(1, delta, len);
 
-        // On some MacOS system, maxWidth may return 0
-        if (em == 0) {
-            for (QChar c : text) {
-                em = qMax(em, fontMetrics().horizontalAdvance(c));
+                    tmp.remove(len - delta, delta);
+                    tw = textSize(tmp).width();
+                }
+            } else {
+                tmp = tmp.split(QStringLiteral("\n")).at(0);
             }
+            if (!tmp.endsWith(QLatin1Char('\n'))) {
+                tmp.append(QLatin1Char('\n'));
+            }
+            return tmp.append(QStringLiteral("<a href=\"showmoretext\"> %1</a>").arg(showMoreText));
+        } else {
+            if (!tmp.endsWith(QLatin1Char('\n'))) {
+                tmp.append(QLatin1Char('\n'));
+            }
+            return tmp.append(QStringLiteral("<a href=\"showlesstext\"> %1</a>").arg(i18n("(Show less...)")));
         }
-
-        while ((tw > maxPixels) && !tmp.isEmpty()) {
-            len = tmp.length();
-            delta = (em == 0) ? 0 : (tw - maxPixels) / em;
-            delta = qBound(1, delta, len);
-
-            tmp.remove(len - delta, delta);
-            tw = textWidth(tmp);
-        }
-
-        return tmp.append(QLatin1String("..."));
     }
-
     return text;
 }
 
-int RoomHeaderLabel::textWidth(const QString &text) const
+QSize RoomHeaderLabel::textSize(const QString &text) const
 {
     QTextDocument document;
     document.setDefaultFont(font());
     document.setHtml(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
 
-    return document.size().toSize().width();
+    return document.size().toSize();
 }
 
 const QString &RoomHeaderLabel::fullText() const

@@ -34,16 +34,15 @@ public:
     Q_REQUIRED_RESULT const QString &fullText() const;
 
 protected:
-    QSize minimumSizeHint() const override;
-    QSize sizeHint() const override;
     void resizeEvent(QResizeEvent *ev) override;
-
 private:
+    void slotMoreInfo(const QString &content);
     void updateSqueezedText();
     void updateHeaderText();
     Q_REQUIRED_RESULT QString rPixelSqueeze(const QString &text, int maxPixels) const;
-    Q_REQUIRED_RESULT int textWidth(const QString &text) const;
+    Q_REQUIRED_RESULT QSize textSize(const QString &text) const;
     QString mFullText;
     QString mTopic;
     QString mAnnouncement;
+    bool mExpandTopic = false;
 };
