@@ -22,7 +22,6 @@
 #include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <QHeaderView>
 #include <QMenu>
 
 InviteTreeView::InviteTreeView(QWidget *parent)

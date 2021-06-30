@@ -26,7 +26,6 @@
 #include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
-#include <QLabel>
 #include <QLineEdit>
 
 AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)

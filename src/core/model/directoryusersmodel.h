@@ -23,7 +23,6 @@
 #include "libruqolacore_export.h"
 #include "users.h"
 
-#include <QVector>
 class LIBRUQOLACORE_EXPORT DirectoryUsersModel : public DirectoryBaseModel
 {
     Q_OBJECT

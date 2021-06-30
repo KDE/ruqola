@@ -30,12 +30,9 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
-#include <QHeaderView>
 #include <QLabel>
 #include <QMenu>
-#include <QSortFilterProxyModel>
 #include <QTreeView>
-#include <QVBoxLayout>
 
 DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     : SearchTreeBaseWidget(parent)

@@ -22,7 +22,6 @@
 #include "misc/searchwithdelaylineedit.h"
 #include <QHeaderView>
 #include <QLabel>
-#include <QLineEdit>
 #include <QTest>
 #include <QTreeView>
 #include <QVBoxLayout>

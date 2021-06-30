@@ -24,7 +24,6 @@
 #include "model/directorybasefilterproxymodel.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QTest>
-#include <QTreeWidget>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorCustomSoundsWidgetTest)
 AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject *parent)

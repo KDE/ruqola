@@ -19,7 +19,6 @@
 */
 
 #include "rolesmodel.h"
-#include <KLocalizedString>
 
 RolesModel::RolesModel(QObject *parent)
     : QAbstractListModel(parent)

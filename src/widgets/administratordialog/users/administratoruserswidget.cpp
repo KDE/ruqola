@@ -35,14 +35,11 @@
 #include "users/userslistjob.h"
 #include "users/usersupdatejob.h"
 #include <KLocalizedString>
-#include <QHeaderView>
 #include <QLabel>
-#include <QLineEdit>
 #include <QMenu>
 #include <QMessageBox>
 #include <QPointer>
 #include <QTreeView>
-#include <QVBoxLayout>
 
 AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     : SearchTreeBaseWidget(parent)

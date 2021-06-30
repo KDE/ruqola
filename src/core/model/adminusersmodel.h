@@ -21,7 +21,6 @@
 #pragma once
 
 #include "directoryusersmodel.h"
-#include <QVector>
 
 #include "libruqolacore_export.h"
 #include "user.h"

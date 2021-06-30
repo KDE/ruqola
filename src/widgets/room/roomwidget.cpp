@@ -63,7 +63,6 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>
-#include <QSplitter>
 #include <QVBoxLayout>
 
 RoomWidget::RoomWidget(QWidget *parent)

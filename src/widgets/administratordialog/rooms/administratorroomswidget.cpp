@@ -31,10 +31,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <QHeaderView>
-#include <QJsonObject>
 #include <QLabel>
-#include <QLineEdit>
 #include <QMenu>
 #include <QTreeView>
 #include <QVBoxLayout>
