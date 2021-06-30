@@ -78,7 +78,7 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
     int tHeight = tSize.height();
     int tw = tSize.width();
     QString tmp = text;
-    const QString showMoreText = i18n("(Show more...)");
+    const QString showMoreText = i18n("(Show More Infos...)");
     if (tHeight > (2 * fontMetrics().ascent() + fontMetrics().descent())) {
         if (!mExpandTopic) {
             if (tw > maxPixels) {
@@ -111,7 +111,7 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
             if (!tmp.endsWith(QLatin1Char('\n'))) {
                 tmp.append(QLatin1Char('\n'));
             }
-            return tmp.append(QStringLiteral("<a href=\"showlesstext\"> %1</a>").arg(i18n("(Show less...)")));
+            return tmp.append(QStringLiteral("<a href=\"showlesstext\"> %1</a>").arg(i18n("(Show Less Info...)")));
         }
     }
     return text;
