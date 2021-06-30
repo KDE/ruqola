@@ -83,6 +83,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
     mSplitter->addWidget(mRoomHeaderWidget);
+    mSplitter->setChildrenCollapsible(false);
 
     auto roomWidget = new QWidget(this);
     mSplitter->addWidget(roomWidget);
