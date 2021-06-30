@@ -34,6 +34,7 @@ class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class Room;
 class RoomWidgetBase;
+class QSplitter;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -109,5 +110,6 @@ private:
     UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QSplitter *const mSplitter;
 };
 

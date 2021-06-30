@@ -100,6 +100,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 
     mRoomHeaderLabel->setObjectName(QStringLiteral("mRoomHeaderLabel"));
     infoLayout->addWidget(mRoomHeaderLabel);
+    mRoomHeaderLabel->setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum));
 
     auto buttonLayout = new QHBoxLayout;
     buttonLayout->setObjectName(QStringLiteral("buttonLayout"));

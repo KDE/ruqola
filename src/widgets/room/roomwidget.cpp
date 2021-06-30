@@ -63,6 +63,7 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>
+#include <QSplitter>
 #include <QVBoxLayout>
 
 RoomWidget::RoomWidget(QWidget *parent)
@@ -71,21 +72,31 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomHeaderWidget(new RoomHeaderWidget(this))
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
+    , mSplitter(new QSplitter(Qt::Vertical, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    mSplitter->setObjectName(QStringLiteral("mSplitter"));
+    mainLayout->addWidget(mSplitter);
+
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
-    mainLayout->addWidget(mRoomHeaderWidget);
+    mSplitter->addWidget(mRoomHeaderWidget);
+
+    auto roomWidget = new QWidget(this);
+    mSplitter->addWidget(roomWidget);
+    auto roomWidgetLayout = new QVBoxLayout(roomWidget);
+    roomWidgetLayout->setObjectName(QStringLiteral("roomWidgetLayout"));
+    roomWidgetLayout->setContentsMargins({});
 
     mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
-    mainLayout->addWidget(mUsersInRoomFlowWidget);
+    roomWidgetLayout->addWidget(mUsersInRoomFlowWidget);
     mUsersInRoomFlowWidget->setVisible(false);
 
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
-    mainLayout->addWidget(mRoomCounterInfoWidget);
-    mainLayout->addWidget(mRoomWidgetBase);
+    roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
+    roomWidgetLayout->addWidget(mRoomWidgetBase);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::jumpToUnreadMessage, this, &RoomWidget::slotJumpToUnreadMessage);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
