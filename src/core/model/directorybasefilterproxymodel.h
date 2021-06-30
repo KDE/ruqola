@@ -21,7 +21,6 @@
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
-class DirectoryBaseModel;
 class LIBRUQOLACORE_EXPORT DirectoryBaseFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
