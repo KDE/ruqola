@@ -111,6 +111,7 @@ void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
     if (!obj.isEmpty()) {
         const QString rid = obj.value(QLatin1String("rid")).toString();
         if (!rid.isEmpty()) {
