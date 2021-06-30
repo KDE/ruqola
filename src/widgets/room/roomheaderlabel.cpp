@@ -88,7 +88,7 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
 
         while ((tw > maxPixels) && !tmp.isEmpty()) {
             len = tmp.length();
-            delta = (tw - maxPixels) / em;
+            delta = (em == 0) ? 0 : (tw - maxPixels) / em;
             delta = qBound(1, delta, len);
 
             tmp.remove(len - delta, delta);
