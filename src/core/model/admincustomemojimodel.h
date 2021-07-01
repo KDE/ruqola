@@ -52,6 +52,9 @@ public:
     const CustomEmojisInfo &customEmojis() const;
     void setCustomEmojis(const CustomEmojisInfo &newCustomEmojis);
 
+protected:
+    void removeElement(const QString &identifier) override;
+
 private:
     Q_DISABLE_COPY(AdminCustomEmojiModel)
     void checkFullList();

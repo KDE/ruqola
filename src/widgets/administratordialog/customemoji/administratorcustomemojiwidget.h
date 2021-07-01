@@ -40,4 +40,5 @@ private:
     void slotModifyCustomEmoji(const QModelIndex &index);
     void slotAddCustomEmoji();
     void slotRemoveCustomEmoji(const QModelIndex &index);
+    void slotEmojiRemoved(const QString &emojiId);
 };

@@ -123,6 +123,21 @@ void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmo
     }
 }
 
+void AdminCustomEmojiModel::removeElement(const QString &identifier)
+{
+    const int userCount = mCustomEmojiList.count();
+    for (int i = 0; i < userCount; ++i) {
+        if (mCustomEmojiList.at(i).identifier() == identifier) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mCustomEmojiList.takeAt(i);
+            mCustomEmojiList.setTotal(mCustomEmojiList.count()); // Update total
+            endRemoveRows();
+            Q_EMIT totalChanged();
+            break;
+        }
+    }
+}
+
 void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mCustomEmojiList.count();

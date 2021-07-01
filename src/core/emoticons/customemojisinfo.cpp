@@ -121,6 +121,11 @@ void CustomEmojisInfo::setTotal(int total)
     mTotal = total;
 }
 
+CustomEmoji CustomEmojisInfo::takeAt(int index)
+{
+    return mCustomEmojiInfos.takeAt(index);
+}
+
 QDebug operator<<(QDebug d, const CustomEmojisInfo &t)
 {
     d << "total " << t.total();

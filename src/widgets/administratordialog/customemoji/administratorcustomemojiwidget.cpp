@@ -121,13 +121,17 @@ void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &in
         job->setEmojiId(emojiId);
         rcAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomDeleteJob::emojiCustomDeleteDone, this, [this, emojiId]() {
-            // TODO update list
-            qDebug() << " EmojiCustomDeleteJob " << emojiId;
+            slotEmojiRemoved(emojiId);
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start EmojiCustomDeleteJob job";
         }
     }
+}
+
+void AdministratorCustomEmojiWidget::slotEmojiRemoved(const QString &emojiId)
+{
+    mModel->removeElement(emojiId);
 }
 
 void AdministratorCustomEmojiWidget::slotCustomContextMenuRequested(const QPoint &pos)

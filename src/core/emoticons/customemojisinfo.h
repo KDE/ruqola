@@ -49,6 +49,8 @@ public:
     const QVector<CustomEmoji> &customSoundInfos() const;
     void setCustomSoundInfos(const QVector<CustomEmoji> &newCustomSoundInfos);
 
+    CustomEmoji takeAt(int index);
+
 private:
     void parseListCustomSound(const QJsonObject &obj);
     QVector<CustomEmoji> mCustomEmojiInfos;
