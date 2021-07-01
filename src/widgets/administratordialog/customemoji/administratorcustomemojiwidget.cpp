@@ -31,6 +31,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QLabel>
 #include <QMenu>
 #include <QPointer>
@@ -113,7 +114,20 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
 
 void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &index)
 {
-    // TODO
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this emoji?"), i18n("Remove Emoji")) == KMessageBox::Yes) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::EmojiCustomDeleteJob(this);
+        const QString emojiId = index.data().toString();
+        job->setEmojiId(emojiId);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::EmojiCustomDeleteJob::emojiCustomDeleteDone, this, [this, emojiId]() {
+            // TODO update list
+            qDebug() << " EmojiCustomDeleteJob " << emojiId;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start EmojiCustomDeleteJob job";
+        }
+    }
 }
 
 void AdministratorCustomEmojiWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -122,12 +136,15 @@ void AdministratorCustomEmojiWidget::slotCustomContextMenuRequested(const QPoint
     const QModelIndex index = mTreeView->indexAt(pos);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorCustomEmojiWidget::slotAddCustomEmoji);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-            slotModifyCustomEmoji(index);
+        const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, newModelIndex]() {
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminCustomEmojiModel::Identifier);
+            slotModifyCustomEmoji(modelIndex);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            slotRemoveCustomEmoji(index);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminCustomEmojiModel::Identifier);
+            slotRemoveCustomEmoji(modelIndex);
         });
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
