@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -44,12 +44,12 @@ bool EmojiCustomAllJob::start()
     }
     QNetworkReply *reply = submitGetRequest();
     addStartRestApiInfo(QByteArrayLiteral("EmojiCustomAllJob: Load Emoji custom"));
-    connect(reply, &QNetworkReply::finished, this, &EmojiCustomAllJob::slotloadEmojiCustomDone);
+    connect(reply, &QNetworkReply::finished, this, &EmojiCustomAllJob::slotEmojiCustomAllDone);
 
     return true;
 }
 
-void EmojiCustomAllJob::slotloadEmojiCustomDone()
+void EmojiCustomAllJob::slotEmojiCustomAllDone()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +58,7 @@ void EmojiCustomAllJob::slotloadEmojiCustomDone()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("EmojiCustomAllJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT loadEmojiCustomDone(replyObject);
+            Q_EMIT emojiCustomAllDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("EmojiCustomAllJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

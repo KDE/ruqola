@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -39,10 +39,10 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 Q_SIGNALS:
-    void loadEmojiCustomDone(const QJsonObject &obj);
+    void emojiCustomAllDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(EmojiCustomAllJob)
-    void slotloadEmojiCustomDone();
+    void slotEmojiCustomAllDone();
 };
 }
