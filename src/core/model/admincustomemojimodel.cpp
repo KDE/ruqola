@@ -35,7 +35,7 @@ int AdminCustomEmojiModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mCustomSounds.count();
+    return mCustomEmojiList.count();
 }
 
 QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -59,20 +59,20 @@ int AdminCustomEmojiModel::columnCount(const QModelIndex &parent) const
 
 QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mCustomSounds.count()) {
+    if (index.row() < 0 || index.row() >= mCustomEmojiList.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const CustomSoundInfo &customSound = mCustomSounds.at(index.row());
+    const CustomEmoji &customEmoji = mCustomEmojiList.at(index.row());
     const int col = index.column();
     switch (static_cast<CustomEmojiRoles>(col)) {
     case CustomEmojiRoles::Name:
-        return customSound.name();
+        return customEmoji.name();
     case CustomEmojiRoles::Identifier:
-        return customSound.identifier();
+        return customEmoji.identifier();
     }
 
     return {};
@@ -80,19 +80,19 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
 
 int AdminCustomEmojiModel::total() const
 {
-    return mCustomSounds.count();
+    return mCustomEmojiList.count();
 }
 
 void AdminCustomEmojiModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCustomSounds.count() - 1);
-        mCustomSounds.clear();
+        beginRemoveRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
+        mCustomEmojiList.clear();
         endRemoveRows();
     }
-    mCustomSounds.parseCustomSounds(obj);
-    if (!mCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+    mCustomEmojiList.parseCustomSounds(obj);
+    if (!mCustomEmojiList.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
         endInsertRows();
     }
     checkFullList();
@@ -101,33 +101,33 @@ void AdminCustomEmojiModel::parseElements(const QJsonObject &obj)
 
 void AdminCustomEmojiModel::checkFullList()
 {
-    setHasFullList(mCustomSounds.count() == mCustomSounds.total());
+    setHasFullList(mCustomEmojiList.count() == mCustomEmojiList.total());
 }
 
-const CustomSoundsInfo &AdminCustomEmojiModel::customSounds() const
+const CustomEmojisInfo &AdminCustomEmojiModel::customEmojis() const
 {
-    return mCustomSounds;
+    return mCustomEmojiList;
 }
 
-void AdminCustomEmojiModel::setCustomSounds(const CustomSoundsInfo &newCustomSounds)
+void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmojis)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCustomSounds.count() - 1);
-        mCustomSounds.clear();
+        beginRemoveRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
+        mCustomEmojiList.clear();
         endRemoveRows();
     }
-    if (!mCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
-        mCustomSounds = newCustomSounds;
+    if (!mCustomEmojiList.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
+        mCustomEmojiList = newCustomEmojis;
         endInsertRows();
     }
 }
 
 void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 {
-    const int numberOfElement = mCustomSounds.count();
-    mCustomSounds.parseCustomSounds(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mCustomSounds.count() - 1);
+    const int numberOfElement = mCustomEmojiList.count();
+    mCustomEmojiList.parseCustomSounds(obj);
+    beginInsertRows(QModelIndex(), numberOfElement, mCustomEmojiList.count() - 1);
     endInsertRows();
     checkFullList();
 }

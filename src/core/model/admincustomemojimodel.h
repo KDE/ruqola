@@ -22,6 +22,7 @@
 
 #include "customsoundsinfo.h"
 #include "directorybasemodel.h"
+#include "emoticons/customemojisinfo.h"
 #include "libruqolacore_export.h"
 
 class LIBRUQOLACORE_EXPORT AdminCustomEmojiModel : public DirectoryBaseModel
@@ -48,12 +49,11 @@ public:
     void addMoreElements(const QJsonObject &obj) override;
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;
 
-    const CustomSoundsInfo &customSounds() const;
-    void setCustomSounds(const CustomSoundsInfo &newCustomSounds);
+    const CustomEmojisInfo &customEmojis() const;
+    void setCustomEmojis(const CustomEmojisInfo &newCustomEmojis);
 
 private:
     Q_DISABLE_COPY(AdminCustomEmojiModel)
     void checkFullList();
-    // TODO !
-    CustomSoundsInfo mCustomSounds;
+    CustomEmojisInfo mCustomEmojiList;
 };

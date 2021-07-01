@@ -92,6 +92,7 @@ target_sources(libruqolacore PRIVATE
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthentication.cpp
     emoticons/customemoji.cpp
+    emoticons/customemojisinfo.cpp
     emoticons/emojimanager.cpp
     emoticons/unicodeemoticon.cpp
     emoticons/unicodeemoticonparser.cpp
