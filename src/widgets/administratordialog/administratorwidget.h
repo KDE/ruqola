@@ -31,6 +31,7 @@ class AdministratorServerInfoWidget;
 class AdministratorUsersWidget;
 class AdministratorInvitesWidget;
 class ViewLogWidget;
+class AdministratorCustomEmojiWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
@@ -49,6 +50,7 @@ private:
     AdministratorServerInfoWidget *const mAdministratorServerInfoWidget;
     AdministratorUsersWidget *const mAdministratorUsersWidget;
     AdministratorInvitesWidget *const mAdministratorInvitesWidget;
+    AdministratorCustomEmojiWidget *const mAdministratorCustomEmojiWidget;
     ViewLogWidget *const mViewLogWidget;
     int mCustomSoundsTabIndex = -1;
     int mServerInfoTabIndex = -1;

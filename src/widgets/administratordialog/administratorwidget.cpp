@@ -20,6 +20,7 @@
 
 #include "administratorwidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
+#include "customemoji/administratorcustomemojiwidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "invites/administratorinviteswidget.h"
@@ -42,6 +43,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(this))
     , mAdministratorUsersWidget(new AdministratorUsersWidget(this))
     , mAdministratorInvitesWidget(new AdministratorInvitesWidget(this))
+    , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(this))
     , mViewLogWidget(new ViewLogWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -63,6 +65,8 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
     mCustomSoundsTabIndex = mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 
+    mAdministratorCustomEmojiWidget->setObjectName(QStringLiteral("mAdministratorCustomEmojiWidget"));
+    mTabWidget->addTab(mAdministratorCustomEmojiWidget, i18n("Custom Emojis"));
 
     mAdministratorUsersWidget->setObjectName(QStringLiteral("mAdministratorUsersWidget"));
     mTabWidget->addTab(mAdministratorUsersWidget, i18n("Users"));

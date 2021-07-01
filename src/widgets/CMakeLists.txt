@@ -206,6 +206,8 @@ target_sources(libruqolawidgets PRIVATE
 
     administratordialog/logs/viewlogwidget.cpp
 
+    administratordialog/customemoji/administratorcustomemojiwidget.cpp
+
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
 

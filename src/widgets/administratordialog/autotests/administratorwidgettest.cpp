@@ -20,6 +20,7 @@
 
 #include "administratorwidgettest.h"
 #include "administratordialog/administratorwidget.h"
+#include "administratordialog/customemoji/administratorcustomemojiwidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/invites/administratorinviteswidget.h"
@@ -68,4 +69,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mViewLogWidget = w.findChild<ViewLogWidget *>(QStringLiteral("mViewLogWidget"));
     QVERIFY(mViewLogWidget);
+
+    auto mAdministratorCustomEmojiWidget = w.findChild<AdministratorCustomEmojiWidget *>(QStringLiteral("mAdministratorCustomEmojiWidget"));
+    QVERIFY(mAdministratorCustomEmojiWidget);
 }
