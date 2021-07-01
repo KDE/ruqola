@@ -58,6 +58,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     emoji/emojicustomdeletejob.cpp
     emoji/emojicustomcreatejob.cpp
     emoji/emojicustomupdatejob.cpp
+    emoji/emojicustomalljob.cpp
 
     chat/starmessagejob.cpp
     chat/syncthreadmessagesjob.cpp
