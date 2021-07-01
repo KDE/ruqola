@@ -324,6 +324,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("emoji-custom.create");
     case RestApiUtil::RestApiUrlType::EmojiCustomUpdate:
         return QStringLiteral("emoji-custom.update");
+    case RestApiUtil::RestApiUrlType::EmojiCustomAll:
+        return QStringLiteral("emoji-custom.all");
     case RestApiUtil::RestApiUrlType::SubscriptionsRead:
         return QStringLiteral("subscriptions.read");
     case RestApiUtil::RestApiUrlType::SubscriptionsUnRead:

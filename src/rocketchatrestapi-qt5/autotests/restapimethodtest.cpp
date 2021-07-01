@@ -200,7 +200,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.create")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.update")));
-
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.all")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveNotification), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveNotification")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveSettings), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveRoomSettings")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms")));
