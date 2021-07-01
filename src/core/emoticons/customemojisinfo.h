@@ -27,10 +27,6 @@
 class LIBRUQOLACORE_EXPORT CustomEmojisInfo
 {
 public:
-    enum ParseType {
-        Administrator,
-        Directory,
-    };
     CustomEmojisInfo();
 
     Q_REQUIRED_RESULT bool isEmpty() const;
