@@ -56,7 +56,9 @@ void RoomHeaderLabel::updateSqueezedText()
     setVisible(true);
     const QString text = rPixelSqueeze(mFullText, width() - 10);
     QLabel::setText(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
-    setToolTip(mFullText);
+    if (mFullText != text && !mExpandTopic) {
+        setToolTip(mFullText);
+    }
 }
 
 void RoomHeaderLabel::slotMoreInfo(const QString &content)
