@@ -68,6 +68,16 @@ void EmojiCustomAllJob::slotEmojiCustomAllDone()
     deleteLater();
 }
 
+const QString &EmojiCustomAllJob::pattern() const
+{
+    return mPattern;
+}
+
+void EmojiCustomAllJob::setPattern(const QString &newPattern)
+{
+    mPattern = newPattern;
+}
+
 bool EmojiCustomAllJob::requireHttpAuthentication() const
 {
     return true;

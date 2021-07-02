@@ -20,33 +20,16 @@
 
 #pragma once
 
-#include "restapiabstractjob.h"
+#include <QObject>
 
-#include "librestapi_private_export.h"
-
-#include <QNetworkRequest>
-namespace RocketChatRestApi
-{
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT EmojiCustomAllJob : public RestApiAbstractJob
+class EmojiCustomAllJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmojiCustomAllJob(QObject *parent = nullptr);
-    ~EmojiCustomAllJob() override;
+    explicit EmojiCustomAllJobTest(QObject *parent = nullptr);
+    ~EmojiCustomAllJobTest() override = default;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
-    Q_REQUIRED_RESULT const QString &pattern() const;
-    void setPattern(const QString &newPattern);
-
-Q_SIGNALS:
-    void emojiCustomAllDone(const QJsonObject &obj);
-
-private:
-    Q_DISABLE_COPY(EmojiCustomAllJob)
-    void slotEmojiCustomAllDone();
-    QString mPattern;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
 };
-}
