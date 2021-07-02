@@ -87,6 +87,7 @@ void AdministratorWidget::initialize()
     mAdministratorUsersWidget->initialize();
     mAdministratorRoomsWidget->initialize();
     mAdministratorCustomSoundsWidget->initialize();
+    mAdministratorCustomEmojiWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()
