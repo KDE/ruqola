@@ -474,6 +474,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("teams.delete");
     case RestApiUtil::RestApiUrlType::TeamsAutocomplete:
         return QStringLiteral("teams.autocomplete");
+    case RestApiUtil::RestApiUrlType::TeamsConvertToChannel:
+        return QStringLiteral("teams.converToChannel");
     case RestApiUtil::RestApiUrlType::RoomsAutocompleteAvailableForTeams:
         return QStringLiteral("rooms.autocomplete.availableForTeams");
     case RestApiUtil::RestApiUrlType::ChannelsConvertToTeam:

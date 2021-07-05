@@ -274,6 +274,7 @@ enum class RestApiUrlType {
     TeamsInfo,
     TeamsDelete,
     TeamsAutocomplete,
+    TeamsConvertToChannel,
     RoomsAutocompleteAvailableForTeams,
     ChannelsConvertToTeam,
     GroupsConvertToTeam,
