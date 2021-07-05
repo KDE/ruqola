@@ -20,9 +20,14 @@
 
 #include "administratorcustomemojicreatewidget.h"
 
+#include <QFormLayout>
+
 AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidget *parent)
     : QWidget(parent)
 {
+    auto mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
     // TODO
 }
 

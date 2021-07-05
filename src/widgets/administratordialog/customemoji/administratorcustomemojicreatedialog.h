@@ -22,6 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
+class AdministratorCustomEmojiCreateWidget;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateDialog : public QDialog
 {
@@ -33,4 +34,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    AdministratorCustomEmojiCreateWidget *const mCreateWidget;
 };

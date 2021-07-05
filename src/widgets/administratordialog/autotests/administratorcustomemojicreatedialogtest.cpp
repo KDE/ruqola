@@ -20,6 +20,7 @@
 
 #include "administratorcustomemojicreatedialogtest.h"
 #include "administratordialog/customemoji/administratorcustomemojicreatedialog.h"
+#include "administratordialog/customemoji/administratorcustomemojicreatewidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -40,8 +41,8 @@ void AdministratorCustomEmojiCreateDialogTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    //    auto mCreateWidget = w.findChild<AdministratorCustomUserStatusCreateWidget *>(QStringLiteral("mCreateWidget"));
-    //    QVERIFY(mCreateWidget);
+    auto mCreateWidget = w.findChild<AdministratorCustomEmojiCreateWidget *>(QStringLiteral("mCreateWidget"));
+    QVERIFY(mCreateWidget);
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);

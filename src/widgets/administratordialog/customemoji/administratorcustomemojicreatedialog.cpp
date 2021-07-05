@@ -19,6 +19,7 @@
 */
 
 #include "administratorcustomemojicreatedialog.h"
+#include "administratorcustomemojicreatewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -31,13 +32,14 @@ static const char myConfigAdministratorCustomEmojiCreateDialogGroupName[] = "Adm
 }
 AdministratorCustomEmojiCreateDialog::AdministratorCustomEmojiCreateDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateWidget(new AdministratorCustomEmojiCreateWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Create New User Status"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
-    //    mainLayout->addWidget(mCreateWidget);
+    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mainLayout->addWidget(mCreateWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
