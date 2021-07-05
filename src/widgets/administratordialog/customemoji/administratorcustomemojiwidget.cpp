@@ -19,6 +19,7 @@
 */
 
 #include "administratorcustomemojiwidget.h"
+#include "administratorcustomemojicreatedialog.h"
 #include "emoji/emojicustomalljob.h"
 #include "emoji/emojicustomcreatejob.h"
 #include "emoji/emojicustomdeletejob.h"
@@ -98,18 +99,21 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 
 void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 {
-#if 0
-    QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
+    QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
     if (dlg->exec()) {
         // TODO
     }
     delete dlg;
-#endif
 }
 
 void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &index)
 {
-    // TODO
+    QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
+    // TODO edit
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &index)
