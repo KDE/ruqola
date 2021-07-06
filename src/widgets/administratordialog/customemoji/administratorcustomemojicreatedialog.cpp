@@ -34,7 +34,7 @@ AdministratorCustomEmojiCreateDialog::AdministratorCustomEmojiCreateDialog(QWidg
     : QDialog(parent)
     , mCreateWidget(new AdministratorCustomEmojiCreateWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Create New User Status"));
+    setWindowTitle(i18nc("@title:window", "Configure Custom Emoji"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

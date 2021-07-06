@@ -22,11 +22,15 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorCustomEmojiCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomEmojiCreateWidget() override;
+
+private:
+    QLineEdit *const mName;
+    QLineEdit *const mAlias;
 };
