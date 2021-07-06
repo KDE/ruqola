@@ -19,23 +19,28 @@
 */
 
 #include "administratorcustomemojicreatewidget.h"
-
+#include "misc/lineeditcatchreturnkey.h"
+#include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <QVBoxLayout>
+
+#include <KLocalizedString>
 
 AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
     , mAlias(new QLineEdit(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
     mName->setObjectName(QStringLiteral("mName"));
     mAlias->setObjectName(QStringLiteral("mAlias"));
-    // TODO
+    new LineEditCatchReturnKey(mName, this);
+    new LineEditCatchReturnKey(mAlias, this);
+    mainLayout->addRow(i18n("Name:"), mName);
+    mainLayout->addRow(i18n("Alias:"), mAlias);
 }
 
 AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget()

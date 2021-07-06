@@ -111,7 +111,7 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
     QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
     // TODO edit
     if (dlg->exec()) {
-        // TODO
+        // TODO add emoji
     }
     delete dlg;
 }
