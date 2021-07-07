@@ -30,7 +30,11 @@ public:
     explicit AdministratorCustomEmojiCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomEmojiCreateWidget() override;
 
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
+
 private:
+    void slotUpdateOkButton();
     QLineEdit *const mName;
     QLineEdit *const mAlias;
 };

@@ -41,8 +41,15 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
     new LineEditCatchReturnKey(mAlias, this);
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Alias:"), mAlias);
+    connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
+    connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
 }
 
 AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget()
 {
+}
+
+void AdministratorCustomEmojiCreateWidget::slotUpdateOkButton()
+{
+    Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && !mAlias->text().trimmed().isEmpty());
 }

@@ -24,6 +24,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 namespace
@@ -47,6 +48,9 @@ AdministratorCustomEmojiCreateDialog::AdministratorCustomEmojiCreateDialog(QWidg
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomEmojiCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomEmojiCreateDialog::accept);
     readConfig();
+    auto okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mCreateWidget, &AdministratorCustomEmojiCreateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
 AdministratorCustomEmojiCreateDialog::~AdministratorCustomEmojiCreateDialog()
