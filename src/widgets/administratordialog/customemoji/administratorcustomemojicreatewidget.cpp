@@ -55,12 +55,19 @@ AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget()
 
 void AdministratorCustomEmojiCreateWidget::setCustomEmojiInfo(const CustomEmojiCreateInfo &info)
 {
-    // TODO
+    mName->setText(info.name);
+    mAlias->setText(info.alias);
+
+    // TODO url ???
 }
 
 AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateWidget::info() const
 {
-    return {};
+    AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info;
+    info.name = mName->text().trimmed();
+    info.alias = mAlias->text().trimmed();
+    info.fileNameUrl = mSelectFile->url();
+    return info;
 }
 
 void AdministratorCustomEmojiCreateWidget::slotUpdateOkButton()
