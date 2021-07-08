@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QUrl>
 #include <QWidget>
 class QLineEdit;
 class KUrlRequester;
@@ -28,8 +29,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateWidget : publi
 {
     Q_OBJECT
 public:
+    struct CustomEmojiCreateInfo {
+        QString alias;
+        QString name;
+        QUrl fileNameUrl;
+    };
     explicit AdministratorCustomEmojiCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomEmojiCreateWidget() override;
+
+    void setCustomEmojiInfo(const CustomEmojiCreateInfo &info);
+
+    Q_REQUIRED_RESULT AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info() const;
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

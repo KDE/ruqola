@@ -58,6 +58,16 @@ AdministratorCustomEmojiCreateDialog::~AdministratorCustomEmojiCreateDialog()
     writeConfig();
 }
 
+void AdministratorCustomEmojiCreateDialog::setCustomEmojiInfo(const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &info)
+{
+    mCreateWidget->setCustomEmojiInfo(info);
+}
+
+AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateDialog::info() const
+{
+    return mCreateWidget->info();
+}
+
 void AdministratorCustomEmojiCreateDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomEmojiCreateDialogGroupName);

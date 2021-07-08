@@ -53,6 +53,16 @@ AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget()
 {
 }
 
+void AdministratorCustomEmojiCreateWidget::setCustomEmojiInfo(const CustomEmojiCreateInfo &info)
+{
+    // TODO
+}
+
+AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateWidget::info() const
+{
+    return {};
+}
+
 void AdministratorCustomEmojiCreateWidget::slotUpdateOkButton()
 {
     Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && !mAlias->text().trimmed().isEmpty());
