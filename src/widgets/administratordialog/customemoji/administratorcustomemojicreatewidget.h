@@ -23,6 +23,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLineEdit;
+class KUrlRequester;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateWidget : public QWidget
 {
     Q_OBJECT
@@ -37,4 +38,5 @@ private:
     void slotUpdateOkButton();
     QLineEdit *const mName;
     QLineEdit *const mAlias;
+    KUrlRequester *const mSelectFile;
 };

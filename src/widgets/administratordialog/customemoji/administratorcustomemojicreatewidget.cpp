@@ -25,11 +25,13 @@
 #include <QLineEdit>
 
 #include <KLocalizedString>
+#include <KUrlRequester>
 
 AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
     , mAlias(new QLineEdit(this))
+    , mSelectFile(new KUrlRequester(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,10 +39,12 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
 
     mName->setObjectName(QStringLiteral("mName"));
     mAlias->setObjectName(QStringLiteral("mAlias"));
+    mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     new LineEditCatchReturnKey(mName, this);
     new LineEditCatchReturnKey(mAlias, this);
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Alias:"), mAlias);
+    mainLayout->addRow(i18n("File:"), mSelectFile);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
     connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
 }

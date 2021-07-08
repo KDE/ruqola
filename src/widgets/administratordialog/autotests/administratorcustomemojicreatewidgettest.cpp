@@ -21,6 +21,9 @@
 #include "administratorcustomemojicreatewidgettest.h"
 #include "administratordialog/customemoji/administratorcustomemojicreatewidget.h"
 
+#include <KUrlRequester>
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AdministratorCustomEmojiCreateWidgetTest)
 AdministratorCustomEmojiCreateWidgetTest::AdministratorCustomEmojiCreateWidgetTest(QObject *parent)
@@ -31,5 +34,18 @@ AdministratorCustomEmojiCreateWidgetTest::AdministratorCustomEmojiCreateWidgetTe
 void AdministratorCustomEmojiCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomEmojiCreateWidget w;
-    // TODO
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    QVERIFY(mName);
+    QVERIFY(mName->text().isEmpty());
+
+    auto mAlias = w.findChild<QLineEdit *>(QStringLiteral("mAlias"));
+    QVERIFY(mAlias);
+    QVERIFY(mAlias->text().isEmpty());
+
+    auto mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
+    QVERIFY(mSelectFile);
 }
