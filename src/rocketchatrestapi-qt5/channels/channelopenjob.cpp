@@ -22,6 +22,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -91,6 +92,14 @@ QJsonDocument ChannelOpenJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString ChannelOpenJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("error-room-not-found")) {
+        return i18n("The required channel is not found.");
+    }
+    return ChannelGroupBaseJob::errorMessage(str, detail);
 }
 
 QNetworkRequest ChannelOpenJob::request() const
