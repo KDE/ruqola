@@ -636,14 +636,21 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 void RocketChatAccount::openPrivateGroup(const QString &roomId, ChannelTypeInfo typeInfo)
 {
     bool foundRoom = false;
+    bool roomIsOpen = false;
     for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = mRoomModel->index(roomIdx, 0);
         const auto identifier = roomModelIndex.data(RoomModel::RoomId).toString();
         if (identifier == roomId) {
-            //            channelSelected(roomModelIndex);
-            //            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
+                roomIsOpen = true;
+                Q_EMIT selectRoomByRoomIdRequested(roomId);
+            }
             foundRoom = true;
+            break;
         }
+    }
+    if (roomIsOpen) {
+        return;
     }
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
     switch (typeInfo) {
@@ -664,7 +671,6 @@ void RocketChatAccount::openPrivateGroup(const QString &roomId, ChannelTypeInfo 
                 &RocketChatRestApi::GroupOpenJob::groupOpenDone,
                 this,
                 [this](const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
-                    qDebug() << " obj " << obj;
                     Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
                 });
         if (!job->start()) {
@@ -679,16 +685,22 @@ void RocketChatAccount::openPrivateGroup(const QString &roomId, ChannelTypeInfo 
 void RocketChatAccount::openChannel(const QString &roomId, ChannelTypeInfo typeInfo)
 {
     bool foundRoom = false;
+    bool roomIsOpen = false;
     for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = mRoomModel->index(roomIdx, 0);
         const auto identifier = roomModelIndex.data(RoomModel::RoomId).toString();
         if (identifier == roomId) {
-            //            channelSelected(roomModelIndex);
-            //            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+            if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
+                roomIsOpen = true;
+                Q_EMIT selectRoomByRoomIdRequested(roomId);
+            }
             foundRoom = true;
+            break;
         }
     }
-
+    if (roomIsOpen) {
+        return;
+    }
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
     switch (typeInfo) {
     case ChannelTypeInfo::RoomId:
