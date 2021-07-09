@@ -55,14 +55,14 @@ QList<int> DirectoryRoomsModel::hideColumns() const
     return {Identifier};
 }
 
-void DirectoryRoomsModel::parseElements(const QJsonObject &discussionsObj)
+void DirectoryRoomsModel::parseElements(const QJsonObject &roomsObj)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         mRoomsInfo.clear();
         endRemoveRows();
     }
-    mRoomsInfo.parseRooms(discussionsObj, RoomsInfo::Directory);
+    mRoomsInfo.parseRooms(roomsObj, RoomsInfo::Directory);
     if (!mRoomsInfo.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
         endInsertRows();

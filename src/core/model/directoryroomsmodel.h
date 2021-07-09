@@ -46,7 +46,7 @@ public:
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
     Q_REQUIRED_RESULT int total() const override;
 
-    void parseElements(const QJsonObject &discussionsObj) override;
+    void parseElements(const QJsonObject &roomsObj) override;
 
     void addMoreElements(const QJsonObject &discussionsObj) override;
 
