@@ -448,6 +448,7 @@ public:
     void roomsAutocomplete(const QString &searchText, const QString &exception);
     Q_REQUIRED_RESULT QString loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
     Q_REQUIRED_RESULT bool teamEnabled() const;
+    void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

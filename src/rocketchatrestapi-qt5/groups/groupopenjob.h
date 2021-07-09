@@ -41,10 +41,10 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
-    void channelOpenDone(const QJsonObject &obj);
+    void groupOpenDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(GroupOpenJob)
-    void slotChannelOpenFinished();
+    void slotGroupOpenFinished();
 };
 }

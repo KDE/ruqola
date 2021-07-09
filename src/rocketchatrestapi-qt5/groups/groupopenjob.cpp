@@ -44,11 +44,11 @@ bool GroupOpenJob::start()
     }
     addStartRestApiInfo("GroupOpenJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupOpenJob::slotChannelOpenFinished);
+    connect(reply, &QNetworkReply::finished, this, &GroupOpenJob::slotGroupOpenFinished);
     return true;
 }
 
-void GroupOpenJob::slotChannelOpenFinished()
+void GroupOpenJob::slotGroupOpenFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,7 +57,7 @@ void GroupOpenJob::slotChannelOpenFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GroupOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelOpenDone(replyObject);
+            Q_EMIT groupOpenDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GroupOpenJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

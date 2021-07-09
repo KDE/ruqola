@@ -88,6 +88,7 @@
 #include <plugins/pluginauthenticationinterface.h>
 
 #include "channels/channelopenjob.h"
+#include "groups/groupopenjob.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
@@ -629,6 +630,31 @@ void RocketChatAccount::markRoomAsRead(const QString &roomId)
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 {
     restApi()->markAsFavorite(roomId, checked);
+}
+
+void RocketChatAccount::openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo)
+{
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+    switch (typeInfo) {
+    case ChannelTypeInfo::RoomId:
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+        break;
+    case ChannelTypeInfo::RoomName:
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name;
+        break;
+    }
+    info.identifier = identifier;
+    qCDebug(RUQOLA_LOG) << "opening group" << identifier;
+    auto job = new RocketChatRestApi::GroupOpenJob(this);
+    job->setChannelGroupInfo(info);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::GroupOpenJob::groupOpenDone, this, [this](const QJsonObject &obj) {
+        qDebug() << " obj " << obj;
+    });
+    if (!job->start()) {
+        qWarning() << "Impossible to start GroupOpenJob job";
+        // TODO qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelOpenJob job";
+    }
 }
 
 void RocketChatAccount::openChannel(const QString &identifier, ChannelTypeInfo typeInfo)
