@@ -89,11 +89,6 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     QMenu menu(this);
 
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
-    auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
-    connect(hideChannel, &QAction::triggered, this, [=]() {
-        slotHideChannel(index, roomType);
-    });
-    menu.addAction(hideChannel);
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
     const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
@@ -110,6 +105,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         slotChangeFavorite(index, isFavorite);
     });
     menu.addAction(favoriteAction);
+
+    auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
+    connect(hideChannel, &QAction::triggered, this, [=]() {
+        slotHideChannel(index, roomType);
+    });
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -135,11 +135,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         }
 
         menu.addSeparator();
+        menu.addAction(hideChannel);
+
+        menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [=]() {
             slotLeaveChannel(index, roomType);
         });
         menu.addAction(quitChannel);
+    } else {
+        menu.addSeparator();
+        menu.addAction(hideChannel);
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
