@@ -157,7 +157,6 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
         }
     }
     if (!mChannelView->selectChannelByRoomIdRequested(identifier)) {
-        qDebug() << " ddddddddddddddddd" << identifier;
         mCurrentRocketChatAccount->openChannel(identifier, RocketChatAccount::ChannelTypeInfo::RoomId);
     }
 }
