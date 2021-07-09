@@ -41,7 +41,7 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
-    void groupOpenDone(const QJsonObject &obj);
+    void groupOpenDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(GroupOpenJob)

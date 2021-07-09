@@ -58,7 +58,7 @@ void ChannelOpenJob::slotChannelOpenFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelOpenDone(replyObject);
+            Q_EMIT channelOpenDone(replyObject, channelGroupInfo());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelOpenJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

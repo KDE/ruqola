@@ -43,7 +43,7 @@ protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
-    void channelOpenDone(const QJsonObject &obj);
+    void channelOpenDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     Q_DISABLE_COPY(ChannelOpenJob)
