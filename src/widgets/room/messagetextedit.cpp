@@ -28,6 +28,8 @@
 
 #include <KLocalizedString>
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 #include <QMenu>
@@ -54,6 +56,9 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     mCommandCompletionListView->setItemDelegate(new CommandCompletionDelegate(mCommandCompletionListView));
     mCommandCompletionListView->setTextWidget(this);
     connect(mCommandCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
+    loadSpellCheckingSettings();
+    connect(this, &MessageTextEdit::languageChanged, this, &MessageTextEdit::slotLanguageChanged);
+    connect(this, &MessageTextEdit::checkSpellingChanged, this, &MessageTextEdit::slotSpellCheckingEnableChanged);
 }
 
 MessageTextEdit::~MessageTextEdit()
@@ -61,6 +66,30 @@ MessageTextEdit::~MessageTextEdit()
     delete mUserAndChannelCompletionListView;
     delete mEmojiCompletionListView;
     delete mCommandCompletionListView;
+}
+
+void MessageTextEdit::slotSpellCheckingEnableChanged(bool b)
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group(config, "Spelling");
+    group.writeEntry("checkerEnabledByDefault", b);
+}
+
+void MessageTextEdit::slotLanguageChanged(const QString &lang)
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group(config, "Spelling");
+    group.writeEntry("Language", lang);
+}
+
+void MessageTextEdit::loadSpellCheckingSettings()
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    if (config->hasGroup("Spelling")) {
+        KConfigGroup group(config, "Spelling");
+        setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
+        setSpellCheckingLanguage(group.readEntry("Language", QString()));
+    }
 }
 
 void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
