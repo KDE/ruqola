@@ -33,7 +33,9 @@ public:
         ReadOnly,
         DefaultRoom,
         Identifier,
-        LastColumn = Identifier,
+        ChannelType,
+        ChannelTypeStr,
+        LastColumn = ChannelTypeStr,
     };
     Q_ENUM(DirectoryRoomsRoles)
 

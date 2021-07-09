@@ -52,7 +52,7 @@ void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> DirectoryRoomsModel::hideColumns() const
 {
-    return {Identifier};
+    return {Identifier, ChannelType};
 }
 
 void DirectoryRoomsModel::parseElements(const QJsonObject &roomsObj)
@@ -95,6 +95,10 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
         return roomInfo.readOnly();
     case DirectoryRoomsRoles::DefaultRoom:
         return roomInfo.defaultRoom();
+    case DirectoryRoomsRoles::ChannelType:
+        return roomInfo.channelType();
+    case DirectoryRoomsRoles::ChannelTypeStr:
+        return roomInfo.channelTypeStr();
     }
     return {};
 }
@@ -115,6 +119,9 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Read Only");
         case DirectoryRoomsModel::DefaultRoom:
             return i18n("Default Room");
+        case DirectoryRoomsModel::ChannelTypeStr:
+        case DirectoryRoomsModel::ChannelType:
+            return i18n("Channel Type");
         }
     }
     return QVariant();
