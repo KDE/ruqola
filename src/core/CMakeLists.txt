@@ -216,6 +216,7 @@ target_sources(libruqolacore PRIVATE
     customsoundinfo.cpp
     customsoundsinfo.cpp
     ruqolacore.qrc
+    managechannels.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
