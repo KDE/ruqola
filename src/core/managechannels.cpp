@@ -19,7 +19,13 @@
 */
 
 #include "managechannels.h"
-#include "rocketchataccount.h"
+
+#include "channelgroupbasejob.h"
+#include "channels/channelopenjob.h"
+#include "groups/groupopenjob.h"
+#include "restapirequest.h"
+#include "ruqola.h"
+#include "ruqola_debug.h"
 
 ManageChannels::ManageChannels(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -29,4 +35,136 @@ ManageChannels::ManageChannels(RocketChatAccount *account, QObject *parent)
 
 ManageChannels::~ManageChannels()
 {
+}
+
+bool ManageChannels::searchOpenChannels(const QString &roomId)
+{
+    bool foundRoom = false;
+    bool roomIsOpen = false;
+    for (int roomIdx = 0, nRooms = mAccount->roomModel()->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = mAccount->roomModel()->index(roomIdx, 0);
+        const auto identifier = roomModelIndex.data(RoomModel::RoomId).toString();
+        if (identifier == roomId) {
+            if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
+                roomIsOpen = true;
+                Q_EMIT selectRoomByRoomIdRequested(roomId);
+            }
+            foundRoom = true;
+            break;
+        }
+    }
+    if (roomIsOpen) {
+        return true;
+    }
+    return false;
+}
+
+void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo)
+{
+    if (searchOpenChannels(roomId)) {
+        return;
+    }
+#if 0
+
+    bool foundRoom = false;
+    bool roomIsOpen = false;
+    for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = mRoomModel->index(roomIdx, 0);
+        const auto identifier = roomModelIndex.data(RoomModel::RoomId).toString();
+        if (identifier == roomId) {
+            if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
+                roomIsOpen = true;
+                Q_EMIT selectRoomByRoomIdRequested(roomId);
+            }
+            foundRoom = true;
+            break;
+        }
+    }
+    if (roomIsOpen) {
+        return;
+    }
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+    switch (typeInfo) {
+    case ChannelTypeInfo::RoomId:
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+        break;
+    case ChannelTypeInfo::RoomName:
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name;
+        break;
+    }
+    info.identifier = roomId;
+    if (foundRoom) {
+        qCDebug(RUQOLA_LOG) << "opening group" << roomId;
+        auto job = new RocketChatRestApi::GroupOpenJob(this);
+        job->setChannelGroupInfo(info);
+        restApi()->initializeRestApiJob(job);
+        connect(job,
+                &RocketChatRestApi::GroupOpenJob::groupOpenDone,
+                this,
+                [this](const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
+                    Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
+                });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start GroupOpenJob job";
+        }
+    } else {
+        // TODO verify
+        restApi()->channelJoin(info, QString());
+    }
+#endif
+}
+
+void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo)
+{
+    if (searchOpenChannels(roomId)) {
+        return;
+    }
+#if 0
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+    switch (typeInfo) {
+    case ChannelTypeInfo::RoomId:
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+        break;
+    case ChannelTypeInfo::RoomName:
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name;
+        break;
+    }
+    info.identifier = roomId;
+    qCDebug(RUQOLA_LOG) << "opening channel" << roomId;
+    if (foundRoom) {
+        auto job = new RocketChatRestApi::ChannelOpenJob(this);
+        job->setChannelGroupInfo(info);
+        restApi()->initializeRestApiJob(job);
+        connect(job,
+                &RocketChatRestApi::ChannelOpenJob::channelOpenDone,
+                this,
+                [this](const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
+                    Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
+                });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start ChannelOpenJob job";
+        }
+    } else {
+        restApi()->channelJoin(info, QString());
+    }
+#endif
+}
+
+void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
+{
+#if 0
+    ddp()->subscribeRoomMessage(channelInfo.identifier);
+    // FIXME room is not added yet...
+    switch (channelInfo.channelGroupInfoType) {
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
+        qCWarning(RUQOLA_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
+        break;
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
+        Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
+        break;
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name:
+        Q_EMIT selectRoomByRoomNameRequested(channelInfo.identifier);
+        break;
+    }
+#endif
 }

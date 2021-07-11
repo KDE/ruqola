@@ -21,8 +21,8 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+#include "rocketchataccount.h"
 #include <QObject>
-class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT ManageChannels : public QObject
 {
     Q_OBJECT
@@ -30,6 +30,13 @@ public:
     explicit ManageChannels(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageChannels() override;
 
+    void openPrivateGroup(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
+    void openChannel(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
+    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+Q_SIGNALS:
+    void selectRoomByRoomIdRequested(const QString &identifier);
+
 private:
+    Q_REQUIRED_RESULT bool searchOpenChannels(const QString &roomId);
     RocketChatAccount *const mAccount;
 };
