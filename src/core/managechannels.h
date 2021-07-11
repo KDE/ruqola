@@ -20,12 +20,16 @@
 
 #pragma once
 
+#include "libruqola_private_export.h"
 #include <QObject>
-
-class ManageChannels : public QObject
+class RocketChatAccount;
+class LIBRUQOLACORE_TESTS_EXPORT ManageChannels : public QObject
 {
     Q_OBJECT
 public:
-    explicit ManageChannels(QObject *parent = nullptr);
+    explicit ManageChannels(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageChannels() override;
+
+private:
+    RocketChatAccount *const mAccount;
 };

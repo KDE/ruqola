@@ -19,9 +19,11 @@
 */
 
 #include "managechannels.h"
+#include "rocketchataccount.h"
 
-ManageChannels::ManageChannels(QObject *parent)
+ManageChannels::ManageChannels(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mAccount(account)
 {
 }
 
