@@ -27,6 +27,11 @@ class LIBRUQOLACORE_TESTS_EXPORT ManageChannels : public QObject
 {
     Q_OBJECT
 public:
+    enum SearchChannelFound {
+        NoFound = 0,
+        ChannelOpened,
+        ChannelHidden,
+    };
     explicit ManageChannels(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageChannels() override;
 
@@ -37,6 +42,8 @@ Q_SIGNALS:
     void selectRoomByRoomIdRequested(const QString &identifier);
 
 private:
-    Q_REQUIRED_RESULT bool searchOpenChannels(const QString &roomId);
+    Q_REQUIRED_RESULT SearchChannelFound searchOpenChannels(const QString &roomId);
+    Q_REQUIRED_RESULT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo generateGroupInfo(const QString &roomId,
+                                                                                                 RocketChatAccount::ChannelTypeInfo typeInfo);
     RocketChatAccount *const mAccount;
 };
