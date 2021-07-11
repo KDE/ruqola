@@ -21,6 +21,7 @@
 #include "managechannels.h"
 
 #include "channelgroupbasejob.h"
+#include "channels/channeljoinjob.h"
 #include "channels/channelopenjob.h"
 #include "groups/groupopenjob.h"
 #include "restapirequest.h"
@@ -120,7 +121,6 @@ void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::Chann
         // Nothing
         break;
     case ManageChannels::SearchChannelFound::NoFound: {
-        // TODO verify
         mAccount->restApi()->channelJoin(info, QString());
         break;
     }
@@ -144,8 +144,7 @@ void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::Chann
 
 void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
-#if 0
-    ddp()->subscribeRoomMessage(channelInfo.identifier);
+    mAccount->ddp()->subscribeRoomMessage(channelInfo.identifier);
     // FIXME room is not added yet...
     switch (channelInfo.channelGroupInfoType) {
     case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
@@ -158,5 +157,4 @@ void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBas
         Q_EMIT selectRoomByRoomNameRequested(channelInfo.identifier);
         break;
     }
-#endif
 }

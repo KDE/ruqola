@@ -38,8 +38,10 @@ public:
     void openPrivateGroup(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
     void openChannel(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
     void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+
 Q_SIGNALS:
     void selectRoomByRoomIdRequested(const QString &identifier);
+    void selectRoomByRoomNameRequested(const QString &identifier);
 
 private:
     Q_REQUIRED_RESULT SearchChannelFound searchOpenChannels(const QString &roomId);
