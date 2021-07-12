@@ -139,7 +139,6 @@ public:
     void listCommands();
     void fetchMyKeys();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
-    void channelJoin(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode);
     void muteGroupMentions(const QString &roomId, bool value);
 
     void channelInfo(const QString &roomId);
@@ -244,9 +243,6 @@ Q_SIGNALS:
     void getCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();
     void setJoinCodeDone();
-    void setChannelJoinDone(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void missingChannelPassword(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void openArchivedRoom(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void updateJitsiTimeOutDone(const QString &datetime);
     void channelKickUserDone(const QJsonObject &obj);

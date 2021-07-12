@@ -37,14 +37,16 @@ public:
 
     void openPrivateGroup(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
     void openChannel(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
-    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
     void channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode);
 Q_SIGNALS:
     void selectRoomByRoomIdRequested(const QString &identifier);
     void selectRoomByRoomNameRequested(const QString &identifier);
+    void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
+    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     Q_REQUIRED_RESULT SearchChannelFound searchOpenChannels(const QString &roomId);
     Q_REQUIRED_RESULT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo generateGroupInfo(const QString &roomId,
                                                                                                  RocketChatAccount::ChannelTypeInfo typeInfo);

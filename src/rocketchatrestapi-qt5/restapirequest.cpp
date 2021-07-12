@@ -84,7 +84,6 @@
 #include "channels/channelhistoryjob.h"
 #include "channels/channelinfojob.h"
 #include "channels/channelinvitejob.h"
-#include "channels/channeljoinjob.h"
 #include "channels/channelkickjob.h"
 #include "channels/channelmembersjob.h"
 #include "channels/channelremoveleaderjob.h"
@@ -1292,20 +1291,6 @@ void RestApiRequest::updatejitsiTimeOut(const QString &roomId)
     connect(job, &VideoConfUpdateJitsiTimeOutJob::updateJitsiTimeOutDone, this, &RestApiRequest::updateJitsiTimeOutDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start VideoConfUpdateJitsiTimeOutJob";
-    }
-}
-
-void RestApiRequest::channelJoin(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode)
-{
-    auto job = new ChannelJoinJob(this);
-    initializeRestApiJob(job);
-    job->setJoinCode(joinCode);
-    job->setChannelGroupInfo(channelInfo);
-    connect(job, &ChannelJoinJob::setChannelJoinDone, this, &RestApiRequest::setChannelJoinDone);
-    connect(job, &ChannelJoinJob::missingChannelPassword, this, &RestApiRequest::missingChannelPassword);
-    connect(job, &ChannelJoinJob::openArchivedRoom, this, &RestApiRequest::openArchivedRoom);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
     }
 }
 

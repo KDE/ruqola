@@ -90,6 +90,7 @@ class CommandsModel;
 class DownloadAppsLanguagesManager;
 class UsersForRoomModel;
 class MessageCache;
+class ManageChannels;
 
 namespace RocketChatRestApi
 {
@@ -514,7 +515,6 @@ private:
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
     void userStatusChanged(const User &user);
-    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
@@ -598,6 +598,7 @@ private:
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
     MessageCache *const mMessageCache;
+    ManageChannels *const mManageChannels;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;

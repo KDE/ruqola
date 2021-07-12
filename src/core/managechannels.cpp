@@ -74,7 +74,16 @@ RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo ManageChannels::generat
 
 void ManageChannels::channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode)
 {
-    mAccount->restApi()->channelJoin(channelInfo, joinCode);
+    auto job = new RocketChatRestApi::ChannelJoinJob(this);
+    mAccount->restApi()->initializeRestApiJob(job);
+    job->setJoinCode(joinCode);
+    job->setChannelGroupInfo(channelInfo);
+    connect(job, &RocketChatRestApi::ChannelJoinJob::setChannelJoinDone, this, &ManageChannels::setChannelJoinDone);
+    connect(job, &RocketChatRestApi::ChannelJoinJob::missingChannelPassword, this, &ManageChannels::missingChannelPassword);
+    connect(job, &RocketChatRestApi::ChannelJoinJob::openArchivedRoom, this, &ManageChannels::openArchivedRoom);
+    if (!job->start()) {
+        qCDebug(RUQOLA_LOG) << "Impossible to start setChannelJoin";
+    }
 }
 
 void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo)
