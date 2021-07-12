@@ -72,6 +72,11 @@ RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo ManageChannels::generat
     return info;
 }
 
+void ManageChannels::channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode)
+{
+    mAccount->restApi()->channelJoin(channelInfo, joinCode);
+}
+
 void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo)
 {
     const ManageChannels::SearchChannelFound result = searchOpenChannels(roomId);
@@ -87,7 +92,7 @@ void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::
         break;
     case ManageChannels::SearchChannelFound::NoFound: {
         // TODO verify
-        mAccount->restApi()->channelJoin(info, QString());
+        channelJoin(info, QString());
         break;
     }
     case ManageChannels::SearchChannelFound::ChannelHidden: {
@@ -121,7 +126,7 @@ void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::Chann
         // Nothing
         break;
     case ManageChannels::SearchChannelFound::NoFound: {
-        mAccount->restApi()->channelJoin(info, QString());
+        channelJoin(info, QString());
         break;
     }
     case ManageChannels::SearchChannelFound::ChannelHidden: {
