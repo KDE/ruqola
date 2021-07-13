@@ -184,7 +184,7 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
 
     // Test user
     QCOMPARE(w.data(w.index(6), InputCompleterModel::CompleterName).toString(), QStringLiteral("bla.foo4"));
-    QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::PrivateChannel);
+    QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::DirectChannel);
     // We use for user a channelid == channel name as we use it for opening direct channel
     QCOMPARE(w.data(w.index(6), InputCompleterModel::DisplayName).toString(), QStringLiteral("bla.foo4 (foo4)"));
 

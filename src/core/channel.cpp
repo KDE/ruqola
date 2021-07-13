@@ -35,7 +35,7 @@ Channel::~Channel()
 void Channel::parseChannel(const QJsonObject &object, ChannelType type)
 {
     mType = type;
-    if (mType == ChannelType::PrivateChannel) {
+    if (mType == ChannelType::DirectChannel) {
         mUserId = object.value(QLatin1String("_id")).toString();
         mName = object.value(QLatin1String("name")).toString();
         mStatus = object.value(QLatin1String("status")).toString();

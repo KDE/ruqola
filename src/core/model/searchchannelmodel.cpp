@@ -81,7 +81,7 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
         Channel channel;
-        channel.parseChannel(o, Channel::ChannelType::PrivateChannel);
+        channel.parseChannel(o, Channel::ChannelType::DirectChannel);
         // Verify that it's valid
         channelList.append(channel);
     }
@@ -136,7 +136,7 @@ QString SearchChannelModel::channelId(const Channel &channel) const
     // Specific channelId for opening room
     // For private channel we need to use username for channel we need roomId
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel:
+    case Channel::ChannelType::DirectChannel:
         return channel.userName();
     case Channel::ChannelType::Room:
         return channel.roomId();
@@ -150,7 +150,7 @@ QString SearchChannelModel::channelId(const Channel &channel) const
 QString SearchChannelModel::channelName(const Channel &channel) const
 {
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel:
+    case Channel::ChannelType::DirectChannel:
         return channel.userName();
     case Channel::ChannelType::Room:
         return channel.roomName();
@@ -164,7 +164,7 @@ QString SearchChannelModel::channelName(const Channel &channel) const
 QIcon SearchChannelModel::channelIconName(const Channel &channel) const
 {
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel:
+    case Channel::ChannelType::DirectChannel:
         return QIcon::fromTheme(channel.iconFromStatus());
     case Channel::ChannelType::Room:
         if (channel.roomType() == QLatin1Char('c')) {

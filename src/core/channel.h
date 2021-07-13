@@ -29,7 +29,7 @@ class LIBRUQOLACORE_EXPORT Channel
 public:
     enum ChannelType {
         Room,
-        PrivateChannel,
+        DirectChannel,
         Unknown,
     };
     Q_ENUM(ChannelType)

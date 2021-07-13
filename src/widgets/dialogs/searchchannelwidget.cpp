@@ -84,7 +84,7 @@ void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
         const QString channelId = index.data(SearchChannelModel::ChannelId).toString();
         if (channelType == Channel::ChannelType::Room) {
             Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
-        } else if (channelType == Channel::ChannelType::PrivateChannel) {
+        } else if (channelType == Channel::ChannelType::DirectChannel) {
             Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
         } else {
             qCWarning(RUQOLAWIDGETS_LOG) << "Unknown open channel type : " << channelType << " channelid : " << channelId;

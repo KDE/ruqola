@@ -43,13 +43,13 @@ void InputCompleterModel::setDefaultUserCompletion()
     Channel here;
     here.setUserName(QStringLiteral("here"));
     here.setStatus(QStringLiteral("online"));
-    here.setType(Channel::ChannelType::PrivateChannel);
+    here.setType(Channel::ChannelType::DirectChannel);
     customCompletion.append(here);
 
     Channel all;
     all.setUserName(QStringLiteral("all"));
     all.setStatus(QStringLiteral("online"));
-    all.setType(Channel::ChannelType::PrivateChannel);
+    all.setType(Channel::ChannelType::DirectChannel);
     customCompletion.append(all);
 
     setChannels(customCompletion);
@@ -85,7 +85,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
         Channel channel;
-        channel.parseChannel(o, Channel::ChannelType::PrivateChannel);
+        channel.parseChannel(o, Channel::ChannelType::DirectChannel);
         // Verify that it's valid
         channelList.append(channel);
     }
@@ -133,7 +133,7 @@ QString InputCompleterModel::completerName(const Channel &channel) const
     // Specific channelId for opening room
     // For private channel we need to use username for channel we need roomId
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel:
+    case Channel::ChannelType::DirectChannel:
         return channel.userName();
     case Channel::ChannelType::Room:
         return channel.roomName();
@@ -148,7 +148,7 @@ QString InputCompleterModel::completerName(const Channel &channel) const
 QString InputCompleterModel::channelName(const Channel &channel) const
 {
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel: {
+    case Channel::ChannelType::DirectChannel: {
         QString text = channel.userName();
         const QString name = channel.name();
         if (!name.isEmpty()) {
@@ -167,7 +167,7 @@ QString InputCompleterModel::channelName(const Channel &channel) const
 QIcon InputCompleterModel::channelIconName(const Channel &channel) const
 {
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel:
+    case Channel::ChannelType::DirectChannel:
         return QIcon::fromTheme(channel.iconFromStatus());
     case Channel::ChannelType::Room:
         if (channel.roomType() == QLatin1Char('c')) {

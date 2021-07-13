@@ -73,9 +73,9 @@ void ChannelTest::shouldParseChannel_data()
     chanUser.setUserName(QStringLiteral("bla"));
     chanUser.setUserId(QStringLiteral("o7kiLAYPCiDidqJe"));
     chanUser.setStatus(QStringLiteral("online"));
-    chanUser.setType(Channel::ChannelType::PrivateChannel);
+    chanUser.setType(Channel::ChannelType::DirectChannel);
 
-    QTest::newRow("user") << QStringLiteral("channeluser") << Channel::ChannelType::PrivateChannel << chanUser;
+    QTest::newRow("user") << QStringLiteral("channeluser") << Channel::ChannelType::DirectChannel << chanUser;
 }
 
 void ChannelTest::shouldParseChannel()
