@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-set(RUQOLA_VERSION "1.4.52")
-cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+set(RUQOLA_VERSION "1.4.53")
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -49,21 +49,13 @@ option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" 
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT false)
 if (USE_UNITY_CMAKE_SUPPORT)
-    if(${CMAKE_VERSION} VERSION_LESS "3.16.0")
-        message(STATUS "CMAKE version is less than 3.16.0 . We can't use cmake unify build support")
-    else()
-        set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
-    endif()
+    set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
 endif()
 option(USE_PRECOMPILED_HEADERS "Use precompiled headers" OFF) # Set to OFF when using clazy and such
 set(COMPILE_WITH_CMAKE_PCH_SUPPORT false)
 macro(ruqola_target_precompile_headers)
     if (USE_PRECOMPILED_HEADERS)
-        if(${CMAKE_VERSION} VERSION_LESS "3.16.0")
-            message(STATUS "CMAKE version is less than 3.16.0 . We can't use cmake pch build support")
-        else()
-            set(COMPILE_WITH_CMAKE_PCH_SUPPORT true)
-        endif()
+        set(COMPILE_WITH_CMAKE_PCH_SUPPORT true)
 
         if (COMPILE_WITH_CMAKE_PCH_SUPPORT)
             target_precompile_headers(${ARGV})
