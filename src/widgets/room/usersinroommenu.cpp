@@ -46,7 +46,7 @@ void UsersInRoomMenu::slotBlockUser()
 {
     const bool userIsBlocked = mRoom->blocker();
     if (!userIsBlocked) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to block this user?"), i18n("Block User"))) {
+        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to block this user?"), i18nc("@title", "Block User"))) {
             return;
         }
     }
@@ -57,7 +57,7 @@ void UsersInRoomMenu::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
     if (!userIsIgnored) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to ignore this user?"), i18n("Ignore User"))) {
+        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to ignore this user?"), i18nc("@title", "Ignore User"))) {
             return;
         }
     }

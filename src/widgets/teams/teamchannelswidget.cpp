@@ -185,7 +185,8 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
 
 void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 {
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Would you like to remove this Channel from team?"), i18n("Remove Channel from Team"))) {
+    if (KMessageBox::Yes
+        == KMessageBox::questionYesNo(this, i18n("Would you like to remove this Channel from team?"), i18nc("@title", "Remove Channel from Team"))) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
         job->setTeamId(mTeamId);

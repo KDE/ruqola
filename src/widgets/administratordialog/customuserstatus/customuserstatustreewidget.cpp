@@ -130,7 +130,8 @@ void CustomUserStatusTreeWidget::removeClicked()
     }
     auto customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
     const CustomUserStatus userStatus = customUserStatusItem->userStatus();
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18n("Remove Custom User Status"))) {
+    if (KMessageBox::Yes
+        == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18nc("@title", "Remove Custom User Status"))) {
         Ruqola::self()->rocketChatAccount()->removeCustomUserStatus(userStatus.identifier());
     }
 }

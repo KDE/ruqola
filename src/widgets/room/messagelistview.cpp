@@ -553,7 +553,7 @@ void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)
 {
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this message?"), i18n("Delete Message"))) {
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this message?"), i18nc("@title", "Delete Message"))) {
         const QString messageId = index.data(MessageModel::MessageId).toString();
         mCurrentRocketChatAccount->deleteMessage(messageId, mRoom->roomId());
     }

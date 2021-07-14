@@ -106,7 +106,7 @@ void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
 
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 {
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you really delete your account ?"), i18n("Delete my Account"))) {
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you really delete your account ?"), i18nc("@title", "Delete my Account"))) {
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 84, 0)
         dlg->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));

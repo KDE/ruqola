@@ -118,7 +118,7 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
 
 void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this emoji?"), i18n("Remove Emoji")) == KMessageBox::Yes) {
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this emoji?"), i18nc("@title", "Remove Emoji")) == KMessageBox::Yes) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomDeleteJob(this);
         const QString emojiId = index.data().toString();
