@@ -41,10 +41,12 @@ void AdministratorCustomEmojiCreateWidgetTest::shouldHaveDefaultValues()
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
+    QVERIFY(mName->isClearButtonEnabled());
 
     auto mAlias = w.findChild<QLineEdit *>(QStringLiteral("mAlias"));
     QVERIFY(mAlias);
     QVERIFY(mAlias->text().isEmpty());
+    QVERIFY(mAlias->isClearButtonEnabled());
 
     auto mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
     QVERIFY(mSelectFile);

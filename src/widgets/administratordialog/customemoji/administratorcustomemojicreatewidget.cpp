@@ -38,7 +38,9 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
     mainLayout->setContentsMargins({});
 
     mName->setObjectName(QStringLiteral("mName"));
+    mName->setClearButtonEnabled(true);
     mAlias->setObjectName(QStringLiteral("mAlias"));
+    mAlias->setClearButtonEnabled(true);
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     new LineEditCatchReturnKey(mName, this);
     new LineEditCatchReturnKey(mAlias, this);
