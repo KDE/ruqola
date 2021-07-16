@@ -31,6 +31,14 @@ public:
     explicit EmojiCustomUpdateJob(QObject *parent = nullptr);
     ~EmojiCustomUpdateJob() override;
 
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT EmojiInfo {
+        QString emojiId;
+        QString alias;
+        QString name;
+        QUrl fileNameUrl;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
+
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT bool canStart() const override;
@@ -39,8 +47,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString emojiId() const;
-    void setEmojiId(const QString &emojiId);
+    Q_REQUIRED_RESULT const EmojiInfo &emojiInfo() const;
+    void setEmojiInfo(const EmojiInfo &newEmojiInfo);
 
 Q_SIGNALS:
     void emojiCustomUpdateDone();
@@ -48,6 +56,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(EmojiCustomUpdateJob)
     void slotEmojiCustomUpdateFinished();
-    QString mEmojiId;
+    EmojiInfo mEmojiInfo;
 };
 }
