@@ -66,14 +66,14 @@ void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
     deleteLater();
 }
 
-QString EmojiCustomCreateJob::emojiId() const
+const EmojiCustomCreateJob::EmojiInfo &EmojiCustomCreateJob::emojiInfo() const
 {
-    return mEmojiId;
+    return mEmojiInfo;
 }
 
-void EmojiCustomCreateJob::setEmojiId(const QString &emojiId)
+void EmojiCustomCreateJob::setEmojiInfo(const EmojiInfo &newEmojiInfo)
 {
-    mEmojiId = emojiId;
+    mEmojiInfo = newEmojiInfo;
 }
 
 bool EmojiCustomCreateJob::requireHttpAuthentication() const
@@ -83,8 +83,8 @@ bool EmojiCustomCreateJob::requireHttpAuthentication() const
 
 bool EmojiCustomCreateJob::canStart() const
 {
-    if (mEmojiId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: remove mEmojiId is empty";
+    if (!mEmojiInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: mEmojiInfo is not valid";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -96,7 +96,7 @@ bool EmojiCustomCreateJob::canStart() const
 QJsonDocument EmojiCustomCreateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("emojiId")] = emojiId();
+    // TODO jsonObj[QLatin1String("emojiId")] = name;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
@@ -108,4 +108,10 @@ QNetworkRequest EmojiCustomCreateJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+bool EmojiCustomCreateJob::EmojiInfo::isValid() const
+{
+    // Alias is optional
+    return !name.isEmpty() && !fileNameUrl.isEmpty();
 }

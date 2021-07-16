@@ -101,6 +101,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 {
     QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
     if (dlg->exec()) {
+        AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info = dlg->info();
         // TODO
     }
     delete dlg;
@@ -111,7 +112,16 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
     QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
     // TODO edit
     if (dlg->exec()) {
-        // TODO add emoji
+        AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info = dlg->info();
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, []() {
+            // TODO
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start EmojiCustomCreateJob job";
+        }
     }
     delete dlg;
 }
