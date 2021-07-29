@@ -1,5 +1,5 @@
 {
-    "version": 2,
+    "version": 3,
     "configurePresets": [
         {
             "name": "dev",
@@ -8,8 +8,9 @@
             "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-		"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
-            }
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "asan",
@@ -19,7 +20,8 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "ECM_ENABLE_SANITIZERS" : "'address;undefined'"
-            }
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "dev-clang",
@@ -33,7 +35,8 @@
             "environment": {
                 "CXX": "clang++",
                 "CCACHE_DISABLE": "ON"
-            }
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "unity",
@@ -42,8 +45,9 @@
             "binaryDir": "${sourceDir}/build-unity",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-		"USE_UNITY_CMAKE_SUPPORT": "ON"
-            }
+                "USE_UNITY_CMAKE_SUPPORT": "ON"
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "release",
@@ -52,7 +56,8 @@
             "binaryDir": "${sourceDir}/build-release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
-            }
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "profile",
@@ -61,7 +66,8 @@
             "binaryDir": "${sourceDir}/build-profile",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-            }
+            },
+            "installDir": "$env{KF5}"
 	},
 	{
             "name": "coverage",
@@ -72,7 +78,8 @@
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_UNITY_CMAKE_SUPPORT": "ON",
                 "BUILD_COVERAGE": "ON" 
-            }
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "clazy",
@@ -85,7 +92,8 @@
             "environment": {
                 "CXX": "clazy",
                 "CCACHE_DISABLE": "ON"
-            }
+            },
+            "installDir": "$env{KF5}"
         },
         {
             "name": "pch",
@@ -96,7 +104,8 @@
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_PRECOMPILED_HEADERS": "ON",
                 "BUILD_COVERAGE": "ON"
-            }
+            },
+            "installDir": "$env{KF5}"
         }
     ],
     "buildPresets": [
@@ -108,7 +117,7 @@
             "name": "dev-clang",
             "configurePreset": "dev-clang"
         },
-	{
+        {
             "name": "pch",
             "configurePreset": "pch"
         },
