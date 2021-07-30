@@ -90,7 +90,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
 
     mChannelView->setCurrentRocketChatAccount(account);
-    mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
+    mChannelView->setFilterModel(mCurrentRocketChatAccount->roomFilterProxyModel());
 }
 
 ChannelListView *ChannelListWidget::channelListView() const

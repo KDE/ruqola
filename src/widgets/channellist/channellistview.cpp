@@ -21,6 +21,7 @@
 #include "channellistview.h"
 #include "channellistdelegate.h"
 #include "model/roomfilterproxymodel.h"
+#include "model/roomlistheadingsproxymodel.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -41,10 +42,12 @@
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
     , mChannelListDelegate(new ChannelListDelegate(this))
+    , mRoomListHeadingsProxyModel(new RoomListHeadingsProxyModel(this))
 {
     mChannelListDelegate->setObjectName(QStringLiteral("mChannelListDelegate"));
     setItemDelegate(mChannelListDelegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    QListView::setModel(mRoomListHeadingsProxyModel);
 
     connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
 }
@@ -65,17 +68,12 @@ QAbstractItemModel *ChannelListView::model() const
 
 RoomFilterProxyModel *ChannelListView::filterModel() const
 {
-    return qobject_cast<RoomFilterProxyModel *>(QListView::model());
+    return qobject_cast<RoomFilterProxyModel *>(mRoomListHeadingsProxyModel->sourceModel());
 }
 
-void ChannelListView::setModel(QAbstractItemModel *model)
+void ChannelListView::setFilterModel(RoomFilterProxyModel *model)
 {
-    if (!qobject_cast<RoomFilterProxyModel *>(model)) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Need to pass a RoomFilterProxyModel instance!";
-        return;
-    }
-
-    QListView::setModel(model);
+    mRoomListHeadingsProxyModel->setSourceModel(model);
 }
 
 void ChannelListView::slotClicked(const QModelIndex &index)
@@ -155,6 +153,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void ChannelListView::setModel(QAbstractItemModel *model)
+{
+    QListView::setModel(model);
 }
 
 void ChannelListView::slotMoveToTeam(const QModelIndex &index)

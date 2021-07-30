@@ -25,8 +25,10 @@
 #include "libruqolawidgets_private_export.h"
 
 class RoomFilterProxyModel;
+class RoomListHeadingsProxyModel;
 class ChannelListDelegate;
 class RocketChatAccount;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
 {
     Q_OBJECT
@@ -36,7 +38,7 @@ public:
 
     QAbstractItemModel *model() const;
     RoomFilterProxyModel *filterModel() const;
-    void setModel(QAbstractItemModel *model) override;
+    void setFilterModel(RoomFilterProxyModel *model);
 
     void selectChannelRequested(const QString &channelId);
     void selectNextUnreadChannel();
@@ -47,6 +49,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
     Q_REQUIRED_RESULT bool selectChannelByRoomIdRequested(const QString &identifier);
+
 Q_SIGNALS:
     void roomSelected(const QString &roomId, Room::RoomType roomType);
 
@@ -54,6 +57,7 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
+    void setModel(QAbstractItemModel *model) override;
     void slotClicked(const QModelIndex &index);
     void slotHideChannel(const QModelIndex &index, Room::RoomType roomType);
     void slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType);
@@ -63,8 +67,9 @@ private:
     void slotChannelConvertToTeamDone(const QJsonObject &obj);
     void slotGroupConvertToTeamDone(const QJsonObject &obj);
     void slotMoveToTeam(const QModelIndex &index);
+    Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
 
     ChannelListDelegate *const mChannelListDelegate;
-    Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
+    RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;
 };
 

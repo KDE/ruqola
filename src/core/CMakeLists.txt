@@ -10,6 +10,7 @@ target_sources(libruqolacore PRIVATE
     model/messagemodel.cpp
     model/roommodel.cpp
     model/roomfilterproxymodel.cpp
+    model/roomlistheadingsproxymodel.cpp
 
     model/usersforroommodel.cpp
     model/usersforroomfilterproxymodel.cpp
