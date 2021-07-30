@@ -70,7 +70,7 @@ ChannelListWidget::~ChannelListWidget()
 
 void ChannelListWidget::clearFilterChannel()
 {
-    if (auto *model = mChannelView->model()) {
+    if (auto *model = mChannelView->filterModel()) {
         model->setFilterString(QString());
         mSearchRoom->clear();
     }
@@ -144,7 +144,7 @@ void ChannelListWidget::slotAccountInitialized()
 
 void ChannelListWidget::slotSearchRoomTextChanged()
 {
-    mChannelView->model()->setFilterString(mSearchRoom->text());
+    mChannelView->filterModel()->setFilterString(mSearchRoom->text());
 }
 
 void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)

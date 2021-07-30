@@ -58,7 +58,12 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
-RoomFilterProxyModel *ChannelListView::model() const
+QAbstractItemModel *ChannelListView::model() const
+{
+    return QListView::model();
+}
+
+RoomFilterProxyModel *ChannelListView::filterModel() const
 {
     return qobject_cast<RoomFilterProxyModel *>(QListView::model());
 }
@@ -267,7 +272,7 @@ void ChannelListView::selectChannelRequested(const QString &channelId)
     if (channelId.isEmpty()) {
         return;
     }
-    RoomFilterProxyModel *filterModel = model();
+    QAbstractItemModel *filterModel = model();
     Q_ASSERT(filterModel);
     const int nRooms = filterModel->rowCount();
     if (nRooms == 0) {
@@ -290,7 +295,7 @@ bool ChannelListView::selectChannelByRoomIdOrRoomName(const QString &id, bool ro
     if (id.isEmpty()) {
         return false;
     }
-    RoomFilterProxyModel *filterModel = model();
+    QAbstractItemModel *filterModel = model();
     for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = filterModel->index(roomIdx, 0);
         const auto identifier = roomId ? roomModelIndex.data(RoomModel::RoomId).toString() : roomModelIndex.data(RoomModel::RoomName).toString();
@@ -315,7 +320,7 @@ bool ChannelListView::selectChannelByRoomIdRequested(const QString &identifier)
 
 void ChannelListView::selectNextUnreadChannel()
 {
-    RoomFilterProxyModel *filterModel = model();
+    QAbstractItemModel *filterModel = model();
     Q_ASSERT(filterModel);
     const int nRooms = filterModel->rowCount();
     if (nRooms == 0) {

@@ -34,7 +34,8 @@ public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView() override;
 
-    RoomFilterProxyModel *model() const;
+    QAbstractItemModel *model() const;
+    RoomFilterProxyModel *filterModel() const;
     void setModel(QAbstractItemModel *model) override;
 
     void selectChannelRequested(const QString &channelId);
