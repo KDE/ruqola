@@ -111,7 +111,7 @@ void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::
         connect(job,
                 &RocketChatRestApi::GroupOpenJob::groupOpenDone,
                 this,
-                [this](const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
+                [this](const QJsonObject &, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
                     Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
                 });
         if (!job->start()) {
@@ -145,7 +145,7 @@ void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::Chann
         connect(job,
                 &RocketChatRestApi::ChannelOpenJob::channelOpenDone,
                 this,
-                [this](const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
+                [this](const QJsonObject &, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
                     Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
                 });
         if (!job->start()) {
