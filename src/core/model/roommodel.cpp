@@ -173,7 +173,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomFavorite:
         return r->favorite();
     case RoomModel::RoomSection:
-        return sectionName(r);
+        return QVariant::fromValue(section(r));
     case RoomModel::RoomOrder:
         return order(r);
     case RoomModel::RoomIcon:
@@ -457,61 +457,36 @@ void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessa
     }
 }
 
-QString RoomModel::sectionName(Room *r) const
+RoomModel::Section RoomModel::section(Room *r) const
 {
-    QString str;
     if (r->favorite()) {
-        str = i18n("Favorites");
+        return Section::Favorites;
     } else if (r->teamInfo().mainTeam()) {
-        str = i18n("Teams");
+        return Section::Teams;
+    }
+    const Room::RoomType roomType = r->channelType();
+    if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
+        return Section::Unread;
     } else {
-        const Room::RoomType roomType = r->channelType();
-        if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
-            switch (roomType) {
-            case Room::RoomType::Private: {
-                if (r->parentRid().isEmpty()) {
-                    str = i18n("Unread Rooms");
-                } else {
-                    str = i18n("Unread Discussions");
-                }
-                break;
-            }
-            case Room::RoomType::Channel: {
-                str = i18n("Unread Rooms");
-                break;
-            }
-            case Room::RoomType::Direct: {
-                str = i18n("Unread Private Messages");
-                break;
-            }
-            case Room::RoomType::Unknown:
-                break;
-            }
-        } else {
-            switch (roomType) {
-            case Room::RoomType::Private: {
-                if (r->parentRid().isEmpty()) {
-                    str = i18n("Rooms");
-                } else {
-                    str = i18n("Discussions");
-                }
-
-                break;
-            }
-            case Room::RoomType::Channel: {
-                str = i18n("Rooms");
-                break;
-            }
-            case Room::RoomType::Direct: {
-                str = i18n("Private Messages");
-                break;
-            }
-            case Room::RoomType::Unknown:
-                break;
+        switch (roomType) {
+        case Room::RoomType::Private: {
+            if (r->parentRid().isEmpty()) {
+                return Section::Rooms;
+            } else {
+                return Section::Discussions;
             }
         }
+        case Room::RoomType::Channel: {
+            return Section::Rooms;
+        }
+        case Room::RoomType::Direct: {
+            return Section::PrivateMessages;
+        }
+        case Room::RoomType::Unknown:
+            break;
+        }
     }
-    return str;
+    return Section::Unknown;
 }
 
 int RoomModel::order(Room *r) const

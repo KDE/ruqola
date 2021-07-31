@@ -89,6 +89,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!index.isValid()) {
         return;
     }
+    if (index.data(RoomListHeadingsProxyModel::IsHeading).toBool()) {
+        return;
+    }
     QMenu menu(this);
 
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
@@ -244,9 +247,11 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
-    const QString roomId = index.data(RoomModel::RoomId).toString();
-    const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
-    Q_EMIT roomSelected(roomId, roomType);
+    if (!index.data(RoomListHeadingsProxyModel::IsHeading).toBool()) {
+        const QString roomId = index.data(RoomModel::RoomId).toString();
+        const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
+        Q_EMIT roomSelected(roomId, roomType);
+    }
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)

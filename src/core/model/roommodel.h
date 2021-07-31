@@ -66,6 +66,8 @@ public:
     };
     Q_ENUM(RoomRoles)
 
+    enum class Section { Unread, Favorites, Teams, Rooms, Discussions, PrivateMessages, Unknown, NSections };
+
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~RoomModel() override;
 
@@ -123,9 +125,10 @@ private:
     Q_REQUIRED_RESULT QString roomTeamName(Room *r) const;
     Q_REQUIRED_RESULT QIcon icon(Room *r) const;
     Q_REQUIRED_RESULT int order(Room *r) const;
-    Q_REQUIRED_RESULT QString sectionName(Room *r) const;
+    Q_REQUIRED_RESULT Section section(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;
 };
 
+Q_DECLARE_METATYPE(RoomModel::Section)
