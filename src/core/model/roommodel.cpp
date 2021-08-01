@@ -519,7 +519,7 @@ int RoomModel::order(Room *r) const
     int order = 0;
     // Unread on top: push down everything that isn't unread
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && r->unread() == 0 && !r->alert()) {
-        order += 30;
+        order += 40;
     }
 
     // Then we have favorites channels, push down everything else

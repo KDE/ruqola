@@ -43,8 +43,8 @@ private Q_SLOTS:
     void shouldReset();
     void shouldReturnDataDefault();
     void shouldReturnData();
-
     void shouldInsertRoom_data();
     void shouldInsertRoom();
+    void shouldOrderRooms();
 };
 
