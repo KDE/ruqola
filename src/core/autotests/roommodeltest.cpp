@@ -415,7 +415,7 @@ void RoomModelTest::shouldReturnData()
 
     RoomModel sampleModel;
     QVariant output;
-    sampleModel.addRoom(&input); // don't pass address. pass pointer variable
+    QVERIFY(sampleModel.addRoom(&input)); // don't pass address. pass pointer variable
 
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomName);
     QCOMPARE(output.toString(), name);

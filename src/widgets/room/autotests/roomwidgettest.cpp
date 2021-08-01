@@ -109,10 +109,10 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     w.setCurrentRocketChatAccount(rcAccount);
     const QString roomId1 = QStringLiteral("roomId1");
     Room *room1 = createRoom(roomId1, QStringLiteral("roomName1"));
-    rcAccount->roomModel()->addRoom(room1);
+    QVERIFY(rcAccount->roomModel()->addRoom(room1));
     const QString roomId2 = QStringLiteral("roomId2");
     Room *room2 = createRoom(roomId2, QStringLiteral("roomName2"));
-    rcAccount->roomModel()->addRoom(room2);
+    QVERIFY(rcAccount->roomModel()->addRoom(room2));
 
     // Ensure switching between rooms works
     w.setChannelSelected(room1->roomId(), room1->channelType());
