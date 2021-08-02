@@ -34,7 +34,7 @@ void EmojiCustomCreateJobTest::shouldHaveDefaultValue()
 {
     EmojiCustomCreateJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.emojiInfo().isValid());
+    QVERIFY(!job.emojiInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
