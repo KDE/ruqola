@@ -66,7 +66,7 @@ public:
     };
     Q_ENUM(RoomRoles)
 
-    enum class Section { Unread, Favorites, Teams, Rooms, Discussions, PrivateMessages, Unknown, NSections };
+    enum class Section { Unread, Favorites, Teams, Rooms, PrivateMessages, Discussions, Unknown, NSections };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~RoomModel() override;
@@ -115,6 +115,9 @@ public:
     Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
 
     Q_REQUIRED_RESULT QModelIndex indexForRoomName(const QString &roomName) const;
+
+    static QString sectionName(RoomModel::Section sectionId);
+
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();

@@ -48,29 +48,6 @@ QModelIndex RoomListHeadingsProxyModel::index(int row, int column, const QModelI
     return mapFromSource(sourceIndex);
 }
 
-static QString sectionName(RoomModel::Section sectionId)
-{
-    switch (sectionId) {
-    case RoomModel::Section::Unread:
-        return i18n("Unread");
-    case RoomModel::Section::Favorites:
-        return i18n("Favorites");
-    case RoomModel::Section::Teams:
-        return i18n("Teams");
-    case RoomModel::Section::Rooms:
-        return i18n("Rooms");
-    case RoomModel::Section::Discussions:
-        return i18n("Discussions");
-    case RoomModel::Section::PrivateMessages:
-        return i18n("Private Messages");
-    case RoomModel::Section::Unknown:
-        return i18n("Unknown");
-    case RoomModel::Section::NSections:
-        break;
-    }
-    return QStringLiteral("ERROR");
-}
-
 QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) const
 {
     Q_ASSERT(index.isValid());
@@ -84,7 +61,7 @@ QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) co
     if (sourceRow == -1) { // heading
         switch (role) {
         case Qt::DisplayRole:
-            return sectionName(proxyRowSection(index.row()));
+            return RoomModel::sectionName(proxyRowSection(index.row()));
         case Qt::BackgroundRole:
             return qApp->palette().brush(QPalette::Window);
         default:
@@ -206,7 +183,7 @@ void RoomListHeadingsProxyModel::dumpCache() const
 {
     for (size_t section = 0; section < mSectionCounts.size(); ++section) {
         const int sectionCount = mSectionCounts[section];
-        qCDebug(RUQOLA_ROOMS_LOG) << sectionName(RoomModel::Section(section)) << sectionCount;
+        qCDebug(RUQOLA_ROOMS_LOG) << RoomModel::sectionName(RoomModel::Section(section)) << sectionCount;
     }
 }
 

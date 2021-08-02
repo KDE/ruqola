@@ -459,32 +459,31 @@ void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessa
 
 RoomModel::Section RoomModel::section(Room *r) const
 {
+    const Room::RoomType roomType = r->channelType();
+    if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
+        return Section::Unread;
+    }
     if (r->favorite()) {
         return Section::Favorites;
     } else if (r->teamInfo().mainTeam()) {
         return Section::Teams;
     }
-    const Room::RoomType roomType = r->channelType();
-    if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
-        return Section::Unread;
-    } else {
-        switch (roomType) {
-        case Room::RoomType::Private: {
-            if (r->parentRid().isEmpty()) {
-                return Section::Rooms;
-            } else {
-                return Section::Discussions;
-            }
-        }
-        case Room::RoomType::Channel: {
+    switch (roomType) {
+    case Room::RoomType::Private: {
+        if (r->parentRid().isEmpty()) {
             return Section::Rooms;
+        } else {
+            return Section::Discussions;
         }
-        case Room::RoomType::Direct: {
-            return Section::PrivateMessages;
-        }
-        case Room::RoomType::Unknown:
-            break;
-        }
+    }
+    case Room::RoomType::Channel: {
+        return Section::Rooms;
+    }
+    case Room::RoomType::Direct: {
+        return Section::PrivateMessages;
+    }
+    case Room::RoomType::Unknown:
+        break;
     }
     return Section::Unknown;
 }
@@ -586,4 +585,27 @@ QModelIndex RoomModel::indexForRoomName(const QString &roomName) const
         }
     }
     return {};
+}
+
+QString RoomModel::sectionName(Section sectionId)
+{
+    switch (sectionId) {
+    case RoomModel::Section::Unread:
+        return i18n("Unread");
+    case RoomModel::Section::Favorites:
+        return i18n("Favorites");
+    case RoomModel::Section::Teams:
+        return i18n("Teams");
+    case RoomModel::Section::Rooms:
+        return i18n("Rooms");
+    case RoomModel::Section::Discussions:
+        return i18n("Discussions");
+    case RoomModel::Section::PrivateMessages:
+        return i18n("Private Messages");
+    case RoomModel::Section::Unknown:
+        return i18n("Unknown");
+    case RoomModel::Section::NSections:
+        break;
+    }
+    return QStringLiteral("ERROR");
 }

@@ -445,7 +445,7 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOpen);
     QCOMPARE(output.toBool(), open);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
-    QCOMPARE(output.toString(), QStringLiteral("Favorites")); // first priority for favorites and then to channels
+    QCOMPARE(output.value<RoomModel::Section>(), RoomModel::Section::Favorites); // first priority for favorites and then to channels
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
     QCOMPARE(output, QVariant(int(11))); // Favorite, private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
@@ -529,12 +529,15 @@ void RoomModelTest::shouldOrderRooms()
 
     // WHEN
     QMap<int, QString> orderedRooms;
+    QMap<int, QString> orderedSections;
     for (int row = 0; row < count; ++row) {
         const QModelIndex index = sampleModel.index(row, 0);
         const QString name = index.data(RoomModel::RoomName).toString();
         const int order = index.data(RoomModel::RoomOrder).toInt();
         QVERIFY(!orderedRooms.contains(order));
         orderedRooms.insert(order, name);
+        const auto section = index.data(RoomModel::RoomSection).value<RoomModel::Section>();
+        orderedSections.insert(order, RoomModel::sectionName(section));
     }
 
     // THEN
@@ -569,6 +572,22 @@ void RoomModelTest::shouldOrderRooms()
         QStringLiteral("p"),
     };
     QCOMPARE(orderedRooms.values(), expectedRoomNames);
+
+    QStringList expectedSections;
+    expectedSections.reserve(expectedRoomNames.size());
+    for (int i = 0; i < 12; ++i) {
+        expectedSections.append(QStringLiteral("Unread"));
+    }
+    for (int i = 0; i < 6; ++i) {
+        expectedSections.append(QStringLiteral("Favorites"));
+    }
+    for (int i = 0; i < 3; ++i) {
+        expectedSections.append(QStringLiteral("Teams"));
+    }
+    expectedSections.append(QStringLiteral("Rooms"));
+    expectedSections.append(QStringLiteral("Private Messages"));
+    expectedSections.append(QStringLiteral("Discussions"));
+    QCOMPARE(orderedSections.values(), expectedSections);
 
     qDeleteAll(rooms);
 }
