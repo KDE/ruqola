@@ -24,9 +24,9 @@ void RoomListHeadingsProxyModelTest::initTestCase()
     int row = 0;
     mSourceModel.setItem(row++, 0, newItem("Team 1", RoomModel::Section::Teams));
     mSourceModel.setItem(row++, 0, newItem("Team 2", RoomModel::Section::Teams));
-    mSourceModel.setItem(row++, 0, newItem("Discuss", RoomModel::Section::Discussions));
     mSourceModel.setItem(row++, 0, newItem("PM 1", RoomModel::Section::PrivateMessages));
-    mSourceModel.setItem(row++, 0, newItem("PM 2", RoomModel::Section::PrivateMessages));
+    mSourceModel.setItem(row++, 0, newItem("Discuss 1", RoomModel::Section::Discussions));
+    mSourceModel.setItem(row++, 0, newItem("Discuss 2", RoomModel::Section::Discussions));
     QCOMPARE(mSourceModel.rowCount(), row);
 }
 
@@ -122,11 +122,11 @@ void RoomListHeadingsProxyModelTest::shouldDetermineProxyRowSection()
         RoomModel::Section::Teams,
         RoomModel::Section::Teams,
         RoomModel::Section::Teams,
+        RoomModel::Section::PrivateMessages,
+        RoomModel::Section::PrivateMessages,
         RoomModel::Section::Discussions,
         RoomModel::Section::Discussions,
-        RoomModel::Section::PrivateMessages,
-        RoomModel::Section::PrivateMessages,
-        RoomModel::Section::PrivateMessages,
+        RoomModel::Section::Discussions,
     };
     const int expectedRows = std::end(expected) - std::begin(expected); // need C++17 for std::size(expected)
     QCOMPARE(expectedRows, proxy.rowCount());
@@ -144,14 +144,13 @@ void RoomListHeadingsProxyModelTest::shouldReturnData()
     const QStringList expected{QStringLiteral("Teams"),
                                QStringLiteral("Team 1"),
                                QStringLiteral("Team 2"),
-                               QStringLiteral("Discussions"),
-                               QStringLiteral("Discuss"),
                                QStringLiteral("Private Messages"),
                                QStringLiteral("PM 1"),
-                               QStringLiteral("PM 2")};
+                               QStringLiteral("Discussions"),
+                               QStringLiteral("Discuss 1"),
+                               QStringLiteral("Discuss 2")};
     QCOMPARE(expected.count(), proxy.rowCount());
-    // for (int row = 0; row < expected.count(); ++row) {
-    const int row = 5;
-    QCOMPARE(proxy.index(row, 0).data().toString(), expected[row]);
-    //}
+    for (int row = 0; row < expected.count(); ++row) {
+        QCOMPARE(proxy.index(row, 0).data().toString(), expected[row]);
+    }
 }
