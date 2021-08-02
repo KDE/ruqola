@@ -244,7 +244,6 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
 
 void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
 {
-    // TODO fix me!
     // Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
     if (rId.isEmpty()) {
@@ -263,8 +262,7 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
             }
         }
     } else {
-        qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject " << roomData;
-        // qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
+        qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateSubscriptionRoom incorrect jsonobject " << roomData;
     }
 }
 
