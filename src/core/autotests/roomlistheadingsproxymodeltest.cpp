@@ -1,8 +1,10 @@
 #include "roomlistheadingsproxymodeltest.h"
+#include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 
 #include <QStandardItemModel>
 #include <QTest>
+#include <rocketchataccount.h>
 
 QTEST_GUILESS_MAIN(RoomListHeadingsProxyModelTest)
 
@@ -135,22 +137,120 @@ void RoomListHeadingsProxyModelTest::shouldDetermineProxyRowSection()
     }
 }
 
+static QStringList initialExpectedList()
+{
+    return QStringList{QStringLiteral("Teams"),
+                       QStringLiteral("Team 1"),
+                       QStringLiteral("Team 2"),
+                       QStringLiteral("Private Messages"),
+                       QStringLiteral("PM 1"),
+                       QStringLiteral("Discussions"),
+                       QStringLiteral("Discuss 1"),
+                       QStringLiteral("Discuss 2")};
+}
+
+static QStringList extractTexts(QAbstractItemModel *model)
+{
+    const int count = model->rowCount();
+    QStringList texts;
+    texts.reserve(count);
+    for (int row = 0; row < count; ++row) {
+        texts.append(model->index(row, 0).data().toString());
+    }
+    return texts;
+}
+
+static bool compareWithExpected(QAbstractItemModel *model, const QStringList &expected)
+{
+    const QStringList texts = extractTexts(model);
+    if (expected.count() != model->rowCount()) {
+        qWarning() << "FAIL: expected" << expected.count() << "got" << model->rowCount() << '\n' << texts;
+        return false;
+    }
+    for (int row = 0; row < expected.count(); ++row) {
+        if (texts[row] != expected[row]) {
+            qWarning() << "FAIL:" << row << texts[row] << expected[row];
+            return false;
+        }
+    }
+    return true;
+}
+
 void RoomListHeadingsProxyModelTest::shouldReturnData()
 {
     // GIVEN
     RoomListHeadingsProxyModel proxy;
     proxy.setSourceModel(&mSourceModel);
     // WHEN/THEN
-    const QStringList expected{QStringLiteral("Teams"),
-                               QStringLiteral("Team 1"),
-                               QStringLiteral("Team 2"),
-                               QStringLiteral("Private Messages"),
-                               QStringLiteral("PM 1"),
-                               QStringLiteral("Discussions"),
-                               QStringLiteral("Discuss 1"),
-                               QStringLiteral("Discuss 2")};
-    QCOMPARE(expected.count(), proxy.rowCount());
-    for (int row = 0; row < expected.count(); ++row) {
-        QCOMPARE(proxy.index(row, 0).data().toString(), expected[row]);
-    }
+    QVERIFY(compareWithExpected(&proxy, initialExpectedList()));
+}
+
+void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
+{
+    // GIVEN
+    RoomListHeadingsProxyModel proxy;
+    RocketChatAccount account;
+    account.setSortUnreadOnTop(true);
+    RoomModel sampleModel(&account);
+    int count = 0;
+    std::vector<Room *> rooms;
+    auto addRoom = [&](bool mainTeam, Room::RoomType roomType, const char *name) {
+        auto room = new Room;
+        room->setRoomId(QString::number(count));
+        room->setName(QString::fromLatin1(name));
+        room->setUnread(0);
+        room->setParentRid(QStringLiteral("parentRId")); // not empty
+        TeamInfo teamInfo;
+        teamInfo.setMainTeam(mainTeam);
+        room->setTeamInfo(teamInfo);
+        room->setChannelType(roomType);
+        room->setOpen(true);
+        QVERIFY(sampleModel.addRoom(room));
+        rooms.push_back(room);
+        ++count;
+    };
+    addRoom(true, Room::RoomType::Channel, "Team 1");
+    addRoom(true, Room::RoomType::Channel, "Team 2");
+    addRoom(false, Room::RoomType::Direct, "PM 1");
+    addRoom(false, Room::RoomType::Private, "Discuss 1");
+    addRoom(false, Room::RoomType::Private, "Discuss 2");
+    QCOMPARE(sampleModel.rowCount(), 5);
+    RoomFilterProxyModel qsfpm;
+    qsfpm.setSourceModel(&sampleModel);
+    QCOMPARE(qsfpm.rowCount(), 5);
+
+    // WHEN
+    proxy.setSourceModel(&qsfpm);
+
+    // THEN
+    QVERIFY(compareWithExpected(&proxy, initialExpectedList()));
+
+    // AND WHEN
+    const QPersistentModelIndex persistentIndex(proxy.index(2, 0));
+    QCOMPARE(persistentIndex.data().toString(), QStringLiteral("Team 2"));
+    const QModelIndex discuss2Index = sampleModel.index(4, 0);
+    QCOMPARE(discuss2Index.data().toString(), QStringLiteral("Discuss 2"));
+    rooms[4]->setFavorite(true);
+    Q_EMIT sampleModel.dataChanged(discuss2Index, discuss2Index);
+
+    // THEN
+    const QStringList newExpected{QStringLiteral("Favorites"),
+                                  QStringLiteral("Discuss 2"),
+                                  QStringLiteral("Teams"),
+                                  QStringLiteral("Team 1"),
+                                  QStringLiteral("Team 2"),
+                                  QStringLiteral("Private Messages"),
+                                  QStringLiteral("PM 1"),
+                                  QStringLiteral("Discussions"),
+                                  QStringLiteral("Discuss 1")};
+    QVERIFY(compareWithExpected(&proxy, newExpected));
+    QCOMPARE(persistentIndex.data().toString(), QStringLiteral("Team 2"));
+
+    // AND WHEN
+    rooms[4]->setFavorite(false);
+    Q_EMIT sampleModel.dataChanged(discuss2Index, discuss2Index);
+
+    // THEN
+    QVERIFY(compareWithExpected(&proxy, initialExpectedList()));
+    QCOMPARE(persistentIndex.data().toString(), QStringLiteral("Team 2"));
 }

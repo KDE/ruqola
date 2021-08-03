@@ -126,7 +126,7 @@ void RoomListHeadingsProxyModel::ensureCachedCounts() const
                                         << lastSection;
         }
         lastSection = sectionId;
-        // qDebug() << row << model->index(row, 0).data().toString() << "section" << sectionName(section);
+        // qDebug() << row << model->index(row, 0).data().toString() << "section" << RoomModel::sectionName(section);
     }
     mDirty = false;
 }
