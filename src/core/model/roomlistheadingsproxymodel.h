@@ -24,6 +24,9 @@ public:
     Qt::ItemFlags flags(const QModelIndex &proxyIndex) const override;
 
 private:
+    void _our_sourceLayoutAboutToBeChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint);
+    void _our_sourceLayoutChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint);
+
     void ensureCachedCounts() const;
     int numVisibleSections() const;
     RoomModel::Section proxyRowSection(int proxyRow) const;
@@ -36,4 +39,9 @@ private:
     mutable bool mDirty = true;
     // Number of rows in each section
     mutable std::array<int, int(RoomModel::Section::NSections)> mSectionCounts;
+
+    // for layoutAboutToBeChanged/layoutChanged
+    QVector<QPersistentModelIndex> mLayoutChangePersistentIndexes;
+    QVector<int> mLayoutChangeProxyRows;
+    QModelIndexList mProxyIndexes;
 };

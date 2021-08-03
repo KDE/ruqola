@@ -160,11 +160,20 @@ static QStringList extractTexts(QAbstractItemModel *model)
     return texts;
 }
 
-static bool compareWithExpected(QAbstractItemModel *model, const QStringList &expected)
+static QStringList extractTexts(const std::vector<QPersistentModelIndex> &indexes)
 {
-    const QStringList texts = extractTexts(model);
-    if (expected.count() != model->rowCount()) {
-        qWarning() << "FAIL: expected" << expected.count() << "got" << model->rowCount() << '\n' << texts;
+    QStringList texts;
+    texts.reserve(indexes.size());
+    for (const QPersistentModelIndex &idx : indexes) {
+        texts.append(idx.data().toString());
+    }
+    return texts;
+}
+
+static bool compareWithExpected(const QStringList &texts, const QStringList &expected)
+{
+    if (expected.count() != texts.count()) {
+        qWarning() << "FAIL: expected" << expected.count() << "got" << texts.count() << '\n' << texts;
         return false;
     }
     for (int row = 0; row < expected.count(); ++row) {
@@ -182,7 +191,7 @@ void RoomListHeadingsProxyModelTest::shouldReturnData()
     RoomListHeadingsProxyModel proxy;
     proxy.setSourceModel(&mSourceModel);
     // WHEN/THEN
-    QVERIFY(compareWithExpected(&proxy, initialExpectedList()));
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpectedList()));
 }
 
 void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
@@ -223,11 +232,16 @@ void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
     proxy.setSourceModel(&qsfpm);
 
     // THEN
-    QVERIFY(compareWithExpected(&proxy, initialExpectedList()));
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpectedList()));
 
     // AND WHEN
-    const QPersistentModelIndex persistentIndex(proxy.index(2, 0));
-    QCOMPARE(persistentIndex.data().toString(), QStringLiteral("Team 2"));
+    std::vector<QPersistentModelIndex> persistentIndexes;
+    const int proxyCount = proxy.rowCount();
+    for (int row = 0; row < proxyCount; ++row) {
+        persistentIndexes.push_back(proxy.index(row, 0));
+    }
+    QVERIFY(compareWithExpected(extractTexts(persistentIndexes), initialExpectedList()));
+
     const QModelIndex discuss2Index = sampleModel.index(4, 0);
     QCOMPARE(discuss2Index.data().toString(), QStringLiteral("Discuss 2"));
     rooms[4]->setFavorite(true);
@@ -243,14 +257,23 @@ void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
                                   QStringLiteral("PM 1"),
                                   QStringLiteral("Discussions"),
                                   QStringLiteral("Discuss 1")};
-    QVERIFY(compareWithExpected(&proxy, newExpected));
-    QCOMPARE(persistentIndex.data().toString(), QStringLiteral("Team 2"));
+    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+
+    const QStringList expectedPersistent{QString(),
+                                         QStringLiteral("Team 1"),
+                                         QStringLiteral("Team 2"),
+                                         QString(),
+                                         QStringLiteral("PM 1"),
+                                         QString(),
+                                         QStringLiteral("Discuss 1"),
+                                         QStringLiteral("Discuss 2")};
+    QVERIFY(compareWithExpected(extractTexts(persistentIndexes), expectedPersistent));
 
     // AND WHEN
     rooms[4]->setFavorite(false);
     Q_EMIT sampleModel.dataChanged(discuss2Index, discuss2Index);
 
     // THEN
-    QVERIFY(compareWithExpected(&proxy, initialExpectedList()));
-    QCOMPARE(persistentIndex.data().toString(), QStringLiteral("Team 2"));
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpectedList()));
+    QVERIFY(compareWithExpected(extractTexts(persistentIndexes), expectedPersistent));
 }

@@ -23,9 +23,23 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
     connect(sourceModel, &QAbstractItemModel::rowsInserted, this, &RoomListHeadingsProxyModel::setDirty);
     connect(sourceModel, &QAbstractItemModel::rowsRemoved, this, &RoomListHeadingsProxyModel::setDirty);
     connect(sourceModel, &QAbstractItemModel::rowsMoved, this, &RoomListHeadingsProxyModel::setDirty);
-    connect(sourceModel, &QAbstractItemModel::layoutChanged, this, &RoomListHeadingsProxyModel::setDirty);
     connect(sourceModel, &QAbstractItemModel::modelReset, this, &RoomListHeadingsProxyModel::setDirty);
     QIdentityProxyModel::setSourceModel(sourceModel);
+
+    if (sourceModel) {
+        // The handling of persistent model indexes assumes mapToSource can be called for any index
+        // This breaks for the extra column, so we'll have to do it ourselves
+        disconnect(sourceModel,
+                   SIGNAL(layoutAboutToBeChanged(QList<QPersistentModelIndex>, QAbstractItemModel::LayoutChangeHint)),
+                   this,
+                   SLOT(_q_sourceLayoutAboutToBeChanged(QList<QPersistentModelIndex>, QAbstractItemModel::LayoutChangeHint)));
+        disconnect(sourceModel,
+                   SIGNAL(layoutChanged(QList<QPersistentModelIndex>, QAbstractItemModel::LayoutChangeHint)),
+                   this,
+                   SLOT(_q_sourceLayoutChanged(QList<QPersistentModelIndex>, QAbstractItemModel::LayoutChangeHint)));
+        connect(sourceModel, &QAbstractItemModel::layoutAboutToBeChanged, this, &RoomListHeadingsProxyModel::_our_sourceLayoutAboutToBeChanged);
+        connect(sourceModel, &QAbstractItemModel::layoutChanged, this, &RoomListHeadingsProxyModel::_our_sourceLayoutChanged);
+    }
 }
 
 int RoomListHeadingsProxyModel::rowCount(const QModelIndex &parent) const
@@ -209,4 +223,64 @@ int RoomListHeadingsProxyModel::sourceRowToProxyRow(int sourceRow) const
 void RoomListHeadingsProxyModel::setDirty()
 {
     mDirty = true;
+}
+
+void RoomListHeadingsProxyModel::_our_sourceLayoutAboutToBeChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint)
+{
+    // Same code as in QIdentityProxyModelPrivate::_q_sourceLayoutAboutToBeChanged
+    // but with handling of heading rows (no source index = assert in QIdentityProxyModel)
+    QList<QPersistentModelIndex> parents;
+    parents.reserve(sourceParents.size());
+    for (const QPersistentModelIndex &parent : sourceParents) {
+        if (!parent.isValid()) {
+            parents << QPersistentModelIndex();
+            continue;
+        }
+        const QModelIndex mappedParent = mapFromSource(parent);
+        Q_ASSERT(mappedParent.isValid());
+        parents << mappedParent;
+    }
+
+    Q_EMIT layoutAboutToBeChanged(parents, hint);
+
+    const QModelIndexList persistentIndexes = persistentIndexList();
+    mLayoutChangePersistentIndexes.reserve(persistentIndexes.size());
+
+    for (const QModelIndex &proxyIndex : persistentIndexes) {
+        Q_ASSERT(proxyIndex.isValid());
+        mProxyIndexes << proxyIndex;
+        const QPersistentModelIndex srcPersistIndex = mapToSource(proxyIndex);
+        // Note that secPersistIndex is invalid for heading rows
+        mLayoutChangePersistentIndexes << srcPersistIndex;
+    }
+}
+
+void RoomListHeadingsProxyModel::_our_sourceLayoutChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint)
+{
+    setDirty();
+
+    // Same code as in QIdentityProxyModelPrivate::_q_sourceLayoutChanged
+    // but using our own member variables
+    for (int i = 0; i < mProxyIndexes.size(); ++i) {
+        const QModelIndex proxyIdx = mProxyIndexes.at(i);
+        const QModelIndex newProxyIdx = mapFromSource(mLayoutChangePersistentIndexes.at(i));
+        changePersistentIndex(proxyIdx, newProxyIdx);
+    }
+
+    mLayoutChangePersistentIndexes.clear();
+    mProxyIndexes.clear();
+
+    QList<QPersistentModelIndex> parents;
+    parents.reserve(sourceParents.size());
+    for (const QPersistentModelIndex &parent : sourceParents) {
+        if (!parent.isValid()) {
+            parents << QPersistentModelIndex();
+            continue;
+        }
+        const QModelIndex mappedParent = mapFromSource(parent);
+        Q_ASSERT(mappedParent.isValid());
+        parents << mappedParent;
+    }
+
+    Q_EMIT layoutChanged(parents, hint);
 }
