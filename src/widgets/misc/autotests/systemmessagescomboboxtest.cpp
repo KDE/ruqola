@@ -32,5 +32,5 @@ void SystemMessagesComboBoxTest::shouldHaveDefaultValue()
 {
     SystemMessagesComboBox w;
     QVERIFY(w.count() > 0);
-    // TODO
+    QVERIFY(w.systemMessagesSelected().isEmpty());
 }

@@ -36,7 +36,7 @@ public:
         QUrl fileUrl;
         Q_REQUIRED_RESULT bool isValid() const
         {
-            return fileUrl.isValid(); // TODO verify local ?
+            return fileUrl.isValid() && fileUrl.isLocalFile();
         }
     };
 
