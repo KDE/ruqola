@@ -26,6 +26,7 @@
 #include "ruqolawidgets_debug.h"
 #include "serverinfojob.h"
 
+#include <KFormat>
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLineWidget>
 #include <QApplication>
@@ -147,7 +148,7 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
 {
     createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), QStringLiteral("appUsers"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), QStringLiteral("awayUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads Size"), QStringLiteral("uploadsTotalSize"));
+    createItemDisplayFormat(usageInfoItem, obj, i18n("Total Uploads Size"), QStringLiteral("uploadsTotalSize"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), QStringLiteral("offlineUsers"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), QStringLiteral("onlineUsers"));
     createItemFromIntValue(usageInfoItem, obj, i18n("Activated Users"), QStringLiteral("activeUsers"));
@@ -181,7 +182,7 @@ void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usag
     }
 }
 
-void AdministratorServerInfoWidget::createItemFromLongValue(QTreeWidgetItem *parentItem,
+void AdministratorServerInfoWidget::createItemDisplayFormat(QTreeWidgetItem *parentItem,
                                                             const QJsonObject &obj,
                                                             const QString &label,
                                                             const QString &identifier)
@@ -190,7 +191,7 @@ void AdministratorServerInfoWidget::createItemFromLongValue(QTreeWidgetItem *par
     if (!objValue.isUndefined()) {
         auto item = new QTreeWidgetItem(parentItem);
         item->setText(0, label);
-        item->setText(1, QString::number(objValue.toDouble()));
+        item->setText(1, KFormat().formatByteSize(objValue.toDouble()));
         item->addChild(item);
     }
 }
@@ -201,10 +202,8 @@ void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInf
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Release"), QStringLiteral("release"));
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Type"), QStringLiteral("type"));
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Platform"), QStringLiteral("platform"));
-    // TODO FIXME long
-    createItemFromLongValue(runtimeInfoItem, runtimeObj, i18n("OS Total Memory"), QStringLiteral("totalmem"));
-    createItemFromLongValue(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), QStringLiteral("freemem"));
-    // TODO
+    createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Total Memory"), QStringLiteral("totalmem"));
+    createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), QStringLiteral("freemem"));
 }
 
 void AdministratorServerInfoWidget::parseCommitInfo(QTreeWidgetItem *commitInfoItem)
