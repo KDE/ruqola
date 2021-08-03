@@ -20,6 +20,7 @@
 
 #include "ruqolamainwindow.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqolawidgets_debug.h"
 
 #include "accountmanager.h"
 #include "administratordialog/administratordialog.h"
@@ -380,11 +381,10 @@ void RuqolaMainWindow::slotCreateTeam()
         job->setTeamsCreateJobInfo(teamInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, []() {
-            qDebug() << " teamCreateDone";
+            qCDebug(RUQOLAWIDGETS_LOG) << " teamCreateDone";
         });
         if (!job->start()) {
-            // TODO add debug categories
-            qWarning() << "Impossible to start TeamsCreateJob";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsCreateJob";
         }
     }
     delete dlg;
