@@ -54,8 +54,9 @@ void NotifierJob::start()
 #if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
         replyAction->setPlaceholderText(i18n("Reply..."));
-        QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, [](const QString &text) {
-            qDebug() << " reply " << text;
+        QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
+            Q_EMIT sendReply(text, mInfo.roomName);
+            // qDebug() << " reply " << text;
         });
         notification->setReplyAction(std::move(replyAction));
 #endif

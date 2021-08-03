@@ -41,6 +41,7 @@ public:
 
 Q_SIGNALS:
     void switchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
+    void sendReply(const QString &message, const QString &roomName);
 
 private:
     void slotDefaultActionActivated();

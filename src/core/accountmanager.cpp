@@ -52,6 +52,10 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
         job->setInfo(info);
         job->setAccountName(account->accountName());
         connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
+        connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomName) {
+            account->sendMessage(roomName, str);
+            // qDebug() << " str" << str << " Room Name " << roomName;
+        });
         job->start();
     });
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
