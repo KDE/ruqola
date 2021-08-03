@@ -563,7 +563,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
     } else {
-        auto *job = new RocketChatRestApi::ChannelHistoryJob(this);
+        auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:
@@ -615,7 +615,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         messageListView->scrollTo(index);
     } else {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        auto *job = new RocketChatRestApi::ChannelHistoryJob(this);
+        auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:

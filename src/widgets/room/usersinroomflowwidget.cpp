@@ -133,8 +133,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
         }
         if (count > 0) {
             if (numberOfUsers >= MAX_NUMBER_USER) {
-                auto *openExternalDialogLabel =
-                    new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog...)")), this);
+                auto openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog...)")), this);
                 openExternalDialogLabel->setTextFormat(Qt::RichText);
                 openExternalDialogLabel->setContextMenuPolicy(Qt::CustomContextMenu);
                 connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);

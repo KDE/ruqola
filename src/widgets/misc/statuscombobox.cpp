@@ -49,7 +49,7 @@ void StatusCombobox::setStatus(User::PresenceStatus status, const QString &custo
 
 void StatusCombobox::setUseOnlyStandardStatus()
 {
-    auto *statusProxyModel = new StatusModelFilterProxyModel(this);
+    auto statusProxyModel = new StatusModelFilterProxyModel(this);
     statusProxyModel->setUseOnlyStandardStatus(true);
     statusProxyModel->setSourceModel(new StatusModel(this));
     setModel(statusProxyModel);

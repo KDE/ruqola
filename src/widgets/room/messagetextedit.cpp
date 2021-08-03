@@ -146,7 +146,7 @@ QMenu *MessageTextEdit::mousePopupMenu()
 {
     QMenu *menu = KTextEdit::mousePopupMenu();
     menu->addSeparator();
-    auto *formatMenu = new QMenu(menu);
+    auto formatMenu = new QMenu(menu);
     formatMenu->setTitle(i18n("Change Text Format"));
     menu->addMenu(formatMenu);
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-bold")), i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
