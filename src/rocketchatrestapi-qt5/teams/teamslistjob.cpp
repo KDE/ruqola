@@ -48,12 +48,12 @@ bool TeamsListJob::start()
         return false;
     }
     QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &TeamsListJob::slotUsersListFinished);
+    connect(reply, &QNetworkReply::finished, this, &TeamsListJob::slotTeamsListFinished);
     addStartRestApiInfo(QByteArrayLiteral("TeamsListJob: ask users list"));
     return true;
 }
 
-void TeamsListJob::slotUsersListFinished()
+void TeamsListJob::slotTeamsListFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -61,7 +61,7 @@ void TeamsListJob::slotUsersListFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamsListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT userListDone(replyObject);
+            Q_EMIT teamsListDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("TeamsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -83,7 +83,7 @@ void TeamsListJob::setPattern(const QString &newPattern)
 
 QNetworkRequest TeamsListJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersList);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsList);
     QUrlQuery queryUrl;
     // TODO addQueryUrl(url);
     addQueryParameter(queryUrl);

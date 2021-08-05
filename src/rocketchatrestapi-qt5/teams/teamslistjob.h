@@ -46,11 +46,11 @@ public:
     void setPattern(const QString &newPattern);
 
 Q_SIGNALS:
-    void userListDone(const QJsonObject &obj);
+    void teamsListDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(TeamsListJob)
-    void slotUsersListFinished();
+    void slotTeamsListFinished();
     QString mPattern;
 };
 }
