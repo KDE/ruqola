@@ -199,6 +199,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     teams/teaminfojob.cpp
     teams/groupsconverttoteamjob.cpp
     teams/teamsautocompletejob.cpp
+    teams/teamslistjob.cpp
 
     createroominfo.cpp
     createupdateuserinfo.cpp
