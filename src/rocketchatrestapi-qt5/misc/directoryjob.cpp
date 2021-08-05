@@ -60,6 +60,7 @@ void DirectoryJob::initialQueryParameters()
     QMap<QString, QString> map;
     switch (mDirectoryInfo.searchType) {
     case Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mDirectoryInfo.searchType is undefined";
         break;
     case Rooms:
         map.insert(QStringLiteral("type"), QStringLiteral("channels"));
