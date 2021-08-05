@@ -85,8 +85,9 @@ QNetworkRequest UsersListJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersList);
     QUrlQuery queryUrl;
+    addQueryUrl(url);
     addQueryParameter(queryUrl);
-    url.setQuery(queryUrl);
+    // TODO verify it url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
