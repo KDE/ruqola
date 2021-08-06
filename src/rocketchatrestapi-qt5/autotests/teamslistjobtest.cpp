@@ -36,6 +36,7 @@ void TeamsListJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(job.pattern().isEmpty());
 }
 
 void TeamsListJobTest::shouldGenerateRequest()
