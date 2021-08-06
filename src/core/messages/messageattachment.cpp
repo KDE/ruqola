@@ -404,6 +404,13 @@ void MessageAttachment::setLink(const QString &link)
     mLink = link;
     if (link.endsWith(QLatin1String(".gif"))) { // Gify doesn't set mimetype
         mIsAnimatedImage = true;
+    } else {
+        QUrl url(link);
+        if (url.fileName().endsWith(QLatin1String(
+                ".gif"))) { // Gify can return
+                            // https://media2.giphy.com/media/Id66GDfKacJzxSvhqV/giphy.gif?cid=e1bb72ffh1nt4tll6fw7bab09yqqznaupcxewcw2av5m59yi&rid=giphy.gif&ct=g
+            mIsAnimatedImage = true;
+        }
     }
 }
 
