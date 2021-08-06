@@ -215,7 +215,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     r->setName(roomName);
     r->setSelected(selected);
     if (!addRoom(r)) {
-        qWarning(RUQOLA_ROOMS_LOG) << "Failed to add room";
+        qCWarning(RUQOLA_ROOMS_LOG) << "Failed to add room";
     }
 }
 
