@@ -20,6 +20,7 @@
 
 #include "admininvitemodel.h"
 #include <KLocalizedString>
+#include <QDateTime>
 
 AdminInviteModel::AdminInviteModel(QObject *parent)
     : QAbstractListModel(parent)
