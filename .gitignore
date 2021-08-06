@@ -26,3 +26,4 @@ RESTAPI_log_*
 log_ruqola_file-*
 compile_commands.json
 /Testing/
+.clang-format
