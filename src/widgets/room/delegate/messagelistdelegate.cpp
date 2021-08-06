@@ -496,14 +496,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
 static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     const QRect screenRect = parentWindow->screen()->availableGeometry();
-#else
-    const int screenNum = QApplication::desktop()->screenNumber(parentWindow);
-    auto *screen = QApplication::screens().value(screenNum);
-    Q_ASSERT(screen);
-    const QRect screenRect = screen->availableGeometry();
-#endif
 
     QRect popupRect(pos, popup->sizeHint());
     if (popupRect.width() > screenRect.width()) {

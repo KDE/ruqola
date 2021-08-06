@@ -93,18 +93,10 @@ void AdministratorWidget::initialize()
 void AdministratorWidget::updateUiFromPermission()
 {
     if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("manage-sounds"))) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
         mTabWidget->setTabVisible(mCustomSoundsTabIndex, false);
-#else
-        mTabWidget->removeTab(mTabWidget->indexOf(mAdministratorCustomSoundsWidget));
-#endif
     }
 
     if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
         mTabWidget->setTabVisible(mServerInfoTabIndex, false);
-#else
-        mTabWidget->removeTab(mTabWidget->indexOf(mAdministratorServerInfoWidget));
-#endif
     }
 }

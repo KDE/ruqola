@@ -106,14 +106,7 @@ void CompletionListView::slotCompletionAvailable()
     const int maxVisibleItems = 15;
 
     // Not entirely unlike QCompletionPrivate::showPopup
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     const QRect screenRect = mTextWidget->screen()->availableGeometry();
-#else
-    const int screenNum = QApplication::desktop()->screenNumber(mTextWidget);
-    auto *screen = QApplication::screens().value(screenNum);
-    Q_ASSERT(screen);
-    const QRect screenRect = screen->availableGeometry();
-#endif
     int h = (sizeHintForRow(0) * qMin(maxVisibleItems, rowCount) + 3) + 3;
     QScrollBar *hsb = horizontalScrollBar();
     if (hsb && hsb->isVisible()) {

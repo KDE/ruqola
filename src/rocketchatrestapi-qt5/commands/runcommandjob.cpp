@@ -81,11 +81,7 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
     RunCommandJob::RunCommandInfo info;
     if (str.length() > 1) {
         QString newStr = str.mid(1);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        QStringList lst = newStr.split(QLatin1Char(' '), QString::SkipEmptyParts);
-#else
         QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-#endif
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = roomId;

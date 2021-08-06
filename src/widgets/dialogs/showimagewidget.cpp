@@ -166,19 +166,11 @@ void ImageGraphicsView::wheelEvent(QWheelEvent *e)
 {
     if (e->modifiers() == Qt::ControlModifier) {
         const int y = e->angleDelta().y();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         if (y < 0) {
             zoomOut(e->position());
         } else if (y > 0) {
             zoomIn(e->position());
         } // else: y == 0 => horizontal scroll => do not handle
-#else
-        if (y < 0) {
-            zoomOut(e->posF());
-        } else if (y > 0) {
-            zoomIn(e->posF());
-        } // else: y == 0 => horizontal scroll => do not handle
-#endif
     } else {
         QGraphicsView::wheelEvent(e);
     }

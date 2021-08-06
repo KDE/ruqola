@@ -106,11 +106,7 @@ bool RestApiAbstractJob::canStart() const
 void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request, bool addContentTypeHeader) const
 {
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-#else
     request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
-#endif
     if (addContentTypeHeader) {
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
     }

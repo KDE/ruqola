@@ -140,13 +140,7 @@ void AccountsOverviewWidget::updateButtons()
         disconnect(account, nullptr, this, nullptr);
 
         mTabBar->setTabData(i, QVariant::fromValue(account));
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
         mTabBar->setTabVisible(i, account->accountEnabled());
-#else
-        if (!account->accountEnabled()) {
-            mTabBar->removeTab(i);
-        }
-#endif
 
         auto updateTabText = [this, i, account]() {
             mTabBar->setTabText(i, currentText(account));
