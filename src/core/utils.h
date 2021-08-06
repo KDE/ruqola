@@ -36,6 +36,7 @@ struct NotificationInfo {
     QString senderName;
     QString senderUserName;
     QString roomName;
+    QString roomId;
     QString channelType;
     QPixmap pixmap;
     // Pixmap can be null.

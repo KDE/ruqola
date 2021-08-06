@@ -137,6 +137,7 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
     info.title = obj[QStringLiteral("title")].toString();
     const QJsonObject payloadObj = obj.value(QLatin1String("payload")).toObject();
     if (!payloadObj.isEmpty()) {
+        info.roomId = payloadObj[QStringLiteral("rid")].toString();
         info.roomName = payloadObj[QStringLiteral("name")].toString();
         info.channelType = payloadObj[QStringLiteral("type")].toString();
         const QJsonObject senderObj = payloadObj.value(QLatin1String("sender")).toObject();
@@ -264,7 +265,8 @@ QDebug operator<<(QDebug d, const Utils::NotificationInfo &t)
     d << " message " << t.message;
     d << " title " << t.title;
     d << " sender " << t.senderId;
-    d << " roomId " << t.roomName;
+    d << " roomName " << t.roomName;
+    d << " roomId " << t.roomId;
     d << " type " << t.channelType;
     d << " pixmap is null ? " << t.pixmap.isNull();
     return d;

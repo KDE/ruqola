@@ -79,16 +79,18 @@ void UtilsTest::shouldParseNotification_data()
     QTest::addColumn<QString>("channelType");
     QTest::addColumn<QString>("senderName");
     QTest::addColumn<QString>("senderUserName");
+    QTest::addColumn<QString>("roomId");
     QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp")
-                                   << QString() << QStringLiteral("d") << QStringLiteral("Laurent") << QStringLiteral("laurent");
+                                   << QString() << QStringLiteral("d") << QStringLiteral("Laurent") << QStringLiteral("laurent")
+                                   << QStringLiteral("tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH");
     // TODO
     QTest::newRow("notificationencrypted") << QStringLiteral("notificationencrypted") << QStringLiteral("title") << QStringLiteral("pong")
                                            << QStringLiteral("tgrk5CZKgYGiSSqXp") << QString() << QStringLiteral("d") << QStringLiteral("foo")
-                                           << QStringLiteral("bla");
+                                           << QStringLiteral("bla") << QStringLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH");
 
     QTest::newRow("notification2") << QStringLiteral("notification1") << QStringLiteral("my title") << QStringLiteral("@here")
                                    << QStringLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c") << QStringLiteral("foo")
-                                   << QStringLiteral("foo.bla");
+                                   << QStringLiteral("foo.bla") << QStringLiteral("Fc4EWcQXCkJkJ7QEQ");
 }
 
 void UtilsTest::shouldParseNotification()
@@ -101,6 +103,7 @@ void UtilsTest::shouldParseNotification()
     QFETCH(QString, channelType);
     QFETCH(QString, senderName);
     QFETCH(QString, senderUserName);
+    QFETCH(QString, roomId);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
@@ -117,6 +120,7 @@ void UtilsTest::shouldParseNotification()
     QEXPECT_FAIL("notificationencrypted", "Encrypted message not supported yet", Continue);
     QCOMPARE(info.senderId, sender);
     QCOMPARE(info.roomName, roomName);
+    QCOMPARE(info.roomId, roomId);
     QCOMPARE(info.channelType, channelType);
     QCOMPARE(info.senderUserName, senderUserName);
     QCOMPARE(info.senderName, senderName);
