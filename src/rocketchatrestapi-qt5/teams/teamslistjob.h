@@ -50,6 +50,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamsListJob)
+    void initialQueryParameters();
     void slotTeamsListFinished();
     QString mPattern;
 };

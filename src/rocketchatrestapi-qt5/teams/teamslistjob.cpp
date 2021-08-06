@@ -81,11 +81,21 @@ void TeamsListJob::setPattern(const QString &newPattern)
     mPattern = newPattern;
 }
 
+void TeamsListJob::initialQueryParameters()
+{
+    QueryParameters parameters = queryParameters();
+    QMap<QString, QString> map;
+    map.insert(QStringLiteral("text"), mPattern);
+    parameters.setCustom(map);
+    setQueryParameters(parameters);
+}
+
 QNetworkRequest TeamsListJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsList);
     QUrlQuery queryUrl;
     // TODO addQueryUrl(url);
+    // initialQueryParameters();
     addQueryParameter(queryUrl);
     // TODO verify it url.setQuery(queryUrl);
 
