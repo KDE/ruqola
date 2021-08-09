@@ -46,6 +46,7 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
+    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomSoundsWidget::slotModifyCustomSound);
 }
 
 AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
