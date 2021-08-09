@@ -101,6 +101,8 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
         return roomInfo.channelTypeStr();
     case DirectoryRoomsRoles::LastMessage:
         return roomInfo.lastMessageDisplayDateTimeStr();
+    case DirectoryRoomsRoles::Created:
+        return roomInfo.createdRoomDisplayDateTimeStr();
     }
     return {};
 }
@@ -123,6 +125,8 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Default Room");
         case DirectoryRoomsModel::LastMessage:
             return i18n("Last Message");
+        case DirectoryRoomsModel::Created:
+            return i18n("Created");
         case DirectoryRoomsModel::ChannelTypeStr:
         case DirectoryRoomsModel::ChannelType:
             return i18n("Channel Type");
