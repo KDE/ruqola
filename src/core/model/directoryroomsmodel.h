@@ -35,7 +35,8 @@ public:
         Identifier,
         ChannelType,
         ChannelTypeStr,
-        LastColumn = ChannelTypeStr,
+        LastMessage,
+        LastColumn = LastMessage,
     };
     Q_ENUM(DirectoryRoomsRoles)
 
