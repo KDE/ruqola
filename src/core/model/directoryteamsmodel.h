@@ -31,7 +31,8 @@ public:
         TeamName,
         RoomsCount,
         TeamIdentifier,
-        LastColumn = RoomsCount,
+        CreateTeam,
+        LastColumn = CreateTeam,
     };
     Q_ENUM(DirectoryTeamsRoles)
     explicit DirectoryTeamsModel(QObject *parent = nullptr);

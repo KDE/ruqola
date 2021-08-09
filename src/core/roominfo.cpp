@@ -55,6 +55,9 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     if (object.contains(QLatin1String("lastMessage"))) {
         setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object[QStringLiteral("lastMessage")].toObject()));
     }
+    if (object.contains(QLatin1String("ts"))) {
+        setCreatedRoom(Utils::parseIsoDate(QStringLiteral("ts"), object));
+    }
     setIdentifier(object[QStringLiteral("_id")].toString());
     setReadOnly(object[QStringLiteral("ro")].toBool());
     if (object.contains(QLatin1String("usersCount"))) {
@@ -134,6 +137,23 @@ static QString convertChannelType(const QString &str, bool mainTeam)
 void RoomInfo::generateDisplayChannelType()
 {
     mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());
+}
+
+qint64 RoomInfo::createdRoom() const
+{
+    return mCreatedRoom;
+}
+
+void RoomInfo::setCreatedRoom(qint64 newCreatedRoom)
+{
+    mCreatedRoom = newCreatedRoom;
+    QLocale l;
+    mCreatedRoomDisplayTime = (mCreatedRoom != -1) ? l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedRoom), QLocale::LongFormat) : QString();
+}
+
+QString RoomInfo::createdRoomDisplayDateTimeStr() const
+{
+    return mCreatedRoomDisplayTime;
 }
 
 qint64 RoomInfo::lastMessage() const
@@ -245,7 +265,8 @@ bool RoomInfo::operator==(const RoomInfo &other) const
 {
     return mDefaultRoom == other.defaultRoom() && mUsersCount == other.usersCount() && mMessageCount == other.messageCount()
         && mChannelType == other.channelType() && mIdentifier == other.identifier() && mTopic == other.topic() && mName == other.name()
-        && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo() && mLastMessage == other.lastMessage();
+        && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo() && mLastMessage == other.lastMessage()
+        && mCreatedRoom == other.createdRoom();
 }
 
 QDebug operator<<(QDebug d, const RoomInfo &t)
@@ -261,5 +282,6 @@ QDebug operator<<(QDebug d, const RoomInfo &t)
     d << " users: " << t.users();
     d << " teaminfo: " << t.teamInfo();
     d << " lastMessage : " << t.lastMessage();
+    d << " created : " << t.createdRoom();
     return d;
 }

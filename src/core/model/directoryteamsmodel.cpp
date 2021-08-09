@@ -88,6 +88,8 @@ QVariant DirectoryTeamsModel::data(const QModelIndex &index, int role) const
         return roomInfo.teamInfo().roomsCount();
     case DirectoryTeamsRoles::TeamIdentifier:
         return roomInfo.teamInfo().teamId();
+    case DirectoryTeamsRoles::CreateTeam:
+        return roomInfo.createdRoomDisplayDateTimeStr();
     }
     return {};
 }
@@ -102,6 +104,8 @@ QVariant DirectoryTeamsModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Rooms");
         case DirectoryTeamsRoles::TeamIdentifier:
             return i18n("Identifier");
+        case DirectoryTeamsRoles::CreateTeam:
+            return i18n("Created");
         }
     }
     return QVariant();
