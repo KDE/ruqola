@@ -50,6 +50,7 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(QWidget *parent)
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
+    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomEmojiWidget::slotModifyCustomEmoji);
 }
 
 AdministratorCustomEmojiWidget::~AdministratorCustomEmojiWidget()
