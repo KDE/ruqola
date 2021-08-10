@@ -2202,7 +2202,7 @@ void RocketChatAccount::initializeAccount()
 
     // load when necessary
     usersPresence();
-    if (autoTranslateEnabled()) {
+    if (hasAutotranslateSupport()) {
         getSupportedLanguages();
     }
     // Force set online.
