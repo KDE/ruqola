@@ -103,7 +103,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
     QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
     if (dlg->exec()) {
         const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info = dlg->info();
-        // TODO add custom info
+        // TODO add custom info + update list
     }
     delete dlg;
 }
