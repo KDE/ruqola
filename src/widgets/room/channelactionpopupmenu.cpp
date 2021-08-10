@@ -168,7 +168,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->allowMessagePinningEnabled());
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
     mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
-    mAutoTranslate->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
+    mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
     mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
 
     bool hasInviteUserSupport = mCurrentRocketChatAccount->hasInviteUserSupport();
