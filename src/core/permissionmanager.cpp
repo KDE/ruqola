@@ -83,9 +83,10 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
             || id == QLatin1String("set-leader") || id == QLatin1String("set-owner") || id == QLatin1String("delete-user")
             || id == QLatin1String("edit-room-retention-policy") || id == QLatin1String("access-setting-permissions") || id == QLatin1String("start-discussion")
             || id == QLatin1String("start-discussion-other-user") || id == QLatin1String("force-delete-message") || id == QLatin1String("create-team")
-            || id == QLatin1String("delete-team") || id == QLatin1String("edit-team") || id == QLatin1String("add-team-member")
-            || id == QLatin1String("edit-team-member") || id == QLatin1String("add-team-channel") || id == QLatin1String("edit-team-channel")
-            || id == QLatin1String("remove-team-channel") || id == QLatin1String("view-all-team-channels") || id == QLatin1String("view-all-teams")) {
+            || id == QLatin1String("convert-team") || id == QLatin1String("delete-team") || id == QLatin1String("edit-team")
+            || id == QLatin1String("add-team-member") || id == QLatin1String("edit-team-member") || id == QLatin1String("add-team-channel")
+            || id == QLatin1String("edit-team-channel") || id == QLatin1String("remove-team-channel") || id == QLatin1String("view-all-team-channels")
+            || id == QLatin1String("view-all-teams")) {
             Permission p;
             p.parsePermission(obj);
             if (p.isValid()) {
