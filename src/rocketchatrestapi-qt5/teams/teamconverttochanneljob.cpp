@@ -109,7 +109,7 @@ bool TeamConvertToChannelJob::canStart() const
 
 QNetworkRequest TeamConvertToChannelJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsLeave);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsConvertToChannel);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
