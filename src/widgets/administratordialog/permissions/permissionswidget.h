@@ -20,9 +20,9 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class PermissionsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsWidget : public QWidget
 {
     Q_OBJECT
 public:
