@@ -43,11 +43,11 @@ bool TeamConvertToChannelJob::start()
     }
     addStartRestApiInfo("TeamConvertToChannelJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &TeamConvertToChannelJob::slotTeamLeaveRoomFinished);
+    connect(reply, &QNetworkReply::finished, this, &TeamConvertToChannelJob::slotTeamConvertToChannelFinished);
     return true;
 }
 
-void TeamConvertToChannelJob::slotTeamLeaveRoomFinished()
+void TeamConvertToChannelJob::slotTeamConvertToChannelFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -56,7 +56,7 @@ void TeamConvertToChannelJob::slotTeamLeaveRoomFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamConvertToChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeLeaveRoomDone();
+            Q_EMIT teamConvertToChannelDone();
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("TeamConvertToChannelJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -76,16 +76,6 @@ void TeamConvertToChannelJob::setTeamId(const QString &teamId)
     mTeamId = teamId;
 }
 
-QString TeamConvertToChannelJob::roomId() const
-{
-    return mRoomId;
-}
-
-void TeamConvertToChannelJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
 bool TeamConvertToChannelJob::requireHttpAuthentication() const
 {
     return true;
@@ -94,10 +84,6 @@ bool TeamConvertToChannelJob::requireHttpAuthentication() const
 bool TeamConvertToChannelJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TeamConvertToChannelJob: mRoomId is empty";
         return false;
     }
     if (mTeamId.isEmpty()) {
@@ -119,7 +105,6 @@ QNetworkRequest TeamConvertToChannelJob::request() const
 QJsonDocument TeamConvertToChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mRoomId;
     jsonObj[QLatin1String("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
