@@ -39,6 +39,9 @@ SearchTeamWidget::SearchTeamWidget(QWidget *parent)
     mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
     mainLayout->addWidget(mSearchLine);
     mainLayout->addStretch(1);
+    connect(mSearchLine, &QLineEdit::textChanged, this, [this](const QString &str) {
+        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    });
 }
 
 SearchTeamWidget::~SearchTeamWidget()
