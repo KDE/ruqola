@@ -227,6 +227,8 @@ target_sources(libruqolawidgets PRIVATE
     teams/searchteamdialog.cpp
     teams/searchteamwidget.cpp
     teams/searchteamcompletionlineedit.cpp
+    teams/teamconverttochannelwidget.cpp
+    teams/teamconverttochanneldialog.cpp
 
     directory/directorydialog.cpp
     directory/directorywidget.cpp
