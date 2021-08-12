@@ -168,16 +168,18 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
     QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(this);
     if (dlg->exec()) {
         const QString teamId = dlg->teamId();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
-        job->setTeamId(teamId);
-        const QString roomId = index.data(RoomModel::RoomId).toString();
-        job->setRoomIds({roomId});
+        if (!teamId.isEmpty()) {
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
+            job->setTeamId(teamId);
+            const QString roomId = index.data(RoomModel::RoomId).toString();
+            job->setRoomIds({roomId});
 
-        rcAccount->restApi()->initializeRestApiJob(job);
-        // connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &ChannelListView::slotChannelConvertToTeamDone);
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
+            rcAccount->restApi()->initializeRestApiJob(job);
+            // connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &ChannelListView::slotChannelConvertToTeamDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
+            }
         }
     }
     delete dlg;

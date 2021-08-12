@@ -33,6 +33,9 @@ public:
 
     const QString &teamId() const;
 
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
+
 private:
     SearchTeamCompletionLineEdit *const mSearchLine;
 };
