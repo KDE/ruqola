@@ -41,6 +41,9 @@ public:
     Q_REQUIRED_RESULT QString teamId() const;
     void setTeamId(const QString &teamId);
 
+    Q_REQUIRED_RESULT const QStringList &roomsToRemove() const;
+    void setRoomsToRemove(const QStringList &newRoomsToRemove);
+
 Q_SIGNALS:
     void teamConvertToChannelDone();
 
@@ -48,5 +51,6 @@ private:
     Q_DISABLE_COPY(TeamConvertToChannelJob)
     void slotTeamConvertToChannelFinished();
     QString mTeamId;
+    QStringList mRoomsToRemove;
 };
 }

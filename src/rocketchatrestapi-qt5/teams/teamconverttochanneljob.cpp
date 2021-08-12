@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -66,6 +67,16 @@ void TeamConvertToChannelJob::slotTeamConvertToChannelFinished()
     deleteLater();
 }
 
+const QStringList &TeamConvertToChannelJob::roomsToRemove() const
+{
+    return mRoomsToRemove;
+}
+
+void TeamConvertToChannelJob::setRoomsToRemove(const QStringList &newRoomsToRemove)
+{
+    mRoomsToRemove = newRoomsToRemove;
+}
+
 QString TeamConvertToChannelJob::teamId() const
 {
     return mTeamId;
@@ -106,6 +117,9 @@ QJsonDocument TeamConvertToChannelJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("teamId")] = mTeamId;
+    if (!mRoomsToRemove.isEmpty()) {
+        jsonObj[QLatin1String("roomsToRemove")] = QJsonArray::fromStringList(mRoomsToRemove);
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

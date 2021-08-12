@@ -36,6 +36,7 @@ void TeamConvertToChannelJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.teamId().isEmpty());
+    QVERIFY(job.roomsToRemove().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -55,6 +56,9 @@ void TeamConvertToChannelJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(teamId).toLatin1());
+    const QStringList roomsToRemove{QStringLiteral("bla"), QStringLiteral("bla1"), QStringLiteral("bla2")};
+    job.setRoomsToRemove(roomsToRemove);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(teamId).toLatin1());
 }
 
 void TeamConvertToChannelJobTest::shouldNotStarting()
