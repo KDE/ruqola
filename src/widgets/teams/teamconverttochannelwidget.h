@@ -28,4 +28,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelWidget : public QWidget
 public:
     explicit TeamConvertToChannelWidget(QWidget *parent = nullptr);
     ~TeamConvertToChannelWidget() override;
+    Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
 };

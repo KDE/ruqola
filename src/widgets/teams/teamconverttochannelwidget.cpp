@@ -33,3 +33,9 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
 TeamConvertToChannelWidget::~TeamConvertToChannelWidget()
 {
 }
+
+QStringList TeamConvertToChannelWidget::roomIdsToDelete() const
+{
+    // TODO
+    return {};
+}

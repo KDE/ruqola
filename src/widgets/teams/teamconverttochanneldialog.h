@@ -31,6 +31,8 @@ public:
     explicit TeamConvertToChannelDialog(QWidget *parent = nullptr);
     ~TeamConvertToChannelDialog() override;
 
+    Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
+
 private:
     TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;
 };

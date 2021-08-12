@@ -45,3 +45,8 @@ TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
 TeamConvertToChannelDialog::~TeamConvertToChannelDialog()
 {
 }
+
+QStringList TeamConvertToChannelDialog::roomIdsToDelete() const
+{
+    return mTeamConvertToChannelWidget->roomIdsToDelete();
+}
