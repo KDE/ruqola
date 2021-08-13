@@ -35,4 +35,6 @@ public:
 
 private:
     TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;
+    void readConfig();
+    void writeConfig();
 };

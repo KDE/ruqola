@@ -20,10 +20,15 @@
 
 #include "teamconverttochanneldialog.h"
 #include "teamconverttochannelwidget.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-
+namespace
+{
+const char myTeamConvertToChannelDialogConfigGroupName[] = "TeamConvertToChannelDialog";
+}
 TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
     : QDialog(parent)
     , mTeamConvertToChannelWidget(new TeamConvertToChannelWidget(this))
@@ -40,13 +45,30 @@ TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamConvertToChannelDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &TeamConvertToChannelDialog::accept);
+    readConfig();
 }
 
 TeamConvertToChannelDialog::~TeamConvertToChannelDialog()
 {
+    writeConfig();
 }
 
 QStringList TeamConvertToChannelDialog::roomIdsToDelete() const
 {
     return mTeamConvertToChannelWidget->roomIdsToDelete();
+}
+
+void TeamConvertToChannelDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void TeamConvertToChannelDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);
+    group.writeEntry("Size", size());
 }
