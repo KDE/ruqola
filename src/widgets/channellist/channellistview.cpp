@@ -130,12 +130,16 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 });
                 menu.addAction(convertToTeam);
             } else {
-                menu.addSeparator();
-                auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
-                connect(convertToChanne, &QAction::triggered, this, [=]() {
-                    slotConvertToChannel(index, roomType);
-                });
-                menu.addAction(convertToChanne);
+                const QString roomId = index.data(RoomModel::RoomId).toString();
+                Room *room = rcAccount->room(roomId);
+                if (room && room->hasPermission(QStringLiteral("convert-team"))) { // FIXME use room->hasPermission(...)
+                    menu.addSeparator();
+                    auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
+                    connect(convertToChanne, &QAction::triggered, this, [=]() {
+                        slotConvertToChannel(index, roomType);
+                    });
+                    menu.addAction(convertToChanne);
+                }
             }
             const QString mainTeamId = index.data(RoomModel::RoomTeamId).toString();
             if (mainTeamId.isEmpty() && !mainTeam) {
