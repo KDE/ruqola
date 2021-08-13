@@ -2520,7 +2520,6 @@ bool RocketChatAccount::hasPermission(const QString &permissionId) const
     if (permissionRoles.isEmpty()) { // Check if we don't have stored permissionId in permission manager
         if (!mPermissionManager.contains(permissionId)) {
             qCWarning(RUQOLA_LOG) << "permissionId not loaded during setup:" << permissionId;
-            qWarning() << "permissionId not loaded during setup:" << permissionId;
         }
     }
     for (const QString &role : permissionRoles) {

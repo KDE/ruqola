@@ -54,7 +54,7 @@ private:
     void slotOpenTeamRequested(const QString &identifier);
 
     ChannelListView *const mChannelView;
-    QLineEdit *const mSearchRoom;
+    QLineEdit *const mSearchRoomLineEdit;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 

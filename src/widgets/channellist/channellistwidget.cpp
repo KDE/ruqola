@@ -35,7 +35,7 @@
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
     , mChannelView(new ChannelListView(this))
-    , mSearchRoom(new QLineEdit(this))
+    , mSearchRoomLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
@@ -46,19 +46,19 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
 
     // dummy action just for getting the icon)
-    mSearchRoom->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
-    mSearchRoom->setObjectName(QStringLiteral("mSearchRoom"));
-    mSearchRoom->setPlaceholderText(i18n("Filter Channels (CTRL + K)"));
-    mSearchRoom->setClearButtonEnabled(true);
-    mSearchRoom->installEventFilter(this);
-    mainLayout->addWidget(mSearchRoom);
-    connect(mSearchRoom, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
+    mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
+    mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoom"));
+    mSearchRoomLineEdit->setPlaceholderText(i18n("Filter Channels (CTRL + K)"));
+    mSearchRoomLineEdit->setClearButtonEnabled(true);
+    mSearchRoomLineEdit->installEventFilter(this);
+    mainLayout->addWidget(mSearchRoomLineEdit);
+    connect(mSearchRoomLineEdit, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
 
     // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Channels"), this);
     searchRoomAction->setShortcut(Qt::CTRL | Qt::Key_K);
     connect(searchRoomAction, &QAction::triggered, this, [this]() {
-        mSearchRoom->setFocus();
+        mSearchRoomLineEdit->setFocus();
     });
     addAction(searchRoomAction); // TODO: Add to MainWindow's action collection instead?
     // END: Actions
@@ -72,7 +72,7 @@ void ChannelListWidget::clearFilterChannel()
 {
     if (auto *model = mChannelView->filterModel()) {
         model->setFilterString(QString());
-        mSearchRoom->clear();
+        mSearchRoomLineEdit->clear();
     }
 }
 
@@ -100,7 +100,7 @@ ChannelListView *ChannelListWidget::channelListView() const
 
 bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 {
-    if (object == mSearchRoom && event->type() == QEvent::KeyPress) {
+    if (object == mSearchRoomLineEdit && event->type() == QEvent::KeyPress) {
         const auto *model = mChannelView->model();
         const auto keyEvent = static_cast<QKeyEvent *>(event);
         const int keyValue = keyEvent->key();
@@ -108,7 +108,7 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
             const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
             if (selectedIndex.isValid()) {
                 mChannelView->channelSelected(selectedIndex);
-                mSearchRoom->setText({});
+                mSearchRoomLineEdit->setText({});
             }
         } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
             const QModelIndex currentIndex = mChannelView->selectionModel()->currentIndex();
@@ -144,7 +144,7 @@ void ChannelListWidget::slotAccountInitialized()
 
 void ChannelListWidget::slotSearchRoomTextChanged()
 {
-    mChannelView->filterModel()->setFilterString(mSearchRoom->text());
+    mChannelView->filterModel()->setFilterString(mSearchRoomLineEdit->text());
 }
 
 void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
