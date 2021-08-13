@@ -30,6 +30,7 @@
 #include "teams/groupsconverttoteamjob.h"
 #include "teams/searchteamdialog.h"
 #include "teams/teamaddroomsjob.h"
+#include "teams/teamconverttochanneldialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -194,6 +195,10 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 
 void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomType roomType)
 {
+    const QString roomId = index.data(RoomModel::RoomId).toString();
+    QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
+    if (dlg->exec()) { }
+    delete dlg;
     // TODO
 }
 
