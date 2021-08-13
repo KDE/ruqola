@@ -19,12 +19,14 @@
 */
 
 #include "teamconverttochannelwidget.h"
+#include "teamselectdeletedroomwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
 
 TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     : QWidget(parent)
+    , mTeamSelectDeletedRoomWidget(new TeamSelectDeletedRoomWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -33,6 +35,9 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     auto labelInfo = new QLabel(i18n("Team Name:"), this);
     labelInfo->setObjectName(QStringLiteral("labelInfo"));
     mainLayout->addWidget(labelInfo);
+
+    mTeamSelectDeletedRoomWidget->setObjectName(QStringLiteral("mTeamSelectDeletedRoomWidget"));
+    mainLayout->addWidget(mTeamSelectDeletedRoomWidget);
 }
 
 TeamConvertToChannelWidget::~TeamConvertToChannelWidget()
@@ -41,6 +46,5 @@ TeamConvertToChannelWidget::~TeamConvertToChannelWidget()
 
 QStringList TeamConvertToChannelWidget::roomIdsToDelete() const
 {
-    // TODO
-    return {};
+    return mTeamSelectDeletedRoomWidget->roomsId();
 }

@@ -22,6 +22,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class TeamSelectDeletedRoomWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -29,4 +30,7 @@ public:
     explicit TeamConvertToChannelWidget(QWidget *parent = nullptr);
     ~TeamConvertToChannelWidget() override;
     Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
+
+private:
+    TeamSelectDeletedRoomWidget *const mTeamSelectDeletedRoomWidget;
 };
