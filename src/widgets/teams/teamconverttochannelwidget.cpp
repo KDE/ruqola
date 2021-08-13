@@ -20,6 +20,7 @@
 
 #include "teamconverttochannelwidget.h"
 #include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 
 TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
@@ -28,6 +29,10 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    auto labelInfo = new QLabel(i18n("Team Name:"), this);
+    labelInfo->setObjectName(QStringLiteral("labelInfo"));
+    mainLayout->addWidget(labelInfo);
 }
 
 TeamConvertToChannelWidget::~TeamConvertToChannelWidget()

@@ -20,7 +20,9 @@
 
 #include "teamconverttochannelwidgettest.h"
 #include "teams/teamconverttochannelwidget.h"
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(TeamConvertToChannelWidgetTest)
 TeamConvertToChannelWidgetTest::TeamConvertToChannelWidgetTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +32,12 @@ TeamConvertToChannelWidgetTest::TeamConvertToChannelWidgetTest(QObject *parent)
 void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
 {
     TeamConvertToChannelWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto labelInfo = w.findChild<QLabel *>(QStringLiteral("labelInfo"));
+    QVERIFY(labelInfo);
+    QVERIFY(!labelInfo->text().isEmpty());
 }
