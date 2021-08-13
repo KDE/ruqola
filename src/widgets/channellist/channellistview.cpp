@@ -128,6 +128,13 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     slotConvertToTeam(index, roomType);
                 });
                 menu.addAction(convertToTeam);
+            } else {
+                menu.addSeparator();
+                auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
+                connect(convertToChanne, &QAction::triggered, this, [=]() {
+                    slotConvertToChannel(index, roomType);
+                });
+                menu.addAction(convertToChanne);
             }
             const QString mainTeamId = index.data(RoomModel::RoomTeamId).toString();
             if (mainTeamId.isEmpty() && !mainTeam) {
@@ -183,6 +190,11 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
         }
     }
     delete dlg;
+}
+
+void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomType roomType)
+{
+    // TODO
 }
 
 void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)
