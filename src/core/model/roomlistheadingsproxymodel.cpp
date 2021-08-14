@@ -91,9 +91,7 @@ QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) co
 QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceIndex) const
 {
     if (!sourceIndex.isValid()) {
-        return
-        {
-        }
+        return {};
     };
     Q_ASSERT(sourceIndex.model() == sourceModel());
     const int proxyRow = sourceRowToProxyRow(sourceIndex.row());
@@ -103,16 +101,12 @@ QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceI
 QModelIndex RoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyIndex) const
 {
     if (!proxyIndex.isValid()) {
-        return
-        {
-        }
+        return {};
     };
     Q_ASSERT(proxyIndex.model() == this);
     const int sourceRow = proxyRowToSourceRow(proxyIndex.row());
     if (sourceRow == -1) { // title, no source row
-        return
-        {
-        }
+        return {};
     };
 #if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
     return sourceModel()->createSourceIndex(sourceRow, proxyIndex.column(), proxyIndex.internalPointer());
@@ -130,9 +124,7 @@ Qt::ItemFlags RoomListHeadingsProxyModel::flags(const QModelIndex &proxyIndex) c
     Q_ASSERT(proxyIndex.model() == this);
     const int sourceRow = proxyRowToSourceRow(proxyIndex.row());
     if (sourceRow == -1) { // heading, make it non-selectable
-        return
-        {
-        }
+        return {};
     };
     return QIdentityProxyModel::flags(proxyIndex);
 }
