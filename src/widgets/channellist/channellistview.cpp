@@ -360,8 +360,9 @@ void ChannelListView::selectNextUnreadChannel()
     int roomIdx = 0; 
     // if we have a selection, start searching for the next unread channel there, otherwise start at the top
     const auto currentlySelectedIndex = selectionModel()->currentIndex();
-    if (currentlySelectedIndex.isValid())
+    if (currentlySelectedIndex.isValid()) {
         roomIdx = currentlySelectedIndex.row();
+    }
 
     const int startIndex = roomIdx;
     // iterate through to the end, and then wrap around to the starting point

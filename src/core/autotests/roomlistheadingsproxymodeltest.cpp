@@ -82,10 +82,11 @@ void RoomListHeadingsProxyModelTest::shouldMapProxyRows()
     // THEN
     QCOMPARE(proxyIndex.row(), proxyRow);
     QCOMPARE(proxy.proxyRowToSourceRow(proxyRow), expectedSourceRow);
-    if (expectedSourceRow == -1)
+    if (expectedSourceRow == -1) {
         QVERIFY(!proxy.mapToSource(proxyIndex).isValid());
-    else
+    } else {
         QCOMPARE(proxy.mapToSource(proxyIndex).row(), expectedSourceRow);
+    }
 }
 
 void RoomListHeadingsProxyModelTest::shouldMapSourceRows_data()

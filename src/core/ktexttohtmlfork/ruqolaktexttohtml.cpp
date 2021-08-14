@@ -201,7 +201,8 @@ QString KTextToHTMLHelper::getUrl(bool *badurl)
         // Also, if the URL is enclosed in brackets, the URL itself is not allowed
         // to contain the closing bracket, as this would be detected as the end of the URL
 
-        QChar beforeUrl, afterUrl;
+        QChar beforeUrl;
+        QChar afterUrl;
 
         // detect if the url has been surrounded by brackets or quotes
         if (mPos > 0) {

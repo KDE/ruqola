@@ -44,8 +44,9 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
 
 int RoomListHeadingsProxyModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0; // flat model
+    }
     return QIdentityProxyModel::rowCount() + numVisibleSections();
 }
 
@@ -54,8 +55,9 @@ QModelIndex RoomListHeadingsProxyModel::index(int row, int column, const QModelI
     Q_UNUSED(parent)
     // QIdentityProxyModel uses the proxy row as a source row, we can't do that.
     const int sourceRow = proxyRowToSourceRow(row);
-    if (sourceRow == -1)
+    if (sourceRow == -1) {
         return createIndex(row, column);
+    }
 
     const QModelIndex sourceParent = mapToSource(parent);
     const QModelIndex sourceIndex = sourceModel()->index(sourceRow, column, sourceParent);
@@ -88,8 +90,11 @@ QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) co
 
 QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceIndex) const
 {
-    if (!sourceIndex.isValid())
-        return {};
+    if (!sourceIndex.isValid()) {
+        return
+        {
+        }
+    };
     Q_ASSERT(sourceIndex.model() == sourceModel());
     const int proxyRow = sourceRowToProxyRow(sourceIndex.row());
     return createIndex(proxyRow, sourceIndex.column(), sourceIndex.internalPointer());
@@ -97,12 +102,18 @@ QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceI
 
 QModelIndex RoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyIndex) const
 {
-    if (!proxyIndex.isValid())
-        return {};
+    if (!proxyIndex.isValid()) {
+        return
+        {
+        }
+    };
     Q_ASSERT(proxyIndex.model() == this);
     const int sourceRow = proxyRowToSourceRow(proxyIndex.row());
-    if (sourceRow == -1) // title, no source row
-        return {};
+    if (sourceRow == -1) { // title, no source row
+        return
+        {
+        }
+    };
 #if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
     return sourceModel()->createSourceIndex(sourceRow, proxyIndex.column(), proxyIndex.internalPointer());
 #else
@@ -113,12 +124,16 @@ QModelIndex RoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyInde
 
 Qt::ItemFlags RoomListHeadingsProxyModel::flags(const QModelIndex &proxyIndex) const
 {
-    if (!proxyIndex.isValid())
+    if (!proxyIndex.isValid()) {
         return QIdentityProxyModel::flags(proxyIndex);
+    }
     Q_ASSERT(proxyIndex.model() == this);
     const int sourceRow = proxyRowToSourceRow(proxyIndex.row());
-    if (sourceRow == -1) // heading, make it non-selectable
-        return {};
+    if (sourceRow == -1) { // heading, make it non-selectable
+        return
+        {
+        }
+    };
     return QIdentityProxyModel::flags(proxyIndex);
 }
 
@@ -162,8 +177,9 @@ RoomModel::Section RoomListHeadingsProxyModel::proxyRowSection(int proxyRow) con
     for (size_t section = 0; section < mSectionCounts.size(); ++section) {
         const int sectionCount = mSectionCounts[section];
         if (sectionCount > 0) {
-            if (remaining <= sectionCount)
+            if (remaining <= sectionCount) {
                 return RoomModel::Section(section);
+            }
             sourceRow += sectionCount;
             remaining -= sectionCount + 1;
         }
@@ -180,10 +196,12 @@ int RoomListHeadingsProxyModel::proxyRowToSourceRow(int proxyRow) const
     int remaining = proxyRow;
     for (int sectionCount : mSectionCounts) {
         if (sectionCount > 0) {
-            if (remaining == 0)
+            if (remaining == 0) {
                 return -1; // title
-            if (remaining <= sectionCount)
+            }
+            if (remaining <= sectionCount) {
                 return sourceRow + remaining - 1;
+            }
             sourceRow += sectionCount;
             remaining -= sectionCount + 1;
         }
@@ -209,8 +227,9 @@ int RoomListHeadingsProxyModel::sourceRowToProxyRow(int sourceRow) const
     int remaining = sourceRow;
     for (int sectionCount : mSectionCounts) {
         if (sectionCount > 0) {
-            if (remaining < sectionCount)
+            if (remaining < sectionCount) {
                 return remaining + proxyRow + 1;
+            }
             remaining -= sectionCount;
             proxyRow += sectionCount + 1;
         }

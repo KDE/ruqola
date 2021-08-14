@@ -271,8 +271,9 @@ QString RoomModel::insertRoom(const QJsonObject &room)
     Room *r = createNewRoom();
     r->parseInsertRoom(room);
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room" << r->name() << r->roomId() << r->topic();
-    if (addRoom(r))
+    if (addRoom(r)) {
         return r->roomId();
+    }
     return {};
 }
 
@@ -281,8 +282,9 @@ Room *RoomModel::addRoom(const QJsonObject &room)
     Room *r = createNewRoom();
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_ROOMS_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
-    if (addRoom(r))
+    if (addRoom(r)) {
         return r;
+    }
     return nullptr;
 }
 

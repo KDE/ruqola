@@ -195,11 +195,13 @@ void ImageGraphicsView::setZoom(qreal zoom, const QPointF &centerPos)
     // clamp value
     zoom = qBound(minimumZoom(), zoom, maximumZoom());
 
-    if (qFuzzyCompare(this->zoom(), zoom))
+    if (qFuzzyCompare(this->zoom(), zoom)) {
         return;
+    }
 
-    if (mIsUpdatingZoom)
+    if (mIsUpdatingZoom) {
         return;
+    }
 
     QScopedValueRollback<bool> guard(mIsUpdatingZoom, true);
 

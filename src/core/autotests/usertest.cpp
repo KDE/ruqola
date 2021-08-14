@@ -137,7 +137,8 @@ void UserTest::shouldParseUser()
 
 void UserTest::checkEqualsAndUnequalsOperator()
 {
-    User sampleuser, sampleuserOther;
+    User sampleuser;
+    User sampleuserOther;
     QString Id = QStringLiteral("RA151100ECE");
     QString name = QStringLiteral("Robert Segwick");
 
