@@ -32,6 +32,7 @@
 #include "teams/searchteamdialog.h"
 #include "teams/teamaddroomsjob.h"
 #include "teams/teamconverttochanneldialog.h"
+#include "teams/teamconverttochanneljob.h"
 #include "teams/teamslistroomsjob.h"
 
 #include <KLocalizedString>
@@ -202,12 +203,12 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 
 void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomType roomType)
 {
-    const QString roomId = index.data(RoomModel::RoomId).toString();
+    const QString teamId = index.data(RoomModel::RoomTeamId).toString();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
-    job->setTeamId(roomId);
+    job->setTeamId(teamId);
     rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, roomId](const QJsonObject &obj) {
+    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, rcAccount](const QJsonObject &obj) {
         QVector<TeamRoom> teamRooms;
         const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
         const int total = rooms.count();
@@ -221,14 +222,24 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomT
         }
         QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
         dlg->setTeamRooms(teamRooms);
-        if (dlg->exec()) { }
+        if (dlg->exec()) {
+            const QStringList lst = dlg->roomIdsToDelete();
+            auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
+            job->setTeamId(teamId);
+            rcAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, [this, lst]() {
+                // TODO remove channel.
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
+            }
+        }
         delete dlg;
     });
 
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
     }
-    // TODO
 }
 
 void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)
