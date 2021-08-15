@@ -228,7 +228,9 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomT
             job->setTeamId(teamId);
             rcAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, [this, lst]() {
-                // TODO remove channel.
+                if (!lst.isEmpty()) {
+                    // TODO remove channel.
+                }
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
