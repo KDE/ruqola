@@ -26,11 +26,13 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "teamroom.h"
 #include "teams/channelsconverttoteamjob.h"
 #include "teams/groupsconverttoteamjob.h"
 #include "teams/searchteamdialog.h"
 #include "teams/teamaddroomsjob.h"
 #include "teams/teamconverttochanneldialog.h"
+#include "teams/teamslistroomsjob.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -39,6 +41,7 @@
 #include <QContextMenuEvent>
 #include <QMenu>
 #include <QPointer>
+#include <QVector>
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
@@ -200,9 +203,31 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomType roomType)
 {
     const QString roomId = index.data(RoomModel::RoomId).toString();
-    QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
-    if (dlg->exec()) { }
-    delete dlg;
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
+    job->setTeamId(roomId);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, roomId](const QJsonObject &obj) {
+        QVector<TeamRoom> teamRooms;
+        const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+        const int total = rooms.count();
+        teamRooms.reserve(total);
+        for (int i = 0; i < total; ++i) {
+            const QJsonObject r = rooms.at(i).toObject();
+            TeamRoom teamRoom;
+            teamRoom.parse(r);
+            teamRooms.append(teamRoom);
+            // qDebug() << "TeamRoom  " << teamRoom;
+        }
+        QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
+        dlg->setTeamRooms(teamRooms);
+        if (dlg->exec()) { }
+        delete dlg;
+    });
+
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+    }
     // TODO
 }
 

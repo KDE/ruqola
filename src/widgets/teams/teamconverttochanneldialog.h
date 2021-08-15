@@ -24,6 +24,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class TeamConvertToChannelWidget;
+class TeamRoom;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelDialog : public QDialog
 {
     Q_OBJECT
@@ -32,6 +33,7 @@ public:
     ~TeamConvertToChannelDialog() override;
 
     Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
+    void setTeamRooms(const QVector<TeamRoom> &rooms);
 
 private:
     TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;

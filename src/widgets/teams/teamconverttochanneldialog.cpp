@@ -58,6 +58,11 @@ QStringList TeamConvertToChannelDialog::roomIdsToDelete() const
     return mTeamConvertToChannelWidget->roomIdsToDelete();
 }
 
+void TeamConvertToChannelDialog::setTeamRooms(const QVector<TeamRoom> &rooms)
+{
+    mTeamConvertToChannelWidget->setTeamRooms(rooms);
+}
+
 void TeamConvertToChannelDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);

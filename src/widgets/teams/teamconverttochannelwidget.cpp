@@ -48,3 +48,8 @@ QStringList TeamConvertToChannelWidget::roomIdsToDelete() const
 {
     return mTeamSelectDeletedRoomWidget->roomsId();
 }
+
+void TeamConvertToChannelWidget::setTeamRooms(const QVector<TeamRoom> &rooms)
+{
+    mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
+}
