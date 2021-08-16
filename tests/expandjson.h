@@ -33,8 +33,8 @@ public:
 
 private:
     void slotExpandJson();
-    QTextEdit *mInput = nullptr;
-    QTextEdit *mOutput = nullptr;
-    QPushButton *mExpandButton = nullptr;
+    QTextEdit *const mInput;
+    QTextEdit *const mOutput;
+    QPushButton *const mExpandButton;
 };
 

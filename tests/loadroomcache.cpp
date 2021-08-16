@@ -30,24 +30,24 @@
 
 LoadRoomCache::LoadRoomCache(QWidget *parent)
     : QWidget(parent)
+    , mCacheTextEdit(new QTextEdit(this))
+    , mRequester(new KUrlRequester(this))
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mCacheTextEdit = new QTextEdit(this);
+    auto mainLayout = new QVBoxLayout(this);
     mCacheTextEdit->setReadOnly(true);
     mainLayout->addWidget(mCacheTextEdit);
 
-    QHBoxLayout *hbox = new QHBoxLayout;
+    auto hbox = new QHBoxLayout;
     mainLayout->addLayout(hbox);
     hbox->setContentsMargins(0, 0, 0, 0);
 
-    QLabel *lab = new QLabel(QStringLiteral("Select cache file:"), this);
+    auto lab = new QLabel(QStringLiteral("Select cache file:"), this);
     hbox->addWidget(lab);
 
-    mRequester = new KUrlRequester(this);
     hbox->addWidget(mRequester);
     mRequester->setMode(KFile::File);
 
-    QPushButton *openButton = new QPushButton(QStringLiteral("Open"));
+    auto openButton = new QPushButton(QStringLiteral("Open"));
     hbox->addWidget(openButton);
     connect(openButton, &QPushButton::clicked, this, &LoadRoomCache::slotOpenFile);
 }

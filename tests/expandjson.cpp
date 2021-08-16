@@ -28,17 +28,17 @@
 
 ExpandJson::ExpandJson(QWidget *parent)
     : QWidget(parent)
+    , mInput(new QTextEdit(this))
+    , mOutput(new QTextEdit(this))
+    , mExpandButton(new QPushButton(QStringLiteral("Expand Json String"), this))
 {
     auto layout = new QVBoxLayout(this);
-    mInput = new QTextEdit(this);
     mInput->setAcceptRichText(false);
     layout->addWidget(mInput);
 
-    mOutput = new QTextEdit(this);
     mOutput->setReadOnly(true);
     layout->addWidget(mOutput);
 
-    mExpandButton = new QPushButton(QStringLiteral("Expand Json String"), this);
     layout->addWidget(mExpandButton);
     connect(mExpandButton, &QPushButton::clicked, this, &ExpandJson::slotExpandJson);
 }

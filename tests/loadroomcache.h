@@ -32,7 +32,7 @@ public:
 
 private:
     void slotOpenFile();
-    QTextEdit *mCacheTextEdit;
-    KUrlRequester *mRequester;
+    QTextEdit *const mCacheTextEdit;
+    KUrlRequester *const mRequester;
 };
 
