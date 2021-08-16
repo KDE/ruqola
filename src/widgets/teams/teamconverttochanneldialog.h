@@ -35,6 +35,8 @@ public:
     Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
     void setTeamRooms(const QVector<TeamRoom> &rooms);
 
+    void setTeamName(const QString &name);
+
 private:
     TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;
     void readConfig();

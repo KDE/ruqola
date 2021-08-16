@@ -63,6 +63,11 @@ void TeamConvertToChannelDialog::setTeamRooms(const QVector<TeamRoom> &rooms)
     mTeamConvertToChannelWidget->setTeamRooms(rooms);
 }
 
+void TeamConvertToChannelDialog::setTeamName(const QString &name)
+{
+    mTeamConvertToChannelWidget->setTeamName(name);
+}
+
 void TeamConvertToChannelDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);

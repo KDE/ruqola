@@ -37,7 +37,7 @@ void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});
 
-    auto labelInfo = w.findChild<QLabel *>(QStringLiteral("labelInfo"));
+    auto labelInfo = w.findChild<QLabel *>(QStringLiteral("mLabelInfo"));
     QVERIFY(labelInfo);
-    QVERIFY(!labelInfo->text().isEmpty());
+    QVERIFY(labelInfo->text().isEmpty()); // Empty when we create it
 }

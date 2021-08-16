@@ -27,14 +27,14 @@
 TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     : QWidget(parent)
     , mTeamSelectDeletedRoomWidget(new TeamSelectDeletedRoomWidget(this))
+    , mLabelInfo(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto labelInfo = new QLabel(i18n("Team Name:"), this);
-    labelInfo->setObjectName(QStringLiteral("labelInfo"));
-    mainLayout->addWidget(labelInfo);
+    mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
+    mainLayout->addWidget(mLabelInfo);
 
     mTeamSelectDeletedRoomWidget->setObjectName(QStringLiteral("mTeamSelectDeletedRoomWidget"));
     mainLayout->addWidget(mTeamSelectDeletedRoomWidget);
@@ -52,4 +52,9 @@ QStringList TeamConvertToChannelWidget::roomIdsToDelete() const
 void TeamConvertToChannelWidget::setTeamRooms(const QVector<TeamRoom> &rooms)
 {
     mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
+}
+
+void TeamConvertToChannelWidget::setTeamName(const QString &name)
+{
+    mLabelInfo->setText(i18n("Convert Team Name \'%1\' to Channel", name));
 }
