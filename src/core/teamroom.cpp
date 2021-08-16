@@ -20,6 +20,8 @@
 
 #include "teamroom.h"
 
+#include <QJsonArray>
+
 TeamRoom::TeamRoom()
 {
 }
@@ -75,6 +77,20 @@ QString TeamRoom::identifier() const
 void TeamRoom::setIdentifier(const QString &identifier)
 {
     mIdentifier = identifier;
+}
+
+QVector<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
+{
+    QVector<TeamRoom> teamRooms;
+    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    teamRooms.reserve(rooms.count());
+    for (int i = 0, total = rooms.count(); i < total; ++i) {
+        const QJsonObject r = rooms.at(i).toObject();
+        TeamRoom teamRoom;
+        teamRoom.parse(r);
+        teamRooms.append(teamRoom);
+    }
+    return teamRooms;
 }
 
 QDebug operator<<(QDebug d, const TeamRoom &t)

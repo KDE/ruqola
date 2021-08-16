@@ -166,17 +166,7 @@ void ChannelInfoEditableWidget::deleteTeam(const QString &teamId, const QStringL
 
 void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    QVector<TeamRoom> teamRooms;
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-    const int total = rooms.count();
-    teamRooms.reserve(total);
-    for (int i = 0; i < total; ++i) {
-        const QJsonObject r = rooms.at(i).toObject();
-        TeamRoom teamRoom;
-        teamRoom.parse(r);
-        teamRooms.append(teamRoom);
-        // qDebug() << "TeamRoom  " << teamRoom;
-    }
+    QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     const QString teamId = mRoom->teamInfo().teamId();
     if (teamRooms.isEmpty()) {
         deleteTeam(teamId, {});

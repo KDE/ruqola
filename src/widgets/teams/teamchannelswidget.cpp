@@ -114,15 +114,7 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    QVector<TeamRoom> teamRooms;
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-    for (int i = 0, total = rooms.count(); i < total; ++i) {
-        const QJsonObject r = rooms.at(i).toObject();
-        TeamRoom teamRoom;
-        teamRoom.parse(r);
-        teamRooms.append(teamRoom);
-        // qDebug() << "TeamRoom  " << teamRoom;
-    }
+    const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     mTeamRoomsModel->setTeamRooms(teamRooms);
 }
 
@@ -229,14 +221,7 @@ void TeamChannelsWidget::slotAddExistingRoom()
 void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    QVector<TeamRoom> teamRooms;
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-    for (int i = 0, total = rooms.count(); i < total; ++i) {
-        const QJsonObject r = rooms.at(i).toObject();
-        TeamRoom teamRoom;
-        teamRoom.parse(r);
-        teamRooms.append(teamRoom);
-    }
+    const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     if (!teamRooms.isEmpty()) {
         mTeamRoomsModel->insertRooms(teamRooms);
     }
