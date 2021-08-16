@@ -105,7 +105,7 @@ MessageModel::~MessageModel()
 
         if (f.open(QIODevice::WriteOnly)) {
             QDataStream out(&f);
-            for (const Message &m : qAsConst(mAllMessages)) {
+            for (const Message &m : std::as_const(mAllMessages)) {
                 const QByteArray ms = Message::serialize(m);
                 out.writeBytes(ms, ms.size());
             }

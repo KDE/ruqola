@@ -106,7 +106,7 @@ void AdminRoomsJob::initialUrlParameters(QUrlQuery &urlQuery) const
         types << QStringLiteral("teams");
     }
     if (!types.isEmpty()) {
-        for (const QString &str : qAsConst(types)) {
+        for (const QString &str : std::as_const(types)) {
             urlQuery.addQueryItem(QStringLiteral("types[]"), str);
         }
     }

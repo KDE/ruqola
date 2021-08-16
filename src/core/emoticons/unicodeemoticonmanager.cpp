@@ -70,7 +70,7 @@ QVector<EmoticonCategory> UnicodeEmoticonManager::categories() const
 {
     QVector<EmoticonCategory> categories;
     QSet<QString> seen;
-    for (const UnicodeEmoticon &emo : qAsConst(mUnicodeEmojiList)) {
+    for (const UnicodeEmoticon &emo : std::as_const(mUnicodeEmojiList)) {
         // Pick the first icon in each category
         const QString category = emo.category();
         if (!seen.contains(category)) {

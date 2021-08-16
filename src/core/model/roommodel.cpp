@@ -55,7 +55,7 @@ RoomModel::~RoomModel()
 
         if (f.open(QIODevice::WriteOnly)) {
             QDataStream out(&f);
-            for (Room *m : qAsConst(mRoomsList)) {
+            for (Room *m : std::as_const(mRoomsList)) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " save cache for room " << m->name();
                 const QByteArray ms = Room::serialize(m);
                 out.writeBytes(ms.constData(), ms.size());
@@ -78,7 +78,7 @@ void RoomModel::clear()
 
 Room *RoomModel::findRoom(const QString &roomID) const
 {
-    for (Room *r : qAsConst(mRoomsList)) {
+    for (Room *r : std::as_const(mRoomsList)) {
         if (r->roomId() == roomID) {
             return r;
         }

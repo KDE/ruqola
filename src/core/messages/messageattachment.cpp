@@ -309,12 +309,12 @@ void MessageAttachment::generateAttachmentFieldsText()
     QString result = QStringLiteral(R"(<qt><table width="100%"><tr>)");
     QStringList values;
     values.reserve(mAttachmentFields.count());
-    for (const MessageAttachmentField &field : qAsConst(mAttachmentFields)) {
+    for (const MessageAttachmentField &field : std::as_const(mAttachmentFields)) {
         result += QStringLiteral("<th><b>%1</b></th>").arg(field.title());
         values << field.value();
     }
     result += QStringLiteral("</tr><tr>");
-    for (const QString &res : qAsConst(values)) {
+    for (const QString &res : std::as_const(values)) {
         result += QStringLiteral("<td>%1</td>").arg(res);
     }
     result += QStringLiteral("</tr></table></qt>");

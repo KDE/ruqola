@@ -58,7 +58,7 @@ void AccountServerListWidget::load()
 void AccountServerListWidget::save()
 {
     // First remove account
-    for (const QString &accountName : qAsConst(mListRemovedAccount)) {
+    for (const QString &accountName : std::as_const(mListRemovedAccount)) {
         Ruqola::self()->accountManager()->removeAccount(accountName);
     }
 

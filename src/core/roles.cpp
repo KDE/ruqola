@@ -104,7 +104,7 @@ void Roles::parseRole(const QJsonObject &obj)
 
 Role Roles::findRoleByUserId(const QString &userId) const
 {
-    for (const Role &r : qAsConst(mRoles)) {
+    for (const Role &r : std::as_const(mRoles)) {
         if (r.userId() == userId) {
             return r;
         }

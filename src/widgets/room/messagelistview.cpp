@@ -387,7 +387,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (mMessageListDelegate->hasSelection()) {
         const QString selectedText = mMessageListDelegate->selectedText();
-        for (PluginTextInterface *interface : qAsConst(mPluginTextInterface)) {
+        for (PluginTextInterface *interface : std::as_const(mPluginTextInterface)) {
             interface->setSelectedText(selectedText);
             interface->addAction(&menu);
         }

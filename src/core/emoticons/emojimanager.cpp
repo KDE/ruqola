@@ -132,7 +132,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         return emojiIdentifier;
     }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
-        for (const CustomEmoji &emoji : qAsConst(mCustomEmojiList)) {
+        for (const CustomEmoji &emoji : std::as_const(mCustomEmojiList)) {
             if (emoji.hasEmoji(emojiIdentifier)) {
                 QString cachedHtml = emoji.cachedHtml();
                 if (cachedHtml.isEmpty()) {
