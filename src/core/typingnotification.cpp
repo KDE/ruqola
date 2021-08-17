@@ -26,8 +26,8 @@ LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs = 2000;
 
 TypingNotification::TypingNotification(QObject *parent)
     : QObject(parent)
+    , mTimer(new QTimer(this))
 {
-    mTimer = new QTimer(this);
     mTimer->setObjectName(QStringLiteral("typingnotificationtimer"));
     mTimer->setInterval(timerTimeOutValueMs);
     mTimer->setSingleShot(true);

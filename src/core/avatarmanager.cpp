@@ -28,8 +28,8 @@ using namespace std::chrono_literals;
 AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
+    , mTimer(new QTimer(this))
 {
-    mTimer = new QTimer(this);
     mTimer->setSingleShot(true);
     // increase interval otherwise we can have some error
     mTimer->setInterval(2s);

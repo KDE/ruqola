@@ -46,6 +46,6 @@ private:
     void slotRescheduleDownload();
     QVector<Utils::AvatarInfo> mAvatarDownloadIdentifer;
     RocketChatAccount *const mAccount;
-    QTimer *mTimer = nullptr;
+    QTimer *const mTimer;
 };
 

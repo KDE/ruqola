@@ -39,6 +39,6 @@ private:
     void slotTimeout();
     QString mRoomId;
     bool mTypingInprogress = false;
-    QTimer *mTimer = nullptr;
+    QTimer *const mTimer;
 };
 

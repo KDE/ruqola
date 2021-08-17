@@ -30,6 +30,9 @@
 
 #include <QJsonArray>
 #include <QTimer>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
@@ -60,7 +63,7 @@ void AddTeamRoomCompletionLineEdit::slotSearchTextEdited()
     }
 
     mSearchTimer->setSingleShot(true);
-    mSearchTimer->start(500);
+    mSearchTimer->start(500ms);
 }
 
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
