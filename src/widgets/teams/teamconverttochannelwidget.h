@@ -37,5 +37,4 @@ public:
 
 private:
     TeamSelectDeletedRoomWidget *const mTeamSelectDeletedRoomWidget;
-    QLabel *const mLabelInfo;
 };

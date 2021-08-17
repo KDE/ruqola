@@ -65,7 +65,7 @@ void TeamConvertToChannelDialog::setTeamRooms(const QVector<TeamRoom> &rooms)
 
 void TeamConvertToChannelDialog::setTeamName(const QString &name)
 {
-    mTeamConvertToChannelWidget->setTeamName(name);
+    setWindowTitle(i18nc("@title:window", "Convert Team \'%1\' to Channel", name));
 }
 
 void TeamConvertToChannelDialog::readConfig()
