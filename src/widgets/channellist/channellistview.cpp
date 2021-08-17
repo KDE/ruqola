@@ -136,11 +136,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
             } else {
                 const QString roomId = index.data(RoomModel::RoomId).toString();
                 Room *room = rcAccount->room(roomId);
-                if (room && room->hasPermission(QStringLiteral("convert-team"))) { // FIXME use room->hasPermission(...)
+                if (room && room->hasPermission(QStringLiteral("convert-team"))) {
                     menu.addSeparator();
                     auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
                     connect(convertToChanne, &QAction::triggered, this, [=]() {
-                        slotConvertToChannel(index, roomType);
+                        slotConvertToChannel(index);
                     });
                     menu.addAction(convertToChanne);
                 }
@@ -201,7 +201,7 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
     delete dlg;
 }
 
-void ChannelListView::slotConvertToChannel(const QModelIndex &index, Room::RoomType roomType)
+void ChannelListView::slotConvertToChannel(const QModelIndex &index)
 {
     const QString teamId = index.data(RoomModel::RoomTeamId).toString();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
