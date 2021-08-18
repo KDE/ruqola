@@ -157,6 +157,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     subscriptions/markroomasunreadjob.cpp
 
     permissions/permissionslistalljob.cpp
+    permissions/permissionupdatejob.cpp
 
     commands/listcommandsjob.cpp
     commands/getcommandsjob.cpp
