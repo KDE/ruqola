@@ -125,17 +125,19 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         if (rcAccount->teamEnabled()) {
+            const QString roomId = index.data(RoomModel::RoomId).toString();
+            Room *room = rcAccount->room(roomId);
             const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
             if (!mainTeam) {
-                menu.addSeparator();
-                auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
-                connect(convertToTeam, &QAction::triggered, this, [=]() {
-                    slotConvertToTeam(index, roomType);
-                });
-                menu.addAction(convertToTeam);
+                if (room && room->hasPermission(QStringLiteral("convert-team"))) {
+                    menu.addSeparator();
+                    auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
+                    connect(convertToTeam, &QAction::triggered, this, [=]() {
+                        slotConvertToTeam(index, roomType);
+                    });
+                    menu.addAction(convertToTeam);
+                }
             } else {
-                const QString roomId = index.data(RoomModel::RoomId).toString();
-                Room *room = rcAccount->room(roomId);
                 if (room && room->hasPermission(QStringLiteral("convert-team"))) {
                     menu.addSeparator();
                     auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
