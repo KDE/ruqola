@@ -218,11 +218,10 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
             const QStringList lst = dlg->roomIdsToDelete();
             auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
             job->setTeamId(teamId);
+            job->setRoomsToRemove(lst);
             rcAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, [this, lst]() {
-                if (!lst.isEmpty()) {
-                    // TODO remove channel.
-                }
+            connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, [this]() {
+                // TODO ?
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
