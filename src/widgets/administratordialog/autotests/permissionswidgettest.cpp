@@ -19,7 +19,9 @@
 */
 
 #include "permissionswidgettest.h"
+#include "administratordialog/permissions/permissionswidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(PermissionsWidgetTest)
 
 PermissionsWidgetTest::PermissionsWidgetTest(QObject *parent)
@@ -29,5 +31,10 @@ PermissionsWidgetTest::PermissionsWidgetTest(QObject *parent)
 
 void PermissionsWidgetTest::shouldHaveDefaultValues()
 {
+    PermissionsWidget w;
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
     // TODO
 }
