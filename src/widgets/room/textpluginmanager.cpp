@@ -19,6 +19,7 @@
 */
 
 #include "textpluginmanager.h"
+#include "kcoreaddons_version.h"
 #include "plugins/plugintext.h"
 
 #include <KPluginFactory>
@@ -45,7 +46,11 @@ TextPluginManager *TextPluginManager::self()
 
 void TextPluginManager::initializePluginList()
 {
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
     const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
+#else
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
+#endif
 
     QVectorIterator<KPluginMetaData> i(plugins);
     i.toBack();
@@ -59,6 +64,7 @@ void TextPluginManager::initializePluginList()
         // 2) look at if plugin is activated
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
+        info.data = data;
         // only load plugins once, even if found multiple times!
         if (unique.contains(info.metaDataFileNameBaseName)) {
             continue;
@@ -75,11 +81,18 @@ void TextPluginManager::initializePluginList()
 
 void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
 {
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
     KPluginLoader pluginLoader(item->metaDataFileName);
     if (pluginLoader.factory()) {
         item->plugin = pluginLoader.factory()->create<PluginText>(this, QVariantList() << item->metaDataFileNameBaseName);
         mPluginDataList.append(item->pluginData);
     }
+#else
+    if (auto plugin = KPluginFactory::instantiatePlugin<PluginText>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
+        item->plugin = plugin;
+        mPluginDataList.append(item->pluginData);
+    }
+#endif
 }
 
 QVector<PluginText *> TextPluginManager::pluginsList() const

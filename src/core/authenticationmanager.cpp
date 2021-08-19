@@ -19,8 +19,8 @@
 */
 
 #include "authenticationmanager.h"
+#include "kcoreaddons_version.h"
 #include "ruqola_debug.h"
-
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KPluginMetaData>
@@ -46,7 +46,11 @@ AuthenticationManager *AuthenticationManager::self()
 
 void AuthenticationManager::initializePluginList()
 {
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
     const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
+#else
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
+#endif
 
     QVectorIterator<KPluginMetaData> i(plugins);
     i.toBack();
@@ -58,6 +62,7 @@ void AuthenticationManager::initializePluginList()
         // 1) get plugin data => name/description etc.
         info.pluginData = createPluginMetaData(data);
         // 2) look at if plugin is activated
+        info.data = data;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
         // only load plugins once, even if found multiple times!
@@ -76,11 +81,18 @@ void AuthenticationManager::initializePluginList()
 
 void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
 {
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
     KPluginLoader pluginLoader(item->metaDataFileName);
     if (pluginLoader.factory()) {
         item->plugin = pluginLoader.factory()->create<PluginAuthentication>(this, QVariantList() << item->metaDataFileNameBaseName);
         mPluginDataList.append(item->pluginData);
     }
+#else
+    if (auto plugin = KPluginFactory::instantiatePlugin<PluginAuthentication>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
+        item->plugin = plugin;
+        mPluginDataList.append(item->pluginData);
+    }
+#endif
 }
 
 QVector<PluginAuthentication *> AuthenticationManager::pluginsList() const

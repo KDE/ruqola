@@ -46,6 +46,7 @@ public:
     {
     }
 
+    KPluginMetaData data;
     QString metaDataFileNameBaseName;
     QString metaDataFileName;
     PluginTextUtilData pluginData;
