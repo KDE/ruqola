@@ -28,4 +28,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsWidget : public QWidget
 public:
     explicit PermissionsWidget(QWidget *parent = nullptr);
     ~PermissionsWidget() override;
+    void initialize();
+
+private:
+    void slotPermissionListAllDone(const QJsonObject &obj);
 };

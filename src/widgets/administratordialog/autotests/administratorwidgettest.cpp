@@ -25,6 +25,7 @@
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/invites/administratorinviteswidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
+#include "administratordialog/permissions/permissionswidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include "administratordialog/users/administratoruserswidget.h"
@@ -72,4 +73,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mAdministratorCustomEmojiWidget = w.findChild<AdministratorCustomEmojiWidget *>(QStringLiteral("mAdministratorCustomEmojiWidget"));
     QVERIFY(mAdministratorCustomEmojiWidget);
+
+    auto mPermissionsWidget = w.findChild<PermissionsWidget *>(QStringLiteral("mPermissionsWidget"));
+    QVERIFY(mPermissionsWidget);
 }

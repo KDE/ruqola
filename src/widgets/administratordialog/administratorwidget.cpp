@@ -20,6 +20,7 @@
 
 #include "administratorwidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
+#include "administratordialog/permissions/permissionswidget.h"
 #include "customemoji/administratorcustomemojiwidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
@@ -45,6 +46,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     , mAdministratorInvitesWidget(new AdministratorInvitesWidget(this))
     , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(this))
     , mViewLogWidget(new ViewLogWidget(this))
+    , mPermissionsWidget(new PermissionsWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -76,6 +78,9 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
     mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
     mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
+
+    mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
+    mTabWidget->addTab(mPermissionsWidget, i18n("Permissions"));
 }
 
 AdministratorWidget::~AdministratorWidget()
@@ -88,6 +93,7 @@ void AdministratorWidget::initialize()
     mAdministratorRoomsWidget->initialize();
     mAdministratorCustomSoundsWidget->initialize();
     mAdministratorCustomEmojiWidget->initialize();
+    mPermissionsWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()

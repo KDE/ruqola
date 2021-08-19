@@ -19,6 +19,11 @@
 */
 
 #include "permissionswidget.h"
+#include "permissions/permissionslistalljob.h"
+#include "restapirequest.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <QVBoxLayout>
 
 PermissionsWidget::PermissionsWidget(QWidget *parent)
@@ -31,4 +36,20 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
 
 PermissionsWidget::~PermissionsWidget()
 {
+}
+
+void PermissionsWidget::initialize()
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto permissionsListAllJob = new RocketChatRestApi::PermissionsListAllJob(this);
+    rcAccount->restApi()->initializeRestApiJob(permissionsListAllJob);
+    connect(permissionsListAllJob, &RocketChatRestApi::PermissionsListAllJob::permissionListAllDone, this, &PermissionsWidget::slotPermissionListAllDone);
+    if (!permissionsListAllJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
+    }
+}
+
+void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
+{
+    qDebug() << "obj" << obj;
 }
