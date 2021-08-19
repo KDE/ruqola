@@ -24,7 +24,6 @@
 #include "libruqolawidgets_private_export.h"
 class TeamSelectDeletedRoomWidget;
 class TeamRoom;
-class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelWidget : public QWidget
 {
     Q_OBJECT
