@@ -24,14 +24,18 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <QTreeView>
 #include <QVBoxLayout>
 
 PermissionsWidget::PermissionsWidget(QWidget *parent)
     : QWidget(parent)
+    , mTreeView(new QTreeView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mainLayout->addWidget(mTreeView);
 }
 
 PermissionsWidget::~PermissionsWidget()
