@@ -24,16 +24,21 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <QLineEdit>
 #include <QTreeView>
 #include <QVBoxLayout>
 
 PermissionsWidget::PermissionsWidget(QWidget *parent)
     : QWidget(parent)
     , mTreeView(new QTreeView(this))
+    , mSearchLineWidget(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mainLayout->addWidget(mTreeView);
 }

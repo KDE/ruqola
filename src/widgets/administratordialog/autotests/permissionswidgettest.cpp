@@ -20,7 +20,9 @@
 
 #include "permissionswidgettest.h"
 #include "administratordialog/permissions/permissionswidget.h"
+#include <QLineEdit>
 #include <QTest>
+#include <QTreeView>
 #include <QVBoxLayout>
 QTEST_MAIN(PermissionsWidgetTest)
 
@@ -36,5 +38,11 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});
-    // TODO
+
+    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    QVERIFY(mTreeView);
+
+    auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
+    QVERIFY(mSearchLineWidget->text().isEmpty());
 }
