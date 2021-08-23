@@ -83,7 +83,10 @@ void PermissionsListAllJob::setUpdatedSince(const QDateTime &newUpdatedSince)
 QNetworkRequest PermissionsListAllJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::PermissionsListAll);
-    // TODO use mUpdatedSince (Date as ISO string)
+    if (mUpdatedSince.isValid()) {
+        // TODO use mUpdatedSince (Date as ISO string)
+        // permissions.listAll?updatedSince=2017-11-25T15:08:17.248Z
+    }
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
