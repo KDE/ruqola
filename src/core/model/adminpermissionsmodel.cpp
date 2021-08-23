@@ -42,20 +42,11 @@ int AdminPermissionsModel::rowCount(const QModelIndex &parent) const
 QVariant AdminPermissionsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AdminInviteRoles>(section)) {
-        case AdminPermissionsModel::UserIdentifier:
-        case AdminPermissionsModel::RoomId:
-            break;
-        case AdminPermissionsModel::Identifier:
-            return i18n("Token");
-        case AdminPermissionsModel::Create:
-            return i18n("Created at");
-        case AdminPermissionsModel::Uses:
-            return i18n("Uses");
-        case AdminPermissionsModel::MaxUses:
-            return i18n("Uses left");
-        case AdminPermissionsModel::Expire:
-            return i18n("Expiration");
+        switch (static_cast<AdminPermissionsRoles>(section)) {
+        case AdminPermissionsModel::Name:
+            return i18n("Name");
+        case AdminPermissionsModel::Permissions:
+            return i18n("Permissions");
         }
     }
     return QVariant();
@@ -98,42 +89,11 @@ QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
     const InviteInfo &inviteInfo = mAdminInvites.at(index.row());
     const int col = index.column();
     switch (col) {
-    case AdminPermissionsModel::UserIdentifier:
+    case AdminPermissionsModel::Name:
         return inviteInfo.userIdentifier();
-    case AdminPermissionsModel::Identifier:
+    case AdminPermissionsModel::Permissions:
         return inviteInfo.identifier();
-    case AdminPermissionsModel::RoomId:
-        return inviteInfo.roomId();
-    case AdminPermissionsModel::Create:
-        return inviteInfo.createDateTime().toString();
-    case AdminPermissionsModel::Uses:
-        return inviteInfo.uses();
-    case AdminPermissionsModel::MaxUses:
-        return inviteInfo.maxUses();
-    case AdminPermissionsModel::Expire:
-        return expireInvitation(inviteInfo);
     }
     return {};
 }
 
-QString AdminPermissionsModel::expireInvitation(const InviteInfo &inviteInfo) const
-{
-    if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
-        return i18n("Expire in %1 days", QDateTime::currentDateTime().daysTo(inviteInfo.expireDateTime()));
-    } else {
-        return i18n("Expired");
-    }
-}
-
-void AdminPermissionsModel::removeInvite(const QString &identifier)
-{
-    const int roomCount = mAdminInvites.count();
-    for (int i = 0; i < roomCount; ++i) {
-        if (mAdminInvites.at(i).identifier() == identifier) {
-            beginRemoveRows(QModelIndex(), i, i);
-            mAdminInvites.removeAt(i);
-            endRemoveRows();
-            break;
-        }
-    }
-}

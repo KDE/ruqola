@@ -28,17 +28,12 @@ class LIBRUQOLACORE_EXPORT AdminPermissionsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum AdminInviteRoles {
-        UserIdentifier,
-        Identifier,
-        RoomId,
-        Create,
-        Expire,
-        Uses,
-        MaxUses,
-        LastColumn = MaxUses,
+    enum AdminPermissionsRoles {
+        Name,
+        Permissions,
+        LastColumn = Permissions,
     };
-    Q_ENUM(AdminInviteRoles)
+    Q_ENUM(AdminPermissionsRoles)
 
     explicit AdminPermissionsModel(QObject *parent = nullptr);
     ~AdminPermissionsModel() override;
