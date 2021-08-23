@@ -39,9 +39,13 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
+    Q_REQUIRED_RESULT const QString &identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
 private:
     qint64 mUpdatedAt = -1;
     QStringList mRoles;
+    QString mIdentifier;
 };
 Q_DECLARE_METATYPE(Permission)
 Q_DECLARE_TYPEINFO(Permission, Q_MOVABLE_TYPE);

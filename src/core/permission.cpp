@@ -28,6 +28,7 @@ Permission::Permission()
 
 void Permission::parsePermission(const QJsonObject &replyObject)
 {
+    mIdentifier = replyObject.value(QLatin1String("_id")).toString();
     mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
     const QJsonArray roleArray = replyObject.value(QLatin1String("roles")).toArray();
     mRoles.reserve(roleArray.count());
@@ -61,9 +62,20 @@ bool Permission::isValid() const
     return mUpdatedAt != -1;
 }
 
+const QString &Permission::identifier() const
+{
+    return mIdentifier;
+}
+
+void Permission::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
+}
+
 QDebug operator<<(QDebug d, const Permission &t)
 {
     d << "roles : " << t.roles();
     d << "mUpdatedAt " << t.updatedAt();
+    d << "mIdentifier " << t.identifier();
     return d;
 }

@@ -32,4 +32,5 @@ void PermissionTest::shouldHaveDefaultValues()
     Permission p;
     QVERIFY(p.roles().isEmpty());
     QCOMPARE(p.updatedAt(), -1);
+    QVERIFY(!p.identifier().isEmpty());
 }

@@ -46,7 +46,7 @@ void Permissions::parsePermissions(const QJsonObject &obj)
 {
     mPermissions.clear();
 
-    const QJsonArray permissionArray = obj[QStringLiteral("roles")].toArray(); // FIXME it.
+    const QJsonArray permissionArray = obj[QStringLiteral("update")].toArray();
     const int roleArrayCount = permissionArray.count();
     mPermissions.reserve(roleArrayCount);
     for (int i = 0; i < roleArrayCount; ++i) {
