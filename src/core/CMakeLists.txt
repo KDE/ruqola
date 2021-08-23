@@ -170,6 +170,7 @@ target_sources(libruqolacore PRIVATE
     notificationpreferences.cpp
 
     roles.cpp
+    permissions.cpp
     role.cpp
     roleinfo.cpp
 
