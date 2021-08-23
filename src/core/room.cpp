@@ -1487,7 +1487,7 @@ bool Room::canChangeRoles() const
 
 bool Room::userHasOwnerRole(const QString &userId) const
 {
-    Role r = mRolesForRooms.findRoleByUserId(userId);
+    const Role r = mRolesForRooms.findRoleByUserId(userId);
     if (r.isValid()) {
         return r.isOwner();
     }
@@ -1496,7 +1496,7 @@ bool Room::userHasOwnerRole(const QString &userId) const
 
 bool Room::userHasLeaderRole(const QString &userId) const
 {
-    Role r = mRolesForRooms.findRoleByUserId(userId);
+    const Role r = mRolesForRooms.findRoleByUserId(userId);
     if (r.isValid()) {
         return r.isLeader();
     }
@@ -1505,7 +1505,7 @@ bool Room::userHasLeaderRole(const QString &userId) const
 
 bool Room::userHasModeratorRole(const QString &userId) const
 {
-    Role r = mRolesForRooms.findRoleByUserId(userId);
+    const Role r = mRolesForRooms.findRoleByUserId(userId);
     if (r.isValid()) {
         return r.isModerator();
     }
