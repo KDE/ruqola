@@ -41,8 +41,8 @@ public:
     explicit MessageCache(QObject *parent = nullptr);
     ~MessageCache() override;
 
-    ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
-    Message *messageForId(const QString &messageId);
+    Q_REQUIRED_RESULT ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
+    Q_REQUIRED_RESULT Message *messageForId(const QString &messageId);
 
 Q_SIGNALS:
     void modelLoaded();
