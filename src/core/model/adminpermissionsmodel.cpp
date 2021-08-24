@@ -19,6 +19,7 @@
 */
 
 #include "adminpermissionsmodel.h"
+#include "permissions.h"
 #include <KLocalizedString>
 #include <QDateTime>
 
@@ -36,17 +37,17 @@ int AdminPermissionsModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mAdminInvites.count();
+    return mPermissions.count();
 }
 
 QVariant AdminPermissionsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<AdminPermissionsRoles>(section)) {
-        case AdminPermissionsModel::Name:
+        case AdminPermissionsModel::Identifier:
             return i18n("Name");
-        case AdminPermissionsModel::Permissions:
-            return i18n("Permissions");
+        case AdminPermissionsModel::Roles:
+            return i18n("Roles");
         }
     }
     return QVariant();
@@ -58,41 +59,41 @@ int AdminPermissionsModel::columnCount(const QModelIndex &parent) const
     return static_cast<int>(AdminPermissionsModel::LastColumn) + 1;
 }
 
-const QVector<InviteInfo> &AdminPermissionsModel::adminInvites() const
+Permissions AdminPermissionsModel::permissions() const
 {
-    return mAdminInvites;
+    return mPermissions;
 }
 
-void AdminPermissionsModel::setAdminInvites(const QVector<InviteInfo> &newAdminInvites)
+void AdminPermissionsModel::setPermissions(Permissions newPermissions)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminInvites.count() - 1);
-        mAdminInvites.clear();
+        beginRemoveRows(QModelIndex(), 0, mPermissions.count() - 1);
+        mPermissions.clear();
         endRemoveRows();
     }
-    if (!newAdminInvites.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
-        mAdminInvites = newAdminInvites;
+    if (!newPermissions.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newPermissions.count() - 1);
+        mPermissions = newPermissions;
         endInsertRows();
     }
 }
 
 QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mAdminInvites.count()) {
+    if (index.row() < 0 || index.row() >= mPermissions.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const InviteInfo &inviteInfo = mAdminInvites.at(index.row());
+    const Permission &permissionInfo = mPermissions.at(index.row());
     const int col = index.column();
     switch (col) {
-    case AdminPermissionsModel::Name:
-        return inviteInfo.userIdentifier();
-    case AdminPermissionsModel::Permissions:
-        return inviteInfo.identifier();
+    case AdminPermissionsModel::Identifier:
+        return permissionInfo.identifier();
+    case AdminPermissionsModel::Roles:
+        return permissionInfo.roles();
     }
     return {};
 }

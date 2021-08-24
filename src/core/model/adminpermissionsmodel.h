@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "inviteinfo.h"
 #include "libruqolacore_export.h"
+#include "permissions.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT AdminPermissionsModel : public QAbstractListModel
@@ -29,9 +29,9 @@ class LIBRUQOLACORE_EXPORT AdminPermissionsModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum AdminPermissionsRoles {
-        Name,
-        Permissions,
-        LastColumn = Permissions,
+        Identifier,
+        Roles,
+        LastColumn = Roles,
     };
     Q_ENUM(AdminPermissionsRoles)
 
@@ -43,13 +43,10 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    const QVector<InviteInfo> &adminInvites() const;
-    void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
-
-    void removeInvite(const QString &identifier);
+    Q_REQUIRED_RESULT Permissions permissions() const;
+    void setPermissions(Permissions newPermissions);
 
 private:
     Q_DISABLE_COPY(AdminPermissionsModel)
-    Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
-    QVector<InviteInfo> mAdminInvites;
+    Permissions mPermissions;
 };

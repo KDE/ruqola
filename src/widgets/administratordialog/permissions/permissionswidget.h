@@ -24,6 +24,7 @@
 #include <QWidget>
 class QTreeView;
 class QLineEdit;
+class AdminPermissionsModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsWidget : public QWidget
 {
     Q_OBJECT
@@ -36,4 +37,5 @@ private:
     void slotPermissionListAllDone(const QJsonObject &obj);
     QTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
+    AdminPermissionsModel *const mAdminPermissionsModel;
 };

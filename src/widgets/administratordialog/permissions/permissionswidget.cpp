@@ -19,6 +19,7 @@
 */
 
 #include "permissionswidget.h"
+#include "model/adminpermissionsmodel.h"
 #include "permissions/permissionslistalljob.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -32,6 +33,7 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     : QWidget(parent)
     , mTreeView(new QTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
+    , mAdminPermissionsModel(new AdminPermissionsModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,6 +43,8 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mainLayout->addWidget(mTreeView);
+    mTreeView->setModel(mAdminPermissionsModel);
+    // TODO Order ?
 }
 
 PermissionsWidget::~PermissionsWidget()

@@ -42,6 +42,11 @@ void Permissions::clear()
     mPermissions.clear();
 }
 
+Permission Permissions::at(int index) const
+{
+    return mPermissions.at(index);
+}
+
 bool Permissions::isEmpty() const
 {
     return mPermissions.isEmpty();

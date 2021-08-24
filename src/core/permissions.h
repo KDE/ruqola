@@ -38,6 +38,8 @@ public:
     Q_REQUIRED_RESULT int count() const;
     void clear();
 
+    Q_REQUIRED_RESULT Permission at(int index) const;
+
 private:
     QVector<Permission> mPermissions;
 };
