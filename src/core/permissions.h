@@ -35,6 +35,9 @@ public:
     void parsePermissions(const QJsonObject &obj);
     Q_REQUIRED_RESULT bool isEmpty() const;
 
+    Q_REQUIRED_RESULT int count() const;
+    void clear();
+
 private:
     QVector<Permission> mPermissions;
 };

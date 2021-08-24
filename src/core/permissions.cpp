@@ -32,6 +32,16 @@ QVector<Permission> Permissions::permissions() const
     return mPermissions;
 }
 
+int Permissions::count() const
+{
+    return mPermissions.count();
+}
+
+void Permissions::clear()
+{
+    mPermissions.clear();
+}
+
 bool Permissions::isEmpty() const
 {
     return mPermissions.isEmpty();
