@@ -20,6 +20,7 @@
 
 #include "permissionswidget.h"
 #include "model/adminpermissionsmodel.h"
+#include "permissions.h"
 #include "permissions/permissionslistalljob.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -42,6 +43,7 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mTreeView->setRootIsDecorated(false);
     mainLayout->addWidget(mTreeView);
     mTreeView->setModel(mAdminPermissionsModel);
     // TODO Order ?
@@ -64,5 +66,8 @@ void PermissionsWidget::initialize()
 
 void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
 {
+    Permissions p;
+    p.parsePermissions(obj);
+    mAdminPermissionsModel->setPermissions(p);
     qDebug() << "obj" << obj;
 }

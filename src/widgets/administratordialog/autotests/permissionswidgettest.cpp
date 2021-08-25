@@ -41,6 +41,7 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
 
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
+    QVERIFY(!mTreeView->rootIsDecorated());
 
     auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
