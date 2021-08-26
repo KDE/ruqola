@@ -128,6 +128,20 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
                 }
             }
 
+            while (selectRow != -1 && selectRow != currentIndex.row() && !model->index(selectRow, 0).flags().testFlag(Qt::ItemIsSelectable)) {
+                if (keyValue == Qt::Key_Up) {
+                    --selectRow;
+                    if (selectRow == -1) {
+                        selectRow = rowCount - 1;
+                    }
+                } else { // Qt::Key_Down
+                    ++selectRow;
+                    if (selectRow == rowCount) {
+                        selectRow = 0;
+                    }
+                }
+            }
+
             if (selectRow != -1) {
                 mChannelView->selectionModel()->setCurrentIndex(model->index(selectRow, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
             }
