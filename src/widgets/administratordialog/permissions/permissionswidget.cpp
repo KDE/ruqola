@@ -69,5 +69,5 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
     Permissions p;
     p.parsePermissions(obj);
     mAdminPermissionsModel->setPermissions(p);
-    qDebug() << "obj" << obj;
+    // qDebug() << "obj" << obj;
 }
