@@ -21,6 +21,7 @@
 #include "channellistdelegate.h"
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
+#include "model/roomlistheadingsproxymodel.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
@@ -47,31 +48,35 @@ void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *current
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    const auto isHeader = index.data(RoomListHeadingsProxyModel::IsHeading).toBool();
+    const int iconSize = isHeader ? 0 : option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
     int offsetAvatarRoom = 0;
-    if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
+    if (!isHeader && RuqolaGlobalConfig::self()->showRoomAvatar()) {
         offsetAvatarRoom = margin + iconSize;
     }
     const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y(), iconSize, option.rect.height());
     const QString text = index.data(Qt::DisplayRole).toString();
     // const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
-    const QString unreadText = makeUnreadText(index);
+    const QString unreadText = isHeader ? QString() : makeUnreadText(index);
     const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
-    const int xText = offsetAvatarRoom + option.rect.x() + iconSize + 2 * margin;
+    const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
     const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText - unreadSize.width() - margin, option.rect.height());
     const QRect unreadRect(option.rect.width() - unreadSize.width() - margin, option.rect.y(), unreadSize.width(), option.rect.height());
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
     drawBackground(painter, optionCopy, index);
-    const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
-    icon.paint(painter, decorationRect, Qt::AlignCenter);
-    if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
-        const Utils::AvatarInfo avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
-        if (avatarInfo.isValid()) {
-            const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, avatarInfo, option.rect.height());
-            painter->drawPixmap(margin, option.rect.top(), pix);
+
+    if (!isHeader) {
+        const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
+        icon.paint(painter, decorationRect, Qt::AlignCenter);
+        if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
+            const Utils::AvatarInfo avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
+            if (avatarInfo.isValid()) {
+                const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, avatarInfo, option.rect.height());
+                painter->drawPixmap(margin, option.rect.top(), pix);
+            }
         }
     }
 
@@ -80,9 +85,11 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 
-    KColorScheme scheme;
-    painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
-    painter->drawText(unreadRect, unreadText);
+    if (!isHeader) {
+        KColorScheme scheme;
+        painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
+        painter->drawText(unreadRect, unreadText);
+    }
 }
 
 QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
