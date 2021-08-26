@@ -52,6 +52,8 @@ private:
     void clearFilterChannel();
     void slotOpenLinkRequested(const QString &link);
     void slotOpenTeamRequested(const QString &identifier);
+    void selectNextChannel(int direction);
+    void applyChannelSelection();
 
     ChannelListView *const mChannelView;
     QLineEdit *const mSearchRoomLineEdit;
