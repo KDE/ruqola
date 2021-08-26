@@ -28,6 +28,10 @@ Permission::Permission()
 
 void Permission::parsePermission(const QJsonObject &replyObject)
 {
+    // Don't store settings value.
+    if (!replyObject.value(QLatin1String("settingId")).toString().isEmpty()) {
+        return;
+    }
     mIdentifier = replyObject.value(QLatin1String("_id")).toString();
     mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
     const QJsonArray roleArray = replyObject.value(QLatin1String("roles")).toArray();
