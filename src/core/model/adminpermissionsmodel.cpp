@@ -93,7 +93,7 @@ QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
     case AdminPermissionsModel::Identifier:
         return permissionInfo.identifier();
     case AdminPermissionsModel::Roles:
-        return permissionInfo.roles();
+        return permissionInfo.roles().join(QLatin1Char(','));
     }
     return {};
 }
