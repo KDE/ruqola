@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QMenu>
+#include <QSortFilterProxyModel>
 #include <QTreeView>
 #include <QVBoxLayout>
 
@@ -38,6 +39,9 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminPermissionsModel(new AdminPermissionsModel(this))
 {
+    auto permissionFilterProxyModel = new QSortFilterProxyModel(this);
+    permissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -48,7 +52,8 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mTreeView->setRootIsDecorated(false);
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     mainLayout->addWidget(mTreeView);
-    mTreeView->setModel(mAdminPermissionsModel);
+    permissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
+    mTreeView->setModel(permissionFilterProxyModel);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
 
     // TODO Order ?

@@ -21,6 +21,7 @@
 #include "permissionswidgettest.h"
 #include "administratordialog/permissions/permissionswidget.h"
 #include <QLineEdit>
+#include <QSortFilterProxyModel>
 #include <QTest>
 #include <QTreeView>
 #include <QVBoxLayout>
@@ -46,4 +47,7 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
     QVERIFY(mSearchLineWidget->text().isEmpty());
+
+    auto permissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("permissionFilterProxyModel"));
+    QVERIFY(permissionFilterProxyModel);
 }
