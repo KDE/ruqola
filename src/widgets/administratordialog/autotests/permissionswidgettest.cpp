@@ -20,6 +20,7 @@
 
 #include "permissionswidgettest.h"
 #include "administratordialog/permissions/permissionswidget.h"
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
 #include <QTest>
@@ -43,6 +44,8 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
+    QVERIFY(!mTreeView->isSortingEnabled());
+    QVERIFY(mTreeView->header()->sectionsClickable());
 
     auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);

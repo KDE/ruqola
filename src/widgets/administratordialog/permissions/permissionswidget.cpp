@@ -27,6 +27,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>
 #include <QSortFilterProxyModel>
@@ -50,6 +51,9 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
+    mTreeView->setSortingEnabled(true);
+    mTreeView->sortByColumn(0, Qt::AscendingOrder);
+    mTreeView->header()->setSectionsClickable(true);
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     mainLayout->addWidget(mTreeView);
     permissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
