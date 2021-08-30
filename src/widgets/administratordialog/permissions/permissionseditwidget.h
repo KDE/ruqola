@@ -28,4 +28,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditWidget : public QWidget
 public:
     explicit PermissionsEditWidget(QWidget *parent = nullptr);
     ~PermissionsEditWidget() override;
+    void setRoles(const QStringList &lst);
+    Q_REQUIRED_RESULT QStringList roles() const;
 };

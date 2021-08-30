@@ -30,6 +30,9 @@ public:
     explicit PermissionsEditDialog(QWidget *parent = nullptr);
     ~PermissionsEditDialog() override;
 
+    void setRoles(const QStringList &lst);
+    Q_REQUIRED_RESULT QStringList roles() const;
+
 private:
     PermissionsEditWidget *const mPermissionsWidget;
 };

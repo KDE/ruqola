@@ -21,14 +21,33 @@
 #include "permissionseditdialog.h"
 #include "permissionseditwidget.h"
 #include <KLocalizedString>
+#include <QDialogButtonBox>
 #include <QVBoxLayout>
-
 PermissionsEditDialog::PermissionsEditDialog(QWidget *parent)
     : QDialog(parent)
     , mPermissionsWidget(new PermissionsEditWidget(this))
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->addWidget(mPermissionsWidget);
+
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &PermissionsEditDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &PermissionsEditDialog::accept);
 }
 
 PermissionsEditDialog::~PermissionsEditDialog()
 {
+}
+
+void PermissionsEditDialog::setRoles(const QStringList &lst)
+{
+    mPermissionsWidget->setRoles(lst);
+}
+
+QStringList PermissionsEditDialog::roles() const
+{
+    return mPermissionsWidget->roles();
 }
