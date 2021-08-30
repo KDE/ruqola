@@ -207,6 +207,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/logs/viewlogwidget.cpp
 
     administratordialog/permissions/permissionswidget.cpp
+    administratordialog/permissions/permissionseditdialog.cpp
+    administratordialog/permissions/permissionseditwidget.cpp
 
     administratordialog/customemoji/administratorcustomemojiwidget.cpp
     administratordialog/customemoji/administratorcustomemojicreatedialog.cpp
