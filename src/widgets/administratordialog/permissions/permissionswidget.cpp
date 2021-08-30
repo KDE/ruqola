@@ -26,7 +26,9 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <QLineEdit>
+#include <QMenu>
 #include <QTreeView>
 #include <QVBoxLayout>
 
@@ -44,8 +46,11 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mTreeView->setRootIsDecorated(false);
+    mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     mainLayout->addWidget(mTreeView);
     mTreeView->setModel(mAdminPermissionsModel);
+    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
+
     // TODO Order ?
 }
 
@@ -70,4 +75,21 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
     p.parsePermissions(obj);
     mAdminPermissionsModel->setPermissions(p);
     // qDebug() << "obj" << obj;
+}
+
+void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    const QModelIndex index = mTreeView->indexAt(pos);
+    if (index.isValid()) {
+        //        QMenu menu(this);
+        //        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+        //            const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
+        //            removeClicked(modelIndex.data().toString());
+        //        });
+        //        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    }
+}
+
+void PermissionsWidget::slotEditRoles()
+{
 }
