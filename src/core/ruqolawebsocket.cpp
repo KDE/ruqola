@@ -33,7 +33,7 @@ RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     connect(mWebSocket, &QWebSocket::disconnected, this, &RuqolaWebSocket::disconnected);
     connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::slotTextMessageReceived);
     connect(mWebSocket, &QWebSocket::sslErrors, this, &RuqolaWebSocket::sslErrors);
-    connect(mWebSocket, QOverload<QAbstractSocket::SocketError>::of(&QWebSocket::error), this, &RuqolaWebSocket::slotError);
+    connect(mWebSocket, qOverload<QAbstractSocket::SocketError>(&QWebSocket::error), this, &RuqolaWebSocket::slotError);
 }
 
 RuqolaWebSocket::~RuqolaWebSocket()

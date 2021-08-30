@@ -55,7 +55,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
 
     mLanguage->setObjectName(QStringLiteral("mLanguage"));
     mLanguage->setModel(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel());
-    connect(mLanguage, QOverload<int>::of(&QComboBox::activated), this, &AutoTranslateConfigureWidget::slotLanguageChanged);
+    connect(mLanguage, qOverload<int>(&QComboBox::activated), this, &AutoTranslateConfigureWidget::slotLanguageChanged);
 
     horizontalLayout->addWidget(mLanguage);
 

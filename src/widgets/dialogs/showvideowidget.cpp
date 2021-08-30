@@ -73,7 +73,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::positionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
-    connect(mMediaPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
+    connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
 
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));

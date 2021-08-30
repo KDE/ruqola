@@ -285,7 +285,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     zoomLayout->addWidget(fitToViewButton);
     connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ImageGraphicsView::fitToView);
 
-    connect(mZoomSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, [this](double value) {
+    connect(mZoomSpin, qOverload<double>(&QDoubleSpinBox::valueChanged), this, [this](double value) {
         mImageGraphicsView->setZoom(static_cast<qreal>(value));
     });
     connect(mSlider, &QSlider::valueChanged, this, [this](int value) {

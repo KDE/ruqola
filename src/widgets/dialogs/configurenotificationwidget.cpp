@@ -77,7 +77,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mDesktopAlertCombobox->setObjectName(QStringLiteral("mDesktopAlertCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
     mDesktopAlertCombobox->setModel(NotificationPreferences::self()->desktopNotificationModel());
-    connect(mDesktopAlertCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+    connect(mDesktopAlertCombobox, qOverload<int>(&QComboBox::activated), this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(),
                                                                          RocketChatAccount::DesktopNotifications,
                                                                          NotificationPreferences::self()->desktopNotificationModel()->currentPreference(index));
@@ -86,7 +86,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mDesktopAudioCombobox->setObjectName(QStringLiteral("mDesktopAudioCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Audio:"), mDesktopAudioCombobox);
     mDesktopAudioCombobox->setModel(NotificationPreferences::self()->desktopAudioNotificationModel());
-    connect(mDesktopAudioCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+    connect(mDesktopAudioCombobox, qOverload<int>(&QComboBox::activated), this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(
             mRoom->roomId(),
             RocketChatAccount::AudioNotifications,
@@ -96,7 +96,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
     mDesktopSoundCombobox->setModel(NotificationPreferences::self()->desktopSoundNotificationModel());
-    connect(mDesktopSoundCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+    connect(mDesktopSoundCombobox, qOverload<int>(&QComboBox::activated), this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(
             mRoom->roomId(),
             RocketChatAccount::DesktopSoundNotifications,
@@ -106,7 +106,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mDesktopDurationCombobox->setObjectName(QStringLiteral("mDesktopDurationCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
     mDesktopDurationCombobox->setModel(NotificationPreferences::self()->desktopDurationNotificationModel());
-    connect(mDesktopDurationCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+    connect(mDesktopDurationCombobox, qOverload<int>(&QComboBox::activated), this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(
             mRoom->roomId(),
             RocketChatAccount::DesktopDurationNotifications,
@@ -123,7 +123,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mMobileAlertCombobox->setObjectName(QStringLiteral("mMobileAlertCombobox"));
     mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
     mMobileAlertCombobox->setModel(NotificationPreferences::self()->mobileNotificationModel());
-    connect(mMobileAlertCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+    connect(mMobileAlertCombobox, qOverload<int>(&QComboBox::activated), this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(),
                                                                          RocketChatAccount::MobilePushNotifications,
                                                                          NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
@@ -139,7 +139,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mEmailAlertCombobox->setObjectName(QStringLiteral("mEmailAlertCombobox"));
     emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
     mEmailAlertCombobox->setModel(NotificationPreferences::self()->emailNotificationModel());
-    connect(mEmailAlertCombobox, QOverload<int>::of(&QComboBox::activated), this, [this](int index) {
+    connect(mEmailAlertCombobox, qOverload<int>(&QComboBox::activated), this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoom->roomId(),
                                                                          RocketChatAccount::EmailNotifications,
                                                                          NotificationPreferences::self()->emailNotificationModel()->currentPreference(index));
