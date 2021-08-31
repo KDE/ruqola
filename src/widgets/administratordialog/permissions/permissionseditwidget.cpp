@@ -19,6 +19,8 @@
 */
 
 #include "permissionseditwidget.h"
+#include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     : QWidget(parent)
