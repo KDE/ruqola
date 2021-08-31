@@ -22,6 +22,7 @@
 #include "model/adminpermissionsmodel.h"
 #include "permissions.h"
 #include "permissions/permissionslistalljob.h"
+#include "permissionseditdialog.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -30,6 +31,7 @@
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>
+#include <QPointer>
 #include <QSortFilterProxyModel>
 #include <QTreeView>
 #include <QVBoxLayout>
@@ -90,12 +92,13 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        //        QMenu menu(this);
-        //        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-        //            const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
-        //            removeClicked(modelIndex.data().toString());
-        //        });
-        //        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+            // Fix model selection with proxymodel
+            const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
+            // removeClicked(modelIndex.data().toString());
+        });
+        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
 }
 
