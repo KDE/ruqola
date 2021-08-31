@@ -149,7 +149,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                                 cachedHtml = emoji.generateHtmlFromCustomEmojiLocalPath(emojiUrl.path());
                             }
                         } else {
-                            qDebug() << " Impossible to find custom emoji " << emojiIdentifier;
+                            qCDebug(RUQOLA_LOG) << " Impossible to find custom emoji " << emojiIdentifier;
                         }
                     }
                 }
