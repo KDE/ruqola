@@ -41,7 +41,7 @@ public:
     void setTotal(int total);
 
     void parseCustomSounds(const QJsonObject &obj);
-    void parseMoreCustomSounds(const QJsonObject &obj);
+    void parseMoreCustomEmojis(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
@@ -52,7 +52,7 @@ public:
     CustomEmoji takeAt(int index);
 
 private:
-    void parseListCustomSound(const QJsonObject &obj);
+    void parseListCustomEmoji(const QJsonObject &obj);
     QVector<CustomEmoji> mCustomEmojiInfos;
     int mRoomsCount = 0;
     int mOffset = 0;

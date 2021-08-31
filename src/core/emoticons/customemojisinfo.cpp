@@ -47,16 +47,16 @@ CustomEmoji CustomEmojisInfo::at(int index) const
     return mCustomEmojiInfos.at(index);
 }
 
-void CustomEmojisInfo::parseMoreCustomSounds(const QJsonObject &obj)
+void CustomEmojisInfo::parseMoreCustomEmojis(const QJsonObject &obj)
 {
     const int adminRoomsCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
-    parseListCustomSound(obj);
+    parseListCustomEmoji(obj);
     mRoomsCount += adminRoomsCount;
 }
 
-void CustomEmojisInfo::parseListCustomSound(const QJsonObject &obj)
+void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
 {
     const QJsonArray adminRoomsArray = obj[QLatin1String("emojis")].toArray();
     mCustomEmojiInfos.reserve(mCustomEmojiInfos.count() + adminRoomsArray.count());
@@ -98,7 +98,7 @@ void CustomEmojisInfo::parseCustomSounds(const QJsonObject &obj)
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
     mCustomEmojiInfos.clear();
-    parseListCustomSound(obj);
+    parseListCustomEmoji(obj);
 }
 
 int CustomEmojisInfo::offset() const
