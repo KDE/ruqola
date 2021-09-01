@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "emoticons/customemoji.h"
 #include "emoticons/unicodeemoticon.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
@@ -47,11 +48,16 @@ public:
 
     void setEmoticons(const QVector<UnicodeEmoticon> &emoticons);
 
+    Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
+    void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
+
 private:
     Q_DISABLE_COPY(EmoticonModel)
     QVector<UnicodeEmoticon> mEmoticons;
+    QVector<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list
-    QVector<QPair<int, int>> mRows;
+    QVector<QPair<int, int>> mUnicodeRows;
+    QVector<QPair<int, int>> mCustomRows;
 };
 

@@ -19,6 +19,7 @@
 */
 
 #include "emoticonmodel.h"
+#include <KLocalizedString>
 
 EmoticonModel::EmoticonModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -34,32 +35,55 @@ int EmoticonModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mRows.count();
+    return mUnicodeRows.count() + mCustomRows.count();
 }
 
 QVariant EmoticonModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mRows.count()) {
+    if (index.row() < 0 || index.row() >= (mUnicodeRows.count() + mCustomRows.count())) {
         return {};
     }
-    const auto &row = mRows.at(index.row());
-    const UnicodeEmoticon &unicodeEmoti = mEmoticons.at(row.first);
 
-    switch (role) {
-    case CompleterName:
-        return unicodeEmoti.identifier().mid(1);
-    case UnicodeEmoji:
-        return unicodeEmoti.unicode();
-    case Category:
-        return unicodeEmoti.category();
-    case Identifier:
-    case Qt::DisplayRole: // for the completion popup (until we have a delegate)
-        if (row.second == -1) {
-            return unicodeEmoti.identifier();
+    if (index.row() < mUnicodeRows.count()) {
+        const auto &row = mUnicodeRows.at(index.row());
+        if (row.first < mEmoticons.count()) {
+            const UnicodeEmoticon &unicodeEmoti = mEmoticons.at(row.first);
+
+            switch (role) {
+            case CompleterName:
+                return unicodeEmoti.identifier().mid(1);
+            case UnicodeEmoji:
+                return unicodeEmoti.unicode();
+            case Category:
+                return unicodeEmoti.category();
+            case Identifier:
+            case Qt::DisplayRole: // for the completion popup (until we have a delegate)
+                if (row.second == -1) {
+                    return unicodeEmoti.identifier();
+                }
+                return unicodeEmoti.aliases().value(row.second);
+            }
         }
-        return unicodeEmoti.aliases().value(row.second);
+    } else {
+        const auto &row = mCustomRows.at(index.row() - mUnicodeRows.count());
+        if (row.first < mUnicodeRows.count()) {
+            const CustomEmoji &customEmoti = mCustomEmojiList.at(row.first);
+            switch (role) {
+            case CompleterName:
+                return customEmoti.emojiIdentifier().mid(1);
+            case UnicodeEmoji:
+                return customEmoti.name();
+            case Category:
+                return i18n("Custom");
+            case Identifier:
+            case Qt::DisplayRole: // for the completion popup (until we have a delegate)
+                if (row.second == -1) {
+                    return customEmoti.emojiIdentifier();
+                }
+                return customEmoti.aliases().value(row.second);
+            }
+        }
     }
-
     return {};
 }
 
@@ -72,13 +96,35 @@ void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
 {
     beginResetModel();
     mEmoticons = emoticons;
-    mRows.clear();
+    mUnicodeRows.clear();
     int row = 0;
     for (const auto &emoticon : emoticons) {
-        mRows.append({row, -1});
+        mUnicodeRows.append({row, -1});
         const auto numAliases = emoticon.aliases().size();
         for (int i = 0; i < numAliases; ++i) {
-            mRows.append({row, i});
+            mUnicodeRows.append({row, i});
+        }
+        ++row;
+    }
+    endResetModel();
+}
+
+const QVector<CustomEmoji> &EmoticonModel::customEmojiList() const
+{
+    return mCustomEmojiList;
+}
+
+void EmoticonModel::setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList)
+{
+    beginResetModel();
+    mCustomEmojiList = newCustomEmojiList;
+    mCustomRows.clear();
+    int row = 0;
+    for (const auto &emoticon : newCustomEmojiList) {
+        mCustomRows.append({row, -1});
+        const auto numAliases = emoticon.aliases().size();
+        for (int i = 0; i < numAliases; ++i) {
+            mCustomRows.append({row, i});
         }
         ++row;
     }

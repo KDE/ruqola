@@ -773,6 +773,7 @@ void RocketChatAccount::changeDefaultStatus(int index, const QString &messageSta
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);
+    mEmoticonModel->setCustomEmojiList(mEmojiManager->customEmojiList());
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
