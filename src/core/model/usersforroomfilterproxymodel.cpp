@@ -24,7 +24,6 @@
 UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     // Filter on alias/username ?
     setFilterRole(UsersForRoomModel::UsersForRoomRoles::UserName);

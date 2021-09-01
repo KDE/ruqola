@@ -22,7 +22,6 @@
 AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(DirectoryBaseModel *model, QObject *parent)
     : DirectoryBaseFilterProxyModel(model, parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0, Qt::DescendingOrder);
 }

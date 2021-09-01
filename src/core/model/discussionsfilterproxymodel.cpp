@@ -24,7 +24,7 @@ DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(DiscussionsModel *model
     , mDiscussionsModel(model)
 {
     setSourceModel(mDiscussionsModel);
-    setDynamicSortFilter(true);
+
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(DiscussionsModel::Description);
     setSortRole(DiscussionsModel::SortByTimeStamp);

@@ -24,7 +24,6 @@
 UserCompleterFilterProxyModel::UserCompleterFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(UserCompleterModel::UserName);
     sort(0);

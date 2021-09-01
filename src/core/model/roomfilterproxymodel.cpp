@@ -24,7 +24,6 @@
 RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     sort(0);
 }
 

@@ -26,7 +26,7 @@ ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(ListMessage
     , mModel(model)
 {
     setSourceModel(mModel);
-    setDynamicSortFilter(true);
+
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(ListMessagesModel::OriginalMessage);
     sort(0, Qt::DescendingOrder);

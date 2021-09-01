@@ -24,7 +24,6 @@
 SearchChannelFilterProxyModel::SearchChannelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(SearchChannelModel::ChannelName);
     sort(0);

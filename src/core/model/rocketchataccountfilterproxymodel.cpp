@@ -24,7 +24,6 @@
 RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(RocketChatAccountModel::Name);
     sort(0);

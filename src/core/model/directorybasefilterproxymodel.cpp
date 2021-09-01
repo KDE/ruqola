@@ -22,7 +22,7 @@ DirectoryBaseFilterProxyModel::DirectoryBaseFilterProxyModel(QAbstractListModel 
     : QSortFilterProxyModel(parent)
 {
     setSourceModel(model);
-    setDynamicSortFilter(true);
+
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0, Qt::DescendingOrder);
 }

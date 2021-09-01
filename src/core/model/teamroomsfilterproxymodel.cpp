@@ -26,7 +26,7 @@ TeamRoomsFilterProxyModel::TeamRoomsFilterProxyModel(TeamRoomsModel *teamModel, 
     , mTeamRoomsModel(teamModel)
 {
     setSourceModel(mTeamRoomsModel);
-    setDynamicSortFilter(true);
+
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     // Filter on filename for the moment
     setFilterRole(TeamRoomsModel::Name);

@@ -24,7 +24,6 @@
 ChannelCompleterFilterProxyModel::ChannelCompleterFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(ChannelCompleterModel::RoomName);
     sort(0);

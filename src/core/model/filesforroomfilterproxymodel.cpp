@@ -26,7 +26,7 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fi
     , mFilesForRoomModel(fileModel)
 {
     setSourceModel(mFilesForRoomModel);
-    setDynamicSortFilter(true);
+
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     // Filter on filename for the moment
     setFilterRole(FilesForRoomModel::FileName);
