@@ -72,7 +72,7 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             case CompleterName:
                 return customEmoti.emojiIdentifier().mid(1);
             case UnicodeEmoji:
-                return customEmoti.name();
+                return customEmoti.name(); // Display name for the moment. In the future we need to display "icon"
             case Category:
                 return i18n("Custom");
             case Identifier:
