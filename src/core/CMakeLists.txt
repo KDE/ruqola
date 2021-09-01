@@ -41,6 +41,7 @@ target_sources(libruqolacore PRIVATE
 
     model/emoticonfiltermodel.cpp
     model/emoticonmodel.cpp
+    model/emoticonmodelfilterproxymodel.cpp
     model/notificationpreferencemodel.cpp
 
     model/notificationdesktopdurationpreferencemodel.cpp
@@ -59,6 +60,7 @@ target_sources(libruqolacore PRIVATE
     model/autotranslatelanguagesmodel.cpp
 
     model/commandsmodel.cpp
+    model/commandsmodelfilterproxymodel.cpp
 
     model/accountschannelsmodel.cpp
 

@@ -21,6 +21,8 @@
 #include "inputtextmanager.h"
 #include "misc/directoryjob.h"
 #include "model/commandsmodel.h"
+#include "model/commandsmodelfilterproxymodel.h"
+#include "model/emoticonmodelfilterproxymodel.h"
 #include "ownuserpreferences.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -31,8 +33,8 @@
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mInputCompleterModel(new InputCompleterModel(this))
-    , mEmoticonFilterProxyModel(new QSortFilterProxyModel(this))
-    , mCommandFilterProxyModel(new QSortFilterProxyModel(this))
+    , mEmoticonFilterProxyModel(new EmoticonModelFilterProxyModel(this))
+    , mCommandFilterProxyModel(new CommandsModelFilterProxyModel(this))
     , mAccount(account)
 {
 }

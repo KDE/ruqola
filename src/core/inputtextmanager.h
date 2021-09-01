@@ -30,6 +30,8 @@
 class QAbstractItemModel;
 class QSortFilterProxyModel;
 class RocketChatAccount;
+class CommandsModelFilterProxyModel;
+class EmoticonModelFilterProxyModel;
 class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
@@ -71,8 +73,8 @@ private:
     void slotCompletionChannelDone(const QJsonObject &root);
 
     InputCompleterModel *const mInputCompleterModel;
-    QSortFilterProxyModel *const mEmoticonFilterProxyModel;
-    QSortFilterProxyModel *const mCommandFilterProxyModel;
+    EmoticonModelFilterProxyModel *const mEmoticonFilterProxyModel;
+    CommandsModelFilterProxyModel *const mCommandFilterProxyModel;
     RocketChatAccount *const mAccount;
     CompletionForType mCurrentCompletionType = None;
     QString mCurrentCompletionPattern;
