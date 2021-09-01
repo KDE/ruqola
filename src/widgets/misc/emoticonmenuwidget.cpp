@@ -118,6 +118,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         mTabWidget->addTab(w, category.name());
         w->setEmoticons(emojiManager->emojisForCategory(category.category()));
         connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
+        // TODO add support for customEmoji too.
     }
 }
 
