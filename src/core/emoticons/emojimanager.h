@@ -54,6 +54,8 @@ public:
     Q_REQUIRED_RESULT QString customEmojiFileName(const QString &emojiIdentifier) const;
     Q_REQUIRED_RESULT QString normalizedReactionEmoji(const QString &emojiIdentifier) const;
 
+    Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
+
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();

@@ -38,6 +38,7 @@ void EmojiManagerTest::shouldHaveDefaultValue()
     EmojiManager manager(nullptr);
     QVERIFY(manager.serverUrl().isEmpty());
     QCOMPARE(manager.count(), 3225);
+    QVERIFY(manager.customEmojiList().isEmpty());
 }
 
 void EmojiManagerTest::shouldParseEmoji_data()

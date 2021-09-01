@@ -258,3 +258,8 @@ void EmojiManager::clearCustomEmojiCachedHtml()
         mCustomEmojiList[i].clearCachedHtml();
     }
 }
+
+const QVector<CustomEmoji> &EmojiManager::customEmojiList() const
+{
+    return mCustomEmojiList;
+}
