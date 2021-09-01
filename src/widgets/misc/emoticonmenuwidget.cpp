@@ -23,6 +23,7 @@
 #include "emoticons/emojimanager.h"
 #include "emoticonselectorwidget.h"
 #include "model/emoticonmodel.h"
+#include "model/emoticonmodelfilterproxymodel.h"
 #include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -79,7 +80,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
     // "all" tab
     auto allEmojisView = new QListView(this);
-    auto emoticonFilterProxyModel = new QSortFilterProxyModel(this);
+    auto emoticonFilterProxyModel = new EmoticonModelFilterProxyModel(this);
     emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
     allEmojisView->setModel(emoticonFilterProxyModel);
     allEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
