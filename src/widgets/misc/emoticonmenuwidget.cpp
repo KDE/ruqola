@@ -33,6 +33,7 @@
 #include <KLocalizedString>
 
 #include <QLineEdit>
+#include <QScrollBar>
 #include <QSortFilterProxyModel>
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -82,6 +83,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
     // "all" tab
     auto allEmojisView = new QListView(this);
+    allEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     auto emoticonFilterProxyModel = new EmoticonModelFilterProxyModel(this);
     emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
     allEmojisView->setModel(emoticonFilterProxyModel);
@@ -99,6 +101,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 
     // Recent
     auto recentUsedEmoticonView = new RecentUsedEmoticonView(this);
+    recentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
     recentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
@@ -115,6 +118,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     });
     // Custom
     auto customEmojiView = new QListView(this);
+    customEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     auto emoticonCustomFilterProxyModel = new EmoticonCustomModelFilterProxyModel(this);
     emoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
     customEmojiView->setModel(emoticonCustomFilterProxyModel);
@@ -134,7 +138,6 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         mTabWidget->addTab(w, category.name());
         w->setEmoticons(emojiManager->emojisForCategory(category.category()));
         connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
-        // TODO add support for customEmoji too.
     }
 }
 
