@@ -44,6 +44,9 @@ target_sources(libruqolacore PRIVATE
     model/emoticonmodelfilterproxymodel.cpp
     model/notificationpreferencemodel.cpp
 
+    model/emoticoncustommodel.cpp
+    model/emoticoncustommodelfilterproxymodel.cpp
+
     model/notificationdesktopdurationpreferencemodel.cpp
     model/notificationdesktopsoundpreferencemodel.cpp
 

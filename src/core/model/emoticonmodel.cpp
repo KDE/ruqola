@@ -87,12 +87,12 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QVector<UnicodeEmoticon> EmoticonModel::emoticons() const
+QVector<UnicodeEmoticon> EmoticonModel::unicodeEmoticons() const
 {
     return mEmoticons;
 }
 
-void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
+void EmoticonModel::setUnicodeEmoticons(const QVector<UnicodeEmoticon> &emoticons)
 {
     beginResetModel();
     mEmoticons = emoticons;

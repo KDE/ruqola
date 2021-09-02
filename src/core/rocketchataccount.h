@@ -91,6 +91,7 @@ class DownloadAppsLanguagesManager;
 class UsersForRoomModel;
 class MessageCache;
 class ManageChannels;
+class EmoticonCustomModel;
 
 namespace RocketChatRestApi
 {
@@ -450,6 +451,8 @@ public:
     Q_REQUIRED_RESULT QString loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
     Q_REQUIRED_RESULT bool teamEnabled() const;
     void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
+    Q_REQUIRED_RESULT EmoticonCustomModel *emoticonCustomModel() const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
@@ -588,6 +591,7 @@ private:
 
     EmoticonFilterModel *mEmoticonFilterModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
+    EmoticonCustomModel *mEmoticonCustomModel = nullptr;
     CommandsModel *mCommandsModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 

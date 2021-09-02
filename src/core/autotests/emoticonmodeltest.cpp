@@ -49,7 +49,7 @@ void EmoticonModelTest::shouldListEmojis()
     QVector<UnicodeEmoticon> list{icon1};
 
     // WHEN
-    model.setEmoticons(list);
+    model.setUnicodeEmoticons(list);
 
     // THEN
     QCOMPARE(model.rowCount(), 3);
@@ -80,7 +80,7 @@ void EmoticonModelTest::shouldFilterCategory()
     icon1.setIdentifier(QStringLiteral("id1"));
     icon1.setCategory(QStringLiteral("cat1"));
     QVector<UnicodeEmoticon> list{icon1};
-    model.setEmoticons(list);
+    model.setUnicodeEmoticons(list);
 
     // WHEN
     const QString category = QStringLiteral("cat1");

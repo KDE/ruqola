@@ -31,6 +31,7 @@
 #include "model/commandsmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
+#include "model/emoticoncustommodel.h"
 #include "model/emoticonfiltermodel.h"
 #include "model/emoticonmodel.h"
 #include "model/filesforroomfilterproxymodel.h"
@@ -145,8 +146,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
 
+    mEmoticonCustomModel = new EmoticonCustomModel(this);
+
     mEmoticonModel = new EmoticonModel(this);
-    mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
+    mEmoticonModel->setUnicodeEmoticons(mEmojiManager->unicodeEmojiList());
     mInputTextManager->setEmoticonModel(mEmoticonModel);
     mInputThreadMessageTextManager->setEmoticonModel(mEmoticonModel);
 
@@ -774,6 +777,7 @@ void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);
     mEmoticonModel->setCustomEmojiList(mEmojiManager->customEmojiList());
+    mEmoticonCustomModel->setCustomEmojiList(mEmojiManager->customEmojiList());
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
@@ -977,6 +981,11 @@ void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)
 {
     qDebug() << "void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)" << obj;
     mSearchChannelModel->parseChannels(obj);
+}
+
+EmoticonCustomModel *RocketChatAccount::emoticonCustomModel() const
+{
+    return mEmoticonCustomModel;
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)

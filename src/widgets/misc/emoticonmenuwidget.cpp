@@ -22,6 +22,8 @@
 #include "emoticonrecentusedfilterproxymodel.h"
 #include "emoticons/emojimanager.h"
 #include "emoticonselectorwidget.h"
+#include "model/emoticoncustommodel.h"
+#include "model/emoticoncustommodelfilterproxymodel.h"
 #include "model/emoticonmodel.h"
 #include "model/emoticonmodelfilterproxymodel.h"
 #include "recentusedemoticonview.h"
@@ -111,12 +113,12 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         // It's already in recent tab => don't try to save it
         Q_EMIT insertEmoticons(identifier);
     });
-#if 0
-    // Recent
+    // Custom
     auto customEmojiView = new QListView(this);
-    auto emoticonCustomFilterProxyModel = new EmoticonModelFilterProxyModel(this);
-    emoticonCustomFilterProxyModel->setSourceModel(account->emoticonModel());
+    auto emoticonCustomFilterProxyModel = new EmoticonCustomModelFilterProxyModel(this);
+    emoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
     customEmojiView->setModel(emoticonCustomFilterProxyModel);
+    // Use a custom Emoji delegate
     customEmojiView->setItemDelegate(new EmojiCompletionDelegate(this));
 
     mTabWidget->addTab(customEmojiView, i18n("Custom"));
@@ -125,7 +127,6 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         slotInsertEmoticons(identifier);
     });
 
-#endif
     EmojiManager *emojiManager = account->emojiManager();
     const QVector<EmoticonCategory> categories = emojiManager->categories();
     for (const EmoticonCategory &category : categories) {

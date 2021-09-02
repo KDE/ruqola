@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -21,43 +21,32 @@
 #pragma once
 
 #include "emoticons/customemoji.h"
-#include "emoticons/unicodeemoticon.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
-// Model showing all emojis
-class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT EmoticonCustomModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum EmoticonsRoles {
-        UnicodeEmoji = Qt::UserRole + 1,
-        CompleterName, // keep value in sync with InputCompleterModel
+        EmojiName = Qt::UserRole + 1,
         Identifier,
-        Category
     };
     Q_ENUM(EmoticonsRoles)
 
-    explicit EmoticonModel(QObject *parent = nullptr);
-    ~EmoticonModel() override;
+    explicit EmoticonCustomModel(QObject *parent = nullptr);
+    ~EmoticonCustomModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-
-    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmoticons() const;
-
-    void setUnicodeEmoticons(const QVector<UnicodeEmoticon> &emoticons);
 
     Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
     void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
 
 private:
-    Q_DISABLE_COPY(EmoticonModel)
-    QVector<UnicodeEmoticon> mEmoticons;
+    Q_DISABLE_COPY(EmoticonCustomModel)
     QVector<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list
-    QVector<QPair<int, int>> mUnicodeRows;
     QVector<QPair<int, int>> mCustomRows;
 };
-
