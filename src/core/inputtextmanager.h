@@ -28,7 +28,6 @@
 #include "libruqolacore_export.h"
 
 class QAbstractItemModel;
-class QSortFilterProxyModel;
 class RocketChatAccount;
 class CommandsModelFilterProxyModel;
 class EmoticonModelFilterProxyModel;
