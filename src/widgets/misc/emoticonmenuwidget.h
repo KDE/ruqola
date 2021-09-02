@@ -27,7 +27,6 @@ class QTabWidget;
 class QLineEdit;
 class RocketChatAccount;
 class EmoticonRecentUsedFilterProxyModel;
-class RecentUsedEmoticonView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
     Q_OBJECT
@@ -47,6 +46,5 @@ private:
     QLineEdit *const mSearchLineEdit;
     QTabWidget *const mTabWidget;
     EmoticonRecentUsedFilterProxyModel *mRecentUsedFilterProxyModel = nullptr;
-    RecentUsedEmoticonView *mRecentUsedEmoticonView = nullptr;
 };
 

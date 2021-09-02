@@ -96,22 +96,37 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     });
 
     // Recent
-    mRecentUsedEmoticonView = new RecentUsedEmoticonView(this);
+    auto recentUsedEmoticonView = new RecentUsedEmoticonView(this);
     mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
-    mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
-    mRecentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(this));
-    connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
+    recentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
+    recentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(this));
+    connect(recentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
 
-    mTabWidget->addTab(mRecentUsedEmoticonView, i18n("Recent"));
-    connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
+    mTabWidget->addTab(recentUsedEmoticonView, i18n("Recent"));
+    connect(recentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         // It's already in recent tab => don't try to save it
         Q_EMIT insertEmoticons(identifier);
     });
+#if 0
+    // Recent
+    auto customEmojiView = new RecentUsedEmoticonView(this);
+    mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
+    mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
+    customEmojiView->setModel(mRecentUsedFilterProxyModel);
+    customEmojiView->setItemDelegate(new EmojiCompletionDelegate(this));
 
+    mTabWidget->addTab(customEmojiView, i18n("Custom"));
+    connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
+        const QString identifier = index.data().toString();
+        const QString identifier = index.data().toString();
+        slotInsertEmoticons(identifier);
+    });
+
+#endif
     EmojiManager *emojiManager = account->emojiManager();
     const QVector<EmoticonCategory> categories = emojiManager->categories();
     for (const EmoticonCategory &category : categories) {
