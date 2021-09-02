@@ -56,11 +56,16 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     mPruneFileOnlyKeepMessages->setObjectName(QStringLiteral("mPruneFileOnlyKeepMessages"));
     groupBoxLayout->addWidget(mPruneFileOnlyKeepMessages);
 
-    auto label = new QLabel(i18n("Maximum message age in days (default: 300)"), this);
+    auto maxAgeLayout = new QHBoxLayout;
+    maxAgeLayout->setObjectName(QStringLiteral("maxAgeLayout"));
+    maxAgeLayout->setContentsMargins({});
+    groupBoxLayout->addLayout(maxAgeLayout);
+
+    auto label = new QLabel(i18n("Maximum message age in days (default: 300):"), this);
     label->setObjectName(QStringLiteral("label"));
     mMaximumAgeInDay->setObjectName(QStringLiteral("mMaximumAgeInDay"));
-    groupBoxLayout->addWidget(label);
-    groupBoxLayout->addWidget(mMaximumAgeInDay);
+    maxAgeLayout->addWidget(label);
+    maxAgeLayout->addWidget(mMaximumAgeInDay);
 }
 
 ChannelInfoPruneWidget::~ChannelInfoPruneWidget()
