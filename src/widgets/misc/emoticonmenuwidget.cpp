@@ -113,15 +113,14 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     });
 #if 0
     // Recent
-    auto customEmojiView = new RecentUsedEmoticonView(this);
-    mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
-    mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
-    customEmojiView->setModel(mRecentUsedFilterProxyModel);
+    auto customEmojiView = new QListView(this);
+    auto emoticonCustomFilterProxyModel = new EmoticonModelFilterProxyModel(this);
+    emoticonCustomFilterProxyModel->setSourceModel(account->emoticonModel());
+    customEmojiView->setModel(emoticonCustomFilterProxyModel);
     customEmojiView->setItemDelegate(new EmojiCompletionDelegate(this));
 
     mTabWidget->addTab(customEmojiView, i18n("Custom"));
-    connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
-        const QString identifier = index.data().toString();
+    connect(customEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
