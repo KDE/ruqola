@@ -48,13 +48,13 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
-    formLayout->addRow(i18n("Name"), mName);
-    formLayout->addRow(i18n("Username"), mUserName);
-    formLayout->addRow(i18n("Email"), mEmail);
-    formLayout->addRow(i18n("Password"), mPasswordLineEdit);
+    formLayout->addRow(i18n("Name:"), mName);
+    formLayout->addRow(i18n("Username:"), mUserName);
+    formLayout->addRow(i18n("Email:"), mEmail);
+    formLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
-    formLayout->addRow(i18n("Roles"), mRolesComboBox);
+    formLayout->addRow(i18n("Roles:"), mRolesComboBox);
     mRolesComboBox->initialize();
     connect(mName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mUserName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
