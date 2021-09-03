@@ -19,9 +19,9 @@
 */
 
 #include "rolesmodel.h"
-
+#include "ruqola_debug.h"
 RolesModel::RolesModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QStandardItemModel(parent)
 {
 }
 
@@ -29,56 +29,39 @@ RolesModel::~RolesModel()
 {
 }
 
-int RolesModel::rowCount(const QModelIndex &parent) const
+void RolesModel::createItem(const QString &displayStr, const QString &identifier)
 {
-    Q_UNUSED(parent);
-    return mRoles.count();
+    auto item = new QStandardItem(displayStr);
+    item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+    item->setData(identifier, Identifier);
+    item->setData(Qt::Unchecked, Qt::CheckStateRole);
+    item->setToolTip(displayStr);
+    appendRow(item);
 }
 
-QVariant RolesModel::data(const QModelIndex &index, int role) const
-{
-    if (index.row() < 0 || index.row() >= mRoles.count()) {
-        return {};
-    }
-    const RoleInfo &roleInfo = mRoles.at(index.row());
-    switch (role) {
-    case Qt::DisplayRole:
-    case RolesInfoRoles::Name: {
-        const QString name = roleInfo.name();
-        return name;
-    }
-    case RolesInfoRoles::Identifier:
-        return roleInfo.identifier();
-    case Qt::CheckStateRole: {
-        const QString roomId = data(index, RolesInfoRoles::Identifier).toString();
-        return mRolesSelected.contains(roomId) ? Qt::Checked : Qt::Unchecked;
-    }
-    }
-    return {};
-}
 
 void RolesModel::setRoles(const QVector<RoleInfo> &newRoles)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mRoles.count() - 1);
-        mRoles.clear();
-        endRemoveRows();
+    for (const RoleInfo &info : newRoles) {
+        createItem(info.name(), info.identifier());
     }
-    if (!newRoles.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newRoles.count() - 1);
-        mRoles = newRoles;
-        endInsertRows();
-    }
+    fillRoleSelected();
 }
 
-const QVector<RoleInfo> &RolesModel::roles() const
+QStringList RolesModel::rolesSelected() const
 {
-    return mRoles;
-}
-
-const QStringList &RolesModel::rolesSelected() const
-{
-    return mRolesSelected;
+    QStringList lst;
+    const int rowCountNb = rowCount();
+    // First one is not a message type
+    for (int i = 1; i < rowCountNb; i++) {
+        QStandardItem *itemModel = item(i);
+        if (itemModel) {
+            if (itemModel->isCheckable() && itemModel->checkState() == Qt::Checked) {
+                lst.append(itemModel->data(Identifier).toString());
+            }
+        }
+    }
+    return lst;
 }
 
 void RolesModel::setRolesSelected(const QStringList &newRolesSelected)
@@ -86,28 +69,24 @@ void RolesModel::setRolesSelected(const QStringList &newRolesSelected)
     mRolesSelected = newRolesSelected;
 }
 
-bool RolesModel::setData(const QModelIndex &index, const QVariant &value, int role)
+void RolesModel::fillRoleSelected()
 {
-    if (role == Qt::CheckStateRole) {
-        if (index.isValid()) {
-            Q_EMIT dataChanged(index, index);
-            const QString roleId = data(index, RolesModel::Identifier).toString();
-            if (value == Qt::Checked) {
-                mRolesSelected.append(roleId);
-            } else {
-                mRolesSelected.removeAll(roleId);
+    const int rowCountNb = rowCount();
+    // First one is not a message type
+    QStringList copyList = mRolesSelected;
+    for (int i = 1; i < rowCountNb; i++) {
+        QStandardItem *itemModel = item(i);
+        if (itemModel) {
+            for (const QString &s : std::as_const(mRolesSelected)) {
+                if (itemModel->data(Identifier).toString() == s) {
+                    itemModel->setCheckState(Qt::Checked);
+                    copyList.removeAll(s);
+                    break;
+                }
             }
-            return true;
         }
     }
-    return QAbstractListModel::setData(index, value, role);
-}
-
-Qt::ItemFlags RolesModel::flags(const QModelIndex &index) const
-{
-    if (index.isValid()) {
-        return QAbstractListModel::flags(index) | Qt::ItemIsUserCheckable;
-    } else {
-        return QAbstractListModel::flags(index);
+    if (!copyList.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "System message is not implemented here " << copyList;
     }
 }

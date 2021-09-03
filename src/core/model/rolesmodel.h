@@ -22,9 +22,9 @@
 
 #include "libruqolacore_export.h"
 #include "roleinfo.h"
-#include <QAbstractListModel>
+#include <QStandardItemModel>
 #include <QVector>
-class LIBRUQOLACORE_EXPORT RolesModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT RolesModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
@@ -37,20 +37,15 @@ public:
     explicit RolesModel(QObject *parent = nullptr);
     ~RolesModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-
     void setRoles(const QVector<RoleInfo> &newRoles);
 
-    Q_REQUIRED_RESULT const QVector<RoleInfo> &roles() const;
-
-    Q_REQUIRED_RESULT const QStringList &rolesSelected() const;
+    Q_REQUIRED_RESULT QStringList rolesSelected() const;
     void setRolesSelected(const QStringList &newRolesSelected);
 
 private:
+    void createItem(const QString &displayStr, const QString &identifier);
+
     Q_DISABLE_COPY(RolesModel)
     QStringList mRolesSelected;
-    QVector<RoleInfo> mRoles;
+    void fillRoleSelected();
 };
