@@ -31,5 +31,6 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
     SystemMessagesModel w;
     QCOMPARE(w.rowCount(), 18);
+    QVERIFY(w.systemMessagesSelected().isEmpty());
     // TODO
 }
