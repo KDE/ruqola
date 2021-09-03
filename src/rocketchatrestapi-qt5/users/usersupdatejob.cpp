@@ -21,6 +21,7 @@
 #include "usersupdatejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -73,6 +74,14 @@ UpdateUserInfo UsersUpdateJob::updateInfo() const
 void UsersUpdateJob::setUpdateInfo(const UpdateUserInfo &updateInfo)
 {
     mUpdateInfo = updateInfo;
+}
+
+QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("totp-required")) {
+        return i18n("Authentification required");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 bool UsersUpdateJob::requireHttpAuthentication() const

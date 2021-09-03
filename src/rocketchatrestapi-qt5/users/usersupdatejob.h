@@ -43,6 +43,9 @@ public:
     Q_REQUIRED_RESULT UpdateUserInfo updateInfo() const;
     void setUpdateInfo(const UpdateUserInfo &updateInfo);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 Q_SIGNALS:
     void usersUpdateDone(const QJsonObject &obj);
 
