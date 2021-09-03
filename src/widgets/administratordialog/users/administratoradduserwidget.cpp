@@ -68,8 +68,10 @@ AdministratorAddUserWidget::~AdministratorAddUserWidget()
 
 void AdministratorAddUserWidget::slotUpdateOkButton()
 {
-    const bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty()
-        && !mPasswordLineEdit->password().isEmpty();
+    // TODO verify if password can be empty
+    const bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() /*
+         && !mPasswordLineEdit->password().isEmpty()*/
+        ;
     Q_EMIT updateButtonOk(enableOkButton);
 }
 
