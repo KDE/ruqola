@@ -51,8 +51,8 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"User Joined Conversation\" messages"), QStringLiteral("ut"));
     createItem(i18n("Hide \"User Leave\" messages"), QStringLiteral("ul"));
     createItem(i18n("Hide \"User Join\" messages"), QStringLiteral("uj"));
-    createItem(i18n("Hide \"Role No Longer Defined\" messages"), QStringLiteral("role_removed"));
-    createItem(i18n("Hide \"Was Set Role\" messages"), QStringLiteral("role_added"));
+    createItem(i18n("Hide \"Role No Longer Defined\" messages"), QStringLiteral("subscription-role-removed"));
+    createItem(i18n("Hide \"Was Set Role\" messages"), QStringLiteral("subscription-role-added"));
     createItem(i18n("Hide \"User Removed\" messages"), QStringLiteral("ru"));
     createItem(i18n("Hide \"Room Unarchived\" messages"), QStringLiteral("room_unarchived"));
     createItem(i18n("Hide \"Room encryption disabled\" messages"), QStringLiteral("room_disabled_encryption"));
