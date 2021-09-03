@@ -87,7 +87,7 @@ QNetworkRequest UsersListJob::request() const
     QUrlQuery queryUrl;
     addQueryUrl(url);
     addQueryParameter(queryUrl);
-    // TODO verify it url.setQuery(queryUrl);
+    url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
