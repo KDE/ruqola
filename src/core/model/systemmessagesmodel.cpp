@@ -19,6 +19,7 @@
 */
 
 #include "systemmessagesmodel.h"
+#include "ruqola_debug.h"
 #include <KLocalizedString>
 
 SystemMessagesModel::SystemMessagesModel(QObject *parent)
@@ -69,16 +70,21 @@ void SystemMessagesModel::setMessagesSystem(const QStringList &lst)
 {
     const int rowCountNb = rowCount();
     // First one is not a message type
+    QStringList copyList = lst;
     for (int i = 1; i < rowCountNb; i++) {
         QStandardItem *itemModel = item(i);
         if (itemModel) {
             for (const QString &s : lst) {
                 if (itemModel->data(SystemMessages).toString() == s) {
                     itemModel->setCheckState(Qt::Checked);
+                    copyList.removeAll(s);
                     break;
                 }
             }
         }
+    }
+    if (!copyList.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "System message is not implemented here " << copyList;
     }
 }
 
