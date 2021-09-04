@@ -87,6 +87,6 @@ void RolesModel::fillRoleSelected()
         }
     }
     if (!copyList.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "System message is not implemented here " << copyList;
+        qCWarning(RUQOLA_LOG) << "role is not implemented here " << copyList;
     }
 }
