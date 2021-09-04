@@ -79,7 +79,7 @@ void UsersUpdateJob::setUpdateInfo(const UpdateUserInfo &updateInfo)
 QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("totp-required")) {
-        return i18n("Authentification required");
+        return i18n("Authentication required");
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
