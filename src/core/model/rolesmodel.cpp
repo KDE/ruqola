@@ -53,7 +53,7 @@ QStringList RolesModel::rolesSelected() const
     QStringList lst;
     const int rowCountNb = rowCount();
     // First one is not a message type
-    for (int i = 1; i < rowCountNb; i++) {
+    for (int i = 0; i < rowCountNb; i++) {
         QStandardItem *itemModel = item(i);
         if (itemModel) {
             if (itemModel->isCheckable() && itemModel->checkState() == Qt::Checked) {
@@ -74,7 +74,7 @@ void RolesModel::fillRoleSelected()
     const int rowCountNb = rowCount();
     // First one is not a message type
     QStringList copyList = mRolesSelected;
-    for (int i = 1; i < rowCountNb; i++) {
+    for (int i = 0; i < rowCountNb; i++) {
         QStandardItem *itemModel = item(i);
         if (itemModel) {
             for (const QString &s : std::as_const(mRolesSelected)) {
