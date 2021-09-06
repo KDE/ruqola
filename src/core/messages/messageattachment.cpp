@@ -47,7 +47,10 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         setLink(attachment.value(QLatin1String("video_url")).toString());
         attType = AttachmentType::Video;
     } else if (attachment.contains(QLatin1String("image_url"))) {
-        setLink(attachment.value(QLatin1String("image_url")).toString());
+        // prefer the title_link as the image_url may just serve us the tiny preview image
+        setLink(attachment.value(QLatin1String("title_link")).toString());
+        if (link().isEmpty()) // fallback to the image_url otherwise
+            setLink(attachment.value(QLatin1String("image_url")).toString());
         attType = AttachmentType::Image;
     } else if (attachment.contains(QLatin1String("author_link"))) {
         setLink(attachment.value(QLatin1String("author_link")).toString());
