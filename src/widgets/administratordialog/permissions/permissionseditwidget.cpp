@@ -21,13 +21,13 @@
 #include "permissionseditwidget.h"
 #include "misc/rolescombobox.h"
 #include <KLocalizedString>
+#include <QHBoxLayout>
 #include <QLabel>
-#include <QVBoxLayout>
 PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     : QWidget(parent)
     , mRolesCombobox(new RolesComboBox(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     auto label = new QLabel(i18n("Roles:"), this);

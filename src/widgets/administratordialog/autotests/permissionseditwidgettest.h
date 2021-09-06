@@ -22,12 +22,12 @@
 
 #include <QObject>
 
-class PermissionsEditTest : public QObject
+class PermissionsEditWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit PermissionsEditTest(QObject *parent = nullptr);
-    ~PermissionsEditTest() override = default;
+    explicit PermissionsEditWidgetTest(QObject *parent = nullptr);
+    ~PermissionsEditWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -18,17 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "permissionsedittest.h"
+#include "permissionseditwidgettest.h"
 #include "administratordialog/permissions/permissionseditwidget.h"
 #include <QTest>
-QTEST_MAIN(PermissionsEditTest)
-PermissionsEditTest::PermissionsEditTest(QObject *parent)
+QTEST_MAIN(PermissionsEditWidgetTest)
+PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void PermissionsEditTest::shouldHaveDefaultValues()
+void PermissionsEditWidgetTest::shouldHaveDefaultValues()
 {
     PermissionsEditWidget w;
+#if 0
+    , mRolesCombobox(new RolesComboBox(this))
+    {
+        auto mainLayout = new QHBoxLayout(this);
+        mainLayout->setObjectName(QStringLiteral("mainLayout"));
+        mainLayout->setContentsMargins({});
+        auto label = new QLabel(i18n("Roles:"), this);
+        label->setObjectName(QStringLiteral("label"));
+        mainLayout->addWidget(label);
+
+        mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
+        mainLayout->addWidget(mRolesCombobox);
+        mRolesCombobox->initialize();
+#endif
     // TODO
 }
