@@ -20,7 +20,7 @@
 
 #include "administratoradduserwidgettest.h"
 #include "administratordialog/users/administratoradduserwidget.h"
-#include "administratordialog/users/rolescombobox.h"
+#include "misc/rolescombobox.h"
 #include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>

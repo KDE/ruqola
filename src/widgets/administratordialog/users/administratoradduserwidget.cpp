@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "administratoradduserwidget.h"
-#include "rolescombobox.h"
+#include "misc/rolescombobox.h"
 #include "ruqolawidgets_debug.h"
 #include "user.h"
 #include <KAuthorized>

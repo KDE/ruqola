@@ -19,7 +19,7 @@
 */
 
 #include "rolescomboboxtest.h"
-#include "administratordialog/users/rolescombobox.h"
+#include "misc/rolescombobox.h"
 #include <QTest>
 QTEST_MAIN(RolesComboBoxTest)
 
