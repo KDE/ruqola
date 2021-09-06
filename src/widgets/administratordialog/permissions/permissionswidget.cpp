@@ -61,8 +61,6 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     permissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(permissionFilterProxyModel);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
-
-    // TODO Order ?
 }
 
 PermissionsWidget::~PermissionsWidget()
@@ -96,12 +94,16 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             // Fix model selection with proxymodel
             const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
-            // removeClicked(modelIndex.data().toString());
+            // TODO assign roles.
+            slotEditRoles({});
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
 }
 
-void PermissionsWidget::slotEditRoles()
+void PermissionsWidget::slotEditRoles(const QStringList &roles)
 {
+    QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this);
+    if (dialog->exec()) { }
+    delete dialog;
 }
