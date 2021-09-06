@@ -20,6 +20,9 @@
 
 #include "permissionseditwidgettest.h"
 #include "administratordialog/permissions/permissionseditwidget.h"
+#include "misc/rolescombobox.h"
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(PermissionsEditWidgetTest)
 PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
@@ -30,19 +33,14 @@ PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
 void PermissionsEditWidgetTest::shouldHaveDefaultValues()
 {
     PermissionsEditWidget w;
-#if 0
-    , mRolesCombobox(new RolesComboBox(this))
-    {
-        auto mainLayout = new QHBoxLayout(this);
-        mainLayout->setObjectName(QStringLiteral("mainLayout"));
-        mainLayout->setContentsMargins({});
-        auto label = new QLabel(i18n("Roles:"), this);
-        label->setObjectName(QStringLiteral("label"));
-        mainLayout->addWidget(label);
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
 
-        mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
-        mainLayout->addWidget(mRolesCombobox);
-        mRolesCombobox->initialize();
-#endif
-    // TODO
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    auto mRolesCombobox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesCombobox"));
+    QVERIFY(mRolesCombobox);
 }
