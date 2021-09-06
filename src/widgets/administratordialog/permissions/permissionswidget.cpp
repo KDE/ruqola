@@ -22,6 +22,7 @@
 #include "model/adminpermissionsmodel.h"
 #include "permissions.h"
 #include "permissions/permissionslistalljob.h"
+#include "permissions/permissionupdatejob.h"
 #include "permissionseditdialog.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
@@ -74,7 +75,7 @@ void PermissionsWidget::initialize()
     rcAccount->restApi()->initializeRestApiJob(permissionsListAllJob);
     connect(permissionsListAllJob, &RocketChatRestApi::PermissionsListAllJob::permissionListAllDone, this, &PermissionsWidget::slotPermissionListAllDone);
     if (!permissionsListAllJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PermissionsListAllJob";
     }
 }
 
@@ -104,6 +105,21 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 void PermissionsWidget::slotEditRoles(const QStringList &roles)
 {
     QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this);
-    if (dialog->exec()) { }
+    dialog->setRoles(roles);
+    if (dialog->exec()) {
+        const QStringList lst = dialog->roles();
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto permissionsUpdateJob = new RocketChatRestApi::PermissionUpdateJob(this);
+        rcAccount->restApi()->initializeRestApiJob(permissionsUpdateJob);
+        connect(permissionsUpdateJob, &RocketChatRestApi::PermissionUpdateJob::permissionUpdateDone, this, &PermissionsWidget::slotPermissionUpdateDone);
+        if (!permissionsUpdateJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PermissionUpdateJob";
+        }
+    }
     delete dialog;
+}
+
+void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
+{
+    // TODO
 }

@@ -36,6 +36,7 @@ public:
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPermissionListAllDone(const QJsonObject &obj);
+    void slotPermissionUpdateDone(const QJsonObject &obj);
     void slotEditRoles(const QStringList &roles);
     QTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
