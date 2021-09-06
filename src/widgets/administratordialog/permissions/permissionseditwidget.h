@@ -22,6 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class RolesComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditWidget : public QWidget
 {
     Q_OBJECT
@@ -30,4 +31,7 @@ public:
     ~PermissionsEditWidget() override;
     void setRoles(const QStringList &lst);
     Q_REQUIRED_RESULT QStringList roles() const;
+
+private:
+    RolesComboBox *const mRolesCombobox;
 };

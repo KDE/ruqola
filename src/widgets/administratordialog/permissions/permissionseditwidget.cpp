@@ -19,15 +19,24 @@
 */
 
 #include "permissionseditwidget.h"
+#include "misc/rolescombobox.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
 PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     : QWidget(parent)
+    , mRolesCombobox(new RolesComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    auto label = new QLabel(i18n("Roles:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
+
+    mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
+    mainLayout->addWidget(mRolesCombobox);
+    mRolesCombobox->initialize();
 }
 
 PermissionsEditWidget::~PermissionsEditWidget()
@@ -36,11 +45,10 @@ PermissionsEditWidget::~PermissionsEditWidget()
 
 void PermissionsEditWidget::setRoles(const QStringList &lst)
 {
-    // TODO
+    mRolesCombobox->setRoles(lst);
 }
 
 QStringList PermissionsEditWidget::roles() const
 {
-    // TODO
-    return {};
+    return mRolesCombobox->roles();
 }
