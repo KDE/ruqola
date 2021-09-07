@@ -44,7 +44,7 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
-    QVERIFY(!mTreeView->isSortingEnabled());
+    QVERIFY(mTreeView->isSortingEnabled());
     QVERIFY(mTreeView->header()->sectionsClickable());
 
     auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
