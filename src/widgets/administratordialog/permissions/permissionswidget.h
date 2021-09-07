@@ -25,6 +25,7 @@
 class QTreeView;
 class QLineEdit;
 class AdminPermissionsModel;
+class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsWidget : public QWidget
 {
     Q_OBJECT
@@ -37,8 +38,9 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPermissionListAllDone(const QJsonObject &obj);
     void slotPermissionUpdateDone(const QJsonObject &obj);
-    void slotEditRoles(const QStringList &roles);
+    void slotEditRoles(const QStringList &roles, const QString &identifier);
     QTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminPermissionsModel *const mAdminPermissionsModel;
+    QSortFilterProxyModel *const mPermissionFilterProxyModel;
 };

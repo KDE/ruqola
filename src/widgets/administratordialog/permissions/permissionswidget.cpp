@@ -42,9 +42,9 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     , mTreeView(new QTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminPermissionsModel(new AdminPermissionsModel(this))
+    , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
 {
-    auto permissionFilterProxyModel = new QSortFilterProxyModel(this);
-    permissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
+    mPermissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -59,8 +59,8 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mTreeView->header()->setSectionsClickable(true);
     mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     mainLayout->addWidget(mTreeView);
-    permissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
-    mTreeView->setModel(permissionFilterProxyModel);
+    mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
+    mTreeView->setModel(mPermissionFilterProxyModel);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
 }
 
@@ -93,16 +93,19 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+            const QModelIndex newModelIndex = mPermissionFilterProxyModel->mapToSource(index);
             // Fix model selection with proxymodel
-            const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
+            const QModelIndex modelIndex = mTreeView->model()->index(newModelIndex.row(), AdminPermissionsModel::Roles);
+            const QString identifier = mTreeView->model()->index(newModelIndex.row(), AdminPermissionsModel::Identifier).data().toString();
+
             // TODO assign roles.
-            slotEditRoles({});
+            slotEditRoles({}, identifier);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
 }
 
-void PermissionsWidget::slotEditRoles(const QStringList &roles)
+void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &identifier)
 {
     QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this);
     dialog->setRoles(roles);
@@ -111,6 +114,9 @@ void PermissionsWidget::slotEditRoles(const QStringList &roles)
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto permissionsUpdateJob = new RocketChatRestApi::PermissionUpdateJob(this);
         rcAccount->restApi()->initializeRestApiJob(permissionsUpdateJob);
+        QMap<QString, QStringList> mapPermission;
+        mapPermission.insert(identifier, lst);
+        permissionsUpdateJob->setPermissions(mapPermission);
         connect(permissionsUpdateJob, &RocketChatRestApi::PermissionUpdateJob::permissionUpdateDone, this, &PermissionsWidget::slotPermissionUpdateDone);
         if (!permissionsUpdateJob->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PermissionUpdateJob";
