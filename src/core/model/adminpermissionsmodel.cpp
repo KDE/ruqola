@@ -64,7 +64,7 @@ Permissions AdminPermissionsModel::permissions() const
     return mPermissions;
 }
 
-void AdminPermissionsModel::setPermissions(Permissions newPermissions)
+void AdminPermissionsModel::setPermissions(const Permissions &newPermissions)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mPermissions.count() - 1);

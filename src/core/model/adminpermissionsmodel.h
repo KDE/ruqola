@@ -44,7 +44,7 @@ public:
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     Q_REQUIRED_RESULT Permissions permissions() const;
-    void setPermissions(Permissions newPermissions);
+    void setPermissions(const Permissions &newPermissions);
 
 private:
     Q_DISABLE_COPY(AdminPermissionsModel)
