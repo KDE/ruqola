@@ -44,7 +44,7 @@ void TeamsListJobTest::shouldGenerateRequest()
     TeamsListJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list?userId=foo1")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list")));
 }
 
 void TeamsListJobTest::shouldGenerateRequestUsername()
@@ -52,5 +52,5 @@ void TeamsListJobTest::shouldGenerateRequestUsername()
     TeamsListJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list?username=foo1")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list")));
 }
