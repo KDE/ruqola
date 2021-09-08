@@ -27,7 +27,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PermissionsEditDialog(QWidget *parent = nullptr);
+    explicit PermissionsEditDialog(QWidget *parent = nullptr, const QString &permission = {});
     ~PermissionsEditDialog() override;
 
     void setRoles(const QStringList &lst);

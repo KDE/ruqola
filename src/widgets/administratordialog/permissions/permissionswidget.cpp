@@ -98,7 +98,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &identifier)
 {
-    QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this);
+    QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this, identifier);
     dialog->setRoles(roles);
     if (dialog->exec()) {
         const QStringList lst = dialog->roles();
@@ -118,6 +118,8 @@ void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &i
 
 void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
 {
-    qDebug() << obj;
-    // TODO
+    qDebug() << " obj " << obj;
+    Permissions p;
+    p.parsePermissions(obj);
+    mAdminPermissionsModel->setPermissions(p);
 }

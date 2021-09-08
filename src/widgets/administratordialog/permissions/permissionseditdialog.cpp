@@ -23,11 +23,11 @@
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-PermissionsEditDialog::PermissionsEditDialog(QWidget *parent)
+PermissionsEditDialog::PermissionsEditDialog(QWidget *parent, const QString &permission)
     : QDialog(parent)
     , mPermissionsWidget(new PermissionsEditWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Edit Permission"));
+    setWindowTitle(i18nc("@title:window", "Edit \'%1\' Permission", permission));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->addWidget(mPermissionsWidget);
@@ -37,6 +37,7 @@ PermissionsEditDialog::PermissionsEditDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &PermissionsEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &PermissionsEditDialog::accept);
+    resize(350, 50);
 }
 
 PermissionsEditDialog::~PermissionsEditDialog()
