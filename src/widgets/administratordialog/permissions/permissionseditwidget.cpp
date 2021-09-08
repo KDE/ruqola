@@ -21,22 +21,20 @@
 #include "permissionseditwidget.h"
 #include "misc/rolescombobox.h"
 #include <KLocalizedString>
-#include <QHBoxLayout>
+#include <QFormLayout>
 #include <QLabel>
 PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     : QWidget(parent)
     , mRolesCombobox(new RolesComboBox(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     auto label = new QLabel(i18n("Roles:"), this);
     label->setObjectName(QStringLiteral("label"));
-    mainLayout->addWidget(label);
-
     mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
-    mainLayout->addWidget(mRolesCombobox);
     mRolesCombobox->initialize();
+    mainLayout->addRow(label, mRolesCombobox);
 }
 
 PermissionsEditWidget::~PermissionsEditWidget()

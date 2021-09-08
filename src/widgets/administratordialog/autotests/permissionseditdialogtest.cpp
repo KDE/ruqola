@@ -21,7 +21,9 @@
 #include "permissionseditdialogtest.h"
 #include "administratordialog/permissions/permissionseditdialog.h"
 #include "administratordialog/permissions/permissionseditwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(PermissionsEditDialogTest)
 PermissionsEditDialogTest::PermissionsEditDialogTest(QObject *parent)
     : QObject(parent)
@@ -30,6 +32,12 @@ PermissionsEditDialogTest::PermissionsEditDialogTest(QObject *parent)
 
 void PermissionsEditDialogTest::shouldHaveDefaultValues()
 {
-    PermissionsEditDialog w;
-    // TODO
+    PermissionsEditDialog d;
+    QVERIFY(!d.windowTitle().isEmpty());
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

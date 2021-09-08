@@ -21,7 +21,7 @@
 #include "permissionseditwidgettest.h"
 #include "administratordialog/permissions/permissionseditwidget.h"
 #include "misc/rolescombobox.h"
-#include <QHBoxLayout>
+#include <QFormLayout>
 #include <QLabel>
 #include <QTest>
 QTEST_MAIN(PermissionsEditWidgetTest)
@@ -33,7 +33,7 @@ PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
 void PermissionsEditWidgetTest::shouldHaveDefaultValues()
 {
     PermissionsEditWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});
 

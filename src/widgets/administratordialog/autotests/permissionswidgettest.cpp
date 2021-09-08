@@ -19,6 +19,7 @@
 */
 
 #include "permissionswidgettest.h"
+#include "administratordialog/permissions/permissionstreeview.h"
 #include "administratordialog/permissions/permissionswidget.h"
 #include <QHeaderView>
 #include <QLineEdit>
@@ -41,7 +42,7 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});
 
-    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    auto mTreeView = w.findChild<PermissionsTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
     QVERIFY(mTreeView->isSortingEnabled());

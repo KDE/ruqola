@@ -24,6 +24,7 @@
 #include "permissions/permissionslistalljob.h"
 #include "permissions/permissionupdatejob.h"
 #include "permissionseditdialog.h"
+#include "permissionstreeview.h"
 #include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -34,12 +35,11 @@
 #include <QMenu>
 #include <QPointer>
 #include <QSortFilterProxyModel>
-#include <QTreeView>
 #include <QVBoxLayout>
 
 PermissionsWidget::PermissionsWidget(QWidget *parent)
     : QWidget(parent)
-    , mTreeView(new QTreeView(this))
+    , mTreeView(new PermissionsTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminPermissionsModel(new AdminPermissionsModel(this))
     , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
@@ -53,11 +53,6 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
-    mTreeView->setRootIsDecorated(false);
-    mTreeView->setSortingEnabled(true);
-    mTreeView->sortByColumn(0, Qt::AscendingOrder);
-    mTreeView->header()->setSectionsClickable(true);
-    mTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
@@ -97,9 +92,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             // Fix model selection with proxymodel
             const QModelIndex modelIndex = mTreeView->model()->index(newModelIndex.row(), AdminPermissionsModel::Roles);
             const QString identifier = mTreeView->model()->index(newModelIndex.row(), AdminPermissionsModel::Identifier).data().toString();
-
-            // TODO assign roles.
-            slotEditRoles({}, identifier);
+            slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
@@ -127,5 +120,6 @@ void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &i
 
 void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
 {
+    qDebug() << obj;
     // TODO
 }

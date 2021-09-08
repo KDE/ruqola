@@ -22,7 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class QTreeView;
+class PermissionsTreeView;
 class QLineEdit;
 class AdminPermissionsModel;
 class QSortFilterProxyModel;
@@ -39,7 +39,7 @@ private:
     void slotPermissionListAllDone(const QJsonObject &obj);
     void slotPermissionUpdateDone(const QJsonObject &obj);
     void slotEditRoles(const QStringList &roles, const QString &identifier);
-    QTreeView *const mTreeView;
+    PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminPermissionsModel *const mAdminPermissionsModel;
     QSortFilterProxyModel *const mPermissionFilterProxyModel;
