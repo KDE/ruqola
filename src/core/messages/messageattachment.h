@@ -100,6 +100,10 @@ public:
 
     Q_REQUIRED_RESULT QString attachmentFieldsText() const;
 
+    void setImageUrlPreview(const QString &newImageUrlPreview);
+
+    Q_REQUIRED_RESULT const QString &imageUrlPreview() const;
+
 private:
     void generateAttachmentFieldsText();
     QVector<MessageAttachmentField> mAttachmentFields;
@@ -114,6 +118,7 @@ private:
     QString mAttachmentId;
     QString mAuthorIcon;
     QString mAttachmentFieldsText;
+    QString mImageUrlPreview;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;

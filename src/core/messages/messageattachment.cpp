@@ -49,8 +49,9 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     } else if (attachment.contains(QLatin1String("image_url"))) {
         // prefer the title_link as the image_url may just serve us the tiny preview image
         setLink(attachment.value(QLatin1String("title_link")).toString());
+        mImageUrlPreview = attachment.value(QLatin1String("image_url")).toString();
         if (link().isEmpty()) // fallback to the image_url otherwise
-            setLink(attachment.value(QLatin1String("image_url")).toString());
+            setLink(mImageUrlPreview);
         attType = AttachmentType::Image;
     } else if (attachment.contains(QLatin1String("author_link"))) {
         setLink(attachment.value(QLatin1String("author_link")).toString());
@@ -324,6 +325,16 @@ void MessageAttachment::generateAttachmentFieldsText()
     mAttachmentFieldsText += result;
 }
 
+const QString &MessageAttachment::imageUrlPreview() const
+{
+    return mImageUrlPreview;
+}
+
+void MessageAttachment::setImageUrlPreview(const QString &newImageUrlPreview)
+{
+    mImageUrlPreview = newImageUrlPreview;
+}
+
 QString MessageAttachment::attachmentFieldsText() const
 {
     return mAttachmentFieldsText;
@@ -422,7 +433,7 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
     return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link()) && (mColor == other.color())
         && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
         && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
-        && (mAuthorIcon == other.authorIcon());
+        && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview());
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)
@@ -440,5 +451,6 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d << "showAttachment " << t.showAttachment();
     d << "AttachmentType: " << t.attachmentType();
     d << "mAuthorIcon: " << t.authorIcon();
+    d << "imageUrlPreview " << t.imageUrlPreview();
     return d;
 }
