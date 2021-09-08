@@ -88,10 +88,8 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-            const QModelIndex newModelIndex = mPermissionFilterProxyModel->mapToSource(index);
-            // Fix model selection with proxymodel
-            const QModelIndex modelIndex = mTreeView->model()->index(newModelIndex.row(), AdminPermissionsModel::Roles);
-            const QString identifier = mTreeView->model()->index(newModelIndex.row(), AdminPermissionsModel::Identifier).data().toString();
+            const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
+            const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
             slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
