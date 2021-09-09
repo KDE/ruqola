@@ -32,7 +32,7 @@ public:
     Q_REQUIRED_RESULT QVector<Permission> permissions() const;
     void setPermissions(const QVector<Permission> &permissions);
 
-    void parsePermissions(const QJsonObject &obj);
+    void parsePermissions(const QJsonObject &obj, const QString &str = {});
     Q_REQUIRED_RESULT bool isEmpty() const;
 
     Q_REQUIRED_RESULT int count() const;

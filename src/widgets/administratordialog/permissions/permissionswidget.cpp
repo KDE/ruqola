@@ -120,6 +120,6 @@ void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
     Permissions p;
-    p.parsePermissions(obj);
+    p.parsePermissions(obj, QStringLiteral("permissions"));
     mAdminPermissionsModel->setPermissions(p);
 }
