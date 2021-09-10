@@ -661,7 +661,8 @@ void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelGroupBa
 void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)" << roomId;
-    const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
+    // const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
+    const QString hash = mRuqolaServerConfig->uniqueId() + roomId;
 #if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
     const QString scheme = QStringLiteral("org.jitsi.meet://");
 #else
