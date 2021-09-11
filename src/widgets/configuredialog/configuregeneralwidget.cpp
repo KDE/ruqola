@@ -26,8 +26,8 @@
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
-    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set Online Account on Startup"), this))
-    , mShowImageByDefault(new QCheckBox(i18n("Show Image by Default"), this))
+    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set Accounts Online on Startup"), this))
+    , mShowImageByDefault(new QCheckBox(i18n("Show Images by Default"), this))
     , mShowRoomAvatar(new QCheckBox(i18n("Show Room Avatar"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
 {
