@@ -339,6 +339,14 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::JitsiEnabled;
             }
+        } else if (id == QLatin1String("Jitsi_Enable_Teams")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::JitsiEnabledTeams;
+            }
+        } else if (id == QLatin1String("Jitsi_Enable_Channels")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::JitsiEnabledChannels;
+            }
         } else if (id == QLatin1String("Jitsi_Domain")) {
             setJitsiMeetUrl(value.toString());
         } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {

@@ -56,7 +56,9 @@ public:
         AllowUsernameChange = 0x200000,
         AllowUserProfileChange = 0x400000,
         AllowUserAvatarChange = 0x800000,
-        LdapEnabled = 0x1000000
+        LdapEnabled = 0x1000000,
+        JitsiEnabledTeams = 0x2000000,
+        JitsiEnabledChannels = 0x4000000,
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureType)
