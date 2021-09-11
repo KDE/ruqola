@@ -533,6 +533,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::uploadProgress, this, &RocketChatAccount::slotUploadProgress);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
+        mCache->setRestApiRequest(mRestApi);
     }
     return mRestApi;
 }

@@ -35,7 +35,6 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     mAvatarManager = new AvatarManager(mAccount, this);
     connect(mAvatarManager, &AvatarManager::insertAvatarUrl, this, &RocketChatCache::insertAvatarUrl);
     loadAvatarCache();
-    connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
 }
 
 RocketChatCache::~RocketChatCache()
@@ -51,6 +50,11 @@ RocketChatCache::~RocketChatCache()
         ++i;
     }
     settings.endGroup();
+}
+
+void RocketChatCache::setRestApiRequest(RocketChatRestApi::RestApiRequest *restApi)
+{
+    connect(restApi, &RocketChatRestApi::RestApiRequest::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
 }
 
 bool RocketChatCache::fileInCache(const QUrl &url)

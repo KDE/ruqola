@@ -25,6 +25,12 @@
 #include <QHash>
 #include <QObject>
 #include <QSet>
+
+namespace RocketChatRestApi
+{
+class RestApiRequest;
+}
+
 class RocketChatAccount;
 class AvatarManager;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
@@ -33,6 +39,8 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
 public:
     explicit RocketChatCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatCache() override;
+
+    void setRestApiRequest(RocketChatRestApi::RestApiRequest *restApi);
 
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;
