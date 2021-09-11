@@ -87,7 +87,7 @@ void RocketChatCache::loadAvatarCache()
     settings.endGroup();
 }
 
-void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bool storeInCache)
+void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
 {
     QFile f(fileCachePath(QUrl(url)));
     if (f.exists()) {

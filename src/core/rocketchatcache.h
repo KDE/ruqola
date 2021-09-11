@@ -50,7 +50,7 @@ public:
     void downloadFileFromServer(const QString &filename);
 
     Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
-    void downloadFile(const QString &url, const QUrl &localFile, bool storeInCache);
+    void downloadFile(const QString &url, const QUrl &localFile);
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
 
     void updateAvatar(const Utils::AvatarInfo &info);
