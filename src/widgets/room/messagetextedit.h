@@ -54,9 +54,11 @@ Q_SIGNALS:
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);
     void textEditing(bool clearNotification);
+    void textClicked();
 
 protected:
     void keyPressEvent(QKeyEvent *e) override;
+    void mousePressEvent(QMouseEvent *ev) override;
 
 private:
     void slotCompletionTypeChanged(InputTextManager::CompletionForType type);

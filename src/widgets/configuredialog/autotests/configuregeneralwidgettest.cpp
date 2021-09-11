@@ -57,6 +57,11 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mShowRoomAvatar->isChecked());
     QVERIFY(!mShowRoomAvatar->text().isEmpty());
 
+    auto mMarkAsReadOnTextClicked = w.findChild<QCheckBox *>(QStringLiteral("mMarkAsReadOnTextClicked"));
+    QVERIFY(mMarkAsReadOnTextClicked);
+    QVERIFY(!mMarkAsReadOnTextClicked->isChecked());
+    QVERIFY(!mMarkAsReadOnTextClicked->text().isEmpty());
+
     auto mEnableSystemTray = w.findChild<QCheckBox *>(QStringLiteral("mEnableSystemTray"));
     QVERIFY(mEnableSystemTray);
     QVERIFY(mEnableSystemTray->isChecked());

@@ -23,6 +23,12 @@
     </entry>
   </group>
 
+  <group name="Behavior">
+    <entry name="MarkAsReadOnTextClicked" type="Bool">
+      <default>false</default>
+    </entry>
+  </group>
+
   <group name="Font">
     <entry name="UseCustomFont" type="Bool">
       <default>false</default>

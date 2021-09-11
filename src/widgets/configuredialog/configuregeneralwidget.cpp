@@ -29,6 +29,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mSetOnlineForAllAccount(new QCheckBox(i18n("Set Accounts Online on Startup"), this))
     , mShowImageByDefault(new QCheckBox(i18n("Show Images by Default"), this))
     , mShowRoomAvatar(new QCheckBox(i18n("Show Room Avatar"), this))
+    , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark Room as Read When Clicking to Write a Reply"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -43,6 +44,9 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
 
     mShowRoomAvatar->setObjectName(QStringLiteral("mShowRoomAvatar"));
     mainLayout->addWidget(mShowRoomAvatar);
+
+    mMarkAsReadOnTextClicked->setObjectName(QStringLiteral("mMarkAsReadOnTextClicked"));
+    mainLayout->addWidget(mMarkAsReadOnTextClicked);
 
     mEnableSystemTray->setObjectName(QStringLiteral("mEnableSystemTray"));
     mainLayout->addWidget(mEnableSystemTray);
@@ -59,6 +63,7 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setSetOnlineAccounts(mSetOnlineForAllAccount->isChecked());
     RuqolaGlobalConfig::self()->setShowImage(mShowImageByDefault->isChecked());
     RuqolaGlobalConfig::self()->setShowRoomAvatar(mShowRoomAvatar->isChecked());
+    RuqolaGlobalConfig::self()->setMarkAsReadOnTextClicked(mMarkAsReadOnTextClicked->isChecked());
     RuqolaGlobalConfig::self()->setEnableSystemTray(mEnableSystemTray->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
@@ -68,5 +73,6 @@ void ConfigureGeneralWidget::load()
     mSetOnlineForAllAccount->setChecked(RuqolaGlobalConfig::self()->setOnlineAccounts());
     mShowImageByDefault->setChecked(RuqolaGlobalConfig::self()->showImage());
     mShowRoomAvatar->setChecked(RuqolaGlobalConfig::self()->showRoomAvatar());
+    mMarkAsReadOnTextClicked->setChecked(RuqolaGlobalConfig::self()->markAsReadOnTextClicked());
     mEnableSystemTray->setChecked(RuqolaGlobalConfig::self()->enableSystemTray());
 }

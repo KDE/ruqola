@@ -37,6 +37,7 @@ private:
     QCheckBox *const mSetOnlineForAllAccount;
     QCheckBox *const mShowImageByDefault;
     QCheckBox *const mShowRoomAvatar;
+    QCheckBox *const mMarkAsReadOnTextClicked;
     QCheckBox *const mEnableSystemTray;
 };
 

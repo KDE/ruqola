@@ -23,6 +23,7 @@
 #include "misc/emoticonmenuwidget.h"
 #include "ownuserpreferences.h"
 #include "rocketchataccount.h"
+#include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 
 #include <KLocalizedString>
@@ -54,6 +55,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
     connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
+    connect(mMessageTextEdit, &MessageTextEdit::textClicked, this, &MessageLineWidget::textEditClicked);
 
     mSendFile = new QToolButton(this);
     mSendFile->setAutoRaise(true);
@@ -388,5 +390,12 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
         ev->accept();
     } else {
         Q_EMIT keyPressed(ev);
+    }
+}
+
+void MessageLineWidget::textEditClicked()
+{
+    if (RuqolaGlobalConfig::self()->markAsReadOnTextClicked()) {
+        mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
     }
 }
