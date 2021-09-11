@@ -20,9 +20,9 @@
 
 #include "channellistview.h"
 #include "channellistdelegate.h"
+#include "connection.h"
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

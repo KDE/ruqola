@@ -20,12 +20,12 @@
 
 #include "teamchannelswidget.h"
 #include "channels/createchanneljob.h"
+#include "connection.h"
 #include "dialogs/createnewchanneldialog.h"
 #include "groups/creategroupsjob.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -256,7 +256,7 @@ void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo 
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::CreateChannelJob(this);
-    // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
+    // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiConnection::slotAddJoinCodeToChannel);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::CreateChannelJob::createChannelDone, this, [this](const QJsonObject &replyObject) {
         const QJsonObject obj = replyObject[QLatin1String("channel")].toObject();

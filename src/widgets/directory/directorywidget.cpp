@@ -18,6 +18,7 @@
 */
 
 #include "directorywidget.h"
+#include "connection.h"
 #include "misc/directoryjob.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -25,7 +26,6 @@
 #include "model/directoryroomsmodel.h"
 #include "model/directoryteamsmodel.h"
 #include "model/directoryusersmodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

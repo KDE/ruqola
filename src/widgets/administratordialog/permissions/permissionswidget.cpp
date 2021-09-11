@@ -19,13 +19,13 @@
 */
 
 #include "permissionswidget.h"
+#include "connection.h"
 #include "model/adminpermissionsmodel.h"
 #include "permissions.h"
 #include "permissions/permissionslistalljob.h"
 #include "permissions/permissionupdatejob.h"
 #include "permissionseditdialog.h"
 #include "permissionstreeview.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

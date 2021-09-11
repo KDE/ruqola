@@ -3,7 +3,7 @@
 
 add_library(librocketchatrestapi-qt5)
 target_sources(librocketchatrestapi-qt5 PRIVATE
-    restapirequest.cpp
+    connection.cpp
     restapiutil.cpp
     restapimethod.cpp
     uploadfilejob.cpp

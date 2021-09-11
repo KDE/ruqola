@@ -19,8 +19,8 @@
 */
 
 #include "viewlogwidget.h"
+#include "connection.h"
 #include "misc/stdoutqueuejob.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

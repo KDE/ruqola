@@ -22,12 +22,12 @@
  */
 
 #include "rocketchatbackend.h"
+#include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "model/messagemodel.h"
 #include "model/usercompletermodel.h"
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "ruqola_message_debug.h"
@@ -152,8 +152,8 @@ void RocketChatBackend::slotConnectedChanged()
     auto ddp = mRocketChatAccount->ddp();
 
     restApi->serverInfo(false);
-    connect(restApi, &RocketChatRestApi::RestApiRequest::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
-    connect(restApi, &RocketChatRestApi::RestApiRequest::serverInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
+    connect(restApi, &RocketChatRestApi::Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
+    connect(restApi, &RocketChatRestApi::Connection::serverInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
 
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
@@ -209,7 +209,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
         restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 
-        connect(restApi, &RocketChatRestApi::RestApiRequest::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
+        connect(restApi, &RocketChatRestApi::Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 

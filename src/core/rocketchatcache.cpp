@@ -20,8 +20,8 @@
 
 #include "rocketchatcache.h"
 #include "avatarmanager.h"
+#include "connection.h"
 #include "managerdatapaths.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <QDateTime>
@@ -52,9 +52,9 @@ RocketChatCache::~RocketChatCache()
     settings.endGroup();
 }
 
-void RocketChatCache::setRestApiRequest(RocketChatRestApi::RestApiRequest *restApi)
+void RocketChatCache::setRestApiConnection(RocketChatRestApi::Connection *restApi)
 {
-    connect(restApi, &RocketChatRestApi::RestApiRequest::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
+    connect(restApi, &RocketChatRestApi::Connection::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
 }
 
 bool RocketChatCache::fileInCache(const QUrl &url)

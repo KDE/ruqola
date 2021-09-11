@@ -19,8 +19,8 @@
 */
 
 #include "inviteuserswidget.h"
+#include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
@@ -75,7 +75,7 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     mainLayout->addWidget(collapsibleGroupBox);
 
     connect(Ruqola::self()->rocketChatAccount()->restApi(),
-            &RocketChatRestApi::RestApiRequest::findOrCreateInviteDone,
+            &RocketChatRestApi::Connection::findOrCreateInviteDone,
             this,
             &InviteUsersWidget::slotFindOrCreateInvite);
 

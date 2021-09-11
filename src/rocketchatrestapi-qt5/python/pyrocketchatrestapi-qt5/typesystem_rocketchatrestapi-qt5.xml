@@ -8,6 +8,6 @@
 
     <!-- Our classes are declared in a namespace, so we should define this -->
     <namespace-type name="RocketChatRestApi">
-        <object-type name="RestApiRequest" />
+        <object-type name="RestApiConnection" />
     </namespace-type>
 </typesystem>

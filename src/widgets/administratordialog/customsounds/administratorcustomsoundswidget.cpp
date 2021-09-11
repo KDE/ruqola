@@ -20,11 +20,11 @@
 
 #include "administratorcustomsoundswidget.h"
 #include "administratorcustomsoundscreatedialog.h"
+#include "connection.h"
 #include "custom/customsoundslistjob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
 #include "model/directorybasefilterproxymodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

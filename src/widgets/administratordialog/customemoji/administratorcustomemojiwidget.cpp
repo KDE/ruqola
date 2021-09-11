@@ -20,6 +20,7 @@
 
 #include "administratorcustomemojiwidget.h"
 #include "administratorcustomemojicreatedialog.h"
+#include "connection.h"
 #include "emoji/emojicustomalljob.h"
 #include "emoji/emojicustomcreatejob.h"
 #include "emoji/emojicustomdeletejob.h"
@@ -27,7 +28,6 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomemojimodel.h"
 #include "model/directorybasefilterproxymodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

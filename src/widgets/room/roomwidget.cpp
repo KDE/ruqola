@@ -19,6 +19,7 @@
 */
 
 #include "roomwidget.h"
+#include "connection.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/autotranslateconfiguredialog.h"
 #include "dialogs/channelinfodialog.h"
@@ -40,7 +41,6 @@
 #include "messagetextedit.h"
 #include "prunemessages/prunemessagesdialog.h"
 #include "readonlylineeditwidget.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include "roomutil.h"

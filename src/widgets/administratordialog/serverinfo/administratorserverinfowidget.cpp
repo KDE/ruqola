@@ -19,8 +19,8 @@
 */
 
 #include "administratorserverinfowidget.h"
+#include "connection.h"
 #include "misc/statisticsjob.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

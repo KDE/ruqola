@@ -95,7 +95,7 @@ class EmoticonCustomModel;
 
 namespace RocketChatRestApi
 {
-class RestApiRequest;
+class Connection;
 }
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
@@ -265,7 +265,7 @@ public:
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
     Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
-    RocketChatRestApi::RestApiRequest *restApi();
+    RocketChatRestApi::Connection *restApi();
 
     Q_REQUIRED_RESULT Room *room(const QString &roomId);
 
@@ -563,7 +563,7 @@ private:
     RoomModel *mRoomModel = nullptr;
     RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     DDPClient *mDdp = nullptr;
-    RocketChatRestApi::RestApiRequest *mRestApi = nullptr;
+    RocketChatRestApi::Connection *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;

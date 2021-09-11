@@ -19,11 +19,11 @@
 
 #include "restauthenticationmanager.h"
 
-#include "restapirequest.h"
+#include "connection.h"
 
-RESTAuthenticationManager::RESTAuthenticationManager(RocketChatRestApi::RestApiRequest *restApiRequest, QObject *parent)
+RESTAuthenticationManager::RESTAuthenticationManager(RocketChatRestApi::Connection *restApiConnection, QObject *parent)
     : QObject(parent)
-    , mRestApiResquest(restApiRequest)
+    , mRestApiConnection(restApiConnection)
 {
 }
 
@@ -38,7 +38,7 @@ void RESTAuthenticationManager::setAuthToken(const QString &authToken)
 
 void RESTAuthenticationManager::login()
 {
-    mRestApiResquest->login();
+    mRestApiConnection->login();
 }
 
 void RESTAuthenticationManager::login(const QString &user, const QString &password)
@@ -59,5 +59,5 @@ void RESTAuthenticationManager::sendOTP(const QString &otp)
 
 void RESTAuthenticationManager::logout()
 {
-    mRestApiResquest->logout();
+    mRestApiConnection->logout();
 }

@@ -18,9 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 #include "rolescombobox.h"
+#include "connection.h"
 #include "misc/roleslistjob.h"
 #include "model/rolesmodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "roleinfo.h"
 #include "ruqola.h"

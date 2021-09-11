@@ -59,7 +59,7 @@ void LogoutJob::slotLogout()
         if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success")) {
             addLoggerInfo(QByteArrayLiteral("LogoutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
-            Q_EMIT logoutDone(); // connected to RestApiRequest::slotLogout
+            Q_EMIT logoutDone(); // connected to RestApiConnection::slotLogout
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning("Error during to logout" + replyJson.toJson(QJsonDocument::Indented));

@@ -19,7 +19,7 @@
 */
 
 #include "directchannelinfowidget.h"
-#include "restapirequest.h"
+#include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

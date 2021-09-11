@@ -22,9 +22,9 @@
 
 #include "ruqola.h"
 #include "accountmanager.h"
+#include "connection.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "typingnotification.h"

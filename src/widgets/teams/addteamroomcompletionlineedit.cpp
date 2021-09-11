@@ -20,8 +20,8 @@
 
 #include "addteamroomcompletionlineedit.h"
 #include "common/completionlistview.h"
+#include "connection.h"
 #include "model/teamroomcompletermodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

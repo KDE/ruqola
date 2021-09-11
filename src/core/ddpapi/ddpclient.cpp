@@ -22,9 +22,9 @@
  */
 
 #include "ddpclient.h"
+#include "connection.h"
 #include "messagequeue.h"
 #include "plugins/pluginauthenticationinterface.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include "ruqola_ddpapi_command_debug.h"

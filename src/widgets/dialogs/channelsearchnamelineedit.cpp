@@ -19,11 +19,11 @@
 */
 #include "channelsearchnamelineedit.h"
 #include "common/completionlistview.h"
+#include "connection.h"
 #include "misc/directoryjob.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

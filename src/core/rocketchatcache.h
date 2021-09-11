@@ -28,7 +28,7 @@
 
 namespace RocketChatRestApi
 {
-class RestApiRequest;
+class Connection;
 }
 
 class RocketChatAccount;
@@ -40,7 +40,7 @@ public:
     explicit RocketChatCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatCache() override;
 
-    void setRestApiRequest(RocketChatRestApi::RestApiRequest *restApi);
+    void setRestApiConnection(RocketChatRestApi::Connection *restApi);
 
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;

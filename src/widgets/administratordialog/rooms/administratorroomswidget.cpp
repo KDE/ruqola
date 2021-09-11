@@ -19,10 +19,10 @@
 */
 
 #include "administratorroomswidget.h"
+#include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminroomsmodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "rooms/adminroomsjob.h"
 #include "roomsinfo.h"

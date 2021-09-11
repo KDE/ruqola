@@ -19,13 +19,13 @@
 */
 
 #include "administratorinviteswidget.h"
+#include "connection.h"
 #include "invite/listinvitejob.h"
 #include "invite/removeinvitejob.h"
 #include "inviteinfo.h"
 #include "invitetreeview.h"
 #include "model/admininvitemodel.h"
 #include "model/directorybasefilterproxymodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

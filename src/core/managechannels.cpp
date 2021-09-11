@@ -23,8 +23,8 @@
 #include "channelgroupbasejob.h"
 #include "channels/channeljoinjob.h"
 #include "channels/channelopenjob.h"
+#include "connection.h"
 #include "groups/groupopenjob.h"
-#include "restapirequest.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
 

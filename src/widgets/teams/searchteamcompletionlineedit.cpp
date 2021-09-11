@@ -20,8 +20,8 @@
 
 #include "searchteamcompletionlineedit.h"
 #include "common/completionlistview.h"
+#include "connection.h"
 #include "model/teamcompletermodel.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

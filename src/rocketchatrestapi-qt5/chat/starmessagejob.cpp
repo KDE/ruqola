@@ -19,8 +19,8 @@
 */
 
 #include "starmessagejob.h"
+#include "connection.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>

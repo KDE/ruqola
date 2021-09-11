@@ -20,9 +20,9 @@
 
 #include "channelinfoeditablewidget.h"
 #include "channelinfoprunewidget.h"
+#include "connection.h"
 #include "messagetexteditor.h"
 #include "misc/systemmessagescombobox.h"
-#include "restapirequest.h"
 #include "rocketchataccount.h"
 #include "roomavatarwidget.h"
 #include "ruqola.h"
