@@ -89,6 +89,9 @@ void MessageListView::slotUpdateLastSeen()
 
 void MessageListView::setRoom(Room *room)
 {
+    if (mRoom) {
+        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
+    }
     mRoom = room;
     if (mRoom) {
         connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
