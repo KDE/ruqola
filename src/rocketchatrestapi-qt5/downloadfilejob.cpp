@@ -45,7 +45,7 @@ bool DownloadFileJob::start()
     }
 
     QNetworkReply *reply = submitGetRequest();
-    addStartRestApiInfo("ChannelListJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType.toLatin1() + " saveAs " + mLocalFileUrl.toEncoded());
+    addStartRestApiInfo("DownloadFileJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType.toLatin1() + " saveAs " + mLocalFileUrl.toEncoded());
     connect(reply, &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
