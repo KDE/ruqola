@@ -39,5 +39,6 @@ private:
     QCheckBox *const mShowRoomAvatar;
     QCheckBox *const mMarkAsReadOnTextClicked;
     QCheckBox *const mEnableSystemTray;
+    QCheckBox *const mEnableLogging;
 };
 

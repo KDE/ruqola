@@ -21,6 +21,7 @@
 #include "localmessagelogger.h"
 
 #include "ruqola_debug.h"
+#include "ruqolaglobalconfig.h"
 #include <messages/message.h>
 
 #include <QDir>
@@ -47,6 +48,9 @@ QString LocalMessageLogger::dbFileName(const QString &accountName, const QString
 
 void LocalMessageLogger::addMessage(const QString &accountName, const QString &roomName, const Message &m)
 {
+    if (!RuqolaGlobalConfig::self()->enableLogging()) {
+        return;
+    }
     const QString dbName = accountName + QLatin1Char('-') + roomName;
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
@@ -91,6 +95,9 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &r
 
 void LocalMessageLogger::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
 {
+    if (!RuqolaGlobalConfig::self()->enableLogging()) {
+        return;
+    }
     // addMessage is always called before deleteMessage, if only for the history replay on connect
     // So the db must exist
     const QString dbName = accountName + QLatin1Char('-') + roomName;

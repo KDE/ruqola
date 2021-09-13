@@ -66,4 +66,9 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEnableSystemTray);
     QVERIFY(mEnableSystemTray->isChecked());
     QVERIFY(!mEnableSystemTray->text().isEmpty());
+
+    auto mEnableLogging = w.findChild<QCheckBox *>(QStringLiteral("mEnableLogging"));
+    QVERIFY(mEnableLogging);
+    QVERIFY(mEnableLogging->isChecked());
+    QVERIFY(!mEnableLogging->text().isEmpty());
 }

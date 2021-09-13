@@ -31,6 +31,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mShowRoomAvatar(new QCheckBox(i18n("Show Room Avatar"), this))
     , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark Room as Read When Clicking to Write a Reply"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
+    , mEnableLogging(new QCheckBox(i18n("Enable Logging"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -51,6 +52,9 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mEnableSystemTray->setObjectName(QStringLiteral("mEnableSystemTray"));
     mainLayout->addWidget(mEnableSystemTray);
 
+    mEnableLogging->setObjectName(QStringLiteral("mEnableLogging"));
+    mainLayout->addWidget(mEnableLogging);
+
     mainLayout->addStretch(1);
 }
 
@@ -65,6 +69,7 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setShowRoomAvatar(mShowRoomAvatar->isChecked());
     RuqolaGlobalConfig::self()->setMarkAsReadOnTextClicked(mMarkAsReadOnTextClicked->isChecked());
     RuqolaGlobalConfig::self()->setEnableSystemTray(mEnableSystemTray->isChecked());
+    RuqolaGlobalConfig::self()->setEnableLogging(mEnableLogging->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -75,4 +80,5 @@ void ConfigureGeneralWidget::load()
     mShowRoomAvatar->setChecked(RuqolaGlobalConfig::self()->showRoomAvatar());
     mMarkAsReadOnTextClicked->setChecked(RuqolaGlobalConfig::self()->markAsReadOnTextClicked());
     mEnableSystemTray->setChecked(RuqolaGlobalConfig::self()->enableSystemTray());
+    mEnableLogging->setChecked(RuqolaGlobalConfig::self()->enableLogging());
 }

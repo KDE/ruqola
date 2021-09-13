@@ -27,6 +27,9 @@
     <entry name="MarkAsReadOnTextClicked" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="EnableLogging" type="Bool">
+      <default>true</default>
+    </entry>
   </group>
 
   <group name="Font">
