@@ -23,7 +23,6 @@
 #include "ruqola_debug.h"
 #include <messages/message.h>
 
-#include <QDebug>
 #include <QDir>
 #include <QSqlDatabase>
 #include <QSqlError>
