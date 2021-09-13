@@ -40,7 +40,7 @@ public:
     bool saveToFile(QFile &file, const QString &accountName, const QString &roomName) const;
 
     // only public for the unittest
-    QString dbFileName(const QString &accountName, const QString &roomName) const;
+    Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
 
 private:
     QString m_basePath;
