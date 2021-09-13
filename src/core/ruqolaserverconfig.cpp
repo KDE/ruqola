@@ -122,6 +122,17 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
         } else { // Perhaps it has "rc"/"beta" etc.
             mServerVersionPatch = 0;
         }
+    } else if (lst.count() == 2) { // As "4.0"
+        bool ok;
+        int value = lst.at(0).toInt(&ok);
+        if (ok) {
+            mServerVersionMajor = value;
+        }
+        value = lst.at(1).toInt(&ok);
+        if (ok) {
+            mServerVersionMinor = value;
+        }
+        mServerVersionPatch = 0;
     }
     adaptToServerVersion();
 }

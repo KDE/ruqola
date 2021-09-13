@@ -2193,7 +2193,7 @@ void RocketChatAccount::customUsersStatus()
     if (mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0)) {
         restApi()->customUserStatus();
     } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::customUserStatus is not supported before server 2.4.0";
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::customUserStatus is not supported before server 2.4.0" << accountName();
     }
 }
 
