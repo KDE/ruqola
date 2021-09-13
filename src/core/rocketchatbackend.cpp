@@ -469,7 +469,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QLatin1String("/deleteMessage"))) {
-            qDebug() << " if (eventname.endsWith(QLatin1String(/deleteMessage))) {" << object;
+            // qDebug() << " deleteMessage :" << object;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
