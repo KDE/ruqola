@@ -36,6 +36,7 @@
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/serverinfo/serverinfodialog.h"
 #include "directory/directorydialog.h"
+#include "localmessagelogger.h"
 #include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"
@@ -53,6 +54,8 @@
 #include "teams/teamscreatejob.h"
 #include <KActionCollection>
 #include <KConfigGroup>
+#include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KNotifyConfigWidget>
@@ -65,6 +68,7 @@
 #include <QLabel>
 #include <QMenu>
 #include <QStatusBar>
+#include <QTemporaryFile>
 #include <QWidgetAction>
 
 #if HAVE_KUSERFEEDBACK
@@ -310,6 +314,10 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
+    mShowLog = new QAction(i18n("Show Channel Log"), this);
+    connect(mShowLog, &QAction::triggered, this, &RuqolaMainWindow::slotShowLog);
+    ac->addAction(QStringLiteral("show_log"), mShowLog);
+
     mClearAlerts = new QAction(i18n("Mark all channels read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
@@ -485,6 +493,26 @@ void RuqolaMainWindow::slotSelectNextUnreadChannel()
 void RuqolaMainWindow::slotUnreadOnTop(bool checked)
 {
     mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
+}
+
+void RuqolaMainWindow::slotShowLog()
+{
+    auto *room = mMainWidget->room();
+    if (room) {
+        QTemporaryFile tempFile(QStringLiteral("XXXXXX.log.txt"));
+        tempFile.setAutoRemove(false);
+        if (tempFile.open()) {
+            LocalMessageLogger logger;
+            if (logger.saveToFile(tempFile, mCurrentRocketChatAccount->accountName(), room->displayFName())) {
+                const QString fileName = tempFile.fileName();
+                tempFile.close();
+                auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(fileName), this);
+                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+                job->setDeleteTemporaryFile(true);
+                job->start();
+            }
+        }
+    }
 }
 
 void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)

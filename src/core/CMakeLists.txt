@@ -138,6 +138,7 @@ target_sources(libruqolacore PRIVATE
     ruqola.cpp
     ruqolautils.cpp
     rocketchatbackend.cpp
+    localmessagelogger.cpp
     messagequeue.cpp
     rocketchatmessage.cpp
     typingnotification.cpp
@@ -268,6 +269,7 @@ endif()
 target_link_libraries(libruqolacore
     Qt5::Core
     Qt5::Gui
+    Qt5::Sql
     Qt5::WebSockets
     Qt5::Network
     Qt5::NetworkAuth

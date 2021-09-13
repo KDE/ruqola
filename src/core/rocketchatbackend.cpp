@@ -24,6 +24,7 @@
 #include "rocketchatbackend.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
+#include "localmessagelogger.h"
 #include "model/messagemodel.h"
 #include "model/usercompletermodel.h"
 #include "model/usersmodel.h"
@@ -128,6 +129,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)
+    , mMessageLogger(std::make_unique<LocalMessageLogger>())
 {
     connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::slotUserIDChanged);
@@ -168,6 +170,9 @@ void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
 {
     QHash<MessageModel *, QVector<Message>> dispatcher;
+    QString lastRoomId;
+    MessageModel *messageModel = nullptr;
+    Room *room = nullptr;
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -179,17 +184,23 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         }
         Message m(mRocketChatAccount->emojiManager());
         m.parseMessage(o, restApi);
-        // qDebug() << " roomId"<<m.roomId() << " add message " << m;
-        if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
+        const QString roomId = m.roomId();
+        if (roomId != lastRoomId) {
+            messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+            room = mRocketChatAccount->room(roomId);
+            lastRoomId = roomId;
+        }
+        if (messageModel) {
             if (!m.threadMessageId().isEmpty()) {
                 mRocketChatAccount->updateThreadMessageList(m);
             }
-            dispatcher[messageModel].append(std::move(m));
-            if (!loadHistory) {
-                if (Room *room = mRocketChatAccount->room(m.roomId())) {
+            if (room) {
+                mMessageLogger->addMessage(mRocketChatAccount->accountName(), room->displayFName(), m);
+                if (!loadHistory) {
                     room->newMessageAdded();
                 }
             }
+            dispatcher[messageModel].append(std::move(m));
         } else {
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
         }
@@ -474,6 +485,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (messageModel) {
                 const QString messageId = contents.at(0).toObject()[QStringLiteral("_id")].toString();
                 messageModel->deleteMessage(messageId);
+                Room *room = mRocketChatAccount->room(roomId);
+                if (room) {
+                    mMessageLogger->deleteMessage(mRocketChatAccount->accountName(), room->displayFName(), messageId);
+                }
                 // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
                 MessageModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
                 threadMessageModel->deleteMessage(messageId);
