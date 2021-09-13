@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
                          i18n("Copyright © 2020-2021 Ruqola authors"));
 
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
+    aboutData.addAuthor(i18n("Riccardo Iaconelli"), i18n("Original Author"), QStringLiteral("riccardo@kde.org"));
 
     aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
