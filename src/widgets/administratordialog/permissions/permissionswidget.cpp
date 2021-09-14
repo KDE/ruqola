@@ -59,10 +59,16 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
+    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &PermissionsWidget::slotFilterTextChanged);
 }
 
 PermissionsWidget::~PermissionsWidget()
 {
+}
+
+void PermissionsWidget::slotFilterTextChanged(const QString &str)
+{
+    mPermissionFilterProxyModel->setFilterFixedString(str);
 }
 
 void PermissionsWidget::initialize()

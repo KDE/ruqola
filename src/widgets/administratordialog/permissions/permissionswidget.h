@@ -39,6 +39,7 @@ private:
     void slotPermissionListAllDone(const QJsonObject &obj);
     void slotPermissionUpdateDone(const QJsonObject &obj);
     void slotEditRoles(const QStringList &roles, const QString &identifier);
+    void slotFilterTextChanged(const QString &str);
     PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminPermissionsModel *const mAdminPermissionsModel;
