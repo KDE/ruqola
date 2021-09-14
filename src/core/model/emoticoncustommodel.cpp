@@ -19,7 +19,6 @@
 */
 
 #include "emoticoncustommodel.h"
-#include <KLocalizedString>
 
 EmoticonCustomModel::EmoticonCustomModel(QObject *parent)
     : QAbstractListModel(parent)

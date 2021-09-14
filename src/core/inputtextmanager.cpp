@@ -28,7 +28,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"
 #include "ruqola_debug.h"
-#include <QSortFilterProxyModel>
 
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)

@@ -20,7 +20,6 @@
 #include "localmessageloggertest.h"
 #include <localmessagelogger.h>
 
-#include <QDebug>
 #include <QSqlRecord>
 #include <QSqlTableModel>
 #include <QStandardPaths>

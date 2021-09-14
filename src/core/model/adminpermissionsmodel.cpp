@@ -21,7 +21,6 @@
 #include "adminpermissionsmodel.h"
 #include "permissions.h"
 #include <KLocalizedString>
-#include <QDateTime>
 
 AdminPermissionsModel::AdminPermissionsModel(QObject *parent)
     : QAbstractListModel(parent)

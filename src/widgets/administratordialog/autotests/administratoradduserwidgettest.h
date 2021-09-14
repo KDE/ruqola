@@ -19,7 +19,7 @@
 */
 #pragma once
 
-#include <QWidget>
+#include <QObject>
 
 class AdministratorAddUserWidgetTest : public QObject
 {

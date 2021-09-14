@@ -36,6 +36,7 @@
 #include <QGuiApplication>
 #include <QMimeData>
 #include <QPainter>
+#include <QScreen>
 #include <QStyleOptionViewItem>
 #include <QTextBlock>
 #include <QTextDocumentFragment>

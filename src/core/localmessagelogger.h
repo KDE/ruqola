@@ -21,7 +21,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QSqlQuery>
 #include <QString>
 #include <memory>
 

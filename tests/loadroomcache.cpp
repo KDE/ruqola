@@ -23,7 +23,6 @@
 #include <KUrlRequester>
 #include <QApplication>
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QLabel>
 #include <QTextEdit>
 #include <QVBoxLayout>

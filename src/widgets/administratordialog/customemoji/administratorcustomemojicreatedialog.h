@@ -23,7 +23,6 @@
 #include "administratorcustomemojicreatewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-#include <QUrl>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateDialog : public QDialog
 {
     Q_OBJECT

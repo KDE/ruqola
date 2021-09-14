@@ -21,7 +21,6 @@
 #include "administratorcustomemojicreatewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
-#include <QLabel>
 #include <QLineEdit>
 
 #include <KLocalizedString>

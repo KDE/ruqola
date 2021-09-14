@@ -33,8 +33,6 @@
 #include <KLocalizedString>
 
 #include <QLineEdit>
-#include <QScrollBar>
-#include <QSortFilterProxyModel>
 #include <QTabWidget>
 #include <QVBoxLayout>
 

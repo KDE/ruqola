@@ -2,7 +2,6 @@
 #include "roommodel.h"
 #include "ruqola_rooms_debug.h"
 
-#include <KLocalizedString>
 #include <QApplication>
 #include <QPalette>
 
