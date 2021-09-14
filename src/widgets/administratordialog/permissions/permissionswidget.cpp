@@ -20,6 +20,7 @@
 
 #include "permissionswidget.h"
 #include "connection.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "model/adminpermissionsmodel.h"
 #include "permissions.h"
 #include "permissions/permissionslistalljob.h"
@@ -50,6 +51,8 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    new LineEditCatchReturnKey(mSearchLineWidget, this);
+    mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mainLayout->addWidget(mTreeView);

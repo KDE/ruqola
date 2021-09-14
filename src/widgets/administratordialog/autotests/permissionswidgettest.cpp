@@ -51,6 +51,7 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
     QVERIFY(mSearchLineWidget->text().isEmpty());
+    QVERIFY(mSearchLineWidget->isClearButtonEnabled());
 
     auto permissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("permissionFilterProxyModel"));
     QVERIFY(permissionFilterProxyModel);
