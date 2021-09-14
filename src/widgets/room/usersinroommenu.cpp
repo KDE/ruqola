@@ -77,10 +77,12 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     const bool isNotMe = mUserId != ownUserId;
     QMenu menu(mParentWidget);
 
-    if (isNotMe && !isAdirectChannel) {
-        auto conversationAction = new QAction(i18n("Start Conversation"), &menu);
-        connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
-        menu.addAction(conversationAction);
+    if (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("create-d"))) {
+        if (isNotMe && !isAdirectChannel) {
+            auto conversationAction = new QAction(i18n("Start Conversation"), &menu);
+            connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
+            menu.addAction(conversationAction);
+        }
     }
     if (isNotMe) {
         if (!menu.isEmpty()) {
