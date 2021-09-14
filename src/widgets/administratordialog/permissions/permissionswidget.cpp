@@ -126,7 +126,7 @@ void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &i
 
 void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    // qDebug() << " obj " << obj;
     Permissions p;
     p.parsePermissions(obj, QStringLiteral("permissions"));
     mAdminPermissionsModel->setPermissions(p);
