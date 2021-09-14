@@ -692,13 +692,15 @@ void RocketChatAccount::eraseRoom(const QString &roomId, Room::RoomType channelT
 
 void RocketChatAccount::openDirectChannel(const QString &username)
 {
-    // Laurent for the moment I didn't find a restapi method for it
-    // TODO verify username vs userId
-    //#ifdef USE_REASTAPI_JOB
-    //    restApi()->openDirectMessage(username);
-    //#else
-    qDebug() << "Open direct conversation channel with" << username;
-    ddp()->openDirectChannel(username);
+    if (hasPermission(QStringLiteral("create-d"))) {
+        // Laurent for the moment I didn't find a restapi method for it
+        // TODO verify username vs userId
+        //#ifdef USE_REASTAPI_JOB
+        //    restApi()->openDirectMessage(username);
+        //#else
+        qDebug() << "Open direct conversation channel with" << username;
+        ddp()->openDirectChannel(username);
+    }
     //#endif
 }
 
