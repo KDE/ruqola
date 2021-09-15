@@ -56,5 +56,6 @@ private:
     PermissionsWidget *const mPermissionsWidget;
     int mCustomSoundsTabIndex = -1;
     int mServerInfoTabIndex = -1;
+    int mViewLogTagIndex = -1;
 };
 

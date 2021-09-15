@@ -77,7 +77,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
 
     mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
-    mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
+    mViewLogTagIndex = mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
 
     mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
     mTabWidget->addTab(mPermissionsWidget, i18n("Permissions"));
@@ -104,5 +104,8 @@ void AdministratorWidget::updateUiFromPermission()
 
     if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
         mTabWidget->setTabVisible(mServerInfoTabIndex, false);
+    }
+    if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-logs"))) {
+        mTabWidget->setTabVisible(mViewLogTagIndex, false);
     }
 }
