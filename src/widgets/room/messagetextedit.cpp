@@ -253,6 +253,7 @@ void MessageTextEdit::mousePressEvent(QMouseEvent *ev)
     if (ev->buttons().testFlag(Qt::LeftButton)) {
         Q_EMIT textClicked();
     }
+    KTextEdit::mousePressEvent(ev);
 }
 
 void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForType type)
