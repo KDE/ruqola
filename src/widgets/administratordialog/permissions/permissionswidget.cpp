@@ -93,14 +93,17 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
 void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
-    if (index.isValid()) {
-        QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-            const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
-            const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
-            slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
-        });
-        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
+        if (index.isValid()) {
+            QMenu menu(this);
+            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+                const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
+                const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
+                slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
+            });
+            menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+        }
     }
 }
 
