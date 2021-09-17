@@ -147,6 +147,7 @@ target_sources(libruqolawidgets PRIVATE
     misc/avatarcachemanager.cpp
     misc/servermenu.cpp
     misc/accountsoverviewwidget.cpp
+    misc/emoticonlistview.cpp
     misc/emoticonmenuwidget.cpp
     misc/emoticonselectorwidget.cpp
     misc/emoticonrecentusedfilterproxymodel.cpp
