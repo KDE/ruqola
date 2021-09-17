@@ -1451,9 +1451,14 @@ QString RocketChatAccount::displayName() const
     return settings()->displayName();
 }
 
+void RocketChatAccount::updateEmojiCustom(const QJsonArray &replyArray)
+{
+    qDebug() << "NOT IMPLEMENTED void RocketChatAccount::updateEmojiCustom(const QJsonObject &replyObject)" << replyArray;
+}
+
 void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 {
-    qDebug() << " void RocketChatAccount::deleteEmojiCustom(const QJsonObject &replyObject)" << replyArray;
+    qDebug() << "NOT IMPLEMENTED void RocketChatAccount::deleteEmojiCustom(const QJsonObject &replyObject)" << replyArray;
     // TODO
 }
 

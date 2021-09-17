@@ -538,7 +538,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname == QLatin1String("updateAvatar")) {
             mRocketChatAccount->avatarChanged(contents);
         } else if (eventname == QLatin1String("updateEmojiCustom")) {
-            qCWarning(RUQOLA_LOG) << "Need to implement updateEmojiCustom :" << fields;
+            mRocketChatAccount->updateEmojiCustom(contents);
         } else if (eventname == QLatin1String("Users:NameChanged")) {
             mRocketChatAccount->setNameChanged(contents);
         } else if (eventname == QLatin1String("Users:Deleted")) {

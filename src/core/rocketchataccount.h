@@ -454,6 +454,7 @@ public:
     Q_REQUIRED_RESULT EmoticonCustomModel *emoticonCustomModel() const;
 
     void deleteEmojiCustom(const QJsonArray &replyArray);
+    void updateEmojiCustom(const QJsonArray &replyArray);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
