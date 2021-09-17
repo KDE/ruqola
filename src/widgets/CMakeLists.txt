@@ -171,6 +171,7 @@ target_sources(libruqolawidgets PRIVATE
     common/commandcompletiondelegate.cpp
     common/delegatepaintutil.cpp
     common/delegateutil.cpp
+    common/emojicustomdelegate.cpp
 
     room/textpluginmanager.cpp
     room/plugins/plugintext.cpp

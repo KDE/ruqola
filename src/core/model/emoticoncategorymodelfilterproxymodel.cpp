@@ -55,7 +55,6 @@ const QString &EmoticonCategoryModelFilterProxyModel::category() const
 void EmoticonCategoryModelFilterProxyModel::setCategory(const QString &newCategory)
 {
     mCategory = newCategory;
-    qDebug() << " mCategory" << mCategory;
 }
 
 bool EmoticonCategoryModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

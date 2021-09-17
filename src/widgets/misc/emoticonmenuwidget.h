@@ -51,5 +51,6 @@ private:
     EmoticonRecentUsedFilterProxyModel *const mRecentUsedFilterProxyModel;
     EmoticonModelFilterProxyModel *const mEmoticonFilterProxyModel;
     EmoticonCustomModelFilterProxyModel *const mEmoticonCustomFilterProxyModel;
+    int mAllTabIndex = -1;
 };
 

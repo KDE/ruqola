@@ -19,6 +19,8 @@
 */
 
 #include "emoticonmenuwidget.h"
+#include "common/emojicompletiondelegate.h"
+#include "common/emojicustomdelegate.h"
 #include "emoticonlistview.h"
 #include "emoticonrecentusedfilterproxymodel.h"
 #include "emoticons/emojimanager.h"
@@ -37,7 +39,6 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 
-#include <common/emojicompletiondelegate.h>
 
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
@@ -83,19 +84,23 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
-    // "all" tab
-    auto allEmojisView = new QListView(this);
-    allEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    // "Search" tab
+    auto searchEmojisView = new QListView(this);
+    searchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mEmoticonFilterProxyModel->setSourceModel(account->emoticonModel());
-    allEmojisView->setModel(mEmoticonFilterProxyModel);
-    allEmojisView->setItemDelegate(new EmojiCompletionDelegate(allEmojisView));
+    searchEmojisView->setModel(mEmoticonFilterProxyModel);
+    searchEmojisView->setItemDelegate(new EmojiCompletionDelegate(searchEmojisView));
 
-    mTabWidget->addTab(allEmojisView, i18n("All"));
+    mAllTabIndex = mTabWidget->addTab(searchEmojisView, i18n("Search"));
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
-        mTabWidget->setCurrentWidget(allEmojisView);
+        const bool textIsNotEmpty{!text.isEmpty()};
+        mTabWidget->setTabVisible(mAllTabIndex, textIsNotEmpty);
+        if (textIsNotEmpty) {
+            mTabWidget->setCurrentWidget(searchEmojisView);
+        }
         mEmoticonFilterProxyModel->setFilterFixedString(text);
     });
-    connect(allEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
+    connect(searchEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
@@ -123,7 +128,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     mEmoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
     customEmojiView->setModel(mEmoticonCustomFilterProxyModel);
     // Use a custom Emoji delegate
-    customEmojiView->setItemDelegate(new EmojiCompletionDelegate(customEmojiView));
+    customEmojiView->setItemDelegate(new EmojiCustomDelegate(customEmojiView));
 
     mTabWidget->addTab(customEmojiView, i18n("Custom"));
     connect(customEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
@@ -143,6 +148,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         mTabWidget->addTab(w, category.name());
         connect(w, &EmoticonListView::emojiItemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
     }
+    mTabWidget->setTabVisible(mAllTabIndex, false);
 }
 
 void EmoticonMenuWidget::slotInsertEmoticons(const QString &identifier)
