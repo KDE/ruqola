@@ -22,7 +22,6 @@
 #include "emoticonlistview.h"
 #include "emoticonrecentusedfilterproxymodel.h"
 #include "emoticons/emojimanager.h"
-#include "emoticonselectorwidget.h"
 #include "model/emoticoncategorymodelfilterproxymodel.h"
 #include "model/emoticoncustommodel.h"
 #include "model/emoticoncustommodelfilterproxymodel.h"
