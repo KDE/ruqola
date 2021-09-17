@@ -1451,6 +1451,12 @@ QString RocketChatAccount::displayName() const
     return settings()->displayName();
 }
 
+void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
+{
+    qDebug() << " void RocketChatAccount::deleteEmojiCustom(const QJsonObject &replyObject)" << replyArray;
+    // TODO
+}
+
 void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
 {
     qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;

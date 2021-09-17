@@ -453,6 +453,7 @@ public:
     void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
     Q_REQUIRED_RESULT EmoticonCustomModel *emoticonCustomModel() const;
 
+    void deleteEmojiCustom(const QJsonArray &replyArray);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
