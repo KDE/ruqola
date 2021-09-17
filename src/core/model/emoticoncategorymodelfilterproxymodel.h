@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -20,31 +20,16 @@
 
 #pragma once
 
-#include <QWidget>
+#include "libruqola_private_export.h"
+#include <QSortFilterProxyModel>
 
-#include "libruqolawidgets_private_export.h"
-class QTabWidget;
-class QLineEdit;
-class RocketChatAccount;
-class EmoticonRecentUsedFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
+class LIBRUQOLACORE_TESTS_EXPORT EmoticonCustomModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit EmoticonMenuWidget(QWidget *parent = nullptr);
-    ~EmoticonMenuWidget() override;
+    explicit EmoticonCustomModelFilterProxyModel(QObject *parent = nullptr);
+    ~EmoticonCustomModelFilterProxyModel() override;
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
-    void loadRecentUsed();
-Q_SIGNALS:
-    void insertEmoticons(const QString &emoticon);
-
-private:
-    void slotInsertEmoticons(const QString &identifier);
-    void initializeTab(RocketChatAccount *account);
-
-    QLineEdit *const mSearchLineEdit;
-    QTabWidget *const mTabWidget;
-    EmoticonRecentUsedFilterProxyModel *const mRecentUsedFilterProxyModel;
+protected:
+    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
-

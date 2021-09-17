@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020-2021 Laurent Montel <montel@kde.org>
+   Copyright (c) 2021 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -20,31 +20,15 @@
 
 #pragma once
 
-#include <QWidget>
+#include <QListView>
+#include "libruqola_private_export.h"
 
-#include "libruqolawidgets_private_export.h"
-class QTabWidget;
-class QLineEdit;
-class RocketChatAccount;
-class EmoticonRecentUsedFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
+class LIBRUQOLACORE_TESTS_EXPORT EmoticonListView : public QListView
 {
     Q_OBJECT
 public:
-    explicit EmoticonMenuWidget(QWidget *parent = nullptr);
-    ~EmoticonMenuWidget() override;
-
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
-    void loadRecentUsed();
+    explicit EmoticonListView(QWidget *parent = nullptr);
+    ~EmoticonListView() override;
 Q_SIGNALS:
-    void insertEmoticons(const QString &emoticon);
-
-private:
-    void slotInsertEmoticons(const QString &identifier);
-    void initializeTab(RocketChatAccount *account);
-
-    QLineEdit *const mSearchLineEdit;
-    QTabWidget *const mTabWidget;
-    EmoticonRecentUsedFilterProxyModel *const mRecentUsedFilterProxyModel;
+    void emojiItemSelected(const QString &str);
 };
-

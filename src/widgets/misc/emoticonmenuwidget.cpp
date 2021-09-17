@@ -42,6 +42,8 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new QLineEdit(this))
     , mTabWidget(new QTabWidget(this))
+    , mRecentUsedFilterProxyModel(new EmoticonRecentUsedFilterProxyModel(this))
+
 {
     auto layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
@@ -100,7 +102,6 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     // Recent
     auto recentUsedEmoticonView = new RecentUsedEmoticonView(this);
     recentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mRecentUsedFilterProxyModel = new EmoticonRecentUsedFilterProxyModel(this);
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
     recentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
     recentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(this));
