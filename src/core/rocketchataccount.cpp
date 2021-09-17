@@ -780,8 +780,9 @@ void RocketChatAccount::changeDefaultStatus(int index, const QString &messageSta
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);
-    mEmoticonModel->setCustomEmojiList(mEmojiManager->customEmojiList());
-    mEmoticonCustomModel->setCustomEmojiList(mEmojiManager->customEmojiList());
+    const auto customEmojiList = mEmojiManager->customEmojiList();
+    mEmoticonModel->setCustomEmojiList(customEmojiList);
+    mEmoticonCustomModel->setCustomEmojiList(customEmojiList);
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
@@ -1454,12 +1455,39 @@ QString RocketChatAccount::displayName() const
 void RocketChatAccount::updateEmojiCustom(const QJsonArray &replyArray)
 {
     qDebug() << "NOT IMPLEMENTED void RocketChatAccount::updateEmojiCustom(const QJsonObject &replyObject)" << replyArray;
+    // New QJsonArray([{"emojiData":{"_id":"HdN28k4PQ6J9xLkZ8","_updatedAt":{"$date":1631885946222},"aliases":["roo"],"extension":"png","name":"ruqola"}}])
+    // Update
+    // QJsonArray([{"emojiData":{"_id":"vxE6eG5FrZCvbgM3t","aliases":["rooss"],"extension":"png","name":"xxx","newFile":true,"previousExtension":"png","previousName":"ruqolas"}}])
+    // TODO
+    // mEmoticonModel->addUpdateEmojiCustomList(lst);
+    // mEmoticonCustomModel->addUpdateEmojiCustomList(lst);
 }
 
 void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 {
+    // ([{"emojiData":{"_id":"PpawhZMaseBcEuGCG","_updatedAt":{"$date":1631858916014},"aliases":[],"extension":"png","name":"ruqolaff"}}])
     qDebug() << "NOT IMPLEMENTED void RocketChatAccount::deleteEmojiCustom(const QJsonObject &replyObject)" << replyArray;
+#if 0
+    QStringList lst;
+    const int count{replyArray.count()};
+    lst.reserve(count);
+    for (int i = 0; i < count; ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
+        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        if (!identifier.isEmpty()) {
+            lst << identifier;
+        }
+        qDebug() << obj;
+    }
+
+    mEmoticonModel->deleteEmojiCustom(lst);
+    mEmoticonCustomModel->deleteEmojiCustom(lst);
+
+    qDebug() << " IDENTIFIER " << lst;
+    // const QString identifier =
     // TODO
+#endif
 }
 
 void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
