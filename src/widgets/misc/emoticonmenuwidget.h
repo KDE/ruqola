@@ -25,8 +25,11 @@
 #include "libruqolawidgets_private_export.h"
 class QTabWidget;
 class QLineEdit;
+class QListView;
 class RocketChatAccount;
 class EmoticonRecentUsedFilterProxyModel;
+class EmoticonModelFilterProxyModel;
+class EmoticonCustomModelFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
     Q_OBJECT
@@ -46,5 +49,7 @@ private:
     QLineEdit *const mSearchLineEdit;
     QTabWidget *const mTabWidget;
     EmoticonRecentUsedFilterProxyModel *const mRecentUsedFilterProxyModel;
+    EmoticonModelFilterProxyModel *const mEmoticonFilterProxyModel;
+    EmoticonCustomModelFilterProxyModel *const mEmoticonCustomFilterProxyModel;
 };
 

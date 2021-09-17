@@ -44,7 +44,8 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     , mSearchLineEdit(new QLineEdit(this))
     , mTabWidget(new QTabWidget(this))
     , mRecentUsedFilterProxyModel(new EmoticonRecentUsedFilterProxyModel(this))
-
+    , mEmoticonFilterProxyModel(new EmoticonModelFilterProxyModel(this))
+    , mEmoticonCustomFilterProxyModel(new EmoticonCustomModelFilterProxyModel(this))
 {
     auto layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
@@ -85,15 +86,14 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     // "all" tab
     auto allEmojisView = new QListView(this);
     allEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    auto emoticonFilterProxyModel = new EmoticonModelFilterProxyModel(this);
-    emoticonFilterProxyModel->setSourceModel(account->emoticonModel());
-    allEmojisView->setModel(emoticonFilterProxyModel);
-    allEmojisView->setItemDelegate(new EmojiCompletionDelegate(this));
+    mEmoticonFilterProxyModel->setSourceModel(account->emoticonModel());
+    allEmojisView->setModel(mEmoticonFilterProxyModel);
+    allEmojisView->setItemDelegate(new EmojiCompletionDelegate(allEmojisView));
 
     mTabWidget->addTab(allEmojisView, i18n("All"));
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
         mTabWidget->setCurrentWidget(allEmojisView);
-        emoticonFilterProxyModel->setFilterFixedString(text);
+        mEmoticonFilterProxyModel->setFilterFixedString(text);
     });
     connect(allEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
@@ -105,7 +105,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     recentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
     recentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
-    recentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(this));
+    recentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(recentUsedEmoticonView));
     connect(recentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
@@ -116,14 +116,14 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         // It's already in recent tab => don't try to save it
         Q_EMIT insertEmoticons(identifier);
     });
+
     // Custom
     auto customEmojiView = new QListView(this);
     customEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    auto emoticonCustomFilterProxyModel = new EmoticonCustomModelFilterProxyModel(this);
-    emoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
-    customEmojiView->setModel(emoticonCustomFilterProxyModel);
+    mEmoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
+    customEmojiView->setModel(mEmoticonCustomFilterProxyModel);
     // Use a custom Emoji delegate
-    customEmojiView->setItemDelegate(new EmojiCompletionDelegate(this));
+    customEmojiView->setItemDelegate(new EmojiCompletionDelegate(customEmojiView));
 
     mTabWidget->addTab(customEmojiView, i18n("Custom"));
     connect(customEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
@@ -131,11 +131,12 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         slotInsertEmoticons(identifier);
     });
 
+    // Default Emoji
     EmojiManager *emojiManager = account->emojiManager();
     const QVector<EmoticonCategory> categories = emojiManager->categories();
     for (const EmoticonCategory &category : categories) {
         auto w = new EmoticonListView(this);
-        auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(this);
+        auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(w);
         categoryProxyModel->setCategory(category.category());
         categoryProxyModel->setSourceModel(account->emoticonModel());
         w->setModel(categoryProxyModel);
