@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include <QListView>
 #include "libruqola_private_export.h"
+#include <QListView>
 
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonListView : public QListView
 {

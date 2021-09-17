@@ -51,6 +51,10 @@ public:
     Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
     void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
 
+    void deleteEmojiCustom(const QStringList &lst);
+
+    void addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList);
+
 private:
     Q_DISABLE_COPY(EmoticonModel)
     QVector<UnicodeEmoticon> mEmoticons;

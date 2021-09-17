@@ -23,13 +23,20 @@
 #include "libruqola_private_export.h"
 #include <QSortFilterProxyModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonCustomModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategoryModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit EmoticonCustomModelFilterProxyModel(QObject *parent = nullptr);
-    ~EmoticonCustomModelFilterProxyModel() override;
+    explicit EmoticonCategoryModelFilterProxyModel(QObject *parent = nullptr);
+    ~EmoticonCategoryModelFilterProxyModel() override;
+
+    const QString &category() const;
+    void setCategory(const QString &newCategory);
 
 protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private:
+    QString mCategory;
 };

@@ -18,31 +18,55 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emoticoncustommodelfilterproxymodel.h"
-#include "emoticoncustommodel.h"
+#include "emoticoncategorymodelfilterproxymodel.h"
+#include "emoticonmodel.h"
 
-EmoticonCustomModelFilterProxyModel::EmoticonCustomModelFilterProxyModel(QObject *parent)
+EmoticonCategoryModelFilterProxyModel::EmoticonCategoryModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(EmoticonCustomModel::Identifier);
+    setFilterRole(EmoticonModel::Identifier);
     sort(0);
 }
 
-EmoticonCustomModelFilterProxyModel::~EmoticonCustomModelFilterProxyModel()
+EmoticonCategoryModelFilterProxyModel::~EmoticonCategoryModelFilterProxyModel()
 {
 }
 
-bool EmoticonCustomModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool EmoticonCategoryModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {
         return false;
     }
     if (left.isValid() && right.isValid()) {
-        const QString leftString = sourceModel()->data(left, EmoticonCustomModel::Identifier).toString();
-        const QString rightString = sourceModel()->data(right, EmoticonCustomModel::Identifier).toString();
+        const QString leftString = sourceModel()->data(left, EmoticonModel::Identifier).toString();
+        const QString rightString = sourceModel()->data(right, EmoticonModel::Identifier).toString();
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return false;
     }
+}
+
+const QString &EmoticonCategoryModelFilterProxyModel::category() const
+{
+    return mCategory;
+}
+
+void EmoticonCategoryModelFilterProxyModel::setCategory(const QString &newCategory)
+{
+    mCategory = newCategory;
+    qDebug() << " mCategory" << mCategory;
+}
+
+bool EmoticonCategoryModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (mCategory.isEmpty()) {
+        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    }
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    const QString category = sourceIndex.data(EmoticonModel::Category).toString();
+    if (mCategory == category) {
+        return true;
+    }
+    return false;
 }

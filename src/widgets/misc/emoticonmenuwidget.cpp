@@ -19,9 +19,11 @@
 */
 
 #include "emoticonmenuwidget.h"
+#include "emoticonlistview.h"
 #include "emoticonrecentusedfilterproxymodel.h"
 #include "emoticons/emojimanager.h"
 #include "emoticonselectorwidget.h"
+#include "model/emoticoncategorymodelfilterproxymodel.h"
 #include "model/emoticoncustommodel.h"
 #include "model/emoticoncustommodelfilterproxymodel.h"
 #include "model/emoticonmodel.h"
@@ -133,10 +135,13 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     EmojiManager *emojiManager = account->emojiManager();
     const QVector<EmoticonCategory> categories = emojiManager->categories();
     for (const EmoticonCategory &category : categories) {
-        auto w = new EmoticonSelectorWidget(this);
+        auto w = new EmoticonListView(this);
+        auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(this);
+        categoryProxyModel->setCategory(category.category());
+        categoryProxyModel->setSourceModel(account->emoticonModel());
+        w->setModel(categoryProxyModel);
         mTabWidget->addTab(w, category.name());
-        w->setEmoticons(emojiManager->emojisForCategory(category.category()));
-        connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
+        connect(w, &EmoticonListView::emojiItemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
     }
 }
 

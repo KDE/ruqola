@@ -52,12 +52,13 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             switch (role) {
             case CompleterName:
                 return unicodeEmoti.identifier().mid(1);
+            case Qt::DisplayRole: // for the completion popup (until we have a delegate)
             case UnicodeEmoji:
                 return unicodeEmoti.unicode();
             case Category:
                 return unicodeEmoti.category();
+            case Qt::ToolTipRole:
             case Identifier:
-            case Qt::DisplayRole: // for the completion popup (until we have a delegate)
                 if (row.second == -1) {
                     return unicodeEmoti.identifier();
                 }
@@ -71,12 +72,13 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             switch (role) {
             case CompleterName:
                 return customEmoti.emojiIdentifier().mid(1);
+            case Qt::DisplayRole:
             case UnicodeEmoji:
                 return customEmoti.name(); // Display name for the moment. In the future we need to display "icon"
             case Category:
                 return i18n("Custom");
+            case Qt::ToolTipRole:
             case Identifier:
-            case Qt::DisplayRole: // for the completion popup (until we have a delegate)
                 if (row.second == -1) {
                     return customEmoti.emojiIdentifier();
                 }
@@ -129,4 +131,14 @@ void EmoticonModel::setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmoj
         ++row;
     }
     endResetModel();
+}
+
+void EmoticonModel::deleteEmojiCustom(const QStringList &lst)
+{
+    // TODO
+}
+
+void EmoticonModel::addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList)
+{
+    // TODO
 }
