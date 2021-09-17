@@ -106,7 +106,7 @@ private:
     Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
 
 private:
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
