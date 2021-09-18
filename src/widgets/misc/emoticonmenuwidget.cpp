@@ -64,6 +64,10 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     f.setFamily(Utils::emojiFontName());
     mTabWidget->tabBar()->setFont(f);
     setAttribute(Qt::WA_DeleteOnClose);
+
+    mRecentUsedFilterProxyModel->setObjectName(QStringLiteral("mRecentUsedFilterProxyModel"));
+    mEmoticonFilterProxyModel->setObjectName(QStringLiteral("mEmoticonFilterProxyModel"));
+    mEmoticonCustomFilterProxyModel->setObjectName(QStringLiteral("mEmoticonCustomFilterProxyModel"));
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
@@ -85,53 +89,53 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
 {
     // "Search" tab
-    auto searchEmojisView = new QListView(this);
-    searchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    auto mSearchEmojisView = new QListView(this);
+    mSearchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mEmoticonFilterProxyModel->setSourceModel(account->emoticonModel());
-    searchEmojisView->setModel(mEmoticonFilterProxyModel);
-    searchEmojisView->setItemDelegate(new EmojiCompletionDelegate(searchEmojisView));
+    mSearchEmojisView->setModel(mEmoticonFilterProxyModel);
+    mSearchEmojisView->setItemDelegate(new EmojiCompletionDelegate(mSearchEmojisView));
 
-    mAllTabIndex = mTabWidget->addTab(searchEmojisView, i18n("Search"));
+    mAllTabIndex = mTabWidget->addTab(mSearchEmojisView, i18n("Search"));
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
         const bool textIsNotEmpty{!text.isEmpty()};
         mTabWidget->setTabVisible(mAllTabIndex, textIsNotEmpty);
         if (textIsNotEmpty) {
-            mTabWidget->setCurrentWidget(searchEmojisView);
+            mTabWidget->setCurrentWidget(mSearchEmojisView);
         }
         mEmoticonFilterProxyModel->setFilterFixedString(text);
     });
-    connect(searchEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
+    connect(mSearchEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
 
     // Recent
-    auto recentUsedEmoticonView = new RecentUsedEmoticonView(this);
-    recentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    auto mRecentUsedEmoticonView = new RecentUsedEmoticonView(this);
+    mRecentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
-    recentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
-    recentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(recentUsedEmoticonView));
-    connect(recentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
+    mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
+    mRecentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(mRecentUsedEmoticonView));
+    connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
 
-    mTabWidget->addTab(recentUsedEmoticonView, i18n("Recent"));
-    connect(recentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
+    mTabWidget->addTab(mRecentUsedEmoticonView, i18n("Recent"));
+    connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         // It's already in recent tab => don't try to save it
         Q_EMIT insertEmoticons(identifier);
     });
 
     // Custom
-    auto customEmojiView = new QListView(this);
-    customEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    auto mCustomEmojiView = new QListView(this);
+    mCustomEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mEmoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
-    customEmojiView->setModel(mEmoticonCustomFilterProxyModel);
+    mCustomEmojiView->setModel(mEmoticonCustomFilterProxyModel);
     // Use a custom Emoji delegate
-    customEmojiView->setItemDelegate(new EmojiCustomDelegate(customEmojiView));
+    mCustomEmojiView->setItemDelegate(new EmojiCustomDelegate(mCustomEmojiView));
 
-    mTabWidget->addTab(customEmojiView, i18n("Custom"));
-    connect(customEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
+    mTabWidget->addTab(mCustomEmojiView, i18n("Custom"));
+    connect(mCustomEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });

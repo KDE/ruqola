@@ -20,6 +20,9 @@
 
 #include "emoticonmenuwidgettest.h"
 #include "misc/emoticonmenuwidget.h"
+#include "misc/emoticonrecentusedfilterproxymodel.h"
+#include "model/emoticoncustommodelfilterproxymodel.h"
+#include "model/emoticonmodelfilterproxymodel.h"
 #include <QLineEdit>
 #include <QTabWidget>
 #include <QTest>
@@ -44,4 +47,11 @@ void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
+
+    auto mRecentUsedFilterProxyModel = w.findChild<EmoticonRecentUsedFilterProxyModel *>(QStringLiteral("mRecentUsedFilterProxyModel"));
+    QVERIFY(mRecentUsedFilterProxyModel);
+    auto mEmoticonFilterProxyModel = w.findChild<EmoticonModelFilterProxyModel *>(QStringLiteral("mEmoticonFilterProxyModel"));
+    QVERIFY(mEmoticonFilterProxyModel);
+    auto mEmoticonCustomFilterProxyModel = w.findChild<EmoticonCustomModelFilterProxyModel *>(QStringLiteral("mEmoticonCustomFilterProxyModel"));
+    QVERIFY(mEmoticonCustomFilterProxyModel);
 }
