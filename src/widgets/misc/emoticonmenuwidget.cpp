@@ -134,7 +134,6 @@ void EmoticonMenuWidget::loadRecentUsed()
 
 void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    // mTabWidget->clear();
     initializeTab(account);
     mSearchLineEdit->setFocus();
 }
