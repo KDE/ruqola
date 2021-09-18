@@ -39,6 +39,7 @@ void EmojiCustomDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 {
     drawBackground(painter, option, index);
     const int margin = DelegatePaintUtil::margin();
+    // TODO Use Icon for custom emoji
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
     const QString emojiText = index.data(EmoticonModel::UnicodeEmoji).toString();
     const int emojiWidth = emojiFontMetrics.horizontalAdvance(emojiText);
