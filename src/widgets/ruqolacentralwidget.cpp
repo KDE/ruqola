@@ -35,7 +35,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));

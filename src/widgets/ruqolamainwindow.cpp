@@ -347,7 +347,7 @@ void RuqolaMainWindow::setupActions()
         container->setFont(qApp->font("QToolButton"));
         action->setDefaultWidget(container);
         auto layout = new QHBoxLayout(container);
-        layout->setContentsMargins(0, 0, 0, 0);
+        layout->setContentsMargins({});
         auto label = new QLabel(i18n("Status:"), container);
         label->setObjectName(QStringLiteral("label"));
         layout->addWidget(label);

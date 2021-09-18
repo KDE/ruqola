@@ -50,7 +50,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     , mEmptyRoomWidget(new QWidget(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
     mSplitter->setObjectName(QStringLiteral("mSplitter"));
