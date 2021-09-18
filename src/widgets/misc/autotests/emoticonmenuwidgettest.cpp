@@ -21,6 +21,7 @@
 #include "emoticonmenuwidgettest.h"
 #include "misc/emoticonmenuwidget.h"
 #include "misc/emoticonrecentusedfilterproxymodel.h"
+#include "misc/recentusedemoticonview.h"
 #include "model/emoticoncustommodelfilterproxymodel.h"
 #include "model/emoticonmodelfilterproxymodel.h"
 #include <QLineEdit>
@@ -54,4 +55,11 @@ void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmoticonFilterProxyModel);
     auto mEmoticonCustomFilterProxyModel = w.findChild<EmoticonCustomModelFilterProxyModel *>(QStringLiteral("mEmoticonCustomFilterProxyModel"));
     QVERIFY(mEmoticonCustomFilterProxyModel);
+
+    auto mSearchEmojisView = w.findChild<QListView *>(QStringLiteral("mSearchEmojisView"));
+    QVERIFY(mSearchEmojisView);
+    auto mRecentUsedEmoticonView = w.findChild<RecentUsedEmoticonView *>(QStringLiteral("mRecentUsedEmoticonView"));
+    QVERIFY(mRecentUsedEmoticonView);
+    auto mCustomEmojiView = w.findChild<QListView *>(QStringLiteral("mCustomEmojiView"));
+    QVERIFY(mCustomEmojiView);
 }

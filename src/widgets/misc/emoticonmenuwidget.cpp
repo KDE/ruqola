@@ -71,6 +71,9 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     mEmoticonFilterProxyModel->setObjectName(QStringLiteral("mEmoticonFilterProxyModel"));
     mEmoticonCustomFilterProxyModel->setObjectName(QStringLiteral("mEmoticonCustomFilterProxyModel"));
 
+    mSearchEmojisView->setObjectName(QStringLiteral("mSearchEmojisView"));
+    mRecentUsedEmoticonView->setObjectName(QStringLiteral("mRecentUsedEmoticonView"));
+    mCustomEmojiView->setObjectName(QStringLiteral("mCustomEmojiView"));
 
     // "Search" tab
 
