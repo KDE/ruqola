@@ -39,7 +39,6 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 
-
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new QLineEdit(this))
@@ -47,6 +46,9 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     , mRecentUsedFilterProxyModel(new EmoticonRecentUsedFilterProxyModel(this))
     , mEmoticonFilterProxyModel(new EmoticonModelFilterProxyModel(this))
     , mEmoticonCustomFilterProxyModel(new EmoticonCustomModelFilterProxyModel(this))
+    , mSearchEmojisView(new QListView(this))
+    , mRecentUsedEmoticonView(new RecentUsedEmoticonView(this))
+    , mCustomEmojiView(new QListView(this))
 {
     auto layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
@@ -68,31 +70,12 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     mRecentUsedFilterProxyModel->setObjectName(QStringLiteral("mRecentUsedFilterProxyModel"));
     mEmoticonFilterProxyModel->setObjectName(QStringLiteral("mEmoticonFilterProxyModel"));
     mEmoticonCustomFilterProxyModel->setObjectName(QStringLiteral("mEmoticonCustomFilterProxyModel"));
-}
 
-EmoticonMenuWidget::~EmoticonMenuWidget()
-{
-}
 
-void EmoticonMenuWidget::loadRecentUsed()
-{
-    mRecentUsedFilterProxyModel->loadRecentUsed();
-}
-
-void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
-{
-    mTabWidget->clear();
-    initializeTab(account);
-    mSearchLineEdit->setFocus();
-}
-
-void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
-{
     // "Search" tab
-    auto mSearchEmojisView = new QListView(this);
-    mSearchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mEmoticonFilterProxyModel->setSourceModel(account->emoticonModel());
+
     mSearchEmojisView->setModel(mEmoticonFilterProxyModel);
+    mSearchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mSearchEmojisView->setItemDelegate(new EmojiCompletionDelegate(mSearchEmojisView));
 
     mAllTabIndex = mTabWidget->addTab(mSearchEmojisView, i18n("Search"));
@@ -110,9 +93,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     });
 
     // Recent
-    auto mRecentUsedEmoticonView = new RecentUsedEmoticonView(this);
     mRecentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
     mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
     mRecentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(mRecentUsedEmoticonView));
     connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
@@ -127,9 +108,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     });
 
     // Custom
-    auto mCustomEmojiView = new QListView(this);
     mCustomEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mEmoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
     mCustomEmojiView->setModel(mEmoticonCustomFilterProxyModel);
     // Use a custom Emoji delegate
     mCustomEmojiView->setItemDelegate(new EmojiCustomDelegate(mCustomEmojiView));
@@ -139,18 +118,51 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
+}
 
-    // Default Emoji
-    EmojiManager *emojiManager = account->emojiManager();
-    const QVector<EmoticonCategory> categories = emojiManager->categories();
-    for (const EmoticonCategory &category : categories) {
-        auto w = new EmoticonListView(this);
-        auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(w);
-        categoryProxyModel->setCategory(category.category());
-        categoryProxyModel->setSourceModel(account->emoticonModel());
-        w->setModel(categoryProxyModel);
-        mTabWidget->addTab(w, category.name());
-        connect(w, &EmoticonListView::emojiItemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
+EmoticonMenuWidget::~EmoticonMenuWidget()
+{
+}
+
+void EmoticonMenuWidget::loadRecentUsed()
+{
+    mRecentUsedFilterProxyModel->loadRecentUsed();
+}
+
+void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    // mTabWidget->clear();
+    initializeTab(account);
+    mSearchLineEdit->setFocus();
+}
+
+void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
+{
+    // "Search" tab
+    mEmoticonFilterProxyModel->setSourceModel(account->emoticonModel());
+
+    // Recent
+    mRecentUsedFilterProxyModel->setSourceModel(account->emoticonModel());
+
+    // Custom
+    mEmoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
+
+    if (mEmoticonListViews.isEmpty()) {
+        // Default Emoji
+        EmojiManager *emojiManager = account->emojiManager();
+        const QVector<EmoticonCategory> categories = emojiManager->categories();
+        for (const EmoticonCategory &category : categories) {
+            auto w = new EmoticonListView(this);
+            auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(w);
+            mEmoticonListViews.append(categoryProxyModel);
+            categoryProxyModel->setCategory(category.category());
+            w->setModel(categoryProxyModel);
+            mTabWidget->addTab(w, category.name());
+            connect(w, &EmoticonListView::emojiItemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
+        }
+    }
+    for (auto list : std::as_const(mEmoticonListViews)) {
+        list->setSourceModel(account->emoticonModel());
     }
     mTabWidget->setTabVisible(mAllTabIndex, false);
 }
