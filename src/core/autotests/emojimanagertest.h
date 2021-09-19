@@ -46,5 +46,11 @@ private Q_SLOTS:
 
     void shouldDeleteEmojiCustom_data();
     void shouldDeleteEmojiCustom();
+
+    void shouldAddEmojiCustom_data();
+    void shouldAddEmojiCustom();
+
+    void shouldUpdateEmojiCustom_data();
+    void shouldUpdateEmojiCustom();
 };
 
