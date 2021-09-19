@@ -56,6 +56,9 @@ public:
 
     Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
 
+    void addUpdateEmojiCustomList(const QJsonObject &obj);
+    void deleteEmojiCustom(const QJsonObject &obj);
+
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();

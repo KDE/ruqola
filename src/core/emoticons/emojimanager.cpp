@@ -53,6 +53,16 @@ QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category
     return UnicodeEmoticonManager::self()->emojisForCategory(category);
 }
 
+void EmojiManager::addUpdateEmojiCustomList(const QJsonObject &obj)
+{
+    // TODO
+}
+
+void EmojiManager::deleteEmojiCustom(const QJsonObject &obj)
+{
+    // TODO
+}
+
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 {
     mCustomEmojiList.clear();
