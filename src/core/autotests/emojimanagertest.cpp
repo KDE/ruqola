@@ -59,6 +59,24 @@ void EmojiManagerTest::shouldParseEmoji()
     QCOMPARE(manager.count(), number);
 }
 
+void EmojiManagerTest::shouldDeleteEmojiCustom_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("number");
+    // QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
+}
+
+void EmojiManagerTest::shouldDeleteEmojiCustom()
+{
+    QFETCH(QString, name);
+    QFETCH(int, number);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
+    auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+    EmojiManager manager(nullptr);
+    manager.loadCustomEmoji(obj);
+    QCOMPARE(manager.count(), number);
+}
+
 void EmojiManagerTest::shouldSupportUnicodeEmojis()
 {
     // Load list of unicode emoticon

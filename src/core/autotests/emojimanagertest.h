@@ -43,5 +43,8 @@ private Q_SLOTS:
 
     void shouldNormalizeReactions_data();
     void shouldNormalizeReactions();
+
+    void shouldDeleteEmojiCustom_data();
+    void shouldDeleteEmojiCustom();
 };
 
