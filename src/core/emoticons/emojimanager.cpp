@@ -58,9 +58,23 @@ void EmojiManager::addUpdateEmojiCustomList(const QJsonObject &obj)
     // TODO
 }
 
-void EmojiManager::deleteEmojiCustom(const QJsonObject &obj)
+void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
 {
-    // TODO
+    // ([{"emojiData":{"_id":"PpawhZMaseBcEuGCG","_updatedAt":{"$date":1631858916014},"aliases":[],"extension":"png","name":"ruqolaff"}}])
+    const int count{arrayEmojiCustomArray.count()};
+    for (int i = 0; i < count; ++i) {
+        const QJsonObject obj = arrayEmojiCustomArray.at(i).toObject();
+        const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
+        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        if (!identifier.isEmpty()) {
+            for (const auto &emoji : std::as_const(mCustomEmojiList)) {
+                if (emoji.identifier() == identifier) {
+                    mCustomEmojiList.removeAll(emoji);
+                    break;
+                }
+            }
+        }
+    }
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
