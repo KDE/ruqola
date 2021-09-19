@@ -81,7 +81,8 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     mSearchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mSearchEmojisView->setItemDelegate(new EmojiCompletionDelegate(mSearchEmojisView));
 
-    mAllTabIndex = mTabWidget->addTab(mSearchEmojisView, i18n("Search"));
+    mAllTabIndex = mTabWidget->addTab(mSearchEmojisView, QIcon::fromTheme(QStringLiteral("edit-find")), {});
+    mTabWidget->setTabToolTip(mAllTabIndex, i18n("Search"));
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
         const bool textIsNotEmpty{!text.isEmpty()};
         mTabWidget->setTabVisible(mAllTabIndex, textIsNotEmpty);
@@ -103,7 +104,8 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
 
-    mTabWidget->addTab(mRecentUsedEmoticonView, i18n("Recent"));
+    const int index = mTabWidget->addTab(mRecentUsedEmoticonView, QIcon::fromTheme(QStringLiteral("deep-history")), {});
+    mTabWidget->setTabToolTip(index, i18n("Recent"));
     connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         // It's already in recent tab => don't try to save it
