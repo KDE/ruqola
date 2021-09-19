@@ -56,7 +56,7 @@ public:
 
     Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
 
-    void addUpdateEmojiCustomList(const QJsonObject &obj);
+    void addUpdateEmojiCustomList(const QJsonArray &obj);
     void deleteEmojiCustom(const QJsonArray &obj);
 
 private:

@@ -1452,8 +1452,9 @@ QString RocketChatAccount::displayName() const
     return settings()->displayName();
 }
 
-void RocketChatAccount::updateEmojiCustom(const QJsonArray &replyArray)
+void RocketChatAccount::addUpdateEmojiCustomList(const QJsonArray &replyArray)
 {
+    emojiManager()->addUpdateEmojiCustomList(replyArray);
     qDebug() << "NOT IMPLEMENTED void RocketChatAccount::updateEmojiCustom(const QJsonObject &replyObject)" << replyArray;
     // New QJsonArray([{"emojiData":{"_id":"HdN28k4PQ6J9xLkZ8","_updatedAt":{"$date":1631885946222},"aliases":["roo"],"extension":"png","name":"ruqola"}}])
     // Update
@@ -1465,29 +1466,13 @@ void RocketChatAccount::updateEmojiCustom(const QJsonArray &replyArray)
 
 void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 {
-    // ([{"emojiData":{"_id":"PpawhZMaseBcEuGCG","_updatedAt":{"$date":1631858916014},"aliases":[],"extension":"png","name":"ruqolaff"}}])
-    qDebug() << "NOT IMPLEMENTED void RocketChatAccount::deleteEmojiCustom(const QJsonObject &replyObject)" << replyArray;
-#if 0
-    QStringList lst;
-    const int count{replyArray.count()};
-    lst.reserve(count);
-    for (int i = 0; i < count; ++i) {
-        const QJsonObject obj = replyArray.at(i).toObject();
-        const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
-        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
-        if (!identifier.isEmpty()) {
-            lst << identifier;
-        }
-        qDebug() << obj;
-    }
+    emojiManager()->deleteEmojiCustom(replyArray);
+    // TODO update model.
+}
 
-    mEmoticonModel->deleteEmojiCustom(lst);
-    mEmoticonCustomModel->deleteEmojiCustom(lst);
-
-    qDebug() << " IDENTIFIER " << lst;
-    // const QString identifier =
-    // TODO
-#endif
+void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
+{
+    qDebug() << " void RocketChatAccount::deleteUser(const QJsonObject &replyObject)" << replyArray;
 }
 
 void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
@@ -1495,11 +1480,6 @@ void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
     qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
     mCustomUserStatuses.deleteCustomUserStatuses(replyArray);
     Q_EMIT customUserStatusChanged();
-}
-
-void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
-{
-    qDebug() << " void RocketChatAccount::deleteUser(const QJsonObject &replyObject)" << replyArray;
 }
 
 void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)

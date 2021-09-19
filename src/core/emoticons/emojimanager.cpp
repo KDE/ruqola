@@ -53,8 +53,11 @@ QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category
     return UnicodeEmoticonManager::self()->emojisForCategory(category);
 }
 
-void EmojiManager::addUpdateEmojiCustomList(const QJsonObject &obj)
+void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &obj)
 {
+    // New QJsonArray([{"emojiData":{"_id":"HdN28k4PQ6J9xLkZ8","_updatedAt":{"$date":1631885946222},"aliases":["roo"],"extension":"png","name":"ruqola"}}])
+    // Update
+    // QJsonArray([{"emojiData":{"_id":"vxE6eG5FrZCvbgM3t","aliases":["rooss"],"extension":"png","name":"xxx","newFile":true,"previousExtension":"png","previousName":"ruqolas"}}
     // TODO
 }
 
