@@ -40,15 +40,15 @@ private:
     void slotLogoutFromOtherLocation();
     void slotDeleteMyAccount();
     void init();
-    QLineEdit *mEmail = nullptr;
-    QLineEdit *mName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    QLineEdit *mNickName = nullptr;
-    QLineEdit *mStatusText = nullptr;
-    QPushButton *mDeleteMyAccount = nullptr;
-    QPushButton *mLogoutFromOtherLocation = nullptr;
-    PasswordConfirmWidget *mPasswordConfirmWidget = nullptr;
-    MyAccountProfileConfigureAvatarWidget *mConfigureAvatarWidget = nullptr;
+    QLineEdit *const mEmail;
+    QLineEdit *const mName;
+    QLineEdit *const mUserName;
+    QLineEdit *const mNickName;
+    QLineEdit *const mStatusText;
+    QPushButton *const mDeleteMyAccount;
+    QPushButton *const mLogoutFromOtherLocation;
+    PasswordConfirmWidget *const mPasswordConfirmWidget;
+    MyAccountProfileConfigureAvatarWidget *const mConfigureAvatarWidget;
     OwnUser mOwnUser;
 };
 

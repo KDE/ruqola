@@ -44,9 +44,9 @@ Q_SIGNALS:
     void userListChanged(bool isNotEmpty);
 
 private:
-    AddTeamRoomCompletionLineEdit *const mSearchRoomLineEdit;
     void slotRemoveRoom(const QString &name);
     void slotAddNewName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &info);
+    AddTeamRoomCompletionLineEdit *const mSearchRoomLineEdit;
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
 };

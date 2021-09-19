@@ -37,12 +37,20 @@
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
     : QWidget(parent)
+    , mEmail(new QLineEdit(this))
+    , mName(new QLineEdit(this))
+    , mUserName(new QLineEdit(this))
+    , mNickName(new QLineEdit(this))
+    , mStatusText(new QLineEdit(this))
+    , mDeleteMyAccount(new QPushButton(i18n("Delete my Account"), this))
+    , mLogoutFromOtherLocation(new QPushButton(i18n("Logout From Other Logged In Locations"), this))
+    , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
+    , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(this))
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
 
-    mConfigureAvatarWidget = new MyAccountProfileConfigureAvatarWidget(this);
     mConfigureAvatarWidget->setObjectName(QStringLiteral("mConfigureAvatarWidget"));
     topLayout->addWidget(mConfigureAvatarWidget);
 
@@ -50,44 +58,36 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     topLayout->addLayout(mainLayout);
 
-    mName = new QLineEdit(this);
     mName->setObjectName(QStringLiteral("mName"));
     new LineEditCatchReturnKey(mName, this);
     mainLayout->addRow(i18n("Name:"), mName);
     mName->setClearButtonEnabled(true);
 
-    mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     new LineEditCatchReturnKey(mUserName, this);
     mainLayout->addRow(i18n("Username:"), mUserName);
 
-    mEmail = new QLineEdit(this);
     mEmail->setObjectName(QStringLiteral("mEmail"));
     new LineEditCatchReturnKey(mEmail, this);
     mainLayout->addRow(i18n("Email:"), mEmail);
 
-    mNickName = new QLineEdit(this);
     mNickName->setObjectName(QStringLiteral("mNickName"));
     new LineEditCatchReturnKey(mNickName, this);
     mainLayout->addRow(i18n("Nickname:"), mNickName);
     mNickName->setClearButtonEnabled(true);
 
-    mStatusText = new QLineEdit(this);
     new LineEditCatchReturnKey(mStatusText, this);
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status Text:"), mStatusText);
     mStatusText->setClearButtonEnabled(true);
 
-    mPasswordConfirmWidget = new PasswordConfirmWidget(this);
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
     mainLayout->addRow(mPasswordConfirmWidget);
 
-    mDeleteMyAccount = new QPushButton(i18n("Delete my Account"), this);
     mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
     mainLayout->addWidget(mDeleteMyAccount);
     connect(mDeleteMyAccount, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotDeleteMyAccount);
 
-    mLogoutFromOtherLocation = new QPushButton(i18n("Logout From Other Logged In Locations"), this);
     mLogoutFromOtherLocation->setObjectName(QStringLiteral("mLogoutFromOtherLocation"));
     mainLayout->addWidget(mLogoutFromOtherLocation);
     connect(mLogoutFromOtherLocation, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation);

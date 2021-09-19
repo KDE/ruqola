@@ -38,7 +38,7 @@ public:
     void setTeamName(const QString &name);
 
 private:
-    TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;
     void readConfig();
     void writeConfig();
+    TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;
 };
