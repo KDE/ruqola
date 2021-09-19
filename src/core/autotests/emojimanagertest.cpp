@@ -35,7 +35,7 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
 
 void EmojiManagerTest::shouldHaveDefaultValue()
 {
-    EmojiManager manager(nullptr);
+    EmojiManager manager;
     QVERIFY(manager.serverUrl().isEmpty());
     QCOMPARE(manager.count(), 3225);
     QVERIFY(manager.customEmojiList().isEmpty());
@@ -54,7 +54,7 @@ void EmojiManagerTest::shouldParseEmoji()
     QFETCH(int, number);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-    EmojiManager manager(nullptr);
+    EmojiManager manager;
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
 }
@@ -72,7 +72,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom()
     QFETCH(int, number);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + name + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-    EmojiManager manager(nullptr);
+    EmojiManager manager;
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
 }
@@ -146,7 +146,7 @@ void EmojiManagerTest::shouldGenerateHtml()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager(nullptr);
+    EmojiManager manager;
     manager.loadCustomEmoji(obj);
     // No serverUrl set.
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
@@ -178,7 +178,7 @@ void EmojiManagerTest::shouldChangeServerUrl()
     //    f.close();
     //    const QJsonDocument doc = QJsonDocument::fromJson(content);
     //    const QJsonObject obj = doc.object();
-    //    EmojiManager manager(nullptr);
+    //    EmojiManager manager;
     //    manager.loadCustomEmoji(obj);
     //    QString serverUrl = QStringLiteral("www.kde.org");
     //    manager.setServerUrl(serverUrl);
@@ -216,6 +216,6 @@ void EmojiManagerTest::shouldNormalizeReactions()
     QFETCH(QString, emoji);
     QFETCH(QString, normalizedEmoji);
 
-    EmojiManager manager(nullptr);
+    EmojiManager manager;
     QCOMPARE(manager.normalizedReactionEmoji(emoji), normalizedEmoji);
 }
