@@ -31,7 +31,7 @@ public:
     CustomEmoji();
     ~CustomEmoji();
 
-    void parseEmoji(const QJsonObject &emoji);
+    void parseEmoji(const QJsonObject &emoji, bool useIsoDate = false);
 
     Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);
