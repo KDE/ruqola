@@ -64,11 +64,30 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
     QTest::addColumn<QString>("initialListName");
     QTest::addColumn<int>("number");
     QTest::addColumn<QString>("deleteName");
+    QTest::addColumn<QVector<CustomEmoji>>("original");
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
     QVector<CustomEmoji> emojiList;
     CustomEmoji val;
+    val.setName(QStringLiteral("kdab"));
+    val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+    val.setExtension(QStringLiteral("png"));
+    val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+    val.setUpdatedAt(1529303015003);
     emojiList.append(val);
-    QTest::addRow("delete1") << QStringLiteral("emojiparent") << 3232 << QStringLiteral("delete1") << emojiList;
+
+    CustomEmoji val1;
+    val1.setName(QStringLiteral("vader"));
+    val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+    val1.setExtension(QStringLiteral("png"));
+    val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+    val1.setUpdatedAt(1560497261506);
+    val1.setAliases({QStringLiteral(":darth:")});
+    emojiList.append(val1);
+
+    QVector<CustomEmoji> emojiListAfterDeleting;
+    emojiListAfterDeleting.append(val1);
+
+    QTest::addRow("delete1") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("delete1") << emojiList << emojiListAfterDeleting;
 }
 
 void EmojiManagerTest::shouldDeleteEmojiCustom()
@@ -76,15 +95,19 @@ void EmojiManagerTest::shouldDeleteEmojiCustom()
     QFETCH(QString, initialListName);
     QFETCH(int, number);
     QFETCH(QString, deleteName);
+    QFETCH(QVector<CustomEmoji>, original);
     QFETCH(QVector<CustomEmoji>, customEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
-    auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+    const auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager;
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
-    QString deleteJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + deleteName + QLatin1String(".json");
-    auto objDelete = AutoTestHelper::loadJsonArrayObject(deleteJsonFile);
+    QCOMPARE(manager.customEmojiList(), original);
+
+    const QString deleteJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + deleteName + QLatin1String(".json");
+    const auto objDelete = AutoTestHelper::loadJsonArrayObject(deleteJsonFile);
     manager.deleteEmojiCustom(objDelete);
+    // qDebug() << " manager.customEmojiList() " << manager.customEmojiList();
     QCOMPARE(manager.customEmojiList(), customEmoji);
 }
 
