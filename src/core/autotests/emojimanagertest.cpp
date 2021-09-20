@@ -62,23 +62,30 @@ void EmojiManagerTest::shouldParseEmoji()
 void EmojiManagerTest::shouldDeleteEmojiCustom_data()
 {
     QTest::addColumn<QString>("initialListName");
-    QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
+    QTest::addColumn<QString>("deleteName");
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
-    // QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
+    QVector<CustomEmoji> emojiList;
+    CustomEmoji val;
+    emojiList.append(val);
+    QTest::addRow("delete1") << QStringLiteral("emojiparent") << 3232 << QStringLiteral("delete1") << emojiList;
 }
 
 void EmojiManagerTest::shouldDeleteEmojiCustom()
 {
     QFETCH(QString, initialListName);
-    QFETCH(QString, name);
     QFETCH(int, number);
+    QFETCH(QString, deleteName);
     QFETCH(QVector<CustomEmoji>, customEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager;
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
+    QString deleteJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + deleteName + QLatin1String(".json");
+    auto objDelete = AutoTestHelper::loadJsonArrayObject(deleteJsonFile);
+    manager.deleteEmojiCustom(objDelete);
+    QCOMPARE(manager.customEmojiList(), customEmoji);
 }
 
 void EmojiManagerTest::shouldAddEmojiCustom_data()
@@ -93,8 +100,8 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
 void EmojiManagerTest::shouldAddEmojiCustom()
 {
     QFETCH(QString, initialListName);
-    QFETCH(QString, name);
     QFETCH(int, number);
+    QFETCH(QString, name);
     QFETCH(QVector<CustomEmoji>, customEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
@@ -106,8 +113,8 @@ void EmojiManagerTest::shouldAddEmojiCustom()
 void EmojiManagerTest::shouldUpdateEmojiCustom_data()
 {
     QTest::addColumn<QString>("initialListName");
-    QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
+    QTest::addColumn<QString>("name");
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
     // QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
 }
