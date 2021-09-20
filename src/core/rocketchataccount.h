@@ -496,6 +496,7 @@ Q_SIGNALS:
     void ownUserPreferencesChanged();
     void updateStatusComboBox();
     void permissionChanged();
+    void customEmojiChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

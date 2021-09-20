@@ -206,10 +206,38 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
     QTest::addColumn<QString>("addName");
     QTest::addColumn<QVector<CustomEmoji>>("original");
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
+    {
+        QVector<CustomEmoji> emojiList;
+        CustomEmoji val;
+        val.setName(QStringLiteral("kdab"));
+        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setExtension(QStringLiteral("png"));
+        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setUpdatedAt(1529303015003);
 
-    QVector<CustomEmoji> emojiList;
-    // TODO fix it.
-    QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("updateemojicustom1") << emojiList << emojiList;
+        CustomEmoji val1;
+        val1.setName(QStringLiteral("vader"));
+        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setExtension(QStringLiteral("png"));
+        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setUpdatedAt(1560497261506);
+        val1.setAliases({QStringLiteral(":darth:")});
+
+        emojiList.append(val);
+        emojiList.append(val1);
+
+        QVector<CustomEmoji> emojiListAfterDeleting;
+        CustomEmoji val2;
+        val2.setName(QStringLiteral("ruqola"));
+        val2.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val2.setExtension(QStringLiteral("png"));
+        val2.setEmojiIdentifier(QStringLiteral(":ruqola:"));
+        val2.setUpdatedAt(1631885946222);
+        val2.setAliases({QStringLiteral("rooss")});
+        emojiListAfterDeleting.append(val);
+        emojiListAfterDeleting.append(val2);
+        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("updateemojicustom1") << emojiList << emojiList;
+    }
 }
 
 void EmojiManagerTest::shouldUpdateEmojiCustom()

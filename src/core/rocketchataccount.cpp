@@ -145,6 +145,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     // After loadSettings
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
+    connect(mEmojiManager, &EmojiManager::customEmojiChanged, this, &RocketChatAccount::customEmojiChanged);
 
     mEmoticonCustomModel = new EmoticonCustomModel(this);
 
@@ -1455,19 +1456,11 @@ QString RocketChatAccount::displayName() const
 void RocketChatAccount::addUpdateEmojiCustomList(const QJsonArray &replyArray)
 {
     emojiManager()->addUpdateEmojiCustomList(replyArray);
-    qDebug() << "NOT IMPLEMENTED void RocketChatAccount::updateEmojiCustom(const QJsonObject &replyObject)" << replyArray;
-    // New QJsonArray([{"emojiData":{"_id":"HdN28k4PQ6J9xLkZ8","_updatedAt":{"$date":1631885946222},"aliases":["roo"],"extension":"png","name":"ruqola"}}])
-    // Update
-    // QJsonArray([{"emojiData":{"_id":"vxE6eG5FrZCvbgM3t","aliases":["rooss"],"extension":"png","name":"xxx","newFile":true,"previousExtension":"png","previousName":"ruqolas"}}])
-    // TODO
-    // mEmoticonModel->addUpdateEmojiCustomList(lst);
-    // mEmoticonCustomModel->addUpdateEmojiCustomList(lst);
 }
 
 void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 {
     emojiManager()->deleteEmojiCustom(replyArray);
-    // TODO update model.
 }
 
 void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
