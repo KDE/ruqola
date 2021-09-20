@@ -141,8 +141,9 @@ void EmojiManagerTest::shouldDeleteEmojiCustom()
 void EmojiManagerTest::shouldAddEmojiCustom_data()
 {
     QTest::addColumn<QString>("initialListName");
-    QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<QVector<CustomEmoji>>("original");
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
     // QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
 }
@@ -152,6 +153,7 @@ void EmojiManagerTest::shouldAddEmojiCustom()
     QFETCH(QString, initialListName);
     QFETCH(int, number);
     QFETCH(QString, name);
+    QFETCH(QVector<CustomEmoji>, original);
     QFETCH(QVector<CustomEmoji>, customEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
@@ -165,6 +167,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
     QTest::addColumn<QString>("initialListName");
     QTest::addColumn<int>("number");
     QTest::addColumn<QString>("name");
+    QFETCH(QVector<CustomEmoji>, original);
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
     // QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
 }
@@ -172,8 +175,9 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
 void EmojiManagerTest::shouldUpdateEmojiCustom()
 {
     QFETCH(QString, initialListName);
-    QFETCH(QString, name);
     QFETCH(int, number);
+    QFETCH(QString, name);
+    QFETCH(QVector<CustomEmoji>, original);
     QFETCH(QVector<CustomEmoji>, customEmoji);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
