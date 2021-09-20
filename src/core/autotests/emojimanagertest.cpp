@@ -66,28 +66,55 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
     QTest::addColumn<QString>("deleteName");
     QTest::addColumn<QVector<CustomEmoji>>("original");
     QTest::addColumn<QVector<CustomEmoji>>("customEmoji");
-    QVector<CustomEmoji> emojiList;
-    CustomEmoji val;
-    val.setName(QStringLiteral("kdab"));
-    val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
-    val.setExtension(QStringLiteral("png"));
-    val.setEmojiIdentifier(QStringLiteral(":kdab:"));
-    val.setUpdatedAt(1529303015003);
-    emojiList.append(val);
+    {
+        QVector<CustomEmoji> emojiList;
+        CustomEmoji val;
+        val.setName(QStringLiteral("kdab"));
+        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setExtension(QStringLiteral("png"));
+        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setUpdatedAt(1529303015003);
+        emojiList.append(val);
 
-    CustomEmoji val1;
-    val1.setName(QStringLiteral("vader"));
-    val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
-    val1.setExtension(QStringLiteral("png"));
-    val1.setEmojiIdentifier(QStringLiteral(":vader:"));
-    val1.setUpdatedAt(1560497261506);
-    val1.setAliases({QStringLiteral(":darth:")});
-    emojiList.append(val1);
+        CustomEmoji val1;
+        val1.setName(QStringLiteral("vader"));
+        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setExtension(QStringLiteral("png"));
+        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setUpdatedAt(1560497261506);
+        val1.setAliases({QStringLiteral(":darth:")});
+        emojiList.append(val1);
 
-    QVector<CustomEmoji> emojiListAfterDeleting;
-    emojiListAfterDeleting.append(val1);
+        QVector<CustomEmoji> emojiListAfterDeleting;
+        emojiListAfterDeleting.append(val1);
 
-    QTest::addRow("delete1") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("delete1") << emojiList << emojiListAfterDeleting;
+        QTest::addRow("delete1") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("delete1") << emojiList << emojiListAfterDeleting;
+    }
+    {
+        QVector<CustomEmoji> emojiList;
+        CustomEmoji val;
+        val.setName(QStringLiteral("kdab"));
+        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setExtension(QStringLiteral("png"));
+        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setUpdatedAt(1529303015003);
+        emojiList.append(val);
+
+        CustomEmoji val1;
+        val1.setName(QStringLiteral("vader"));
+        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setExtension(QStringLiteral("png"));
+        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setUpdatedAt(1560497261506);
+        val1.setAliases({QStringLiteral(":darth:")});
+        emojiList.append(val1);
+
+        QVector<CustomEmoji> emojiListAfterDeleting;
+        emojiListAfterDeleting.append(val);
+        emojiListAfterDeleting.append(val1);
+
+        QTest::addRow("delete2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("delete2") << emojiList << emojiListAfterDeleting;
+    }
 }
 
 void EmojiManagerTest::shouldDeleteEmojiCustom()
