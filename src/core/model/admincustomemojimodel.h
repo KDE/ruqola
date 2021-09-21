@@ -32,7 +32,8 @@ public:
     enum CustomEmojiRoles {
         Name,
         Identifier,
-        LastColumn = Identifier,
+        Aliases,
+        LastColumn = Aliases,
     };
     Q_ENUM(CustomEmojiRoles)
 

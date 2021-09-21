@@ -46,6 +46,8 @@ QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientat
             return i18n("Name");
         case CustomEmojiRoles::Identifier:
             return i18n("Identifier");
+        case CustomEmojiRoles::Aliases:
+            return i18n("Identifier");
         }
     }
     return QVariant();
@@ -73,6 +75,8 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
         return customEmoji.name();
     case CustomEmojiRoles::Identifier:
         return customEmoji.identifier();
+    case CustomEmojiRoles::Aliases:
+        return customEmoji.aliases().join(QLatin1Char(','));
     }
 
     return {};
