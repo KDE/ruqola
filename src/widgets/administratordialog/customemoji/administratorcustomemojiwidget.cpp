@@ -73,6 +73,7 @@ QString AdministratorCustomEmojiWidget::displayShowMessage() const
 
 void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
+    qDebug() << " MISSING support for search name " << searchName;
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::EmojiCustomAllJob(this);
     RocketChatRestApi::QueryParameters parameters;
