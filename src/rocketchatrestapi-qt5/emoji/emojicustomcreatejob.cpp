@@ -56,7 +56,7 @@ void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("EmojiCustomCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT emojiCustomCreateDone();
+            Q_EMIT emojiCustomCreateDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("EmojiCustomCreateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
