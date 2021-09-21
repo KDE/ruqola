@@ -496,7 +496,6 @@ Q_SIGNALS:
     void ownUserPreferencesChanged();
     void updateStatusComboBox();
     void permissionChanged();
-    void customEmojiChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -551,6 +550,7 @@ private:
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void slotUpdateCustomUserStatus();
     void slotDirectoryDone(const QJsonObject &obj);
+    void updateCustomEmojiList();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

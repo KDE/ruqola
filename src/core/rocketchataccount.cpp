@@ -145,7 +145,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     // After loadSettings
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
-    connect(mEmojiManager, &EmojiManager::customEmojiChanged, this, &RocketChatAccount::customEmojiChanged);
+    connect(mEmojiManager, &EmojiManager::customEmojiChanged, this, &RocketChatAccount::updateCustomEmojiList);
 
     mEmoticonCustomModel = new EmoticonCustomModel(this);
 
@@ -781,6 +781,11 @@ void RocketChatAccount::changeDefaultStatus(int index, const QString &messageSta
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);
+    updateCustomEmojiList();
+}
+
+void RocketChatAccount::updateCustomEmojiList()
+{
     const auto customEmojiList = mEmojiManager->customEmojiList();
     mEmoticonModel->setCustomEmojiList(customEmojiList);
     mEmoticonCustomModel->setCustomEmojiList(customEmojiList);
