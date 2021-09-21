@@ -20,10 +20,10 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QListView>
 
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonListView : public QListView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonListView : public QListView
 {
     Q_OBJECT
 public:
