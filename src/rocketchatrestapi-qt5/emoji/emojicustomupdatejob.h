@@ -51,7 +51,7 @@ public:
     void setEmojiInfo(const EmojiInfo &newEmojiInfo);
 
 Q_SIGNALS:
-    void emojiCustomUpdateDone();
+    void emojiCustomUpdateDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(EmojiCustomUpdateJob)
