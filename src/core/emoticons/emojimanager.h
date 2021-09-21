@@ -45,6 +45,7 @@ public:
 
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
     Q_REQUIRED_RESULT QVector<EmoticonCategory> categories() const;
+    // Only for test now
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emojisForCategory(const QString &category) const;
 
     Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
