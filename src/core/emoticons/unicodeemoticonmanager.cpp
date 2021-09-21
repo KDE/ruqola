@@ -22,6 +22,8 @@
 #include "ruqola_debug.h"
 #include "unicodeemoticonparser.h"
 
+#include <KLocalizedString>
+
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -66,6 +68,33 @@ int UnicodeEmoticonManager::count() const
     return mUnicodeEmojiList.count();
 }
 
+QString UnicodeEmoticonManager::i18nUnicodeCategory(const QString &name) const
+{
+    // ame "🚗"Category "travel", Name "🇿"Category "regional", Name "🏳️"Category "flags")
+    if (name == QLatin1String("symbols")) {
+        return i18n("Symbols");
+    } else if (name == QLatin1String("activity")) {
+        return i18n("Activity");
+    } else if (name == QLatin1String("objects")) {
+        return i18n("Objects");
+    } else if (name == QLatin1String("nature")) {
+        return i18n("Nature");
+    } else if (name == QLatin1String("food")) {
+        return i18n("Food");
+    } else if (name == QLatin1String("people")) {
+        return i18n("People");
+    } else if (name == QLatin1String("travel")) {
+        return i18n("Travel");
+    } else if (name == QLatin1String("regional")) {
+        return i18n("Regional");
+    } else if (name == QLatin1String("flags")) {
+        return i18n("Flags");
+    } else {
+        qCWarning(RUQOLA_LOG) << "Missing i18n translate " << name;
+    }
+    return {};
+}
+
 QVector<EmoticonCategory> UnicodeEmoticonManager::categories() const
 {
     QVector<EmoticonCategory> categories;
@@ -81,6 +110,7 @@ QVector<EmoticonCategory> UnicodeEmoticonManager::categories() const
             EmoticonCategory cat;
             cat.setCategory(category);
             cat.setName(emo.unicode());
+            cat.setI18nName(i18nUnicodeCategory(category));
             categories.append(std::move(cat));
         }
     }

@@ -161,7 +161,8 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
             mEmoticonListViews.append(categoryProxyModel);
             categoryProxyModel->setCategory(category.category());
             w->setModel(categoryProxyModel);
-            mTabWidget->addTab(w, category.name());
+            const int index = mTabWidget->addTab(w, category.name());
+            mTabWidget->setTabToolTip(index, category.i18nName());
             connect(w, &EmoticonListView::emojiItemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
         }
     }

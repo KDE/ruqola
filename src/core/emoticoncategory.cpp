@@ -44,9 +44,20 @@ void EmoticonCategory::setCategory(const QString &category)
     mCategory = category;
 }
 
+const QString &EmoticonCategory::i18nName() const
+{
+    return mI18nName;
+}
+
+void EmoticonCategory::setI18nName(const QString &newI18nName)
+{
+    mI18nName = newI18nName;
+}
+
 QDebug operator<<(QDebug d, const EmoticonCategory &t)
 {
     d << "Name " << t.name();
     d << "Category " << t.category();
+    d << "Category i18n" << t.i18nName();
     return d;
 }
