@@ -84,7 +84,7 @@ bool EmojiCustomCreateJob::requireHttpAuthentication() const
 bool EmojiCustomCreateJob::canStart() const
 {
     if (!mEmojiInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: mEmojiInfo is not valid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "EmojiCustomCreateJob: mEmojiInfo is not valid";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
