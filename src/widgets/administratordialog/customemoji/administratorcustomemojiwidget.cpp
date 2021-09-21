@@ -111,6 +111,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         // TODO emojiInfo.fileNameUrl = ???
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
+        job->setEmojiInfo(emojiInfo);
         rcAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
@@ -136,12 +137,14 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
     if (dlg->exec()) {
         const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info = dlg->info();
 
-        RocketChatRestApi::EmojiCustomCreateJob::EmojiInfo emojiInfo;
+        RocketChatRestApi::EmojiCustomUpdateJob::EmojiInfo emojiInfo;
         emojiInfo.alias = info.alias;
         emojiInfo.name = info.name;
+        emojiInfo.emojiId = mModel->index(index.row(), AdminCustomEmojiModel::Identifier).data().toString();
         // TODO emojiInfo.fileNameUrl = ???
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomUpdateJob(this);
+        job->setEmojiInfo(emojiInfo);
         rcAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomUpdateJob::emojiCustomUpdateDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
@@ -149,7 +152,7 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
             // TODO update list
         });
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start EmojiCustomCreateJob job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start EmojiCustomUpdateJob job";
         }
     }
     delete dlg;
