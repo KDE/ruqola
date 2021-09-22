@@ -68,7 +68,6 @@ bool SetAvatarJob::start()
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
         const QString filePartInfo = QStringLiteral("form-data; name=\"image\"; filename=\"%1\"").arg(mAvatarInfo.mImageUrl.fileName());
-        qDebug() << " filePartInfo : " << filePartInfo << " mAvatarInfo.mImageUrl.fileName() " << mAvatarInfo.mImageUrl.fileName();
         filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
         filePart.setBodyDevice(file);
@@ -78,7 +77,6 @@ bool SetAvatarJob::start()
         QHttpPart userPart;
         userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"userId\"")));
         userPart.setBody(userId().toUtf8());
-        qDebug() << " userId().toUtf8()" << userId().toUtf8();
         multiPart->append(userPart);
 
         QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
