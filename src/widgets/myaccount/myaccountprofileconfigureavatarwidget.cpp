@@ -58,8 +58,10 @@ AvatarImage::~AvatarImage()
 
 void AvatarImage::changeImage()
 {
-    qDebug() << " Not implemented yet";
-    // TODO use QFileDialog
+    const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"));
+    if (!url.isEmpty()) {
+        Ruqola::self()->rocketChatAccount()->setImageUrl(url);
+    }
 }
 
 void AvatarImage::changeUrl()

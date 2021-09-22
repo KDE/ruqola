@@ -2513,6 +2513,16 @@ void RocketChatAccount::setAvatarUrl(const QString &url)
     restApi()->setAvatar(userInfo, avatarInfo);
 }
 
+void RocketChatAccount::setImageUrl(const QUrl &url)
+{
+    RocketChatRestApi::UserBaseJob::UserInfo userInfo;
+    userInfo.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+    userInfo.userIdentifier = userId();
+    RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
+    avatarInfo.mImageUrl = url;
+    restApi()->setAvatar(userInfo, avatarInfo);
+}
+
 void RocketChatAccount::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
 {
     restApi()->exportMessages(info);

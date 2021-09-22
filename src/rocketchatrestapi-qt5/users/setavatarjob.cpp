@@ -24,8 +24,11 @@
 
 #include <KLocalizedString>
 
+#include <QFile>
+#include <QHttpMultiPart>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMimeDatabase>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 SetAvatarJob::SetAvatarJob(QObject *parent)
@@ -44,8 +47,45 @@ bool SetAvatarJob::start()
         return false;
     }
     addStartRestApiInfo("SetAvatarJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
+    if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
+        QNetworkReply *reply = submitPostRequest(json());
+        connect(reply, &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
+    } else {
+        const QString fileNameAsLocalFile = mAvatarInfo.mImageUrl.toLocalFile();
+        auto file = new QFile(fileNameAsLocalFile);
+        if (!file->open(QIODevice::ReadOnly)) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mAvatarInfo.mImageUrl;
+            Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile));
+            delete file;
+            deleteLater();
+            return false;
+        }
+        QMimeDatabase db;
+        const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
+
+        auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+        QHttpPart filePart;
+        filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
+        const QString filePartInfo = QStringLiteral("form-data; name=\"image\"; filename=\"%1\"").arg(mAvatarInfo.mImageUrl.fileName());
+        qDebug() << " filePartInfo : " << filePartInfo << " mAvatarInfo.mImageUrl.fileName() " << mAvatarInfo.mImageUrl.fileName();
+        filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
+
+        filePart.setBodyDevice(file);
+        file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+        multiPart->append(filePart);
+
+        QHttpPart userPart;
+        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"userId\"")));
+        userPart.setBody(userId().toUtf8());
+        qDebug() << " userId().toUtf8()" << userId().toUtf8();
+        multiPart->append(userPart);
+
+        QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
+        // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
+        connect(reply, &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
+        multiPart->setParent(reply); // delete the multiPart with the reply
+    }
     return true;
 }
 
@@ -117,18 +157,14 @@ QNetworkRequest SetAvatarJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersSetAvatar);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request);
+    addRequestAttribute(request, !mAvatarInfo.mAvatarUrl.isEmpty()); // Don't show "json" when we send image
     return request;
 }
 
 QJsonDocument SetAvatarJob::json() const
 {
     QJsonObject jsonObj;
-    if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
-        jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
-    } else if (!mAvatarInfo.mAvatarUserStr.isEmpty()) {
-        // USe multipart here.
-    }
+    jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
     generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -136,5 +172,5 @@ QJsonDocument SetAvatarJob::json() const
 
 bool SetAvatarJob::SetAvatarInfo::isValid() const
 {
-    return !mAvatarUrl.isEmpty() && !mAvatarUserStr.isEmpty();
+    return !mAvatarUrl.isEmpty() || !mImageUrl.isEmpty();
 }
