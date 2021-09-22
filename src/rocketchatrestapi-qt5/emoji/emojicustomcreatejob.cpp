@@ -42,8 +42,10 @@ bool EmojiCustomCreateJob::start()
         return false;
     }
     addStartRestApiInfo("EmojiCustomCreateJob::start");
+#if 0 // Port to httpPart
     QNetworkReply *reply = submitPostRequest(json());
     connect(reply, &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
+#endif
     return true;
 }
 
@@ -93,20 +95,12 @@ bool EmojiCustomCreateJob::canStart() const
     return true;
 }
 
-QJsonDocument EmojiCustomCreateJob::json() const
-{
-    QJsonObject jsonObj;
-    // TODO jsonObj[QLatin1String("emojiId")] = name;
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
-}
-
 QNetworkRequest EmojiCustomCreateJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomCreate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request);
+    addRequestAttribute(request, false);
     return request;
 }
 

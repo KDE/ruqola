@@ -44,8 +44,6 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-
     Q_REQUIRED_RESULT const EmojiInfo &emojiInfo() const;
     void setEmojiInfo(const EmojiInfo &newEmojiInfo);
 
