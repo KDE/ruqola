@@ -36,7 +36,7 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
     : QDialog(parent)
     , mCreateWidget(new AdministratorCustomSoundsCreateWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Create New User Status"));
+    setWindowTitle(i18nc("@title:window", "Create New Sound"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
