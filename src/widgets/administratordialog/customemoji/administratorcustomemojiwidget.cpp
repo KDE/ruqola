@@ -108,7 +108,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         RocketChatRestApi::EmojiCustomCreateJob::EmojiInfo emojiInfo;
         emojiInfo.alias = info.alias;
         emojiInfo.name = info.name;
-        // TODO emojiInfo.fileNameUrl = ???
+        emojiInfo.fileNameUrl = info.fileNameUrl;
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
         job->setEmojiInfo(emojiInfo);

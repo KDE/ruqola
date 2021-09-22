@@ -22,8 +22,12 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
+#include <QFile>
+#include <QHttpMultiPart>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMimeDatabase>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 EmojiCustomCreateJob::EmojiCustomCreateJob(QObject *parent)
@@ -42,10 +46,43 @@ bool EmojiCustomCreateJob::start()
         return false;
     }
     addStartRestApiInfo("EmojiCustomCreateJob::start");
-#if 0 // Port to httpPart
-    QNetworkReply *reply = submitPostRequest(json());
+    const QString fileNameAsLocalFile = mEmojiInfo.fileNameUrl.toLocalFile();
+    auto file = new QFile(fileNameAsLocalFile);
+    if (!file->open(QIODevice::ReadOnly)) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mEmojiInfo.fileNameUrl;
+        Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile));
+        delete file;
+        deleteLater();
+        return false;
+    }
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
+
+    auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+    QHttpPart filePart;
+    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
+    const QString filePartInfo = QStringLiteral("form-data; name=\"emoji\"; filename=\"%1\"").arg(mEmojiInfo.fileNameUrl.fileName());
+    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
+
+    filePart.setBodyDevice(file);
+    file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+    multiPart->append(filePart);
+
+    QHttpPart namePart;
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"name\"")));
+    namePart.setBody(mEmojiInfo.name.toUtf8());
+    multiPart->append(namePart);
+
+    QHttpPart aliasesPart;
+    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
+    aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
+    multiPart->append(aliasesPart);
+
+    QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
+    // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
     connect(reply, &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
-#endif
+    multiPart->setParent(reply); // delete the multiPart with the reply
     return true;
 }
 
