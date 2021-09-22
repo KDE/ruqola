@@ -50,6 +50,9 @@ public:
 Q_SIGNALS:
     void emojiCustomCreateDone(const QJsonObject &replyObject);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+
 private:
     Q_DISABLE_COPY(EmojiCustomCreateJob)
     void slotEmojiCustomCreateFinished();

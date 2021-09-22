@@ -89,6 +89,7 @@ bool EmojiCustomCreateJob::start()
 void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
+
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
@@ -145,4 +146,12 @@ bool EmojiCustomCreateJob::EmojiInfo::isValid() const
 {
     // Alias is optional
     return !name.isEmpty() && !fileNameUrl.isEmpty();
+}
+
+QString EmojiCustomCreateJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("Custom_Emoji_Error_Name_Or_Alias_Already_In_Use")) {
+        return i18n("The custom emoji or one of its aliases is already in use.");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
