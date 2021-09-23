@@ -20,11 +20,11 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "userbasejob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ResetAvatarJob : public UserBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ResetAvatarJob : public UserBaseJob
 {
     Q_OBJECT
 public:
