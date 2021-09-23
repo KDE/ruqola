@@ -91,6 +91,7 @@ void AvatarImage::changeImage()
     const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"), {}, filter);
     if (!url.isEmpty()) {
         Ruqola::self()->rocketChatAccount()->setImageUrl(url);
+        setCurrentIconPath(url.toLocalFile());
     }
 }
 
