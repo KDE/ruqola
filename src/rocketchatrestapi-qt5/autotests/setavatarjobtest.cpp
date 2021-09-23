@@ -42,13 +42,32 @@ void SetAvatarJobTest::shouldHaveDefaultValue()
 
 void SetAvatarJobTest::shouldGenerateRequest()
 {
-    SetAvatarJob job;
+    {
+        SetAvatarJob job;
 
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
-    // We can't have it.
-    // QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+        // We need it otherwise application/json is not defined as we can send as json or multipart
+        const QString avatarurl = QStringLiteral("http://www.kde.org");
+        SetAvatarJob::SetAvatarInfo avatarInfo;
+        avatarInfo.mAvatarUrl = avatarurl;
+        job.setAvatarInfo(avatarInfo);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
+        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    }
+    {
+        SetAvatarJob job;
+
+        // We need it otherwise application/json is not defined as we can send as json or multipart
+        const QString avatarurl = QStringLiteral("http://www.kde.org");
+        SetAvatarJob::SetAvatarInfo avatarInfo;
+        avatarInfo.mImageUrl = QUrl::fromUserInput(avatarurl);
+        job.setAvatarInfo(avatarInfo);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
+        QVERIFY(request.header(QNetworkRequest::ContentTypeHeader).toString() != QStringLiteral("application/json"));
+    }
 }
 
 void SetAvatarJobTest::shouldGenerateJson()
