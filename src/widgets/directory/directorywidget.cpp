@@ -32,6 +32,7 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QMenu>
+#include <QShowEvent>
 #include <QTreeView>
 
 DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
@@ -222,9 +223,16 @@ void DirectoryWidget::fillDirectory()
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
-    initialize();
 }
 
+void DirectoryWidget::showEvent(QShowEvent *event)
+{
+    if (!event->spontaneous() && !mWasInitialized) {
+        mWasInitialized = true;
+        initialize();
+    }
+    SearchTreeBaseWidget::showEvent(event);
+}
 
 DirectoryWidget::DirectoryType DirectoryWidget::type() const
 {
