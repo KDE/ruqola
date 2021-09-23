@@ -56,10 +56,25 @@ AvatarImage::AvatarImage(QWidget *parent)
     setFixedSize(QSize(120, 120));
 
     connect(this, &AvatarImage::clicked, this, &AvatarImage::changeImage);
+    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::fileDownloaded, this, &AvatarImage::slotFileDownloaded);
 }
 
 AvatarImage::~AvatarImage()
 {
+}
+
+void AvatarImage::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+{
+    Q_UNUSED(filePath);
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = Ruqola::self()->rocketChatAccount()->ownUser().userName();
+    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
+    if (!iconUrlStr.isEmpty()) {
+        if (iconUrlStr == cacheImageUrl) {
+            setCurrentIconPath(cacheImageUrl.toLocalFile());
+        }
+    }
 }
 
 void AvatarImage::changeImage()

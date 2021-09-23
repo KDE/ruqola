@@ -41,6 +41,7 @@ private:
     void changeImage();
     void resetAvatar();
     QString mCurrentIconPath;
+    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : public QWidget
