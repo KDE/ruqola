@@ -31,6 +31,8 @@ public:
     explicit AvatarImage(QWidget *parent = nullptr);
     ~AvatarImage() override;
 
+    void setCurrentIconPath(const QString &currentPath);
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
@@ -38,6 +40,7 @@ private:
     void changeUrl();
     void changeImage();
     void resetAvatar();
+    QString mCurrentIconPath;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : public QWidget

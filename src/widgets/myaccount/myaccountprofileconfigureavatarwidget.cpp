@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QHBoxLayout>
+#include <QImageReader>
 #include <QInputDialog>
 #include <QMenu>
 
@@ -58,7 +59,16 @@ AvatarImage::~AvatarImage()
 
 void AvatarImage::changeImage()
 {
-    const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"));
+    QString filter;
+    const QList<QByteArray> supportedImage = QImageReader::supportedImageFormats();
+    for (const QByteArray &ba : supportedImage) {
+        if (!filter.isEmpty()) {
+            filter += QLatin1Char(' ');
+        }
+        filter += QLatin1String("*.") + QString::fromLatin1(ba);
+    }
+    filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
+    const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"), {}, filter);
     if (!url.isEmpty()) {
         Ruqola::self()->rocketChatAccount()->setImageUrl(url);
     }
@@ -85,4 +95,10 @@ void AvatarImage::contextMenuEvent(QContextMenuEvent *event)
     menu.addSeparator();
     menu.addAction(i18n("Reset Avatar"), this, &AvatarImage::resetAvatar);
     menu.exec(event->globalPos());
+}
+
+void AvatarImage::setCurrentIconPath(const QString &currentPath)
+{
+    mCurrentIconPath = currentPath;
+    setIcon(QIcon(mCurrentIconPath));
 }
