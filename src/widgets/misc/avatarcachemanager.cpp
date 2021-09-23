@@ -58,6 +58,7 @@ void AvatarCacheManager::slotAvatarChanged(const Utils::AvatarInfo &info)
         // Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
         if (!downScaled.isNull()) {
             mAvatarCache.cache.remove(iconUrlStr);
+            mRocketChatAccount->updateAvatarCache(info);
         }
     }
 }

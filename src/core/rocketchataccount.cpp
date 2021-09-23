@@ -2083,6 +2083,11 @@ void RocketChatAccount::openDocumentation()
     QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));
 }
 
+void RocketChatAccount::updateAvatarCache(const Utils::AvatarInfo &info)
+{
+    mCache->updateAvatar(info);
+}
+
 void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 {
     // qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
@@ -2093,7 +2098,6 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             Utils::AvatarInfo info;
             info.avatarType = Utils::AvatarType::User;
             info.identifier = userName;
-            mCache->updateAvatar(info);
             Q_EMIT avatarWasChanged(info);
         } else if (obj.contains(QLatin1String("rid"))) {
             const QString roomId = obj[QLatin1String("rid")].toString();
@@ -2103,7 +2107,6 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             info.avatarType = Utils::AvatarType::Room;
             info.etag = etag; // Etag
             info.identifier = roomId; // roomId
-            mCache->updateAvatar(info);
             Q_EMIT avatarWasChanged(info);
         } else {
             qWarning() << "avatar changed but missing roomId or userId. It seems to be a regression in RC? " << contents;

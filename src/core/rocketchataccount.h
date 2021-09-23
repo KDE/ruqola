@@ -456,6 +456,7 @@ public:
     void deleteEmojiCustom(const QJsonArray &replyArray);
     void addUpdateEmojiCustomList(const QJsonArray &replyArray);
     void setImageUrl(const QUrl &url);
+    void updateAvatarCache(const Utils::AvatarInfo &info);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
