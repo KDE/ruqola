@@ -136,6 +136,14 @@ void MyAccountProfileConfigureWidget::load()
     mUserName->setText(mOwnUser.userName());
     mNickName->setText(mOwnUser.nickName());
     mStatusText->setText(mOwnUser.statusText());
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = mOwnUser.userName();
+    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
+    if (!iconUrlStr.isEmpty()) {
+        const QString iconPath{QUrl(iconUrlStr).toLocalFile()};
+        mConfigureAvatarWidget->setCurrentIconPath(iconPath);
+    }
 }
 
 void MyAccountProfileConfigureWidget::save()

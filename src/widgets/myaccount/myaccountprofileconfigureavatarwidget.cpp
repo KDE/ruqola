@@ -44,6 +44,11 @@ MyAccountProfileConfigureAvatarWidget::~MyAccountProfileConfigureAvatarWidget()
 {
 }
 
+void MyAccountProfileConfigureAvatarWidget::setCurrentIconPath(const QString &currentPath)
+{
+    mAvatarImage->setCurrentIconPath(currentPath);
+}
+
 AvatarImage::AvatarImage(QWidget *parent)
     : QPushButton(parent)
 {

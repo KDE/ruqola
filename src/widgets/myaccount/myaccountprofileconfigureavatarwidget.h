@@ -49,6 +49,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : publ
 public:
     explicit MyAccountProfileConfigureAvatarWidget(QWidget *parent = nullptr);
     ~MyAccountProfileConfigureAvatarWidget() override;
+    void setCurrentIconPath(const QString &currentPath);
 
 private:
     AvatarImage *const mAvatarImage;
