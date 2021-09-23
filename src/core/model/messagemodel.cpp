@@ -518,7 +518,6 @@ void MessageModel::changeShowOriginalMessage(const QString &messageId, bool show
 
 void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
-    Q_UNUSED(cacheImageUrl)
     auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
         return std::find_if(msgAttachments.begin(),
                             msgAttachments.end(),
@@ -537,6 +536,13 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
         for (const Reaction &reaction : reactions) {
             const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
             if (!fileName.isEmpty() && mRocketChatAccount->urlForLink(fileName).path() == filePath) {
+                return true;
+            }
+        }
+        const Utils::AvatarInfo info = msg.avatarInfo();
+        const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
+        if (!iconUrlStr.isEmpty()) {
+            if (iconUrlStr == cacheImageUrl) {
                 return true;
             }
         }
