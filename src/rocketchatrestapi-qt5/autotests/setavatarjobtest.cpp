@@ -43,10 +43,12 @@ void SetAvatarJobTest::shouldHaveDefaultValue()
 void SetAvatarJobTest::shouldGenerateRequest()
 {
     SetAvatarJob job;
+
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    // We can't have it.
+    // QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void SetAvatarJobTest::shouldGenerateJson()
