@@ -120,6 +120,9 @@ void RoomWidget::slotLoadHistory()
 
 void RoomWidget::slotChannelInfoRequested()
 {
+    if (!mRoom) {
+        return;
+    }
     if (mRoomType == Room::RoomType::Direct) {
         QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
         dlg->setUserName(mRoom->name());
@@ -196,6 +199,9 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
 
 void RoomWidget::slotPruneMessages()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<PruneMessagesDialog> dlg = new PruneMessagesDialog(this);
     dlg->setRoomName(mRoom->name());
     if (dlg->exec()) {
@@ -252,6 +258,9 @@ void RoomWidget::updateListView()
 
 void RoomWidget::slotConfigureAutoTranslate()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(this);
     dlg->setRoom(mRoom);
     dlg->exec();
@@ -260,6 +269,9 @@ void RoomWidget::slotConfigureAutoTranslate()
 
 void RoomWidget::slotConfigureNotification()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
     dlg->setRoom(mRoom);
     dlg->exec();
@@ -268,6 +280,9 @@ void RoomWidget::slotConfigureNotification()
 
 void RoomWidget::slotStarredMessages()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
@@ -281,6 +296,9 @@ void RoomWidget::slotStarredMessages()
 
 void RoomWidget::slotPinnedMessages()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
@@ -294,6 +312,9 @@ void RoomWidget::slotPinnedMessages()
 
 void RoomWidget::slotShowMentions()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
@@ -307,6 +328,9 @@ void RoomWidget::slotShowMentions()
 
 void RoomWidget::slotSnipperedMessages()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
@@ -320,6 +344,9 @@ void RoomWidget::slotSnipperedMessages()
 
 void RoomWidget::slotShowThreads()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
@@ -354,6 +381,9 @@ void RoomWidget::slotShowFileAttachments()
 
 void RoomWidget::slotSearchMessages()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
     dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoomId(mRoomWidgetBase->roomId());
@@ -371,6 +401,9 @@ void RoomWidget::slotOpenTeamRequested(const QString &teamId)
 
 void RoomWidget::slotTeamChannelsRequested()
 {
+    if (!mRoom) {
+        return;
+    }
     QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(this);
     dlg->setRoom(mRoom);
     dlg->exec();
