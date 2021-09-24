@@ -71,16 +71,6 @@ void UsersListJob::slotUsersListFinished()
     deleteLater();
 }
 
-const QString &UsersListJob::pattern() const
-{
-    return mPattern;
-}
-
-void UsersListJob::setPattern(const QString &newPattern)
-{
-    mPattern = newPattern;
-}
-
 QNetworkRequest UsersListJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersList);
@@ -88,7 +78,6 @@ QNetworkRequest UsersListJob::request() const
     addQueryUrl(url);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
-    // FIXME use mPattern
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
