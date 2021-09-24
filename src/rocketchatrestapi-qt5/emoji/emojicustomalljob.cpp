@@ -97,6 +97,7 @@ QNetworkRequest EmojiCustomAllJob::request() const
     if (!queryUrl.isEmpty()) {
         url.setQuery(queryUrl);
     }
+    // FIXME use mPattern
     addAuthRawHeader(req);
     return req;
 }

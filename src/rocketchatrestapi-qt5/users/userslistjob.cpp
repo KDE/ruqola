@@ -88,6 +88,7 @@ QNetworkRequest UsersListJob::request() const
     addQueryUrl(url);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
+    // FIXME use mPattern
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
