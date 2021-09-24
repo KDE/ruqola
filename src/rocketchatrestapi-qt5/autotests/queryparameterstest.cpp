@@ -37,6 +37,7 @@ void QueryParametersTest::shouldHaveDefaultValue()
     QVERIFY(!query.isValid());
     QVERIFY(query.sorting().isEmpty());
     QVERIFY(query.custom().isEmpty());
+    QVERIFY(query.searchString().isEmpty());
 }
 
 void QueryParametersTest::shouldQueryIsValid()
@@ -79,5 +80,14 @@ void QueryParametersTest::shouldGenerateQuery()
         QUrlQuery urlQuery;
         RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
         QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22text%22:%22gene%22,%22type%22:%22channels%22%7D"));
+    }
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        query.setSearchString(QStringLiteral("blabla"));
+        QVERIFY(query.isValid());
+        QUrlQuery urlQuery;
+        RocketChatRestApi::QueryParameters::generateQueryParameter(query, urlQuery);
+        QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22name%22:%7B%22$regex%22:%22blabla%22,%22$options%22:%22i%22%7D%7D"));
     }
 }

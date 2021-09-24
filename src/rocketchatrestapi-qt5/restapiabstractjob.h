@@ -35,7 +35,11 @@ class AbstractLogger;
 class LIBROCKETCHATRESTAPI_QT5_EXPORT QueryParameters
 {
 public:
-    enum class SortOrder { Ascendant, Descendant, NoSorting };
+    enum class SortOrder {
+        Ascendant,
+        Descendant,
+        NoSorting,
+    };
     QueryParameters();
 
     Q_REQUIRED_RESULT int offset() const;
@@ -57,12 +61,16 @@ public:
 
     static void generateQueryParameter(const QueryParameters &queryParameters, QUrlQuery &urlQuery);
 
+    Q_REQUIRED_RESULT const QString &searchString() const;
+    void setSearchString(const QString &newSearchString);
+
 private:
     int mOffset = -1;
     int mCount = -1;
     QMap<QString, SortOrder> mSorting;
     QMap<QString, QString> mCustom;
     QString mType;
+    QString mSearchString;
 };
 
 class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiAbstractJob : public QObject

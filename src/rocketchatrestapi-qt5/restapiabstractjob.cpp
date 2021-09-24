@@ -492,7 +492,7 @@ void QueryParameters::setCount(int count)
 
 bool QueryParameters::isValid() const
 {
-    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty()) || !mCustom.isEmpty();
+    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty()) || !mCustom.isEmpty() || !mSearchString.isEmpty();
 }
 
 QMap<QString, QueryParameters::SortOrder> QueryParameters::sorting() const
@@ -549,6 +549,10 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
 
         urlQuery.addQueryItem(QStringLiteral("query"), str);
     }
+    if (!queryParameters.searchString().isEmpty()) {
+        QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
+        urlQuery.addQueryItem(QStringLiteral("query"), str);
+    }
 
     if (!queryParameters.sorting().isEmpty()) {
         // example    sort={"name" : -1,"status" : 1}
@@ -580,5 +584,14 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
     if (!queryParameters.type().isEmpty()) {
         urlQuery.addQueryItem(QStringLiteral("type"), queryParameters.type());
     }
-    // qDebug() << " urlQuery " << urlQuery.toString();
+}
+
+const QString &QueryParameters::searchString() const
+{
+    return mSearchString;
+}
+
+void QueryParameters::setSearchString(const QString &newSearchString)
+{
+    mSearchString = newSearchString;
 }
