@@ -51,6 +51,7 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setPlaceholderText(i18n("Search Permissions..."));
     new LineEditCatchReturnKey(mSearchLineWidget, this);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
