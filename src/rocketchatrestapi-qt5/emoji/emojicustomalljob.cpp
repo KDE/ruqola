@@ -68,16 +68,6 @@ void EmojiCustomAllJob::slotEmojiCustomAllDone()
     deleteLater();
 }
 
-const QString &EmojiCustomAllJob::pattern() const
-{
-    return mPattern;
-}
-
-void EmojiCustomAllJob::setPattern(const QString &newPattern)
-{
-    mPattern = newPattern;
-}
-
 bool EmojiCustomAllJob::requireHttpAuthentication() const
 {
     return true;
@@ -91,13 +81,11 @@ bool EmojiCustomAllJob::hasQueryParameterSupport() const
 QNetworkRequest EmojiCustomAllJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomAll);
-    QNetworkRequest req(url);
+
     QUrlQuery queryUrl;
     addQueryParameter(queryUrl);
-    if (!queryUrl.isEmpty()) {
-        url.setQuery(queryUrl);
-    }
-    // FIXME use mPattern
+    url.setQuery(queryUrl);
+    QNetworkRequest req(url);
     addAuthRawHeader(req);
     return req;
 }

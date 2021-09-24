@@ -73,9 +73,11 @@ QString AdministratorCustomEmojiWidget::displayShowMessage() const
 
 void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    qDebug() << " MISSING support for search name " << searchName;
+    // https://<server>/api/v1/emoji-custom.all?query={%22name%22:{%22$regex%22:%22t%22,%22$options%22:%22i%22}}&sort={%22name%22:1}&count=25
+    // https://<server>/api/v1/emoji-custom.all?query=%7B%22name%22:%22te%22%7D&sort=%7B%22name%22:1%7D
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::EmojiCustomAllJob(this);
+
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -86,6 +88,8 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
     if (count != -1) {
         parameters.setCount(count);
     }
+    parameters.setSearchString(searchName);
+
     job->setQueryParameters(parameters);
 
     rcAccount->restApi()->initializeRestApiJob(job);

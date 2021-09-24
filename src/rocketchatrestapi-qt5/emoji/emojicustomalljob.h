@@ -38,8 +38,6 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
-    Q_REQUIRED_RESULT const QString &pattern() const;
-    void setPattern(const QString &newPattern);
 
 Q_SIGNALS:
     void emojiCustomAllDone(const QJsonObject &obj);
@@ -47,6 +45,5 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(EmojiCustomAllJob)
     void slotEmojiCustomAllDone();
-    QString mPattern;
 };
 }
