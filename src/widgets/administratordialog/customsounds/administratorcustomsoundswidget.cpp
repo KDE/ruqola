@@ -72,9 +72,6 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::CustomSoundsListJob(this);
     // https://<url>/api/v1/custom-sounds.list?query={"name":{"$regex":"d","$options":"i"}}&sort={"name":1}&count=25
-    if (!searchName.isEmpty()) {
-        job->setPattern(searchName);
-    }
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -85,6 +82,7 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
     if (count != -1) {
         parameters.setCount(count);
     }
+    parameters.setSearchString(searchName);
     job->setQueryParameters(parameters);
 
     rcAccount->restApi()->initializeRestApiJob(job);

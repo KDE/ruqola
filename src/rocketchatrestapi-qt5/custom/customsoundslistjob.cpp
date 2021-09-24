@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 CustomSoundsListJob::CustomSoundsListJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -67,16 +68,6 @@ void CustomSoundsListJob::slotCustomSoundsDone()
     deleteLater();
 }
 
-const QString &CustomSoundsListJob::pattern() const
-{
-    return mPattern;
-}
-
-void CustomSoundsListJob::setPattern(const QString &newPattern)
-{
-    mPattern = newPattern;
-}
-
 bool CustomSoundsListJob::requireHttpAuthentication() const
 {
     return true;
@@ -84,9 +75,17 @@ bool CustomSoundsListJob::requireHttpAuthentication() const
 
 QNetworkRequest CustomSoundsListJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsList);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsList);
+
+    QUrlQuery queryUrl;
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
     QNetworkRequest req(url);
     addAuthRawHeader(req);
-    // FIXME use mPattern
     return req;
+}
+
+bool CustomSoundsListJob::hasQueryParameterSupport() const
+{
+    return true;
 }

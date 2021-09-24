@@ -39,8 +39,7 @@ void CustomSoundsListJobTest::shouldHaveDefaultValue()
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.restApiLogger());
-    QVERIFY(!job.hasQueryParameterSupport());
-    QVERIFY(job.pattern().isEmpty());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void CustomSoundsListJobTest::shouldGenerateRequest()
