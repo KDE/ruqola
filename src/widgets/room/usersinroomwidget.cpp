@@ -58,7 +58,7 @@ UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
     hMainLayout->addWidget(mSearchLineEdit);
     mUsersInRoomComboBox->setObjectName(QStringLiteral("mUsersInRoomComboBox"));
     hMainLayout->addWidget(mUsersInRoomComboBox);
-    connect(mUsersInRoomComboBox, qOverload<int>(&UsersInRoomComboBox::currentIndexChanged), this, &UsersInRoomWidget::slotChangeStatusType);
+    connect(mUsersInRoomComboBox, &UsersInRoomComboBox::currentIndexChanged, this, &UsersInRoomWidget::slotChangeStatusType);
 
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);

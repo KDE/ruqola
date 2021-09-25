@@ -355,7 +355,7 @@ void RuqolaMainWindow::setupActions()
         mStatusComboBox = new StatusCombobox(container);
         mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
         layout->addWidget(mStatusComboBox);
-        connect(mStatusComboBox, qOverload<int>(&StatusCombobox::currentIndexChanged), this, &RuqolaMainWindow::slotStatusChanged);
+        connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotStatusChanged);
 
         mStatus = action;
         connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);

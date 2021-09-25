@@ -54,7 +54,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
 
     mAttachmentCombobox->setObjectName(QStringLiteral("mAttachmentCombobox"));
     searchAttachmentLayout->addWidget(mAttachmentCombobox);
-    connect(mAttachmentCombobox, qOverload<int>(&ShowAttachmentComboBox::currentIndexChanged), this, &ShowAttachmentWidget::slotChangeAttachmentType);
+    connect(mAttachmentCombobox, &ShowAttachmentComboBox::currentIndexChanged, this, &ShowAttachmentWidget::slotChangeAttachmentType);
 
     mInfo->setObjectName(QStringLiteral("mInfo"));
     mInfo->setTextFormat(Qt::RichText);

@@ -40,7 +40,7 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomUserStatusCreateWidget::slotCheckValues);
-    connect(mStatusCombobox, qOverload<int>(&StatusCombobox::activated), this, &AdministratorCustomUserStatusCreateWidget::slotCheckValues);
+    connect(mStatusCombobox, &StatusCombobox::activated, this, &AdministratorCustomUserStatusCreateWidget::slotCheckValues);
 }
 
 AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget()
