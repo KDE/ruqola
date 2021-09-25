@@ -314,7 +314,7 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
-    mShowLog = new QAction(i18n("Show Channel Log"), this);
+    mShowLog = new QAction(QIcon::fromTheme(QStringLiteral("view-history")), i18n("Show Channel Log"), this);
     connect(mShowLog, &QAction::triggered, this, &RuqolaMainWindow::slotShowLog);
     ac->addAction(QStringLiteral("show_log"), mShowLog);
 
