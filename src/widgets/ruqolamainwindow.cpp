@@ -467,10 +467,9 @@ void RuqolaMainWindow::slotAddServer()
 
 void RuqolaMainWindow::slotServerInfo()
 {
-    QPointer<ServerInfoDialog> dlg = new ServerInfoDialog(this);
-    dlg->setServerConfigInfo(mCurrentRocketChatAccount->serverConfigInfo());
-    dlg->exec();
-    delete dlg;
+    ServerInfoDialog dlg(this);
+    dlg.setServerConfigInfo(mCurrentRocketChatAccount->serverConfigInfo());
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotLogout()
@@ -480,9 +479,8 @@ void RuqolaMainWindow::slotLogout()
 
 void RuqolaMainWindow::slotSearchChannel()
 {
-    QPointer<SearchChannelDialog> dlg = new SearchChannelDialog(this);
-    dlg->exec();
-    delete dlg;
+    SearchChannelDialog dlg(this);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotSelectNextUnreadChannel()
@@ -553,9 +551,8 @@ void RuqolaMainWindow::slotConfigureNotifications()
 
 void RuqolaMainWindow::slotRegisterNewUser()
 {
-    QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
-    dlg->exec();
-    delete dlg;
+    RegisterUserDialog dlg(this);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotRegisterUserSuccessed()
@@ -568,27 +565,22 @@ void RuqolaMainWindow::slotRegisterUserSuccessed()
 
 void RuqolaMainWindow::slotConfigureMyAccount()
 {
-    QPointer<MyAccountConfigureDialog> dlg = new MyAccountConfigureDialog(this);
-    if (dlg->exec()) {
-        // TODO ???
-    }
-    delete dlg;
+    MyAccountConfigureDialog dlg(this);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotAdministrator()
 {
-    QPointer<AdministratorDialog> dlg = new AdministratorDialog(this);
-    dlg->initialize();
-    dlg->exec();
-    delete dlg;
+    AdministratorDialog dlg(this);
+    dlg.initialize();
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotDirectory()
 {
-    QPointer<DirectoryDialog> dlg = new DirectoryDialog(this);
-    dlg->fillTabs();
-    dlg->exec();
-    delete dlg;
+    DirectoryDialog dlg(this);
+    dlg.fillTabs();
+    dlg.exec();
 }
 
 bool RuqolaMainWindow::queryClose()
