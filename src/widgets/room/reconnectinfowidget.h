@@ -30,13 +30,14 @@ public:
     explicit ReconnectInfoWidget(QWidget *parent = nullptr);
     ~ReconnectInfoWidget() override;
 
-    Q_REQUIRED_RESULT int reconnectDelay() const;
-    void setReconnectDelay(int newReconnectDelay);
+    Q_REQUIRED_RESULT int reconnectSecondDelay() const;
+    void setReconnectSecondDelay(int newReconnectDelay);
 
 Q_SIGNALS:
     void tryReconnect();
 
 private:
+    void updateText();
     void slotLinkActivated(const QString &contents);
-    int mReconnectDelay = -1;
+    int mReconnectSecondDelay = -1;
 };

@@ -19,6 +19,7 @@
 */
 
 #include "reconnectinfowidget.h"
+#include <KLocalizedString>
 
 ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
@@ -40,12 +41,17 @@ void ReconnectInfoWidget::slotLinkActivated(const QString &contents)
     }
 }
 
-int ReconnectInfoWidget::reconnectDelay() const
+int ReconnectInfoWidget::reconnectSecondDelay() const
 {
-    return mReconnectDelay;
+    return mReconnectSecondDelay;
 }
 
-void ReconnectInfoWidget::setReconnectDelay(int newReconnectDelay)
+void ReconnectInfoWidget::setReconnectSecondDelay(int newReconnectDelay)
 {
-    mReconnectDelay = newReconnectDelay;
+    mReconnectSecondDelay = newReconnectDelay;
+    animatedShow();
+}
+
+void ReconnectInfoWidget::updateText()
+{
 }
