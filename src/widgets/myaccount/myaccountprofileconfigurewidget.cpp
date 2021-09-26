@@ -188,6 +188,7 @@ void MyAccountProfileConfigureWidget::save()
         if (dlg->exec()) {
             code = dlg->code();
         }
+        delete dlg;
     }
 
     // TODO add more.
