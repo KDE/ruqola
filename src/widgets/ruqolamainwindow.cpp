@@ -75,6 +75,7 @@
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
+#include <QDir>
 #endif
 
 namespace
@@ -497,7 +498,7 @@ void RuqolaMainWindow::slotShowLog()
 {
     auto *room = mMainWidget->room();
     if (room) {
-        QTemporaryFile tempFile(QStringLiteral("XXXXXX.log.txt"));
+        QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.log.txt"));
         tempFile.setAutoRemove(false);
         if (tempFile.open()) {
             LocalMessageLogger logger;
