@@ -104,10 +104,9 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
             return true;
         } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
-            QPointer<ShowVideoDialog> dlg = new ShowVideoDialog(parentWidget);
-            dlg->setVideoUrl(QUrl::fromLocalFile(layout.videoPath));
-            dlg->exec();
-            delete dlg;
+            ShowVideoDialog dlg(parentWidget);
+            dlg.setVideoUrl(QUrl::fromLocalFile(layout.videoPath));
+            dlg.exec();
             return true;
         }
     }

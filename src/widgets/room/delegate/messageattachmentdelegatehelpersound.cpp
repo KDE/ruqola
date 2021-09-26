@@ -104,10 +104,9 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
             return true;
         } else if (attachmentsRect.contains(pos) || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
-            QPointer<PlaySoundDialog> dlg = new PlaySoundDialog(parentWidget);
-            dlg->setAudioUrl(QUrl::fromLocalFile(layout.audioPath));
-            dlg->exec();
-            delete dlg;
+            PlaySoundDialog dlg(parentWidget);
+            dlg.setAudioUrl(QUrl::fromLocalFile(layout.audioPath));
+            dlg.exec();
             return true;
         }
     }

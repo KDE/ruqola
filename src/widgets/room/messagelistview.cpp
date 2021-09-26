@@ -539,13 +539,12 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
 {
     const QString threadMessageId = index.data(MessageModel::ThreadMessageId).toString();
     const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
-    QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
-    dlg->setThreadMessageId(threadMessageId);
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setThreadPreview(threadMessagePreview);
-    dlg->setRoom(mRoom);
-    dlg->exec();
-    delete dlg;
+    ThreadMessageDialog dlg(this);
+    dlg.setThreadMessageId(threadMessageId);
+    dlg.setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg.setThreadPreview(threadMessagePreview);
+    dlg.setRoom(mRoom);
+    dlg.exec();
 }
 
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
