@@ -39,3 +39,13 @@ void ReconnectInfoWidget::slotLinkActivated(const QString &contents)
         Q_EMIT tryReconnect();
     }
 }
+
+int ReconnectInfoWidget::reconnectDelay() const
+{
+    return mReconnectDelay;
+}
+
+void ReconnectInfoWidget::setReconnectDelay(int newReconnectDelay)
+{
+    mReconnectDelay = newReconnectDelay;
+}
