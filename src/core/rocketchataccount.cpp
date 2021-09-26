@@ -2212,6 +2212,8 @@ void RocketChatAccount::slotReconnectToServer()
     QTimer::singleShot(mDelayReconnect, this, [this]() {
         qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
         mDelayReconnect += 1000;
+        // TODO don't logout it ! => we can show channel text.
+        // TODO add KMessageWidget for info about next try to connect.
         tryLogin();
     });
 }
