@@ -23,8 +23,19 @@
 ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
+    setVisible(false);
+    setCloseButtonVisible(false);
+    setMessageType(Information);
+    connect(this, &KMessageWidget::linkActivated, this, &ReconnectInfoWidget::slotLinkActivated);
 }
 
 ReconnectInfoWidget::~ReconnectInfoWidget()
 {
+}
+
+void ReconnectInfoWidget::slotLinkActivated(const QString &contents)
+{
+    if (contents == QLatin1String("try_reconnect")) {
+        Q_EMIT tryReconnect();
+    }
 }

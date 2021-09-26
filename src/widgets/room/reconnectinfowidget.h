@@ -29,4 +29,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ReconnectInfoWidget : public KMessageWidget
 public:
     explicit ReconnectInfoWidget(QWidget *parent = nullptr);
     ~ReconnectInfoWidget() override;
+
+Q_SIGNALS:
+    void tryReconnect();
+
+private:
+    void slotLinkActivated(const QString &contents);
 };
