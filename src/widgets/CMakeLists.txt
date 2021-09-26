@@ -142,6 +142,7 @@ target_sources(libruqolawidgets PRIVATE
     room/roomwidgetbase.cpp
     room/teamnamelabel.cpp
     room/roomheaderlabel.cpp
+    room/reconnectinfowidget.cpp
 
     misc/pixmapcache.cpp
     misc/avatarcachemanager.cpp
