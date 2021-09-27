@@ -24,6 +24,7 @@
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
 #include "room/readonlylineeditwidget.h"
+#include "room/reconnectinfowidget.h"
 #include "room/roomcounterinfowidget.h"
 #include "room/roomheaderwidget.h"
 #include "room/roomquotemessagewidget.h"
@@ -75,6 +76,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
 
     auto mRoomCounterInfoWidget = w.findChild<RoomCounterInfoWidget *>(QStringLiteral("mRoomCounterInfoWidget"));
     QVERIFY(mRoomCounterInfoWidget);
+
+    auto mRoomReconnectInfoWidget = w.findChild<ReconnectInfoWidget *>(QStringLiteral("mRoomReconnectInfoWidget"));
+    QVERIFY(mRoomReconnectInfoWidget);
 
     auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(QStringLiteral("mRoomReplyThreadWidget"));
     QVERIFY(mRoomReplyThreadWidget);

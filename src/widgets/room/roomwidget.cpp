@@ -48,6 +48,7 @@
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
 
+#include "reconnectinfowidget.h"
 #include "roomcounterinfowidget.h"
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
@@ -71,6 +72,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomHeaderWidget(new RoomHeaderWidget(this))
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
+    , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -90,7 +92,12 @@ RoomWidget::RoomWidget(QWidget *parent)
     mUsersInRoomFlowWidget->setVisible(false);
 
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
+
+    mRoomReconnectInfoWidget->setObjectName(QStringLiteral("mRoomReconnectInfoWidget"));
+
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
+    roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
+
     roomWidgetLayout->addWidget(mRoomWidgetBase);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::jumpToUnreadMessage, this, &RoomWidget::slotJumpToUnreadMessage);

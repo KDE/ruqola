@@ -34,6 +34,7 @@ class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class Room;
 class RoomWidgetBase;
+class ReconnectInfoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -108,6 +109,7 @@ private:
     QPointer<Room> mRoom;
     UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
+    ReconnectInfoWidget *const mRoomReconnectInfoWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
