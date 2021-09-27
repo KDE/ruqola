@@ -2208,10 +2208,13 @@ void RocketChatAccount::slotReconnectToServer()
     // This happens when we didn't react to pings for a while
     // (e.g. while stopped in gdb, or if network went down for a bit)
     // Let's try connecting in again
-    // TODO: delay this more and more like RC+ ?
     QTimer::singleShot(mDelayReconnect, this, [this]() {
         qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
-        mDelayReconnect += 1000;
+        if (mDelayReconnect == 100) {
+            mDelayReconnect = 1000;
+        } else {
+            mDelayReconnect *= 2;
+        }
         // TODO don't logout it ! => we can show channel text.
         // TODO add KMessageWidget for info about next try to connect.
         Q_EMIT displayReconnectWidget(mDelayReconnect / 1000);
