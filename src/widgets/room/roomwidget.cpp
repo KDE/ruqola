@@ -725,13 +725,25 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     }
 
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
+    // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
+}
+
+void RoomWidget::slotLoginStatusChanged()
+{
+    const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
+    if (loginStatus == DDPAuthenticationManager::LoggedIn) {
+        mRoomReconnectInfoWidget->hide();
+    }
 }
 
 void RoomWidget::slotGoBackToRoom()

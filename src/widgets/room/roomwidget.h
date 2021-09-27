@@ -102,6 +102,7 @@ private:
     void slotOpenTeamRequested(const QString &teamId);
     void slotTryReconnect();
     void slotDisplayReconnectWidget(int seconds);
+    void slotLoginStatusChanged();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
