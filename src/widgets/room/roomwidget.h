@@ -100,6 +100,8 @@ private:
     void slotJumpToUnreadMessage(qint64 numberOfMessage);
     void slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc);
     void slotOpenTeamRequested(const QString &teamId);
+    void slotTryReconnect();
+    void slotDisplayReconnectWidget(int seconds);
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 

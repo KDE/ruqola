@@ -498,6 +498,7 @@ Q_SIGNALS:
     void ownUserPreferencesChanged();
     void updateStatusComboBox();
     void permissionChanged();
+    void displayReconnectWidget(int seconds);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

@@ -101,6 +101,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     roomWidgetLayout->addWidget(mRoomWidgetBase);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::jumpToUnreadMessage, this, &RoomWidget::slotJumpToUnreadMessage);
+    connect(mRoomReconnectInfoWidget, &ReconnectInfoWidget::tryReconnect, this, &RoomWidget::slotTryReconnect);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
@@ -723,11 +724,13 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     }
 
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
 }
 
@@ -755,4 +758,14 @@ void RoomWidget::slotFollowMessages()
 void RoomWidget::setLayoutSpacing(int spacing)
 {
     mRoomWidgetBase->layout()->setSpacing(spacing);
+}
+
+void RoomWidget::slotTryReconnect()
+{
+    // TODO
+}
+
+void RoomWidget::slotDisplayReconnectWidget(int seconds)
+{
+    mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
 }

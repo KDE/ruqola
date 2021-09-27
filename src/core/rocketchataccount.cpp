@@ -2214,6 +2214,7 @@ void RocketChatAccount::slotReconnectToServer()
         mDelayReconnect += 1000;
         // TODO don't logout it ! => we can show channel text.
         // TODO add KMessageWidget for info about next try to connect.
+        Q_EMIT displayReconnectWidget(mDelayReconnect / 1000);
         tryLogin();
     });
 }
