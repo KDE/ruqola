@@ -20,13 +20,21 @@
 
 #include "reconnectinfowidget.h"
 #include <KLocalizedString>
+#include <QTimer>
+#include <chrono>
+using namespace std::chrono_literals;
 
 ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)
     : KMessageWidget(parent)
+    , mDelayTimer(new QTimer(this))
 {
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
+    mDelayTimer->setSingleShot(true);
+    mDelayTimer->setInterval(1s);
+    connect(mDelayTimer, &QTimer::timeout, this, &ReconnectInfoWidget::slotUpdateTimer);
+
     connect(this, &KMessageWidget::linkActivated, this, &ReconnectInfoWidget::slotLinkActivated);
 }
 
@@ -34,9 +42,23 @@ ReconnectInfoWidget::~ReconnectInfoWidget()
 {
 }
 
+void ReconnectInfoWidget::slotUpdateTimer()
+{
+    mCurrentDelay--;
+    if (mCurrentDelay == 0) {
+        Q_EMIT tryReconnect();
+    } else {
+        mDelayTimer->start();
+        updateText();
+    }
+}
+
 void ReconnectInfoWidget::slotLinkActivated(const QString &contents)
 {
     if (contents == QLatin1String("try_reconnect")) {
+        if (mDelayTimer->isActive()) {
+            mDelayTimer->stop();
+        }
         Q_EMIT tryReconnect();
     }
 }
@@ -49,9 +71,11 @@ int ReconnectInfoWidget::reconnectSecondDelay() const
 void ReconnectInfoWidget::setReconnectSecondDelay(int newReconnectDelay)
 {
     mReconnectSecondDelay = newReconnectDelay;
+    mCurrentDelay = mReconnectSecondDelay;
     animatedShow();
 }
 
 void ReconnectInfoWidget::updateText()
 {
+    setText(i18n("%1 before reconnecting. %2", mCurrentDelay, QStringLiteral("<a href=\"try_reconnect\">%1</a>").arg(i18n("(Try Reconnect)"))));
 }

@@ -22,7 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <KMessageWidget>
-
+class QTimer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ReconnectInfoWidget : public KMessageWidget
 {
     Q_OBJECT
@@ -38,6 +38,9 @@ Q_SIGNALS:
 
 private:
     void updateText();
+    void slotUpdateTimer();
     void slotLinkActivated(const QString &contents);
+    QTimer *const mDelayTimer;
+    int mCurrentDelay = -1;
     int mReconnectSecondDelay = -1;
 };
