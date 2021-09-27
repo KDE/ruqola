@@ -48,8 +48,8 @@ void ReconnectInfoWidget::slotUpdateTimer()
     if (mCurrentDelay == 0) {
         Q_EMIT tryReconnect();
     } else {
-        mDelayTimer->start();
         updateText();
+        mDelayTimer->start();
     }
 }
 
@@ -72,10 +72,11 @@ void ReconnectInfoWidget::setReconnectSecondDelay(int newReconnectDelay)
 {
     mReconnectSecondDelay = newReconnectDelay;
     mCurrentDelay = mReconnectSecondDelay;
+    updateText();
     animatedShow();
 }
 
 void ReconnectInfoWidget::updateText()
 {
-    setText(i18n("%1 before reconnecting. %2", mCurrentDelay, QStringLiteral("<a href=\"try_reconnect\">%1</a>").arg(i18n("(Try Reconnect)"))));
+    setText(i18n("%1 seconds before reconnecting. %2", mCurrentDelay, QStringLiteral("<a href=\"try_reconnect\">%1</a>").arg(i18n("(Try Reconnect)"))));
 }
