@@ -62,6 +62,7 @@
 #include <KSharedConfig>
 #include <KStandardAction>
 #include <QApplication>
+#include <QDir>
 #include <QFontDatabase>
 #include <QHBoxLayout>
 #include <QIcon>
@@ -75,7 +76,6 @@
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
-#include <QDir>
 #endif
 
 namespace
