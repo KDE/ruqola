@@ -89,9 +89,6 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
 {
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
-    connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {
-        changeActionStatus(true);
-    });
     connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotLoginPageActivated);
     setCentralWidget(mMainWidget);
     setupActions();
@@ -193,7 +190,6 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::updateStatusComboBox, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
 
     updateActions();
-    changeActionStatus(false); // Disable actions when switching.
     slotClearNotification(); // Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 
@@ -211,11 +207,6 @@ void RuqolaMainWindow::slotRaiseWindow()
     show();
     raise();
     activateWindow();
-}
-
-void RuqolaMainWindow::changeActionStatus(bool enabled)
-{
-    // Laurent disable for the moment mSaveAs->setEnabled(enabled);
 }
 
 void RuqolaMainWindow::slotPermissionChanged()
@@ -260,9 +251,6 @@ void RuqolaMainWindow::setupActions()
     KStandardAction::quit(this, &RuqolaMainWindow::slotClose, ac);
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
-
-    mSaveAs = KStandardAction::saveAs(this, &RuqolaMainWindow::slotSaveAs, ac);
-    mSaveAs->setText(i18n("Save As Text..."));
 
     auto act = new QAction(i18n("Add Server..."), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
@@ -391,6 +379,7 @@ void RuqolaMainWindow::slotCreateTeam()
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, []() {
             qCDebug(RUQOLAWIDGETS_LOG) << " teamCreateDone";
+            // TODO switch to new team ?
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsCreateJob";
@@ -535,8 +524,6 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mSearchChannel->setEnabled(!loginPageActivated);
     mCreateNewChannel->setEnabled(!loginPageActivated);
     mCreateDirectMessages->setEnabled(!loginPageActivated);
-    // mSaveAs->setEnabled(!loginPageActivated);
-    mSaveAs->setEnabled(false); // Reactivate it when we will implement save as
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
