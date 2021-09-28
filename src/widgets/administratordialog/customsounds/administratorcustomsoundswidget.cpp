@@ -107,7 +107,12 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
 {
-    // TODO
+    QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
+    // TODO add option
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &index)
@@ -117,6 +122,8 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
 
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
+    // Comment for the moment. there is not restapi yet.
+    return;
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
