@@ -41,7 +41,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     : QWidget(parent)
     , mTreeWidget(new QTreeWidget(this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mTreeWidget))
-    , mRefreshButton(new QPushButton(i18n("Refresh"), this))
+    , mRefreshButton(new QPushButton(QIcon::fromTheme(QStringLiteral("view-refresh")), {}, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -53,6 +53,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     hboxLayout->addWidget(mSearchLineWidget);
     mRefreshButton->setObjectName(QStringLiteral("mRefreshButton"));
+    mRefreshButton->setToolTip(i18n("Refresh"));
     hboxLayout->addWidget(mRefreshButton);
     connect(mRefreshButton, &QPushButton::clicked, this, &AdministratorServerInfoWidget::slotRefreshInfo);
 

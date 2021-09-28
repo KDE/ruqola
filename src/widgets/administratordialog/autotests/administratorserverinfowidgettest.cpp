@@ -53,5 +53,6 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 
     auto mRefreshButton = w.findChild<QPushButton *>(QStringLiteral("mRefreshButton"));
     QVERIFY(mRefreshButton);
-    QVERIFY(!mRefreshButton->text().isEmpty());
+    QVERIFY(mRefreshButton->text().isEmpty());
+    QVERIFY(!mRefreshButton->toolTip().isEmpty());
 }
