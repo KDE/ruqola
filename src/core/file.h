@@ -29,6 +29,7 @@ class LIBRUQOLACORE_EXPORT File
     Q_GADGET
 public:
     File();
+    File(const File &other) = default;
 
     void parseFile(const QJsonObject &json, bool restApi);
     Q_REQUIRED_RESULT QString fileName() const;

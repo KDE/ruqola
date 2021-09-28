@@ -37,6 +37,7 @@ class LIBRUQOLACORE_EXPORT Message
     Q_GADGET
 public:
     explicit Message(EmojiManager *emojiManager = nullptr);
+    Message(const Message &other) = default;
 
     enum MessageType {
         System,

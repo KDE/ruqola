@@ -26,6 +26,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Discussion
     Q_GADGET
 public:
     Discussion();
+    Discussion(const Discussion &other) = default;
 
     Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
