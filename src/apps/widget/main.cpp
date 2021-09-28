@@ -51,6 +51,10 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
     KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
