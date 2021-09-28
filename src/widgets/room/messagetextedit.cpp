@@ -43,6 +43,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     , mCommandCompletionListView(new CompletionListView)
 {
     setAcceptRichText(false);
+    enableFindReplace(false); // not needed here, let's instead make sure the Ctrl+F shortcut will search through channel history
 
     connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged, this, &QWidget::updateGeometry);
 
