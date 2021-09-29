@@ -34,6 +34,7 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
     mainLayout->setContentsMargins({});
 
     mName->setObjectName(QStringLiteral("mName"));
+    mName->setClearButtonEnabled(true);
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
     mStatusCombobox->setUseOnlyStandardStatus();
 

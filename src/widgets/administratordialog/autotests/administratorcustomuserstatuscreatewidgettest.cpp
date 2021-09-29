@@ -41,6 +41,7 @@ void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
+    QVERIFY(mName->isClearButtonEnabled());
 
     auto mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
     QVERIFY(mStatusCombobox);
