@@ -149,6 +149,7 @@ public:
     };
     Q_ENUM(RoleType)
 
+    void reconnectToServer();
     Q_REQUIRED_RESULT Room::TeamRoomInfo roomFromTeamId(const QString &teamId) const;
 
     Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);

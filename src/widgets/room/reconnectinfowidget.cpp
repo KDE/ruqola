@@ -46,6 +46,7 @@ void ReconnectInfoWidget::slotUpdateTimer()
 {
     mCurrentDelay--;
     if (mCurrentDelay == 0) {
+        updateText();
         Q_EMIT tryReconnect();
     } else {
         updateText();
@@ -74,6 +75,10 @@ void ReconnectInfoWidget::setReconnectSecondDelay(int newReconnectDelay)
     mCurrentDelay = mReconnectSecondDelay;
     updateText();
     animatedShow();
+    if (mDelayTimer->isActive()) {
+        mDelayTimer->stop();
+    }
+    mDelayTimer->start();
 }
 
 void ReconnectInfoWidget::updateText()

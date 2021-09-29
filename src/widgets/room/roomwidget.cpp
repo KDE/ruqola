@@ -774,7 +774,7 @@ void RoomWidget::setLayoutSpacing(int spacing)
 
 void RoomWidget::slotTryReconnect()
 {
-    // TODO
+    mCurrentRocketChatAccount->reconnectToServer();
 }
 
 void RoomWidget::slotDisplayReconnectWidget(int seconds)

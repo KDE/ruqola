@@ -226,7 +226,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != QLatin1String("/") && mDdp) {
-            logOut();
+            // logOut();
             slotReconnectToServer();
         }
     });
@@ -245,6 +245,11 @@ RocketChatAccount::~RocketChatAccount()
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
     delete mAccountRoomSettings;
+}
+
+void RocketChatAccount::reconnectToServer()
+{
+    slotReconnectToServer();
 }
 
 Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QString &teamId) const
@@ -2215,10 +2220,9 @@ void RocketChatAccount::slotReconnectToServer()
         } else {
             mDelayReconnect *= 2;
         }
-        // TODO don't logout it ! => we can show channel text.
-        // TODO add KMessageWidget for info about next try to connect.
         Q_EMIT displayReconnectWidget(mDelayReconnect / 1000);
-        tryLogin();
+        ddp()->enqueueLogin();
+        // tryLogin();
     });
 }
 
