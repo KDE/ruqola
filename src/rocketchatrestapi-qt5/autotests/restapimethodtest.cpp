@@ -303,4 +303,6 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::StdoutQueue), QUrl(QStringLiteral("http://www.kde.org/api/v1/stdout.queue")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsConvertToChannel), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.convertToChannel")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsGet), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.get")));
 }

@@ -484,6 +484,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.convertToTeam");
     case RestApiUtil::RestApiUrlType::StdoutQueue:
         return QStringLiteral("stdout.queue");
+    case RestApiUtil::RestApiUrlType::OauthAppsList:
+        return QStringLiteral("oauth-apps.list");
+    case RestApiUtil::RestApiUrlType::OauthAppsGet:
+        return QStringLiteral("oauth-apps.get");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
