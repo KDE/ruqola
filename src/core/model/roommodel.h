@@ -62,7 +62,6 @@ public:
         RoomAvatarInfo,
         RoomTeamId,
         RoomTeamIsMain,
-        RoomTeamName,
         UserOffline,
     };
     Q_ENUM(RoomRoles)
@@ -127,7 +126,6 @@ private:
     Q_DISABLE_COPY(RoomModel)
     Room *createNewRoom();
     Q_REQUIRED_RESULT bool userOffline(Room *r) const;
-    Q_REQUIRED_RESULT QString roomTeamName(Room *r) const;
     Q_REQUIRED_RESULT QIcon icon(Room *r) const;
     Q_REQUIRED_RESULT int order(Room *r) const;
     Q_REQUIRED_RESULT Section section(Room *r) const;

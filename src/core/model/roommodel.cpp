@@ -196,8 +196,6 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->teamInfo().teamId();
     case RoomModel::RoomTeamIsMain:
         return r->teamInfo().mainTeam();
-    case RoomModel::RoomTeamName:
-        return roomTeamName(r);
     case RoomModel::UserOffline:
         return userOffline(r);
     case Qt::ToolTipRole:
@@ -534,15 +532,6 @@ int RoomModel::order(Room *r) const
         break;
     }
     return order;
-}
-
-QString RoomModel::roomTeamName(Room *r) const
-{
-    if (r->teamInfo().hasTeamRoom()) {
-        // TODO
-        return {};
-    }
-    return {};
 }
 
 bool RoomModel::userOffline(Room *r) const
