@@ -187,6 +187,7 @@ void MyAccountProfileConfigureWidget::save()
         QString code;
         if (dlg->exec()) {
             code = dlg->code();
+            // TODO use code !
         }
         delete dlg;
     }

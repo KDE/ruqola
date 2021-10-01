@@ -65,8 +65,9 @@ bool UsersModel::userIsOffline(const QString &name) const
 {
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userName() == name) {
-            return mUsers.at(i).status() == User::PresenceStatus::PresenceOffline;
+        const auto &user = mUsers.at(i);
+        if (user.userName() == name) {
+            return user.status() == User::PresenceStatus::PresenceOffline;
         }
     }
     return true;
@@ -76,8 +77,9 @@ QString UsersModel::userStatusStr(const QString &name) const
 {
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userName() == name) {
-            return mUsers.at(i).generateStatusStr();
+        const auto &user = mUsers.at(i);
+        if (user.userName() == name) {
+            return user.generateStatusStr();
         }
     }
 
@@ -89,8 +91,9 @@ QString UsersModel::userStatusIconFileName(const QString &name) const
 {
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userName() == name) {
-            return mUsers.at(i).iconFromStatus();
+        const auto &user = mUsers.at(i);
+        if (user.userName() == name) {
+            return user.iconFromStatus();
         }
     }
 
@@ -103,8 +106,9 @@ User::PresenceStatus UsersModel::status(const QString &userId) const
     const int userCount = mUsers.count();
 
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == userId) {
-            return mUsers.at(i).status();
+        const auto &user = mUsers.at(i);
+        if (user.userId() == userId) {
+            return user.status();
         }
     }
     // Return offline as default;

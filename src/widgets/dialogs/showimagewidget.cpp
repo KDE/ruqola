@@ -306,9 +306,7 @@ bool ShowImageWidget::isAnimatedPixmap() const
 
 void ShowImageWidget::setIsAnimatedPixmap(bool value)
 {
-    if (mIsAnimatedPixmap != value) {
-        mIsAnimatedPixmap = value;
-    }
+    mIsAnimatedPixmap = value;
 }
 
 void ShowImageWidget::updateRanges()

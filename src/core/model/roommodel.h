@@ -101,7 +101,7 @@ public:
     Q_REQUIRED_RESULT bool addRoom(Room *room);
     void removeRoom(const QString &roomId);
 
-    void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
+    void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const;
     void userStatusChanged(const User &user);
 
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;

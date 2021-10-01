@@ -86,8 +86,6 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
             if (tw > maxPixels) {
                 int em = fontMetrics().maxWidth();
                 maxPixels -= fontMetrics().horizontalAdvance(showMoreText);
-                int len;
-                int delta;
 
                 // On some MacOS system, maxWidth may return 0
                 if (em == 0) {
@@ -96,8 +94,8 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
                     }
                 }
                 while ((tw > maxPixels) && !tmp.isEmpty()) {
-                    len = tmp.length();
-                    delta = (em == 0) ? 0 : (tw - maxPixels) / em;
+                    const int len = tmp.length();
+                    int delta = (em == 0) ? 0 : (tw - maxPixels) / em;
                     delta = qBound(1, delta, len);
 
                     tmp.remove(len - delta, delta);

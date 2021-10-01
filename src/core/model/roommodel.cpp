@@ -231,7 +231,7 @@ Room *RoomModel::createNewRoom()
     return r;
 }
 
-void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
+void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const
 {
     for (int i = 0; i < mRoomsList.count(); ++i) {
         Room *room = mRoomsList.at(i);
@@ -254,9 +254,9 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i)->roomId() == rId) {
+            Room *room = mRoomsList.at(i);
+            if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found";
-                Room *room = mRoomsList.at(i);
                 room->updateSubscriptionRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
@@ -309,7 +309,7 @@ Room::TeamRoomInfo RoomModel::roomFromTeamId(const QString &teamId)
 bool RoomModel::addRoom(Room *room)
 {
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::addRoom(const Room &room)" << room->name();
-    int roomCount = mRoomsList.count();
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == room->roomId()) {
             qCDebug(RUQOLA_ROOMS_LOG) << " room already exist " << room->roomId() << " A bug ? ";
@@ -317,8 +317,6 @@ bool RoomModel::addRoom(Room *room)
             return false;
         }
     }
-    roomCount = mRoomsList.count();
-
     beginInsertRows(QModelIndex(), roomCount, roomCount);
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" << roomCount << " room name " << room->name();
     mRoomsList.append(room);
@@ -382,9 +380,9 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i)->roomId() == rId) {
+            Room *room = mRoomsList.at(i);
+            if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
-                Room *room = mRoomsList.at(i);
                 room->parseUpdateRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
@@ -548,7 +546,6 @@ QString RoomModel::generateToolTip(Room *r) const
         return i18n("Teams Room");
     }
 
-    // TODO add team icon support.
     switch (r->channelType()) {
     case Room::RoomType::Private:
         if (r->parentRid().isEmpty()) {
