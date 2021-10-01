@@ -21,6 +21,7 @@
 #include "usersmodel.h"
 #include "ruqola_debug.h"
 #include "utils.h"
+#include <KLocalizedString>
 #include <QJsonObject>
 
 UsersModel::UsersModel(QObject *parent)
@@ -69,6 +70,19 @@ bool UsersModel::userIsOffline(const QString &name) const
         }
     }
     return true;
+}
+
+QString UsersModel::userStatusStr(const QString &name) const
+{
+    const int userCount = mUsers.count();
+    for (int i = 0; i < userCount; ++i) {
+        if (mUsers.at(i).userName() == name) {
+            return mUsers.at(i).generateStatusStr();
+        }
+    }
+
+    // qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
+    return i18n("OffLine");
 }
 
 QString UsersModel::userStatusIconFileName(const QString &name) const

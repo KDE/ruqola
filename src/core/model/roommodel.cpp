@@ -200,6 +200,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return roomTeamName(r);
     case RoomModel::UserOffline:
         return userOffline(r);
+    case Qt::ToolTipRole:
+        return generateToolTip(r);
     }
     return {};
 }
@@ -549,6 +551,32 @@ bool RoomModel::userOffline(Room *r) const
         return mRocketChatAccount ? mRocketChatAccount->userIsOffline(r->name()) : false;
     }
     return false;
+}
+
+QString RoomModel::generateToolTip(Room *r) const
+{
+    if (r->teamInfo().mainTeam()) {
+        return i18n("Teams Room");
+    }
+
+    // TODO add team icon support.
+    switch (r->channelType()) {
+    case Room::RoomType::Private:
+        if (r->parentRid().isEmpty()) {
+            return i18n("Private Room");
+        } else {
+            return i18n("Discussion Room");
+        }
+        break;
+    case Room::RoomType::Channel:
+        return i18n("Channel Room");
+    case Room::RoomType::Direct: {
+        return mRocketChatAccount ? mRocketChatAccount->userStatusStr(r->name()) : QString();
+    }
+    case Room::RoomType::Unknown:
+        break;
+    }
+    return {};
 }
 
 QIcon RoomModel::icon(Room *r) const

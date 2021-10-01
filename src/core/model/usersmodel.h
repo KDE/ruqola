@@ -52,6 +52,7 @@ public:
     Q_REQUIRED_RESULT User fullUserInfo(const QString &userName) const;
     Q_REQUIRED_RESULT bool userIsOffline(const QString &name) const;
 
+    Q_REQUIRED_RESULT QString userStatusStr(const QString &name) const;
 Q_SIGNALS:
     void userStatusChanged(const User &user);
     void userNameChanged(const User &user);

@@ -284,6 +284,11 @@ void User::parseUser(const QJsonObject &object)
     // TODO active ?
 }
 
+QString User::generateStatusStr() const
+{
+    return Utils::displaytextFromPresenceStatus(mStatus);
+}
+
 QString User::iconFromStatus() const
 {
     return Utils::iconFromPresenceStatus(mStatus);

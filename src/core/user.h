@@ -102,6 +102,8 @@ public:
     Q_REQUIRED_RESULT bool active() const;
     void setActive(bool newActive);
 
+    Q_REQUIRED_RESULT QString generateStatusStr() const;
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;

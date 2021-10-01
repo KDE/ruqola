@@ -339,6 +339,11 @@ EmojiManager *RocketChatAccount::emojiManager() const
     return mEmojiManager;
 }
 
+QString RocketChatAccount::userStatusStr(const QString &name)
+{
+    return mUserModel->userStatusStr(name);
+}
+
 QString RocketChatAccount::userStatusIconFileName(const QString &name)
 {
     return mUserModel->userStatusIconFileName(name);

@@ -131,6 +131,7 @@ private:
     Q_REQUIRED_RESULT QIcon icon(Room *r) const;
     Q_REQUIRED_RESULT int order(Room *r) const;
     Q_REQUIRED_RESULT Section section(Room *r) const;
+    Q_REQUIRED_RESULT QString generateToolTip(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;
