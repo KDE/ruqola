@@ -98,6 +98,8 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
+    // Comment for the moment. there is not restapi yet.
+    return;
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
     if (dlg->exec()) {
         // TODO
@@ -107,6 +109,8 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
 {
+    // Comment for the moment. there is not restapi yet.
+    return;
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
     // TODO add option
     if (dlg->exec()) {
