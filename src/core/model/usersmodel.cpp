@@ -60,6 +60,17 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+bool UsersModel::userIsOffline(const QString &name) const
+{
+    const int userCount = mUsers.count();
+    for (int i = 0; i < userCount; ++i) {
+        if (mUsers.at(i).userName() == name) {
+            return mUsers.at(i).status() == User::PresenceStatus::PresenceOffline;
+        }
+    }
+    return true;
+}
+
 QString UsersModel::userStatusIconFileName(const QString &name) const
 {
     const int userCount = mUsers.count();

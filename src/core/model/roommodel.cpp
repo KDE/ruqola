@@ -198,6 +198,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->teamInfo().mainTeam();
     case RoomModel::RoomTeamName:
         return roomTeamName(r);
+    case RoomModel::UserOffline:
+        return userOffline(r);
     }
     return {};
 }
@@ -539,6 +541,14 @@ QString RoomModel::roomTeamName(Room *r) const
         return {};
     }
     return {};
+}
+
+bool RoomModel::userOffline(Room *r) const
+{
+    if (r->channelType() == Room::RoomType::Direct) {
+        return mRocketChatAccount ? mRocketChatAccount->userIsOffline(r->name()) : false;
+    }
+    return false;
 }
 
 QIcon RoomModel::icon(Room *r) const

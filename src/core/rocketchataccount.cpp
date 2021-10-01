@@ -344,6 +344,11 @@ QString RocketChatAccount::userStatusIconFileName(const QString &name)
     return mUserModel->userStatusIconFileName(name);
 }
 
+bool RocketChatAccount::userIsOffline(const QString &name)
+{
+    return mUserModel->userIsOffline(name);
+}
+
 StatusModel *RocketChatAccount::statusModel() const
 {
     return mStatusModel;

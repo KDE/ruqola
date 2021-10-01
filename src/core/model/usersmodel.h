@@ -50,6 +50,7 @@ public:
 
     Q_REQUIRED_RESULT User::PresenceStatus status(const QString &userId) const;
     Q_REQUIRED_RESULT User fullUserInfo(const QString &userName) const;
+    Q_REQUIRED_RESULT bool userIsOffline(const QString &name) const;
 
 Q_SIGNALS:
     void userStatusChanged(const User &user);

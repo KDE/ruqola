@@ -458,6 +458,7 @@ public:
     void addUpdateEmojiCustomList(const QJsonArray &replyArray);
     void setImageUrl(const QUrl &url);
     void updateAvatarCache(const Utils::AvatarInfo &info);
+    Q_REQUIRED_RESULT bool userIsOffline(const QString &name);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

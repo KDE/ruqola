@@ -63,6 +63,7 @@ public:
         RoomTeamId,
         RoomTeamIsMain,
         RoomTeamName,
+        UserOffline,
     };
     Q_ENUM(RoomRoles)
 
@@ -125,6 +126,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RoomModel)
     Room *createNewRoom();
+    Q_REQUIRED_RESULT bool userOffline(Room *r) const;
     Q_REQUIRED_RESULT QString roomTeamName(Room *r) const;
     Q_REQUIRED_RESULT QIcon icon(Room *r) const;
     Q_REQUIRED_RESULT int order(Room *r) const;

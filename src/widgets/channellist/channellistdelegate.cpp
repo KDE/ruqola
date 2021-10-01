@@ -89,9 +89,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         if (option.state & QStyle::State_Selected) {
             optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::LinkVisited));
         }
+        if (index.data(RoomModel::UserOffline).toBool()) {
+            KColorScheme scheme;
+            optionCopy.palette.setBrush(QPalette::Text, scheme.foreground(KColorScheme::InactiveText).color());
+        }
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
-
     if (!isHeader) {
         KColorScheme scheme;
         painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
