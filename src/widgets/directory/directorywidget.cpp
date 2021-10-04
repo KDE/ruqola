@@ -24,8 +24,11 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/directorybasefilterproxymodel.h"
 #include "model/directoryroomsmodel.h"
+#include "model/directoryroomsproxymodel.h"
 #include "model/directoryteamsmodel.h"
+#include "model/directoryteamsproxymodel.h"
 #include "model/directoryusersmodel.h"
+#include "model/directoryusersproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -43,19 +46,21 @@ DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
     case Room:
         mSearchLineEdit->setPlaceholderText(i18n("Search Channels"));
         mModel = new DirectoryRoomsModel(this);
+        mProxyModelModel = new DirectoryRoomsProxyModel(mModel, this);
         break;
     case User:
         mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
         mModel = new DirectoryUsersModel(this);
+        mProxyModelModel = new DirectoryUsersProxyModel(mModel, this);
         break;
     case Team:
         mSearchLineEdit->setPlaceholderText(i18n("Search Teams"));
         mModel = new DirectoryTeamsModel(this);
+        mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;
     case Unknown:
         break;
     }
-    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
     mTreeView->setModel(mProxyModelModel);
     connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
         if (index.isValid()) {

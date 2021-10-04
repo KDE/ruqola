@@ -91,6 +91,9 @@ target_sources(libruqolacore PRIVATE
     model/directoryusersmodel.cpp
     model/directorybasemodel.cpp
     model/directorybasefilterproxymodel.cpp
+    model/directoryroomsproxymodel.cpp
+    model/directoryteamsproxymodel.cpp
+    model/directoryusersproxymodel.cpp
 
     model/rolesmodel.cpp
     model/admincustomsoundmodel.cpp
