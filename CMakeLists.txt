@@ -36,7 +36,7 @@ include(FeatureSummary)
 include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 
-option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings" OFF)
+option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
 if (OPTION_BUILD_PYTHON_BINDINGS)
    set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
