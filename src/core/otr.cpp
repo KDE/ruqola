@@ -71,7 +71,9 @@ void Otr::parseOtr(const QJsonArray &contents)
 
 void Otr::parseCryptoSettings(const QString &publicKey)
 {
-    // TODO
+    qDebug() << " parseCryptoSettings " << publicKey;
+
+    // TODO parse it.
 }
 
 CryptoSettings Otr::crypto() const
