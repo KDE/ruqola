@@ -1982,6 +1982,20 @@ void RocketChatAccount::parseOtr(const QJsonArray &contents)
     // QJsonArray(["handshake",{"publicKey":"{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[],\"kty\":\"EC\",\"x\":\"R9TKy7SvVpbJurHngvOICZ5oBHvLt_P19RiBX7-ChBs\",\"y\":\"Ama4y0Sk5DWFRAImF8_4u--qKknOa44EP5hr0VXuEvM\"}","roomId":"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB","userId":"YbwG4T2uB3wZSZSKB"}])
     qCWarning(RUQOLA_LOG) << " NOT IMPLEMENTED YET";
     const Otr t = mOtrManager->parseOtr(contents);
+    // TODO send notification
+    switch (t.type()) {
+    case Otr::OtrType::Unknown:
+        break;
+    case Otr::OtrType::End:
+        break;
+    case Otr::OtrType::Handshake:
+        break;
+    case Otr::OtrType::Deny:
+        break;
+    case Otr::OtrType::AcknowLedge:
+        break;
+    }
+
     // qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
     // TODO add notification ?
 }
