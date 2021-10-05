@@ -31,6 +31,7 @@ Otr::~Otr()
 
 void Otr::parseOtr(const QJsonArray &contents)
 {
+    // QJsonArray(["handshake",{"publicKey":"{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[],\"kty\":\"EC\",\"x\":\"R9TKy7SvVpbJurHngvOICZ5oBHvLt_P19RiBX7-ChBs\",\"y\":\"Ama4y0Sk5DWFRAImF8_4u--qKknOa44EP5hr0VXuEvM\"}","roomId":"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB","userId":"YbwG4T2uB3wZSZSKB"}])
     qCDebug(RUQOLA_LOG) << " contents " << contents;
     const QString type = contents.at(0).toString();
     if (type == QLatin1String("end")) {
@@ -46,7 +47,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QJsonObject obj = contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
-        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
+        const QJsonObject publicKey = obj.value(QLatin1String("publicKey")).toObject();
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey " << publicKey;
         mUserId = userId;
         mRoomId = roomId;
@@ -54,6 +55,9 @@ void Otr::parseOtr(const QJsonArray &contents)
         parseCryptoSettings(publicKey);
     } else if (type == QLatin1String("deny")) {
         qCDebug(RUQOLA_LOG) << " Deny " << contents;
+        const QJsonObject obj = contents.at(1).toObject();
+        const QString roomId = obj.value(QLatin1String("roomId")).toString();
+        const QString userId = obj.value(QLatin1String("userId")).toString();
         // TODO
         mType = Otr::Deny;
     } else if (type == QLatin1String("acknowledge")) {
@@ -61,7 +65,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QJsonObject obj = contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
-        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
+        const QJsonObject publicKey = obj.value(QLatin1String("publicKey")).toObject();
         mUserId = userId;
         mRoomId = roomId;
         parseCryptoSettings(publicKey);
@@ -71,7 +75,7 @@ void Otr::parseOtr(const QJsonArray &contents)
     }
 }
 
-void Otr::parseCryptoSettings(const QString &publicKey)
+void Otr::parseCryptoSettings(const QJsonObject &publicKey)
 {
     // TODO
 }
