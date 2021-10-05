@@ -197,5 +197,5 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mFollowMessage->setVisible(false && mCurrentRocketChatAccount->threadsEnabled());
 
     // FIXME Disable for the moment
-    mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->otrEnabled());
+    mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->otrEnabled() && mRoom->channelType() == Room::RoomType::Direct);
 }
