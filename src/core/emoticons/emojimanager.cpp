@@ -98,11 +98,11 @@ void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
         const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
         if (!identifier.isEmpty()) {
-            for (const auto &emoji : std::as_const(mCustomEmojiList)) {
-                if (emoji.identifier() == identifier) {
-                    mCustomEmojiList.removeAll(emoji);
-                    break;
-                }
+            auto it = std::find_if(mCustomEmojiList.cbegin(), mCustomEmojiList.cend(), [identifier](const auto &emoji) {
+                return emoji.identifier() == identifier;
+            });
+            if (it != mCustomEmojiList.cend()) {
+                mCustomEmojiList.removeAll(*it);
             }
         }
     }
