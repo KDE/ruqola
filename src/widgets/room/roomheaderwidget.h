@@ -51,6 +51,7 @@ public:
         PruneMessages = 13,
         ExportMessages = 14,
         FollowMessages = 15,
+        OtrMessages = 16,
     };
     Q_ENUM(ChannelActionType)
 
