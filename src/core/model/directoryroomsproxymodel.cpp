@@ -33,13 +33,13 @@ bool DirectoryRoomsProxyModel::lessThan(const QModelIndex &left, const QModelInd
 {
     const int leftColumn{left.column()};
     if (leftColumn == DirectoryRoomsModel::LastMessageStr) {
-        const auto leftData = left.data(DirectoryRoomsModel::LastMessageStr).value<QDateTime>();
-        const auto rightData = right.data(DirectoryRoomsModel::LastMessageStr).value<QDateTime>();
-        return leftData < rightData;
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryRoomsModel::LastMessageDateTime);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryRoomsModel::LastMessageDateTime);
+        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     } else if (leftColumn == DirectoryRoomsModel::CreatedStr) {
-        const auto leftData = left.data(DirectoryRoomsModel::CreatedStr).value<QDateTime>();
-        const auto rightData = right.data(DirectoryRoomsModel::CreatedStr).value<QDateTime>();
-        return leftData < rightData;
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryRoomsModel::CreatedDateTime);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryRoomsModel::CreatedDateTime);
+        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
     return DirectoryBaseFilterProxyModel::lessThan(left, right);
 }

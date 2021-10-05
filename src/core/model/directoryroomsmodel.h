@@ -35,6 +35,8 @@ public:
         Identifier,
         ChannelType,
         ChannelTypeStr,
+        LastMessageDateTime,
+        CreatedDateTime,
         LastMessageStr,
         CreatedStr,
         LastColumn = CreatedStr,

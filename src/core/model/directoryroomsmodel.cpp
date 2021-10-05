@@ -52,7 +52,7 @@ void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> DirectoryRoomsModel::hideColumns() const
 {
-    return {Identifier, ChannelType};
+    return {Identifier, ChannelType, CreatedDateTime, LastMessageDateTime};
 }
 
 void DirectoryRoomsModel::parseElements(const QJsonObject &roomsObj)
@@ -103,6 +103,10 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
         return roomInfo.lastMessageDisplayDateTimeStr();
     case DirectoryRoomsRoles::CreatedStr:
         return roomInfo.createdRoomDisplayDateTimeStr();
+    case DirectoryRoomsRoles::CreatedDateTime:
+        return roomInfo.createdRoom();
+    case DirectoryRoomsRoles::LastMessageDateTime:
+        return roomInfo.lastMessage();
     }
     return {};
 }
@@ -130,6 +134,9 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
         case DirectoryRoomsModel::ChannelTypeStr:
         case DirectoryRoomsModel::ChannelType:
             return i18n("Channel Type");
+        case DirectoryRoomsModel::CreatedDateTime:
+        case DirectoryRoomsModel::LastMessageDateTime:
+            return {};
         }
     }
     return QVariant();

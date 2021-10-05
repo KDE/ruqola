@@ -139,16 +139,6 @@ void RoomInfo::generateDisplayChannelType()
     mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());
 }
 
-const QDateTime &RoomInfo::createdRoomDateTime() const
-{
-    return mCreatedRoomDateTime;
-}
-
-const QDateTime &RoomInfo::lastMessageDateTime() const
-{
-    return mLastMessageDateTime;
-}
-
 qint64 RoomInfo::createdRoom() const
 {
     return mCreatedRoom;
@@ -159,8 +149,7 @@ void RoomInfo::setCreatedRoom(qint64 newCreatedRoom)
     mCreatedRoom = newCreatedRoom;
     if (mCreatedRoom != -1) {
         QLocale l;
-        mCreatedRoomDateTime = QDateTime::fromMSecsSinceEpoch(mCreatedRoom);
-        mCreatedRoomDisplayTime = l.toString(mCreatedRoomDateTime, QLocale::LongFormat);
+        mCreatedRoomDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedRoom), QLocale::LongFormat);
     }
 }
 
@@ -184,8 +173,7 @@ void RoomInfo::setLastMessage(qint64 newLastMessage)
     mLastMessage = newLastMessage;
     if (mLastMessage != -1) {
         QLocale l;
-        mLastMessageDateTime = QDateTime::fromMSecsSinceEpoch(mLastMessage);
-        mLastMessageDisplayTime = l.toString(mLastMessageDateTime, QLocale::LongFormat);
+        mLastMessageDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(mLastMessage), QLocale::LongFormat);
     }
 }
 
