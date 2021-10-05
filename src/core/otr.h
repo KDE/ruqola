@@ -56,7 +56,7 @@ public:
     Q_REQUIRED_RESULT CryptoSettings crypto() const;
 
 private:
-    void parseCryptoSettings(const QJsonObject &publicKey);
+    void parseCryptoSettings(const QString &publicKey);
     // TODO add crypto support
     QString mRoomId;
     QString mUserId;

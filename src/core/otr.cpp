@@ -47,7 +47,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QJsonObject obj = contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
-        const QJsonObject publicKey = obj.value(QLatin1String("publicKey")).toObject();
+        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey " << publicKey;
         mUserId = userId;
         mRoomId = roomId;
@@ -65,7 +65,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QJsonObject obj = contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
-        const QJsonObject publicKey = obj.value(QLatin1String("publicKey")).toObject();
+        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
         mUserId = userId;
         mRoomId = roomId;
         parseCryptoSettings(publicKey);
@@ -75,7 +75,7 @@ void Otr::parseOtr(const QJsonArray &contents)
     }
 }
 
-void Otr::parseCryptoSettings(const QJsonObject &publicKey)
+void Otr::parseCryptoSettings(const QString &publicKey)
 {
     // TODO
 }
