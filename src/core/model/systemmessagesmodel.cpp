@@ -64,6 +64,8 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Room Name Changed\" messages"), QStringLiteral("r"));
     createItem(i18n("Hide \"Message Removed\" messages"), QStringLiteral("rm"));
     createItem(i18n("Hide \"Room Archived\" messages"), QStringLiteral("room_archived"));
+    createItem(i18n("Hide \"Encryption Enabled\" messages"), QStringLiteral("room_e2e_enabled"));
+    createItem(i18n("Hide \"Encryption Disabled\" messages"), QStringLiteral("room_e2e_disabled"));
 }
 
 void SystemMessagesModel::setMessagesSystem(const QStringList &lst)

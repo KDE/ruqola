@@ -41,23 +41,27 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
             lst.append(itemModel->data(SystemMessagesModel::SystemMessages).toString());
         }
     }
-    QStringList lstRoles{QStringLiteral("au"),
-                         QStringLiteral("wm"),
-                         QStringLiteral("ut"),
-                         QStringLiteral("ul"),
-                         QStringLiteral("uj"),
-                         QStringLiteral("subscription-role-removed"),
-                         QStringLiteral("subscription-role-added"),
-                         QStringLiteral("ru"),
-                         QStringLiteral("room_unarchived"),
-                         QStringLiteral("room_disabled_encryption"),
-                         QStringLiteral("enabled_encryption"),
-                         QStringLiteral("room_changed_privacy"),
-                         QStringLiteral("room_changed_avatar"),
-                         QStringLiteral("mute_unmute"),
-                         QStringLiteral("r"),
-                         QStringLiteral("rm"),
-                         QStringLiteral("room_archived")};
+    QStringList lstRoles{
+        QStringLiteral("au"),
+        QStringLiteral("wm"),
+        QStringLiteral("ut"),
+        QStringLiteral("ul"),
+        QStringLiteral("uj"),
+        QStringLiteral("subscription-role-removed"),
+        QStringLiteral("subscription-role-added"),
+        QStringLiteral("ru"),
+        QStringLiteral("room_unarchived"),
+        QStringLiteral("room_disabled_encryption"),
+        QStringLiteral("enabled_encryption"),
+        QStringLiteral("room_changed_privacy"),
+        QStringLiteral("room_changed_avatar"),
+        QStringLiteral("mute_unmute"),
+        QStringLiteral("r"),
+        QStringLiteral("rm"),
+        QStringLiteral("room_archived"),
+        QStringLiteral("room_e2e_enabled"),
+        QStringLiteral("room_e2e_disabled"),
+    };
 
     for (const QString &r : std::as_const(lst)) {
         QVERIFY(lstRoles.contains(r));
