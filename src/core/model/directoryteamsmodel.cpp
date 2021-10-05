@@ -43,7 +43,7 @@ int DirectoryTeamsModel::rowCount(const QModelIndex &parent) const
 
 QList<int> DirectoryTeamsModel::hideColumns() const
 {
-    return {TeamIdentifier};
+    return {TeamIdentifier, CreateTeamDateTime};
 }
 
 void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
@@ -90,6 +90,8 @@ QVariant DirectoryTeamsModel::data(const QModelIndex &index, int role) const
         return roomInfo.teamInfo().teamId();
     case DirectoryTeamsRoles::CreateTeam:
         return roomInfo.createdRoomDisplayDateTimeStr();
+    case DirectoryTeamsRoles::CreateTeamDateTime:
+        return roomInfo.createdRoom();
     }
     return {};
 }
@@ -106,6 +108,8 @@ QVariant DirectoryTeamsModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Identifier");
         case DirectoryTeamsRoles::CreateTeam:
             return i18n("Created");
+        case DirectoryTeamsRoles::CreateTeamDateTime:
+            return {};
         }
     }
     return QVariant();

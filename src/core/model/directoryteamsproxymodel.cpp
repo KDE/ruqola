@@ -33,9 +33,9 @@ bool DirectoryTeamsProxyModel::lessThan(const QModelIndex &left, const QModelInd
 {
     const int leftColumn{left.column()};
     if (leftColumn == DirectoryTeamsModel::CreateTeam) {
-        const auto leftData = left.data(DirectoryTeamsModel::CreateTeam).value<QDateTime>();
-        const auto rightData = right.data(DirectoryTeamsModel::CreateTeam).value<QDateTime>();
-        return leftData < rightData;
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryTeamsModel::CreateTeamDateTime);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryTeamsModel::CreateTeamDateTime);
+        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
     return DirectoryBaseFilterProxyModel::lessThan(left, right);
 }

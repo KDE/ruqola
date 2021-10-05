@@ -33,9 +33,9 @@ bool DirectoryUsersProxyModel::lessThan(const QModelIndex &left, const QModelInd
 {
     const int leftColumn{left.column()};
     if (leftColumn == DirectoryUsersModel::JoinAt) {
-        const auto leftData = left.data(DirectoryUsersModel::JoinAt).value<QDateTime>();
-        const auto rightData = right.data(DirectoryUsersModel::JoinAt).value<QDateTime>();
-        return leftData < rightData;
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryUsersModel::JoinAtDateTime);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryUsersModel::JoinAtDateTime);
+        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
     return DirectoryBaseFilterProxyModel::lessThan(left, right);
 }

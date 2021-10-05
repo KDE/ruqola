@@ -32,7 +32,8 @@ public:
         Email,
         JoinAt,
         UserId,
-        LastColumn = JoinAt,
+        JoinAtDateTime,
+        LastColumn = JoinAtDateTime,
     };
     Q_ENUM(DirectoryUsersRoles)
     explicit DirectoryUsersModel(QObject *parent = nullptr);

@@ -31,6 +31,7 @@ public:
         TeamName,
         RoomsCount,
         TeamIdentifier,
+        CreateTeamDateTime,
         CreateTeam,
         LastColumn = CreateTeam,
     };
