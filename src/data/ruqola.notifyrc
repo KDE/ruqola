@@ -46,6 +46,18 @@ Comment[sv]=Underrättelse
 Comment[uk]=Сповіщення
 Comment[x-test]=xxNotificationxx
 
+[Event/Otr-end]
+Name=Off the record ended
+Action=Popup
+Urgency=Normal
+
+
+[Event/Otr-deny]
+Name=Off the record denied
+Action=Popup
+Urgency=Normal
+
+
 [Event/export-message]
 Name=Messages Exported
 Name[ca]=Missatges exportats
