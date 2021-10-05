@@ -100,8 +100,10 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
+    , mOtrManager(new OtrManager(this))
     , mMessageCache(new MessageCache(this))
     , mManageChannels(new ManageChannels(this))
+
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -161,7 +163,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
-    mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
 
     mUserCompleterModel = new UserCompleterModel(this);

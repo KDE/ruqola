@@ -581,7 +581,7 @@ private:
     UserCompleterFilterProxyModel *mUserCompleterFilterModelProxy = nullptr;
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
-    OtrManager *mOtrManager = nullptr;
+    OtrManager *const mOtrManager;
     SearchChannelModel *mSearchChannelModel = nullptr;
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *mLoginMethodModel = nullptr;
