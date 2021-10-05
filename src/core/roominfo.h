@@ -81,9 +81,16 @@ public:
 
     Q_REQUIRED_RESULT QString createdRoomDisplayDateTimeStr() const;
 
+    Q_REQUIRED_RESULT const QDateTime &lastMessageDateTime() const;
+
+    Q_REQUIRED_RESULT const QDateTime &createdRoomDateTime() const;
+
 private:
     void generateDisplayChannelType();
     TeamInfo mTeamInfo;
+    QDateTime mLastMessageDateTime;
+    QDateTime mCreatedRoomDateTime;
+
     QStringList mUserNames;
     QStringList mUsers;
     QString mTopic;
