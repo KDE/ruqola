@@ -57,6 +57,10 @@ Name=Off the record denied
 Action=Popup
 Urgency=Normal
 
+[Event/Otr-handshake]
+Name=Ask to create Otr
+Action=Popup
+Urgency=Normal
 
 [Event/export-message]
 Name=Messages Exported

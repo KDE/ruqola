@@ -36,7 +36,6 @@ void OtrManager::parseOtr(const QJsonArray &contents)
     Otr t;
     t.parseOtr(contents);
     if (t.isValid()) {
-        // TODO send notification
         switch (t.type()) {
         case Otr::OtrType::Unknown:
             qCWarning(RUQOLA_LOG) << "It's a bug we can't have otrtype == Unknown";
@@ -44,17 +43,23 @@ void OtrManager::parseOtr(const QJsonArray &contents)
         case Otr::OtrType::End: {
             auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
-            notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct namre
+            notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
             break;
         }
-        case Otr::OtrType::Handshake:
-            // Add notification for accept OTR
+        case Otr::OtrType::Handshake: {
+            auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
+            notification->setTitle(i18n("OTR"));
+            notification->setText(i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
+            // TODO add action Ok/Reject
+            // TODO connect ok to accept.
+            notification->sendEvent();
             break;
+        }
         case Otr::OtrType::Deny: {
             auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
-            notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct namre
+            notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
             break;
         }
