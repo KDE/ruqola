@@ -144,9 +144,17 @@ void ChannelActionPopupMenu::createMenu()
 
     mMenu->addSeparator();
     mOffTheRecordMessages = new QAction(i18n("OTR"), this);
+    mOffTheRecordMessages->setCheckable(true);
     mMenu->addAction(mOffTheRecordMessages);
     connect(mOffTheRecordMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::OtrMessages);
+    });
+    mMenu->addSeparator();
+    mEncryptMessages = new QAction(i18n("Encrypt Messages"), this);
+    mEncryptMessages->setCheckable(true);
+    mMenu->addAction(mEncryptMessages);
+    connect(mEncryptMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::EncryptMessages);
     });
 }
 
@@ -198,4 +206,8 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 
     // FIXME Disable for the moment
     mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->otrEnabled() && mRoom->channelType() == Room::RoomType::Direct);
+
+    // FIXME Disable for the moment
+    // TODO
+    mEncryptMessages->setVisible(false);
 }

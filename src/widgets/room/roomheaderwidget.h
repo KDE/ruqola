@@ -52,6 +52,7 @@ public:
         ExportMessages = 14,
         FollowMessages = 15,
         OtrMessages = 16,
+        EncryptMessages = 17,
     };
     Q_ENUM(ChannelActionType)
 
