@@ -18,6 +18,9 @@
 */
 
 #include "otrmanager.h"
+#include "ruqola_debug.h"
+#include <KLocalizedString>
+#include <KNotification>
 
 OtrManager::OtrManager(QObject *parent)
     : QObject(parent)
@@ -28,9 +31,36 @@ OtrManager::~OtrManager()
 {
 }
 
-Otr OtrManager::parseOtr(const QJsonArray &contents)
+void OtrManager::parseOtr(const QJsonArray &contents)
 {
     Otr t;
     t.parseOtr(contents);
-    return t;
+    if (t.isValid()) {
+        // TODO send notification
+        switch (t.type()) {
+        case Otr::OtrType::Unknown:
+            qCWarning(RUQOLA_LOG) << "It's a bug we can't have otrtype == Unknown";
+            break;
+        case Otr::OtrType::End: {
+            auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
+            notification->setTitle(i18n("OTR"));
+            notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct namre
+            notification->sendEvent();
+            break;
+        }
+        case Otr::OtrType::Handshake:
+            // Add notification for accept OTR
+            break;
+        case Otr::OtrType::Deny: {
+            auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
+            notification->setTitle(i18n("OTR"));
+            notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct namre
+            notification->sendEvent();
+            break;
+        }
+        case Otr::OtrType::AcknowLedge:
+            // TODO accept OTR => we need to inform ruqolaaccount
+            break;
+        }
+    }
 }
