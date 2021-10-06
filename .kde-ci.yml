@@ -9,6 +9,7 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kdbusadons': '@stable'
     'frameworks/knotifications': '@stable'
+    'frameworks/knotifyconfig': '@stable'
     'frameworks/kconfig': '@stable'
     'frameworks/ki18n': '@stable'
     'frameworks/kio': '@stable'
