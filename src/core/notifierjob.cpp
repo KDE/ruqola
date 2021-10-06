@@ -24,7 +24,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <KNotificationReplyAction>
-#define ADD_REPLY_NOTIFICATION 1
+
 NotifierJob::NotifierJob(QObject *parent)
     : QObject(parent)
 {
@@ -48,7 +48,6 @@ void NotifierJob::start()
         connect(notification, &KNotification::defaultActivated, this, &NotifierJob::slotDefaultActionActivated);
         connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
 
-#ifdef ADD_REPLY_NOTIFICATION
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
         replyAction->setPlaceholderText(i18n("Reply..."));
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
@@ -57,7 +56,6 @@ void NotifierJob::start()
             // qDebug() << " reply " << text;
         });
         notification->setReplyAction(std::move(replyAction));
-#endif
         notification->sendEvent();
     } else {
         qCWarning(RUQOLA_LOG) << "Info is invalid";
