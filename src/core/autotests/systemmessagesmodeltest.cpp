@@ -30,7 +30,7 @@ SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
 void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
     SystemMessagesModel w;
-    QCOMPARE(w.rowCount(), 18);
+    QCOMPARE(w.rowCount(), 20);
     QVERIFY(w.systemMessagesSelected().isEmpty());
     QStringList lst;
     const int rowCountNb = w.rowCount();
