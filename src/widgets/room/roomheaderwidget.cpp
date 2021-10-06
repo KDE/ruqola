@@ -141,7 +141,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelAction->setAutoRaise(true);
     mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
     mChannelAction->setPopupMode(QToolButton::InstantPopup);
-    mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down-double")));
+    mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
     buttonLayout->addWidget(mChannelAction, 0, Qt::AlignTop);
 
     mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelAction);
