@@ -25,6 +25,7 @@
 
 struct CryptoSettings {
     QString mCrypt;
+    Q_REQUIRED_RESULT bool operator==(const CryptoSettings &other) const;
 };
 
 class LIBRUQOLACORE_TESTS_EXPORT Otr
@@ -54,6 +55,8 @@ public:
     Q_REQUIRED_RESULT bool isValid() const;
 
     Q_REQUIRED_RESULT CryptoSettings crypto() const;
+
+    Q_REQUIRED_RESULT bool operator==(const Otr &other) const;
 
 private:
     void parseCryptoSettings(const QString &publicKey);

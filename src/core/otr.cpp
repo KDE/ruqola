@@ -54,7 +54,6 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QJsonObject obj = contents.at(1).toObject();
         mRoomId = obj.value(QLatin1String("roomId")).toString();
         mUserId = obj.value(QLatin1String("userId")).toString();
-        // TODO
         mType = Otr::Deny;
     } else if (type == QLatin1String("acknowledge")) {
         qCDebug(RUQOLA_LOG) << " acknowledge " << contents;
@@ -115,4 +114,14 @@ QDebug operator<<(QDebug d, const CryptoSettings &t)
 {
     d << "isValid: " << t.mCrypt;
     return d;
+}
+
+bool Otr::operator==(const Otr &other) const
+{
+    return roomId() == other.roomId() && userId() == other.userId() && type() == other.type() && crypto() == other.crypto();
+}
+
+bool CryptoSettings::operator==(const CryptoSettings &other) const
+{
+    return mCrypt == other.mCrypt;
 }
