@@ -48,12 +48,22 @@ Comment[x-test]=xxNotificationxx
 
 [Event/Otr-end]
 Name=Off the record ended
+Name[ca]=Ha acabat la confidencialitat
+Name[nl]=Niet opnemen beëindigd
+Name[sv]=Utanför protokollet slutade
+Name[uk]=Режим без записування завершено
+Name[x-test]=xxOff the record endedxx
 Action=Popup
 Urgency=Normal
 
 
 [Event/Otr-deny]
 Name=Off the record denied
+Name[ca]=S'ha denegat la confidencialitat
+Name[nl]=Niet opnemen geweigerd
+Name[sv]=Utanför protokollet nekades
+Name[uk]=У режимі без записування відмовлено
+Name[x-test]=xxOff the record deniedxx
 Action=Popup
 Urgency=Normal
 
