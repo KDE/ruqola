@@ -88,7 +88,14 @@ void OtrNotificationJob::start()
 
 void OtrNotificationJob::slotActivateNotificationAction(unsigned int val)
 {
-    // TODO
+    switch (val) {
+    case 0:
+        break;
+    case 1:
+        break;
+    }
+
+    // TODO emit signal for accepting?
 }
 
 const Otr &OtrNotificationJob::otr() const
