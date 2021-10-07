@@ -39,16 +39,23 @@ bool OtrNotificationJob::canStart() const
 
 void OtrNotificationJob::start()
 {
+    if (!canStart()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start OtrNotificationJob";
+        deleteLater();
+        return;
+    }
     if (mOtr.isValid()) {
         switch (mOtr.type()) {
         case Otr::OtrType::Unknown:
             qCWarning(RUQOLA_LOG) << "It's a bug we can't have otrtype == Unknown";
+            deleteLater();
             break;
         case Otr::OtrType::End: {
             auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
             notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
+            deleteLater();
             break;
         }
         case Otr::OtrType::Handshake: {
@@ -59,6 +66,7 @@ void OtrNotificationJob::start()
             notification->setActions(lstActions);
 
             connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &OtrNotificationJob::slotActivateNotificationAction);
+            connect(notification, &KNotification::closed, this, &OtrNotificationJob::deleteLater);
             notification->sendEvent();
             break;
         }
@@ -67,10 +75,12 @@ void OtrNotificationJob::start()
             notification->setTitle(i18n("OTR"));
             notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
+            deleteLater();
             break;
         }
         case Otr::OtrType::AcknowLedge:
             // TODO accept OTR => we need to inform ruqolaaccount
+            deleteLater();
             break;
         }
     }

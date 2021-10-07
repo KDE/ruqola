@@ -18,9 +18,9 @@
 */
 
 #include "otrmanager.h"
+#include "otrnotificationjob.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
-#include <KNotification>
 
 OtrManager::OtrManager(QObject *parent)
     : QObject(parent)
@@ -39,39 +39,7 @@ void OtrManager::parseOtr(const QJsonArray &contents)
 {
     Otr t;
     t.parseOtr(contents);
-    if (t.isValid()) {
-        switch (t.type()) {
-        case Otr::OtrType::Unknown:
-            qCWarning(RUQOLA_LOG) << "It's a bug we can't have otrtype == Unknown";
-            break;
-        case Otr::OtrType::End: {
-            auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
-            notification->setTitle(i18n("OTR"));
-            notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
-            notification->sendEvent();
-            break;
-        }
-        case Otr::OtrType::Handshake: {
-            auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
-            notification->setTitle(i18n("OTR"));
-            notification->setText(i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
-            const QStringList lstActions{i18n("Reject"), i18n("Ok")};
-            notification->setActions(lstActions);
-
-            connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &OtrManager::slotActivateNotificationAction);
-            notification->sendEvent();
-            break;
-        }
-        case Otr::OtrType::Deny: {
-            auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
-            notification->setTitle(i18n("OTR"));
-            notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
-            notification->sendEvent();
-            break;
-        }
-        case Otr::OtrType::AcknowLedge:
-            // TODO accept OTR => we need to inform ruqolaaccount
-            break;
-        }
-    }
+    auto job = new OtrNotificationJob(this);
+    job->setOtr(t);
+    job->start();
 }
