@@ -22,11 +22,13 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QProgressBar>
+#include <QToolButton>
 
 UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     : QWidget(parent)
     , mFileName(new QLabel(this))
     , mProgressBar(new QProgressBar(this))
+    , mCancelToolButton(new QToolButton(this))
 {
     auto hboxLayout = new QHBoxLayout(this);
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
@@ -37,6 +39,11 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
 
     mProgressBar->setObjectName(QStringLiteral("mProgressBar"));
     mProgressBar->setRange(0, 100);
+
+    mCancelToolButton->setObjectName(QStringLiteral("mCancelToolButton"));
+    mCancelToolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    connect(mCancelToolButton, &QToolButton::clicked, this, &UploadFileProgressStatusWidget::cancelUpload);
+
     hboxLayout->addWidget(mProgressBar);
 }
 

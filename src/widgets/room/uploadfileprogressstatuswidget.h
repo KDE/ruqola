@@ -24,6 +24,7 @@
 #include <QWidget>
 class QProgressBar;
 class QLabel;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileProgressStatusWidget : public QWidget
 {
     Q_OBJECT
@@ -40,5 +41,6 @@ Q_SIGNALS:
 private:
     QLabel *const mFileName;
     QProgressBar *const mProgressBar;
+    QToolButton *const mCancelToolButton;
 };
 

@@ -24,6 +24,7 @@
 #include <QLabel>
 #include <QProgressBar>
 #include <QTest>
+#include <QToolButton>
 QTEST_MAIN(UploadFileProgressStatusWidgetTest)
 UploadFileProgressStatusWidgetTest::UploadFileProgressStatusWidgetTest(QObject *parent)
     : QObject(parent)
@@ -46,6 +47,9 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
     auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
     QVERIFY(mFileName);
     QVERIFY(mFileName->text().isEmpty());
+
+    auto mCancelToolButton = w.findChild<QToolButton *>(QStringLiteral("mCancelToolButton"));
+    QVERIFY(mCancelToolButton);
 }
 
 void UploadFileProgressStatusWidgetTest::shouldChangeText()
