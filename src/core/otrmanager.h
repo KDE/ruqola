@@ -34,5 +34,6 @@ public:
 
 private:
     Q_DISABLE_COPY(OtrManager)
+    void slotActivateNotificationAction();
 };
 

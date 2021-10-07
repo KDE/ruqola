@@ -31,6 +31,10 @@ OtrManager::~OtrManager()
 {
 }
 
+void OtrManager::slotActivateNotificationAction()
+{
+}
+
 void OtrManager::parseOtr(const QJsonArray &contents)
 {
     Otr t;
@@ -51,8 +55,10 @@ void OtrManager::parseOtr(const QJsonArray &contents)
             auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
             notification->setText(i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
-            // TODO add action Ok/Reject
-            // TODO connect ok to accept.
+            const QStringList lstActions{i18n("Reject"), i18n("Ok")};
+            notification->setActions(lstActions);
+
+            connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &OtrManager::slotActivateNotificationAction);
             notification->sendEvent();
             break;
         }
