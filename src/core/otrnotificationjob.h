@@ -19,6 +19,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+#include "otr.h"
 #include <QObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT OtrNotificationJob : public QObject
@@ -28,5 +29,13 @@ public:
     explicit OtrNotificationJob(QObject *parent = nullptr);
     ~OtrNotificationJob() override;
 
+    Q_REQUIRED_RESULT bool canStart() const;
+
     void start();
+    Q_REQUIRED_RESULT const Otr &otr() const;
+    void setOtr(const Otr &newOtr);
+
+private:
+    void slotActivateNotificationAction(unsigned int val);
+    Otr mOtr;
 };
