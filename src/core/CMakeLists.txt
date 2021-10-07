@@ -151,6 +151,7 @@ target_sources(libruqolacore PRIVATE
     utils.cpp
     otr.cpp
     otrmanager.cpp
+    otrnotificationjob.cpp
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
     rocketchataccount.cpp
