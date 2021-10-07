@@ -52,7 +52,7 @@
 #include "model/usercompletermodel.h"
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
-#include "otrmanager.h"
+#include "otr/otrmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
 #include "ruqola.h"

@@ -18,7 +18,7 @@
 */
 
 #include "otrtest.h"
-#include "otr.h"
+#include "otr/otr.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>

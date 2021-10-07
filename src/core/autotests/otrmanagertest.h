@@ -27,5 +27,7 @@ class OtrManagerTest : public QObject
 public:
     explicit OtrManagerTest(QObject *parent = nullptr);
     ~OtrManagerTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 

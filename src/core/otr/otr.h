@@ -69,4 +69,3 @@ private:
 Q_DECLARE_METATYPE(Otr)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Otr &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CryptoSettings &t);
-

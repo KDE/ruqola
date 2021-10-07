@@ -121,6 +121,10 @@ target_sources(libruqolacore PRIVATE
     convertertextjob/convertertextabstractjob.cpp
     convertertextjob/translatetextjob.cpp
 
+    otr/otr.cpp
+    otr/otrmanager.cpp
+    otr/otrnotificationjob.cpp
+
     autotranslatelanguage.cpp
     autotranslatelanguages.cpp
 
@@ -149,9 +153,6 @@ target_sources(libruqolacore PRIVATE
     changetemporarystatus.cpp
     user.cpp
     utils.cpp
-    otr.cpp
-    otrmanager.cpp
-    otrnotificationjob.cpp
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
     rocketchataccount.cpp

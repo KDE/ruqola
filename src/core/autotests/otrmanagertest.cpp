@@ -18,7 +18,7 @@
 */
 
 #include "otrmanagertest.h"
-#include "otrmanager.h"
+#include "otr/otrmanager.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(OtrManagerTest)
@@ -26,4 +26,10 @@ QTEST_GUILESS_MAIN(OtrManagerTest)
 OtrManagerTest::OtrManagerTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void OtrManagerTest::shouldHaveDefaultValues()
+{
+    OtrManager w;
+    // TODO
 }
