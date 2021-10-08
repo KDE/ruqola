@@ -88,14 +88,27 @@ void OtrNotificationJob::start()
 
 void OtrNotificationJob::slotActivateNotificationAction(unsigned int val)
 {
+    // Index == 0 => is the default action. We don't have it.
     switch (val) {
     case 0:
         break;
     case 1:
+        acceptOtr();
+        break;
+    case 2:
+        rejectOtr();
         break;
     }
+}
 
-    // TODO emit signal for accepting?
+void OtrNotificationJob::acceptOtr()
+{
+    deleteLater();
+}
+
+void OtrNotificationJob::rejectOtr()
+{
+    deleteLater();
 }
 
 const Otr &OtrNotificationJob::otr() const

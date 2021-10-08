@@ -37,5 +37,7 @@ public:
 
 private:
     void slotActivateNotificationAction(unsigned int val);
+    void acceptOtr();
+    void rejectOtr();
     Otr mOtr;
 };
