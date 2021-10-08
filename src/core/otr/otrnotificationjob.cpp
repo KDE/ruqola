@@ -59,6 +59,7 @@ void OtrNotificationJob::start()
         case Otr::OtrType::End: {
             auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
+            notification->setIconName(QStringLiteral("network-connect"));
             // TODO add account name
             notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
@@ -68,6 +69,7 @@ void OtrNotificationJob::start()
         case Otr::OtrType::Handshake: {
             auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
+            notification->setIconName(QStringLiteral("network-connect"));
             // TODO add account name
             notification->setText(i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
             const QStringList lstActions{i18n("Reject"), i18n("Ok")};
@@ -81,6 +83,7 @@ void OtrNotificationJob::start()
         case Otr::OtrType::Deny: {
             auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
+            notification->setIconName(QStringLiteral("network-connect"));
             // TODO add account name
             notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
