@@ -240,6 +240,8 @@ target_sources(libruqolawidgets PRIVATE
     directory/directorywidget.cpp
     directory/directorytabwidget.cpp
 
+    otr/otrwidget.cpp
+
     ruqolawidget.qrc
     )
 
