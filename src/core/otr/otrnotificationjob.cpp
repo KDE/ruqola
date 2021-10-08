@@ -61,7 +61,8 @@ void OtrNotificationJob::start()
             notification->setTitle(i18n("OTR"));
             notification->setIconName(QStringLiteral("network-connect"));
             // TODO add account name
-            notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
+            notification->setText(mRocketChatAccount->accountName() + QLatin1Char('\n')
+                                  + i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
             deleteLater();
             break;
@@ -71,7 +72,8 @@ void OtrNotificationJob::start()
             notification->setTitle(i18n("OTR"));
             notification->setIconName(QStringLiteral("network-connect"));
             // TODO add account name
-            notification->setText(i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
+            notification->setText(mRocketChatAccount->accountName() + QLatin1Char('\n')
+                                  + i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
             const QStringList lstActions{i18n("Reject"), i18n("Ok")};
             notification->setActions(lstActions);
 
@@ -85,7 +87,8 @@ void OtrNotificationJob::start()
             notification->setTitle(i18n("OTR"));
             notification->setIconName(QStringLiteral("network-connect"));
             // TODO add account name
-            notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
+            notification->setText(mRocketChatAccount->accountName() + QLatin1Char('\n')
+                                  + i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
             deleteLater();
             break;
@@ -105,21 +108,23 @@ void OtrNotificationJob::slotActivateNotificationAction(unsigned int val)
     case 0:
         break;
     case 1:
-        acceptOtr();
+        rejectOtr();
         break;
     case 2:
-        rejectOtr();
+        acceptOtr();
         break;
     }
 }
 
 void OtrNotificationJob::acceptOtr()
 {
+    qDebug() << " void OtrNotificationJob::acceptOtr()";
     deleteLater();
 }
 
 void OtrNotificationJob::rejectOtr()
 {
+    qDebug() << " Reject ";
     deleteLater();
 }
 
