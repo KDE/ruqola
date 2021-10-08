@@ -378,7 +378,7 @@ quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, m_uid);
-    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
