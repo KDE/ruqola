@@ -22,8 +22,9 @@
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 
-OtrManager::OtrManager(QObject *parent)
+OtrManager::OtrManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -40,6 +41,7 @@ void OtrManager::parseOtr(const QJsonArray &contents)
     Otr t;
     t.parseOtr(contents);
     auto job = new OtrNotificationJob(this);
+    job->setRocketChatAccount(mRocketChatAccount);
     job->setOtr(t);
     job->start();
 }

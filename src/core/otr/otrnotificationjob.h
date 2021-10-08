@@ -21,7 +21,8 @@
 #include "libruqola_private_export.h"
 #include "otr.h"
 #include <QObject>
-
+#include <QPointer>
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT OtrNotificationJob : public QObject
 {
     Q_OBJECT
@@ -35,9 +36,12 @@ public:
     Q_REQUIRED_RESULT const Otr &otr() const;
     void setOtr(const Otr &newOtr);
 
+    void setRocketChatAccount(RocketChatAccount *account);
+
 private:
     void slotActivateNotificationAction(unsigned int val);
     void acceptOtr();
     void rejectOtr();
     Otr mOtr;
+    QPointer<RocketChatAccount> mRocketChatAccount;
 };

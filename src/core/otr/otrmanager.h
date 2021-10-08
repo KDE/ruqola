@@ -23,16 +23,17 @@
 #include "otr.h"
 #include <QJsonArray>
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT OtrManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit OtrManager(QObject *parent = nullptr);
+    explicit OtrManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~OtrManager() override;
     void parseOtr(const QJsonArray &contents);
 
 private:
     Q_DISABLE_COPY(OtrManager)
     void slotActivateNotificationAction();
+    RocketChatAccount *const mRocketChatAccount;
 };

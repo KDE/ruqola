@@ -18,6 +18,7 @@
 */
 
 #include "otrnotificationjob.h"
+#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
 #include <KLocalizedString>
@@ -30,6 +31,11 @@ OtrNotificationJob::OtrNotificationJob(QObject *parent)
 
 OtrNotificationJob::~OtrNotificationJob()
 {
+}
+
+void OtrNotificationJob::setRocketChatAccount(RocketChatAccount *account)
+{
+    mRocketChatAccount = account;
 }
 
 bool OtrNotificationJob::canStart() const
@@ -53,6 +59,7 @@ void OtrNotificationJob::start()
         case Otr::OtrType::End: {
             auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
+            // TODO add account name
             notification->setText(i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
             deleteLater();
@@ -61,6 +68,7 @@ void OtrNotificationJob::start()
         case Otr::OtrType::Handshake: {
             auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
+            // TODO add account name
             notification->setText(i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
             const QStringList lstActions{i18n("Reject"), i18n("Ok")};
             notification->setActions(lstActions);
@@ -73,6 +81,7 @@ void OtrNotificationJob::start()
         case Otr::OtrType::Deny: {
             auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
+            // TODO add account name
             notification->setText(i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
             notification->sendEvent();
             deleteLater();

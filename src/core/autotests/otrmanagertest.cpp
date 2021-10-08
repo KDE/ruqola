@@ -30,6 +30,6 @@ OtrManagerTest::OtrManagerTest(QObject *parent)
 
 void OtrManagerTest::shouldHaveDefaultValues()
 {
-    OtrManager w;
+    OtrManager w(nullptr);
     // TODO
 }
