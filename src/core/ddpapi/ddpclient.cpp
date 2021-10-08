@@ -715,3 +715,8 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
         qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
     }
 }
+
+// Otr end
+//["{\"msg\":\"method\",\"id\":\"22\",\"method\":\"stream-notify-user\",\"params\":[\"YbwG4T2uB3wZSZSKB/otr\",\"end\",{\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\"}]}"]
+// Otr handshake
+//\"msg\":\"method\",\"id\":\"24\",\"method\":\"stream-notify-user\",\"params\":[\"YbwG4T2uB3wZSZSKB/otr\",\"handshake\",{\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\",\"publicKey\":\"{\\\
