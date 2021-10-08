@@ -60,9 +60,7 @@ void OtrNotificationJob::start()
             auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
             notification->setIconName(QStringLiteral("network-connect"));
-            // TODO add account name
-            notification->setText(mRocketChatAccount->accountName() + QLatin1Char('\n')
-                                  + i18n("%1 ended the OTR session.", QStringLiteral("test"))); // FIXME use correct name
+            notification->setText(generateText());
             notification->sendEvent();
             deleteLater();
             break;
@@ -71,9 +69,7 @@ void OtrNotificationJob::start()
             auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
             notification->setIconName(QStringLiteral("network-connect"));
-            // TODO add account name
-            notification->setText(mRocketChatAccount->accountName() + QLatin1Char('\n')
-                                  + i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test"))); // FIXME use correct name
+            notification->setText(generateText());
             const QStringList lstActions{i18n("Reject"), i18n("Ok")};
             notification->setActions(lstActions);
 
@@ -86,9 +82,7 @@ void OtrNotificationJob::start()
             auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
             notification->setTitle(i18n("OTR"));
             notification->setIconName(QStringLiteral("network-connect"));
-            // TODO add account name
-            notification->setText(mRocketChatAccount->accountName() + QLatin1Char('\n')
-                                  + i18n("%1 denied the OTR session.", QStringLiteral("test"))); // FIXME use correct name
+            notification->setText(generateText());
             notification->sendEvent();
             deleteLater();
             break;
@@ -99,6 +93,34 @@ void OtrNotificationJob::start()
             break;
         }
     }
+}
+
+QString OtrNotificationJob::generateText()
+{
+    QString str;
+    // TODO search real name.
+    const QString userId = mOtr.userId();
+
+    switch (mOtr.type()) {
+    case Otr::OtrType::Unknown:
+        break;
+    case Otr::OtrType::End: {
+        str = mRocketChatAccount->accountName() + QLatin1Char('\n') + i18n("%1 ended the OTR session.", QStringLiteral("test")); // FIXME use correct name
+        break;
+    }
+    case Otr::OtrType::Handshake: {
+        str = mRocketChatAccount->accountName() + QLatin1Char('\n')
+            + i18n("%1  wants to start OTR. Do you want to accept?.", QStringLiteral("test")); // FIXME use correct name
+        break;
+    }
+    case Otr::OtrType::Deny: {
+        str = mRocketChatAccount->accountName() + QLatin1Char('\n') + i18n("%1 denied the OTR session.", QStringLiteral("test")); // FIXME use correct name
+        break;
+    }
+    case Otr::OtrType::AcknowLedge:
+        break;
+    }
+    return str;
 }
 
 void OtrNotificationJob::slotActivateNotificationAction(unsigned int val)

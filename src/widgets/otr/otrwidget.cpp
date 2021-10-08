@@ -23,6 +23,10 @@
 OtrWidget::OtrWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
+    setVisible(false);
+    setCloseButtonVisible(false);
+    setMessageType(Information);
+    // TODO Add button for ending otr/refresh keys
 }
 
 OtrWidget::~OtrWidget()

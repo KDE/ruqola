@@ -42,6 +42,7 @@ private:
     void slotActivateNotificationAction(unsigned int val);
     void acceptOtr();
     void rejectOtr();
+    Q_REQUIRED_RESULT QString generateText();
     Otr mOtr;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };
