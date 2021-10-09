@@ -30,6 +30,10 @@ public:
     explicit OtrWidget(QWidget *parent = nullptr);
     ~OtrWidget() override;
 
+Q_SIGNALS:
+    void refreshKeys();
+    void closeOtr();
+
 private:
     void slotCloseOtr();
     void slotRefreshKeys();

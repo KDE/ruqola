@@ -20,6 +20,7 @@
 
 #include "otrwidgettest.h"
 #include "otr/otrwidget.h"
+#include <QAction>
 #include <QTest>
 QTEST_MAIN(OtrWidgetTest)
 OtrWidgetTest::OtrWidgetTest(QObject *parent)
@@ -32,5 +33,13 @@ void OtrWidgetTest::shouldHaveDefaultValues()
     OtrWidget w;
     QVERIFY(!w.isVisible());
     QVERIFY(!w.isCloseButtonVisible());
-    QCOMPARE(!w.messageType(), KMessageWidget::Information);
+    QCOMPARE(w.messageType(), KMessageWidget::Information);
+
+    auto endOtrAction = w.findChild<QAction *>(QStringLiteral("endOtrAction"));
+    QVERIFY(endOtrAction);
+    QVERIFY(!endOtrAction->text().isEmpty());
+
+    auto refreshKeysAction = w.findChild<QAction *>(QStringLiteral("refreshKeysAction"));
+    QVERIFY(refreshKeysAction);
+    QVERIFY(!refreshKeysAction->text().isEmpty());
 }

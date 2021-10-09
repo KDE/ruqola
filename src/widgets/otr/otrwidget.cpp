@@ -45,10 +45,12 @@ OtrWidget::~OtrWidget()
 
 void OtrWidget::slotCloseOtr()
 {
-    // TODO
+    // TODO missing roomId/userId I think
+    Q_EMIT closeOtr();
 }
 
 void OtrWidget::slotRefreshKeys()
 {
-    // TODO
+    // TODO missing roomId/userId I think
+    Q_EMIT refreshKeys();
 }
