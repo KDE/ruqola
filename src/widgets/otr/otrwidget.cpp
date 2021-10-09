@@ -20,15 +20,35 @@
 
 #include "otrwidget.h"
 
+#include <KLocalizedString>
+#include <QAction>
+
 OtrWidget::OtrWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
-    // TODO Add button for ending otr/refresh keys
+
+    auto endOtrAction = new QAction(i18n("End OTR"), this);
+    endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
+    connect(endOtrAction, &QAction::triggered, this, &OtrWidget::slotCloseOtr);
+
+    auto refreshKeysAction = new QAction(i18n("Refresh Keys"), this);
+    refreshKeysAction->setObjectName(QStringLiteral("refreshKeysAction"));
+    connect(refreshKeysAction, &QAction::triggered, this, &OtrWidget::slotRefreshKeys);
 }
 
 OtrWidget::~OtrWidget()
 {
+}
+
+void OtrWidget::slotCloseOtr()
+{
+    // TODO
+}
+
+void OtrWidget::slotRefreshKeys()
+{
+    // TODO
 }

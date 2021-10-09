@@ -29,4 +29,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT OtrWidget : public KMessageWidget
 public:
     explicit OtrWidget(QWidget *parent = nullptr);
     ~OtrWidget() override;
+
+private:
+    void slotCloseOtr();
+    void slotRefreshKeys();
 };
