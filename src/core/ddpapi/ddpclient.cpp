@@ -60,6 +60,13 @@ void unblock_user(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void otr_end(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Otr End:") + QJsonDocument(root).toJson());
+    }
+}
+
 void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -367,6 +374,12 @@ quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, m_uid);
     return method(result, unblock_user, DDPClient::Persistent);
+}
+
+quint64 DDPClient::streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(userFrom, userTo, m_uid);
+    return method(result, otr_end, DDPClient::Persistent);
 }
 
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
