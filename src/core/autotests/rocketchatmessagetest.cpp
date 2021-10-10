@@ -139,6 +139,14 @@ void RocketChatMessageTest::unBlockUser()
     compareFile(r.result, QStringLiteral("unBlockUser"));
 }
 
+void RocketChatMessageTest::streamNotifyUserOtrEnd()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.streamNotifyUserOtrEnd(QStringLiteral("userFrom"), QStringLiteral("userTo"), 43);
+    compareFile(r.result, QStringLiteral("streamNotifyUserOtrEnd"));
+}
+
 void RocketChatMessageTest::deleteFileMessage()
 {
     RocketChatMessage m;

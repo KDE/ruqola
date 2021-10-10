@@ -54,6 +54,8 @@ private Q_SLOTS:
     void unBlockUser();
     void deleteFileMessage();
 
+    void streamNotifyUserOtrEnd();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };
