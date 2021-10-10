@@ -56,6 +56,8 @@ private Q_SLOTS:
 
     void streamNotifyUserOtrEnd();
 
+    void streamNotifyUserOtrHandshake();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };
