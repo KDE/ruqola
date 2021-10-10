@@ -64,6 +64,9 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);

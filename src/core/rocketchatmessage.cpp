@@ -232,3 +232,13 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOt
     const QJsonArray params{QStringLiteral("%1/otr").arg(userFrom), QStringLiteral("end"), endObject};
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 }
+
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id)
+{
+    // TODO use publickeys
+    const QJsonObject endObject{{QStringLiteral("roomId"), QStringLiteral("%1%2").arg(userTo, userFrom)}, {QStringLiteral("userId"), userTo}};
+
+    const QJsonArray params{QStringLiteral("%1/otr").arg(userFrom), QStringLiteral("handshake"), endObject};
+    return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
+}
