@@ -19,7 +19,8 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
+
 #include <QDebug>
 #include <QJsonArray>
 
@@ -28,7 +29,7 @@ struct CryptoSettings {
     Q_REQUIRED_RESULT bool operator==(const CryptoSettings &other) const;
 };
 
-class LIBRUQOLACORE_TESTS_EXPORT Otr
+class LIBRUQOLACORE_EXPORT Otr
 {
     Q_GADGET
 public:
