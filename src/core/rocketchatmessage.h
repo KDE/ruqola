@@ -22,6 +22,7 @@
 
 #include "libruqola_private_export.h"
 #include "user.h"
+#include <QDebug>
 #include <QJsonDocument>
 #include <QString>
 class QDateTime;
@@ -68,7 +69,7 @@ public:
     streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrAcknowledge(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
+    streamNotifyUserOtrAcknowledge(const QString &userId, const QString &roomId, const QString &publicKeys, quint64 id);
 
 private:
     Q_DISABLE_COPY(RocketChatMessage)
@@ -79,3 +80,4 @@ private:
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
 };
 
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);

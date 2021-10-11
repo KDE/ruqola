@@ -244,11 +244,22 @@ RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::streamNotifyUserOtrAcknowledge(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id)
+RocketChatMessage::streamNotifyUserOtrAcknowledge(const QString &userId, const QString &roomId, const QString &publicKeys, quint64 id)
 {
-    const QJsonObject endObject{{QStringLiteral("roomId"), QStringLiteral("%1%2").arg(userTo, userFrom)},
-                                {QStringLiteral("userId"), userTo},
-                                {QStringLiteral("publicKey"), publicKeys}};
-    const QJsonArray params{QStringLiteral("%1/otr").arg(userFrom), QStringLiteral("acknowledge"), endObject};
+    const QJsonObject endObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}, {QStringLiteral("publicKey"), publicKeys}};
+    const QJsonArray params{QStringLiteral("%1/otr").arg(userId), QStringLiteral("acknowledge"), endObject}; // TODO verify userId
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
+#if 0
+    {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{\\\"crv\\\":\\\"P-256\\\",\\\"ext\\\":true,\\\"key_ops\\\":[],\\\"kty\\\":\\\"EC\\\",\\\"x\\\":\\\"Jg7HgVygchsJSpGc1N36I7-4xlIF2Y4kBB0cKoT5rW8\\\",\\\"y\\\":\\\"rhdmHfXGihoZI0eBL1lADOm3FGrQ3qO6y2rXuV9YNC8\\\"}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\"}]}"
+    {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB4faACeGzSvG7xMcTy\",\"userId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\"}]}
+    {\"msg\":\"method\",\"id\":\"22\",\"method\":\"stream-notify-user\",\"params\":[\"YbwG4T2uB3wZSZSKB/otr\",\"acknowledge\",{\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\",\"publicKey\":\"{
+#endif
+}
+
+QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t)
+{
+    d << "json: " << t.jsonDocument;
+    d << "method: " << t.method;
+    d << "result: " << t.result;
+    return d;
 }
