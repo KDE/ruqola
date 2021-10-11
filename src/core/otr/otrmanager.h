@@ -19,12 +19,12 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "otr.h"
 #include <QJsonArray>
 #include <QObject>
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT OtrManager : public QObject
+class LIBRUQOLACORE_EXPORT OtrManager : public QObject
 {
     Q_OBJECT
 public:
