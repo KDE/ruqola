@@ -6,6 +6,7 @@
         "userFrom/otr",
         "handshake",
         {
+            "publicKey": "publickeys",
             "roomId": "userTouserFrom",
             "userId": "userTo"
         }
