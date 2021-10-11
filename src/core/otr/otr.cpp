@@ -71,6 +71,7 @@ void Otr::parseOtr(const QJsonArray &contents)
 void Otr::parseCryptoSettings(const QString &publicKey)
 {
     qDebug() << " parseCryptoSettings " << publicKey;
+    mCrypto.mCrypt = publicKey;
 
     // TODO parse it.
 }
@@ -112,7 +113,7 @@ QDebug operator<<(QDebug d, const Otr &t)
 
 QDebug operator<<(QDebug d, const CryptoSettings &t)
 {
-    d << "isValid: " << t.mCrypt;
+    d << "mCrypt: " << t.mCrypt;
     return d;
 }
 
