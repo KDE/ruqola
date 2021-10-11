@@ -130,22 +130,24 @@ void OtrNotificationJob::slotActivateNotificationAction(unsigned int val)
     case 0:
         break;
     case 1:
-        rejectOtr();
+        slotRejectOtr();
         break;
     case 2:
-        acceptOtr();
+        slotAcceptOtr();
         break;
     }
 }
 
-void OtrNotificationJob::acceptOtr()
+void OtrNotificationJob::slotAcceptOtr()
 {
+    Q_EMIT acceptOtr(mOtr);
     qDebug() << " void OtrNotificationJob::acceptOtr()";
     deleteLater();
 }
 
-void OtrNotificationJob::rejectOtr()
+void OtrNotificationJob::slotRejectOtr()
 {
+    Q_EMIT rejectOtr(mOtr);
     qDebug() << " Reject ";
     deleteLater();
 }

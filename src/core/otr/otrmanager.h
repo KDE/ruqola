@@ -34,6 +34,8 @@ public:
 
 private:
     Q_DISABLE_COPY(OtrManager)
+    void slotAcceptOtr(const Otr &t);
+    void slotRejectOtr(const Otr &t);
     void slotActivateNotificationAction();
     RocketChatAccount *const mRocketChatAccount;
 };

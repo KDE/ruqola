@@ -38,10 +38,14 @@ public:
 
     void setRocketChatAccount(RocketChatAccount *account);
 
+Q_SIGNALS:
+    void acceptOtr(const Otr &t);
+    void rejectOtr(const Otr &t);
+
 private:
     void slotActivateNotificationAction(unsigned int val);
-    void acceptOtr();
-    void rejectOtr();
+    void slotAcceptOtr();
+    void slotRejectOtr();
     Q_REQUIRED_RESULT QString generateText();
     Otr mOtr;
     QPointer<RocketChatAccount> mRocketChatAccount;

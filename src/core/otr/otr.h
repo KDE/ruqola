@@ -61,6 +61,7 @@ public:
 
 private:
     void parseCryptoSettings(const QString &publicKey);
+    void extractRoomUser(const QJsonObject &obj);
     // TODO add crypto support
     QString mRoomId;
     QString mUserId;

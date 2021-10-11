@@ -18,7 +18,9 @@
 */
 
 #include "otrmanager.h"
+#include "ddpapi/ddpclient.h"
 #include "otrnotificationjob.h"
+#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 
@@ -41,7 +43,21 @@ void OtrManager::parseOtr(const QJsonArray &contents)
     Otr t;
     t.parseOtr(contents);
     auto job = new OtrNotificationJob(this);
+    connect(job, &OtrNotificationJob::acceptOtr, this, &OtrManager::slotAcceptOtr);
+    connect(job, &OtrNotificationJob::rejectOtr, this, &OtrManager::slotRejectOtr);
+
     job->setRocketChatAccount(mRocketChatAccount);
     job->setOtr(t);
     job->start();
+}
+
+void OtrManager::slotAcceptOtr(const Otr &t)
+{
+    // TODO mRocketChatAccount->ddp()->streamNotifyUserOtrHandshake();
+    // TODO
+}
+
+void OtrManager::slotRejectOtr(const Otr &t)
+{
+    // TODO
 }
