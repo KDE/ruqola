@@ -19,11 +19,10 @@
 */
 
 #pragma once
-
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT EmoticonModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:

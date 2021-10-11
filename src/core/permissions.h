@@ -19,12 +19,12 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "permission.h"
 #include <QJsonObject>
 #include <QVector>
 
-class LIBRUQOLACORE_TESTS_EXPORT Permissions
+class LIBRUQOLACORE_EXPORT Permissions
 {
 public:
     Permissions();
