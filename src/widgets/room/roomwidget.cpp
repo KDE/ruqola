@@ -779,5 +779,6 @@ void RoomWidget::slotTryReconnect()
 
 void RoomWidget::slotDisplayReconnectWidget(int seconds)
 {
-    mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
+    // Disable for the moment it seems to create some problems
+    // FIXME mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
 }
