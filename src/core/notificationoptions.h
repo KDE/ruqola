@@ -30,6 +30,7 @@ class LIBRUQOLACORE_EXPORT NotificationOptions
     Q_GADGET
 public:
     NotificationOptions();
+    NotificationOptions(const NotificationOptions &other) = default;
 
     enum NotificationType {
         Default = 0,
