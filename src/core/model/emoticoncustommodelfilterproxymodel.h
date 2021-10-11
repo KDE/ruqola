@@ -20,10 +20,10 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonCustomModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT EmoticonCustomModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
