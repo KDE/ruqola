@@ -1,0 +1,14 @@
+{
+    "id": "43",
+    "method": "stream-notify-user",
+    "msg": "method",
+    "params": [
+        "userFrom/otr",
+        "handshake",
+        {
+            "publicKey": "publickeys",
+            "roomId": "userTouserFrom",
+            "userId": "userTo"
+        }
+    ]
+}

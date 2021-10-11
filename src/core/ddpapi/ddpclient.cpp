@@ -388,6 +388,12 @@ quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
     return method(result, otr_end, DDPClient::Persistent);
 }
 
+quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &userFrom, const QString &userTo, const QString &publicKey)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(userFrom, userTo, publicKey, m_uid);
+    return method(result, otr_end, DDPClient::Persistent);
+}
+
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, m_uid);

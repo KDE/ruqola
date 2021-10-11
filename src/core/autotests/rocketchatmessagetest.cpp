@@ -156,6 +156,15 @@ void RocketChatMessageTest::streamNotifyUserOtrHandshake()
     compareFile(r.result, QStringLiteral("streamNotifyUserOtrHandshake"));
 }
 
+void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r =
+        m.streamNotifyUserOtrHandshake(QStringLiteral("userFrom"), QStringLiteral("userTo"), QStringLiteral("publickeys"), 43);
+    compareFile(r.result, QStringLiteral("streamNotifyUserOtrAcknowledge"));
+}
+
 void RocketChatMessageTest::deleteFileMessage()
 {
     RocketChatMessage m;
