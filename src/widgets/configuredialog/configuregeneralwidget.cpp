@@ -26,12 +26,12 @@
 
 ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
-    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set Accounts Online on Startup"), this))
-    , mShowImageByDefault(new QCheckBox(i18n("Show Images by Default"), this))
-    , mShowRoomAvatar(new QCheckBox(i18n("Show Room Avatar"), this))
-    , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark Room as Read When Clicking to Write a Reply"), this))
+    , mSetOnlineForAllAccount(new QCheckBox(i18n("Set accounts online on startup"), this))
+    , mShowImageByDefault(new QCheckBox(i18n("Show images by default"), this))
+    , mShowRoomAvatar(new QCheckBox(i18n("Show room avatar"), this))
+    , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark room as read when clicking to write a reply"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
-    , mEnableLogging(new QCheckBox(i18n("Enable Logging"), this))
+    , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
