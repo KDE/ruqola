@@ -62,4 +62,5 @@ void OtrManager::slotAcceptOtr(const Otr &t)
 void OtrManager::slotRejectOtr(const Otr &t)
 {
     // TODO add reject method.
+    qCDebug(RUQOLA_LOG) << " Otr rejected!";
 }
