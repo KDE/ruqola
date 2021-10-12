@@ -48,6 +48,7 @@
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
 
+#include "otr/otrwidget.h"
 #include "reconnectinfowidget.h"
 #include "roomcounterinfowidget.h"
 #include "roomquotemessagewidget.h"
@@ -73,6 +74,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
     , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
+    , mOtrWidget(new OtrWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -94,6 +96,10 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
 
     mRoomReconnectInfoWidget->setObjectName(QStringLiteral("mRoomReconnectInfoWidget"));
+
+    mOtrWidget->setObjectName(QStringLiteral("mOtrWidget"));
+    connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
+    connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
 
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
     roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
@@ -781,4 +787,14 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
 {
     // Disable for the moment it seems to create some problems
     // FIXME mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
+}
+
+void RoomWidget::slotCloseOtr()
+{
+    // TODO
+}
+
+void RoomWidget::slotRefreshOtrKeys()
+{
+    // TODO
 }

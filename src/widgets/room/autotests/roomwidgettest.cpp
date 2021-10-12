@@ -20,6 +20,7 @@
 
 #include "roomwidgettest.h"
 #include "model/roommodel.h"
+#include "otr/otrwidget.h"
 #include "rocketchataccount.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
@@ -91,6 +92,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto mUploadFileProgressStatusWidget = w.findChild<UploadFileProgressStatusWidget *>(QStringLiteral("mUploadFileProgressStatusWidget"));
     QVERIFY(mUploadFileProgressStatusWidget);
     QVERIFY(!mUploadFileProgressStatusWidget->isVisible());
+
+    auto mOtrWidget = w.findChild<OtrWidget *>(QStringLiteral("mOtrWidget"));
+    QVERIFY(mOtrWidget);
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)

@@ -47,6 +47,7 @@ void OtrWidget::slotCloseOtr()
 {
     // Need Otr here.
     // TODO missing roomId/userId I think
+    // mRocketChatAccount->ddp()->streamNotifyUserOtrEnd(...);
     Q_EMIT closeOtr();
 }
 

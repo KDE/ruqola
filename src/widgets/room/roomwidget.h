@@ -35,6 +35,7 @@ class RoomCounterInfoWidget;
 class Room;
 class RoomWidgetBase;
 class ReconnectInfoWidget;
+class OtrWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -103,6 +104,8 @@ private:
     void slotTryReconnect();
     void slotDisplayReconnectWidget(int seconds);
     void slotLoginStatusChanged();
+    void slotCloseOtr();
+    void slotRefreshOtrKeys();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
@@ -113,6 +116,7 @@ private:
     UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *const mRoomReconnectInfoWidget;
+    OtrWidget *const mOtrWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
 
