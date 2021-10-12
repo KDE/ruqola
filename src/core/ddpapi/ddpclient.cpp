@@ -385,6 +385,7 @@ quint64 DDPClient::streamNotifyUserOtrEnd(const QString &userFrom, const QString
 quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, m_uid);
+    qDebug() << " result " << result;
     return method(result, otr_end, DDPClient::Persistent);
 }
 
