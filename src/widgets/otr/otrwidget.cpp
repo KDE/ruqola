@@ -32,28 +32,14 @@ OtrWidget::OtrWidget(QWidget *parent)
 
     auto endOtrAction = new QAction(i18n("End OTR"), this);
     endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
-    connect(endOtrAction, &QAction::triggered, this, &OtrWidget::slotCloseOtr);
+    connect(endOtrAction, &QAction::triggered, this, &OtrWidget::closeOtr);
 
     auto refreshKeysAction = new QAction(i18n("Refresh Keys"), this);
     refreshKeysAction->setObjectName(QStringLiteral("refreshKeysAction"));
-    connect(refreshKeysAction, &QAction::triggered, this, &OtrWidget::slotRefreshKeys);
+    connect(refreshKeysAction, &QAction::triggered, this, &OtrWidget::refreshKeys);
 }
 
 OtrWidget::~OtrWidget()
 {
 }
 
-void OtrWidget::slotCloseOtr()
-{
-    // Need Otr here.
-    // TODO missing roomId/userId I think
-    // mRocketChatAccount->ddp()->streamNotifyUserOtrEnd(...);
-    Q_EMIT closeOtr();
-}
-
-void OtrWidget::slotRefreshKeys()
-{
-    // Need Otr here.
-    // TODO missing roomId/userId I think
-    Q_EMIT refreshKeys();
-}

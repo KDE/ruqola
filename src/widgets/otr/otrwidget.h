@@ -33,8 +33,4 @@ public:
 Q_SIGNALS:
     void refreshKeys();
     void closeOtr();
-
-private:
-    void slotCloseOtr();
-    void slotRefreshKeys();
 };
