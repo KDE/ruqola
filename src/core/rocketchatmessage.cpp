@@ -225,11 +225,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
     return result;
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId, quint64 id)
 {
-    const QJsonObject endObject{{QStringLiteral("roomId"), QStringLiteral("%1%2").arg(userTo, userFrom)}, {QStringLiteral("userId"), userTo}};
-
-    const QJsonArray params{QStringLiteral("%1/otr").arg(userFrom), QStringLiteral("end"), endObject};
+    const QJsonObject endObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}};
+    QString otrId = roomId;
+    otrId = otrId.remove(userId);
+    const QJsonArray params{QStringLiteral("%1/otr").arg(otrId), QStringLiteral("end"), endObject};
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 }
 
