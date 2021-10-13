@@ -161,7 +161,7 @@ void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r =
-        m.streamNotifyUserOtrHandshake(QStringLiteral("userFrom"), QStringLiteral("userTo"), QStringLiteral("publickeys"), 43);
+        m.streamNotifyUserOtrAcknowledge(QStringLiteral("userFrom"), QStringLiteral("userTo"), QStringLiteral("publickeys"), 43);
     compareFile(r.result, QStringLiteral("streamNotifyUserOtrAcknowledge"));
 }
 

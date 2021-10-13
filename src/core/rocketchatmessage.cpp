@@ -247,8 +247,10 @@ RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKeys, quint64 id)
 {
-    const QJsonObject endObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}, {QStringLiteral("publicKey"), publicKeys}};
-    const QJsonArray params{QStringLiteral("%1/otr").arg(userId), QStringLiteral("acknowledge"), endObject}; // TODO verify userId
+    const QJsonObject acknowledgeObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}, {QStringLiteral("publicKey"), publicKeys}};
+    QString otrId = roomId;
+    otrId = otrId.remove(userId);
+    const QJsonArray params{QStringLiteral("%1/otr").arg(otrId), QStringLiteral("acknowledge"), acknowledgeObject};
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 #if 0
     {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{\\\"crv\\\":\\\"P-256\\\",\\\"ext\\\":true,\\\"key_ops\\\":[],\\\"kty\\\":\\\"EC\\\",\\\"x\\\":\\\"Jg7HgVygchsJSpGc1N36I7-4xlIF2Y4kBB0cKoT5rW8\\\",\\\"y\\\":\\\"rhdmHfXGihoZI0eBL1lADOm3FGrQ3qO6y2rXuV9YNC8\\\"}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\"}]}"

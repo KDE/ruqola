@@ -53,10 +53,8 @@ void OtrManager::parseOtr(const QJsonArray &contents)
 
 void OtrManager::slotAcceptOtr(const Otr &t)
 {
-    // TODO verify it.
-    // streamNotifyUserOtrHandshake
-    mRocketChatAccount->ddp()->streamNotifyUserOtrAcknowledge(t.userId(), t.roomId(), t.crypto().mCrypt);
-    // TODO
+    // We need to answer with own userId
+    mRocketChatAccount->ddp()->streamNotifyUserOtrAcknowledge(t.roomId(), mRocketChatAccount->userId(), t.crypto().mCrypt);
 }
 
 void OtrManager::slotRejectOtr(const Otr &t)

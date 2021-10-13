@@ -4,10 +4,10 @@
     "msg": "method",
     "params": [
         "userFrom/otr",
-        "handshake",
+        "acknowledge",
         {
             "publicKey": "publickeys",
-            "roomId": "userTouserFrom",
+            "roomId": "userFrom",
             "userId": "userTo"
         }
     ]
