@@ -62,6 +62,7 @@ void unblock_user(const QJsonObject &root, RocketChatAccount *account)
 
 void otr_end(const QJsonObject &root, RocketChatAccount *account)
 {
+    qDebug() << "otr_end  " << root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Otr End:") + QJsonDocument(root).toJson());
     }
@@ -376,16 +377,16 @@ quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
     return method(result, unblock_user, DDPClient::Persistent);
 }
 
-quint64 DDPClient::streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo)
+quint64 DDPClient::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(userFrom, userTo, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(roomId, userId, m_uid);
+    qDebug() << " result " << result;
     return method(result, otr_end, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, m_uid);
-    qDebug() << " result " << result;
     return method(result, otr_end, DDPClient::Persistent);
 }
 

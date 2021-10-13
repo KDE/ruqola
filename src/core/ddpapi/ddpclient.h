@@ -193,7 +193,7 @@ public:
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType);
     quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
     quint64 roomNameExists(const QString &roomId);
-    quint64 streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo);
+    quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QString &userFrom, const QString &userTo, const QString &publicKey);
 Q_SIGNALS:
