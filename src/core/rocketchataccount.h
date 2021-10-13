@@ -460,6 +460,8 @@ public:
     void updateAvatarCache(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT bool userIsOffline(const QString &name);
     Q_REQUIRED_RESULT QString userStatusStr(const QString &name);
+    Q_REQUIRED_RESULT OtrManager *otrManager() const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

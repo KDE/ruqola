@@ -245,7 +245,7 @@ RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::streamNotifyUserOtrAcknowledge(const QString &userId, const QString &roomId, const QString &publicKeys, quint64 id)
+RocketChatMessage::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKeys, quint64 id)
 {
     const QJsonObject endObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}, {QStringLiteral("publicKey"), publicKeys}};
     const QJsonArray params{QStringLiteral("%1/otr").arg(userId), QStringLiteral("acknowledge"), endObject}; // TODO verify userId

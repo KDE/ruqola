@@ -807,6 +807,11 @@ void RocketChatAccount::updateCustomEmojiList()
     mEmoticonCustomModel->setCustomEmojiList(customEmojiList);
 }
 
+OtrManager *RocketChatAccount::otrManager() const
+{
+    return mOtrManager;
+}
+
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
 {
     restApi()->deleteMessage(roomId, messageId);

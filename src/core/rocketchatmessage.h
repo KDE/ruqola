@@ -69,7 +69,7 @@ public:
     streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrAcknowledge(const QString &userId, const QString &roomId, const QString &publicKeys, quint64 id);
+    streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKeys, quint64 id);
 
 private:
     Q_DISABLE_COPY(RocketChatMessage)

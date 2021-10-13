@@ -390,9 +390,10 @@ quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
     return method(result, otr_end, DDPClient::Persistent);
 }
 
-quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &userFrom, const QString &userTo, const QString &publicKey)
+quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(userFrom, userTo, publicKey, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, m_uid);
+    qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
     return method(result, otr_end, DDPClient::Persistent);
 }
 
