@@ -6,7 +6,7 @@
         "userFrom/otr",
         "end",
         {
-            "roomId": "userTouserFrom",
+            "roomId": "userFrom",
             "userId": "userTo"
         }
     ]
