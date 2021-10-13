@@ -46,6 +46,7 @@ void OtrManager::parseOtr(const QJsonArray &contents)
     connect(job, &OtrNotificationJob::acceptOtr, this, &OtrManager::slotAcceptOtr);
     connect(job, &OtrNotificationJob::rejectOtr, this, &OtrManager::slotRejectOtr);
     connect(job, &OtrNotificationJob::acknowLedgeOtr, this, &OtrManager::slotAcknowLedgeOtr);
+    connect(job, &OtrNotificationJob::endOtr, this, &OtrManager::slotEndOtr);
 
     job->setRocketChatAccount(mRocketChatAccount);
     job->setOtr(t);
@@ -69,4 +70,9 @@ void OtrManager::slotAcknowLedgeOtr(const Otr &t)
     // TODO add slotAcknowLedgeOtr method.
     mOtrList.append(t);
     qCDebug(RUQOLA_LOG) << "AcknowLedge Otr!";
+}
+
+void OtrManager::slotEndOtr(const Otr &t)
+{
+    mOtrList.removeAll(t);
 }

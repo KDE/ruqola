@@ -62,6 +62,7 @@ void OtrNotificationJob::start()
             notification->setIconName(QStringLiteral("network-connect"));
             notification->setText(generateText());
             notification->sendEvent();
+            Q_EMIT endOtr(mOtr);
             deleteLater();
             break;
         }

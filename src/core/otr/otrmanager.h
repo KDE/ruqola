@@ -37,6 +37,7 @@ private:
     void slotAcceptOtr(const Otr &t);
     void slotRejectOtr(const Otr &t);
     void slotAcknowLedgeOtr(const Otr &t);
+    void slotEndOtr(const Otr &t);
     void slotActivateNotificationAction();
     QList<Otr> mOtrList;
     RocketChatAccount *const mRocketChatAccount;

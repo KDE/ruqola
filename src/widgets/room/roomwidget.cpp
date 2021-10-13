@@ -792,7 +792,6 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
 
 void RoomWidget::slotCloseOtr()
 {
-    // TODO customize value! // Verify userId
     mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(roomId(), mCurrentRocketChatAccount->userId());
 }
 
