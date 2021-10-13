@@ -41,6 +41,7 @@ public:
 Q_SIGNALS:
     void acceptOtr(const Otr &t);
     void rejectOtr(const Otr &t);
+    void acknowLedgeOtr(const Otr &t);
 
 private:
     void slotActivateNotificationAction(unsigned int val);

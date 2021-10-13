@@ -88,7 +88,7 @@ void OtrNotificationJob::start()
             break;
         }
         case Otr::OtrType::AcknowLedge:
-            // TODO accept OTR => we need to inform ruqolaaccount
+            Q_EMIT acknowLedgeOtr(mOtr);
             deleteLater();
             break;
         }
