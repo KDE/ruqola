@@ -101,6 +101,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
     connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
 
+    roomWidgetLayout->addWidget(mOtrWidget);
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
     roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
 
@@ -791,6 +792,8 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
 
 void RoomWidget::slotCloseOtr()
 {
+    qDebug() << " sssssssssssssssssssssss";
+    mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(QStringLiteral("4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB"), QStringLiteral("4faACeGzSvG7xMcTy"));
     // TODO
 }
 
