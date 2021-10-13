@@ -33,10 +33,12 @@ OtrWidget::OtrWidget(QWidget *parent)
     auto endOtrAction = new QAction(i18n("End OTR"), this);
     endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
     connect(endOtrAction, &QAction::triggered, this, &OtrWidget::closeOtr);
+    addAction(endOtrAction);
 
     auto refreshKeysAction = new QAction(i18n("Refresh Keys"), this);
     refreshKeysAction->setObjectName(QStringLiteral("refreshKeysAction"));
     connect(refreshKeysAction, &QAction::triggered, this, &OtrWidget::refreshKeys);
+    addAction(refreshKeysAction);
 }
 
 OtrWidget::~OtrWidget()
