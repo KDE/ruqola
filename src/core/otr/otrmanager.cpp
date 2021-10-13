@@ -67,5 +67,6 @@ void OtrManager::slotRejectOtr(const Otr &t)
 void OtrManager::slotAcknowLedgeOtr(const Otr &t)
 {
     // TODO add slotAcknowLedgeOtr method.
+    mOtrList.append(t);
     qCDebug(RUQOLA_LOG) << "AcknowLedge Otr!";
 }
