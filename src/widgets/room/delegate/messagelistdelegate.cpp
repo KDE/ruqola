@@ -119,6 +119,13 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
     }
 }
 
+bool MessageListDelegate::showIgnoreMessages(const QModelIndex &index) const
+{
+    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
+    const bool isDirectMessage = index.data(MessageModel::DirectChannels).toBool();
+    return isIgnoredMessage && !isDirectMessage;
+}
+
 // [Optional date header]
 // [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
 //                                                                  <attachments>
@@ -187,9 +194,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     }
 
     const int showIgnoreMessageIconX = textLeft;
-    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
     // showIgnoreMessage icon
-    if (isIgnoredMessage) {
+    const bool ignoreMessage = showIgnoreMessages(index);
+    if (ignoreMessage) {
         textLeft += iconSize + margin;
     }
 
@@ -238,7 +245,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         layout.translatedIconRect = QRect(translatedIconX, layout.senderRect.y(), iconSize, iconSize);
     }
 
-    if (isIgnoredMessage) {
+    if (ignoreMessage) {
         layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, layout.senderRect.y(), iconSize, iconSize);
         layout.showIgnoreMessage = index.data(MessageModel::ShowIgnoredMessage).toBool();
     }
@@ -427,8 +434,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
-    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
-    if (isIgnoredMessage) {
+    if (showIgnoreMessages(index)) {
         const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.showIgnoredMessageIconRect);
     }
@@ -563,8 +569,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 return true;
             }
         }
-        const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
-        if (isIgnoredMessage) {
+        if (showIgnoreMessages(index)) {
             if (layout.showIgnoredMessageIconRect.contains(mev->pos())) {
                 mHelperText->removeMessageCache(message->messageId());
                 auto *model = const_cast<QAbstractItemModel *>(index.model());

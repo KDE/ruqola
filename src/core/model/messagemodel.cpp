@@ -350,6 +350,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case MessageModel::Ignored:
         return mRoom && mRoom->userIsIgnored(message.userId());
+    case MessageModel::DirectChannels:
+        return mRoom && (mRoom->channelType() == Room::RoomType::Direct);
     case MessageModel::Pinned:
         return message.messagePinned().pinned();
     case MessageModel::DiscussionCount:
@@ -409,8 +411,10 @@ QString MessageModel::convertedText(const Message &message) const
     } else {
         QStringList highlightWords;
         if (mRoom) {
-            if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
-                return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+            if (mRoom && (mRoom->channelType() != Room::RoomType::Direct)) { // We can't ignore message but we can block user in direct message
+                if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
+                    return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+                }
             }
             highlightWords = mRoom->highlightsWord();
         }

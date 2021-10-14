@@ -86,6 +86,7 @@ public:
         PendingMessage,
         ShowIgnoredMessage,
         MessageInEditMode,
+        DirectChannels,
     };
     Q_ENUM(MessageRoles)
 

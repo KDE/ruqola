@@ -69,6 +69,7 @@ public:
     void clearTextDocumentCache();
 
 private:
+    Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
     struct Layout {
