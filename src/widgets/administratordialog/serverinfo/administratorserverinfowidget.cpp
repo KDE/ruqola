@@ -94,12 +94,16 @@ void AdministratorServerInfoWidget::slotRefreshInfo()
 void AdministratorServerInfoWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
-    serverInfoJob->setForceRequiresAuthentication(true);
-    rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
-    connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone, this, &AdministratorServerInfoWidget::slotServerInfoDone);
-    if (!serverInfoJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
+    if (!rcAccount->ruqolaServerConfig()->hasAtLeastVersion(4, 0, 0)) {
+        auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
+        serverInfoJob->setForceRequiresAuthentication(true);
+        rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
+        connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone, this, &AdministratorServerInfoWidget::slotServerInfoDone);
+        if (!serverInfoJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
+        }
+    } else {
+        loadStatisticInfo(false);
     }
 }
 
