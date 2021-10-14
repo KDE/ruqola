@@ -44,7 +44,6 @@ void EmojiCustomCreateJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.create")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void EmojiCustomCreateJobTest::shouldGenerateJson()
