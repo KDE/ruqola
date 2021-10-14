@@ -31,14 +31,11 @@ AdministratorInvitesFilterProxyModel::~AdministratorInvitesFilterProxyModel()
 
 bool AdministratorInvitesFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-// TODO fix it.
-#if 0
     const int leftColumn{left.column()};
-    if (leftColumn == AdminInviteModel::LastMessageStr) {
-        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminInviteModel::LastMessageDateTime);
-        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminInviteModel::LastMessageDateTime);
+    if (leftColumn == AdminInviteModel::CreateStr) {
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminInviteModel::Create);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminInviteModel::Create);
         return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-#endif
     return DirectoryBaseFilterProxyModel::lessThan(left, right);
 }

@@ -58,6 +58,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     // Hide not useful columns
     mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
     mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
+    mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::Create, true);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget()

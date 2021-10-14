@@ -48,6 +48,7 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
             break;
         case AdminInviteModel::Identifier:
             return i18n("Token");
+        case AdminInviteModel::CreateStr:
         case AdminInviteModel::Create:
             return i18n("Created at");
         case AdminInviteModel::Uses:
@@ -105,6 +106,8 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     case AdminInviteModel::RoomId:
         return inviteInfo.roomId();
     case AdminInviteModel::Create:
+        return inviteInfo.createDateTime();
+    case AdminInviteModel::CreateStr:
         return inviteInfo.createDateTime().toString();
     case AdminInviteModel::Uses:
         return inviteInfo.uses();

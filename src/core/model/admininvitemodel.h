@@ -33,6 +33,7 @@ public:
         Identifier,
         RoomId,
         Create,
+        CreateStr,
         Expire,
         Uses,
         MaxUses,
