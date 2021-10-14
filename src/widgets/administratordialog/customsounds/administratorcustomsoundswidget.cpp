@@ -121,13 +121,13 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
 
 void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &index)
 {
-    // TODO
+    const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
+    const QString soundIdentifier = modelIndex.data().toString();
+    qDebug() << " soundIdentifier " << soundIdentifier;
 }
 
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    // Comment for the moment. there is not restapi yet.
-    return;
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
