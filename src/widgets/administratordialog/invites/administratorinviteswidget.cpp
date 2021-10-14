@@ -19,6 +19,7 @@
 */
 
 #include "administratorinviteswidget.h"
+#include "administratorinvitesfilterproxymodel.h"
 #include "connection.h"
 #include "invite/listinvitejob.h"
 #include "invite/removeinvitejob.h"
@@ -38,7 +39,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
 {
-    mAdminInviteFilterProxyModel = new DirectoryBaseFilterProxyModel(mAdminInviteModel, this);
+    mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
     mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
 
     auto mainLayout = new QVBoxLayout(this);
