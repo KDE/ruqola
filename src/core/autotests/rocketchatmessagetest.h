@@ -60,6 +60,8 @@ private Q_SLOTS:
 
     void streamNotifyUserOtrAcknowledge();
 
+    void deleteCustomSound();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

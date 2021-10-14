@@ -172,3 +172,11 @@ void RocketChatMessageTest::deleteFileMessage()
     RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QStringLiteral("fileid"), 43);
     compareFile(r.result, QStringLiteral("deleteFileMessage"));
 }
+
+void RocketChatMessageTest::deleteCustomSound()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound(QStringLiteral("identifier"), 43);
+    compareFile(r.result, QStringLiteral("deleteCustomSound"));
+}

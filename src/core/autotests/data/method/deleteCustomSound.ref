@@ -1,0 +1,8 @@
+{
+    "id": "43",
+    "method": "deleteCustomSound",
+    "msg": "method",
+    "params": [
+        "identifier"
+    ]
+}

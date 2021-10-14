@@ -58,6 +58,13 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(const QString &identifier, quint64 id)
+{
+    const QJsonArray params{{identifier}};
+
+    return generateMethod(QStringLiteral("deleteCustomSound"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{

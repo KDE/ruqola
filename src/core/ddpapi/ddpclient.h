@@ -196,6 +196,7 @@ public:
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey);
+    quint64 deleteCustomSound(const QString &identifier);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();
