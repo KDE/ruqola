@@ -205,6 +205,7 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/users/administratoradduserwidget.cpp
 
     administratordialog/invites/administratorinviteswidget.cpp
+    administratordialog/invites/administratorinvitesfilterproxymodel.cpp
     administratordialog/invites/invitetreeview.cpp
 
     administratordialog/logs/viewlogwidget.cpp

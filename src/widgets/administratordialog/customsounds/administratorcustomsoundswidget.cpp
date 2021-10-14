@@ -123,6 +123,9 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
 {
     const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
     const QString soundIdentifier = modelIndex.data().toString();
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    rcAccount->ddp()->deleteCustomSound(soundIdentifier);
+    // TODO update list.
     qDebug() << " soundIdentifier " << soundIdentifier;
 }
 

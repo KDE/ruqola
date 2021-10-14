@@ -146,12 +146,12 @@ RocketChatBackend::~RocketChatBackend()
 // TODO load public info even if we are not connected.
 void RocketChatBackend::slotConnectedChanged()
 {
-    if (!mRocketChatAccount->ddp()->isConnected()) {
+    auto ddp = mRocketChatAccount->ddp();
+    if (!ddp->isConnected()) {
         return;
     }
 
     auto restApi = mRocketChatAccount->restApi();
-    auto ddp = mRocketChatAccount->ddp();
 
     restApi->serverInfo(false);
     connect(restApi, &RocketChatRestApi::Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
@@ -557,11 +557,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     } else if (collection == QLatin1String("stream-notify-all")) {
         QJsonObject fields = object.value(QLatin1String("fields")).toObject();
         const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         if (eventname == QLatin1String("deleteCustomSound")) {
-            // TODO
-            qDebug() << " NEED TO IMPLEMENT stream-notify-all deleteCustomSound " << object;
+            mRocketChatAccount->deleteCustomSound(contents);
         } else if (eventname == QLatin1String("updateCustomSound")) {
-            qDebug() << " NEED TO IMPLEMENT stream-notify-all updateCustomSound " << object;
+            mRocketChatAccount->updateCustomSound(contents);
         } else {
             qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
         }

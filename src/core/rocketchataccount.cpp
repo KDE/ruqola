@@ -1489,6 +1489,16 @@ void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
     emojiManager()->deleteEmojiCustom(replyArray);
 }
 
+void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
+{
+    // TODO
+}
+
+void RocketChatAccount::updateCustomSound(const QJsonArray &replyArray)
+{
+    // TODO
+}
+
 void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
 {
     qDebug() << " void RocketChatAccount::deleteUser(const QJsonObject &replyObject)" << replyArray;

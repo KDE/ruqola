@@ -462,6 +462,10 @@ public:
     Q_REQUIRED_RESULT QString userStatusStr(const QString &name);
     Q_REQUIRED_RESULT OtrManager *otrManager() const;
 
+    // Custom Sound
+    void deleteCustomSound(const QJsonArray &replyArray);
+    void updateCustomSound(const QJsonArray &replyArray);
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

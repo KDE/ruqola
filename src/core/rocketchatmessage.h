@@ -73,6 +73,8 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult deleteCustomSound(const QString &identifier, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult uploadCustomSound(const QByteArray &sound, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);

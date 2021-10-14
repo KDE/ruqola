@@ -67,6 +67,13 @@ void delete_custom_sound(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void update_custom_sound(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Custom Sound:") + QJsonDocument(root).toJson());
+    }
+}
+
 void otr_end(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << "otr_end  " << root;
@@ -388,6 +395,12 @@ quint64 DDPClient::deleteCustomSound(const QString &identifier)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteCustomSound(identifier, m_uid);
     return method(result, delete_custom_sound, DDPClient::Persistent);
+}
+
+quint64 DDPClient::uploadCustomSound(const QByteArray &sound)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->uploadCustomSound(sound, m_uid);
+    return method(result, update_custom_sound, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId)

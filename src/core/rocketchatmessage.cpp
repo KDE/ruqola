@@ -58,6 +58,14 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(const QByteArray &sound, quint64 id)
+{
+    // TODO fix me
+    const QJsonArray params{{}};
+
+    return generateMethod(QStringLiteral("uploadCustomSound"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(const QString &identifier, quint64 id)
 {
     const QJsonArray params{{identifier}};
