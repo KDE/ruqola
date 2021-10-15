@@ -665,7 +665,7 @@ void RocketChatBackend::slotUserIDChanged()
         const QJsonArray params{QJsonValue(QStringLiteral("public-settings-changed")), {true}};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
-    {
+    { // Verify it
         const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed")), {true}};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -709,6 +709,14 @@ void RocketChatBackend::slotUserIDChanged()
     }
     {
         const QJsonArray params{QJsonValue(QStringLiteral("user-status")), {true}};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed")), {true}};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("private-settings-changed")), {true}};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
 }
