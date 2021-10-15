@@ -275,7 +275,7 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoIte
 
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
-    // qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
+    qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
     delete mServerInfoItem;
     mServerInfoItem = new QTreeWidgetItem(mTreeWidget);
     mServerInfoItem->setText(0, i18n("Server Info"));

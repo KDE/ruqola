@@ -305,4 +305,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::TeamsConvertToChannel), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.convertToChannel")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsGet), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.get")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesGet), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.get")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.maxActiveUsers")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesAdd), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.add")));
 }

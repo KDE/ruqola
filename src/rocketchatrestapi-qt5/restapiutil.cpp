@@ -488,6 +488,12 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("oauth-apps.list");
     case RestApiUtil::RestApiUrlType::OauthAppsGet:
         return QStringLiteral("oauth-apps.get");
+    case RestApiUtil::RestApiUrlType::LicensesGet:
+        return QStringLiteral("licenses.get");
+    case RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers:
+        return QStringLiteral("licenses.maxActiveUsers");
+    case RestApiUtil::RestApiUrlType::LicensesAdd:
+        return QStringLiteral("licenses.add");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

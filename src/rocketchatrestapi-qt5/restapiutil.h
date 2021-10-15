@@ -283,6 +283,11 @@ enum class RestApiUrlType {
 
     OauthAppsList,
     OauthAppsGet,
+
+    // License
+    LicensesGet,
+    LicensesMaxActiveUsers,
+    LicensesAdd,
 };
 LIBROCKETCHATRESTAPI_QT5_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
