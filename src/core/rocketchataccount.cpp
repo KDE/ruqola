@@ -1492,7 +1492,16 @@ void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
     qDebug() << " deleteCustomSound " << replyArray;
-    // TODO
+    // TODO move it in sound custom manager when we create it.
+    const int count{replyArray.count()};
+    for (int i = 0; i < count; ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
+        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        if (!identifier.isEmpty()) {
+            Q_EMIT customSoundRemoved(identifier);
+        }
+    }
 }
 
 void RocketChatAccount::updateCustomSound(const QJsonArray &replyArray)

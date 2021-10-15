@@ -48,10 +48,17 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent
     hideColumns();
     connectModel();
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomSoundsWidget::slotModifyCustomSound);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    connect(rcAccount, &RocketChatAccount::customSoundRemoved, this, &AdministratorCustomSoundsWidget::slotCustomSoundRemoved);
 }
 
 AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
 {
+}
+
+void AdministratorCustomSoundsWidget::slotCustomSoundRemoved(const QString &identifier)
+{
+    mModel->removeElement(identifier);
 }
 
 void AdministratorCustomSoundsWidget::updateLabel()

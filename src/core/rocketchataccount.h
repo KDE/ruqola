@@ -508,6 +508,7 @@ Q_SIGNALS:
     void updateStatusComboBox();
     void permissionChanged();
     void displayReconnectWidget(int seconds);
+    void customSoundRemoved(const QString &identifier);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

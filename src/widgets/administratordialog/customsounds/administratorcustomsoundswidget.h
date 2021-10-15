@@ -40,5 +40,6 @@ private:
     void slotModifyCustomSound(const QModelIndex &index);
     void slotAddCustomSound();
     void slotRemoveCustomSound(const QModelIndex &index);
+    void slotCustomSoundRemoved(const QString &identifier);
 };
 
