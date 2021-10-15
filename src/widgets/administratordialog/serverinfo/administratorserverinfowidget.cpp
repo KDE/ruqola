@@ -20,6 +20,7 @@
 
 #include "administratorserverinfowidget.h"
 #include "connection.h"
+#include "license/licenseslistjob.h"
 #include "misc/statisticsjob.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -103,6 +104,7 @@ void AdministratorServerInfoWidget::initialize()
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
         }
     } else {
+        loadLicensesInfo();
         loadStatisticInfo(false);
     }
 }
@@ -115,6 +117,47 @@ void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInf
     // qDebug() << " info " << mServerInfo;
     loadStatisticInfo(false);
     loadServerInfo();
+}
+
+void AdministratorServerInfoWidget::loadLicensesInfo()
+{
+    auto licenseInfoJob = new RocketChatRestApi::LicensesListJob(this);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    rcAccount->restApi()->initializeRestApiJob(licenseInfoJob);
+    connect(licenseInfoJob, &RocketChatRestApi::LicensesListJob::licensesListDone, this, &AdministratorServerInfoWidget::slotLicensesListDone);
+    if (!licenseInfoJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesListJob";
+    }
+}
+
+void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
+{
+    // Load Statistic after loading licenses info
+    fillLicenses(obj);
+    loadStatisticInfo(false);
+}
+
+void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
+{
+    QStringList listLicences;
+    const QJsonArray licenses = obj.value(QStringLiteral("licenses")).toArray();
+    for (auto a : licenses) {
+        listLicences.append(a.toString());
+    }
+    auto licenseItem = new QTreeWidgetItem(mTreeWidget);
+    licenseItem->setText(0, i18n("Licenses"));
+    createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains(QStringLiteral("livechat-enterprise")));
+    createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(QStringLiteral("auditing")));
+    createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(QStringLiteral("canned-responses")));
+    createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(QStringLiteral("engagement-dashboard")));
+}
+
+void AdministratorServerInfoWidget::createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid)
+{
+    auto item = new QTreeWidgetItem(licenseInfoItem);
+    item->setText(0, name);
+    item->setIcon(0, valid ? QIcon::fromTheme(QStringLiteral("dialog-ok-apply")) : QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    licenseInfoItem->addChild(item);
 }
 
 void AdministratorServerInfoWidget::loadStatisticInfo(bool refresh)
@@ -275,7 +318,6 @@ void AdministratorServerInfoWidget::parseBuildInfo(QTreeWidgetItem *buildInfoIte
 
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
 {
-    qDebug() << "AdministratorServerInfoWidget::slotStatisticDone " << obj;
     delete mServerInfoItem;
     mServerInfoItem = new QTreeWidgetItem(mTreeWidget);
     mServerInfoItem->setText(0, i18n("Server Info"));

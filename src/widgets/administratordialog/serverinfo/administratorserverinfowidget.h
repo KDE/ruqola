@@ -46,11 +46,15 @@ private:
     void slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj);
     void createItemDisplayFormat(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void initialize();
+    void slotLicensesListDone(const QJsonObject &obj);
     void slotStatisticDone(const QJsonObject &obj);
     void slotRefreshInfo();
     void loadStatisticInfo(bool refresh);
     void loadServerInfo();
+    void loadLicensesInfo();
+    void fillLicenses(const QJsonObject &obj);
     void slotContextMenu(const QPoint &pos);
+    void createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid);
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
     QPushButton *const mRefreshButton;
