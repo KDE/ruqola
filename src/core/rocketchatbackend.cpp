@@ -640,7 +640,7 @@ void RocketChatBackend::slotUserIDChanged()
         const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar")), {true}};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
-    {
+    { // Verify as in RC we don't have it
         const QJsonArray params{QJsonValue(QStringLiteral("roles-change")), {true}};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
