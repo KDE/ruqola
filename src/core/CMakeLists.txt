@@ -141,6 +141,7 @@ target_sources(libruqolacore PRIVATE
 
     customsound/customsoundsinfo.cpp
     customsound/customsoundinfo.cpp
+    customsound/customsoundsmanager.cpp
 
     users.cpp
 
