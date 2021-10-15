@@ -19,7 +19,7 @@
 */
 
 #include "customsoundinfotest.h"
-#include "customsoundinfo.h"
+#include "customsound/customsoundinfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(CustomSoundInfoTest)
 CustomSoundInfoTest::CustomSoundInfoTest(QObject *parent)

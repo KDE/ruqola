@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include "autotranslatelanguages.h"
+#include "autotranslate/autotranslatelanguages.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 

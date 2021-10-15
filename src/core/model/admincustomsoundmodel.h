@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "customsoundsinfo.h"
+#include "customsound/customsoundsinfo.h"
 #include "directorybasemodel.h"
 #include "libruqolacore_export.h"
 

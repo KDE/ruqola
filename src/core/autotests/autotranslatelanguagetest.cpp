@@ -18,7 +18,7 @@
 */
 
 #include "autotranslatelanguagetest.h"
-#include "autotranslatelanguage.h"
+#include "autotranslate/autotranslatelanguage.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AutotranslateLanguageTest)
 

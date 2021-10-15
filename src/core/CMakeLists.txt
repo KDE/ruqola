@@ -125,8 +125,8 @@ target_sources(libruqolacore PRIVATE
     otr/otrmanager.cpp
     otr/otrnotificationjob.cpp
 
-    autotranslatelanguage.cpp
-    autotranslatelanguages.cpp
+    autotranslate/autotranslatelanguage.cpp
+    autotranslate/autotranslatelanguages.cpp
 
     command.cpp
     commands.cpp
@@ -138,7 +138,10 @@ target_sources(libruqolacore PRIVATE
 
     roominfo.cpp
     roomsinfo.cpp
-    customsoundsinfo.cpp
+
+    customsound/customsoundsinfo.cpp
+    customsound/customsoundinfo.cpp
+
     users.cpp
 
     authenticationinfo.cpp
@@ -228,8 +231,6 @@ target_sources(libruqolacore PRIVATE
     teamcompleter.cpp
 
     inviteinfo.cpp
-    customsoundinfo.cpp
-    customsoundsinfo.cpp
     ruqolacore.qrc
     managechannels.cpp
 )
