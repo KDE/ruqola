@@ -29,6 +29,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QLabel>
 #include <QMenu>
 #include <QPointer>
@@ -121,12 +122,13 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
 
 void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &index)
 {
-    const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
-    const QString soundIdentifier = modelIndex.data().toString();
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->ddp()->deleteCustomSound(soundIdentifier);
-    // TODO update list.
-    qDebug() << " soundIdentifier " << soundIdentifier;
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this sound?"), i18nc("@title", "Remove Custom Sound")) == KMessageBox::Yes) {
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
+        const QString soundIdentifier = modelIndex.data().toString();
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        rcAccount->ddp()->deleteCustomSound(soundIdentifier);
+        // TODO update list.
+    }
 }
 
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
