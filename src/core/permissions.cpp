@@ -70,7 +70,7 @@ void Permissions::parsePermissions(const QJsonObject &obj, const QString &str)
         if (r.isValid()) {
             mPermissions.append(r);
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid role" << permissionArray.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid permission: " << permissionArray.at(i).toObject();
         }
     }
 }
