@@ -131,3 +131,8 @@ QDebug operator<<(QDebug d, const CustomSoundsInfo &t)
     }
     return d;
 }
+
+CustomSoundInfo CustomSoundsInfo::takeAt(int index)
+{
+    return mCustomSoundInfos.takeAt(index);
+}

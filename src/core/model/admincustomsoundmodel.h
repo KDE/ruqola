@@ -52,6 +52,8 @@ public:
     const CustomSoundsInfo &customSounds() const;
     void setCustomSounds(const CustomSoundsInfo &newCustomSounds);
 
+    void removeElement(const QString &identifier) override;
+
 private:
     Q_DISABLE_COPY(AdminCustomSoundModel)
     void checkFullList();

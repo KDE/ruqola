@@ -53,6 +53,8 @@ public:
     const QVector<CustomSoundInfo> &customSoundInfos() const;
     void setCustomSoundInfos(const QVector<CustomSoundInfo> &newCustomSoundInfos);
 
+    CustomSoundInfo takeAt(int index);
+
 private:
     void parseListCustomSound(const QJsonObject &obj);
     QVector<CustomSoundInfo> mCustomSoundInfos;
