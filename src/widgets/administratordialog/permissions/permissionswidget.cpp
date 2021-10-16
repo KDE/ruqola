@@ -134,9 +134,11 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
-        modifyRoles(index);
+    if (index.isValid()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
+            modifyRoles(index);
+        }
     }
 }
 
