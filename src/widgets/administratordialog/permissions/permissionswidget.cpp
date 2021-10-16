@@ -61,6 +61,7 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
+    mTreeView->setColumnHidden(AdminPermissionsModel::Roles, true);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &PermissionsWidget::slotFilterTextChanged);
     connect(mTreeView, &QTreeView::doubleClicked, this, &PermissionsWidget::slotModifyDoubleClickRoles);
