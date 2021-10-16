@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "roleinfo.h"
 #include <QWidget>
 class PermissionsTreeView;
 class QLineEdit;
@@ -42,6 +43,8 @@ private:
     void slotFilterTextChanged(const QString &str);
     void slotModifyDoubleClickRoles(const QModelIndex &index);
     void modifyRoles(const QModelIndex &index);
+    void slotRolesListDone(const QJsonObject &obj);
+    QVector<RoleInfo> mRoleInfo;
     PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminPermissionsModel *const mAdminPermissionsModel;

@@ -57,7 +57,7 @@ void Permissions::setPermissions(const QVector<Permission> &roles)
     mPermissions = roles;
 }
 
-void Permissions::parsePermissions(const QJsonObject &obj, const QString &str)
+void Permissions::parsePermissions(const QJsonObject &obj, const QString &str, const QVector<RoleInfo> &roleInfo)
 {
     mPermissions.clear();
 
@@ -66,7 +66,7 @@ void Permissions::parsePermissions(const QJsonObject &obj, const QString &str)
     mPermissions.reserve(roleArrayCount);
     for (int i = 0; i < roleArrayCount; ++i) {
         Permission r;
-        r.parsePermission(permissionArray.at(i).toObject());
+        r.parsePermission(permissionArray.at(i).toObject(), roleInfo);
         if (r.isValid()) {
             mPermissions.append(r);
         } else {

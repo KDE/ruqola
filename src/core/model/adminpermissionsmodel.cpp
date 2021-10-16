@@ -45,6 +45,7 @@ QVariant AdminPermissionsModel::headerData(int section, Qt::Orientation orientat
         switch (static_cast<AdminPermissionsRoles>(section)) {
         case AdminPermissionsModel::Identifier:
             return i18n("Name");
+        case AdminPermissionsModel::RolesStr:
         case AdminPermissionsModel::Roles:
             return i18n("Roles");
         }
@@ -77,6 +78,11 @@ void AdminPermissionsModel::setPermissions(const Permissions &newPermissions)
     }
 }
 
+void AdminPermissionsModel::setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos)
+{
+    mListRoleInfos = newListRoleInfos;
+}
+
 QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mPermissions.count()) {
@@ -92,7 +98,9 @@ QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
     case AdminPermissionsModel::Identifier:
         return permissionInfo.identifier();
     case AdminPermissionsModel::Roles:
-        return permissionInfo.roles().join(QLatin1Char(','));
+        return permissionInfo.roles();
+    case AdminPermissionsModel::RolesStr:
+        return permissionInfo.rolesStr().join(QLatin1Char(','));
     }
     return {};
 }

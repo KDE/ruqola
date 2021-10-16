@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+#include "roleinfo.h"
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>
@@ -30,7 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Permission
 public:
     Permission();
 
-    void parsePermission(const QJsonObject &replyObject);
+    void parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo = {});
     Q_REQUIRED_RESULT QStringList roles() const;
     void setRoles(const QStringList &newRoles);
 
@@ -42,8 +43,11 @@ public:
     Q_REQUIRED_RESULT const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
+    Q_REQUIRED_RESULT const QStringList &rolesStr() const;
+
 private:
     qint64 mUpdatedAt = -1;
+    QStringList mRolesStr;
     QStringList mRoles;
     QString mIdentifier;
 };

@@ -26,7 +26,7 @@ Permission::Permission()
 {
 }
 
-void Permission::parsePermission(const QJsonObject &replyObject)
+void Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo)
 {
     // Don't store settings value.
     if (!replyObject.value(QLatin1String("settingId")).toString().isEmpty()) {
@@ -37,7 +37,14 @@ void Permission::parsePermission(const QJsonObject &replyObject)
     const QJsonArray roleArray = replyObject.value(QLatin1String("roles")).toArray();
     mRoles.reserve(roleArray.count());
     for (int i = 0; i < roleArray.count(); ++i) {
-        mRoles.append(roleArray.at(i).toString());
+        const QString role{roleArray.at(i).toString()};
+        mRoles.append(role);
+        for (const RoleInfo &info : roleInfo) {
+            if (role == info.identifier()) {
+                mRolesStr.append(info.name());
+                break;
+            }
+        }
     }
 }
 
@@ -76,9 +83,15 @@ void Permission::setIdentifier(const QString &newIdentifier)
     mIdentifier = newIdentifier;
 }
 
+const QStringList &Permission::rolesStr() const
+{
+    return mRolesStr;
+}
+
 QDebug operator<<(QDebug d, const Permission &t)
 {
     d << "roles : " << t.roles();
+    d << "rolesStr : " << t.rolesStr();
     d << "mUpdatedAt " << t.updatedAt();
     d << "mIdentifier " << t.identifier();
     return d;

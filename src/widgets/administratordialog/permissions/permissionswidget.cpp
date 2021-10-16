@@ -21,6 +21,7 @@
 #include "permissionswidget.h"
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/roleslistjob.h"
 #include "model/adminpermissionsmodel.h"
 #include "permissions.h"
 #include "permissions/permissionslistalljob.h"
@@ -28,6 +29,7 @@
 #include "permissionseditdialog.h"
 #include "permissionstreeview.h"
 #include "rocketchataccount.h"
+#include "roleinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -75,6 +77,29 @@ void PermissionsWidget::slotFilterTextChanged(const QString &str)
 
 void PermissionsWidget::initialize()
 {
+    // First load list of roles.
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    qDebug() << " void RolesComboBox::initialize()";
+    auto job = new RocketChatRestApi::RolesListJob(this);
+    rcAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, this, &PermissionsWidget::slotRolesListDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RolesListJob job";
+    }
+}
+
+void PermissionsWidget::slotRolesListDone(const QJsonObject &obj)
+{
+    const QJsonArray array = obj[QLatin1String("roles")].toArray();
+
+    mRoleInfo.reserve(array.count());
+    for (const QJsonValue &current : array) {
+        const QJsonObject roleObject = current.toObject();
+        RoleInfo info;
+        info.parseRoleInfo(roleObject);
+        mRoleInfo.append(info);
+    }
+
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto permissionsListAllJob = new RocketChatRestApi::PermissionsListAllJob(this);
     rcAccount->restApi()->initializeRestApiJob(permissionsListAllJob);
@@ -87,7 +112,7 @@ void PermissionsWidget::initialize()
 void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
 {
     Permissions p;
-    p.parsePermissions(obj);
+    p.parsePermissions(obj, {}, mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
     // qDebug() << "obj" << obj;
 }
@@ -119,7 +144,7 @@ void PermissionsWidget::modifyRoles(const QModelIndex &index)
 {
     const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
     const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
-    slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
+    slotEditRoles(modelIndex.data().toStringList(), identifier);
 }
 
 void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &identifier)
@@ -146,6 +171,6 @@ void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
     Permissions p;
-    p.parsePermissions(obj, QStringLiteral("permissions"));
+    p.parsePermissions(obj, QStringLiteral("permissions"), mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
 }

@@ -21,6 +21,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "permission.h"
+#include "roleinfo.h"
 #include <QJsonObject>
 #include <QVector>
 
@@ -32,7 +33,7 @@ public:
     Q_REQUIRED_RESULT QVector<Permission> permissions() const;
     void setPermissions(const QVector<Permission> &permissions);
 
-    void parsePermissions(const QJsonObject &obj, const QString &str = {});
+    void parsePermissions(const QJsonObject &obj, const QString &str = {}, const QVector<RoleInfo> &roleInfo = {});
     Q_REQUIRED_RESULT bool isEmpty() const;
 
     Q_REQUIRED_RESULT int count() const;
