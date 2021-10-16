@@ -80,7 +80,6 @@ void PermissionsWidget::initialize()
 {
     // First load list of roles.
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    qDebug() << " void RolesComboBox::initialize()";
     auto job = new RocketChatRestApi::RolesListJob(this);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, this, &PermissionsWidget::slotRolesListDone);
