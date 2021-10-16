@@ -1071,21 +1071,12 @@ void RocketChatAccount::getPinnedMessages(const QString &roomId)
         restApi()->getPinnedMessages(roomId);
 }
 
-bool RocketChatAccount::hasStarredMessagesSupport() const
-{
-    return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);
-}
-
 void RocketChatAccount::getStarredMessages(const QString &roomId)
 {
-    if (hasStarredMessagesSupport()) {
-        mListMessageModel->clear();
-        mListMessageModel->setRoomId(roomId);
-        mListMessageModel->setLoadMoreListMessagesInProgress(true);
-        restApi()->getStarredMessages(roomId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getStarredMessages is not supported before server 2.3.0";
-    }
+    mListMessageModel->clear();
+    mListMessageModel->setRoomId(roomId);
+    mListMessageModel->setLoadMoreListMessagesInProgress(true);
+    restApi()->getStarredMessages(roomId);
 }
 
 bool RocketChatAccount::hasInviteUserSupport() const
@@ -1093,21 +1084,12 @@ bool RocketChatAccount::hasInviteUserSupport() const
     return mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0);
 }
 
-bool RocketChatAccount::hasSnippetedMessagesSupport() const
-{
-    return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);
-}
-
 void RocketChatAccount::getSnippetedMessages(const QString &roomId)
 {
-    if (hasSnippetedMessagesSupport()) {
-        mListMessageModel->clear();
-        mListMessageModel->setRoomId(roomId);
-        mListMessageModel->setLoadMoreListMessagesInProgress(true);
-        restApi()->getSnippetedMessages(roomId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSnippetedMessages is not supported before server 2.3.0";
-    }
+    mListMessageModel->clear();
+    mListMessageModel->setRoomId(roomId);
+    mListMessageModel->setLoadMoreListMessagesInProgress(true);
+    restApi()->getSnippetedMessages(roomId);
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, Room::RoomType channelType)
@@ -1148,14 +1130,10 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
         qCWarning(RUQOLA_LOG) << " Error when using getListMessages";
         break;
     case ListMessagesModel::StarredMessages:
-        if (hasStarredMessagesSupport()) {
-            getStarredMessages(roomId);
-        }
+        getStarredMessages(roomId);
         break;
     case ListMessagesModel::SnipperedMessages:
-        if (hasSnippetedMessagesSupport()) {
-            getSnippetedMessages(roomId);
-        }
+        getSnippetedMessages(roomId);
         break;
     case ListMessagesModel::PinnedMessages:
         getPinnedMessages(roomId);
@@ -1210,14 +1188,10 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
                 qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
                 break;
             case ListMessagesModel::StarredMessages:
-                if (hasStarredMessagesSupport()) {
-                    restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
-                }
+                restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::SnipperedMessages:
-                if (hasSnippetedMessagesSupport()) {
-                    restApi()->getSnippetedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
-                }
+                restApi()->getSnippetedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::PinnedMessages:
                 restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
