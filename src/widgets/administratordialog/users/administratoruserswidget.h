@@ -50,6 +50,7 @@ private:
     void slotUserCreateDone(const QJsonObject &obj);
     void slotUserInfoDone(const QJsonObject &obj);
     void slotUserUpdateDone(const QJsonObject &obj);
+    void slotModifyDoubleClickUser(const QModelIndex &index);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
 };
 

@@ -51,6 +51,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users"));
     mTreeView->setModel(mProxyModelModel);
+    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorUsersWidget::slotModifyDoubleClickUser);
     hideColumns();
     connectModel();
 }
@@ -85,6 +86,14 @@ void AdministratorUsersWidget::slotUserCreateDone(const QJsonObject &obj)
 {
     qDebug() << "obj" << obj;
     // TODO use obj ? Add it in list
+}
+
+void AdministratorUsersWidget::slotModifyDoubleClickUser(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        slotModifyUser(modelIndex);
+    }
 }
 
 void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
