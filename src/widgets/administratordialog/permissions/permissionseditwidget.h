@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "roleinfo.h"
 #include <QWidget>
 class RolesComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditWidget : public QWidget
@@ -31,6 +32,8 @@ public:
     ~PermissionsEditWidget() override;
     void setRoles(const QStringList &lst);
     Q_REQUIRED_RESULT QStringList roles() const;
+
+    void setRolesInfo(const QVector<RoleInfo> &rolesinfo);
 
 private:
     RolesComboBox *const mRolesCombobox;

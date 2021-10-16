@@ -152,6 +152,7 @@ void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &i
 {
     QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this, identifier);
     dialog->setRoles(roles);
+    dialog->setRolesInfo(mRoleInfo);
     if (dialog->exec()) {
         const QStringList lst = dialog->roles();
         auto *rcAccount = Ruqola::self()->rocketChatAccount();

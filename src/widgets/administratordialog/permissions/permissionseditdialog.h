@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "roleinfo.h"
 #include <QDialog>
 class PermissionsEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditDialog : public QDialog
@@ -32,6 +33,8 @@ public:
 
     void setRoles(const QStringList &lst);
     Q_REQUIRED_RESULT QStringList roles() const;
+
+    void setRolesInfo(const QVector<RoleInfo> &rolesinfo);
 
 private:
     PermissionsEditWidget *const mPermissionsWidget;

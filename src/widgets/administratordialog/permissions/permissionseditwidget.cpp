@@ -33,12 +33,16 @@ PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     auto label = new QLabel(i18n("Roles:"), this);
     label->setObjectName(QStringLiteral("label"));
     mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
-    mRolesCombobox->initialize();
     mainLayout->addRow(label, mRolesCombobox);
 }
 
 PermissionsEditWidget::~PermissionsEditWidget()
 {
+}
+
+void PermissionsEditWidget::setRolesInfo(const QVector<RoleInfo> &rolesinfo)
+{
+    mRolesCombobox->setRolesInfo(rolesinfo);
 }
 
 void PermissionsEditWidget::setRoles(const QStringList &lst)

@@ -55,7 +55,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addRow(i18n("Roles:"), mRolesComboBox);
-    mRolesComboBox->initialize();
+    mRolesComboBox->loadRolesInfo();
     connect(mName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mUserName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mEmail, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);

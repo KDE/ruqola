@@ -38,7 +38,7 @@ RolesComboBox::~RolesComboBox()
 {
 }
 
-void RolesComboBox::initialize()
+void RolesComboBox::loadRolesInfo()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     qDebug() << " void RolesComboBox::initialize()";
@@ -61,6 +61,11 @@ void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
         info.parseRoleInfo(roleObject);
         roleInfo.append(info);
     }
+    mRolesModel->setRoles(roleInfo);
+}
+
+void RolesComboBox::setRolesInfo(const QVector<RoleInfo> &roleInfo)
+{
     mRolesModel->setRoles(roleInfo);
 }
 

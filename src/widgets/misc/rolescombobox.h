@@ -20,6 +20,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "roleinfo.h"
 #include <QComboBox>
 class RolesModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RolesComboBox : public QComboBox
@@ -31,7 +32,8 @@ public:
 
     void setRoles(const QStringList &lst);
     Q_REQUIRED_RESULT QStringList roles() const;
-    void initialize();
+    void loadRolesInfo();
+    void setRolesInfo(const QVector<RoleInfo> &roleInfo);
 
 private:
     void slotRolesListDone(const QJsonObject &obj);
