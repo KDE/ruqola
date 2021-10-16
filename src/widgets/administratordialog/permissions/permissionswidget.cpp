@@ -61,6 +61,7 @@ PermissionsWidget::PermissionsWidget(QWidget *parent)
     mTreeView->setModel(mPermissionFilterProxyModel);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &PermissionsWidget::slotFilterTextChanged);
+    connect(mTreeView, &QTreeView::doubleClicked, this, &PermissionsWidget::slotModifyDoubleClickRoles);
 }
 
 PermissionsWidget::~PermissionsWidget()
@@ -99,13 +100,26 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (index.isValid()) {
             QMenu menu(this);
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-                const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
-                const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
-                slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
+                modifyRoles(index);
             });
             menu.exec(mTreeView->viewport()->mapToGlobal(pos));
         }
     }
+}
+
+void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
+        modifyRoles(index);
+    }
+}
+
+void PermissionsWidget::modifyRoles(const QModelIndex &index)
+{
+    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
+    const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
+    slotEditRoles(modelIndex.data().toString().split(QLatin1Char(',')), identifier);
 }
 
 void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &identifier)
