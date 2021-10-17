@@ -571,7 +571,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         const QString eventname = fields.value(QLatin1String("eventName")).toString();
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         mRocketChatAccount->addStdoutInfo(contents);
-        qDebug() << "stream-stdout info  " << object;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }
