@@ -141,7 +141,7 @@ void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
 {
     QStringList listLicences;
     const QJsonArray licenses = obj.value(QStringLiteral("licenses")).toArray();
-    for (auto a : licenses) {
+    for (const auto &a : licenses) {
         listLicences.append(a.toString());
     }
     auto licenseItem = new QTreeWidgetItem(mTreeWidget);
