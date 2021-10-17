@@ -19,6 +19,7 @@
 */
 
 #include "administratorcustomsoundscreatewidgettest.h"
+#include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
 #include <QTest>
 QTEST_MAIN(AdministratorCustomSoundsCreateWidgetTest)
 AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidgetTest(QObject *parent)
@@ -28,4 +29,6 @@ AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidget
 
 void AdministratorCustomSoundsCreateWidgetTest::shouldHaveDefaultValues()
 {
+    AdministratorCustomSoundsCreateWidget w;
+    // TODO
 }
