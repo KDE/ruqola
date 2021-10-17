@@ -83,7 +83,7 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
     mPlainTextEdit->blockSignals(true);
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject objQueue = array.at(i).toObject();
-        mPlainTextEdit->appendHtml(QStringLiteral("<p style=\"color:red;white-space:pre\">%1</p>").arg(objQueue[QLatin1String("string")].toString()));
+        slotInsertStdOutInfo(objQueue[QLatin1String("string")].toString());
     }
     mPlainTextEdit->blockSignals(false);
     mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
