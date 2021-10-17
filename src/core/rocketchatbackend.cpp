@@ -566,6 +566,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
         }
         //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
+    } else if (collection == QLatin1String("stream-stdout")) {
+        qDebug() << "stream-stdout info  " << object;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }
