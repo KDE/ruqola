@@ -555,7 +555,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             qWarning() << "stream-notify-logged not supported " << fields;
         }
     } else if (collection == QLatin1String("stream-notify-all")) {
-        QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
         const QString eventname = fields.value(QLatin1String("eventName")).toString();
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         if (eventname == QLatin1String("deleteCustomSound")) {
