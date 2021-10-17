@@ -24,6 +24,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
+class KUrlRequester;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateWidget : public QWidget
 {
     Q_OBJECT
@@ -33,5 +34,6 @@ public:
 
 private:
     QLineEdit *const mName;
+    KUrlRequester *const mSelectFile;
 };
 

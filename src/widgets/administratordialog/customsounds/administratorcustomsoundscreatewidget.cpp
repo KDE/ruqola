@@ -19,7 +19,9 @@
 */
 
 #include "administratorcustomsoundscreatewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
+#include <KUrlRequester>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -27,16 +29,19 @@
 AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
+    , mSelectFile(new KUrlRequester(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    mName->setObjectName(QStringLiteral("mName"));
 
-    auto label = new QLabel(i18n("Name:"), this);
-    label->setObjectName(QStringLiteral("label"));
-    mainLayout->addWidget(label);
-    mainLayout->addWidget(mName);
+    mName->setObjectName(QStringLiteral("mName"));
+    new LineEditCatchReturnKey(mName, this);
+
+    mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
+
+    mainLayout->addRow(i18n("Name:"), mName);
+    mainLayout->addRow(i18n("File:"), mSelectFile);
 }
 
 AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()
