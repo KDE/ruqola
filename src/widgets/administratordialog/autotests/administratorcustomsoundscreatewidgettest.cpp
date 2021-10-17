@@ -20,6 +20,9 @@
 
 #include "administratorcustomsoundscreatewidgettest.h"
 #include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
+#include <KUrlRequester>
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AdministratorCustomSoundsCreateWidgetTest)
 AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidgetTest(QObject *parent)
@@ -30,5 +33,14 @@ AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidget
 void AdministratorCustomSoundsCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomSoundsCreateWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    QVERIFY(mName);
+
+    auto mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
+    QVERIFY(mSelectFile);
 }
