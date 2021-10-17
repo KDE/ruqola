@@ -499,8 +499,23 @@ quint64 DDPClient::method(const QString &method,
     return uidCurrent;
 }
 
-void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
+void DDPClient::unsubscribe(quint64 registerId)
 {
+    const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(registerId);
+    std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeMethod = [=](const QJsonObject &root, RocketChatAccount *account) {
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe Method:") + QJsonDocument(root).toJson());
+        } else {
+            qDebug() << " Unsubscribe Method" << root;
+            qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe Method" << root;
+        }
+    };
+    method(resultUnsubscribe, callbackUnsubscribeMethod, DDPClient::Persistent);
+}
+
+quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params)
+{
+    quint64 registerId = m_uid;
     QJsonObject json;
     json[QStringLiteral("msg")] = QStringLiteral("sub");
     json[QStringLiteral("id")] = QString::number(m_uid);
@@ -517,7 +532,6 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     }
 
     json[QStringLiteral("params")] = newParams;
-
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -526,6 +540,7 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
     }
     m_uid++;
+    return registerId;
 }
 
 void DDPClient::registerSubscriber(const QString &collection, const QString &event, DDPManager *ddpManager, int subscriptionId)

@@ -80,7 +80,7 @@ public:
      * @param collection The name of the collection
      * @param params The parameters
      */
-    void subscribe(const QString &collection, const QJsonArray &params);
+    quint64 subscribe(const QString &collection, const QJsonArray &params);
 
     /**
      * @brief Registers a @class DDPManager object to an event, represented by
@@ -198,6 +198,7 @@ public:
     quint64 streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey);
     quint64 deleteCustomSound(const QString &identifier);
     quint64 uploadCustomSound(const QByteArray &sound);
+    void unsubscribe(quint64 registerId);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();
