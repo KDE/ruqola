@@ -26,11 +26,11 @@ Permission::Permission()
 {
 }
 
-void Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo)
+bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo)
 {
     // Don't store settings value.
     if (!replyObject.value(QLatin1String("settingId")).toString().isEmpty()) {
-        return;
+        return false;
     }
     mIdentifier = replyObject.value(QLatin1String("_id")).toString();
     mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
@@ -46,6 +46,7 @@ void Permission::parsePermission(const QJsonObject &replyObject, const QVector<R
             }
         }
     }
+    return true;
 }
 
 QStringList Permission::roles() const

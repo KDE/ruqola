@@ -66,11 +66,12 @@ void Permissions::parsePermissions(const QJsonObject &obj, const QString &str, c
     mPermissions.reserve(roleArrayCount);
     for (int i = 0; i < roleArrayCount; ++i) {
         Permission r;
-        r.parsePermission(permissionArray.at(i).toObject(), roleInfo);
-        if (r.isValid()) {
-            mPermissions.append(r);
-        } else {
-            qCWarning(RUQOLA_LOG) << "Invalid permission: " << permissionArray.at(i).toObject();
+        if (r.parsePermission(permissionArray.at(i).toObject(), roleInfo)) {
+            if (r.isValid()) {
+                mPermissions.append(r);
+            } else {
+                qCWarning(RUQOLA_LOG) << "Invalid permission: " << permissionArray.at(i).toObject();
+            }
         }
     }
 }
