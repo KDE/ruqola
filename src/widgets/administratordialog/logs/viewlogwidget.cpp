@@ -20,11 +20,11 @@
 
 #include "viewlogwidget.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "misc/stdoutqueuejob.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-
 #include <QJsonArray>
 #include <QPlainTextEdit>
 #include <QScrollBar>
@@ -45,6 +45,10 @@ ViewLogWidget::ViewLogWidget(QWidget *parent)
 
 ViewLogWidget::~ViewLogWidget()
 {
+    if (mStdoutIdentifier != 0) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        rcAccount->ddp()->unsubscribe(mStdoutIdentifier);
+    }
 }
 
 void ViewLogWidget::showEvent(QShowEvent *event)
@@ -78,6 +82,13 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
     }
     mPlainTextEdit->blockSignals(false);
     mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
+    // Subscribe to stream-stdout after result done.
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    {
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("stdout")));
+        mStdoutIdentifier = rcAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
+    }
     // Need to update it.
 }
 
