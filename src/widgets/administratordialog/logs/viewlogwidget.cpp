@@ -71,6 +71,11 @@ void ViewLogWidget::initialize()
     }
 }
 
+void ViewLogWidget::slotInsertStdOutInfo(const QString &str)
+{
+    mPlainTextEdit->appendHtml(QStringLiteral("<p style=\"color:red;white-space:pre\">%1</p>").arg(str));
+}
+
 void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
 {
     // qDebug() << " obj" << obj;
@@ -89,6 +94,7 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
         params.append(QJsonValue(QStringLiteral("stdout")));
         mStdoutIdentifier = rcAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
     }
+    connect(rcAccount, &RocketChatAccount::insertStdOutInfo, this, &ViewLogWidget::slotInsertStdOutInfo);
     // Need to update it.
 }
 

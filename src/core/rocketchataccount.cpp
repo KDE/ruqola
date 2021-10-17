@@ -1478,6 +1478,17 @@ void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
     }
 }
 
+void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
+{
+    const int count{contents.count()};
+    for (int i = 0; i < count; ++i) {
+        const QJsonObject obj = contents.at(i).toObject();
+        const QString infoStr = obj[QStringLiteral("string")].toString();
+        // qDebug() << " infoStr " << infoStr;
+        Q_EMIT insertStdOutInfo(infoStr);
+    }
+}
+
 void RocketChatAccount::updateCustomSound(const QJsonArray &replyArray)
 {
     // TODO

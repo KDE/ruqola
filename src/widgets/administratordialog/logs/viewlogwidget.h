@@ -35,6 +35,7 @@ protected:
 
 private:
     void slotStdoutQueueDone(const QJsonObject &obj);
+    void slotInsertStdOutInfo(const QString &str);
     QPlainTextEdit *const mPlainTextEdit;
     quint64 mStdoutIdentifier = 0;
     bool mWasInitialized = false;

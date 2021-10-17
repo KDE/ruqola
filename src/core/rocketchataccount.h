@@ -464,6 +464,8 @@ public:
     void deleteCustomSound(const QJsonArray &replyArray);
     void updateCustomSound(const QJsonArray &replyArray);
 
+    // stdout info
+    void addStdoutInfo(const QJsonArray &contents);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
@@ -507,6 +509,7 @@ Q_SIGNALS:
     void permissionChanged();
     void displayReconnectWidget(int seconds);
     void customSoundRemoved(const QString &identifier);
+    void insertStdOutInfo(const QString &str);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
