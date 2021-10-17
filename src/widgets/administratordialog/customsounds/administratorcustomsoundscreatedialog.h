@@ -20,9 +20,9 @@
 
 #pragma once
 
-#include <QDialog>
-
+#include "administratorcustomsoundscreatewidget.h"
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class AdministratorCustomSoundsCreateWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateDialog : public QDialog
 {
@@ -30,6 +30,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateDialog : publ
 public:
     explicit AdministratorCustomSoundsCreateDialog(QWidget *parent = nullptr);
     ~AdministratorCustomSoundsCreateDialog() override;
+
+    void setCustomSoundInfo(const AdministratorCustomSoundsCreateWidget::CustomSoundInfo &info);
+
+    Q_REQUIRED_RESULT AdministratorCustomSoundsCreateWidget::CustomSoundInfo customSoundInfo() const;
 
 private:
     void readConfig();

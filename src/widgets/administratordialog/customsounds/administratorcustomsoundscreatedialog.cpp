@@ -19,7 +19,6 @@
 */
 
 #include "administratorcustomsoundscreatedialog.h"
-#include "administratorcustomsoundscreatewidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -54,6 +53,16 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
 AdministratorCustomSoundsCreateDialog::~AdministratorCustomSoundsCreateDialog()
 {
     writeConfig();
+}
+
+void AdministratorCustomSoundsCreateDialog::setCustomSoundInfo(const AdministratorCustomSoundsCreateWidget::CustomSoundInfo &info)
+{
+    mCreateWidget->setCustomSoundInfo(info);
+}
+
+AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSoundsCreateDialog::customSoundInfo() const
+{
+    return mCreateWidget->customSoundInfo();
 }
 
 void AdministratorCustomSoundsCreateDialog::readConfig()

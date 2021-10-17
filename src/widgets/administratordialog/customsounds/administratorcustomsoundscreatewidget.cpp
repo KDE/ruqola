@@ -47,3 +47,14 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
 AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()
 {
 }
+
+void AdministratorCustomSoundsCreateWidget::setCustomSoundInfo(const CustomSoundInfo &info)
+{
+    // TODO
+}
+
+AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSoundsCreateWidget::customSoundInfo() const
+{
+    // TODO
+    return {};
+}
