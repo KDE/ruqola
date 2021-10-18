@@ -115,6 +115,9 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
     p.parsePermissions(obj, {}, mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
     // qDebug() << "obj" << obj;
+    for (int i : {AdminPermissionsModel::Identifier, AdminPermissionsModel::RolesStr}) {
+        mTreeView->resizeColumnToContents(i);
+    }
 }
 
 void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
