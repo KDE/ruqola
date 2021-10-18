@@ -50,6 +50,11 @@ void DirectoryRoomsModel::addMoreElements(const QJsonObject &obj)
     checkFullList();
 }
 
+QList<int> DirectoryRoomsModel::excludeResizeToContentColumns() const
+{
+    return {Topic};
+}
+
 QList<int> DirectoryRoomsModel::hideColumns() const
 {
     return {Identifier, ChannelType, CreatedDateTime, LastMessageDateTime};

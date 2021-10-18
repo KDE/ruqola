@@ -55,6 +55,7 @@ public:
     void parseElements(const QJsonObject &roomsObj) override;
 
     void addMoreElements(const QJsonObject &discussionsObj) override;
+    Q_REQUIRED_RESULT QList<int> excludeResizeToContentColumns() const override;
 
 protected:
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;
