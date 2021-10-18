@@ -551,6 +551,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             mRocketChatAccount->setUserStatusChanged(contents);
         } else if (eventname == QLatin1String("deleteEmojiCustom")) {
             mRocketChatAccount->deleteEmojiCustom(contents);
+        } else if (eventname == QLatin1String("permissions-changed")) {
+            mRocketChatAccount->permissionUpdated(contents);
         } else {
             qWarning() << "stream-notify-logged not supported " << fields;
         }

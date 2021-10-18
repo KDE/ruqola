@@ -1463,6 +1463,14 @@ void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
     emojiManager()->deleteEmojiCustom(replyArray);
 }
 
+void RocketChatAccount::permissionUpdated(const QJsonArray &replyArray)
+{
+    qDebug() << " implement permission changed !" << replyArray;
+    // TODO stockage roles! Load it before permission!
+    // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"})
+    // TODO implement it.
+}
+
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
     qDebug() << " deleteCustomSound " << replyArray;

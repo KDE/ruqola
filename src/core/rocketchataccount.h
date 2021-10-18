@@ -469,6 +469,9 @@ public:
 
     // Roles
     void updateRoles(const QJsonArray &contents);
+
+    // Permissions
+    void permissionUpdated(const QJsonArray &replyArray);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
