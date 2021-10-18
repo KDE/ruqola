@@ -102,3 +102,9 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
     }
     // qDebug() << "mMapPermissions " << mMapPermissions;
 }
+
+void PermissionManager::updatePermission(const QJsonArray &updateArray)
+{
+    qDebug() << " void PermissionManager::updatePermission(const QJsonArray &updateArray)" << updateArray;
+    // TODO create autotests
+}
