@@ -231,7 +231,8 @@ target_sources(libruqolacore PRIVATE
     teamroomcompleter.cpp
     teamcompleter.cpp
 
-    inviteinfo.cpp
+    invite/inviteinfo.cpp
+
     ruqolacore.qrc
     managechannels.cpp
 )

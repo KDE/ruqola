@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "inviteinfo.h"
+#include "invite/inviteinfo.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
