@@ -47,7 +47,7 @@ public:
     void parseElements(const QJsonObject &obj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
-    int columnCount(const QModelIndex &parent) const override;
+    int columnCount(const QModelIndex &parent = {}) const override;
 
 protected:
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;

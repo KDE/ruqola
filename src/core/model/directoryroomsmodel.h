@@ -49,7 +49,7 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = {}) const override;
     Q_REQUIRED_RESULT int total() const override;
 
     void parseElements(const QJsonObject &roomsObj) override;
