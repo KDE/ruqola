@@ -42,6 +42,11 @@ void DirectoryBaseModel::setLoadMoreInProgress(bool inProgress)
     }
 }
 
+QList<int> DirectoryBaseModel::excludeResizeToContentColumns() const
+{
+    return {};
+}
+
 void DirectoryBaseModel::insertElement(const QJsonObject &obj)
 {
     Q_UNUSED(obj);
