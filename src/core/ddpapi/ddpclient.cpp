@@ -532,6 +532,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
     }
 
     json[QStringLiteral("params")] = newParams;
+    // qDebug() << "subscribe: json " << json;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
