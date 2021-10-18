@@ -112,7 +112,12 @@ void SearchTreeBaseWidget::connectModel()
 void SearchTreeBaseWidget::finishSearching()
 {
     mModel->setLoadMoreInProgress(false);
-    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
+
+    for (int i = 0; i < mTreeView->header()->count(); i++) {
+        if (!mModel->excludeResizeToContentColumns().contains(i)) {
+            mTreeView->resizeColumnToContents(i);
+        }
+    }
 }
 
 void SearchTreeBaseWidget::slotLoadMoreElementDone(const QJsonObject &obj)
