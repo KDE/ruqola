@@ -571,6 +571,14 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         const QString eventname = fields.value(QLatin1String("eventName")).toString();
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         mRocketChatAccount->addStdoutInfo(contents);
+    } else if (collection == QLatin1String("stream-roles")) {
+        const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+        if (eventname == QLatin1String("roles")) {
+            mRocketChatAccount->updateRoles(contents);
+        }
+        qDebug() << " ssssssssssssss " << fields;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }
@@ -642,86 +650,90 @@ void RocketChatBackend::slotUserIDChanged()
     }
     // stream-notify-all
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     { // Verify as in RC we don't have it
-        const QJsonArray params{QJsonValue(QStringLiteral("roles-change")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("roles-change"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     // Sound
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("deleteCustomSound")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("deleteCustomSound"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateCustomSound")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("updateCustomSound"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateEmojiCustom")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("updateEmojiCustom"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("deleteEmojiCustom")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("deleteEmojiCustom"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("public-settings-changed")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("public-settings-changed"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     { // Verify it
-        const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     // stream-notify-logged
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateEmojiCustom")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("updateEmojiCustom"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     // stream-notify-logged
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("deleteEmojiCustom")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("deleteEmojiCustom"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     // stream-notify-logged
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("roles-change")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("roles-change"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     // stream-notify-logged
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     // stream-notify-logged
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("Users:NameChanged")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("Users:NameChanged"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     // stream-notify-logged
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("Users:Deleted")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("Users:Deleted"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("deleteCustomUserStatus")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("deleteCustomUserStatus"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateCustomUserStatus")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("updateCustomUserStatus"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("user-status")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("user-status"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("private-settings-changed")), {true}};
+        const QJsonArray params{QJsonValue(QStringLiteral("private-settings-changed"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("roles"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-roles"), params);
     }
 }

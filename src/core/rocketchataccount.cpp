@@ -1478,6 +1478,11 @@ void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
     }
 }
 
+void RocketChatAccount::updateRoles(const QJsonArray &contents)
+{
+    // TODO
+}
+
 void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
 {
     const int count{contents.count()};

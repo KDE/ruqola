@@ -466,6 +466,9 @@ public:
 
     // stdout info
     void addStdoutInfo(const QJsonArray &contents);
+
+    // Roles
+    void updateRoles(const QJsonArray &contents);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
