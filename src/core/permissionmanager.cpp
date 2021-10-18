@@ -107,4 +107,5 @@ void PermissionManager::updatePermission(const QJsonArray &updateArray)
 {
     qDebug() << " void PermissionManager::updatePermission(const QJsonArray &updateArray)" << updateArray;
     // TODO create autotests
+    // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"}
 }
