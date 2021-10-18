@@ -63,6 +63,13 @@ void ViewLogWidget::showEvent(QShowEvent *event)
 void ViewLogWidget::initialize()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    {
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("stdout")));
+        mStdoutIdentifier = rcAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
+    }
+    connect(rcAccount, &RocketChatAccount::insertStdOutInfo, this, &ViewLogWidget::slotInsertStdOutInfo);
+
     auto job = new RocketChatRestApi::StdoutQueueJob(this);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::StdoutQueueJob::stdoutQueueDone, this, &ViewLogWidget::slotStdoutQueueDone);
@@ -72,6 +79,15 @@ void ViewLogWidget::initialize()
 }
 
 void ViewLogWidget::slotInsertStdOutInfo(const QString &str)
+{
+    if (mHistoryStdoutLoaded) {
+        insertLine(str);
+    } else {
+        mStdoutBeforeLoadingHistory.append(str);
+    }
+}
+
+void ViewLogWidget::insertLine(const QString &str)
 {
     mPlainTextEdit->appendHtml(QStringLiteral("<p style=\"color:red;white-space:pre\">%1</p>").arg(str));
 }
@@ -83,16 +99,13 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
     mPlainTextEdit->blockSignals(true);
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject objQueue = array.at(i).toObject();
-        slotInsertStdOutInfo(objQueue[QLatin1String("string")].toString());
+        insertLine(objQueue[QLatin1String("string")].toString());
     }
+    mHistoryStdoutLoaded = true;
+    for (const QString &str : std::as_const(mStdoutBeforeLoadingHistory)) {
+        slotInsertStdOutInfo(str);
+    }
+    mStdoutBeforeLoadingHistory.clear();
     mPlainTextEdit->blockSignals(false);
     mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
-    // Subscribe to stream-stdout after result done.
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    {
-        QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("stdout")));
-        mStdoutIdentifier = rcAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
-    }
-    connect(rcAccount, &RocketChatAccount::insertStdOutInfo, this, &ViewLogWidget::slotInsertStdOutInfo);
 }
