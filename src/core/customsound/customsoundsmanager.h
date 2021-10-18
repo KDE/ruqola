@@ -29,4 +29,6 @@ class LIBRUQOLACORE_EXPORT CustomSoundsManager : public QObject
 public:
     explicit CustomSoundsManager(QObject *parent = nullptr);
     ~CustomSoundsManager() override;
+
+    // TODO add list of custom sounds.
 };
