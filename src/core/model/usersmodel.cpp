@@ -84,7 +84,7 @@ QString UsersModel::userStatusStr(const QString &name) const
     }
 
     // qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
-    return i18n("OffLine");
+    return i18n("Offline");
 }
 
 QString UsersModel::userStatusIconFileName(const QString &name) const
