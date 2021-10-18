@@ -81,12 +81,18 @@ QVariant DirectoryRoomsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mRoomsInfo.count()) {
         return {};
     }
+    const RoomInfo &roomInfo = mRoomsInfo.at(index.row());
+    const int col = index.column();
+    if (role == Qt::ToolTipRole) {
+        if (static_cast<DirectoryRoomsRoles>(col) == DirectoryRoomsRoles::Topic) {
+            return roomInfo.topic();
+        }
+    }
+
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const RoomInfo &roomInfo = mRoomsInfo.at(index.row());
-    const int col = index.column();
     switch (static_cast<DirectoryRoomsRoles>(col)) {
     case DirectoryRoomsRoles::Name:
         return roomInfo.roomName();
