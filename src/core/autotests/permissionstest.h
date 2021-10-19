@@ -30,6 +30,6 @@ public:
     ~PermissionsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
-    // void shouldLoadRoles();
-    // void shouldLoadRoles_data();
+    // void shouldLoadPermissions();
+    // void shouldLoadPermissions_data();
 };

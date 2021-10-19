@@ -89,6 +89,11 @@ const QStringList &Permission::rolesStr() const
     return mRolesStr;
 }
 
+bool Permission::operator==(const Permission &other) const
+{
+    return other.roles() == roles() && other.updatedAt() == updatedAt() && other.identifier() == identifier();
+}
+
 QDebug operator<<(QDebug d, const Permission &t)
 {
     d << "roles : " << t.roles();

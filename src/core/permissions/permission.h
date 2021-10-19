@@ -45,6 +45,8 @@ public:
 
     Q_REQUIRED_RESULT const QStringList &rolesStr() const;
 
+    Q_REQUIRED_RESULT bool operator==(const Permission &other) const;
+
 private:
     qint64 mUpdatedAt = -1;
     QStringList mRolesStr;
