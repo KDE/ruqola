@@ -39,10 +39,10 @@ public:
     Q_REQUIRED_RESULT bool contains(const QString &permissionId) const;
 
     void updatePermission(const QJsonArray &updateArray);
+    void parseUpdatePermission(const QJsonArray &removeArray);
 
 private:
     Q_REQUIRED_RESULT bool storePermission(const QString &id);
     void parseRemovePermission(const QJsonArray &removeArray);
-    void parseUpdatePermission(const QJsonArray &removeArray);
     QMap<QString, Permission> mMapPermissions;
 };

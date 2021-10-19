@@ -20,6 +20,7 @@
 
 #include "permissionmanagertest.h"
 #include "permissions/permissionmanager.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(PermissionManagerTest)
 PermissionManagerTest::PermissionManagerTest(QObject *parent)
@@ -37,4 +38,28 @@ void PermissionManagerTest::shouldHasRoles()
 {
     PermissionManager w;
     QVERIFY(w.roles(QStringLiteral("bla")).isEmpty());
+}
+
+void PermissionManagerTest::shouldLoadPermissions_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("permissionsCount");
+    QTest::addColumn<int>("permissionsAdded");
+
+    QTest::addRow("permissions1") << QStringLiteral("permissions1") << 5 << 4;
+}
+
+void PermissionManagerTest::shouldLoadPermissions()
+{
+    QFETCH(QString, name);
+    QFETCH(int, permissionsCount);
+    QFETCH(int, permissionsAdded);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
+    const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
+    QCOMPARE(obj.count(), permissionsCount);
+    qDebug() << " OBJ " << obj;
+
+    PermissionManager r;
+    r.parseUpdatePermission(obj);
+    QCOMPARE(r.permissionCount(), permissionsAdded);
 }

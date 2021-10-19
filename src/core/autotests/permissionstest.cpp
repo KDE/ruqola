@@ -35,24 +35,24 @@ void PermissionsTest::shouldHaveDefaultValue()
     QVERIFY(r.permissions().isEmpty());
     QVERIFY(r.isEmpty());
 }
-#if 0 // Add test for loading
+#if 0
 void PermissionsTest::shouldLoadPermissions_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<int>("rolesCount");
+    QTest::addColumn<int>("permissionsCount");
 
-    QTest::addRow("roles1") << QStringLiteral("roles1") << 3;
+    QTest::addRow("permissions1") << QStringLiteral("permissions1") << 3;
 }
 
 void PermissionsTest::shouldLoadPermissions()
 {
     QFETCH(QString, name);
-    QFETCH(int, rolesCount);
+    QFETCH(int, permissionsCount);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
-    Roles r;
-    r.parseRole(obj);
+    Permissions r;
+    r.p(obj);
     QCOMPARE(r.roles().count(), rolesCount);
 }
 #endif

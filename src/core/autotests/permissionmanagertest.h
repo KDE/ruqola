@@ -31,5 +31,8 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldHasRoles();
+
+    void shouldLoadPermissions();
+    void shouldLoadPermissions_data();
 };
 
