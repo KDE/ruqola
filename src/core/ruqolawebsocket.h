@@ -33,7 +33,7 @@ public:
 
     void openUrl(const QUrl &url) override;
     qint64 sendTextMessage(const QString &message) override;
-    bool isValid() const override;
+    Q_REQUIRED_RESULT bool isValid() const override;
     void flush() override;
     void close() override;
     QAbstractSocket::SocketError error() const override;
