@@ -19,7 +19,7 @@
 */
 
 #include "permissiontest.h"
-#include "permission.h"
+#include "permissions/permission.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(PermissionTest)
 PermissionTest::PermissionTest(QObject *parent)

@@ -23,7 +23,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/roleslistjob.h"
 #include "model/adminpermissionsmodel.h"
-#include "permissions.h"
+#include "permissions/permissions.h"
 #include "permissions/permissionslistalljob.h"
 #include "permissions/permissionupdatejob.h"
 #include "permissionseditdialog.h"

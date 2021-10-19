@@ -19,7 +19,7 @@
 */
 
 #include "permissionstest.h"
-#include "permissions.h"
+#include "permissions/permissions.h"
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(PermissionsTest)

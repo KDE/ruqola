@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "permissions.h"
+#include "permissions/permissions.h"
 #include "roleinfo.h"
 #include <QAbstractListModel>
 

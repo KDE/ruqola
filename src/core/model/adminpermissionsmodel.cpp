@@ -19,7 +19,6 @@
 */
 
 #include "adminpermissionsmodel.h"
-#include "permissions.h"
 #include <KLocalizedString>
 
 AdminPermissionsModel::AdminPermissionsModel(QObject *parent)

@@ -186,7 +186,6 @@ target_sources(libruqolacore PRIVATE
     notificationpreferences.cpp
 
     roles.cpp
-    permissions.cpp
     role.cpp
     roleinfo.cpp
 
@@ -221,8 +220,9 @@ target_sources(libruqolacore PRIVATE
 
     ownuserpreferences.cpp
 
-    permission.cpp
-    permissionmanager.cpp
+    permissions/permissions.cpp
+    permissions/permission.cpp
+    permissions/permissionmanager.cpp
 
     serverinfo.cpp
     retentioninfo.cpp

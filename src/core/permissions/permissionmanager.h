@@ -46,4 +46,3 @@ private:
     void parseUpdatePermission(const QJsonArray &removeArray);
     QMap<QString, Permission> mMapPermissions;
 };
-

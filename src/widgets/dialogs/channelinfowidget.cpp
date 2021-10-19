@@ -24,7 +24,7 @@
 #include "channelinforeadonlywidget.h"
 #include "connection.h"
 #include "misc/systemmessagescombobox.h"
-#include "permissionmanager.h"
+#include "permissions/permissionmanager.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola.h"
