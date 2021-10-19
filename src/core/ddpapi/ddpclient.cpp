@@ -284,12 +284,14 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
     params.append(QJsonValue(roomId));
     subscribe(QStringLiteral("stream-room-messages"), params);
 
-    const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessage"))), true};
+    const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessage")))};
     subscribe(QStringLiteral("stream-notify-room"), params2);
-    const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessageBulk"))), true};
+    const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessageBulk")))};
     subscribe(QStringLiteral("stream-notify-room"), params3);
-    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing"))), true};
+    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing")))};
     subscribe(QStringLiteral("stream-notify-room"), params4);
+    const QJsonArray params5{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("user-activity")))};
+    subscribe(QStringLiteral("stream-notify-room"), params5);
 }
 
 quint64 DDPClient::openDirectChannel(const QString &userId)
