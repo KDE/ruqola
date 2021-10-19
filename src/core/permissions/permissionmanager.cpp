@@ -92,7 +92,7 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
         const QString id = obj[QLatin1String("_id")].toString();
         if (storePermission(id)) {
             Permission p;
-            p.parsePermission(obj);
+            p.parsePermission(obj /* add roles? */);
             // qDebug() << "obj " << obj;
             if (p.isValid()) {
                 mMapPermissions.insert(id, p);
