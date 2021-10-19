@@ -34,5 +34,8 @@ private Q_SLOTS:
 
     void shouldLoadPermissions();
     void shouldLoadPermissions_data();
+
+    void shouldUpdatePermissions();
+    void shouldUpdatePermissions_data();
 };
 

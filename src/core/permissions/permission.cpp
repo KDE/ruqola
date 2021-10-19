@@ -26,14 +26,18 @@ Permission::Permission()
 {
 }
 
-bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo)
+bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo, bool restApi)
 {
     // Don't store settings value.
     if (!replyObject.value(QLatin1String("settingId")).toString().isEmpty()) {
         return false;
     }
     mIdentifier = replyObject.value(QLatin1String("_id")).toString();
-    mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
+    if (restApi) {
+        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
+    } else {
+        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), replyObject);
+    }
     const QJsonArray roleArray = replyObject.value(QLatin1String("roles")).toArray();
     mRoles.reserve(roleArray.count());
     for (int i = 0; i < roleArray.count(); ++i) {

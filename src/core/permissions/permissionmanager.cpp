@@ -41,6 +41,11 @@ void PermissionManager::parsePermissions(const QJsonObject &replyObject)
     // qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
+const Permission PermissionManager::permission(const QString &permissionId) const
+{
+    return mMapPermissions.value(permissionId);
+}
+
 bool PermissionManager::contains(const QString &permissionId) const
 {
     return mMapPermissions.contains(permissionId);
@@ -106,7 +111,18 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
 
 void PermissionManager::updatePermission(const QJsonArray &updateArray)
 {
-    qDebug() << " void PermissionManager::updatePermission(const QJsonArray &updateArray)" << updateArray;
-    // TODO create autotests
+    if (updateArray.count() == 2) {
+        if (updateArray.at(0).toString() == QLatin1String("updated")) {
+            const QJsonObject obj = updateArray.at(1).toObject();
+            const QString id = obj[QLatin1String("_id")].toString();
+            if (storePermission(id)) {
+                Permission p;
+                p.parsePermission(obj, {} /* add roles? */, false);
+                if (p.isValid()) {
+                    mMapPermissions.insert(id, p);
+                }
+            }
+        }
+    }
     // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"}
 }

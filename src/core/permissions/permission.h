@@ -31,7 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Permission
 public:
     Permission();
 
-    bool parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo = {});
+    bool parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo = {}, bool restApi = true);
     Q_REQUIRED_RESULT QStringList roles() const;
     void setRoles(const QStringList &newRoles);
 

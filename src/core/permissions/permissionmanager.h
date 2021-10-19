@@ -41,6 +41,8 @@ public:
     void updatePermission(const QJsonArray &updateArray);
     void parseUpdatePermission(const QJsonArray &removeArray);
 
+    Q_REQUIRED_RESULT const Permission permission(const QString &permissionId) const;
+
 private:
     Q_REQUIRED_RESULT bool storePermission(const QString &id);
     void parseRemovePermission(const QJsonArray &removeArray);

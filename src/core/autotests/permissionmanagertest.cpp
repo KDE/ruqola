@@ -45,8 +45,40 @@ void PermissionManagerTest::shouldLoadPermissions_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("permissionsCount");
     QTest::addColumn<int>("permissionsAdded");
+    QTest::addColumn<QVector<Permission>>("permissions");
 
-    QTest::addRow("permissions1") << QStringLiteral("permissions1") << 5 << 4;
+    {
+        QVector<Permission> permissions;
+
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("access-permissions"));
+            p.setRoles({QStringLiteral("admin")});
+            p.setUpdatedAt(1533550243852);
+            permissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
+            p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
+            p.setUpdatedAt(1533550243869);
+            permissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
+            p.setRoles({QStringLiteral("admin")});
+            p.setUpdatedAt(1533550243881);
+            permissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
+            p.setUpdatedAt(1533550243889);
+            permissions.append(p);
+        }
+        QTest::addRow("permissions1") << QStringLiteral("permissions1") << 5 << 4 << permissions;
+    }
 }
 
 void PermissionManagerTest::shouldLoadPermissions()
@@ -54,12 +86,143 @@ void PermissionManagerTest::shouldLoadPermissions()
     QFETCH(QString, name);
     QFETCH(int, permissionsCount);
     QFETCH(int, permissionsAdded);
+    QFETCH(QVector<Permission>, permissions);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
     const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     QCOMPARE(obj.count(), permissionsCount);
-    qDebug() << " OBJ " << obj;
+    // qDebug() << " OBJ " << obj;
 
     PermissionManager r;
     r.parseUpdatePermission(obj);
     QCOMPARE(r.permissionCount(), permissionsAdded);
+    QCOMPARE(r.permissionCount(), permissions.count());
+    for (const Permission &p : permissions) {
+        const Permission managerPermission = r.permission(p.identifier());
+        const bool equalPermission = (managerPermission == p);
+        if (!equalPermission) {
+            qDebug() << p;
+            qDebug() << managerPermission;
+        }
+        QVERIFY(equalPermission);
+    }
+}
+
+void PermissionManagerTest::shouldUpdatePermissions_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<QString>("updateName");
+    QTest::addColumn<QVector<Permission>>("permissions");
+    QTest::addColumn<QVector<Permission>>("updatedPermissions");
+    {
+        // No updated permission as this permission can't be store in manager
+        QVector<Permission> permissions;
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("access-permissions"));
+            p.setRoles({QStringLiteral("admin")});
+            p.setUpdatedAt(1533550243852);
+            permissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
+            p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
+            p.setUpdatedAt(1533550243869);
+            permissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
+            p.setRoles({QStringLiteral("admin")});
+            p.setUpdatedAt(1533550243881);
+            permissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
+            p.setUpdatedAt(1533550243889);
+            permissions.append(p);
+        }
+        QTest::addRow("permissions1") << QStringLiteral("permissions1") << QStringLiteral("update-permissions1") << permissions << permissions;
+    }
+    {
+        // No updated permission as this permission can't be store in manager
+        QVector<Permission> permissions;
+        QVector<Permission> updatedPermissions;
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("access-permissions"));
+            p.setRoles({QStringLiteral("admin")});
+            p.setUpdatedAt(1533550243852);
+            permissions.append(p);
+            updatedPermissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
+            p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
+            p.setUpdatedAt(1533550243869);
+            permissions.append(p);
+            updatedPermissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
+            p.setRoles({QStringLiteral("admin")});
+            p.setUpdatedAt(1533550243881);
+            permissions.append(p);
+
+            p.setRoles({QStringLiteral("admin"), QStringLiteral("vFXCWG9trXLti6xQm")});
+            p.setUpdatedAt(1634569746270);
+            updatedPermissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
+            p.setUpdatedAt(1533550243889);
+            permissions.append(p);
+            updatedPermissions.append(p);
+        }
+        // Use permissions1 as ref.
+        QTest::addRow("permissions2") << QStringLiteral("permissions1") << QStringLiteral("update-permissions2") << permissions << updatedPermissions;
+    }
+}
+
+void PermissionManagerTest::shouldUpdatePermissions()
+{
+    QFETCH(QString, name);
+    QFETCH(QString, updateName);
+    QFETCH(QVector<Permission>, permissions);
+    QFETCH(QVector<Permission>, updatedPermissions);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
+    const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
+
+    const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + updateName + QLatin1String(".json");
+    const QJsonArray updateArray = AutoTestHelper::loadJsonArrayObject(originalUpdateJsonFile);
+
+    PermissionManager r;
+    r.parseUpdatePermission(obj);
+    QCOMPARE(r.permissionCount(), permissions.count());
+
+    for (const Permission &p : permissions) {
+        const Permission managerPermission = r.permission(p.identifier());
+        const bool equalPermission = (managerPermission == p);
+        if (!equalPermission) {
+            qDebug() << p;
+            qDebug() << managerPermission;
+        }
+        QVERIFY(equalPermission);
+    }
+
+    r.updatePermission(updateArray);
+
+    for (const Permission &p : updatedPermissions) {
+        const Permission managerPermission = r.permission(p.identifier());
+        const bool equalPermission = (managerPermission == p);
+        if (!equalPermission) {
+            qDebug() << p;
+            qDebug() << managerPermission;
+        }
+        QVERIFY(equalPermission);
+    }
 }
