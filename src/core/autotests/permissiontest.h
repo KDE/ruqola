@@ -30,5 +30,7 @@ public:
     ~PermissionTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadPermission_data();
+    void shouldLoadPermission();
 };
 
