@@ -219,6 +219,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/customemoji/administratorcustomemojicreatedialog.cpp
     administratordialog/customemoji/administratorcustomemojicreatewidget.cpp
 
+    administratordialog/roles/administratorroleswidget.cpp
+
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
 
