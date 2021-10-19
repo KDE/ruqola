@@ -290,7 +290,7 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
     subscribe(QStringLiteral("stream-notify-room"), params3);
     const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing")))};
     subscribe(QStringLiteral("stream-notify-room"), params4);
-    const QJsonArray params5{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("user-activity")))};
+    const QJsonArray params5{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
     subscribe(QStringLiteral("stream-notify-room"), params5);
 }
 
