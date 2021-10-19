@@ -109,20 +109,25 @@ void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
     // qDebug() << "mMapPermissions " << mMapPermissions;
 }
 
-void PermissionManager::updatePermission(const QJsonArray &updateArray)
+bool PermissionManager::updatePermission(const QJsonArray &updateArray)
 {
+    bool updatedPermission = false;
     if (updateArray.count() == 2) {
         if (updateArray.at(0).toString() == QLatin1String("updated")) {
             const QJsonObject obj = updateArray.at(1).toObject();
             const QString id = obj[QLatin1String("_id")].toString();
             if (storePermission(id)) {
                 Permission p;
-                p.parsePermission(obj, {} /* add roles? */, false);
+                p.parsePermission(obj, {} /* add roles? */, false); // We use date from ddpclient not restapi
                 if (p.isValid()) {
                     mMapPermissions.insert(id, p);
+                    updatedPermission = true;
                 }
             }
         }
+    } else {
+        qCWarning(RUQOLA_LOG) << " PermissionManager::updatePermission invalid updateArray count " << updateArray.count();
     }
+    return updatedPermission;
     // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"}
 }

@@ -38,7 +38,7 @@ public:
     Q_REQUIRED_RESULT int permissionCount() const;
     Q_REQUIRED_RESULT bool contains(const QString &permissionId) const;
 
-    void updatePermission(const QJsonArray &updateArray);
+    Q_REQUIRED_RESULT bool updatePermission(const QJsonArray &updateArray);
     void parseUpdatePermission(const QJsonArray &removeArray);
 
     Q_REQUIRED_RESULT const Permission permission(const QString &permissionId) const;

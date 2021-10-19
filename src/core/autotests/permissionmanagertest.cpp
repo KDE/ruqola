@@ -113,6 +113,7 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
     QTest::addColumn<QString>("updateName");
     QTest::addColumn<QVector<Permission>>("permissions");
     QTest::addColumn<QVector<Permission>>("updatedPermissions");
+    QTest::addColumn<bool>("permissionUpdated");
     {
         // No updated permission as this permission can't be store in manager
         QVector<Permission> permissions;
@@ -143,7 +144,7 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
             p.setUpdatedAt(1533550243889);
             permissions.append(p);
         }
-        QTest::addRow("permissions1") << QStringLiteral("permissions1") << QStringLiteral("update-permissions1") << permissions << permissions;
+        QTest::addRow("permissions1") << QStringLiteral("permissions1") << QStringLiteral("update-permissions1") << permissions << permissions << false;
     }
     {
         // No updated permission as this permission can't be store in manager
@@ -184,7 +185,7 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
             updatedPermissions.append(p);
         }
         // Use permissions1 as ref.
-        QTest::addRow("permissions2") << QStringLiteral("permissions1") << QStringLiteral("update-permissions2") << permissions << updatedPermissions;
+        QTest::addRow("permissions2") << QStringLiteral("permissions1") << QStringLiteral("update-permissions2") << permissions << updatedPermissions << true;
     }
 }
 
@@ -194,6 +195,7 @@ void PermissionManagerTest::shouldUpdatePermissions()
     QFETCH(QString, updateName);
     QFETCH(QVector<Permission>, permissions);
     QFETCH(QVector<Permission>, updatedPermissions);
+    QFETCH(bool, permissionUpdated);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
     const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
 
@@ -214,7 +216,7 @@ void PermissionManagerTest::shouldUpdatePermissions()
         QVERIFY(equalPermission);
     }
 
-    r.updatePermission(updateArray);
+    QCOMPARE(r.updatePermission(updateArray), permissionUpdated);
 
     for (const Permission &p : updatedPermissions) {
         const Permission managerPermission = r.permission(p.identifier());
