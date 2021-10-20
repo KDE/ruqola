@@ -26,6 +26,8 @@
 #include <QWidget>
 class RolesTreeView;
 class QLineEdit;
+class AdminPermissionsModel;
+class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRolesWidget : public QWidget
 {
     Q_OBJECT
@@ -35,6 +37,9 @@ public:
 
 private:
     void slotFilterTextChanged(const QString &str);
+    void slotCustomContextMenuRequested(const QPoint &pos);
     RolesTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
+    AdminPermissionsModel *const mAdminRolesModel;
+    QSortFilterProxyModel *const mPermissionFilterProxyModel;
 };

@@ -43,7 +43,7 @@ QVariant AdminRolesModel::headerData(int section, Qt::Orientation orientation, i
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<AdminRoles>(section)) {
         case AdminRolesModel::Identifier:
-            return i18n("Name");
+            return i18n("Identifier");
         case AdminRolesModel::Name:
             return i18n("Name");
         case AdminRolesModel::Scope:

@@ -20,17 +20,22 @@
 
 #include "administratorroleswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/adminpermissionsmodel.h"
 #include "rolestreeview.h"
 
 #include <KLocalizedString>
 
 #include <QLineEdit>
+#include <QMenu>
+#include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
 AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     : QWidget{parent}
     , mTreeView(new RolesTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
+    , mAdminRolesModel(new AdminPermissionsModel(this))
+    , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -43,7 +48,13 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
 
     mainLayout->addWidget(mSearchLineWidget);
     mainLayout->addWidget(mTreeView);
+
+    mPermissionFilterProxyModel->setSourceModel(mAdminRolesModel);
+    mTreeView->setModel(mPermissionFilterProxyModel);
+    mTreeView->setColumnHidden(AdminPermissionsModel::Roles, true);
+
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorRolesWidget::slotFilterTextChanged);
+    connect(mTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorRolesWidget::slotCustomContextMenuRequested);
 }
 
 AdministratorRolesWidget::~AdministratorRolesWidget()
@@ -53,4 +64,21 @@ AdministratorRolesWidget::~AdministratorRolesWidget()
 void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
 {
     // TODO
+}
+
+void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    const QModelIndex index = mTreeView->indexAt(pos);
+#if 0
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
+        if (index.isValid()) {
+            QMenu menu(this);
+            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+                modifyRoles(index);
+            });
+            menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+        }
+    }
+#endif
 }
