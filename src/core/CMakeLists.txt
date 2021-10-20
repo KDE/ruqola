@@ -100,6 +100,9 @@ target_sources(libruqolacore PRIVATE
     model/admincustomemojimodel.cpp
     model/adminpermissionsmodel.cpp
 
+    model/adminrolesmodel.cpp
+    
+
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthentication.cpp
     emoticons/customemoji.cpp
