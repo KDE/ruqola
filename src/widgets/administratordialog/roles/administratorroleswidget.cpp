@@ -35,7 +35,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     , mTreeView(new RolesTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminRolesModel(new AdminPermissionsModel(this))
-    , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
+    , mRoleFilterProxyModel(new QSortFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -49,8 +49,8 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineWidget);
     mainLayout->addWidget(mTreeView);
 
-    mPermissionFilterProxyModel->setSourceModel(mAdminRolesModel);
-    mTreeView->setModel(mPermissionFilterProxyModel);
+    mRoleFilterProxyModel->setSourceModel(mAdminRolesModel);
+    mTreeView->setModel(mRoleFilterProxyModel);
     mTreeView->setColumnHidden(AdminPermissionsModel::Roles, true);
 
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorRolesWidget::slotFilterTextChanged);
@@ -63,6 +63,7 @@ AdministratorRolesWidget::~AdministratorRolesWidget()
 
 void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
 {
+    mRoleFilterProxyModel->setFilterFixedString(str);
     // TODO
 }
 

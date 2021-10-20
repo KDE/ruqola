@@ -41,5 +41,5 @@ private:
     RolesTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminPermissionsModel *const mAdminRolesModel;
-    QSortFilterProxyModel *const mPermissionFilterProxyModel;
+    QSortFilterProxyModel *const mRoleFilterProxyModel;
 };
