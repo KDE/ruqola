@@ -17,29 +17,14 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
 #pragma once
 
-#include <QWidget>
+#include <QDialog>
 
-#include "libruqolawidgets_private_export.h"
-#include <QWidget>
-class RolesTreeView;
-class QLineEdit;
-class AdminRolesModel;
-class QSortFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRolesWidget : public QWidget
+class RoleEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AdministratorRolesWidget(QWidget *parent = nullptr);
-    ~AdministratorRolesWidget() override;
-
-private:
-    void slotFilterTextChanged(const QString &str);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    RolesTreeView *const mTreeView;
-    QLineEdit *const mSearchLineWidget;
-    AdminRolesModel *const mAdminRolesModel;
-    QSortFilterProxyModel *const mRoleFilterProxyModel;
+    explicit RoleEditDialog(QWidget *parent = nullptr);
+    ~RoleEditDialog() override;
 };

@@ -18,28 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
+#include "roleeditdialog.h"
 
-#include <QWidget>
+#include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
-#include "libruqolawidgets_private_export.h"
-#include <QWidget>
-class RolesTreeView;
-class QLineEdit;
-class AdminRolesModel;
-class QSortFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRolesWidget : public QWidget
+RoleEditDialog::RoleEditDialog(QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit AdministratorRolesWidget(QWidget *parent = nullptr);
-    ~AdministratorRolesWidget() override;
+    // TODO setWindowTitle(i18nc("@title:window", "Edit \'%1\' Role", permission));
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    // TODO mainLayout->addWidget(mPermissionsWidget);
 
-private:
-    void slotFilterTextChanged(const QString &str);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    RolesTreeView *const mTreeView;
-    QLineEdit *const mSearchLineWidget;
-    AdminRolesModel *const mAdminRolesModel;
-    QSortFilterProxyModel *const mRoleFilterProxyModel;
-};
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &RoleEditDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &RoleEditDialog::accept);
+    resize(350, 50);
+}
+
+RoleEditDialog::~RoleEditDialog()
+{
+}

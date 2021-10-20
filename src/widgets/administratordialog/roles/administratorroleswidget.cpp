@@ -20,7 +20,7 @@
 
 #include "administratorroleswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "model/adminpermissionsmodel.h"
+#include "model/adminrolesmodel.h"
 #include "rolestreeview.h"
 
 #include <KLocalizedString>
@@ -34,7 +34,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     : QWidget{parent}
     , mTreeView(new RolesTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
-    , mAdminRolesModel(new AdminPermissionsModel(this))
+    , mAdminRolesModel(new AdminRolesModel(this))
     , mRoleFilterProxyModel(new QSortFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -43,7 +43,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mSearchLineWidget->setPlaceholderText(i18n("Search Permissions..."));
+    mSearchLineWidget->setPlaceholderText(i18n("Search Roles..."));
     new LineEditCatchReturnKey(mSearchLineWidget, this);
 
     mainLayout->addWidget(mSearchLineWidget);
@@ -52,7 +52,6 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     mRoleFilterProxyModel->setObjectName(QStringLiteral("mRoleFilterProxyModel"));
     mRoleFilterProxyModel->setSourceModel(mAdminRolesModel);
     mTreeView->setModel(mRoleFilterProxyModel);
-    mTreeView->setColumnHidden(AdminPermissionsModel::Roles, true);
 
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorRolesWidget::slotFilterTextChanged);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorRolesWidget::slotCustomContextMenuRequested);
