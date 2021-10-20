@@ -220,6 +220,7 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/customemoji/administratorcustomemojicreatewidget.cpp
 
     administratordialog/roles/administratorroleswidget.cpp
+    administratordialog/roles/rolestreeview.cpp
 
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
