@@ -21,7 +21,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "permissions/permissions.h"
 #include "roleinfo.h"
 #include <QAbstractListModel>
 
@@ -29,13 +28,13 @@ class LIBRUQOLACORE_EXPORT AdminRolesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum AdminPermissionsRoles {
+    enum AdminRoles {
         Identifier,
-        Roles,
-        RolesStr,
-        LastColumn = RolesStr,
+        Name,
+        Scope,
+        LastColumn = Scope,
     };
-    Q_ENUM(AdminPermissionsRoles)
+    Q_ENUM(AdminRoles)
 
     explicit AdminRolesModel(QObject *parent = nullptr);
     ~AdminRolesModel() override;
@@ -45,13 +44,11 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_REQUIRED_RESULT Permissions permissions() const;
-    void setPermissions(const Permissions &newPermissions);
+    void setRoles(const QVector<RoleInfo> &newRoles);
 
-    void setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos);
+    Q_REQUIRED_RESULT QVector<RoleInfo> roles() const;
 
 private:
     Q_DISABLE_COPY(AdminRolesModel)
-    Permissions mPermissions;
     QVector<RoleInfo> mListRoleInfos;
 };

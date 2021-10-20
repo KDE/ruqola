@@ -35,18 +35,19 @@ int AdminRolesModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mPermissions.count();
+    return mListRoleInfos.count();
 }
 
 QVariant AdminRolesModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AdminPermissionsRoles>(section)) {
+        switch (static_cast<AdminRoles>(section)) {
         case AdminRolesModel::Identifier:
             return i18n("Name");
-        case AdminRolesModel::RolesStr:
-        case AdminRolesModel::Roles:
-            return i18n("Roles");
+        case AdminRolesModel::Name:
+            return i18n("Name");
+        case AdminRolesModel::Scope:
+            return i18n("Scope");
         }
     }
     return QVariant();
@@ -58,48 +59,43 @@ int AdminRolesModel::columnCount(const QModelIndex &parent) const
     return static_cast<int>(AdminRolesModel::LastColumn) + 1;
 }
 
-Permissions AdminRolesModel::permissions() const
+QVector<RoleInfo> AdminRolesModel::roles() const
 {
-    return mPermissions;
+    return mListRoleInfos;
 }
 
-void AdminRolesModel::setPermissions(const Permissions &newPermissions)
+void AdminRolesModel::setRoles(const QVector<RoleInfo> &newRoles)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mPermissions.count() - 1);
-        mPermissions.clear();
+        beginRemoveRows(QModelIndex(), 0, mListRoleInfos.count() - 1);
+        mListRoleInfos.clear();
         endRemoveRows();
     }
-    if (!newPermissions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newPermissions.count() - 1);
-        mPermissions = newPermissions;
+    if (!newRoles.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newRoles.count() - 1);
+        mListRoleInfos = newRoles;
         endInsertRows();
     }
 }
 
-void AdminRolesModel::setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos)
-{
-    mListRoleInfos = newListRoleInfos;
-}
-
 QVariant AdminRolesModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mPermissions.count()) {
+    if (index.row() < 0 || index.row() >= mListRoleInfos.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const Permission &permissionInfo = mPermissions.at(index.row());
+    const RoleInfo &roleInfo = mListRoleInfos.at(index.row());
     const int col = index.column();
     switch (col) {
     case AdminRolesModel::Identifier:
-        return permissionInfo.identifier();
-    case AdminRolesModel::Roles:
-        return permissionInfo.roles();
-    case AdminRolesModel::RolesStr:
-        return permissionInfo.rolesStr().join(QLatin1Char(','));
+        return roleInfo.identifier();
+    case AdminRolesModel::Name:
+        return roleInfo.name();
+    case AdminRolesModel::Scope:
+        return roleInfo.scope();
     }
     return {};
 }
