@@ -33,6 +33,7 @@ class AdministratorInvitesWidget;
 class ViewLogWidget;
 class AdministratorCustomEmojiWidget;
 class PermissionsWidget;
+class AdministratorRolesWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
@@ -54,6 +55,7 @@ private:
     AdministratorCustomEmojiWidget *const mAdministratorCustomEmojiWidget;
     ViewLogWidget *const mViewLogWidget;
     PermissionsWidget *const mPermissionsWidget;
+    AdministratorRolesWidget *const mRolesWidget;
     int mCustomSoundsTabIndex = -1;
     int mServerInfoTabIndex = -1;
     int mViewLogTagIndex = -1;

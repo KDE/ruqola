@@ -21,6 +21,7 @@
 #include "administratorwidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
 #include "administratordialog/permissions/permissionswidget.h"
+#include "administratordialog/roles/administratorroleswidget.h"
 #include "customemoji/administratorcustomemojiwidget.h"
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
@@ -47,6 +48,7 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
     , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(this))
     , mViewLogWidget(new ViewLogWidget(this))
     , mPermissionsWidget(new PermissionsWidget(this))
+    , mRolesWidget(new AdministratorRolesWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -81,6 +83,9 @@ AdministratorWidget::AdministratorWidget(QWidget *parent)
 
     mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
     mTabWidget->addTab(mPermissionsWidget, i18n("Permissions"));
+
+    mRolesWidget->setObjectName(QStringLiteral("mRolesWidget"));
+    mTabWidget->addTab(mRolesWidget, i18n("Roles"));
 }
 
 AdministratorWidget::~AdministratorWidget()
