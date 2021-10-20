@@ -27,4 +27,6 @@ class AdministratorRolesWidgetTest : public QObject
 public:
     explicit AdministratorRolesWidgetTest(QObject *parent = nullptr);
     ~AdministratorRolesWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

@@ -49,6 +49,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineWidget);
     mainLayout->addWidget(mTreeView);
 
+    mRoleFilterProxyModel->setObjectName(QStringLiteral("mRoleFilterProxyModel"));
     mRoleFilterProxyModel->setSourceModel(mAdminRolesModel);
     mTreeView->setModel(mRoleFilterProxyModel);
     mTreeView->setColumnHidden(AdminPermissionsModel::Roles, true);
@@ -64,7 +65,6 @@ AdministratorRolesWidget::~AdministratorRolesWidget()
 void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
 {
     mRoleFilterProxyModel->setFilterFixedString(str);
-    // TODO
 }
 
 void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
