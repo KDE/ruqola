@@ -24,11 +24,17 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class RolesTreeView;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRolesWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorRolesWidget(QWidget *parent = nullptr);
     ~AdministratorRolesWidget() override;
+
+private:
+    void slotFilterTextChanged(const QString &str);
+    RolesTreeView *const mTreeView;
+    QLineEdit *const mSearchLineWidget;
 };

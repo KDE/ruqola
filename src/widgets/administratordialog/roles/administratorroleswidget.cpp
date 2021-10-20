@@ -19,16 +19,38 @@
 */
 
 #include "administratorroleswidget.h"
+#include "misc/lineeditcatchreturnkey.h"
+#include "rolestreeview.h"
 
+#include <KLocalizedString>
+
+#include <QLineEdit>
 #include <QVBoxLayout>
 
 AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     : QWidget{parent}
+    , mTreeView(new RolesTreeView(this))
+    , mSearchLineWidget(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+
+    mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setPlaceholderText(i18n("Search Permissions..."));
+    new LineEditCatchReturnKey(mSearchLineWidget, this);
+
+    mainLayout->addWidget(mSearchLineWidget);
+    mainLayout->addWidget(mTreeView);
+    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorRolesWidget::slotFilterTextChanged);
 }
 
 AdministratorRolesWidget::~AdministratorRolesWidget()
 {
+}
+
+void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
+{
+    // TODO
 }
