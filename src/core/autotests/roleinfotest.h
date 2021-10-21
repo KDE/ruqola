@@ -30,4 +30,6 @@ public:
     ~RoleInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadRoles_data();
+    void shouldLoadRoles();
 };

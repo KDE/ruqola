@@ -20,6 +20,7 @@
 
 #include "roleinfotest.h"
 #include "roleinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoleInfoTest)
 RoleInfoTest::RoleInfoTest(QObject *parent)
@@ -35,4 +36,31 @@ void RoleInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.scope().isEmpty());
     QVERIFY(w.description().isEmpty());
     QVERIFY(!w.roleProtected());
+}
+
+void RoleInfoTest::shouldLoadRoles_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<RoleInfo>("role");
+
+    RoleInfo r;
+    r.setMandatory2fa(false);
+    r.setRoleProtected(true);
+    r.setName(QStringLiteral("app"));
+    r.setScope(QStringLiteral("Users"));
+    r.setIdentifier(QStringLiteral("app"));
+
+    QTest::addRow("roleinfo1") << QStringLiteral("roleinfo1") << r;
+}
+
+void RoleInfoTest::shouldLoadRoles()
+{
+    QFETCH(QString, name);
+    QFETCH(RoleInfo, role);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesinfo/") + name + QLatin1String(".json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    RoleInfo r;
+    r.parseRoleInfo(obj);
+    QCOMPARE(r, role);
 }
