@@ -17,15 +17,27 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#pragma once
 
-#include <QDialog>
-
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditDialog : public QDialog
+#include "roleeditdialogtest.h"
+#include "administratordialog/roles/roleeditdialog.h"
+#include <QDialogButtonBox>
+#include <QTest>
+#include <QVBoxLayout>
+QTEST_MAIN(RoleEditDialogTest)
+RoleEditDialogTest::RoleEditDialogTest(QObject *parent)
+    : QObject{parent}
 {
-    Q_OBJECT
-public:
-    explicit RoleEditDialog(QWidget *parent = nullptr);
-    ~RoleEditDialog() override;
-};
+}
+
+void RoleEditDialogTest::shouldHaveDefaultValues()
+{
+    RoleEditDialog d;
+    QVERIFY(!d.windowTitle().isEmpty());
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
+    // TODO
+}

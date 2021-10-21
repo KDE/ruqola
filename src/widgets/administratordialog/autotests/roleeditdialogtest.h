@@ -17,15 +17,17 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+
 #pragma once
 
-#include <QDialog>
+#include <QObject>
 
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditDialog : public QDialog
+class RoleEditDialogTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit RoleEditDialog(QWidget *parent = nullptr);
-    ~RoleEditDialog() override;
+    explicit RoleEditDialogTest(QObject *parent = nullptr);
+    ~RoleEditDialogTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

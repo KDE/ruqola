@@ -27,7 +27,7 @@
 RoleEditDialog::RoleEditDialog(QWidget *parent)
     : QDialog(parent)
 {
-    // TODO setWindowTitle(i18nc("@title:window", "Edit \'%1\' Role", permission));
+    setWindowTitle(i18nc("@title:window", "Edit Role"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     // TODO mainLayout->addWidget(mPermissionsWidget);
