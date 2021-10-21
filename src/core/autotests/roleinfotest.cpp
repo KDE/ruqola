@@ -33,4 +33,6 @@ void RoleInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(w.scope().isEmpty());
+    QVERIFY(w.description().isEmpty());
+    QVERIFY(!w.roleProtected());
 }

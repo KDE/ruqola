@@ -50,6 +50,8 @@ void RoleInfo::parseRoleInfo(const QJsonObject &obj)
     mScope = obj[QLatin1String("scope")].toString();
     mIdentifier = obj[QLatin1String("_id")].toString();
     mName = obj[QLatin1String("name")].toString();
+    mDescription = obj[QLatin1String("description")].toString();
+    mRoleProtected = obj[QLatin1String("protected")].toBool();
 }
 
 const QString &RoleInfo::name() const
@@ -62,6 +64,26 @@ void RoleInfo::setName(const QString &newName)
     mName = newName;
 }
 
+const QString &RoleInfo::description() const
+{
+    return mDescription;
+}
+
+void RoleInfo::setDescription(const QString &newDescription)
+{
+    mDescription = newDescription;
+}
+
+bool RoleInfo::roleProtected() const
+{
+    return mRoleProtected;
+}
+
+void RoleInfo::setRoleProtected(bool newRoleProtected)
+{
+    mRoleProtected = newRoleProtected;
+}
+
 // TODO translate name.
 
 QDebug operator<<(QDebug d, const RoleInfo &t)
@@ -70,5 +92,7 @@ QDebug operator<<(QDebug d, const RoleInfo &t)
     d << "Identifier: " << t.identifier();
     d << "Scope: " << t.scope();
     d << "name: " << t.name();
+    d << "description: " << t.description();
+    d << "protected: " << t.roleProtected();
     return d;
 }

@@ -40,10 +40,18 @@ public:
     Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
 
+    Q_REQUIRED_RESULT const QString &description() const;
+    void setDescription(const QString &newDescription);
+
+    Q_REQUIRED_RESULT bool roleProtected() const;
+    void setRoleProtected(bool newRoleProtected);
+
 private:
     QString mName;
     QString mIdentifier;
     QString mScope;
+    QString mDescription;
+    bool mRoleProtected = false;
 };
 
 Q_DECLARE_METATYPE(RoleInfo)
