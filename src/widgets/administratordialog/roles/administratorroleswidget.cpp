@@ -44,6 +44,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mSearchLineWidget->setPlaceholderText(i18n("Search Roles..."));
+    mSearchLineWidget->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineWidget, this);
 
     mainLayout->addWidget(mSearchLineWidget);
