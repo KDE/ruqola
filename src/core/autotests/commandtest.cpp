@@ -19,7 +19,7 @@
 */
 
 #include "commandtest.h"
-#include "command.h"
+#include "commands/command.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(CommandTest)
 

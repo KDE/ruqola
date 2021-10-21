@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "commands.h"
+#include "commands/commands.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 

@@ -57,4 +57,3 @@ private:
 Q_DECLARE_METATYPE(CustomUserStatus)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatus &t);
-

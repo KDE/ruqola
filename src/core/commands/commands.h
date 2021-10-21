@@ -65,4 +65,3 @@ private:
 
 Q_DECLARE_METATYPE(Commands)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Commands &t);
-

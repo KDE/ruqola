@@ -131,8 +131,8 @@ target_sources(libruqolacore PRIVATE
     autotranslate/autotranslatelanguage.cpp
     autotranslate/autotranslatelanguages.cpp
 
-    command.cpp
-    commands.cpp
+    commands/command.cpp
+    commands/commands.cpp
 
     downloadappslanguages/downloadappslanguagesjob.cpp
     downloadappslanguages/downloadappslanguagesparser.cpp
@@ -191,6 +191,7 @@ target_sources(libruqolacore PRIVATE
     roles.cpp
     role.cpp
     roleinfo.cpp
+    rolesmanager.cpp
 
     avatarmanager.cpp
 
@@ -204,7 +205,6 @@ target_sources(libruqolacore PRIVATE
     messagedownloadmanager.cpp
 
     fileattachments.cpp
-    commands.cpp
 
     accountroomsettings.cpp
 
@@ -218,8 +218,8 @@ target_sources(libruqolacore PRIVATE
 
     channelcounterinfo.cpp
 
-    customuserstatuses.cpp
-    customuserstatus.cpp
+    customusers/customuserstatuses.cpp
+    customusers/customuserstatus.cpp
 
     ownuserpreferences.cpp
 

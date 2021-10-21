@@ -19,7 +19,7 @@
 */
 
 #include "statusmodel.h"
-#include "customuserstatuses.h"
+#include "customusers/customuserstatuses.h"
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>

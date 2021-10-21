@@ -19,7 +19,7 @@
 */
 
 #include "customuserstatustest.h"
-#include "customuserstatus.h"
+#include "customusers/customuserstatus.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(CustomUserStatusTest)
 

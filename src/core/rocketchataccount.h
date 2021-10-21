@@ -27,7 +27,7 @@
 #include "createroominfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
-#include "customuserstatuses.h"
+#include "customusers/customuserstatuses.h"
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "file.h"
 #include "inputtextmanager.h"

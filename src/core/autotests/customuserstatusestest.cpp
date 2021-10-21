@@ -19,8 +19,8 @@
 */
 
 #include "customuserstatusestest.h"
-#include "customuserstatus.h"
-#include "customuserstatuses.h"
+#include "customusers/customuserstatus.h"
+#include "customusers/customuserstatuses.h"
 #include "ruqola_autotest_helper.h"
 #include "utils.h"
 

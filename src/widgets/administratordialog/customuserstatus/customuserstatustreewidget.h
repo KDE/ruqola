@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "customuserstatus.h"
+#include "customusers/customuserstatus.h"
 #include <QTreeWidget>
 
 #include "libruqolawidgets_private_export.h"

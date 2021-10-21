@@ -58,4 +58,3 @@ private:
     int mTotal = 0;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatuses &t);
-
