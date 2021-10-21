@@ -20,6 +20,7 @@
 
 #include "roleeditdialogtest.h"
 #include "administratordialog/roles/roleeditdialog.h"
+#include "administratordialog/roles/roleeditwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -39,5 +40,8 @@ void RoleEditDialogTest::shouldHaveDefaultValues()
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    auto mRoleEditWidget = d.findChild<RoleEditWidget *>(QStringLiteral("mRoleEditWidget"));
+    QVERIFY(mRoleEditWidget);
     // TODO
 }

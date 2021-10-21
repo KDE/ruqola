@@ -22,10 +22,14 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
+class RoleEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit RoleEditDialog(QWidget *parent = nullptr);
     ~RoleEditDialog() override;
+
+private:
+    RoleEditWidget *const mRoleEditWidget;
 };

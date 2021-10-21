@@ -19,6 +19,7 @@
 */
 
 #include "roleeditdialog.h"
+#include "roleeditwidget.h"
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -26,11 +27,13 @@
 
 RoleEditDialog::RoleEditDialog(QWidget *parent)
     : QDialog(parent)
+    , mRoleEditWidget(new RoleEditWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Edit Role"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    // TODO mainLayout->addWidget(mPermissionsWidget);
+    mRoleEditWidget->setObjectName(QStringLiteral("mRoleEditWidget"));
+    mainLayout->addWidget(mRoleEditWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
