@@ -30,7 +30,7 @@
 #include "channelcounterinfo.h"
 #include "libruqolacore_export.h"
 #include "retentioninfo.h"
-#include "teaminfo.h"
+#include "teams/teaminfo.h"
 #include "utils.h"
 
 #include <memory>

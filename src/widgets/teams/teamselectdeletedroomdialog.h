@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "teamroom.h"
+#include "teams/teamroom.h"
 #include <QDialog>
 class TeamSelectDeletedRoomWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSelectDeletedRoomDialog : public QDialog

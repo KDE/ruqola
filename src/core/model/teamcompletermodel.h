@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "teamcompleter.h"
+#include "teams/teamcompleter.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT TeamCompleterModel : public QAbstractListModel

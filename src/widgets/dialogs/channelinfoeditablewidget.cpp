@@ -28,6 +28,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "teams/teamdeletejob.h"
+#include "teams/teamroom.h"
 #include "teams/teamselectdeletedroomdialog.h"
 #include "teams/teamslistroomsjob.h"
 #include <KAuthorized>
@@ -39,7 +40,6 @@
 #include <QFormLayout>
 #include <QPointer>
 #include <QPushButton>
-#include <teamroom.h>
 
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     : QWidget(parent)

@@ -19,7 +19,7 @@
 */
 
 #include "teamroomtest.h"
-#include "teamroom.h"
+#include "teams/teamroom.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(TeamRoomTest)
 TeamRoomTest::TeamRoomTest(QObject *parent)

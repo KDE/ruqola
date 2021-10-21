@@ -26,13 +26,13 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "teamroom.h"
 #include "teams/channelsconverttoteamjob.h"
 #include "teams/groupsconverttoteamjob.h"
 #include "teams/searchteamdialog.h"
 #include "teams/teamaddroomsjob.h"
 #include "teams/teamconverttochanneldialog.h"
 #include "teams/teamconverttochanneljob.h"
+#include "teams/teamroom.h"
 #include "teams/teamslistroomsjob.h"
 
 #include <KLocalizedString>

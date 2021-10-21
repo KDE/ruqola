@@ -54,8 +54,8 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomwidgetbase.h"
-#include "teaminfo.h"
 #include "teams/teamchannelsdialog.h"
+#include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "uploadfileprogressstatuswidget.h"
 

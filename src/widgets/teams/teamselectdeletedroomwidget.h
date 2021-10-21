@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "teamroom.h"
+#include "teams/teamroom.h"
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"

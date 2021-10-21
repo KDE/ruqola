@@ -229,10 +229,10 @@ target_sources(libruqolacore PRIVATE
 
     serverinfo.cpp
     retentioninfo.cpp
-    teaminfo.cpp
-    teamroom.cpp
-    teamroomcompleter.cpp
-    teamcompleter.cpp
+    teams/teaminfo.cpp
+    teams/teamroom.cpp
+    teams/teamroomcompleter.cpp
+    teams/teamcompleter.cpp
 
     invite/inviteinfo.cpp
 

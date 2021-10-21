@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "teamroom.h"
+#include "teams/teamroom.h"
 #include <QAbstractListModel>
 #include <QVector>
 class LIBRUQOLACORE_EXPORT TeamRoomsModel : public QAbstractListModel

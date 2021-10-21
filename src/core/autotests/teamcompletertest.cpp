@@ -19,7 +19,7 @@
 */
 
 #include "teamcompletertest.h"
-#include "teamcompleter.h"
+#include "teams/teamcompleter.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(TeamCompleterTest)

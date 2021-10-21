@@ -19,7 +19,7 @@
 */
 
 #include "teaminfotest.h"
-#include "teaminfo.h"
+#include "teams/teaminfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(TeamInfoTest)
 TeamInfoTest::TeamInfoTest(QObject *parent)

@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "teaminfo.h"
+#include "teams/teaminfo.h"
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>

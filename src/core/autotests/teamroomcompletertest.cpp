@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "teamroomcompletertest.h"
-#include "teamroomcompleter.h"
+#include "teams/teamroomcompleter.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(TeamRoomCompleterTest)
 
