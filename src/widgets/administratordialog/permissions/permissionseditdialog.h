@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QDialog>
 class PermissionsEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditDialog : public QDialog

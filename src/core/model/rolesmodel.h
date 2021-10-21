@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QStandardItemModel>
 #include <QVector>
 class LIBRUQOLACORE_EXPORT RolesModel : public QStandardItemModel

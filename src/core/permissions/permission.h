@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>

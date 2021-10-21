@@ -40,4 +40,3 @@ public:
 private:
     QVector<Role> mRoles;
 };
-

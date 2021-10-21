@@ -21,7 +21,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "permission.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QJsonObject>
 #include <QVector>
 

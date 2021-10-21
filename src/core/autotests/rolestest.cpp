@@ -19,7 +19,7 @@
 */
 
 #include "rolestest.h"
-#include "roles.h"
+#include "roles/roles.h"
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RolesTest)

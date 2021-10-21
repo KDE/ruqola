@@ -22,7 +22,7 @@
 #include "misc/roleslistjob.h"
 #include "model/rolesmodel.h"
 #include "rocketchataccount.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 

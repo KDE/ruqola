@@ -188,10 +188,10 @@ target_sources(libruqolacore PRIVATE
     serverconfiginfo.cpp
     notificationpreferences.cpp
 
-    roles.cpp
-    role.cpp
-    roleinfo.cpp
-    rolesmanager.cpp
+    roles/roles.cpp
+    roles/role.cpp
+    roles/roleinfo.cpp
+    roles/rolesmanager.cpp
 
     avatarmanager.cpp
 

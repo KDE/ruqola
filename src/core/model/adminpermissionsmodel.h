@@ -22,7 +22,7 @@
 
 #include "libruqolacore_export.h"
 #include "permissions/permissions.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT AdminPermissionsModel : public QAbstractListModel

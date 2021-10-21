@@ -20,7 +20,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QComboBox>
 class RolesModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RolesComboBox : public QComboBox

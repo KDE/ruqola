@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QWidget>
 class PermissionsTreeView;
 class QLineEdit;

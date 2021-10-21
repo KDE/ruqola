@@ -23,7 +23,7 @@
 #pragma once
 
 #include "notificationoptions.h"
-#include "roles.h"
+#include "roles/roles.h"
 #include <QJsonObject>
 #include <QObject>
 

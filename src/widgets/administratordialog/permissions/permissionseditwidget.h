@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roleinfo.h"
+#include "roles/roleinfo.h"
 #include <QWidget>
 class RolesComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditWidget : public QWidget
