@@ -45,13 +45,21 @@ void RoleInfo::setScope(const QString &newScope)
     mScope = newScope;
 }
 
+bool RoleInfo::operator==(const RoleInfo &other) const
+{
+    return mScope == other.scope() && mIdentifier == other.identifier() && mName == other.name() && mDescription == other.description() && mRoleProtected
+        && other.roleProtected() && mMandatory2fa == other.mandatory2fa();
+}
+
 void RoleInfo::parseRoleInfo(const QJsonObject &obj)
 {
+    // TODO updateAt!
     mScope = obj[QLatin1String("scope")].toString();
     mIdentifier = obj[QLatin1String("_id")].toString();
     mName = obj[QLatin1String("name")].toString();
     mDescription = obj[QLatin1String("description")].toString();
     mRoleProtected = obj[QLatin1String("protected")].toBool();
+    mMandatory2fa = obj[QLatin1String("mandatory2fa")].toBool();
 }
 
 const QString &RoleInfo::name() const
@@ -84,6 +92,16 @@ void RoleInfo::setRoleProtected(bool newRoleProtected)
     mRoleProtected = newRoleProtected;
 }
 
+bool RoleInfo::mandatory2fa() const
+{
+    return mMandatory2fa;
+}
+
+void RoleInfo::setMandatory2fa(bool newMandatory2fa)
+{
+    mMandatory2fa = newMandatory2fa;
+}
+
 // TODO translate name.
 
 QDebug operator<<(QDebug d, const RoleInfo &t)
@@ -94,5 +112,6 @@ QDebug operator<<(QDebug d, const RoleInfo &t)
     d << "name: " << t.name();
     d << "description: " << t.description();
     d << "protected: " << t.roleProtected();
+    d << "mandatory2fa: " << t.mandatory2fa();
     return d;
 }

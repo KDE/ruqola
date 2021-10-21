@@ -46,12 +46,18 @@ public:
     Q_REQUIRED_RESULT bool roleProtected() const;
     void setRoleProtected(bool newRoleProtected);
 
+    Q_REQUIRED_RESULT bool mandatory2fa() const;
+    void setMandatory2fa(bool newMandatory2fa);
+
+    Q_REQUIRED_RESULT bool operator==(const RoleInfo &other) const;
+
 private:
     QString mName;
     QString mIdentifier;
     QString mScope;
     QString mDescription;
     bool mRoleProtected = false;
+    bool mMandatory2fa = false;
 };
 
 Q_DECLARE_METATYPE(RoleInfo)
