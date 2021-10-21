@@ -20,6 +20,8 @@
 
 #include "rolesmanager.h"
 #include "ruqola_debug.h"
+
+#include <QJsonArray>
 RolesManager::RolesManager(QObject *parent)
     : QObject{parent}
 {
@@ -31,7 +33,15 @@ RolesManager::~RolesManager()
 
 void RolesManager::parseRoles(const QJsonObject &obj)
 {
-    // TODO
+    const QJsonArray array = obj[QLatin1String("roles")].toArray();
+
+    mRoleInfo.reserve(array.count());
+    for (const QJsonValue &current : array) {
+        const QJsonObject roleObject = current.toObject();
+        RoleInfo info;
+        info.parseRoleInfo(roleObject);
+        mRoleInfo.append(info);
+    }
 }
 
 void RolesManager::updateRoles(const QJsonObject &obj)

@@ -38,6 +38,7 @@
 #include "ownuser.h"
 #include "permissions/permissionmanager.h"
 #include "rocketchataccountsettings.h"
+#include "rolesmanager.h"
 #include "room.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
@@ -629,6 +630,7 @@ private:
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;
+    RolesManager mRolesManager;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;
