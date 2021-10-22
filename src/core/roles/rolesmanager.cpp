@@ -49,10 +49,18 @@ void RolesManager::updateRoles(const QJsonArray &contents)
     for (const QJsonValue &current : contents) {
         const QJsonObject roleObject = current.toObject();
         const QString type = roleObject.value(QStringLiteral("type")).toString();
+        const QString identifier = roleObject.value(QStringLiteral("_id")).toString();
         if (type == QLatin1String("removed")) {
-            // TODO
+            for (int i = 0; i < mRoleInfo.count(); ++i) {
+                if (mRoleInfo.at(i).identifier() == identifier) {
+                    mRoleInfo.removeAll(mRoleInfo.at(i));
+                    break;
+                }
+            }
         } else if (type == QLatin1String("changed")) {
             // TODO
+        } else {
+            qCWarning(RUQOLA_LOG) << " No defined type" << type;
         }
     }
     // QJsonObject({"args":[{"_id":"vFXCWG9trXLti6xQm","name":"vFXCWG9trXLti6xQm","type":"removed"}],"eventName":"roles"})
