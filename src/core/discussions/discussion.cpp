@@ -17,7 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "discussion.h"
+#include "discussions/discussion.h"
 #include "utils.h"
 #include <KLocalizedString>
 #include <QDateTime>

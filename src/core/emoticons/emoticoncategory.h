@@ -46,4 +46,3 @@ private:
 Q_DECLARE_METATYPE(EmoticonCategory)
 Q_DECLARE_TYPEINFO(EmoticonCategory, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const EmoticonCategory &t);
-

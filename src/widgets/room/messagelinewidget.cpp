@@ -21,7 +21,7 @@
 #include "messagelinewidget.h"
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
-#include "ownuserpreferences.h"
+#include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"

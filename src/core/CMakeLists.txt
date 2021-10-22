@@ -139,8 +139,8 @@ target_sources(libruqolacore PRIVATE
     downloadappslanguages/downloadappslanguagesmanager.cpp
     downloadappslanguages/downloadappslanguagesinfo.cpp
 
-    roominfo.cpp
-    roomsinfo.cpp
+    roominfo/roominfo.cpp
+    roominfo/roomsinfo.cpp
 
     customsound/customsoundsinfo.cpp
     customsound/customsoundinfo.cpp
@@ -194,10 +194,10 @@ target_sources(libruqolacore PRIVATE
 
     avatarmanager.cpp
 
-    discussion.cpp
-    discussions.cpp
+    discussions/discussion.cpp
+    discussions/discussions.cpp
 
-    emoticoncategory.cpp
+    emoticons/emoticoncategory.cpp
 
     listmessages.cpp
 
@@ -211,7 +211,7 @@ target_sources(libruqolacore PRIVATE
     notifications/notifierjob.cpp
     restauthenticationmanager.cpp
 
-    ownuser.cpp
+    ownuser/ownuser.cpp
     servicepassword.cpp
 
     downloadavartarurlmanager.cpp
@@ -221,7 +221,7 @@ target_sources(libruqolacore PRIVATE
     customusers/customuserstatuses.cpp
     customusers/customuserstatus.cpp
 
-    ownuserpreferences.cpp
+    ownuser/ownuserpreferences.cpp
 
     permissions/permissions.cpp
     permissions/permission.cpp

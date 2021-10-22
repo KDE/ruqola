@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ownuser.h"
+#include "ownuser/ownuser.h"
 #include "utils.h"
 #include <QJsonArray>
 

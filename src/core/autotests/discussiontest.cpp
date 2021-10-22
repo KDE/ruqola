@@ -18,7 +18,7 @@
 */
 
 #include "discussiontest.h"
-#include "discussion.h"
+#include "discussions/discussion.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(DiscussionTest)

@@ -19,7 +19,7 @@
 */
 
 #include "ownusertest.h"
-#include "ownuser.h"
+#include "ownuser/ownuser.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
 #include <QTest>

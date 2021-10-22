@@ -18,7 +18,7 @@
 */
 
 #include "discussionsmodel.h"
-#include "discussions.h"
+#include "discussions/discussions.h"
 
 DiscussionsModel::DiscussionsModel(QObject *parent)
     : QAbstractListModel(parent)

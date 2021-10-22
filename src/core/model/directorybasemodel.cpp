@@ -18,7 +18,7 @@
 */
 
 #include "directorybasemodel.h"
-#include "discussions.h"
+#include "discussions/discussions.h"
 
 DirectoryBaseModel::DirectoryBaseModel(QObject *parent)
     : QAbstractListModel(parent)

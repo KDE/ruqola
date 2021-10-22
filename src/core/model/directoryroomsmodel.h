@@ -21,7 +21,7 @@
 
 #include "directorybasemodel.h"
 #include "libruqolacore_export.h"
-#include "roomsinfo.h"
+#include "roominfo/roomsinfo.h"
 class LIBRUQOLACORE_EXPORT DirectoryRoomsModel : public DirectoryBaseModel
 {
     Q_OBJECT

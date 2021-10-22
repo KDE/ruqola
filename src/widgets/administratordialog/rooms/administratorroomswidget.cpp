@@ -24,8 +24,8 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminroomsmodel.h"
 #include "rocketchataccount.h"
+#include "roominfo/roomsinfo.h"
 #include "rooms/adminroomsjob.h"
-#include "roomsinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 

@@ -19,7 +19,7 @@
 */
 
 #include "roominfotest.h"
-#include "roominfo.h"
+#include "roominfo/roominfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomInfoTest)
 

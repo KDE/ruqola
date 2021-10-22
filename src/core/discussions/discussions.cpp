@@ -17,7 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "discussions.h"
+#include "discussions/discussions.h"
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>

@@ -19,7 +19,7 @@
 */
 
 #include "ownuserpreferencestest.h"
-#include "ownuserpreferences.h"
+#include "ownuser/ownuserpreferences.h"
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(OwnUserPreferencesTest)

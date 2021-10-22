@@ -67,7 +67,7 @@
 #include "channelcounterinfo.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
-#include "discussions.h"
+#include "discussions/discussions.h"
 #include "listmessages.h"
 #include "managechannels.h"
 #include "messagecache.h"
@@ -2162,6 +2162,8 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
         Room *room = mRoomModel->findRoom(scope);
         if (room) {
             room->updateRoles(obj);
+        } else {
+            qCWarning(RUQOLA_LOG) << " Impossible to find room assiciate to " << scope;
         }
     }
 }

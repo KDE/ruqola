@@ -18,7 +18,7 @@
 */
 
 #include "directoryroomsmodel.h"
-#include "discussions.h"
+#include "discussions/discussions.h"
 #include <KLocalizedString>
 
 DirectoryRoomsModel::DirectoryRoomsModel(QObject *parent)

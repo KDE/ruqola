@@ -35,7 +35,7 @@
 #include "messages/message.h"
 #include "model/listmessagesmodel.h"
 #include "model/roommodel.h"
-#include "ownuser.h"
+#include "ownuser/ownuser.h"
 #include "permissions/permissionmanager.h"
 #include "rocketchataccountsettings.h"
 #include "roles/rolesmanager.h"

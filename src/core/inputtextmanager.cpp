@@ -24,7 +24,7 @@
 #include "model/commandsmodel.h"
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonmodelfilterproxymodel.h"
-#include "ownuserpreferences.h"
+#include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"
 #include "ruqola_debug.h"

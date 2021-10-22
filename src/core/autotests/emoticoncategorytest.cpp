@@ -19,7 +19,7 @@
 */
 
 #include "emoticoncategorytest.h"
-#include "emoticoncategory.h"
+#include "emoticons/emoticoncategory.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(EmoticonCategoryTest)
 EmoticonCategoryTest::EmoticonCategoryTest(QObject *parent)

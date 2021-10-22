@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roominfo.h"
+#include "roominfo/roominfo.h"
 
 #include "ruqola_debug.h"
 #include "utils.h"

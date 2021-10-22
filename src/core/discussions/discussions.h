@@ -60,4 +60,3 @@ private:
 };
 Q_DECLARE_METATYPE(Discussions)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussions &t);
-

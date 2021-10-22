@@ -21,7 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "ownuser.h"
+#include "ownuser/ownuser.h"
 #include <QWidget>
 class QLineEdit;
 class QPushButton;

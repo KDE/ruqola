@@ -70,4 +70,3 @@ private:
 Q_DECLARE_METATYPE(OwnUserPreferences)
 Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);
-
