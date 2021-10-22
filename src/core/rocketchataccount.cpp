@@ -2163,7 +2163,7 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
         if (room) {
             room->updateRoles(obj);
         } else {
-            qCWarning(RUQOLA_LOG) << " Impossible to find room assiciate to " << scope;
+            qWarning() << " Impossible to find room associate to " << scope;
         }
     }
 }
