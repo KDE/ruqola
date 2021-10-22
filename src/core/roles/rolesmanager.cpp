@@ -58,15 +58,26 @@ void RolesManager::updateRoles(const QJsonArray &contents)
                 }
             }
         } else if (type == QLatin1String("changed")) {
-            // TODO
+            bool found = false;
+            RoleInfo info;
+            info.parseRoleInfo(roleObject);
+            for (int i = 0; i < mRoleInfo.count(); ++i) {
+                if (mRoleInfo.at(i).identifier() == identifier) {
+                    mRoleInfo.removeAll(mRoleInfo.at(i));
+                    mRoleInfo.append(info);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) { // Insert it.
+                mRoleInfo.append(info);
+            }
         } else {
             qCWarning(RUQOLA_LOG) << " No defined type" << type;
         }
     }
     // QJsonObject({"args":[{"_id":"vFXCWG9trXLti6xQm","name":"vFXCWG9trXLti6xQm","type":"removed"}],"eventName":"roles"})
     // QJsonObject({"args":[{"_id":"hiafuM2enNapgD2mg","_updatedAt":{"$date":1634588706596},"description":"","mandatory2fa":false,"name":"test4","protected":false,"scope":"Users","type":"changed"}],"eventName":"roles"})
-
-    // TODO
 }
 
 const QList<RoleInfo> &RolesManager::roleInfo() const
