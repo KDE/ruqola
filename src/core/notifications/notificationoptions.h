@@ -94,4 +94,3 @@ private:
     bool mMuteGroupMentions = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
-

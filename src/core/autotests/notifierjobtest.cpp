@@ -19,7 +19,7 @@
 */
 
 #include "notifierjobtest.h"
-#include "notifierjob.h"
+#include "notifications/notifierjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(NotifierJobTest)
 

@@ -43,7 +43,7 @@
 #include "model/statusmodel.h"
 #include "model/statusmodelfilterproxymodel.h"
 #include "myaccount/myaccountconfiguredialog.h"
-#include "notification.h"
+#include "notifications/notification.h"
 #include "receivetypingnotificationmanager.h"
 #include "registeruser/registeruserdialog.h"
 #include "rocketchataccount.h"

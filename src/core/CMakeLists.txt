@@ -178,14 +178,14 @@ target_sources(libruqolacore PRIVATE
     managerdatapaths.cpp
     messagecache.cpp
 
-    notificationoptions.cpp
+    notifications/notificationoptions.cpp
 
     syntaxhighlightingmanager.cpp
 
     receivetypingnotificationmanager.cpp
 
     serverconfiginfo.cpp
-    notificationpreferences.cpp
+    notifications/notificationpreferences.cpp
 
     roles/roles.cpp
     roles/role.cpp
@@ -208,7 +208,7 @@ target_sources(libruqolacore PRIVATE
 
     accountroomsettings.cpp
 
-    notifierjob.cpp
+    notifications/notifierjob.cpp
     restauthenticationmanager.cpp
 
     ownuser.cpp
@@ -248,7 +248,7 @@ if (NOT WIN32)
 endif()
 
 if (NOT ANDROID)
-    target_sources(libruqolacore PRIVATE notification.cpp)
+    target_sources(libruqolacore PRIVATE notifications/notification.cpp)
 endif()
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)

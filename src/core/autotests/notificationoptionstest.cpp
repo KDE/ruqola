@@ -19,7 +19,7 @@
 */
 
 #include "notificationoptionstest.h"
-#include "notificationoptions.h"
+#include "notifications/notificationoptions.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(NotificationOptionsTest)
 

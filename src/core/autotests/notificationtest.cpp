@@ -19,7 +19,7 @@
 */
 
 #include "notificationtest.h"
-#include "notification.h"
+#include "notifications/notification.h"
 #include <QTest>
 QTEST_MAIN(NotificationTest)
 

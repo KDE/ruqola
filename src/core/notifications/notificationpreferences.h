@@ -54,4 +54,3 @@ private:
     NotificationDesktopDurationPreferenceModel *const mDesktopDurationNotificationModel;
     NotificationDesktopSoundPreferenceModel *const mDesktopSoundNotificationModel;
 };
-

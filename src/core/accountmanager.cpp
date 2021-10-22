@@ -20,7 +20,7 @@
 
 #include "accountmanager.h"
 #include "managerdatapaths.h"
-#include "notifierjob.h"
+#include "notifications/notifierjob.h"
 #include "ruqola_debug.h"
 #include <QDir>
 #include <QDirIterator>

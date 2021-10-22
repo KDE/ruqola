@@ -73,4 +73,3 @@ private:
     UnityServiceManager *mUnityServiceManager = nullptr;
 #endif
 };
-

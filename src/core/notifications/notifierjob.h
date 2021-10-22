@@ -48,4 +48,3 @@ private:
     Utils::NotificationInfo mInfo;
     QString mAccountName;
 };
-
