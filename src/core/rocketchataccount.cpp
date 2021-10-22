@@ -1489,10 +1489,7 @@ void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 
 void RocketChatAccount::updateRoles(const QJsonArray &contents)
 {
-    // QJsonObject({"args":[{"_id":"vFXCWG9trXLti6xQm","name":"vFXCWG9trXLti6xQm","type":"removed"}],"eventName":"roles"})
-    // QJsonObject({"args":[{"_id":"hiafuM2enNapgD2mg","_updatedAt":{"$date":1634588706596},"description":"","mandatory2fa":false,"name":"test4","protected":false,"scope":"Users","type":"changed"}],"eventName":"roles"})
-
-    // TODO
+    mRolesManager.updateRoles(contents);
 }
 
 void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)

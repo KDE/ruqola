@@ -33,7 +33,7 @@ public:
     explicit RolesManager(QObject *parent = nullptr);
     ~RolesManager() override;
     void parseRoles(const QJsonObject &obj);
-    void updateRoles(const QJsonObject &obj);
+    void updateRoles(const QJsonArray &contents);
     Q_REQUIRED_RESULT const QList<RoleInfo> &roleInfo() const;
 
 private:
