@@ -46,6 +46,15 @@ void RolesManager::parseRoles(const QJsonObject &obj)
 
 void RolesManager::updateRoles(const QJsonArray &contents)
 {
+    for (const QJsonValue &current : contents) {
+        const QJsonObject roleObject = current.toObject();
+        const QString type = roleObject.value(QStringLiteral("type")).toString();
+        if (type == QLatin1String("removed")) {
+            // TODO
+        } else if (type == QLatin1String("changed")) {
+            // TODO
+        }
+    }
     // QJsonObject({"args":[{"_id":"vFXCWG9trXLti6xQm","name":"vFXCWG9trXLti6xQm","type":"removed"}],"eventName":"roles"})
     // QJsonObject({"args":[{"_id":"hiafuM2enNapgD2mg","_updatedAt":{"$date":1634588706596},"description":"","mandatory2fa":false,"name":"test4","protected":false,"scope":"Users","type":"changed"}],"eventName":"roles"})
 
