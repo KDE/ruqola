@@ -18,7 +18,7 @@
 */
 
 #include "filetest.h"
-#include "file.h"
+#include "attachments/file.h"
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 

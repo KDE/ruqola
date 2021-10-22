@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "file.h"
+#include "attachments/file.h"
 #include "libruqolacore_export.h"
 #include "model/roommodel.h"
 #include "user.h"

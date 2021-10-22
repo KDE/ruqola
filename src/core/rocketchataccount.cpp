@@ -19,12 +19,12 @@
 */
 
 #include "rocketchataccount.h"
+#include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
 #include "config-ruqola.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
-#include "fileattachments.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
 #include "model/autotranslatelanguagesmodel.h"

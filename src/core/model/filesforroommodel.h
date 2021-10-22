@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "file.h"
-#include "fileattachments.h"
+#include "attachments/file.h"
+#include "attachments/fileattachments.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 class RocketChatAccount;

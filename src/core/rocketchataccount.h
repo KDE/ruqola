@@ -21,6 +21,7 @@
 #pragma once
 
 #include "accountroomsettings.h"
+#include "attachments/file.h"
 #include "authenticationinfo.h"
 #include "channelgroupbasejob.h"
 #include "commands/runcommandjob.h"
@@ -29,7 +30,6 @@
 #include "custom/customuserstatusupdatejob.h"
 #include "customusers/customuserstatuses.h"
 #include "ddpapi/ddpauthenticationmanager.h"
-#include "file.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
 #include "messages/message.h"

@@ -89,4 +89,3 @@ private:
 Q_DECLARE_METATYPE(File)
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);
-

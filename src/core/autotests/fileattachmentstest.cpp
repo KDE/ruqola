@@ -19,7 +19,7 @@
 */
 
 #include "fileattachmentstest.h"
-#include "fileattachments.h"
+#include "attachments/fileattachments.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(FileAttachmentsTest)
 FileAttachmentsTest::FileAttachmentsTest(QObject *parent)

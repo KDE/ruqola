@@ -170,7 +170,6 @@ target_sources(libruqolacore PRIVATE
     texthighlighter.cpp
     textconverter.cpp
     loadrecenthistorymanager.cpp
-    file.cpp
     channel.cpp
     inputtextmanager.cpp
     authenticationmanager.cpp
@@ -204,7 +203,8 @@ target_sources(libruqolacore PRIVATE
 
     messagedownloadmanager.cpp
 
-    fileattachments.cpp
+    attachments/fileattachments.cpp
+    attachments/file.cpp
 
     accountroomsettings.cpp
 

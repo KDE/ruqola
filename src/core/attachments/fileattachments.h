@@ -60,4 +60,3 @@ private:
 
 Q_DECLARE_METATYPE(FileAttachments)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FileAttachments &t);
-
