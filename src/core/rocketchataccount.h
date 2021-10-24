@@ -572,6 +572,7 @@ private:
     void slotUpdateCustomUserStatus();
     void slotDirectoryDone(const QJsonObject &obj);
     void updateCustomEmojiList();
+    void slotLoadRoles();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

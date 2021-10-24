@@ -71,6 +71,7 @@
 #include "listmessages.h"
 #include "managechannels.h"
 #include "messagecache.h"
+#include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
 
 #include <KLocalizedString>
@@ -2663,4 +2664,15 @@ bool RocketChatAccount::hideRoles() const
 bool RocketChatAccount::hideAvatars() const
 {
     return ownUser().ownUserPreferences().hideAvatars();
+}
+
+void RocketChatAccount::slotLoadRoles()
+{
+    // First load list of roles.
+    auto job = new RocketChatRestApi::RolesListJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, &mRolesManager, &RolesManager::parseRoles);
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start RolesListJob job";
+    }
 }
