@@ -68,6 +68,9 @@ void AdministratorRolesWidget::initialize()
 {
     // First load list of roles.
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    connect(rcAccount, &RocketChatAccount::rolesUpdated, this, [rcAccount, this]() {
+        mAdminRolesModel->setRoles(rcAccount->roleInfo());
+    });
     mAdminRolesModel->setRoles(rcAccount->roleInfo());
 }
 

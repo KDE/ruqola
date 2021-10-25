@@ -520,6 +520,7 @@ Q_SIGNALS:
     void displayReconnectWidget(int seconds);
     void customSoundRemoved(const QString &identifier);
     void insertStdOutInfo(const QString &str);
+    void rolesUpdated();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
