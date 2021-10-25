@@ -473,6 +473,9 @@ public:
 
     // Permissions
     void permissionUpdated(const QJsonArray &replyArray);
+
+    Q_REQUIRED_RESULT const QVector<RoleInfo> &roleInfo() const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

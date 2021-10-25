@@ -1473,6 +1473,11 @@ void RocketChatAccount::permissionUpdated(const QJsonArray &replyArray)
     // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"})
 }
 
+const QVector<RoleInfo> &RocketChatAccount::roleInfo() const
+{
+    return mRolesManager.roleInfo();
+}
+
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
     qDebug() << " deleteCustomSound " << replyArray;

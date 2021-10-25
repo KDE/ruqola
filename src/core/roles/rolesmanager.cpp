@@ -20,7 +20,6 @@
 
 #include "rolesmanager.h"
 #include "ruqola_debug.h"
-
 #include <QJsonArray>
 RolesManager::RolesManager(QObject *parent)
     : QObject{parent}
@@ -76,11 +75,12 @@ void RolesManager::updateRoles(const QJsonArray &contents)
             qCWarning(RUQOLA_LOG) << " No defined type" << type;
         }
     }
+    Q_EMIT rolesChanged();
     // QJsonObject({"args":[{"_id":"vFXCWG9trXLti6xQm","name":"vFXCWG9trXLti6xQm","type":"removed"}],"eventName":"roles"})
     // QJsonObject({"args":[{"_id":"hiafuM2enNapgD2mg","_updatedAt":{"$date":1634588706596},"description":"","mandatory2fa":false,"name":"test4","protected":false,"scope":"Users","type":"changed"}],"eventName":"roles"})
 }
 
-const QList<RoleInfo> &RolesManager::roleInfo() const
+const QVector<RoleInfo> &RolesManager::roleInfo() const
 {
     return mRoleInfo;
 }
