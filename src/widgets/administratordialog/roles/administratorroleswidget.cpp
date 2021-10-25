@@ -71,15 +71,17 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
 #if 0
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
-        if (index.isValid()) {
+    //auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    //if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
             QMenu menu(this);
+            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addClicked);
+
+        if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
                 modifyRoles(index);
             });
             menu.exec(mTreeView->viewport()->mapToGlobal(pos));
         }
-    }
+    //}
 #endif
 }
