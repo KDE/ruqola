@@ -60,10 +60,11 @@ void RolesManagerTest::shouldUpdateRoles_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<QString>("updateName");
+    QTest::addColumn<int>("numberOfRolesBefore");
     QTest::addColumn<int>("numberOfRoles");
     {
         // Add new element
-        QTest::addRow("initialstate1") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12;
+        QTest::addRow("initialstate1") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12 << 13;
     }
     {
         // Update an element
@@ -79,12 +80,15 @@ void RolesManagerTest::shouldUpdateRoles()
 {
     QFETCH(QString, name);
     QFETCH(QString, updateName);
+    QFETCH(int, numberOfRolesBefore);
     QFETCH(int, numberOfRoles);
+
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesmanager/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RolesManager m;
     m.parseRoles(obj);
+    QCOMPARE(m.roleInfo().count(), numberOfRolesBefore);
 
     const QString updateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesmanager/") + updateName + QLatin1String(".json");
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updateJsonFile);
