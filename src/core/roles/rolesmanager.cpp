@@ -52,7 +52,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
         if (type == QLatin1String("removed")) {
             for (int i = 0; i < mRoleInfo.count(); ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
-                    mRoleInfo.removeAll(mRoleInfo.at(i));
+                    mRoleInfo.removeAt(i);
                     break;
                 }
             }
