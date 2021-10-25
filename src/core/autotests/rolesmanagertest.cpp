@@ -64,15 +64,15 @@ void RolesManagerTest::shouldUpdateRoles_data()
     QTest::addColumn<int>("numberOfRoles");
     {
         // Add new element
-        QTest::addRow("initialstate1") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12 << 13;
+        QTest::addRow("add-element") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12 << 13;
     }
     {
         // Update an element
-        // QTest::addRow("initialstate1") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12;
+        QTest::addRow("update-element") << QStringLiteral("initialstate1") << QStringLiteral("update2") << 12 << 12;
     }
     {
         // Remove an element
-        // QTest::addRow("initialstate1") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12;
+        // QTest::addRow("remove-element") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12;
     }
 }
 
