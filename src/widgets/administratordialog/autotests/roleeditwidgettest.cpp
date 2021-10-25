@@ -19,9 +19,16 @@
 */
 
 #include "roleeditwidgettest.h"
+#include "administratordialog/roles/roleeditwidget.h"
 #include <QTest>
 QTEST_MAIN(RoleEditWidgetTest)
 RoleEditWidgetTest::RoleEditWidgetTest(QObject *parent)
     : QObject{parent}
 {
+}
+
+void RoleEditWidgetTest::shouldHaveDefaultValues()
+{
+    RoleEditWidget w;
+    // TODO
 }

@@ -28,4 +28,6 @@ class RoleEditWidgetTest : public QObject
 public:
     explicit RoleEditWidgetTest(QObject *parent = nullptr);
     ~RoleEditWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
