@@ -48,6 +48,9 @@ QVariant AdminRolesModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Name");
         case AdminRolesModel::Scope:
             return i18n("Scope");
+        case AdminRolesModel::Protected:
+        case AdminRolesModel::Mandatory2Fa:
+            return {};
         }
     }
     return QVariant();
@@ -96,6 +99,10 @@ QVariant AdminRolesModel::data(const QModelIndex &index, int role) const
         return roleInfo.name();
     case AdminRolesModel::Scope:
         return roleInfo.scope();
+    case AdminRolesModel::Protected:
+        return roleInfo.roleProtected();
+    case AdminRolesModel::Mandatory2Fa:
+        return roleInfo.mandatory2fa();
     }
     return {};
 }

@@ -32,6 +32,8 @@ public:
         Identifier,
         Name,
         Scope,
+        Protected,
+        Mandatory2Fa,
         LastColumn = Scope,
     };
     Q_ENUM(AdminRoles)
