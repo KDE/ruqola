@@ -223,6 +223,7 @@ void User::setRoles(const QStringList &roles)
             rolesI18n << role;
         }
     }
+    // TODO use roleInfo for show correct role description
     mI18nRoles = rolesI18n;
     mRoles = roles;
 }
