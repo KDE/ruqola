@@ -2296,6 +2296,7 @@ void RocketChatAccount::initializeAccount()
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
     customUsersStatus();
+    slotLoadRoles();
 
     Q_EMIT accountInitialized();
 }
