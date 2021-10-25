@@ -18,18 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roleeditwidget.h"
-
-#include <QFormLayout>
-
-RoleEditWidget::RoleEditWidget(QWidget *parent)
-    : QWidget{parent}
-{
-    auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-}
-
-RoleEditWidget::~RoleEditWidget()
+#include "roleeditwidgettest.h"
+#include <QTest>
+QTEST_MAIN(RoleEditWidgetTest)
+RoleEditWidgetTest::RoleEditWidgetTest(QObject *parent)
+    : QObject{parent}
 {
 }

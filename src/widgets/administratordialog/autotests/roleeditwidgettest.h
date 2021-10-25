@@ -18,18 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roleeditwidget.h"
+#pragma once
 
-#include <QFormLayout>
+#include <QObject>
 
-RoleEditWidget::RoleEditWidget(QWidget *parent)
-    : QWidget{parent}
+class RoleEditWidgetTest : public QObject
 {
-    auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
-}
-
-RoleEditWidget::~RoleEditWidget()
-{
-}
+    Q_OBJECT
+public:
+    explicit RoleEditWidgetTest(QObject *parent = nullptr);
+    ~RoleEditWidgetTest() override = default;
+};
