@@ -99,6 +99,7 @@ void AdministratorWidget::initialize()
     mAdministratorCustomSoundsWidget->initialize();
     mAdministratorCustomEmojiWidget->initialize();
     mPermissionsWidget->initialize();
+    mRolesWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()

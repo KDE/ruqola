@@ -43,7 +43,6 @@ private:
     void slotFilterTextChanged(const QString &str);
     void slotModifyDoubleClickRoles(const QModelIndex &index);
     void modifyRoles(const QModelIndex &index);
-    void slotRolesListDone(const QJsonObject &obj);
     QVector<RoleInfo> mRoleInfo;
     PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;

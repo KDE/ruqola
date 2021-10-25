@@ -21,7 +21,6 @@
 #include "permissionswidget.h"
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "misc/roleslistjob.h"
 #include "model/adminpermissionsmodel.h"
 #include "permissions/permissions.h"
 #include "permissions/permissionslistalljob.h"
@@ -80,27 +79,8 @@ void PermissionsWidget::initialize()
 {
     // First load list of roles.
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto job = new RocketChatRestApi::RolesListJob(this);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, this, &PermissionsWidget::slotRolesListDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RolesListJob job";
-    }
-}
+    mRoleInfo = rcAccount->roleInfo();
 
-void PermissionsWidget::slotRolesListDone(const QJsonObject &obj)
-{
-    const QJsonArray array = obj[QLatin1String("roles")].toArray();
-
-    mRoleInfo.reserve(array.count());
-    for (const QJsonValue &current : array) {
-        const QJsonObject roleObject = current.toObject();
-        RoleInfo info;
-        info.parseRoleInfo(roleObject);
-        mRoleInfo.append(info);
-    }
-
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto permissionsListAllJob = new RocketChatRestApi::PermissionsListAllJob(this);
     rcAccount->restApi()->initializeRestApiJob(permissionsListAllJob);
     connect(permissionsListAllJob, &RocketChatRestApi::PermissionsListAllJob::permissionListAllDone, this, &PermissionsWidget::slotPermissionListAllDone);

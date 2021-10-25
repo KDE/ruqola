@@ -35,6 +35,8 @@ public:
     explicit AdministratorRolesWidget(QWidget *parent = nullptr);
     ~AdministratorRolesWidget() override;
 
+    void initialize();
+
 private:
     void slotFilterTextChanged(const QString &str);
     void slotCustomContextMenuRequested(const QPoint &pos);

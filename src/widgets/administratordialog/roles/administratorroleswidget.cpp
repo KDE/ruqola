@@ -21,7 +21,9 @@
 #include "administratorroleswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminrolesmodel.h"
+#include "rocketchataccount.h"
 #include "rolestreeview.h"
+#include "ruqola.h"
 
 #include <KLocalizedString>
 
@@ -60,6 +62,13 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
 
 AdministratorRolesWidget::~AdministratorRolesWidget()
 {
+}
+
+void AdministratorRolesWidget::initialize()
+{
+    // First load list of roles.
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    mAdminRolesModel->setRoles(rcAccount->roleInfo());
 }
 
 void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
