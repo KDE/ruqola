@@ -153,11 +153,16 @@ void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
     RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
     QModelIndex index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
     updateInfo.name = index.data().toString();
+
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Mandatory2Fa);
     updateInfo.mandatory2fa = index.data().toBool();
-    // updateInfo.scope = info.mScope;
+
+    index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Scope);
+    updateInfo.scope = index.data().toString();
+
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Description);
     updateInfo.description = index.data().toString();
+
     if (dlg->exec()) {
         const RoleEditWidget::RoleEditDialogInfo info = dlg->roleEditDialogInfo();
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
