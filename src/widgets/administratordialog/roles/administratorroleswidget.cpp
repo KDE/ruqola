@@ -89,24 +89,20 @@ void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
 void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
-#if 0
-    //auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
 
     if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) { //For delete
-            QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addRole);
-
+        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addRole);
         if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-// TODO verify if role is protected
-                modifyRoles(index);
+                // TODO verify if role is protected
+                // modifyRoles(index);
             });
-menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-});
-            menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+            menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {});
         }
-    //}
-#endif
+        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    }
 }
 
 void AdministratorRolesWidget::addRole()
