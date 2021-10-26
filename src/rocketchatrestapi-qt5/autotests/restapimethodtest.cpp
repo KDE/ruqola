@@ -241,6 +241,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesGetUsersInRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.getUsersInRole")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.create")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.update")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesAddUserToRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.addUserToRole")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference/jitsi.update-timeout")));
