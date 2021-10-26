@@ -210,7 +210,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     license/licenseslistjob.cpp
 
     role/rolecreatejob.cpp
-    role/roleupdatejob.cpp 
+    role/roleupdatejob.cpp
+    role/roledeletejob.cpp 
     )
 
 
