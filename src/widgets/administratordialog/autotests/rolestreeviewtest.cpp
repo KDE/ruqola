@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "permissionstreeviewtest.h"
-#include "administratordialog/permissions/permissionstreeview.h"
+#include "rolestreeviewtest.h"
+#include "administratordialog/roles/rolestreeview.h"
 #include <QHeaderView>
 #include <QTest>
-QTEST_MAIN(PermissionsTreeViewTest)
-PermissionsTreeViewTest::PermissionsTreeViewTest(QObject *parent)
-    : QObject(parent)
+QTEST_MAIN(RolesTreeViewTest)
+RolesTreeViewTest::RolesTreeViewTest(QObject *parent)
+    : QObject{parent}
 {
 }
 
-void PermissionsTreeViewTest::shouldHaveDefaultValues()
+void RolesTreeViewTest::shouldHaveDefaultValues()
 {
-    PermissionsTreeView w;
+    RolesTreeView w;
     QVERIFY(!w.rootIsDecorated());
     QVERIFY(w.isSortingEnabled());
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
