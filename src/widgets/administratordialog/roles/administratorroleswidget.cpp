@@ -19,12 +19,18 @@
 */
 
 #include "administratorroleswidget.h"
+#include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminrolesmodel.h"
 #include "rocketchataccount.h"
 #include "roleeditdialog.h"
 #include "rolestreeview.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
+
+#include "role/rolecreatejob.h"
+#include "role/roledeletejob.h"
+#include "role/roleupdatejob.h"
 
 #include <KLocalizedString>
 
@@ -112,9 +118,22 @@ void AdministratorRolesWidget::addRole()
 {
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
     if (dlg->exec()) {
-        // TODO
+        const RoleEditWidget::RoleEditDialogInfo info = dlg->roleEditDialogInfo();
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto roleCreateJob = new RocketChatRestApi::RoleCreateJob(this);
+        rcAccount->restApi()->initializeRestApiJob(roleCreateJob);
+        connect(roleCreateJob, &RocketChatRestApi::RoleCreateJob::createRoleDone, this, &AdministratorRolesWidget::slotRoleCreateDone);
+        if (!roleCreateJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleCreateJob";
+        }
     }
     delete dlg;
+}
+
+void AdministratorRolesWidget::slotRoleCreateDone()
+{
+    qDebug() << " AdministratorRolesWidget::slotRoleCreateDone ";
+    // TODO
 }
 
 void AdministratorRolesWidget::modifyRole()

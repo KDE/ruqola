@@ -43,6 +43,7 @@ private:
     void addRole();
     void modifyRole();
     void deleteRole();
+    void slotRoleCreateDone();
     RolesTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminRolesModel *const mAdminRolesModel;
