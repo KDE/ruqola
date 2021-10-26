@@ -29,7 +29,7 @@ RoleEditDialog::RoleEditDialog(QWidget *parent)
     : QDialog(parent)
     , mRoleEditWidget(new RoleEditWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Edit Role"));
+    setWindowTitle(i18nc("@title:window", "Add Role"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mRoleEditWidget->setObjectName(QStringLiteral("mRoleEditWidget"));
