@@ -28,6 +28,7 @@
 
 #include <KLocalizedString>
 
+#include <KMessageBox>
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>
@@ -71,12 +72,13 @@ AdministratorRolesWidget::~AdministratorRolesWidget()
 
 void AdministratorRolesWidget::initialize()
 {
-    // First load list of roles.
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    connect(rcAccount, &RocketChatAccount::rolesUpdated, this, [rcAccount, this]() {
+    auto updateRoleList = [rcAccount, this]() {
         mAdminRolesModel->setRoles(rcAccount->roleInfo());
-    });
-    mAdminRolesModel->setRoles(rcAccount->roleInfo());
+    };
+
+    connect(rcAccount, &RocketChatAccount::rolesUpdated, this, updateRoleList);
+    updateRoleList();
 }
 
 void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
@@ -95,8 +97,11 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
         if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+// TODO verify if role is protected
                 modifyRoles(index);
             });
+menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+});
             menu.exec(mTreeView->viewport()->mapToGlobal(pos));
         }
     //}
@@ -110,4 +115,20 @@ void AdministratorRolesWidget::addRole()
         // TODO
     }
     delete dlg;
+}
+
+void AdministratorRolesWidget::modifyRole()
+{
+    QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
+}
+
+void AdministratorRolesWidget::deleteRole()
+{
+    if (KMessageBox::questionYesNo(this, i18n("Remove role"), i18n("Do you want to remove this role?")) == KMessageBox::Yes) {
+        // TODO
+    }
 }

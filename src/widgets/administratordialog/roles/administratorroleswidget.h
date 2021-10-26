@@ -41,6 +41,8 @@ private:
     void slotFilterTextChanged(const QString &str);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addRole();
+    void modifyRole();
+    void deleteRole();
     RolesTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminRolesModel *const mAdminRolesModel;
