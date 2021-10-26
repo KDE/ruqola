@@ -104,5 +104,4 @@ void RolesManagerTest::shouldUpdateRoles()
     QCOMPARE(m.roleInfo().count(), numberOfRoles);
 
     QCOMPARE(spy.count(), numberOfEmitSignal);
-    // TODO
 }
