@@ -66,8 +66,6 @@ void RoleCreateJobTest::shouldGenerateJson()
     job.setCreateRoleInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"description":"%3","mandatory2fa":true,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
-
-    // TODO show mandatory2fa too
 }
 
 void RoleCreateJobTest::shouldNotStarting()
