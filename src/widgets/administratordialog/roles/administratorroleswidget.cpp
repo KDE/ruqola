@@ -27,6 +27,7 @@
 
 #include <KLocalizedString>
 
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>
 #include <QSortFilterProxyModel>
@@ -55,6 +56,8 @@ AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
     mRoleFilterProxyModel->setObjectName(QStringLiteral("mRoleFilterProxyModel"));
     mRoleFilterProxyModel->setSourceModel(mAdminRolesModel);
     mTreeView->setModel(mRoleFilterProxyModel);
+
+    mTreeView->header()->hideSection(AdminRolesModel::Identifier);
 
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorRolesWidget::slotFilterTextChanged);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorRolesWidget::slotCustomContextMenuRequested);

@@ -49,8 +49,9 @@ QVariant AdminRolesModel::headerData(int section, Qt::Orientation orientation, i
         case AdminRolesModel::Scope:
             return i18n("Scope");
         case AdminRolesModel::Protected:
+            return i18n("Protected");
         case AdminRolesModel::Mandatory2Fa:
-            return {};
+            return i18n("Two Factors Authentication");
         }
     }
     return QVariant();
