@@ -42,6 +42,9 @@ public:
     void setRoleEditDialogInfo(const RoleEditDialogInfo &info);
     Q_REQUIRED_RESULT RoleEditDialogInfo roleEditDialogInfo() const;
 
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
+
 private:
     QLineEdit *const mName;
     QLineEdit *const mDescription;

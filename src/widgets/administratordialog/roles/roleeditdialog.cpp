@@ -22,6 +22,7 @@
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 RoleEditDialog::RoleEditDialog(QWidget *parent)
@@ -37,9 +38,15 @@ RoleEditDialog::RoleEditDialog(QWidget *parent)
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
+    auto okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+
     connect(button, &QDialogButtonBox::rejected, this, &RoleEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &RoleEditDialog::accept);
     resize(350, 50);
+    connect(mRoleEditWidget, &RoleEditWidget::updateOkButton, this, [okButton](bool b) {
+        okButton->setEnabled(b);
+    });
 }
 
 RoleEditDialog::~RoleEditDialog()

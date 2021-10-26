@@ -44,6 +44,9 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Description:"), mDescription);
     mainLayout->addWidget(mTwoFactor);
+    connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
+        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    });
     // TODO add scope
 }
 
