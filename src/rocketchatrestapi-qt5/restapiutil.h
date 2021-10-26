@@ -216,6 +216,7 @@ enum class RestApiUrlType {
     RolesCreate,
     RolesUpdate,
     RolesSync,
+    RolesDelete,
     RolesAddUserToRole,
     RolesGetUsersInRole,
     // since 0.74

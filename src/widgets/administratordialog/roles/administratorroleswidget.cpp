@@ -91,7 +91,8 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex index = mTreeView->indexAt(pos);
 #if 0
     //auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    //if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
+
+    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) { //For delete
             QMenu menu(this);
             menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addRole);
 

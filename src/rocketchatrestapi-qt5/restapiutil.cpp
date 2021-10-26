@@ -391,6 +391,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("roles.getUsersInRole");
     case RestApiUtil::RestApiUrlType::RolesAddUserToRole:
         return QStringLiteral("roles.addUserToRole");
+    case RestApiUtil::RestApiUrlType::RolesDelete:
+        return QStringLiteral("roles.delete");
 
     case RestApiUtil::RestApiUrlType::VideoConfJitsi:
         return QStringLiteral("video-conference/jitsi.update-timeout");
