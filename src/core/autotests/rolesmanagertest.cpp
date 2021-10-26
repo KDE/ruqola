@@ -76,6 +76,10 @@ void RolesManagerTest::shouldUpdateRoles_data()
         // Remove an element
         QTest::addRow("remove-element") << QStringLiteral("initialstate1") << QStringLiteral("remove1") << 12 << 11 << 1;
     }
+    {
+        // Invalid remove element
+        QTest::addRow("remove-element-not-existing") << QStringLiteral("initialstate1") << QStringLiteral("remove-not-existing") << 12 << 12 << 0;
+    }
 }
 
 void RolesManagerTest::shouldUpdateRoles()

@@ -45,6 +45,7 @@ void RolesManager::parseRoles(const QJsonObject &obj)
 
 void RolesManager::updateRoles(const QJsonArray &contents)
 {
+    bool wasChanged = false;
     for (const QJsonValue &current : contents) {
         const QJsonObject roleObject = current.toObject();
         const QString type = roleObject.value(QStringLiteral("type")).toString();
@@ -53,6 +54,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
             for (int i = 0; i < mRoleInfo.count(); ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
                     mRoleInfo.removeAt(i);
+                    wasChanged = true;
                     break;
                 }
             }
@@ -65,17 +67,21 @@ void RolesManager::updateRoles(const QJsonArray &contents)
                     mRoleInfo.removeAt(i);
                     mRoleInfo.append(info);
                     found = true;
+                    wasChanged = true;
                     break;
                 }
             }
             if (!found) { // Insert it.
                 mRoleInfo.append(info);
+                wasChanged = true;
             }
         } else {
             qCWarning(RUQOLA_LOG) << " No defined type" << type;
         }
     }
-    Q_EMIT rolesChanged();
+    if (wasChanged) {
+        Q_EMIT rolesChanged();
+    }
     // QJsonObject({"args":[{"_id":"vFXCWG9trXLti6xQm","name":"vFXCWG9trXLti6xQm","type":"removed"}],"eventName":"roles"})
     // QJsonObject({"args":[{"_id":"hiafuM2enNapgD2mg","_updatedAt":{"$date":1634588706596},"description":"","mandatory2fa":false,"name":"test4","protected":false,"scope":"Users","type":"changed"}],"eventName":"roles"})
 }
