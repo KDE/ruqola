@@ -19,16 +19,18 @@
 */
 #pragma once
 
-#include <QDialog>
-
 #include "libruqolawidgets_private_export.h"
-class RoleEditWidget;
+#include "roleeditwidget.h"
+#include <QDialog>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit RoleEditDialog(QWidget *parent = nullptr);
     ~RoleEditDialog() override;
+
+    void setRoleEditDialogInfo(const RoleEditWidget::RoleEditDialogInfo &info);
+    Q_REQUIRED_RESULT RoleEditWidget::RoleEditDialogInfo roleEditDialogInfo() const;
 
 private:
     RoleEditWidget *const mRoleEditWidget;

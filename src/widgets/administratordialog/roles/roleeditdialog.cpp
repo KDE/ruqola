@@ -19,7 +19,6 @@
 */
 
 #include "roleeditdialog.h"
-#include "roleeditwidget.h"
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -45,4 +44,15 @@ RoleEditDialog::RoleEditDialog(QWidget *parent)
 
 RoleEditDialog::~RoleEditDialog()
 {
+}
+
+void RoleEditDialog::setRoleEditDialogInfo(const RoleEditWidget::RoleEditDialogInfo &info)
+{
+    setWindowTitle(i18nc("@title:window", "Edit Role"));
+    mRoleEditWidget->setRoleEditDialogInfo(info);
+}
+
+RoleEditWidget::RoleEditDialogInfo RoleEditDialog::roleEditDialogInfo() const
+{
+    return mRoleEditWidget->roleEditDialogInfo();
 }

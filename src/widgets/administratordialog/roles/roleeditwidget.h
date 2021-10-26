@@ -29,8 +29,18 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct RoleEditDialogInfo {
+        QString mName;
+        QString mDescription;
+        QString mScope;
+        bool mTwoFactor = false;
+    };
+
     explicit RoleEditWidget(QWidget *parent = nullptr);
     ~RoleEditWidget() override;
+
+    void setRoleEditDialogInfo(const RoleEditDialogInfo &info);
+    Q_REQUIRED_RESULT RoleEditDialogInfo roleEditDialogInfo() const;
 
 private:
     QLineEdit *const mName;

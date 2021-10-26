@@ -50,3 +50,22 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
 RoleEditWidget::~RoleEditWidget()
 {
 }
+
+void RoleEditWidget::setRoleEditDialogInfo(const RoleEditDialogInfo &info)
+{
+    mName->setText(info.mName);
+    mDescription->setText(info.mDescription);
+    mTwoFactor->setChecked(info.mTwoFactor);
+    // TODO add scope
+    // TODO
+}
+
+RoleEditWidget::RoleEditDialogInfo RoleEditWidget::roleEditDialogInfo() const
+{
+    RoleEditWidget::RoleEditDialogInfo info;
+    info.mName = mName->text();
+    info.mDescription = mDescription->text();
+    info.mTwoFactor = mTwoFactor->isChecked();
+    // TODO add scope
+    return info;
+}
