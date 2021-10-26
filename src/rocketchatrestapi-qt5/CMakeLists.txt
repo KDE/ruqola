@@ -207,7 +207,10 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     createupdateuserinfo.cpp
     channelgroupbasejob.cpp
 
-    license/licenseslistjob.cpp 
+    license/licenseslistjob.cpp
+
+    role/rolecreatejob.cpp
+    role/roleupdatejob.cpp 
     )
 
 
