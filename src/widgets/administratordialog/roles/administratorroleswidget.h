@@ -42,7 +42,7 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addRole();
     void modifyRole(const QModelIndex &modelIndex);
-    void deleteRole(const QString &identifier);
+    void deleteRole(const QModelIndex &modelIndex);
     void slotRoleCreateDone();
     void slotRoleUpdateDone();
     void slotRoleDeleteDone();
