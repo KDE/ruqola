@@ -122,6 +122,13 @@ void AdministratorRolesWidget::addRole()
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleCreateJob = new RocketChatRestApi::RoleCreateJob(this);
         rcAccount->restApi()->initializeRestApiJob(roleCreateJob);
+        RocketChatRestApi::RoleCreateJob::RoleCreateInfo createInfo;
+        createInfo.description = info.mDescription;
+        createInfo.name = info.mName;
+        createInfo.mandatory2fa = info.mTwoFactor;
+        createInfo.scope = info.mScope;
+
+        roleCreateJob->setCreateRoleInfo(createInfo);
         connect(roleCreateJob, &RocketChatRestApi::RoleCreateJob::createRoleDone, this, &AdministratorRolesWidget::slotRoleCreateDone);
         if (!roleCreateJob->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleCreateJob";
@@ -139,15 +146,48 @@ void AdministratorRolesWidget::slotRoleCreateDone()
 void AdministratorRolesWidget::modifyRole()
 {
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
+    RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
+    // TODO
     if (dlg->exec()) {
-        // TODO
+        const RoleEditWidget::RoleEditDialogInfo info = dlg->roleEditDialogInfo();
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto roleUpdateJob = new RocketChatRestApi::RoleUpdateJob(this);
+        rcAccount->restApi()->initializeRestApiJob(roleUpdateJob);
+        updateInfo.description = info.mDescription;
+        updateInfo.name = info.mName;
+        updateInfo.mandatory2fa = info.mTwoFactor;
+        updateInfo.scope = info.mScope;
+        // TODO updateInfo.identifier =
+
+        roleUpdateJob->setUpdateRoleInfo(updateInfo);
+        connect(roleUpdateJob, &RocketChatRestApi::RoleUpdateJob::updateRoleDone, this, &AdministratorRolesWidget::slotRoleUpdateDone);
+        if (!roleUpdateJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleUpdateJob";
+        }
     }
     delete dlg;
+}
+
+void AdministratorRolesWidget::slotRoleUpdateDone()
+{
+    // TODO
 }
 
 void AdministratorRolesWidget::deleteRole()
 {
     if (KMessageBox::questionYesNo(this, i18n("Remove role"), i18n("Do you want to remove this role?")) == KMessageBox::Yes) {
-        // TODO
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto roleDeleteJob = new RocketChatRestApi::RoleDeleteJob(this);
+        rcAccount->restApi()->initializeRestApiJob(roleDeleteJob);
+        // TODO add identifier roleDeleteJob->setRoleId()
+        connect(roleDeleteJob, &RocketChatRestApi::RoleDeleteJob::deleteRoleDone, this, &AdministratorRolesWidget::slotRoleDeleteDone);
+        if (!roleDeleteJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleUpdateJob";
+        }
     }
+}
+
+void AdministratorRolesWidget::slotRoleDeleteDone()
+{
+    // TODO
 }
