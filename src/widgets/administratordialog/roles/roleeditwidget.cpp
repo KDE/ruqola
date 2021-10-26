@@ -19,15 +19,32 @@
 */
 
 #include "roleeditwidget.h"
-
+#include "misc/lineeditcatchreturnkey.h"
+#include <KLocalizedString>
+#include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 
 RoleEditWidget::RoleEditWidget(QWidget *parent)
     : QWidget{parent}
+    , mName(new QLineEdit(this))
+    , mDescription(new QLineEdit(this))
+    , mTwoFactor(new QCheckBox(i18n("Use Two Factor Authentication"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mName->setObjectName(QStringLiteral("mName"));
+    new LineEditCatchReturnKey(mName, this);
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    new LineEditCatchReturnKey(mDescription, this);
+    mTwoFactor->setObjectName(QStringLiteral("mTwoFactor"));
+
+    mainLayout->addRow(i18n("Name:"), mName);
+    mainLayout->addRow(i18n("Description:"), mDescription);
+    mainLayout->addWidget(mTwoFactor);
+    // TODO add scope
 }
 
 RoleEditWidget::~RoleEditWidget()

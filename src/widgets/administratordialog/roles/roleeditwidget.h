@@ -23,10 +23,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit RoleEditWidget(QWidget *parent = nullptr);
     ~RoleEditWidget() override;
+
+private:
+    QLineEdit *const mName;
+    QLineEdit *const mDescription;
+    QCheckBox *const mTwoFactor;
 };
