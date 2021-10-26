@@ -43,7 +43,7 @@ void RoleCreateJobTest::shouldGenerateRequest()
     RoleCreateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/role.create")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.create")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
@@ -52,12 +52,22 @@ void RoleCreateJobTest::shouldGenerateJson()
     RoleCreateJob job;
 
     const QString name = QStringLiteral("foo1");
-    const QString statusType = QStringLiteral("topic1");
+    const QString description = QStringLiteral("topic1");
+    const QString scope = QStringLiteral("Users");
     RoleCreateJob::RoleCreateInfo info;
     info.name = name;
-    info.description = statusType;
+    info.description = description;
+    info.scope = scope;
     job.setCreateRoleInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","statusType":"%2"})").arg(name, statusType).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"description":"%3","mandatory2fa":false,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
+
+    info.mandatory2fa = true;
+    job.setCreateRoleInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"description":"%3","mandatory2fa":true,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
+
+    // TODO show mandatory2fa too
 }
 
 void RoleCreateJobTest::shouldNotStarting()
@@ -82,6 +92,9 @@ void RoleCreateJobTest::shouldNotStarting()
     job.setCreateRoleInfo(info);
     QVERIFY(!job.canStart());
     info.description = QStringLiteral("bla");
+    job.setCreateRoleInfo(info);
+    QVERIFY(!job.canStart());
+    info.scope = QStringLiteral("bli");
     job.setCreateRoleInfo(info);
     QVERIFY(job.canStart());
 }
