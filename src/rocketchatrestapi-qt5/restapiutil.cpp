@@ -384,7 +384,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::RolesCreate:
         return QStringLiteral("roles.create");
     case RestApiUtil::RestApiUrlType::RolesSync:
-        return QStringLiteral("roles.create");
+        return QStringLiteral("roles.sync");
     case RestApiUtil::RestApiUrlType::RolesUpdate:
         return QStringLiteral("roles.update");
     case RestApiUtil::RestApiUrlType::RolesGetUsersInRole:
