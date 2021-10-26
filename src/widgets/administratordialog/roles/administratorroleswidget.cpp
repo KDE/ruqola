@@ -22,6 +22,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/adminrolesmodel.h"
 #include "rocketchataccount.h"
+#include "roleeditdialog.h"
 #include "rolestreeview.h"
 #include "ruqola.h"
 
@@ -30,6 +31,7 @@
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QMenu>
+#include <QPointer>
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
@@ -89,7 +91,7 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
     //auto *rcAccount = Ruqola::self()->rocketChatAccount();
     //if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
             QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addClicked);
+            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addRole);
 
         if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
@@ -99,4 +101,13 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
         }
     //}
 #endif
+}
+
+void AdministratorRolesWidget::addRole()
+{
+    QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
