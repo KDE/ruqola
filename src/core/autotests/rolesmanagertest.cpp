@@ -22,6 +22,7 @@
 #include "roles/rolesmanager.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonArray>
+#include <QSignalSpy>
 #include <QTest>
 QTEST_MAIN(RolesManagerTest)
 RolesManagerTest::RolesManagerTest(QObject *parent)
@@ -62,17 +63,18 @@ void RolesManagerTest::shouldUpdateRoles_data()
     QTest::addColumn<QString>("updateName");
     QTest::addColumn<int>("numberOfRolesBefore");
     QTest::addColumn<int>("numberOfRoles");
+    QTest::addColumn<int>("numberOfEmitSignal");
     {
         // Add new element
-        QTest::addRow("add-element") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12 << 13;
+        QTest::addRow("add-element") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12 << 13 << 1;
     }
     {
         // Update an element
-        QTest::addRow("update-element") << QStringLiteral("initialstate1") << QStringLiteral("update2") << 12 << 12;
+        QTest::addRow("update-element") << QStringLiteral("initialstate1") << QStringLiteral("update2") << 12 << 12 << 1;
     }
     {
         // Remove an element
-        QTest::addRow("remove-element") << QStringLiteral("initialstate1") << QStringLiteral("remove1") << 12 << 11;
+        QTest::addRow("remove-element") << QStringLiteral("initialstate1") << QStringLiteral("remove1") << 12 << 11 << 1;
     }
 }
 
@@ -82,11 +84,13 @@ void RolesManagerTest::shouldUpdateRoles()
     QFETCH(QString, updateName);
     QFETCH(int, numberOfRolesBefore);
     QFETCH(int, numberOfRoles);
+    QFETCH(int, numberOfEmitSignal);
 
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesmanager/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RolesManager m;
+    QSignalSpy spy(&m, &RolesManager::rolesChanged);
     m.parseRoles(obj);
     QCOMPARE(m.roleInfo().count(), numberOfRolesBefore);
 
@@ -95,5 +99,6 @@ void RolesManagerTest::shouldUpdateRoles()
     m.updateRoles(array);
     QCOMPARE(m.roleInfo().count(), numberOfRoles);
 
+    QCOMPARE(spy.count(), numberOfEmitSignal);
     // TODO
 }
