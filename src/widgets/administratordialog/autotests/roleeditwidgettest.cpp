@@ -20,6 +20,7 @@
 
 #include "roleeditwidgettest.h"
 #include "administratordialog/roles/roleeditwidget.h"
+#include "administratordialog/roles/rolescopecombobox.h"
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -49,4 +50,7 @@ void RoleEditWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTwoFactor);
     QVERIFY(!mTwoFactor->isChecked());
     QVERIFY(!mTwoFactor->text().isEmpty());
+
+    auto mRoleScopeComboBox = w.findChild<RoleScopeComboBox *>(QStringLiteral("mRoleScopeComboBox"));
+    QVERIFY(mRoleScopeComboBox);
 }

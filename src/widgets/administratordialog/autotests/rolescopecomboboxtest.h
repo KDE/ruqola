@@ -20,35 +20,14 @@
 
 #pragma once
 
-#include <QWidget>
+#include <QObject>
 
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QCheckBox;
-class RoleScopeComboBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditWidget : public QWidget
+class RoleScopeComboBoxTest : public QObject
 {
     Q_OBJECT
 public:
-    struct RoleEditDialogInfo {
-        QString mName;
-        QString mDescription;
-        QString mScope;
-        bool mTwoFactor = false;
-    };
-
-    explicit RoleEditWidget(QWidget *parent = nullptr);
-    ~RoleEditWidget() override;
-
-    void setRoleEditDialogInfo(const RoleEditDialogInfo &info);
-    Q_REQUIRED_RESULT RoleEditDialogInfo roleEditDialogInfo() const;
-
-Q_SIGNALS:
-    void updateOkButton(bool enabled);
-
-private:
-    QLineEdit *const mName;
-    QLineEdit *const mDescription;
-    QCheckBox *const mTwoFactor;
-    RoleScopeComboBox *const mRoleScopeComboBox;
+    explicit RoleScopeComboBoxTest(QObject *parent = nullptr);
+    ~RoleScopeComboBoxTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

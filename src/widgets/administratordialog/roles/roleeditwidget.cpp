@@ -20,6 +20,7 @@
 
 #include "roleeditwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "rolescopecombobox.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -30,6 +31,7 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     , mName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
     , mTwoFactor(new QCheckBox(i18n("Use Two Factor Authentication"), this))
+    , mRoleScopeComboBox(new RoleScopeComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,9 +43,12 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     new LineEditCatchReturnKey(mDescription, this);
     mTwoFactor->setObjectName(QStringLiteral("mTwoFactor"));
 
+    mRoleScopeComboBox->setObjectName(QStringLiteral("mRoleScopeComboBox"));
+
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Description:"), mDescription);
     mainLayout->addWidget(mTwoFactor);
+    mainLayout->addRow(i18n("Scope:"), mRoleScopeComboBox);
     connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
         Q_EMIT updateOkButton(!str.trimmed().isEmpty());
     });

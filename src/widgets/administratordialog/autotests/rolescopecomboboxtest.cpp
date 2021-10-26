@@ -18,37 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
-
-#include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QCheckBox;
-class RoleScopeComboBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoleEditWidget : public QWidget
+#include "rolescopecomboboxtest.h"
+#include "administratordialog/roles/rolescopecombobox.h"
+#include <QTest>
+QTEST_MAIN(RoleScopeComboBoxTest)
+RoleScopeComboBoxTest::RoleScopeComboBoxTest(QObject *parent)
+    : QObject{parent}
 {
-    Q_OBJECT
-public:
-    struct RoleEditDialogInfo {
-        QString mName;
-        QString mDescription;
-        QString mScope;
-        bool mTwoFactor = false;
-    };
+}
 
-    explicit RoleEditWidget(QWidget *parent = nullptr);
-    ~RoleEditWidget() override;
-
-    void setRoleEditDialogInfo(const RoleEditDialogInfo &info);
-    Q_REQUIRED_RESULT RoleEditDialogInfo roleEditDialogInfo() const;
-
-Q_SIGNALS:
-    void updateOkButton(bool enabled);
-
-private:
-    QLineEdit *const mName;
-    QLineEdit *const mDescription;
-    QCheckBox *const mTwoFactor;
-    RoleScopeComboBox *const mRoleScopeComboBox;
-};
+void RoleScopeComboBoxTest::shouldHaveDefaultValues()
+{
+    RoleScopeComboBox w;
+    // TODO
+}
