@@ -48,8 +48,8 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT RoleUpdateInfo createRoleInfo() const;
-    void setCreateRoleInfo(const RoleUpdateInfo &statusCreateInfo);
+    Q_REQUIRED_RESULT RoleUpdateInfo updateRoleInfo() const;
+    void setUpdateRoleInfo(const RoleUpdateInfo &statusCreateInfo);
 
 Q_SIGNALS:
     void updateRoleDone();

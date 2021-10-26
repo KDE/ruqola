@@ -19,7 +19,7 @@
 */
 
 #include "roleupdatejobtest.h"
-#include "role/rolecreatejob.h"
+#include "role/roleupdatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
@@ -32,7 +32,7 @@ RoleUpdateJobTest::RoleUpdateJobTest(QObject *parent)
 
 void RoleUpdateJobTest::shouldHaveDefaultValue()
 {
-    RoleCreateJob job;
+    RoleUpdateJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -40,29 +40,35 @@ void RoleUpdateJobTest::shouldHaveDefaultValue()
 
 void RoleUpdateJobTest::shouldGenerateRequest()
 {
-    RoleCreateJob job;
+    RoleUpdateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/role.create")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.update")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void RoleUpdateJobTest::shouldGenerateJson()
 {
-    RoleCreateJob job;
+    RoleUpdateJob job;
 
     const QString name = QStringLiteral("foo1");
-    const QString statusType = QStringLiteral("topic1");
-    RoleCreateJob::RoleCreateInfo info;
+    const QString description = QStringLiteral("topic1");
+    const QString scope = QStringLiteral("Users");
+    const QString roleId = QStringLiteral("BLABLA");
+    RoleUpdateJob::RoleUpdateInfo info;
     info.name = name;
-    info.description = statusType;
-    job.setCreateRoleInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","statusType":"%2"})").arg(name, statusType).toLatin1());
+    info.description = description;
+    info.scope = scope;
+    info.identifier = roleId;
+    job.setUpdateRoleInfo(info);
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(R"({"description":"%3","mandatory2fa":false,"name":"%1","roleId":"%4","scope":"%2"})").arg(name, scope, description, roleId).toLatin1());
 }
 
 void RoleUpdateJobTest::shouldNotStarting()
 {
-    RoleCreateJob job;
+    RoleUpdateJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -77,11 +83,17 @@ void RoleUpdateJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
-    RoleCreateJob::RoleCreateInfo info;
+    RoleUpdateJob::RoleUpdateInfo info;
     info.name = QStringLiteral("foo");
-    job.setCreateRoleInfo(info);
+    job.setUpdateRoleInfo(info);
     QVERIFY(!job.canStart());
     info.description = QStringLiteral("bla");
-    job.setCreateRoleInfo(info);
+    job.setUpdateRoleInfo(info);
+    QVERIFY(!job.canStart());
+    info.scope = QStringLiteral("bli");
+    job.setUpdateRoleInfo(info);
+    QVERIFY(!job.canStart());
+    info.identifier = QStringLiteral("bl");
+    job.setUpdateRoleInfo(info);
     QVERIFY(job.canStart());
 }

@@ -65,12 +65,12 @@ void RoleUpdateJob::slotUpdateRoleDone()
     deleteLater();
 }
 
-RoleUpdateJob::RoleUpdateInfo RoleUpdateJob::createRoleInfo() const
+RoleUpdateJob::RoleUpdateInfo RoleUpdateJob::updateRoleInfo() const
 {
     return mRoleCreateInfo;
 }
 
-void RoleUpdateJob::setCreateRoleInfo(const RoleUpdateInfo &statusCreateInfo)
+void RoleUpdateJob::setUpdateRoleInfo(const RoleUpdateInfo &statusCreateInfo)
 {
     mRoleCreateInfo = statusCreateInfo;
 }

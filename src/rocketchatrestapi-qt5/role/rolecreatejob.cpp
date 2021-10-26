@@ -94,7 +94,7 @@ bool RoleCreateJob::canStart() const
 
 QNetworkRequest RoleCreateJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RolesCreate);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RolesUpdate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
