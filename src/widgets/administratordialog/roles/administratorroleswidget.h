@@ -41,8 +41,8 @@ private:
     void slotFilterTextChanged(const QString &str);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addRole();
-    void modifyRole();
-    void deleteRole();
+    void modifyRole(const QModelIndex &modelIndex);
+    void deleteRole(const QString &identifier);
     void slotRoleCreateDone();
     void slotRoleUpdateDone();
     void slotRoleDeleteDone();

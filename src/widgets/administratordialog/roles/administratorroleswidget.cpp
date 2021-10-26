@@ -102,12 +102,16 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addRole);
         if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-                // TODO verify if role is protected
-                // modifyRoles(index);
+                const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
+                // TODO verify if it's the correct modelinfo
+                modifyRole(modelIndex);
             });
             const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
             if (!modelIndex.data().toBool()) { // Not protected we can delete it.
-                menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {});
+                menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+                    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
+                    deleteRole(modelIndex.data().toString());
+                });
             }
         }
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
@@ -143,7 +147,7 @@ void AdministratorRolesWidget::slotRoleCreateDone()
     // TODO
 }
 
-void AdministratorRolesWidget::modifyRole()
+void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
 {
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
     RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
@@ -173,13 +177,17 @@ void AdministratorRolesWidget::slotRoleUpdateDone()
     // TODO
 }
 
-void AdministratorRolesWidget::deleteRole()
+void AdministratorRolesWidget::deleteRole(const QString &identifier)
 {
+    if (identifier.isEmpty()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "role identifier is empty! It's a bug";
+        return;
+    }
     if (KMessageBox::questionYesNo(this, i18n("Remove role"), i18n("Do you want to remove this role?")) == KMessageBox::Yes) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleDeleteJob = new RocketChatRestApi::RoleDeleteJob(this);
         rcAccount->restApi()->initializeRestApiJob(roleDeleteJob);
-        // TODO add identifier roleDeleteJob->setRoleId()
+        roleDeleteJob->setRoleId(identifier);
         connect(roleDeleteJob, &RocketChatRestApi::RoleDeleteJob::deleteRoleDone, this, &AdministratorRolesWidget::slotRoleDeleteDone);
         if (!roleDeleteJob->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleUpdateJob";
