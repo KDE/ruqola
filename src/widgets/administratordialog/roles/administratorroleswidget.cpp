@@ -99,7 +99,10 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 // TODO verify if role is protected
                 // modifyRoles(index);
             });
-            menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {});
+            const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
+            if (!modelIndex.data().toBool()) { // Not protected we can delete it.
+                menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {});
+            }
         }
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
