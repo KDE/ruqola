@@ -52,7 +52,6 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
         Q_EMIT updateOkButton(!str.trimmed().isEmpty());
     });
-    // TODO add scope
 }
 
 RoleEditWidget::~RoleEditWidget()
@@ -64,8 +63,7 @@ void RoleEditWidget::setRoleEditDialogInfo(const RoleEditDialogInfo &info)
     mName->setText(info.mName);
     mDescription->setText(info.mDescription);
     mTwoFactor->setChecked(info.mTwoFactor);
-    // TODO add scope
-    // TODO
+    mRoleScopeComboBox->setCurrentIndex(mRoleScopeComboBox->findData(info.mScope));
 }
 
 RoleEditWidget::RoleEditDialogInfo RoleEditWidget::roleEditDialogInfo() const
@@ -74,6 +72,6 @@ RoleEditWidget::RoleEditDialogInfo RoleEditWidget::roleEditDialogInfo() const
     info.mName = mName->text();
     info.mDescription = mDescription->text();
     info.mTwoFactor = mTwoFactor->isChecked();
-    // TODO add scope
+    info.mScope = mRoleScopeComboBox->currentData().toString();
     return info;
 }

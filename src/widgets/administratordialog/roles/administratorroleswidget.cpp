@@ -103,11 +103,13 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
                 const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
+                qDebug() << " modelIndex " << modelIndex.data();
                 // TODO verify if it's the correct modelinfo
                 modifyRole(modelIndex);
             });
             const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
             if (!modelIndex.data().toBool()) { // Not protected we can delete it.
+                menu.addSeparator();
                 menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
                     const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
                     deleteRole(modelIndex);
@@ -150,24 +152,26 @@ void AdministratorRolesWidget::slotRoleCreateDone()
 void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
 {
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
-    RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
+    RoleEditWidget::RoleEditDialogInfo info;
     QModelIndex index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
-    updateInfo.name = index.data().toString();
+    info.mName = index.data().toString();
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Mandatory2Fa);
-    updateInfo.mandatory2fa = index.data().toBool();
+    info.mTwoFactor = index.data().toBool();
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Scope);
-    updateInfo.scope = index.data().toString();
+    info.mScope = index.data().toString();
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Description);
-    updateInfo.description = index.data().toString();
+    info.mDescription = index.data().toString();
 
+    dlg->setRoleEditDialogInfo(info);
     if (dlg->exec()) {
-        const RoleEditWidget::RoleEditDialogInfo info = dlg->roleEditDialogInfo();
+        info = dlg->roleEditDialogInfo();
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleUpdateJob = new RocketChatRestApi::RoleUpdateJob(this);
         rcAccount->restApi()->initializeRestApiJob(roleUpdateJob);
+        RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
         updateInfo.description = info.mDescription;
         updateInfo.name = info.mName;
         updateInfo.mandatory2fa = info.mTwoFactor;
