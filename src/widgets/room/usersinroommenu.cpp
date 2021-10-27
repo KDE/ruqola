@@ -84,15 +84,13 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addAction(conversationAction);
         }
     }
-    if (isNotMe) {
-        if (!menu.isEmpty()) {
-            menu.addSeparator();
-        }
-        auto userInfoAction = new QAction(i18n("User Info"), &menu);
-        userInfoAction->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
-        connect(userInfoAction, &QAction::triggered, this, &UsersInRoomMenu::slotUserInfo);
-        menu.addAction(userInfoAction);
+    if (!menu.isEmpty()) {
+        menu.addSeparator();
     }
+    auto userInfoAction = new QAction(i18n("User Info"), &menu);
+    userInfoAction->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
+    connect(userInfoAction, &QAction::triggered, this, &UsersInRoomMenu::slotUserInfo);
+    menu.addAction(userInfoAction);
     if (canManageUsersInRoom && !isAdirectChannel) {
         if (!menu.isEmpty()) {
             menu.addSeparator();
