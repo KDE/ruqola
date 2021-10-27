@@ -103,8 +103,6 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (index.isValid()) {
             menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
                 const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
-                qDebug() << " modelIndex " << modelIndex.data();
-                // TODO verify if it's the correct modelinfo
                 modifyRole(modelIndex);
             });
             const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
