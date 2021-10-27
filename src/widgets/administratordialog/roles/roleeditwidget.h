@@ -35,6 +35,10 @@ public:
         QString mDescription;
         QString mScope;
         bool mTwoFactor = false;
+        Q_REQUIRED_RESULT bool isValid() const
+        {
+            return !mName.isEmpty();
+        }
     };
 
     explicit RoleEditWidget(QWidget *parent = nullptr);

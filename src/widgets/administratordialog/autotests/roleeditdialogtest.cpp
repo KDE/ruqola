@@ -43,5 +43,6 @@ void RoleEditDialogTest::shouldHaveDefaultValues()
 
     auto mRoleEditWidget = d.findChild<RoleEditWidget *>(QStringLiteral("mRoleEditWidget"));
     QVERIFY(mRoleEditWidget);
-    // TODO
+
+    QVERIFY(!d.roleEditDialogInfo().isValid());
 }

@@ -53,4 +53,6 @@ void RoleEditWidgetTest::shouldHaveDefaultValues()
 
     auto mRoleScopeComboBox = w.findChild<RoleScopeComboBox *>(QStringLiteral("mRoleScopeComboBox"));
     QVERIFY(mRoleScopeComboBox);
+
+    QVERIFY(!w.roleEditDialogInfo().isValid());
 }
