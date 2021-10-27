@@ -105,6 +105,14 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
                 modifyRole(modelIndex);
             });
+            menu.addSeparator();
+
+            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Add User In Role..."), this, [this, index]() {
+                // TODO
+                // const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
+                // modifyRole(modelIndex);
+            });
+
             const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
             if (!modelIndex.data().toBool()) { // Not protected we can delete it.
                 menu.addSeparator();
