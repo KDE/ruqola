@@ -143,8 +143,7 @@ void AdministratorRolesWidget::addRole()
 
 void AdministratorRolesWidget::slotRoleCreateDone()
 {
-    qDebug() << " AdministratorRolesWidget::slotRoleCreateDone ";
-    // TODO
+    qCDebug(RUQOLAWIDGETS_LOG) << " AdministratorRolesWidget::slotRoleCreateDone ";
 }
 
 void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
@@ -190,7 +189,7 @@ void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
 
 void AdministratorRolesWidget::slotRoleUpdateDone()
 {
-    // TODO
+    qCDebug(RUQOLAWIDGETS_LOG) << "slotRoleUpdateDone";
 }
 
 void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
@@ -216,5 +215,5 @@ void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
 
 void AdministratorRolesWidget::slotRoleDeleteDone()
 {
-    // TODO
+    qCDebug(RUQOLAWIDGETS_LOG) << "slotRoleDeleteDone";
 }
