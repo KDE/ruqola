@@ -35,6 +35,7 @@ public:
         QString mDescription;
         QString mScope;
         bool mTwoFactor = false;
+        bool mIsProtected = false;
         Q_REQUIRED_RESULT bool isValid() const
         {
             return !mName.isEmpty();

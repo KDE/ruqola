@@ -162,6 +162,8 @@ void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Description);
     info.mDescription = index.data().toString();
+    index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Protected);
+    info.mIsProtected = index.data().toBool();
 
     dlg->setRoleEditDialogInfo(info);
     if (dlg->exec()) {
