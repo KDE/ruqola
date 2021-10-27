@@ -2163,6 +2163,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 
 void RocketChatAccount::rolesChanged(const QJsonArray &contents)
 {
+    // TODO verify this code when role change. It seems wierd.
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
         const QString scope = obj[QLatin1String("scope")].toString();
@@ -2170,7 +2171,7 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
         if (room) {
             room->updateRoles(obj);
         } else {
-            qWarning() << " Impossible to find room associate to " << scope;
+            qWarning() << " Impossible to find room associate to " << scope << contents;
         }
     }
 }
