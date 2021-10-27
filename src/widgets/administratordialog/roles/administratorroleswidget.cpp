@@ -202,7 +202,7 @@ void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
         return;
     }
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
-    if (KMessageBox::questionYesNo(this, i18n("Remove Role"), i18n("Do you want to remove this role \'%1\'?", index.data().toString())) == KMessageBox::Yes) {
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this role \'%1\'?", index.data().toString()), i18n("Remove Role")) == KMessageBox::Yes) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleDeleteJob = new RocketChatRestApi::RoleDeleteJob(this);
         rcAccount->restApi()->initializeRestApiJob(roleDeleteJob);
