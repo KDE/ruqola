@@ -391,6 +391,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("roles.getUsersInRole");
     case RestApiUtil::RestApiUrlType::RolesAddUserToRole:
         return QStringLiteral("roles.addUserToRole");
+    case RestApiUtil::RestApiUrlType::RolesRemoveUsersFromRole:
+        return QStringLiteral("roles.removeUserFromRole");
+
     case RestApiUtil::RestApiUrlType::RolesDelete:
         return QStringLiteral("roles.delete");
 
