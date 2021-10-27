@@ -224,6 +224,7 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/roles/roleeditdialog.cpp
     administratordialog/roles/roleeditwidget.cpp
     administratordialog/roles/rolescopecombobox.cpp
+    administratordialog/roles/userinroleeditdialog.cpp
 
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
