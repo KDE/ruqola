@@ -18,38 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "removeusersfromrolejobtest.h"
-#include "role/removeusersfromrolejob.h"
+#include "removeuserfromrolejobtest.h"
+#include "role/removeuserfromrolejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
-QTEST_GUILESS_MAIN(RemoveUsersFromRoleJobTest)
+QTEST_GUILESS_MAIN(RemoveUserFromRoleJobTest)
 using namespace RocketChatRestApi;
-RemoveUsersFromRoleJobTest::RemoveUsersFromRoleJobTest(QObject *parent)
+RemoveUserFromRoleJobTest::RemoveUserFromRoleJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void RemoveUsersFromRoleJobTest::shouldHaveDefaultValue()
+void RemoveUserFromRoleJobTest::shouldHaveDefaultValue()
 {
-    RemoveUsersFromRoleJob job;
+    RemoveUserFromRoleJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void RemoveUsersFromRoleJobTest::shouldGenerateRequest()
+void RemoveUserFromRoleJobTest::shouldGenerateRequest()
 {
-    RemoveUsersFromRoleJob job;
+    RemoveUserFromRoleJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.delete")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.removeUserFromRole")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void RemoveUsersFromRoleJobTest::shouldGenerateJson()
+void RemoveUserFromRoleJobTest::shouldGenerateJson()
 {
-    RemoveUsersFromRoleJob job;
+    RemoveUserFromRoleJob job;
 
     const QString username = QStringLiteral("foo1");
     job.setUsername(username);
@@ -58,9 +58,9 @@ void RemoveUsersFromRoleJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleName":"%1","username":"%2"})").arg(rolename, username).toLatin1());
 }
 
-void RemoveUsersFromRoleJobTest::shouldNotStarting()
+void RemoveUserFromRoleJobTest::shouldNotStarting()
 {
-    RemoveUsersFromRoleJob job;
+    RemoveUserFromRoleJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));

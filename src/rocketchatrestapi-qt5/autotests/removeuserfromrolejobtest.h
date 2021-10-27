@@ -22,12 +22,12 @@
 
 #include <QObject>
 
-class RemoveUsersFromRoleJobTest : public QObject
+class RemoveUserFromRoleJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit RemoveUsersFromRoleJobTest(QObject *parent = nullptr);
-    ~RemoveUsersFromRoleJobTest() override = default;
+    explicit RemoveUserFromRoleJobTest(QObject *parent = nullptr);
+    ~RemoveUserFromRoleJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

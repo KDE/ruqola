@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "removeusersfromrolejob.h"
+#include "removeuserfromrolejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -26,16 +26,16 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-RemoveUsersFromRoleJob::RemoveUsersFromRoleJob(QObject *parent)
+RemoveUserFromRoleJob::RemoveUserFromRoleJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-RemoveUsersFromRoleJob::~RemoveUsersFromRoleJob()
+RemoveUserFromRoleJob::~RemoveUserFromRoleJob()
 {
 }
 
-bool RemoveUsersFromRoleJob::start()
+bool RemoveUserFromRoleJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -43,11 +43,11 @@ bool RemoveUsersFromRoleJob::start()
     }
     addStartRestApiInfo("RemoveUsersFromRoleJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &RemoveUsersFromRoleJob::slotRemoveUsersFromRoleDone);
+    connect(reply, &QNetworkReply::finished, this, &RemoveUserFromRoleJob::slotRemoveUsersFromRoleDone);
     return true;
 }
 
-void RemoveUsersFromRoleJob::slotRemoveUsersFromRoleDone()
+void RemoveUserFromRoleJob::slotRemoveUsersFromRoleDone()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -65,32 +65,32 @@ void RemoveUsersFromRoleJob::slotRemoveUsersFromRoleDone()
     deleteLater();
 }
 
-const QString &RemoveUsersFromRoleJob::username() const
+const QString &RemoveUserFromRoleJob::username() const
 {
     return mUsername;
 }
 
-void RemoveUsersFromRoleJob::setUsername(const QString &newUsername)
+void RemoveUserFromRoleJob::setUsername(const QString &newUsername)
 {
     mUsername = newUsername;
 }
 
-const QString &RemoveUsersFromRoleJob::roleName() const
+const QString &RemoveUserFromRoleJob::roleName() const
 {
     return mRoleName;
 }
 
-void RemoveUsersFromRoleJob::setRoleName(const QString &newRoleName)
+void RemoveUserFromRoleJob::setRoleName(const QString &newRoleName)
 {
     mRoleName = newRoleName;
 }
 
-bool RemoveUsersFromRoleJob::requireHttpAuthentication() const
+bool RemoveUserFromRoleJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool RemoveUsersFromRoleJob::canStart() const
+bool RemoveUserFromRoleJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
         return false;
@@ -106,16 +106,16 @@ bool RemoveUsersFromRoleJob::canStart() const
     return true;
 }
 
-QNetworkRequest RemoveUsersFromRoleJob::request() const
+QNetworkRequest RemoveUserFromRoleJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RolesRemoveUsersFromRole);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RolesRemoveUserFromRole);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
 }
 
-QJsonDocument RemoveUsersFromRoleJob::json() const
+QJsonDocument RemoveUserFromRoleJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roleName")] = mRoleName;

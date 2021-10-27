@@ -24,12 +24,12 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT RemoveUsersFromRoleJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT AddUserToRoleJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit RemoveUsersFromRoleJob(QObject *parent = nullptr);
-    ~RemoveUsersFromRoleJob() override;
+    explicit AddUserToRoleJob(QObject *parent = nullptr);
+    ~AddUserToRoleJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -48,7 +48,7 @@ Q_SIGNALS:
     void removeUsersFromRoleDone(const QJsonObject &replyObject);
 
 private:
-    Q_DISABLE_COPY(RemoveUsersFromRoleJob)
+    Q_DISABLE_COPY(AddUserToRoleJob)
     void slotRemoveUsersFromRoleDone();
     QString mRoleName;
     QString mUsername;

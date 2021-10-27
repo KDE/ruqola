@@ -245,7 +245,7 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesAddUserToRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.addUserToRole")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesGetUsersInRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.getUsersInRole")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesRemoveUsersFromRole),
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesRemoveUserFromRole),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.removeUserFromRole")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi),

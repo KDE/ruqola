@@ -219,7 +219,7 @@ enum class RestApiUrlType {
     RolesDelete,
     RolesAddUserToRole,
     RolesGetUsersInRole,
-    RolesRemoveUsersFromRole,
+    RolesRemoveUserFromRole,
 
     // since 0.74
     VideoConfJitsi,
