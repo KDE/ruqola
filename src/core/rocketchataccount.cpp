@@ -228,7 +228,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != QLatin1String("/") && mDdp) {
-            // logOut();
+            logOut();
             slotReconnectToServer();
         }
     });
