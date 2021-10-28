@@ -101,6 +101,8 @@ target_sources(libruqolacore PRIVATE
     model/adminpermissionsmodel.cpp
 
     model/adminrolesmodel.cpp
+
+    model/usersinrolemodel.cpp
     
 
     plugins/pluginauthenticationinterface.cpp
