@@ -150,7 +150,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     default:
         break;
     }
-    return false;
+
+    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach,

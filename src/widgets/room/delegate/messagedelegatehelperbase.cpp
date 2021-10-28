@@ -25,8 +25,11 @@
 #include "textconverter.h"
 
 #include <QAbstractTextDocumentLayout>
+#include <QDrag>
+#include <QMimeData>
 #include <QPainter>
 #include <QRect>
+#include <QStyleOptionViewItem>
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase()
 {
@@ -39,11 +42,42 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                                                  const QModelIndex &index)
 {
     Q_UNUSED(msgAttach)
-    Q_UNUSED(mouseEvent)
-    Q_UNUSED(attachmentsRect)
     Q_UNUSED(option)
-    Q_UNUSED(index)
+
+    switch (mouseEvent->type()) {
+    case QEvent::MouseButtonPress:
+        if (attachmentsRect.contains(mouseEvent->pos())) {
+            mCurrentIndex = index;
+            mMightStartDrag = true;
+        } else {
+            mMightStartDrag = false;
+            mCurrentIndex = QModelIndex();
+        }
+        break;
+    default:
+        break;
+    };
     return false;
+}
+
+bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttach,
+                                               QMouseEvent *mouseEvent,
+                                               QRect attachmentsRect,
+                                               const QStyleOptionViewItem &option,
+                                               const QModelIndex &index)
+{
+    if (!mMightStartDrag || index != mCurrentIndex || !attachmentsRect.contains(mouseEvent->pos())) {
+        return false;
+    }
+
+    auto mimeData = new QMimeData;
+    mimeData->setUrls({Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link())});
+
+    auto drag = new QDrag(const_cast<QWidget *>(option.widget));
+    drag->setMimeData(mimeData);
+    drag->exec(Qt::CopyAction);
+
+    return true;
 }
 
 void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect descriptionRect, QPainter *painter, int topPos) const

@@ -163,7 +163,8 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             return true;
         }
     }
-    return false;
+
+    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 
 MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach,

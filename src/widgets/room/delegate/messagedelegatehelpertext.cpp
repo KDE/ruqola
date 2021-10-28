@@ -261,6 +261,10 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
 
 bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
+    if (!messageRect.contains(mouseEvent->pos())) {
+        return false;
+    }
+
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     const QEvent::Type eventType = mouseEvent->type();
     // Text selection

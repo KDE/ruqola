@@ -195,7 +195,6 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
                                                            const QStyleOptionViewItem &option,
                                                            const QModelIndex &index)
 {
-    Q_UNUSED(index)
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
         const QPoint pos = mouseEvent->pos();
@@ -218,5 +217,6 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
             }
         }
     }
-    return false;
+
+    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }

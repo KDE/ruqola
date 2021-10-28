@@ -597,6 +597,17 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
                 return true;
             }
+
+            const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+            const auto attachements = message->attachements();
+            int i = 0;
+            for (const MessageAttachment &att : attachements) {
+                MessageDelegateHelperBase *helper = attachmentsHelper(att);
+                if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
+                    return true;
+                }
+                ++i;
+            }
         }
     }
     return false;
@@ -608,7 +619,17 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     if (mHelperText->maybeStartDrag(event, layout.textRect, option, index)) {
         return true;
     }
-    // TODO: dragging images/movies/...
+
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const auto attachements = message->attachements();
+    int i = 0;
+    for (const MessageAttachment &att : attachements) {
+        MessageDelegateHelperBase *helper = attachmentsHelper(att);
+        if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
+            return true;
+        }
+        ++i;
+    }
     return false;
 }
 
