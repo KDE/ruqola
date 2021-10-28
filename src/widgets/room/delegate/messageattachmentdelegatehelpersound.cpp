@@ -28,8 +28,8 @@
 
 #include <KLocalizedString>
 
+#include <KMessageBox>
 #include <QAbstractItemView>
-#include <QMessageBox>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPointer>
@@ -98,7 +98,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
                 QFile::remove(file); // copy() doesn't overwrite
                 QFile sourceFile(layout.audioPath);
                 if (!sourceFile.copy(file)) {
-                    QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
+                    KMessageBox::error(parentWidget, sourceFile.errorString(), i18n("Error saving file"));
                 }
             }
             return true;

@@ -28,9 +28,9 @@
 
 #include <KLocalizedString>
 
+#include <KMessageBox>
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
-#include <QMessageBox>
 #include <QMouseEvent>
 #include <QMovie>
 #include <QPainter>
@@ -141,7 +141,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 }
                 QFile sourceFile(layout.imagePath);
                 if (!sourceFile.copy(file)) {
-                    QMessageBox::warning(parentWidget, i18n("Error saving file"), sourceFile.errorString());
+                    KMessageBox::error(parentWidget, sourceFile.errorString(), i18n("Error saving file"));
                 }
             }
             return true;
