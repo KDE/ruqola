@@ -18,30 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "userinroleeditdialogtest.h"
-#include "administratordialog/roles/userinroleeditdialog.h"
-#include <QDialogButtonBox>
+#include "userinroleeditwidgettest.h"
+#include "administratordialog/roles/userinroleeditwidget.h"
 #include <QTest>
-#include <QVBoxLayout>
-QTEST_MAIN(UserInRoleEditDialogTest)
-UserInRoleEditDialogTest::UserInRoleEditDialogTest(QObject *parent)
+QTEST_MAIN(UserInRoleEditWidgetTest)
+UserInRoleEditWidgetTest::UserInRoleEditWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void UserInRoleEditDialogTest::shouldHaveDefaultValues()
+void UserInRoleEditWidgetTest::shouldHaveDefaultValues()
 {
-    UserInRoleEditDialog d;
-    QVERIFY(!d.windowTitle().isEmpty());
-
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
-
-    //    auto mRoleEditWidget = d.findChild<RoleEditWidget *>(QStringLiteral("mRoleEditWidget"));
-    //    QVERIFY(mRoleEditWidget);
-
+    UserInRoleEditWidget w;
     // TODO
 }

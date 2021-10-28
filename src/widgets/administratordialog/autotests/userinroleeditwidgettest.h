@@ -18,30 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "userinroleeditdialogtest.h"
-#include "administratordialog/roles/userinroleeditdialog.h"
-#include <QDialogButtonBox>
-#include <QTest>
-#include <QVBoxLayout>
-QTEST_MAIN(UserInRoleEditDialogTest)
-UserInRoleEditDialogTest::UserInRoleEditDialogTest(QObject *parent)
-    : QObject{parent}
+#pragma once
+
+#include <QObject>
+
+class UserInRoleEditWidgetTest : public QObject
 {
-}
-
-void UserInRoleEditDialogTest::shouldHaveDefaultValues()
-{
-    UserInRoleEditDialog d;
-    QVERIFY(!d.windowTitle().isEmpty());
-
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
-
-    //    auto mRoleEditWidget = d.findChild<RoleEditWidget *>(QStringLiteral("mRoleEditWidget"));
-    //    QVERIFY(mRoleEditWidget);
-
-    // TODO
-}
+    Q_OBJECT
+public:
+    explicit UserInRoleEditWidgetTest(QObject *parent = nullptr);
+    ~UserInRoleEditWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
