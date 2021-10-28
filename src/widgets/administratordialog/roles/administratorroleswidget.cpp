@@ -27,6 +27,7 @@
 #include "rolestreeview.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "userinroleeditdialog.h"
 
 #include "role/getusersinrolejob.h"
 #include "role/rolecreatejob.h"
@@ -168,6 +169,11 @@ void AdministratorRolesWidget::addUserInRole(const QModelIndex &modelIndex)
 
 void AdministratorRolesWidget::slotGetUsersInRoleDone(const QJsonObject &obj)
 {
+    QPointer<UserInRoleEditDialog> dlg = new UserInRoleEditDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
     qDebug() << " slotGetUsersInRoleDone " << obj;
 }
 
