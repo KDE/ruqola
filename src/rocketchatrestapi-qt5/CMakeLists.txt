@@ -214,6 +214,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     role/roledeletejob.cpp
     role/removeuserfromrolejob.cpp 
     role/addusertorolejob.cpp
+    role/getusersinrolejob.cpp
     )
 
 
