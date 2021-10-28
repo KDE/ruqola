@@ -241,8 +241,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             Q_EMIT textEditing(document()->isEmpty());
         }
     } else {
-        if (!e->modifiers() || e->matches(QKeySequence::Paste) || e->matches(QKeySequence::Redo) || e->matches(QKeySequence::Undo) || key == Qt::Key_Slash
-            || key == '@' || key == '#') {
+        if (!e->text().isEmpty() || e->matches(QKeySequence::Paste) || e->matches(QKeySequence::Redo) || e->matches(QKeySequence::Undo)) {
             mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
