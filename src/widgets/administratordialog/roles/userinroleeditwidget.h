@@ -22,10 +22,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class UsersInRoleWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserInRoleEditWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit UserInRoleEditWidget(QWidget *parent = nullptr);
     ~UserInRoleEditWidget() override;
+
+private:
+    UsersInRoleWidget *const mUserInRoleWidget;
 };

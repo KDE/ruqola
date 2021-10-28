@@ -28,6 +28,7 @@ class LIBRUQOLACORE_EXPORT Users
 {
 public:
     enum ParseType {
+        UserInRoles,
         Administrator,
         Directory,
     };

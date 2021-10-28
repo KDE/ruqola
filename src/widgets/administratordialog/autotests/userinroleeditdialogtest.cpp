@@ -20,13 +20,16 @@
 
 #include "userinroleeditdialogtest.h"
 #include "administratordialog/roles/userinroleeditdialog.h"
+#include "administratordialog/roles/userinroleeditwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(UserInRoleEditDialogTest)
 UserInRoleEditDialogTest::UserInRoleEditDialogTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void UserInRoleEditDialogTest::shouldHaveDefaultValues()
@@ -40,8 +43,8 @@ void UserInRoleEditDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
-    //    auto mRoleEditWidget = d.findChild<RoleEditWidget *>(QStringLiteral("mRoleEditWidget"));
-    //    QVERIFY(mRoleEditWidget);
+    auto mUserInRoleEditWidget = d.findChild<UserInRoleEditWidget *>(QStringLiteral("mUserInRoleEditWidget"));
+    QVERIFY(mUserInRoleEditWidget);
 
     // TODO
 }

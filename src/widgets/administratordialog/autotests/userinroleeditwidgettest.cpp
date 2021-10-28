@@ -20,6 +20,7 @@
 
 #include "userinroleeditwidgettest.h"
 #include "administratordialog/roles/userinroleeditwidget.h"
+#include "administratordialog/roles/usersinrolewidget.h"
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(UserInRoleEditWidgetTest)
@@ -34,5 +35,8 @@ void UserInRoleEditWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});
+
+    auto mUserInRoleWidget = w.findChild<UsersInRoleWidget *>(QStringLiteral("mUserInRoleWidget"));
+    QVERIFY(mUserInRoleWidget);
     // TODO
 }

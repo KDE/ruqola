@@ -21,10 +21,17 @@
 #include "userinroleeditdialog.h"
 #include "userinroleeditwidget.h"
 
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+namespace
+{
+const char myUserInRoleEditDialogGroupName[] = "UserInRoleEditDialog";
+}
 
 UserInRoleEditDialog::UserInRoleEditDialog(QWidget *parent)
     : QDialog(parent)
@@ -36,17 +43,30 @@ UserInRoleEditDialog::UserInRoleEditDialog(QWidget *parent)
     mUserInRoleEditWidget->setObjectName(QStringLiteral("mUserInRoleEditWidget"));
     mainLayout->addWidget(mUserInRoleEditWidget);
 
-    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
-    auto okButton = button->button(QDialogButtonBox::Ok);
-    okButton->setEnabled(false);
-
     connect(button, &QDialogButtonBox::rejected, this, &UserInRoleEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &UserInRoleEditDialog::accept);
-    resize(350, 50);
+    readConfig();
 }
 
 UserInRoleEditDialog::~UserInRoleEditDialog()
 {
+    writeConfig();
+}
+
+void UserInRoleEditDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myUserInRoleEditDialogGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void UserInRoleEditDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myUserInRoleEditDialogGroupName);
+    group.writeEntry("Size", size());
 }

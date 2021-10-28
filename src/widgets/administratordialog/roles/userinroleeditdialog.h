@@ -31,5 +31,7 @@ public:
     ~UserInRoleEditDialog() override;
 
 private:
+    void readConfig();
+    void writeConfig();
     UserInRoleEditWidget *const mUserInRoleEditWidget;
 };

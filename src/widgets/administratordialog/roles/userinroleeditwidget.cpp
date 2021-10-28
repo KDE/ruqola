@@ -19,15 +19,20 @@
 */
 
 #include "userinroleeditwidget.h"
+#include "usersinrolewidget.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
 UserInRoleEditWidget::UserInRoleEditWidget(QWidget *parent)
     : QWidget{parent}
+    , mUserInRoleWidget(new UsersInRoleWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mUserInRoleWidget->setObjectName(QStringLiteral("mUserInRoleWidget"));
+    mainLayout->addWidget(mUserInRoleWidget);
 }
 
 UserInRoleEditWidget::~UserInRoleEditWidget()

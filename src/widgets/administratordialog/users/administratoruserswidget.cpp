@@ -35,9 +35,9 @@
 #include "users/userslistjob.h"
 #include "users/usersupdatejob.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QLabel>
 #include <QMenu>
-#include <QMessageBox>
 #include <QPointer>
 #include <QTreeView>
 
@@ -143,7 +143,7 @@ void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
-    if (QMessageBox::question(this, i18n("Remove User"), i18n("Do you want to remove this user?")) == QMessageBox::Yes) {
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User")) == KMessageBox::Yes) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::DeleteUserJob(this);
         RocketChatRestApi::UserBaseJob::UserInfo info;

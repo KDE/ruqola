@@ -43,18 +43,13 @@ int UsersInRoleModel::rowCount(const QModelIndex &parent) const
 
 QList<int> UsersInRoleModel::hideColumns() const
 {
-    return {UserId, JoinAtDateTime};
-}
-
-Users::ParseType UsersInRoleModel::parseType() const
-{
-    return Users::ParseType::Directory;
+    return {UserId};
 }
 
 void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mUsers.count();
-    mUsers.parseMoreUsers(obj, parseType());
+    mUsers.parseMoreUsers(obj, Users::UserInRoles);
     beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
     endInsertRows();
     checkFullList();
@@ -67,7 +62,7 @@ void UsersInRoleModel::parseElements(const QJsonObject &obj)
         mUsers.clear();
         endRemoveRows();
     }
-    mUsers.parseUsers(obj, parseType());
+    mUsers.parseUsers(obj, Users::UserInRoles);
     if (!mUsers.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
         endInsertRows();
@@ -86,16 +81,12 @@ QVariant UsersInRoleModel::data(const QModelIndex &index, int role) const
     }
     const User &user = mUsers.at(index.row());
     const int col = index.column();
-    switch (static_cast<DirectoryUsersRoles>(col)) {
-    case DirectoryUsersRoles::Name:
+    switch (static_cast<UsersInRoleRoles>(col)) {
+    case UsersInRoleRoles::Name:
         return user.name().isEmpty() ? user.userName() : user.name();
-    case DirectoryUsersRoles::Email:
+    case UsersInRoleRoles::Email:
         return user.userEmailsInfo().email;
-    case DirectoryUsersRoles::JoinAt:
-        return user.createdAt().toString(); // TODO verify it
-    case DirectoryUsersRoles::JoinAtDateTime:
-        return user.createdAt();
-    case DirectoryUsersRoles::UserId:
+    case UsersInRoleRoles::UserId:
         return user.userId();
     }
     return {};
@@ -104,14 +95,11 @@ QVariant UsersInRoleModel::data(const QModelIndex &index, int role) const
 QVariant UsersInRoleModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<DirectoryUsersRoles>(section)) {
+        switch (static_cast<UsersInRoleRoles>(section)) {
         case UsersInRoleModel::Name:
             return i18n("Name");
         case UsersInRoleModel::Email:
             return i18n("Emails");
-        case UsersInRoleModel::JoinAt:
-            return i18n("Join At");
-        case UsersInRoleModel::JoinAtDateTime:
         case UsersInRoleModel::UserId:
             return {};
         }

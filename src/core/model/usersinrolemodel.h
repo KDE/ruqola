@@ -27,15 +27,13 @@ class LIBRUQOLACORE_EXPORT UsersInRoleModel : public DirectoryBaseModel
 {
     Q_OBJECT
 public:
-    enum DirectoryUsersRoles {
+    enum UsersInRoleRoles {
         Name,
         Email,
-        JoinAt,
         UserId,
-        JoinAtDateTime,
-        LastColumn = JoinAtDateTime,
+        LastColumn = UserId,
     };
-    Q_ENUM(DirectoryUsersRoles)
+    Q_ENUM(UsersInRoleRoles)
     explicit UsersInRoleModel(QObject *parent = nullptr);
     ~UsersInRoleModel() override;
 
@@ -51,10 +49,9 @@ public:
 
 protected:
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;
-    Q_REQUIRED_RESULT virtual Users::ParseType parseType() const;
-    Users mUsers;
 
 private:
     Q_DISABLE_COPY(UsersInRoleModel)
     void checkFullList();
+    Users mUsers;
 };
