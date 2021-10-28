@@ -40,6 +40,18 @@ bool GetUsersInRoleJob::requireHttpAuthentication() const
     return true;
 }
 
+bool GetUsersInRoleJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mRoleId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetUsersInRoleJob: mRoleId is empty.";
+        return false;
+    }
+    return true;
+}
+
 bool GetUsersInRoleJob::start()
 {
     if (!canStart()) {
@@ -60,11 +72,11 @@ void GetUsersInRoleJob::slotGetUsersInRoleFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RoomsAdminJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("GetUsersInRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getUsersInRoleDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RoomsAdminJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("GetUsersInRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
@@ -78,6 +90,7 @@ bool GetUsersInRoleJob::hasQueryParameterSupport() const
 
 void GetUsersInRoleJob::initialUrlParameters(QUrlQuery &urlQuery) const
 {
+    urlQuery.addQueryItem(QStringLiteral("role"), mRoleId);
 #if 0
     // https://<server>/api/v1/rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25&offset=25
     if (!mRoomsAdminInfo.filter.isEmpty()) {
@@ -104,9 +117,18 @@ void GetUsersInRoleJob::initialUrlParameters(QUrlQuery &urlQuery) const
 #endif
 }
 
+const QString &GetUsersInRoleJob::roleId() const
+{
+    return mRoleId;
+}
+
+void GetUsersInRoleJob::setRoleId(const QString &newRoleId)
+{
+    mRoleId = newRoleId;
+}
+
 QNetworkRequest GetUsersInRoleJob::request() const
 {
-    // rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RolesGetUsersInRole);
     QUrlQuery queryUrl;
     addQueryParameter(queryUrl);

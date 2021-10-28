@@ -41,6 +41,11 @@ public:
 
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
+    Q_REQUIRED_RESULT const QString &roleId() const;
+    void setRoleId(const QString &newRoleId);
+
+    Q_REQUIRED_RESULT bool canStart() const override;
+
 Q_SIGNALS:
     void getUsersInRoleDone(const QJsonObject &obj);
 
@@ -48,5 +53,6 @@ private:
     Q_DISABLE_COPY(GetUsersInRoleJob)
     void slotGetUsersInRoleFinished();
     void initialUrlParameters(QUrlQuery &urlQuery) const;
+    QString mRoleId;
 };
 }

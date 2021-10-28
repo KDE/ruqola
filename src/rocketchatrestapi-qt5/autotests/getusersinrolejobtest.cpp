@@ -38,6 +38,7 @@ void GetUsersInRoleJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(job.roleId().isEmpty());
 }
 
 void GetUsersInRoleJobTest::shouldGenerateRequest()
@@ -46,6 +47,30 @@ void GetUsersInRoleJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
+    const QString roleId{QStringLiteral("bla")};
+    job.setRoleId(roleId);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.adminRooms")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.getUsersInRole?role=%1").arg(roleId)));
+}
+
+void GetUsersInRoleJobTest::shouldNotStarting()
+{
+    GetUsersInRoleJob job;
+
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+
+    QVERIFY(!job.canStart());
+    job.setRoleId(QStringLiteral("ss"));
+    QVERIFY(job.canStart());
 }
