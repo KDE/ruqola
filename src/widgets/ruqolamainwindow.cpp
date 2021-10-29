@@ -514,11 +514,6 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
     delete dlg;
 }
 
-void RuqolaMainWindow::slotSaveAs()
-{
-    qWarning() << "RuqolaMainWindow::slotSaveAs not implemented yet ";
-}
-
 void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 {
     mSearchChannel->setEnabled(!loginPageActivated);

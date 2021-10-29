@@ -46,7 +46,6 @@ protected:
 
 private:
     void slotRegisterUserSuccessed();
-    void slotSaveAs();
     void setupActions();
     void readConfig();
     void setupStatusBar();
