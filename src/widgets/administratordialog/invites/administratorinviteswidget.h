@@ -26,11 +26,12 @@ class InviteTreeView;
 class QLineEdit;
 class AdminInviteModel;
 class DirectoryBaseFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorInvitesWidget(QWidget *parent = nullptr);
+    explicit AdministratorInvitesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorInvitesWidget() override;
 
 private:
@@ -43,4 +44,5 @@ private:
     QLineEdit *const mSearchLineWidget;
     AdminInviteModel *const mAdminInviteModel;
     DirectoryBaseFilterProxyModel *mAdminInviteFilterProxyModel = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };

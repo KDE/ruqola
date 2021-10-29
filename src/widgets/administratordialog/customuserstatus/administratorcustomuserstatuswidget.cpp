@@ -23,9 +23,9 @@
 
 #include <KTreeWidgetSearchLineWidget>
 #include <QVBoxLayout>
-AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(QWidget *parent)
+AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mCustomUserStatusTreeWidget(new CustomUserStatusTreeWidget(this))
+    , mCustomUserStatusTreeWidget(new CustomUserStatusTreeWidget(account, this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomUserStatusTreeWidget))
 {
     auto mainLayout = new QVBoxLayout(this);

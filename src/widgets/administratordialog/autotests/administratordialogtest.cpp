@@ -34,7 +34,7 @@ AdministratorDialogTest::AdministratorDialogTest(QObject *parent)
 
 void AdministratorDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorDialog d;
+    AdministratorDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

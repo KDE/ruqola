@@ -22,11 +22,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class DirectoryTabWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit DirectoryDialog(QWidget *parent = nullptr);
+    explicit DirectoryDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectoryDialog() override;
 
     void fillTabs();

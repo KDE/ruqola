@@ -30,7 +30,7 @@ CustomUserStatusTreeWidgetTest::CustomUserStatusTreeWidgetTest(QObject *parent)
 
 void CustomUserStatusTreeWidgetTest::shouldHaveDefaultValues()
 {
-    CustomUserStatusTreeWidget w;
+    CustomUserStatusTreeWidget w(nullptr);
     QCOMPARE(w.columnCount(), 2);
     QVERIFY(w.alternatingRowColors());
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);

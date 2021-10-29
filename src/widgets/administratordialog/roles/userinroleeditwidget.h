@@ -23,11 +23,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class UsersInRoleWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserInRoleEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UserInRoleEditWidget(QWidget *parent = nullptr);
+    explicit UserInRoleEditWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~UserInRoleEditWidget() override;
 
     Q_REQUIRED_RESULT const QString &roleId() const;

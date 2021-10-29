@@ -22,11 +22,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QPlainTextEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ViewLogWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ViewLogWidget(QWidget *parent = nullptr);
+    explicit ViewLogWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ViewLogWidget() override;
     void initialize();
 
@@ -39,6 +40,7 @@ private:
     void insertLine(const QString &str);
     QStringList mStdoutBeforeLoadingHistory;
     QPlainTextEdit *const mPlainTextEdit;
+    RocketChatAccount *const mRocketChatAccount;
     quint64 mStdoutIdentifier = 0;
     bool mWasInitialized = false;
     bool mHistoryStdoutLoaded = false;

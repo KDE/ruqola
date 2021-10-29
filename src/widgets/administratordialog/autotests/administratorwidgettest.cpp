@@ -41,7 +41,7 @@ AdministratorWidgetTest::AdministratorWidgetTest(QObject *parent)
 
 void AdministratorWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorWidget w;
+    AdministratorWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

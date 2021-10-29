@@ -27,7 +27,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiWidget : public Sear
 {
     Q_OBJECT
 public:
-    explicit AdministratorCustomEmojiWidget(QWidget *parent = nullptr);
+    explicit AdministratorCustomEmojiWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorCustomEmojiWidget() override;
 
 protected:

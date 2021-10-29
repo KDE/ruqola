@@ -24,11 +24,12 @@
 #include <QWidget>
 class CustomUserStatusTreeWidget;
 class KTreeWidgetSearchLineWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorCustomUserStatusWidget(QWidget *parent = nullptr);
+    explicit AdministratorCustomUserStatusWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusWidget() override;
 
 private:

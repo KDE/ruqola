@@ -547,14 +547,14 @@ void RuqolaMainWindow::slotConfigureMyAccount()
 
 void RuqolaMainWindow::slotAdministrator()
 {
-    AdministratorDialog dlg(this);
+    AdministratorDialog dlg(mCurrentRocketChatAccount, this);
     dlg.initialize();
     dlg.exec();
 }
 
 void RuqolaMainWindow::slotDirectory()
 {
-    DirectoryDialog dlg(this);
+    DirectoryDialog dlg(mCurrentRocketChatAccount, this);
     dlg.fillTabs();
     dlg.exec();
 }

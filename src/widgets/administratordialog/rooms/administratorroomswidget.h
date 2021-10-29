@@ -30,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTree
 {
     Q_OBJECT
 public:
-    explicit AdministratorRoomsWidget(QWidget *parent = nullptr);
+    explicit AdministratorRoomsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorRoomsWidget() override;
 
 protected:

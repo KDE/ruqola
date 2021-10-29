@@ -28,7 +28,7 @@ DirectoryTabWidgetTest::DirectoryTabWidgetTest(QObject *parent)
 
 void DirectoryTabWidgetTest::shouldHaveDefaultValues()
 {
-    DirectoryTabWidget w;
+    DirectoryTabWidget w(nullptr);
     QCOMPARE(w.count(), 3);
 
     DirectoryWidget *tab = qobject_cast<DirectoryWidget *>(w.widget(0));

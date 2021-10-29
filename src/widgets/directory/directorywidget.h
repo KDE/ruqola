@@ -34,7 +34,7 @@ public:
         User = 2,
         Team = 3,
     };
-    explicit DirectoryWidget(DirectoryType type, QWidget *parent = nullptr);
+    explicit DirectoryWidget(RocketChatAccount *account, DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryWidget() override;
 
     void fillDirectory();

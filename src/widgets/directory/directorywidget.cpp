@@ -37,8 +37,8 @@
 #include <QShowEvent>
 #include <QTreeView>
 
-DirectoryWidget::DirectoryWidget(DirectoryType type, QWidget *parent)
-    : SearchTreeBaseWidget(parent)
+DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type, QWidget *parent)
+    : SearchTreeBaseWidget(account, parent)
     , mType(type)
 {
     switch (mType) {

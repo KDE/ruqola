@@ -28,11 +28,12 @@ class QTreeWidget;
 class QTreeWidgetItem;
 class KTreeWidgetSearchLineWidget;
 class QPushButton;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorServerInfoWidget(QWidget *parent = nullptr);
+    explicit AdministratorServerInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorServerInfoWidget() override;
 
 private:
@@ -62,5 +63,6 @@ private:
     QTreeWidgetItem *mServerInfoItem = nullptr;
     QTreeWidgetItem *mUsageInfoItem = nullptr;
     QTreeWidgetItem *mRuntimeInfoItem = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

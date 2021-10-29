@@ -33,7 +33,7 @@ AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject
 
 void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomSoundsWidget w;
+    AdministratorCustomSoundsWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

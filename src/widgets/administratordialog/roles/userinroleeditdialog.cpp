@@ -33,9 +33,9 @@ namespace
 const char myUserInRoleEditDialogGroupName[] = "UserInRoleEditDialog";
 }
 
-UserInRoleEditDialog::UserInRoleEditDialog(QWidget *parent)
+UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mUserInRoleEditWidget(new UserInRoleEditWidget(this))
+    , mUserInRoleEditWidget(new UserInRoleEditWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Add User in Role"));
     auto mainLayout = new QVBoxLayout(this);

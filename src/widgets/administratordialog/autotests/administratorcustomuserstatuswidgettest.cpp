@@ -33,7 +33,7 @@ AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest
 
 void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomUserStatusWidget w;
+    AdministratorCustomUserStatusWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

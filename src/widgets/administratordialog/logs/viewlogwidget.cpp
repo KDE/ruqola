@@ -30,9 +30,10 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 
-ViewLogWidget::ViewLogWidget(QWidget *parent)
+ViewLogWidget::ViewLogWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mPlainTextEdit(new QPlainTextEdit(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -46,8 +47,7 @@ ViewLogWidget::ViewLogWidget(QWidget *parent)
 ViewLogWidget::~ViewLogWidget()
 {
     if (mStdoutIdentifier != 0) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        rcAccount->ddp()->unsubscribe(mStdoutIdentifier);
+        mRocketChatAccount->ddp()->unsubscribe(mStdoutIdentifier);
     }
 }
 
@@ -62,16 +62,15 @@ void ViewLogWidget::showEvent(QShowEvent *event)
 
 void ViewLogWidget::initialize()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     {
         QJsonArray params;
         params.append(QJsonValue(QStringLiteral("stdout")));
-        mStdoutIdentifier = rcAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
+        mStdoutIdentifier = mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
     }
-    connect(rcAccount, &RocketChatAccount::insertStdOutInfo, this, &ViewLogWidget::slotInsertStdOutInfo);
+    connect(mRocketChatAccount, &RocketChatAccount::insertStdOutInfo, this, &ViewLogWidget::slotInsertStdOutInfo);
 
     auto job = new RocketChatRestApi::StdoutQueueJob(this);
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::StdoutQueueJob::stdoutQueueDone, this, &ViewLogWidget::slotStdoutQueueDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start StdoutQueueJob job";

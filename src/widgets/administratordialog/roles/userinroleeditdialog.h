@@ -23,11 +23,12 @@
 #include "roleeditwidget.h"
 #include <QDialog>
 class UserInRoleEditWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserInRoleEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit UserInRoleEditDialog(QWidget *parent = nullptr);
+    explicit UserInRoleEditDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~UserInRoleEditDialog() override;
 
     Q_REQUIRED_RESULT const QString &roleId() const;

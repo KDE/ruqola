@@ -27,7 +27,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsWidget : public Sea
 {
     Q_OBJECT
 public:
-    explicit AdministratorCustomSoundsWidget(QWidget *parent = nullptr);
+    explicit AdministratorCustomSoundsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorCustomSoundsWidget() override;
 
 protected:

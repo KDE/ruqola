@@ -29,6 +29,6 @@ AdministratorInvitesWidgetTest::AdministratorInvitesWidgetTest(QObject *parent)
 
 void AdministratorInvitesWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorInvitesWidget w;
+    AdministratorInvitesWidget w(nullptr);
     // TODO
 }

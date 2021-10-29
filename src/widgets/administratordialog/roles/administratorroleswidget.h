@@ -28,11 +28,12 @@ class RolesTreeView;
 class QLineEdit;
 class AdminRolesModel;
 class QSortFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRolesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorRolesWidget(QWidget *parent = nullptr);
+    explicit AdministratorRolesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorRolesWidget() override;
 
     void initialize();
@@ -51,4 +52,5 @@ private:
     QLineEdit *const mSearchLineWidget;
     AdminRolesModel *const mAdminRolesModel;
     QSortFilterProxyModel *const mRoleFilterProxyModel;
+    RocketChatAccount *const mRocketChatAccount;
 };

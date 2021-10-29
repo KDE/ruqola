@@ -30,9 +30,9 @@ namespace
 {
 const char myDirectoryDialog[] = "DirectoryDialog";
 }
-DirectoryDialog::DirectoryDialog(QWidget *parent)
+DirectoryDialog::DirectoryDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mDirectoryTabWidget(new DirectoryTabWidget(this))
+    , mDirectoryTabWidget(new DirectoryTabWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Directory"));
     auto mainLayout = new QVBoxLayout(this);

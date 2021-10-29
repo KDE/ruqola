@@ -33,11 +33,12 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-AdministratorInvitesWidget::AdministratorInvitesWidget(QWidget *parent)
+AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInviteTreeView(new InviteTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
+    , mRocketChatAccount(account)
 {
     mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
     mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
@@ -72,9 +73,8 @@ void AdministratorInvitesWidget::slotTextChanged(const QString &str)
 
 void AdministratorInvitesWidget::initialize()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto inviteJob = new RocketChatRestApi::ListInviteJob(this);
-    rcAccount->restApi()->initializeRestApiJob(inviteJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(inviteJob);
     connect(inviteJob, &RocketChatRestApi::ListInviteJob::listInviteDone, this, &AdministratorInvitesWidget::slotListInviteDone);
     if (!inviteJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ListInviteJob";
@@ -100,10 +100,9 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 
 void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto removeInviteJob = new RocketChatRestApi::RemoveInviteJob(this);
     removeInviteJob->setIdentifier(identifier);
-    rcAccount->restApi()->initializeRestApiJob(removeInviteJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(removeInviteJob);
     connect(removeInviteJob, &RocketChatRestApi::RemoveInviteJob::removeInviteDone, this, &AdministratorInvitesWidget::slotRemoveInviteDone);
     if (!removeInviteJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RemoveInviteJob";

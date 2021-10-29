@@ -23,9 +23,9 @@
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
-UserInRoleEditWidget::UserInRoleEditWidget(QWidget *parent)
+UserInRoleEditWidget::UserInRoleEditWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
-    , mUserInRoleWidget(new UsersInRoleWidget(this))
+    , mUserInRoleWidget(new UsersInRoleWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

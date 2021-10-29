@@ -36,19 +36,19 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 
-AdministratorWidget::AdministratorWidget(QWidget *parent)
+AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTabWidget(new QTabWidget(this))
-    , mAdministratorRoomsWidget(new AdministratorRoomsWidget(this))
-    , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(this))
-    , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(this))
-    , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(this))
-    , mAdministratorUsersWidget(new AdministratorUsersWidget(this))
-    , mAdministratorInvitesWidget(new AdministratorInvitesWidget(this))
-    , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(this))
-    , mViewLogWidget(new ViewLogWidget(this))
-    , mPermissionsWidget(new PermissionsWidget(this))
-    , mRolesWidget(new AdministratorRolesWidget(this))
+    , mAdministratorRoomsWidget(new AdministratorRoomsWidget(account, this))
+    , mAdministratorCustomUserStatusWidget(new AdministratorCustomUserStatusWidget(account, this))
+    , mAdministratorCustomSoundsWidget(new AdministratorCustomSoundsWidget(account, this))
+    , mAdministratorServerInfoWidget(new AdministratorServerInfoWidget(account, this))
+    , mAdministratorUsersWidget(new AdministratorUsersWidget(account, this))
+    , mAdministratorInvitesWidget(new AdministratorInvitesWidget(account, this))
+    , mAdministratorCustomEmojiWidget(new AdministratorCustomEmojiWidget(account, this))
+    , mViewLogWidget(new ViewLogWidget(account, this))
+    , mPermissionsWidget(new PermissionsWidget(account, this))
+    , mRolesWidget(new AdministratorRolesWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

@@ -34,7 +34,7 @@ AdministratorRolesWidgetTest::AdministratorRolesWidgetTest(QObject *parent)
 
 void AdministratorRolesWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorRolesWidget w;
+    AdministratorRolesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

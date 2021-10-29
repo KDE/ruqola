@@ -36,8 +36,8 @@
 #include <QPointer>
 #include <QTreeView>
 
-UsersInRoleWidget::UsersInRoleWidget(QWidget *parent)
-    : SearchTreeBaseWidget(parent)
+UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent)
+    : SearchTreeBaseWidget(account, parent)
 {
     mModel = new UsersInRoleModel(this);
     mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
@@ -121,7 +121,6 @@ void UsersInRoleWidget::setRoleId(const QString &newRoleId)
 
 void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::GetUsersInRoleJob(this);
     job->setRoleId(mRoleId);
     RocketChatRestApi::QueryParameters parameters;
@@ -137,7 +136,7 @@ void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &s
     parameters.setSearchString(searchName);
     job->setQueryParameters(parameters);
 
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job, &RocketChatRestApi::GetUsersInRoleJob::getUsersInRoleDone, this, &UsersInRoleWidget::slotLoadMoreElementDone);
     } else {

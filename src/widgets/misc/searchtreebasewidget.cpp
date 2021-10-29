@@ -28,11 +28,12 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 
-SearchTreeBaseWidget::SearchTreeBaseWidget(QWidget *parent)
+SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mLabelResultSearch(new QLabel(this))
     , mSearchLineEdit(new SearchWithDelayLineEdit(this))
     , mTreeView(new QTreeView(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

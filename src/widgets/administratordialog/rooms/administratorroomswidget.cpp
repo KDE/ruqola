@@ -35,8 +35,8 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 
-AdministratorRoomsWidget::AdministratorRoomsWidget(QWidget *parent)
-    : SearchTreeBaseWidget(parent)
+AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, QWidget *parent)
+    : SearchTreeBaseWidget(account, parent)
     , mSelectRoomType(new AdministratorRoomsSelectRoomTypeWidget(this))
 {
     mSelectRoomType->setObjectName(QStringLiteral("mSelectRoomType"));

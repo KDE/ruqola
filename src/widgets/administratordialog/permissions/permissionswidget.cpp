@@ -38,12 +38,13 @@
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
-PermissionsWidget::PermissionsWidget(QWidget *parent)
+PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTreeView(new PermissionsTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminPermissionsModel(new AdminPermissionsModel(this))
     , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
+    , mRocketChatAccount(account)
 {
     mPermissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
 
@@ -78,11 +79,10 @@ void PermissionsWidget::slotFilterTextChanged(const QString &str)
 void PermissionsWidget::initialize()
 {
     // First load list of roles.
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    mRoleInfo = rcAccount->roleInfo();
+    mRoleInfo = mRocketChatAccount->roleInfo();
 
     auto permissionsListAllJob = new RocketChatRestApi::PermissionsListAllJob(this);
-    rcAccount->restApi()->initializeRestApiJob(permissionsListAllJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(permissionsListAllJob);
     connect(permissionsListAllJob, &RocketChatRestApi::PermissionsListAllJob::permissionListAllDone, this, &PermissionsWidget::slotPermissionListAllDone);
     if (!permissionsListAllJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PermissionsListAllJob";
@@ -118,8 +118,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
     if (index.isValid()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) {
+        if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
             modifyRoles(index);
         }
     }
@@ -139,9 +138,8 @@ void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &i
     dialog->setRolesInfo(mRoleInfo);
     if (dialog->exec()) {
         const QStringList lst = dialog->roles();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto permissionsUpdateJob = new RocketChatRestApi::PermissionUpdateJob(this);
-        rcAccount->restApi()->initializeRestApiJob(permissionsUpdateJob);
+        mRocketChatAccount->restApi()->initializeRestApiJob(permissionsUpdateJob);
         QMap<QString, QStringList> mapPermission;
         mapPermission.insert(identifier, lst);
         permissionsUpdateJob->setPermissions(mapPermission);

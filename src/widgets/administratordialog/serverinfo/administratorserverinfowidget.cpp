@@ -38,11 +38,12 @@
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
-AdministratorServerInfoWidget::AdministratorServerInfoWidget(QWidget *parent)
+AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTreeWidget(new QTreeWidget(this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mTreeWidget))
     , mRefreshButton(new QPushButton(QIcon::fromTheme(QStringLiteral("view-refresh")), {}, this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -94,11 +95,10 @@ void AdministratorServerInfoWidget::slotRefreshInfo()
 
 void AdministratorServerInfoWidget::initialize()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    if (!rcAccount->ruqolaServerConfig()->hasAtLeastVersion(4, 0, 0)) {
+    if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(4, 0, 0)) {
         auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
         serverInfoJob->setForceRequiresAuthentication(true);
-        rcAccount->restApi()->initializeRestApiJob(serverInfoJob);
+        mRocketChatAccount->restApi()->initializeRestApiJob(serverInfoJob);
         connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone, this, &AdministratorServerInfoWidget::slotServerInfoDone);
         if (!serverInfoJob->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
@@ -122,8 +122,7 @@ void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInf
 void AdministratorServerInfoWidget::loadLicensesInfo()
 {
     auto licenseInfoJob = new RocketChatRestApi::LicensesListJob(this);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->restApi()->initializeRestApiJob(licenseInfoJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(licenseInfoJob);
     connect(licenseInfoJob, &RocketChatRestApi::LicensesListJob::licensesListDone, this, &AdministratorServerInfoWidget::slotLicensesListDone);
     if (!licenseInfoJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start LicensesListJob";
@@ -164,8 +163,7 @@ void AdministratorServerInfoWidget::loadStatisticInfo(bool refresh)
 {
     auto statisticJob = new RocketChatRestApi::StatisticsJob(this);
     statisticJob->setRefresh(refresh);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->restApi()->initializeRestApiJob(statisticJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(statisticJob);
     connect(statisticJob, &RocketChatRestApi::StatisticsJob::statisticDone, this, &AdministratorServerInfoWidget::slotStatisticDone);
     if (!statisticJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start StatisticsJob";

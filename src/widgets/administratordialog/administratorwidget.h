@@ -34,11 +34,12 @@ class ViewLogWidget;
 class AdministratorCustomEmojiWidget;
 class PermissionsWidget;
 class AdministratorRolesWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorWidget(QWidget *parent = nullptr);
+    explicit AdministratorWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorWidget() override;
 
     void updateUiFromPermission();

@@ -27,7 +27,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoleWidget : public SearchTreeBaseWid
 {
     Q_OBJECT
 public:
-    explicit UsersInRoleWidget(QWidget *parent = nullptr);
+    explicit UsersInRoleWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~UsersInRoleWidget() override;
 
     Q_REQUIRED_RESULT const QString &roleId() const;

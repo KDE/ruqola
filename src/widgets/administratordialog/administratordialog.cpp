@@ -32,9 +32,9 @@ namespace
 const char myAdministratorDialogGroupName[] = "AdministratorDialog";
 }
 
-AdministratorDialog::AdministratorDialog(QWidget *parent)
+AdministratorDialog::AdministratorDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mAdministratorWidget(new AdministratorWidget(this))
+    , mAdministratorWidget(new AdministratorWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Administrator"));
     auto mainLayout = new QVBoxLayout(this);

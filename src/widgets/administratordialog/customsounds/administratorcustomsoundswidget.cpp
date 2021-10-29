@@ -35,8 +35,8 @@
 #include <QPointer>
 #include <QTreeView>
 
-AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(QWidget *parent)
-    : SearchTreeBaseWidget(parent)
+AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccount *account, QWidget *parent)
+    : SearchTreeBaseWidget(account, parent)
 {
     mModel = new AdminCustomSoundModel(this);
     mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));

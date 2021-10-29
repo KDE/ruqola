@@ -26,11 +26,12 @@ class QTreeView;
 class DirectoryBaseModel;
 class QVBoxLayout;
 class DirectoryBaseFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTreeBaseWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SearchTreeBaseWidget(QWidget *parent = nullptr);
+    explicit SearchTreeBaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTreeBaseWidget() override;
 
     void initialize();
@@ -52,7 +53,7 @@ protected:
     DirectoryBaseModel *mModel = nullptr;
     DirectoryBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
-
+    RocketChatAccount *const mRocketChatAccount;
     Q_REQUIRED_RESULT QString clickableStr() const;
 
 private:

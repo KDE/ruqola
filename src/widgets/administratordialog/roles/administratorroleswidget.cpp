@@ -43,12 +43,13 @@
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
-AdministratorRolesWidget::AdministratorRolesWidget(QWidget *parent)
+AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTreeView(new RolesTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminRolesModel(new AdminRolesModel(this))
     , mRoleFilterProxyModel(new QSortFilterProxyModel(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -79,12 +80,11 @@ AdministratorRolesWidget::~AdministratorRolesWidget()
 
 void AdministratorRolesWidget::initialize()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto updateRoleList = [rcAccount, this]() {
-        mAdminRolesModel->setRoles(rcAccount->roleInfo());
+    auto updateRoleList = [this]() {
+        mAdminRolesModel->setRoles(mRocketChatAccount->roleInfo());
     };
 
-    connect(rcAccount, &RocketChatAccount::rolesUpdated, this, updateRoleList);
+    connect(mRocketChatAccount, &RocketChatAccount::rolesUpdated, this, updateRoleList);
     updateRoleList();
 }
 
@@ -96,9 +96,8 @@ void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
 void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
 
-    if (rcAccount->hasPermission(QStringLiteral("access-permissions"))) { //For delete
+    if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) { // For delete
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorRolesWidget::addRole);
         if (index.isValid()) {
@@ -131,9 +130,8 @@ void AdministratorRolesWidget::addRole()
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
     if (dlg->exec()) {
         const RoleEditWidget::RoleEditDialogInfo info = dlg->roleEditDialogInfo();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleCreateJob = new RocketChatRestApi::RoleCreateJob(this);
-        rcAccount->restApi()->initializeRestApiJob(roleCreateJob);
+        mRocketChatAccount->restApi()->initializeRestApiJob(roleCreateJob);
         RocketChatRestApi::RoleCreateJob::RoleCreateInfo createInfo;
         createInfo.description = info.mDescription;
         createInfo.name = info.mName;
@@ -156,7 +154,7 @@ void AdministratorRolesWidget::slotRoleCreateDone()
 
 void AdministratorRolesWidget::addUserInRole(const QModelIndex &modelIndex)
 {
-    QPointer<UserInRoleEditDialog> dlg = new UserInRoleEditDialog(this);
+    QPointer<UserInRoleEditDialog> dlg = new UserInRoleEditDialog(mRocketChatAccount, this);
     dlg->setRoleId(modelIndex.data().toString());
     if (dlg->exec()) {
         // TODO
@@ -185,9 +183,8 @@ void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
     dlg->setRoleEditDialogInfo(info);
     if (dlg->exec()) {
         info = dlg->roleEditDialogInfo();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleUpdateJob = new RocketChatRestApi::RoleUpdateJob(this);
-        rcAccount->restApi()->initializeRestApiJob(roleUpdateJob);
+        mRocketChatAccount->restApi()->initializeRestApiJob(roleUpdateJob);
         RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
         updateInfo.description = info.mDescription;
         updateInfo.name = info.mName;
@@ -220,9 +217,8 @@ void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
     }
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
     if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this role \'%1\'?", index.data().toString()), i18n("Remove Role")) == KMessageBox::Yes) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto roleDeleteJob = new RocketChatRestApi::RoleDeleteJob(this);
-        rcAccount->restApi()->initializeRestApiJob(roleDeleteJob);
+        mRocketChatAccount->restApi()->initializeRestApiJob(roleDeleteJob);
         roleDeleteJob->setRoleId(identifier);
         connect(roleDeleteJob, &RocketChatRestApi::RoleDeleteJob::deleteRoleDone, this, &AdministratorRolesWidget::slotRoleDeleteDone);
         if (!roleDeleteJob->start()) {

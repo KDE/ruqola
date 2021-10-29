@@ -27,11 +27,12 @@ class PermissionsTreeView;
 class QLineEdit;
 class AdminPermissionsModel;
 class QSortFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PermissionsWidget(QWidget *parent = nullptr);
+    explicit PermissionsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PermissionsWidget() override;
     void initialize();
 
@@ -48,4 +49,5 @@ private:
     QLineEdit *const mSearchLineWidget;
     AdminPermissionsModel *const mAdminPermissionsModel;
     QSortFilterProxyModel *const mPermissionFilterProxyModel;
+    RocketChatAccount *const mRocketChatAccount;
 };

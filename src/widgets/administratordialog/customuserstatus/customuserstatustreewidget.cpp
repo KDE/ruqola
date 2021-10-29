@@ -48,8 +48,9 @@ void CustomUserStatusTreeWidgetItem::setUserStatus(const CustomUserStatus &userS
     mUserStatus = userStatus;
 }
 
-CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
+CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(RocketChatAccount *account, QWidget *parent)
     : QTreeWidget(parent)
+    , mRocketChatAccount(account)
 {
     setColumnCount(2);
     setHeaderLabels({i18n("Name"), i18n("Presence")});
@@ -61,7 +62,7 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(QWidget *parent)
     setRootIsDecorated(false);
     connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
     initialize();
-    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::customUserStatusChanged, this, &CustomUserStatusTreeWidget::initialize);
+    connect(mRocketChatAccount, &RocketChatAccount::customUserStatusChanged, this, &CustomUserStatusTreeWidget::initialize);
     connect(this, &CustomUserStatusTreeWidget::itemDoubleClicked, this, &CustomUserStatusTreeWidget::editClicked);
 }
 
@@ -72,7 +73,7 @@ CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
 void CustomUserStatusTreeWidget::initialize()
 {
     clear();
-    const CustomUserStatuses statuses = Ruqola::self()->rocketChatAccount()->customUserStatuses();
+    const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
     const QVector<CustomUserStatus> customUserses = statuses.customUserses();
     for (const CustomUserStatus &status : customUserses) {
         auto item = new CustomUserStatusTreeWidgetItem(this);
@@ -94,7 +95,7 @@ void CustomUserStatusTreeWidget::addClicked()
         RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo statusCreateInfo;
         statusCreateInfo.name = info.name;
         statusCreateInfo.statusType = Utils::presenceStatusToString(info.statusType);
-        Ruqola::self()->rocketChatAccount()->createCustomUserStatus(statusCreateInfo);
+        mRocketChatAccount->createCustomUserStatus(statusCreateInfo);
     }
     delete dlg;
 }
@@ -118,7 +119,7 @@ void CustomUserStatusTreeWidget::editClicked()
         statusUpdateInfo.name = info.name;
         statusUpdateInfo.statusType = Utils::presenceStatusToString(info.statusType);
         statusUpdateInfo.identifier = userStatus.identifier();
-        Ruqola::self()->rocketChatAccount()->updateCustomUserStatus(statusUpdateInfo);
+        mRocketChatAccount->updateCustomUserStatus(statusUpdateInfo);
     }
     delete dlg;
 }
@@ -132,7 +133,7 @@ void CustomUserStatusTreeWidget::removeClicked()
     const CustomUserStatus userStatus = customUserStatusItem->userStatus();
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18nc("@title", "Remove Custom User Status"))) {
-        Ruqola::self()->rocketChatAccount()->removeCustomUserStatus(userStatus.identifier());
+        mRocketChatAccount->removeCustomUserStatus(userStatus.identifier());
     }
 }
 

@@ -40,8 +40,8 @@
 #include <QPointer>
 #include <QTreeView>
 
-AdministratorUsersWidget::AdministratorUsersWidget(QWidget *parent)
-    : SearchTreeBaseWidget(parent)
+AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
+    : SearchTreeBaseWidget(account, parent)
 {
     mModel = new AdminUsersModel(this);
     mModel->setObjectName(QStringLiteral("mAdminUsersModel"));

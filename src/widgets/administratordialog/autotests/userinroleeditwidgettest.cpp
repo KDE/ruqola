@@ -31,7 +31,7 @@ UserInRoleEditWidgetTest::UserInRoleEditWidgetTest(QObject *parent)
 
 void UserInRoleEditWidgetTest::shouldHaveDefaultValues()
 {
-    UserInRoleEditWidget w;
+    UserInRoleEditWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});

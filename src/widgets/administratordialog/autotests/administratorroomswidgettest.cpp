@@ -33,7 +33,7 @@ AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
 
 void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorRoomsWidget w;
+    AdministratorRoomsWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

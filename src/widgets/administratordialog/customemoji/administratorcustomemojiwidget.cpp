@@ -38,8 +38,8 @@
 #include <QPointer>
 #include <QTreeView>
 
-AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(QWidget *parent)
-    : SearchTreeBaseWidget(parent)
+AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount *account, QWidget *parent)
+    : SearchTreeBaseWidget(account, parent)
 {
     mModel = new AdminCustomEmojiModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));

@@ -34,7 +34,7 @@ AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *pa
 
 void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorServerInfoWidget w;
+    AdministratorServerInfoWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

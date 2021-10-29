@@ -23,11 +23,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class AdministratorWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AdministratorDialog(QWidget *parent = nullptr);
+    explicit AdministratorDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorDialog() override;
 
     void initialize();

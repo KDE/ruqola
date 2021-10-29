@@ -13,7 +13,7 @@ ViewLogWidgetTest::ViewLogWidgetTest(QObject *parent)
 
 void ViewLogWidgetTest::shouldHaveDefaultValues()
 {
-    ViewLogWidget w;
+    ViewLogWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

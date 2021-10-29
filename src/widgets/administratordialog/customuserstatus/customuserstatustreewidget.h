@@ -24,7 +24,7 @@
 #include <QTreeWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class RocketChatAccount;
 class CustomUserStatusTreeWidgetItem : public QTreeWidgetItem
 {
 public:
@@ -47,7 +47,7 @@ public:
         Presence,
         Identifier,
     };
-    explicit CustomUserStatusTreeWidget(QWidget *parent = nullptr);
+    explicit CustomUserStatusTreeWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CustomUserStatusTreeWidget() override;
 
 private:
@@ -56,5 +56,6 @@ private:
     void editClicked();
     void removeClicked();
     void initialize();
+    RocketChatAccount *const mRocketChatAccount;
 };
 

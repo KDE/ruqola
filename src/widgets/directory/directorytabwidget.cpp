@@ -20,11 +20,11 @@
 #include "directorywidget.h"
 #include <KLocalizedString>
 
-DirectoryTabWidget::DirectoryTabWidget(QWidget *parent)
+DirectoryTabWidget::DirectoryTabWidget(RocketChatAccount *account, QWidget *parent)
     : QTabWidget(parent)
-    , mRooms(new DirectoryWidget(DirectoryWidget::Room, this))
-    , mUsers(new DirectoryWidget(DirectoryWidget::User, this))
-    , mTeams(new DirectoryWidget(DirectoryWidget::Team, this))
+    , mRooms(new DirectoryWidget(account, DirectoryWidget::Room, this))
+    , mUsers(new DirectoryWidget(account, DirectoryWidget::User, this))
+    , mTeams(new DirectoryWidget(account, DirectoryWidget::Team, this))
 {
     mRooms->setObjectName(QStringLiteral("mRooms"));
     mUsers->setObjectName(QStringLiteral("mUsers"));
