@@ -66,10 +66,25 @@ void UsersInRoleWidget::slotAddUser()
 
 void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User")) == KMessageBox::Yes) {
-        // TODO
+    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), UsersInRoleModel::Name);
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()), i18n("Remove User"))
+        == KMessageBox::Yes) {
+        auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
+        job->setRoleName(mRoleId);
+        job->setUsername(modelIndex.data().toString());
+
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::RemoveUserFromRoleJob::removeUsersFromRoleDone, this, &UsersInRoleWidget::slotRemoveUsersFromRoleDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemoveUserFromRoleJob job";
+        }
     }
+}
+
+void UsersInRoleWidget::slotRemoveUsersFromRoleDone(const QJsonObject &replyObject)
+{
     // TODO
+    qDebug() << " replyObject " << replyObject;
 }
 
 void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
@@ -78,11 +93,9 @@ void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &UsersInRoleWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
-        const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
-            //            const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
-            //            slotRemoveUser(i);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+            slotRemoveUser(index);
         });
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
