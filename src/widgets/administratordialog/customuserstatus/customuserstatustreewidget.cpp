@@ -61,7 +61,6 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(RocketChatAccount *accoun
     setContextMenuPolicy(Qt::CustomContextMenu);
     setRootIsDecorated(false);
     connect(this, &CustomUserStatusTreeWidget::customContextMenuRequested, this, &CustomUserStatusTreeWidget::slotCustomContextMenuRequested);
-    initialize();
     connect(mRocketChatAccount, &RocketChatAccount::customUserStatusChanged, this, &CustomUserStatusTreeWidget::initialize);
     connect(this, &CustomUserStatusTreeWidget::itemDoubleClicked, this, &CustomUserStatusTreeWidget::editClicked);
 }

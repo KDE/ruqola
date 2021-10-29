@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusWidget : public
 public:
     explicit AdministratorCustomUserStatusWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusWidget() override;
+    void initialize();
 
 private:
     CustomUserStatusTreeWidget *const mCustomUserStatusTreeWidget;

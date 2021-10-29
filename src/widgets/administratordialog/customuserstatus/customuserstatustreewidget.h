@@ -49,13 +49,13 @@ public:
     };
     explicit CustomUserStatusTreeWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CustomUserStatusTreeWidget() override;
+    void initialize();
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addClicked();
     void editClicked();
     void removeClicked();
-    void initialize();
     RocketChatAccount *const mRocketChatAccount;
 };
 

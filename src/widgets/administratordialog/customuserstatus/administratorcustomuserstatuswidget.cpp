@@ -41,3 +41,8 @@ AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(RocketC
 AdministratorCustomUserStatusWidget::~AdministratorCustomUserStatusWidget()
 {
 }
+
+void AdministratorCustomUserStatusWidget::initialize()
+{
+    mCustomUserStatusTreeWidget->initialize();
+}

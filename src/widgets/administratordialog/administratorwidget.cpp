@@ -100,6 +100,7 @@ void AdministratorWidget::initialize()
     mAdministratorCustomSoundsWidget->initialize();
     mAdministratorCustomEmojiWidget->initialize();
     mPermissionsWidget->initialize();
+    mAdministratorCustomUserStatusWidget->initialize();
     mRolesWidget->initialize();
 }
 
