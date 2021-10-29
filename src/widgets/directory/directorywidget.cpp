@@ -20,7 +20,6 @@
 #include "directorywidget.h"
 #include "connection.h"
 #include "misc/directoryjob.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/directorybasefilterproxymodel.h"
 #include "model/directoryroomsmodel.h"

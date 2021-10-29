@@ -20,12 +20,13 @@
 
 #include "usersinrolewidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/directorybasefilterproxymodel.h"
 #include "model/usersinrolemodel.h"
 #include "rocketchataccount.h"
+#include "role/addusertorolejob.h"
 #include "role/getusersinrolejob.h"
+#include "role/removeuserfromrolejob.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>

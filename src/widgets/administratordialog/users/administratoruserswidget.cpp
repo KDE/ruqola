@@ -21,7 +21,6 @@
 #include "administratoruserswidget.h"
 #include "administratoradduserdialog.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersmodel.h"
 #include "model/directorybasefilterproxymodel.h"
