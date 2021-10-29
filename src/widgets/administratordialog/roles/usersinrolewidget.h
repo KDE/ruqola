@@ -30,6 +30,9 @@ public:
     explicit UsersInRoleWidget(QWidget *parent = nullptr);
     ~UsersInRoleWidget() override;
 
+    Q_REQUIRED_RESULT const QString &roleId() const;
+    void setRoleId(const QString &newRoleId);
+
 protected:
     void updateLabel() override;
     void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
@@ -43,5 +46,7 @@ private:
     void slotSearchRequested(const QString &str);
     void slotActivateUser(const QModelIndex &index, bool activateUser);
     void slotAddUser();
+    void slotRemoveUser(const QModelIndex &index);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    QString mRoleId;
 };

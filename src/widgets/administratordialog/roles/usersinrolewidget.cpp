@@ -63,6 +63,11 @@ void UsersInRoleWidget::slotAddUser()
     // TODO
 }
 
+void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
+{
+    // TODO
+}
+
 void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
@@ -93,10 +98,28 @@ QString UsersInRoleWidget::displayShowMessageInRoom() const
     return displayMessageStr;
 }
 
+const QString &UsersInRoleWidget::roleId() const
+{
+    return mRoleId;
+}
+
+void UsersInRoleWidget::setRoleId(const QString &newRoleId)
+{
+    if (newRoleId.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << " RoleId is empty !";
+        return;
+    }
+    if (mRoleId != newRoleId) {
+        mRoleId = newRoleId;
+        initialize();
+    }
+}
+
 void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::GetUsersInRoleJob(this);
+    job->setRoleId(mRoleId);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -111,13 +134,11 @@ void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &s
     job->setQueryParameters(parameters);
 
     rcAccount->restApi()->initializeRestApiJob(job);
-#if 0
     if (offset != -1) {
-        connect(job, &RocketChatRestApi::GetUsersInRoleJob::userListDone, this, &UsersInRoleWidget::slotLoadMoreElementDone);
+        connect(job, &RocketChatRestApi::GetUsersInRoleJob::getUsersInRoleDone, this, &UsersInRoleWidget::slotLoadMoreElementDone);
     } else {
-        connect(job, &RocketChatRestApi::GetUsersInRoleJob::userListDone, this, &UsersInRoleWidget::slotSearchDone);
+        connect(job, &RocketChatRestApi::GetUsersInRoleJob::getUsersInRoleDone, this, &UsersInRoleWidget::slotSearchDone);
     }
-#endif
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
     }

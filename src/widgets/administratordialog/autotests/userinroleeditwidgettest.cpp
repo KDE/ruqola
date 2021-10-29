@@ -38,5 +38,6 @@ void UserInRoleEditWidgetTest::shouldHaveDefaultValues()
 
     auto mUserInRoleWidget = w.findChild<UsersInRoleWidget *>(QStringLiteral("mUserInRoleWidget"));
     QVERIFY(mUserInRoleWidget);
+    QVERIFY(mUserInRoleWidget->roleId().isEmpty());
     // TODO
 }

@@ -38,3 +38,13 @@ UserInRoleEditWidget::UserInRoleEditWidget(QWidget *parent)
 UserInRoleEditWidget::~UserInRoleEditWidget()
 {
 }
+
+const QString &UserInRoleEditWidget::roleId() const
+{
+    return mUserInRoleWidget->roleId();
+}
+
+void UserInRoleEditWidget::setRoleId(const QString &newRoleId)
+{
+    mUserInRoleWidget->setRoleId(newRoleId);
+}

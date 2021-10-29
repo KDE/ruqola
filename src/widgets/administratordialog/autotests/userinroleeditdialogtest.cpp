@@ -36,6 +36,7 @@ void UserInRoleEditDialogTest::shouldHaveDefaultValues()
 {
     UserInRoleEditDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
+    QVERIFY(d.roleId().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

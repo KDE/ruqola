@@ -30,6 +30,9 @@ public:
     explicit UserInRoleEditWidget(QWidget *parent = nullptr);
     ~UserInRoleEditWidget() override;
 
+    Q_REQUIRED_RESULT const QString &roleId() const;
+    void setRoleId(const QString &newRoleId);
+
 private:
     UsersInRoleWidget *const mUserInRoleWidget;
 };

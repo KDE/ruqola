@@ -30,6 +30,9 @@ public:
     explicit UserInRoleEditDialog(QWidget *parent = nullptr);
     ~UserInRoleEditDialog() override;
 
+    Q_REQUIRED_RESULT const QString &roleId() const;
+    void setRoleId(const QString &newRoleId);
+
 private:
     void readConfig();
     void writeConfig();

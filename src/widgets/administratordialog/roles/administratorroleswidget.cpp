@@ -29,7 +29,6 @@
 #include "ruqolawidgets_debug.h"
 #include "userinroleeditdialog.h"
 
-#include "role/getusersinrolejob.h"
 #include "role/rolecreatejob.h"
 #include "role/roledeletejob.h"
 #include "role/roleupdatejob.h"
@@ -157,24 +156,12 @@ void AdministratorRolesWidget::slotRoleCreateDone()
 
 void AdministratorRolesWidget::addUserInRole(const QModelIndex &modelIndex)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto getUserInRoleJob = new RocketChatRestApi::GetUsersInRoleJob(this);
-    rcAccount->restApi()->initializeRestApiJob(getUserInRoleJob);
-    getUserInRoleJob->setRoleId(modelIndex.data().toString());
-    connect(getUserInRoleJob, &RocketChatRestApi::GetUsersInRoleJob::getUsersInRoleDone, this, &AdministratorRolesWidget::slotGetUsersInRoleDone);
-    if (!getUserInRoleJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start getUserInRoleJob";
-    }
-}
-
-void AdministratorRolesWidget::slotGetUsersInRoleDone(const QJsonObject &obj)
-{
     QPointer<UserInRoleEditDialog> dlg = new UserInRoleEditDialog(this);
+    dlg->setRoleId(modelIndex.data().toString());
     if (dlg->exec()) {
         // TODO
     }
     delete dlg;
-    qDebug() << " slotGetUsersInRoleDone " << obj;
 }
 
 void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
