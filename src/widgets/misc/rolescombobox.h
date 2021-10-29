@@ -32,10 +32,9 @@ public:
 
     void setRoles(const QStringList &lst);
     Q_REQUIRED_RESULT QStringList roles() const;
-    void loadRolesInfo();
+
     void setRolesInfo(const QVector<RoleInfo> &roleInfo);
 
 private:
-    void slotRolesListDone(const QJsonObject &obj);
     RolesModel *const mRolesModel;
 };

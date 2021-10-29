@@ -19,9 +19,7 @@
 */
 #include "rolescombobox.h"
 #include "connection.h"
-#include "misc/roleslistjob.h"
 #include "model/rolesmodel.h"
-#include "rocketchataccount.h"
 #include "roles/roleinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -36,32 +34,6 @@ RolesComboBox::RolesComboBox(QWidget *parent)
 
 RolesComboBox::~RolesComboBox()
 {
-}
-
-void RolesComboBox::loadRolesInfo()
-{
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    qDebug() << " void RolesComboBox::initialize()";
-    auto job = new RocketChatRestApi::RolesListJob(this);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::RolesListJob::rolesListDone, this, &RolesComboBox::slotRolesListDone);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RolesListJob job";
-    }
-}
-
-void RolesComboBox::slotRolesListDone(const QJsonObject &obj)
-{
-    const QJsonArray array = obj[QLatin1String("roles")].toArray();
-    QVector<RoleInfo> roleInfo;
-    roleInfo.reserve(array.count());
-    for (const QJsonValue &current : array) {
-        const QJsonObject roleObject = current.toObject();
-        RoleInfo info;
-        info.parseRoleInfo(roleObject);
-        roleInfo.append(info);
-    }
-    mRolesModel->setRoles(roleInfo);
 }
 
 void RolesComboBox::setRolesInfo(const QVector<RoleInfo> &roleInfo)

@@ -20,13 +20,14 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QListView>
 
 /**
  * Completion popup for nicks, channels, etc.
  * QCompleter does the filtering itself... so we need to implement our own popup, instead.
  */
-class CompletionListView : public QListView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionListView : public QListView
 {
     Q_OBJECT
 public:

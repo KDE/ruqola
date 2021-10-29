@@ -65,3 +65,8 @@ void AdministratorAddUserDialog::setUser(const User &user)
     setWindowTitle(i18nc("@title:window", "Edit User"));
     mAdministratorWidget->setUser(user);
 }
+
+void AdministratorAddUserDialog::setRoleInfo(const QVector<RoleInfo> &info)
+{
+    mAdministratorWidget->setRoleInfo(info);
+}

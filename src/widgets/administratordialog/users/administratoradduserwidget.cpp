@@ -55,7 +55,6 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addRow(i18n("Roles:"), mRolesComboBox);
-    mRolesComboBox->loadRolesInfo();
     connect(mName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mUserName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mEmail, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
@@ -86,6 +85,11 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mPassword = mPasswordLineEdit->password();
     // TODO add more
     return info;
+}
+
+void AdministratorAddUserWidget::setRoleInfo(const QVector<RoleInfo> &info)
+{
+    mRolesComboBox->setRolesInfo(info);
 }
 
 RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo() const

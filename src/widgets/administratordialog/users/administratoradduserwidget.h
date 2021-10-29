@@ -22,6 +22,8 @@
 
 #include <QWidget>
 
+#include "roles/roleinfo.h"
+
 #include "users/userscreatejob.h"
 
 #include "libruqolawidgets_private_export.h"
@@ -42,6 +44,7 @@ public:
     void setUser(const User &user);
 
     Q_REQUIRED_RESULT RocketChatRestApi::UpdateUserInfo updateInfo() const;
+    void setRoleInfo(const QVector<RoleInfo> &info);
 Q_SIGNALS:
     void updateButtonOk(bool b);
 

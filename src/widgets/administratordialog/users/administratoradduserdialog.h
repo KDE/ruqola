@@ -22,6 +22,8 @@
 
 #include <QDialog>
 
+#include "roles/roleinfo.h"
+
 #include "users/userscreatejob.h"
 
 #include "libruqolawidgets_private_export.h"
@@ -37,6 +39,7 @@ public:
     Q_REQUIRED_RESULT RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
     Q_REQUIRED_RESULT RocketChatRestApi::UpdateUserInfo updateInfo() const;
     void setUser(const User &user);
+    void setRoleInfo(const QVector<RoleInfo> &info);
 
 private:
     AdministratorAddUserWidget *const mAdministratorWidget;

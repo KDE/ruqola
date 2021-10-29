@@ -67,9 +67,10 @@ void AdministratorUsersWidget::slotTextChanged(const QString &str)
 void AdministratorUsersWidget::slotAddUser()
 {
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    dlg->setRoleInfo(rcAccount->roleInfo());
     if (dlg->exec()) {
         const RocketChatRestApi::CreateUpdateUserInfo info = dlg->createInfo();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::UsersCreateJob(this);
         job->setCreateInfo(info);
         rcAccount->restApi()->initializeRestApiJob(job);
@@ -113,14 +114,15 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 {
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    dlg->setRoleInfo(rcAccount->roleInfo());
     User user;
     user.parseUserRestApi(obj[QLatin1String("user")].toObject());
     dlg->setUser(user);
     if (dlg->exec()) {
         RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
         info.mUserId = user.userId();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::UsersUpdateJob(this);
         job->setUpdateInfo(info);
         rcAccount->restApi()->initializeRestApiJob(job);
