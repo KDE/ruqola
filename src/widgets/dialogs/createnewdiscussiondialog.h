@@ -24,6 +24,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class CreateNewDiscussionWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionDialog : public QDialog
 {
     Q_OBJECT
@@ -43,9 +44,13 @@ public:
     void setChannelInfo(const QString &name, const QString &channelId);
     void setDiscussionName(const QString &name);
 
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
+
 private:
     void readConfig();
     void writeConfig();
+    void createNewDiscussion();
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
+    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };
 

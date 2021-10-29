@@ -390,12 +390,9 @@ void RuqolaMainWindow::slotCreateTeam()
 
 void RuqolaMainWindow::slotCreateDiscussion()
 {
-    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
-    if (dlg->exec()) {
-        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, {}, info.users);
-    }
-    delete dlg;
+    CreateNewDiscussionDialog dlg(this);
+    dlg.setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotCreateDirectMessages()
@@ -403,7 +400,7 @@ void RuqolaMainWindow::slotCreateDirectMessages()
     QPointer<CreateDirectMessagesDialog> dlg = new CreateDirectMessagesDialog(this);
     if (dlg->exec()) {
         const QStringList usernames = dlg->userNames();
-        Ruqola::self()->rocketChatAccount()->createDirectMessages(usernames);
+        mCurrentRocketChatAccount->createDirectMessages(usernames);
     }
     delete dlg;
 }

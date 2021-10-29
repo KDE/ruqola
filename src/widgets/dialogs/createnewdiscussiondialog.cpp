@@ -20,6 +20,7 @@
 
 #include "createnewdiscussiondialog.h"
 #include "createnewdiscussionwidget.h"
+#include "rocketchataccount.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -54,6 +55,7 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [button](bool state) {
         button->setEnabled(state);
     });
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewDiscussionDialog::createNewDiscussion);
 }
 
 CreateNewDiscussionDialog::~CreateNewDiscussionDialog()
@@ -95,4 +97,16 @@ void CreateNewDiscussionDialog::setChannelInfo(const QString &name, const QStrin
 void CreateNewDiscussionDialog::setDiscussionName(const QString &name)
 {
     mCreateNewDiscussionWidget->setDiscussionName(name);
+}
+
+void CreateNewDiscussionDialog::createNewDiscussion()
+{
+    const CreateNewDiscussionDialog::NewDiscussionInfo info = newDiscussionInfo();
+    mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, {}, info.users);
+    accept();
+}
+
+void CreateNewDiscussionDialog::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
 }
