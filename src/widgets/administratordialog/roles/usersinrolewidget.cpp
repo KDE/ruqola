@@ -65,6 +65,9 @@ void UsersInRoleWidget::slotAddUser()
 
 void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
 {
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User")) == KMessageBox::Yes) {
+        // TODO
+    }
     // TODO
 }
 
