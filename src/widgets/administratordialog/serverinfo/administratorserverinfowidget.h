@@ -35,6 +35,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorServerInfoWidget : public QWidg
 public:
     explicit AdministratorServerInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorServerInfoWidget() override;
+    void initialize();
 
 private:
     void parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj);
@@ -46,7 +47,6 @@ private:
     void createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     void slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj);
     void createItemDisplayFormat(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
-    void initialize();
     void slotLicensesListDone(const QJsonObject &obj);
     void slotStatisticDone(const QJsonObject &obj);
     void slotRefreshInfo();

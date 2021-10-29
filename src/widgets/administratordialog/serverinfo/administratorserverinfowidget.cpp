@@ -68,7 +68,6 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *
     mainLayout->addWidget(mTreeWidget);
     mTreeWidget->header()->hide();
     mTreeWidget->setColumnCount(2);
-    initialize();
 }
 
 AdministratorServerInfoWidget::~AdministratorServerInfoWidget()

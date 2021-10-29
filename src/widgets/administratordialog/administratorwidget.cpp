@@ -102,6 +102,8 @@ void AdministratorWidget::initialize()
     mPermissionsWidget->initialize();
     mAdministratorCustomUserStatusWidget->initialize();
     mRolesWidget->initialize();
+    mAdministratorServerInfoWidget->initialize();
+    mAdministratorInvitesWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()

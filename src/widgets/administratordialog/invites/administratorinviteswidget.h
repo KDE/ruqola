@@ -33,9 +33,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
 public:
     explicit AdministratorInvitesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorInvitesWidget() override;
+    void initialize();
 
 private:
-    void initialize();
     void slotListInviteDone(const QJsonDocument &obj);
     void slotRemoveInvite(const QString &identifier);
     void slotRemoveInviteDone(const QString &identifier);

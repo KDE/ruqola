@@ -52,7 +52,6 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
     mInviteTreeView->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeView);
     mInviteTreeView->setModel(mAdminInviteFilterProxyModel);
-    initialize();
     connect(mInviteTreeView, &InviteTreeView::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorInvitesWidget::slotTextChanged);
 
