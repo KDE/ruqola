@@ -397,12 +397,8 @@ void RuqolaMainWindow::slotCreateDiscussion()
 
 void RuqolaMainWindow::slotCreateDirectMessages()
 {
-    QPointer<CreateDirectMessagesDialog> dlg = new CreateDirectMessagesDialog(this);
-    if (dlg->exec()) {
-        const QStringList usernames = dlg->userNames();
-        mCurrentRocketChatAccount->createDirectMessages(usernames);
-    }
-    delete dlg;
+    CreateDirectMessagesDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()

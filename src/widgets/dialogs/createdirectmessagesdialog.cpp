@@ -20,6 +20,7 @@
 
 #include "createdirectmessagesdialog.h"
 #include "createdirectmessageswidget.h"
+#include "rocketchataccount.h"
 
 #include <KLocalizedString>
 
@@ -33,9 +34,10 @@ namespace
 {
 static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectMessagesDialog";
 }
-CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
+CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(this))
+    , mCurrentRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Create Direct Messages"));
     auto mainLayout = new QVBoxLayout(this);
@@ -50,16 +52,22 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateDirectMessagesDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();
-    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
-    mOkButton->setEnabled(false);
-    connect(mCreateDirectMessagesWidget, &CreateDirectMessagesWidget::updateOkButton, this, [this](bool state) {
-        mOkButton->setEnabled(state);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mCreateDirectMessagesWidget, &CreateDirectMessagesWidget::updateOkButton, this, [okButton](bool state) {
+        okButton->setEnabled(state);
     });
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::slotAccepted);
 }
-
 CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
 {
     writeConfig();
+}
+
+void CreateDirectMessagesDialog::slotAccepted()
+{
+    const QStringList usernames = userNames();
+    mCurrentRocketChatAccount->createDirectMessages(usernames);
 }
 
 QStringList CreateDirectMessagesDialog::userNames() const
