@@ -29,7 +29,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *parent)
+MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mHighlightWords(new QLineEdit(this))
     , mDesktopNotification(new QComboBox(this))
@@ -39,6 +39,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(QWidget *
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
     , mhideAvatars(new QCheckBox(i18n("Hide Avatars"), this))
+    , mRocketChatAccount(account)
 {
     mUseEmoji->setObjectName(QStringLiteral("mUseEmoji"));
     mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
@@ -137,18 +138,18 @@ void MyAccountPreferenceConfigureWidget::save()
         info.mobileNotifications = mMobileNotification->currentData().toString();
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
-        info.userId = Ruqola::self()->rocketChatAccount()->userId();
+        info.userId = mRocketChatAccount->userId();
         info.useEmoji = mUseEmoji->isChecked();
         info.hideRoles = mHideRoles->isChecked();
         info.hideAvatars = mhideAvatars->isChecked();
         info.convertAsciiToEmoji = mConvertAsciiEmoji->isChecked();
-        Ruqola::self()->rocketChatAccount()->setUserPreferences(info);
+        mRocketChatAccount->setUserPreferences(info);
     }
 }
 
 void MyAccountPreferenceConfigureWidget::load()
 {
-    const OwnUserPreferences ownUserPreferences = Ruqola::self()->rocketChatAccount()->ownUserPreferences();
+    const OwnUserPreferences ownUserPreferences = mRocketChatAccount->ownUserPreferences();
     mHighlightWords->setText(ownUserPreferences.highlightWords().join(QLatin1Char(',')));
     mMobileNotification->setCurrentIndex(mMobileNotification->findData(ownUserPreferences.mobileNotifications()));
     mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));

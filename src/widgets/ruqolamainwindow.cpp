@@ -527,7 +527,7 @@ void RuqolaMainWindow::slotConfigureNotifications()
 
 void RuqolaMainWindow::slotRegisterNewUser()
 {
-    RegisterUserDialog dlg(this);
+    RegisterUserDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
 
@@ -541,7 +541,8 @@ void RuqolaMainWindow::slotRegisterUserSuccessed()
 
 void RuqolaMainWindow::slotConfigureMyAccount()
 {
-    MyAccountConfigureDialog dlg(this);
+    MyAccountConfigureDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.initialize();
     dlg.exec();
 }
 

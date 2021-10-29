@@ -33,7 +33,7 @@ RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
 
 void RegisterUserWidgetTest::shouldHaveDefaultValues()
 {
-    RegisterUserWidget w;
+    RegisterUserWidget w(nullptr);
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QCOMPARE(mainLayout->contentsMargins(), {});
 

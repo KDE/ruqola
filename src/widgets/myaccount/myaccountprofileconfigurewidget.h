@@ -27,19 +27,20 @@ class QLineEdit;
 class QPushButton;
 class PasswordConfirmWidget;
 class MyAccountProfileConfigureAvatarWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccountProfileConfigureWidget(QWidget *parent = nullptr);
+    explicit MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountProfileConfigureWidget() override;
     void load();
     void save();
+    void initialize();
 
 private:
     void slotLogoutFromOtherLocation();
     void slotDeleteMyAccount();
-    void init();
     QLineEdit *const mEmail;
     QLineEdit *const mName;
     QLineEdit *const mUserName;
@@ -49,6 +50,7 @@ private:
     QPushButton *const mLogoutFromOtherLocation;
     PasswordConfirmWidget *const mPasswordConfirmWidget;
     MyAccountProfileConfigureAvatarWidget *const mConfigureAvatarWidget;
+    RocketChatAccount *const mRocketChatAccount;
     OwnUser mOwnUser;
 };
 

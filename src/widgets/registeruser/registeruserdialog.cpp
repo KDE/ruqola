@@ -32,9 +32,10 @@ namespace
 const char myConfigGroupName[] = "RegisterUserDialog";
 }
 
-RegisterUserDialog::RegisterUserDialog(QWidget *parent)
+RegisterUserDialog::RegisterUserDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mRegisterUserWidget(new RegisterUserWidget(this))
+    , mRegisterUserWidget(new RegisterUserWidget(account, this))
+    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Register User"));
     auto mainLayout = new QVBoxLayout(this);

@@ -47,6 +47,7 @@ private:
     void slotActivateUser(const QModelIndex &index, bool activateUser);
     void slotAddUser();
     void slotRemoveUser(const QModelIndex &index);
+    void slotRemoveUsersFromRoleDone(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     QString mRoleId;
 };

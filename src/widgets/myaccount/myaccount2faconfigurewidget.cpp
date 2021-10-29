@@ -25,9 +25,10 @@
 #include <QCheckBox>
 #include <QVBoxLayout>
 
-MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(QWidget *parent)
+MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mActivate2FAViaEmailCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via Email"), this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -44,11 +45,11 @@ MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
 
 void MyAccount2FaConfigureWidget::load()
 {
-    mActivate2FAViaEmailCheckbox->setChecked(Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled());
+    mActivate2FAViaEmailCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().email2faEnabled());
 }
 
 void MyAccount2FaConfigureWidget::save()
 {
     // TODO verify it
-    Ruqola::self()->rocketChatAccount()->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
+    mRocketChatAccount->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
 }

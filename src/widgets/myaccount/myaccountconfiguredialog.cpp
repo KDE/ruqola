@@ -31,9 +31,9 @@ namespace
 const char myConfigGroupName[] = "RegisterUserDialog";
 }
 
-MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
+MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mMyAccountConfigWidget(new MyAccountConfigureWidget(this))
+    , mMyAccountConfigWidget(new MyAccountConfigureWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Configure my Account"));
     auto mainLayout = new QVBoxLayout(this);
@@ -49,12 +49,17 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::slotAccept);
 
     readConfig();
-    load();
 }
 
 MyAccountConfigureDialog::~MyAccountConfigureDialog()
 {
     writeConfig();
+}
+
+void MyAccountConfigureDialog::initialize()
+{
+    mMyAccountConfigWidget->initialize();
+    mMyAccountConfigWidget->load();
 }
 
 void MyAccountConfigureDialog::slotAccept()
@@ -76,14 +81,4 @@ void MyAccountConfigureDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
-}
-
-void MyAccountConfigureDialog::save()
-{
-    mMyAccountConfigWidget->save();
-}
-
-void MyAccountConfigureDialog::load()
-{
-    mMyAccountConfigWidget->load();
 }

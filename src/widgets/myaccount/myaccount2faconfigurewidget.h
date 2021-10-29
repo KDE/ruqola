@@ -23,16 +23,18 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QCheckBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccount2FaConfigureWidget(QWidget *parent = nullptr);
+    explicit MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2FaConfigureWidget() override;
     void load();
     void save();
 
 private:
     QCheckBox *const mActivate2FAViaEmailCheckbox;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

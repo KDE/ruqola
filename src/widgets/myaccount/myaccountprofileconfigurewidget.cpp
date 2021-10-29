@@ -35,7 +35,7 @@
 #include <QPushButton>
 #include <kwidgetsaddons_version.h>
 
-MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent)
+MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mEmail(new QLineEdit(this))
     , mName(new QLineEdit(this))
@@ -46,6 +46,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     , mLogoutFromOtherLocation(new QPushButton(i18n("Logout From Other Logged In Locations"), this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
     , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(this))
+    , mRocketChatAccount(account)
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
@@ -92,7 +93,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(QWidget *parent
     mainLayout->addWidget(mLogoutFromOtherLocation);
     connect(mLogoutFromOtherLocation, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation);
     topLayout->addStretch();
-    init();
 }
 
 MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
@@ -101,7 +101,7 @@ MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
 
 void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
 {
-    Ruqola::self()->rocketChatAccount()->logoutFromOtherLocation();
+    mRocketChatAccount->logoutFromOtherLocation();
 }
 
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
@@ -113,24 +113,24 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 #endif
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
-            Ruqola::self()->rocketChatAccount()->deleteOwnAccount(dlg->password());
+            mRocketChatAccount->deleteOwnAccount(dlg->password());
         }
         delete dlg;
     }
 }
 
-void MyAccountProfileConfigureWidget::init()
+void MyAccountProfileConfigureWidget::initialize()
 {
-    mUserName->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowUsernameChange());
-    mEmail->setReadOnly(!Ruqola::self()->rocketChatAccount()->allowEmailChange());
-    mPasswordConfirmWidget->setVisible(Ruqola::self()->rocketChatAccount()->allowPasswordChange());
-    mDeleteMyAccount->setVisible(Ruqola::self()->rocketChatAccount()->allowDeleteOwnAccount());
-    mConfigureAvatarWidget->setVisible(Ruqola::self()->rocketChatAccount()->allowAvatarChanged());
+    mUserName->setReadOnly(!mRocketChatAccount->allowUsernameChange());
+    mEmail->setReadOnly(!mRocketChatAccount->allowEmailChange());
+    mPasswordConfirmWidget->setVisible(mRocketChatAccount->allowPasswordChange());
+    mDeleteMyAccount->setVisible(mRocketChatAccount->allowDeleteOwnAccount());
+    mConfigureAvatarWidget->setVisible(mRocketChatAccount->allowAvatarChanged());
 }
 
 void MyAccountProfileConfigureWidget::load()
 {
-    mOwnUser = Ruqola::self()->rocketChatAccount()->ownUser();
+    mOwnUser = mRocketChatAccount->ownUser();
     mEmail->setText(mOwnUser.email());
     mName->setText(mOwnUser.name());
     mUserName->setText(mOwnUser.userName());
@@ -139,7 +139,7 @@ void MyAccountProfileConfigureWidget::load()
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = mOwnUser.userName();
-    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
+    const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     if (!iconUrlStr.isEmpty()) {
         const QString iconPath{QUrl(iconUrlStr).toLocalFile()};
         mConfigureAvatarWidget->setCurrentIconPath(iconPath);
@@ -182,7 +182,7 @@ void MyAccountProfileConfigureWidget::save()
         }
         delete dlg;
     }
-    if (Ruqola::self()->rocketChatAccount()->ownUser().servicePassword().email2faEnabled()) { // TODO verify it
+    if (mRocketChatAccount->ownUser().servicePassword().email2faEnabled()) { // TODO verify it
         QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);
         QString code;
         if (dlg->exec()) {
@@ -194,6 +194,6 @@ void MyAccountProfileConfigureWidget::save()
 
     // TODO add more.
     if (updateInfo.isValid()) {
-        Ruqola::self()->rocketChatAccount()->updateOwnBasicInfo(updateInfo);
+        mRocketChatAccount->updateOwnBasicInfo(updateInfo);
     }
 }

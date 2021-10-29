@@ -35,7 +35,7 @@ MyAccountProfileConfigureWidgetTest::MyAccountProfileConfigureWidgetTest(QObject
 
 void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccountProfileConfigureWidget w;
+    MyAccountProfileConfigureWidget w(nullptr);
 
     auto topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
     QVERIFY(topLayout);

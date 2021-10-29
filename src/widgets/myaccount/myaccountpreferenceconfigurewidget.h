@@ -26,11 +26,12 @@
 class QLineEdit;
 class QComboBox;
 class QCheckBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccountPreferenceConfigureWidget(QWidget *parent = nullptr);
+    explicit MyAccountPreferenceConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountPreferenceConfigureWidget() override;
     void save();
     void load();
@@ -46,6 +47,7 @@ private:
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;
     QCheckBox *const mhideAvatars;
+    RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };
 

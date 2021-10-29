@@ -26,14 +26,17 @@
 class MyAccount2FaConfigureWidget;
 class MyAccountProfileConfigureWidget;
 class MyAccountPreferenceConfigureWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccountConfigureWidget(QWidget *parent = nullptr);
+    explicit MyAccountConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountConfigureWidget() override;
     void save();
     void load();
+
+    void initialize();
 
 private:
     MyAccount2FaConfigureWidget *const mMyAccount2FaConfigureWidget;

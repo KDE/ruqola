@@ -98,22 +98,22 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
             modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
             const QString channelType = modelIndex.data().toString();
             if (channelType == QLatin1String("p")) {
-                Ruqola::self()->rocketChatAccount()->openPrivateGroup(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+                mRocketChatAccount->openPrivateGroup(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
             } else if (channelType == QLatin1String("c")) {
-                Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+                mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
             }
             break;
         }
         case User: {
             const QModelIndex modelIndex = mModel->index(index.row(), DirectoryUsersModel::UserId);
             const QString channelId = modelIndex.data().toString();
-            Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
+            mRocketChatAccount->openDirectChannel(channelId);
             break;
         }
         case Team: {
             const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::TeamIdentifier);
             const QString channelId = modelIndex.data().toString();
-            Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
             break;
         }
         case Unknown:
@@ -139,7 +139,6 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
         return;
     }
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::DirectoryJob(this);
     if (!searchName.isEmpty()) {
         info.pattern = searchName;
@@ -158,7 +157,7 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     }
     job->setQueryParameters(parameters);
 
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotLoadMoreElementDone);
     } else {

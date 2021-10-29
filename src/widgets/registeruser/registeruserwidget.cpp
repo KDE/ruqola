@@ -28,13 +28,14 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-RegisterUserWidget::RegisterUserWidget(QWidget *parent)
+RegisterUserWidget::RegisterUserWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mRegisterButton(new QPushButton(i18n("Register"), this))
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
+    , mRocketchatAccount(account)
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -78,7 +79,7 @@ void RegisterUserWidget::slotUpdateRegisterButton()
 void RegisterUserWidget::slotRegisterNewUser()
 {
     mRegisterButton->setEnabled(false);
-    Ruqola::self()->rocketChatAccount()->registerNewUser(registerUserInfo());
+    mRocketchatAccount->registerNewUser(registerUserInfo());
 }
 
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registerUserInfo() const

@@ -23,16 +23,17 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class MyAccountConfigureWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit MyAccountConfigureDialog(QWidget *parent = nullptr);
+    explicit MyAccountConfigureDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountConfigureDialog() override;
 
+    void initialize();
+
 private:
-    void load();
-    void save();
     void readConfig();
     void writeConfig();
     void slotAccept();
