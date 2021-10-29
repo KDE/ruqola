@@ -75,7 +75,6 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 {
     // https://<server>/api/v1/emoji-custom.all?query={%22name%22:{%22$regex%22:%22t%22,%22$options%22:%22i%22}}&sort={%22name%22:1}&count=25
     // https://<server>/api/v1/emoji-custom.all?query=%7B%22name%22:%22te%22%7D&sort=%7B%22name%22:1%7D
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::EmojiCustomAllJob(this);
 
     RocketChatRestApi::QueryParameters parameters;
@@ -92,7 +91,7 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 
     job->setQueryParameters(parameters);
 
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job, &RocketChatRestApi::EmojiCustomAllJob::emojiCustomAllDone, this, &AdministratorCustomEmojiWidget::slotLoadMoreElementDone);
     } else {
@@ -113,10 +112,9 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         emojiInfo.alias = info.alias;
         emojiInfo.name = info.name;
         emojiInfo.fileNameUrl = info.fileNameUrl;
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
         job->setEmojiInfo(emojiInfo);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
             // TODO
@@ -146,10 +144,9 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
         emojiInfo.name = info.name;
         emojiInfo.emojiId = mModel->index(index.row(), AdminCustomEmojiModel::Identifier).data().toString();
         // TODO emojiInfo.fileNameUrl = ???
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomUpdateJob(this);
         job->setEmojiInfo(emojiInfo);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomUpdateJob::emojiCustomUpdateDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
             // TODO
@@ -165,11 +162,10 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
 void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &index)
 {
     if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this emoji?"), i18nc("@title", "Remove Emoji")) == KMessageBox::Yes) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::EmojiCustomDeleteJob(this);
         const QString emojiId = index.data().toString();
         job->setEmojiId(emojiId);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomDeleteJob::emojiCustomDeleteDone, this, [this, emojiId]() {
             slotEmojiRemoved(emojiId);
         });

@@ -49,6 +49,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mViewLogWidget(new ViewLogWidget(account, this))
     , mPermissionsWidget(new PermissionsWidget(account, this))
     , mRolesWidget(new AdministratorRolesWidget(account, this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -104,14 +105,14 @@ void AdministratorWidget::initialize()
 
 void AdministratorWidget::updateUiFromPermission()
 {
-    if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("manage-sounds"))) {
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
         mTabWidget->setTabVisible(mCustomSoundsTabIndex, false);
     }
 
-    if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-statistics"))) {
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
         mTabWidget->setTabVisible(mServerInfoTabIndex, false);
     }
-    if (!Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("view-logs"))) {
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-logs"))) {
         mTabWidget->setTabVisible(mViewLogTagIndex, false);
     }
 }

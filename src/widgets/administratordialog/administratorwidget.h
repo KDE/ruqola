@@ -57,6 +57,7 @@ private:
     ViewLogWidget *const mViewLogWidget;
     PermissionsWidget *const mPermissionsWidget;
     AdministratorRolesWidget *const mRolesWidget;
+    RocketChatAccount *const mRocketChatAccount;
     int mCustomSoundsTabIndex = -1;
     int mServerInfoTabIndex = -1;
     int mViewLogTagIndex = -1;

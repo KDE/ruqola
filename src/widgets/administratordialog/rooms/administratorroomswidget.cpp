@@ -108,7 +108,6 @@ void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::Fil
 
 void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::AdminRoomsJob(this);
     RocketChatRestApi::AdminRoomsJob::AdminRoomsJobInfo info;
     info.filter = searchName;
@@ -127,7 +126,7 @@ void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QSt
     }
     job->setQueryParameters(parameters);
 
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job, &RocketChatRestApi::AdminRoomsJob::adminRoomsDone, this, &AdministratorRoomsWidget::slotLoadMoreElementDone);
     } else {

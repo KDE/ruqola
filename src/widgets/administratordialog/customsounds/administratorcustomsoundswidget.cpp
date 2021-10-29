@@ -48,8 +48,7 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     hideColumns();
     connectModel();
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomSoundsWidget::slotModifyCustomSound);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    connect(rcAccount, &RocketChatAccount::customSoundRemoved, this, &AdministratorCustomSoundsWidget::slotCustomSoundRemoved);
+    connect(mRocketChatAccount, &RocketChatAccount::customSoundRemoved, this, &AdministratorCustomSoundsWidget::slotCustomSoundRemoved);
 }
 
 AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
@@ -77,7 +76,6 @@ QString AdministratorCustomSoundsWidget::displayShowMessage() const
 
 void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::CustomSoundsListJob(this);
     // https://<url>/api/v1/custom-sounds.list?query={"name":{"$regex":"d","$options":"i"}}&sort={"name":1}&count=25
     RocketChatRestApi::QueryParameters parameters;
@@ -93,7 +91,7 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
     parameters.setSearchString(searchName);
     job->setQueryParameters(parameters);
 
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job, &RocketChatRestApi::CustomSoundsListJob::customSoundsListDone, this, &AdministratorCustomSoundsWidget::slotLoadMoreElementDone);
     } else {
@@ -132,8 +130,7 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
     if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this sound?"), i18nc("@title", "Remove Custom Sound")) == KMessageBox::Yes) {
         const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
         const QString soundIdentifier = modelIndex.data().toString();
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        rcAccount->ddp()->deleteCustomSound(soundIdentifier);
+        mRocketChatAccount->ddp()->deleteCustomSound(soundIdentifier);
         // TODO update list.
     }
 }

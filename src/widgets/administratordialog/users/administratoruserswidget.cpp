@@ -67,13 +67,12 @@ void AdministratorUsersWidget::slotTextChanged(const QString &str)
 void AdministratorUsersWidget::slotAddUser()
 {
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    dlg->setRoleInfo(rcAccount->roleInfo());
+    dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     if (dlg->exec()) {
         const RocketChatRestApi::CreateUpdateUserInfo info = dlg->createInfo();
         auto job = new RocketChatRestApi::UsersCreateJob(this);
         job->setCreateInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::UsersCreateJob::usersCreateDone, this, &AdministratorUsersWidget::slotUserCreateDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersCreateJob job";
@@ -98,9 +97,8 @@ void AdministratorUsersWidget::slotModifyDoubleClickUser(const QModelIndex &inde
 
 void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto userJob = new RocketChatRestApi::UserInfoJob(this);
-    rcAccount->restApi()->initializeRestApiJob(userJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(userJob);
     RocketChatRestApi::UserBaseJob::UserInfo info;
     info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
     const QString userId = index.data().toString();
@@ -114,9 +112,8 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
-    dlg->setRoleInfo(rcAccount->roleInfo());
+    dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     User user;
     user.parseUserRestApi(obj[QLatin1String("user")].toObject());
     dlg->setUser(user);
@@ -125,7 +122,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
         info.mUserId = user.userId();
         auto job = new RocketChatRestApi::UsersUpdateJob(this);
         job->setUpdateInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::UsersUpdateJob::usersUpdateDone, this, &AdministratorUsersWidget::slotUserUpdateDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersUpdateJob job";
@@ -145,14 +142,13 @@ void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
     if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User")) == KMessageBox::Yes) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::DeleteUserJob(this);
         RocketChatRestApi::UserBaseJob::UserInfo info;
         info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
         const QString userId = index.data().toString();
         info.userIdentifier = userId;
         job->setUserInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, [this, userId]() {
             slotDeleteUserDone(userId);
         });
@@ -169,13 +165,12 @@ void AdministratorUsersWidget::slotDeleteUserDone(const QString &userId)
 
 void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool activateUser)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
     const QString userId = modelIndex.data().toString();
     job->setActivate(!activateUser);
     job->setActivateUserId(userId);
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, modelIndex](const QJsonObject &replyObject) {
         slotSetUserActiveStatus(replyObject, modelIndex);
     });
@@ -235,7 +230,6 @@ QString AdministratorUsersWidget::displayShowMessageInRoom() const
 
 void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::UsersListJob(this);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
@@ -250,7 +244,7 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     parameters.setSearchString(searchName);
     job->setQueryParameters(parameters);
 
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotLoadMoreElementDone);
     } else {
