@@ -106,6 +106,11 @@ void CreateNewDiscussionDialog::createNewDiscussion()
     accept();
 }
 
+RocketChatAccount *CreateNewDiscussionDialog::currentRocketChatAccount() const
+{
+    return mCurrentRocketChatAccount;
+}
+
 void CreateNewDiscussionDialog::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mCurrentRocketChatAccount = account;

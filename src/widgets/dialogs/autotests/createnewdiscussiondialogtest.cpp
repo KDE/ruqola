@@ -36,6 +36,7 @@ void CreateNewDiscussionDialogTest::shouldHaveDefaultValues()
 {
     CreateNewDiscussionDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
+    QVERIFY(!w.currentRocketChatAccount());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

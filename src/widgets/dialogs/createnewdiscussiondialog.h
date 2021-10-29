@@ -46,6 +46,8 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
+    Q_REQUIRED_RESULT RocketChatAccount *currentRocketChatAccount() const;
+
 private:
     void readConfig();
     void writeConfig();
