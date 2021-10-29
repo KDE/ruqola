@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "customsoundsinfo.h"
 #include "libruqolacore_export.h"
 #include <QObject>
 
@@ -30,5 +31,9 @@ public:
     explicit CustomSoundsManager(QObject *parent = nullptr);
     ~CustomSoundsManager() override;
 
-    // TODO add list of custom sounds.
+    Q_REQUIRED_RESULT const CustomSoundsInfo &customSoundsInfo() const;
+    void setCustomSoundsInfo(const CustomSoundsInfo &newCustomSoundsInfo);
+
+private:
+    CustomSoundsInfo mCustomSoundsInfo;
 };

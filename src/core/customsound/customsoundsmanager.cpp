@@ -28,3 +28,13 @@ CustomSoundsManager::CustomSoundsManager(QObject *parent)
 CustomSoundsManager::~CustomSoundsManager()
 {
 }
+
+const CustomSoundsInfo &CustomSoundsManager::customSoundsInfo() const
+{
+    return mCustomSoundsInfo;
+}
+
+void CustomSoundsManager::setCustomSoundsInfo(const CustomSoundsInfo &newCustomSoundsInfo)
+{
+    mCustomSoundsInfo = newCustomSoundsInfo;
+}

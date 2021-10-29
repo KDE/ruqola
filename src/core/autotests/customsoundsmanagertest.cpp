@@ -31,5 +31,6 @@ CustomSoundsManagerTest::CustomSoundsManagerTest(QObject *parent)
 void CustomSoundsManagerTest::shouldHaveDefaultValues()
 {
     CustomSoundsManager w;
+    QVERIFY(w.customSoundsInfo().isEmpty());
     // TODO
 }
