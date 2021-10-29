@@ -30,6 +30,7 @@
 CompletionListView::CompletionListView()
     : QListView()
 {
+    setUniformItemSizes(true);
     setWindowFlag(Qt::Popup);
     hide();
 
