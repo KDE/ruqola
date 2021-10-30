@@ -47,7 +47,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
 
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
-    if (!account->allowProfileChange()) {
+    if (account && !account->allowProfileChange()) {
         mMyAccount2ProfileConfigureWidget->setVisible(false);
     }
 
