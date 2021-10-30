@@ -26,11 +26,12 @@
 class QCheckBox;
 class Room;
 class QComboBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ConfigureNotificationWidget(QWidget *parent = nullptr);
+    explicit ConfigureNotificationWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConfigureNotificationWidget() override;
     Room *room() const;
     void setRoom(Room *room);

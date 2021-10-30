@@ -24,9 +24,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
+ConfigureNotificationDialog::ConfigureNotificationDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mConfigureNoticationWidget(new ConfigureNotificationWidget(this))
+    , mConfigureNoticationWidget(new ConfigureNotificationWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Notification"));
     auto mainLayout = new QVBoxLayout(this);

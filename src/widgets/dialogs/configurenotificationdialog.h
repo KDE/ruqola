@@ -25,11 +25,12 @@
 #include "libruqolawidgets_private_export.h"
 class ConfigureNotificationWidget;
 class Room;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ConfigureNotificationDialog(QWidget *parent = nullptr);
+    explicit ConfigureNotificationDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConfigureNotificationDialog() override;
 
     void setRoom(Room *room);

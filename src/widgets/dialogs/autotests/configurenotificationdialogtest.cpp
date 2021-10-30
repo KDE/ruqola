@@ -34,7 +34,7 @@ ConfigureNotificationDialogTest::ConfigureNotificationDialogTest(QObject *parent
 
 void ConfigureNotificationDialogTest::shouldHaveDefaultValues()
 {
-    ConfigureNotificationDialog w;
+    ConfigureNotificationDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

@@ -287,7 +287,7 @@ void RoomWidget::slotConfigureNotification()
     if (!mRoom) {
         return;
     }
-    QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
+    QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(mCurrentRocketChatAccount, this);
     dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;
