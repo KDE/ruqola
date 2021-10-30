@@ -62,6 +62,8 @@ private Q_SLOTS:
 
     void deleteCustomSound();
 
+    void listCustomSounds();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

@@ -165,6 +165,14 @@ void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
     compareFile(r.result, QStringLiteral("streamNotifyUserOtrAcknowledge"));
 }
 
+void RocketChatMessageTest::listCustomSounds()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.listCustomSounds(43);
+    compareFile(r.result, QStringLiteral("listCustomSounds"));
+}
+
 void RocketChatMessageTest::deleteFileMessage()
 {
     RocketChatMessage m;

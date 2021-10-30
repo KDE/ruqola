@@ -46,6 +46,13 @@ namespace RuqolaTestWebSocket
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
+    }
+}
+
 void block_user(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -393,6 +400,12 @@ quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, m_uid);
     return method(result, unblock_user, DDPClient::Persistent);
+}
+
+quint64 DDPClient::listCustomSounds()
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listCustomSounds(m_uid);
+    return method(result, list_custom_sounds, DDPClient::Persistent);
 }
 
 quint64 DDPClient::deleteCustomSound(const QString &identifier)
