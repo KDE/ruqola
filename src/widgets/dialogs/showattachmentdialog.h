@@ -29,7 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ShowAttachmentDialog(QWidget *parent = nullptr);
+    explicit ShowAttachmentDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowAttachmentDialog() override;
 
     void setModel(FilesForRoomFilterProxyModel *model);
@@ -48,5 +48,6 @@ private:
     QString mRoomId;
     Room::RoomType mRoomType = Room::RoomType::Unknown;
     ShowAttachmentWidget *const mShowAttachmentWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

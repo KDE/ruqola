@@ -34,7 +34,7 @@ ShowDiscussionsDialogTest::ShowDiscussionsDialogTest(QObject *parent)
 
 void ShowDiscussionsDialogTest::shouldHaveDefaultValues()
 {
-    ShowDiscussionsDialog w;
+    ShowDiscussionsDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

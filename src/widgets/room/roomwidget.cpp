@@ -375,7 +375,7 @@ void RoomWidget::slotShowThreads()
 
 void RoomWidget::slotShowDiscussions()
 {
-    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
+    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(mCurrentRocketChatAccount, this);
     dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
     dlg->setRoomId(mRoomWidgetBase->roomId());
     mCurrentRocketChatAccount->discussionsInRoom(mRoomWidgetBase->roomId());
@@ -385,7 +385,7 @@ void RoomWidget::slotShowDiscussions()
 
 void RoomWidget::slotShowFileAttachments()
 {
-    QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
+    QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(mCurrentRocketChatAccount, this);
     mCurrentRocketChatAccount->roomFiles(mRoomWidgetBase->roomId(), mRoomType);
     dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
     dlg->setRoomId(mRoomWidgetBase->roomId());

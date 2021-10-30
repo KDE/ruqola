@@ -35,9 +35,10 @@ namespace
 {
 static const char myShowDiscussionsDialogGroupName[] = "ShowDiscussionsDialog";
 }
-ShowDiscussionsDialog::ShowDiscussionsDialog(QWidget *parent)
+ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowDiscussionsWidget(new ShowDiscussionsWidget(this))
+    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Discussions"));
     auto mainLayout = new QVBoxLayout(this);
@@ -80,7 +81,7 @@ void ShowDiscussionsDialog::slotLoadMoreDiscussions()
         qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
         return;
     }
-    Ruqola::self()->rocketChatAccount()->loadMoreDiscussions(mRoomId);
+    mRocketChatAccount->loadMoreDiscussions(mRoomId);
 }
 
 void ShowDiscussionsDialog::setRoomId(const QString &roomId)

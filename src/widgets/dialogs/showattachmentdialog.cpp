@@ -34,9 +34,10 @@ namespace
 static const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 }
 
-ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
+ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowAttachmentWidget(new ShowAttachmentWidget(this))
+    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Attachments"));
     auto mainLayout = new QVBoxLayout(this);
@@ -61,7 +62,7 @@ ShowAttachmentDialog::~ShowAttachmentDialog()
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QString &fileId)
 {
-    Ruqola::self()->rocketChatAccount()->deleteFileMessage(mRoomId, fileId, mRoomType);
+    mRocketChatAccount->deleteFileMessage(mRoomId, fileId, mRoomType);
 }
 
 void ShowAttachmentDialog::setModel(FilesForRoomFilterProxyModel *model)
@@ -100,7 +101,7 @@ void ShowAttachmentDialog::slotLoadMoreAttachment()
         qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
         return;
     }
-    Ruqola::self()->rocketChatAccount()->loadMoreFileAttachments(mRoomId, mRoomType);
+    mRocketChatAccount->loadMoreFileAttachments(mRoomId, mRoomType);
 }
 
 Room::RoomType ShowAttachmentDialog::roomType() const

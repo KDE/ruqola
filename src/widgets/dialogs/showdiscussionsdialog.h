@@ -23,11 +23,12 @@
 #include <QDialog>
 class ShowDiscussionsWidget;
 class DiscussionsFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ShowDiscussionsDialog(QWidget *parent = nullptr);
+    explicit ShowDiscussionsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowDiscussionsDialog() override;
 
     void setModel(DiscussionsFilterProxyModel *model);
@@ -39,5 +40,6 @@ private:
     void slotLoadMoreDiscussions();
     QString mRoomId;
     ShowDiscussionsWidget *const mShowDiscussionsWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
